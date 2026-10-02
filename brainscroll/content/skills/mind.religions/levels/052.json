@@ -1,0 +1,213 @@
+{
+  "id": "level.mind.religions.052",
+  "skillId": "skill.mind.religions",
+  "number": 52,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Four Noble Truths",
+  "objective": "After this level you can explain the Buddha's diagnosis of suffering, its cause in craving, and why he taught that it can end.",
+  "summary": "In his first sermon at Sarnath, the Buddha taught the Four Noble Truths: suffering, its cause in craving, its end in nirvana, and the Eightfold Path that leads there.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.buddhist_four_noble_truths",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.buddhist_first_sermon",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.buddha_life_story",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.051"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.052.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Buddha's first sermon fits in four sentences.",
+      "body": "Buddhists call them the Four Noble Truths. Think of a visit to a doctor: what's wrong, what causes it, whether it can be cured, and the treatment."
+    },
+    {
+      "id": "card.religions.052.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Five old companions at a deer park",
+      "body": "After his enlightenment, the Buddha went to the Deer Park at Sarnath. His audience was five ascetics, his former companions from the years of self-denial. Buddhists call that first sermon setting the wheel of the dharma, the teaching, in motion. At its heart were four truths."
+    },
+    {
+      "id": "card.religions.052.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Truth one: nothing fully satisfies",
+      "body": "The first truth is dukkha, usually translated \"suffering\". It is wider than pain. Dukkha carries a sense of uneasiness or dissatisfaction, rooted in a world that keeps changing. Think of the best meal of your life: even while you eat it, it is ending. Buddhists see dukkha running through the whole cycle of rebirth, samsara."
+    },
+    {
+      "id": "card.religions.052.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cause, cure, treatment",
+      "body": "The second truth names the cause: craving (tanha), a thirst that keeps reaching for more. The third says suffering can cease, and its cessation is nirvana. The fourth gives the way there: the Eightfold Path. That is the logic of the whole teaching. If suffering has a cause, removing the cause can end it.",
+      "callout": "Suffering, its cause (craving), its end (nirvana), the path"
+    },
+    {
+      "id": "card.religions.052.c5",
+      "type": "mcq",
+      "questionId": "question.religions.052.q1"
+    },
+    {
+      "id": "card.religions.052.c6",
+      "type": "mcq",
+      "questionId": "question.religions.052.q2"
+    },
+    {
+      "id": "card.religions.052.c7",
+      "type": "mcq",
+      "questionId": "question.religions.052.q3"
+    },
+    {
+      "id": "card.religions.052.c8",
+      "type": "checkpoint",
+      "headline": "The Four Noble Truths: the takeaways",
+      "learned": [
+        "The first sermon at Sarnath set the \"wheel of the dharma\" moving",
+        "Suffering comes from craving",
+        "Nirvana ends suffering; the Eightfold Path leads there"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.052.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.buddhist_four_noble_truths"
+      ],
+      "sourceCardIds": [
+        "card.religions.052.c4"
+      ],
+      "prompt": "According to the second noble truth, what is the origin of suffering?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bad luck at birth",
+          "correct": false,
+          "rationale": "The truth names craving."
+        },
+        {
+          "id": "b",
+          "label": "Craving (tanha)",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Breaking a temple rule",
+          "correct": false,
+          "rationale": "The cause named is craving."
+        },
+        {
+          "id": "d",
+          "label": "A lack of wealth",
+          "correct": false,
+          "rationale": "The cause is craving, not poverty."
+        }
+      ],
+      "explanation": "The second truth: the origin of suffering is craving, tanha.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.religions.052.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.buddhist_four_noble_truths"
+      ],
+      "sourceCardIds": [
+        "card.religions.052.c4"
+      ],
+      "prompt": "Why did the Buddha teach that suffering can come to an end?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It fades by itself over time",
+          "correct": false,
+          "rationale": "It ends when its cause is removed."
+        },
+        {
+          "id": "b",
+          "label": "Its cause, craving, can be removed",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only the rich and powerful suffer",
+          "correct": false,
+          "rationale": "Dukkha runs through all of samsara."
+        },
+        {
+          "id": "d",
+          "label": "Every new life is better than the last",
+          "correct": false,
+          "rationale": "The answer lies in ending craving."
+        }
+      ],
+      "explanation": "Suffering has a cause, craving. Remove the cause and suffering ceases: that cessation is nirvana.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.052.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.buddhist_first_sermon",
+        "concept.religions.buddha_life_story"
+      ],
+      "sourceCardIds": [
+        "card.religions.052.c2",
+        "card.religions.051.c3"
+      ],
+      "prompt": "Who heard the Buddha's first sermon at Sarnath?",
+      "options": [
+        {
+          "id": "a",
+          "label": "His father's royal court",
+          "correct": false,
+          "rationale": "The sermon was at Sarnath, to five ascetics."
+        },
+        {
+          "id": "b",
+          "label": "Emperor Ashoka and his officials",
+          "correct": false,
+          "rationale": "Ashoka lived centuries later."
+        },
+        {
+          "id": "c",
+          "label": "Five ascetics who had shared his years of self-denial",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A great crowd of monks and nuns",
+          "correct": false,
+          "rationale": "The five would become the first monks."
+        }
+      ],
+      "explanation": "He taught five ascetics, his former companions from his six years of self-denial, at the Deer Park.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_four_noble_truths",
+    "source.brit_buddha"
+  ],
+  "art": "rel.lotus"
+}

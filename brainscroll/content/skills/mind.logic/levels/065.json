@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.logic.065",
+  "skillId": "skill.mind.logic",
+  "number": 65,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Saving a Theory at Any Cost",
+  "objective": "After this level you can spot an ad hoc rescue: an excuse invented only to protect a claim from evidence against it.",
+  "summary": "An ad hoc rescue adds an excuse whose only job is to dodge the evidence. Le Verrier's unseen planet was a fair rescue: it made a new prediction, and Neptune was there.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.science_ad_hoc_rescue",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.unstated_premise",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.science_falsifiability",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.064"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"My lucky socks always work. Today? I wore them inside out.\"",
+      "body": "Every loss gets its own excuse, and the socks stay lucky forever. It sounds silly with socks. The same move turns up with ideas far more serious than socks, and it's worth knowing on sight.",
+      "id": "card.logic.065.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The ad hoc rescue",
+      "body": "When a prediction fails, you can always save an idea by adding something that makes it fit the facts. Karl Popper, of Level 62, called such an add-on merely ad hoc when its only purpose is to dodge the evidence. The idea survives, but it has stopped sticking its neck out. \"Inside out\" explains one lost game and predicts nothing else.",
+      "id": "card.logic.065.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Not every rescue is a cheat",
+      "body": "Adjusting a theory isn't always cheating; Popper came to accept it as a normal, respectable part of science. Take Uranus, which didn't travel exactly as astronomers expected. Urbain Le Verrier proposed an unknown planet tugging on it and worked out where it should be. In 1846, Johann Galle looked there and found Neptune on his first night of searching.",
+      "id": "card.logic.065.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The test: does the rescue risk anything?",
+      "body": "Here's the difference. Le Verrier's rescue made a new prediction that could have failed: a planet, right about there. The inside-out excuse can never be checked against anything. So ask of any rescue: does it make a new, checkable claim, or does it only protect the old one?",
+      "id": "card.logic.065.c4",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: a fair rescue makes a new bet. An ad hoc rescue only explains away the loss."
+      }
+    },
+    {
+      "id": "card.logic.065.c5",
+      "type": "mcq",
+      "questionId": "question.logic.065.q1"
+    },
+    {
+      "id": "card.logic.065.c6",
+      "type": "mcq",
+      "questionId": "question.logic.065.q2"
+    },
+    {
+      "id": "card.logic.065.c7",
+      "type": "mcq",
+      "questionId": "question.logic.065.q3"
+    },
+    {
+      "id": "card.logic.065.c8",
+      "type": "checkpoint",
+      "headline": "Ad hoc rescues: spotted",
+      "learned": [
+        "An ad hoc add-on exists only to dodge the evidence",
+        "Adjusting a theory can be fair science",
+        "Le Verrier's rescue predicted Neptune, and it was there",
+        "Ask: does the rescue make a new, checkable claim?"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.065.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.science_ad_hoc_rescue"
+      ],
+      "sourceCardIds": [
+        "card.logic.065.c2"
+      ],
+      "prompt": "In Popper's sense, when is a change to a theory merely ad hoc?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Whenever the theory is changed at all",
+          "correct": false,
+          "rationale": "Popper accepted many changes as normal science."
+        },
+        {
+          "id": "b",
+          "label": "When its only purpose is to dodge the evidence",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "When it predicts something new",
+          "correct": false,
+          "rationale": "New predictions are what fair rescues make."
+        },
+        {
+          "id": "d",
+          "label": "When a famous scientist proposes it",
+          "correct": false,
+          "rationale": "Who proposes it doesn't matter."
+        }
+      ],
+      "explanation": "A change is merely ad hoc when its only rationale is to save the theory from the evidence.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.065.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.science_ad_hoc_rescue"
+      ],
+      "sourceCardIds": [
+        "card.logic.065.c3",
+        "card.logic.065.c4"
+      ],
+      "prompt": "How did Le Verrier's explanation of Uranus differ from an ad hoc excuse?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It came from a famous mathematician",
+          "correct": false,
+          "rationale": "Fame isn't what made it fair."
+        },
+        {
+          "id": "b",
+          "label": "It left the astronomers' expectations untouched",
+          "correct": false,
+          "rationale": "It changed them: a new planet joined the picture."
+        },
+        {
+          "id": "c",
+          "label": "It predicted a planet that could be looked for",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It could never be checked",
+          "correct": false,
+          "rationale": "That's what makes an excuse ad hoc; his could be checked."
+        }
+      ],
+      "explanation": "His rescue made a new, risky prediction: a planet in a particular place. Galle looked and found Neptune.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.065.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.science_ad_hoc_rescue",
+        "concept.logic.unstated_premise"
+      ],
+      "sourceCardIds": [
+        "card.logic.065.c2",
+        "card.logic.007.c3"
+      ],
+      "prompt": "Level 7 asks what else must be true for a conclusion to follow. How does an ad hoc rescue answer that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It invents whatever extra premise keeps the idea alive",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It refuses to add any premise at all",
+          "correct": false,
+          "rationale": "It adds one, just not a checkable one."
+        },
+        {
+          "id": "c",
+          "label": "It tests the missing premise first",
+          "correct": false,
+          "rationale": "Testing is exactly what it avoids."
+        },
+        {
+          "id": "d",
+          "label": "It drops the conclusion straight away",
+          "correct": false,
+          "rationale": "The whole point is to keep the conclusion."
+        }
+      ],
+      "explanation": "An ad hoc rescue supplies a new premise (\"they were inside out\") chosen only because it keeps the conclusion, not because anything supports it.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.sep_popper",
+    "source.nasa_neptune_facts",
+    "source.libretexts_vancleave_missing_premises"
+  ],
+  "art": "mind.logic-goalpost"
+}

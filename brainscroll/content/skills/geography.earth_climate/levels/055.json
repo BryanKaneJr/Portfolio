@@ -1,0 +1,214 @@
+{
+  "id": "level.geography.earth_climate.055",
+  "skillId": "skill.geography.earth_climate",
+  "number": 55,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Highs and Lows",
+  "objective": "After this level you can explain why high pressure usually brings clear skies and low pressure brings clouds and storms.",
+  "summary": "In a low, winds meet and air rises into clouds and rain; in a high, air sinks and holds back clouds. North of the Equator, winds circle lows counterclockwise and highs clockwise.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.weather_pressure_systems",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.weather_pressure_spin",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.weather_cloud_formation",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.054"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.055.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "On a weather map, a blue H usually means sunshine. A red L means clouds.",
+      "body": "Those letters mark highs and lows, areas where the air pressure is higher or lower than all around. You met the rule that wind blows from high to low pressure in World Geography. Now look at what the air does up and down."
+    },
+    {
+      "id": "card.earth_climate.055.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Inside a low: air goes up",
+      "body": "In a low-pressure system, winds blow in toward the center. Where they meet, the air has nowhere to go but up. Rising air cools, its water vapor condenses, and you get clouds and often rain or snow. That's why a low heading your way is a good reason to pack an umbrella."
+    },
+    {
+      "id": "card.earth_climate.055.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Inside a high: air comes down",
+      "body": "A high works the other way. Air from higher up sinks toward the ground and spreads outward. Sinking air holds back cloud formation, so highs bring settled weather with light winds. The effect can last: a high that stays put for a long time, called a block, brings long dry spells, and in summer, heatwaves and droughts."
+    },
+    {
+      "id": "card.earth_climate.055.c4",
+      "type": "fact",
+      "fact": "North of the Equator, winds swirl counterclockwise around a low and clockwise around a high.",
+      "context": "Earth's spin, the Coriolis effect you met in World Geography, bends the moving air into these spirals. South of the Equator the directions flip. It's a handy check on a weather map: the spin tells you which kind of system you're looking at."
+    },
+    {
+      "id": "card.earth_climate.055.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.055.q1"
+    },
+    {
+      "id": "card.earth_climate.055.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.055.q2"
+    },
+    {
+      "id": "card.earth_climate.055.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.055.q3"
+    },
+    {
+      "id": "card.earth_climate.055.c8",
+      "type": "checkpoint",
+      "headline": "Highs and lows: sorted",
+      "learned": [
+        "Lows: winds meet, air rises, clouds form",
+        "Highs: air sinks, clouds are held back",
+        "A blocking high can mean long dry spells",
+        "North of the Equator, lows spin counterclockwise"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.055.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.weather_pressure_spin"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.055.c4"
+      ],
+      "prompt": "North of the Equator, which way do winds swirl around a low?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Clockwise",
+          "correct": false,
+          "rationale": "That's how winds circle a high in the Northern Hemisphere."
+        },
+        {
+          "id": "b",
+          "label": "Counterclockwise",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Straight out from the center",
+          "correct": false,
+          "rationale": "Winds blow in toward a low and are bent into a spiral."
+        },
+        {
+          "id": "d",
+          "label": "They don't turn at all",
+          "correct": false,
+          "rationale": "Earth's spin bends them."
+        }
+      ],
+      "explanation": "North of the Equator, winds swirl counterclockwise around lows and clockwise around highs; south of it, the reverse.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.055.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.weather_pressure_systems"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.055.c3"
+      ],
+      "prompt": "Why do high-pressure systems usually bring settled, dry weather?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The high pressure squeezes rain out of the clouds early",
+          "correct": false,
+          "rationale": "Highs hold back clouds rather than squeezing them."
+        },
+        {
+          "id": "b",
+          "label": "Winds blow in and rise at the center",
+          "correct": false,
+          "rationale": "That's a low."
+        },
+        {
+          "id": "c",
+          "label": "Air sinks and spreads out, holding back clouds",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Highs only form over deserts",
+          "correct": false,
+          "rationale": "Highs form in many places, not just deserts."
+        }
+      ],
+      "explanation": "In a high, air sinks from higher up and spreads outward, which reduces cloud formation and gives settled weather.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.055.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.weather_pressure_systems",
+        "concept.earth_climate.weather_cloud_formation"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.055.c2",
+        "card.earth_climate.052.c3"
+      ],
+      "prompt": "Level 52 listed ways air gets lifted into clouds. Which one happens at the center of a low?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Winds meet and are forced upward",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Wind pushes air up a mountain slope",
+          "correct": false,
+          "rationale": "A low needs no mountain."
+        },
+        {
+          "id": "c",
+          "label": "Air sinks and spreads out",
+          "correct": false,
+          "rationale": "That's what happens in a high."
+        },
+        {
+          "id": "d",
+          "label": "Cold air slides up over warm air",
+          "correct": false,
+          "rationale": "At a front, warm air is pushed up over cold air, not the other way around."
+        }
+      ],
+      "explanation": "In a low, winds blow in toward the center and, with nowhere else to go, the air rises, cools and forms clouds.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nesdis_weather_map",
+    "source.ucar_highs_lows",
+    "source.ucar_clouds_form",
+    "source.metoffice_high_low_pressure"
+  ],
+  "art": "nature.rain-cloud"
+}

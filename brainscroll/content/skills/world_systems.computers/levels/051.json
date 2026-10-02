@@ -1,0 +1,220 @@
+{
+  "id": "level.world_systems.computers.051",
+  "skillId": "skill.world_systems.computers",
+  "number": 51,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Why Updates Matter",
+  "objective": "After this level you can explain why all complex software has security holes, what a zero-day is, and why installing updates quickly matters.",
+  "summary": "All software has holes, some unknown even to its maker (zero-days). Patches close them, but attackers target unpatched machines for years, as WannaCry showed in 2017.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.security_software_holes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.security_patch_race",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.photo_journey",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.050"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.051.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The fix was out two months before the attack.",
+      "body": "On May 12, 2017, the WannaCry ransomware began hitting computers, including machines at dozens of NHS trusts in England. The strange part: Microsoft had released a fix for the flaw it used back in March. Why do fixes come before attacks, and why doesn't everyone install them?"
+    },
+    {
+      "id": "card.computers.051.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every big program has holes",
+      "body": "The UK's National Cyber Security Centre puts it bluntly: all systems contain vulnerabilities, flaws an attacker could use. Some are known to the maker. Others nobody has found yet, or only an attacker has. An attack on one of those is called a zero-day, and the name tells the story: the maker has had zero days to fix it."
+    },
+    {
+      "id": "card.computers.051.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The race after a patch",
+      "body": "Once a maker learns of a flaw, it ships a patch: an update that fixes it. Your machine is safe from that flaw only after the patch is installed, and not everyone installs it. CISA, the US cyber defense agency, warns that attackers go after known holes for months or even years after the fix is out."
+    },
+    {
+      "id": "card.computers.051.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "WannaCry: the gap in action",
+      "body": "Microsoft fixed the flaw WannaCry used on March 14, 2017. WannaCry arrived on May 12 and hit computers that had not applied the fix. In England, at least 81 of 236 NHS trusts were affected, and the infected organisations were running unpatched or unsupported Windows. So CISA's advice is simple: install updates as soon as possible, and turn on automatic updates so you don't have to remember."
+    },
+    {
+      "id": "card.computers.051.c5",
+      "type": "mcq",
+      "questionId": "question.computers.051.q1"
+    },
+    {
+      "id": "card.computers.051.c6",
+      "type": "mcq",
+      "questionId": "question.computers.051.q2"
+    },
+    {
+      "id": "card.computers.051.c7",
+      "type": "mcq",
+      "questionId": "question.computers.051.q3"
+    },
+    {
+      "id": "card.computers.051.c8",
+      "type": "checkpoint",
+      "headline": "Holes: patched",
+      "learned": [
+        "All systems contain vulnerabilities, some unknown to their makers",
+        "A zero-day is a flaw the maker has had zero days to fix",
+        "Attackers target known holes for months or years after a patch",
+        "WannaCry (2017) hit machines that skipped a two-month-old fix"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.051.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.security_software_holes"
+      ],
+      "sourceCardIds": [
+        "card.computers.051.c2"
+      ],
+      "prompt": "What makes a software attack a \"zero-day\" attack?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is launched on the first day a program goes on sale",
+          "correct": false,
+          "rationale": "The name is about the fix, not the sales date."
+        },
+        {
+          "id": "b",
+          "label": "It does no damage until a day has passed",
+          "correct": false,
+          "rationale": "Zero-day is about how long the maker has had to fix the flaw."
+        },
+        {
+          "id": "c",
+          "label": "It uses a flaw the maker did not yet know about",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It only works on computers set to the wrong date",
+          "correct": false,
+          "rationale": "It has nothing to do with the clock."
+        }
+      ],
+      "explanation": "A zero-day attack exploits a previously unknown flaw, so the maker has had zero days to fix it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.051.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.security_patch_race"
+      ],
+      "sourceCardIds": [
+        "card.computers.051.c4",
+        "card.computers.051.c3"
+      ],
+      "prompt": "Why could WannaCry spread in May 2017 when a fix had existed since March?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Many computers had not installed the March update",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The March fix only worked on phones",
+          "correct": false,
+          "rationale": "The fix was a Windows update; unpatched Windows machines were hit."
+        },
+        {
+          "id": "c",
+          "label": "WannaCry used a brand-new zero-day flaw",
+          "correct": false,
+          "rationale": "The flaw was already known and fixed in March."
+        },
+        {
+          "id": "d",
+          "label": "Updates cannot fix security flaws",
+          "correct": false,
+          "rationale": "A patch is exactly an update that fixes security flaws."
+        }
+      ],
+      "explanation": "WannaCry hit computers that had not applied Microsoft's March 14 fix; infected NHS organisations ran unpatched or unsupported Windows.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.051.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.security_software_holes",
+        "concept.computers.photo_journey"
+      ],
+      "sourceCardIds": [
+        "card.computers.051.c2",
+        "card.computers.001.c3"
+      ],
+      "prompt": "Level 1 said a processor's switches have no idea what they are doing and simply follow software. Why does that make a flaw in the software matter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The switches spot bad instructions and refuse them",
+          "correct": false,
+          "rationale": "The switches have no idea what the data means; software does the telling."
+        },
+        {
+          "id": "b",
+          "label": "Flaws only matter in hardware, never in software",
+          "correct": false,
+          "rationale": "All systems, software included, contain vulnerabilities."
+        },
+        {
+          "id": "c",
+          "label": "A software flaw fixes itself when the switches restart",
+          "correct": false,
+          "rationale": "Flaws stay until a patch fixes them."
+        },
+        {
+          "id": "d",
+          "label": "The hardware carries out the software, flaws and all",
+          "correct": true
+        }
+      ],
+      "explanation": "Hardware does the work and software gives the orders, so a flaw in the orders is a flaw an attacker can use.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ncsc_vulnerability_management",
+    "source.nist_glossary_zero_day",
+    "source.kaspersky_zero_day",
+    "source.cisa_patches_updates",
+    "source.microsoft_wannacrypt_2017",
+    "source.nao_wannacry_nhs",
+    "source.intel_cpu_clock_speed",
+    "source.brit_software"
+  ],
+  "art": "computers.patch"
+}

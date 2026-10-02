@@ -1,0 +1,224 @@
+{
+  "id": "level.mind.philosophy.027",
+  "skillId": "skill.mind.philosophy",
+  "number": 27,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Nyaya's Sources of Knowledge",
+  "objective": "After this level you can explain the Nyaya school's four sources of knowledge, including its classic inference from smoke on a hill to fire.",
+  "summary": "Nyaya’s four means of knowledge are perception, inference, comparison and testimony; its five-step inference from smoke to fire rests on a pervasion the Carvakas doubted.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.knowledge_nyaya_pramanas",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.indian_schools",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.philosophy.knowledge_hume_induction",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.026"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.027.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Where there’s smoke, there’s a theory of knowledge.",
+      "body": "Level 9 met the Nyaya school and its model inference: smoke on the hill, so fire on the hill. Now look inside the machine. How exactly does Nyaya get from smoke you can see to fire you can’t?"
+    },
+    {
+      "id": "card.philosophy.027.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four ways to know",
+      "body": "Nyaya counts four pramanas, or means of knowledge: perception, inference, comparison and testimony. Perception is called the “eldest”, because the others all depend on its input. Testimony is the word of a qualified speaker: someone with direct knowledge who is willing to pass it on without distortion."
+    },
+    {
+      "id": "card.philosophy.027.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Comparison, with a buffalo",
+      "body": "Comparison sounds vague until you meet the stock example. Someone is told that a water buffalo looks something like a cow. Later, in the countryside, he sees an animal like a cow and recognizes it: that’s a water buffalo. Nyaya treats this as its own way of knowing, used mostly for learning what words name."
+    },
+    {
+      "id": "card.philosophy.027.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Five steps to fire",
+      "body": "When arguing with others, Nyaya lays inference out in five steps. There is fire on the hill. Because there is smoke on the hill. Wherever there is smoke there is fire, like a kitchen hearth and unlike a lake. This hill is likewise smoky. So there is fire on the hill. The third step carries the weight: the pervasion, vyapti, the rule that smoke never comes without fire."
+    },
+    {
+      "id": "card.philosophy.027.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Carvakas push back",
+      "body": "The Carvaka materialists attacked that third step. Inference, they argued, depends on generalizations that outrun anything perceived: nobody can know that every case of smoke comes with fire. The standard reply was practical. We couldn’t act as we do without inference, and the skeptic relies on generalizations the moment he speaks, using words with repeatable meanings.",
+      "mascot": {
+        "pose": "idea",
+        "line": "It connects: the Carvakas pressed their own version of the puzzle about generalizing that Level 26 met in Hume."
+      }
+    },
+    {
+      "id": "card.philosophy.027.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.027.q1"
+    },
+    {
+      "id": "card.philosophy.027.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.027.q2"
+    },
+    {
+      "id": "card.philosophy.027.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.027.q3"
+    },
+    {
+      "id": "card.philosophy.027.c9",
+      "type": "checkpoint",
+      "headline": "Nyaya’s Sources of Knowledge: the big picture",
+      "learned": [
+        "Four pramanas; perception is eldest",
+        "Comparison: recognizing a buffalo",
+        "Five steps from smoke to fire",
+        "Carvakas doubted the pervasion"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.027.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.knowledge_nyaya_pramanas"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.027.c4"
+      ],
+      "prompt": "In Nyaya’s five-step inference, which example shows smoke and fire together?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A lake",
+          "correct": false,
+          "rationale": "The lake is the counterexample, with neither."
+        },
+        {
+          "id": "b",
+          "label": "A kitchen hearth",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A mountain stream",
+          "correct": false,
+          "rationale": "Not the stock example."
+        },
+        {
+          "id": "d",
+          "label": "A clay pot",
+          "correct": false,
+          "rationale": "Not the stock example."
+        }
+      ],
+      "explanation": "The kitchen hearth is the positive example; the lake is the example of no smoke and no fire.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.philosophy.027.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.knowledge_nyaya_pramanas"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.027.c4"
+      ],
+      "prompt": "How does the pervasion (vyapti) let Nyaya move from smoke on the hill to fire?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is a direct perception of the fire itself",
+          "correct": false,
+          "rationale": "The fire isn’t seen; that’s why inference is needed."
+        },
+        {
+          "id": "b",
+          "label": "It is a report from someone standing on the hill",
+          "correct": false,
+          "rationale": "That would be testimony."
+        },
+        {
+          "id": "c",
+          "label": "It is a comparison with a cow or water buffalo",
+          "correct": false,
+          "rationale": "That’s the example of comparison."
+        },
+        {
+          "id": "d",
+          "label": "It supplies the rule: wherever smoke, there is fire",
+          "correct": true
+        }
+      ],
+      "explanation": "The pervasion is the general rule that links the visible sign, smoke, to what is inferred, fire.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.philosophy.027.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.knowledge_nyaya_pramanas",
+        "concept.philosophy.indian_schools"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.027.c5",
+        "card.philosophy.009.c4"
+      ],
+      "prompt": "Level 9’s Carvakas trusted perception alone. How did they attack Nyaya’s inference?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They said it relies on generalizations beyond anything perceived",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They said smoke is never seen on hills",
+          "correct": false,
+          "rationale": "Their worry wasn’t about seeing smoke."
+        },
+        {
+          "id": "c",
+          "label": "They said testimony is the only reliable source",
+          "correct": false,
+          "rationale": "They rejected testimony too."
+        },
+        {
+          "id": "d",
+          "label": "They said fire can’t be perceived by anyone",
+          "correct": false,
+          "rationale": "Fire can be perceived when you’re there."
+        }
+      ],
+      "explanation": "Inference needs a rule covering every case, which no one can perceive, so the Carvakas rejected it.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.iep_nyaya",
+    "source.sep_epistemology_india"
+  ],
+  "art": "phil.smoke-hill"
+}

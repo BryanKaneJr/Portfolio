@@ -1,0 +1,356 @@
+{
+  "id": "level.mind.logic.030",
+  "skillId": "skill.mind.logic",
+  "number": 30,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "published",
+  "title": "Checkpoint: Classic Fallacies",
+  "objective": "After this level you can name the classic fallacies and explain how each one dodges, distorts or assumes the point.",
+  "summary": "A mascot debate full of fallacies, sorted into three families: dodging, distorting or assuming the point. Logicians group them too, and still dispute the details.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.classic_fallacy_families",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.classic_fallacy_ad_hominem",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.classic_fallacy_straw_man",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.classic_fallacy_false_dilemma",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.classic_fallacy_circular_reasoning",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.classic_fallacy_appeal_to_popularity",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.classic_fallacy_red_herring",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.classic_fallacy_tu_quoque",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.classic_fallacy_slippery_slope",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.029"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "The school board is choosing a mascot: owls or foxes.",
+      "body": "Ana: \"Owls. Every other school in the county picked owls.\" Ben: \"Ana's kid is in the owl club, so ignore her.\" Cara: \"So Ben thinks owls are worthless?\" Dev: \"It's owls or no mascot at all.\" Four speakers, four traps, and not one reason about which mascot is better. Time to use everything this chapter taught.",
+      "id": "card.logic.030.c1"
+    },
+    {
+      "type": "comparison",
+      "headline": "Dodge, distort or assume",
+      "id": "card.logic.030.c2",
+      "items": [
+        {
+          "label": "Dodges the point",
+          "points": [
+            "Ad hominem: aims at the arguer",
+            "Tu quoque: \"you too!\"",
+            "Red herring: changes the subject"
+          ]
+        },
+        {
+          "label": "Distorts the point",
+          "points": [
+            "Straw man: fights a weaker fake view",
+            "Slippery slope: exaggerates where steps lead",
+            "Popularity: overrates a headcount"
+          ]
+        },
+        {
+          "label": "Assumes the point",
+          "points": [
+            "Circular: a premise restates the conclusion",
+            "False dilemma: assumes only two options"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Families, not fences",
+      "body": "Logicians group fallacies too. The Internet Encyclopedia of Philosophy describes fallacies of relevance, which lean on an irrelevant reason, like the ad hominem, and fallacies of illegitimate presumption, like begging the question and the false dilemma. But researchers still dispute the best way to classify them. Treat any grouping as a guide, not a fence.",
+      "id": "card.logic.030.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "Most classic fallacies trace back to two books, by Aristotle and by John Locke.",
+      "context": "The Stanford Encyclopedia of Philosophy calls Aristotle's Sophistical Refutations and Locke's An Essay Concerning Human Understanding (1690) the two fountainheads of the core fallacies in logic textbooks. You've now met the ideas both of them started.",
+      "id": "card.logic.030.c4"
+    },
+    {
+      "id": "card.logic.030.c5",
+      "type": "mcq",
+      "questionId": "question.logic.030.q1"
+    },
+    {
+      "id": "card.logic.030.c6",
+      "type": "mcq",
+      "questionId": "question.logic.030.q2"
+    },
+    {
+      "id": "card.logic.030.c7",
+      "type": "recall",
+      "questionId": "question.logic.030.q3"
+    },
+    {
+      "id": "card.logic.030.c8",
+      "type": "recall",
+      "questionId": "question.logic.030.q4"
+    },
+    {
+      "id": "card.logic.030.c9",
+      "type": "recall",
+      "questionId": "question.logic.030.q5"
+    },
+    {
+      "id": "card.logic.030.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 3 complete",
+      "learned": [
+        "What makes a fallacy a flaw in reasoning, and why a bad argument can still feel convincing.",
+        "How ad hominem, \"you too\" replies and red herrings dodge the point instead of answering it.",
+        "How straw men, false choices and slippery slopes distort what is really at stake.",
+        "Why circular reasoning proves nothing, and why popularity alone is weak evidence."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.030.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_families"
+      ],
+      "sourceCardIds": [
+        "card.logic.030.c3"
+      ],
+      "prompt": "Which pair does the IEP group as fallacies of illegitimate presumption?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ad hominem and tu quoque",
+          "correct": false,
+          "rationale": "Those rely on an irrelevant reason: relevance."
+        },
+        {
+          "id": "b",
+          "label": "Begging the question and false dilemma",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Red herring and straw man",
+          "correct": false,
+          "rationale": "Those dodge or distort the point."
+        },
+        {
+          "id": "d",
+          "label": "Bandwagon and slippery slope",
+          "correct": false,
+          "rationale": "Those overrate popularity or a chain of steps."
+        }
+      ],
+      "explanation": "Fallacies of illegitimate presumption assume what they should not: begging the question and the false dilemma are two.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.030.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_families",
+        "concept.logic.classic_fallacy_ad_hominem"
+      ],
+      "sourceCardIds": [
+        "card.logic.030.c2",
+        "card.logic.022.c2"
+      ],
+      "prompt": "Ben says, \"Ana's kid is in the owl club, so ignore her.\" How does that reply cheat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It distorts Ana's view into a weaker one",
+          "correct": false,
+          "rationale": "Ben doesn't restate her view at all."
+        },
+        {
+          "id": "b",
+          "label": "It assumes its own conclusion",
+          "correct": false,
+          "rationale": "No premise restates the conclusion."
+        },
+        {
+          "id": "c",
+          "label": "It dodges her reason by aiming at Ana",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It offers too few options",
+          "correct": false,
+          "rationale": "That's Dev's move."
+        }
+      ],
+      "explanation": "It's an ad hominem: it dodges the point by switching from Ana's reason to Ana herself.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.030.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_appeal_to_popularity"
+      ],
+      "sourceCardIds": [
+        "card.logic.029.c2",
+        "card.logic.029.c4"
+      ],
+      "prompt": "Classic Fallacies checkpoint: Ana says, \"Every other school in the county picked owls.\" What is her argument's weakness?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It treats popularity as proof",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It attacks Ben personally",
+          "correct": false,
+          "rationale": "She says nothing about Ben."
+        },
+        {
+          "id": "c",
+          "label": "It changes the subject to another county",
+          "correct": false,
+          "rationale": "The subject is still the mascot."
+        },
+        {
+          "id": "d",
+          "label": "It assumes owls are the only choice",
+          "correct": false,
+          "rationale": "That's Dev's false dilemma."
+        }
+      ],
+      "explanation": "It is an appeal to popularity: other schools choosing owls says nothing about whether owls suit this school, unless we know their reasons.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.030.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_false_dilemma"
+      ],
+      "sourceCardIds": [
+        "card.logic.024.c2"
+      ],
+      "prompt": "Dev says, \"It's owls or no mascot at all.\" Which fallacy is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Red herring",
+          "correct": false,
+          "rationale": "Dev stays on the topic."
+        },
+        {
+          "id": "b",
+          "label": "Circular reasoning",
+          "correct": false,
+          "rationale": "No premise restates the conclusion."
+        },
+        {
+          "id": "c",
+          "label": "Straw man",
+          "correct": false,
+          "rationale": "Dev restates no one else's view."
+        },
+        {
+          "id": "d",
+          "label": "False dilemma",
+          "correct": true
+        }
+      ],
+      "explanation": "It offers only two options, hiding foxes and every other choice: a false dilemma.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.030.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_straw_man"
+      ],
+      "sourceCardIds": [
+        "card.logic.023.c2"
+      ],
+      "prompt": "Ben only said to ignore Ana. Cara replies, \"So Ben thinks owls are worthless?\" Which fallacy is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Straw man",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Tu quoque",
+          "correct": false,
+          "rationale": "Cara doesn't accuse Ben of doing the same thing."
+        },
+        {
+          "id": "c",
+          "label": "Slippery slope",
+          "correct": false,
+          "rationale": "There is no chain of steps."
+        },
+        {
+          "id": "d",
+          "label": "Appeal to popularity",
+          "correct": false,
+          "rationale": "No headcount is mentioned."
+        }
+      ],
+      "explanation": "Cara pins a view on Ben that he never stated, one that is easy to attack: a straw man.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies",
+    "source.sep_fallacies",
+    "source.mw_ad_hominem",
+    "source.mw_tu_quoque"
+  ],
+  "art": "mind.logic-mousetrap"
+}

@@ -1,0 +1,227 @@
+{
+  "id": "level.geography.earth_climate.004",
+  "skillId": "skill.geography.earth_climate",
+  "number": 4,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Quartz, Feldspar and Mica",
+  "objective": "After this level you can name the most common minerals in Earth's crust and spot them in everyday granite and sand.",
+  "summary": "Silicate minerals dominate the crust: feldspars are more than half of it and quartz comes second. Granite is feldspar, quartz and mica, and most sand is quartz.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.crust_minerals",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.granite_minerals",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.quartz_sand",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.rock_vs_mineral",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.mohs_hardness",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.003"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.004.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Of more than 6,000 minerals, a few build most of the ground under you.",
+      "body": "You don't need to learn them all. Learn three, and you can read a granite countertop and a handful of beach sand."
+    },
+    {
+      "id": "card.earth_climate.004.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The crust's favorite ingredients",
+      "body": "Oxygen and silicon are the two most common elements in Earth's crust. So it's no surprise that silicate minerals, built around them, make up the vast majority of it. At the top of the list are the feldspars, which alone make up more than half of Earth's crust. Quartz comes second. A handful of minerals do almost all the work."
+    },
+    {
+      "id": "card.earth_climate.004.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Reading a granite countertop",
+      "body": "Granite is mostly feldspar and quartz. In some granites the feldspar is reddish orange and the quartz nearly white and glassy. The dark flakes are often mica, such as biotite, which is black or brown. Mica's giveaway is that it splits into thin, elastic sheets, like pages peeling off a tiny book."
+    },
+    {
+      "id": "card.earth_climate.004.c4",
+      "type": "fact",
+      "fact": "Most sand is made of quartz.",
+      "context": "Quartz is common in rocks and hard (7 on Level 3's scale). It has almost no cleavage to wear it down, it barely dissolves in water and it doesn't decompose. So as rocks break down, quartz outlasts its neighbors. A sandy beach is what's left after the softer minerals have given up."
+    },
+    {
+      "id": "card.earth_climate.004.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.004.q1"
+    },
+    {
+      "id": "card.earth_climate.004.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.004.q2"
+    },
+    {
+      "id": "card.earth_climate.004.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.004.q3"
+    },
+    {
+      "id": "card.earth_climate.004.c8",
+      "type": "checkpoint",
+      "headline": "Common minerals: spotted",
+      "learned": [
+        "Feldspars are more than half the crust",
+        "Quartz comes second",
+        "Granite is feldspar, quartz and mica",
+        "Most sand is tough quartz"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.004.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.crust_minerals"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.004.c2"
+      ],
+      "prompt": "Which mineral group makes up more than half of Earth's crust?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Quartz",
+          "correct": false,
+          "rationale": "Quartz is common, but it comes second."
+        },
+        {
+          "id": "b",
+          "label": "The feldspars",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The micas",
+          "correct": false,
+          "rationale": "Mica is a common extra in granite, not the leader."
+        },
+        {
+          "id": "d",
+          "label": "Calcite",
+          "correct": false,
+          "rationale": "Calcite isn't a silicate, and it's far from the top."
+        }
+      ],
+      "explanation": "Feldspars alone make up more than half of Earth's crust; quartz comes second.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.earth_climate.004.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.quartz_sand"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.004.c4"
+      ],
+      "prompt": "Why is so much of the world's sand made of quartz?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Waves slowly turn feldspar into quartz",
+          "correct": false,
+          "rationale": "Waves break minerals down; they don't change one into another."
+        },
+        {
+          "id": "b",
+          "label": "Quartz is the only mineral in most rocks",
+          "correct": false,
+          "rationale": "Feldspar is even more common in the crust."
+        },
+        {
+          "id": "c",
+          "label": "It resists wear, water and decay",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It's soft, so it breaks into sand first",
+          "correct": false,
+          "rationale": "Quartz is hard, 7 on the Mohs scale."
+        }
+      ],
+      "explanation": "Quartz is hard, has almost no cleavage, barely dissolves and doesn't decompose, so it outlasts other minerals.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.earth_climate.004.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.granite_minerals",
+        "concept.earth_climate.mohs_hardness"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.004.c3",
+        "card.earth_climate.003.c2"
+      ],
+      "prompt": "A glassy grain in a granite countertop scratches window glass. Using Level 3's scale, which mineral is it most likely to be?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Quartz",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Mica",
+          "correct": false,
+          "rationale": "Mica peels into thin sheets; it's the dark flakes."
+        },
+        {
+          "id": "c",
+          "label": "Talc",
+          "correct": false,
+          "rationale": "Talc is the softest mineral, at 1."
+        },
+        {
+          "id": "d",
+          "label": "Gypsum",
+          "correct": false,
+          "rationale": "Gypsum rates 2; even a fingernail scratches it."
+        }
+      ],
+      "explanation": "Granite's glassy grains are quartz, and at 7 on the Mohs scale quartz scratches glass (about 5.5).",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ima_minerals_elements_2024",
+    "source.brit_silicate_minerals",
+    "source.brit_feldspar",
+    "source.brit_quartz",
+    "source.brit_granite",
+    "source.brit_mica",
+    "source.brit_sand"
+  ],
+  "art": "earth.quartz-crystal"
+}

@@ -1,0 +1,220 @@
+{
+  "id": "level.mind.probability.024",
+  "skillId": "skill.mind.probability",
+  "number": 24,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Chance of At Least One",
+  "objective": "After this level you can work out the chance of \"at least one\" by first finding the chance of none, as with a six in four rolls.",
+  "summary": "An event and its opposite add up to 1, so \"at least one\" is 1 minus \"none\". No six in four rolls is 625/1,296 (about 48%), so at least one six is about 52%, as de Méré suspected.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.chance_complement_rule",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.chance_de_mere_bet",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.chance_multiply_independent",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.pascal_fermat_letters",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.023"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.024.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A gambler in Pascal's day wondered about betting on a six in four rolls.",
+      "body": "The Chevalier de Méré, a French gambler, suspected it was a better bet than a similar one with two dice. Checking by listing every way four rolls can land would take all night. There's a far quicker route: work out the chance of the thing not happening."
+    },
+    {
+      "id": "card.probability.024.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Chance it happens = 1 minus chance it doesn't",
+      "body": "An event and its opposite cover everything that can happen, so their chances add up to 1. If a six has a chance of 1/6, no six has a chance of 5/6. That flip is the key to \"at least one\" questions. At least one six hides many cases: one six, two, three or four. No six at all is a single case, and Level 23's multiplying handles it."
+    },
+    {
+      "id": "card.probability.024.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "De Méré's bet, solved",
+      "body": "No six on one roll: 5/6. No six in four independent rolls: 5/6 × 5/6 × 5/6 × 5/6, which is 625 out of 1,296, about 48%. So at least one six comes up about 52% of the time. A small edge, but a real one. De Méré asked Pascal, whom you met in Level 1, whether this bet really beat a two-dice version, and Pascal proved his hunch right."
+    },
+    {
+      "id": "card.probability.024.c4",
+      "type": "fact",
+      "fact": "Double 6 in 24 rolls sounds as good. It falls just short.",
+      "context": "Try a second bet: at least one double 6 in 24 rolls of two dice. Same trick: no double 6 on one roll is 35/36, and multiplied 24 times it leaves at least one double 6 at about 49%. Just under even, and worse than the four-roll bet. Hunches get close; only the arithmetic tells which side of half you're on."
+    },
+    {
+      "id": "card.probability.024.c5",
+      "type": "mcq",
+      "questionId": "question.probability.024.q1"
+    },
+    {
+      "id": "card.probability.024.c6",
+      "type": "mcq",
+      "questionId": "question.probability.024.q2"
+    },
+    {
+      "id": "card.probability.024.c7",
+      "type": "mcq",
+      "questionId": "question.probability.024.q3"
+    },
+    {
+      "id": "card.probability.024.c8",
+      "type": "checkpoint",
+      "headline": "At least one: flipped",
+      "learned": [
+        "Chance + chance of the opposite = 1",
+        "At least one = 1 minus none",
+        "A six in four rolls: about 52%",
+        "Double 6 in 24 rolls: about 49%"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.024.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.chance_de_mere_bet"
+      ],
+      "sourceCardIds": [
+        "card.probability.024.c3"
+      ],
+      "prompt": "What is the chance of at least one six in four rolls of a fair die?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 33%",
+          "correct": false,
+          "rationale": "Four rolls give more than a one-in-three chance."
+        },
+        {
+          "id": "b",
+          "label": "About 48%",
+          "correct": false,
+          "rationale": "That is the chance of no six at all."
+        },
+        {
+          "id": "c",
+          "label": "About 52%",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 67%",
+          "correct": false,
+          "rationale": "That would come from adding 1/6 four times, which overcounts."
+        }
+      ],
+      "explanation": "No six in four rolls is 625/1,296, about 48%, so at least one six is about 52%.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.024.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.chance_complement_rule"
+      ],
+      "sourceCardIds": [
+        "card.probability.024.c2",
+        "card.probability.024.c3"
+      ],
+      "prompt": "How does the shortcut find the chance of at least one six in four rolls?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Add 1/6 four times",
+          "correct": false,
+          "rationale": "Adding overcounts rolls with two or more sixes."
+        },
+        {
+          "id": "b",
+          "label": "Find the chance of no six, then take it from 1",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Multiply 1/6 by itself four times",
+          "correct": false,
+          "rationale": "That is the chance of four sixes, not at least one."
+        },
+        {
+          "id": "d",
+          "label": "Divide 4 by 6",
+          "correct": false,
+          "rationale": "That treats each roll as adding a sixth, which overcounts."
+        }
+      ],
+      "explanation": "No six in four rolls is one case: 5/6 multiplied four times, about 48%. Take it from 1 and at least one six is about 52%.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.024.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.chance_complement_rule",
+        "concept.probability.chance_multiply_independent"
+      ],
+      "sourceCardIds": [
+        "card.probability.024.c2",
+        "card.probability.023.c3"
+      ],
+      "prompt": "Using Level 23's multiplying, what is the chance of at least one head in three flips of a fair coin?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1/8",
+          "correct": false,
+          "rationale": "1/8 is the chance of no head at all (three tails)."
+        },
+        {
+          "id": "b",
+          "label": "3/8",
+          "correct": false,
+          "rationale": "That is the chance of exactly one head; two or three heads count too."
+        },
+        {
+          "id": "c",
+          "label": "1/2",
+          "correct": false,
+          "rationale": "Three flips give more than one chance at a head."
+        },
+        {
+          "id": "d",
+          "label": "7/8",
+          "correct": true
+        }
+      ],
+      "explanation": "No head in three flips means three tails: 1/2 × 1/2 × 1/2 = 1/8. So at least one head is 1 minus 1/8, or 7/8.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.mathworld_de_mere_problem",
+    "source.cut_the_knot_de_mere",
+    "source.openstax_intro_stats_probability_terminology",
+    "source.openstax_intro_stats_probability_rules"
+  ],
+  "art": "mind.umbrella"
+}

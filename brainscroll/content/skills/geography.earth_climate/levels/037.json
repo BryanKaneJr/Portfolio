@@ -1,0 +1,216 @@
+{
+  "id": "level.geography.earth_climate.037",
+  "skillId": "skill.geography.earth_climate",
+  "number": 37,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "How Life Filled the Air With Oxygen",
+  "objective": "After this level you can explain how ancient microbes caused the Great Oxidation Event and how rocks record it.",
+  "summary": "Cyanobacteria released oxygen by photosynthesis. It first rusted the oceans' dissolved iron into banded iron formations, then built up in the air about 2.4 billion years ago.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.deeptime_great_oxidation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.deeptime_banded_iron",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.streak_and_luster",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.036"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.037.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Earth's air once had almost no oxygen. Microbes changed that.",
+      "body": "The oxygen in your next breath has a very old backstory. Tiny microbes made it, and the rocks kept a striped, rusty record of the change."
+    },
+    {
+      "id": "card.earth_climate.037.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The microbes that made oxygen",
+      "body": "Cyanobacteria, once called blue-green algae, use photosynthesis to turn carbon dioxide and water into food, releasing oxygen as a leftover (Chemistry covers how). They also build stromatolites, layered mounds of mostly limestone. Some of Earth's first life is recorded in stromatolites 3.5 billion years old, and living ones still grow in Shark Bay, Western Australia."
+    },
+    {
+      "id": "card.earth_climate.037.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "First, the sea rusted",
+      "body": "At first the oxygen didn't reach the air. Early oceans held lots of dissolved iron, and the oxygen combined with it to form iron oxide, which sank to the sea floor. Red iron-oxide sheets piled up between silica-rich layers, making striped rocks called banded iron formations. Only once the dissolved iron was used up could oxygen escape into the atmosphere. About 2.4 billion years ago, oxygen in the air rose sharply: the Great Oxidation Event.",
+      "callout": "Microbes make oxygen, iron soaks it up, then the air fills"
+    },
+    {
+      "id": "card.earth_climate.037.c4",
+      "type": "fact",
+      "fact": "Most banded iron formations are older than 1.7 billion years.",
+      "context": "Their iron oxide is mostly hematite, alternating with chert or quartz, and today they're mined as iron ore. Rust from an ancient sea floor, dug up today to make iron."
+    },
+    {
+      "id": "card.earth_climate.037.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.037.q1"
+    },
+    {
+      "id": "card.earth_climate.037.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.037.q2"
+    },
+    {
+      "id": "card.earth_climate.037.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.037.q3"
+    },
+    {
+      "id": "card.earth_climate.037.c8",
+      "type": "checkpoint",
+      "headline": "Oxygen: arrived",
+      "learned": [
+        "Cyanobacteria released oxygen by photosynthesis",
+        "Oxygen first rusted iron dissolved in the sea",
+        "Banded iron formations record that rust",
+        "Oxygen filled the air about 2.4 billion years ago"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.037.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_great_oxidation"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.037.c2"
+      ],
+      "prompt": "Which microbes released the oxygen behind the Great Oxidation Event?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cyanobacteria",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Mold growing on land plants",
+          "correct": false,
+          "rationale": "Land plants came much later."
+        },
+        {
+          "id": "c",
+          "label": "Bacteria that live inside animals",
+          "correct": false,
+          "rationale": "Animals didn't exist yet."
+        },
+        {
+          "id": "d",
+          "label": "Yeast in shallow ponds",
+          "correct": false,
+          "rationale": "Yeast doesn't release oxygen by photosynthesis."
+        }
+      ],
+      "explanation": "Cyanobacteria release oxygen as they photosynthesize.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.earth_climate.037.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_banded_iron"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.037.c3"
+      ],
+      "prompt": "How did banded iron formations form?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Iron meteorites crashed into the early ocean floor",
+          "correct": false,
+          "rationale": "The iron was already dissolved in seawater."
+        },
+        {
+          "id": "b",
+          "label": "Oxygen met dissolved iron, and iron oxide settled out",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Lava flows cooled into red and black stripes",
+          "correct": false,
+          "rationale": "They are sediments that settled in water, not lava."
+        },
+        {
+          "id": "d",
+          "label": "Rust from old land surfaces washed down into rivers",
+          "correct": false,
+          "rationale": "The iron oxide formed in the sea itself."
+        }
+      ],
+      "explanation": "Oxygen from microbes combined with iron dissolved in seawater, and the iron oxide sank in layers.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.037.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_banded_iron",
+        "concept.earth_climate.streak_and_luster"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.037.c4",
+        "card.earth_climate.003.c4"
+      ],
+      "prompt": "The iron oxide in banded iron formations is mostly hematite. What color streak would it leave on a streak plate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Greenish black",
+          "correct": false,
+          "rationale": "That's pyrite's streak."
+        },
+        {
+          "id": "b",
+          "label": "Yellow",
+          "correct": false,
+          "rationale": "That's gold's streak."
+        },
+        {
+          "id": "c",
+          "label": "Reddish",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Colorless",
+          "correct": false,
+          "rationale": "Hematite always leaves a colored streak."
+        }
+      ],
+      "explanation": "Whatever its outside color, hematite always leaves a reddish streak.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_astrobiology_bif",
+    "source.brit_evolution_atmosphere",
+    "source.brit_stromatolite",
+    "source.nhm_banded_iron",
+    "source.brit_banded_iron"
+  ],
+  "art": "earth.stromatolite"
+}

@@ -1,0 +1,230 @@
+{
+  "id": "level.geography.oceans.066",
+  "skillId": "skill.geography.oceans",
+  "number": 66,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Harbors and Ports",
+  "objective": "After this level you can explain what makes a good harbor.",
+  "summary": "A harbor is deep water sheltered from wind, waves and currents. Nature makes most, like drowned river valleys; people build others with breakwaters, as at Normandy in 1944.",
+  "concepts": [
+    {
+      "conceptId": "concept.oceans.harbor_basics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.harbor_built",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.oceans.estuary_brackish",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.oceans.rising_seas_causes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.oceans.065"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1944, the Allies brought their own harbors to France.",
+      "body": "German forces had fortified the Channel ports, so for the D-Day landings the Allies built two artificial harbors in Britain and floated them to Normandy. Why go to all that trouble? Because ships full of supplies are useless without somewhere safe to unload.",
+      "id": "card.oceans.066.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "What makes a harbor",
+      "body": "A harbor is water sheltered from wind, waves and currents, so ships can anchor safely and load or unload cargo and passengers. It must also be deep enough to keep ships from touching bottom, with room for them to turn and pass each other. The open sea is great for sailing and terrible for parking.",
+      "id": "card.oceans.066.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Harbors the sea made",
+      "body": "Most harbors are natural: bays, coves, fjords, lagoons and estuaries that already give shelter. Remember Level 63's Chesapeake Bay, a river valley flooded by the sea? When the ice-age glaciers melted and sea level rose, the sea flooded the lower ends of river valleys, leaving funnel-shaped inlets called rias. Sydney Harbour is a drowned river valley like that, and one of the world's finest natural harbors.",
+      "id": "card.oceans.066.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Harbors people build",
+      "body": "Where nature offers no shelter, people build it. Breakwaters, huge walls of concrete, steel and wire, are the most important part of an artificial harbor: they absorb or turn aside the incoming waves. Dredging scoops sand and sediment off the bottom to keep harbors deep enough. A harbor, in the end, is a calm spot you either find or make.",
+      "id": "card.oceans.066.c4"
+    },
+    {
+      "type": "fact",
+      "fact": "In June 1944, a storm wrecked one of the two Mulberry harbors within days.",
+      "context": "It began on June 19, and by June 22 the American harbor was destroyed. Its breakwaters had been built from sunken concrete caissons and deliberately scuttled ships. The British harbor at Arromanches survived and served the Allied armies for 10 months. Shelter, it turns out, is the whole point.",
+      "id": "card.oceans.066.c5"
+    },
+    {
+      "id": "card.oceans.066.c6",
+      "type": "mcq",
+      "questionId": "question.oceans.066.q1"
+    },
+    {
+      "id": "card.oceans.066.c7",
+      "type": "mcq",
+      "questionId": "question.oceans.066.q2"
+    },
+    {
+      "id": "card.oceans.066.c8",
+      "type": "recall",
+      "questionId": "question.oceans.066.q3"
+    },
+    {
+      "id": "card.oceans.066.c9",
+      "type": "checkpoint",
+      "headline": "Harbors: anchored",
+      "learned": [
+        "A harbor: shelter from wind, waves and currents",
+        "Deep enough, with room to turn",
+        "Most are natural, like drowned river valleys",
+        "Breakwaters and dredging make the rest"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.oceans.066.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.oceans.harbor_basics"
+      ],
+      "sourceCardIds": [
+        "card.oceans.066.c2"
+      ],
+      "prompt": "What is the main job of a harbor?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Storing fresh water for ships' crews",
+          "correct": false,
+          "rationale": "A harbor's job is shelter."
+        },
+        {
+          "id": "b",
+          "label": "Marking the border between two seas",
+          "correct": false,
+          "rationale": "Harbors shelter ships; they aren't borders."
+        },
+        {
+          "id": "c",
+          "label": "Sheltering ships from wind, waves and currents",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Keeping ships out of shallow rivers",
+          "correct": false,
+          "rationale": "The point is sheltered, deep water."
+        }
+      ],
+      "explanation": "A harbor is water sheltered from wind, waves and currents, so ships can anchor and load or unload safely.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.oceans.066.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.oceans.harbor_built"
+      ],
+      "sourceCardIds": [
+        "card.oceans.066.c5",
+        "card.oceans.066.c4"
+      ],
+      "prompt": "A storm in June 1944 wrecked the American Mulberry harbor. What does its loss show about harbors?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Harbors work best when built far from any coastline",
+          "correct": false,
+          "rationale": "Harbors are about shelter near shore."
+        },
+        {
+          "id": "b",
+          "label": "Only natural harbors can handle heavy military cargo",
+          "correct": false,
+          "rationale": "The British Mulberry handled cargo for 10 months."
+        },
+        {
+          "id": "c",
+          "label": "Storm waves can never reach inside a built harbor",
+          "correct": false,
+          "rationale": "This storm did exactly that."
+        },
+        {
+          "id": "d",
+          "label": "Without breakwaters to stop waves, a harbor fails",
+          "correct": true
+        }
+      ],
+      "explanation": "A harbor's value is shelter; when the storm broke up the Mulberry's breakwaters, the harbor was lost.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.oceans.066.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.oceans.harbor_basics",
+        "concept.oceans.rising_seas_causes"
+      ],
+      "sourceCardIds": [
+        "card.oceans.066.c3",
+        "card.oceans.038.c2"
+      ],
+      "prompt": "From Level 38: melting land ice raises sea level. How did that kind of rise, after the ice age, create Sydney Harbour?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Engineers dredged out a basin as the water rose",
+          "correct": false,
+          "rationale": "Sydney Harbour is natural, not dug."
+        },
+        {
+          "id": "b",
+          "label": "Floating ice carved a bay into the coast",
+          "correct": false,
+          "rationale": "Nothing carved it; the rising sea flooded a valley."
+        },
+        {
+          "id": "c",
+          "label": "Heavier seawater pressed the coastline down",
+          "correct": false,
+          "rationale": "The sea simply rose into a river valley."
+        },
+        {
+          "id": "d",
+          "label": "The sea flooded a river valley's lower end",
+          "correct": true
+        }
+      ],
+      "explanation": "As ice-age glaciers melted and sea level rose, the sea flooded the lower ends of river valleys, and Sydney Harbour is one of those drowned valleys.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.brit_mulberry_harbors",
+    "source.brit_harbor",
+    "source.natgeo_harbor",
+    "source.usgs_chesapeake_rising_sea",
+    "source.brit_ria",
+    "source.nsw_sydney_harbour_estuary",
+    "source.brit_port_jackson"
+  ],
+  "art": "ocean.anchor"
+}

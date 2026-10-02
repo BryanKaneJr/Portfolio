@@ -1,0 +1,221 @@
+{
+  "id": "level.world_systems.computers.087",
+  "skillId": "skill.world_systems.computers",
+  "number": 87,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Why Chatbots Make Things Up",
+  "objective": "After this level you can explain why a language model can state false things fluently, and check a chatbot's answer against a source.",
+  "summary": "A language model writes likely text, so it can confabulate: state falsehoods confidently, even fake citations. The check that works is a source outside the chatbot.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.llm_confabulation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.binary_addition",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.llm_tokens",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.086"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.087.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A lawyer asked the chatbot: is this case real? It said yes.",
+      "body": "In the 2023 Mata v. Avianca case, lawyers filed a brief citing court cases that ChatGPT had made up. One lawyer asked ChatGPT whether a case was real, and it said the case existed. It didn't. Why would a machine vouch for something it invented?"
+    },
+    {
+      "id": "card.computers.087.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Likely is not the same as true",
+      "body": "NIST's name for this is confabulation: confidently stated but false content, often called hallucinations. It's a natural result of how these models work: they produce text that fits the statistical patterns of their training data, one likely token after another. Level 7's adder gets 1 + 1 = 10 by fixed rules. Picking a likely next token follows no such rule for truth."
+    },
+    {
+      "id": "card.computers.087.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why guess instead of saying \"I don't know\"?",
+      "body": "A 2025 research paper offered one explanation. Like students facing a hard exam, models guess when they're unsure, because training and most evaluations reward guessing over admitting uncertainty. On a test graded only right or wrong, a blank scores nothing and a guess sometimes scores. So a confident wrong answer can look better on paper than an honest \"I don't know.\""
+    },
+    {
+      "id": "card.computers.087.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Check outside the chatbot",
+      "body": "NIST warns that these models can produce made-up citations that appear to back up an answer. So asking the chatbot \"are you sure?\" just asks the same guesser again. The check that works is outside it: find the source yourself and see that it exists and says what was claimed. The lawyer did search a free site for the case. He couldn't find it, and cited it anyway.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Keep this: a chatbot checking itself isn't a check. The source has to exist outside it."
+      }
+    },
+    {
+      "id": "card.computers.087.c5",
+      "type": "mcq",
+      "questionId": "question.computers.087.q1"
+    },
+    {
+      "id": "card.computers.087.c6",
+      "type": "mcq",
+      "questionId": "question.computers.087.q2"
+    },
+    {
+      "id": "card.computers.087.c7",
+      "type": "mcq",
+      "questionId": "question.computers.087.q3"
+    },
+    {
+      "id": "card.computers.087.c8",
+      "type": "checkpoint",
+      "headline": "Made-up answers: explained",
+      "learned": [
+        "Confabulation: false content, stated confidently",
+        "Models produce likely text, not checked text",
+        "Tests that reward guessing encourage bluffing",
+        "Check the source yourself, outside the chatbot"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.087.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.llm_confabulation"
+      ],
+      "sourceCardIds": [
+        "card.computers.087.c2"
+      ],
+      "prompt": "What does NIST call it when generative AI confidently presents false content?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Compression",
+          "correct": false,
+          "rationale": "Compression shrinks data; it has nothing to do with truth."
+        },
+        {
+          "id": "b",
+          "label": "Overfitting",
+          "correct": false,
+          "rationale": "Overfitting is memorizing a training set."
+        },
+        {
+          "id": "c",
+          "label": "Confabulation",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Encryption",
+          "correct": false,
+          "rationale": "Encryption scrambles data to keep it secret."
+        }
+      ],
+      "explanation": "NIST calls it confabulation: confidently stated but erroneous or false content, often called hallucinations.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.087.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.llm_confabulation"
+      ],
+      "sourceCardIds": [
+        "card.computers.087.c4",
+        "card.computers.087.c1"
+      ],
+      "prompt": "A chatbot gives you a quote and names the book it came from. What is the best way to check it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ask the chatbot whether it's sure",
+          "correct": false,
+          "rationale": "That asks the same guesser again; in 2023 one vouched for a case that didn't exist."
+        },
+        {
+          "id": "b",
+          "label": "Find the book yourself and look for the quote",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Trust it if the answer sounds confident",
+          "correct": false,
+          "rationale": "Confabulations are stated confidently too."
+        },
+        {
+          "id": "d",
+          "label": "Ask the same question again and compare",
+          "correct": false,
+          "rationale": "Two likely-sounding answers can both be invented."
+        }
+      ],
+      "explanation": "The check that works is outside the chatbot: find the source and see that it exists and says what was claimed.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.computers.087.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.llm_confabulation",
+        "concept.computers.binary_addition"
+      ],
+      "sourceCardIds": [
+        "card.computers.087.c2",
+        "card.computers.007.c2"
+      ],
+      "prompt": "Level 7's adder turns 1 + 1 into 10 every time by fixed rules. Why can a chatbot state a false fact just as confidently?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The adders inside its chips are broken and add wrongly",
+          "correct": false,
+          "rationale": "The hardware adds correctly; the text is predicted."
+        },
+        {
+          "id": "b",
+          "label": "It writes text that fits patterns in its data, true or not",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Its makers told it to mislead people on purpose",
+          "correct": false,
+          "rationale": "Confabulation is a natural result of prediction, not an order."
+        },
+        {
+          "id": "d",
+          "label": "It looks up every fact but misreads it",
+          "correct": false,
+          "rationale": "It predicts likely tokens rather than looking facts up."
+        }
+      ],
+      "explanation": "Generative models produce text that fits the statistical patterns of their training data, which can be false yet sound sure.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.findlaw_mata_v_avianca",
+    "source.vlabs_iitr_adders",
+    "source.hf_llm_course_inference",
+    "source.nist_ai_600_1_genai_profile",
+    "source.arxiv_kalai_2025_hallucinate"
+  ],
+  "art": "computers.bead-string"
+}

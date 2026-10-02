@@ -1,0 +1,240 @@
+{
+  "id": "level.mind.philosophy.002",
+  "skillId": "skill.mind.philosophy",
+  "number": 2,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Branches of Philosophy",
+  "objective": "After this level you can name the main branches of philosophy (metaphysics, epistemology, ethics, logic, aesthetics and political philosophy) and the question each one asks.",
+  "summary": "Metaphysics asks what exists, epistemology what we can know, ethics what is right, logic what is good reasoning, aesthetics what is beautiful, and political philosophy what makes a society just.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.branches",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.what_is_philosophy",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.001"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.002.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every philosophical question has a home address.",
+      "body": "Does anything truly exist? Is it wrong to lie? Is this painting beautiful? Different questions live in different branches. Here’s the map."
+    },
+    {
+      "id": "card.philosophy.002.c2",
+      "type": "comparison",
+      "headline": "The big three",
+      "items": [
+        {
+          "label": "Metaphysics",
+          "points": [
+            "What sorts of things exist?",
+            "What is the world made of?"
+          ]
+        },
+        {
+          "label": "Epistemology",
+          "points": [
+            "What is knowledge?",
+            "Can we trust our senses?"
+          ]
+        },
+        {
+          "label": "Ethics",
+          "points": [
+            "What makes an action right or wrong?",
+            "What makes a life good?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.philosophy.002.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A name that was an accident",
+      "body": "Metaphysics sounds mystical, but the name is a filing label. At least a century after Aristotle died, an editor, probably Andronicus of Rhodes, grouped some of his books as Ta meta ta phusika: “the ones after the physical ones”, meaning after his Physics. Aristotle never knew the word. The deepest-sounding branch of philosophy is named after a spot on a shelf."
+    },
+    {
+      "id": "card.philosophy.002.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three more branches",
+      "body": "Logic studies good and bad arguments and reasoning: the very tool Level 1 said philosophy runs on. Aesthetics is the theory of beauty and, more broadly, the philosophy of art. Political philosophy begins with one question: what should a person’s relationship to society be? From there it asks what makes a society just or unjust."
+    },
+    {
+      "id": "card.philosophy.002.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "One night, three branches",
+      "body": "Try the map on a single puzzle. You dream you’re flying. Does the dream world exist in any sense? That’s metaphysics. Can you be sure you’re awake right now? Epistemology. Is it fine to tell friends you really flew, to sound interesting? Ethics. One strange night, three branches, each asking its own kind of question."
+    },
+    {
+      "id": "card.philosophy.002.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.002.q1"
+    },
+    {
+      "id": "card.philosophy.002.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.002.q2"
+    },
+    {
+      "id": "card.philosophy.002.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.002.q3"
+    },
+    {
+      "id": "card.philosophy.002.c9",
+      "type": "checkpoint",
+      "headline": "The Branches of Philosophy: the big picture",
+      "learned": [
+        "Metaphysics: what exists",
+        "Epistemology: what we can know",
+        "Ethics: right, wrong and the good life",
+        "Logic, aesthetics and political philosophy"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.002.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.branches"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.002.c2"
+      ],
+      "prompt": "Which branch of philosophy studies knowledge and whether we can trust our senses?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Metaphysics",
+          "correct": false,
+          "rationale": "That asks what exists."
+        },
+        {
+          "id": "b",
+          "label": "Epistemology",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Aesthetics",
+          "correct": false,
+          "rationale": "That studies beauty and art."
+        },
+        {
+          "id": "d",
+          "label": "Ethics",
+          "correct": false,
+          "rationale": "That asks what is right or wrong."
+        }
+      ],
+      "explanation": "Epistemology, from the Greek episteme (knowledge), studies knowledge, evidence and justified belief.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.philosophy.002.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.branches"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.002.c3"
+      ],
+      "prompt": "Why is metaphysics called metaphysics?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Aristotle named it after magic",
+          "correct": false,
+          "rationale": "Aristotle never knew the word."
+        },
+        {
+          "id": "b",
+          "label": "It studies things beyond physics experiments",
+          "correct": false,
+          "rationale": "That’s a later impression, not the origin."
+        },
+        {
+          "id": "c",
+          "label": "An editor titled Aristotle’s books “after the physical ones”",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It was the first subject Greek students learned",
+          "correct": false,
+          "rationale": "The title placed it after the Physics."
+        }
+      ],
+      "explanation": "An editor, probably Andronicus of Rhodes, grouped the books as Ta meta ta phusika, the ones after Aristotle’s Physics.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.philosophy.002.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.branches",
+        "concept.philosophy.what_is_philosophy"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.002.c2",
+        "card.philosophy.001.c2"
+      ],
+      "prompt": "Level 1 said philosophers ask whether a law is fair. Which of these branches asks whether an action is right or wrong?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Logic",
+          "correct": false,
+          "rationale": "Logic studies reasoning."
+        },
+        {
+          "id": "b",
+          "label": "Epistemology",
+          "correct": false,
+          "rationale": "Epistemology studies knowledge."
+        },
+        {
+          "id": "c",
+          "label": "Metaphysics",
+          "correct": false,
+          "rationale": "Metaphysics studies what exists."
+        },
+        {
+          "id": "d",
+          "label": "Ethics",
+          "correct": true
+        }
+      ],
+      "explanation": "Ethics, or moral philosophy, asks what makes actions right or wrong and what makes a life good.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.kwp_what_is_philosophy",
+    "source.iep_argument",
+    "source.sep_metaphysics",
+    "source.sep_epistemology",
+    "source.iep_aesthetics",
+    "source.iep_political_philosophy"
+  ],
+  "art": "plant.tree"
+}

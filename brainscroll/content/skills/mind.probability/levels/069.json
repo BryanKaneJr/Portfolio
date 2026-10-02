@@ -1,0 +1,216 @@
+{
+  "id": "level.mind.probability.069",
+  "skillId": "skill.mind.probability",
+  "number": 69,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Do It Again: Replication",
+  "objective": "After this level you can explain why one study is rarely enough and what happened when scientists tried to repeat published results.",
+  "summary": "Luck can pass a 5% test, so one study is a clue, not proof. When 100 psychology studies were repeated in 2015, 36% of repeats were significant against 97% of originals.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.replication_one_study_not_enough",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.replication_osc_2015",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.significance_p_value",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.mackowiak_1992",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.068"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.069.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Scientists redid 100 published studies. Most weren't significant again.",
+      "body": "It happened in 2015, and every one of the originals had been published in a psychology journal. So why would a repeat fail? The answer starts with what a single significant result can and can't tell you."
+    },
+    {
+      "id": "card.probability.069.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Luck passes the test sometimes",
+      "body": "Level 67's 5% line has a built-in catch. If nothing at all is going on, a test will still come out significant about 5 times in 100 by chance alone. Fisher saw it coming in 1935: no single experiment, however significant, can prove a natural phenomenon. What counts is knowing how to run an experiment that will rarely fail to give a significant result."
+    },
+    {
+      "id": "card.probability.069.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The big repeat",
+      "body": "In 2015, a large team called the Open Science Collaboration put published findings to that test. They repeated 100 experimental and correlational studies from three psychology journals. Of the originals, 97% had statistically significant results. Of the repeats, 36% did. And on average, the repeat effects were half the size of the original ones."
+    },
+    {
+      "id": "card.probability.069.c4",
+      "type": "fact",
+      "fact": "One study is a clue. A repeat is how you check it.",
+      "context": "Replication is how science sorts sturdy results from lucky ones. In the 2015 project, whether a result came back was better predicted by how strong the original evidence was than by who ran the original or repeat studies. Strong evidence tended to hold up; weak evidence tended to fade."
+    },
+    {
+      "id": "card.probability.069.c5",
+      "type": "mcq",
+      "questionId": "question.probability.069.q1"
+    },
+    {
+      "id": "card.probability.069.c6",
+      "type": "mcq",
+      "questionId": "question.probability.069.q2"
+    },
+    {
+      "id": "card.probability.069.c7",
+      "type": "recall",
+      "questionId": "question.probability.069.q3"
+    },
+    {
+      "id": "card.probability.069.c8",
+      "type": "checkpoint",
+      "headline": "Replication",
+      "learned": [
+        "Luck passes a 5% test about 5 times in 100",
+        "One study is a clue, not proof",
+        "2015: 97% of originals, 36% of repeats significant"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.069.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.replication_osc_2015"
+      ],
+      "sourceCardIds": [
+        "card.probability.069.c3"
+      ],
+      "prompt": "When the Open Science Collaboration repeated 100 psychology studies in 2015, what share of the repeats came out significant?",
+      "options": [
+        {
+          "id": "a",
+          "label": "100%",
+          "correct": false,
+          "rationale": "Far from all: most repeats weren't significant."
+        },
+        {
+          "id": "b",
+          "label": "97%",
+          "correct": false,
+          "rationale": "97% is the share of the original studies that were significant."
+        },
+        {
+          "id": "c",
+          "label": "50%",
+          "correct": false,
+          "rationale": "Half is the size of the repeat effects compared with the originals, not the share."
+        },
+        {
+          "id": "d",
+          "label": "36%",
+          "correct": true
+        }
+      ],
+      "explanation": "97% of the originals were significant, but only 36% of the repeats.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.069.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.replication_one_study_not_enough"
+      ],
+      "sourceCardIds": [
+        "card.probability.069.c2"
+      ],
+      "prompt": "Why can't a single significant study settle a question?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Journals only print one study per topic",
+          "correct": false,
+          "rationale": "Journals print many studies; the issue is chance."
+        },
+        {
+          "id": "b",
+          "label": "With no real effect, about 5 tests in 100 still come out significant",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Significance wears off as a study gets older",
+          "correct": false,
+          "rationale": "Results don't decay; lucky ones just fail to repeat."
+        },
+        {
+          "id": "d",
+          "label": "A single study can't include a control group",
+          "correct": false,
+          "rationale": "Single studies can have control groups; chance is the problem."
+        }
+      ],
+      "explanation": "At a 5% line, luck alone makes about 5 in 100 tests significant when nothing is going on. A repeat shows whether a result was one of them.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.069.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.mackowiak_1992",
+        "concept.probability.replication_one_study_not_enough"
+      ],
+      "sourceCardIds": [
+        "card.probability.009.c4",
+        "card.probability.069.c4"
+      ],
+      "prompt": "In Level 9, a 1992 team measured body temperature again and got 98.2°F, not the famous 98.6°F. What were they doing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Checking an old result by repeating the measurement",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Running the first-ever body temperature study",
+          "correct": false,
+          "rationale": "Wunderlich's study came over a century earlier; they were re-checking it."
+        },
+        {
+          "id": "c",
+          "label": "Converting Celsius to Fahrenheit more carefully",
+          "correct": false,
+          "rationale": "They took new readings, 700 of them, rather than redoing the arithmetic."
+        },
+        {
+          "id": "d",
+          "label": "Testing a new fever medicine against a placebo",
+          "correct": false,
+          "rationale": "No treatment was tested; they re-measured healthy adults."
+        }
+      ],
+      "explanation": "Taking fresh measurements to see if an old result holds up is replication: one study is a clue, a repeat checks it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.fisher_design_of_experiments_1935",
+    "source.science_osc_reproducibility_2015"
+  ],
+  "art": "chem.test-tubes"
+}

@@ -1,0 +1,221 @@
+{
+  "id": "level.mind.psychology.036",
+  "skillId": "skill.mind.psychology",
+  "number": 36,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Study Tricks That Work",
+  "objective": "After this level you can explain the spacing and testing effects and why rereading works less well than it feels.",
+  "summary": "Practice testing and spaced study beat rereading and cramming. Retrieving a memory strengthens it, even though restudying feels more reassuring.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.memory_testing_effect",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.memory_spacing_effect",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.memory_forgetting_curve",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.035"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.036.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Rereading your notes feels like studying. Research says it barely helps.",
+      "body": "Most students reread and highlight, yet these habits don't consistently boost performance. Two other techniques do, and the evidence for them is strong."
+    },
+    {
+      "id": "card.psychology.036.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Testing beats restudying",
+      "body": "In a 2006 study by Roediger and Karpicke, students read prose passages, then either took recall tests or restudied the same material. Five minutes later, the restudiers did better. But two days or a week later, the tested students remembered substantially more, even though restudying made students more confident. The act of pulling a memory out makes it easier to pull out again: the testing effect."
+    },
+    {
+      "id": "card.psychology.036.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Spacing beats cramming",
+      "body": "Distributed practice means studying in several short sessions spread over time instead of one long cram. Memory consolidation takes time, and spacing gives memories that time. Ebbinghaus ran the first study of this spacing effect, and it is arguably the most replicable finding in experimental psychology."
+    },
+    {
+      "id": "card.psychology.036.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The 2013 verdict",
+      "body": "A 2013 review led by John Dunlosky rated ten popular study techniques. Only two earned the top rating of high utility: practice testing and distributed practice. They helped learners of different ages and abilities on many kinds of tasks. Rereading and highlighting were rated low, and the advice was blunt: use practice testing instead of rereading.",
+      "mascot": {
+        "pose": "thumbs-up",
+        "line": "Every question you answer here is practice testing. Now you know why the questions come after the cards."
+      }
+    },
+    {
+      "id": "card.psychology.036.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.036.q1"
+    },
+    {
+      "id": "card.psychology.036.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.036.q2"
+    },
+    {
+      "id": "card.psychology.036.c7",
+      "type": "recall",
+      "questionId": "question.psychology.036.q3"
+    },
+    {
+      "id": "card.psychology.036.c8",
+      "type": "checkpoint",
+      "headline": "Study tricks that work",
+      "learned": [
+        "Practice tests beat restudying on delayed tests",
+        "Retrieving a memory strengthens it",
+        "Spaced sessions beat cramming",
+        "Rereading and highlighting rated low utility"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.036.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.memory_spacing_effect",
+        "concept.psychology.memory_testing_effect"
+      ],
+      "sourceCardIds": [
+        "card.psychology.036.c4"
+      ],
+      "prompt": "Which two study techniques did the 2013 review of ten techniques rate as high utility?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rereading and highlighting",
+          "correct": false,
+          "rationale": "Both were rated low utility."
+        },
+        {
+          "id": "b",
+          "label": "Summarizing and highlighting",
+          "correct": false,
+          "rationale": "Highlighting was rated low utility."
+        },
+        {
+          "id": "c",
+          "label": "Practice testing and distributed practice",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Cramming and rereading",
+          "correct": false,
+          "rationale": "Cramming is the opposite of distributed practice, and rereading was rated low."
+        }
+      ],
+      "explanation": "Only practice testing and distributed practice earned high utility; rereading and highlighting were rated low.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.036.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.memory_testing_effect"
+      ],
+      "sourceCardIds": [
+        "card.psychology.036.c2"
+      ],
+      "prompt": "According to research on the testing effect, how does taking a practice test help you remember?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It makes you feel more confident",
+          "correct": false,
+          "rationale": "Restudying raised confidence more, yet tested students remembered more."
+        },
+        {
+          "id": "b",
+          "label": "Retrieving a memory makes it easier to retrieve again",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It shows you the material one more time",
+          "correct": false,
+          "rationale": "That describes restudying; the benefit came from recalling."
+        },
+        {
+          "id": "d",
+          "label": "It works best when the exam is minutes away",
+          "correct": false,
+          "rationale": "At five minutes, restudying actually did better."
+        }
+      ],
+      "explanation": "Pulling a memory out strengthens it. In the 2006 study, tested students remembered more after days or a week, even though restudying felt better.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.psychology.036.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.memory_spacing_effect",
+        "concept.psychology.memory_forgetting_curve"
+      ],
+      "sourceCardIds": [
+        "card.psychology.036.c3",
+        "card.psychology.035.c1"
+      ],
+      "prompt": "Ebbinghaus, who charted the forgetting curve in Level 35, also ran the first study of which effect?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The testing effect",
+          "correct": false,
+          "rationale": "This level credits the testing effect to research like Roediger and Karpicke's 2006 study."
+        },
+        {
+          "id": "b",
+          "label": "Context-dependent memory",
+          "correct": false,
+          "rationale": "That's the 1975 divers study from Level 34."
+        },
+        {
+          "id": "c",
+          "label": "Chunking",
+          "correct": false,
+          "rationale": "Chunking is Level 32's working memory idea."
+        },
+        {
+          "id": "d",
+          "label": "The spacing effect",
+          "correct": true
+        }
+      ],
+      "explanation": "Ebbinghaus ran the first study of the spacing effect: memory lasts better when learning is spread out over time.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.psychsci_roediger_karpicke_2006",
+    "source.noba_memory_encoding_retrieval",
+    "source.openstax_psych_memory_enhance",
+    "source.childdev_vlach_spacing_effect",
+    "source.pspi_dunlosky_learning_techniques_2013"
+  ],
+  "art": "object.book"
+}

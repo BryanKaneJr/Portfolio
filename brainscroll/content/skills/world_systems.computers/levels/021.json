@@ -1,0 +1,213 @@
+{
+  "id": "level.world_systems.computers.021",
+  "skillId": "skill.world_systems.computers",
+  "number": 21,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Spell Out Every Step",
+  "objective": "After this level you can explain why a program must spell out every step exactly, because a computer never fills in what you meant.",
+  "summary": "A computer is powerful but literal: every step must be defined for every case, as Knuth's test of definiteness says, or a units mix-up can lose a spacecraft at Mars.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.software_exact_steps",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.fetch_decode_execute",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.020"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.021.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1999, a spacecraft was lost at Mars over one unspoken word: the unit.",
+      "body": "Two pieces of Mars Climate Orbiter's ground software each assumed a different system of units. Neither program could notice the other's assumption. To see why not, start with what a computer really does with your instructions."
+    },
+    {
+      "id": "card.computers.021.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Powerful, and completely literal",
+      "body": "Stanford's CS101 course sums up a computer as \"Powerful + Stupid\". It can run billions of operations a second, but each one is simple and mechanical, like adding or comparing two numbers. There is no insight in there, no sense of what you meant. So a person has to break every task into steps that small and spell them out. The computer brings the speed; you bring the understanding."
+    },
+    {
+      "id": "card.computers.021.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A recipe isn't a program",
+      "body": "The computer scientist Donald Knuth set a test for any algorithm, called definiteness: every step must be precisely defined, with its action spelled out for each case. Recipes fail it. \"Add a dash of salt\" works for a cook, but how much is a dash, and where does it go? That's why programs are written in formal languages where every statement has one definite meaning, and why code must follow its rules exactly or it won't run at all.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: a step a person would understand isn't enough. For a computer, it has to leave nothing to guess."
+      }
+    },
+    {
+      "id": "card.computers.021.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What the orbiter was never told",
+      "body": "One piece of Mars Climate Orbiter's ground software reported thruster data in English units, while the navigation software that used it expected metric, and nothing translated between them. The mismatched numbers threw off the trajectory calculations and sent the spacecraft too close to Mars. The last contact came on 23 September 1999; it burned up in the planet's atmosphere. Each program followed its steps faithfully. No step said which unit."
+    },
+    {
+      "id": "card.computers.021.c5",
+      "type": "mcq",
+      "questionId": "question.computers.021.q1"
+    },
+    {
+      "id": "card.computers.021.c6",
+      "type": "mcq",
+      "questionId": "question.computers.021.q2"
+    },
+    {
+      "id": "card.computers.021.c7",
+      "type": "mcq",
+      "questionId": "question.computers.021.q3"
+    },
+    {
+      "id": "card.computers.021.c8",
+      "type": "checkpoint",
+      "headline": "Every step: spelled out",
+      "learned": [
+        "A computer runs simple steps with no sense of what you meant",
+        "Knuth's definiteness: every step precise, for every case",
+        "Recipes and everyday words are too loose for a computer",
+        "Mars Climate Orbiter was lost to an unstated unit"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.021.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.software_exact_steps"
+      ],
+      "sourceCardIds": [
+        "card.computers.021.c4"
+      ],
+      "prompt": "What mismatch doomed Mars Climate Orbiter in 1999?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its ground software ran too slowly to keep up",
+          "correct": false,
+          "rationale": "Speed wasn't the problem; the units were."
+        },
+        {
+          "id": "b",
+          "label": "Thruster data in English units fed software expecting metric",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Its memory filled up with data on the long trip to Mars",
+          "correct": false,
+          "rationale": "The fault was a units mismatch in the software."
+        },
+        {
+          "id": "d",
+          "label": "Two teams aimed it at different planets",
+          "correct": false,
+          "rationale": "Both aimed for Mars; the numbers were read in the wrong units."
+        }
+      ],
+      "explanation": "Ground software reported thruster data in English units while the trajectory software expected metric, and nothing translated between them.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.computers.021.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.software_exact_steps"
+      ],
+      "sourceCardIds": [
+        "card.computers.021.c4"
+      ],
+      "prompt": "How did a units mix-up end up sending the orbiter too close to Mars?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The processor spotted the mismatch and switched itself off",
+          "correct": false,
+          "rationale": "Nothing noticed the mismatch; the software just computed."
+        },
+        {
+          "id": "b",
+          "label": "The spacecraft's engines refused metric commands",
+          "correct": false,
+          "rationale": "The problem was in the calculations, not the engines."
+        },
+        {
+          "id": "c",
+          "label": "Numbers in the wrong units threw off the trajectory calculations",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Mars's gravity changed during the trip",
+          "correct": false,
+          "rationale": "The spacecraft's path was miscalculated, not Mars."
+        }
+      ],
+      "explanation": "The mismatched numbers went into the trajectory calculations, which came out wrong and sent the spacecraft too close to Mars.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.021.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.software_exact_steps",
+        "concept.computers.fetch_decode_execute"
+      ],
+      "sourceCardIds": [
+        "card.computers.021.c2",
+        "card.computers.008.c2"
+      ],
+      "prompt": "Level 8's processor fetches, decodes and executes each instruction. Why can't it catch a step that says the wrong thing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It runs simple, mechanical steps with no sense of what you meant",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its clock runs too fast to double-check anything",
+          "correct": false,
+          "rationale": "Speed isn't the issue; it has no insight to check with."
+        },
+        {
+          "id": "c",
+          "label": "It skips any instruction it doesn't trust",
+          "correct": false,
+          "rationale": "It executes whatever instruction it decodes."
+        },
+        {
+          "id": "d",
+          "label": "It only checks the first instruction of each program",
+          "correct": false,
+          "rationale": "It checks nothing about meaning; it just executes."
+        }
+      ],
+      "explanation": "Each operation is simple and mechanical, like adding or comparing two numbers. The processor runs the steps; it has no idea what they were meant to do.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_mars_climate_orbiter",
+    "source.stanford_cs101_code_intro",
+    "source.informit_knuth_algorithms"
+  ],
+  "art": "mind.clipboard"
+}

@@ -1,0 +1,221 @@
+{
+  "id": "level.geography.earth_climate.091",
+  "skillId": "skill.geography.earth_climate",
+  "number": 91,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "How a Forecast Is Made",
+  "objective": "After this level you can explain how weather balloons, radar, satellites and computer models turn observations into a forecast.",
+  "summary": "A forecast starts with a snapshot of the atmosphere from weather balloons, Doppler radar and satellites; a computer model then solves the physics step by step into the future.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.forecast_observations",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.forecast_models",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.earth_spheres",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.090"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.091.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Twice a day, weather balloons rise at the same moment all over the world.",
+      "body": "Every forecast begins with a snapshot of the whole atmosphere, taken at once. Balloons, radar and satellites take the picture. A computer turns it into tomorrow."
+    },
+    {
+      "id": "card.earth_climate.091.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The balloon that phones home",
+      "body": "Hanging under each balloon is a radiosonde, a small box of instruments. Every second it radios back the air pressure, temperature and humidity, plus its GPS position; tracking that position gives the wind. It can climb past 35 km, drawing a thin line of readings up through the sky. The National Weather Service launches from 92 stations, in step with hundreds more around the world."
+    },
+    {
+      "id": "card.earth_climate.091.c3",
+      "type": "fact",
+      "fact": "A weather radar transmits for only about 7 seconds an hour. The rest of the time, it listens.",
+      "context": "Each pulse scatters off raindrops, snow, hail, even bugs, and a sliver bounces back. The echo's strength and travel time show what's out there and how far away. Its Doppler shift, the effect that changes a passing train whistle's pitch, shows whether the target is moving toward or away from the radar."
+    },
+    {
+      "id": "card.earth_climate.091.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A satellite that never looks away",
+      "body": "GOES weather satellites orbit 22,236 miles above the Equator, moving exactly as fast as Earth turns. So each one hangs over the same region and watches it without a break. Balloons give you thin lines through the air; the satellite gives you the whole scene from above, all day and all night."
+    },
+    {
+      "id": "card.earth_climate.091.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "The model does the math",
+      "body": "Now a computer takes over. A weather model pulls in observations from satellites, aircraft, balloons and even backyard weather stations to build a picture of the atmosphere right now. Then it solves the equations of physics for temperature, dew point, wind and more, at the ground and at many layers above. It takes one small step forward in time, feeds the answer back in and repeats, over and over, until it reaches days ahead."
+    },
+    {
+      "id": "card.earth_climate.091.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.091.q1"
+    },
+    {
+      "id": "card.earth_climate.091.c7",
+      "type": "mcq",
+      "questionId": "question.earth_climate.091.q2"
+    },
+    {
+      "id": "card.earth_climate.091.c8",
+      "type": "recall",
+      "questionId": "question.earth_climate.091.q3"
+    },
+    {
+      "id": "card.earth_climate.091.c9",
+      "type": "checkpoint",
+      "headline": "Forecast ingredients: gathered",
+      "learned": [
+        "Balloons sample the air every second",
+        "Doppler radar finds rain and its motion",
+        "Satellites watch one region nonstop",
+        "Models step physics forward in time"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.091.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.forecast_observations"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.091.c3"
+      ],
+      "prompt": "A radar tracks a band of storms. What does the Doppler shift of its echoes reveal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The storms' temperature",
+          "correct": false,
+          "rationale": "Radar doesn't take temperatures; radiosondes do."
+        },
+        {
+          "id": "b",
+          "label": "Whether the rain is moving toward or away",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "How salty the raindrops are",
+          "correct": false,
+          "rationale": "Radar reads echoes, not chemistry."
+        },
+        {
+          "id": "d",
+          "label": "The air pressure inside the storm",
+          "correct": false,
+          "rationale": "Pressure readings come from radiosondes."
+        }
+      ],
+      "explanation": "The Doppler shift of a returning pulse shows whether the target is moving toward or away from the radar.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.091.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.forecast_models"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.091.c5"
+      ],
+      "prompt": "How does a weather model get from today's observations to a forecast several days ahead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It copies a past day that looked similar",
+          "correct": false,
+          "rationale": "It solves physics equations rather than copying the past."
+        },
+        {
+          "id": "b",
+          "label": "It extends today's temperature trend in a line",
+          "correct": false,
+          "rationale": "The model calculates temperature, wind and more from physics."
+        },
+        {
+          "id": "c",
+          "label": "It solves one short time step, feeds it back in and repeats",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Satellites photograph tomorrow's clouds early",
+          "correct": false,
+          "rationale": "Satellites see the present, not the future."
+        }
+      ],
+      "explanation": "A model starts from observations, solves the physics for a short step ahead, feeds the result back in and repeats until it reaches days ahead.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.091.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.earth_spheres",
+        "concept.earth_climate.forecast_observations"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.001.c2",
+        "card.earth_climate.091.c3"
+      ],
+      "prompt": "Radar echoes bounce off raindrops, snowflakes and hail up in the air. Which of Level 1's spheres do those belong to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The atmosphere, since they're in the air",
+          "correct": false,
+          "rationale": "The air is the atmosphere, but its water belongs to another sphere."
+        },
+        {
+          "id": "b",
+          "label": "The geosphere",
+          "correct": false,
+          "rationale": "That's the solid, rocky Earth."
+        },
+        {
+          "id": "c",
+          "label": "The biosphere",
+          "correct": false,
+          "rationale": "Bugs would count, but raindrops aren't alive."
+        },
+        {
+          "id": "d",
+          "label": "The hydrosphere, which includes water in the air",
+          "correct": true
+        }
+      ],
+      "explanation": "The hydrosphere is all of Earth's water, liquid, vapor or ice, including the rain, snow and hail a radar sees.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nws_radiosonde_facts",
+    "source.nws_iwx_wsr88d",
+    "source.nesdis_geostationary",
+    "source.nws_about_models"
+  ],
+  "art": "earth.radar-dome"
+}

@@ -1,0 +1,218 @@
+{
+  "id": "level.world_systems.computers.097",
+  "skillId": "skill.world_systems.computers",
+  "number": 97,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Open or Closed Software?",
+  "objective": "After this level you can weigh the trade-offs between open-source and closed software for security, cost and control.",
+  "summary": "Open-source code can be read, changed and shared by anyone; closed code stays secret. Log4j (2021) and Windows 10's 2025 end of support show each model's risks.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.techcheck_open_source_meaning",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.techcheck_open_closed_tradeoffs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.photo_journey",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.096"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.097.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some software lets anyone read its recipe. Some keeps it locked.",
+      "body": "Level 1 said software is the instructions that tell hardware what to do. Some makers publish those instructions for everyone; others keep them private. Which is safer, cheaper or better? It depends on what you're weighing."
+    },
+    {
+      "id": "card.computers.097.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "What 'open' means",
+      "body": "Under the Open Source Definition, open-source software must come with its source code, the human-readable instructions, and its license must let anyone give it away or sell it, change it and share changed versions. Closed-source software publishes only the finished program and keeps its source code secret. Open doesn't have to mean free of charge. It means nobody can stop you reading, changing and passing it on."
+    },
+    {
+      "id": "card.computers.097.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Security: many eyes, few hands",
+      "body": "Anyone may inspect open code, and in November 2021 an outside security engineer reported a critical flaw in Log4j, open-source software used very broadly across services, websites and apps. It could let an attacker take control of a system. A US review board later found that projects like Log4j generally rely on volunteer teams without dedicated security resources. Open code gets many eyes; fixing it may rest on few hands."
+    },
+    {
+      "id": "card.computers.097.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Control: who decides when it ends?",
+      "body": "Closed software depends on its maker's choices. Windows 10 reached end of support on October 14, 2025: the PCs still work, but they no longer get security updates, apart from an extended program running to October 2027. With open code, anyone is allowed to keep maintaining a program. Each model trades one risk for another: who pays for the fixes, and who decides when they stop."
+    },
+    {
+      "id": "card.computers.097.c5",
+      "type": "mcq",
+      "questionId": "question.computers.097.q1"
+    },
+    {
+      "id": "card.computers.097.c6",
+      "type": "mcq",
+      "questionId": "question.computers.097.q2"
+    },
+    {
+      "id": "card.computers.097.c7",
+      "type": "mcq",
+      "questionId": "question.computers.097.q3"
+    },
+    {
+      "id": "card.computers.097.c8",
+      "type": "checkpoint",
+      "headline": "Open or closed: weighed",
+      "learned": [
+        "Open source comes with code anyone may read, change and share",
+        "Closed source keeps its code secret",
+        "Log4j (2021) showed open code can rest on volunteers",
+        "Windows 10's 2025 end of support showed closed code rests on its maker"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.097.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.techcheck_open_source_meaning"
+      ],
+      "sourceCardIds": [
+        "card.computers.097.c2"
+      ],
+      "prompt": "Under the Open Source Definition, what must open-source software come with?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its source code, with the right to change and share it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A written promise that it contains no bugs",
+          "correct": false,
+          "rationale": "Open code can have serious flaws, like Log4j's."
+        },
+        {
+          "id": "c",
+          "label": "A guarantee that it will always cost nothing",
+          "correct": false,
+          "rationale": "Open source may even be sold."
+        },
+        {
+          "id": "d",
+          "label": "A paid support contract from its authors",
+          "correct": false,
+          "rationale": "Support isn't part of the definition."
+        }
+      ],
+      "explanation": "Open-source software comes with its source code, and anyone may share, sell, change and redistribute it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.097.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.techcheck_open_closed_tradeoffs"
+      ],
+      "sourceCardIds": [
+        "card.computers.097.c3",
+        "card.computers.097.c4"
+      ],
+      "prompt": "A small charity is choosing between an open-source tool and a closed one. Which is the fairest summary of the security trade-off?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Open source is always safer because anyone can read it",
+          "correct": false,
+          "rationale": "Log4j shows flaws can hide in widely read code."
+        },
+        {
+          "id": "b",
+          "label": "Closed software never stops getting updates",
+          "correct": false,
+          "rationale": "Windows 10's support ended in 2025."
+        },
+        {
+          "id": "c",
+          "label": "Open code is inspectable but may rest on volunteers; closed rests on its maker",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Neither can ever have a serious flaw",
+          "correct": false,
+          "rationale": "Log4j had a critical one."
+        }
+      ],
+      "explanation": "Anyone can inspect open code, but volunteers may maintain it; closed software depends on its maker's support decisions.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.computers.097.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.techcheck_open_source_meaning",
+        "concept.computers.photo_journey"
+      ],
+      "sourceCardIds": [
+        "card.computers.097.c2",
+        "card.computers.001.c3"
+      ],
+      "prompt": "Level 1 says software is the instructions that tell hardware what to do. What does open-source software let anyone read?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The circuit diagrams of the hardware it runs on",
+          "correct": false,
+          "rationale": "Open source is about software instructions."
+        },
+        {
+          "id": "b",
+          "label": "The personal files of everyone who uses it",
+          "correct": false,
+          "rationale": "Openness covers the code, not users' data."
+        },
+        {
+          "id": "c",
+          "label": "Only a summary of what it does",
+          "correct": false,
+          "rationale": "The full source code is available."
+        },
+        {
+          "id": "d",
+          "label": "Those instructions, as human-readable source code",
+          "correct": true
+        }
+      ],
+      "explanation": "Open-source software publishes its source code: the program's instructions, written so people can read them.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_software",
+    "source.osi_open_source_definition",
+    "source.brit_open_source",
+    "source.csrb_log4j_2022",
+    "source.cisa_log4j_guidance",
+    "source.microsoft_windows10_eos"
+  ],
+  "art": "computers.toolbox"
+}

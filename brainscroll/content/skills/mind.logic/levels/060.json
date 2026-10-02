@@ -1,0 +1,345 @@
+{
+  "id": "level.mind.logic.060",
+  "skillId": "skill.mind.logic",
+  "number": 60,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "published",
+  "title": "Checkpoint: Traps in Our Reasoning",
+  "objective": "After this level you can name the reasoning traps that catch careful people and a habit that counters each one.",
+  "summary": "Feynman's first principle, don't fool yourself, ties the chapter together. Each trap has a habit that counters it: hunt for the no, switch sides, draw the target first, ask compared with what.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.trap_feynman_fool_yourself",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.trap_seeking_disconfirmation",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.trap_draw_target_first",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.trap_compared_with_what",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.trap_switch_sides_test",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.trap_bias_blind_spot",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.trap_can_i_must_i",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.trap_introspection_illusion",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.059"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Richard Feynman's first rule for thinking: don't fool yourself.",
+      "body": "The physicist gave that advice to new Caltech graduates in 1974, and added that you are the easiest person to fool. Nine levels of traps later, you know exactly why. Let's line them up.",
+      "id": "card.logic.060.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Leaning over backwards",
+      "body": "Feynman described scientific integrity as a kind of utter honesty, a leaning over backwards. If you do an experiment, report everything that might make it invalid. If you put out a theory, put down the facts that disagree with it as well as those that agree. That's Bacon's negative instance, turned into a rule for honest work: the misses get counted along with the hits.",
+      "id": "card.logic.060.c2"
+    },
+    {
+      "type": "comparison",
+      "headline": "Every trap in this chapter has a habit that counters it",
+      "items": [
+        {
+          "label": "What you notice",
+          "points": [
+            "Confirmation bias: go looking for a no",
+            "Texas sharpshooter: draw the target first"
+          ]
+        },
+        {
+          "label": "How you judge",
+          "points": [
+            "Motivated reasoning: ask \"Must I?\" of both sides",
+            "Double standard: switch sides",
+            "Blind spot: judge yourself by your behavior"
+          ]
+        },
+        {
+          "label": "What counts as a reason",
+          "points": [
+            "Nature or tradition: ask why, not where from",
+            "Perfect solution: compared with what?",
+            "Confidence: ask for the reason"
+          ]
+        }
+      ],
+      "id": "card.logic.060.c3"
+    },
+    {
+      "id": "card.logic.060.c4",
+      "type": "mcq",
+      "questionId": "question.logic.060.q1"
+    },
+    {
+      "id": "card.logic.060.c5",
+      "type": "mcq",
+      "questionId": "question.logic.060.q2"
+    },
+    {
+      "id": "card.logic.060.c6",
+      "type": "recall",
+      "questionId": "question.logic.060.q3"
+    },
+    {
+      "id": "card.logic.060.c7",
+      "type": "recall",
+      "questionId": "question.logic.060.q4"
+    },
+    {
+      "id": "card.logic.060.c8",
+      "type": "recall",
+      "questionId": "question.logic.060.q5"
+    },
+    {
+      "id": "card.logic.060.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 6 complete",
+      "learned": [
+        "How confirmation bias and motivated reasoning bend evidence, and the habits that straighten it.",
+        "Why a double standard hides from the inside, and how the switch-sides test catches it.",
+        "What makes nature, tradition, perfection or confidence weak reasons on their own.",
+        "Why everyone has a bias blind spot, and why being smart doesn't remove it."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.060.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.trap_feynman_fool_yourself"
+      ],
+      "sourceCardIds": [
+        "card.logic.060.c2"
+      ],
+      "prompt": "In his 1974 Caltech address, what did Richard Feynman call the first principle?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Always trust the experts",
+          "correct": false,
+          "rationale": "His principle points inward, at yourself."
+        },
+        {
+          "id": "b",
+          "label": "Never publish a failed experiment",
+          "correct": false,
+          "rationale": "He urged reporting what could make results invalid."
+        },
+        {
+          "id": "c",
+          "label": "You must not fool yourself",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Science is mostly luck",
+          "correct": false,
+          "rationale": "He said nothing of the kind."
+        }
+      ],
+      "explanation": "Feynman: the first principle is that you must not fool yourself, and you are the easiest person to fool.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.060.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.trap_feynman_fool_yourself"
+      ],
+      "sourceCardIds": [
+        "card.logic.060.c2"
+      ],
+      "prompt": "Why did Feynman want scientists to report the facts that disagree with their theory?",
+      "options": [
+        {
+          "id": "a",
+          "label": "So the misses get counted along with the hits",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "So their papers would be longer",
+          "correct": false,
+          "rationale": "Length isn't the point; honesty is."
+        },
+        {
+          "id": "c",
+          "label": "So other scientists would stop checking",
+          "correct": false,
+          "rationale": "Reporting invites checking."
+        },
+        {
+          "id": "d",
+          "label": "So the theory would always be rejected",
+          "correct": false,
+          "rationale": "Disagreeing facts are weighed, not automatic vetoes."
+        }
+      ],
+      "explanation": "Reporting what disagrees is Bacon's negative instance as a working rule: count the misses with the hits.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.060.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.trap_draw_target_first"
+      ],
+      "sourceCardIds": [
+        "card.logic.057.c4"
+      ],
+      "prompt": "Traps in Our Reasoning recap: which habit counters the Texas sharpshooter fallacy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ask how sure the speaker sounds",
+          "correct": false,
+          "rationale": "That's about confidence, not targets."
+        },
+        {
+          "id": "b",
+          "label": "Look only at the tightest cluster",
+          "correct": false,
+          "rationale": "That's the fallacy itself."
+        },
+        {
+          "id": "c",
+          "label": "Wait until all the results are in, then decide what counts",
+          "correct": false,
+          "rationale": "Deciding afterward is how the target gets drawn."
+        },
+        {
+          "id": "d",
+          "label": "Decide what counts as a hit before looking",
+          "correct": true
+        }
+      ],
+      "explanation": "Set your definitions first, as CDC guidance tells cluster investigators, so you can't draw the target afterward.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.060.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.trap_compared_with_what"
+      ],
+      "sourceCardIds": [
+        "card.logic.055.c4"
+      ],
+      "prompt": "Which question deflates the perfect-solution fallacy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "\"Compared with what?\"",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "\"Who benefits from this?\"",
+          "correct": false,
+          "rationale": "A fair question, but not the one for this trap."
+        },
+        {
+          "id": "c",
+          "label": "\"Is it natural?\"",
+          "correct": false,
+          "rationale": "That's Level 54's trap."
+        },
+        {
+          "id": "d",
+          "label": "\"How long have we done it?\"",
+          "correct": false,
+          "rationale": "That's Level 59's trap."
+        }
+      ],
+      "explanation": "Demsetz: compare real alternatives, not reality with a perfect ideal.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.060.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.trap_switch_sides_test"
+      ],
+      "sourceCardIds": [
+        "card.logic.053.c4"
+      ],
+      "prompt": "In the 1984 study by Lord, Lepper and Preston, what reduced bias more than urging people to be fair?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Reading about the topic for longer",
+          "correct": false,
+          "rationale": "The study compared considering the opposite with fairness instructions."
+        },
+        {
+          "id": "b",
+          "label": "Getting them to consider the opposite",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Paying them to be accurate",
+          "correct": false,
+          "rationale": "Payment wasn't the comparison."
+        },
+        {
+          "id": "d",
+          "label": "Letting them discuss it in groups",
+          "correct": false,
+          "rationale": "Group talk wasn't the tested strategy."
+        }
+      ],
+      "explanation": "Considering the opposite had a greater corrective effect than instructions to be fair and unbiased.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.caltech_feynman_cargo_cult",
+    "source.gutenberg_bacon_novum_organum",
+    "source.edge_pizarro_motivated_reasoning",
+    "source.jpsp_lord_lepper_preston_consider_opposite_1984",
+    "source.cdc_mmwr_cancer_cluster_guidelines_2013",
+    "source.princeton_pronin_kugler_introspection_2007",
+    "source.econlib_demsetz"
+  ],
+  "art": "mind.logic-rose-glasses"
+}

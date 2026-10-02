@@ -1,0 +1,215 @@
+{
+  "id": "level.arts.literature.018",
+  "skillId": "skill.arts.literature",
+  "number": 18,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Popol Vuh",
+  "objective": "After this level you can retell the K'iche' Maya story in which the gods try mud and wood before making people from maize.",
+  "summary": "The K'iche' Maya's Popol Vuh, written 1554 to 1558 in the Latin alphabet, tells how the gods made people of mud, then wood, then maize. Ximenez's copy survives in Chicago.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.popol_vuh_book",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.popol_vuh_maize_people",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.kojiki",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.017"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.018.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The gods got people right on the third try.",
+      "body": "The K'iche' Maya of Guatemala tell how the gods first tried mud, then wood, and finally maize. The story is in their Popol Vuh. First, how the book reached us. Then, what went wrong with the first two tries."
+    },
+    {
+      "id": "card.literature.018.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A book that nearly vanished",
+      "body": "The Popol Vuh, roughly \"Council Book\", was written by the K'iche' Maya between 1554 and 1558, in their own language but in the Latin alphabet. That original is lost. The priest Francisco Ximenez found it in the early 1700s and copied it, and his copy is now in the Newberry Library in Chicago. A Maya book survives thanks to one Spanish priest's handwriting."
+    },
+    {
+      "id": "card.literature.018.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Mud, then wood",
+      "body": "The gods want beings who will praise and remember them. The first, of mud, won't hold its shape and speaks nonsense, so they dissolve it. Next come people of wood. They have no hearts and don't remember their makers. The gods send a great flood, and the wooden people who flee into the forest become monkeys."
+    },
+    {
+      "id": "card.literature.018.c4",
+      "type": "fact",
+      "fact": "At last, people made of maize.",
+      "context": "The gods finally succeed, making humans from maize. These people see and know so much that the gods fear they'll become as great as gods. So they cloud human sight, like breath on a mirror. Corn isn't just food in this story. It's what people are made of."
+    },
+    {
+      "id": "card.literature.018.c5",
+      "type": "mcq",
+      "questionId": "question.literature.018.q1"
+    },
+    {
+      "id": "card.literature.018.c6",
+      "type": "mcq",
+      "questionId": "question.literature.018.q2"
+    },
+    {
+      "id": "card.literature.018.c7",
+      "type": "mcq",
+      "questionId": "question.literature.018.q3"
+    },
+    {
+      "id": "card.literature.018.c8",
+      "type": "checkpoint",
+      "headline": "Popol Vuh: opened",
+      "learned": [
+        "Written in K'iche', 1554 to 1558, in the Latin alphabet",
+        "Ximenez's copy survives in Chicago",
+        "Mud dissolved; wooden people became monkeys",
+        "People made of maize, their sight clouded"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.018.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.popol_vuh_maize_people"
+      ],
+      "sourceCardIds": [
+        "card.literature.018.c4"
+      ],
+      "prompt": "In the Popol Vuh, what are the first successful humans made from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mud",
+          "correct": false,
+          "rationale": "The mud person was dissolved."
+        },
+        {
+          "id": "b",
+          "label": "Wood",
+          "correct": false,
+          "rationale": "The wooden people became monkeys."
+        },
+        {
+          "id": "c",
+          "label": "Maize",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Stone",
+          "correct": false,
+          "rationale": "Stone isn't one of the tries."
+        }
+      ],
+      "explanation": "After failing with mud and wood, the gods make humans from maize.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.018.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.popol_vuh_maize_people"
+      ],
+      "sourceCardIds": [
+        "card.literature.018.c3"
+      ],
+      "prompt": "Why do the gods do away with the wooden people?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They know too much and see too far",
+          "correct": false,
+          "rationale": "That's the maize people."
+        },
+        {
+          "id": "b",
+          "label": "They melt and speak nonsense",
+          "correct": false,
+          "rationale": "That's the mud person."
+        },
+        {
+          "id": "c",
+          "label": "They fight the gods for their thrones",
+          "correct": false,
+          "rationale": "Their failing is forgetting, not war."
+        },
+        {
+          "id": "d",
+          "label": "They have no hearts and forget their makers",
+          "correct": true
+        }
+      ],
+      "explanation": "The gods wanted beings who would remember them; the wooden people had no hearts and forgot their makers.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.literature.018.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.popol_vuh_book",
+        "concept.literature.kojiki"
+      ],
+      "sourceCardIds": [
+        "card.literature.018.c2",
+        "card.literature.009.c2"
+      ],
+      "prompt": "Level 9's Kojiki was written using Chinese characters. How was the Popol Vuh written?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In Maya hieroglyphs on stone",
+          "correct": false,
+          "rationale": "It used the Latin alphabet."
+        },
+        {
+          "id": "b",
+          "label": "In K'iche', using the Latin alphabet",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "In Spanish, by the priest Ximenez",
+          "correct": false,
+          "rationale": "He copied a K'iche' original."
+        },
+        {
+          "id": "d",
+          "label": "It was never written at all",
+          "correct": false,
+          "rationale": "It was written 1554 to 1558."
+        }
+      ],
+      "explanation": "The Popol Vuh was written in the K'iche' language using the Latin alphabet; Ximenez later copied it.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_popol_vuh",
+    "source.worldhistory_popol_vuh",
+    "source.ebsco_popol_vuh_creation",
+    "source.worldhistory_kojiki",
+    "source.scu_kojiki_nihon_shoki"
+  ],
+  "art": "us.corn-cob"
+}

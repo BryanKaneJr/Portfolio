@@ -1,0 +1,29 @@
+{
+  "name": "@brainscroll/scripts",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Content importers, validators and build/export utilities.",
+  "type": "module",
+  "scripts": {
+    "validate": "tsx validate-content.ts",
+    "typecheck": "tsc --noEmit",
+    "build": "tsx build-content.ts",
+    "import": "tsx import-content.ts",
+    "verify": "tsx verify.ts",
+    "test": "tsx --test test/*.test.ts",
+    "supabase:check": "tsx supabase-check.ts",
+    "insights": "tsx insights.ts",
+    "copy-lint": "tsx copy-lint.ts",
+    "art": "tsx art-sync.ts",
+    "card-art": "tsx card-art.ts",
+    "site": "tsx site-build.ts"
+  },
+  "dependencies": {
+    "@brainscroll/core": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.3"
+  }
+}

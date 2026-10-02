@@ -1,0 +1,213 @@
+{
+  "id": "level.mind.probability.023",
+  "skillId": "skill.mind.probability",
+  "number": 23,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Chances That Multiply",
+  "objective": "After this level you can work out the chance of two independent things both happening, like rolling two sixes, by multiplying.",
+  "summary": "For independent events, the chance of both is the product of their chances: two sixes is 1/6 × 1/6 = 1/36. Draw cards without putting them back and the draws are no longer independent.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.chance_multiply_independent",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.chance_replacement_dependence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.chance_two_dice_outcomes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.022"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.023.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "What's the chance of rolling two sixes at once?",
+      "body": "You could list all 36 throws again and hunt for double 6. Or you could use a shortcut that works for any two unconnected chances, from dice to coins to cards. It takes one multiplication."
+    },
+    {
+      "id": "card.probability.023.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A fraction of a fraction",
+      "body": "The first die shows 6 one time in 6. Of those times, the second die also shows 6 just one time in 6. So double 6 happens a sixth of a sixth of the time: 1/6 × 1/6 = 1/36. That matches Level 22's grid, where double 6 was exactly 1 of the 36 throws. The rule: when two events are independent, the chance of both is their chances multiplied."
+    },
+    {
+      "id": "card.probability.023.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "It keeps multiplying",
+      "body": "The rule stretches to as many independent events as you like. Two heads in a row: 1/2 × 1/2 = 1/4. Three in a row: 1/8. Each extra flip halves the chance again, so ten heads in a row happens about once in 1,024 tries. Multiplying chances that are less than 1 always gives something smaller, which is why long runs are rare before they start."
+    },
+    {
+      "id": "card.probability.023.c4",
+      "type": "fact",
+      "fact": "Multiply only when one result leaves the other alone.",
+      "context": "Draw a card from a 52-card deck, put it back and shuffle: the second draw starts fresh, so the draws are independent. A heart, then another heart, is 1/4 × 1/4 = 1/16. Keep the first heart out, though, and the deck has changed: only 12 hearts are left among 51 cards. Without replacement, the first pick changes the chances for the second."
+    },
+    {
+      "id": "card.probability.023.c5",
+      "type": "mcq",
+      "questionId": "question.probability.023.q1"
+    },
+    {
+      "id": "card.probability.023.c6",
+      "type": "mcq",
+      "questionId": "question.probability.023.q2"
+    },
+    {
+      "id": "card.probability.023.c7",
+      "type": "mcq",
+      "questionId": "question.probability.023.q3"
+    },
+    {
+      "id": "card.probability.023.c8",
+      "type": "checkpoint",
+      "headline": "Chances: multiplied",
+      "learned": [
+        "Independent: multiply the chances",
+        "Double 6: 1/6 × 1/6 = 1/36",
+        "Ten heads in a row: 1 in 1,024",
+        "Without replacement, draws depend"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.023.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.chance_multiply_independent"
+      ],
+      "sourceCardIds": [
+        "card.probability.023.c2"
+      ],
+      "prompt": "Which rule gives the chance that two independent events both happen?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Add their chances",
+          "correct": false,
+          "rationale": "Adding would make \"both\" likelier than either alone."
+        },
+        {
+          "id": "b",
+          "label": "Average their chances",
+          "correct": false,
+          "rationale": "Averaging would put \"both\" between the two chances; it must be smaller."
+        },
+        {
+          "id": "c",
+          "label": "Multiply their chances",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Take the larger chance",
+          "correct": false,
+          "rationale": "\"Both\" is less likely than either one on its own."
+        }
+      ],
+      "explanation": "For independent events, the chance that both happen is their chances multiplied together.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.023.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.chance_replacement_dependence"
+      ],
+      "sourceCardIds": [
+        "card.probability.023.c4"
+      ],
+      "prompt": "How does keeping the first heart out of the deck change the chance that the next card is a heart?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It lowers it: 12 hearts are left among 51 cards",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It raises it: fewer cards means better odds",
+          "correct": false,
+          "rationale": "Fewer cards, but fewer hearts too: 12 of 51 is below 1 in 4."
+        },
+        {
+          "id": "c",
+          "label": "Nothing changes: it's still 1 in 4",
+          "correct": false,
+          "rationale": "1 in 4 holds only if the heart goes back in the deck."
+        },
+        {
+          "id": "d",
+          "label": "It makes a second heart impossible",
+          "correct": false,
+          "rationale": "Twelve hearts are still left to draw."
+        }
+      ],
+      "explanation": "Without replacement the deck changes: 12 hearts among 51 cards is a little less than 1 in 4, so the draws are dependent.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.023.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.chance_multiply_independent",
+        "concept.probability.chance_two_dice_outcomes"
+      ],
+      "sourceCardIds": [
+        "card.probability.023.c2",
+        "card.probability.022.c3"
+      ],
+      "prompt": "Level 22 found double 6 in 1 of the 36 throws of two dice. Which calculation gives the same chance?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1/6 + 1/6",
+          "correct": false,
+          "rationale": "Adding gives 2/6, far too likely for two sixes at once."
+        },
+        {
+          "id": "b",
+          "label": "1/2 × 1/6",
+          "correct": false,
+          "rationale": "A second die shows 6 one time in 6, not one time in 2."
+        },
+        {
+          "id": "c",
+          "label": "1/6 × 1/6",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "6 × 6",
+          "correct": false,
+          "rationale": "6 × 6 counts the 36 throws, not the chance of one of them."
+        }
+      ],
+      "explanation": "Two independent chances of 1/6 multiply to 1/36: one throw in 36.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_intro_stats_probability_rules",
+    "source.openstax_intro_stats_independent_events",
+    "source.jdm_two_dice_sums"
+  ],
+  "art": "mind.playing-cards"
+}

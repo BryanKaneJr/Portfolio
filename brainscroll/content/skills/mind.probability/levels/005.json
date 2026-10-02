@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.probability.005",
+  "skillId": "skill.mind.probability",
+  "number": 5,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Percent vs. Percentage Points",
+  "objective": "After this level you can tell a rise of 5 percentage points from a rise of 5 percent, and spot a headline that mixes them up.",
+  "summary": "Going from 10% to 15% is a rise of 5 percentage points (subtract) and a 50 percent increase (divide by the start). Both are true; headlines often mix them up.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.percentage_points",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.percent_change_method",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.004"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.005.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A share goes from 10% to 15%. Did it rise by 5 or by 50?",
+      "body": "Both answers are right, in different units. One counts percentage points; the other is a percent increase. Mix them up and a headline can make a change look far bigger or smaller than it is."
+    },
+    {
+      "id": "card.probability.005.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Points: just subtract",
+      "body": "When you compare two percentages, the plain difference is measured in percentage points. Say the share of students who walk to school goes from 10% to 15%. Subtract: 15 minus 10 is 5 percentage points. Points tell you how far the number moved on the scale from 0 to 100."
+    },
+    {
+      "id": "card.probability.005.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Percent: compare with the start",
+      "body": "Percent change uses Level 3's rule: change ÷ start. The change is 5 and the start is 10, and 5 ÷ 10 = 0.5, a 50% rise. Walkers really did grow by half: 10 in every 100 students became 15 in every 100. Both statements are true. They answer different questions.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "People mix these two up all the time. Points: subtract. Percent: divide by the start."
+      }
+    },
+    {
+      "id": "card.probability.005.c4",
+      "type": "fact",
+      "fact": "\"Percentage change and percentage-point change get mixed up all the time.\"",
+      "context": "That warning comes from Jennifer LaFleur, an editor quoted by The Journalist's Resource. The rule of thumb: when you compare two percentages, the difference is in percentage points. So a headline saying walkers are \"up 5%\" when the share went from 10% to 15% has undersold a 50% jump."
+    },
+    {
+      "id": "card.probability.005.c5",
+      "type": "mcq",
+      "questionId": "question.probability.005.q1"
+    },
+    {
+      "id": "card.probability.005.c6",
+      "type": "mcq",
+      "questionId": "question.probability.005.q2"
+    },
+    {
+      "id": "card.probability.005.c7",
+      "type": "mcq",
+      "questionId": "question.probability.005.q3"
+    },
+    {
+      "id": "card.probability.005.c8",
+      "type": "checkpoint",
+      "headline": "Points vs. percent: sorted",
+      "learned": [
+        "Percentage points: subtract two percents",
+        "Percent change: divide by the start",
+        "10% to 15% is 5 points and a 50% rise",
+        "Comparing percents? Say points"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.005.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.percentage_points"
+      ],
+      "sourceCardIds": [
+        "card.probability.005.c2"
+      ],
+      "prompt": "A share rises from 10% to 15%. How many percentage points is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1.5 percentage points",
+          "correct": false,
+          "rationale": "That's 15 ÷ 10; points come from subtracting."
+        },
+        {
+          "id": "b",
+          "label": "5 percentage points",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "15 percentage points",
+          "correct": false,
+          "rationale": "That's the new share, not the difference."
+        },
+        {
+          "id": "d",
+          "label": "50 percentage points",
+          "correct": false,
+          "rationale": "50 is the percent increase, not the point difference."
+        }
+      ],
+      "explanation": "Percentage points are the plain difference: 15 minus 10 is 5 points.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.005.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.percentage_points",
+        "concept.probability.percent_change_method"
+      ],
+      "sourceCardIds": [
+        "card.probability.005.c3"
+      ],
+      "prompt": "The same rise, from 10% to 15%, is also a 50 percent increase. Why?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The change of 5 is half of the starting 10",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "15 is 50 more than 10 on the 0 to 100 scale",
+          "correct": false,
+          "rationale": "On that scale it moved 5 points, not 50."
+        },
+        {
+          "id": "c",
+          "label": "Percents always double when they rise",
+          "correct": false,
+          "rationale": "Nothing doubles here; the share grew by half."
+        },
+        {
+          "id": "d",
+          "label": "Half of all students now walk",
+          "correct": false,
+          "rationale": "Only 15% walk; the growth, not the share, is 50%."
+        }
+      ],
+      "explanation": "Percent change divides the change by the start: 5 ÷ 10 = 0.5, a 50% increase.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.005.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.percentage_points",
+        "concept.probability.percent_change_method"
+      ],
+      "sourceCardIds": [
+        "card.probability.005.c2",
+        "card.probability.005.c3",
+        "card.probability.003.c2"
+      ],
+      "prompt": "A share falls from 40% to 30%. Which headline describes it correctly?",
+      "options": [
+        {
+          "id": "a",
+          "label": "\"Down 10 percent\"",
+          "correct": false,
+          "rationale": "It fell 10 points; as a percent change that is 10 ÷ 40, a 25% fall."
+        },
+        {
+          "id": "b",
+          "label": "\"Down 30 percentage points\"",
+          "correct": false,
+          "rationale": "Subtract: 40 minus 30 is 10 points."
+        },
+        {
+          "id": "c",
+          "label": "\"Down 10 percentage points\"",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "\"Down 75 percent\"",
+          "correct": false,
+          "rationale": "30 is 75% of 40; the fall is 25%, or 10 points."
+        }
+      ],
+      "explanation": "Subtract the two percentages: 40 minus 30 is 10 percentage points (which is a 25% fall, by Level 3's rule).",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.journalistsresource_percent_change",
+    "source.openstax_prealgebra_percent_applications",
+    "source.mathsisfun_percentage_change"
+  ],
+  "art": "mind.pie-chart"
+}

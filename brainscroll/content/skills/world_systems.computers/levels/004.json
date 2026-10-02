@@ -1,0 +1,216 @@
+{
+  "id": "level.world_systems.computers.004",
+  "skillId": "skill.world_systems.computers",
+  "number": 4,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "How Letters Become Numbers",
+  "objective": "After this level you can explain how codes like ASCII and Unicode give every letter, symbol and emoji its own number.",
+  "summary": "ASCII (1963) gave 128 characters 7-bit numbers, A is 65. Unicode gives every character in every script a unique number, emoji included.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.ascii_code",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.unicode_emoji",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.bit_patterns",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.003"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.004.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Type A. Your computer stores 65.",
+      "body": "There is no letter shape inside the machine, only numbers. In the standard code, uppercase A is 65 and B is 66. So who decided, and how did every computer come to agree?"
+    },
+    {
+      "id": "card.computers.004.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "ASCII: one codebook, 128 characters",
+      "body": "ASCII, approved as an American standard in 1963, gives letters, digits and punctuation marks standard numbers. It uses 7-bit codes, which by Level 2's doubling makes 128 patterns, so 128 characters. One neat detail: uppercase P is 1010000 and lowercase p is 1110000. The two differ in a single bit. Capital or small, one switch apart."
+    },
+    {
+      "id": "card.computers.004.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Too many codebooks, then one",
+      "body": "128 characters could never cover the world's writing. For years, hundreds of rival encodings filled the gap, and they clashed: two could use the same number for two different characters. Unicode fixed that by giving every character a unique number, whatever the platform, program or language. Unicode 18.0, released in September 2026, holds 172,808 characters. It kept ASCII's numbers, too: its UTF-8 form is backward-compatible."
+    },
+    {
+      "id": "card.computers.004.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "An emoji is a number too",
+      "body": "Send a laughing face and you're really sending a number. The Unicode Consortium standardizes emoji codes, and your friend's phone receives the number and draws its own picture for it. That's why the same emoji can look a little different on another maker's phone. You chose the number. Their phone chose the drawing."
+    },
+    {
+      "id": "card.computers.004.c5",
+      "type": "mcq",
+      "questionId": "question.computers.004.q1"
+    },
+    {
+      "id": "card.computers.004.c6",
+      "type": "mcq",
+      "questionId": "question.computers.004.q2"
+    },
+    {
+      "id": "card.computers.004.c7",
+      "type": "mcq",
+      "questionId": "question.computers.004.q3"
+    },
+    {
+      "id": "card.computers.004.c8",
+      "type": "checkpoint",
+      "headline": "Letters: numbered",
+      "learned": [
+        "ASCII (1963) gives 128 characters 7-bit numbers; A is 65",
+        "Upper and lower case differ by a single bit",
+        "Unicode gives every character a unique number everywhere",
+        "An emoji is a number; each phone draws its own picture"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.004.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.ascii_code"
+      ],
+      "sourceCardIds": [
+        "card.computers.004.c1"
+      ],
+      "prompt": "In ASCII, which number stands for uppercase A?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1",
+          "correct": false,
+          "rationale": "A is first in the alphabet, but its code is not 1."
+        },
+        {
+          "id": "b",
+          "label": "65",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "128",
+          "correct": false,
+          "rationale": "That is how many characters ASCII holds."
+        },
+        {
+          "id": "d",
+          "label": "255",
+          "correct": false,
+          "rationale": "That is the largest value one byte can hold."
+        }
+      ],
+      "explanation": "In ASCII, A is 65 and B is 66.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.computers.004.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.unicode_emoji"
+      ],
+      "sourceCardIds": [
+        "card.computers.004.c3"
+      ],
+      "prompt": "Why was Unicode needed after all the older character codes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Older codes could only store numbers, never letters",
+          "correct": false,
+          "rationale": "ASCII already stored letters as numbers."
+        },
+        {
+          "id": "b",
+          "label": "Rival codes clashed, using the same number for different characters",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Computers had stopped using binary",
+          "correct": false,
+          "rationale": "Unicode numbers are stored in binary too."
+        },
+        {
+          "id": "d",
+          "label": "ASCII was secret, so nobody could read it",
+          "correct": false,
+          "rationale": "ASCII was a published American standard."
+        }
+      ],
+      "explanation": "Hundreds of encodings conflicted; Unicode gives every character one unique number everywhere.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.004.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.ascii_code",
+        "concept.computers.bit_patterns"
+      ],
+      "sourceCardIds": [
+        "card.computers.004.c2",
+        "card.computers.002.c3"
+      ],
+      "prompt": "Level 2 showed each added bit doubles the patterns. Why does 7-bit ASCII hold exactly 128 characters?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Seven bits make 128 patterns, one per character",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Each of the seven bits stores about 18 letters",
+          "correct": false,
+          "rationale": "A bit stores one 1 or 0, not letters."
+        },
+        {
+          "id": "c",
+          "label": "A byte always holds 128 patterns",
+          "correct": false,
+          "rationale": "A full 8-bit byte holds 256."
+        },
+        {
+          "id": "d",
+          "label": "English has exactly 128 letters",
+          "correct": false,
+          "rationale": "The 128 include digits, punctuation and more."
+        }
+      ],
+      "explanation": "Doubling from 2 seven times gives 128 patterns, and each pattern is one character.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.cs50_lecture0_notes",
+    "source.brit_ascii",
+    "source.unicode_what_is_unicode",
+    "source.unicode_18_0",
+    "source.brit_emoji"
+  ],
+  "art": "computers.keyboard"
+}

@@ -1,0 +1,214 @@
+{
+  "id": "level.world_systems.computers.085",
+  "skillId": "skill.world_systems.computers",
+  "number": 85,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Tokens and the Next Word",
+  "objective": "After this level you can explain how a large language model splits text into tokens and writes by predicting one token after another.",
+  "summary": "Text is chopped into subword tokens, each swapped for a number. The model scores every token in its vocabulary, one is picked and appended, and the loop repeats.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.llm_tokens",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.unicode_emoji",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.084"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.085.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A chatbot may never see the word \"annoyingly\" whole.",
+      "body": "Before a language model reads your message, the text is chopped into pieces, and every piece is swapped for a number. You met tokens in Everyday Technology. Here's what actually happens to your words on the way in, and how a reply comes out."
+    },
+    {
+      "id": "card.computers.085.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Chopping text into tokens",
+      "body": "Most language models use subword tokens. Frequent words stay whole, while rare words are split into meaningful pieces that turn up more often: \"annoyingly\" becomes \"annoying\" plus \"ly\". That way a fixed list of pieces can still cover words the model rarely met, and the meaning survives in the parts."
+    },
+    {
+      "id": "card.computers.085.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every token gets a number",
+      "body": "Models can only process numbers, so the tokenizer swaps each token for its ID: its number in the model's vocabulary. GPT-2, from 2019, had a vocabulary of 50,257 tokens. It's Level 4's idea one size up. Unicode gives a number to every character; a tokenizer gives a number to every chunk."
+    },
+    {
+      "id": "card.computers.085.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "One token, then again",
+      "body": "To write, the model gives a score to every token in its vocabulary, and one is picked. That token is added to the text, and the whole thing goes back in for the next pick, so each new token depends on all the ones before it. A setting called temperature shapes the pick: higher is more random, lower more focused and predictable.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep this: a chatbot never picks a whole answer. It picks one token, then starts again with that token added."
+      }
+    },
+    {
+      "id": "card.computers.085.c5",
+      "type": "mcq",
+      "questionId": "question.computers.085.q1"
+    },
+    {
+      "id": "card.computers.085.c6",
+      "type": "mcq",
+      "questionId": "question.computers.085.q2"
+    },
+    {
+      "id": "card.computers.085.c7",
+      "type": "mcq",
+      "questionId": "question.computers.085.q3"
+    },
+    {
+      "id": "card.computers.085.c8",
+      "type": "checkpoint",
+      "headline": "Tokens: counted out",
+      "learned": [
+        "Rare words are split into common subword pieces",
+        "Each token becomes a number: its ID in the vocabulary",
+        "The model scores every token and one is picked",
+        "Temperature makes the pick more random or more focused"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.085.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.llm_tokens"
+      ],
+      "sourceCardIds": [
+        "card.computers.085.c3"
+      ],
+      "prompt": "What does a tokenizer turn each token into before the model sees it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A small picture of the word",
+          "correct": false,
+          "rationale": "Models can only process numbers."
+        },
+        {
+          "id": "b",
+          "label": "A sound sample",
+          "correct": false,
+          "rationale": "Tokens are text, turned into numbers."
+        },
+        {
+          "id": "c",
+          "label": "A number: its ID in the vocabulary",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A Unicode emoji",
+          "correct": false,
+          "rationale": "Unicode numbers characters; token IDs come from the model's own vocabulary."
+        }
+      ],
+      "explanation": "Models can only process numbers, so each token becomes its ID in the model's vocabulary.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.085.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.llm_tokens"
+      ],
+      "sourceCardIds": [
+        "card.computers.085.c2"
+      ],
+      "prompt": "A subword tokenizer meets the rare word \"unhelpfully\". What is it most likely to do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Reject the message as unreadable",
+          "correct": false,
+          "rationale": "Subword tokenizers can cover rare words by splitting them."
+        },
+        {
+          "id": "b",
+          "label": "Split it into smaller, more common pieces",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Swap it for a random common word",
+          "correct": false,
+          "rationale": "The meaning survives in the pieces; nothing is swapped."
+        },
+        {
+          "id": "d",
+          "label": "Keep it whole as one brand-new token",
+          "correct": false,
+          "rationale": "Its vocabulary is a fixed list; rare words get split."
+        }
+      ],
+      "explanation": "Frequent words stay whole, but rare words are split into more common pieces, like annoyingly into annoying and ly.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.computers.085.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.llm_tokens",
+        "concept.computers.unicode_emoji"
+      ],
+      "sourceCardIds": [
+        "card.computers.085.c3",
+        "card.computers.004.c3"
+      ],
+      "prompt": "Level 4's Unicode gives every character a number. What does a language model's vocabulary give a number to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each token: a word or a piece of a word",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Each whole sentence",
+          "correct": false,
+          "rationale": "Sentences are built from many tokens."
+        },
+        {
+          "id": "c",
+          "label": "Each pixel on the screen",
+          "correct": false,
+          "rationale": "Pixels belong to images, not text."
+        },
+        {
+          "id": "d",
+          "label": "Each document the model was trained on",
+          "correct": false,
+          "rationale": "The vocabulary numbers small chunks of text."
+        }
+      ],
+      "explanation": "Unicode numbers characters; a tokenizer numbers chunks of text, from whole words to pieces of words.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.hf_llm_course_tokenizers",
+    "source.unicode_what_is_unicode",
+    "source.openai_gpt2_paper_2019",
+    "source.hf_llm_course_inference"
+  ],
+  "art": "computers.bead-string"
+}

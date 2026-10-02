@@ -1,0 +1,248 @@
+{
+  "id": "level.history.us_history.001",
+  "skillId": "skill.history.us_history",
+  "number": 1,
+  "type": "regular",
+  "revision": 2,
+  "status": "published",
+  "title": "US History: The Big Picture",
+  "objective": "After this level you can sketch the American story from the first peoples to 2000 through its biggest turning points.",
+  "summary": "People reached the Americas thousands of years before 1776. Six turning points (1776, 1787, 1861, 1865, 1941, 1969) and a country that grew from 13 colonies to 50 states.",
+  "concepts": [
+    {
+      "conceptId": "concept.us_history.us_old_land_young_nation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.us_turning_points",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.us_thirteen_to_fifty",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [],
+  "cards": [
+    {
+      "id": "card.us_history.001.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The United States is young. The American story is not.",
+      "body": "People lived here for thousands of years before anyone wrote a Declaration of Independence. Here is the whole story on one page, from the first footprints to the Moon."
+    },
+    {
+      "id": "card.us_history.001.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Old land, young nation",
+      "body": "The first Americans arrived somewhere between about 25,000 and 15,000 years ago. The United States arrived on July 4, 1776, when the Continental Congress adopted the Declaration of Independence. Squeeze all of that human history into a single day, and the United States shows up in the last half hour before midnight. That’s why this tree starts long before 1776.",
+      "callout": "People: at least 15,000 years. The United States: since 1776."
+    },
+    {
+      "id": "card.us_history.001.c3",
+      "type": "timeline",
+      "headline": "Six turning points",
+      "events": [
+        {
+          "when": "1776",
+          "label": "The Declaration of Independence is adopted"
+        },
+        {
+          "when": "1787",
+          "label": "The Constitution is written in Philadelphia"
+        },
+        {
+          "when": "1861",
+          "label": "The Civil War begins"
+        },
+        {
+          "when": "1865",
+          "label": "The war ends; the 13th Amendment abolishes slavery"
+        },
+        {
+          "when": "1941",
+          "label": "Pearl Harbor brings the US into World War II"
+        },
+        {
+          "when": "1969",
+          "label": "Apollo 11 astronauts walk on the Moon"
+        }
+      ]
+    },
+    {
+      "id": "card.us_history.001.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "From 13 colonies to a 50th state",
+      "body": "The Declaration spoke for 13 British colonies breaking away from Great Britain. The Civil War later pitted the United States against 11 Southern states that tried to leave it. And the map kept growing: Hawaii became the 50th state on August 21, 1959. This tree follows that growth, and the people it swept up, from the first Americans to the end of the 20th century.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Don’t memorize every date yet. Keep the order: independence, Constitution, Civil War, world war, Moon."
+      }
+    },
+    {
+      "id": "card.us_history.001.c5",
+      "type": "mcq",
+      "questionId": "question.us_history.001.q1"
+    },
+    {
+      "id": "card.us_history.001.c6",
+      "type": "mcq",
+      "questionId": "question.us_history.001.q2"
+    },
+    {
+      "id": "card.us_history.001.c7",
+      "type": "mcq",
+      "questionId": "question.us_history.001.q3"
+    },
+    {
+      "id": "card.us_history.001.c8",
+      "type": "checkpoint",
+      "headline": "US history: the big picture",
+      "learned": [
+        "People reached the Americas at least 15,000 years ago",
+        "The United States dates from July 4, 1776",
+        "Turning points: 1787, 1861 to 1865, 1941, 1969",
+        "From 13 colonies to 50 states (Hawaii, 1959)"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.us_history.001.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.us_turning_points"
+      ],
+      "sourceCardIds": [
+        "card.us_history.001.c3",
+        "card.us_history.001.c2"
+      ],
+      "prompt": "In which year did the Continental Congress adopt the Declaration of Independence?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1607",
+          "correct": false,
+          "rationale": "That’s Jamestown, which you’ll meet in Level 9."
+        },
+        {
+          "id": "b",
+          "label": "1776",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "1787",
+          "correct": false,
+          "rationale": "That’s when the Constitution was written."
+        },
+        {
+          "id": "d",
+          "label": "1865",
+          "correct": false,
+          "rationale": "That’s when the Civil War ended."
+        }
+      ],
+      "explanation": "The Continental Congress adopted the Declaration on July 4, 1776.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.us_history.001.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.us_old_land_young_nation"
+      ],
+      "sourceCardIds": [
+        "card.us_history.001.c2"
+      ],
+      "prompt": "Why does a US history course begin thousands of years before 1776?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Constitution counts the country’s age from the Ice Age",
+          "correct": false,
+          "rationale": "It says nothing of the kind."
+        },
+        {
+          "id": "b",
+          "label": "Historians can’t agree on the year of independence",
+          "correct": false,
+          "rationale": "Everyone agrees: 1776."
+        },
+        {
+          "id": "c",
+          "label": "People lived in the Americas long before the nation existed",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Declaration took thousands of years to write",
+          "correct": false,
+          "rationale": "It was adopted in 1776."
+        }
+      ],
+      "explanation": "The first Americans arrived about 25,000 to 15,000 years ago; the United States dates from 1776.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.us_history.001.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.us_history.us_thirteen_to_fifty",
+        "concept.us_history.us_turning_points"
+      ],
+      "sourceCardIds": [
+        "card.us_history.001.c4",
+        "card.us_history.001.c3"
+      ],
+      "prompt": "The Declaration spoke for 13 colonies. In which year did the country reach its 50th state?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1787",
+          "correct": false,
+          "rationale": "That’s the year of the Constitution."
+        },
+        {
+          "id": "b",
+          "label": "1865",
+          "correct": false,
+          "rationale": "That’s the end of the Civil War."
+        },
+        {
+          "id": "c",
+          "label": "1941",
+          "correct": false,
+          "rationale": "That’s Pearl Harbor."
+        },
+        {
+          "id": "d",
+          "label": "1959",
+          "correct": true
+        }
+      ],
+      "explanation": "Hawaii became the 50th state on August 21, 1959.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_columbian",
+    "source.nara_declaration_history",
+    "source.brit_constitution_united_states",
+    "source.brit_american_civil_war",
+    "source.nara_13th_amendment",
+    "source.brit_pearl_harbor_attack",
+    "source.nasa_one_giant_leap",
+    "source.brit_declaration_independence",
+    "source.nara_hawaii_statehood"
+  ],
+  "art": "us.liberty-bell"
+}

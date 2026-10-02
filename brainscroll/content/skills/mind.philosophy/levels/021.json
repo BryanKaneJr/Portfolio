@@ -1,0 +1,227 @@
+{
+  "id": "level.mind.philosophy.021",
+  "skillId": "skill.mind.philosophy",
+  "number": 21,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "What Is Knowledge?",
+  "objective": "After this level you can explain the classic definition of knowledge as justified true belief and what each of its three parts adds.",
+  "summary": "Knowledge, on the classic definition, is justified true belief: it must be true, you must believe it, and you must have good support, which rules out lucky guesses.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.knowledge_jtb",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.branches",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.020"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.021.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You called the coin toss. Did you know?",
+      "body": "You said tails, and tails it was. Right answer, but was it knowledge? Most people say no. So what does knowing take, beyond being right? Here is philosophy’s most famous three-part answer."
+    },
+    {
+      "id": "card.philosophy.021.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A stool with three legs",
+      "body": "The classic definition says you know something when three things hold. It is true. You believe it. And you are justified in believing it: you have good support for it. Philosophers shorten this to JTB, justified true belief. Picture a three-legged stool. On this view, kick out any one leg and knowledge falls over.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: true, believed, justified. Each leg blocks a different way of being wrong about what you know."
+      }
+    },
+    {
+      "id": "card.philosophy.021.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Leg one: it has to be true",
+      "body": "Most epistemologists agree that what is false cannot be known. Eighty-four is not a prime number, so nobody could ever know that it is, however confident they feel. And truth is about how things are, not about whether anyone can prove it. A coin that nobody checks still landed one way or the other."
+    },
+    {
+      "id": "card.philosophy.021.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Leg two: you have to believe it",
+      "body": "You can only know what you believe. If you don’t believe something, you can’t know it, even if it happens to be true. That’s why philosophers call knowledge a kind of relationship with the truth: the fact has to be out there, and your mind has to hold it."
+    },
+    {
+      "id": "card.philosophy.021.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Leg three: good reasons, not luck",
+      "body": "Why add justification? Because of lucky guesses like your coin call. Plato’s Theaetetus already had the worry. Socrates points out that a skilled lawyer can talk a jury into a true belief without giving them knowledge. The jurors are right, but not because they know. Justification is the leg that keeps luck out."
+    },
+    {
+      "id": "card.philosophy.021.c6",
+      "type": "text",
+      "role": "explain",
+      "headline": "A rival: saw off a leg",
+      "body": "Not everyone keeps all three legs. Crispin Sartwell argued in 1991 and 1992 that knowledge is merely true belief: if your belief is true, you know, and justification was never needed. Most epistemologists call this a heterodox view. For them, the lucky coin call is exactly why the third leg matters."
+    },
+    {
+      "id": "card.philosophy.021.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.021.q1"
+    },
+    {
+      "id": "card.philosophy.021.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.021.q2"
+    },
+    {
+      "id": "card.philosophy.021.c9",
+      "type": "mcq",
+      "questionId": "question.philosophy.021.q3"
+    },
+    {
+      "id": "card.philosophy.021.c10",
+      "type": "checkpoint",
+      "headline": "What Is Knowledge?: the big picture",
+      "learned": [
+        "Knowledge as justified true belief",
+        "Truth: only what’s true can be known",
+        "Belief: you only know what you believe",
+        "Justification keeps out lucky guesses"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.021.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.knowledge_jtb"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.021.c2"
+      ],
+      "prompt": "On the classic definition, which three conditions make a belief knowledge?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Certain, useful and widely shared",
+          "correct": false,
+          "rationale": "Usefulness and popularity aren’t among the conditions."
+        },
+        {
+          "id": "b",
+          "label": "Proven, written down and tested",
+          "correct": false,
+          "rationale": "Nothing needs to be written down."
+        },
+        {
+          "id": "c",
+          "label": "True, believed and justified",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Old, popular and simple",
+          "correct": false,
+          "rationale": "Age and popularity don’t matter here."
+        }
+      ],
+      "explanation": "The classic definition, JTB, says knowledge is justified true belief.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.philosophy.021.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.knowledge_jtb"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.021.c5"
+      ],
+      "prompt": "How does the justification condition stop a lucky coin call from counting as knowledge?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It requires the belief to be written down first",
+          "correct": false,
+          "rationale": "Writing a guess down doesn’t give it support."
+        },
+        {
+          "id": "b",
+          "label": "It requires good support for the belief, which a guess lacks",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It requires several people to share the belief",
+          "correct": false,
+          "rationale": "A shared guess is still a guess."
+        },
+        {
+          "id": "d",
+          "label": "It requires the belief to be about the past",
+          "correct": false,
+          "rationale": "The coin call is about a future toss either way."
+        }
+      ],
+      "explanation": "Justification demands good reasons; a lucky guess, like the jury’s lawyer-made belief, is right without them.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.philosophy.021.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.knowledge_jtb",
+        "concept.philosophy.branches"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.021.c2",
+        "card.philosophy.002.c2"
+      ],
+      "prompt": "Level 2 mapped philosophy’s branches. Which branch does the justified-true-belief definition belong to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ethics",
+          "correct": false,
+          "rationale": "Ethics asks what is right or wrong."
+        },
+        {
+          "id": "b",
+          "label": "Aesthetics",
+          "correct": false,
+          "rationale": "Aesthetics studies beauty and art."
+        },
+        {
+          "id": "c",
+          "label": "Metaphysics",
+          "correct": false,
+          "rationale": "Metaphysics asks what exists."
+        },
+        {
+          "id": "d",
+          "label": "Epistemology",
+          "correct": true
+        }
+      ],
+      "explanation": "Epistemology studies knowledge and justified belief, so a definition of knowledge is its core business.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.sep_knowledge_analysis",
+    "source.sep_plato_theaetetus",
+    "source.iep_knowledge"
+  ],
+  "art": "phil.three-legged-stool"
+}

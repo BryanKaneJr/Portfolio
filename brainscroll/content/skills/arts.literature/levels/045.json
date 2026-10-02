@@ -1,0 +1,218 @@
+{
+  "id": "level.arts.literature.045",
+  "skillId": "skill.arts.literature",
+  "number": 45,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Thousand and One Nights",
+  "objective": "After this level you can explain why Scheherazade tells her stories and how a frame story holds many tales together.",
+  "summary": "Scheherazade saves her life by leaving each night's story unfinished: a frame story holding many tales. The Nights kept growing; Aladdin came from Aleppo's Hanna Diyab in 1709.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.nights_frame_story",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.nights_growth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.myth_legend_folktale",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.044"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.045.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Her life depended on a cliffhanger.",
+      "body": "In the frame story of The Thousand and One Nights, King Shahryar, after discovering his wife's infidelity, marries a new wife each day and has her killed. Then Scheherazade marries him, armed with nothing but stories."
+    },
+    {
+      "id": "card.literature.045.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stop at the best part",
+      "body": "Each evening Scheherazade tells the king a story and leaves it unfinished, promising the ending the next night. He wants to know what happens, so he puts off her execution day after day. In the end, he abandons his cruel plan altogether. It's the oldest reason to keep listening: you have to find out what happens next."
+    },
+    {
+      "id": "card.literature.045.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A story that holds stories",
+      "body": "Scheherazade's situation is a frame story: an overall, unifying story within which other tales are told. The frame gives every tale a reason to be told, and it can hold as many as the teller can supply, one night at a time. Think of the frame as a bookshelf. Keep adding books, and the shelf still holds them together."
+    },
+    {
+      "id": "card.literature.045.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A collection that kept growing",
+      "body": "The Nights draws on stories from India, Iran, Iraq, Egypt, Turkey and possibly Greece, and its Persian source was called A Thousand Tales. Europe met it in Antoine Galland's French translation, published from 1704 to 1717. The tales best known in the West, like Aladdin and Ali Baba, were later additions. In Paris in 1709, Hanna Diyab, a young Syrian from Aleppo, told Galland stories, Aladdin among them, that fed his last volumes.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Common mix-up: Aladdin wasn't in the old Arabic Nights. He reached the book in Paris, told by a storyteller from Aleppo."
+      }
+    },
+    {
+      "id": "card.literature.045.c5",
+      "type": "mcq",
+      "questionId": "question.literature.045.q1"
+    },
+    {
+      "id": "card.literature.045.c6",
+      "type": "mcq",
+      "questionId": "question.literature.045.q2"
+    },
+    {
+      "id": "card.literature.045.c7",
+      "type": "recall",
+      "questionId": "question.literature.045.q3"
+    },
+    {
+      "id": "card.literature.045.c8",
+      "type": "checkpoint",
+      "headline": "The Nights: framed",
+      "learned": [
+        "Scheherazade leaves each story unfinished",
+        "A frame story holds many tales",
+        "Stories from India, Iran, Iraq, Egypt and more",
+        "Aladdin came later, via Hanna Diyab and Galland"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.045.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.nights_frame_story"
+      ],
+      "sourceCardIds": [
+        "card.literature.045.c3"
+      ],
+      "prompt": "What is a frame story?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A story told only in pictures",
+          "correct": false,
+          "rationale": "A frame story is made of words: a story around stories."
+        },
+        {
+          "id": "b",
+          "label": "A short animal tale that ends in a moral",
+          "correct": false,
+          "rationale": "That's a fable, from Level 2."
+        },
+        {
+          "id": "c",
+          "label": "A story told as if it were history",
+          "correct": false,
+          "rationale": "That's a legend."
+        },
+        {
+          "id": "d",
+          "label": "An overall story within which other tales are told",
+          "correct": true
+        }
+      ],
+      "explanation": "A frame story is an overall, unifying story within which one or more tales are told, like Scheherazade's nights.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.045.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.nights_frame_story"
+      ],
+      "sourceCardIds": [
+        "card.literature.045.c2"
+      ],
+      "prompt": "Why does King Shahryar keep putting off Scheherazade's execution?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He wants to hear how each unfinished story ends",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "She pays him a ransom every morning",
+          "correct": false,
+          "rationale": "Her only tool is the unfinished story."
+        },
+        {
+          "id": "c",
+          "label": "His advisers forbid the execution",
+          "correct": false,
+          "rationale": "Nothing stops him but his curiosity."
+        },
+        {
+          "id": "d",
+          "label": "She promises to leave the city forever",
+          "correct": false,
+          "rationale": "She stays and keeps telling."
+        }
+      ],
+      "explanation": "Scheherazade leaves each night's story unfinished, so the king postpones her execution to hear the ending, and at last abandons his plan.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.literature.045.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.nights_growth",
+        "concept.literature.myth_legend_folktale"
+      ],
+      "sourceCardIds": [
+        "card.literature.045.c4",
+        "card.literature.002.c3"
+      ],
+      "prompt": "Level 2 said folk tales change as tellers pass them on. How did Aladdin get into the Nights?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It opened the oldest Arabic manuscripts",
+          "correct": false,
+          "rationale": "It was a later addition."
+        },
+        {
+          "id": "b",
+          "label": "It came from the Persian A Thousand Tales",
+          "correct": false,
+          "rationale": "Aladdin reached the Nights through Galland."
+        },
+        {
+          "id": "c",
+          "label": "Hanna Diyab told it to Galland in Paris",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Ovid put it in the Metamorphoses",
+          "correct": false,
+          "rationale": "Ovid's poem is a Latin book of transformations."
+        }
+      ],
+      "explanation": "Aladdin was a later addition: in Paris in 1709, Hanna Diyab of Aleppo told Galland stories that fed his last volumes.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_thousand_and_one_nights",
+    "source.brit_frame_story",
+    "source.aramco_hanna_diyab"
+  ],
+  "art": "lit.magic-lamp"
+}

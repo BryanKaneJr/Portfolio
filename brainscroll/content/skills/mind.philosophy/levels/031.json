@@ -1,0 +1,208 @@
+{
+  "id": "level.mind.philosophy.031",
+  "skillId": "skill.mind.philosophy",
+  "number": 31,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Mind-Body Problem",
+  "objective": "After this level you can explain the mind-body problem: how thoughts and feelings relate to the physical brain and body.",
+  "summary": "The mind-body problem asks how thoughts and feelings relate to a physical body, both what minds are and how the two affect each other; dualism, materialism and idealism are the classic answers.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.mind_body_problem",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.branches",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.030"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.031.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A decision weighs nothing. So how does it lift your arm?",
+      "body": "You decide to ask a question, and up goes your hand. The decision has no size or weight, yet a very physical arm obeys it. Philosophers call the puzzle behind that everyday moment the mind-body problem."
+    },
+    {
+      "id": "card.philosophy.031.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two very different lists",
+      "body": "Make two lists about yourself. On the first go your size, weight, shape and motion: physical properties, the kind physics measures. On the second go what you perceive, what you feel, what you believe and what you want: mental properties, which nobody thinks a rock has. The mind-body problem asks how one being can carry both lists, when the two seem so closely linked."
+    },
+    {
+      "id": "card.philosophy.031.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two questions in one",
+      "body": "The problem splits in two. First, what are minds and bodies? Is the mind nothing over and above the body, or something else entirely? Second, how do they affect each other? Your decision seems to move your arm. Your sense organs, which are physical, give you sensations, which are mental. Explaining that traffic in both directions is where the trouble starts."
+    },
+    {
+      "id": "card.philosophy.031.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three classic answers",
+      "body": "Philosophers have three classic answers. Dualists say mind and body are both real and fundamentally different kinds of thing. Materialists, also called physicalists, say the mind is fundamentally physical. Idealists flip that around: matter is fundamentally mental. The next few levels put dualism and physicalism on trial, one objection at a time."
+    },
+    {
+      "id": "card.philosophy.031.c5",
+      "type": "mcq",
+      "questionId": "question.philosophy.031.q1"
+    },
+    {
+      "id": "card.philosophy.031.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.031.q2"
+    },
+    {
+      "id": "card.philosophy.031.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.031.q3"
+    },
+    {
+      "id": "card.philosophy.031.c8",
+      "type": "checkpoint",
+      "headline": "The Mind-Body Problem: the big picture",
+      "learned": [
+        "Mind-body problem: how minds fit with bodies",
+        "Two questions: what they are, how they interact",
+        "Dualism, materialism and idealism",
+        "A decision raising your hand is the classic case"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.031.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.mind_body_problem"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.031.c4"
+      ],
+      "prompt": "Which classic answer to the mind-body problem says the mind is fundamentally physical?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dualism",
+          "correct": false,
+          "rationale": "Dualism says mind and body are fundamentally different."
+        },
+        {
+          "id": "b",
+          "label": "Idealism",
+          "correct": false,
+          "rationale": "Idealism says matter is fundamentally mental."
+        },
+        {
+          "id": "c",
+          "label": "Materialism",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Epistemology",
+          "correct": false,
+          "rationale": "That’s a branch of philosophy, not an answer."
+        }
+      ],
+      "explanation": "Materialism, also called physicalism, holds that the mind is fundamentally physical.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.philosophy.031.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.mind_body_problem"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.031.c3"
+      ],
+      "prompt": "How does raising your hand to ask a question pose the causal side of the mind-body problem?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A mental decision seems to move a physical arm, and it’s unclear how",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It proves the mind is simply a physical organ, like the heart",
+          "correct": false,
+          "rationale": "It raises a question; it proves nothing."
+        },
+        {
+          "id": "c",
+          "label": "It shows that arms can move by themselves, with no cause at all",
+          "correct": false,
+          "rationale": "The decision seems to be the cause."
+        },
+        {
+          "id": "d",
+          "label": "It shows that sensations never affect the mind",
+          "correct": false,
+          "rationale": "Sense organs do seem to cause sensations."
+        }
+      ],
+      "explanation": "A decision is mental and an arm is physical, yet one seems to move the other. How that works is the causal question.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.philosophy.031.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.mind_body_problem",
+        "concept.philosophy.branches"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.031.c3",
+        "card.philosophy.002.c2"
+      ],
+      "prompt": "The mind-body problem asks what minds and bodies really are. Which branch of philosophy from Level 2 asks what sorts of things exist?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ethics",
+          "correct": false,
+          "rationale": "Ethics asks what is right or wrong."
+        },
+        {
+          "id": "b",
+          "label": "Aesthetics",
+          "correct": false,
+          "rationale": "Aesthetics studies beauty and art."
+        },
+        {
+          "id": "c",
+          "label": "Logic",
+          "correct": false,
+          "rationale": "Logic studies reasoning."
+        },
+        {
+          "id": "d",
+          "label": "Metaphysics",
+          "correct": true
+        }
+      ],
+      "explanation": "Metaphysics asks what sorts of things exist and what the world is made of, including whether minds are something over and above bodies.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.sep_dualism",
+    "source.iep_descartes_mind"
+  ],
+  "art": "mind.psychology-head"
+}

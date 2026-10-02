@@ -1,0 +1,215 @@
+{
+  "id": "level.mind.probability.083",
+  "skillId": "skill.mind.probability",
+  "number": 83,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Why Remedies Seem to Work",
+  "objective": "After this level you can explain how regression to the mean makes a treatment or a new rule look effective when people start at their worst.",
+  "summary": "Patients, roads and hospitals picked at their worst drift back toward average anyway, so before-and-after flatters any remedy. A similar untreated group shows the real effect.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.trap_regression_remedies",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.trap_regression_to_mean",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.percent_change_method",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.082"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.083.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The sickest patients often improve fastest after a new treatment. Why?",
+      "body": "It looks like proof the treatment works. Sometimes it is. But Level 82's drift back toward average was coming anyway, and it can make almost anything look like a cure."
+    },
+    {
+      "id": "card.probability.083.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Starting at the worst",
+      "body": "When a new treatment arrives, some doctors are tempted to try it first on the patients who are most ill. Those patients usually show a sharp, gratifying improvement. Part of the reason is regression to the mean: an extreme reading is partly bad luck, and bad luck rarely repeats. Anyone picked because they're at their worst has lots of room to drift back toward average."
+    },
+    {
+      "id": "card.probability.083.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "New rules get the same boost",
+      "body": "A sudden spike in road crashes is often chance, so a crackdown launched after one will seem to cut crashes. Give extra help to the hospitals at the bottom of a league table and most will climb; reward the ones at the top and they'll tend to slip. Statistician Stephen Senn put it bluntly: judged only by before and after, even sacrificing a chicken at a dangerous junction would look effective."
+    },
+    {
+      "id": "card.probability.083.c4",
+      "type": "fact",
+      "fact": "The fix: compare with a similar group that didn't get the treatment.",
+      "context": "Both groups start at their worst, so both drift back toward average. Only the difference between them shows what the treatment or rule itself did. That's why the best tests randomly split patients, or struggling hospitals, into groups instead of trusting a simple before and after."
+    },
+    {
+      "id": "card.probability.083.c5",
+      "type": "mcq",
+      "questionId": "question.probability.083.q1"
+    },
+    {
+      "id": "card.probability.083.c6",
+      "type": "mcq",
+      "questionId": "question.probability.083.q2"
+    },
+    {
+      "id": "card.probability.083.c7",
+      "type": "recall",
+      "questionId": "question.probability.083.q3"
+    },
+    {
+      "id": "card.probability.083.c8",
+      "type": "checkpoint",
+      "headline": "Remedies: tested fairly",
+      "learned": [
+        "Patients picked at their worst improve anyway",
+        "Crackdowns after a spike look effective",
+        "Before-and-after alone can fool you",
+        "Compare with a similar untreated group"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.083.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.trap_regression_remedies"
+      ],
+      "sourceCardIds": [
+        "card.probability.083.c2"
+      ],
+      "prompt": "Why do patients picked because they're the most ill often improve after a new treatment, whatever it is?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sick patients respond better to every medicine",
+          "correct": false,
+          "rationale": "The drift happens with or without a real effect."
+        },
+        {
+          "id": "b",
+          "label": "Doctors measure them more carefully",
+          "correct": false,
+          "rationale": "Careful measuring doesn't create the improvement."
+        },
+        {
+          "id": "c",
+          "label": "Their extreme readings tend to drift back toward average",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They always get the strongest dose",
+          "correct": false,
+          "rationale": "Dose isn't the issue; where they started is."
+        }
+      ],
+      "explanation": "Picked at their worst, they have lots of room to move back toward average: regression to the mean.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.083.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.trap_regression_remedies"
+      ],
+      "sourceCardIds": [
+        "card.probability.083.c3",
+        "card.probability.083.c4"
+      ],
+      "prompt": "A town puts new traffic lights at last year's worst junction for crashes. This year crashes there fall. What would best show whether the lights worked?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Comparing it with similar high-crash junctions left unchanged",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Counting crashes at the same junction for one more year",
+          "correct": false,
+          "rationale": "A longer before-and-after still can't separate the lights from the drift."
+        },
+        {
+          "id": "c",
+          "label": "Asking drivers whether they feel safer",
+          "correct": false,
+          "rationale": "Feelings don't separate the lights from regression to the mean."
+        },
+        {
+          "id": "d",
+          "label": "Checking that crashes fell by more than half",
+          "correct": false,
+          "rationale": "A big fall is exactly what regression can produce on its own."
+        }
+      ],
+      "explanation": "Similar junctions picked at their worst drift down too. Only the difference between the two shows what the lights did.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.probability.083.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.trap_regression_remedies",
+        "concept.probability.percent_change_method"
+      ],
+      "sourceCardIds": [
+        "card.probability.003.c2",
+        "card.probability.083.c2",
+        "card.probability.083.c3"
+      ],
+      "prompt": "After a clinic's worst-ever week of 40 infections, a new rule starts and the next week has 30. What's the percent fall, and what should you still ask?",
+      "options": [
+        {
+          "id": "a",
+          "label": "33%; nothing, the rule worked",
+          "correct": false,
+          "rationale": "10 ÷ 30 uses the wrong start, and the fall may be partly drift."
+        },
+        {
+          "id": "b",
+          "label": "25%; would a worst week be followed by a better one anyway?",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "10%; was the count right?",
+          "correct": false,
+          "rationale": "The fall is 10 infections, but 10 ÷ 40 is 25%."
+        },
+        {
+          "id": "d",
+          "label": "25%; did the rule cost too much?",
+          "correct": false,
+          "rationale": "The percent is right, but cost doesn't test whether it worked."
+        }
+      ],
+      "explanation": "The change is 10 and the start is 40, so 10 ÷ 40 = 25%. Starting from the worst week, some fall was likely anyway.",
+      "difficulty": 0.5
+    }
+  ],
+  "sourceIds": [
+    "source.bmj_morton_regression_to_mean_2003",
+    "source.ije_barnett_regression_to_mean_2005",
+    "source.significance_senn_galton_regression"
+  ],
+  "art": "body.stethoscope"
+}

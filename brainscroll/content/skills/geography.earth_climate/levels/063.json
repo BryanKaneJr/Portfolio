@@ -1,0 +1,213 @@
+{
+  "id": "level.geography.earth_climate.063",
+  "skillId": "skill.geography.earth_climate",
+  "number": 63,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "How Hail Grows",
+  "objective": "After this level you can explain how strong updrafts keep hailstones aloft long enough to grow layer by layer.",
+  "summary": "Hailstones grow as updrafts lift them through supercooled water that freezes on contact, and fall when the updraft can no longer hold them. Milky layers froze fast, clear ones slowly.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.storm_hail_growth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.storm_hail_layers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.igneous_cooling",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.062"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.063.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Slice a big hailstone in half and you find rings, some milky, some clear.",
+      "body": "Like a tree's rings, they're a record. Each one tells you something about the stone's trip through the storm."
+    },
+    {
+      "id": "card.earth_climate.063.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Born in the updraft",
+      "body": "Hail starts when a thunderstorm's updraft carries raindrops up into extremely cold parts of the cloud. Up there, water can stay liquid well below freezing. This supercooled water freezes the moment it touches ice, so a hailstone grows by colliding with it. A strong updraft keeps lifting the stone toward the top of the cloud, into more supercooled water. The stronger the updraft, the bigger the hailstone can grow."
+    },
+    {
+      "id": "card.earth_climate.063.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Too heavy to hold",
+      "body": "Hail falls when the updraft can no longer support the weight of the ice, or when the updraft weakens. Here's a twist: Florida has the most thunderstorms in the US, yet the most hailstorms usually hit where Nebraska, Colorado and Wyoming meet. Over those high plains, the freezing level sits much closer to the ground, so hail has less time to melt on the way down."
+    },
+    {
+      "id": "card.earth_climate.063.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Reading the rings",
+      "body": "Where the air is well below freezing and droplets are scarce, each droplet freezes the instant it hits, trapping tiny air bubbles: a milky layer. That's dry growth. Where it's just below freezing and water is plentiful, water spreads over the stone and freezes slowly, so the bubbles escape: a clear layer. That's wet growth. Counting the layers hints at how many times the stone traveled through the storm."
+    },
+    {
+      "id": "card.earth_climate.063.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.063.q1"
+    },
+    {
+      "id": "card.earth_climate.063.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.063.q2"
+    },
+    {
+      "id": "card.earth_climate.063.c7",
+      "type": "mcq",
+      "questionId": "question.earth_climate.063.q3"
+    },
+    {
+      "id": "card.earth_climate.063.c8",
+      "type": "checkpoint",
+      "headline": "Hail: grown",
+      "learned": [
+        "Hail grows by catching supercooled water",
+        "Strong updrafts grow big hail",
+        "A high freezing level lets hail melt",
+        "Milky layers froze fast, clear ones slowly"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.063.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.storm_hail_growth"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.063.c2"
+      ],
+      "prompt": "What does a hailstone grow by colliding with inside a thunderstorm?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Snowflakes that stick together",
+          "correct": false,
+          "rationale": "Hail grows from freezing water, not stacked snowflakes."
+        },
+        {
+          "id": "b",
+          "label": "Supercooled water that freezes on contact",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Dust blown up from the ground",
+          "correct": false,
+          "rationale": "Dust can start ice, but the stone grows from supercooled water."
+        },
+        {
+          "id": "d",
+          "label": "Warm raindrops rising from below",
+          "correct": false,
+          "rationale": "The growing water is below freezing, not warm."
+        }
+      ],
+      "explanation": "Supercooled water stays liquid below freezing and freezes the moment it touches the hailstone.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.063.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.storm_hail_growth"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.063.c3"
+      ],
+      "prompt": "Florida has more thunderstorms, so why do the high plains of Nebraska, Colorado and Wyoming get more hailstorms?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their storms are made of colder rain",
+          "correct": false,
+          "rationale": "The difference is how far the hail falls through warm air."
+        },
+        {
+          "id": "b",
+          "label": "Florida's storms have no updrafts",
+          "correct": false,
+          "rationale": "All thunderstorms have updrafts."
+        },
+        {
+          "id": "c",
+          "label": "Hail forms only over dry land",
+          "correct": false,
+          "rationale": "Florida is land too; melting is the issue."
+        },
+        {
+          "id": "d",
+          "label": "The freezing level is closer to the ground, so hail has less time to melt",
+          "correct": true
+        }
+      ],
+      "explanation": "Over the high plains the freezing level is much closer to the ground, so hail reaches the surface before it melts.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.063.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.storm_hail_layers",
+        "concept.earth_climate.igneous_cooling"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.063.c4",
+        "card.earth_climate.005.c3"
+      ],
+      "prompt": "A hailstone's milky layer froze instantly and trapped air bubbles. How is that like Level 5's rocks?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hail forms deep underground, like granite",
+          "correct": false,
+          "rationale": "Hail forms high in a cloud."
+        },
+        {
+          "id": "b",
+          "label": "The speed of freezing shows in its texture, as fast-cooled lava shows in rock",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Slow freezing traps the most bubbles, as slow cooling grows big crystals",
+          "correct": false,
+          "rationale": "Slow freezing lets bubbles escape; it makes clear ice."
+        },
+        {
+          "id": "d",
+          "label": "The milky layer is made of feldspar",
+          "correct": false,
+          "rationale": "It is ice, not a rock-forming mineral."
+        }
+      ],
+      "explanation": "In both, how fast the melt or water became solid is recorded in the texture: fast freezing traps bubbles, fast cooling leaves tiny crystals or glass.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.illinois_extension_hail",
+    "source.uwmadison_hail_shapes"
+  ],
+  "art": "earth.hailstone"
+}

@@ -1,0 +1,220 @@
+{
+  "id": "level.history.ancient_rome.085",
+  "skillId": "skill.history.ancient_rome",
+  "number": 85,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Constantine",
+  "objective": "After this level you can explain Constantine's rise and his support for Christianity.",
+  "summary": "Constantine won at the Milvian Bridge in 312 CE, gave Christians tolerance in 313, ruled alone from 324 and called the Council of Nicaea.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.constantine",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.diocletian",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.persecution",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.actium",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.084"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.085.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Ten years after the Great Persecution began, Christians were free to worship.",
+      "body": "What changed so fast? A new emperor, and a battle at a bridge."
+    },
+    {
+      "id": "card.ancient_rome.085.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Milvian Bridge",
+      "body": "In 312 CE Constantine defeated his rival Maxentius at the Milvian Bridge outside Rome. Christian writers said he saw a sign before the battle and had his soldiers fight under a Christian symbol. Whatever he saw, he won. By 324 CE he had beaten his last rival too and ruled the whole empire alone. Diocletian’s rule of four had become rule of one."
+    },
+    {
+      "id": "card.ancient_rome.085.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A Christian-friendly emperor",
+      "body": "Then things moved fast. In 313 CE the Edict of Milan granted religious tolerance to Christians throughout the empire. Just ten years earlier, in 303 CE, Diocletian had launched the Great Persecution. In 325 CE Constantine went further and called the Council of Nicaea, a meeting of bishops that agreed a common statement of Christian belief. An emperor was now hosting the church’s biggest meeting."
+    },
+    {
+      "id": "card.ancient_rome.085.c4",
+      "type": "fact",
+      "fact": "Constantine was baptized only on his deathbed.",
+      "context": "The emperor who granted Christians tolerance and gathered the bishops at Nicaea was not baptized until 337 CE, as he was dying. He joined the church officially on his way out."
+    },
+    {
+      "id": "card.ancient_rome.085.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.085.q1"
+    },
+    {
+      "id": "card.ancient_rome.085.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.085.q2"
+    },
+    {
+      "id": "card.ancient_rome.085.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.085.q3"
+    },
+    {
+      "id": "card.ancient_rome.085.c8",
+      "type": "checkpoint",
+      "headline": "Constantine: crowned",
+      "learned": [
+        "Constantine won at the Milvian Bridge in 312 CE",
+        "The Edict of Milan came in 313 CE",
+        "He ruled alone from 324 CE",
+        "He called the Council of Nicaea"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.085.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.constantine"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.085.c3"
+      ],
+      "prompt": "What did the Edict of Milan grant in 313 CE?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Citizenship to all free people",
+          "correct": false,
+          "rationale": "That was Caracalla, in 212 CE."
+        },
+        {
+          "id": "b",
+          "label": "Religious tolerance for Christians",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Freedom to all enslaved people",
+          "correct": false,
+          "rationale": "Slavery continued."
+        },
+        {
+          "id": "d",
+          "label": "A new capital in the East",
+          "correct": false,
+          "rationale": "That came later."
+        }
+      ],
+      "explanation": "The Edict of Milan granted religious tolerance to Christians throughout the empire.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.085.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.constantine"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.085.c3"
+      ],
+      "prompt": "Why was the Council of Nicaea important?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It elected Constantine emperor",
+          "correct": false,
+          "rationale": "He already ruled."
+        },
+        {
+          "id": "b",
+          "label": "It ended the Tetrarchy by imperial law",
+          "correct": false,
+          "rationale": "It was a church council."
+        },
+        {
+          "id": "c",
+          "label": "Bishops agreed a shared statement of belief",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It moved the Senate to the eastern capital",
+          "correct": false,
+          "rationale": "It was a church council."
+        }
+      ],
+      "explanation": "In 325 CE the bishops at Nicaea agreed a common statement of Christian belief.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.085.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.constantine",
+        "concept.ancient_rome.actium"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.085.c2",
+        "card.ancient_rome.043.c4"
+      ],
+      "prompt": "From Level 43: like Constantine by 324 CE, who went from sharing power to ruling the Roman world alone?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mark Antony",
+          "correct": false,
+          "rationale": "He lost at Actium."
+        },
+        {
+          "id": "b",
+          "label": "Marcus Agrippa",
+          "correct": false,
+          "rationale": "He was Octavian’s admiral, not the ruler."
+        },
+        {
+          "id": "c",
+          "label": "Octavian",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Lepidus",
+          "correct": false,
+          "rationale": "He shared power but never ruled alone."
+        }
+      ],
+      "explanation": "After Actium, Octavian was sole master of the Roman world, just as Constantine came to rule alone.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.brit_edict_milan",
+    "source.brit_diocletian",
+    "source.brit_constantine",
+    "source.brit_nicaea",
+    "source.brit_tetrarchy"
+  ],
+  "art": "rome.chi-rho"
+}

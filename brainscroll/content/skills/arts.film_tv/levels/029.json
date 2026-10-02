@@ -1,0 +1,210 @@
+{
+  "id": "level.arts.film_tv.029",
+  "skillId": "skill.arts.film_tv",
+  "number": 29,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Lighting a Scene",
+  "objective": "After this level you can explain three-point lighting and how high-key and low-key lighting set a mood.",
+  "summary": "Three-point lighting uses a key, a fill and a backlight. Raise the fill for bright high-key scenes; drop it for shadowy low-key ones.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.shoot_three_point_lighting",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.shoot_high_low_key",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.shoot_camera_light_crew",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.028"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.029.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Most mainstream films light a face from three directions.",
+      "body": "Britannica says lighting helps set the tone of a scene and emphasize the parts that matter. Yale's Film Analysis guide calls three-point lighting the standard scheme of classical narrative cinema. Learn its three lights, then watch one of them change the mood."
+    },
+    {
+      "id": "card.film_tv.029.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Key, fill and back",
+      "body": "The key light is the bright main light on the actor. A fill light from the opposite side softens the shadows the key casts, so they stay faint. A backlight, behind the actor, picks them out from the background. Together the three give a face a sense of depth. Documentaries and realist films often skip the setup and use natural light, for a sense of authenticity."
+    },
+    {
+      "id": "card.film_tv.029.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fill turned up: high-key",
+      "body": "In high-key lighting the fill is raised almost to the level of the key. The picture comes out bright, with few shadows on the main characters. Yale ties it to entertainment genres such as musicals and comedies."
+    },
+    {
+      "id": "card.film_tv.029.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fill turned down: low-key",
+      "body": "Low-key lighting uses very little fill. The result is strong contrast between bright and dark, with shadows that hide parts of the characters. Yale links it to suspense genres such as film noir. Same three lights, very different mood, and the fill makes the difference."
+    },
+    {
+      "id": "card.film_tv.029.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.029.q1"
+    },
+    {
+      "id": "card.film_tv.029.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.029.q2"
+    },
+    {
+      "id": "card.film_tv.029.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.029.q3"
+    },
+    {
+      "id": "card.film_tv.029.c8",
+      "type": "checkpoint",
+      "headline": "Lighting: switched on",
+      "learned": [
+        "Key light: the bright main light",
+        "Fill light: softens the key's shadows",
+        "Backlight: separates the actor from the background",
+        "More fill for high-key, less for low-key"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.029.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.shoot_three_point_lighting"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.029.c2"
+      ],
+      "prompt": "In three-point lighting, which light picks the actor out from the background?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The key light",
+          "correct": false,
+          "rationale": "The key is the bright main light on the actor."
+        },
+        {
+          "id": "b",
+          "label": "The fill light",
+          "correct": false,
+          "rationale": "The fill softens the shadows the key casts."
+        },
+        {
+          "id": "c",
+          "label": "The backlight",
+          "correct": true
+        }
+      ],
+      "explanation": "The backlight, behind the actor, separates them from the background.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.film_tv.029.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.shoot_high_low_key"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.029.c2",
+        "card.film_tv.029.c4"
+      ],
+      "prompt": "How does low-key lighting leave deep shadows on a face?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It raises the fill almost to the key's level",
+          "correct": false,
+          "rationale": "That's high-key lighting, which is bright with few shadows."
+        },
+        {
+          "id": "b",
+          "label": "It uses very little fill to soften the key's shadows",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It moves the backlight in front of the actor",
+          "correct": false,
+          "rationale": "The backlight separates actor and background; shadows come from missing fill."
+        },
+        {
+          "id": "d",
+          "label": "It tips the camera so the frame isn't level",
+          "correct": false,
+          "rationale": "That's a Dutch angle, not lighting."
+        }
+      ],
+      "explanation": "The fill light is what softens the key's shadows; with very little fill, the shadows stay deep and the contrast strong.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.film_tv.029.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.shoot_camera_light_crew",
+        "concept.film_tv.shoot_high_low_key"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.024.c3",
+        "card.film_tv.029.c3"
+      ],
+      "prompt": "A Level 24 gaffer must light a bright comedy scene with few shadows. What should happen to the fill light?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Turn it off completely",
+          "correct": false,
+          "rationale": "That pushes toward low-key, with strong shadows."
+        },
+        {
+          "id": "b",
+          "label": "Move it behind the actor",
+          "correct": false,
+          "rationale": "Behind the actor is the backlight's place."
+        },
+        {
+          "id": "c",
+          "label": "Raise it almost to the key light's level",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Swap it for a flickering campfire effect",
+          "correct": false,
+          "rationale": "That fakes a fire; it doesn't brighten the whole scene."
+        }
+      ],
+      "explanation": "High-key lighting raises the fill almost to the key, giving a bright image with few shadows; gaffers design each scene's lighting scheme.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_cinematography",
+    "source.yale_film_analysis_mise_en_scene",
+    "source.bls_script_to_screen",
+    "source.afi_what_is_cinematography"
+  ],
+  "art": "film.studio-light"
+}

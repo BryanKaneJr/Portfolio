@@ -1,0 +1,215 @@
+{
+  "id": "level.world_systems.computers.002",
+  "skillId": "skill.world_systems.computers",
+  "number": 2,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "A Bit: The Smallest Fact",
+  "objective": "After this level you can explain a bit as one yes-or-no choice and why eight bits make a byte with 256 possible patterns.",
+  "summary": "A bit is one choice between two options, 1 or 0, stored by a switch. Each added bit doubles the patterns, so a byte of 8 bits has 256.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.bit_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.bit_patterns",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.photo_journey",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.001"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.002.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The smallest fact a computer can hold is a yes or a no.",
+      "body": "Is the light on? Is the answer yes? One question, two possible answers. Computers build everything, your photos included, out of answers that small. So how does something so tiny add up to so much?"
+    },
+    {
+      "id": "card.computers.002.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One choice, one bit",
+      "body": "A bit, short for binary digit, holds the answer to one choice between two options, written 1 or 0. Inside a chip, a transistor switch stores it: on is 1, off is 0. John Tukey is credited with first using the word, in a 1947 memo, and Claude Shannon's 1948 paper was the first to put it in print. Fittingly, the word is itself a small bit of a longer phrase."
+    },
+    {
+      "id": "card.computers.002.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every bit doubles your options",
+      "body": "One bit gives 2 patterns: 0 or 1. Add a second and you get 4: 00, 01, 10 and 11. A third makes 8. Each extra bit doubles the count, because every old pattern can now end in either a 0 or a 1. It's the same reason a guessing game of yes-or-no questions narrows things down so fast."
+    },
+    {
+      "id": "card.computers.002.c4",
+      "type": "fact",
+      "fact": "Eight bits make a byte: 256 possible patterns.",
+      "context": "Start with 2 and keep doubling: 4, 8, 16, 32, 64, 128, 256. That's eight bits, and a group of eight is called a byte. One byte can take any of 256 different patterns, from all 0s to all 1s. That is a surprising amount of room for eight tiny switches."
+    },
+    {
+      "id": "card.computers.002.c5",
+      "type": "mcq",
+      "questionId": "question.computers.002.q1"
+    },
+    {
+      "id": "card.computers.002.c6",
+      "type": "mcq",
+      "questionId": "question.computers.002.q2"
+    },
+    {
+      "id": "card.computers.002.c7",
+      "type": "mcq",
+      "questionId": "question.computers.002.q3"
+    },
+    {
+      "id": "card.computers.002.c8",
+      "type": "checkpoint",
+      "headline": "Bits: counted",
+      "learned": [
+        "A bit is one choice between two options: 1 or 0",
+        "A transistor stores it: on is 1, off is 0",
+        "Each extra bit doubles the number of patterns",
+        "Eight bits make a byte, with 256 patterns"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.002.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.bit_patterns"
+      ],
+      "sourceCardIds": [
+        "card.computers.002.c4"
+      ],
+      "prompt": "How many different patterns can one byte of 8 bits make?",
+      "options": [
+        {
+          "id": "a",
+          "label": "8",
+          "correct": false,
+          "rationale": "That is how many bits are in a byte, not how many patterns."
+        },
+        {
+          "id": "b",
+          "label": "16",
+          "correct": false,
+          "rationale": "That is only 4 bits' worth of patterns."
+        },
+        {
+          "id": "c",
+          "label": "256",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "1,000",
+          "correct": false,
+          "rationale": "Doubling eight times gives 256, not a round thousand."
+        }
+      ],
+      "explanation": "Eight bits give 2 doubled eight times: 256 patterns.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.computers.002.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.bit_patterns"
+      ],
+      "sourceCardIds": [
+        "card.computers.002.c3"
+      ],
+      "prompt": "Why does adding one more bit double the number of possible patterns?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every old pattern can now end in either a 0 or a 1",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Each new bit can hold two digits at once",
+          "correct": false,
+          "rationale": "A bit holds one digit, 0 or 1."
+        },
+        {
+          "id": "c",
+          "label": "The new bit counts in tens instead of twos",
+          "correct": false,
+          "rationale": "Every bit has just two values."
+        },
+        {
+          "id": "d",
+          "label": "Bits pair up and cancel each other out",
+          "correct": false,
+          "rationale": "Bits add options; they never cancel."
+        }
+      ],
+      "explanation": "Each existing pattern splits in two, one ending in 0 and one ending in 1, so the count doubles.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.002.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.bit_definition",
+        "concept.computers.photo_journey"
+      ],
+      "sourceCardIds": [
+        "card.computers.002.c2",
+        "card.computers.001.c2"
+      ],
+      "prompt": "Level 1's camera translated light into binary digits. What is each single binary digit called?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A pixel",
+          "correct": false,
+          "rationale": "A pixel is a light receptor or a dot of color."
+        },
+        {
+          "id": "b",
+          "label": "A byte",
+          "correct": false,
+          "rationale": "A byte is a group of eight binary digits."
+        },
+        {
+          "id": "c",
+          "label": "A packet",
+          "correct": false,
+          "rationale": "A packet is a piece of data sent across a network."
+        },
+        {
+          "id": "d",
+          "label": "A bit",
+          "correct": true
+        }
+      ],
+      "explanation": "Bit is short for binary digit: one 1 or 0.",
+      "difficulty": 0.15
+    }
+  ],
+  "sourceIds": [
+    "source.brit_bit",
+    "source.intel_digital_information",
+    "source.aps_john_tukey",
+    "source.brit_claude_shannon",
+    "source.stanford_cs101_bits_bytes"
+  ],
+  "art": "computers.switch-row"
+}

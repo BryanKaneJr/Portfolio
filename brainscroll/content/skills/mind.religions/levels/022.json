@@ -1,0 +1,230 @@
+{
+  "id": "level.mind.religions.022",
+  "skillId": "skill.mind.religions",
+  "number": 22,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The New Testament",
+  "objective": "After this level you can explain what the Gospels and Paul's letters are and how the New Testament canon took shape over about three centuries.",
+  "summary": "Paul's letters came first; the Gospels followed after about 40 years of oral retelling, Mark around 70 CE; in 367 Athanasius listed the 27 books of today's New Testament.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.christianity_nt_books",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.christianity_gospels_origin",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.christianity_nt_canon",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.scripture_canon",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.religions.oral_transmission",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.021"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.022.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "For about 40 years after Jesus died, there was no written Gospel.",
+      "body": "His followers told and retold his story aloud. So how did that become a collection of 27 books, and who decided which ones?"
+    },
+    {
+      "id": "card.religions.022.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Paul writes first",
+      "body": "The oldest books of the New Testament aren't the Gospels. They're Paul's letters, written to young churches about their immediate problems, soon after Jesus's death. They sit after the Gospels anyway: the 27 books (four Gospels, the Acts of the Apostles, the letters and Revelation) aren't in the order they were written. All of them are in Koine, the Greek then used from Greece to the Middle East."
+    },
+    {
+      "id": "card.religions.022.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Then the Gospels",
+      "body": "Gospel comes from the Old English god-spell, translating the Greek euangelion: \"good news\". Most scholars agree Mark wrote first, around 70 CE, weaving together stories Christians had been retelling aloud since Jesus's death around 30 CE. Matthew and Luke used Mark as a source. None of the writers was out to satisfy historical curiosity, Britannica notes. They wrote to bear witness to a faith."
+    },
+    {
+      "id": "card.religions.022.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Drawing the line",
+      "body": "Other early Christian writings circulated too, and churches argued over which counted. In 367 CE, Athanasius, bishop of Alexandria, sent his churches a letter listing exactly today's 27 books, the first time that list appears. He meant to end disputes over texts like the Shepherd of Hermas, which some had treated as equal to the apostles' letters. From Jesus's death to that list: more than three centuries. Christians place these books after the Jewish scriptures, which they call the Old Testament."
+    },
+    {
+      "id": "card.religions.022.c5",
+      "type": "mcq",
+      "questionId": "question.religions.022.q1"
+    },
+    {
+      "id": "card.religions.022.c6",
+      "type": "mcq",
+      "questionId": "question.religions.022.q2"
+    },
+    {
+      "id": "card.religions.022.c7",
+      "type": "mcq",
+      "questionId": "question.religions.022.q3"
+    },
+    {
+      "id": "card.religions.022.c8",
+      "type": "checkpoint",
+      "headline": "The New Testament: the takeaways",
+      "learned": [
+        "Paul's letters are the oldest New Testament books",
+        "The Gospels grew from about 40 years of retelling",
+        "Athanasius listed the 27 books in 367"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.022.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.christianity_nt_books"
+      ],
+      "sourceCardIds": [
+        "card.religions.022.c2"
+      ],
+      "prompt": "Which New Testament writings are the oldest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Gospel of John",
+          "correct": false,
+          "rationale": "It came later than Mark, and Paul wrote before both."
+        },
+        {
+          "id": "b",
+          "label": "Paul's letters to the churches",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The book of Revelation",
+          "correct": false,
+          "rationale": "Paul's letters are the earliest texts."
+        },
+        {
+          "id": "d",
+          "label": "Athanasius's Easter letter",
+          "correct": false,
+          "rationale": "That came in 367 and isn't in the New Testament."
+        }
+      ],
+      "explanation": "Paul's letters, written to young churches soon after Jesus's death, are considered the earliest New Testament texts.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.022.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.christianity_gospels_origin",
+        "concept.religions.oral_transmission"
+      ],
+      "sourceCardIds": [
+        "card.religions.022.c3",
+        "card.religions.022.c1"
+      ],
+      "prompt": "How did the stories of Jesus reach the Gospel writers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From Roman court records of the trial",
+          "correct": false,
+          "rationale": "The writers drew on Christian memory, not Roman archives."
+        },
+        {
+          "id": "b",
+          "label": "From a diary Jesus kept",
+          "correct": false,
+          "rationale": "Nothing like that is described; the stories were retold aloud."
+        },
+        {
+          "id": "c",
+          "label": "From Athanasius's list of approved books",
+          "correct": false,
+          "rationale": "That came three centuries later."
+        },
+        {
+          "id": "d",
+          "label": "Retold aloud for about 40 years, then written",
+          "correct": true
+        }
+      ],
+      "explanation": "Christians told and retold the stories orally; Mark wove them into the first written Gospel around 70 CE.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.022.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.christianity_nt_canon",
+        "concept.religions.scripture_canon"
+      ],
+      "sourceCardIds": [
+        "card.religions.022.c4",
+        "card.religions.006.c2"
+      ],
+      "prompt": "Athanasius's list of exactly 27 books is an example of which idea from Level 6?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A canon: a fixed collection held authoritative",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "An oral tradition kept by memory",
+          "correct": false,
+          "rationale": "His list fixed written books."
+        },
+        {
+          "id": "c",
+          "label": "A rite of passage marking a new status",
+          "correct": false,
+          "rationale": "That's Level 7, about ceremonies."
+        },
+        {
+          "id": "d",
+          "label": "Shruti, 'what is heard'",
+          "correct": false,
+          "rationale": "That's how Hindus regard the Vedas."
+        }
+      ],
+      "explanation": "A canon fixes which texts a community holds fully authoritative, as Athanasius's list did for the New Testament.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_new_testament",
+    "source.brit_koine",
+    "source.brit_christianity",
+    "source.pbs_frontline_oral_tradition",
+    "source.brit_gospel",
+    "source.pbs_frontline_mark",
+    "source.brit_biblical_canon_4th_century",
+    "source.chi_athanasius_new_testament"
+  ],
+  "art": "object.book"
+}

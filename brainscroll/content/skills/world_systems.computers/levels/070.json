@@ -1,0 +1,352 @@
+{
+  "id": "level.world_systems.computers.070",
+  "skillId": "skill.world_systems.computers",
+  "number": 70,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "published",
+  "title": "Checkpoint: Your Data and Privacy",
+  "objective": "After this level you can trace where your personal data goes, who profits from it, and which laws and tools limit what happens to it.",
+  "summary": "One weather-app location ping, followed through the chapter: collected, joined with ad and broker data, stored, exposed in breaches, and limited by encryption and laws.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.privacy_online_offline_link",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.privacy_reidentification",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.privacy_database_index",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.privacy_ccpa_rights",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.privacy_metadata",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.privacy_phone_trail",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.privacy_ad_sdk",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.privacy_data_brokers",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.privacy_equifax_breach",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.privacy_breach_defenses",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.privacy_gdpr_rights",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.privacy_database_tables",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.069"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.070.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One tap to allow the weather app. Where does that data go?",
+      "body": "Chapter 7 finale. At breakfast you let a weather app see your location. Follow that single piece of data through everything this chapter covered, and find where the brakes are."
+    },
+    {
+      "id": "card.computers.070.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Out of your phone and into a profile",
+      "body": "The location comes from GPS, Wi-Fi and cell towers. If the app shows ads, an ad company's SDK inside it may collect your advertising ID too. Brokers combine pieces like these into profiles, and use websites with sign-ups and cookies to match what you do offline to the ads you see online. Strip off your name and the trail can still point to you, because a few details combine into a pattern only you fit."
+    },
+    {
+      "id": "card.computers.070.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stored somewhere, and the brakes",
+      "body": "Somewhere your ping becomes a row in a database table. If that company is breached, as Equifax was in 2017, anything stored carelessly, like Equifax's unencrypted passwords, can unlock the rest. The brakes: passwords kept only as salted hashes, a second factor, encryption that hides what you say (though not the metadata), and laws like the GDPR and California's that let you see, correct and delete what's held on you."
+    },
+    {
+      "id": "card.computers.070.c4",
+      "type": "mcq",
+      "questionId": "question.computers.070.q1"
+    },
+    {
+      "id": "card.computers.070.c5",
+      "type": "mcq",
+      "questionId": "question.computers.070.q2"
+    },
+    {
+      "id": "card.computers.070.c6",
+      "type": "recall",
+      "questionId": "question.computers.070.q3"
+    },
+    {
+      "id": "card.computers.070.c7",
+      "type": "recall",
+      "questionId": "question.computers.070.q4"
+    },
+    {
+      "id": "card.computers.070.c8",
+      "type": "recall",
+      "questionId": "question.computers.070.q5"
+    },
+    {
+      "id": "card.computers.070.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 7 complete",
+      "learned": [
+        "How your phone, apps and data brokers turn an ordinary day into a profile that is bought and sold.",
+        "Why removing names doesn't make data anonymous, and how a few details can single you out.",
+        "What a data breach exposes, and how hashing, a second factor and encryption limit the damage.",
+        "Which rights the GDPR and California's privacy law give you over data that companies hold."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.070.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.privacy_online_offline_link"
+      ],
+      "sourceCardIds": [
+        "card.computers.070.c2"
+      ],
+      "prompt": "In this chapter's weather-app story, how do data brokers link what you do offline to the ads you see online?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By listening through your phone's microphone",
+          "correct": false,
+          "rationale": "Nothing in the chapter describes that; brokers match records."
+        },
+        {
+          "id": "b",
+          "label": "By reading your end-to-end encrypted messages",
+          "correct": false,
+          "rationale": "The service can't read those, let alone a broker."
+        },
+        {
+          "id": "c",
+          "label": "Through website sign-ups and cookies",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "By asking your carrier for your photos",
+          "correct": false,
+          "rationale": "Carriers log cell-site records, not photos."
+        }
+      ],
+      "explanation": "The FTC found brokers use websites with registration features and cookies to find people online and target ads based on offline activity.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.070.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.privacy_reidentification",
+        "concept.computers.privacy_online_offline_link"
+      ],
+      "sourceCardIds": [
+        "card.computers.070.c2",
+        "card.computers.066.c3"
+      ],
+      "prompt": "Why can a location trail in this chapter's data story still point to you after your name is removed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Location data always includes your name",
+          "correct": false,
+          "rationale": "The point is that it doesn't need to."
+        },
+        {
+          "id": "b",
+          "label": "A few details combine into a pattern only you fit",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Removing a name is illegal under the GDPR",
+          "correct": false,
+          "rationale": "The GDPR doesn't forbid removing names."
+        },
+        {
+          "id": "d",
+          "label": "Your phone re-attaches your name every night",
+          "correct": false,
+          "rationale": "No such thing happens; combining details is enough."
+        }
+      ],
+      "explanation": "Details multiply into combinations so specific that most people are alone in theirs.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.computers.070.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.privacy_database_index"
+      ],
+      "sourceCardIds": [
+        "card.computers.070.c3",
+        "card.computers.061.c4"
+      ],
+      "prompt": "Your ping lands as one row among millions in a company's database. From Level 61, what lets the database jump straight to your row?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An index",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A credit freeze",
+          "correct": false,
+          "rationale": "A freeze blocks new credit in your name."
+        },
+        {
+          "id": "c",
+          "label": "A cookie",
+          "correct": false,
+          "rationale": "Cookies help websites recognize you."
+        },
+        {
+          "id": "d",
+          "label": "End-to-end encryption",
+          "correct": false,
+          "rationale": "That protects messages, not database lookups."
+        }
+      ],
+      "explanation": "An index keeps a column's values sorted, each pointing to its row, so the database needn't scan every row.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.070.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.privacy_ccpa_rights"
+      ],
+      "sourceCardIds": [
+        "card.computers.069.c4"
+      ],
+      "prompt": "From Level 69: what can a Californian tell a business that sells their personal data to do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pay them for every sale",
+          "correct": false,
+          "rationale": "The law gives control, not payment."
+        },
+        {
+          "id": "b",
+          "label": "Delete its whole customer list",
+          "correct": false,
+          "rationale": "The right covers the person's own data."
+        },
+        {
+          "id": "c",
+          "label": "Stop selling or sharing it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Encrypt it end to end",
+          "correct": false,
+          "rationale": "That's not one of the law's rights."
+        }
+      ],
+      "explanation": "California's privacy law gives the right to opt out of the sale or sharing of your personal information.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.070.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.privacy_metadata"
+      ],
+      "sourceCardIds": [
+        "card.computers.063.c3"
+      ],
+      "prompt": "From Level 63: what did the Stanford researchers use to infer that a volunteer likely had a heart condition?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Recordings of the volunteer's calls",
+          "correct": false,
+          "rationale": "They had no content at all."
+        },
+        {
+          "id": "b",
+          "label": "The volunteer's medical records",
+          "correct": false,
+          "rationale": "They used phone logs only."
+        },
+        {
+          "id": "c",
+          "label": "The volunteer's photos",
+          "correct": false,
+          "rationale": "Photos weren't part of the study."
+        },
+        {
+          "id": "d",
+          "label": "Only call records: numbers, times and lengths",
+          "correct": true
+        }
+      ],
+      "explanation": "Metadata alone, calls to a cardiology group, a pharmacy and a heart-monitor hotline, pointed to a likely arrhythmia.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.apple_location_services",
+    "source.google_admob_play_disclosure",
+    "source.ftc_data_brokers_2014",
+    "source.sweeney_simple_demographics_2000",
+    "source.mslearn_sql_tables",
+    "source.ftc_equifax_settlement_2019",
+    "source.nist_sp800_63b4_passwords",
+    "source.cisa_more_than_password",
+    "source.eff_ssd_encryption",
+    "source.eurlex_gdpr",
+    "source.ca_oag_ccpa",
+    "source.google_android_location",
+    "source.ftc_equifax_settlement_page",
+    "source.gao_equifax_2018"
+  ],
+  "art": "computers.key-fob"
+}

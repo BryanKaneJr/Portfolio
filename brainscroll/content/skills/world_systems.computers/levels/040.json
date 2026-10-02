@@ -1,0 +1,403 @@
+{
+  "id": "level.world_systems.computers.040",
+  "skillId": "skill.world_systems.computers",
+  "number": 40,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "published",
+  "title": "Checkpoint: How the Internet Works",
+  "objective": "After this level you can trace a packet from your device through addresses, DNS, routers and cables and explain how it arrives complete.",
+  "summary": "One request to example.com, start to finish: DNS lookup, TCP handshake, layers of headers, NAT, hop-by-hop routing and light in fiber, with TCP making it complete.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.net_request_trip",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.net_switch_mac",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.net_hop_forwarding",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.net_fiber_pure_glass",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.net_satellite_orbits",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.net_dns_lookup",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.net_tcp_handshake",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.net_tcp_reliability",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.net_encapsulation",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.net_nat_translation",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.net_ttl_traceroute",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.net_fiber_light",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.039"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.040.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You type example.com and press Enter. What happens before a byte comes back?",
+      "body": "Chapter 4 finale. Follow one request out of your home and across the internet, and watch each idea from this chapter take its turn."
+    },
+    {
+      "id": "card.computers.040.c2",
+      "type": "timeline",
+      "headline": "One request, step by step",
+      "events": [
+        {
+          "when": "Step 1",
+          "label": "DNS: the resolver asks the root, .com, then the owner for the IP address"
+        },
+        {
+          "when": "Step 2",
+          "label": "TCP: SYN, SYN-ACK, ACK opens a numbered connection"
+        },
+        {
+          "when": "Step 3",
+          "label": "Layers: the request is wrapped in TCP, IP and link headers"
+        },
+        {
+          "when": "Step 4",
+          "label": "Home router: NAT swaps your private address for its public one"
+        },
+        {
+          "when": "Step 5",
+          "label": "Routers: each sends it one hop on, Time to Live down by one"
+        },
+        {
+          "when": "Step 6",
+          "label": "Fiber: pulses of light carry it along the long stretches"
+        }
+      ]
+    },
+    {
+      "id": "card.computers.040.c3",
+      "type": "comparison",
+      "headline": "Who reads which label",
+      "items": [
+        {
+          "label": "The switch at home",
+          "points": [
+            "Reads MAC addresses on each frame",
+            "Sends it out one port"
+          ]
+        },
+        {
+          "label": "Each router on the way",
+          "points": [
+            "Reads the destination IP address",
+            "Picks only the next hop"
+          ]
+        },
+        {
+          "label": "Your device and the server",
+          "points": [
+            "Read TCP sequence numbers",
+            "Acknowledge and resend"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.computers.040.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why it arrives complete",
+      "body": "Nothing in the middle promises anything: IP packets can be lost, repeated or scrambled, and each router only knows its next hop. Completeness comes from the two ends. Before your browser can contact the site at all, DNS must supply its address; after that, TCP numbers every byte, acknowledges what arrived and resends whatever didn't."
+    },
+    {
+      "id": "card.computers.040.c5",
+      "type": "mcq",
+      "questionId": "question.computers.040.q1"
+    },
+    {
+      "id": "card.computers.040.c6",
+      "type": "mcq",
+      "questionId": "question.computers.040.q2"
+    },
+    {
+      "id": "card.computers.040.c7",
+      "type": "recall",
+      "questionId": "question.computers.040.q3"
+    },
+    {
+      "id": "card.computers.040.c8",
+      "type": "recall",
+      "questionId": "question.computers.040.q4"
+    },
+    {
+      "id": "card.computers.040.c9",
+      "type": "recall",
+      "questionId": "question.computers.040.q5"
+    },
+    {
+      "id": "card.computers.040.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 4 complete",
+      "learned": [
+        "How a request finds a server by name, crosses routers hop by hop and arrives complete.",
+        "Why IPv4's free pool ran out, and how private addresses and NAT let a whole home share one.",
+        "How TCP turns lost, repeated or scrambled packets into a perfect download.",
+        "What keeps light inside a fiber, and how homes connect by phone line, cable, glass or satellite."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.040.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.net_request_trip"
+      ],
+      "sourceCardIds": [
+        "card.computers.040.c4"
+      ],
+      "prompt": "On the trip to example.com, what has to happen before your browser can contact the site at all?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A traceroute of the whole path",
+          "correct": false,
+          "rationale": "Traceroute is a diagnostic tool, not a required step."
+        },
+        {
+          "id": "b",
+          "label": "DNS has to supply the site's IP address",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The site has to send its page first",
+          "correct": false,
+          "rationale": "The page comes only after you ask for it."
+        },
+        {
+          "id": "d",
+          "label": "Every router has to approve the route",
+          "correct": false,
+          "rationale": "Routers just forward packets one hop at a time."
+        }
+      ],
+      "explanation": "A browser needs the site's IP address, so the DNS lookup comes first; only then can TCP open a connection.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.040.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.net_request_trip",
+        "concept.computers.net_tcp_reliability"
+      ],
+      "sourceCardIds": [
+        "card.computers.040.c4"
+      ],
+      "prompt": "How does the page arrive complete when IP in the middle promises nothing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The routers check every packet's contents",
+          "correct": false,
+          "rationale": "Routers only forward; they promise nothing."
+        },
+        {
+          "id": "b",
+          "label": "Fiber never loses a packet",
+          "correct": false,
+          "rationale": "Any link can lose or damage packets."
+        },
+        {
+          "id": "c",
+          "label": "TCP at the two ends numbers, acknowledges and resends",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "DNS keeps a backup copy of the page",
+          "correct": false,
+          "rationale": "DNS only looks up addresses."
+        }
+      ],
+      "explanation": "Completeness is handled at the ends: TCP numbers every byte, acknowledges what arrived and resends what did not.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.040.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.net_switch_mac",
+        "concept.computers.net_hop_forwarding"
+      ],
+      "sourceCardIds": [
+        "card.computers.031.c4",
+        "card.computers.034.c2"
+      ],
+      "prompt": "Your request passes a switch at home, then routers beyond. Which addresses does each one read?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Switch: IP address; router: MAC address",
+          "correct": false,
+          "rationale": "It is the other way round."
+        },
+        {
+          "id": "b",
+          "label": "Both read only the domain name",
+          "correct": false,
+          "rationale": "Names are turned into addresses before sending."
+        },
+        {
+          "id": "c",
+          "label": "Switch: port number; router: sequence number",
+          "correct": false,
+          "rationale": "Those belong to TCP at the two ends."
+        },
+        {
+          "id": "d",
+          "label": "Switch: MAC address; router: destination IP address",
+          "correct": true
+        }
+      ],
+      "explanation": "Switches forward frames by MAC address inside one network; routers look up the destination IP address to choose the next hop.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.040.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.net_fiber_pure_glass"
+      ],
+      "sourceCardIds": [
+        "card.computers.037.c3"
+      ],
+      "prompt": "From Level 37: glass fibers of the 1960s lost their light after about how far?",
+      "options": [
+        {
+          "id": "a",
+          "label": "20 meters",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "1 kilometer",
+          "correct": false,
+          "rationale": "Kao hoped just 1 percent would survive a kilometer."
+        },
+        {
+          "id": "c",
+          "label": "100 kilometers",
+          "correct": false,
+          "rationale": "That was what Kao calculated pure glass could reach."
+        },
+        {
+          "id": "d",
+          "label": "6,000 kilometers",
+          "correct": false,
+          "rationale": "Old fibers could not come close."
+        }
+      ],
+      "explanation": "Fibers of the 1960s carried light only about 20 meters; Kao calculated the purest glass could reach over 100 kilometers.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.040.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.net_satellite_orbits"
+      ],
+      "sourceCardIds": [
+        "card.computers.039.c4"
+      ],
+      "prompt": "From Level 39: why does a geostationary satellite seem to hover over one spot?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Engines fire constantly to hold it still in the sky",
+          "correct": false,
+          "rationale": "It is orbiting, not hovering."
+        },
+        {
+          "id": "b",
+          "label": "One lap of its orbit takes as long as one turn of the Earth",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A long cable tethers it to a station on the ground",
+          "correct": false,
+          "rationale": "Nothing connects it to the ground but radio."
+        },
+        {
+          "id": "d",
+          "label": "It orbits so low that it barely moves across the sky",
+          "correct": false,
+          "rationale": "It orbits 35,786 km up, far above low orbit."
+        }
+      ],
+      "explanation": "At 35,786 km, its orbit matches Earth's rotation, so it stays over the same spot.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.icann_root_server_system_overview",
+    "source.ietf_rfc9293_tcp",
+    "source.ietf_rfc1122_host_requirements",
+    "source.oracle_tcpip_encapsulation",
+    "source.ietf_rfc3022_nat",
+    "source.ietf_rfc1812_routers",
+    "source.ntia_broadband_glossary",
+    "source.ncdit_broadband_technology_types",
+    "source.ciscopress_mac_address_table",
+    "source.nobel_physics_2009_press",
+    "source.esa_types_of_orbits",
+    "source.crs_leo_satellites_broadband",
+    "source.ietf_rfc791_ip"
+  ],
+  "art": "computers.parcel"
+}

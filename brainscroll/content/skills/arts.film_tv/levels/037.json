@@ -1,0 +1,216 @@
+{
+  "id": "level.arts.film_tv.037",
+  "skillId": "skill.arts.film_tv",
+  "number": 37,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Kuleshov Effect",
+  "objective": "After this level you can explain how the Kuleshov experiment showed that viewers read an actor's face from the shots around it.",
+  "summary": "Kuleshov cut a neutral face against soup, a child or a corpse, and viewers saw hunger, tenderness or grief. The footage is lost, but a 2016 study found some such effect.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.cutting_kuleshov_effect",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.cutting_kuleshov_evidence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.cutting_eyeline_match",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.036"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.037.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The same face, the same shot, and viewers saw different feelings.",
+      "body": "An actor stares ahead with a neutral expression. Put that shot after a bowl of soup, and viewers see hunger. Put it next to something else, and they see something else. The face never changed. So who was doing the acting?"
+    },
+    {
+      "id": "card.film_tv.037.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Kuleshov's experiment",
+      "body": "Lev Kuleshov, a Soviet film theorist, taught that montage, the cutting and joining of shots, was the most important part of filmmaking. To show it, he cut an actor's neutral face against different shots, such as soup, a child or a corpse. Viewers read the same face as hungry, tender or grieving. The lesson: a shot has two values, what it shows by itself and what it gains next to another shot."
+    },
+    {
+      "id": "card.film_tv.037.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why it works: you follow the look",
+      "body": "The effect runs on Level 34's eyeline logic. You take the face to be looking at whatever comes next. A 2024 study describes the sequence as a glance shot, the face, followed by an object shot, the thing seen. Your mind supplies the feeling that would connect the two."
+    },
+    {
+      "id": "card.film_tv.037.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A famous experiment with missing evidence",
+      "body": "Here's the catch. The original footage is lost, and tellings of the experiment differ, even about which shots were used. It's doubtful it worked exactly as Kuleshov claimed: the face came from an existing film and likely held an ambiguous expression. So researchers tested it again. After conflicting results, a 2016 study with 36 participants found that some sort of Kuleshov effect does exist."
+    },
+    {
+      "id": "card.film_tv.037.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.037.q1"
+    },
+    {
+      "id": "card.film_tv.037.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.037.q2"
+    },
+    {
+      "id": "card.film_tv.037.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.037.q3"
+    },
+    {
+      "id": "card.film_tv.037.c8",
+      "type": "checkpoint",
+      "headline": "Kuleshov: understood",
+      "learned": [
+        "Same neutral face, different neighbors, different feelings",
+        "A shot means what it shows, plus what it gains beside another",
+        "Viewers assume the face is looking at the next shot",
+        "Footage lost, accounts differ; a 2016 study found an effect"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.037.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.cutting_kuleshov_evidence"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.037.c4"
+      ],
+      "prompt": "What did a 2016 study with 36 participants find about the Kuleshov effect?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Some sort of Kuleshov effect does exist",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "There is no effect of any kind",
+          "correct": false,
+          "rationale": "Earlier results were mixed, but this study found an effect."
+        },
+        {
+          "id": "c",
+          "label": "It works only when the actor's expression changes",
+          "correct": false,
+          "rationale": "The test used neutral faces."
+        },
+        {
+          "id": "d",
+          "label": "The original footage had turned up in an archive",
+          "correct": false,
+          "rationale": "The original footage is lost."
+        }
+      ],
+      "explanation": "After conflicting replications, the 2016 study found that some sort of Kuleshov effect does exist.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.film_tv.037.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.cutting_kuleshov_effect"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.037.c2"
+      ],
+      "prompt": "How did the experiment make one neutral face seem to show different feelings?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The actor changed his expression slightly each time",
+          "correct": false,
+          "rationale": "The same shot of the face was used each time."
+        },
+        {
+          "id": "b",
+          "label": "Captions told viewers what he was feeling",
+          "correct": false,
+          "rationale": "No captions: the cuts did the work."
+        },
+        {
+          "id": "c",
+          "label": "Viewers read the face through the shot placed next to it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Slow motion exaggerated tiny movements",
+          "correct": false,
+          "rationale": "The effect comes from editing, not camera speed."
+        }
+      ],
+      "explanation": "A shot gains a second value next to another shot: soup made the same face read as hungry.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.film_tv.037.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.cutting_eyeline_match",
+        "concept.film_tv.cutting_kuleshov_effect"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.037.c3",
+        "card.film_tv.034.c3"
+      ],
+      "prompt": "Level 34's eyeline match shows a look, then what is seen. Why does that help the Kuleshov effect work?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It makes the actor look more handsome",
+          "correct": false,
+          "rationale": "The point is where he seems to look, not how he looks."
+        },
+        {
+          "id": "b",
+          "label": "It shows both shots on screen at once",
+          "correct": false,
+          "rationale": "The shots come one after the other."
+        },
+        {
+          "id": "c",
+          "label": "It slows the film to 16 frames a second",
+          "correct": false,
+          "rationale": "Frame rate has nothing to do with it."
+        },
+        {
+          "id": "d",
+          "label": "Viewers assume the face is looking at the next shot",
+          "correct": true
+        }
+      ],
+      "explanation": "Viewers take the face to be looking at what comes next: a glance shot, then an object shot.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_kuleshov_effect",
+    "source.brit_kuleshov",
+    "source.plosone_cao_kuleshov_2024",
+    "source.lund_barratt_kuleshov_2016",
+    "source.encyclopedia_com_film_editing"
+  ],
+  "art": "mind.soup-ladle"
+}

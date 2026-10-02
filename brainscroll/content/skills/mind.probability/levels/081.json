@@ -1,0 +1,211 @@
+{
+  "id": "level.mind.probability.081",
+  "skillId": "skill.mind.probability",
+  "number": 81,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Simpson's Paradox",
+  "objective": "After this level you can explain how a trend in every group can reverse when the groups are combined, using the 1973 Berkeley admissions data.",
+  "summary": "Berkeley admitted 44% of men and 35% of women in 1973, yet women did better in four of the six biggest departments. A trend in every group can reverse when the groups are combined.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.trap_simpsons_paradox",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.fraction_to_percent",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.080"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.081.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1973, Berkeley seemed to favor men. Department by department, it didn't.",
+      "body": "The overall numbers looked damning. Then researchers looked one department at a time, and the pattern turned around. Same applicants, same decisions, opposite story. How can both be true?"
+    },
+    {
+      "id": "card.probability.081.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The overall numbers",
+      "body": "In fall 1973, Berkeley's graduate programs admitted about 44% of the 8,442 men who applied, but only about 35% of the 4,321 women. That's a gap of 9 percentage points. Level 2 showed that percents put groups of different sizes on one scale, so this looks like a fair comparison. Hold that thought."
+    },
+    {
+      "id": "card.probability.081.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Inside the departments",
+      "body": "Split the numbers by department and they flip. In Department A, one of the six biggest, 82% of the 108 women who applied got in, against 62% of the 825 men. In four of those six departments, women were admitted at a higher rate. The difference was where people applied: women more often chose departments that were hard to get into, men the easier ones."
+    },
+    {
+      "id": "card.probability.081.c4",
+      "type": "fact",
+      "fact": "A trend in every group can reverse when the groups are combined.",
+      "context": "That's Simpson's paradox. Berkeley's overall percents mixed departments with very different odds, so they partly measured who applied where. In a 1975 paper in Science, three researchers found a small bias in favor of women once departments were taken into account. Before trusting a combined percent, ask what it lumps together."
+    },
+    {
+      "id": "card.probability.081.c5",
+      "type": "mcq",
+      "questionId": "question.probability.081.q1"
+    },
+    {
+      "id": "card.probability.081.c6",
+      "type": "mcq",
+      "questionId": "question.probability.081.q2"
+    },
+    {
+      "id": "card.probability.081.c7",
+      "type": "recall",
+      "questionId": "question.probability.081.q3"
+    },
+    {
+      "id": "card.probability.081.c8",
+      "type": "checkpoint",
+      "headline": "Simpson's paradox: spotted",
+      "learned": [
+        "Berkeley 1973: 44% of men, 35% of women admitted",
+        "Department A: 82% of women, 62% of men",
+        "Women applied more to hard departments",
+        "A combined percent can hide the groups' story"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.081.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.trap_simpsons_paradox"
+      ],
+      "sourceCardIds": [
+        "card.probability.081.c4"
+      ],
+      "prompt": "What is Simpson's paradox?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A trend in every group reverses when the groups are combined",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A small group gives extreme results by chance",
+          "correct": false,
+          "rationale": "That's a different trap: small groups swing more."
+        },
+        {
+          "id": "c",
+          "label": "Percents that don't add up to 100%",
+          "correct": false,
+          "rationale": "Simpson's paradox is about combining groups, not totals."
+        },
+        {
+          "id": "d",
+          "label": "A number that looks more exact than its measurement",
+          "correct": false,
+          "rationale": "That's false precision, from Chapter 1."
+        }
+      ],
+      "explanation": "Simpson's paradox: a trend that holds in each group disappears or reverses once the groups are pooled, as at Berkeley in 1973.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.081.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.trap_simpsons_paradox"
+      ],
+      "sourceCardIds": [
+        "card.probability.081.c3",
+        "card.probability.081.c4"
+      ],
+      "prompt": "Hospital A has better survival than Hospital B for mild cases and for severe cases, but worse survival overall. What's the likeliest explanation?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Someone made a mistake, since that's impossible",
+          "correct": false,
+          "rationale": "It's entirely possible; that's Simpson's paradox."
+        },
+        {
+          "id": "b",
+          "label": "Hospital B treats more patients in total",
+          "correct": false,
+          "rationale": "Size alone doesn't flip a trend; the mix of cases does."
+        },
+        {
+          "id": "c",
+          "label": "Hospital A's care is worse overall",
+          "correct": false,
+          "rationale": "It does better with both kinds of case."
+        },
+        {
+          "id": "d",
+          "label": "Hospital A treats a far bigger share of severe cases",
+          "correct": true
+        }
+      ],
+      "explanation": "Like women applying to hard departments at Berkeley, Hospital A takes on more of the hardest cases, which drags down its combined rate.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.probability.081.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.trap_simpsons_paradox",
+        "concept.probability.fraction_to_percent"
+      ],
+      "sourceCardIds": [
+        "card.probability.002.c4",
+        "card.probability.081.c3",
+        "card.probability.081.c4"
+      ],
+      "prompt": "Level 2 says percents let you compare groups of different sizes. Why did Berkeley's overall percents still mislead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The groups were too different in size for percents",
+          "correct": false,
+          "rationale": "Percents handle different sizes; the problem was the mix of departments."
+        },
+        {
+          "id": "b",
+          "label": "They lumped together departments with very different odds",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Percents only work out of exactly 100 people",
+          "correct": false,
+          "rationale": "Percents work for any group size; that's their point."
+        },
+        {
+          "id": "d",
+          "label": "The men's percent was calculated wrongly",
+          "correct": false,
+          "rationale": "The arithmetic was right; the combining misled."
+        }
+      ],
+      "explanation": "Each percent was correct, but pooling hard and easy departments made the totals reflect who applied where.",
+      "difficulty": 0.45
+    }
+  ],
+  "sourceIds": [
+    "source.science_bickel_berkeley_1975",
+    "source.nlm_incidence_rate",
+    "source.libretexts_navarro_simpsons_paradox",
+    "source.britannica_simpsons_paradox"
+  ],
+  "art": "mind.graduation-cap"
+}

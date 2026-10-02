@@ -1,0 +1,227 @@
+{
+  "id": "level.history.ancient_rome.041",
+  "skillId": "skill.history.ancient_rome",
+  "number": 41,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Octavian, Caesar's Heir",
+  "objective": "After this level you can explain how Caesar's young heir built power after the assassination.",
+  "summary": "Caesar’s will made his 18-year-old great-nephew Octavian his heir. Octavian joined Antony and Lepidus, and they crushed the assassins at Philippi.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.octavian",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.ides_of_march",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.sulla",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.cicero_catiline",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.ancient_rome.first_triumvirate",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.040"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.041.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Caesar’s will named an heir almost no one expected: an 18-year-old.",
+      "body": "Caesar was dead, and his will handed a teenager his name. What can an 18-year-old do with a name? Quite a lot, it turned out."
+    },
+    {
+      "id": "card.ancient_rome.041.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The boy with the famous name",
+      "body": "Caesar’s will did more than leave his great-nephew a gift. It adopted Octavian, then 18, as his son and heir. Octavian took the name Gaius Julius Caesar, and he put it to work: it won over Caesar’s soldiers and supporters, who rallied to the man carrying it. Most heirs inherit the furniture. Octavian inherited Caesar’s fans, and a lot of them had swords."
+    },
+    {
+      "id": "card.ancient_rome.041.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three men, again",
+      "body": "Remember the First Triumvirate, the informal deal between Caesar, Pompey and Crassus? In 43 BCE Octavian formed a second one with Mark Antony and Lepidus, and this time it was official: an alliance given legal power for five years. At Philippi in 42 BCE, Antony and Octavian defeated Caesar’s assassins, Brutus and Cassius, who both took their own lives. Two years after the Ides of March, the heir had outlasted the killers.",
+      "callout": "Unlike the First, the Second Triumvirate had legal power"
+    },
+    {
+      "id": "card.ancient_rome.041.c4",
+      "type": "fact",
+      "fact": "Cicero was killed in the proscriptions of 43 BCE.",
+      "context": "The triumvirs brought back Sulla’s old idea: published lists of enemies who could be killed and their property seized. Cicero, Rome’s greatest orator, had attacked Antony in fierce speeches, and his name was on the list. Rome’s best talker had picked a fight with the wrong man."
+    },
+    {
+      "id": "card.ancient_rome.041.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.041.q1"
+    },
+    {
+      "id": "card.ancient_rome.041.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.041.q2"
+    },
+    {
+      "id": "card.ancient_rome.041.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.041.q3"
+    },
+    {
+      "id": "card.ancient_rome.041.c8",
+      "type": "checkpoint",
+      "headline": "The heir: rising",
+      "learned": [
+        "Caesar adopted Octavian in his will",
+        "The Second Triumvirate formed in 43 BCE",
+        "Cicero died in the proscriptions",
+        "The assassins lost at Philippi"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.041.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.octavian"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.041.c2"
+      ],
+      "prompt": "How was Octavian related to Julius Caesar?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Caesar’s great-nephew, adopted in his will",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "His younger brother, a fellow general",
+          "correct": false,
+          "rationale": "He was a generation or two younger."
+        },
+        {
+          "id": "c",
+          "label": "His son by Cleopatra, born in Egypt",
+          "correct": false,
+          "rationale": "That was said of Caesarion."
+        },
+        {
+          "id": "d",
+          "label": "His rival general in Gaul",
+          "correct": false,
+          "rationale": "Octavian was a teenager when Caesar died."
+        }
+      ],
+      "explanation": "Caesar’s will adopted his great-nephew Octavian as his son and heir.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.041.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.octavian"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.041.c2"
+      ],
+      "prompt": "Why did Caesar’s name matter so much to Octavian?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It made him consul automatically at 18",
+          "correct": false,
+          "rationale": "Names carried no office."
+        },
+        {
+          "id": "b",
+          "label": "It won over Caesar’s soldiers and supporters",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It let him skip the Senate’s approval",
+          "correct": false,
+          "rationale": "The Senate still mattered."
+        },
+        {
+          "id": "d",
+          "label": "It made the assassins surrender",
+          "correct": false,
+          "rationale": "He had to defeat them in battle."
+        }
+      ],
+      "explanation": "Caesar’s veterans and supporters rallied to the man who carried his name.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.041.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.octavian",
+        "concept.ancient_rome.ides_of_march"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.041.c3",
+        "card.ancient_rome.040.c3"
+      ],
+      "prompt": "From Level 40: whom did Antony and Octavian defeat at Philippi in 42 BCE?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pompey and his sons",
+          "correct": false,
+          "rationale": "Pompey died in 48 BCE."
+        },
+        {
+          "id": "b",
+          "label": "Spartacus and his army",
+          "correct": false,
+          "rationale": "That revolt ended in 71 BCE."
+        },
+        {
+          "id": "c",
+          "label": "Brutus and Cassius, Caesar’s assassins",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Catiline and his fellow plotters",
+          "correct": false,
+          "rationale": "Cicero dealt with them in 63 BCE."
+        }
+      ],
+      "explanation": "Brutus and Cassius, who led the plot against Caesar, were defeated at Philippi.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_augustus",
+    "source.brit_triumvirate",
+    "source.brit_brutus_marcus",
+    "source.brit_cicero",
+    "source.brit_sulla",
+    "source.brit_caesar"
+  ],
+  "art": "rome.signet-ring"
+}

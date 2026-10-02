@@ -1,0 +1,226 @@
+{
+  "id": "level.arts.film_tv.028",
+  "skillId": "skill.arts.film_tv",
+  "number": 28,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Lenses and Focus",
+  "objective": "After this level you can explain how a lens's focal length and depth of field decide what looks near, far, sharp or soft.",
+  "summary": "Wide-angle lenses stretch depth and telephotos squeeze it, though camera distance does the real work; depth of field decides how much of the image is sharp.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.shoot_focal_length",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.shoot_depth_of_field",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.shoot_shot_sizes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.027"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.028.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Two lenses can make the same walk look fast or slow.",
+      "body": "Film a person walking toward the camera. With a wide-angle lens they seem to approach quickly; with a telephoto they seem to barely get closer. Nobody changed speed. So what changed?"
+    },
+    {
+      "id": "card.film_tv.028.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Focal length: wide, normal and long",
+      "body": "A normal lens shows perspective close to what your eye sees; for 35 mm film that's a 50 mm lens. Shorter lenses are wide-angle and let more space into the frame, handy in a real room. Lenses two or more times longer are telephoto. A wide-angle lens exaggerates depth, stretching near and far apart; a telephoto compresses it."
+    },
+    {
+      "id": "card.film_tv.028.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The catch: where the camera stands",
+      "body": "The cinematography guide by Kris Malkiewicz and M. David Mullen adds a twist. Perspective really depends on the distance from camera to subject, not on the lens. From the same spot, different lenses change how much you see, not the perspective. A telephoto shot is almost always taken from farther away, and that distance is what squeezes the depth.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Common mix-up: the lens gets the credit, but distance does the squeezing. The lens picks how much you see."
+      }
+    },
+    {
+      "id": "card.film_tv.028.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Depth of field: how much is sharp",
+      "body": "Depth of field is how far, from near to far, the image stays in sharp focus. Bright light, a narrow aperture and a wide-angle lens all give more of it. Shrink it to shallow focus and only one plane stays sharp, which pulls your eye to what matters without a cut. Yale's guide notes shallow focus is very common in close-ups."
+    },
+    {
+      "id": "card.film_tv.028.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rack focus: moving your eye for you",
+      "body": "Focus can also change during a shot. In a rack focus, one plane slides out of focus as another comes in, steering your attention and linking two people or objects in the same frame."
+    },
+    {
+      "id": "card.film_tv.028.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.028.q1"
+    },
+    {
+      "id": "card.film_tv.028.c7",
+      "type": "mcq",
+      "questionId": "question.film_tv.028.q2"
+    },
+    {
+      "id": "card.film_tv.028.c8",
+      "type": "recall",
+      "questionId": "question.film_tv.028.q3"
+    },
+    {
+      "id": "card.film_tv.028.c9",
+      "type": "checkpoint",
+      "headline": "Lenses and focus: sharpened",
+      "learned": [
+        "Normal lens on 35 mm film: 50 mm, close to the eye",
+        "Wide-angle stretches depth; telephoto squeezes it",
+        "Camera distance really sets the perspective",
+        "Shallow focus and rack focus steer your eye"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.028.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.shoot_focal_length"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.028.c1",
+        "card.film_tv.028.c2"
+      ],
+      "prompt": "Which kind of lens exaggerates depth, so a person walking toward the camera seems to approach quickly?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A telephoto lens",
+          "correct": false,
+          "rationale": "A telephoto compresses depth, so the walker seems to barely get closer."
+        },
+        {
+          "id": "b",
+          "label": "A wide-angle lens",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A normal lens",
+          "correct": false,
+          "rationale": "A normal lens gives perspective close to what the eye sees."
+        },
+        {
+          "id": "d",
+          "label": "A lens two or more times longer than normal",
+          "correct": false,
+          "rationale": "That's a telephoto, which compresses depth."
+        }
+      ],
+      "explanation": "A wide-angle lens takes in more space and stretches depth; a telephoto squeezes it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.028.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.shoot_depth_of_field"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.028.c4"
+      ],
+      "prompt": "How can a filmmaker draw your eye to one face in a crowd without cutting to a new shot?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Use shallow focus so only that face is sharp",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Switch to a wider lens so everything is sharp",
+          "correct": false,
+          "rationale": "More depth of field spreads attention across the frame."
+        },
+        {
+          "id": "c",
+          "label": "Tilt the frame into a Dutch angle",
+          "correct": false,
+          "rationale": "That adds unease; it doesn't single out a face."
+        },
+        {
+          "id": "d",
+          "label": "Raise the fill light to match the key",
+          "correct": false,
+          "rationale": "That brightens the whole scene evenly."
+        }
+      ],
+      "explanation": "Shallow depth of field keeps one plane sharp and blurs the rest, directing attention without a cut.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.028.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.shoot_shot_sizes",
+        "concept.film_tv.shoot_depth_of_field"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.028.c4",
+        "card.film_tv.025.c2"
+      ],
+      "prompt": "Level 25's close-up fills the frame with a face. Which focus style does Yale's guide call very common in close-ups?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Deep focus, with every plane sharp",
+          "correct": false,
+          "rationale": "Yale links close-ups with shallow focus instead."
+        },
+        {
+          "id": "b",
+          "label": "A rack focus between two faces",
+          "correct": false,
+          "rationale": "Rack focus shifts focus during a shot; it isn't the usual close-up look."
+        },
+        {
+          "id": "c",
+          "label": "A telephoto that compresses the background",
+          "correct": false,
+          "rationale": "That's about perspective, not how much is in focus."
+        },
+        {
+          "id": "d",
+          "label": "Shallow focus, with one plane sharp",
+          "correct": true
+        }
+      ],
+      "explanation": "Close-ups often use shallow focus: the face is sharp and the background soft.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.loc_malkiewicz_cinematography_sample",
+    "source.yale_film_analysis_cinematography",
+    "source.acmi_shot_types"
+  ],
+  "art": "technology.camera"
+}

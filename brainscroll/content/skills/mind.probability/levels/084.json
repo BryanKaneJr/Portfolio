@@ -1,0 +1,209 @@
+{
+  "id": "level.mind.probability.084",
+  "skillId": "skill.mind.probability",
+  "number": 84,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Small Places, Extreme Numbers",
+  "objective": "After this level you can explain why the smallest groups show both the highest and the lowest rates, just by chance.",
+  "summary": "The US counties with the lowest and highest kidney cancer death rates were both small and rural. One case swings a small place's rate, so small groups fill both ends by chance.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.trap_small_groups_extremes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.rates_per_person",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.083"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.084.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Kidney cancer is rarest in tiny rural counties. It's also most common there.",
+      "body": "Two maps, two tidy stories: clean country living on one, rural hardship on the other. Both stories are wrong. The real reason fits in one word: small."
+    },
+    {
+      "id": "card.probability.084.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two maps that look alike",
+      "body": "Statistician Howard Wainer showed two maps of US counties, shaded by kidney cancer death rates among men from 1980 to 1989. The counties in the lowest 10% were mostly very rural, in the Midwest, South and West. So were the counties in the highest 10%, many right next door. Whatever story explains one map can't also explain the other."
+    },
+    {
+      "id": "card.probability.084.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "One death makes a hot spot",
+      "body": "Remember Level 6: a rate divides a count by the population. In a county of 100 people, no cancer deaths gives a rate of 0, the lowest possible. One death makes it 1,000 per 100,000, among the highest. Big counties can't swing like that. Wainer found the ones with millions of people all sat near 5 per 100,000, while small ones ranged from 0 to 20."
+    },
+    {
+      "id": "card.probability.084.c4",
+      "type": "fact",
+      "fact": "Small groups land at both extremes, by chance alone.",
+      "context": "The same thing shows up in schools. Among 1,662 Pennsylvania schools with fifth-grade reading scores, the smallest were overrepresented among both the 50 best and the 50 worst. So when the top and bottom of a ranking are both crowded with small places, suspect chance before hunting for a cause."
+    },
+    {
+      "id": "card.probability.084.c5",
+      "type": "mcq",
+      "questionId": "question.probability.084.q1"
+    },
+    {
+      "id": "card.probability.084.c6",
+      "type": "mcq",
+      "questionId": "question.probability.084.q2"
+    },
+    {
+      "id": "card.probability.084.c7",
+      "type": "recall",
+      "questionId": "question.probability.084.q3"
+    },
+    {
+      "id": "card.probability.084.c8",
+      "type": "checkpoint",
+      "headline": "Small places: explained",
+      "learned": [
+        "Lowest and highest rates: both small counties",
+        "One case swings a small place's rate",
+        "Big places stay near the middle",
+        "Small at both ends? Suspect chance"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.084.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.trap_small_groups_extremes"
+      ],
+      "sourceCardIds": [
+        "card.probability.084.c2",
+        "card.probability.084.c3"
+      ],
+      "prompt": "In Wainer's kidney cancer maps, what did the counties with the lowest and the highest rates have in common?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Clean air and water",
+          "correct": false,
+          "rationale": "Clean living can't explain the highest rates too."
+        },
+        {
+          "id": "b",
+          "label": "Small populations",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A big city nearby",
+          "correct": false,
+          "rationale": "They were very rural."
+        },
+        {
+          "id": "d",
+          "label": "The same screening program",
+          "correct": false,
+          "rationale": "Nothing about screening was shared; size was."
+        }
+      ],
+      "explanation": "Both ends were crowded with small rural counties, where one case moves the rate a long way.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.084.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.trap_small_groups_extremes"
+      ],
+      "sourceCardIds": [
+        "card.probability.084.c3",
+        "card.probability.084.c4"
+      ],
+      "prompt": "A ranking of hospitals by death rate puts several small rural hospitals at both the very top and the very bottom. What's the best first explanation?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rural doctors are either excellent or poor",
+          "correct": false,
+          "rationale": "A story is possible, but chance explains both ends at once."
+        },
+        {
+          "id": "b",
+          "label": "The ranking mixed up two lists",
+          "correct": false,
+          "rationale": "No error is needed; small groups do this naturally."
+        },
+        {
+          "id": "c",
+          "label": "Small hospitals' rates swing more by chance",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Big hospitals hide their deaths",
+          "correct": false,
+          "rationale": "Nothing suggests hiding; big places simply vary less."
+        }
+      ],
+      "explanation": "With few patients, a death or two moves a small hospital's rate a lot, so small hospitals fill both ends by chance.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.probability.084.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.trap_small_groups_extremes",
+        "concept.probability.rates_per_person"
+      ],
+      "sourceCardIds": [
+        "card.probability.006.c3",
+        "card.probability.084.c3"
+      ],
+      "prompt": "Using Level 6's rates, a town of 1,000 people has 1 case of a rare illness. What's its rate per 100,000, and why be careful?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1 per 100,000; it's too rare to matter",
+          "correct": false,
+          "rationale": "1 in 1,000 is 100 per 100,000."
+        },
+        {
+          "id": "b",
+          "label": "100 per 100,000; it must be a hot spot",
+          "correct": false,
+          "rationale": "The rate is right, but one case in a small town proves little."
+        },
+        {
+          "id": "c",
+          "label": "100 per 100,000; one case swings a small town's rate",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "1,000 per 100,000; small towns are riskier",
+          "correct": false,
+          "rationale": "That would be 1 case in 100 people."
+        }
+      ],
+      "explanation": "1 ÷ 1,000 × 100,000 = 100 per 100,000. In a town that small, a single case moves the rate a lot.",
+      "difficulty": 0.5
+    }
+  ],
+  "sourceIds": [
+    "source.princeton_wainer_most_dangerous_equation",
+    "source.cdc_epi_lesson3_morbidity"
+  ],
+  "art": "geo.map"
+}

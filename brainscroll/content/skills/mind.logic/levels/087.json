@@ -1,0 +1,216 @@
+{
+  "id": "level.mind.logic.087",
+  "skillId": "skill.mind.logic",
+  "number": 87,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "From Study to Headline",
+  "objective": "After this level you can explain how a cautious finding in one study can grow into a bold headline, and how to check it.",
+  "summary": "Findings often grow on the way from study to press release to headline: stronger advice, causes from correlations, and human claims from mouse studies. Check the study upstream.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.sourcing_press_release_exaggeration",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.sourcing_in_mice",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.factual_claims",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.086"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2019, a Twitter account began answering health headlines with two words.",
+      "body": "The words were \"IN MICE\". The researcher James Heathers started @justsaysinmice to add what exciting headlines had left out: the result came from a study of mice. He said it had a serious point but was supposed to be funny. It works because the missing words change everything.",
+      "id": "card.logic.087.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A chain of retellings",
+      "body": "Between a study and your screen there are usually two retellings: a university press release, then the news stories written from it. In 2014, Petroc Sumner's team compared the two and found that exaggeration in health news was strongly tied to exaggeration in the press releases. Most of it was already there before a journalist touched it.",
+      "id": "card.logic.087.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Three ways a finding grows",
+      "body": "Sumner's team tracked three kinds of stretch: advice stronger than the study gave, claims of cause drawn from research that only found a link, and conclusions about people drawn from animal studies. When a release stretched a finding, the news usually did too. When it didn't, news exaggeration was far rarer.",
+      "id": "card.logic.087.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Where \"in mice\" goes missing",
+      "body": "A 2021 study in PLOS Biology found that when researchers leave the species out of a paper's title, news writers tend to do the same. Mouse studies are an important step in research, but their results often don't translate to people. So go upstream: find the study, and ask who or what was studied, and whether it showed a cause or only a link.",
+      "id": "card.logic.087.c4"
+    },
+    {
+      "id": "card.logic.087.c5",
+      "type": "mcq",
+      "questionId": "question.logic.087.q1"
+    },
+    {
+      "id": "card.logic.087.c6",
+      "type": "mcq",
+      "questionId": "question.logic.087.q2"
+    },
+    {
+      "id": "card.logic.087.c7",
+      "type": "mcq",
+      "questionId": "question.logic.087.q3"
+    },
+    {
+      "id": "card.logic.087.c8",
+      "type": "checkpoint",
+      "headline": "Headlines: traced",
+      "learned": [
+        "Most news exaggeration starts in press releases",
+        "Watch advice, cause and animal-to-human leaps",
+        "Titles that drop \"mice\" lead headlines to drop it",
+        "Go upstream: who or what was studied?"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.087.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.sourcing_press_release_exaggeration"
+      ],
+      "sourceCardIds": [
+        "card.logic.087.c2"
+      ],
+      "prompt": "Where did Sumner's team find that most health news exaggeration was already present?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In the original research papers",
+          "correct": false,
+          "rationale": "They found it in the step after the papers."
+        },
+        {
+          "id": "b",
+          "label": "In readers' comments on the stories",
+          "correct": false,
+          "rationale": "Comments weren't what they compared."
+        },
+        {
+          "id": "c",
+          "label": "In university press releases",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "In the journals' peer reviews",
+          "correct": false,
+          "rationale": "Peer review wasn't part of their comparison."
+        }
+      ],
+      "explanation": "Exaggeration in the news was strongly tied to exaggeration already in the academic press releases.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.087.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.sourcing_press_release_exaggeration",
+        "concept.logic.sourcing_in_mice"
+      ],
+      "sourceCardIds": [
+        "card.logic.087.c3",
+        "card.logic.087.c4"
+      ],
+      "prompt": "A headline says \"Berry extract reverses memory loss.\" The study gave the extract to mice. Which stretch is this?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Advice the study never gave",
+          "correct": false,
+          "rationale": "The headline doesn't tell anyone what to do."
+        },
+        {
+          "id": "b",
+          "label": "Human conclusions from an animal study",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A cause claimed from a mere link",
+          "correct": false,
+          "rationale": "The problem here is the species, not cause and link."
+        },
+        {
+          "id": "d",
+          "label": "No stretch at all",
+          "correct": false,
+          "rationale": "Leaving out the mice changes the claim."
+        }
+      ],
+      "explanation": "It draws a conclusion about people from research on mice, one of the three stretches Sumner's team tracked.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.logic.087.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.sourcing_in_mice",
+        "concept.logic.factual_claims"
+      ],
+      "sourceCardIds": [
+        "card.logic.087.c4",
+        "card.logic.004.c2"
+      ],
+      "prompt": "\"Berry extract reverses memory loss\" is a factual claim. Following Level 4, how can you check it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By how confident the headline sounds",
+          "correct": false,
+          "rationale": "Confidence isn't evidence."
+        },
+        {
+          "id": "b",
+          "label": "By how many friends shared it",
+          "correct": false,
+          "rationale": "Shares aren't research."
+        },
+        {
+          "id": "c",
+          "label": "It can't be checked at all",
+          "correct": false,
+          "rationale": "Factual claims can be checked."
+        },
+        {
+          "id": "d",
+          "label": "Through the research it rests on",
+          "correct": true
+        }
+      ],
+      "explanation": "Factual claims are checked by observation or research, so go to the study and see who or what was tested.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.northeastern_justsaysinmice_2019",
+    "source.sumner_bmj_press_releases_2014",
+    "source.triunfol_plosbiology_mice_2021"
+  ],
+  "art": "gov.newspaper"
+}

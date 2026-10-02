@@ -1,0 +1,209 @@
+{
+  "id": "level.world_systems.computers.045",
+  "skillId": "skill.world_systems.computers",
+  "number": 45,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Inside a Data Center",
+  "objective": "After this level you can explain why data centers need so much electricity and cooling, and why that shapes where they are built.",
+  "summary": "Most of a data center's electricity ends up as heat. PUE scores the overhead of removing it, and cool air and water for cooling help decide where data centers are built.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.datacenter_heat",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.datacenter_siting",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.044"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.045.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A data center is a giant computer that's also a giant heater.",
+      "body": "Most of the electricity a data center draws ends up as heat. So running one is really two jobs: powering the computers, and getting rid of what they give off. That second job shapes a surprising amount, right down to where on the map it's built."
+    },
+    {
+      "id": "card.computers.045.c2",
+      "type": "fact",
+      "fact": "US data centers used about 4.4% of the country's electricity in 2023.",
+      "context": "That's about 176 terawatt-hours, according to a 2024 report by Lawrence Berkeley National Laboratory. The servers do the computing, and most of that energy then has to leave the building as heat."
+    },
+    {
+      "id": "card.computers.045.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A score for overhead: PUE",
+      "body": "Engineers rate a data center with PUE, power usage effectiveness: the energy the whole facility uses divided by the energy that reaches the computing equipment. A perfect 1.0 would mean every watt goes to computing and none to fans, chillers or lights. The US Department of Energy's 2024 guide puts an average data center at about 1.6, with some very efficient ones below 1.1. At 1.6, each watt of computing drags about 0.6 watts of overhead along."
+    },
+    {
+      "id": "card.computers.045.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why cool places win",
+      "body": "When the outside air is cooler than the air leaving the servers, a data center can use it instead of running chillers, a trick called free cooling. Many data centers in cool climates use only that. Where cooling towers are used instead, they shed heat by evaporating water, so water use climbs with the heat the computers make. Cold air and enough water are questions of location."
+    },
+    {
+      "id": "card.computers.045.c5",
+      "type": "mcq",
+      "questionId": "question.computers.045.q1"
+    },
+    {
+      "id": "card.computers.045.c6",
+      "type": "mcq",
+      "questionId": "question.computers.045.q2"
+    },
+    {
+      "id": "card.computers.045.c7",
+      "type": "mcq",
+      "questionId": "question.computers.045.q3"
+    },
+    {
+      "id": "card.computers.045.c8",
+      "type": "checkpoint",
+      "headline": "The data center: cooled",
+      "learned": [
+        "Most of a data center's electricity becomes heat",
+        "US data centers used about 4.4% of US power in 2023",
+        "PUE: total energy over computing energy; about 1.6 on average",
+        "Cool air and water help decide where they're built"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.045.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.datacenter_heat"
+      ],
+      "sourceCardIds": [
+        "card.computers.045.c3"
+      ],
+      "prompt": "What does a data center's PUE compare?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its computing speed with its storage space",
+          "correct": false,
+          "rationale": "PUE is about energy, not speed or space."
+        },
+        {
+          "id": "b",
+          "label": "Its water use with its electricity use",
+          "correct": false,
+          "rationale": "PUE compares two amounts of energy."
+        },
+        {
+          "id": "c",
+          "label": "Total facility energy with energy reaching the computers",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Its daytime power use with its night-time power use",
+          "correct": false,
+          "rationale": "PUE compares total energy with IT energy."
+        }
+      ],
+      "explanation": "PUE is total facility energy divided by IT equipment energy; 1.0 would mean no overhead at all.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.045.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.datacenter_siting"
+      ],
+      "sourceCardIds": [
+        "card.computers.045.c4"
+      ],
+      "prompt": "Why do data centers in cool climates often spend less energy on cooling?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their servers stop making heat when it is cold outside",
+          "correct": false,
+          "rationale": "Servers make the same heat in any weather."
+        },
+        {
+          "id": "b",
+          "label": "Cool outside air can do the cooling instead of chillers",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Computers are cheaper to buy in cold places",
+          "correct": false,
+          "rationale": "The saving is in cooling, not hardware."
+        },
+        {
+          "id": "d",
+          "label": "Laws there limit how hot servers may run",
+          "correct": false,
+          "rationale": "It's physics, not a law: cool air carries heat away."
+        }
+      ],
+      "explanation": "When outside air is cooler than the air leaving the servers, free cooling can replace chillers; many cool-climate sites use only that.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.045.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.datacenter_heat",
+        "concept.computers.datacenter_siting"
+      ],
+      "sourceCardIds": [
+        "card.computers.045.c1",
+        "card.computers.045.c4"
+      ],
+      "prompt": "Most of a data center's electricity ends up as heat. Why does that make water a question of location?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cooling towers shed the heat by evaporating water",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Servers need water to run their processors",
+          "correct": false,
+          "rationale": "Water is used for cooling, not computing."
+        },
+        {
+          "id": "c",
+          "label": "Heat turns the electricity back into water",
+          "correct": false,
+          "rationale": "Heat is removed; nothing turns into water."
+        },
+        {
+          "id": "d",
+          "label": "Water is needed to generate the internet signal",
+          "correct": false,
+          "rationale": "The signal travels as electricity and light."
+        }
+      ],
+      "explanation": "Cooling towers reject heat by evaporating water, so more heat means more water, and a site needs a supply.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.eesi_data_center_waste_heat",
+    "source.doe_lbnl_data_center_report_2024",
+    "source.doe_femp_data_center_guide",
+    "source.doe_femp_data_center_water"
+  ],
+  "art": "computers.cooling-fan"
+}

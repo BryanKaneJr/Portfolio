@@ -1,0 +1,208 @@
+{
+  "id": "level.mind.philosophy.001",
+  "skillId": "skill.mind.philosophy",
+  "number": 1,
+  "type": "regular",
+  "revision": 2,
+  "status": "published",
+  "title": "Philosophy: The Big Picture",
+  "objective": "After this level you can explain what philosophy is, name its biggest questions and say how philosophers try to answer them with careful argument.",
+  "summary": "Philosophy asks the most fundamental questions, which no experiment alone can settle, and answers them by building and examining arguments.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.what_is_philosophy",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [],
+  "cards": [
+    {
+      "id": "card.philosophy.001.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Can a question be too big for a laboratory?",
+      "body": "Is a law fair? What is a cause, really? Questions like these don’t fit in a test tube. This level is the whole subject in miniature: what philosophy asks, and how it tries to answer."
+    },
+    {
+      "id": "card.philosophy.001.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The questions under the questions",
+      "body": "Philosophy chases the deepest questions it can find: what the universe and we ourselves really are, how far human knowledge reaches, and what is truly valuable. A physicist asks what caused an event. A philosopher asks whether causation exists at all. If you’ve ever wondered whether a law is fair, you’ve already done some philosophy, no job title required."
+    },
+    {
+      "id": "card.philosophy.001.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "No microscope for right and wrong",
+      "body": "You can’t settle these questions with an experiment alone. Try designing one that tests whether a society should value equality over freedom: not whether people think it should, but whether it should. So philosophy’s main tool is the argument: reasons, called premises, laid out to support a conclusion. Philosophers still use science, often as premises. But the argument is where the work happens, and anyone can check it."
+    },
+    {
+      "id": "card.philosophy.001.c4",
+      "type": "fact",
+      "fact": "Science used to be called “natural philosophy”.",
+      "context": "When a question becomes open to rigorous experiment, it tends to leave home and become its own field. That’s why most doctorates, even in chemistry, are still called Doctor of Philosophy. Philosophy keeps the questions that experiments can’t settle on their own."
+    },
+    {
+      "id": "card.philosophy.001.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "It started in more than one place",
+      "body": "Philosophy doesn’t have a single birthplace. Thales in Greece, Confucius in China and the Buddha in India all lived within a few centuries of one another. This chapter visits all three traditions and asks how each first took on two big questions: what is real, and how should you live?"
+    },
+    {
+      "id": "card.philosophy.001.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.001.q1"
+    },
+    {
+      "id": "card.philosophy.001.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.001.q2"
+    },
+    {
+      "id": "card.philosophy.001.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.001.q3"
+    },
+    {
+      "id": "card.philosophy.001.c9",
+      "type": "checkpoint",
+      "headline": "Philosophy at a glance",
+      "learned": [
+        "Philosophy asks the most fundamental questions",
+        "Its main method: build and examine arguments",
+        "Science was once “natural philosophy”",
+        "It began in Greece, China and India"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.001.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.what_is_philosophy"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.001.c3"
+      ],
+      "prompt": "What is philosophy’s main method for answering its questions?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Running controlled laboratory experiments",
+          "correct": false,
+          "rationale": "Its questions can’t be settled by experiment alone."
+        },
+        {
+          "id": "b",
+          "label": "Collecting opinion polls",
+          "correct": false,
+          "rationale": "Polls show what people think, not whether it’s right."
+        },
+        {
+          "id": "c",
+          "label": "Building and examining arguments",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Following the oldest authority",
+          "correct": false,
+          "rationale": "Philosophers check the reasons instead."
+        }
+      ],
+      "explanation": "Philosophers build arguments, reasons called premises offered for a conclusion, and examine them.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.philosophy.001.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.what_is_philosophy"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.001.c3"
+      ],
+      "prompt": "Why can’t a laboratory experiment settle whether a society should value equality over freedom?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It asks what should be, which no measurement shows",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Such experiments would cost far too much",
+          "correct": false,
+          "rationale": "Money isn’t the problem."
+        },
+        {
+          "id": "c",
+          "label": "Scientists aren’t allowed to study societies",
+          "correct": false,
+          "rationale": "Social scientists study societies all the time."
+        },
+        {
+          "id": "d",
+          "label": "The question was answered long ago",
+          "correct": false,
+          "rationale": "It’s still debated."
+        }
+      ],
+      "explanation": "An experiment can show what people believe, but not whether society actually should value equality over freedom.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.philosophy.001.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.what_is_philosophy"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.001.c4"
+      ],
+      "prompt": "Why are most doctorates, even in chemistry, called Doctor of Philosophy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every chemist must study Plato",
+          "correct": false,
+          "rationale": "No such requirement."
+        },
+        {
+          "id": "b",
+          "label": "Chemistry was invented by philosophers last century",
+          "correct": false,
+          "rationale": "That isn’t the reason."
+        },
+        {
+          "id": "c",
+          "label": "It’s a modern marketing name for degrees",
+          "correct": false,
+          "rationale": "The name is much older."
+        },
+        {
+          "id": "d",
+          "label": "The sciences grew out of what was once called natural philosophy",
+          "correct": true
+        }
+      ],
+      "explanation": "The natural sciences were once called natural philosophy; questions that became testable by experiment left to form their own fields.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.kwp_what_is_philosophy",
+    "source.iep_argument",
+    "source.iep_thales",
+    "source.sep_confucius",
+    "source.sep_buddha"
+  ],
+  "art": "animals.owl"
+}

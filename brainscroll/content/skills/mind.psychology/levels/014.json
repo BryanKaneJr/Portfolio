@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.psychology.014",
+  "skillId": "skill.mind.psychology",
+  "number": 14,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "You See What You Expect",
+  "objective": "After this level you can explain how expectations and context shape perception, called top-down processing.",
+  "summary": "Perception runs bottom-up from the stimulus and top-down from knowledge and expectations. Expectations make reading fast, and make you skip a repeated word.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.perception_top_down",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.perception_perceptual_set",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.perception_sensory_adaptation",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.013"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.014.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Read this out loud: Paris in the the spring.",
+      "body": "Did you catch the second \"the\"? Many readers skip right over it. The word was on the page. Your mind just didn't expect it."
+    },
+    {
+      "id": "card.psychology.014.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two directions of processing",
+      "body": "Psychologists describe two routes. In bottom-up processing, the stimulus drives perception: in a noisy restaurant, a crash of dropped plates grabs your attention whether you like it or not. In top-down processing, knowledge and expectations drive it. Hunting for keys on a yellow fob, you scan the counter and the coffee table for yellow, not the ceiling fan. Perception uses both routes."
+    },
+    {
+      "id": "card.psychology.014.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why you skipped the \"the\"",
+      "body": "The repeated word is top-down processing at work. You know the phrase, and a second \"the\" makes no sense, so your brain doesn't expect it and tends to skip it. A beginning reader, working carefully through each word from the bottom up, is less likely to make the mistake. Experience makes you a fast reader, and occasionally a sloppy one."
+    },
+    {
+      "id": "card.psychology.014.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hearing a phone that isn't ringing",
+      "body": "Waiting for an important call, you may think you hear the phone ringing in the shower when it isn't. Wanting to detect something shifts what you detect. Psychologists say perceptions rest on perceptual hypotheses, educated guesses shaped by your personality, experience and expectations, which together form your perceptual set. Because perception is built from sensations but shaped by experience and culture, two people can perceive the same scene very differently."
+    },
+    {
+      "id": "card.psychology.014.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.014.q1"
+    },
+    {
+      "id": "card.psychology.014.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.014.q2"
+    },
+    {
+      "id": "card.psychology.014.c7",
+      "type": "recall",
+      "questionId": "question.psychology.014.q3"
+    },
+    {
+      "id": "card.psychology.014.c8",
+      "type": "checkpoint",
+      "headline": "Seeing what you expect",
+      "learned": [
+        "Bottom-up: the stimulus drives perception",
+        "Top-down: knowledge and expectations drive it",
+        "Familiar phrases hide repeated words",
+        "Perceptual set: experience shapes what you perceive"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.014.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.perception_perceptual_set"
+      ],
+      "sourceCardIds": [
+        "card.psychology.014.c4"
+      ],
+      "prompt": "What do psychologists call the readiness to perceive in a certain way, built from experience and expectations?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sensory adaptation",
+          "correct": false,
+          "rationale": "That's no longer perceiving a constant stimulus."
+        },
+        {
+          "id": "b",
+          "label": "Transduction",
+          "correct": false,
+          "rationale": "That's turning stimuli into nerve signals."
+        },
+        {
+          "id": "c",
+          "label": "The just-noticeable difference",
+          "correct": false,
+          "rationale": "That's the smallest change you can detect."
+        },
+        {
+          "id": "d",
+          "label": "A perceptual set",
+          "correct": true
+        }
+      ],
+      "explanation": "Perceptual hypotheses, shaped by personality, experience and expectations, form a perceptual set.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.014.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.perception_top_down"
+      ],
+      "sourceCardIds": [
+        "card.psychology.014.c3"
+      ],
+      "prompt": "Why do many readers miss the repeated word in \"Paris in the the spring\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their eyes can't see short words",
+          "correct": false,
+          "rationale": "A beginning reader often spots it."
+        },
+        {
+          "id": "b",
+          "label": "They don't expect a repeated word there",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The second word is printed too faintly",
+          "correct": false,
+          "rationale": "Both words are printed the same way."
+        },
+        {
+          "id": "d",
+          "label": "A crash of noise pulls their attention away",
+          "correct": false,
+          "rationale": "That's a bottom-up example from another card."
+        }
+      ],
+      "explanation": "This is top-down processing: expectation drives perception, so the brain skips a word that makes no sense in a familiar phrase.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.014.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.perception_top_down",
+        "concept.psychology.perception_sensory_adaptation"
+      ],
+      "sourceCardIds": [
+        "card.psychology.014.c1",
+        "card.psychology.011.c4"
+      ],
+      "prompt": "Level 11 said not every sensation becomes a perception. How does the missed \"the\" fit that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It reached your eyes but wasn't perceived",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The word never reached your eyes at all",
+          "correct": false,
+          "rationale": "It was on the page in front of you."
+        },
+        {
+          "id": "c",
+          "label": "You adapted to the word after staring at it for hours",
+          "correct": false,
+          "rationale": "Adaptation needs a long, constant stimulus."
+        },
+        {
+          "id": "d",
+          "label": "You perceived it but forgot it instantly",
+          "correct": false,
+          "rationale": "Most readers never notice it in the first place."
+        }
+      ],
+      "explanation": "Like the flashing light in Level 11, the second \"the\" was sensed but not perceived; here expectation, not adaptation, filtered it out.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_sensation_perception",
+    "source.noba_sensation_perception",
+    "source.openstax_psych_gestalt"
+  ],
+  "art": "mind.logic-rose-glasses"
+}

@@ -1,0 +1,210 @@
+{
+  "id": "level.mind.logic.014",
+  "skillId": "skill.mind.logic",
+  "number": 14,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Syllogism",
+  "objective": "After this level you can test an \"all\" and \"some\" argument of the kind Aristotle first studied, using overlapping circles.",
+  "summary": "Aristotle's syllogism links two premises and a conclusion through three terms. Venn's overlapping circles test it: shade what's empty, mark what exists, and see whether the conclusion shows.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.deduction_syllogism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.deduction_validity",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.013"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"All of Mia's cousins are musicians. Some musicians are left-handed.\"",
+      "body": "\"So some of Mia's cousins are left-handed.\" Sounds reasonable. It's an \"all\" and \"some\" argument, the oldest kind that logic studied, and it hides a trap. Three circles will spring it.",
+      "id": "card.logic.014.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Aristotle's all-and-some arguments",
+      "body": "Aristotle's logical works hold the earliest formal study of logic we have, and his most famous achievement there is the syllogism. It has two premises and a conclusion, built from exactly three terms. One, the middle term, appears in both premises; the conclusion joins the other two. In Mia's argument the middle term is \"musicians\", linking \"cousins\" to \"left-handed\".",
+      "id": "card.logic.014.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Three circles",
+      "body": "In 1880 the English logician John Venn introduced diagrams of overlapping circles, and they make a handy test. Draw one circle per term. Shade any region the premises say is empty; put an X where they say something exists. Then look. If the picture already shows the conclusion, the syllogism is valid. If you'd have to guess, it isn't.",
+      "id": "card.logic.014.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Where does the X go?",
+      "body": "Try Mia. \"All cousins are musicians\" shades the part of the cousins circle outside musicians. \"Some musicians are left-handed\" needs an X where musicians and left-handed overlap. Inside the cousins circle, or outside? The premises don't say. So the X sits on the line, and the conclusion isn't guaranteed. Invalid. Those left-handed musicians might all be strangers.",
+      "id": "card.logic.014.c4"
+    },
+    {
+      "id": "card.logic.014.c5",
+      "type": "mcq",
+      "questionId": "question.logic.014.q1"
+    },
+    {
+      "id": "card.logic.014.c6",
+      "type": "mcq",
+      "questionId": "question.logic.014.q2"
+    },
+    {
+      "id": "card.logic.014.c7",
+      "type": "mcq",
+      "questionId": "question.logic.014.q3"
+    },
+    {
+      "id": "card.logic.014.c8",
+      "type": "checkpoint",
+      "headline": "Syllogisms: tested",
+      "learned": [
+        "Aristotle's syllogism: two premises, three terms",
+        "The middle term links the other two",
+        "Venn's test: shade what's empty, X what exists",
+        "An X on the line means no guarantee"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.014.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.deduction_syllogism"
+      ],
+      "sourceCardIds": [
+        "card.logic.014.c2"
+      ],
+      "prompt": "What is a categorical syllogism built from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One premise followed by two separate conclusions",
+          "correct": false,
+          "rationale": "It's the other way round: two premises, one conclusion."
+        },
+        {
+          "id": "b",
+          "label": "Three premises and no conclusion",
+          "correct": false,
+          "rationale": "Every argument needs a conclusion."
+        },
+        {
+          "id": "c",
+          "label": "A single if-then statement",
+          "correct": false,
+          "rationale": "That's a conditional, the next level's topic."
+        },
+        {
+          "id": "d",
+          "label": "Two premises, a conclusion, three terms",
+          "correct": true
+        }
+      ],
+      "explanation": "Two premises and a conclusion, built from exactly three terms; the middle term appears in both premises.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.014.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.deduction_syllogism"
+      ],
+      "sourceCardIds": [
+        "card.logic.014.c3",
+        "card.logic.014.c4"
+      ],
+      "prompt": "In a Venn test, where does the X go if the premises don't say which of two regions holds it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In whichever region is larger",
+          "correct": false,
+          "rationale": "Size doesn't decide anything."
+        },
+        {
+          "id": "b",
+          "label": "On the line between the two regions",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "In a shaded region",
+          "correct": false,
+          "rationale": "Shading means that region is empty."
+        },
+        {
+          "id": "d",
+          "label": "Nowhere: leave it out",
+          "correct": false,
+          "rationale": "The premise says something exists, so it needs an X."
+        }
+      ],
+      "explanation": "It goes on the line. If the conclusion depends on which side it's on, the conclusion isn't guaranteed.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.014.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.deduction_syllogism",
+        "concept.logic.deduction_validity"
+      ],
+      "sourceCardIds": [
+        "card.logic.014.c4",
+        "card.logic.012.c2"
+      ],
+      "prompt": "Why is Mia's argument invalid even if some of her cousins really are left-handed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its premises are obviously false",
+          "correct": false,
+          "rationale": "Validity doesn't depend on whether the premises are true."
+        },
+        {
+          "id": "b",
+          "label": "Its premises don't guarantee the conclusion",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It uses more than three terms",
+          "correct": false,
+          "rationale": "It has exactly three."
+        },
+        {
+          "id": "d",
+          "label": "It contains the word \"some\"",
+          "correct": false,
+          "rationale": "\"Some\" can appear in valid syllogisms too."
+        }
+      ],
+      "explanation": "Level 12: valid means true premises could never give a false conclusion. Here the X could fall outside the cousins circle.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sep_aristotle_logic",
+    "source.libretexts_knachel_syllogisms",
+    "source.lindahall_john_venn"
+  ],
+  "art": "mind.logic-rings"
+}

@@ -1,0 +1,223 @@
+{
+  "id": "level.science.astronomy.013",
+  "skillId": "skill.science.astronomy",
+  "number": 13,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Connect the Dots: Constellations",
+  "objective": "After this level you can explain what a constellation is and why its stars usually aren’t near each other.",
+  "summary": "There are 88 official constellations covering the sky. Their stars only line up from our viewpoint.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.constellations",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.constellation_depth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.asterisms",
+      "role": "teach",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.light_year",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.012"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.013.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Orion isn't really a hunter, and his stars aren't even neighbors.",
+      "body": "A constellation is a picture we see from one spot in space: Earth. So what's actually up there?"
+    },
+    {
+      "id": "card.astronomy.013.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "From pictures to borders",
+      "body": "People have long joined up the stars into patterns and named them after figures, animals and objects. Today astronomers go further: the sky is divided into 88 official constellations, each one a region with set boundaries, like countries on a map. Together they cover the whole sky, so every star lands in some constellation, even the ones that aren't part of any picture.",
+      "callout": "Official count: 88"
+    },
+    {
+      "id": "card.astronomy.013.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A trick of perspective",
+      "body": "Stars that look side by side can be very different distances from Earth. Remember light-years from Level 8? One star in a pattern could be a few dozen light-years away, its neighbor hundreds. They only look close together from where we stand, the way a faraway streetlight can seem to sit right next to your neighbor's porch light.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep this: a constellation is a view from Earth, not a neighborhood of stars."
+      }
+    },
+    {
+      "id": "card.astronomy.013.c4",
+      "type": "fact",
+      "fact": "The Big Dipper is not a constellation.",
+      "context": "It's an asterism: a familiar star pattern that isn't one of the official constellations. The Dipper is part of the constellation Ursa Major, the Great Bear. So if you've ever spotted the saucepan, congratulations: you've also seen part of a bear."
+    },
+    {
+      "id": "card.astronomy.013.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.013.q1"
+    },
+    {
+      "id": "card.astronomy.013.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.013.q2"
+    },
+    {
+      "id": "card.astronomy.013.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.013.q3"
+    },
+    {
+      "id": "card.astronomy.013.c8",
+      "type": "checkpoint",
+      "headline": "Constellations: decoded",
+      "learned": [
+        "Constellations began as named star patterns",
+        "There are 88 official constellations",
+        "Their stars are usually far apart in space",
+        "The Big Dipper is an asterism in Ursa Major"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.013.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.constellations"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.013.c2"
+      ],
+      "prompt": "How many official constellations are there?",
+      "options": [
+        {
+          "id": "a",
+          "label": "12",
+          "correct": false,
+          "rationale": "That’s the number of zodiac signs; the constellations cover the whole sky."
+        },
+        {
+          "id": "b",
+          "label": "50",
+          "correct": false,
+          "rationale": "The official list is longer."
+        },
+        {
+          "id": "c",
+          "label": "88",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "110",
+          "correct": false,
+          "rationale": "The official list is shorter."
+        }
+      ],
+      "explanation": "Astronomers officially recognize 88 constellations, which together cover the entire sky.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.astronomy.013.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.constellation_depth"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.013.c3"
+      ],
+      "prompt": "Two stars sit side by side in the same constellation. What’s most likely true?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They may be very different distances from Earth",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They orbit each other",
+          "correct": false,
+          "rationale": "Some stars do, but most constellation stars are unrelated."
+        },
+        {
+          "id": "c",
+          "label": "They are the same distance from Earth",
+          "correct": false,
+          "rationale": "Only their direction matches, not their distance."
+        },
+        {
+          "id": "d",
+          "label": "They are the same age",
+          "correct": false,
+          "rationale": "Nothing about a constellation implies that."
+        }
+      ],
+      "explanation": "A constellation is a pattern seen from Earth. Stars in it can be at very different distances and just happen to line up from our viewpoint.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.013.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.constellation_depth",
+        "concept.astronomy.light_year"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.013.c3",
+        "card.astronomy.008.c2"
+      ],
+      "prompt": "From Level 8: two stars in Orion are 50 and 500 light-years away. What does that mean for their light?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their light reaches us at the same moment it leaves",
+          "correct": false,
+          "rationale": "Light takes time to travel: one year per light-year."
+        },
+        {
+          "id": "b",
+          "label": "The farther star’s light is 10 times brighter",
+          "correct": false,
+          "rationale": "Distance says nothing about how bright a star is."
+        },
+        {
+          "id": "c",
+          "label": "Both lights left them 500 years ago",
+          "correct": false,
+          "rationale": "Each star’s light left it a different time ago."
+        },
+        {
+          "id": "d",
+          "label": "The farther star’s light left it about 450 years earlier",
+          "correct": true
+        }
+      ],
+      "explanation": "A light-year is how far light travels in a year. Light from a star 500 light-years away left it about 500 years ago; from 50 light-years, about 50 years ago.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_spaceplace_constellations",
+    "source.iau_constellations",
+    "source.nasa_light_year"
+  ],
+  "art": "astronomy.star-trails"
+}

@@ -1,0 +1,488 @@
+{
+  "id": "level.world_systems.computers.050",
+  "skillId": "skill.world_systems.computers",
+  "number": 50,
+  "type": "milestone",
+  "revision": 1,
+  "status": "published",
+  "title": "Milestone: One Web Page, Start to Finish",
+  "objective": "After this level you can explain every step from typing a web address to seeing the page: bits, software, DNS, packets, servers and your browser.",
+  "summary": "From Enter to pixels: DNS finds the server, a handshake connects, GET fetches the HTML, more requests fetch its files, and the browser lays out and paints the page.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.web_page_journey",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.net_dns_lookup",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.web_page_layers",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.net_tcp_reliability",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.latency_distance",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.software_translation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.software_machine_code",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.history_stored_program",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.pixel_rgb",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.web_request_response",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.web_stateless",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.cookies_session",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.cdn_copies",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.compression_lossless_lossy",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.outage_cascade",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.049"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.050.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Milestone: halfway to Mastery. Follow one web page from Enter to screen.",
+      "body": "Your browser finds a server, asks for a page, collects the pieces and paints them onto your screen. You've now met almost every part of that trip. Here it is in order, from the key you press to the pixels you see."
+    },
+    {
+      "id": "card.computers.050.c2",
+      "type": "timeline",
+      "headline": "From Enter to pixels",
+      "events": [
+        {
+          "when": "Step 1",
+          "label": "DNS lookup: the site's name becomes the server's IP address"
+        },
+        {
+          "when": "Step 2",
+          "label": "A TCP handshake opens a connection; HTTPS adds a TLS handshake"
+        },
+        {
+          "when": "Step 3",
+          "label": "The browser sends a GET request, usually for the HTML"
+        },
+        {
+          "when": "Step 4",
+          "label": "The HTML names style sheets, scripts and images: more requests"
+        },
+        {
+          "when": "Step 5",
+          "label": "The browser builds the page's structure, styles and layout"
+        },
+        {
+          "when": "Step 6",
+          "label": "Paint: every laid-out box becomes pixels on your screen"
+        }
+      ]
+    },
+    {
+      "id": "card.computers.050.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every step leans on something you know",
+      "body": "The request and response are Level 41's, and a cookie reminds the forgetful server who you are. A nearby CDN copy trims the latency of each round trip, and JPEG compression keeps the photos small by dropping detail your eyes won't miss. At the very end, the browser converts each box into actual pixels: red, green and blue numbers from 0 to 255, straight out of Chapter 1."
+    },
+    {
+      "id": "card.computers.050.c4",
+      "type": "mcq",
+      "questionId": "question.computers.050.q1"
+    },
+    {
+      "id": "card.computers.050.c5",
+      "type": "mcq",
+      "questionId": "question.computers.050.q2"
+    },
+    {
+      "id": "card.computers.050.c6",
+      "type": "recall",
+      "questionId": "question.computers.050.q3"
+    },
+    {
+      "id": "card.computers.050.c7",
+      "type": "recall",
+      "questionId": "question.computers.050.q4"
+    },
+    {
+      "id": "card.computers.050.c8",
+      "type": "recall",
+      "questionId": "question.computers.050.q5"
+    },
+    {
+      "id": "card.computers.050.c9",
+      "type": "recall",
+      "questionId": "question.computers.050.q6"
+    },
+    {
+      "id": "card.computers.050.c10",
+      "type": "recall",
+      "questionId": "question.computers.050.q7"
+    },
+    {
+      "id": "card.computers.050.c11",
+      "type": "checkpoint",
+      "headline": "Milestone: one page, end to end",
+      "learned": [
+        "How bits, gates and a processor's endless loop turn stored numbers into text, pictures and sums.",
+        "How computing moved from punched cards and rewired cables to stored programs on transistor chips.",
+        "How code people write is translated into machine code and shared out by the operating system.",
+        "How DNS, routers and TCP carry every piece of a web page to you, complete and in order.",
+        "Why a page arrives as many requests, and why distance, cookies and nearby copies shape how it loads."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.050.q1",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.web_page_journey",
+        "concept.computers.net_dns_lookup"
+      ],
+      "sourceCardIds": [
+        "card.computers.050.c2",
+        "card.computers.033.c3"
+      ],
+      "prompt": "Step 1 turns the site's name into an IP address. From Level 33, how does a resolver with no saved answer find it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It copies the address from one master file listing every computer",
+          "correct": false,
+          "rationale": "That single file was dropped as the network grew; DNS replaced it."
+        },
+        {
+          "id": "b",
+          "label": "It sends the name to every router until one of them recognizes it",
+          "correct": false,
+          "rationale": "Routers forward packets by address; they don't look up names."
+        },
+        {
+          "id": "c",
+          "label": "It asks a root server, then the .com servers, then the site's own servers",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It works the address out from the letters of the name itself",
+          "correct": false,
+          "rationale": "Names and addresses are unrelated; the mapping has to be looked up."
+        }
+      ],
+      "explanation": "Each server refers the resolver one step closer: the root knows who runs .com, and .com knows the site's own name servers.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.050.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.web_page_journey",
+        "concept.computers.web_page_layers"
+      ],
+      "sourceCardIds": [
+        "card.computers.050.c2",
+        "card.computers.042.c3"
+      ],
+      "prompt": "Why does the browser send several more requests after the first HTML file arrives?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The first request always fails and has to be repeated",
+          "correct": false,
+          "rationale": "The first request usually succeeds; more files are needed."
+        },
+        {
+          "id": "b",
+          "label": "The HTML names style sheets, scripts and images it still needs",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Each request can only carry one word of the page at a time",
+          "correct": false,
+          "rationale": "A response can carry a whole file."
+        },
+        {
+          "id": "d",
+          "label": "The server asks the browser to send its cookies separately",
+          "correct": false,
+          "rationale": "Cookies ride along with each request."
+        }
+      ],
+      "explanation": "The HTML refers to other files (CSS, scripts, images), and the browser requests each one.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.050.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.net_tcp_reliability"
+      ],
+      "sourceCardIds": [
+        "card.computers.035.c3",
+        "card.computers.035.c4"
+      ],
+      "prompt": "Packets carrying the page can be lost or arrive out of order. From Level 35, how does TCP still deliver every byte?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It sends every packet twice, in case one copy goes missing",
+          "correct": false,
+          "rationale": "TCP resends only what isn't acknowledged, not everything."
+        },
+        {
+          "id": "b",
+          "label": "Each router keeps a copy until the next router confirms it",
+          "correct": false,
+          "rationale": "Routers forward and move on; the two ends keep score."
+        },
+        {
+          "id": "c",
+          "label": "It hands the data to UDP, which guarantees it will arrive",
+          "correct": false,
+          "rationale": "UDP never resends lost data."
+        },
+        {
+          "id": "d",
+          "label": "It numbers the bytes and resends any that aren't acknowledged",
+          "correct": true
+        }
+      ],
+      "explanation": "The receiver acknowledges the next byte it expects; anything unacknowledged when the timer runs out is sent again.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.050.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.latency_distance"
+      ],
+      "sourceCardIds": [
+        "card.computers.046.c3"
+      ],
+      "prompt": "From Level 46: a much faster plan adds bandwidth. What does it leave unchanged?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How many bits the line can move each second",
+          "correct": false,
+          "rationale": "That's bandwidth, which the plan increases."
+        },
+        {
+          "id": "b",
+          "label": "The delay set by the distance to the server",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "How much data it can download in an hour",
+          "correct": false,
+          "rationale": "That grows with bandwidth."
+        },
+        {
+          "id": "d",
+          "label": "The width of the pipe the data flows through",
+          "correct": false,
+          "rationale": "The pipe's width is what bandwidth measures."
+        }
+      ],
+      "explanation": "Light in fiber needs time to cover the distance, about 28 ms from New York to London, whatever the bandwidth.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.050.q5",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.software_translation",
+        "concept.computers.software_machine_code"
+      ],
+      "sourceCardIds": [
+        "card.computers.022.c4",
+        "card.computers.022.c2"
+      ],
+      "prompt": "The page's scripts arrive as JavaScript, which no processor runs directly. From Level 22, how does your browser run them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The processor reads the JavaScript itself, line by line",
+          "correct": false,
+          "rationale": "Only machine code runs on a processor."
+        },
+        {
+          "id": "b",
+          "label": "The server sends a finished machine code file instead",
+          "correct": false,
+          "rationale": "Scripts arrive as source code; the browser translates them."
+        },
+        {
+          "id": "c",
+          "label": "Its engine compiles them into machine code as the page runs",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It skips them, since a browser can only show HTML",
+          "correct": false,
+          "rationale": "Browsers run scripts; that's what makes pages interactive."
+        }
+      ],
+      "explanation": "Every major browser engine has a just-in-time compiler that turns JavaScript into machine code while the page runs.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.computers.050.q6",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.history_stored_program"
+      ],
+      "sourceCardIds": [
+        "card.computers.015.c2",
+        "card.computers.015.c4"
+      ],
+      "prompt": "The same laptop runs a browser now and a game later, with no rewiring. Which 1940s idea from Chapter 2 makes that possible?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Keeping the program in memory, right beside its data",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Resetting cables and switches for each new problem",
+          "correct": false,
+          "rationale": "That was ENIAC's way, and it took days per job."
+        },
+        {
+          "id": "c",
+          "label": "Replacing hot vacuum tubes with small transistors",
+          "correct": false,
+          "rationale": "A better switch, not a way to change programs."
+        },
+        {
+          "id": "d",
+          "label": "Feeding each new job in on a stack of punched cards",
+          "correct": false,
+          "rationale": "Cards fed data in from outside; the idea here is memory."
+        }
+      ],
+      "explanation": "In a stored-program computer, instructions are just more data in memory, so a new job means loading new instructions.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.computers.050.q7",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.pixel_rgb",
+        "concept.computers.web_page_journey"
+      ],
+      "sourceCardIds": [
+        "card.computers.005.c2",
+        "card.computers.050.c3"
+      ],
+      "prompt": "At the paint step, the browser sets every pixel. From Chapter 1, what is each pixel's color made of?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One letter code, such as ASCII 72",
+          "correct": false,
+          "rationale": "That's how text is stored, not a pixel's color."
+        },
+        {
+          "id": "b",
+          "label": "A single bit that is either on or off",
+          "correct": false,
+          "rationale": "One bit gives only two options."
+        },
+        {
+          "id": "c",
+          "label": "Red, green and blue values, each from 0 to 255",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A tiny compressed JPEG file of its own",
+          "correct": false,
+          "rationale": "The image is compressed, not each pixel."
+        }
+      ],
+      "explanation": "Each pixel mixes red, green and blue light, each a number from 0 to 255 that fits in one byte.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.stanford_cs101_images",
+    "source.mdn_http_overview",
+    "source.hpbn_latency_bandwidth",
+    "source.mdn_cdn",
+    "source.brit_jpeg",
+    "source.meta_outage_details_2021",
+    "source.mdn_how_browsers_work",
+    "source.icann_root_server_system_overview",
+    "source.ietf_rfc9293_tcp",
+    "source.m2optics_fiber_latency",
+    "source.python_glossary",
+    "source.mdn_compile_glossary",
+    "source.stanford_cs101_software_machine_code",
+    "source.uvm_stored_program",
+    "source.chm_stored_program"
+  ],
+  "art": "computers.browser-window"
+}

@@ -1,0 +1,213 @@
+{
+  "id": "level.arts.literature.043",
+  "skillId": "skill.arts.literature",
+  "number": 43,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Journey to the West",
+  "objective": "After this level you can explain why the Monkey King's pilgrimage to India became one of China's best-loved novels.",
+  "summary": "Journey to the West, a 100-chapter Ming novel, sends the real monk Xuanzang to India with Monkey, Pigsy and Sandy. Its comedy, satire and rebel Monkey King made it beloved.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.journey_west_pilgrimage",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.monkey_king",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.story_forms_path",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.042"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.043.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A monk walked to India for books. The novel gave him a monkey.",
+      "body": "The Buddhist monk Xuanzang really made a pilgrimage to India in the 7th century, in search of sacred texts. One of China's best-loved novels sends him again, with a bodyguard born from a stone egg. Why did this version win so many hearts?"
+    },
+    {
+      "id": "card.literature.043.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A real road, an invented crew",
+      "body": "Journey to the West is a 100-chapter novel from China's Ming dynasty, usually credited to Wu Cheng'en. It keeps the real journey of Xuanzang (602 to 664), called Tripitaka here, and gives him three animal spirits as companions: the magically gifted Monkey, the clumsy Pigsy and the fish spirit Sandy. Together they get through 81 adventures on the road. A pilgrimage, turned into a road trip with demons."
+    },
+    {
+      "id": "card.literature.043.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Monkey who fought heaven",
+      "body": "The novel begins with Monkey, Sun Wukong, born from a stone egg. He gains magic powers: he shape-shifts and somersaults through clouds. He challenges the Jade Emperor's authority until the Buddha subdues him and imprisons him beneath the Five Elements Mountain. Freed through the bodhisattva Guanyin, he agrees to protect the monk, and by the end he attains Buddhahood. Rebel first, then pilgrim."
+    },
+    {
+      "id": "card.literature.043.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why readers love it",
+      "body": "Part of the appeal is pure fun: fights, tricks and transformations. But the novel also carries biting satire of society and Chinese bureaucracy, and it can be read as an allegory. English readers got Arthur Waley's abridged translation, titled simply Monkey, in 1942. Comedy on top, a sharp point underneath: that's a recipe that lasts."
+    },
+    {
+      "id": "card.literature.043.c5",
+      "type": "mcq",
+      "questionId": "question.literature.043.q1"
+    },
+    {
+      "id": "card.literature.043.c6",
+      "type": "mcq",
+      "questionId": "question.literature.043.q2"
+    },
+    {
+      "id": "card.literature.043.c7",
+      "type": "recall",
+      "questionId": "question.literature.043.q3"
+    },
+    {
+      "id": "card.literature.043.c8",
+      "type": "checkpoint",
+      "headline": "Journey to the West: traveled",
+      "learned": [
+        "Based on Xuanzang's real pilgrimage to India",
+        "100 chapters, 81 adventures",
+        "Monkey: born from stone, jailed under a mountain",
+        "Comedy on top, satire underneath"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.043.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.monkey_king"
+      ],
+      "sourceCardIds": [
+        "card.literature.043.c3"
+      ],
+      "prompt": "In Journey to the West, what does the Buddha do to the rebellious Monkey?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Makes him ruler of heaven",
+          "correct": false,
+          "rationale": "Monkey challenges the Jade Emperor and loses."
+        },
+        {
+          "id": "b",
+          "label": "Turns him back into a stone egg",
+          "correct": false,
+          "rationale": "He was born from one; he isn't turned back."
+        },
+        {
+          "id": "c",
+          "label": "Imprisons him beneath a mountain",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Banishes him to India alone",
+          "correct": false,
+          "rationale": "India is the pilgrims' goal, reached later together."
+        }
+      ],
+      "explanation": "The Buddha subdues Monkey and imprisons him beneath the Five Elements Mountain until he is freed to protect the monk.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.043.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.journey_west_pilgrimage"
+      ],
+      "sourceCardIds": [
+        "card.literature.043.c4"
+      ],
+      "prompt": "Why is Journey to the West read as more than a comic adventure?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's an exact record of Xuanzang's route",
+          "correct": false,
+          "rationale": "It invents most of the adventures."
+        },
+        {
+          "id": "b",
+          "label": "It was written as a Buddhist law code",
+          "correct": false,
+          "rationale": "It's a novel."
+        },
+        {
+          "id": "c",
+          "label": "It has no jokes, fights or tricks at all",
+          "correct": false,
+          "rationale": "It's full of them."
+        },
+        {
+          "id": "d",
+          "label": "It carries biting satire of society and bureaucracy",
+          "correct": true
+        }
+      ],
+      "explanation": "Beyond its adventures, the novel offers biting satire of society and Chinese bureaucracy, and it can be read as an allegory.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.literature.043.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.journey_west_pilgrimage",
+        "concept.literature.story_forms_path"
+      ],
+      "sourceCardIds": [
+        "card.literature.043.c2",
+        "card.literature.001.c4"
+      ],
+      "prompt": "Level 1 said a novel is an invented story in prose. How does Journey to the West use Xuanzang's real pilgrimage?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It keeps the real journey and invents his companions",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It reports the trip exactly as it happened",
+          "correct": false,
+          "rationale": "Monkey, Pigsy and Sandy are invented."
+        },
+        {
+          "id": "c",
+          "label": "It retells it as a short fable with a moral",
+          "correct": false,
+          "rationale": "It's a 100-chapter novel."
+        },
+        {
+          "id": "d",
+          "label": "It moves the journey to Japan",
+          "correct": false,
+          "rationale": "The pilgrims head for India."
+        }
+      ],
+      "explanation": "The novel keeps Xuanzang's real pilgrimage to India but invents Monkey, Pigsy, Sandy and 81 adventures.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_xiyouji",
+    "source.brit_sun_wukong"
+  ],
+  "art": "lit.peach"
+}

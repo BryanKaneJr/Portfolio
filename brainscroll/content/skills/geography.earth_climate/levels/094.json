@@ -1,0 +1,226 @@
+{
+  "id": "level.geography.earth_climate.094",
+  "skillId": "skill.geography.earth_climate",
+  "number": 94,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Ready for an Earthquake",
+  "objective": "After this level you can explain why quakes cannot be predicted and why Drop, Cover and Hold On is the advice.",
+  "summary": "No one can predict an earthquake's date, place and size, so scientists give odds and people prepare. When the shaking starts: Drop, Cover and Hold On, because falling objects cause most injuries.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.hazard_quake_forecast",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.hazard_drop_cover_hold",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.earth_spheres",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.093"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.094.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "No scientist has ever predicted a major earthquake.",
+      "body": "Yet millions of people practice for them. That isn't a contradiction. It's the whole strategy."
+    },
+    {
+      "id": "card.earth_climate.094.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Forecast, not predict",
+      "body": "A real prediction has to name three things: the date and time, the place and the size. Nobody, the USGS included, has ever done that for a major quake, and scientists don't expect to any time soon. What they can do is work out the odds: the probability of a significant quake in a given area within a certain number of years. You can't know when, so you get ready now."
+    },
+    {
+      "id": "card.earth_climate.094.c3",
+      "type": "fact",
+      "fact": "There's no such thing as earthquake weather.",
+      "context": "Quakes strike about equally in heat, cold and rain. Most start several kilometers down, deeper than rainwater can easily reach. Hot, still afternoons have a reputation they don't deserve."
+    },
+    {
+      "id": "card.earth_climate.094.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Drop, Cover and Hold On",
+      "body": "When the shaking starts, drop onto your hands and knees before it knocks you down. Cover your head and neck, crawling under a sturdy table or desk if one is close. Hold on until the shaking stops, ready to move with your shelter if it slides. In bed? Stay there, face down, with a pillow over your head and neck."
+    },
+    {
+      "id": "card.earth_climate.094.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why not the doorway?",
+      "body": "Most quake injuries and deaths come from falling or flying things (TVs, lamps, glass, bookcases) or from being thrown to the floor. A doorway does nothing about a falling lamp. And running outside or to another room means moving while the floor moves: you're less likely to be hurt if you stay where you are.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Common mix-up: the strongest-looking spot isn't the safest. The danger is what falls, so get under something sturdy."
+      }
+    },
+    {
+      "id": "card.earth_climate.094.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.094.q1"
+    },
+    {
+      "id": "card.earth_climate.094.c7",
+      "type": "mcq",
+      "questionId": "question.earth_climate.094.q2"
+    },
+    {
+      "id": "card.earth_climate.094.c8",
+      "type": "recall",
+      "questionId": "question.earth_climate.094.q3"
+    },
+    {
+      "id": "card.earth_climate.094.c9",
+      "type": "checkpoint",
+      "headline": "Quake ready",
+      "learned": [
+        "Quakes get odds, not predictions",
+        "There's no earthquake weather",
+        "Drop, Cover and Hold On",
+        "Falling objects are the real danger"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.094.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.hazard_quake_forecast"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.094.c2"
+      ],
+      "prompt": "What three things would a true earthquake prediction have to specify?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The fault type, the depth and the season",
+          "correct": false,
+          "rationale": "A prediction needs when, where and how big."
+        },
+        {
+          "id": "b",
+          "label": "The weather, the region and the year",
+          "correct": false,
+          "rationale": "Weather has nothing to do with it."
+        },
+        {
+          "id": "c",
+          "label": "The chances over the next few decades",
+          "correct": false,
+          "rationale": "That's a probability forecast, not a prediction."
+        },
+        {
+          "id": "d",
+          "label": "The date and time, the location and the magnitude",
+          "correct": true
+        }
+      ],
+      "explanation": "A prediction must give the date and time, the location and the magnitude. No one has ever done that for a major quake.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.094.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.hazard_drop_cover_hold"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.094.c4",
+        "card.earth_climate.094.c5"
+      ],
+      "prompt": "Shaking starts while you're in the kitchen, a few steps from the back door. What should you do, and why?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Run out the back door before it gets worse",
+          "correct": false,
+          "rationale": "Moving during shaking makes injury more likely."
+        },
+        {
+          "id": "b",
+          "label": "Stand in the kitchen doorway until it stops",
+          "correct": false,
+          "rationale": "Doorways don't protect you from falling objects."
+        },
+        {
+          "id": "c",
+          "label": "Drop, cover under the table: falling objects are the danger",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Lie flat in the open, away from the furniture",
+          "correct": false,
+          "rationale": "Cover your head and neck, ideally under a sturdy table."
+        }
+      ],
+      "explanation": "Most injuries come from falling or flying objects, so drop, cover under something sturdy and hold on where you are.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.094.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.earth_spheres",
+        "concept.earth_climate.hazard_quake_forecast"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.094.c3",
+        "card.earth_climate.001.c2"
+      ],
+      "prompt": "A neighbor says hot, calm weather means a quake is coming. Using Level 1's spheres, what's the best reply?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Quakes start deep in the geosphere, far below the weather",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "True: hot air seeps underground and cracks rock",
+          "correct": false,
+          "rationale": "Quakes happen about equally in every kind of weather."
+        },
+        {
+          "id": "c",
+          "label": "Only rain matters, since quakes happen in the hydrosphere",
+          "correct": false,
+          "rationale": "Quakes start in solid rock, too deep for rain to reach."
+        },
+        {
+          "id": "d",
+          "label": "True: the biosphere senses quakes and warms the air",
+          "correct": false,
+          "rationale": "Weather shows no pattern before quakes."
+        }
+      ],
+      "explanation": "Earthquakes start kilometers down in the rocky geosphere, and they happen about equally in hot, cold and rainy weather.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.usgs_predict_earthquakes",
+    "source.usgs_earthquake_weather",
+    "source.readygov_earthquakes",
+    "source.cdc_earthquake_safety"
+  ],
+  "art": "earth.sturdy-table"
+}

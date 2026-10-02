@@ -1,0 +1,229 @@
+{
+  "id": "level.world_systems.computers.055",
+  "skillId": "skill.world_systems.computers",
+  "number": 55,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Public Keys: The Open Padlock",
+  "objective": "After this level you can explain how public-key cryptography lets two strangers agree on a secret over a line anyone can hear.",
+  "summary": "Public keys work like open padlocks: anyone can lock, only the private key opens. One-way math (RSA, 1977) keeps it safe, and it mainly sets up a faster session key.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.security_public_key_pair",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.security_one_way_math",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.security_password_hashing",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.054"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.055.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "How do you whisper a secret across a crowded room?",
+      "body": "To share a secret key privately, it seems you'd first need a private way to share the key. Public-key cryptography escapes that loop with one of the neatest tricks in computing. Picture an open padlock."
+    },
+    {
+      "id": "card.computers.055.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hand out open padlocks",
+      "body": "Imagine giving open padlocks to anyone who asks. Anyone can put a note in a box and snap your padlock shut, but only you hold the key that opens it. That's the idea: a public key you publish, and a private key you keep. What the public key locks, only the private key unlocks. Diffie and Hellman's 1976 paper showed strangers could talk secretly this way over an open channel, with no secret arranged first.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep this picture: the public key is an open padlock anyone can snap shut. The private key is the only one that opens it."
+      }
+    },
+    {
+      "id": "card.computers.055.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Easy one way, brutal the other",
+      "body": "Why can't someone study the padlock and cut its key? RSA, introduced in 1977 by MIT's Ron Rivest, Adi Shamir and Leonard Adleman, builds the keys from two huge prime numbers. Multiplying them is easy. Working back from the product to the two primes is far beyond what computers can do, and that's what keeps the private key private."
+    },
+    {
+      "id": "card.computers.055.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Padlock first, then a faster lock",
+      "body": "Public-key math is slow, so it mostly does one job: exchanging a session key. Your device can lock a fresh random key in the other side's padlock and send it across a line anyone can hear. From then on, both sides use that shared session key with faster encryption for the actual data."
+    },
+    {
+      "id": "card.computers.055.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Invented twice",
+      "body": "Diffie and Hellman went public in 1976, and RSA followed in 1977. But at Britain's code agency GCHQ, James Ellis, Clifford Cocks and Malcolm Williamson had worked out public-key methods earlier in the 1970s. Their work stayed classified until 1997."
+    },
+    {
+      "id": "card.computers.055.c6",
+      "type": "mcq",
+      "questionId": "question.computers.055.q1"
+    },
+    {
+      "id": "card.computers.055.c7",
+      "type": "mcq",
+      "questionId": "question.computers.055.q2"
+    },
+    {
+      "id": "card.computers.055.c8",
+      "type": "mcq",
+      "questionId": "question.computers.055.q3"
+    },
+    {
+      "id": "card.computers.055.c9",
+      "type": "checkpoint",
+      "headline": "Padlocks: handed out",
+      "learned": [
+        "A public key locks; only the matching private key unlocks",
+        "Strangers can talk secretly with no secret arranged first",
+        "RSA rests on how hard it is to find two huge primes from their product",
+        "Public-key math mainly sets up a faster session key"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.055.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.security_public_key_pair"
+      ],
+      "sourceCardIds": [
+        "card.computers.055.c2"
+      ],
+      "prompt": "In the open-padlock picture of public-key cryptography, what is the public key?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The key that opens the padlock",
+          "correct": false,
+          "rationale": "That is the private key, which you keep."
+        },
+        {
+          "id": "b",
+          "label": "The box the note travels in",
+          "correct": false,
+          "rationale": "The box is the message; the padlock is the public key."
+        },
+        {
+          "id": "c",
+          "label": "The open padlock anyone can snap shut",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A copy of the private key for friends",
+          "correct": false,
+          "rationale": "The private key is never shared."
+        }
+      ],
+      "explanation": "You publish open padlocks (public keys); only your private key opens what they lock.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.055.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.security_one_way_math"
+      ],
+      "sourceCardIds": [
+        "card.computers.055.c3"
+      ],
+      "prompt": "Why can't someone who knows an RSA public key simply work out the private key?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The public key is erased after one use",
+          "correct": false,
+          "rationale": "Public keys are published and reused."
+        },
+        {
+          "id": "b",
+          "label": "Finding the two huge primes behind it is far beyond computers",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The private key is really just a longer password you type",
+          "correct": false,
+          "rationale": "It is built from primes, not typed like a password."
+        },
+        {
+          "id": "d",
+          "label": "The two keys are stored in different countries",
+          "correct": false,
+          "rationale": "Location is not what protects it; the math is."
+        }
+      ],
+      "explanation": "RSA's keys come from two huge primes; recovering them from their product is far beyond what computers can do.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.computers.055.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.security_public_key_pair",
+        "concept.computers.security_password_hashing"
+      ],
+      "sourceCardIds": [
+        "card.computers.055.c2",
+        "card.computers.052.c4"
+      ],
+      "prompt": "Level 52's password hashes are one-way. How is a message locked with a public key different?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nobody at all can ever unlock it",
+          "correct": false,
+          "rationale": "That describes a hash; the private key does unlock this."
+        },
+        {
+          "id": "b",
+          "label": "Anyone who has the public key can unlock it",
+          "correct": false,
+          "rationale": "The public key only locks; it cannot open."
+        },
+        {
+          "id": "c",
+          "label": "It is exactly the same as a hash",
+          "correct": false,
+          "rationale": "Encryption is two-way; hashing is one-way."
+        },
+        {
+          "id": "d",
+          "label": "The matching private key can unlock it",
+          "correct": true
+        }
+      ],
+      "explanation": "Public-key encryption is two-way for the key holder: the private key unlocks it. A hash has nothing to unlock.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_public_key_cryptography",
+    "source.nist_glossary_public_key",
+    "source.stanford_diffie_hellman_turing",
+    "source.brit_rsa_encryption",
+    "source.nihf_adi_shamir",
+    "source.gchq_james_ellis",
+    "source.owasp_password_storage"
+  ],
+  "art": "object.padlock"
+}

@@ -1,0 +1,242 @@
+{
+  "id": "level.arts.literature.002",
+  "skillId": "skill.arts.literature",
+  "number": 2,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Myth, Legend, Fable and Folk Tale",
+  "objective": "After this level you can tell a myth from a legend, a fable (like Aesop's) and a folk tale.",
+  "summary": "A fable is an animal tale with a moral, like Aesop's fox and the \"sour grapes\". A myth is a sacred traditional story, a legend is told as history, and folk tales change with each teller.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.fable",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.myth_legend_folktale",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.what_literature_is",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.001"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.002.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Say \"sour grapes\" and you're quoting a fox.",
+      "body": "In an old fable, a fox jumps again and again for a bunch of grapes and misses every time. Finally he walks off, calling them sour grapes, not worth the trouble. That's a fable. It's one of four kinds of traditional story people mix up all the time. Here's how to tell them apart."
+    },
+    {
+      "id": "card.literature.002.c2",
+      "type": "fact",
+      "fact": "A fable teaches a lesson, and usually tells you what it is.",
+      "context": "Fables usually star animals that talk and act like people, and they poke at human follies. A moral is woven in, often stated at the end. The fox's, in The Aesop for Children (1919): \"There are many who pretend to despise and belittle that which is beyond their reach.\" Most famous fables are credited to Aesop, a likely legendary Greek; the earliest known collection under his name dates to the 4th century BCE."
+    },
+    {
+      "id": "card.literature.002.c3",
+      "type": "comparison",
+      "headline": "Myth, legend, folk tale",
+      "items": [
+        {
+          "label": "Myth",
+          "points": [
+            "A traditional, symbolic story",
+            "Tied to religious belief",
+            "Told as if it really happened"
+          ]
+        },
+        {
+          "label": "Legend",
+          "points": [
+            "About a particular person or place",
+            "Told as a matter of history",
+            "Like William Tell's apple shot"
+          ]
+        },
+        {
+          "label": "Folk tale",
+          "points": [
+            "Found almost everywhere",
+            "Includes fairy tales and nursery tales",
+            "Changes as tellers pass it on"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.literature.002.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Told as history, true or not",
+      "body": "The key to a legend is that it's told as history. William Tell, Switzerland's hero of freedom, is said to have shot an apple off his son's head. The story is tied to a real country and a real struggle, yet there's no evidence Tell ever existed. And a myth isn't a polite word for a lie. Scholars use it for a traditional sacred story. In this tree, myth never means false."
+    },
+    {
+      "id": "card.literature.002.c5",
+      "type": "mcq",
+      "questionId": "question.literature.002.q1"
+    },
+    {
+      "id": "card.literature.002.c6",
+      "type": "mcq",
+      "questionId": "question.literature.002.q2"
+    },
+    {
+      "id": "card.literature.002.c7",
+      "type": "recall",
+      "questionId": "question.literature.002.q3"
+    },
+    {
+      "id": "card.literature.002.c8",
+      "type": "checkpoint",
+      "headline": "Four kinds of story: sorted",
+      "learned": [
+        "Fable: animals, follies and a moral",
+        "Myth: a traditional story tied to religious belief",
+        "Legend: told as history, true or not",
+        "Folk tale: changes with every teller"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.002.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.fable"
+      ],
+      "sourceCardIds": [
+        "card.literature.002.c2"
+      ],
+      "prompt": "What does a fable weave into its story, often stating it at the end?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A moral, a lesson about behavior",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The family tree of the gods",
+          "correct": false,
+          "rationale": "That sounds more like a myth."
+        },
+        {
+          "id": "c",
+          "label": "The date the events happened",
+          "correct": false,
+          "rationale": "Fables are timeless animal tales."
+        },
+        {
+          "id": "d",
+          "label": "A map of the hero's homeland",
+          "correct": false,
+          "rationale": "Fables are short and not about places."
+        }
+      ],
+      "explanation": "A fable usually stars animals acting like people and carries a moral, often stated at the end.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.literature.002.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.myth_legend_folktale"
+      ],
+      "sourceCardIds": [
+        "card.literature.002.c4",
+        "card.literature.002.c3"
+      ],
+      "prompt": "There is no evidence William Tell existed. Why is his story still called a legend?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It stars talking animals and ends with a moral",
+          "correct": false,
+          "rationale": "That's a fable."
+        },
+        {
+          "id": "b",
+          "label": "It is a sacred story about the gods",
+          "correct": false,
+          "rationale": "That's closer to a myth."
+        },
+        {
+          "id": "c",
+          "label": "It is a fairy tale meant for small children",
+          "correct": false,
+          "rationale": "Fairy tales are folk tales."
+        },
+        {
+          "id": "d",
+          "label": "It is told as history, about a particular person and place",
+          "correct": true
+        }
+      ],
+      "explanation": "A legend is a traditional story about a particular person or place, told as a matter of history, whether or not it happened.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.literature.002.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.myth_legend_folktale",
+        "concept.literature.what_literature_is"
+      ],
+      "sourceCardIds": [
+        "card.literature.002.c3",
+        "card.literature.001.c2"
+      ],
+      "prompt": "Level 1 said oral literature is passed on by voice. Which kind of story is known for changing as tellers pass it on?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A fable with its stated moral",
+          "correct": false,
+          "rationale": "Fables are known for their morals."
+        },
+        {
+          "id": "b",
+          "label": "A folk tale",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A legend told as history",
+          "correct": false,
+          "rationale": "Legends are known for being told as history."
+        },
+        {
+          "id": "d",
+          "label": "A novel",
+          "correct": false,
+          "rationale": "A novel is a written, invented prose story."
+        }
+      ],
+      "explanation": "Folk tales are found almost everywhere and keep changing as tellers pass them on: oral literature in action.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.loc_aesop_fox_grapes",
+    "source.mw_sour_grapes",
+    "source.brit_fable",
+    "source.brit_myth",
+    "source.brit_legend",
+    "source.brit_william_tell",
+    "source.brit_folk_literature"
+  ],
+  "art": "lit.fox"
+}

@@ -1,0 +1,220 @@
+{
+  "id": "level.mind.logic.013",
+  "skillId": "skill.mind.logic",
+  "number": 13,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Soundness",
+  "objective": "After this level you can explain why an argument needs both a valid form and true premises to be sound.",
+  "summary": "A sound argument is valid and has all true premises, so its conclusion must be true. Rebut an argument by attacking a premise or its form; a flawed argument does not make its conclusion false.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.deduction_soundness",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.deduction_validity",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.unstated_premise",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.012"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"Every cookie in that jar is oatmeal raisin.\" You bite: chocolate chip.",
+      "body": "The reasoning looked perfect. Every cookie in the jar is oatmeal raisin; you took yours from the jar; so it's oatmeal raisin. The form is valid, Level 12 style. And yet here you are, chewing the evidence. Something went wrong, and it wasn't the logic.",
+      "id": "card.logic.013.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Sound: valid plus true",
+      "body": "A valid argument promises a true conclusion only if its premises are true. So logicians add a second test. An argument is sound when it's valid and all its premises are actually true. Pass both tests, and the conclusion must be true. The cookie argument passed the first test and failed the second: somebody slipped a chocolate chip cookie into the jar.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: valid is about the shape. Sound is the shape plus true premises."
+      },
+      "id": "card.logic.013.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Two ways to push back",
+      "body": "So there are two ways to rebut an argument: show that a premise isn't true, or show that the conclusion doesn't follow. Logic itself only helps with the second. Whether a premise is true is usually a job for other tools, like research, science or, here, lifting the lid. Logic tells you which question to ask. The jar answers it.",
+      "id": "card.logic.013.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A bad argument can still land on the truth",
+      "body": "One warning. An invalid argument, or a valid one with a false premise, can still have a true conclusion. Maybe your cookie really was oatmeal raisin after all. A flawed argument fails to prove its point; it doesn't prove the opposite. So catching a bad argument tells you about the argument. It doesn't yet tell you about the cookie.",
+      "id": "card.logic.013.c4"
+    },
+    {
+      "id": "card.logic.013.c5",
+      "type": "mcq",
+      "questionId": "question.logic.013.q1"
+    },
+    {
+      "id": "card.logic.013.c6",
+      "type": "mcq",
+      "questionId": "question.logic.013.q2"
+    },
+    {
+      "id": "card.logic.013.c7",
+      "type": "mcq",
+      "questionId": "question.logic.013.q3"
+    },
+    {
+      "id": "card.logic.013.c8",
+      "type": "checkpoint",
+      "headline": "Soundness: understood",
+      "learned": [
+        "Sound: a valid form plus all true premises",
+        "A sound argument always has a true conclusion",
+        "Rebut by attacking a premise or the form",
+        "A flawed argument doesn't make its conclusion false"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.013.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.deduction_soundness"
+      ],
+      "sourceCardIds": [
+        "card.logic.013.c2"
+      ],
+      "prompt": "What makes an argument sound?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is valid and all its premises are true",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It has at least one true premise",
+          "correct": false,
+          "rationale": "Every premise has to be true."
+        },
+        {
+          "id": "c",
+          "label": "Most listeners find it convincing",
+          "correct": false,
+          "rationale": "Soundness isn't a vote."
+        },
+        {
+          "id": "d",
+          "label": "Its conclusion comes after all of its premises",
+          "correct": false,
+          "rationale": "Order has nothing to do with it."
+        }
+      ],
+      "explanation": "A sound argument passes both tests: a valid form and premises that are all actually true.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.013.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.deduction_soundness",
+        "concept.logic.deduction_validity"
+      ],
+      "sourceCardIds": [
+        "card.logic.013.c2",
+        "card.logic.012.c4"
+      ],
+      "prompt": "A valid argument turns out to have a false conclusion. What must be true of it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was never really valid in the first place",
+          "correct": false,
+          "rationale": "Valid arguments can have false conclusions."
+        },
+        {
+          "id": "b",
+          "label": "All of its premises are true",
+          "correct": false,
+          "rationale": "Then the conclusion would have to be true."
+        },
+        {
+          "id": "c",
+          "label": "At least one of its premises is false",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Its form is circular",
+          "correct": false,
+          "rationale": "Nothing here points to circularity."
+        }
+      ],
+      "explanation": "Validity rules out true premises with a false conclusion, so a false conclusion means some premise is false: the argument is unsound.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.013.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.deduction_soundness",
+        "concept.logic.unstated_premise"
+      ],
+      "sourceCardIds": [
+        "card.logic.013.c3",
+        "card.logic.007.c3"
+      ],
+      "prompt": "\"You took it from the jar, so it's oatmeal raisin.\" To attack a premise, which unstated one (Level 7) would you check?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cookies should always be shared",
+          "correct": false,
+          "rationale": "A value judgment like that doesn't link the jar to the flavor."
+        },
+        {
+          "id": "b",
+          "label": "Oatmeal raisin is the best cookie",
+          "correct": false,
+          "rationale": "Taste doesn't get you from the jar to the flavor."
+        },
+        {
+          "id": "c",
+          "label": "The jar was bought recently",
+          "correct": false,
+          "rationale": "When it was bought doesn't matter."
+        },
+        {
+          "id": "d",
+          "label": "Every cookie in the jar is oatmeal raisin",
+          "correct": true
+        }
+      ],
+      "explanation": "The argument needs \"every cookie in the jar is oatmeal raisin\". Checking whether that premise is true is how you test soundness.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.forallx_calgary",
+    "source.iep_validity_soundness",
+    "source.libretexts_vancleave_soundness"
+  ],
+  "art": "mind.logic-key"
+}

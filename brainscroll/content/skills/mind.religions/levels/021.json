@@ -1,0 +1,223 @@
+{
+  "id": "level.mind.religions.021",
+  "skillId": "skill.mind.religions",
+  "number": 21,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Jesus of Nazareth",
+  "objective": "After this level you can separate what historians generally accept about Jesus, a Jewish teacher from Galilee, from what Christians believe about him.",
+  "summary": "Historians accept that Jesus was a Jewish teacher from Galilee, baptized by John and crucified under Pontius Pilate around 30 CE; Christians believe he is the Christ who rose from the dead.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.christianity_historical_jesus",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.christianity_tacitus_evidence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.christianity_christ_belief",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.bracketing",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.020"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.021.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Jesus was not a Christian.",
+      "body": "He was a Jew from Galilee, and the faith named after him took shape later. So there are two ways to talk about him: what historians can show, and what Christians believe. This level keeps them side by side."
+    },
+    {
+      "id": "card.religions.021.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "What historians accept",
+      "body": "Most historians accept a short list. Jesus was a Jew from Nazareth in Galilee, born about 6 to 4 BCE, a traveling teacher, prophet and healer. As a young adult he was baptized by the prophet John the Baptist. His central message was the kingdom of God, often taught in parables. Around 30 CE, in Jerusalem, he was crucified on the orders of Pontius Pilate, the Roman governor of Judaea from 26 to 36 CE."
+    },
+    {
+      "id": "card.religions.021.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "How they know",
+      "body": "The main sources are the four Gospels of the New Testament. Historians also have a witness from outside: the Roman historian Tacitus, no admirer of Christians. In his Annals he wrote that Christus, the founder of the Christians' name, was put to death under the emperor Tiberius by sentence of Pontius Pilate, and he called the movement a \"pernicious superstition\". A hostile source confirming the ending is gold to a historian."
+    },
+    {
+      "id": "card.religions.021.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What Christians believe",
+      "body": "Christ isn't a surname. It's a title, from the Greek christos, which translates the Hebrew meshiah, Messiah: \"the anointed one\". Jesus's disciples became convinced that he rose from the dead and appeared to them, and Christians believe he did. Most Christians regard him as the Incarnation of God, God made human. Same person, two kinds of statement.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Keep the labels straight: \"historians accept\" the crucifixion, \"Christians believe\" the resurrection. Level 4's bracketing at work."
+      }
+    },
+    {
+      "id": "card.religions.021.c5",
+      "type": "mcq",
+      "questionId": "question.religions.021.q1"
+    },
+    {
+      "id": "card.religions.021.c6",
+      "type": "mcq",
+      "questionId": "question.religions.021.q2"
+    },
+    {
+      "id": "card.religions.021.c7",
+      "type": "mcq",
+      "questionId": "question.religions.021.q3"
+    },
+    {
+      "id": "card.religions.021.c8",
+      "type": "checkpoint",
+      "headline": "Jesus of Nazareth: the takeaways",
+      "learned": [
+        "Historians accept Jesus as a Jewish teacher crucified under Pilate",
+        "Tacitus, a Roman, independently records the execution",
+        "Christ is a title; the resurrection is what Christians believe"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.021.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.christianity_historical_jesus"
+      ],
+      "sourceCardIds": [
+        "card.religions.021.c2"
+      ],
+      "prompt": "Which Roman governor, historians accept, ordered Jesus's crucifixion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The emperor Tiberius",
+          "correct": false,
+          "rationale": "He was emperor; Pilate, his governor, gave the order."
+        },
+        {
+          "id": "b",
+          "label": "John the Baptist",
+          "correct": false,
+          "rationale": "He baptized Jesus."
+        },
+        {
+          "id": "c",
+          "label": "Pontius Pilate",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The historian Tacitus",
+          "correct": false,
+          "rationale": "He wrote about it later."
+        }
+      ],
+      "explanation": "Pontius Pilate, Roman governor of Judaea from 26 to 36 CE, ordered the crucifixion around 30 CE.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.religions.021.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.christianity_tacitus_evidence"
+      ],
+      "sourceCardIds": [
+        "card.religions.021.c3"
+      ],
+      "prompt": "How can historians confirm Jesus's execution without relying only on Christian writings?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A Roman historian, Tacitus, records it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Pilate's own trial notes survive",
+          "correct": false,
+          "rationale": "No such notes are mentioned; the outside witness is Tacitus."
+        },
+        {
+          "id": "c",
+          "label": "Jesus's letters describe it",
+          "correct": false,
+          "rationale": "The main sources are the Gospels, written by his followers."
+        },
+        {
+          "id": "d",
+          "label": "The Gospels are Roman records",
+          "correct": false,
+          "rationale": "They were written by his followers."
+        }
+      ],
+      "explanation": "Tacitus, a Roman with no sympathy for Christians, wrote that Christus was put to death by sentence of Pontius Pilate.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.religions.021.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.christianity_christ_belief",
+        "concept.religions.bracketing"
+      ],
+      "sourceCardIds": [
+        "card.religions.021.c4",
+        "card.religions.004.c2"
+      ],
+      "prompt": "A textbook says historians accept the crucifixion and Christians believe in the resurrection. Which Level 4 method is it using?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Treating every sacred story as false",
+          "correct": false,
+          "rationale": "Level 4's scholars leave truth aside; they don't call stories false."
+        },
+        {
+          "id": "b",
+          "label": "Converting readers to the faith",
+          "correct": false,
+          "rationale": "Describing a belief isn't arguing for it."
+        },
+        {
+          "id": "c",
+          "label": "Counting believers in a census",
+          "correct": false,
+          "rationale": "That's how researchers measure size, not describe belief."
+        },
+        {
+          "id": "d",
+          "label": "Bracketing: describing belief without judging it",
+          "correct": true
+        }
+      ],
+      "explanation": "Scholars bracket the question of truth, so they report what Christians believe without ruling on it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.bibleinterp_witmer_jesus_jew",
+    "source.brit_jesus",
+    "source.brit_pilate",
+    "source.uchicago_tacitus_annals_15"
+  ],
+  "art": "rel.fishing-boat"
+}

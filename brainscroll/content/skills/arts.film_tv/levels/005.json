@@ -1,0 +1,215 @@
+{
+  "id": "level.arts.film_tv.005",
+  "skillId": "skill.arts.film_tv",
+  "number": 5,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Edison's Peep Show",
+  "objective": "After this level you can describe the Kinetoscope, the one-viewer movie cabinet built in Edison's lab, and why projection overtook it.",
+  "summary": "Built mostly by W. K. L. Dickson in Edison's lab, the Kinetoscope showed films to one viewer through a peephole. Projection, serving a whole room, overtook it from 1895.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.kinetoscope",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.projection_overtakes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.zoopraxiscope",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.004"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.005.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Before movie theaters, there were movie cabinets.",
+      "body": "Just a row of wooden cabinets. On April 14, 1894, the first Kinetoscope parlor opened in New York. You bent over a peephole and watched a film alone, while the next customer waited for a turn. How did movies begin as a show for one?"
+    },
+    {
+      "id": "card.film_tv.005.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Built in Edison's lab, mostly by Dickson",
+      "body": "In February 1888 Muybridge visited Thomas Edison's lab and pitched a partnership; Edison passed. That October, Edison filed plans for a device to \"do for the eye what the phonograph does for the ear\" and called it the Kinetoscope. His assistant W. K. L. Dickson did the bulk of the experimenting, and most scholars give him the major credit. Their camera recorded the whole sequence by itself, no row of cameras needed."
+    },
+    {
+      "id": "card.film_tv.005.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Inside the cabinet",
+      "body": "The Kinetoscope was a wooden cabinet about four feet high. Inside, a loop of film about 50 feet long ran continuously past a lamp, while a spinning shutter let through flashes so brief that each frame seemed frozen. At that first parlor, 25 cents let you peer into five machines in a row, one film each."
+    },
+    {
+      "id": "card.film_tv.005.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the screen won",
+      "body": "One viewer per machine had a ceiling. Projected films could play to a whole room, so fewer machines served more paying viewers. Edison was slow to follow because peep shows were earning well, but in 1895 projection began to overtake them. In 1896 his company sold a projector, the Vitascope, as an Edison invention, though Thomas Armat and C. Francis Jenkins had built it."
+    },
+    {
+      "id": "card.film_tv.005.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.005.q1"
+    },
+    {
+      "id": "card.film_tv.005.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.005.q2"
+    },
+    {
+      "id": "card.film_tv.005.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.005.q3"
+    },
+    {
+      "id": "card.film_tv.005.c8",
+      "type": "checkpoint",
+      "headline": "The Kinetoscope: viewed",
+      "learned": [
+        "A one-viewer peephole cabinet from Edison's lab",
+        "W. K. L. Dickson did the bulk of the work",
+        "First parlor: New York, April 14, 1894",
+        "Projection overtook it from 1895: one screen, many viewers"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.005.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.kinetoscope"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.005.c1",
+        "card.film_tv.005.c3"
+      ],
+      "prompt": "How did audiences watch films on Edison's Kinetoscope?",
+      "options": [
+        {
+          "id": "a",
+          "label": "On a screen in a darkened hall",
+          "correct": false,
+          "rationale": "That's projection, which came to overtake it."
+        },
+        {
+          "id": "b",
+          "label": "On a television set at home",
+          "correct": false,
+          "rationale": "Television was decades away."
+        },
+        {
+          "id": "c",
+          "label": "On paper flipbooks sold with the machine",
+          "correct": false,
+          "rationale": "The film ran on a loop inside the cabinet."
+        },
+        {
+          "id": "d",
+          "label": "One person at a time, through a peephole",
+          "correct": true
+        }
+      ],
+      "explanation": "The Kinetoscope was a cabinet with a peephole: one viewer, one loop of film.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.film_tv.005.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.projection_overtakes"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.005.c4"
+      ],
+      "prompt": "Why did projected films overtake Kinetoscope peep shows?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Projectors were cheaper to build than cabinets",
+          "correct": false,
+          "rationale": "The level doesn't compare build costs; it compares viewers per machine."
+        },
+        {
+          "id": "b",
+          "label": "Edison banned the Kinetoscope in 1895",
+          "correct": false,
+          "rationale": "Edison was slow to switch because peep shows paid well."
+        },
+        {
+          "id": "c",
+          "label": "One projector could serve a whole paying room",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Projected films were in color",
+          "correct": false,
+          "rationale": "Color isn't part of this story."
+        }
+      ],
+      "explanation": "Projection needed fewer machines for the number of viewers, so it could earn more.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.film_tv.005.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.zoopraxiscope",
+        "concept.film_tv.kinetoscope"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.005.c2",
+        "card.film_tv.004.c4"
+      ],
+      "prompt": "Muybridge (Level 4) needed a row of cameras. What did Edison's lab have that made motion pictures more practical?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A camera that recorded the whole sequence by itself",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A faster horse to photograph",
+          "correct": false,
+          "rationale": "The subject wasn't the problem."
+        },
+        {
+          "id": "c",
+          "label": "A bigger magic lantern",
+          "correct": false,
+          "rationale": "Projection wasn't the issue; recording was."
+        },
+        {
+          "id": "d",
+          "label": "Hand-painted glass discs",
+          "correct": false,
+          "rationale": "Those were used for projection, not recording."
+        }
+      ],
+      "explanation": "Dickson's single camera recorded successive images on its own, which influenced every later motion picture device.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.loc_edison_early_productions",
+    "source.loc_edison_origins_motion_pictures",
+    "source.loc_edison_shift_to_projectors"
+  ],
+  "art": "film.kinetoscope"
+}

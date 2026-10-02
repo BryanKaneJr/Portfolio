@@ -1,0 +1,30 @@
+import Svg, { Path } from 'react-native-svg';
+
+/**
+ * Google's standard "G" logo, drawn from Google's own asset
+ * (gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg, © Google). Its
+ * branding rules require the four official colours unchanged, so this is the
+ * one image on a sign-in button that ignores the app's tokens.
+ */
+export function GoogleMark({ size = 20 }: { size?: number }) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 120 120" accessibilityElementsHidden importantForAccessibility="no">
+      <Path
+        fill="#4285F4"
+        d="M117.6 61.36c0-4.25-.38-8.34-1.09-12.27H60v23.21h32.29c-1.39 7.5-5.62 13.85-11.97 18.11v15.06h19.39c11.35-10.45 17.89-25.83 17.89-44.11z"
+      />
+      <Path
+        fill="#34A853"
+        d="M60 120c16.2 0 29.78-5.37 39.71-14.54L80.32 90.41c-5.37 3.6-12.25 5.73-20.32 5.73-15.63 0-28.85-10.55-33.57-24.74H6.38v15.55C16.25 106.55 36.55 120 60 120z"
+      />
+      <Path
+        fill="#FBBC05"
+        d="M26.43 71.4c-1.2-3.6-1.88-7.45-1.88-11.4s.68-7.8 1.88-11.4V33.05H6.38C2.32 41.15 0 50.32 0 60s2.32 18.85 6.38 26.95L26.43 71.4z"
+      />
+      <Path
+        fill="#EA4335"
+        d="M60 23.86c8.81 0 16.72 3.03 22.94 8.98l17.21-17.21C89.75 5.95 76.17 0 60 0 36.55 0 16.25 13.45 6.38 33.05L26.43 48.6C31.15 34.42 44.37 23.86 60 23.86z"
+      />
+    </Svg>
+  );
+}

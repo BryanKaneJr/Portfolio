@@ -1,0 +1,215 @@
+{
+  "id": "level.mind.psychology.053",
+  "skillId": "skill.mind.psychology",
+  "number": 53,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The First Number Wins",
+  "objective": "After this level you can explain anchoring, using the experiment with a rigged wheel of fortune.",
+  "summary": "An arbitrary number, like one from a rigged wheel of fortune, pulls later estimates toward it because people adjust too little. Anchoring has survived large replication tests.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.shortcuts_anchoring",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.shortcuts_anchoring_replicated",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.measuring_the_mind",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.052"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.053.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A spinning wheel shouldn't change what you know about the world.",
+      "body": "In an experiment by Tversky and Kahneman, a wheel of fortune gave students a number before a question about African countries in the United Nations. The number was meaningless. It still moved their answers."
+    },
+    {
+      "id": "card.psychology.053.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The rigged wheel",
+      "body": "The wheel was marked from 0 to 100 but rigged to stop only at 10 or 65. Students first said whether the percentage of African countries in the UN was higher or lower than their number, then gave their best guess. Those who saw 10 gave a median estimate of 25 percent; those who saw 65 gave 45. Paying people for accurate answers didn't shrink the effect."
+    },
+    {
+      "id": "card.psychology.053.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the first number sticks",
+      "body": "Tversky and Kahneman called this anchoring: people start from a value and adjust, but the adjustment is typically too small. The anchor can even come from your own half-finished work. High school students given 5 seconds to estimate 8×7×6×5×4×3×2×1 gave a median of 2,250. Students shown 1×2×3×4×5×6×7×8 gave 512, because the first steps of that multiplication point lower. Both anchors dragged far below the true answer: 40,320."
+    },
+    {
+      "id": "card.psychology.053.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A shortcut that passed the test",
+      "body": "Many famous findings have wobbled when retested. Anchoring hasn't. The Many Labs project, published in 2014, retested 13 classic and newer effects in 36 samples with 6,344 participants. Ten replicated consistently, and anchoring, tested with questions such as the height of Mount Everest, was among them."
+    },
+    {
+      "id": "card.psychology.053.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.053.q1"
+    },
+    {
+      "id": "card.psychology.053.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.053.q2"
+    },
+    {
+      "id": "card.psychology.053.c7",
+      "type": "recall",
+      "questionId": "question.psychology.053.q3"
+    },
+    {
+      "id": "card.psychology.053.c8",
+      "type": "checkpoint",
+      "headline": "Anchoring",
+      "learned": [
+        "A rigged wheel moved estimates: 25 versus 45 percent",
+        "People adjust from an anchor too little",
+        "Even half-finished math can anchor you",
+        "Anchoring replicated in Many Labs (2014)"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.053.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.shortcuts_anchoring"
+      ],
+      "sourceCardIds": [
+        "card.psychology.053.c2"
+      ],
+      "prompt": "In the wheel-of-fortune study, how did students whose wheel stopped at 65 answer, compared with those who got 10?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They gave higher estimates",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They gave about the same estimates",
+          "correct": false,
+          "rationale": "The medians were 45 and 25 percent."
+        },
+        {
+          "id": "c",
+          "label": "They gave lower estimates",
+          "correct": false,
+          "rationale": "It was the reverse: 45 against 25."
+        },
+        {
+          "id": "d",
+          "label": "They ignored the number completely",
+          "correct": false,
+          "rationale": "The number clearly moved their answers."
+        }
+      ],
+      "explanation": "The median guess was 45 percent after 65 and 25 percent after 10.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.053.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.shortcuts_anchoring"
+      ],
+      "sourceCardIds": [
+        "card.psychology.053.c3"
+      ],
+      "prompt": "According to Tversky and Kahneman, why does an anchor pull estimates toward it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "People assume the anchor is the right answer",
+          "correct": false,
+          "rationale": "The anchors were arbitrary, like a wheel's 10 or 65."
+        },
+        {
+          "id": "b",
+          "label": "Payment for accuracy makes people careless",
+          "correct": false,
+          "rationale": "Payment didn't reduce the effect, but it didn't cause it."
+        },
+        {
+          "id": "c",
+          "label": "People adjust away from it, but not far enough",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only unfamiliar questions can be anchored",
+          "correct": false,
+          "rationale": "Even a simple multiplication was anchored by its first steps."
+        }
+      ],
+      "explanation": "People start from the anchor and adjust, and the adjustment is typically insufficient.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.psychology.053.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.measuring_the_mind",
+        "concept.psychology.shortcuts_anchoring_replicated"
+      ],
+      "sourceCardIds": [
+        "card.psychology.053.c4",
+        "card.psychology.001.c3"
+      ],
+      "prompt": "Many Labs retested anchoring in 36 samples. Which practice of psychology from Level 1 does that put to work?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Measuring a bird's happiness directly",
+          "correct": false,
+          "rationale": "Level 1 used that as an example of an untestable idea."
+        },
+        {
+          "id": "b",
+          "label": "Publishing results so others can repeat the test",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Relying on one observer's introspection",
+          "correct": false,
+          "rationale": "Many Labs pooled many independent samples instead."
+        },
+        {
+          "id": "d",
+          "label": "Studying only behavior, never the mind",
+          "correct": false,
+          "rationale": "That was behaviorism, not this practice."
+        }
+      ],
+      "explanation": "Psychologists publish results so others can replicate or build on them, which is exactly what Many Labs did.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.strategybusiness_to_err_is_human",
+    "source.science_tversky_kahneman_1974",
+    "source.socpsych_klein_many_labs_2014",
+    "source.openstax_psych_what_is_psychology"
+  ],
+  "art": "mind.rigged-wheel"
+}

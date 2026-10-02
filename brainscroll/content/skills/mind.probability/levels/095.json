@@ -1,0 +1,225 @@
+{
+  "id": "level.mind.probability.095",
+  "skillId": "skill.mind.probability",
+  "number": 95,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "When Algorithms Get It Wrong",
+  "objective": "After this level you can explain the trade-off between false alarms and misses in a prediction algorithm, and why bias in its data carries through.",
+  "summary": "Algorithms trade false alarms against misses. COMPAS shows two fairness tests that can't both be met; Amazon's hiring tool shows biased data carrying through.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.news_false_alarms_misses",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.news_algorithm_fairness_debate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.news_biased_training_data",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.out_of_what",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.094"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.095.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every spam filter makes two kinds of mistakes. Shrinking one grows the other.",
+      "body": "Some junk slips into your inbox; some real mail lands in spam. Any algorithm that sorts things into yes and no faces the same trade-off, and it matters most when the thing being sorted is a person."
+    },
+    {
+      "id": "card.probability.095.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "False alarms and misses",
+      "body": "A false positive is a false alarm: a real email sent to spam. A false negative is a miss: spam let into your inbox. The filter scores each email, and anything above a threshold counts as spam. Raise the threshold and you get fewer false alarms but more misses; lower it and the reverse. Where to set it is a choice about which mistake hurts more.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Keep this pair straight: a false positive is a false alarm, a false negative is a miss."
+      }
+    },
+    {
+      "id": "card.probability.095.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two fair-sounding tests, one algorithm",
+      "body": "COMPAS scores how likely a defendant is to reoffend. In 2016 ProPublica studied it in Broward County, Florida: Black defendants who did not reoffend were nearly twice as likely as white ones to be labeled higher risk, 45% against 23%. Northpointe, its maker, replied that the scores predicted reoffending about equally well for both groups. Computer scientists then proved that, except in special cases, no risk score can meet all these fairness tests at once."
+    },
+    {
+      "id": "card.probability.095.c4",
+      "type": "fact",
+      "fact": "An algorithm learns the patterns in its data, including the unfair ones.",
+      "context": "Amazon built a tool to rate job applicants, trained on 10 years of résumés sent to the company, most of them from men. It learned to mark down résumés containing the word \"women's\". Amazon lost confidence that the tool was neutral and scrapped it. Bias in the data carries straight through to the answers."
+    },
+    {
+      "id": "card.probability.095.c5",
+      "type": "mcq",
+      "questionId": "question.probability.095.q1"
+    },
+    {
+      "id": "card.probability.095.c6",
+      "type": "mcq",
+      "questionId": "question.probability.095.q2"
+    },
+    {
+      "id": "card.probability.095.c7",
+      "type": "recall",
+      "questionId": "question.probability.095.q3"
+    },
+    {
+      "id": "card.probability.095.c8",
+      "type": "checkpoint",
+      "headline": "Algorithms: weighed",
+      "learned": [
+        "False positive: a false alarm. False negative: a miss",
+        "Moving the threshold trades one for the other",
+        "COMPAS: two fairness tests that can't both be met",
+        "Biased training data gives biased answers"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.095.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.news_false_alarms_misses"
+      ],
+      "sourceCardIds": [
+        "card.probability.095.c2"
+      ],
+      "prompt": "A spam filter raises the score an email needs before it counts as spam. What happens?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fewer false alarms, but more spam gets through",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Fewer false alarms and less spam getting through",
+          "correct": false,
+          "rationale": "You can't shrink both by moving one threshold."
+        },
+        {
+          "id": "c",
+          "label": "More false alarms, but less spam getting through",
+          "correct": false,
+          "rationale": "That's what lowering the threshold does."
+        },
+        {
+          "id": "d",
+          "label": "Nothing changes, since the emails are the same",
+          "correct": false,
+          "rationale": "The threshold decides which emails are flagged."
+        }
+      ],
+      "explanation": "A higher threshold flags fewer emails: fewer false positives (false alarms), more false negatives (misses).",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.095.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.news_algorithm_fairness_debate"
+      ],
+      "sourceCardIds": [
+        "card.probability.095.c3"
+      ],
+      "prompt": "ProPublica called COMPAS unfair; its maker said it was fair. Which explanation best fits how both could have a point?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One side simply invented the numbers it published",
+          "correct": false,
+          "rationale": "Both used real results; they measured different things."
+        },
+        {
+          "id": "b",
+          "label": "The software was changed between the two analyses",
+          "correct": false,
+          "rationale": "They were arguing about the same scores."
+        },
+        {
+          "id": "c",
+          "label": "They measured fairness in different ways that can't all be met at once",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Fairness can't be measured with numbers at all",
+          "correct": false,
+          "rationale": "Each side measured it; they just used different tests."
+        }
+      ],
+      "explanation": "ProPublica compared false alarm rates; Northpointe compared how well scores predicted. Except in special cases, no score can satisfy every such test at once.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.probability.095.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.news_algorithm_fairness_debate",
+        "concept.probability.out_of_what"
+      ],
+      "sourceCardIds": [
+        "card.probability.095.c3",
+        "card.probability.010.c2"
+      ],
+      "prompt": "ProPublica's 45% is a share. Using Chapter 1's \"out of what?\" question, it is 45% of which group?",
+      "options": [
+        {
+          "id": "a",
+          "label": "All defendants in Florida",
+          "correct": false,
+          "rationale": "The study was of one county, and of one group within it."
+        },
+        {
+          "id": "b",
+          "label": "Everyone the software scored",
+          "correct": false,
+          "rationale": "It counts only one group of defendants."
+        },
+        {
+          "id": "c",
+          "label": "Black defendants who did reoffend",
+          "correct": false,
+          "rationale": "Those weren't false alarms."
+        },
+        {
+          "id": "d",
+          "label": "Black defendants who did not reoffend",
+          "correct": true
+        }
+      ],
+      "explanation": "The 45% is out of Black defendants who did not go on to reoffend: the share wrongly labeled higher risk.",
+      "difficulty": 0.45
+    }
+  ],
+  "sourceIds": [
+    "source.google_ml_thresholds",
+    "source.propublica_compas_analysis_2016",
+    "source.propublica_northpointe_response_2016",
+    "source.arxiv_kleinberg_fairness_tradeoffs_2016",
+    "source.mittr_amazon_hiring_bias_2018",
+    "source.openstax_prealgebra_understand_percent"
+  ],
+  "art": "technology.robot"
+}

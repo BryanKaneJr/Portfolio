@@ -1,0 +1,216 @@
+{
+  "id": "level.science.astronomy.064",
+  "skillId": "skill.science.astronomy",
+  "number": 64,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Main Sequence",
+  "objective": "After this level you can explain why a star’s mass decides its temperature and lifetime.",
+  "summary": "Main-sequence stars fuse hydrogen. The most massive burn out in millions of years; red dwarfs can last trillions.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.main_sequence_mass",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.hr_diagram",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.nearest_star",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.063"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.064.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The biggest stars die youngest.",
+      "body": "You’d think a bigger star would last longer. It’s the opposite, and the reason is speed."
+    },
+    {
+      "id": "card.astronomy.064.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Life on the main sequence",
+      "body": "Remember the main sequence band from Level 63? A star on it is fusing hydrogen into helium in its core, the same job the Sun is doing right now. Stars spend most of their lives this way, which is why most of them land on that band: it’s where they spend their working years. The Sun gets about 10 billion years there in total.",
+      "callout": "Sun: ~10 billion years"
+    },
+    {
+      "id": "card.astronomy.064.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Mass sets the pace",
+      "body": "A more massive star shines hotter and brighter, and it burns out sooner. The most massive stars last only a few million years. At the other end, red dwarfs, the smallest and coolest stars, are so thrifty that they can shine for trillions of years. Think sports car versus moped: one is spectacular, the other is still puttering along long after.",
+      "callout": "More mass → hotter, brighter, shorter life"
+    },
+    {
+      "id": "card.astronomy.064.c4",
+      "type": "fact",
+      "fact": "Our nearest stellar neighbor is a red dwarf.",
+      "context": "Proxima Centauri, the nearest star to the Sun, is a small, cool, dim red dwarf. Like other red dwarfs, it can shine for trillions of years. The Sun gets about 10 billion. Long after the Sun has retired, Proxima will still be at work."
+    },
+    {
+      "id": "card.astronomy.064.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.064.q1"
+    },
+    {
+      "id": "card.astronomy.064.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.064.q2"
+    },
+    {
+      "id": "card.astronomy.064.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.064.q3"
+    },
+    {
+      "id": "card.astronomy.064.c8",
+      "type": "checkpoint",
+      "headline": "Main sequence: understood",
+      "learned": [
+        "Main-sequence stars fuse hydrogen in their cores",
+        "The Sun spends ~10 billion years there",
+        "More mass: hotter, brighter, shorter-lived",
+        "Red dwarfs can last trillions of years"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.064.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.main_sequence_mass"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.064.c2"
+      ],
+      "prompt": "What is a main-sequence star doing in its core?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fusing hydrogen into helium",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Burning oxygen like a fire",
+          "correct": false,
+          "rationale": "Stars fuse; they don’t burn."
+        },
+        {
+          "id": "c",
+          "label": "Cooling down with no fusion",
+          "correct": false,
+          "rationale": "That’s a white dwarf."
+        },
+        {
+          "id": "d",
+          "label": "Collapsing into a black hole",
+          "correct": false,
+          "rationale": "That happens only to some massive stars at the end."
+        }
+      ],
+      "explanation": "Main-sequence stars fuse hydrogen into helium in their cores, as the Sun does now.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.064.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.main_sequence_mass"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.064.c3"
+      ],
+      "prompt": "How does a star’s mass affect its life?",
+      "options": [
+        {
+          "id": "a",
+          "label": "More mass means a longer life",
+          "correct": false,
+          "rationale": "The most massive stars last only a few million years."
+        },
+        {
+          "id": "b",
+          "label": "Mass makes no difference",
+          "correct": false,
+          "rationale": "Mass sets the pace."
+        },
+        {
+          "id": "c",
+          "label": "More mass means hotter, brighter and shorter-lived",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only small stars ever run out",
+          "correct": false,
+          "rationale": "Red dwarfs can shine for trillions of years."
+        }
+      ],
+      "explanation": "The more massive a star, the hotter, brighter and shorter-lived it is: the most massive last only a few million years.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.astronomy.064.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.main_sequence_mass",
+        "concept.astronomy.nearest_star"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.064.c4",
+        "card.astronomy.008.c4"
+      ],
+      "prompt": "From Level 8: Proxima Centauri is the nearest star after the Sun. What kind of star is it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A blue giant near the end of its life",
+          "correct": false,
+          "rationale": "Proxima is small and cool."
+        },
+        {
+          "id": "b",
+          "label": "A white dwarf that has stopped fusing",
+          "correct": false,
+          "rationale": "Proxima is still fusing hydrogen."
+        },
+        {
+          "id": "c",
+          "label": "A star exactly like the Sun",
+          "correct": false,
+          "rationale": "It’s much smaller and cooler."
+        },
+        {
+          "id": "d",
+          "label": "A red dwarf that can shine for trillions of years",
+          "correct": true
+        }
+      ],
+      "explanation": "Proxima Centauri is a red dwarf: small, cool and dim, with a very long life.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_main_sequence",
+    "source.nasa_sun_facts",
+    "source.brit_alpha_centauri",
+    "source.brit_hr_diagram"
+  ],
+  "art": "astronomy.star"
+}

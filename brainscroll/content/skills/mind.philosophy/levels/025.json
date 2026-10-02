@@ -1,0 +1,231 @@
+{
+  "id": "level.mind.philosophy.025",
+  "skillId": "skill.mind.philosophy",
+  "number": 25,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Knowing Without Looking",
+  "objective": "After this level you can tell a priori knowledge, known by reason alone, from a posteriori knowledge, known through experience.",
+  "summary": "A priori knowledge is known by reason alone, independently of experience; a posteriori knowledge rests on experience. Mill argued even arithmetic is learned from experience.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.knowledge_a_priori",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.knowledge_jtb",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.024"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.025.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You know no bachelor is married. Have you checked?",
+      "body": "Nobody has surveyed every bachelor on Earth, yet you’re sure none of them is married. Knowing it’s raining outside works quite differently: someone has to look. Two routes to knowing."
+    },
+    {
+      "id": "card.philosophy.025.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two routes",
+      "body": "Philosophers call the first route a priori: knowable independently of experience, apart from the experience of learning the words. The second is a posteriori: known on the basis of experience. “All bachelors are unmarried” is the classic a priori example. “It is raining outside” is a posteriori, since someone has to experience the weather."
+    },
+    {
+      "id": "card.philosophy.025.c3",
+      "type": "comparison",
+      "headline": "Thinking versus looking",
+      "items": [
+        {
+          "label": "A priori",
+          "points": [
+            "Cubes have six sides",
+            "Seven plus five equals twelve",
+            "If today is Tuesday, it isn’t Thursday"
+          ]
+        },
+        {
+          "label": "A posteriori",
+          "points": [
+            "Water is H2O",
+            "Dinosaurs existed",
+            "It is raining outside"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.philosophy.025.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "How reason does it",
+      "body": "How can thinking alone justify a belief? Once you understand the terms, you seem able to see the truth just by reflecting on what the claim says. When seven is added to five, the sum must be twelve; no counting apples required. That’s why a priori justification is described as coming from pure thought or reason."
+    },
+    {
+      "id": "card.philosophy.025.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Mill’s challenge",
+      "body": "Not everyone accepts that arithmetic is known this way. John Stuart Mill held that even the laws of arithmetic and geometry are learned by induction from experience, like other laws of nature. Critics such as A. J. Ayer replied that this would make “2 + 2 = 4” an uncertain, contingent truth, open to revision like any finding about the world."
+    },
+    {
+      "id": "card.philosophy.025.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.025.q1"
+    },
+    {
+      "id": "card.philosophy.025.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.025.q2"
+    },
+    {
+      "id": "card.philosophy.025.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.025.q3"
+    },
+    {
+      "id": "card.philosophy.025.c9",
+      "type": "checkpoint",
+      "headline": "Knowing Without Looking: the big picture",
+      "learned": [
+        "A priori: known independently of experience",
+        "A posteriori: known through experience",
+        "Reason alone: 7 + 5 = 12",
+        "Mill: even arithmetic is learned"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.025.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.knowledge_a_priori"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.025.c2"
+      ],
+      "prompt": "Which of these is the classic example of a posteriori knowledge?",
+      "options": [
+        {
+          "id": "a",
+          "label": "All bachelors are unmarried",
+          "correct": false,
+          "rationale": "That’s the classic a priori example."
+        },
+        {
+          "id": "b",
+          "label": "Cubes have six sides",
+          "correct": false,
+          "rationale": "That’s known by thinking about cubes."
+        },
+        {
+          "id": "c",
+          "label": "Seven plus five equals twelve",
+          "correct": false,
+          "rationale": "That’s known by reason alone."
+        },
+        {
+          "id": "d",
+          "label": "It is raining outside",
+          "correct": true
+        }
+      ],
+      "explanation": "Knowing it’s raining needs someone’s experience of the weather, so it is a posteriori.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.philosophy.025.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.knowledge_a_priori"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.025.c4"
+      ],
+      "prompt": "How, on the traditional view, is an a priori truth like 7 + 5 = 12 justified?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By counting out many groups of real objects",
+          "correct": false,
+          "rationale": "Counting objects would be experience."
+        },
+        {
+          "id": "b",
+          "label": "By asking an expert mathematician to confirm it",
+          "correct": false,
+          "rationale": "That would be testimony."
+        },
+        {
+          "id": "c",
+          "label": "By understanding the terms and reflecting",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "By remembering it from lessons at school",
+          "correct": false,
+          "rationale": "Memory isn’t what justifies it on this view."
+        }
+      ],
+      "explanation": "A priori justification comes from pure thought: once the terms are understood, the truth can be seen by reflection.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.philosophy.025.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.knowledge_a_priori",
+        "concept.philosophy.knowledge_jtb"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.025.c2",
+        "card.philosophy.021.c2"
+      ],
+      "prompt": "Level 21’s third leg was justification. What makes a justification a priori?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is shared by most people",
+          "correct": false,
+          "rationale": "Popularity doesn’t make it a priori."
+        },
+        {
+          "id": "b",
+          "label": "It comes independently of experience",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It was written down long ago",
+          "correct": false,
+          "rationale": "Age doesn’t matter."
+        },
+        {
+          "id": "d",
+          "label": "It makes the belief certain to be popular",
+          "correct": false,
+          "rationale": "Popularity isn’t the point."
+        }
+      ],
+      "explanation": "A priori knowledge is justified independently of experience, apart from learning the words.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_a_priori",
+    "source.sep_mill"
+  ],
+  "art": "greece.geometry"
+}

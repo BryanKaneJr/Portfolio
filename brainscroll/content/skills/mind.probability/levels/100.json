@@ -1,0 +1,594 @@
+{
+  "id": "level.mind.probability.100",
+  "skillId": "skill.mind.probability",
+  "number": 100,
+  "type": "mastery",
+  "revision": 1,
+  "status": "published",
+  "title": "Mastery Challenge: Probability & Statistics",
+  "objective": "After this level you can demonstrate command of Probability & Statistics Levels 1 to 99 across the whole tree.",
+  "summary": "One question from each chapter: percents, spread, chance, bets, risk, polls, experiments, charts, traps and the news. Every question can be corrected.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.up_down_asymmetry",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.spread_standard_deviation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.chance_law_large_numbers",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.bet_monty_hall",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.risk_false_positives",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.risk_base_rates",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.poll_sampling_list_bias",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.poll_literary_digest_1936",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.significance_p_value",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.chart_truncated_axis",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.percent_change_method",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.trap_regression_remedies",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.experiment_random_assignment",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.news_biased_training_data",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.099"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.100.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Probability & Statistics Mastery Challenge.",
+      "body": "Ten questions from across the tree, from your first percent to the numbers in the news. Take your time: every question can be corrected."
+    },
+    {
+      "id": "card.probability.100.c2",
+      "type": "recall",
+      "questionId": "question.probability.100.q1"
+    },
+    {
+      "id": "card.probability.100.c3",
+      "type": "recall",
+      "questionId": "question.probability.100.q2"
+    },
+    {
+      "id": "card.probability.100.c4",
+      "type": "recall",
+      "questionId": "question.probability.100.q3"
+    },
+    {
+      "id": "card.probability.100.c5",
+      "type": "recall",
+      "questionId": "question.probability.100.q4"
+    },
+    {
+      "id": "card.probability.100.c6",
+      "type": "recall",
+      "questionId": "question.probability.100.q5"
+    },
+    {
+      "id": "card.probability.100.c7",
+      "type": "recall",
+      "questionId": "question.probability.100.q6"
+    },
+    {
+      "id": "card.probability.100.c8",
+      "type": "recall",
+      "questionId": "question.probability.100.q7"
+    },
+    {
+      "id": "card.probability.100.c9",
+      "type": "recall",
+      "questionId": "question.probability.100.q8"
+    },
+    {
+      "id": "card.probability.100.c10",
+      "type": "recall",
+      "questionId": "question.probability.100.q9"
+    },
+    {
+      "id": "card.probability.100.c11",
+      "type": "recall",
+      "questionId": "question.probability.100.q10"
+    },
+    {
+      "id": "card.probability.100.c12",
+      "type": "checkpoint",
+      "headline": "Probability & Statistics: mastered",
+      "learned": [
+        "How to question any statistic: of what, compared to what, from whom, and how sure.",
+        "Why a fair sample, a control group and chance assignment make evidence worth trusting.",
+        "How chance, expected value and base rates explain casinos, streaks and false positives.",
+        "Why a chart, an extreme result or an algorithm's verdict needs the real data behind it."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.100.q1",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.up_down_asymmetry"
+      ],
+      "sourceCardIds": [
+        "card.probability.004.c2",
+        "card.probability.004.c3"
+      ],
+      "prompt": "A share price starts at $200, falls 50% on Monday and rises 50% on Tuesday. Where does it end up?",
+      "options": [
+        {
+          "id": "a",
+          "label": "$100",
+          "correct": false,
+          "rationale": "That's after Monday's fall only."
+        },
+        {
+          "id": "b",
+          "label": "$150",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "$200",
+          "correct": false,
+          "rationale": "The rise is taken from the smaller, fallen price."
+        },
+        {
+          "id": "d",
+          "label": "$250",
+          "correct": false,
+          "rationale": "Each percent is measured from its own start."
+        }
+      ],
+      "explanation": "Down 50% takes $200 to $100; up 50% of $100 adds only $50, so it ends at $150.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.100.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.spread_standard_deviation"
+      ],
+      "sourceCardIds": [
+        "card.probability.017.c2",
+        "card.probability.017.c3"
+      ],
+      "prompt": "Two classes both average 6 out of 10 on a quiz. Class A's standard deviation is about 1; Class B's is about 3. What does that tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Class B did better, since its number is bigger",
+          "correct": false,
+          "rationale": "Both have the same mean; this number measures spread, not level."
+        },
+        {
+          "id": "b",
+          "label": "Class A had three times as many students",
+          "correct": false,
+          "rationale": "It says nothing about how many took the quiz."
+        },
+        {
+          "id": "c",
+          "label": "Class B's scores sit further from the average",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Every score in Class A was exactly 6",
+          "correct": false,
+          "rationale": "Then its standard deviation would be zero, not about 1."
+        }
+      ],
+      "explanation": "The standard deviation is the typical distance from the mean. Same center, but Class B's scores are about three times as scattered.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.100.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.chance_law_large_numbers"
+      ],
+      "sourceCardIds": [
+        "card.probability.028.c2",
+        "card.probability.028.c4"
+      ],
+      "prompt": "A fair coin lands heads 7 times in its first 10 tosses. Why will the share of heads probably be close to 50% after 1,000 tosses?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The early lead gets swamped by the later tosses",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Tails will come up more often to pay back the lead",
+          "correct": false,
+          "rationale": "Coins keep no score: luck is swamped, not repaid."
+        },
+        {
+          "id": "c",
+          "label": "A coin tossed often wears down and becomes fair",
+          "correct": false,
+          "rationale": "It was fair all along; the share just settles."
+        },
+        {
+          "id": "d",
+          "label": "The first ten tosses stop counting after a while",
+          "correct": false,
+          "rationale": "They still count; they just matter less and less."
+        }
+      ],
+      "explanation": "Few tries swing, many settle. Three extra heads barely move the share after 1,000 tosses, even though nothing pays them back.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.probability.100.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.bet_monty_hall"
+      ],
+      "sourceCardIds": [
+        "card.probability.036.c3",
+        "card.probability.036.c4"
+      ],
+      "prompt": "In the Monty Hall puzzle, the host shows a goat and two doors are left. Why does switching win 2 times in 3?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The host opens one of the doors completely at random",
+          "correct": false,
+          "rationale": "He knows where the car is, and always shows a goat."
+        },
+        {
+          "id": "b",
+          "label": "The car is placed more often behind the middle door",
+          "correct": false,
+          "rationale": "The car's place is random; the host's choice isn't."
+        },
+        {
+          "id": "c",
+          "label": "Two doors left always means a 50/50 choice",
+          "correct": false,
+          "rationale": "Only if the host chose at random; he knowingly shows a goat."
+        },
+        {
+          "id": "d",
+          "label": "Your first pick is a goat 2 times in 3",
+          "correct": true
+        }
+      ],
+      "explanation": "Your first pick is the car only 1 time in 3. The other 2 times, the host must show the other goat, so the door he leaves shut hides the car.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.probability.100.q5",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.risk_false_positives",
+        "concept.probability.risk_base_rates"
+      ],
+      "sourceCardIds": [
+        "card.probability.047.c4",
+        "card.probability.047.c3"
+      ],
+      "prompt": "The same 90% accurate test is used where 1 in 100 people have a condition and where 1 in 10 do. Why is a positive far likelier to be real in the second place?",
+      "options": [
+        {
+          "id": "a",
+          "label": "False alarms from healthy people no longer swamp the true cases",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its sensitivity rises when a condition is more common",
+          "correct": false,
+          "rationale": "Sensitivity is 90% in both places; the base rate changed."
+        },
+        {
+          "id": "c",
+          "label": "A common condition is easier for a lab to spot",
+          "correct": false,
+          "rationale": "The test's accuracy is the same in both places."
+        },
+        {
+          "id": "d",
+          "label": "People in the second place are tested twice",
+          "correct": false,
+          "rationale": "Nothing says so; the base rate is what changed."
+        }
+      ],
+      "explanation": "At 1 in 100, 990 false alarms swamp 90 true cases: 1 in 12 positives is real. At 1 in 10, it's 900 true against 900 false: 1 in 2.",
+      "difficulty": 0.55
+    },
+    {
+      "id": "question.probability.100.q6",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.poll_sampling_list_bias",
+        "concept.probability.poll_literary_digest_1936"
+      ],
+      "sourceCardIds": [
+        "card.probability.053.c3",
+        "card.probability.053.c4"
+      ],
+      "prompt": "In 1936 the Literary Digest got about 2.4 million answers and still picked the wrong winner. Why didn't the huge sample save it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It counted the ballots too slowly to call the race",
+          "correct": false,
+          "rationale": "Timing wasn't the problem; who was on the list was."
+        },
+        {
+          "id": "b",
+          "label": "Polls of over a million people stop being accurate",
+          "correct": false,
+          "rationale": "Size doesn't hurt; it just can't fix bias."
+        },
+        {
+          "id": "c",
+          "label": "Voters changed their minds after it was published",
+          "correct": false,
+          "rationale": "A 1988 study traced it to a biased sample and biased replies."
+        },
+        {
+          "id": "d",
+          "label": "Its names came from lists that leaned toward better-off voters",
+          "correct": true
+        }
+      ],
+      "explanation": "A bigger sample shrinks chance error, not bias. Phone and car lists in the Depression gave the wrong mix of people, so more answers just gave the wrong answer more confidently.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.probability.100.q7",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.significance_p_value"
+      ],
+      "sourceCardIds": [
+        "card.probability.067.c3",
+        "card.probability.067.c4"
+      ],
+      "prompt": "A study reports p = 0.05. Which reading of that p-value is right?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Such results would be rare if nothing were going on",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "There is a 5% chance the finding is a fluke",
+          "correct": false,
+          "rationale": "The classic misreading the ASA warned against in 2016."
+        },
+        {
+          "id": "c",
+          "label": "There is a 95% chance the finding is true",
+          "correct": false,
+          "rationale": "A p-value is not the chance the finding is true."
+        },
+        {
+          "id": "d",
+          "label": "The effect is big enough to matter in real life",
+          "correct": false,
+          "rationale": "Significant doesn't mean big; ask for the effect size."
+        }
+      ],
+      "explanation": "A p-value asks how surprising results this striking would be if nothing were going on. It is not the chance the finding is true or a fluke.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.probability.100.q8",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.chart_truncated_axis",
+        "concept.probability.percent_change_method"
+      ],
+      "sourceCardIds": [
+        "card.probability.072.c3",
+        "card.probability.072.c4",
+        "card.probability.003.c2"
+      ],
+      "prompt": "A bar chart shows sales of 100 and 105 on an axis starting at 95, so the second bar looks twice as tall. What is the real rise?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About double, as the bars show",
+          "correct": false,
+          "rationale": "The axis starts at 95, so the bars exaggerate the gap."
+        },
+        {
+          "id": "b",
+          "label": "About 50%",
+          "correct": false,
+          "rationale": "Divide the change, 5, by the start, 100."
+        },
+        {
+          "id": "c",
+          "label": "5%",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "10%",
+          "correct": false,
+          "rationale": "10 is how tall the second bar is drawn, not the rise."
+        }
+      ],
+      "explanation": "The change is 5 on a start of 100: 5 ÷ 100 is a 5% rise. Starting the axis at 95 draws the bars 5 and 10 units tall, so a small gap looks like a doubling.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.probability.100.q9",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.trap_regression_remedies",
+        "concept.probability.experiment_random_assignment"
+      ],
+      "sourceCardIds": [
+        "card.probability.083.c3",
+        "card.probability.083.c4",
+        "card.probability.063.c3"
+      ],
+      "prompt": "A town puts speed cameras at the junctions with the most crashes last year, and crashes there fall. What fair test would show whether the cameras did it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Count crashes at the same junctions for another year",
+          "correct": false,
+          "rationale": "Still before and after; the drift back toward average continues."
+        },
+        {
+          "id": "b",
+          "label": "Randomly give cameras to half the worst junctions, then compare",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Ask drivers whether the cameras made them slow down",
+          "correct": false,
+          "rationale": "Opinions can't separate the cameras from the drift back to average."
+        },
+        {
+          "id": "d",
+          "label": "Put cameras at the safest junctions instead",
+          "correct": false,
+          "rationale": "Those drift too, just the other way."
+        }
+      ],
+      "explanation": "Junctions picked at their worst drift back toward average anyway. Splitting them by chance means both groups drift alike, so only the difference shows what the cameras did.",
+      "difficulty": 0.6
+    },
+    {
+      "id": "question.probability.100.q10",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.news_biased_training_data",
+        "concept.probability.poll_sampling_list_bias"
+      ],
+      "sourceCardIds": [
+        "card.probability.095.c4",
+        "card.probability.053.c4"
+      ],
+      "prompt": "Amazon's hiring tool marked down résumés containing the word \"women's\". Much like the 1936 Literary Digest poll, what was the root cause?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Engineers deliberately told it to prefer male applicants",
+          "correct": false,
+          "rationale": "Nobody programmed that; it learned it from data."
+        },
+        {
+          "id": "b",
+          "label": "It had far too few résumés to learn anything from",
+          "correct": false,
+          "rationale": "It had 10 years' worth; as with the Digest, size didn't fix the mix."
+        },
+        {
+          "id": "c",
+          "label": "It was only ever tested on the wrong kinds of jobs",
+          "correct": false,
+          "rationale": "The problem was in its training data."
+        },
+        {
+          "id": "d",
+          "label": "It learned from 10 years of résumés, mostly from men",
+          "correct": true
+        }
+      ],
+      "explanation": "An algorithm learns the patterns in its data, including unfair ones: bias in, bias out. As with the Digest's lists, more tilted data just repeats the tilt.",
+      "difficulty": 0.45
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_prealgebra_percent_applications",
+    "source.mathsisfun_percentage_change",
+    "source.openstax_intro_stats_spread",
+    "source.abs_measures_of_spread",
+    "source.openstax_data_science_variation",
+    "source.brit_law_of_large_numbers",
+    "source.openstax_intro_stats_probability_terminology",
+    "source.uw_stat220_chance_variability",
+    "source.berkeley_stat2_law_of_averages",
+    "source.jmp_kerrich_coin",
+    "source.ucla_oarc_odds_ratios",
+    "source.britannica_monty_hall",
+    "source.aphl_sensitivity_specificity",
+    "source.wmj_calder_statistical_thinking_3_2024",
+    "source.squire_poq_literary_digest_1988",
+    "source.emory_statistical_blunders",
+    "source.openstax_intro_stats_sampling",
+    "source.openstax_intro_stats_experimental_design",
+    "source.amstat_pvalue_statement_2016",
+    "source.fisher_design_of_experiments_1935",
+    "source.analysisfunction_charts_guidance",
+    "source.ons_service_manual_axes",
+    "source.rss_statistically_savvy_2024",
+    "source.bmj_morton_regression_to_mean_2003",
+    "source.significance_senn_galton_regression",
+    "source.mittr_amazon_hiring_bias_2018"
+  ],
+  "art": "mind.probability-mastery"
+}

@@ -1,0 +1,208 @@
+{
+  "id": "level.mind.logic.039",
+  "skillId": "skill.mind.logic",
+  "number": 39,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "When Evidence Converges",
+  "objective": "After this level you can explain why independent lines of evidence that agree are stronger than any one alone.",
+  "summary": "Peirce: reasoning should be a cable of many fibers, not a chain. Whewell's consilience: evidence gains force when an idea fits cases of a different kind. The lines must be independent.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.evidence_convergence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.chained_arguments",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.038"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Did it rain last night? Wet streets. A full rain gauge. A log saying rain.",
+      "body": "Any one clue could fool you: a street cleaner, a sprinkler, a typo. All three together are hard to explain any other way. Why are several clues so much stronger than one, and when are they not?",
+      "id": "card.logic.039.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A cable, not a chain",
+      "body": "In 1868 the American philosopher Charles Sanders Peirce wrote that reasoning should not form a chain, which is no stronger than its weakest link, but a cable whose fibers may be ever so slender, provided they are sufficiently numerous and intimately connected. A chain fails at its weakest step. A cable of evidence can lose a fiber and still hold.",
+      "id": "card.logic.039.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Jumping together",
+      "body": "William Whewell called it a consilience of inductions, literally a \"jumping together\". Evidence is far more forceful, he said, when an idea explains cases of a different kind from the ones it was built on. His model was Newton's gravity: one law fit the moons of Jupiter, the planets and falling bodies.",
+      "id": "card.logic.039.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Only if they're independent",
+      "body": "The fibers have to be separate. Clues count as different lines only if each could have failed on its own. Five friends repeating the same rumor are one line of evidence, told five times. That's why Whewell prized cases of a different kind: evidence from different places can't all share the same mistake.",
+      "id": "card.logic.039.c4"
+    },
+    {
+      "id": "card.logic.039.c5",
+      "type": "mcq",
+      "questionId": "question.logic.039.q1"
+    },
+    {
+      "id": "card.logic.039.c6",
+      "type": "mcq",
+      "questionId": "question.logic.039.q2"
+    },
+    {
+      "id": "card.logic.039.c7",
+      "type": "mcq",
+      "questionId": "question.logic.039.q3"
+    },
+    {
+      "id": "card.logic.039.c8",
+      "type": "checkpoint",
+      "headline": "Converging evidence: explained",
+      "learned": [
+        "A cable of evidence beats a chain",
+        "Consilience: an idea fitting cases of a different kind",
+        "Lines count only if each could fail on its own",
+        "Five retellings of one rumor are one line"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.039.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.evidence_convergence"
+      ],
+      "sourceCardIds": [
+        "card.logic.039.c2"
+      ],
+      "prompt": "What did Peirce say reasoning should be like?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A chain with one very strong link",
+          "correct": false,
+          "rationale": "Peirce warned that a chain is only as strong as its weakest link."
+        },
+        {
+          "id": "b",
+          "label": "A single unbreakable rod",
+          "correct": false,
+          "rationale": "His picture was many slender fibers."
+        },
+        {
+          "id": "c",
+          "label": "A cable of many slender fibers",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A ladder climbed one rung at a time",
+          "correct": false,
+          "rationale": "That's closer to the chain he warned against."
+        }
+      ],
+      "explanation": "Peirce wanted reasoning to be a cable of many slender, connected fibers, not a chain no stronger than its weakest link.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.039.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.evidence_convergence"
+      ],
+      "sourceCardIds": [
+        "card.logic.039.c4"
+      ],
+      "prompt": "How can five people agreeing still add up to only one line of evidence?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Five is too small a number to count",
+          "correct": false,
+          "rationale": "The number isn't the issue; the shared source is."
+        },
+        {
+          "id": "b",
+          "label": "They're all repeating the same rumor",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "People never count as evidence",
+          "correct": false,
+          "rationale": "Witnesses can be evidence; these just aren't independent."
+        },
+        {
+          "id": "d",
+          "label": "They agree too strongly",
+          "correct": false,
+          "rationale": "Agreement is fine if it comes from separate sources."
+        }
+      ],
+      "explanation": "Lines count separately only if each could fail on its own. Five retellings of one rumor share one source, so they're one line.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.039.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.evidence_convergence",
+        "concept.logic.chained_arguments"
+      ],
+      "sourceCardIds": [
+        "card.logic.039.c2",
+        "card.logic.009.c4"
+      ],
+      "prompt": "In Level 9, a sloppy kitchen search would sink the bedroom conclusion. How would a cable of evidence cope with one weak step?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Other independent lines would still support the conclusion",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It would fail just the same",
+          "correct": false,
+          "rationale": "That's the chain; a cable can lose a fiber and hold."
+        },
+        {
+          "id": "c",
+          "label": "The weak step would become the main conclusion",
+          "correct": false,
+          "rationale": "Weak steps don't change roles."
+        },
+        {
+          "id": "d",
+          "label": "It would turn into an explanation",
+          "correct": false,
+          "rationale": "The shape of the evidence doesn't change that."
+        }
+      ],
+      "explanation": "A chain is only as strong as its weakest link. A cable of separate lines can lose one and still hold the conclusion up.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.peirce_org_four_incapacities",
+    "source.sep_whewell"
+  ],
+  "art": "mind.logic-braided-rope"
+}

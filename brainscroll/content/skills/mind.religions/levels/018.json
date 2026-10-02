@@ -1,0 +1,221 @@
+{
+  "id": "level.mind.religions.018",
+  "skillId": "skill.mind.religions",
+  "number": 18,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Kosher and the Commandments",
+  "objective": "After this level you can explain the mitzvot, the commandments Jews follow, using the basic rules of keeping kosher as the example.",
+  "summary": "The Talmud counts 613 commandments (mitzvot) in the Torah. Keeping kosher shows how they work: permitted animals, ritual slaughter, and meat kept apart from milk.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.judaism_mitzvot",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.judaism_kashrut",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.judaism_circumcision_sign",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.017"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.018.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Why would a cheeseburger break a religious law?",
+      "body": "For Jews who keep kosher, the problem isn't the beef or the cheese. It's the two together. That rule is one of 613 commandments, and it shows how they shape an ordinary dinner."
+    },
+    {
+      "id": "card.religions.018.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "613 commandments",
+      "body": "A mitzvah is a commandment in the Torah, to be kept by every practicing Jew. The Talmud counts 613: 248 to do and 365 not to do, as many don'ts as there are days in a year. Rabbis added more over the centuries, such as lighting candles on certain festivals. And Jews count any good deed as fulfilling a mitzvah, because it expresses God's will."
+    },
+    {
+      "id": "card.religions.018.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Which animals",
+      "body": "Kosher means \"fit\" or \"proper\". Jews who keep kosher eat only mammals that chew the cud and have cloven feet, fish with both fins and scales, and certain birds. The Torah permits \"the ox, the sheep, and the goat\" but not the swine, which \"parteth the hoof\" yet \"cheweth not the cud.\" Meat must come from a ritual slaughter, and blood is drawn out by soaking and salting."
+    },
+    {
+      "id": "card.religions.018.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Meat and milk apart",
+      "body": "Three times the Torah says, \"Thou shalt not seethe a kid in its mother's milk.\" From it comes the strict separation of meat and dairy, in eating and in cooking, with separate sets of dishes and utensils. Why these rules? For observant Jews, no reason is needed beyond this: God commanded them."
+    },
+    {
+      "id": "card.religions.018.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Same rules, many kitchens",
+      "body": "In Pew's 2020 survey of US Jews, 17% said they keep kosher at home: 95% of Orthodox Jews, 24% of Conservative Jews and 5% of Reform Jews. Same commandments, very different kitchens."
+    },
+    {
+      "id": "card.religions.018.c6",
+      "type": "mcq",
+      "questionId": "question.religions.018.q1"
+    },
+    {
+      "id": "card.religions.018.c7",
+      "type": "mcq",
+      "questionId": "question.religions.018.q2"
+    },
+    {
+      "id": "card.religions.018.c8",
+      "type": "mcq",
+      "questionId": "question.religions.018.q3"
+    },
+    {
+      "id": "card.religions.018.c9",
+      "type": "checkpoint",
+      "headline": "Kosher and the Commandments: the takeaways",
+      "learned": [
+        "A mitzvah is a commandment; the Talmud counts 613",
+        "Kosher rules cover which animals, how they are slaughtered, and meat apart from milk",
+        "Observance varies widely, from nearly all Orthodox Jews to few Reform Jews"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.018.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.judaism_mitzvot"
+      ],
+      "sourceCardIds": [
+        "card.religions.018.c2"
+      ],
+      "prompt": "How many commandments does the Talmud count in the Torah?",
+      "options": [
+        {
+          "id": "a",
+          "label": "10",
+          "correct": false,
+          "rationale": "That is the Ten Commandments alone."
+        },
+        {
+          "id": "b",
+          "label": "39",
+          "correct": false,
+          "rationale": "That is the number of Sabbath work categories."
+        },
+        {
+          "id": "c",
+          "label": "248",
+          "correct": false,
+          "rationale": "That counts only the positive commandments."
+        },
+        {
+          "id": "d",
+          "label": "613",
+          "correct": true
+        }
+      ],
+      "explanation": "The Talmud counts 613: 248 positive and 365 negative.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.religions.018.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.judaism_kashrut"
+      ],
+      "sourceCardIds": [
+        "card.religions.018.c4"
+      ],
+      "prompt": "Why is a cheeseburger not kosher, even when made with kosher beef?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Because cheese is never kosher",
+          "correct": false,
+          "rationale": "Dairy can be kosher on its own."
+        },
+        {
+          "id": "b",
+          "label": "Because kosher law keeps meat and dairy strictly apart",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Because beef comes from an animal without cloven feet",
+          "correct": false,
+          "rationale": "Cattle chew the cud and have cloven feet."
+        },
+        {
+          "id": "d",
+          "label": "Because bread is forbidden with any meat",
+          "correct": false,
+          "rationale": "The rule is about meat and dairy."
+        }
+      ],
+      "explanation": "Kashrut requires strict separation of meat and dairy, from the verse about a kid in its mother's milk.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.religions.018.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.judaism_mitzvot",
+        "concept.religions.judaism_circumcision_sign"
+      ],
+      "sourceCardIds": [
+        "card.religions.018.c2",
+        "card.religions.011.c4"
+      ],
+      "prompt": "Circumcision on the eighth day (Level 11) is also a mitzvah. What makes it one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is a custom borrowed from a later festival",
+          "correct": false,
+          "rationale": "It comes straight from Genesis 17."
+        },
+        {
+          "id": "b",
+          "label": "A rabbi invented it after the Temple fell",
+          "correct": false,
+          "rationale": "It is in the Torah itself."
+        },
+        {
+          "id": "c",
+          "label": "It is a commandment in the Torah",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is one of the 39 categories of Sabbath work",
+          "correct": false,
+          "rationale": "Those are forbidden activities."
+        }
+      ],
+      "explanation": "A mitzvah is a commandment in the Torah, and Genesis 17 commands circumcision at eight days old.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.mechonmamre_jps1917_tanakh",
+    "source.brit_mitzvah",
+    "source.brit_kashruth",
+    "source.pew_jewish_practices_2020"
+  ],
+  "art": "body.food-plate"
+}

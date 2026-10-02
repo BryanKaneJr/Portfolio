@@ -1,0 +1,233 @@
+{
+  "id": "level.arts.literature.092",
+  "skillId": "skill.arts.literature",
+  "number": 92,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Alice and Books for Children",
+  "objective": "After this level you can explain how Lewis Carroll's Alice broke with children's books that preached.",
+  "summary": "Lewis Carroll's Alice (1865) appeared when children's books taught morals. It parodied moral verses and made a silly Duchess the one hunting for morals.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.alice_origins",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.alice_mocks_morals",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.fable",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.091"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.092.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Alice's first complaint is about a boring book.",
+      "body": "Alice's Adventures in Wonderland opens with Alice peeping into her sister's book: \"and what is the use of a book,\" thought Alice \"without pictures or conversations?\" When it appeared in 1865, children's books were generally meant to teach moral lessons. Alice was about to break the rules."
+    },
+    {
+      "id": "card.literature.092.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A story told in a rowing boat",
+      "body": "Lewis Carroll was the pen name of Charles Lutwidge Dodgson, a lecturer in mathematics at Christ Church, Oxford. On July 4, 1862, he rowed the three Liddell children up the Thames and told them a tale about a girl named Alice. Alice Liddell asked him to write it down. It grew into Alice's Adventures in Wonderland, published in 1865 with pictures by John Tenniel."
+    },
+    {
+      "id": "card.literature.092.c3",
+      "type": "comparison",
+      "headline": "A busy bee turns into a grinning crocodile",
+      "items": [
+        {
+          "label": "Isaac Watts, 1715",
+          "points": [
+            "\"How doth the little busy bee\"",
+            "\"Improve each shining hour\"",
+            "A moral poem against idleness"
+          ]
+        },
+        {
+          "label": "Lewis Carroll, 1865",
+          "points": [
+            "\"How doth the little crocodile\"",
+            "\"Improve his shining tail\"",
+            "He welcomes fish \"With gently smiling jaws\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.literature.092.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Everything's got a moral",
+      "body": "Carroll even puts a moral-hunter in the book. The Duchess tells Alice, \"Everything's got a moral, if only you can find it,\" and pins one on remark after remark. Alice thinks, \"How fond she is of finding morals in things!\" The lesson-giver has become the joke. Critics were baffled at first, but by the end of the 19th century Alice was the most popular children's book in England."
+    },
+    {
+      "id": "card.literature.092.c5",
+      "type": "mcq",
+      "questionId": "question.literature.092.q1"
+    },
+    {
+      "id": "card.literature.092.c6",
+      "type": "mcq",
+      "questionId": "question.literature.092.q2"
+    },
+    {
+      "id": "card.literature.092.c7",
+      "type": "recall",
+      "questionId": "question.literature.092.q3"
+    },
+    {
+      "id": "card.literature.092.c8",
+      "type": "checkpoint",
+      "headline": "Alice: through the looking glass of morals",
+      "learned": [
+        "Lewis Carroll: Oxford's Charles Dodgson",
+        "Told on a river trip in 1862",
+        "Parody turned a moral bee into a crocodile",
+        "Alice laughed at books that preached"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.092.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.alice_origins"
+      ],
+      "sourceCardIds": [
+        "card.literature.092.c2"
+      ],
+      "prompt": "Who was the man who wrote as Lewis Carroll?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A preacher who wrote moral verse for children",
+          "correct": false,
+          "rationale": "That sounds more like Isaac Watts."
+        },
+        {
+          "id": "b",
+          "label": "The artist who drew Alice's first pictures",
+          "correct": false,
+          "rationale": "That was John Tenniel."
+        },
+        {
+          "id": "c",
+          "label": "Charles Dodgson, an Oxford mathematics lecturer",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The father of the three Liddell children",
+          "correct": false,
+          "rationale": "Dodgson rowed them up the Thames; he wasn't their father."
+        }
+      ],
+      "explanation": "Lewis Carroll was the pen name of Charles Lutwidge Dodgson, who lectured in mathematics at Christ Church, Oxford.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.092.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.alice_mocks_morals"
+      ],
+      "sourceCardIds": [
+        "card.literature.092.c1",
+        "card.literature.092.c4"
+      ],
+      "prompt": "A new children's book ends every chapter with \"And so, children, always tidy your room.\" Which tradition does it follow?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The moral-teaching books that Alice broke with",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Alice's nonsense, which laughs at morals",
+          "correct": false,
+          "rationale": "Alice makes fun of lessons like this one."
+        },
+        {
+          "id": "c",
+          "label": "A parody, like Carroll's crocodile poem",
+          "correct": false,
+          "rationale": "A parody mocks the moral; this book means it."
+        },
+        {
+          "id": "d",
+          "label": "The Duchess's jokes, which have no morals",
+          "correct": false,
+          "rationale": "The Duchess finds morals everywhere, and that's the joke."
+        }
+      ],
+      "explanation": "Books that preach a lesson in every chapter are the kind Alice broke with, when children's books were generally meant to teach moral lessons.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.literature.092.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.fable",
+        "concept.literature.alice_mocks_morals"
+      ],
+      "sourceCardIds": [
+        "card.literature.002.c2",
+        "card.literature.092.c4"
+      ],
+      "prompt": "Level 2's fables usually state their moral at the end. What does Carroll's Duchess do with morals?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Refuses to give any moral at all",
+          "correct": false,
+          "rationale": "She gives far too many."
+        },
+        {
+          "id": "b",
+          "label": "Finds one in everything, until morals sound silly",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Tells Alice the fable of the fox and grapes",
+          "correct": false,
+          "rationale": "She never tells that fable."
+        },
+        {
+          "id": "d",
+          "label": "Hides every moral in a secret code",
+          "correct": false,
+          "rationale": "She says them out loud, constantly."
+        }
+      ],
+      "explanation": "The Duchess insists \"Everything's got a moral\" and pins one on remark after remark, so the fable's lesson becomes a joke.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.gutenberg_alice_wonderland",
+    "source.brit_alice_wonderland",
+    "source.brit_lewis_carroll",
+    "source.gutenberg_watts_divine_songs",
+    "source.brit_fable"
+  ],
+  "art": "mind.teacup"
+}

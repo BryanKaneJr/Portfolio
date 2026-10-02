@@ -1,0 +1,221 @@
+{
+  "id": "level.mind.psychology.074",
+  "skillId": "skill.mind.psychology",
+  "number": 74,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Why Bystanders Hesitate",
+  "objective": "After this level you can explain the bystander effect and why the famous story of 38 silent witnesses was wrong.",
+  "summary": "Each person is less likely to help when others are present, because responsibility feels shared. The famous story of 38 silent witnesses was wrong, and in real conflicts someone usually helps.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.social_bystander_effect",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.social_genovese_story",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.naturalistic_observation",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.073"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.074.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The famous story says 38 neighbors watched and did nothing.",
+      "body": "In 1964, Kitty Genovese was murdered in New York, and the story spread that none of her many neighbors helped. It launched a whole field of research. The research held up. The story didn't."
+    },
+    {
+      "id": "card.psychology.074.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "More listeners, fewer helpers",
+      "body": "In 1968, John Darley and Bibb Latane had students talk over an intercom. Then one voice seemed to have a seizure. Of those who thought they alone heard it, 85 percent reported it before the fit ended; of those who thought four others were listening, 31 percent did. That's the bystander effect, and diffusion of responsibility explains it: when many could help, the duty spreads thin."
+    },
+    {
+      "id": "card.psychology.074.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What the archives say",
+      "body": "In 2007, Rachel Manning and colleagues went back to the records. They found no evidence that 38 witnesses were present, that witnesses saw the murder, or that they all stayed inactive. One man shouted at the attacker, and a woman said she called the police. The story psychology retold for decades was mostly wrong."
+    },
+    {
+      "id": "card.psychology.074.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Real emergencies, real help",
+      "body": "A 2011 meta-analysis led by Peter Fischer found the bystander effect is weaker when an emergency is clearly dangerous. Then Richard Philpot's team studied 219 real public conflicts caught on security cameras in the UK, the Netherlands and South Africa. In 9 of 10, at least one bystander did something to help, and more bystanders made help more likely.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep both halves: each person holds back a bit in a crowd, yet someone in the crowd usually steps in."
+      }
+    },
+    {
+      "id": "card.psychology.074.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.074.q1"
+    },
+    {
+      "id": "card.psychology.074.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.074.q2"
+    },
+    {
+      "id": "card.psychology.074.c7",
+      "type": "recall",
+      "questionId": "question.psychology.074.q3"
+    },
+    {
+      "id": "card.psychology.074.c8",
+      "type": "checkpoint",
+      "headline": "Bystanders",
+      "learned": [
+        "Alone, 85 percent reported the seizure; with four others, 31 percent",
+        "Diffusion of responsibility spreads the duty thin",
+        "The 38 silent witnesses story was inaccurate",
+        "On camera, someone helped in 9 of 10 real conflicts"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.074.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.social_bystander_effect"
+      ],
+      "sourceCardIds": [
+        "card.psychology.074.c2"
+      ],
+      "prompt": "In Darley and Latane's intercom study, which students were least likely to report the seizure?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Those who thought they alone heard it",
+          "correct": false,
+          "rationale": "They were the most likely to report it."
+        },
+        {
+          "id": "b",
+          "label": "Those who thought one other person heard it",
+          "correct": false,
+          "rationale": "They fell in between."
+        },
+        {
+          "id": "c",
+          "label": "Those who had met the victim before",
+          "correct": false,
+          "rationale": "That wasn't what the study varied."
+        },
+        {
+          "id": "d",
+          "label": "Those who thought four others heard it",
+          "correct": true
+        }
+      ],
+      "explanation": "Only 31 percent of students who thought four others were listening reported the seizure, against 85 percent of those who thought they were alone.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.074.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.social_bystander_effect"
+      ],
+      "sourceCardIds": [
+        "card.psychology.074.c2"
+      ],
+      "prompt": "How does diffusion of responsibility explain why a crowd can make each person less likely to help?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Crowds make emergencies harder to see",
+          "correct": false,
+          "rationale": "The problem is who feels responsible, not visibility."
+        },
+        {
+          "id": "b",
+          "label": "The duty to help feels spread across everyone present",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "People in crowds are less kind by nature",
+          "correct": false,
+          "rationale": "Research points to the situation, not personality."
+        },
+        {
+          "id": "d",
+          "label": "Crowds usually contain trained helpers",
+          "correct": false,
+          "rationale": "Nobody checks that; they just assume someone will act."
+        }
+      ],
+      "explanation": "When many people could help, responsibility is spread across all of them, so each feels less duty to act.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.psychology.074.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.social_bystander_effect",
+        "concept.psychology.naturalistic_observation"
+      ],
+      "sourceCardIds": [
+        "card.psychology.074.c4",
+        "card.psychology.008.c3"
+      ],
+      "prompt": "Philpot's team studied security-camera footage of real public conflicts instead of staging one. Which Level 8 method does that resemble, and what is its prize?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Naturalistic observation, for its realism",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A case study, for its rich detail on one person",
+          "correct": false,
+          "rationale": "They studied 219 events, not one person."
+        },
+        {
+          "id": "c",
+          "label": "A survey, for its large number of answers",
+          "correct": false,
+          "rationale": "Nobody was asked questions; behavior was watched."
+        },
+        {
+          "id": "d",
+          "label": "An experiment, for showing cause and effect",
+          "correct": false,
+          "rationale": "Nothing was manipulated; real events were recorded."
+        }
+      ],
+      "explanation": "Watching real behavior in its natural setting is naturalistic observation. Its prize is realism; its price is control.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_aggression",
+    "source.jpsp_darley_latane_1968",
+    "source.amp_manning_genovese_2007",
+    "source.psychbull_fischer_bystander_2011",
+    "source.amp_philpot_bystander_2020",
+    "source.openstax_psych_approaches_research"
+  ],
+  "art": "geo.people"
+}

@@ -1,0 +1,228 @@
+{
+  "id": "level.history.us_history.022",
+  "skillId": "skill.history.us_history",
+  "number": 22,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "From Massacre to Tea Party",
+  "objective": "After this level you can trace how the Boston Massacre, the Boston Tea Party and the Intolerable Acts pushed Britain and the colonies toward war.",
+  "summary": "Townshend duties, troops in Boston, the Massacre of 1770 and the Tea Party of 1773 led to the Intolerable Acts of 1774, which united the colonies.",
+  "concepts": [
+    {
+      "conceptId": "concept.us_history.revolution_boston_escalation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.revolution_intolerable_acts",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.revolution_stamp_act",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.us_history.021"
+  ],
+  "cards": [
+    {
+      "id": "card.us_history.022.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every British move got an answer, and every answer raised the stakes.",
+      "body": "Between 1767 and 1774, Boston went from protests to shootings to a harbor full of tea. Follow the chain."
+    },
+    {
+      "id": "card.us_history.022.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "New taxes, new troops",
+      "body": "In 1767 the Townshend Acts put duties on lead, glass, paper, paint and tea imported into the colonies. Boston resisted, and in October 1768 two British regiments arrived to keep order. Now soldiers lived among the people they were policing: a recipe for trouble."
+    },
+    {
+      "id": "card.us_history.022.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Boston Massacre",
+      "body": "On March 5, 1770, British soldiers fired into a crowd in Boston, killing five colonists. Among the first to fall was Crispus Attucks, a Black sailor who had likely been enslaved. John Adams, a patriot lawyer, defended the soldiers in court, arguing they had a right to defend themselves. Six of the eight were acquitted."
+    },
+    {
+      "id": "card.us_history.022.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tea in the harbor",
+      "body": "The Tea Act of 1773 let the East India Company sell tea more cheaply in the colonies, but the tax on tea stayed. Cheaper tea, same principle. On December 16, 1773, men disguised as Native Americans boarded ships in Boston Harbor and dumped about 340 chests of tea overboard."
+    },
+    {
+      "id": "card.us_history.022.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Punish Boston, unite the colonies",
+      "body": "In 1774 Parliament closed Boston’s port until the tea was paid for and replaced Massachusetts’ elected council with an appointed one. Colonists called these the Intolerable Acts. The punishment backfired: on September 5, 1774, delegates from every colony but Georgia met in Philadelphia as the First Continental Congress and called for a boycott of British goods.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep this: each crackdown meant for Boston pulled more colonies onto Boston’s side."
+      }
+    },
+    {
+      "id": "card.us_history.022.c6",
+      "type": "mcq",
+      "questionId": "question.us_history.022.q1"
+    },
+    {
+      "id": "card.us_history.022.c7",
+      "type": "mcq",
+      "questionId": "question.us_history.022.q2"
+    },
+    {
+      "id": "card.us_history.022.c8",
+      "type": "recall",
+      "questionId": "question.us_history.022.q3"
+    },
+    {
+      "id": "card.us_history.022.c9",
+      "type": "checkpoint",
+      "headline": "Massacre to Tea Party: explained",
+      "learned": [
+        "Townshend duties and troops came to Boston",
+        "The Boston Massacre of 1770 killed five",
+        "The Tea Party of 1773 dumped about 340 chests",
+        "The Intolerable Acts of 1774 united the colonies"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.us_history.022.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.revolution_boston_escalation"
+      ],
+      "sourceCardIds": [
+        "card.us_history.022.c3"
+      ],
+      "prompt": "Who defended the British soldiers in court after the Boston Massacre?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Benjamin Franklin",
+          "correct": false,
+          "rationale": "Franklin was not their lawyer."
+        },
+        {
+          "id": "b",
+          "label": "Thomas Gage",
+          "correct": false,
+          "rationale": "Gage was a British general, not a lawyer."
+        },
+        {
+          "id": "c",
+          "label": "Crispus Attucks",
+          "correct": false,
+          "rationale": "Attucks was killed in the shooting."
+        },
+        {
+          "id": "d",
+          "label": "John Adams",
+          "correct": true
+        }
+      ],
+      "explanation": "John Adams argued the soldiers had a right to defend themselves; six of eight were acquitted.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.us_history.022.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.revolution_intolerable_acts"
+      ],
+      "sourceCardIds": [
+        "card.us_history.022.c5"
+      ],
+      "prompt": "How was the Boston Port Act of 1774 meant to make Boston pay for the destroyed tea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By closing the port to trade until the tea was paid for",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "By taxing every chest of tea sold in Boston",
+          "correct": false,
+          "rationale": "It shut the harbor rather than adding a tax."
+        },
+        {
+          "id": "c",
+          "label": "By arresting the Continental Congress",
+          "correct": false,
+          "rationale": "The Congress met afterward, in Philadelphia."
+        },
+        {
+          "id": "d",
+          "label": "By stationing troops for the first time",
+          "correct": false,
+          "rationale": "Troops had been in Boston since 1768."
+        }
+      ],
+      "explanation": "The port stayed closed until the tea was paid for.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.us_history.022.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.us_history.revolution_boston_escalation",
+        "concept.us_history.revolution_stamp_act"
+      ],
+      "sourceCardIds": [
+        "card.us_history.022.c2",
+        "card.us_history.022.c4",
+        "card.us_history.021.c3"
+      ],
+      "prompt": "The Townshend Acts and the Tea Act both kept a tax Bostonians rejected. Why did they reject it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The tea itself was too expensive to buy",
+          "correct": false,
+          "rationale": "The Tea Act made tea cheaper."
+        },
+        {
+          "id": "b",
+          "label": "Parliament set it without colonists’ consent",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The tax money was sent on to France",
+          "correct": false,
+          "rationale": "It went to Britain."
+        },
+        {
+          "id": "d",
+          "label": "Only the people of Boston had to pay it",
+          "correct": false,
+          "rationale": "The duties applied across the colonies."
+        }
+      ],
+      "explanation": "Like the Stamp Act, a tax set by a Parliament colonists did not elect broke the principle of no taxation without consent.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.brit_boston_massacre",
+    "source.nps_boston_massacre_trial",
+    "source.brit_boston_tea_party",
+    "source.brit_intolerable_acts",
+    "source.brit_continental_congress"
+  ],
+  "art": "us.tea-chest"
+}

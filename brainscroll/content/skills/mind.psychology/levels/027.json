@@ -1,0 +1,227 @@
+{
+  "id": "level.mind.psychology.027",
+  "skillId": "skill.mind.psychology",
+  "number": 27,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Why Slot Machines Hook People",
+  "objective": "After this level you can explain reinforcement schedules and why unpredictable rewards keep a behavior going longest.",
+  "summary": "Rewards can come every time or only sometimes, by count or by time. Unpredictable variable ratio rewards, used in gambling, are the hardest to extinguish.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.conditioning_reinforcement_schedules",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.conditioning_variable_ratio_persistence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.conditioning_reinforcement_punishment",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.026"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.027.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A slot machine pays after an unpredictable number of pulls. That's the trap.",
+      "body": "You'd think unpredictable rewards would make people give up sooner. The research on reward timing says the opposite. It comes down to the timing of rewards, known as reinforcement schedules."
+    },
+    {
+      "id": "card.psychology.027.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every time, or only sometimes",
+      "body": "Reward a behavior every single time and you're using continuous reinforcement. Reward it only some of the time and it's partial, or intermittent, reinforcement. Partial schedules come in four kinds, sorted by two questions. Is the reward based on how many responses you make (ratio) or on how much time has passed (interval)? And is that number fixed or variable?"
+    },
+    {
+      "id": "card.psychology.027.c3",
+      "type": "comparison",
+      "headline": "The four schedules",
+      "items": [
+        {
+          "label": "Ratio: counts your responses",
+          "points": [
+            "Fixed: reward after a predictable number",
+            "Variable: reward after an unpredictable number"
+          ]
+        },
+        {
+          "label": "Interval: counts the time",
+          "points": [
+            "Fixed: reward at predictable times",
+            "Variable: reward at unpredictable times"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.psychology.027.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the slot machine wins",
+      "body": "Most gambling runs on a variable ratio schedule: the next pull might pay, or the one after that, or much later. Each win adds money right after a pull, which is positive reinforcement, delivered unpredictably. Of the four schedules, variable ratio gets the most responding and is the most resistant to extinction; fixed interval is the easiest to extinguish. More broadly, behavior rewarded only now and then lasts longer once rewards stop than behavior rewarded every time, an effect long seen as central to why people keep gambling without winning."
+    },
+    {
+      "id": "card.psychology.027.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.027.q1"
+    },
+    {
+      "id": "card.psychology.027.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.027.q2"
+    },
+    {
+      "id": "card.psychology.027.c7",
+      "type": "recall",
+      "questionId": "question.psychology.027.q3"
+    },
+    {
+      "id": "card.psychology.027.c8",
+      "type": "checkpoint",
+      "headline": "Why Slot Machines Hook People",
+      "learned": [
+        "Continuous: reward every time; partial: only sometimes",
+        "Ratio counts responses; interval counts time",
+        "Variable ratio is the hardest to extinguish",
+        "Most gambling pays on a variable ratio schedule"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.027.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.conditioning_variable_ratio_persistence"
+      ],
+      "sourceCardIds": [
+        "card.psychology.027.c4"
+      ],
+      "prompt": "Which reinforcement schedule is the most resistant to extinction?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fixed interval",
+          "correct": false,
+          "rationale": "Fixed interval is the easiest to extinguish."
+        },
+        {
+          "id": "b",
+          "label": "Fixed ratio",
+          "correct": false,
+          "rationale": "Predictable counts don't hold on as long."
+        },
+        {
+          "id": "c",
+          "label": "Variable interval",
+          "correct": false,
+          "rationale": "Unpredictable timing helps, but it isn't the strongest."
+        },
+        {
+          "id": "d",
+          "label": "Variable ratio",
+          "correct": true
+        }
+      ],
+      "explanation": "Variable ratio schedules are the most productive and the most resistant to extinction.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.027.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.conditioning_reinforcement_schedules"
+      ],
+      "sourceCardIds": [
+        "card.psychology.027.c3"
+      ],
+      "prompt": "How does a variable ratio schedule decide when a reward comes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "After a set amount of time",
+          "correct": false,
+          "rationale": "That's a fixed interval schedule."
+        },
+        {
+          "id": "b",
+          "label": "After an unpredictable number of responses",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "After every single response",
+          "correct": false,
+          "rationale": "That's continuous reinforcement."
+        },
+        {
+          "id": "d",
+          "label": "After a set number of responses",
+          "correct": false,
+          "rationale": "That's a fixed ratio schedule."
+        }
+      ],
+      "explanation": "In a variable ratio schedule the number of responses needed for each reward changes unpredictably.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.027.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.conditioning_reinforcement_punishment",
+        "concept.psychology.conditioning_variable_ratio_persistence"
+      ],
+      "sourceCardIds": [
+        "card.psychology.027.c4",
+        "card.psychology.026.c3"
+      ],
+      "prompt": "A slot machine win adds money right after a pull. In Level 26's terms, what is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Negative reinforcement",
+          "correct": false,
+          "rationale": "Negative reinforcement removes something unpleasant."
+        },
+        {
+          "id": "b",
+          "label": "Positive punishment",
+          "correct": false,
+          "rationale": "Punishment makes a behavior less likely."
+        },
+        {
+          "id": "c",
+          "label": "Positive reinforcement",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Negative punishment",
+          "correct": false,
+          "rationale": "Nothing pleasant is taken away."
+        }
+      ],
+      "explanation": "Adding something desirable to increase a behavior is positive reinforcement.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_operant_conditioning",
+    "source.behavbrainres_horsley_gambling_extinction_2012"
+  ],
+  "art": "mind.roulette-wheel"
+}

@@ -1,0 +1,211 @@
+{
+  "id": "level.mind.logic.079",
+  "skillId": "skill.mind.logic",
+  "number": 79,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Persuasion or Manipulation?",
+  "objective": "After this level you can tell persuasion that gives you good reasons from manipulation that works around them.",
+  "summary": "Rational persuasion gives you reasons; coercion forces you; manipulation works around your judgment through trickery or pressure. Feelings alone don't make it manipulation.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.persuasion_manipulation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.critical_thinking_dewey",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.078"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Irving wants Tonya to choose X. His reasons didn't work. Now what?",
+      "body": "The Stanford Encyclopedia of Philosophy opens its entry on manipulation with this pair. Irving could charm Tonya, make her feel guilty, nag her, or stoke a fear until X looks better. Each tactic, the entry says, could reasonably be called manipulation.",
+      "id": "card.logic.079.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Three ways to change a mind",
+      "body": "Philosophers usually set manipulation apart from two other kinds of influence. Rational persuasion gives you reasons. Coercion forces you. Manipulation is neither. One view pictures a scale of pressure: persuasion exerts none, coercion the most, and manipulation sits somewhere in between.",
+      "id": "card.logic.079.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Around your judgment, not through it",
+      "body": "Accounts of manipulation fall into rough families. One says it bypasses your reasoning. Another treats it as trickery, planting misleading beliefs or associations. A third sees pressure: guilt trips and nagging make saying no costly. What they share is the route. Persuasion goes through your judgment; manipulation goes around it.",
+      "id": "card.logic.079.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Feelings aren't the dividing line",
+      "body": "Philosophers find it implausible that every appeal to emotion is manipulative. So the test isn't whether you felt something. Ask instead: is this giving me a reason I could check, or pushing me to decide before I can? Taking time to weigh the grounds is Level 1's suspended judgment, put to work.",
+      "id": "card.logic.079.c4",
+      "mascot": {
+        "pose": "pointing",
+        "line": "People mix up Level 72 and this one. That was about arguments. This is about the route: through your judgment, or around it."
+      }
+    },
+    {
+      "id": "card.logic.079.c5",
+      "type": "mcq",
+      "questionId": "question.logic.079.q1"
+    },
+    {
+      "id": "card.logic.079.c6",
+      "type": "mcq",
+      "questionId": "question.logic.079.q2"
+    },
+    {
+      "id": "card.logic.079.c7",
+      "type": "mcq",
+      "questionId": "question.logic.079.q3"
+    },
+    {
+      "id": "card.logic.079.c8",
+      "type": "checkpoint",
+      "headline": "Manipulation: named",
+      "learned": [
+        "Persuasion gives reasons; coercion forces",
+        "Manipulation goes around your judgment",
+        "Trickery and pressure are its common routes",
+        "Emotion alone doesn't make it manipulation"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.079.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.persuasion_manipulation"
+      ],
+      "sourceCardIds": [
+        "card.logic.079.c2"
+      ],
+      "prompt": "Philosophers usually distinguish manipulation from which two other kinds of influence?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Advertising and propaganda",
+          "correct": false,
+          "rationale": "Those can use any method; the card's contrast is different."
+        },
+        {
+          "id": "b",
+          "label": "Flattery and bribery",
+          "correct": false,
+          "rationale": "Those are tactics, not the contrasting kinds."
+        },
+        {
+          "id": "c",
+          "label": "Rational persuasion and coercion",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Teaching and storytelling",
+          "correct": false,
+          "rationale": "Not the contrast the card draws."
+        }
+      ],
+      "explanation": "Manipulation is typically set apart from rational persuasion (reasons) and coercion (force).",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.079.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.persuasion_manipulation"
+      ],
+      "sourceCardIds": [
+        "card.logic.079.c3"
+      ],
+      "prompt": "On the pressure view, how do guilt trips and nagging manipulate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They make saying no costly until you give in",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They give you better reasons to agree",
+          "correct": false,
+          "rationale": "Reasons would be persuasion, not pressure."
+        },
+        {
+          "id": "c",
+          "label": "They plant a false belief in you",
+          "correct": false,
+          "rationale": "That's the trickery view."
+        },
+        {
+          "id": "d",
+          "label": "They force you with an outright threat",
+          "correct": false,
+          "rationale": "Outright force is coercion."
+        }
+      ],
+      "explanation": "Pressure works by making refusal costly, not by giving reasons.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.079.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.persuasion_manipulation",
+        "concept.logic.critical_thinking_dewey"
+      ],
+      "sourceCardIds": [
+        "card.logic.079.c4",
+        "card.logic.001.c4"
+      ],
+      "prompt": "Which habit from Level 1 best protects you against \"decide right now\" pressure?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Counting how many people agree",
+          "correct": false,
+          "rationale": "Popularity isn't a ground for a belief."
+        },
+        {
+          "id": "b",
+          "label": "Suspended judgment",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Trusting your first feeling",
+          "correct": false,
+          "rationale": "Pressure works best on first feelings."
+        },
+        {
+          "id": "d",
+          "label": "Asking who spoke first",
+          "correct": false,
+          "rationale": "Order says nothing about reasons."
+        }
+      ],
+      "explanation": "Dewey's suspended judgment means holding off until you've weighed the grounds, which is exactly what pressure tries to prevent.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sep_ethics_of_manipulation"
+  ],
+  "art": "mind.logic-marionette"
+}

@@ -1,0 +1,225 @@
+{
+  "id": "level.geography.earth_climate.085",
+  "skillId": "skill.geography.earth_climate",
+  "number": 85,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Feedbacks: Melting Ice and Water Vapor",
+  "objective": "After this level you can explain how melting ice and extra water vapor amplify an initial warming.",
+  "summary": "Feedbacks amplify or damp a change. Melting snow exposes darker ground that absorbs more sunlight, and warmer air holds more water vapor, which traps more heat.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.warming_feedback_loops",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.warming_ice_albedo",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.warming_water_vapor_feedback",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.spheres_interact",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.084"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.085.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Warm the planet a little, and it finds ways to warm itself a bit more.",
+      "body": "Scientists call these loops feedbacks. Two of the strongest involve things you already know well: bright white snow and invisible water vapor."
+    },
+    {
+      "id": "card.earth_climate.085.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Loops that amplify",
+      "body": "A feedback is a loop in which a change sets off effects that feed back on it. A positive feedback amplifies the change; a negative feedback reduces it. Positive doesn't mean good here. It means more of the same, like a microphone squealing when it picks up its own speaker."
+    },
+    {
+      "id": "card.earth_climate.085.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "White snow, dark ground",
+      "body": "Snow reflects 80 to 90 percent of sunlight. Trees, plants and soil reflect only 10 to 30 percent. So when warming melts snow, darker ground takes its place and soaks up more sunlight, which warms things further and melts more snow. It's the reason black clothes feel hotter in the sun than white ones, scaled up to a planet."
+    },
+    {
+      "id": "card.earth_climate.085.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The vapor amplifier",
+      "body": "For every 1 °C of warming, the air can hold about 7 percent more water vapor. Vapor is a greenhouse gas, so the extra traps more heat, which allows still more vapor. Scientists estimate this loop more than doubles the warming from carbon dioxide alone. Yet vapor isn't the driver: a molecule stays aloft only about nine days before it rains out, so it follows the temperature rather than setting it.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Common mix-up: water vapor is the most abundant greenhouse gas, but it amplifies warming. It doesn't start it."
+      }
+    },
+    {
+      "id": "card.earth_climate.085.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.085.q1"
+    },
+    {
+      "id": "card.earth_climate.085.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.085.q2"
+    },
+    {
+      "id": "card.earth_climate.085.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.085.q3"
+    },
+    {
+      "id": "card.earth_climate.085.c8",
+      "type": "checkpoint",
+      "headline": "Feedbacks: understood",
+      "learned": [
+        "Positive feedbacks amplify a change",
+        "Snow reflects 80 to 90 percent of sunlight",
+        "Warm air holds about 7% more vapor per °C",
+        "Vapor amplifies warming; it doesn't start it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.085.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.warming_water_vapor_feedback"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.085.c4"
+      ],
+      "prompt": "For every 1 °C of warming, about how much more water vapor can the air hold?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 1 percent",
+          "correct": false,
+          "rationale": "The increase is several times larger."
+        },
+        {
+          "id": "b",
+          "label": "About 7 percent",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 50 percent",
+          "correct": false,
+          "rationale": "That is far too much for one degree."
+        },
+        {
+          "id": "d",
+          "label": "None: warm air holds less vapor",
+          "correct": false,
+          "rationale": "Warmer air holds more, not less."
+        }
+      ],
+      "explanation": "Warmer air holds about 7 percent more water vapor per 1 °C, which traps more heat.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.earth_climate.085.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.warming_ice_albedo",
+        "concept.earth_climate.warming_feedback_loops"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.085.c3",
+        "card.earth_climate.085.c2"
+      ],
+      "prompt": "A mountain's snow melts weeks earlier than it used to, exposing dark soil. What does that do to the local warming?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Amplifies it: the soil absorbs more sunlight",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Reduces it: bare soil reflects more sunlight",
+          "correct": false,
+          "rationale": "Soil reflects only 10 to 30 percent; snow reflects far more."
+        },
+        {
+          "id": "c",
+          "label": "Nothing: soil and snow reflect the same",
+          "correct": false,
+          "rationale": "Snow reflects 80 to 90 percent, soil much less."
+        },
+        {
+          "id": "d",
+          "label": "Reduces it: the meltwater cools the planet",
+          "correct": false,
+          "rationale": "The key change is the extra sunlight absorbed."
+        }
+      ],
+      "explanation": "Darker ground absorbs more sunlight than snow, warming the area and melting more snow: a positive feedback.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.earth_climate.085.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.warming_ice_albedo",
+        "concept.earth_climate.spheres_interact"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.085.c3",
+        "card.earth_climate.001.c4"
+      ],
+      "prompt": "Level 1's big eruption cools the planet, while melting snow warms it. What do the two mechanisms have in common?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both add heat-trapping gas to the air",
+          "correct": false,
+          "rationale": "Neither works by trapping heat."
+        },
+        {
+          "id": "b",
+          "label": "Both last only a few days",
+          "correct": false,
+          "rationale": "Eruption cooling lasts one to three years."
+        },
+        {
+          "id": "c",
+          "label": "Both change how much sunlight is reflected",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both work by changing the ocean's saltiness",
+          "correct": false,
+          "rationale": "Neither involves salt."
+        }
+      ],
+      "explanation": "Sulfur droplets reflect sunlight away, and losing snow means less sunlight is reflected: both change how much sunlight Earth sends back.",
+      "difficulty": 0.5
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_climate_causes",
+    "source.nsidc_why_snow_matters",
+    "source.nasa_water_vapor_feedback"
+  ],
+  "art": "chem.ice-cube"
+}

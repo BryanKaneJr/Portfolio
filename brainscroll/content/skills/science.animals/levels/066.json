@@ -1,0 +1,221 @@
+{
+  "id": "level.science.animals.066",
+  "skillId": "skill.science.animals",
+  "number": 66,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Polar Survivors",
+  "objective": "After this level you can explain how polar bears and penguins survive the cold.",
+  "summary": "Polar bears: thick fur over black skin, a fat layer, furred soles. Penguins: tight feathers trapping air over fat, and legs whose arteries and veins swap heat so the feet lose little.",
+  "concepts": [
+    {
+      "conceptId": "concept.animals.polar_cold_insulation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.animals.adaptation_fox_climates",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.animals.fish_opah_warm_blood",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.animals.065"
+  ],
+  "cards": [
+    {
+      "id": "card.animals.066.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Under its white coat, a polar bear is black.",
+      "body": "Its skin is black, and its fur isn't really white either: each hair is clear, with no pigment. The white look comes from light scattering in those clear hairs. So what actually keeps a polar bear warm?"
+    },
+    {
+      "id": "card.animals.066.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Coat, fat and boots",
+      "body": "Layers. Thick fur is the outer coat, and under the skin lies a layer of insulating fat, topped up by eating seal blubber. Even the soles of its feet are furred, for warmth and for grip on the ice. A polar bear is dressed for the Arctic from head to paw."
+    },
+    {
+      "id": "card.animals.066.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The penguin's down jacket",
+      "body": "Penguins solve the same problem with feathers. Short, stiff feathers packed tightly together trap a layer of air next to the skin, and that still air does most of the insulating. Beneath it lies a thick layer of fat. Feathers outside, fat inside: the same two-layer plan as the bear."
+    },
+    {
+      "id": "card.animals.066.c4",
+      "type": "fact",
+      "fact": "A penguin keeps its feet cold on purpose.",
+      "context": "In a penguin's legs, arteries carrying warm blood down run right beside veins bringing cold blood back up, so heat passes across before it reaches the feet. An emperor penguin's foot skin stays near 0 °C, cold enough that it doesn't melt the ice it stands on. Warm body, cold feet, and very little heat wasted in between.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "This is Level 26's heat-saving feet, now with the how."
+      }
+    },
+    {
+      "id": "card.animals.066.c5",
+      "type": "mcq",
+      "questionId": "question.animals.066.q1"
+    },
+    {
+      "id": "card.animals.066.c6",
+      "type": "mcq",
+      "questionId": "question.animals.066.q2"
+    },
+    {
+      "id": "card.animals.066.c7",
+      "type": "recall",
+      "questionId": "question.animals.066.q3"
+    },
+    {
+      "id": "card.animals.066.c8",
+      "type": "checkpoint",
+      "headline": "Polar survivors: explained",
+      "learned": [
+        "Polar bear: black skin, clear hairs",
+        "Thick fur, a fat layer and furred soles",
+        "Penguins: tight feathers trap air over fat",
+        "Leg arteries and veins swap heat",
+        "Emperor penguin feet stay near 0 °C"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.animals.066.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.animals.polar_cold_insulation"
+      ],
+      "sourceCardIds": [
+        "card.animals.066.c1"
+      ],
+      "prompt": "What color is a polar bear's skin?",
+      "options": [
+        {
+          "id": "a",
+          "label": "White, like its coat",
+          "correct": false,
+          "rationale": "The coat only looks white; the skin is black."
+        },
+        {
+          "id": "b",
+          "label": "Pink",
+          "correct": false,
+          "rationale": "Not for a polar bear."
+        },
+        {
+          "id": "c",
+          "label": "Clear, like its hairs",
+          "correct": false,
+          "rationale": "The hairs are clear; the skin is black."
+        },
+        {
+          "id": "d",
+          "label": "Black",
+          "correct": true
+        }
+      ],
+      "explanation": "A polar bear has black skin under clear, unpigmented hairs.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.animals.066.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.animals.polar_cold_insulation"
+      ],
+      "sourceCardIds": [
+        "card.animals.066.c4"
+      ],
+      "prompt": "What does the side-by-side arrangement of arteries and veins in a penguin's legs achieve?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Heat returns to the body, not the feet",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The feet stay as warm as the body",
+          "correct": false,
+          "rationale": "The feet stay near 0 °C on purpose."
+        },
+        {
+          "id": "c",
+          "label": "The feet melt a warm spot in the ice",
+          "correct": false,
+          "rationale": "They're cold enough not to melt it."
+        },
+        {
+          "id": "d",
+          "label": "Blood stops flowing to the feet entirely",
+          "correct": false,
+          "rationale": "Blood still flows; it just swaps heat on the way."
+        }
+      ],
+      "explanation": "Warm blood heading down passes its heat to cold blood coming back, so little is lost through the feet.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.animals.066.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.animals.polar_cold_insulation",
+        "concept.animals.fish_opah_warm_blood"
+      ],
+      "sourceCardIds": [
+        "card.animals.066.c4",
+        "card.animals.041.c4"
+      ],
+      "prompt": "From Level 41: the opah warms itself with a heat exchange in its gills. Where does a penguin swap heat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In its gills, like the opah",
+          "correct": false,
+          "rationale": "Penguins are birds, not fish."
+        },
+        {
+          "id": "b",
+          "label": "In its legs, above the feet",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "In its feathers, around trapped air",
+          "correct": false,
+          "rationale": "Feathers trap air; the heat swap is in the legs."
+        },
+        {
+          "id": "d",
+          "label": "In its fat layer, under the skin",
+          "correct": false,
+          "rationale": "Fat insulates; it doesn't swap heat."
+        }
+      ],
+      "explanation": "In a penguin's legs, warm blood heading down passes its heat to cold blood coming back up; the opah's heat exchange sits in its gills.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.adw_polar_bear",
+    "source.brit_polar_bear",
+    "source.brit_penguin_warmth",
+    "source.brit_penguin_form",
+    "source.natgeokids_arctic_fox",
+    "source.brit_arctic_fox"
+  ],
+  "art": "animals.penguin"
+}

@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.psychology.051",
+  "skillId": "skill.mind.psychology",
+  "number": 51,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Fast Thinking, Slow Thinking",
+  "objective": "After this level you can explain the two-systems idea of fast intuition and slow deliberation, and when each takes over.",
+  "summary": "Psychologists describe a fast, automatic System 1 and a slow, deliberate System 2. The bat-and-ball puzzle shows how often the quick answer goes out unchecked.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.shortcuts_two_systems",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.shortcuts_lax_checking",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.cognitive_revolution",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.050"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.051.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A bat and a ball cost $1.10. The bat costs $1 more. What's the ball?",
+      "body": "Most people have an answer before they finish reading the question. Hold on to yours. This level is about where it came from, and why it is so often wrong."
+    },
+    {
+      "id": "card.psychology.051.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two ways of thinking",
+      "body": "Psychologists describe two modes of thought, which Keith Stanovich and Richard West labeled System 1 and System 2 in 2000. System 1 is fast, automatic, effortless and hard to control; it works much like perception, handing you answers you never asked for. System 2 is slower, effortful and deliberate. Most everyday judgments come from System 1, but System 2 can modify or override them. Daniel Kahneman, who shared the 2002 Nobel Prize in economics, built his account of judgment on this split."
+    },
+    {
+      "id": "card.psychology.051.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The checker that barely checks",
+      "body": "The answer that pops up is 10 cents: $1.10 splits neatly into $1 and 10 cents, and 10 cents feels about right for a ball. Check it, though: the bat has to cost a whole dollar more than the ball. The ball costs 5 cents. Shane Frederick found that 50 percent of Princeton students and 56 percent at the University of Michigan gave the wrong answer. System 2 is supposed to monitor System 1, but its monitoring is normally quite lax.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this one: fast answers aren't the problem. Unchecked fast answers are."
+      }
+    },
+    {
+      "id": "card.psychology.051.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A test for the checker",
+      "body": "In 2005 Frederick turned the puzzle into one item of a three-item Cognitive Reflection Test. It measures the ability or disposition to reflect on a question and resist the first response that comes to mind. Scores relate to real choices about time and risk: people who go with the quick answer on such puzzles tend to be less patient about waiting for delayed rewards."
+    },
+    {
+      "id": "card.psychology.051.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.051.q1"
+    },
+    {
+      "id": "card.psychology.051.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.051.q2"
+    },
+    {
+      "id": "card.psychology.051.c7",
+      "type": "recall",
+      "questionId": "question.psychology.051.q3"
+    },
+    {
+      "id": "card.psychology.051.c8",
+      "type": "checkpoint",
+      "headline": "Fast and slow thinking",
+      "learned": [
+        "System 1: fast, automatic, effortless",
+        "System 2: slow, effortful, deliberate",
+        "The bat and ball: the quick answer goes unchecked",
+        "The Cognitive Reflection Test (2005)"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.051.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.shortcuts_two_systems"
+      ],
+      "sourceCardIds": [
+        "card.psychology.051.c2"
+      ],
+      "prompt": "In the two-systems idea, which description fits System 1?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Slow, effortful and deliberate",
+          "correct": false,
+          "rationale": "That describes System 2."
+        },
+        {
+          "id": "b",
+          "label": "Fast, automatic and effortless",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Used only for doing arithmetic",
+          "correct": false,
+          "rationale": "System 1 produces most everyday judgments, not just sums."
+        },
+        {
+          "id": "d",
+          "label": "A brain region seen on scans",
+          "correct": false,
+          "rationale": "The systems describe modes of thinking, not a place in the brain."
+        }
+      ],
+      "explanation": "System 1 is fast, automatic, effortless and hard to control. System 2 is the slower, deliberate one.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.051.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.shortcuts_lax_checking"
+      ],
+      "sourceCardIds": [
+        "card.psychology.051.c3"
+      ],
+      "prompt": "Why did about half of Frederick's Princeton students get the bat-and-ball puzzle wrong?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The puzzle has no single right answer",
+          "correct": false,
+          "rationale": "It does: the ball costs 5 cents."
+        },
+        {
+          "id": "b",
+          "label": "The arithmetic was too hard for them",
+          "correct": false,
+          "rationale": "The math is easy once you check the tempting answer."
+        },
+        {
+          "id": "c",
+          "label": "Their quick answer went out unchecked",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They misread the price of the ball",
+          "correct": false,
+          "rationale": "The trap is the neat split of $1.10, not a misreading."
+        }
+      ],
+      "explanation": "The intuitive answer, 10 cents, arrives fast, and System 2's monitoring is normally lax, so many people report it without checking.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.psychology.051.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.cognitive_revolution",
+        "concept.psychology.shortcuts_two_systems"
+      ],
+      "sourceCardIds": [
+        "card.psychology.051.c2",
+        "card.psychology.006.c2"
+      ],
+      "prompt": "System 1 and System 2 describe what goes on inside the mind. Which shift from Level 6 brought the mind back as something science could study?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Behaviorism",
+          "correct": false,
+          "rationale": "Behaviorism set the mind aside and studied only behavior."
+        },
+        {
+          "id": "b",
+          "label": "Introspection",
+          "correct": false,
+          "rationale": "That was Wundt's method of looking inward, from Level 3."
+        },
+        {
+          "id": "c",
+          "label": "The cognitive revolution",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Psychoanalysis",
+          "correct": false,
+          "rationale": "That was Freud's approach, from Level 4."
+        }
+      ],
+      "explanation": "By the 1950s the cognitive revolution revived interest in the mind as a subject of science.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nobel_kahneman_lecture_2002",
+    "source.jep_frederick_crt_2005",
+    "source.brit_kahneman",
+    "source.openstax_psych_history"
+  ],
+  "art": "mind.signpost"
+}

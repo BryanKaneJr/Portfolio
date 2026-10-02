@@ -1,0 +1,212 @@
+{
+  "id": "level.mind.probability.071",
+  "skillId": "skill.mind.probability",
+  "number": 71,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Reading Any Chart",
+  "objective": "After this level you can read a chart by checking its title, axes, units and source before looking at its shape.",
+  "summary": "Read the words before the shape: the title gives the message, the subtitle what, where and when, the axis titles the units, and the source line where the numbers came from.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.chart_read_the_words",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.rates_per_person",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.070"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.071.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A line on a chart shoots up. Before you gasp, read the small print.",
+      "body": "Your eyes go straight to the shape: up, down, flat. But a shape can't tell you what rose, where, when or in what units. The words around the chart can, so they come first."
+    },
+    {
+      "id": "card.probability.071.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Title, then subtitle",
+      "body": "UK government guidance on charts asks for two titles. The main title states the chart's message. The subtitle says what was measured, where and over what time period. Its own example reads: \"Number of people living in one person households, England, 1991 to 2021.\" What, where, when. The title is the chart maker's claim; the subtitle tells you what that claim is about."
+    },
+    {
+      "id": "card.probability.071.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Axes: what is counted, and in what units",
+      "body": "Next, the axes. Each axis title should give its unit of measurement, and every axis should be clearly labelled. That one line of text changes everything. The same rising line means something very different in people or in percent, in totals or in cases per 100,000 people. A chart that hides its units hasn't earned your trust yet."
+    },
+    {
+      "id": "card.probability.071.c4",
+      "type": "fact",
+      "fact": "Last check: where did the numbers come from?",
+      "context": "Guidance says every chart should name the specific source of its data, so you can find it yourself, not just a vague nod to an organization. Title, subtitle, axis units, source: four quick reads before you judge the shape. The rest of this chapter shows what goes wrong when people skip them.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: read the words before the shape. Every trick in this chapter hides in something people skipped."
+      }
+    },
+    {
+      "id": "card.probability.071.c5",
+      "type": "mcq",
+      "questionId": "question.probability.071.q1"
+    },
+    {
+      "id": "card.probability.071.c6",
+      "type": "mcq",
+      "questionId": "question.probability.071.q2"
+    },
+    {
+      "id": "card.probability.071.c7",
+      "type": "recall",
+      "questionId": "question.probability.071.q3"
+    },
+    {
+      "id": "card.probability.071.c8",
+      "type": "checkpoint",
+      "headline": "Reading a chart: in order",
+      "learned": [
+        "The title gives the message",
+        "The subtitle gives what, where and when",
+        "Axis titles give the units",
+        "The source says where the numbers came from"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.071.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.chart_read_the_words"
+      ],
+      "sourceCardIds": [
+        "card.probability.071.c2"
+      ],
+      "prompt": "According to chart guidance, what should a chart's subtitle tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The chart maker's opinion of the data",
+          "correct": false,
+          "rationale": "That belongs in the main title, which states the message."
+        },
+        {
+          "id": "b",
+          "label": "What was measured, where, and over what time",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Which colors stand for which lines",
+          "correct": false,
+          "rationale": "Colors are labels; the subtitle describes the data itself."
+        },
+        {
+          "id": "d",
+          "label": "How big the change was in percent",
+          "correct": false,
+          "rationale": "The subtitle describes the measure, place and time, not the result."
+        }
+      ],
+      "explanation": "The subtitle names the measure, the place and the time period, like \"Number of people living in one person households, England, 1991 to 2021\".",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.071.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.chart_read_the_words"
+      ],
+      "sourceCardIds": [
+        "card.probability.071.c3"
+      ],
+      "prompt": "How does reading a chart's axis titles protect you from being misled by its shape?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They tell you which way the line should go",
+          "correct": false,
+          "rationale": "The data decide the line's direction; the axis titles say what it measures."
+        },
+        {
+          "id": "b",
+          "label": "They prove the data came from a trusted source",
+          "correct": false,
+          "rationale": "That's the job of the source line."
+        },
+        {
+          "id": "c",
+          "label": "They give the units, so you know what the line measures",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They make the chart easier to print",
+          "correct": false,
+          "rationale": "Axis titles are about meaning, not printing."
+        }
+      ],
+      "explanation": "Axis titles give the unit of measurement. The same shape means very different things in totals, percent or cases per 100,000.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.071.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.rates_per_person",
+        "concept.probability.chart_read_the_words"
+      ],
+      "sourceCardIds": [
+        "card.probability.071.c3",
+        "card.probability.006.c3"
+      ],
+      "prompt": "An axis title reads \"cases per 100,000 people\". Using Level 6, what does that tell you about the chart?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It shows a rate, so places of different sizes compare fairly",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Every place on it has exactly 100,000 people",
+          "correct": false,
+          "rationale": "Each count is divided by its own population, then scaled to 100,000."
+        },
+        {
+          "id": "c",
+          "label": "It shows totals, so bigger places will look worse",
+          "correct": false,
+          "rationale": "Totals are raw counts; \"per 100,000 people\" means a rate."
+        },
+        {
+          "id": "d",
+          "label": "It counts 100,000 cases in each place",
+          "correct": false,
+          "rationale": "The 100,000 counts people, not cases."
+        }
+      ],
+      "explanation": "A count divided by the population and scaled to 100,000 people is a rate, which is how Level 6 compared a town with a city.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.analysisfunction_charts_guidance",
+    "source.ons_service_manual_chart_text",
+    "source.cdc_epi_lesson3_morbidity"
+  ],
+  "art": "mind.bar-chart"
+}

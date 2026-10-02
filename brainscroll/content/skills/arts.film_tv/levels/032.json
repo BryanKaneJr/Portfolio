@@ -1,0 +1,213 @@
+{
+  "id": "level.arts.film_tv.032",
+  "skillId": "skill.arts.film_tv",
+  "number": 32,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Invisible Editing",
+  "objective": "After this level you can explain continuity editing and the match on action, which hide cuts so a scene feels unbroken.",
+  "summary": "Continuity editing, classical Hollywood's 'invisible editing', matches direction, position and time across cuts. A match on action carries a movement across the cut.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.cutting_continuity_editing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.cutting_match_on_action",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.apparent_motion",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.031"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.032.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A scene is full of cuts. So why doesn't it feel chopped up?",
+      "body": "A scene you watch is really a string of separate shots, joined by cuts. Yet a character crosses a room and it feels like one smooth moment, in one place, at one time. Somebody worked hard to keep it that way. Here's the system behind it."
+    },
+    {
+      "id": "card.film_tv.032.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hollywood's invisible style",
+      "body": "From the 1930s to the 1950s, classical Hollywood's dominant style is sometimes called invisible editing, because its cuts are so unobtrusive. Its formal name is continuity editing: a system of cutting that keeps the action clear and continuous by matching screen direction, positions and time from shot to shot. It backs up an assumption you make without thinking: that space and time run on unbroken across every cut."
+    },
+    {
+      "id": "card.film_tv.032.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cut in the middle of a move",
+      "body": "A favorite place to hide a cut is inside a movement. In a match on action, a movement begun in one shot is picked up where it left off in the next. A hand reaches for a cup, cut, and a closer shot finishes the reach. The movement stitches the two shots together, so you read one continuous gesture instead of a join."
+    },
+    {
+      "id": "card.film_tv.032.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The doorway that joins two places",
+      "body": "D. W. Griffith used the trick in the films he made at Biograph from 1908 to 1913. A character walks into a doorway outdoors, and in the next shot enters an interior built as a set. The outside and the inside were filmed in different places, but the matched step through the door makes them one house. The door is the stitch."
+    },
+    {
+      "id": "card.film_tv.032.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.032.q1"
+    },
+    {
+      "id": "card.film_tv.032.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.032.q2"
+    },
+    {
+      "id": "card.film_tv.032.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.032.q3"
+    },
+    {
+      "id": "card.film_tv.032.c8",
+      "type": "checkpoint",
+      "headline": "Invisible editing: seen",
+      "learned": [
+        "Continuity editing matches direction, position and time",
+        "Classical Hollywood's style: 'invisible editing'",
+        "Match on action: cut mid-movement, continue it next shot",
+        "Griffith's doorway joined places filmed apart"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.032.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.cutting_continuity_editing"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.032.c2"
+      ],
+      "prompt": "Why is classical Hollywood's continuity style sometimes called invisible editing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its films were edited without any cuts",
+          "correct": false,
+          "rationale": "Continuity films are full of cuts; they just hide them."
+        },
+        {
+          "id": "b",
+          "label": "Its cuts are so unobtrusive you barely notice them",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Its editors worked in darkened rooms",
+          "correct": false,
+          "rationale": "The name is about what viewers notice, not the editors' rooms."
+        },
+        {
+          "id": "d",
+          "label": "Its editors were never credited on screen",
+          "correct": false,
+          "rationale": "The name describes the cuts, not the credits."
+        }
+      ],
+      "explanation": "Continuity editing keeps the cuts so unobtrusive that the action seems to run on without a break.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.032.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.cutting_match_on_action"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.032.c3"
+      ],
+      "prompt": "How does a match on action keep a cut from being noticed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It fades slowly to black between the shots",
+          "correct": false,
+          "rationale": "A fade marks a break; a match on action hides one."
+        },
+        {
+          "id": "b",
+          "label": "It keeps the camera rolling with no cut at all",
+          "correct": false,
+          "rationale": "There is a cut; the movement hides it."
+        },
+        {
+          "id": "c",
+          "label": "It cuts during a movement, and the next shot continues it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It plays loud music over the join",
+          "correct": false,
+          "rationale": "The trick is visual: the movement carries across."
+        }
+      ],
+      "explanation": "A movement begun in one shot is picked up in the next, so you read one continuous gesture instead of a join.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.film_tv.032.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.apparent_motion",
+        "concept.film_tv.cutting_continuity_editing"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.032.c2",
+        "card.film_tv.002.c3"
+      ],
+      "prompt": "In Level 2, your brain supplied the motion between still frames. What does continuity editing count on you to supply between shots?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The missing frames inside each shot",
+          "correct": false,
+          "rationale": "Each shot is complete; the question is what happens between shots."
+        },
+        {
+          "id": "b",
+          "label": "Flicker fusion to hide the splice",
+          "correct": false,
+          "rationale": "Flicker fusion steadies flickering light; it does not join shots."
+        },
+        {
+          "id": "c",
+          "label": "The dialogue the actors left out",
+          "correct": false,
+          "rationale": "Continuity editing is about space and time, not missing lines."
+        },
+        {
+          "id": "d",
+          "label": "The sense that space and time run on unbroken",
+          "correct": true
+        }
+      ],
+      "explanation": "Continuity editing supports your assumption that space and time continue unbroken from one shot to the next.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.yale_film_analysis_editing",
+    "source.encyclopedia_com_film_editing"
+  ],
+  "art": "film.scissors"
+}

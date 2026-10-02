@@ -1,0 +1,222 @@
+{
+  "id": "level.world_systems.computers.091",
+  "skillId": "skill.world_systems.computers",
+  "number": 91,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Megabits, Megabytes and Speed",
+  "objective": "After this level you can work out a real download time from an advertised internet speed, and spot claims that mix up bits and bytes.",
+  "summary": "Speeds are sold in megabits per second, files in megabytes. Divide by 8: a 100 Mbps line moves at most 12.5 MB a second, and typical speeds are lower.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.techcheck_bits_vs_bytes_speed",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.techcheck_download_time",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.bit_patterns",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.size_prefixes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.090"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.091.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your plan says 100. Your download says 12.5. Nobody is lying.",
+      "body": "A 100 Mbps plan, a download bar showing about 12.5 MB a second. It looks like a rip-off. It's really a capital letter. Level 2's bits and bytes are hiding in the units."
+    },
+    {
+      "id": "card.computers.091.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Little b, big B",
+      "body": "Internet speeds are sold in megabits per second, written Mbps with a small b. File sizes are counted in megabytes, MB, with a capital B. And a byte, as Level 2 showed, is 8 bits. So one megabyte per second equals 8 megabits per second. To turn a speed into file terms, divide it by 8. The ad isn't wrong. It just counts in smaller pieces.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "People mix these up all the time. Small b is bits, big B is bytes, and it takes 8 bits to make a byte."
+      }
+    },
+    {
+      "id": "card.computers.091.c3",
+      "type": "fact",
+      "fact": "A 100 Mbps line moves at most about 12.5 megabytes a second.",
+      "context": "So a 1 GB file, about 1,000 MB, needs at least 80 seconds, and a 100 MB game at least 8. The recipe works for any plan: divide the speed by 8, then divide the file size by the answer. Notice the words 'at most' and 'at least'. This is the best case."
+    },
+    {
+      "id": "card.computers.091.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Up to, and typical",
+      "body": "The number in the ad is a ceiling. Since April 2024, large US internet providers have had to publish a broadband label listing typical download and upload speeds at peak hours for each plan they sell. So your worked-out download time is the fastest it could go. Redo the sum with the typical speed and you'll know what to expect on a busy evening, when everyone else is streaming too."
+    },
+    {
+      "id": "card.computers.091.c5",
+      "type": "mcq",
+      "questionId": "question.computers.091.q1"
+    },
+    {
+      "id": "card.computers.091.c6",
+      "type": "mcq",
+      "questionId": "question.computers.091.q2"
+    },
+    {
+      "id": "card.computers.091.c7",
+      "type": "mcq",
+      "questionId": "question.computers.091.q3"
+    },
+    {
+      "id": "card.computers.091.c8",
+      "type": "checkpoint",
+      "headline": "Speeds: decoded",
+      "learned": [
+        "Speeds are in megabits (b); files are in megabytes (B)",
+        "Divide Mbps by 8 to get megabytes per second",
+        "100 Mbps is at most 12.5 MB a second",
+        "Typical speeds are lower than the advertised maximum"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.091.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.techcheck_bits_vs_bytes_speed"
+      ],
+      "sourceCardIds": [
+        "card.computers.091.c2"
+      ],
+      "prompt": "Internet plans are sold in Mbps. What does the small b in Mbps stand for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bytes",
+          "correct": false,
+          "rationale": "Bytes get a capital B, as in MB."
+        },
+        {
+          "id": "b",
+          "label": "Bits",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Bandwidth",
+          "correct": false,
+          "rationale": "The b is the unit, bits."
+        },
+        {
+          "id": "d",
+          "label": "Billions",
+          "correct": false,
+          "rationale": "Mega already means millions; b is bits."
+        }
+      ],
+      "explanation": "Mbps is megabits per second: a small b for bits, while a capital B means bytes.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.091.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.techcheck_download_time"
+      ],
+      "sourceCardIds": [
+        "card.computers.091.c3",
+        "card.computers.091.c2"
+      ],
+      "prompt": "An ad says its 200 Mbps plan downloads a 100 MB game in half a second. At best, how long would it really take?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Half a second, as promised",
+          "correct": false,
+          "rationale": "That treats megabits as megabytes."
+        },
+        {
+          "id": "b",
+          "label": "About 32 seconds",
+          "correct": false,
+          "rationale": "That multiplies by 8 twice over."
+        },
+        {
+          "id": "c",
+          "label": "About 2 seconds",
+          "correct": false,
+          "rationale": "That divides the speed by 4, not 8."
+        },
+        {
+          "id": "d",
+          "label": "About 4 seconds",
+          "correct": true
+        }
+      ],
+      "explanation": "200 Mbps divided by 8 is 25 MB a second, so 100 MB takes at least 4 seconds.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.computers.091.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.techcheck_bits_vs_bytes_speed",
+        "concept.computers.bit_patterns"
+      ],
+      "sourceCardIds": [
+        "card.computers.091.c2",
+        "card.computers.002.c4"
+      ],
+      "prompt": "Why must a speed in megabits be divided by 8 before you compare it with a file in megabytes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each byte is made of 8 bits, as Level 2 showed",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Networks lose seven eighths of all data",
+          "correct": false,
+          "rationale": "Nothing is lost; the units differ."
+        },
+        {
+          "id": "c",
+          "label": "A file shrinks by 8 when it downloads",
+          "correct": false,
+          "rationale": "The file stays the same size."
+        },
+        {
+          "id": "d",
+          "label": "Internet providers round their numbers up by 8",
+          "correct": false,
+          "rationale": "The label is honest; it counts bits."
+        }
+      ],
+      "explanation": "A byte is 8 bits, so 8 megabits per second is one megabyte per second.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.techtarget_mbps",
+    "source.fcc_broadband_labels"
+  ],
+  "art": "computers.garden-hose"
+}

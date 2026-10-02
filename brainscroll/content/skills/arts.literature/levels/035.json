@@ -1,0 +1,239 @@
+{
+  "id": "level.arts.literature.035",
+  "skillId": "skill.arts.literature",
+  "number": 35,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Sonnet",
+  "objective": "After this level you can explain how a sonnet's 14 lines are built in its Italian and English forms and where its turn comes.",
+  "summary": "A sonnet is 14 lines of iambic pentameter. The Italian form turns between octave and sestet; the English form, three quatrains and a couplet, turns before the couplet, as in Sonnet 130.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.sonnet_forms",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.sonnet_volta",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.iambic_pentameter",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.034"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.035.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "For twelve lines, this love poem refuses to flatter.",
+      "body": "\"My mistress' eyes are nothing like the sun; / Coral is far more red, than her lips red.\" Shakespeare's Sonnet 130 compares his beloved, unfavorably, to all the usual beauties of nature. Then the last two lines swerve. That swerve is the secret engine of the sonnet."
+    },
+    {
+      "id": "card.literature.035.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fourteen lines, a little song",
+      "body": "A sonnet is a 14-line poem, traditionally in iambic pentameter with a set rhyme scheme. The name comes from the Italian sonetto, \"a little sound or song.\" It began among Sicilian court poets in the 13th century, and the Italian poet Petrarch perfected it. In the 16th century, Sir Thomas Wyatt and Henry Howard, Earl of Surrey, brought it to England."
+    },
+    {
+      "id": "card.literature.035.c3",
+      "type": "comparison",
+      "headline": "Two blueprints",
+      "items": [
+        {
+          "label": "Italian (Petrarchan)",
+          "points": [
+            "Octave: 8 lines, abbaabba",
+            "Sestet: 6 lines that answer it",
+            "The turn: between lines 8 and 9"
+          ]
+        },
+        {
+          "label": "English (Shakespearean)",
+          "points": [
+            "Three quatrains: abab cdcd efef",
+            "A closing couplet: gg",
+            "The turn: before the couplet"
+          ]
+        }
+      ],
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep this: find the turn, and you've found what the sonnet is really about."
+      }
+    },
+    {
+      "id": "card.literature.035.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sonnet 130 turns",
+      "body": "That shift has a name: the volta, Italian for \"turn,\" the point where a poem's thought changes direction, often flagged by \"but\" or \"yet.\" Sonnet 130 turns right on cue, before the couplet: \"And yet by heaven, I think my love as rare, / As any she belied with false compare.\" Twelve lines of plain truth were the setup. She's as lovely as any woman praised with false comparisons."
+    },
+    {
+      "id": "card.literature.035.c5",
+      "type": "mcq",
+      "questionId": "question.literature.035.q1"
+    },
+    {
+      "id": "card.literature.035.c6",
+      "type": "mcq",
+      "questionId": "question.literature.035.q2"
+    },
+    {
+      "id": "card.literature.035.c7",
+      "type": "mcq",
+      "questionId": "question.literature.035.q3"
+    },
+    {
+      "id": "card.literature.035.c8",
+      "type": "checkpoint",
+      "headline": "Sonnets: built",
+      "learned": [
+        "A sonnet: 14 lines of iambic pentameter",
+        "Italian: octave, sestet, turn after line 8",
+        "English: three quatrains and a couplet",
+        "The volta is the turn in thought"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.035.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.sonnet_forms"
+      ],
+      "sourceCardIds": [
+        "card.literature.035.c2"
+      ],
+      "prompt": "How many lines does a traditional sonnet have?",
+      "options": [
+        {
+          "id": "a",
+          "label": "10",
+          "correct": false,
+          "rationale": "Too short."
+        },
+        {
+          "id": "b",
+          "label": "12",
+          "correct": false,
+          "rationale": "Sonnet 130 turns after 12, but it has more."
+        },
+        {
+          "id": "c",
+          "label": "14",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "17",
+          "correct": false,
+          "rationale": "That's the syllable count of a haiku."
+        }
+      ],
+      "explanation": "A sonnet has 14 lines, traditionally in iambic pentameter.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.literature.035.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.sonnet_forms",
+        "concept.literature.sonnet_volta"
+      ],
+      "sourceCardIds": [
+        "card.literature.035.c3",
+        "card.literature.035.c4"
+      ],
+      "prompt": "How is an English (Shakespearean) sonnet built?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An octave and a sestet, turning after line 8",
+          "correct": false,
+          "rationale": "That's the Italian form."
+        },
+        {
+          "id": "b",
+          "label": "Three quatrains and a couplet, turning before the couplet",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Seven couplets, all on one rhyme",
+          "correct": false,
+          "rationale": "It uses three quatrains and one couplet."
+        },
+        {
+          "id": "d",
+          "label": "Any 14 lines with no rhyme at all",
+          "correct": false,
+          "rationale": "It has a set rhyme scheme."
+        }
+      ],
+      "explanation": "The English sonnet rhymes abab cdcd efef gg, and its turn usually comes before the final couplet.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.literature.035.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.iambic_pentameter",
+        "concept.literature.sonnet_forms"
+      ],
+      "sourceCardIds": [
+        "card.literature.035.c2",
+        "card.literature.032.c3"
+      ],
+      "prompt": "A sonnet's lines are traditionally in Level 32's iambic pentameter. How many iambs does each line hold?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Three",
+          "correct": false,
+          "rationale": "That would be trimeter."
+        },
+        {
+          "id": "b",
+          "label": "Four",
+          "correct": false,
+          "rationale": "That would be tetrameter."
+        },
+        {
+          "id": "c",
+          "label": "Five",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Six",
+          "correct": false,
+          "rationale": "That would be hexameter."
+        }
+      ],
+      "explanation": "Iambic pentameter is five iambs a line, about ten syllables.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.gutenberg_shakespeare_sonnets",
+    "source.folger_sonnet_130",
+    "source.poets_sonnet",
+    "source.brit_sonnet",
+    "source.poets_volta",
+    "source.poets_iambic_pentameter"
+  ],
+  "art": "lit.locket"
+}

@@ -1,0 +1,220 @@
+{
+  "id": "level.mind.religions.037",
+  "skillId": "skill.mind.religions",
+  "number": 37,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Hajj",
+  "objective": "After this level you can describe the rites of the pilgrimage to Mecca and why every pilgrim wears the same simple white garments.",
+  "summary": "In ihram's simple clothing pilgrims stand as equals, circle the Kaaba, retrace Hagar's search for water, stand at Arafat, stone the pillars at Mina and sacrifice, as Eid al-Adha begins.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.hajj_rites",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.hajj_equality",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.ramadan_two_eids",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.religions.pillars_life_rhythm",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.036"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.037.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Once in a lifetime, if you can manage it.",
+      "body": "Every adult Muslim who is physically and financially able must make the hajj to Mecca at least once. What happens there, and why does everyone dress alike?"
+    },
+    {
+      "id": "card.religions.037.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Dressed as equals",
+      "body": "Before the rites begin, pilgrims enter ihram, a state of ritual purity. Men wrap themselves in two white seamless sheets; women may wear sewn clothes. The hajj is meant to show that everyone is equal before God, and the simple white clothing strips away the markers of status, wealth and pride. Standing in the crowd, you can't tell the rich pilgrim from the poor one."
+    },
+    {
+      "id": "card.religions.037.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "In Hagar's footsteps",
+      "body": "In Mecca pilgrims walk around the Kaaba seven times, counterclockwise. Then they walk seven times between two small hills, Safa and Marwa. Muslims believe Hagar ran between them searching for water for her son Ishmael, until the spring of Zamzam gushed from the ground. Today's pilgrims retrace a mother's search.",
+      "callout": "Tawaf: seven circuits of the Kaaba. Then seven walks between Safa and Marwa"
+    },
+    {
+      "id": "card.religions.037.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Arafat, stones, sacrifice",
+      "body": "The hajj runs from the 7th to the 12th of Dhu al-Hijjah. Pilgrims stand praising God in the open on the plain of Arafat, spend the night at Muzdalifah, then throw stones at pillars at Mina that represent the devil. They sacrifice an animal in memory of Abraham's sacrifice; men usually shave their heads and women cut a lock of hair. It is the moment Eid al-Adha begins."
+    },
+    {
+      "id": "card.religions.037.c5",
+      "type": "mcq",
+      "questionId": "question.religions.037.q1"
+    },
+    {
+      "id": "card.religions.037.c6",
+      "type": "mcq",
+      "questionId": "question.religions.037.q2"
+    },
+    {
+      "id": "card.religions.037.c7",
+      "type": "mcq",
+      "questionId": "question.religions.037.q3"
+    },
+    {
+      "id": "card.religions.037.c8",
+      "type": "checkpoint",
+      "headline": "The Hajj: the takeaways",
+      "learned": [
+        "Pilgrims wear simple ihram clothing to stand as equals",
+        "They circle the Kaaba and retrace Hagar's search for water",
+        "The sacrifice at the hajj's height begins Eid al-Adha"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.037.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.hajj_rites"
+      ],
+      "sourceCardIds": [
+        "card.religions.037.c3"
+      ],
+      "prompt": "What do pilgrims walk around seven times, counterclockwise, during the hajj?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The plain of Arafat",
+          "correct": false,
+          "rationale": "Pilgrims stand at Arafat; they don't circle it."
+        },
+        {
+          "id": "b",
+          "label": "The Kaaba",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Mount Hira",
+          "correct": false,
+          "rationale": "Mount Hira belongs to the first revelation, not the hajj rites."
+        },
+        {
+          "id": "d",
+          "label": "The pillars at Mina",
+          "correct": false,
+          "rationale": "At Mina pilgrims throw stones at the pillars."
+        }
+      ],
+      "explanation": "The circuits of the Kaaba are the tawaf.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.religions.037.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.hajj_equality"
+      ],
+      "sourceCardIds": [
+        "card.religions.037.c2"
+      ],
+      "prompt": "How does ihram clothing express the meaning of the hajj?",
+      "options": [
+        {
+          "id": "a",
+          "label": "White marks pilgrims out as religious leaders",
+          "correct": false,
+          "rationale": "Everyone wears it; it marks no rank."
+        },
+        {
+          "id": "b",
+          "label": "Each country's pilgrims wear their own color",
+          "correct": false,
+          "rationale": "The point is sameness, not national colors."
+        },
+        {
+          "id": "c",
+          "label": "Only wealthy pilgrims wear white, to show generosity",
+          "correct": false,
+          "rationale": "Everyone dresses simply, rich and poor alike."
+        },
+        {
+          "id": "d",
+          "label": "Simple dress hides wealth and status, so all stand equal",
+          "correct": true
+        }
+      ],
+      "explanation": "The simple clothing strips away markers of status, wealth and pride: everyone is equal before God.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.037.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.hajj_rites",
+        "concept.religions.ramadan_two_eids"
+      ],
+      "sourceCardIds": [
+        "card.religions.037.c4",
+        "card.religions.036.c4"
+      ],
+      "prompt": "Level 36 introduced Eid al-Adha. How is it tied to the hajj?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pilgrims sacrifice at the hajj's height, as Eid al-Adha begins",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Eid al-Adha marks the end of the Ramadan fast in Mecca",
+          "correct": false,
+          "rationale": "That's Eid al-Fitr, months earlier."
+        },
+        {
+          "id": "c",
+          "label": "It is the day pilgrims first put on ihram",
+          "correct": false,
+          "rationale": "Ihram comes before the rites begin."
+        },
+        {
+          "id": "d",
+          "label": "It is celebrated only by those on the hajj",
+          "correct": false,
+          "rationale": "Families everywhere sacrifice and share meat."
+        }
+      ],
+      "explanation": "Eid al-Adha begins on the 10th of Dhu al-Hijjah, at the height of the hajj, when pilgrims sacrifice in memory of Abraham; Muslims everywhere celebrate it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_hajj",
+    "source.bbc_islam_hajj",
+    "source.brit_great_mosque_mecca",
+    "source.brit_eid_al_adha"
+  ],
+  "art": "medieval.camel"
+}

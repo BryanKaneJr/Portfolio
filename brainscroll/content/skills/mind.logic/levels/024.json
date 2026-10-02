@@ -1,0 +1,208 @@
+{
+  "id": "level.mind.logic.024",
+  "skillId": "skill.mind.logic",
+  "number": 24,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The False Choice",
+  "objective": "After this level you can spot a false dilemma that hides the options beyond the two on offer.",
+  "summary": "A false dilemma offers too few options and demands a pick. Its flaw is a false premise: that these are the only choices. Escape by naming a missing option; a genuinely complete menu is fine.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.classic_fallacy_false_dilemma",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.unstated_premise",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.023"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "A toaster with two settings: burnt and off.",
+      "body": "It's a joke because you know toasters do better than that. Arguments pull the same move with a straight face, and there it's no joke. Shrink the menu to two options, one of them awful, and you can steer someone to the one you wanted.",
+      "id": "card.logic.024.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Too few options",
+      "body": "A false dilemma unfairly offers too few choices, then insists you pick one. With just two, it's also called a false dichotomy or the black-or-white fallacy. \"Either you love this band or you have no taste\" ignores liking a few of their songs, or just preferring jazz. The flaw sits in a premise: the claim that these are the only options.",
+      "id": "card.logic.024.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Going between the horns",
+      "body": "One example in the Internet Encyclopedia of Philosophy is a pollster asking whether your boss is drunk on the job once a week, twice a week or more. What about never? Picture the options as the horns of a charging bull. Name a choice the menu left out, and you slip between the horns, ungored.",
+      "id": "card.logic.024.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Not every either/or is false",
+      "body": "Some choices really are two-way. \"Will you give $20 or won't you?\" is fair: those are the only options. So the test is whether the menu is complete, not whether it's short. A neat way to remember it: everything is either black or not black, but not everything is either black or white.",
+      "id": "card.logic.024.c4"
+    },
+    {
+      "id": "card.logic.024.c5",
+      "type": "mcq",
+      "questionId": "question.logic.024.q1"
+    },
+    {
+      "id": "card.logic.024.c6",
+      "type": "mcq",
+      "questionId": "question.logic.024.q2"
+    },
+    {
+      "id": "card.logic.024.c7",
+      "type": "mcq",
+      "questionId": "question.logic.024.q3"
+    },
+    {
+      "id": "card.logic.024.c8",
+      "type": "checkpoint",
+      "headline": "False choice: spotted",
+      "learned": [
+        "A false dilemma offers too few options",
+        "Its flaw: \"these are the only choices\"",
+        "Escape by naming a missing option",
+        "A complete either/or is fair"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.024.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_false_dilemma"
+      ],
+      "sourceCardIds": [
+        "card.logic.024.c2"
+      ],
+      "prompt": "What does a false dilemma do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Attacks the person making the argument",
+          "correct": false,
+          "rationale": "That's an ad hominem."
+        },
+        {
+          "id": "b",
+          "label": "Offers too few options and demands a pick",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Offers so many options you cannot choose",
+          "correct": false,
+          "rationale": "The trouble is too few options, not too many."
+        },
+        {
+          "id": "d",
+          "label": "Twists the other side into a weaker view",
+          "correct": false,
+          "rationale": "That's a straw man."
+        }
+      ],
+      "explanation": "A false dilemma unfairly limits the choices, often to two, then insists you choose among them.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.024.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_false_dilemma"
+      ],
+      "sourceCardIds": [
+        "card.logic.024.c3",
+        "card.logic.024.c4"
+      ],
+      "prompt": "How do you escape the pollster's \"once, twice or more a week\" question?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pick the least bad of the options",
+          "correct": false,
+          "rationale": "That accepts the unfair menu."
+        },
+        {
+          "id": "b",
+          "label": "Name the option it left out: never",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Refuse to answer any question at all",
+          "correct": false,
+          "rationale": "The fix is a missing option, not silence."
+        },
+        {
+          "id": "d",
+          "label": "Point out the pollster is rude",
+          "correct": false,
+          "rationale": "That's aimed at the person, not the menu."
+        }
+      ],
+      "explanation": "You go between the horns by naming a choice the menu left out. Here, the missing option is never.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.024.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_false_dilemma",
+        "concept.logic.unstated_premise"
+      ],
+      "sourceCardIds": [
+        "card.logic.024.c2",
+        "card.logic.007.c2"
+      ],
+      "prompt": "\"Either you love this band or you have no taste.\" Which unstated premise (Level 7) does it rely on?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That the band is very popular",
+          "correct": false,
+          "rationale": "Popularity never comes into it."
+        },
+        {
+          "id": "b",
+          "label": "That taste can be measured exactly",
+          "correct": false,
+          "rationale": "The argument needs something simpler."
+        },
+        {
+          "id": "c",
+          "label": "That jazz is better than this band",
+          "correct": false,
+          "rationale": "That's one of the options it ignores."
+        },
+        {
+          "id": "d",
+          "label": "That these are the only two options",
+          "correct": true
+        }
+      ],
+      "explanation": "A false dilemma quietly needs the premise that nothing lies between its two options. Say it out loud and it falls apart.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies"
+  ],
+  "art": "mind.signpost"
+}

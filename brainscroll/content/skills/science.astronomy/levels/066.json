@@ -1,0 +1,221 @@
+{
+  "id": "level.science.astronomy.066",
+  "skillId": "skill.science.astronomy",
+  "number": 66,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Stellar Nurseries",
+  "objective": "After this level you can describe how stars form inside nebulae.",
+  "summary": "Stars form in cold, dense clouds of gas and dust. The Orion Nebula, 1,300 light-years away, is the nearest big nursery.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.star_formation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.infrared_astronomy",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.star_life_cycle",
+      "role": "reinforce",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.light_year",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.065"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.066.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Stars are being born right now, and you can see one nursery yourself.",
+      "body": "No telescope needed, just a dark night and the constellation Orion. But first: how does a cloud turn into a star?"
+    },
+    {
+      "id": "card.astronomy.066.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "From cloud to star",
+      "body": "Stars form inside cold, dense clouds of gas and dust. Gravity pulls clumps of the cloud together, and as a clump shrinks, its center gets hotter. Eventually the core is hot enough for fusion to begin, and the clump becomes a star. The dust has a catch: it hides the action. That’s why the infrared light from Level 36 is so handy. It passes through the dust and lets us peek inside.",
+      "callout": "Cloud → clump → fusion ignites"
+    },
+    {
+      "id": "card.astronomy.066.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The nearest nursery",
+      "body": "The Orion Nebula is the nearest large region of star formation, about 1,300 light-years away. Find Orion’s belt, then the sword hanging from it. On a dark night, part of the sword looks like a fuzzy patch. That fuzz is a nursery. Its light left about 1,300 years ago, so you’re looking at old baby pictures."
+    },
+    {
+      "id": "card.astronomy.066.c4",
+      "type": "fact",
+      "fact": "Hubble photographed the “Pillars of Creation” in 1995.",
+      "context": "The picture shows towering columns of gas and dust in the Eagle Nebula, where stars are forming. Each pillar is the recipe from this level in progress: gravity squeezing clumps of a cold cloud into future stars."
+    },
+    {
+      "id": "card.astronomy.066.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.066.q1"
+    },
+    {
+      "id": "card.astronomy.066.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.066.q2"
+    },
+    {
+      "id": "card.astronomy.066.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.066.q3"
+    },
+    {
+      "id": "card.astronomy.066.c8",
+      "type": "checkpoint",
+      "headline": "Star birth: witnessed",
+      "learned": [
+        "Stars form in cold, dense clouds",
+        "Gravity pulls clumps together until fusion ignites",
+        "The Orion Nebula is the nearest big nursery",
+        "Hubble imaged the Pillars of Creation in 1995"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.066.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.star_formation"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.066.c2"
+      ],
+      "prompt": "Where do stars form?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Inside black holes",
+          "correct": false,
+          "rationale": "Black holes don’t make stars."
+        },
+        {
+          "id": "b",
+          "label": "On the surfaces of old stars",
+          "correct": false,
+          "rationale": "Stars form in clouds."
+        },
+        {
+          "id": "c",
+          "label": "In cold, dense clouds of gas and dust",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Inside the rings of giant planets",
+          "correct": false,
+          "rationale": "Rings are far too small."
+        }
+      ],
+      "explanation": "Stars form in cold, dense clouds of gas and dust, where gravity pulls clumps together.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.066.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.star_formation"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.066.c2"
+      ],
+      "prompt": "What turns a shrinking clump of gas into a true star?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its core becomes hot enough for fusion to begin",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It collides with another star",
+          "correct": false,
+          "rationale": "Collisions aren’t how stars start."
+        },
+        {
+          "id": "c",
+          "label": "It is struck by a comet",
+          "correct": false,
+          "rationale": "Comets have no effect on this."
+        },
+        {
+          "id": "d",
+          "label": "It cools until it freezes solid",
+          "correct": false,
+          "rationale": "It heats up, not cools."
+        }
+      ],
+      "explanation": "As the clump shrinks, its core heats up until hydrogen fusion ignites. Then it’s a star.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.066.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.star_formation",
+        "concept.astronomy.infrared_astronomy"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.066.c2",
+        "card.astronomy.036.c2"
+      ],
+      "prompt": "From Level 36: why is infrared light so useful for studying star nurseries?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Newborn stars give off no visible light",
+          "correct": false,
+          "rationale": "They do, but dust hides it."
+        },
+        {
+          "id": "b",
+          "label": "Infrared makes stars look bigger",
+          "correct": false,
+          "rationale": "It reveals, it doesn’t enlarge."
+        },
+        {
+          "id": "c",
+          "label": "Nurseries are too far for visible light",
+          "correct": false,
+          "rationale": "Distance isn’t the problem; dust is."
+        },
+        {
+          "id": "d",
+          "label": "It passes through the dust that hides forming stars",
+          "correct": true
+        }
+      ],
+      "explanation": "Stars form inside dusty clouds that block visible light. Infrared passes through the dust, revealing them.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_orion_nebula",
+    "source.nasa_star_life_cycle",
+    "source.nasa_pillars",
+    "source.nasa_light_year",
+    "source.nasa_webb"
+  ],
+  "art": "astronomy.nebula"
+}

@@ -1,0 +1,215 @@
+{
+  "id": "level.history.ancient_egypt.092",
+  "skillId": "skill.history.ancient_egypt",
+  "number": 92,
+  "type": "regular",
+  "revision": 2,
+  "status": "published",
+  "title": "The Rosetta Stone",
+  "objective": "After this level you can explain how the Rosetta Stone was found and why it mattered.",
+  "summary": "French soldiers found the Rosetta Stone in 1799. It carries one decree in hieroglyphs, demotic and Greek, and it has been in the British Museum since 1802.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_egypt.rosetta_stone_find",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_egypt.hieroglyphs_forgotten",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_egypt.ptolemaic_dynasty",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_egypt.091"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_egypt.092.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1799, soldiers digging a fort’s foundations hit the key to a lost script.",
+      "body": "They were French troops of Napoleon’s campaign in Egypt, working near the port of Rashid, which Europeans called Rosetta. The broken slab they dug up was covered in writing, in three different scripts. That was the whole point."
+    },
+    {
+      "id": "card.ancient_egypt.092.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One message, three scripts",
+      "body": "The stone carries the same decree three times. First in hieroglyphs. Then in demotic, the everyday Egyptian handwriting. Then in ancient Greek, the language of Egypt’s Macedonian Greek rulers. Nobody could read the first two, but scholars could still read Greek. So here was a lost script with a translation stapled on. Picture a menu printed in a language you can’t read, right beside one you can.",
+      "callout": "Hieroglyphs + demotic + Greek = one message"
+    },
+    {
+      "id": "card.ancient_egypt.092.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What it actually says",
+      "body": "Don’t expect a treasure map. The decree was issued in 196 BCE by priests of a temple in Memphis, confirming the Macedonian king Ptolemy V as a divine ruler. It’s official temple business. The words were never the exciting part. The exciting part was hearing the same thing said three ways."
+    },
+    {
+      "id": "card.ancient_egypt.092.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "From Rashid to London",
+      "body": "The French didn’t keep their find. After the French surrender in Egypt in 1801, the stone passed to the British. It has been on display in the British Museum almost continuously since 1802. It left only for safety during the First World War and for a one-month loan to Paris in 1972. Whether it should stay there is a live argument, and it gets its own level later in this chapter."
+    },
+    {
+      "id": "card.ancient_egypt.092.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.092.q1"
+    },
+    {
+      "id": "card.ancient_egypt.092.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.092.q2"
+    },
+    {
+      "id": "card.ancient_egypt.092.c7",
+      "type": "mcq",
+      "questionId": "question.ancient_egypt.092.q3"
+    },
+    {
+      "id": "card.ancient_egypt.092.c8",
+      "type": "checkpoint",
+      "headline": "The Rosetta Stone: found",
+      "learned": [
+        "Found in 1799 by French soldiers near Rashid",
+        "One decree in hieroglyphs, demotic and Greek",
+        "Greek gave scholars a readable translation",
+        "In the British Museum since 1802"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_egypt.092.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_egypt.rosetta_stone_find"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.092.c2"
+      ],
+      "prompt": "Which three scripts are carved on the Rosetta Stone?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hieroglyphs, Latin and Arabic script",
+          "correct": false,
+          "rationale": "There’s no Latin or Arabic on it."
+        },
+        {
+          "id": "b",
+          "label": "Demotic, Coptic and ancient Hebrew",
+          "correct": false,
+          "rationale": "Coptic and Hebrew aren’t on it."
+        },
+        {
+          "id": "c",
+          "label": "Hieroglyphs, demotic and ancient Greek",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Greek, Latin and Egyptian hieroglyphs",
+          "correct": false,
+          "rationale": "The third script is demotic, not Latin."
+        }
+      ],
+      "explanation": "The decree appears in hieroglyphs, in demotic and in ancient Greek.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_egypt.092.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_egypt.rosetta_stone_find"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.092.c2"
+      ],
+      "prompt": "Why did the Greek text on the Rosetta Stone matter so much to scholars?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Greek was readable, so it served as a translation",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It recorded the date the stone was dug up",
+          "correct": false,
+          "rationale": "It dates the decree, not the find."
+        },
+        {
+          "id": "c",
+          "label": "Greek was the script of the pharaohs’ tombs",
+          "correct": false,
+          "rationale": "Greek was the rulers’ language, not the tombs’ script."
+        },
+        {
+          "id": "d",
+          "label": "It named the soldiers who found the stone",
+          "correct": false,
+          "rationale": "It’s an ancient decree."
+        }
+      ],
+      "explanation": "Because Greek was still readable, the stone gave a known translation of the Egyptian texts beside it.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_egypt.092.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_egypt.rosetta_stone_find",
+        "concept.ancient_egypt.ptolemaic_dynasty"
+      ],
+      "sourceCardIds": [
+        "card.ancient_egypt.092.c3",
+        "card.ancient_egypt.087.c2"
+      ],
+      "prompt": "The Rosetta decree honors Ptolemy V; from Level 87, who founded the dynasty he belonged to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Alexander’s general Ptolemy",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A Persian king crowned as pharaoh",
+          "correct": false,
+          "rationale": "Persians ruled earlier; the Ptolemies were Macedonian."
+        },
+        {
+          "id": "c",
+          "label": "A Nubian king from Kush",
+          "correct": false,
+          "rationale": "Kush ruled centuries before."
+        },
+        {
+          "id": "d",
+          "label": "Julius Caesar of Rome",
+          "correct": false,
+          "rationale": "Caesar was Roman, not a Ptolemy."
+        }
+      ],
+      "explanation": "Ptolemy, Alexander’s Macedonian general, became governor of Egypt and then king, founding the dynasty of Ptolemy V.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.britishmuseum_rosetta_stone_blog",
+    "source.brit_rosetta_stone",
+    "source.britishmuseum_eureka_champollion"
+  ],
+  "art": "egypt.papyrus"
+}

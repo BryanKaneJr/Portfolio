@@ -1,0 +1,214 @@
+{
+  "id": "level.geography.earth_climate.084",
+  "skillId": "skill.geography.earth_climate",
+  "number": 84,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Ruling Out the Sun and Volcanoes",
+  "objective": "After this level you can weigh natural causes against greenhouse gases as explanations for recent warming.",
+  "summary": "The Sun's output shows no upward trend since 1978 and the stratosphere is cooling; volcanoes cool Earth only briefly. The IPCC finds natural drivers added about zero warming.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.warming_not_the_sun",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.warming_natural_drivers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.spheres_interact",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.083"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.084.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Sun heats our planet. So why isn't it behind the recent warming?",
+      "body": "It's a fair suspect, and so are volcanoes. A good detective checks every alibi before naming a culprit. Here are the two natural suspects, and the evidence that clears them."
+    },
+    {
+      "id": "card.earth_climate.084.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Suspect one: the Sun",
+      "body": "Since 1978, sensors on satellites have measured how much of the Sun's energy reaches the top of our atmosphere. They show no upward trend. Earth warmed anyway. You can't blame a rising temperature on a heater whose dial hasn't moved."
+    },
+    {
+      "id": "card.earth_climate.084.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The giveaway in the sky",
+      "body": "There's a second clue. A brighter Sun would warm every layer of the atmosphere, from the ground up through the stratosphere. Instead, the surface is warming while the stratosphere is cooling. That is the pattern you expect when gases trap heat down low, not when the Sun turns up."
+    },
+    {
+      "id": "card.earth_climate.084.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Suspect two: volcanoes",
+      "body": "Level 1 showed that a big eruption cools the planet for one to three years before the effect fades. That makes a dip, not a long climb. Add up every natural driver, the Sun and volcanoes together, and the IPCC finds they changed global temperature by only -0.1 to +0.1 °C between 1850 to 1900 and 2010 to 2019. Human causes likely account for 0.8 to 1.3 °C."
+    },
+    {
+      "id": "card.earth_climate.084.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.084.q1"
+    },
+    {
+      "id": "card.earth_climate.084.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.084.q2"
+    },
+    {
+      "id": "card.earth_climate.084.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.084.q3"
+    },
+    {
+      "id": "card.earth_climate.084.c8",
+      "type": "checkpoint",
+      "headline": "Natural suspects: cleared",
+      "learned": [
+        "No rise in the Sun's energy since 1978",
+        "Stratosphere cooling points to greenhouse gases",
+        "Volcanoes cool briefly, then fade",
+        "Natural drivers added about zero warming"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.084.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.warming_not_the_sun"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.084.c2"
+      ],
+      "prompt": "What have satellite measurements of the Sun's energy reaching Earth shown since 1978?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A rise that matches Earth's warming",
+          "correct": false,
+          "rationale": "The Sun's output hasn't risen."
+        },
+        {
+          "id": "b",
+          "label": "No upward trend",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A doubling of the Sun's output",
+          "correct": false,
+          "rationale": "Nothing like that has been measured."
+        },
+        {
+          "id": "d",
+          "label": "Nothing, since they can't see the Sun",
+          "correct": false,
+          "rationale": "They measure it directly from orbit."
+        }
+      ],
+      "explanation": "Satellite sensors show no upward trend in solar energy since 1978, while Earth warmed.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.084.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.warming_not_the_sun"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.084.c3"
+      ],
+      "prompt": "The surface is warming while the stratosphere is cooling. Which explanation does that pattern support?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A brighter, stronger Sun",
+          "correct": false,
+          "rationale": "That would warm every layer, including the stratosphere."
+        },
+        {
+          "id": "b",
+          "label": "More volcanic eruptions",
+          "correct": false,
+          "rationale": "Eruptions briefly cool the surface."
+        },
+        {
+          "id": "c",
+          "label": "Heat-trapping gases near the ground",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Earth's normal seasons",
+          "correct": false,
+          "rationale": "Seasons don't cause a long-term trend."
+        }
+      ],
+      "explanation": "Gases trapping heat low down warm the surface while the stratosphere cools; a stronger Sun would warm all layers.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.earth_climate.084.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.warming_natural_drivers",
+        "concept.earth_climate.spheres_interact"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.084.c4",
+        "card.earth_climate.001.c4"
+      ],
+      "prompt": "Level 1 showed an eruption can change the whole planet's temperature. Why can't volcanoes explain warming since the 1800s?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their ash warms the air for centuries",
+          "correct": false,
+          "rationale": "Ash falls out within days to weeks."
+        },
+        {
+          "id": "b",
+          "label": "They cool Earth, and only for a few years",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They stopped erupting in 1850",
+          "correct": false,
+          "rationale": "Volcanoes have erupted all along."
+        },
+        {
+          "id": "d",
+          "label": "Their sulfur traps heat near the ground",
+          "correct": false,
+          "rationale": "Sulfur droplets reflect sunlight and cool."
+        }
+      ],
+      "explanation": "Eruptions cool Earth for one to three years; natural drivers overall changed temperature by only about -0.1 to +0.1 °C.",
+      "difficulty": 0.45
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_sun_warming_faq",
+    "source.ipcc_ar6_wg1_spm",
+    "source.usgs_volcanoes_climate"
+  ],
+  "art": "astronomy.sun"
+}

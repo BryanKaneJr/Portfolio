@@ -1,0 +1,222 @@
+{
+  "id": "level.mind.philosophy.061",
+  "skillId": "skill.mind.philosophy",
+  "number": 61,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Is Everything Already Caused?",
+  "objective": "After this level you can explain determinism, using Laplace's all-knowing intellect, and why it seems to threaten free will.",
+  "summary": "Determinism says the past and the laws of nature fix what follows, as Laplace’s all-knowing intellect shows; it seems to leave no room to choose otherwise.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.freedom_determinism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.branches",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.060"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.061.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Could someone have predicted this exact moment centuries ago?",
+      "body": "Not roughly. Exactly: where you’re sitting, what you’ll think next. A French mathematician imagined a mind that could. If he was right, where does that leave your choices?"
+    },
+    {
+      "id": "card.philosophy.061.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fixed by law, not by fate",
+      "body": "Determinism is the view that, given the way things are at one moment, the way things go afterward is fixed by the laws of nature. That isn’t fatalism. Fatalism says certain things will happen whatever you do, thanks to gods or destiny. Determinism runs through ordinary causes: each moment follows from the last, like dominoes, all the way to you reaching for your phone.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "People mix these two up all the time. Fate ignores what you do; determinism runs right through what you do."
+      }
+    },
+    {
+      "id": "card.philosophy.061.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Laplace’s all-knowing intellect",
+      "body": "In his Philosophical Essay on Probabilities (1814), Pierre-Simon Laplace pictured an intelligence that knew every force in nature and the position of every thing at a single instant. For such a mind, he wrote, “nothing would be uncertain”: the future, like the past, would lie open before it. Later writers nicknamed it Laplace’s demon, though Laplace never used the word."
+    },
+    {
+      "id": "card.philosophy.061.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "So where are you in all this?",
+      "body": "Here’s the worry. If the state of the world long ago fixed everything you do, and you can change neither the past nor the laws of nature, in what sense could you have chosen otherwise? Your decision to order tea was on its way before you were born. That is why determinism seems to threaten free will: every choice looks like a falling domino, not a push."
+    },
+    {
+      "id": "card.philosophy.061.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Is the world really like that?",
+      "body": "Nobody has settled it. Many physicists have held that quantum theories are indeterministic, though philosophers of physics point out that this argument is debatable too. Even a deterministic world might defeat the demon: studies of chaos suggest no finite mind inside the world could compute its future. And compatibilists argue that freedom was never threatened in the first place."
+    },
+    {
+      "id": "card.philosophy.061.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.061.q1"
+    },
+    {
+      "id": "card.philosophy.061.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.061.q2"
+    },
+    {
+      "id": "card.philosophy.061.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.061.q3"
+    },
+    {
+      "id": "card.philosophy.061.c9",
+      "type": "checkpoint",
+      "headline": "Is Everything Already Caused? The big picture",
+      "learned": [
+        "Determinism: the past plus the laws fix what follows",
+        "Laplace’s intellect for which nothing is uncertain",
+        "The worry: then you could never have chosen otherwise",
+        "Whether determinism is true is still debated"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.061.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.freedom_determinism"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.061.c3"
+      ],
+      "prompt": "What did Laplace imagine in 1814 to make determinism vivid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A machine that makes every future choice at random",
+          "correct": false,
+          "rationale": "His intellect makes nothing uncertain."
+        },
+        {
+          "id": "b",
+          "label": "An intelligence that knows every force and position at one instant",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A god who decrees each single event in advance of time",
+          "correct": false,
+          "rationale": "That’s closer to fatalism."
+        },
+        {
+          "id": "d",
+          "label": "A great clock that runs the whole universe backwards",
+          "correct": false,
+          "rationale": "He imagined a knowing mind, not a clock."
+        }
+      ],
+      "explanation": "Laplace’s intelligence knows all the forces and positions at one instant, so for it nothing would be uncertain.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.philosophy.061.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.freedom_determinism"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.061.c4",
+        "card.philosophy.061.c2"
+      ],
+      "prompt": "How does determinism seem to threaten free will?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It says the gods decide your fate whatever you do",
+          "correct": false,
+          "rationale": "That’s fatalism, not determinism."
+        },
+        {
+          "id": "b",
+          "label": "It says your choices happen at random",
+          "correct": false,
+          "rationale": "Determinism makes them fixed, not random."
+        },
+        {
+          "id": "c",
+          "label": "It fixes your choices through a past and laws you can’t change",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It denies that people have desires at all",
+          "correct": false,
+          "rationale": "Desires are part of the causal chain."
+        }
+      ],
+      "explanation": "If the past and the laws of nature fix what you do, and you can change neither, it is hard to see how you could have chosen otherwise.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.philosophy.061.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.freedom_determinism",
+        "concept.philosophy.branches"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.002.c2",
+        "card.philosophy.061.c2"
+      ],
+      "prompt": "Level 2 gave each question a branch. Which branch asks whether the laws of nature fix everything that happens?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Aesthetics",
+          "correct": false,
+          "rationale": "Aesthetics studies beauty and art."
+        },
+        {
+          "id": "b",
+          "label": "Logic",
+          "correct": false,
+          "rationale": "Logic studies good and bad reasoning."
+        },
+        {
+          "id": "c",
+          "label": "Political philosophy",
+          "correct": false,
+          "rationale": "That branch asks about society and justice."
+        },
+        {
+          "id": "d",
+          "label": "Metaphysics",
+          "correct": true
+        }
+      ],
+      "explanation": "Metaphysics studies what exists and how things cause or explain each other, which is exactly what determinism is about.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sep_causal_determinism",
+    "source.mactutor_laplace",
+    "source.kwp_what_is_philosophy",
+    "source.sep_metaphysics"
+  ],
+  "art": "mind.logic-domino"
+}

@@ -1,0 +1,210 @@
+{
+  "id": "level.world_systems.computers.049",
+  "skillId": "skill.world_systems.computers",
+  "number": 49,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Why Websites Go Down",
+  "objective": "After this level you can explain why outages happen and how one small change can spread, using the 2021 Facebook outage.",
+  "summary": "On October 4, 2021, a maintenance command cut Facebook's backbone, its DNS servers withdrew their routes, and Facebook, Instagram and WhatsApp vanished for about six hours.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.outage_cascade",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.outage_recovery",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.048"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.049.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "October 4, 2021: Facebook, Instagram and WhatsApp vanished for about six hours.",
+      "body": "Not an attack. Meta called it an error of its own making, and it began with a single command during routine maintenance. Following how one mistake spread is the clearest lesson in why big websites go down."
+    },
+    {
+      "id": "card.computers.049.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step 1: the backbone goes dark",
+      "body": "Facebook's data centers are linked by its own backbone network. During maintenance, a command meant to check how much backbone capacity was available accidentally took down every connection in it. An audit tool was supposed to stop commands like that, but a bug in the tool let it through. The data centers were cut off from each other and from the internet."
+    },
+    {
+      "id": "card.computers.049.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step 2: the address book disappears",
+      "body": "DNS is the internet's address book: it turns a name like facebook.com into a server's IP address. Networks announce which addresses they can reach using BGP. Facebook's DNS servers were built to withdraw their BGP announcements if they lost touch with the data centers, and they did. So they became unreachable, though still running. To the rest of the world, Facebook was simply gone."
+    },
+    {
+      "id": "card.computers.049.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step 3: locked out of the fix",
+      "body": "The outage also knocked out many of the internal tools Meta's engineers used every day, which made it harder to diagnose. Engineers had to go to the data centers in person, where buildings designed to be hard to get into, and hardware designed to be hard to change, slowed the repair. Meta said practice drills helped it bring things back carefully. One small change, then a cascade: every system leaned on the one before."
+    },
+    {
+      "id": "card.computers.049.c5",
+      "type": "mcq",
+      "questionId": "question.computers.049.q1"
+    },
+    {
+      "id": "card.computers.049.c6",
+      "type": "mcq",
+      "questionId": "question.computers.049.q2"
+    },
+    {
+      "id": "card.computers.049.c7",
+      "type": "mcq",
+      "questionId": "question.computers.049.q3"
+    },
+    {
+      "id": "card.computers.049.c8",
+      "type": "checkpoint",
+      "headline": "The outage: traced",
+      "learned": [
+        "A maintenance command cut Facebook's backbone",
+        "A buggy audit tool failed to stop it",
+        "DNS servers withdrew their BGP routes and vanished",
+        "Down tools and tight security slowed the fix"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.049.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.outage_cascade"
+      ],
+      "sourceCardIds": [
+        "card.computers.049.c2"
+      ],
+      "prompt": "What started the October 2021 Facebook outage?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A cyberattack launched from outside the company",
+          "correct": false,
+          "rationale": "Meta called it an error of its own making."
+        },
+        {
+          "id": "b",
+          "label": "A maintenance command that cut its backbone links",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A storm that damaged an undersea internet cable",
+          "correct": false,
+          "rationale": "The cause was a command, not weather."
+        },
+        {
+          "id": "d",
+          "label": "A flood of users all trying to sign in at once",
+          "correct": false,
+          "rationale": "Traffic didn't cause it; a command did."
+        }
+      ],
+      "explanation": "A command meant to assess backbone capacity took down every backbone connection, and a buggy audit tool failed to stop it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.049.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.outage_cascade"
+      ],
+      "sourceCardIds": [
+        "card.computers.049.c3"
+      ],
+      "prompt": "Why did Facebook's DNS servers become unreachable even though they were still running?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their hard drives were wiped during maintenance",
+          "correct": false,
+          "rationale": "They were still running; they had withdrawn their routes."
+        },
+        {
+          "id": "b",
+          "label": "Every browser in the world deleted Facebook's address",
+          "correct": false,
+          "rationale": "Browsers couldn't find the servers; nothing was deleted."
+        },
+        {
+          "id": "c",
+          "label": "They withdrew their BGP routes after losing the data centers",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The buildings housing them ran out of electricity",
+          "correct": false,
+          "rationale": "They had power; they stopped announcing their routes."
+        }
+      ],
+      "explanation": "Built to withdraw their BGP announcements if they couldn't reach the data centers, they did, so no one could find them.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.049.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.outage_recovery",
+        "concept.computers.outage_cascade"
+      ],
+      "sourceCardIds": [
+        "card.computers.049.c4"
+      ],
+      "prompt": "Why did fixing the outage take hours rather than minutes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its own tools were down, and engineers had to get into secure buildings",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Meta waited for users to report the problem",
+          "correct": false,
+          "rationale": "Meta was already fighting the outage."
+        },
+        {
+          "id": "c",
+          "label": "The backbone had to be rebuilt from new cables",
+          "correct": false,
+          "rationale": "The cables were fine; connections had been taken down."
+        },
+        {
+          "id": "d",
+          "label": "Engineers could not find which company owned the servers",
+          "correct": false,
+          "rationale": "They were Meta's own servers."
+        }
+      ],
+      "explanation": "The outage took down internal tools, and on-site repairs were slowed by buildings and hardware designed to resist tampering.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nbc_facebook_outage_2021",
+    "source.meta_outage_details_2021",
+    "source.meta_outage_2021",
+    "source.ietf_rfc4271_bgp",
+    "source.mdn_how_browsers_work"
+  ],
+  "art": "computers.unplugged-plug"
+}

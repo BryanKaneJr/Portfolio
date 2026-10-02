@@ -1,0 +1,208 @@
+{
+  "id": "level.mind.probability.012",
+  "skillId": "skill.mind.probability",
+  "number": 12,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Median: The Middle One",
+  "objective": "After this level you can find the median by lining values up in order and explain why it is the \"typical\" middle case.",
+  "summary": "The median is the middle value once the data are lined up in order, with half on each side. With an even count, it is halfway between the two middle values.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.averages_median_middle",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.averages_mean_fair_share",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.011"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.012.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Line people up by age and point at the one in the middle.",
+      "body": "No adding, no dividing. You have just found another kind of average, and it answers a different question from the mean: not \"what is the fair share?\" but \"who is in the middle?\""
+    },
+    {
+      "id": "card.probability.012.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Order first, then find the middle",
+      "body": "The median is the middle value once everything is lined up in order. Take the retirement ages of 11 people, lined up from 54 to 60. Count in from either end and the sixth age, 57, sits in the middle, with five ages below it and five above. That is the whole idea: half the list on each side."
+    },
+    {
+      "id": "card.probability.012.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "An even count? Split the difference",
+      "body": "With an even number of values there is no single middle, so take the two middle ones and find their mean. Add a twelfth person who retired at 52, and the two middle ages become 56 and 57. The median is halfway between them: 56.5. It is fine for a median to be a value nobody in the list has."
+    },
+    {
+      "id": "card.probability.012.c4",
+      "type": "fact",
+      "fact": "Half above, half below: that is what makes the median typical.",
+      "context": "The median does not add anything up; it just needs the values in order, so it describes the middle case. For those 11 retirement ages, the ages add up to 623 and the mean is about 56.6, close to the median of 57. When mean and median agree like that, either works. When they do not, the gap tells a story. That is next level."
+    },
+    {
+      "id": "card.probability.012.c5",
+      "type": "mcq",
+      "questionId": "question.probability.012.q1"
+    },
+    {
+      "id": "card.probability.012.c6",
+      "type": "mcq",
+      "questionId": "question.probability.012.q2"
+    },
+    {
+      "id": "card.probability.012.c7",
+      "type": "recall",
+      "questionId": "question.probability.012.q3"
+    },
+    {
+      "id": "card.probability.012.c8",
+      "type": "checkpoint",
+      "headline": "The median: in the middle",
+      "learned": [
+        "Line values up in order first",
+        "The median is the middle one",
+        "Even count: halfway between the middle two",
+        "Half the values sit on each side"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.012.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.averages_median_middle"
+      ],
+      "sourceCardIds": [
+        "card.probability.012.c2"
+      ],
+      "prompt": "What must you do to a list of numbers before you can find its median?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Add them all up and divide",
+          "correct": false,
+          "rationale": "Adding and dividing gives the mean."
+        },
+        {
+          "id": "b",
+          "label": "Put them in order from smallest to largest",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Remove the largest and smallest values",
+          "correct": false,
+          "rationale": "Nothing is removed; the median needs the order."
+        },
+        {
+          "id": "d",
+          "label": "Round each one to a whole number",
+          "correct": false,
+          "rationale": "Rounding is not needed; ordering is."
+        }
+      ],
+      "explanation": "The median is the middle value once the values are lined up in order.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.probability.012.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.averages_median_middle"
+      ],
+      "sourceCardIds": [
+        "card.probability.012.c3"
+      ],
+      "prompt": "A list of 12 ages has 56 and 57 as its two middle values. What is its median?",
+      "options": [
+        {
+          "id": "a",
+          "label": "56",
+          "correct": false,
+          "rationale": "With an even count, take the mean of the two middle values."
+        },
+        {
+          "id": "b",
+          "label": "57",
+          "correct": false,
+          "rationale": "With an even count, take the mean of the two middle values."
+        },
+        {
+          "id": "c",
+          "label": "56.5",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "There is no median",
+          "correct": false,
+          "rationale": "There is: halfway between the two middle values."
+        }
+      ],
+      "explanation": "With an even number of values, the median is halfway between the two middle ones: (56 + 57) ÷ 2 = 56.5.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.012.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.averages_median_middle",
+        "concept.probability.averages_mean_fair_share"
+      ],
+      "sourceCardIds": [
+        "card.probability.012.c4",
+        "card.probability.011.c2"
+      ],
+      "prompt": "For 11 retirement ages, the mean is about 56.6 and the median is 57. What is each one doing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The mean shares the total out; the median finds the middle",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Both pick the middle value, just rounded differently",
+          "correct": false,
+          "rationale": "Only the median picks the middle; the mean adds and divides."
+        },
+        {
+          "id": "c",
+          "label": "The mean is the most common age; the median is the total",
+          "correct": false,
+          "rationale": "The most common value is the mode."
+        },
+        {
+          "id": "d",
+          "label": "The median adds the ages; the mean lines them up",
+          "correct": false,
+          "rationale": "It is the other way round."
+        }
+      ],
+      "explanation": "The mean adds the ages and shares them out (623 ÷ 11); the median lines them up and takes the middle one.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.abs_central_tendency",
+    "source.openstax_intro_stats_center",
+    "source.illustrativemath_mean_fair_share"
+  ],
+  "art": "mind.height-line"
+}

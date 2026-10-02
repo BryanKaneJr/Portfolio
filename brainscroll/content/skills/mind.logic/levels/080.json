@@ -1,0 +1,354 @@
+{
+  "id": "level.mind.logic.080",
+  "skillId": "skill.mind.logic",
+  "number": 80,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "published",
+  "title": "Checkpoint: Persuasion and Rhetoric",
+  "objective": "After this level you can take apart a persuasive message and separate its reasons from its techniques.",
+  "summary": "A school-board mascot speech, taken apart: ethos, pathos, a loaded word, a loaded question and a weasel word, around one real reason. Techniques don't make a case wrong; judge the reasons.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.persuasion_rhetoric_uses",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.persuasion_three_appeals",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.persuasion_loaded_words",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.persuasion_weasel_words",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.persuasion_loaded_question",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.persuasion_framing",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.persuasion_no_true_scotsman",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.unstated_premise",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.079"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "A school board must pick a new mascot. Dana has two minutes.",
+      "body": "Dana wants the Hawks to replace the Snails. Her speech is rhetoric in the plain sense: communication meant to change how others see things. Let's take it apart with this chapter's tools and see what's left when the techniques are set aside.",
+      "id": "card.logic.080.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Dana's speech",
+      "body": "\"I've coached in this town since my kids were small. Picture our players, heads down, under a mascot nobody respects. Why would anyone keep a mascot this embarrassing? Up to half the students already wear Hawks shirts. And in last spring's survey, most students picked the Hawks.\" Aristotle would spot ethos in the first line and pathos in the second. Only one line is a reason.",
+      "id": "card.logic.080.c2"
+    },
+    {
+      "type": "comparison",
+      "headline": "Dana's speech, taken apart",
+      "id": "card.logic.080.c3",
+      "items": [
+        {
+          "label": "Reason",
+          "points": [
+            "Most students picked the Hawks in a survey"
+          ]
+        },
+        {
+          "label": "Appeals",
+          "points": [
+            "Ethos: years of coaching",
+            "Pathos: players with heads down"
+          ]
+        },
+        {
+          "label": "Word tricks",
+          "points": [
+            "Loaded word: \"embarrassing\"",
+            "Loaded question: why keep it?",
+            "Weasel words: \"up to half\""
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Techniques aren't lies",
+      "body": "Purdue's writing lab defines rhetoric broadly: any communication used to change how others see things. Like most good tools, it can serve a better or a worse cause. So spotting a technique doesn't make Dana wrong. Set the techniques aside, weigh the survey that's left, and the Hawks may still deserve to win.",
+      "id": "card.logic.080.c4"
+    },
+    {
+      "id": "card.logic.080.c5",
+      "type": "mcq",
+      "questionId": "question.logic.080.q1"
+    },
+    {
+      "id": "card.logic.080.c6",
+      "type": "mcq",
+      "questionId": "question.logic.080.q2"
+    },
+    {
+      "id": "card.logic.080.c7",
+      "type": "recall",
+      "questionId": "question.logic.080.q3"
+    },
+    {
+      "id": "card.logic.080.c8",
+      "type": "recall",
+      "questionId": "question.logic.080.q4"
+    },
+    {
+      "id": "card.logic.080.c9",
+      "type": "recall",
+      "questionId": "question.logic.080.q5"
+    },
+    {
+      "id": "card.logic.080.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 8 complete",
+      "learned": [
+        "How to take a persuasive message apart and judge its reasons separately from its techniques.",
+        "What ethos, pathos and logos are, and why only logos is an argument you can check.",
+        "How loaded words, weasel words, frames and loaded questions tilt a claim before any argument.",
+        "Why emotion and rhetoric aren't wrong in themselves, and when influence becomes manipulation."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.080.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.persuasion_rhetoric_uses"
+      ],
+      "sourceCardIds": [
+        "card.logic.080.c4"
+      ],
+      "prompt": "How does Purdue's writing lab define rhetoric, in brief?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Speech built on tricks and lies",
+          "correct": false,
+          "rationale": "Purdue says that's a common misunderstanding."
+        },
+        {
+          "id": "b",
+          "label": "Any communication used to change others' views",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The study of valid arguments",
+          "correct": false,
+          "rationale": "That's closer to logic."
+        },
+        {
+          "id": "d",
+          "label": "Formal public speaking only",
+          "correct": false,
+          "rationale": "Any communication counts."
+        }
+      ],
+      "explanation": "In brief, rhetoric is any communication used to modify the perspectives of others.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.080.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.persuasion_rhetoric_uses"
+      ],
+      "sourceCardIds": [
+        "card.logic.080.c3",
+        "card.logic.080.c4"
+      ],
+      "prompt": "In Dana's speech, which line is a reason for the Hawks rather than a technique?",
+      "options": [
+        {
+          "id": "a",
+          "label": "I've coached in this town for years",
+          "correct": false,
+          "rationale": "That's ethos: her character, not a reason about mascots."
+        },
+        {
+          "id": "b",
+          "label": "Picture our players, heads down",
+          "correct": false,
+          "rationale": "That's pathos: a feeling, not a reason."
+        },
+        {
+          "id": "c",
+          "label": "Most students picked the Hawks in a survey",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Up to half the students wear Hawks shirts",
+          "correct": false,
+          "rationale": "\"Up to\" is a weasel phrase: a ceiling, not a count."
+        }
+      ],
+      "explanation": "The survey is the one claim you could check that bears on the choice; strip the rest and it remains.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.080.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.persuasion_loaded_question",
+        "concept.logic.unstated_premise"
+      ],
+      "sourceCardIds": [
+        "card.logic.080.c2",
+        "card.logic.076.c2",
+        "card.logic.007.c2"
+      ],
+      "prompt": "Persuasion and Rhetoric checkpoint: \"Why would anyone keep a mascot this embarrassing?\" slips in which unstated claim?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Snails mascot is embarrassing",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Dana has coached for years",
+          "correct": false,
+          "rationale": "That's stated openly in her first line."
+        },
+        {
+          "id": "c",
+          "label": "Students took a survey",
+          "correct": false,
+          "rationale": "That's stated openly too."
+        },
+        {
+          "id": "d",
+          "label": "The board must vote today",
+          "correct": false,
+          "rationale": "Nothing in the question assumes that."
+        }
+      ],
+      "explanation": "Like Level 7's unstated premise, the question needs a claim it never says: that the Snails are embarrassing.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.080.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.persuasion_framing"
+      ],
+      "sourceCardIds": [
+        "card.logic.074.c3",
+        "card.logic.074.c4"
+      ],
+      "prompt": "A coach says \"We won 3 of our 4 games.\" Which line gives the same fact in the opposite frame?",
+      "options": [
+        {
+          "id": "a",
+          "label": "We won all 4 of our games",
+          "correct": false,
+          "rationale": "That changes the facts."
+        },
+        {
+          "id": "b",
+          "label": "We lost 3 of our 4 games",
+          "correct": false,
+          "rationale": "That changes the facts too."
+        },
+        {
+          "id": "c",
+          "label": "We played 3 games this season",
+          "correct": false,
+          "rationale": "That drops information."
+        },
+        {
+          "id": "d",
+          "label": "We lost 1 of our 4 games",
+          "correct": true
+        }
+      ],
+      "explanation": "Flipping the frame keeps the information: 3 wins of 4 means 1 loss of 4.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.080.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.persuasion_no_true_scotsman"
+      ],
+      "sourceCardIds": [
+        "card.logic.078.c2",
+        "card.logic.078.c3"
+      ],
+      "prompt": "Sam says no real gamer plays on easy mode. Told his friend does, Sam says the friend isn't a real gamer. What's the move?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Equivocation",
+          "correct": false,
+          "rationale": "No word switches meaning mid-argument; the group is redefined."
+        },
+        {
+          "id": "b",
+          "label": "No true Scotsman",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A loaded question",
+          "correct": false,
+          "rationale": "Nothing is asked."
+        },
+        {
+          "id": "d",
+          "label": "An appeal to pity",
+          "correct": false,
+          "rationale": "No one's feelings are being worked on."
+        }
+      ],
+      "explanation": "Sam redefines \"real gamer\" after the counterexample shows up, so his claim can't lose.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.purdue_owl_rhetorical_situations",
+    "source.sep_aristotle_rhetoric",
+    "source.iep_fallacies",
+    "source.merriam_webster_weasel_word",
+    "source.fallacyfiles_loaded_question"
+  ],
+  "art": "mind.logic-podium"
+}

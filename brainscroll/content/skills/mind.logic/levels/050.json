@@ -1,0 +1,428 @@
+{
+  "id": "level.mind.logic.050",
+  "skillId": "skill.mind.logic",
+  "number": 50,
+  "type": "milestone",
+  "revision": 1,
+  "status": "published",
+  "title": "Milestone: Reasons, Evidence and Causes",
+  "objective": "After this level you can connect arguments, evidence and causes into one method for checking a claim.",
+  "summary": "John Snow's 1854 case against the Broad Street pump, taken apart with the first half of the tree: an argument, a best explanation, a straw man to avoid, converging evidence and a claim about cause.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.causal_snow_broad_street",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.premise_conclusion",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.induction_best_explanation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.classic_fallacy_straw_man",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.evidence_convergence",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.cause_difference_maker",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.causal_post_hoc",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.causal_confounder",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.049"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Milestone: London, 1854. Cholera kills 500 people in 10 days.",
+      "body": "Most doctors blamed the air. Halfway to Mastery, here's one real case that uses everything so far: an argument, the evidence behind it and a claim about cause. The doctor John Snow suspected the water. Watch how he built his case, and where it was weaker than the legend.",
+      "id": "card.logic.050.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A cluster on the map",
+      "body": "Doctors then thought disease spread by breathing dirty air, called miasma. Snow took the addresses of the dead and plotted the cases on a map. The deaths clustered around a water pump on Broad Street. That's a correlation, and an argument: the premise, deaths cluster around the pump; the conclusion, the pump's water is spreading the disease.",
+      "id": "card.logic.050.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The brewery that stayed well",
+      "body": "A cluster alone could hide another cause, so the useful evidence is people near the pump who didn't drink from it. A brewery stood on Broad Street, near the pump. Of more than seventy workmen, none had cholera in a severe form; only two were even mildly unwell. The brewery had its own deep well, and the men were allowed malt liquor. Same street, different water, almost no cholera.",
+      "id": "card.logic.050.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The handle, and a caution",
+      "body": "Snow met the parish Board of Guardians on 7 September 1854, and the pump handle came off the next day. Legend says that ended the outbreak. But Snow himself wrote that attacks had already fallen before the handle was removed. Credit the handle alone and you'd commit Level 43's post hoc fallacy. The strong evidence was the pattern, not the timing.",
+      "id": "card.logic.050.c4"
+    },
+    {
+      "id": "card.logic.050.c5",
+      "type": "recall",
+      "questionId": "question.logic.050.q1"
+    },
+    {
+      "id": "card.logic.050.c6",
+      "type": "recall",
+      "questionId": "question.logic.050.q2"
+    },
+    {
+      "id": "card.logic.050.c7",
+      "type": "mcq",
+      "questionId": "question.logic.050.q3"
+    },
+    {
+      "id": "card.logic.050.c8",
+      "type": "mcq",
+      "questionId": "question.logic.050.q4"
+    },
+    {
+      "id": "card.logic.050.c9",
+      "type": "mcq",
+      "questionId": "question.logic.050.q5"
+    },
+    {
+      "id": "card.logic.050.c10",
+      "type": "recall",
+      "questionId": "question.logic.050.q6"
+    },
+    {
+      "id": "card.logic.050.c11",
+      "type": "recall",
+      "questionId": "question.logic.050.q7"
+    },
+    {
+      "id": "card.logic.050.c12",
+      "type": "checkpoint",
+      "headline": "Milestone: halfway there",
+      "learned": [
+        "How to take an argument apart into its premises, hidden assumptions and conclusion.",
+        "Why induction and best-explanation reasoning give likely answers, not certain ones.",
+        "How a fallacy like the straw man knocks down a view nobody actually holds.",
+        "Why independent lines of evidence that agree beat any single clue.",
+        "How to test a causal claim, and why a link can come from a hidden third factor or mere timing."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.050.q1",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.causal_snow_broad_street",
+        "concept.logic.premise_conclusion"
+      ],
+      "sourceCardIds": [
+        "card.logic.050.c2",
+        "card.logic.005.c2"
+      ],
+      "prompt": "In Snow's argument, what role does \"the deaths cluster around the pump\" play?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The conclusion",
+          "correct": false,
+          "rationale": "The conclusion is that the water spreads cholera."
+        },
+        {
+          "id": "b",
+          "label": "A question",
+          "correct": false,
+          "rationale": "It's a claim: true or false."
+        },
+        {
+          "id": "c",
+          "label": "An unstated premise",
+          "correct": false,
+          "rationale": "It's stated outright, on the map."
+        },
+        {
+          "id": "d",
+          "label": "A premise",
+          "correct": true
+        }
+      ],
+      "explanation": "It's the reason offered; \"the water spreads the disease\" is the conclusion it supports.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.050.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.induction_best_explanation",
+        "concept.logic.causal_snow_broad_street"
+      ],
+      "sourceCardIds": [
+        "card.logic.019.c3",
+        "card.logic.050.c2"
+      ],
+      "prompt": "Snow picked the water because it fit every clue better than bad air did, without ruling out every rival. What kind of reasoning is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Deduction, since the clues guaranteed it",
+          "correct": false,
+          "rationale": "His clues made the water likely, not certain."
+        },
+        {
+          "id": "b",
+          "label": "Inference to the best explanation",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Circular reasoning about the pump",
+          "correct": false,
+          "rationale": "He never assumed the conclusion in his premises."
+        },
+        {
+          "id": "d",
+          "label": "An appeal to what most doctors thought",
+          "correct": false,
+          "rationale": "Most doctors backed the rival idea, bad air."
+        }
+      ],
+      "explanation": "Like Level 19's detective, Snow chose the account that explained all the clues and beat its rivals: probable, not proved.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.050.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_straw_man"
+      ],
+      "sourceCardIds": [
+        "card.logic.023.c2",
+        "card.logic.050.c2"
+      ],
+      "prompt": "Imagine a critic replying: \"So Snow thinks every disease comes from water pumps? Absurd.\" What has the critic done?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Found a counterexample to Snow's claim",
+          "correct": false,
+          "rationale": "No case is offered; the view is just swapped for a bigger one."
+        },
+        {
+          "id": "b",
+          "label": "Attacked Snow instead of his claim",
+          "correct": false,
+          "rationale": "The critic targets a view, not Snow himself."
+        },
+        {
+          "id": "c",
+          "label": "Built a straw man of Snow's view",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Exposed a hidden premise Snow needed",
+          "correct": false,
+          "rationale": "Snow never needed \"every disease\" to reach his conclusion."
+        }
+      ],
+      "explanation": "Snow claimed this outbreak spread through this pump's water. Knocking down \"every disease\" leaves his real view standing.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.050.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.evidence_convergence",
+        "concept.logic.causal_snow_broad_street"
+      ],
+      "sourceCardIds": [
+        "card.logic.039.c2",
+        "card.logic.039.c4",
+        "card.logic.050.c3"
+      ],
+      "prompt": "Why are the cluster on the map and the healthy brewery workers stronger together than either one alone?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Two clues together make a claim certain",
+          "correct": false,
+          "rationale": "Agreeing evidence makes a case stronger, not certain."
+        },
+        {
+          "id": "b",
+          "label": "The brewery clue repeats the map's clue",
+          "correct": false,
+          "rationale": "It's a different kind of evidence: who stayed well."
+        },
+        {
+          "id": "c",
+          "label": "A cable is only as strong as its weakest fiber",
+          "correct": false,
+          "rationale": "Backwards: a chain fails at its weakest link; a cable can lose a fiber."
+        },
+        {
+          "id": "d",
+          "label": "Each could have failed alone, yet both agree",
+          "correct": true
+        }
+      ],
+      "explanation": "Independent lines of evidence that point the same way form a cable: the case holds even if one fiber is weak.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.logic.050.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.causal_snow_broad_street",
+        "concept.logic.cause_difference_maker"
+      ],
+      "sourceCardIds": [
+        "card.logic.050.c3",
+        "card.logic.041.c3"
+      ],
+      "prompt": "Why did the Broad Street brewery workers matter to Snow's case?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They drank other water and escaped serious cholera",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They lived far away from Broad Street",
+          "correct": false,
+          "rationale": "The brewery was on Broad Street, near the pump."
+        },
+        {
+          "id": "c",
+          "label": "They helped Snow draw his map of the deaths",
+          "correct": false,
+          "rationale": "The map came from the addresses of the dead."
+        },
+        {
+          "id": "d",
+          "label": "They were the first people to fall ill",
+          "correct": false,
+          "rationale": "None of them had cholera in a severe form."
+        }
+      ],
+      "explanation": "Near the pump but without its water, they stayed almost entirely well. Take away the supposed cause and the effect goes too: Level 41's difference-maker test.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.050.q6",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.causal_snow_broad_street",
+        "concept.logic.causal_post_hoc"
+      ],
+      "sourceCardIds": [
+        "card.logic.050.c4",
+        "card.logic.043.c2"
+      ],
+      "prompt": "Why doesn't removing the pump handle prove, on its own, that the pump caused the outbreak?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The handle was put back on the same day",
+          "correct": false,
+          "rationale": "Nothing says it was put back."
+        },
+        {
+          "id": "b",
+          "label": "Nobody recorded when it was removed",
+          "correct": false,
+          "rationale": "The date is recorded: the day after 7 September 1854."
+        },
+        {
+          "id": "c",
+          "label": "Cases were falling before it came off",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Snow wasn't in London at the time",
+          "correct": false,
+          "rationale": "Snow met the Board of Guardians himself."
+        }
+      ],
+      "explanation": "Snow wrote that attacks had already fallen. Crediting the handle alone would be post hoc reasoning.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.050.q7",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.causal_confounder",
+        "concept.logic.causal_snow_broad_street"
+      ],
+      "sourceCardIds": [
+        "card.logic.050.c3",
+        "card.logic.044.c2"
+      ],
+      "prompt": "Before the brewery evidence, why wasn't the cluster around the pump enough on its own?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The map showed too few deaths to judge",
+          "correct": false,
+          "rationale": "Hundreds died; the number was not the gap."
+        },
+        {
+          "id": "b",
+          "label": "Pump neighbors shared more than its water",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A correlation never counts as any evidence",
+          "correct": false,
+          "rationale": "It is evidence; it just cannot settle the cause alone."
+        },
+        {
+          "id": "d",
+          "label": "The deaths were spread evenly across London",
+          "correct": false,
+          "rationale": "They clustered around the pump."
+        }
+      ],
+      "explanation": "Neighbors of the pump also shared its air and streets, and a hidden third factor could drive the link. People near the pump who drank other water ruled that out.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.londonmuseum_john_snow",
+    "source.csph_snow_broad_street",
+    "source.msu_snow_pump_handle"
+  ],
+  "art": "mind.logic-puzzle-pieces"
+}

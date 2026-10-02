@@ -1,0 +1,119 @@
+# Social + Rewards expansion (post-MVP)
+
+This summarizes [`specs/SOCIAL_REWARDS.md`](specs/SOCIAL_REWARDS.md) (.docx snapshot in [`source/`](source/Social_Rewards_Expansion_Spec.docx)) and maps it onto what already exists. **Nothing here starts until the core loop is stable.** That means authored levels, progression, review, the daily cap and subscriptions.
+
+This expansion also carries **Weekly Knowledge Quests**, the recurring short-term objective for a learner's build. See [Weekly Knowledge Quests](#weekly-knowledge-quests) below.
+
+> **Principle:** make accumulated knowledge social, collectible and prestigious, without coins, pay-to-win or fear-based engagement. *Don't reward people for staying. Reward them for becoming more knowledgeable.*
+
+## What it adds
+
+| System | Rule |
+| --- | --- |
+| Currency | **None.** XP is progression; knowledge is the asset. There are no coins, gems, crates, gifting or paid boosts. |
+| Profile | Username → Knowledge Level → equipped title → three rarest trophies → skill levels with ★ → full trophy room → other stats. Weekly Quest trophies compete for the top three like any other. |
+| Trophies | Permanent and never lost to inactivity. Tiers come from **real** earn rates: Common 25%+, Uncommon 10–25%, Rare 3–10%, Epic 0.5–3%, Legendary <0.5%. Rarity is recalculated by a scheduled job, and the showcase refreshes at most daily. |
+| Ranks | Student at Lv 10, Scholar at 25, Specialist at 50, Expert at 75. Mastery ★ at 100, ★★ at 200 and ★★★ at 300. |
+| Titles | Identity rewards unlocked by combinations, e.g. *The Astronomer* (Astronomy Lv 100) or *Polymath* (mastery in 5 skill families). |
+| Friends | Mutual requests only, found by exact username or invite link. Friend-only visibility by default. **Block and report ship with friends.** There are no DMs, comments, posts or feed. |
+| Leaderboard | Friends-only and reset weekly. Scores come server-side from verified Knowledge XP only: no review farming, no purchase multiplier. **Nothing dwarfs a level:** a regular level is worth 100 / 70 / 35 / 15 XP by first-attempt accuracy (corrections add nothing), and the small quest bonus counts once like any other event. The leaderboard reads the same `xp_events` ledger; there is no separate leaderboard XP. |
+| Challenges | An asynchronous 5-question duel. Both players get the same versioned set, drawn **only from concepts both have unlocked** (no gotcha duels). Answers are sealed, and there's a small XP bonus that can't be farmed. |
+| Weekly Quests | ~25 new levels across 5 related skills, then a 3-question Final Round. They award a trophy, a title, a cosmetic and bonus XP, are finishable free, and are archived to the **Archive** rather than lost. See below. |
+| Cosmetics | Earned from accomplishments (frames, backgrounds, nameplates, emblem variants, and quest emblems or ornaments). Paid themes, if they ever exist, may **never** imitate mastery, rarity or rank. |
+| Streaks | A quiet stat only. Permanent 7/30/100/365-day trophies, no loss-framed messaging, and "Welcome back. Your levels are right where you left them." |
+| Notifications | About outcomes ("Mike challenged you in Roman History"), never anxiety ("Your friends are passing you!"). |
+
+## Build order (from the spec)
+
+| Phase | Build | Exit gate | Where we are |
+| --- | --- | --- | --- |
+| 0 | Prerequisite audit | Core progress events are server-validated; account identity and analytics are stable | 🟡 server validation ✅; **accounts ✅ (required, Apple/Google/phone/email); usernames and subscriptions missing** |
+| 1 | Reward event ledger | Retries can't double-award XP; every reward event is auditable | 🟡 largely exists as `xp_events` (unique idempotency key per user, tested). Missing: `CONCEPT_RECALLED`, `SKILL_MASTERED`, `PRESTIGE_REACHED` and challenge event types |
+| 2 | Achievement engine | A trophy unlocks from real criteria, permanently; the rarity job is deterministic | ⬜ |
+| 3 | Profile v2 | Renders with 0, 1 or hundreds of trophies; rarest-three is deterministic | ⬜ (the Profile tab is a basic character sheet today) |
+| 4 | Earned cosmetics | Can't equip without ownership; paid themes can't impersonate mastery | ⬜ (moved ahead of friends because quests award cosmetics) |
+| 5 | **Weekly Knowledge Quests** (v1 built 2026-09-29, ahead of titles/cosmetics at the owner's request) | Progress only from verified new-level events inside the quest window; existing levels, replays and reviews never count; free users finish a standard quest in ~5 learning days; archived quests award the same rewards | ⬜ |
+| 6 | Friend graph | Request/accept/remove/block/report work; privacy can't be bypassed client-side | ⬜ |
+| 7 | Friend profiles | Inspect a build quickly without exposing hidden data | ⬜ |
+| 8 | Weekly friend leaderboard | Time-zone-safe reset; can't be farmed via reviews, purchases or quest bonuses | ⬜ |
+| 9 | Friend challenges | Identical versioned questions; eligibility prevents unseen-content duels | ⬜ |
+| 10 | Quest friend integration | Friend quest progress within privacy settings; no pressure copy | ⬜ |
+| 11 | Weekly recap | Knowledge gains and quest progress first, social rank second | ⬜ |
+| 12 | Tuning | XP weights, trophy thresholds, quest sizes, notification frequency | ⬜ |
+
+Rules from the spec: no Weekly Quests until the ledger, trophies, titles, profile and cosmetics work, and quests never block the core MVP; no leaderboards until the friend graph works; no challenges until friendships and canonical progress are trustworthy; no cosmetics until trophies and titles make the profile worth visiting.
+
+## Weekly Knowledge Quests
+
+Permanent skill trees answer *"What kind of knowledgeable person am I becoming?"* Weekly Knowledge Quests answer *"What am I building toward this week?"* It's BrainScroll's version of a quest or boss encounter, with no combat, enemies, health bars, swords or parchment. The challenge is building the knowledge.
+
+| Rule | Detail |
+| --- | --- |
+| Standard quest | ~25 **new** levels, usually 5 related skills × 5. For example, *The Roman World*: Roman History, European Geography, Art & Architecture, Government & Society, Mythology & Religion. |
+| What counts | Only new canonical levels **completed (every question resolved)** while the quest is active. Roman History Lv. 180 doesn't complete it; five new Roman History levels do. Replays and reviews never count. Existing knowledge may later earn secondary recognition, never a skip. |
+| Final Round | Unlocks at 25/25. *(v1 changed this: a short lesson, one card and one question per skill; see "v1, as built".)* Original design: **3 synthesis questions** connecting the week's subjects. They're **reused** approved questions from the levels the learner completed for the quest, drawn from different requirement skills and preferring `connection` questions, and fixed once chosen. It's a short capstone, not an exam, and it doesn't use a daily level. Completing it awards the rewards. |
+| Rewards | Trophy (*The Roman World*), title (*Citizen of Rome*), earned cosmetic (*Marble Laurel*), bonus XP kept in proportion (+50 standard, +75 Epic, +100 Legendary: at most one level's worth). Also possible: backgrounds, frames, ornaments, emblem variants, mastery effects, set progress. **No coins, gems, loot boxes or store.** |
+| Free tier | 5 new levels a day means a standard quest takes about **5 learning days**, finishable free every week. Choosing where each day's five levels go (your Astronomy build or the quest's Art requirement) is the intended RPG decision. |
+| Unlimited | Removes only the daily cap: finish faster, or keep other skills moving the same week. No exclusive quests, knowledge, stats or rewards. *Pay for freedom, not knowledge.* |
+| Tiers | Standard ~25 (weekly); Epic ~35 (occasional, still free-possible across 7 days); Legendary 50+ (rare, optional, may be a long-term goal). Difficulty is never Premium-only. |
+| Overlap | A new level counts toward **every** active quest that needs its skill, with nothing to allocate. At most **one Archive quest** is active at a time, alongside the live quest. |
+| Live week vs Archive | **Owner decision 2026-09-29:** catching the live week matters. A quest finished in its live week earns its **trophy** (and the XP bonus). After the week it moves to **the Archive**, still completable for the knowledge and the XP bonus, but **not the trophy**. Copy stays calm and honest ("Finish by Sunday for the trophy. After that it's in the Archive, still worth XP."); never guilt, countdown alarms or "you missed out". |
+| Daily cap screen | *Daily Knowledge Complete* shows active-quest progress: 14 / 25 overall, x / 5 per skill, levels remaining, and "Come back tomorrow and keep building." Unlimited appears as an optional way to keep going. |
+| Friends | A plain progress list (Mike 25/25 ✓, Sarah 19/25, You 14/25). Never "Mike is beating you!" Group quests are a later Parties candidate. |
+| Visuals | One central emblem per quest that illuminates as requirements complete, five 0/5 rows, 0/25 overall, a reward preview and a locked Final Round. Gold and glow stay scarce. See [`visual-direction.md`](visual-direction.md). |
+
+### Milestone trophies (2026-09-29)
+
+Knowledge milestones pass the reward test (what you learned, how far, how consistently) and are **derived, never stored**: SQL `milestone_trophies()` / core `trophies.ts` read the ledger and date each by the moment it was reached. The fixed set: First Level, Warming Up (25 levels), Century (100), Five Hundred, A Thousand Levels; Chapter One, Ten Chapters, Fifty Chapters (checkpoints); Halfway There (Level 50); First Mastery (a first Level 100); perfect lessons at 10, 25, 50, 75 and every 100 up to 1,000 (every question right on the first clear); Long Memory and Steel Trap (100 and 500 first-try reviews); Curious (a level in 10 skills), Explorer (a level in every skill), Well Rounded (Level 10 in five skills), Polymath (a level in every subject); Quester, Quest Pro, Quest Champ and Quest Legend (4, 10, 25 and 52 quests finished in their week; owner, 2026-09-30). At the top: **Jack of All Trades** (Level 50 in every skill) and **Master of All** (every skill to Level 100, the greatest trophy). Plus **one mastery trophy per skill** ("Mastered: Astronomy", its Level 100) and **one per subject** ("Master of History", every skill in it mastered), shown with the gold mastery edge. **Streak trophies** (owner, 2026-09-29): One Week, One Month, A Hundred Days, One Year, 500 Days and 1,000 Days, for learning that many days in a row. They're earned by the longest run ever, so missing a day never takes one away, and nothing about them is loss-framed. Images: [`images-trophies.md`](images-trophies.md); counted trophies share one image per series and the app overlays the count. Quest trophies are the stored kind because they depend on finishing inside a week. **Sharing:** any held trophy can be shared as an image card (art, count, name and a line such as "I mastered History on BrainScroll!"), only when the learner chooses; no feed, no public profile. **Trophy earned:** Level Complete (and a quest's finish) shows each newly earned trophy once, found by comparing the server's shelf with the ids this account has been shown (kept on the device, `useNewTrophies`); nothing new is stored on the server.
+
+### v1, as built (owner decisions 2026-09-29)
+
+- **Names:** Weekly Quest, **Final Round** (was Final Encounter), **the Archive** (was the Chronicle).
+- **Schedule:** `content/quests.json`, one quest per week, live from its `startsOn` Monday 00:00 UTC for 7 days. `startsOn: null` means not scheduled yet (TBD): the quest never shows. All eight first quests are TBD until there's a launch week (owner, 2026-09-29).
+- **Live quest:** starts by itself for everyone at the week's start; there's no Start button. Progress = `LEVEL_COMPLETE` events in each requirement's skill during the window, capped at the requirement.
+- **Skills with nothing new left (owner, 2026-09-29):** once a learner has cleared every published level of a skill (mastered it, or caught up with the content), a finished **chapter review** in that skill counts as one level toward its requirement: the `CHAPTER_REVIEW` ledger row with reason `no_new_levels`, standing for the chapter's last level. Each chapter counts once per quest, and the Final Round can draw from it like any counted level. See [`product-rules.md`](product-rules.md#chapter-reviews).
+- **Archive:** one active Archive quest at a time. Continuing your own unfinished live week keeps what you did during it; starting a fresh one counts from that moment. Switching to another Archive quest resets unfinished progress on the one you leave (so bonuses can't be stockpiled).
+- **Final Round (owner, 2026-09-29):** unlocks when every requirement is met. It's a short **lesson built from existing levels**: first one card from each of the quest's skills, then one question per skill (five for a standard quest). Each skill's card and question come from the latest level that counted for it (its `connection` question if it has one; the card is that question's first source card), fixed once chosen. A wrong answer shows its source cards and you try again, like a level. It doesn't use a daily level and has no first-try scoring.
+- **Rewards:** the quest's XP bonus once (`QUEST_COMPLETE`, idempotency `quest_complete:<quest id>`); the **trophy only for a live-week clear** (finished before the week ends). The trophy also unlocks the quest's **title** (`titleReward`, e.g. "Citizen of Rome") and its **emblem** (the quest's art), which the learner can show on Profile (`set_equipped`, validated against their quest trophies). The Archive unlocks neither.
+- **Not affected:** the daily cap, the learning streak, skill levels and Knowledge Level.
+
+**Themes** combine five related trees: The Roman World, The Moon Landing, Age of Dinosaurs, The Renaissance, Age of Exploration, The Atomic Age, and later conceptual quests (Survive on Mars, Build a Civilization). The catalog should reach hundreds of combinations.
+
+**Data model** (data-driven, not hard-coded; names follow our snake_case SQL / camelCase TS conventions):
+
+| Table | Fields |
+| --- | --- |
+| `quests` | `id` (e.g. `quest.roman_world`), `title`, `subtitle`, `description`, `visual_key`, `tier` (`standard`/`epic`/`legendary`), `starts_at`, `featured_until`, `archive_available`, `final_round_size` (3), `reward_trophy_id`, `reward_title_id`, `reward_cosmetic_ids`, `xp_reward` |
+| `quest_requirements` | `quest_id`, `skill_id`, `new_levels_required` |
+| `user_quests` | `user_id`, `quest_id`, `started_at` (the quest start for the live week; the moment the user starts it from the Archive otherwise), `final_round_question_ids`, `final_round_resolved_at`, `live_clear`, `completed_at` |
+
+Per-requirement progress is **computed, not stored**: count `xp_events` of type `LEVEL_COMPLETE` for the requirement's `skill_id` created since `user_quests.started_at`. There's no second counter. The completion reward writes one `QUEST_COMPLETE` ledger event, plus trophy, title and cosmetic grants, and it's exactly-once via the idempotency key `quest_complete:<quest_id>`.
+
+## Fit with what's built
+
+- **The ledger already exists.** `xp_events` is immutable, keyed by `(user_id, idempotency_key)`, and written only by server functions. The e2e suite proves a double-tapped completion awards XP once. Phase 1 is mostly adding event types, not a new system. The spec calls the table `reward_events`; renaming isn't worth it.
+- **Review XP is already anti-farm.** It pays +10 only for a scheduled review item right on the first attempt, once per scheduled occurrence; replays, reopened reviews and corrections earn nothing. That's what the leaderboard rule "no infinite review farming" needs.
+- **XP never moves skill levels.** Levels come from canonical completions, so challenge or recall XP can feed leaderboards without distorting "Level 63 means something."
+- **Concept mastery data exists** (`user_concept_mastery`: seen/correct/strength). Challenge eligibility ("concepts both have unlocked") and trophies like *Thousand Strong* or *Wrong Turn* can be computed from it.
+- **Quest progress needs no new counting.** Every first completion already writes one `LEVEL_COMPLETE` row to `xp_events` with `skill_id` and `created_at`, and only once per canonical level. So "new levels in skill X since the quest started" is a single query over the existing ledger, and replays already produce no event.
+- **Concept-level question pools exist** (`question_concepts`), which is what a fixed 5-question challenge set draws from.
+
+## Gaps and decisions to make
+
+1. **Accounts come first.** Every learner already has a permanent account (Apple, Google, phone or email; no guests, see [`accounts.md`](accounts.md)). Friends still need a **unique username** table.
+2. **Premium themes (settled 2026-09-24).** Unlimited's only gameplay/progression advantage is removing the daily cap; it may also include non-progression cosmetic or personalization perks such as themes or profile customization. Accomplishment cosmetics (mastery frames, quest rewards, rare trophy treatments, prestige effects) stay earned, never purchasable or subscription-gated. See [`product-rules.md`](product-rules.md) rule 10.
+3. **Challenge XP.** "Small verified XP bonus" needs a number and a cap (e.g. per-day or per-opponent) before Phase 7.
+4. **"Oddities" trophies** (*Night Owl*, *Rabbit Hole*) arguably fail the spec's own reward test ("what did you learn / how deeply / how consistently / what difficult combination"). *Wrong Turn* passes because it's about eventually mastering a concept. Decide per trophy.
+5. **Underage users.** The spec asks for a policy review before any public discovery. That needs deciding before friends ship, not after.
+6. **Weekly Quest decisions (settled):**
+   - **XP:** nothing dwarfs a level. The quest bonus is +50/+75/+100 and counts on the leaderboard once.
+   - **Overlap:** a level counts toward every active quest that needs its skill, and at most one Archive quest is active at a time.
+   - **Final Round:** reuses approved questions from the quest's levels.
+   - **Rarity:** calculated against all active learners.
+   - **Event names:** the code's names win: `LEVEL_COMPLETE`, `DELAYED_RECALL`, `QUEST_COMPLETE`. (`MASTERY_CLEAR` was retired: the Mastery Challenge's own XP pool replaced the +250 bonus, and the ★ comes from resolving Level 100. *Perfect Mastery*, 10/10 on the first try, is a candidate future trophy.)
+7. **Quest themes before their trees exist.** Themes like The Roman World or Age of Dinosaurs can sit in the catalog with no requirements attached. A quest goes live only once every requirement skill has enough published levels for every learner to make +5 new progress. That's fine, because launch will have far more than 10 levels.
+8. **Rank names vs. titles.** Ranks (Student → Expert) are per-skill and automatic; titles are chosen. The Profile UI needs to keep them visually distinct.
+
+## Explicitly deferred
+
+Group/party Weekly Quests (first release is solo + friend progress only), global public leaderboards, DMs, public posts/comments, clans/guilds, coin/gem economy, gifting/trading, random loot/crates, and paid XP boosts. If groups ever come, the spec's candidate is private **Parties** (families, classrooms, teams), and only after 1:1 friends are healthy.

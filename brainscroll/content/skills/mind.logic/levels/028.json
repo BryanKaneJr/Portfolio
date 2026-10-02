@@ -1,0 +1,211 @@
+{
+  "id": "level.mind.logic.028",
+  "skillId": "skill.mind.logic",
+  "number": 28,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "\"What About You?\"",
+  "objective": "After this level you can explain why pointing out someone's hypocrisy doesn't answer their argument.",
+  "summary": "Tu quoque ('you too') rejects advice because the speaker doesn't follow it. Hypocrisy is a reason for suspicion, not a rebuttal. Its cousin: two wrongs don't make a right.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.classic_fallacy_tu_quoque",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.classic_fallacy_ad_hominem",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.027"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Your neighbor tells you to exercise regularly. She never does.",
+      "body": "Tempting reply: \"Look who's talking!\" It feels like a knockout. But ask yourself one thing. Does her skipping it make regular exercise any worse for you? This example comes from the Stanford Encyclopedia of Philosophy.",
+      "id": "card.logic.028.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "\"You too!\"",
+      "body": "That reply has a Latin name: tu quoque, \"you too\". It rejects advice or an argument because the person giving it doesn't live by it. It's a kind of ad hominem, because the spotlight swings from the reasons to the person. As the Stanford Encyclopedia puts it, the value of advice isn't wholly dependent on the integrity of the advisor.",
+      "id": "card.logic.028.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Suspicious, not refuted",
+      "body": "Hypocrisy isn't nothing. Catching someone who doesn't practice what they preach is a fair reason to look harder at what they say. It just isn't enough to throw it out. Her reasons for exercising are exactly as strong, or as weak, as they were before you noticed her couch.",
+      "id": "card.logic.028.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Dodging with a counterpunch",
+      "body": "In a quarrel, tu quoque makes a handy escape hatch. Accused of leaving dishes in the sink, you fire back: \"You left yours there yesterday!\" Maybe true. But the accusation hasn't been answered, only returned. Its cousin, \"two wrongs don't make a right\", names the move of excusing a wrong because someone else did one first.",
+      "id": "card.logic.028.c4"
+    },
+    {
+      "id": "card.logic.028.c5",
+      "type": "mcq",
+      "questionId": "question.logic.028.q1"
+    },
+    {
+      "id": "card.logic.028.c6",
+      "type": "mcq",
+      "questionId": "question.logic.028.q2"
+    },
+    {
+      "id": "card.logic.028.c7",
+      "type": "mcq",
+      "questionId": "question.logic.028.q3"
+    },
+    {
+      "id": "card.logic.028.c8",
+      "type": "checkpoint",
+      "headline": "\"You too\": spotted",
+      "learned": [
+        "Tu quoque means \"you too\"",
+        "It rejects advice because the adviser ignores it",
+        "Hypocrisy: a reason to check, not to discard",
+        "Two wrongs don't make a right"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.028.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_tu_quoque"
+      ],
+      "sourceCardIds": [
+        "card.logic.028.c2"
+      ],
+      "prompt": "What does the Latin \"tu quoque\" mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To the person",
+          "correct": false,
+          "rationale": "That's ad hominem."
+        },
+        {
+          "id": "b",
+          "label": "Beside the point",
+          "correct": false,
+          "rationale": "Not a translation of tu quoque."
+        },
+        {
+          "id": "c",
+          "label": "Let the buyer beware",
+          "correct": false,
+          "rationale": "That's caveat emptor."
+        },
+        {
+          "id": "d",
+          "label": "You too",
+          "correct": true
+        }
+      ],
+      "explanation": "Tu quoque is Latin for \"you too\": the reply turns the charge back on the speaker.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.028.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_tu_quoque"
+      ],
+      "sourceCardIds": [
+        "card.logic.028.c2",
+        "card.logic.028.c4"
+      ],
+      "prompt": "How does a tu quoque reply dodge a criticism?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It shows the criticism's reasons are false",
+          "correct": false,
+          "rationale": "It never examines the reasons."
+        },
+        {
+          "id": "b",
+          "label": "It turns the charge back on the critic",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It offers a stronger argument on the topic",
+          "correct": false,
+          "rationale": "It offers no argument on the topic."
+        },
+        {
+          "id": "d",
+          "label": "It narrows the options down to two",
+          "correct": false,
+          "rationale": "That's a false dilemma."
+        }
+      ],
+      "explanation": "Instead of answering, it charges the accuser with the same thing. The original criticism is left standing.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.028.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_tu_quoque",
+        "concept.logic.classic_fallacy_ad_hominem"
+      ],
+      "sourceCardIds": [
+        "card.logic.028.c2",
+        "card.logic.022.c2"
+      ],
+      "prompt": "Why does tu quoque count as a kind of ad hominem (Level 22)?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both use a Latin name",
+          "correct": false,
+          "rationale": "Many fallacies do; that's not the link."
+        },
+        {
+          "id": "b",
+          "label": "Both exaggerate a chain of steps",
+          "correct": false,
+          "rationale": "That's a slippery slope."
+        },
+        {
+          "id": "c",
+          "label": "Both aim at the arguer, not the argument",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both assume their own conclusion",
+          "correct": false,
+          "rationale": "That's circular reasoning."
+        }
+      ],
+      "explanation": "An ad hominem attacks the person instead of the argument; tu quoque does it by pointing to the person's own conduct.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies",
+    "source.mw_tu_quoque",
+    "source.sep_fallacies",
+    "source.libretexts_vancleave_fallacies_of_relevance"
+  ],
+  "art": "mind.logic-boxing-glove"
+}

@@ -1,0 +1,228 @@
+{
+  "id": "level.arts.literature.098",
+  "skillId": "skill.arts.literature",
+  "number": 98,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Myths About Literature",
+  "objective": "After this level you can debunk common myths, like Frankenstein being the monster's name or someone else writing Shakespeare's plays.",
+  "summary": "Frankenstein is the maker, not the creature; Holmes never says \"Elementary, my dear Watson\"; and the Oxford theory of Shakespeare fails on dates.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.litmyth_misquotes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.litmyth_shakespeare_authorship",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.myth_legend_folktale",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.detective_dupin_holmes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.097"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.098.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "First, a word about this level's title.",
+      "body": "Level 2 said scholars use myth for a traditional sacred story, never for a falsehood. This title borrows the everyday sense instead. Scholars would call these misconceptions: popular beliefs about famous books that the books themselves don't back up. Let's test three.",
+      "mascot": {
+        "pose": "idea",
+        "line": "This connects to Level 2. In this tree myth still means a sacred story; today's title just borrows the everyday word."
+      }
+    },
+    {
+      "id": "card.literature.098.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Frankenstein is the doctor",
+      "body": "In Mary Shelley's Frankenstein (1818), which you met in Level 63, Frankenstein is Victor Frankenstein, a scientist who artificially creates a human being. The name is his, not his creation's. The Folger Shakespeare Library calls this one of the book's enduring confusions. Call the creature Frankenstein and, strictly, you've named the wrong character."
+    },
+    {
+      "id": "card.literature.098.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Holmes never said it",
+      "body": "\"Elementary, my dear Watson\" appears in none of Conan Doyle's stories. The nearest thing comes in The Memoirs of Sherlock Holmes: \"Excellent!\" I cried. \"Elementary,\" said he. Holmes does call his conclusions elementary now and then, and often says \"my dear Watson\". The full misquotation is first recorded in P. G. Wodehouse's Psmith, Journalist. Readers glued two real habits into a line he never spoke."
+    },
+    {
+      "id": "card.literature.098.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Who wrote Shakespeare? Shakespeare.",
+      "body": "For over 200 years after his death, nobody questioned that Shakespeare wrote his works. Doubts arose in the Victorian era, when Delia Bacon argued for a circle of writers including Francis Bacon and Walter Raleigh, and in 1920 J. Thomas Looney proposed Edward de Vere, earl of Oxford. Scholars overwhelmingly reject these candidates. Oxford died in 1604, yet by standard dating more than a dozen plays were written after that. And in the First Folio (1623), Ben Jonson hailed him as the \"Sweet Swan of Avon\", tying the writer to Stratford."
+    },
+    {
+      "id": "card.literature.098.c5",
+      "type": "mcq",
+      "questionId": "question.literature.098.q1"
+    },
+    {
+      "id": "card.literature.098.c6",
+      "type": "mcq",
+      "questionId": "question.literature.098.q2"
+    },
+    {
+      "id": "card.literature.098.c7",
+      "type": "recall",
+      "questionId": "question.literature.098.q3"
+    },
+    {
+      "id": "card.literature.098.c8",
+      "type": "checkpoint",
+      "headline": "Misconceptions: checked",
+      "learned": [
+        "Frankenstein: the maker, not the creature",
+        "\"Elementary, my dear Watson\": never in Doyle",
+        "Oxford died in 1604, before many plays",
+        "In this tree, myth still means sacred story"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.098.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.litmyth_misquotes"
+      ],
+      "sourceCardIds": [
+        "card.literature.098.c2"
+      ],
+      "prompt": "In Mary Shelley's novel, who is Frankenstein?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The creature brought to life",
+          "correct": false,
+          "rationale": "That's the common mix-up."
+        },
+        {
+          "id": "b",
+          "label": "The detective who hunts the creature",
+          "correct": false,
+          "rationale": "No detective is on the cards."
+        },
+        {
+          "id": "c",
+          "label": "Victor, the scientist who makes the creature",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Mary Shelley's pen name",
+          "correct": false,
+          "rationale": "She published as Mary Shelley."
+        }
+      ],
+      "explanation": "Frankenstein is Victor Frankenstein, the scientist who creates a human being; the name belongs to the maker.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.098.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.litmyth_shakespeare_authorship"
+      ],
+      "sourceCardIds": [
+        "card.literature.098.c4"
+      ],
+      "prompt": "Someone argues that the earl of Oxford secretly wrote Shakespeare's plays. Which fact weighs most heavily against that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Oxford died in 1604, before more than a dozen plays",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Delia Bacon had already proposed a Bacon circle",
+          "correct": false,
+          "rationale": "A rival theory doesn't disprove this one."
+        },
+        {
+          "id": "c",
+          "label": "Looney published his theory in 1920",
+          "correct": false,
+          "rationale": "The date of a theory isn't evidence against it."
+        },
+        {
+          "id": "d",
+          "label": "The First Folio came out after Shakespeare died",
+          "correct": false,
+          "rationale": "That's true of many collected works."
+        }
+      ],
+      "explanation": "By standard dating, more than a dozen plays were written after Oxford's death in 1604, a major difficulty scholars point to.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.literature.098.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.myth_legend_folktale",
+        "concept.literature.litmyth_misquotes"
+      ],
+      "sourceCardIds": [
+        "card.literature.002.c4",
+        "card.literature.098.c1",
+        "card.literature.098.c3"
+      ],
+      "prompt": "Level 2 said scholars never use myth to mean a falsehood. What would they call the belief that Holmes says \"Elementary, my dear Watson\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A myth: a traditional sacred story",
+          "correct": false,
+          "rationale": "A myth is sacred, not a mistake."
+        },
+        {
+          "id": "b",
+          "label": "A misconception, built on a misquotation",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A legend told as a matter of history",
+          "correct": false,
+          "rationale": "A legend is a traditional story about a person or place."
+        },
+        {
+          "id": "d",
+          "label": "A fable with a moral at the end",
+          "correct": false,
+          "rationale": "There's no moral here."
+        }
+      ],
+      "explanation": "Scholars keep myth for sacred stories; a popular belief the books don't back up is a misconception, here a misquotation.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_myth",
+    "source.brit_mary_shelley",
+    "source.folger_caliban_frankenstein",
+    "source.oxford_phrase_fable_elementary",
+    "source.gutenberg_memoirs_sherlock_holmes",
+    "source.sbt_authorship_question",
+    "source.brit_edward_de_vere"
+  ],
+  "art": "object.magnifier"
+}

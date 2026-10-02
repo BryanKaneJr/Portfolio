@@ -1,0 +1,216 @@
+{
+  "id": "level.mind.logic.019",
+  "skillId": "skill.mind.logic",
+  "number": 19,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Reasoning Like a Detective",
+  "objective": "After this level you can explain inference to the best explanation: choosing the account that best fits all the clues.",
+  "summary": "Inference to the best explanation (abduction) picks the account that best explains every clue. Holmes called it deduction, but it gives no guarantee: true clues can still lead to a false conclusion.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.induction_best_explanation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.deduction_definition",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.018"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"You have been in Afghanistan, I perceive.\"",
+      "body": "That's Sherlock Holmes, meeting Dr. Watson for the first time in A Study in Scarlet. Watson is astonished; nobody told Holmes a thing. Later Holmes lays out his reasoning. It's worth a close look, because it isn't quite what he calls it.",
+      "id": "card.logic.019.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Clues in search of a story",
+      "body": "Holmes saw a man of a medical type with a military air: an army doctor. His face was dark but his wrists were fair, so he'd been somewhere tropical. He looked haggard, and held his injured left arm stiffly. Where could an English army doctor have seen hardship and been wounded? Afghanistan was the story that fit every clue.",
+      "id": "card.logic.019.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The best explanation",
+      "body": "Philosophers call this inference to the best explanation, or abduction: you conclude that whatever would best explain the evidence is true. You do it at breakfast. A plate, crumbs, jam and an empty milk carton on the table? A housemate's midnight snack. A burglar who stopped for a bite would explain it too, just far less plausibly. The winner must explain every clue, and beat its rivals.",
+      "id": "card.logic.019.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Not deduction, whatever Holmes said",
+      "body": "Holmes calls his method \"the science of deduction\". Scholars have long pointed out that most of his inferences are abduction instead. The difference matters. Deduction guarantees its conclusion; the best explanation can be wrong even when every clue is true. A detective who forgets that is one odd coincidence away from arresting the wrong person.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "People mix these up all the time: if true clues could still lead to a false conclusion, it isn't deduction."
+      },
+      "id": "card.logic.019.c4"
+    },
+    {
+      "id": "card.logic.019.c5",
+      "type": "mcq",
+      "questionId": "question.logic.019.q1"
+    },
+    {
+      "id": "card.logic.019.c6",
+      "type": "mcq",
+      "questionId": "question.logic.019.q2"
+    },
+    {
+      "id": "card.logic.019.c7",
+      "type": "mcq",
+      "questionId": "question.logic.019.q3"
+    },
+    {
+      "id": "card.logic.019.c8",
+      "type": "checkpoint",
+      "headline": "Best explanations: found",
+      "learned": [
+        "Abduction: infer what best explains the evidence",
+        "The winner must explain every clue",
+        "Holmes's \"deduction\" was mostly abduction",
+        "The best explanation can still be wrong"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.019.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.induction_best_explanation"
+      ],
+      "sourceCardIds": [
+        "card.logic.019.c3"
+      ],
+      "prompt": "What is inference to the best explanation?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Concluding only what the premises guarantee",
+          "correct": false,
+          "rationale": "That's deduction."
+        },
+        {
+          "id": "b",
+          "label": "Inferring that the best explanation is true",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Counting cases until a rule is proved",
+          "correct": false,
+          "rationale": "Induction never proves a rule, and this is a different kind of reasoning."
+        },
+        {
+          "id": "d",
+          "label": "Picking whichever explanation you personally like most",
+          "correct": false,
+          "rationale": "Best means best fits the evidence, not favorite."
+        }
+      ],
+      "explanation": "Also called abduction: you infer the explanation that would best account for all the evidence.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.019.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.induction_best_explanation"
+      ],
+      "sourceCardIds": [
+        "card.logic.019.c3"
+      ],
+      "prompt": "In the breakfast-table example, why does the midnight snack beat the burglar?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Burglars never stop to eat",
+          "correct": false,
+          "rationale": "It's possible, just far less plausible."
+        },
+        {
+          "id": "b",
+          "label": "The clues guarantee a midnight snack",
+          "correct": false,
+          "rationale": "Abduction never guarantees its conclusion."
+        },
+        {
+          "id": "c",
+          "label": "It explains the clues without being contrived",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is the more exciting story",
+          "correct": false,
+          "rationale": "Excitement is no guide; fit with the evidence is."
+        }
+      ],
+      "explanation": "Both could explain the crumbs and jam, but the snack does it plausibly, while the snacking burglar is contrived.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.019.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.induction_best_explanation",
+        "concept.logic.deduction_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.019.c4",
+        "card.logic.011.c2"
+      ],
+      "prompt": "Holmes calls his reasoning deduction. Why doesn't it meet Level 11's definition?",
+      "options": [
+        {
+          "id": "a",
+          "label": "True clues could still yield a false answer",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "He relied on too few clues",
+          "correct": false,
+          "rationale": "The number of clues is not the test."
+        },
+        {
+          "id": "c",
+          "label": "He never actually stated any conclusion at all",
+          "correct": false,
+          "rationale": "He did: Afghanistan."
+        },
+        {
+          "id": "d",
+          "label": "His clues were all about appearance",
+          "correct": false,
+          "rationale": "Appearance can be good evidence; it just gives no guarantee."
+        }
+      ],
+      "explanation": "Deduction means true premises guarantee the conclusion. The best explanation can be wrong even when every clue is true.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.gutenberg_study_in_scarlet",
+    "source.sep_abduction",
+    "source.libretexts_vancleave_best_explanation",
+    "source.acta_analytica_holmes_abduction",
+    "source.iep_validity_soundness",
+    "source.libretexts_vancleave_deductive_inductive"
+  ],
+  "art": "mind.logic-deerstalker"
+}

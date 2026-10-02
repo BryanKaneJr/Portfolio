@@ -1,0 +1,222 @@
+{
+  "id": "level.world_systems.computers.096",
+  "skillId": "skill.world_systems.computers",
+  "number": 96,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Is Moore's Law Over?",
+  "objective": "After this level you can weigh the arguments over whether chip progress is slowing, and what engineers do now that shrinking is harder.",
+  "summary": "Moore's law is a prediction, not physics. Clock rates stalled in the mid-2000s over power and heat, so chips added cores; now gains come from software, algorithms and specialized chips.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.techcheck_moore_observation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.techcheck_after_clock_speed",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.clock_speed",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.095"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.096.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Is Moore's law dead? Two chip bosses gave opposite answers.",
+      "body": "In September 2022, Nvidia's chief executive said Moore's law was dead. Intel's chief executive said it was alive and well. Both run chip companies. So who's right? It depends on what you think the 'law' promises."
+    },
+    {
+      "id": "card.computers.096.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A prediction, not physics",
+      "body": "In 1965 Gordon Moore predicted that the number of transistors on a chip would double every year; in 1975 he revised it to every two years. That's an observation about an industry, not a law of nature like gravity. It set expectations for chipmakers and became a target they worked to meet. Nothing guarantees a target keeps being hit."
+    },
+    {
+      "id": "card.computers.096.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The speed that stopped",
+      "body": "Level 8's clock sets the pace of every step, and for years clock rates kept climbing. Then, in the mid-2000s, they stopped: extra speed was no longer worth the power it burned and the heat it made. So chipmakers split the work across several cores instead. Intel's rule of thumb: two cores at 80% of the clock rate give 73% more performance for the same power.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "This connects to Level 8: the clock stopped speeding up, so chips found other ways to do more each second."
+      }
+    },
+    {
+      "id": "card.computers.096.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where the gains come from now",
+      "body": "Transistors are nearing the limit of how small they can get, MIT researchers wrote in 2020. Future gains, they argued, must come from better software, smarter algorithms and hardware design, including chips customized for one job, which can be much more efficient. So 'Is Moore's law over?' has two honest halves: shrinking is getting harder, and computers can still get faster in other ways."
+    },
+    {
+      "id": "card.computers.096.c5",
+      "type": "mcq",
+      "questionId": "question.computers.096.q1"
+    },
+    {
+      "id": "card.computers.096.c6",
+      "type": "mcq",
+      "questionId": "question.computers.096.q2"
+    },
+    {
+      "id": "card.computers.096.c7",
+      "type": "mcq",
+      "questionId": "question.computers.096.q3"
+    },
+    {
+      "id": "card.computers.096.c8",
+      "type": "checkpoint",
+      "headline": "Moore's law: weighed",
+      "learned": [
+        "Moore's law is an industry prediction, not physics",
+        "Clock rates stalled in the mid-2000s over power and heat",
+        "Chips added cores to do more for the same power",
+        "Now gains come from software, algorithms and specialized chips"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.096.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.techcheck_moore_observation"
+      ],
+      "sourceCardIds": [
+        "card.computers.096.c2"
+      ],
+      "prompt": "In 1975, what did Gordon Moore revise his prediction to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Transistors doubling every year",
+          "correct": false,
+          "rationale": "That was his 1965 prediction."
+        },
+        {
+          "id": "b",
+          "label": "Transistors doubling every two years",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Clock speeds doubling every month",
+          "correct": false,
+          "rationale": "His prediction was about transistors on a chip."
+        },
+        {
+          "id": "d",
+          "label": "Chip prices halving every decade",
+          "correct": false,
+          "rationale": "It concerned the number of transistors."
+        }
+      ],
+      "explanation": "Moore predicted yearly doubling in 1965 and revised it to every two years in 1975.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.096.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.techcheck_moore_observation",
+        "concept.computers.techcheck_after_clock_speed"
+      ],
+      "sourceCardIds": [
+        "card.computers.096.c4",
+        "card.computers.096.c2"
+      ],
+      "prompt": "Two chip-company bosses disagree on whether Moore's law is dead. Which summary does this level's evidence best support?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's a law of physics, so it can never come to an end",
+          "correct": false,
+          "rationale": "It's a prediction about an industry."
+        },
+        {
+          "id": "b",
+          "label": "Computers have stopped getting any faster at all",
+          "correct": false,
+          "rationale": "Gains continue through cores, software and specialized chips."
+        },
+        {
+          "id": "c",
+          "label": "Shrinking is getting harder, but gains continue in other ways",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Transistors can keep on shrinking forever, with no limit",
+          "correct": false,
+          "rationale": "They are nearing the limit of how small they can get."
+        }
+      ],
+      "explanation": "Transistors are nearing their size limit, yet software, algorithms and specialized hardware still bring gains.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.computers.096.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.techcheck_after_clock_speed",
+        "concept.computers.clock_speed"
+      ],
+      "sourceCardIds": [
+        "card.computers.096.c3",
+        "card.computers.008.c4"
+      ],
+      "prompt": "Level 8 showed a 3.2 GHz clock paces 3.2 billion cycles a second. Why did clock rates stop climbing in the mid-2000s?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nobody wanted faster computers any more",
+          "correct": false,
+          "rationale": "Demand for speed kept growing."
+        },
+        {
+          "id": "b",
+          "label": "Extra speed cost too much power and made too much heat",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Clocks can't count past a few billion ticks a second",
+          "correct": false,
+          "rationale": "The limit was power and heat, not counting."
+        },
+        {
+          "id": "d",
+          "label": "Moore's law set a legal limit on how fast clocks could run",
+          "correct": false,
+          "rationale": "Moore's law is a prediction, not a rule."
+        }
+      ],
+      "explanation": "Faster clocks burned more power and made more heat than they were worth, so chipmakers added cores instead.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.cnbc_moores_law_2022",
+    "source.brit_moores_law",
+    "source.chm_moores_law",
+    "source.ieee_spectrum_cpu_frequency",
+    "source.mit_news_after_moores_law"
+  ],
+  "art": "computers.silicon-wafer"
+}

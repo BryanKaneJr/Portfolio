@@ -1,0 +1,213 @@
+{
+  "id": "level.arts.literature.072",
+  "skillId": "skill.arts.literature",
+  "number": 72,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Scarlet Letter",
+  "objective": "After this level you can explain how Hawthorne used a symbol to judge the Puritan past.",
+  "summary": "In The Scarlet Letter (1850), Hester Prynne must wear an A for adultery in Puritan Boston, yet the town comes to say it means Able. Hawthorne, a Salem judge's descendant, judges the Puritan past.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.american_scarlet_letter_story",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.american_scarlet_letter_symbol",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.metamorphoses",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.071"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.072.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Hawthorne claimed he found the scarlet A in a dusty government office.",
+      "body": "The Scarlet Letter opens with a trick. Hawthorne had worked at the Salem Custom House, and in the novel's introduction he describes it and pretends to find the story among an old surveyor's papers. With them lies a faded rag of scarlet cloth shaped like the capital letter A. The novel sets out to explain it."
+    },
+    {
+      "id": "card.literature.072.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A letter you have to wear",
+      "body": "The story goes back to the Puritans of 17th-century Boston. Hester Prynne has had a child outside marriage, and her punishment is to wear a scarlet A, for adultery, on her dress where everyone can see it. When she is ordered to name the child's father, she refuses. The town means the letter to fix her identity in a single word."
+    },
+    {
+      "id": "card.literature.072.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The letter changes its meaning",
+      "body": "Hester's A is no plain patch: it is fine red cloth \"surrounded with an elaborate embroidery and fantastic flourishes of gold-thread\". Then, through years of helping her neighbors, something shifts. Many people refuse to read the A in its first sense: \"They said that it meant Able; so strong was Hester Prynne, with a woman's strength.\" The town made the symbol, and the town ends up changing what it says."
+    },
+    {
+      "id": "card.literature.072.c4",
+      "type": "fact",
+      "fact": "Hawthorne's own ancestor questioned accused witches at Salem.",
+      "context": "John Hathorne was a magistrate and the stern interrogator of the accused in the Salem witch trials. Hawthorne was haunted by such ancestors, and they turn up in his fiction. In the introduction he writes that he takes \"shame upon myself for their sakes\". So when the novel judges Puritan harshness, a descendant is judging his own family."
+    },
+    {
+      "id": "card.literature.072.c5",
+      "type": "mcq",
+      "questionId": "question.literature.072.q1"
+    },
+    {
+      "id": "card.literature.072.c6",
+      "type": "mcq",
+      "questionId": "question.literature.072.q2"
+    },
+    {
+      "id": "card.literature.072.c7",
+      "type": "recall",
+      "questionId": "question.literature.072.q3"
+    },
+    {
+      "id": "card.literature.072.c8",
+      "type": "checkpoint",
+      "headline": "The Scarlet Letter: read",
+      "learned": [
+        "Hawthorne pretends to find the A in the Custom House",
+        "Hester wears it and won't name the father",
+        "The A comes to mean Able",
+        "A Salem judge's descendant judges the Puritans"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.072.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.american_scarlet_letter_story"
+      ],
+      "sourceCardIds": [
+        "card.literature.072.c2"
+      ],
+      "prompt": "In The Scarlet Letter, what does Hester Prynne refuse to do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wear the scarlet letter",
+          "correct": false,
+          "rationale": "She wears it on her dress."
+        },
+        {
+          "id": "b",
+          "label": "Name her child's father",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Stay in the colony",
+          "correct": false,
+          "rationale": "She remains among the Puritans."
+        },
+        {
+          "id": "d",
+          "label": "Embroider her clothes",
+          "correct": false,
+          "rationale": "Her A is richly embroidered."
+        }
+      ],
+      "explanation": "Ordered to name her child's father, Hester refuses, and wears the scarlet A instead.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.literature.072.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.american_scarlet_letter_symbol"
+      ],
+      "sourceCardIds": [
+        "card.literature.072.c3"
+      ],
+      "prompt": "How does the meaning of Hester's scarlet A change over the novel?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The governor orders it removed",
+          "correct": false,
+          "rationale": "The letter stays."
+        },
+        {
+          "id": "b",
+          "label": "It fades until no one can see it",
+          "correct": false,
+          "rationale": "Its meaning changes, not its color."
+        },
+        {
+          "id": "c",
+          "label": "Many come to say it stands for Able",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "She swaps it for a letter of her own choosing",
+          "correct": false,
+          "rationale": "She keeps the same A."
+        }
+      ],
+      "explanation": "Because of her strength and helpfulness, many people \"said that it meant Able\".",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.literature.072.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.american_scarlet_letter_symbol",
+        "concept.literature.metamorphoses"
+      ],
+      "sourceCardIds": [
+        "card.literature.072.c3",
+        "card.literature.007.c2"
+      ],
+      "prompt": "In Level 7, a transformation plays a part in every story of Ovid's Metamorphoses. What is transformed in The Scarlet Letter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hester, into a laurel tree",
+          "correct": false,
+          "rationale": "That's Daphne, in Ovid."
+        },
+        {
+          "id": "b",
+          "label": "The meaning of the letter A",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Salem, into a forest",
+          "correct": false,
+          "rationale": "The town stays a town."
+        },
+        {
+          "id": "d",
+          "label": "The narrator, into a Puritan judge",
+          "correct": false,
+          "rationale": "Nothing like that happens."
+        }
+      ],
+      "explanation": "Nobody changes shape. What changes is the symbol: a mark of shame comes to mean Able.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nps_hawthorne_salem_custom_house",
+    "source.gutenberg_scarlet_letter",
+    "source.northshore_hawthorne_family"
+  ],
+  "art": "us.meetinghouse"
+}

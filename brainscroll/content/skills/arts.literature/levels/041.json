@@ -1,0 +1,216 @@
+{
+  "id": "level.arts.literature.041",
+  "skillId": "skill.arts.literature",
+  "number": 41,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Antigone: Law Against Conscience",
+  "objective": "After this level you can explain why Sophocles' Antigone, a clash between a ruler's law and a sister's duty to the dead, is still staged.",
+  "summary": "In Sophocles' Antigone, Creon forbids burying Polyneices and Antigone buries him anyway. Law against conscience still speaks, as Anouilh's 1944 Paris version showed.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.antigone_conscience_law",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.antigone_restaged",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.myth_legend_folktale",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.040"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.041.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The law says leave the body. His sister buries it anyway.",
+      "body": "In Sophocles' Antigone, Creon, king of Thebes, forbids the burial of Polyneices, who attacked the city. Antigone, his sister, buries him anyway. The play is ancient. So why do theaters keep putting it on?"
+    },
+    {
+      "id": "card.literature.041.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two duties, one body",
+      "body": "Antigone was probably first performed around 442 BCE, and its conflict is easy to state and hard to settle. On one side stands law: Creon's edict that enemies of the state must not be buried. On the other stands conscience: Antigone's duty to give her brother a proper burial. Each side has a valid claim. That's what makes it a tragedy and not a lecture."
+    },
+    {
+      "id": "card.literature.041.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The gods take a side",
+      "body": "Creon holds to state law so rigidly that he defies the gods, denying the duty every person owes the dead. The prophet Tiresias finally persuades him to relent, but too late. Antigone has already killed herself, and Creon's son Haemon and then his wife Eurydice take their own lives. The king who put his law above everything is left alone with it."
+    },
+    {
+      "id": "card.literature.041.c4",
+      "type": "fact",
+      "fact": "In 1944, Antigone's refusal returned to the stage in occupied Paris.",
+      "context": "Jean Anouilh's French version of the play opened in Paris on 6 February 1944, during the Nazi occupation. A ruler's decree against one person's conscience: the ancient clash fit a city under occupation. That's why Antigone keeps coming back. Wherever a law and a conscience collide, the play is already written."
+    },
+    {
+      "id": "card.literature.041.c5",
+      "type": "mcq",
+      "questionId": "question.literature.041.q1"
+    },
+    {
+      "id": "card.literature.041.c6",
+      "type": "mcq",
+      "questionId": "question.literature.041.q2"
+    },
+    {
+      "id": "card.literature.041.c7",
+      "type": "recall",
+      "questionId": "question.literature.041.q3"
+    },
+    {
+      "id": "card.literature.041.c8",
+      "type": "checkpoint",
+      "headline": "Antigone: still on stage",
+      "learned": [
+        "Creon forbids burying Polyneices",
+        "Law against conscience: both have a claim",
+        "Creon defies the gods and loses his family",
+        "Anouilh's Antigone, occupied Paris, 1944"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.041.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.antigone_conscience_law"
+      ],
+      "sourceCardIds": [
+        "card.literature.041.c1",
+        "card.literature.041.c2"
+      ],
+      "prompt": "In Sophocles' Antigone, what does King Creon's edict forbid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mourning for his own son Haemon",
+          "correct": false,
+          "rationale": "Haemon dies at the end, long after the edict."
+        },
+        {
+          "id": "b",
+          "label": "Leaving the city of Thebes",
+          "correct": false,
+          "rationale": "The edict is about a burial."
+        },
+        {
+          "id": "c",
+          "label": "Burying Polyneices, who attacked the city",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Consulting the prophet Tiresias",
+          "correct": false,
+          "rationale": "Tiresias comes to Creon later, too late."
+        }
+      ],
+      "explanation": "Creon forbids the burial of Polyneices, who attacked Thebes; his sister Antigone buries him anyway.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.041.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.antigone_restaged",
+        "concept.literature.antigone_conscience_law"
+      ],
+      "sourceCardIds": [
+        "card.literature.041.c4",
+        "card.literature.041.c2"
+      ],
+      "prompt": "Why did Antigone's old story fit a Paris audience in 1944?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A ruler's decree against one person's conscience fit the occupation",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It was a brand-new play about the French Revolution",
+          "correct": false,
+          "rationale": "It was Anouilh's version of Sophocles' tragedy."
+        },
+        {
+          "id": "c",
+          "label": "Its heroine defeats the king and takes his throne",
+          "correct": false,
+          "rationale": "Antigone dies; nobody takes the throne."
+        },
+        {
+          "id": "d",
+          "label": "It praised obeying the state whatever it commands",
+          "correct": false,
+          "rationale": "Antigone defies the state's edict."
+        }
+      ],
+      "explanation": "Anouilh's Antigone opened in occupied Paris in 1944: the clash between a ruler's law and one person's conscience fit the moment.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.literature.041.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.antigone_conscience_law",
+        "concept.literature.myth_legend_folktale"
+      ],
+      "sourceCardIds": [
+        "card.literature.041.c3",
+        "card.literature.002.c3"
+      ],
+      "prompt": "Level 2 said a myth is tied to religious belief. How do the gods come into Antigone's burial of her brother?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The gods order Creon to leave the body unburied",
+          "correct": false,
+          "rationale": "The edict is Creon's own law, and it defies the gods."
+        },
+        {
+          "id": "b",
+          "label": "The gods play no part; it is only about politics",
+          "correct": false,
+          "rationale": "Creon's law sets him against the gods."
+        },
+        {
+          "id": "c",
+          "label": "By refusing burial, Creon defies the gods and the duty owed the dead",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Antigone asks the gods to punish Polyneices",
+          "correct": false,
+          "rationale": "She wants him buried, not punished."
+        }
+      ],
+      "explanation": "Creon's rigid law denies the obligations every person owes the dead, so he ends up defying the gods.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_antigone_play",
+    "source.brit_sophocles_plays",
+    "source.esat_anouilh_antigone"
+  ],
+  "art": "money.scale"
+}

@@ -1,0 +1,220 @@
+{
+  "id": "level.mind.probability.027",
+  "skillId": "skill.mind.probability",
+  "number": 27,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Streaks and Clumps",
+  "objective": "After this level you can explain why truly random sequences contain more streaks and clusters than people expect.",
+  "summary": "Randomness is streaky: 200 real tosses typically hold a run of about eight, while fakes rarely pass five. Basketball's hot hand, once called an illusion, is still debated.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.chance_random_streaks",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.chance_hot_hand_debate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.chance_independence_no_memory",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.chance_multiply_independent",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.026"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.027.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A teacher can spot fake coin tosses just by their streaks.",
+      "body": "Half a class tosses a real coin 200 times. The other half makes up 200 tosses. With one simple check, the teacher sorts most of them correctly. The giveaway? The fakes are too tidy."
+    },
+    {
+      "id": "card.probability.027.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Real randomness is streaky",
+      "body": "In 200 real tosses, the longest run of all heads or all tails is typically about eight. Students inventing tosses rarely write a run longer than five, because long runs don't feel random. Statistician Mark Schilling ran this test in his classes and sorted real from fake about 85% of the time. Real chance clumps; people smooth it out."
+    },
+    {
+      "id": "card.probability.027.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why streaks turn up anyway",
+      "body": "Level 23 showed that any one long run is rare before it starts. But 200 flips give a run many places to start, so somewhere a run of several heads in a row is almost bound to appear. A streak on its own isn't a sign that something is off. It's what randomness looks like."
+    },
+    {
+      "id": "card.probability.027.c4",
+      "type": "fact",
+      "fact": "Is the hot hand real? Still argued.",
+      "context": "Basketball fans believe a player who has just made shots is more likely to make the next. A famous 1985 study by Gilovich, Vallone and Tversky called that an illusion. In 2018, economists Joshua Miller and Adam Sanjurjo showed the study had counted streaks in a subtly biased way; correcting it reversed the conclusion. Whether fans overrate the hot hand is still open."
+    },
+    {
+      "id": "card.probability.027.c5",
+      "type": "mcq",
+      "questionId": "question.probability.027.q1"
+    },
+    {
+      "id": "card.probability.027.c6",
+      "type": "mcq",
+      "questionId": "question.probability.027.q2"
+    },
+    {
+      "id": "card.probability.027.c7",
+      "type": "mcq",
+      "questionId": "question.probability.027.q3"
+    },
+    {
+      "id": "card.probability.027.c8",
+      "type": "checkpoint",
+      "headline": "Streaks: expected",
+      "learned": [
+        "Random sequences are streaky",
+        "200 tosses: longest run about eight",
+        "Fakes rarely pass five in a row",
+        "The hot hand is still debated"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.027.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.chance_random_streaks"
+      ],
+      "sourceCardIds": [
+        "card.probability.027.c2"
+      ],
+      "prompt": "What gave away students' made-up lists of 200 coin tosses?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their longest streaks were too short",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They had far too many heads",
+          "correct": false,
+          "rationale": "The share of heads was not the clue; the streaks were."
+        },
+        {
+          "id": "c",
+          "label": "Their streaks were too long",
+          "correct": false,
+          "rationale": "The opposite: real sequences have the longer streaks."
+        },
+        {
+          "id": "d",
+          "label": "They started with tails too often",
+          "correct": false,
+          "rationale": "The clue was run length, not how the list began."
+        }
+      ],
+      "explanation": "Real tosses typically hold a run of about eight; invented lists rarely go past five.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.027.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.chance_random_streaks",
+        "concept.probability.chance_multiply_independent"
+      ],
+      "sourceCardIds": [
+        "card.probability.027.c3",
+        "card.probability.023.c3"
+      ],
+      "prompt": "How does a long streak end up in 200 random flips, even though any one streak is rare?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Coins build up momentum after a few heads",
+          "correct": false,
+          "rationale": "Flips are independent: a coin builds up nothing."
+        },
+        {
+          "id": "b",
+          "label": "With so many places a run could start, one almost always does",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Random flips alternate, then suddenly repeat",
+          "correct": false,
+          "rationale": "Random flips follow no pattern of alternating."
+        },
+        {
+          "id": "d",
+          "label": "Streaks only happen with unfair coins",
+          "correct": false,
+          "rationale": "Fair coins produce streaks too; that is what randomness looks like."
+        }
+      ],
+      "explanation": "Each run is rare in advance, but 200 flips give a run many chances to start, so a run of several is almost bound to appear.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.027.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.chance_hot_hand_debate",
+        "concept.probability.chance_independence_no_memory"
+      ],
+      "sourceCardIds": [
+        "card.probability.027.c4",
+        "card.probability.025.c2"
+      ],
+      "prompt": "Why is a basketball player's streak harder to judge than a fair coin's streak (Level 25)?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Players never have streaks",
+          "correct": false,
+          "rationale": "Players do have streaks; the question is whether they mean anything."
+        },
+        {
+          "id": "b",
+          "label": "Coins are streakier than players",
+          "correct": false,
+          "rationale": "The comparison is about whether chances change, not how streaky."
+        },
+        {
+          "id": "c",
+          "label": "A coin's flips are independent; a player's chances might really change",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Basketball points come in 2s and 3s",
+          "correct": false,
+          "rationale": "Scoring has nothing to do with whether streaks are real."
+        }
+      ],
+      "explanation": "A coin keeps no score, so its streaks mean nothing. For a player, the hot hand says a hit could raise the chance of the next hit, and that is still argued.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.schilling_longest_run_1990",
+    "source.miller_sanjurjo_hot_hand_2018",
+    "source.openstax_intro_stats_probability_rules"
+  ],
+  "art": "mind.basketball"
+}

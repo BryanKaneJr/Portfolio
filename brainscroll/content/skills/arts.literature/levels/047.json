@@ -1,0 +1,216 @@
+{
+  "id": "level.arts.literature.047",
+  "skillId": "skill.arts.literature",
+  "number": 47,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Beowulf",
+  "objective": "After this level you can explain why Beowulf, which survives in a single manuscript, matters as the great epic of Old English.",
+  "summary": "Beowulf fights Grendel, Grendel's mother and a dragon. The poem, Old English literature's highest achievement, survives in one manuscript of about 1000 that came through a 1731 fire.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.beowulf_story",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.beowulf_manuscript",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.nineveh_library",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.046"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.047.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The only copy of Old English's great epic has been through a fire.",
+      "body": "Beowulf survives in a single manuscript, made around the year 1000. In 1731 fire damaged it, but much of its text is still readable. Had it burned, the poem would simply be gone."
+    },
+    {
+      "id": "card.literature.047.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A hero, two monsters and a dragon",
+      "body": "The poem is set in early 6th-century Scandinavia, mostly in what are now Denmark and Sweden. At King Hrothgar's hall, Heorot, Beowulf fights the monster Grendel, then Grendel's mother. Much later, after ruling in peace for 50 years, the old king faces a fire-breathing dragon, and the fight costs him his life. Young hero, old hero: the poem gives you both."
+    },
+    {
+      "id": "card.literature.047.c3",
+      "type": "fact",
+      "fact": "Every edition of Beowulf goes back to one manuscript.",
+      "context": "Nobody knows exactly when the poem was composed; some scholars think the 8th century. The one copy, catalogued today as Cotton MS Vitellius A XV, was made around the year 1000. It was damaged by fire in 1731, yet much of its text remains readable. No backup, no second copy.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "This is Level 10's lesson again: stories survive by memory, copying and luck. Beowulf's one copy used up a lot of luck."
+      }
+    },
+    {
+      "id": "card.literature.047.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why it matters",
+      "body": "Beowulf is the highest achievement of Old English literature and the earliest European vernacular epic: a long heroic poem in a people's own language rather than Latin. Lose that one manuscript, and Old English would lose its highest achievement."
+    },
+    {
+      "id": "card.literature.047.c5",
+      "type": "mcq",
+      "questionId": "question.literature.047.q1"
+    },
+    {
+      "id": "card.literature.047.c6",
+      "type": "mcq",
+      "questionId": "question.literature.047.q2"
+    },
+    {
+      "id": "card.literature.047.c7",
+      "type": "recall",
+      "questionId": "question.literature.047.q3"
+    },
+    {
+      "id": "card.literature.047.c8",
+      "type": "checkpoint",
+      "headline": "Beowulf: rescued",
+      "learned": [
+        "Grendel, Grendel's mother, then a dragon",
+        "Set in early 6th-century Scandinavia",
+        "One manuscript, about 1000, singed in 1731",
+        "Old English literature's highest achievement"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.047.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.beowulf_manuscript"
+      ],
+      "sourceCardIds": [
+        "card.literature.047.c3"
+      ],
+      "prompt": "How many medieval manuscripts of Beowulf survive?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dozens, copied in monasteries across Europe",
+          "correct": false,
+          "rationale": "There is only one."
+        },
+        {
+          "id": "b",
+          "label": "Just one, made around the year 1000",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Two, one in Denmark and one in England",
+          "correct": false,
+          "rationale": "There is only one."
+        },
+        {
+          "id": "d",
+          "label": "None; it lived only in memory until printed",
+          "correct": false,
+          "rationale": "One manuscript survives."
+        }
+      ],
+      "explanation": "Beowulf survives in a single manuscript, Cotton MS Vitellius A XV, made around the year 1000.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.047.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.beowulf_story"
+      ],
+      "sourceCardIds": [
+        "card.literature.047.c4"
+      ],
+      "prompt": "Why does Beowulf hold such a special place in English literature?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was the first poem written in Latin in England",
+          "correct": false,
+          "rationale": "It's in Old English, a vernacular."
+        },
+        {
+          "id": "b",
+          "label": "It's Old English's highest achievement and Europe's earliest vernacular epic",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It's the only poem about Denmark ever written",
+          "correct": false,
+          "rationale": "Its setting is not what makes it special."
+        },
+        {
+          "id": "d",
+          "label": "It was written by King Hrothgar himself",
+          "correct": false,
+          "rationale": "Hrothgar is a character in the poem."
+        }
+      ],
+      "explanation": "Beowulf is the highest achievement of Old English literature and the earliest European vernacular epic.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.literature.047.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.beowulf_manuscript",
+        "concept.literature.nineveh_library"
+      ],
+      "sourceCardIds": [
+        "card.literature.047.c3",
+        "card.literature.010.c4"
+      ],
+      "prompt": "Level 10 said stories survive by memory, copying and luck. Which best describes how Beowulf survived?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Memory: singers still perform it by heart",
+          "correct": false,
+          "rationale": "It survives in writing, in one manuscript."
+        },
+        {
+          "id": "b",
+          "label": "Copying: hundreds of copies spread across Europe",
+          "correct": false,
+          "rationale": "There is only one manuscript."
+        },
+        {
+          "id": "c",
+          "label": "Luck: it lay buried in a fallen city",
+          "correct": false,
+          "rationale": "That's Nineveh's library."
+        },
+        {
+          "id": "d",
+          "label": "Luck: its only copy came through a fire",
+          "correct": true
+        }
+      ],
+      "explanation": "Beowulf's single manuscript was damaged by fire in 1731 but survived with much of its text readable: luck.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.bl_beowulf_online",
+    "source.brit_beowulf"
+  ],
+  "art": "medieval.helmet"
+}

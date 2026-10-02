@@ -1,0 +1,219 @@
+{
+  "id": "level.history.ancient_rome.066",
+  "skillId": "skill.history.ancient_rome",
+  "number": 66,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Baths",
+  "objective": "After this level you can explain what Roman baths were like and why they mattered socially.",
+  "summary": "Cheap, heated public baths had hot, warm and cold rooms. Romans went to exercise, talk and do business, not just to wash.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.baths",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.city_life",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.city_of_marble",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.065"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.066.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "For a Roman, the bath was the gym, the café and the office.",
+      "body": "Getting clean was almost the least of it."
+    },
+    {
+      "id": "card.ancient_rome.066.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hot, warm, cold",
+      "body": "Large public baths, thermae, had rooms at three temperatures: the hot caldarium, the warm tepidarium and the cold frigidarium. The heat came from below. In the hypocaust, hot air from furnaces flowed under raised floors and up through the walls. Cold tiles on bare feet were not a Roman bather’s problem.",
+      "callout": "Hypocaust: underfloor heating",
+      "mascot": {
+        "pose": "whisper",
+        "line": "You don’t need the Latin room names. Remember hot, warm, cold, heated from below."
+      }
+    },
+    {
+      "id": "card.ancient_rome.066.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why Romans went",
+      "body": "Remember Level 61: most Romans lived in apartment blocks without private baths. The public baths did far more than fill that gap. Romans exercised, talked, did business and relaxed there, and entry was cheap. The Baths of Caracalla, opened in the 3rd century CE, could serve about 1,600 bathers at a time. That’s a very crowded office."
+    },
+    {
+      "id": "card.ancient_rome.066.c4",
+      "type": "fact",
+      "fact": "Romans cleaned themselves without soap.",
+      "context": "Instead, bathers oiled their skin and scraped it clean with a curved metal tool, the strigil. Oil on, scrape off, and the dirt went with it. No bubbles, but it worked."
+    },
+    {
+      "id": "card.ancient_rome.066.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.066.q1"
+    },
+    {
+      "id": "card.ancient_rome.066.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.066.q2"
+    },
+    {
+      "id": "card.ancient_rome.066.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.066.q3"
+    },
+    {
+      "id": "card.ancient_rome.066.c8",
+      "type": "checkpoint",
+      "headline": "The baths: visited",
+      "learned": [
+        "Baths had hot, warm and cold rooms",
+        "The hypocaust heated the floors",
+        "Baths were social centers",
+        "Bathers used oil and a strigil"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.066.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.baths"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.066.c2"
+      ],
+      "prompt": "What was the hot room of a Roman bath called?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The frigidarium",
+          "correct": false,
+          "rationale": "That was the cold room."
+        },
+        {
+          "id": "b",
+          "label": "The tepidarium",
+          "correct": false,
+          "rationale": "That was the warm room."
+        },
+        {
+          "id": "c",
+          "label": "The caldarium",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The atrium",
+          "correct": false,
+          "rationale": "That was a hall in a house."
+        }
+      ],
+      "explanation": "The caldarium was the hot room; the tepidarium was warm and the frigidarium cold.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.066.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.baths"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.066.c3"
+      ],
+      "prompt": "Why did the baths matter beyond getting clean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were where laws were voted",
+          "correct": false,
+          "rationale": "Laws were voted elsewhere."
+        },
+        {
+          "id": "b",
+          "label": "They were cheap social centers for all",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only senators could enter them",
+          "correct": false,
+          "rationale": "Entry was cheap and open."
+        },
+        {
+          "id": "d",
+          "label": "They doubled as army barracks",
+          "correct": false,
+          "rationale": "They were civilian spaces."
+        }
+      ],
+      "explanation": "Romans exercised, talked, did business and relaxed at the baths.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_rome.066.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.baths",
+        "concept.ancient_rome.city_of_marble"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.066.c3",
+        "card.ancient_rome.046.c3"
+      ],
+      "prompt": "From Level 46: which of Agrippa’s public works in Rome were places to exercise, talk and do business?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Aqueducts",
+          "correct": false,
+          "rationale": "They carried water; the social life was at the baths."
+        },
+        {
+          "id": "b",
+          "label": "Baths",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The first Pantheon",
+          "correct": false,
+          "rationale": "It was a temple, not a social center."
+        },
+        {
+          "id": "d",
+          "label": "Harbors",
+          "correct": false,
+          "rationale": "Agrippa’s works in Level 46 were baths, aqueducts and the Pantheon."
+        }
+      ],
+      "explanation": "Agrippa paid for baths in Rome, and the baths were where Romans exercised, talked and did business.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.brit_thermae",
+    "source.brit_hypocaust",
+    "source.brit_caracalla_baths",
+    "source.brit_insula"
+  ],
+  "art": "rome.aqueduct"
+}

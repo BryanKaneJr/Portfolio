@@ -1,0 +1,240 @@
+{
+  "id": "level.science.astronomy.004",
+  "skillId": "skill.science.astronomy",
+  "number": 4,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Giants of the Outer Dark",
+  "objective": "After this level you can tell gas giants from ice giants and describe Jupiter's and Saturn's standout features.",
+  "summary": "Jupiter and Saturn are gas giants, Uranus and Neptune are ice giants. Jupiter outweighs every other planet combined, and Saturn's rings are mostly ice.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.giant_planets",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.jupiter_mass",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.saturn_rings",
+      "role": "teach",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.rocky_planets",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.astronomy.sun_mass_share",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.003"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.004.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Past Mars, the planets stop being rocky and start being enormous.",
+      "body": "Level 3's four worlds were small and rocky. Past Mars, the rules change. The next four planets are giants, and you couldn't land on a single one of them."
+    },
+    {
+      "id": "card.astronomy.004.c2",
+      "type": "comparison",
+      "headline": "Two kinds of giant",
+      "items": [
+        {
+          "label": "Gas giants",
+          "points": [
+            "Jupiter and Saturn",
+            "Mostly hydrogen and helium",
+            "No solid surface: nowhere to land, not even for a very brave spacecraft"
+          ]
+        },
+        {
+          "label": "Ice giants",
+          "points": [
+            "Uranus and Neptune",
+            "Rich in water, ammonia and methane 'ices'",
+            "Smaller than the gas giants, but still giants"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.astronomy.004.c3",
+      "type": "fact",
+      "fact": "Jupiter has more than twice the mass of all the other planets combined.",
+      "context": "Remember the crumbs from Level 2, the 0.2% of the solar system that isn't the Sun? Jupiter is the biggest crumb by far. Put it on one side of a giant scale and every other planet on the other side. Jupiter wins. Double the pile and Jupiter still wins. If the planets were a team, Jupiter would be carrying it."
+    },
+    {
+      "id": "card.astronomy.004.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Saturn's rings are ice",
+      "body": "Those famous rings aren't a solid hoop you could walk around on. They're countless separate chunks of water ice, with a little rock mixed in. Some are as small as specks of dust. Others are as big as a house. So Saturn's rings are basically a giant field of hail. Some of the ice cubes are just the size of your home."
+    },
+    {
+      "id": "card.astronomy.004.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.004.q1"
+    },
+    {
+      "id": "card.astronomy.004.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.004.q2"
+    },
+    {
+      "id": "card.astronomy.004.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.004.q3"
+    },
+    {
+      "id": "card.astronomy.004.c8",
+      "type": "checkpoint",
+      "headline": "Outer solar system: mapped",
+      "learned": [
+        "Jupiter and Saturn are gas giants",
+        "Uranus and Neptune are ice giants",
+        "Jupiter outweighs all other planets combined",
+        "Saturn's rings are mostly ice"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.004.q1",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.giant_planets"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.004.c2"
+      ],
+      "prompt": "Which pair are the ice giants?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Jupiter and Saturn",
+          "correct": false,
+          "rationale": "Those are the gas giants."
+        },
+        {
+          "id": "b",
+          "label": "Uranus and Neptune",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Mars and Mercury",
+          "correct": false,
+          "rationale": "Those are rocky planets."
+        },
+        {
+          "id": "d",
+          "label": "Saturn and Neptune",
+          "correct": false,
+          "rationale": "Saturn is a gas giant."
+        }
+      ],
+      "explanation": "Uranus and Neptune are the ice giants; Jupiter and Saturn are the gas giants.",
+      "difficulty": 0.2,
+      "purpose": "recall"
+    },
+    {
+      "id": "question.astronomy.004.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.giant_planets"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.004.c2"
+      ],
+      "prompt": "Why couldn't you land on Jupiter or Saturn?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their surfaces are covered in deep, sticky mud",
+          "correct": false,
+          "rationale": "There’s no surface at all: the gas just gets denser."
+        },
+        {
+          "id": "b",
+          "label": "They have no solid surface, just ever-thicker gas",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Their rings form a solid barrier around them",
+          "correct": false,
+          "rationale": "Rings are loose chunks of ice and rock, not a wall."
+        },
+        {
+          "id": "d",
+          "label": "Their gravity is too weak to land safely",
+          "correct": false,
+          "rationale": "Their gravity is strong; the problem is there’s nothing solid."
+        }
+      ],
+      "explanation": "Gas giants are mostly hydrogen and helium. Descend and the gas just gets denser and hotter, with no ground to stand on.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.004.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.rocky_planets",
+        "concept.astronomy.giant_planets"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.003.c2",
+        "card.astronomy.004.c2"
+      ],
+      "prompt": "From Level 3: what's the big difference between the inner planets and the outer giants?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Inner planets are big and gassy; giants are small and icy",
+          "correct": false,
+          "rationale": "It’s the other way around."
+        },
+        {
+          "id": "b",
+          "label": "The giants all orbit closer to the Sun than the inner planets",
+          "correct": false,
+          "rationale": "The giants orbit much farther out."
+        },
+        {
+          "id": "c",
+          "label": "Inner planets are small and rocky; giants are mostly gas and ice",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only the inner planets have moons; the giants have none",
+          "correct": false,
+          "rationale": "The giants have many moons."
+        }
+      ],
+      "explanation": "The solar system splits neatly: four small rocky worlds inside, four giants of gas and ice outside.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_planets_overview",
+    "source.nasa_jupiter_facts",
+    "source.nasa_saturn_facts",
+    "source.nasa_sun_facts"
+  ],
+  "art": "astronomy.saturn"
+}

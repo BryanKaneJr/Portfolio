@@ -1,0 +1,357 @@
+{
+  "id": "level.world_systems.computers.030",
+  "skillId": "skill.world_systems.computers",
+  "number": 30,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "published",
+  "title": "Checkpoint: How Software Works",
+  "objective": "After this level you can explain how a program is written, translated, run and shared out by the operating system, and how it goes wrong.",
+  "summary": "Testing every multiplication on one machine would take about 30,000 years, so testing shows bugs but never their absence. Recap of code, translation, algorithms, the OS, files and bugs.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.software_testing_limits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.software_growth_rates",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.software_machine_code",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.software_time_sharing",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.software_file_deletion",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.software_exact_steps",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.software_translation",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.software_if_and_loops",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.software_binary_search",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.software_ariane_overflow",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.software_language_tradeoffs",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.software_variables",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.software_file_system",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.029"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.030.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Can you test a program until you know it has no bugs?",
+      "body": "Chapter 3 finale. You've followed a program from exact steps to machine code, through the operating system to the drive, and watched bugs slip in. One question ties it all together: how would you ever know a program is right?"
+    },
+    {
+      "id": "card.computers.030.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "30,000 years to test one multiplier",
+      "body": "The computer scientist Edsger Dijkstra once did the sums for his university's computer. Its words were 27 bits long, so it had 2 to the power 54 possible multiplications. At 2 to the power 14 a second, trying each one once would take about 30,000 years. It's Level 26's runaway growth again. His moral: \"program testing can be used very effectively to show the presence of bugs but never to show their absence.\""
+    },
+    {
+      "id": "card.computers.030.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The whole chapter in one breath",
+      "body": "A program spells out every step, because a computer never guesses. People write it in a language suited to the job, and a compiler, interpreter or just-in-time compiler turns it into the processor's machine code. Inside, variables remember, ifs choose and loops repeat, and a good algorithm, like binary search, keeps the steps from exploding as data grows. The operating system shares out the processor and tracks files on the drive. And bugs creep in when an assumption, like a number's size, stops being true."
+    },
+    {
+      "id": "card.computers.030.c4",
+      "type": "mcq",
+      "questionId": "question.computers.030.q1"
+    },
+    {
+      "id": "card.computers.030.c5",
+      "type": "mcq",
+      "questionId": "question.computers.030.q2"
+    },
+    {
+      "id": "card.computers.030.c6",
+      "type": "recall",
+      "questionId": "question.computers.030.q3"
+    },
+    {
+      "id": "card.computers.030.c7",
+      "type": "recall",
+      "questionId": "question.computers.030.q4"
+    },
+    {
+      "id": "card.computers.030.c8",
+      "type": "recall",
+      "questionId": "question.computers.030.q5"
+    },
+    {
+      "id": "card.computers.030.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 3 complete",
+      "learned": [
+        "How a program goes from exact steps in a language people read to machine code a processor runs.",
+        "Why binary search stays fast as data grows, while brute-force searches explode.",
+        "How the operating system shares one processor among programs and tracks files on a drive.",
+        "Why bugs slip past testing, from a 1947 moth to a 16-bit number on Ariane 5."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.030.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.software_testing_limits"
+      ],
+      "sourceCardIds": [
+        "card.computers.030.c2"
+      ],
+      "prompt": "According to Dijkstra, what can program testing show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That a program has no bugs at all",
+          "correct": false,
+          "rationale": "His point was that testing can never show that."
+        },
+        {
+          "id": "b",
+          "label": "The presence of bugs, but never their absence",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Exactly how many bugs remain in the program",
+          "correct": false,
+          "rationale": "Testing finds bugs; it can't count the ones it missed."
+        },
+        {
+          "id": "d",
+          "label": "Which programming language is best",
+          "correct": false,
+          "rationale": "His point was about bugs, not languages."
+        }
+      ],
+      "explanation": "Dijkstra: testing can show the presence of bugs very effectively, but never their absence.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.030.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.software_testing_limits"
+      ],
+      "sourceCardIds": [
+        "card.computers.030.c2"
+      ],
+      "prompt": "Why couldn't Dijkstra simply test every multiplication his computer could do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The computer had no multiply instruction",
+          "correct": false,
+          "rationale": "It did; the problem was the number of cases."
+        },
+        {
+          "id": "b",
+          "label": "Multiplication results can't be checked by the same computer",
+          "correct": false,
+          "rationale": "Each one is easy to check; there were just too many."
+        },
+        {
+          "id": "c",
+          "label": "Trying all 2 to the power 54 would take about 30,000 years",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The results would overflow the drive",
+          "correct": false,
+          "rationale": "Storage wasn't the obstacle; time was."
+        }
+      ],
+      "explanation": "With 27-bit words there were 2 to the power 54 multiplications; at 2 to the power 14 a second, that's about 30,000 years.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.030.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.software_growth_rates",
+        "concept.computers.software_testing_limits"
+      ],
+      "sourceCardIds": [
+        "card.computers.030.c2",
+        "card.computers.026.c4"
+      ],
+      "prompt": "Dijkstra's 2 to the power 54 cases echo Level 26. Why does testing every possible input usually fail?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Computers get slower as they age",
+          "correct": false,
+          "rationale": "The obstacle is the number of cases, not the machine."
+        },
+        {
+          "id": "b",
+          "label": "The number of cases explodes, like the traveling salesperson's tours",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Binary search can't be used to sort through test results",
+          "correct": false,
+          "rationale": "Searching isn't the issue; the count of cases is."
+        },
+        {
+          "id": "d",
+          "label": "Testing is only allowed once per program",
+          "correct": false,
+          "rationale": "There's no such rule."
+        }
+      ],
+      "explanation": "Possible inputs multiply so fast, like (n-1)!/2 tours, that checking every one is ruled out.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.030.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.software_time_sharing"
+      ],
+      "sourceCardIds": [
+        "card.computers.027.c2"
+      ],
+      "prompt": "From Level 27: what lets the operating system regain the processor every few milliseconds?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A hardware timer interrupt",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The program counter",
+          "correct": false,
+          "rationale": "It points to the next instruction; it doesn't hand over control."
+        },
+        {
+          "id": "c",
+          "label": "A binary search",
+          "correct": false,
+          "rationale": "That's an algorithm for sorted lists."
+        },
+        {
+          "id": "d",
+          "label": "The file system's bitmap",
+          "correct": false,
+          "rationale": "That tracks free blocks on the drive."
+        }
+      ],
+      "explanation": "A hardware timer raises an interrupt every few milliseconds, halting the running program and running the operating system.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.030.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.software_file_deletion"
+      ],
+      "sourceCardIds": [
+        "card.computers.028.c3"
+      ],
+      "prompt": "From Level 28: why can a deleted file often be recovered?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Deleting sends it to a hidden folder in the cloud",
+          "correct": false,
+          "rationale": "It stays on the same drive."
+        },
+        {
+          "id": "b",
+          "label": "The processor keeps a copy in its registers",
+          "correct": false,
+          "rationale": "Registers hold only what's in use right now."
+        },
+        {
+          "id": "c",
+          "label": "Its data typically stays on the drive until it's overwritten",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Every file has a spare copy written at creation",
+          "correct": false,
+          "rationale": "There's no automatic spare; the original data remains."
+        }
+      ],
+      "explanation": "Deleting removes the name's link and marks the space free, but the data typically remains until overwritten.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.dijkstra_ewd303",
+    "source.uwaterloo_tsp_tours",
+    "source.stanford_cs101_code_intro",
+    "source.stanford_cs101_software_languages",
+    "source.stanford_cs101_software_machine_code",
+    "source.mdn_compile_glossary",
+    "source.python_glossary",
+    "source.mdn_variable_glossary",
+    "source.mdn_conditional_glossary",
+    "source.mdn_loop_glossary",
+    "source.cs50_lecture0_notes",
+    "source.swarthmore_search_notes",
+    "source.ostep_limited_direct_execution",
+    "source.ostep_file_implementation",
+    "source.esa_ariane501_inquiry_report"
+  ],
+  "art": "computers.keyboard"
+}

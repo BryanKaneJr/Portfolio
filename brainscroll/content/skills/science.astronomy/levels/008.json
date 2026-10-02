@@ -1,0 +1,213 @@
+{
+  "id": "level.science.astronomy.008",
+  "skillId": "skill.science.astronomy",
+  "number": 8,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Light-Years: Measuring the Unmeasurable",
+  "objective": "After this level you can explain what a light-year measures and how far the nearest star is.",
+  "summary": "A light-year is a distance: about 9.46 trillion km. The nearest star after the Sun, Proxima Centauri, is about 4.2 light-years away.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.light_year",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.nearest_star",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.sunlight_travel_time",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.007"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.008.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A light-year sounds like a unit of time. It isn't.",
+      "body": "It has 'year' right there in the name, so it's a fair guess. But a light-year is a ruler, not a clock."
+    },
+    {
+      "id": "card.astronomy.008.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Distance, measured in light",
+      "body": "A light-year is how far light travels in one year: about 9.46 trillion kilometers. So it's a distance, the way a mile is. Kilometers are great for a road trip. Out among the stars they pile up into numbers nobody can read, so astronomers switched to a bigger ruler.",
+      "callout": "1 light-year ≈ 9.46 trillion km"
+    },
+    {
+      "id": "card.astronomy.008.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why measure space in light?",
+      "body": "Light is the fastest thing there is, which makes it a handy measuring tape. It crosses from the Moon to Earth in just over a second. From the Sun, it takes about 8 minutes (Level 1's slightly late Sun). So the Moon is about one light-second away and the Sun about 8 light-minutes. Past the Sun, even light needs years, and the ruler grows to match."
+    },
+    {
+      "id": "card.astronomy.008.c4",
+      "type": "fact",
+      "fact": "The closest star after the Sun is Proxima Centauri, about 4.2 light-years away.",
+      "context": "So its light takes about 4.2 years to reach us. Moon: a second. Sun: 8 minutes. Next star: more than four years. And that's the closest one; every other star is even farther. Proxima is our next-door neighbor. The street is just very, very long."
+    },
+    {
+      "id": "card.astronomy.008.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.008.q1"
+    },
+    {
+      "id": "card.astronomy.008.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.008.q3"
+    },
+    {
+      "id": "card.astronomy.008.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.008.q2"
+    },
+    {
+      "id": "card.astronomy.008.c8",
+      "type": "checkpoint",
+      "headline": "Cosmic yardstick: acquired",
+      "learned": [
+        "A light-year is a distance, not a time",
+        "It's about 9.46 trillion km",
+        "Proxima Centauri is about 4.2 light-years away"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.008.q1",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.light_year"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.008.c2"
+      ],
+      "prompt": "What does a light-year measure?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Time",
+          "correct": false,
+          "rationale": "It's a common mix-up, but it's a distance."
+        },
+        {
+          "id": "b",
+          "label": "Brightness",
+          "correct": false,
+          "rationale": "Brightness uses other units."
+        },
+        {
+          "id": "c",
+          "label": "Distance",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Speed",
+          "correct": false,
+          "rationale": "Light's speed is fixed; this is how far it goes in a year."
+        }
+      ],
+      "explanation": "A light-year is the distance light travels in one year.",
+      "difficulty": 0.3,
+      "purpose": "recall"
+    },
+    {
+      "id": "question.astronomy.008.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.nearest_star",
+        "concept.astronomy.light_year"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.008.c2",
+        "card.astronomy.008.c4"
+      ],
+      "prompt": "Proxima Centauri is about 4.2 light-years away. What does that mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's 4.2 years old",
+          "correct": false,
+          "rationale": "A light-year measures distance, not age."
+        },
+        {
+          "id": "b",
+          "label": "A spacecraft could reach it in 4.2 years",
+          "correct": false,
+          "rationale": "Our fastest probes would take thousands of years."
+        },
+        {
+          "id": "c",
+          "label": "Its light takes about 4.2 years to reach us",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It's 4.2 times farther than the Sun",
+          "correct": false,
+          "rationale": "It's hundreds of thousands of times farther."
+        }
+      ],
+      "explanation": "A light-year is how far light goes in a year, so light from Proxima Centauri left it about 4.2 years before you see it.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.008.q2",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.sunlight_travel_time"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.001.c3"
+      ],
+      "prompt": "From Level 1: about how long does sunlight take to reach Earth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "8 seconds",
+          "correct": false,
+          "rationale": "Much longer than that."
+        },
+        {
+          "id": "b",
+          "label": "About 8 minutes",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 8 hours",
+          "correct": false,
+          "rationale": "Much shorter than that."
+        },
+        {
+          "id": "d",
+          "label": "About 4.2 years",
+          "correct": false,
+          "rationale": "That's roughly the distance to Proxima Centauri."
+        }
+      ],
+      "explanation": "Sunlight takes about 8 minutes to reach Earth, so the Sun is about 8 light-minutes away.",
+      "difficulty": 0.2,
+      "purpose": "connection"
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_light_year",
+    "source.nasa_sun_facts",
+    "source.nasa_moon_facts"
+  ],
+  "art": "astronomy.star"
+}

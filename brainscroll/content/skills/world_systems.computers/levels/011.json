@@ -1,0 +1,223 @@
+{
+  "id": "level.world_systems.computers.011",
+  "skillId": "skill.world_systems.computers",
+  "number": 11,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Punched Cards",
+  "objective": "After this level you can explain how punched cards steered a weaving loom in 1804 and counted the 1890 US census.",
+  "summary": "Jacquard's 1804 loom read punched cards, a hole lifting a thread and no hole leaving it down. Hollerith's pins, holes and mercury counted the 1890 census in six months.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.history_jacquard_cards",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.history_hollerith_census",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.bit_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.010"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.011.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Long before screens, machines took orders from holes in cards.",
+      "body": "A French loom wove patterns by reading punched cards. Decades later, an American census was counted with them, as pins dropped through holes and closed electric circuits. Two very different jobs, one simple trick. What can a hole tell a machine?"
+    },
+    {
+      "id": "card.computers.011.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A loom that reads",
+      "body": "In 1804 Joseph-Marie Jacquard patented a loom steered by a chain of interchangeable punched cards. Pins pressed against each card in turn. Where a pin found a hole, it passed through, and its hook raised a warp thread. Where it met solid card, it was stopped, and that thread stayed down. Swap the cards and the same loom wove a different pattern, automatically."
+    },
+    {
+      "id": "card.computers.011.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A hole is a yes or a no",
+      "body": "Look at one spot on a card. Either it has a hole or it doesn't, and the loom does one of two things: lift the thread or leave it. That is one choice between two options, exactly what Level 2 called a bit. A whole card is just a row of those choices, set out in advance."
+    },
+    {
+      "id": "card.computers.011.c4",
+      "type": "fact",
+      "fact": "Tabulating the 1880 US census by hand dragged on until 1887.",
+      "context": "Herman Hollerith's answer was a machine that read one punched card per person. Metal pins dropped onto the card. Where a pin passed through a hole, it dipped into mercury, closing an electric circuit that nudged a counting dial forward. With his machines, the 1890 population count took six months, ahead of schedule and under budget."
+    },
+    {
+      "id": "card.computers.011.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "From census cards to IBM",
+      "body": "Hollerith's company, the Tabulating Machine Company, went through a series of mergers. In 1924 it took a new name: International Business Machines, or IBM. The company began by counting holes in cards."
+    },
+    {
+      "id": "card.computers.011.c6",
+      "type": "mcq",
+      "questionId": "question.computers.011.q1"
+    },
+    {
+      "id": "card.computers.011.c7",
+      "type": "mcq",
+      "questionId": "question.computers.011.q2"
+    },
+    {
+      "id": "card.computers.011.c8",
+      "type": "mcq",
+      "questionId": "question.computers.011.q3"
+    },
+    {
+      "id": "card.computers.011.c9",
+      "type": "checkpoint",
+      "headline": "Punched cards: decoded",
+      "learned": [
+        "A hole lets a pin through; no hole stops it",
+        "Jacquard's loom wove patterns from cards",
+        "Hollerith's pins and mercury counted the 1890 census",
+        "His company grew into IBM"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.011.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.history_hollerith_census"
+      ],
+      "sourceCardIds": [
+        "card.computers.011.c4"
+      ],
+      "prompt": "In Hollerith's census tabulator, what closed the electric circuit that advanced a dial?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A light shining through the hole onto a sensor",
+          "correct": false,
+          "rationale": "His pins made contact with mercury; no light was involved."
+        },
+        {
+          "id": "b",
+          "label": "A metal pin passing through a hole into mercury",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A clerk pressing a key for each person",
+          "correct": false,
+          "rationale": "The machine read the holes itself."
+        },
+        {
+          "id": "d",
+          "label": "A gear turning once for every card",
+          "correct": false,
+          "rationale": "The count came from circuits closed through holes."
+        }
+      ],
+      "explanation": "Where a pin passed through a hole, it dipped into mercury, completing a circuit that advanced a dial.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.011.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.history_jacquard_cards"
+      ],
+      "sourceCardIds": [
+        "card.computers.011.c2"
+      ],
+      "prompt": "In Jacquard's loom, what happened when a pin met a spot on the card with no hole?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The pin was stopped, so its warp thread stayed down",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The pin punched a fresh hole in that spot of the card",
+          "correct": false,
+          "rationale": "The pins read the card; they didn't punch it."
+        },
+        {
+          "id": "c",
+          "label": "The loom stopped weaving and skipped to the next card",
+          "correct": false,
+          "rationale": "Every spot on the card was read, hole or not."
+        },
+        {
+          "id": "d",
+          "label": "Its warp thread was lifted twice, for a thicker weave",
+          "correct": false,
+          "rationale": "Only a hole let a hook lift a thread."
+        }
+      ],
+      "explanation": "No hole stopped the pin, so its hook stayed put and the thread stayed down.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.011.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.history_jacquard_cards",
+        "concept.computers.bit_definition"
+      ],
+      "sourceCardIds": [
+        "card.computers.011.c3",
+        "card.computers.002.c2"
+      ],
+      "prompt": "Level 2's bit holds one choice between two options. What on a Jacquard card holds the same kind of choice?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The color of the thread",
+          "correct": false,
+          "rationale": "Color came from the threads, not the card."
+        },
+        {
+          "id": "b",
+          "label": "The size of the whole card",
+          "correct": false,
+          "rationale": "Card size doesn't change the choice at each spot."
+        },
+        {
+          "id": "c",
+          "label": "Each spot on the card: hole or no hole",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The number of cards in the chain",
+          "correct": false,
+          "rationale": "That sets the pattern's length, not a single choice."
+        }
+      ],
+      "explanation": "Each spot is punched or not: one two-way choice, like a bit.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.scienceandindustry_jacquard_loom",
+    "source.brit_jacquard_loom",
+    "source.chm_hollerith_punched_cards",
+    "source.ibm_punched_card_tabulator",
+    "source.brit_bit",
+    "source.census_hollerith_tabulation"
+  ],
+  "art": "computers.punch-card"
+}

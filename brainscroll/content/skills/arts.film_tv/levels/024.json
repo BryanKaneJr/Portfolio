@@ -1,0 +1,220 @@
+{
+  "id": "level.arts.film_tv.024",
+  "skillId": "skill.arts.film_tv",
+  "number": 24,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Who Does What on a Film Set",
+  "objective": "After this level you can explain the jobs of the director, producer, cinematographer, gaffer, grip and script supervisor.",
+  "summary": "The producer runs the money, the director the vision, the cinematographer the camera, the gaffer and grips the light, and the script supervisor continuity.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.shoot_producer_director",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.shoot_camera_light_crew",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.shoot_script_supervisor",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.shoot_five_stages",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.023"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.024.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The campfire in a movie scene might be nothing but lights.",
+      "body": "When a scene calls for a campfire that can't really be built on set, the US Bureau of Labor Statistics explains, gaffers use lights to recreate a fire's flicker. That's one job among many. A film set runs on specialists, so here's who does what."
+    },
+    {
+      "id": "card.film_tv.024.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Producer and director: the business and the vision",
+      "body": "Producers are a film's managers, from securing the money in pre-production to approving the finished film. They hire the director, create the budget and approve changes to the script, budget or schedule. The director develops the film's artistic vision: helping choose the cast, overseeing the shooting of each scene, guiding the actors and working closely with the cinematographer."
+    },
+    {
+      "id": "card.film_tv.024.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Camera and light: cinematographer, gaffer, grip",
+      "body": "The cinematographer, also called the director of photography, is in charge of shooting the scenes and decides how the camera moves to serve the director's vision. The AFI adds that they choose the camera, the lenses and how to light each scene. The gaffer, the chief electrician, designs and adjusts each scene's lighting scheme. Grips carry out that lighting plan and can support the camera on a dolly or crane."
+    },
+    {
+      "id": "card.film_tv.024.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The script supervisor: keeper of continuity",
+      "body": "A film is shot take after take, and the pieces must fit when they're cut together. The script supervisor keeps the record: slate numbers, notes on each take, lenses, the action and running times, plus props, makeup and costumes. The BFI calls continuity something that, by its nature, should be entirely invisible. If you never notice it, it worked."
+    },
+    {
+      "id": "card.film_tv.024.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.024.q1"
+    },
+    {
+      "id": "card.film_tv.024.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.024.q2"
+    },
+    {
+      "id": "card.film_tv.024.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.024.q3"
+    },
+    {
+      "id": "card.film_tv.024.c8",
+      "type": "checkpoint",
+      "headline": "The film crew: introduced",
+      "learned": [
+        "Producer: money, budget and schedule, start to finish",
+        "Director: the artistic vision and the actors",
+        "Cinematographer, gaffer, grips: camera and light",
+        "Script supervisor: records every take so pieces fit"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.024.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.shoot_camera_light_crew"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.024.c3"
+      ],
+      "prompt": "Which crew member is the chief electrician who designs each scene's lighting scheme?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The grip",
+          "correct": false,
+          "rationale": "Grips carry out the gaffer's lighting plan."
+        },
+        {
+          "id": "b",
+          "label": "The script supervisor",
+          "correct": false,
+          "rationale": "The script supervisor keeps continuity records."
+        },
+        {
+          "id": "c",
+          "label": "The gaffer",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The producer",
+          "correct": false,
+          "rationale": "The producer manages money and schedule."
+        }
+      ],
+      "explanation": "The gaffer is the chief electrician; gaffers design and adjust the lighting scheme for each scene.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.024.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.shoot_script_supervisor"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.024.c4"
+      ],
+      "prompt": "How does the script supervisor help separate takes fit together in the edit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By recording details of each take, from lenses to props",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "By directing how the actors deliver their lines",
+          "correct": false,
+          "rationale": "Guiding the actors is the director's job."
+        },
+        {
+          "id": "c",
+          "label": "By editing the footage together on set",
+          "correct": false,
+          "rationale": "Editing happens in post-production."
+        },
+        {
+          "id": "d",
+          "label": "By choosing the camera and the lenses",
+          "correct": false,
+          "rationale": "That's the cinematographer's choice."
+        }
+      ],
+      "explanation": "Detailed notes on slate numbers, takes, lenses, action, props, makeup and costume let the pieces cut together seamlessly.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.024.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.shoot_producer_director",
+        "concept.film_tv.shoot_five_stages"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.024.c2",
+        "card.film_tv.021.c2"
+      ],
+      "prompt": "In Level 21, development ends with someone looking for money. Which crew member is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The director",
+          "correct": false,
+          "rationale": "The director shapes the artistic vision, not the financing."
+        },
+        {
+          "id": "b",
+          "label": "The cinematographer",
+          "correct": false,
+          "rationale": "The cinematographer is in charge of shooting the scenes."
+        },
+        {
+          "id": "c",
+          "label": "The gaffer",
+          "correct": false,
+          "rationale": "The gaffer designs the lighting."
+        },
+        {
+          "id": "d",
+          "label": "The producer",
+          "correct": true
+        }
+      ],
+      "explanation": "Producers secure the financing and manage the film from pre-production to final approval.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.bls_script_to_screen",
+    "source.afi_what_is_cinematography",
+    "source.bfi_orlando_continuity_script",
+    "source.brit_film_production"
+  ],
+  "art": "film.director-chair"
+}

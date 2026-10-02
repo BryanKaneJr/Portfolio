@@ -1,0 +1,229 @@
+{
+  "id": "level.history.us_history.078",
+  "skillId": "skill.history.us_history",
+  "number": 78,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "World War II",
+  "objective": "After this level you can explain how the US fought and won World War II in Europe and the Pacific, from D-Day to Japan's surrender.",
+  "summary": "The US fought across two oceans, from Midway and D-Day to the atomic bombs and Japan's surrender in 1945, a decision historians still debate.",
+  "concepts": [
+    {
+      "conceptId": "concept.us_history.worldwar2_victory",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.worldwar2_atomic_debate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.native_language_diversity",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.history.us_history.077"
+  ],
+  "cards": [
+    {
+      "id": "card.us_history.078.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The US military grew from about 334,000 in 1939 to over 12 million in 1945.",
+      "body": "It needed them: this war was fought across two oceans at once. How did the US help win it, and why do historians still argue about how it ended?"
+    },
+    {
+      "id": "card.us_history.078.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Midway turns the Pacific",
+      "body": "At Midway, from June 4 to 7, 1942, US code breakers uncovered Japan's plan. Japan lost four aircraft carriers, and the Pacific war turned in America's favor."
+    },
+    {
+      "id": "card.us_history.078.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "D-Day",
+      "body": "On June 6, 1944, nearly 160,000 Allied troops landed in Normandy, France. Americans came ashore at Utah and Omaha beaches. Less than a year later, in May 1945, Germany surrendered."
+    },
+    {
+      "id": "card.us_history.078.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A code no one could crack",
+      "body": "The Marines trained over 400 Navajo men as Code Talkers, many serving in the Pacific. They passed messages in their own language, and the Japanese never broke their code."
+    },
+    {
+      "id": "card.us_history.078.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "The bomb and the argument",
+      "body": "The US dropped atomic bombs on Hiroshima on August 6 and Nagasaki on August 9, 1945. The next day Japan's emperor pushed to surrender, and Japan formally surrendered on September 2, 1945. Traditionalist historians argue the bombs were necessary to save American lives and prevent an invasion. Revisionists such as Gar Alperovitz argue they were unnecessary since Japan was near surrender, and partly aimed at the Soviets.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "The facts of August 1945 aren't in dispute. The argument is over why, and whether it was necessary. Know both cases."
+      }
+    },
+    {
+      "id": "card.us_history.078.c6",
+      "type": "mcq",
+      "questionId": "question.us_history.078.q1"
+    },
+    {
+      "id": "card.us_history.078.c7",
+      "type": "mcq",
+      "questionId": "question.us_history.078.q2"
+    },
+    {
+      "id": "card.us_history.078.c8",
+      "type": "recall",
+      "questionId": "question.us_history.078.q3"
+    },
+    {
+      "id": "card.us_history.078.c9",
+      "type": "checkpoint",
+      "headline": "World War II: explained",
+      "learned": [
+        "Midway turned the Pacific war in 1942",
+        "D-Day opened the way to Germany's surrender in 1945",
+        "Navajo Code Talkers sent messages no one could break",
+        "Historians still debate the atomic bombings"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.us_history.078.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.worldwar2_victory"
+      ],
+      "sourceCardIds": [
+        "card.us_history.078.c3"
+      ],
+      "prompt": "Where did Allied troops land on D-Day, June 6, 1944?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Midway",
+          "correct": false,
+          "rationale": "That was a naval battle in 1942."
+        },
+        {
+          "id": "b",
+          "label": "Normandy, France",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Pearl Harbor",
+          "correct": false,
+          "rationale": "That's where Japan attacked in 1941."
+        },
+        {
+          "id": "d",
+          "label": "Tokyo Bay",
+          "correct": false,
+          "rationale": "That's where Japan formally surrendered."
+        }
+      ],
+      "explanation": "On D-Day nearly 160,000 Allied troops landed in Normandy, France.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.us_history.078.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.worldwar2_atomic_debate"
+      ],
+      "sourceCardIds": [
+        "card.us_history.078.c5"
+      ],
+      "prompt": "What do traditionalist and revisionist historians disagree about?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Whether the bombs were dropped at all",
+          "correct": false,
+          "rationale": "That isn't disputed."
+        },
+        {
+          "id": "b",
+          "label": "Which city was bombed first",
+          "correct": false,
+          "rationale": "Hiroshima, on August 6: not in dispute."
+        },
+        {
+          "id": "c",
+          "label": "Whether the bombs were needed to end the war without an invasion",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Whether Germany surrendered first",
+          "correct": false,
+          "rationale": "It did, in May 1945."
+        }
+      ],
+      "explanation": "Traditionalists say the bombs saved American lives by preventing an invasion; revisionists say Japan was near surrender anyway.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.us_history.078.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.us_history.worldwar2_victory",
+        "concept.us_history.native_language_diversity"
+      ],
+      "sourceCardIds": [
+        "card.us_history.078.c4",
+        "card.us_history.003.c2"
+      ],
+      "prompt": "Level 3 described about 300 distinct languages in North America at contact. How did one of them help win World War II?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Navajo Marines used it for a code the Japanese never broke",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It became the official language of the army",
+          "correct": false,
+          "rationale": "The level says nothing like that."
+        },
+        {
+          "id": "c",
+          "label": "It was taught to Japanese prisoners",
+          "correct": false,
+          "rationale": "The level says nothing like that."
+        },
+        {
+          "id": "d",
+          "label": "It named the D-Day beaches",
+          "correct": false,
+          "rationale": "The beaches were Utah and Omaha."
+        }
+      ],
+      "explanation": "The Marines trained over 400 Navajo Code Talkers, and the Japanese never broke their code.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nww2_military_numbers",
+    "source.nww2_midway",
+    "source.nww2_d_day",
+    "source.nww2_vj_day",
+    "source.nara_code_talkers",
+    "source.osti_nagasaki",
+    "source.ahf_bomb_debate"
+  ],
+  "art": "us.army-helmet"
+}

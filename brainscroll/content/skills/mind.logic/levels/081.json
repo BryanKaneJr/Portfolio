@@ -1,0 +1,217 @@
+{
+  "id": "level.mind.logic.081",
+  "skillId": "skill.mind.logic",
+  "number": 81,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "When to Trust an Expert",
+  "objective": "After this level you can tell real expertise from a false appeal to authority, such as an expert speaking outside their field.",
+  "summary": "Trusting experts is usually good reasoning. An appeal to authority fails when the expert is outside their field or the real authorities disagree, as Linus Pauling's vitamin C claims show.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.sourcing_appeal_to_authority",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.sourcing_pauling_vitamin_c",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.unstated_premise",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.080"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Linus Pauling won two Nobel Prizes, all to himself. Trust him on colds?",
+      "body": "Pauling won the 1954 Chemistry prize for research on the chemical bond, then the 1962 Peace Prize: no one else has won two unshared. In the 1970s he concluded that vitamin C would prevent and ease the common cold, and vitamin C became widely used against colds. When someone that brilliant speaks, does that settle it?",
+      "id": "card.logic.081.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Trusting experts is usually good reasoning",
+      "body": "You can't test every claim yourself, so you trust your dentist about teeth and a pilot about flying. The Internet Encyclopedia of Philosophy says most appeals to authority are not fallacious: much of our knowledge properly comes from listening to authorities. So \"an expert says so\" is often a perfectly good reason. The real question is when it stops being one.",
+      "id": "card.logic.081.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "When an appeal to authority fails",
+      "body": "The same encyclopedia lists the warning signs. The person isn't really an authority on this subject. They can't be trusted to tell the truth. They've been misquoted. Or the real authorities disagree. Its example: a film star selling a watch is an authority on acting, not on watches. Fame, and even genius, doesn't follow you into a new field.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: before you ask \"expert or not?\", ask \"expert in what?\""
+      },
+      "id": "card.logic.081.c3"
+    },
+    {
+      "type": "fact",
+      "fact": "Big reviews found regular vitamin C didn't cut how often ordinary people catch colds.",
+      "context": "A 2013 Cochrane review of placebo-controlled trials found no effect on how often colds strike the ordinary population, though colds were modestly shorter. Pauling was a theoretical physical chemist, and his vitamin C views were never widely accepted by the medical establishment. On a question about colds, the experts that counted were the ones testing it.",
+      "id": "card.logic.081.c4"
+    },
+    {
+      "id": "card.logic.081.c5",
+      "type": "mcq",
+      "questionId": "question.logic.081.q1"
+    },
+    {
+      "id": "card.logic.081.c6",
+      "type": "mcq",
+      "questionId": "question.logic.081.q2"
+    },
+    {
+      "id": "card.logic.081.c7",
+      "type": "mcq",
+      "questionId": "question.logic.081.q3"
+    },
+    {
+      "id": "card.logic.081.c8",
+      "type": "checkpoint",
+      "headline": "Experts: weighed",
+      "learned": [
+        "Most appeals to authority are reasonable",
+        "Check: an authority on this subject?",
+        "Pauling: a chemist, not a cold expert",
+        "Trials found vitamin C didn't prevent colds"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.081.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.sourcing_appeal_to_authority"
+      ],
+      "sourceCardIds": [
+        "card.logic.081.c2"
+      ],
+      "prompt": "According to the Internet Encyclopedia of Philosophy, are most appeals to authority fallacious?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Yes, relying on anyone else is lazy",
+          "correct": false,
+          "rationale": "It says the opposite: much knowledge properly comes from authorities."
+        },
+        {
+          "id": "b",
+          "label": "Only when the expert is not famous",
+          "correct": false,
+          "rationale": "Fame isn't the test; relevant expertise is."
+        },
+        {
+          "id": "c",
+          "label": "No, most are good reasons to believe",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Yes, unless you check every claim",
+          "correct": false,
+          "rationale": "It says trusting authorities is usually fine."
+        }
+      ],
+      "explanation": "Most appeals to authority are not fallacious: much of what we know properly comes from listening to authorities.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.081.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.sourcing_appeal_to_authority"
+      ],
+      "sourceCardIds": [
+        "card.logic.081.c3"
+      ],
+      "prompt": "A famous chef says a new bridge design is perfectly safe. What is the best reason to doubt this appeal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Chefs are rarely honest people",
+          "correct": false,
+          "rationale": "Nothing suggests the chef is lying; the problem is the field."
+        },
+        {
+          "id": "b",
+          "label": "The chef isn't an authority on bridges",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Bridge safety is a matter of taste",
+          "correct": false,
+          "rationale": "Whether a bridge is safe can be checked."
+        },
+        {
+          "id": "d",
+          "label": "Famous people are always wrong",
+          "correct": false,
+          "rationale": "Fame doesn't make a claim false either."
+        }
+      ],
+      "explanation": "An appeal to authority fails when the person isn't an authority on the subject: a chef knows cooking, not bridges.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.081.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.sourcing_pauling_vitamin_c",
+        "concept.logic.unstated_premise"
+      ],
+      "sourceCardIds": [
+        "card.logic.081.c4",
+        "card.logic.007.c3"
+      ],
+      "prompt": "\"Pauling says vitamin C prevents colds, so it does.\" What unstated premise does that argument need?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pauling is a reliable authority on colds",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Vitamin C is sold in most shops",
+          "correct": false,
+          "rationale": "True or not, the conclusion doesn't depend on it."
+        },
+        {
+          "id": "c",
+          "label": "Colds are caused by viruses",
+          "correct": false,
+          "rationale": "That doesn't link Pauling's word to the conclusion."
+        },
+        {
+          "id": "d",
+          "label": "Nobel Prizes are awarded every year",
+          "correct": false,
+          "rationale": "Irrelevant to whether his word settles it."
+        }
+      ],
+      "explanation": "For the conclusion to follow, Pauling must be a reliable authority on colds. That hidden premise is exactly what the evidence undercut.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_linus_pauling",
+    "source.cochrane_vitamin_c_common_cold",
+    "source.iep_fallacies"
+  ],
+  "art": "object.book"
+}

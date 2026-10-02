@@ -1,0 +1,221 @@
+{
+  "id": "level.arts.film_tv.076",
+  "skillId": "skill.arts.film_tv",
+  "number": 76,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Ads and Ratings",
+  "objective": "After this level you can explain how advertising paid for broadcast TV and how ratings measured audiences to set its price.",
+  "summary": "After the rigged quiz shows of the late 1950s, networks stopped selling whole shows to single sponsors and sold short commercials. Nielsen ratings measured audiences and set the price.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.tv_sponsors_to_spots",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.tv_nielsen_ratings",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.studio_production_code",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.film_tv.tv_radio_stars_and_sponsors",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.075"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.076.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Broadcast TV was free to watch. Somebody still had to pay.",
+      "body": "Advertising was the main support of American broadcasting, and networks used ratings, in part, to set the advertising price of each program. So two questions ran the business: who controlled the shows, and how many people were watching?"
+    },
+    {
+      "id": "card.film_tv.076.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The quiz shows were fixed",
+      "body": "In 1958 former contestants revealed that big-money TV quiz shows were rigged and contestants coached, and a House subcommittee held hearings in 1959. Afterward, networks grew wary of single-sponsor programs and sold time in 15-, 30- and 60-second units. Producers took control of shows, and time was sold the way magazines sell ad pages. With advertisers out of the shows, their urge to interfere faded."
+    },
+    {
+      "id": "card.film_tv.076.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A box on the TV set",
+      "body": "From 1950, A.C. Nielsen rated TV shows using a sample of more than 1,000 TV homes. Each had a small box, the Audimeter, attached to the set to record when it was on and what channel it was tuned to, and a smaller group kept viewing diaries. A thousand homes stood in for a whole country's living rooms."
+    },
+    {
+      "id": "card.film_tv.076.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rating versus share",
+      "body": "A rating of 20 means 20 percent of all US TV households tuned in to a program. A 30 share means 30 percent of the people watching TV at that moment chose it. Networks use ratings to set advertising rates for each program and to decide which programs to keep or cancel. A low number could end a show."
+    },
+    {
+      "id": "card.film_tv.076.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.076.q1"
+    },
+    {
+      "id": "card.film_tv.076.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.076.q2"
+    },
+    {
+      "id": "card.film_tv.076.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.076.q3"
+    },
+    {
+      "id": "card.film_tv.076.c8",
+      "type": "checkpoint",
+      "headline": "Ads and ratings: priced",
+      "learned": [
+        "Rigged quiz shows led to hearings in 1959",
+        "Networks switched from single sponsors to commercials",
+        "Nielsen's Audimeter logged when sets were on and the channel",
+        "Ratings set ad prices and decide cancellations"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.076.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.tv_nielsen_ratings"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.076.c3"
+      ],
+      "prompt": "What did Nielsen's Audimeter record?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How much viewers liked each show",
+          "correct": false,
+          "rationale": "It measured tuning, not opinions."
+        },
+        {
+          "id": "b",
+          "label": "When the TV set was on and which channel it was tuned to",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "How many commercials each station aired",
+          "correct": false,
+          "rationale": "It sat on a home's TV set, not at a station."
+        },
+        {
+          "id": "d",
+          "label": "The ages of everyone in the home",
+          "correct": false,
+          "rationale": "Diaries, not the box, recorded more about viewers."
+        }
+      ],
+      "explanation": "The Audimeter was attached to the set and recorded when it was on and what channel it was tuned to.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.film_tv.076.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.tv_nielsen_ratings"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.076.c4"
+      ],
+      "prompt": "A program earns a 30 share. What does that number measure?",
+      "options": [
+        {
+          "id": "a",
+          "label": "30 percent of all US TV households tuned in",
+          "correct": false,
+          "rationale": "That would be a rating of 30."
+        },
+        {
+          "id": "b",
+          "label": "30 sponsors bought time on the show",
+          "correct": false,
+          "rationale": "Shares count viewers, not sponsors."
+        },
+        {
+          "id": "c",
+          "label": "The show ran for 30 minutes",
+          "correct": false,
+          "rationale": "Share has nothing to do with length."
+        },
+        {
+          "id": "d",
+          "label": "30 percent of the people watching TV at that time watched it",
+          "correct": true
+        }
+      ],
+      "explanation": "A share counts only people watching TV at that moment; a rating counts all TV households.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.film_tv.076.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.studio_production_code",
+        "concept.film_tv.tv_sponsors_to_spots"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.044.c2",
+        "card.film_tv.076.c2"
+      ],
+      "prompt": "Hollywood's studios adopted the Production Code under outside pressure (Level 44). After the 1959 quiz show hearings, how did the networks change who controlled their shows?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They handed each show to a single sponsor",
+          "correct": false,
+          "rationale": "That was the system they moved away from."
+        },
+        {
+          "id": "b",
+          "label": "They took control from sponsors and sold short commercial slots",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They let the government approve every script",
+          "correct": false,
+          "rationale": "The level describes the networks and producers taking control."
+        },
+        {
+          "id": "d",
+          "label": "They stopped selling advertising altogether",
+          "correct": false,
+          "rationale": "They kept selling time, in shorter units."
+        }
+      ],
+      "explanation": "Both industries reacted to scandal and outside pressure: the networks took shows from single sponsors and sold 15-, 30- and 60-second units.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.brit_broadcasting",
+    "source.brit_nielsen_ratings",
+    "source.tva_quiz_show_scandals",
+    "source.pbs_amex_quiz_aftermath",
+    "source.brit_ac_nielsen"
+  ],
+  "art": "mind.bar-chart"
+}

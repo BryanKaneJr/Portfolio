@@ -1,0 +1,220 @@
+{
+  "id": "level.mind.psychology.031",
+  "skillId": "skill.mind.psychology",
+  "number": 31,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Three Stops for a Memory",
+  "objective": "After this level you can explain sensory, short-term and long-term memory and how information moves between them.",
+  "summary": "Atkinson and Shiffrin (1968) proposed three stages of memory: sensory, short-term and long-term. Rehearsal moves information from short-term into long-term memory.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.memory_three_stores",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.memory_rehearsal_transfer",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.cognitive_revolution",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.030"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.031.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your senses catch far more than you will ever remember.",
+      "body": "Sights, sounds and tastes pour in all day, and you can't absorb even most of them. What was your teacher wearing last class? Probably gone. So how does the small slice you keep become a memory that lasts for years?"
+    },
+    {
+      "id": "card.psychology.031.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three stops on one route",
+      "body": "In 1968, psychologists Richard Atkinson and Richard Shiffrin proposed that information passes through three stages on its way to storage: sensory memory, short-term memory and long-term memory. Their model treats memory the way a computer handles information: data comes in, gets worked on, and some of it gets saved. It isn't the only model of memory, but it gave psychologists a route to follow.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep the route in mind: senses, short-term, long-term. The rest of this chapter follows memories along it."
+      }
+    },
+    {
+      "id": "card.psychology.031.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stop one: a blink-length buffer",
+      "body": "Sensory memory holds sights, sounds and tastes for up to a couple of seconds. Most of what hits your senses doesn't matter to you, so your mind discards it. As long as your teacher's outfit was ordinary, it probably never got past this stop. Only what you treat as worth keeping moves on to short-term memory."
+    },
+    {
+      "id": "card.psychology.031.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stop two: use it or lose it",
+      "body": "Short-term memory holds information for only about 15 to 30 seconds. Then it's either discarded or moved into long-term memory, and rehearsal does the moving. Repeating something works. Linking it to what you already know works too, like remembering a new friend's area code because your uncle's is the same. Long-term memory's capacity is believed to be unlimited. The bottleneck isn't space; it's getting through the door."
+    },
+    {
+      "id": "card.psychology.031.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.031.q1"
+    },
+    {
+      "id": "card.psychology.031.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.031.q2"
+    },
+    {
+      "id": "card.psychology.031.c7",
+      "type": "recall",
+      "questionId": "question.psychology.031.q3"
+    },
+    {
+      "id": "card.psychology.031.c8",
+      "type": "checkpoint",
+      "headline": "Three stops for a memory",
+      "learned": [
+        "Atkinson and Shiffrin (1968): sensory, short-term, long-term",
+        "Sensory memory lasts up to a couple of seconds",
+        "Short-term memory lasts about 15 to 30 seconds",
+        "Rehearsal moves information into long-term memory"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.031.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.memory_three_stores"
+      ],
+      "sourceCardIds": [
+        "card.psychology.031.c2",
+        "card.psychology.031.c3"
+      ],
+      "prompt": "In the Atkinson-Shiffrin model, which stage does incoming information reach first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Long-term memory",
+          "correct": false,
+          "rationale": "Long-term memory is the last stop, not the first."
+        },
+        {
+          "id": "b",
+          "label": "Short-term memory",
+          "correct": false,
+          "rationale": "Short-term memory is the second stop, after sensory memory."
+        },
+        {
+          "id": "c",
+          "label": "Sensory memory",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Rehearsal memory",
+          "correct": false,
+          "rationale": "Rehearsal is a process that moves information, not a stage."
+        }
+      ],
+      "explanation": "Information first lands in sensory memory, which holds it for up to a couple of seconds before anything worth keeping moves to short-term memory.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.031.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.memory_rehearsal_transfer"
+      ],
+      "sourceCardIds": [
+        "card.psychology.031.c4"
+      ],
+      "prompt": "How does information get from short-term memory into long-term memory?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It moves over by itself after about 30 seconds",
+          "correct": false,
+          "rationale": "Unrehearsed information is usually discarded after 15 to 30 seconds."
+        },
+        {
+          "id": "b",
+          "label": "Through rehearsal, by repeating or linking it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It waits until long-term memory has free space",
+          "correct": false,
+          "rationale": "Long-term capacity is believed to be unlimited, so space isn't the issue."
+        },
+        {
+          "id": "d",
+          "label": "It returns to sensory memory for a second look",
+          "correct": false,
+          "rationale": "Sensory memory holds raw input for seconds; it doesn't store memories."
+        }
+      ],
+      "explanation": "Rehearsal does the moving: repeating information, or linking it to what you already know, carries it into long-term memory.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.psychology.031.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.memory_three_stores",
+        "concept.psychology.cognitive_revolution"
+      ],
+      "sourceCardIds": [
+        "card.psychology.031.c2",
+        "card.psychology.006.c2",
+        "card.psychology.006.c4"
+      ],
+      "prompt": "The 1968 memory model treats memory like a computer handling information. Which shift from Chapter 1 made that picture of the mind popular?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Behaviorism",
+          "correct": false,
+          "rationale": "Behaviorists set the mind aside and studied only behavior."
+        },
+        {
+          "id": "b",
+          "label": "Psychoanalysis",
+          "correct": false,
+          "rationale": "Freud's approach relied on interpreting the unconscious, not on information processing."
+        },
+        {
+          "id": "c",
+          "label": "Introspection in Wundt's lab",
+          "correct": false,
+          "rationale": "Wundt's lab (1879) came long before computers."
+        },
+        {
+          "id": "d",
+          "label": "The cognitive revolution",
+          "correct": true
+        }
+      ],
+      "explanation": "The cognitive revolution of the 1950s and 1960s brought back the mind as something science could study, often pictured as a processor of information like a computer.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_memory_functions",
+    "source.openstax_psych_history",
+    "source.sep_cognitive_science"
+  ],
+  "art": "mind.memory-cabinet"
+}

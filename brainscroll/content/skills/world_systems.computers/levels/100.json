@@ -1,0 +1,591 @@
+{
+  "id": "level.world_systems.computers.100",
+  "skillId": "skill.world_systems.computers",
+  "number": 100,
+  "type": "mastery",
+  "revision": 1,
+  "status": "published",
+  "title": "Mastery Challenge: Computers & the Internet",
+  "objective": "After this level you can demonstrate command of Computers & the Internet Levels 1 to 99 across the whole tree.",
+  "summary": "One question per chapter: gates, transistors, binary search, NAT, compression, password hashes, re-identification, feedback loops, chatbots and quantum. Every question can be corrected.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.logic_gates",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.history_transistor",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.history_vacuum_tube",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.software_binary_search",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.net_nat_translation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.compression_lossless_lossy",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.security_password_hashing",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.privacy_reidentification",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.feedbackloop_recommendations",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.llm_confabulation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.binary_addition",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.techcheck_quantum_public_key_risk",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.techcheck_post_quantum_standards",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.security_one_way_math",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.099"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.100.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Computers & the Internet Mastery Challenge.",
+      "body": "Questions from across the whole tree, from a single bit to judging a claim about AI. Level 1 followed one photo through the machine; now see how far you've come. Take your time: every question can be corrected."
+    },
+    {
+      "id": "card.computers.100.c2",
+      "type": "recall",
+      "questionId": "question.computers.100.q1"
+    },
+    {
+      "id": "card.computers.100.c3",
+      "type": "recall",
+      "questionId": "question.computers.100.q2"
+    },
+    {
+      "id": "card.computers.100.c4",
+      "type": "recall",
+      "questionId": "question.computers.100.q3"
+    },
+    {
+      "id": "card.computers.100.c5",
+      "type": "recall",
+      "questionId": "question.computers.100.q4"
+    },
+    {
+      "id": "card.computers.100.c6",
+      "type": "recall",
+      "questionId": "question.computers.100.q5"
+    },
+    {
+      "id": "card.computers.100.c7",
+      "type": "recall",
+      "questionId": "question.computers.100.q6"
+    },
+    {
+      "id": "card.computers.100.c8",
+      "type": "recall",
+      "questionId": "question.computers.100.q7"
+    },
+    {
+      "id": "card.computers.100.c9",
+      "type": "recall",
+      "questionId": "question.computers.100.q8"
+    },
+    {
+      "id": "card.computers.100.c10",
+      "type": "recall",
+      "questionId": "question.computers.100.q9"
+    },
+    {
+      "id": "card.computers.100.c11",
+      "type": "recall",
+      "questionId": "question.computers.100.q10"
+    },
+    {
+      "id": "card.computers.100.c12",
+      "type": "checkpoint",
+      "headline": "Computers & the Internet: mastered",
+      "learned": [
+        "How bits, gates and a processor do all the work, and how that machine grew from punched cards to smartphones.",
+        "How software is translated and scheduled, and why some algorithms scale while others don't.",
+        "How addresses, DNS, routers and TCP carry a web page to your screen, and what makes it slow.",
+        "Why hashes, second factors and public keys protect you, and where your personal data really goes.",
+        "How algorithms and AI learn from data and where they fail, and which questions sort any tech claim."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.100.q1",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.logic_gates"
+      ],
+      "sourceCardIds": [
+        "card.computers.006.c2"
+      ],
+      "prompt": "A porch light should turn on if motion is sensed or the manual switch is on. Which gate does that job?",
+      "options": [
+        {
+          "id": "a",
+          "label": "OR",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "AND",
+          "correct": false,
+          "rationale": "AND would need both at once."
+        },
+        {
+          "id": "c",
+          "label": "NOT",
+          "correct": false,
+          "rationale": "NOT flips one input."
+        },
+        {
+          "id": "d",
+          "label": "No single gate",
+          "correct": false,
+          "rationale": "A single OR gate does it."
+        }
+      ],
+      "explanation": "OR outputs 1 when any input is 1, like two switches wired in parallel.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.computers.100.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.history_transistor",
+        "concept.computers.history_vacuum_tube"
+      ],
+      "sourceCardIds": [
+        "card.computers.016.c4",
+        "card.computers.016.c2"
+      ],
+      "prompt": "Why did the transistor take over from the vacuum tube as the computer's switch?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It could hold many states at once, not just on and off",
+          "correct": false,
+          "rationale": "It's still an on-off switch, like the tube."
+        },
+        {
+          "id": "b",
+          "label": "It was the first switch able to store a bit at all",
+          "correct": false,
+          "rationale": "ENIAC's tubes were already switching bits."
+        },
+        {
+          "id": "c",
+          "label": "It let computers change jobs without any rewiring",
+          "correct": false,
+          "rationale": "That was the stored program, a separate idea."
+        },
+        {
+          "id": "d",
+          "label": "It was small, ran cool, used little power and rarely failed",
+          "correct": true
+        }
+      ],
+      "explanation": "A tube had to heat its cathode to about 1,000°C and burned out; a transistor is small, cool, reliable and frugal.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.computers.100.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.software_binary_search"
+      ],
+      "sourceCardIds": [
+        "card.computers.025.c3",
+        "card.computers.025.c4"
+      ],
+      "prompt": "Binary search needs at most about 20 steps for a sorted list of a million names. About how many for 4 million?",
+      "options": [
+        {
+          "id": "a",
+          "label": "21",
+          "correct": false,
+          "rationale": "That's two million; four million is one more doubling."
+        },
+        {
+          "id": "b",
+          "label": "22",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "40",
+          "correct": false,
+          "rationale": "Doubling the list adds a step; it doesn't double the steps."
+        },
+        {
+          "id": "d",
+          "label": "80",
+          "correct": false,
+          "rationale": "Four times the steps is how a linear search grows."
+        }
+      ],
+      "explanation": "Each doubling adds one question: 1 million takes about 20, 2 million about 21, 4 million about 22.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.computers.100.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.net_nat_translation"
+      ],
+      "sourceCardIds": [
+        "card.computers.038.c3",
+        "card.computers.038.c4"
+      ],
+      "prompt": "Why can't a computer out on the internet start a conversation with your laptop at home, unless the router is set up for it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Home laptops have no IP address of any kind on a home network",
+          "correct": false,
+          "rationale": "It has a private address, just not a public one."
+        },
+        {
+          "id": "b",
+          "label": "DNS refuses to look up the names of devices inside people's homes",
+          "correct": false,
+          "rationale": "DNS turns names into addresses; it doesn't block packets."
+        },
+        {
+          "id": "c",
+          "label": "The router's NAT table only lists conversations started from inside",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Routers throw away every single packet that arrives from outside",
+          "correct": false,
+          "rationale": "Replies to your own requests come in fine."
+        }
+      ],
+      "explanation": "NAT writes each outgoing conversation into a table; an unasked packet from outside finds no entry to match.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.computers.100.q5",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.compression_lossless_lossy"
+      ],
+      "sourceCardIds": [
+        "card.computers.048.c3",
+        "card.computers.048.c2"
+      ],
+      "prompt": "Lossy compression throws some detail away for good. Which file is it safe to use on?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A spreadsheet of your bank balances",
+          "correct": false,
+          "rationale": "Every digit has to come back exactly."
+        },
+        {
+          "id": "b",
+          "label": "A holiday photo you're sharing online",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A contract saved as a text document",
+          "correct": false,
+          "rationale": "Every character has to come back exactly."
+        },
+        {
+          "id": "d",
+          "label": "A program's machine code instructions",
+          "correct": false,
+          "rationale": "One wrong byte changes what the processor does."
+        }
+      ],
+      "explanation": "Small errors spread over a picture are hard to see; in text or numbers, they change the meaning.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.computers.100.q6",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.security_password_hashing"
+      ],
+      "sourceCardIds": [
+        "card.computers.052.c3",
+        "card.computers.052.c4"
+      ],
+      "prompt": "A thief copies a well-run site's password list. Why can't they simply read the passwords?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The passwords are encrypted, and the key is hidden well",
+          "correct": false,
+          "rationale": "Hashing has no key; encryption would be riskier."
+        },
+        {
+          "id": "b",
+          "label": "The list is stored in binary, which people can't read",
+          "correct": false,
+          "rationale": "Binary is just encoding; it hides nothing."
+        },
+        {
+          "id": "c",
+          "label": "The site deletes the whole list after every login",
+          "correct": false,
+          "rationale": "The site keeps it to check each login."
+        },
+        {
+          "id": "d",
+          "label": "The site kept only one-way hashes, never the passwords",
+          "correct": true
+        }
+      ],
+      "explanation": "A hash can't be turned back into the password, so the site checks logins by hashing what you type and comparing.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.computers.100.q7",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.privacy_reidentification"
+      ],
+      "sourceCardIds": [
+        "card.computers.066.c4",
+        "card.computers.066.c3"
+      ],
+      "prompt": "A study shares fitness records with names removed but keeps ZIP code, birth date and sex. Why is that risky?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Removing names makes any dataset fully anonymous",
+          "correct": false,
+          "rationale": "Names are only one way to point at a person."
+        },
+        {
+          "id": "b",
+          "label": "ZIP codes are secret, so nobody else could match them",
+          "correct": false,
+          "rationale": "Voter lists carry them, along with names."
+        },
+        {
+          "id": "c",
+          "label": "Together those details often match just one person",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Fitness data can never be linked to another dataset",
+          "correct": false,
+          "rationale": "Linking to a voter list is exactly how it's done."
+        }
+      ],
+      "explanation": "A few details multiply into more combinations than people, so a list with names can put a name back on the record.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.computers.100.q8",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.feedbackloop_recommendations"
+      ],
+      "sourceCardIds": [
+        "card.computers.078.c3",
+        "card.computers.078.c4"
+      ],
+      "prompt": "A video app learns from what you click, but it also chose what you were shown. Why does that muddy its lesson?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It can't easily tell liking something from being shown it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It forgets every click the moment you close the app",
+          "correct": false,
+          "rationale": "Your clicks become its next lesson."
+        },
+        {
+          "id": "c",
+          "label": "Clicks are metadata, so they can't be counted at all",
+          "correct": false,
+          "rationale": "Clicks are exactly what it counts."
+        },
+        {
+          "id": "d",
+          "label": "It only learns from star ratings, never from clicks",
+          "correct": false,
+          "rationale": "Clicks are its main training data."
+        }
+      ],
+      "explanation": "The recommender trains on reactions it helped cause, so it can end up shaping the very data it learns from.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.computers.100.q9",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.llm_confabulation",
+        "concept.computers.binary_addition"
+      ],
+      "sourceCardIds": [
+        "card.computers.087.c2",
+        "card.computers.007.c2"
+      ],
+      "prompt": "Level 7's adder always gets 1 + 1 right. Why can a chatbot state a false fact as confidently as a true one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It looks answers up in a database that contains errors",
+          "correct": false,
+          "rationale": "It generates text token by token, not by lookup."
+        },
+        {
+          "id": "b",
+          "label": "It knows the answer is wrong but is built to hide it",
+          "correct": false,
+          "rationale": "It has no built-in check for truth, hidden or not."
+        },
+        {
+          "id": "c",
+          "label": "It picks likely next tokens, and likely isn't true",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Its adder circuits slip up on long, difficult sums",
+          "correct": false,
+          "rationale": "Adders follow fixed rules; next-token picks don't."
+        }
+      ],
+      "explanation": "An adder follows fixed rules; a language model follows statistical patterns, which reward fitting text, not truth.",
+      "difficulty": 0.55
+    },
+    {
+      "id": "question.computers.100.q10",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.techcheck_quantum_public_key_risk",
+        "concept.computers.techcheck_post_quantum_standards",
+        "concept.computers.security_one_way_math"
+      ],
+      "sourceCardIds": [
+        "card.computers.094.c2",
+        "card.computers.094.c4",
+        "card.computers.055.c3"
+      ],
+      "prompt": "RSA's padlock from Level 55 rests on how hard it is to find two huge primes from their product. What would a large quantum computer mean for it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nothing, since no machine could ever factor such numbers",
+          "correct": false,
+          "rationale": "Shor's 1994 algorithm shows a large quantum computer could."
+        },
+        {
+          "id": "b",
+          "label": "It could break it, so NIST has published post-quantum standards",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It would break every kind of encryption and hashing at once",
+          "correct": false,
+          "rationale": "The threat is to public-key methods like RSA, not everything."
+        },
+        {
+          "id": "d",
+          "label": "It would make RSA stronger, since qubits add extra security",
+          "correct": false,
+          "rationale": "Shor's algorithm points the other way."
+        }
+      ],
+      "explanation": "A large quantum computer would break RSA and elliptic-curve methods; NIST released its first post-quantum standards in 2024.",
+      "difficulty": 0.55
+    }
+  ],
+  "sourceIds": [
+    "source.brit_logic_gate",
+    "source.libretexts_not_gate",
+    "source.electronicstutorials_switching_theory",
+    "source.brit_transistor",
+    "source.brit_electron_tube",
+    "source.swarthmore_search_notes",
+    "source.cs50_lecture0_notes",
+    "source.ietf_rfc3022_nat",
+    "source.ietf_rfc9293_tcp",
+    "source.brit_data_compression",
+    "source.brit_jpeg",
+    "source.owasp_password_storage",
+    "source.nist_glossary_encryption",
+    "source.sweeney_simple_demographics_2000",
+    "source.chaney_algorithmic_confounding_2018",
+    "source.mansoury_feedback_loop_2020",
+    "source.nist_ai_600_1_genai_profile",
+    "source.vlabs_iitr_adders",
+    "source.intel_digital_information",
+    "source.brit_quantum_computer",
+    "source.ncsc_pqc_next_steps",
+    "source.nist_pqc_standards_2024",
+    "source.nist_csrc_pqc",
+    "source.brit_rsa_encryption",
+    "source.nihf_adi_shamir"
+  ],
+  "art": "computers.mastery"
+}

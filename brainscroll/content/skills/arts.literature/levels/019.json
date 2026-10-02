@@ -1,0 +1,232 @@
+{
+  "id": "level.arts.literature.019",
+  "skillId": "skill.arts.literature",
+  "number": 19,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Why Myths Rhyme",
+  "objective": "After this level you can explain the main theories for why myths from distant places share patterns: shared roots, contact and shared human minds.",
+  "summary": "Why myths far apart rhyme: shared roots (Dyaus, Zeus and Jupiter share a name), contact (floods, the Ramayana, Br'er Rabbit travel) and shared minds (Bastian's elementary ideas).",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.myth_rhyme_shared_roots",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.myth_rhyme_contact",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.myth_rhyme_shared_minds",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.flood_genesis_parallel",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.earth_diver",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.018"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.019.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "India, Greece and Rome each had a sky god with the same old name.",
+      "body": "India's Vedic sky god Dyaus, Greece's Zeus and Rome's Jupiter (\"Father Jove\") have names that go back to one ancestor. Myths from far-apart places keep rhyming like this. Here are three explanations for why."
+    },
+    {
+      "id": "card.literature.019.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Explanation one: shared roots",
+      "body": "The names Dyaus, Zeus and Jupiter are cognates: all three go back to the name of a Proto-Indo-European sky god. India, Greece and Rome inherited him, the way cousins can inherit their grandmother's nose. When myths rhyme because of a common origin, they aren't copies of each other. They're relatives."
+    },
+    {
+      "id": "card.literature.019.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Explanation two: contact",
+      "body": "Stories travel with their tellers. Scholars see Babylonian flood traditions as the source of features of the flood in Genesis (Level 4). The Ramayana spread through Southeast Asia (Level 15), and Br'er Rabbit reached the Americas with enslaved Africans (Level 17). Here the rhyme comes from borrowing.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "People mix these two up. Shared roots means inherited from a common ancestor; contact means borrowed from a neighbor."
+      }
+    },
+    {
+      "id": "card.literature.019.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Explanation three: shared minds",
+      "body": "The ethnologist Adolf Bastian argued for a psychic unity of humankind: all peoples share certain elementary ideas, which take different forms in different environments. Carl Jung's idea of a collective unconscious is believed to derive from Bastian's theory. On this view, a widespread pattern like the earth diver (Level 5) could arise again and again, with no contact needed."
+    },
+    {
+      "id": "card.literature.019.c5",
+      "type": "mcq",
+      "questionId": "question.literature.019.q1"
+    },
+    {
+      "id": "card.literature.019.c6",
+      "type": "mcq",
+      "questionId": "question.literature.019.q2"
+    },
+    {
+      "id": "card.literature.019.c7",
+      "type": "mcq",
+      "questionId": "question.literature.019.q3"
+    },
+    {
+      "id": "card.literature.019.c8",
+      "type": "checkpoint",
+      "headline": "Why myths rhyme: explained",
+      "learned": [
+        "Shared roots: Dyaus, Zeus and Jupiter",
+        "Contact: stories travel with their tellers",
+        "Shared minds: Bastian's elementary ideas",
+        "Borrowed or inherited: know the difference"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.019.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.myth_rhyme_shared_roots"
+      ],
+      "sourceCardIds": [
+        "card.literature.019.c1",
+        "card.literature.019.c2"
+      ],
+      "prompt": "Dyaus, Zeus and Jupiter have names from one root. Which explanation does that support?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Shared roots: a common origin",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Contact: one people borrowed it",
+          "correct": false,
+          "rationale": "The names grew from one ancestral root."
+        },
+        {
+          "id": "c",
+          "label": "Shared minds: elementary ideas",
+          "correct": false,
+          "rationale": "That explains patterns, not shared words."
+        },
+        {
+          "id": "d",
+          "label": "Pure coincidence",
+          "correct": false,
+          "rationale": "Cognate names aren't a coincidence."
+        }
+      ],
+      "explanation": "The three names are cognates from one Proto-Indo-European root: a shared inheritance.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.literature.019.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.myth_rhyme_shared_minds"
+      ],
+      "sourceCardIds": [
+        "card.literature.019.c4"
+      ],
+      "prompt": "How did Adolf Bastian explain why myths far apart look alike?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One people taught its myths to all the others",
+          "correct": false,
+          "rationale": "That's contact, not Bastian's view."
+        },
+        {
+          "id": "b",
+          "label": "All myths descend from Babylon",
+          "correct": false,
+          "rationale": "Bastian didn't trace them to one place."
+        },
+        {
+          "id": "c",
+          "label": "All peoples share elementary ideas in local forms",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Scholars invented the similarities",
+          "correct": false,
+          "rationale": "The patterns are real."
+        }
+      ],
+      "explanation": "Bastian argued for a psychic unity of humankind: shared elementary ideas that take different forms in different places.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.literature.019.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.myth_rhyme_contact",
+        "concept.literature.flood_genesis_parallel"
+      ],
+      "sourceCardIds": [
+        "card.literature.019.c3",
+        "card.literature.004.c4"
+      ],
+      "prompt": "Level 4 compared the Babylonian and Genesis floods. Which explanation fits how scholars see the link?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Shared minds with no contact",
+          "correct": false,
+          "rationale": "Scholars point to a source."
+        },
+        {
+          "id": "b",
+          "label": "Contact: Babylonian traditions shaped Genesis",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A shared Indo-European root",
+          "correct": false,
+          "rationale": "That's the Dyaus, Zeus and Jupiter case."
+        },
+        {
+          "id": "d",
+          "label": "Pure coincidence",
+          "correct": false,
+          "rationale": "Scholars see a source."
+        }
+      ],
+      "explanation": "Scholars see Babylonian flood traditions as the source of features of the Genesis flood: a case of contact.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_dyaus",
+    "source.brit_noah",
+    "source.brit_ramayana",
+    "source.brit_brer_rabbit",
+    "source.brit_adolf_bastian",
+    "source.brit_myth_cosmogonies"
+  ],
+  "art": "object.globe"
+}

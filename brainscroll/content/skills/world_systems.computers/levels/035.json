@@ -1,0 +1,222 @@
+{
+  "id": "level.world_systems.computers.035",
+  "skillId": "skill.world_systems.computers",
+  "number": 35,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Lost Packets and Second Tries",
+  "objective": "After this level you can explain how TCP numbers packets, checks that all of them arrived and asks again for missing ones.",
+  "summary": "IP promises nothing, so TCP opens with a three-way handshake, numbers every byte, acknowledges what arrived and resends what did not; UDP skips all that.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.net_tcp_handshake",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.net_tcp_reliability",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.photo_journey",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.034"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.035.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The internet's delivery service makes no promises.",
+      "body": "IP, which carries every packet, guarantees nothing: packets can arrive damaged, duplicated, out of order or not at all. Yet your downloads arrive perfect. Something at each end is keeping score."
+    },
+    {
+      "id": "card.computers.035.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A three-way handshake",
+      "body": "Before any data flows, TCP, the Transmission Control Protocol, opens a connection with three messages. Your device sends a SYN: \"let's talk, and here's the number I'll start counting from.\" The server answers with a SYN-ACK: \"got it, and here's my starting number.\" Your device replies ACK. Now both sides agree where the counting starts."
+    },
+    {
+      "id": "card.computers.035.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every byte gets a number",
+      "body": "TCP numbers every byte it sends, not just every packet. The receiver answers with an acknowledgment naming the next byte it expects, which means \"I have everything before this.\" Bytes that arrive out of order drop back into place by their numbers, and a copy that arrives twice gives itself away."
+    },
+    {
+      "id": "card.computers.035.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "No reply? Send it again",
+      "body": "The sender keeps track of what hasn't been acknowledged yet. If no acknowledgment arrives before a timer runs out, it sends that data again. Each packet also carries a checksum, so a packet damaged on the way fails the check and gets treated as lost. Perfect delivery, built on top of an imperfect network."
+    },
+    {
+      "id": "card.computers.035.c5",
+      "type": "fact",
+      "fact": "UDP, the other main transport protocol, skips the handshake and never resends lost data.",
+      "context": "It sends messages with a bare minimum of rules, and delivery isn't guaranteed. Its own specification tells programs that need reliable, in-order delivery to use TCP instead."
+    },
+    {
+      "id": "card.computers.035.c6",
+      "type": "mcq",
+      "questionId": "question.computers.035.q1"
+    },
+    {
+      "id": "card.computers.035.c7",
+      "type": "mcq",
+      "questionId": "question.computers.035.q2"
+    },
+    {
+      "id": "card.computers.035.c8",
+      "type": "mcq",
+      "questionId": "question.computers.035.q3"
+    },
+    {
+      "id": "card.computers.035.c9",
+      "type": "checkpoint",
+      "headline": "Delivery: guaranteed",
+      "learned": [
+        "IP can lose, repeat or scramble packets",
+        "SYN, SYN-ACK, ACK opens a TCP connection",
+        "Every byte is numbered and acknowledged",
+        "Missing data is resent after a timeout"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.035.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.net_tcp_handshake"
+      ],
+      "sourceCardIds": [
+        "card.computers.035.c2"
+      ],
+      "prompt": "Which three messages open a TCP connection, in order?",
+      "options": [
+        {
+          "id": "a",
+          "label": "ACK, SYN, SYN-ACK",
+          "correct": false,
+          "rationale": "The acknowledgment comes last."
+        },
+        {
+          "id": "b",
+          "label": "SYN, ACK, SYN-ACK",
+          "correct": false,
+          "rationale": "The server answers with SYN-ACK second."
+        },
+        {
+          "id": "c",
+          "label": "SYN-ACK, SYN, ACK",
+          "correct": false,
+          "rationale": "Your device opens with a SYN."
+        },
+        {
+          "id": "d",
+          "label": "SYN, SYN-ACK, ACK",
+          "correct": true
+        }
+      ],
+      "explanation": "Your device sends SYN, the server replies SYN-ACK, and your device finishes with ACK.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.035.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.net_tcp_reliability"
+      ],
+      "sourceCardIds": [
+        "card.computers.035.c4"
+      ],
+      "prompt": "How does a TCP sender find out that some of its data was lost?",
+      "options": [
+        {
+          "id": "a",
+          "label": "No acknowledgment for it arrives before a timer runs out",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The router that lost it sends the sender a warning message",
+          "correct": false,
+          "rationale": "Routers promise nothing; the ends keep score."
+        },
+        {
+          "id": "c",
+          "label": "The Time to Live counter on the packet climbs back to 255",
+          "correct": false,
+          "rationale": "Time to Live counts down, and it is IP's field, not TCP's."
+        },
+        {
+          "id": "d",
+          "label": "The DNS resolver reports which packet went missing",
+          "correct": false,
+          "rationale": "DNS only looks up names."
+        }
+      ],
+      "explanation": "Unacknowledged data is resent when the retransmission timer runs out; damaged packets fail their checksum and count as lost.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.035.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.net_tcp_reliability",
+        "concept.computers.photo_journey"
+      ],
+      "sourceCardIds": [
+        "card.computers.035.c3",
+        "card.computers.001.c4"
+      ],
+      "prompt": "Level 1's photo crossed the internet in packets and was reassembled. How does TCP put the pieces back in the right order?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It waits and assumes they arrive in order",
+          "correct": false,
+          "rationale": "Packets can arrive out of order."
+        },
+        {
+          "id": "b",
+          "label": "Every byte carries a sequence number",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Routers sort them before delivery",
+          "correct": false,
+          "rationale": "Routers just forward packets."
+        },
+        {
+          "id": "d",
+          "label": "The photo is sent as one packet",
+          "correct": false,
+          "rationale": "It is split into many packets."
+        }
+      ],
+      "explanation": "Because every byte is numbered, the receiver can slot out-of-order pieces into place and spot duplicates.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.ietf_rfc1122_host_requirements",
+    "source.ietf_rfc9293_tcp",
+    "source.ietf_rfc768_udp",
+    "source.brit_internet",
+    "source.ethw_packet_switching"
+  ],
+  "art": "computers.parcel"
+}

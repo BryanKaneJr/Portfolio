@@ -1,0 +1,220 @@
+{
+  "id": "level.world_systems.government.065",
+  "skillId": "skill.world_systems.government",
+  "number": 65,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Campaigns",
+  "objective": "After this level you can explain how election campaigns work.",
+  "summary": "Lazarsfeld's 1940 study found media changed few votes; people decided through conversations and opinion leaders. The UK caps party spending; Buckley v. Valeo struck down US spending limits.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.election_campaign_effects",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.election_campaign_finance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.election_purpose_choose_remove",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.free_speech_iccpr",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.064"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1940, researchers set out to watch a campaign change minds. It mostly didn't.",
+      "body": "Paul Lazarsfeld and his team interviewed the same voters again and again in Erie County, Ohio, through a US presidential race. Their book, The People's Choice (1944), surprised even its authors, and it changed how people think about campaigns.",
+      "id": "card.government.065.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Your neighbor beat the radio",
+      "body": "Contrary to their expectations, the researchers found that radio and newspapers had only minor direct effects on how people voted. People mainly made up their minds by talking with those around them: family, friends, coworkers. The loudest broadcasts of the campaign were outvoted by the kitchen table.",
+      "id": "card.government.065.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The two-step flow",
+      "body": "So how do campaign messages travel? Lazarsfeld's answer was the two-step flow. Ideas move from the media to opinion leaders, the people who follow politics closely, and then from them to their followers through personal networks. Much of what you hear from a campaign reaches you secondhand, through someone you trust.",
+      "id": "card.government.065.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Rules for the race",
+      "body": "Level 61's Schumpeter called democracy a competitive struggle for the people's vote, and every competition needs rules. The UK caps how much each party may spend in the 365 days before a general election. In the US, the Supreme Court's Buckley v. Valeo (1976) upheld limits on contributions but struck down limits on spending as restricting free expression.",
+      "id": "card.government.065.c4"
+    },
+    {
+      "id": "card.government.065.c5",
+      "type": "mcq",
+      "questionId": "question.government.065.q1"
+    },
+    {
+      "id": "card.government.065.c6",
+      "type": "mcq",
+      "questionId": "question.government.065.q2"
+    },
+    {
+      "id": "card.government.065.c7",
+      "type": "recall",
+      "questionId": "question.government.065.q3"
+    },
+    {
+      "id": "card.government.065.c8",
+      "type": "checkpoint",
+      "headline": "Campaigns: decoded",
+      "learned": [
+        "Lazarsfeld, 1940: media had minor direct effects on votes",
+        "People decided mainly by talking with those around them",
+        "Two-step flow: media to opinion leaders to followers",
+        "UK caps party spending; Buckley v. Valeo struck down US limits"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.065.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.election_campaign_effects"
+      ],
+      "sourceCardIds": [
+        "card.government.065.c2"
+      ],
+      "prompt": "What did Lazarsfeld's 1940 Erie County study find about radio and newspapers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They decided almost every vote",
+          "correct": false,
+          "rationale": "The study found the opposite."
+        },
+        {
+          "id": "b",
+          "label": "They had only minor direct effects",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They mattered more than any conversation",
+          "correct": false,
+          "rationale": "Conversations with people nearby mattered more."
+        },
+        {
+          "id": "d",
+          "label": "They were banned during the campaign",
+          "correct": false,
+          "rationale": "Nothing was banned; the effects were small."
+        }
+      ],
+      "explanation": "Contrary to expectations, radio and print had only minor direct effects; people decided mainly through conversations.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.government.065.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.election_campaign_effects"
+      ],
+      "sourceCardIds": [
+        "card.government.065.c3"
+      ],
+      "prompt": "In Lazarsfeld's two-step flow, how does a campaign message reach most people?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Directly from the candidate's own speeches",
+          "correct": false,
+          "rationale": "The second step runs through other people."
+        },
+        {
+          "id": "b",
+          "label": "Only through official government notices",
+          "correct": false,
+          "rationale": "The model is about media and opinion leaders."
+        },
+        {
+          "id": "c",
+          "label": "It never reaches most of them at all",
+          "correct": false,
+          "rationale": "It reaches them, just secondhand."
+        },
+        {
+          "id": "d",
+          "label": "Through opinion leaders in personal networks",
+          "correct": true
+        }
+      ],
+      "explanation": "Ideas move from the media to opinion leaders, then from them to their followers through personal networks.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.065.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.election_campaign_finance",
+        "concept.government.free_speech_iccpr"
+      ],
+      "sourceCardIds": [
+        "card.government.065.c4",
+        "card.government.029.c4"
+      ],
+      "prompt": "Level 29 said limits on free expression must be set by law and be necessary. Which US campaign limit did Buckley v. Valeo strike down as restricting it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Limits on contributions to campaigns",
+          "correct": false,
+          "rationale": "The Court upheld those."
+        },
+        {
+          "id": "b",
+          "label": "The 365-day cap on party spending",
+          "correct": false,
+          "rationale": "That's UK law, not a US court case."
+        },
+        {
+          "id": "c",
+          "label": "Limits on campaign spending",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Rules requiring a secret ballot",
+          "correct": false,
+          "rationale": "Buckley v. Valeo wasn't about the ballot."
+        }
+      ],
+      "explanation": "The Court upheld contribution limits but struck down spending limits as restrictions on free expression, a right that Level 29 showed has edges set by law.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.encyclopedia_com_lazarsfeld",
+    "source.pmc_schumpeter_institutions",
+    "source.ifg_election_spending_uk",
+    "source.mtsu_buckley_v_valeo"
+  ],
+  "art": "gov.megaphone"
+}

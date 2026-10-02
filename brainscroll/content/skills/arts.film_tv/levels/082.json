@@ -1,0 +1,222 @@
+{
+  "id": "level.arts.film_tv.082",
+  "skillId": "skill.arts.film_tv",
+  "number": 82,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Jaws and the Blockbuster",
+  "objective": "After this level you can explain how Jaws in 1975 set the summer blockbuster pattern of wide release and heavy TV advertising.",
+  "summary": "Jaws (June 20, 1975) opened in more than 400 US theaters at once after a week of TV trailers, and became the first summer blockbuster whose marketing set the standard.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.jaws_summer_blockbuster",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.jaws_wide_release",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.new_hollywood_rise",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.film_tv.studio_tv_competition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.081"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.082.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Summer used to be where films went to hide.",
+      "body": "Before Jaws, summer releases were typically lesser films, because audiences tended to stay away from movie theaters in summer. Then, on June 20, 1975, Universal released Steven Spielberg's film of Peter Benchley's 1974 novel about a shark. How did one film make summer the season for blockbusters?"
+    },
+    {
+      "id": "card.film_tv.082.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One city at a time",
+      "body": "The usual path was slow. A film opened first in a major city, then reached other cities and towns over several weeks. Jaws skipped the queue: it opened in more than 400 theaters across the United States on its first weekend. Instead of waiting for a film to come to town, the whole country could see it at once."
+    },
+    {
+      "id": "card.film_tv.082.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sold on the small screen",
+      "body": "A film opening everywhere needs everyone to know about it, fast. In the week before release, Jaws was heavily promoted on television with 30-second trailers. The shark reached living rooms before it reached theaters."
+    },
+    {
+      "id": "card.film_tv.082.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The pattern that stuck",
+      "body": "Jaws is considered the first summer blockbuster, and its marketing tactics became the standard for the ones that followed, changing how Hollywood marketed and distributed films. Studios drew their own lesson: after its massive success, they began prioritizing potential blockbusters and steering away from experimental, director-driven projects."
+    },
+    {
+      "id": "card.film_tv.082.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.082.q1"
+    },
+    {
+      "id": "card.film_tv.082.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.082.q2"
+    },
+    {
+      "id": "card.film_tv.082.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.082.q3"
+    },
+    {
+      "id": "card.film_tv.082.c8",
+      "type": "checkpoint",
+      "headline": "Jaws and the Blockbuster: done",
+      "learned": [
+        "Summer was for lesser films",
+        "Jaws opened in 400+ theaters at once",
+        "TV trailers the week before",
+        "The pattern became the standard"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.082.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.jaws_wide_release"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.082.c2"
+      ],
+      "prompt": "How did Jaws open in 1975?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In one New York theater, then city by city",
+          "correct": false,
+          "rationale": "That was the usual pattern Jaws broke."
+        },
+        {
+          "id": "b",
+          "label": "Only at drive-ins during the summer",
+          "correct": false,
+          "rationale": "The level says nothing about drive-ins."
+        },
+        {
+          "id": "c",
+          "label": "On television first, then in theaters",
+          "correct": false,
+          "rationale": "TV carried its trailers, not the film."
+        },
+        {
+          "id": "d",
+          "label": "In more than 400 US theaters on its first weekend",
+          "correct": true
+        }
+      ],
+      "explanation": "Jaws opened in more than 400 theaters across the United States at once.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.082.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.jaws_wide_release",
+        "concept.film_tv.jaws_summer_blockbuster"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.082.c2",
+        "card.film_tv.082.c3"
+      ],
+      "prompt": "A studio in 1976 plans to open a thriller in one big city and let it spread over weeks. What would copying Jaws mean instead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Holding it until winter, when audiences go out more",
+          "correct": false,
+          "rationale": "Jaws proved summer could be the big season."
+        },
+        {
+          "id": "b",
+          "label": "Opening in hundreds of theaters at once, after a week of TV trailers",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Showing it only at film festivals first",
+          "correct": false,
+          "rationale": "Jaws went straight to a nationwide opening."
+        },
+        {
+          "id": "d",
+          "label": "Cutting its advertising to save money",
+          "correct": false,
+          "rationale": "Jaws was heavily advertised on TV."
+        }
+      ],
+      "explanation": "The Jaws pattern was a wide release backed by heavy television advertising the week before.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.082.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.studio_tv_competition",
+        "concept.film_tv.jaws_wide_release"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.049.c2",
+        "card.film_tv.082.c3"
+      ],
+      "prompt": "In Level 49, Hollywood answered television with color and widescreen. How did Jaws use television differently?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It refused to let TV networks mention the film",
+          "correct": false,
+          "rationale": "Jaws was heavily promoted on TV."
+        },
+        {
+          "id": "b",
+          "label": "It was shot in a TV-shaped frame to sell to networks",
+          "correct": false,
+          "rationale": "Nothing in the level says so."
+        },
+        {
+          "id": "c",
+          "label": "It advertised on TV with 30-second trailers in the week before release",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It premiered as a TV movie before reaching theaters",
+          "correct": false,
+          "rationale": "It opened in theaters."
+        }
+      ],
+      "explanation": "Hollywood first fought TV as a rival; Jaws used it as a billboard with 30-second trailers.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_jaws_film",
+    "source.brit_new_hollywood",
+    "source.brit_history_film_postwar",
+    "source.hac_film_industry_early_1950s"
+  ],
+  "art": "film.ticket"
+}

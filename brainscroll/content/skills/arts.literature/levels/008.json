@@ -1,0 +1,214 @@
+{
+  "id": "level.arts.literature.008",
+  "skillId": "skill.arts.literature",
+  "number": 8,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Hou Yi, Chang'e and the Moon",
+  "objective": "After this level you can retell the Chinese myth of the archer who shot down nine suns and the woman who flew to the Moon.",
+  "summary": "In Chinese myth the archer Hou Yi shot down nine of ten burning suns. His wife Chang'e swallowed his elixir of immortality and fled to the Moon, honored at the Mid-Autumn Festival.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.hou_yi_suns",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.change_moon",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.gilgamesh_search_for_immortality",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.007"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.008.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Ten suns in the sky at once, and the earth began to burn.",
+      "body": "In Chinese myth, ten suns were burning up the earth. The job of saving it fell to one man with a bow."
+    },
+    {
+      "id": "card.literature.008.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Nine arrows",
+      "body": "He was Hou Yi, the Lord Archer, whose skill with a bow earned him undying fame. He shot down 9 of the 10 suns, leaving the one we still have. Even here, tellings differ: one account says he shot 8 of 9. Myths don't come with one official edition."
+    },
+    {
+      "id": "card.literature.008.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The stolen elixir",
+      "body": "Hou Yi received an elixir of immortality from a great goddess, the Queen Mother of the West. Before he could take it, his wife Chang'e swallowed it herself and became immortal. Fearing his anger, she fled to the Moon, where she lives in the Palace of Boundless Cold. In paintings, a white rabbit beside her pounds the elixir with a mortar and pestle."
+    },
+    {
+      "id": "card.literature.008.c4",
+      "type": "fact",
+      "fact": "Look for Chang'e at the Mid-Autumn Festival.",
+      "context": "On the 15th day of the eighth lunar month, people celebrate Chang'e with the Mid-Autumn Festival and eat mooncakes, rich pastries with sweet or savory fillings. Some look for the outline of a toad on the Moon, because in one legend Chang'e became a toad. Her story isn't only in old books. It comes around every autumn."
+    },
+    {
+      "id": "card.literature.008.c5",
+      "type": "mcq",
+      "questionId": "question.literature.008.q1"
+    },
+    {
+      "id": "card.literature.008.c6",
+      "type": "mcq",
+      "questionId": "question.literature.008.q2"
+    },
+    {
+      "id": "card.literature.008.c7",
+      "type": "recall",
+      "questionId": "question.literature.008.q3"
+    },
+    {
+      "id": "card.literature.008.c8",
+      "type": "checkpoint",
+      "headline": "Hou Yi and Chang'e: told",
+      "learned": [
+        "Hou Yi shot down nine of ten suns",
+        "Myths come in more than one version",
+        "Chang'e swallowed the elixir and fled to the Moon",
+        "The Mid-Autumn Festival honors her"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.008.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.hou_yi_suns"
+      ],
+      "sourceCardIds": [
+        "card.literature.008.c2"
+      ],
+      "prompt": "In the best-known telling, how many suns did Hou Yi shoot down?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Three",
+          "correct": false,
+          "rationale": "He shot many more."
+        },
+        {
+          "id": "b",
+          "label": "Five",
+          "correct": false,
+          "rationale": "He shot many more."
+        },
+        {
+          "id": "c",
+          "label": "Nine",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "All ten",
+          "correct": false,
+          "rationale": "He left one in the sky."
+        }
+      ],
+      "explanation": "Hou Yi shot down 9 of the 10 suns burning up the earth, leaving one (one account says 8 of 9).",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.literature.008.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.change_moon"
+      ],
+      "sourceCardIds": [
+        "card.literature.008.c3"
+      ],
+      "prompt": "Why does Chang'e live on the Moon?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hou Yi shot her there by mistake",
+          "correct": false,
+          "rationale": "He shot suns, not his wife."
+        },
+        {
+          "id": "b",
+          "label": "She swallowed the elixir and fled her husband's anger",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The rabbit carried her there to guard it",
+          "correct": false,
+          "rationale": "The rabbit prepares the elixir."
+        },
+        {
+          "id": "d",
+          "label": "The Queen Mother of the West banished her",
+          "correct": false,
+          "rationale": "The goddess gave Yi the elixir."
+        }
+      ],
+      "explanation": "Chang'e swallowed the elixir meant for Yi, became immortal and, fearing his anger, fled to the Moon.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.literature.008.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.change_moon",
+        "concept.literature.gilgamesh_search_for_immortality"
+      ],
+      "sourceCardIds": [
+        "card.literature.008.c3",
+        "card.literature.003.c4"
+      ],
+      "prompt": "In Level 3, a serpent took Gilgamesh's plant of youth. How does Chang'e's story turn that around?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A snake steals her elixir too",
+          "correct": false,
+          "rationale": "That's Gilgamesh's plant."
+        },
+        {
+          "id": "b",
+          "label": "She refuses to live forever",
+          "correct": false,
+          "rationale": "She takes the elixir."
+        },
+        {
+          "id": "c",
+          "label": "She gains immortality by swallowing the elixir",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Hou Yi drinks it first and becomes a god",
+          "correct": false,
+          "rationale": "Chang'e takes it first."
+        }
+      ],
+      "explanation": "Gilgamesh loses his chance and stays mortal; Chang'e swallows the elixir and becomes immortal.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_hou_yi",
+    "source.nmaa_moon_festival",
+    "source.nmaa_change_lunar_palace",
+    "source.brit_change"
+  ],
+  "art": "astronomy.moon"
+}

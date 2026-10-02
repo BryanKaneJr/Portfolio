@@ -1,0 +1,215 @@
+{
+  "id": "level.geography.earth_climate.088",
+  "skillId": "skill.geography.earth_climate",
+  "number": 88,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Where the Emissions Come From",
+  "objective": "After this level you can name the main human sources of greenhouse gases, from power and transport to farming and forests.",
+  "summary": "In 2019, energy supply made about 34% of human greenhouse gas emissions, then industry, land use, transport and buildings. Cement even releases CO2 from limestone itself.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.warming_emission_sectors",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.warming_emission_gases",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.sedimentary_types",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.087"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.088.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "More than a fifth of greenhouse gas emissions come from farms, forests and land.",
+      "body": "Power plants and cars get the headlines, but the full list is longer and more surprising. Here is where the gases come from, sector by sector and gas by gas."
+    },
+    {
+      "id": "card.earth_climate.088.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Five sectors",
+      "body": "The IPCC split 2019's human greenhouse gas emissions into five sectors. Energy supply came first at about 34%. Industry made 24%, agriculture, forestry and other land use 22%, transport 15% and buildings 6%. Burning coal, natural gas and oil for electricity and heat is the largest single source."
+    },
+    {
+      "id": "card.earth_climate.088.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Not just carbon dioxide",
+      "body": "Carbon dioxide comes mainly from burning fossil fuels, but also from cutting down forests and clearing land. Methane comes from agriculture, waste, energy production and burning plants. Nitrous oxide comes mainly from agriculture, such as fertilizer use. So a cleared forest and a fertilized field both belong on the list, not just a tailpipe."
+    },
+    {
+      "id": "card.earth_climate.088.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Carbon from the rock itself",
+      "body": "Cement has a twist. To make it, limestone is heated until its calcium carbonate breaks down into lime and carbon dioxide, so the gas comes straight out of the rock. The fuel burned to heat the kilns adds more. Remember Level 6: much limestone is built from the shells of ancient sea creatures. Cement sends their long-stored carbon back into the air."
+    },
+    {
+      "id": "card.earth_climate.088.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.088.q1"
+    },
+    {
+      "id": "card.earth_climate.088.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.088.q2"
+    },
+    {
+      "id": "card.earth_climate.088.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.088.q3"
+    },
+    {
+      "id": "card.earth_climate.088.c8",
+      "type": "checkpoint",
+      "headline": "Emission sources: mapped",
+      "learned": [
+        "Energy supply is the biggest sector",
+        "Farms and forests add over a fifth",
+        "Methane and nitrous oxide come largely from farming",
+        "Cement releases CO2 from limestone"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.088.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.warming_emission_sectors"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.088.c2"
+      ],
+      "prompt": "According to the IPCC, which sector produced the largest share of human greenhouse gas emissions in 2019?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Transport",
+          "correct": false,
+          "rationale": "Transport made about 15%."
+        },
+        {
+          "id": "b",
+          "label": "Buildings",
+          "correct": false,
+          "rationale": "Buildings made about 6%."
+        },
+        {
+          "id": "c",
+          "label": "Agriculture, forestry and land use",
+          "correct": false,
+          "rationale": "That sector made about 22%."
+        },
+        {
+          "id": "d",
+          "label": "Energy supply",
+          "correct": true
+        }
+      ],
+      "explanation": "Energy supply, mostly electricity and heat from fossil fuels, made about 34% of 2019 emissions.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.088.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.warming_emission_gases"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.088.c3"
+      ],
+      "prompt": "A region clears a large forest to plant crops, then spreads fertilizer on the fields. Which gases does that add?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only methane from the tree roots",
+          "correct": false,
+          "rationale": "Clearing forests releases CO2."
+        },
+        {
+          "id": "b",
+          "label": "CO2 from clearing and nitrous oxide from fertilizer",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "None, since no fuel is burned",
+          "correct": false,
+          "rationale": "Land clearing and fertilizer both emit gases."
+        },
+        {
+          "id": "d",
+          "label": "Only water vapor from the new crops",
+          "correct": false,
+          "rationale": "The main added gases are CO2 and nitrous oxide."
+        }
+      ],
+      "explanation": "Clearing forests releases carbon dioxide, and fertilizer use is the main source of nitrous oxide.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.earth_climate.088.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.warming_emission_gases",
+        "concept.earth_climate.sedimentary_types"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.088.c4",
+        "card.earth_climate.006.c4"
+      ],
+      "prompt": "Using Level 6, why does making cement release carbon dioxide even before any fuel is burned?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Limestone is calcium carbonate, which heat breaks down",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Cement powder is mixed with coal dust",
+          "correct": false,
+          "rationale": "The gas comes from the limestone itself."
+        },
+        {
+          "id": "c",
+          "label": "Quartz sand gives off CO2 when it melts",
+          "correct": false,
+          "rationale": "Quartz is silicon dioxide; it holds no carbon."
+        },
+        {
+          "id": "d",
+          "label": "The water added to cement becomes CO2",
+          "correct": false,
+          "rationale": "Water holds no carbon."
+        }
+      ],
+      "explanation": "Limestone is mostly calcium carbonate; heating it splits off carbon dioxide from the rock.",
+      "difficulty": 0.45
+    }
+  ],
+  "sourceIds": [
+    "source.ipcc_ar6_wg3_spm",
+    "source.epa_global_ghg_overview",
+    "source.essd_cement_emissions",
+    "source.brit_limestone"
+  ],
+  "art": "technology.factory"
+}

@@ -1,0 +1,239 @@
+{
+  "id": "level.world_systems.computers.006",
+  "skillId": "skill.world_systems.computers",
+  "number": 6,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Logic Gates: AND, OR, NOT",
+  "objective": "After this level you can explain how AND, OR and NOT gates turn yes-or-no inputs into a yes-or-no output.",
+  "summary": "Logic gates turn yes-or-no inputs into one output: AND needs all 1s, OR any 1, NOT flips. Boole wrote the algebra; Shannon showed switches could do it.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.logic_gates",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.boolean_switching",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.bit_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.005"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.006.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A lamp with two switches can already do logic.",
+      "body": "Wire a lamp so it lights only when both of two switches are closed. That lamp is answering a question: is switch A on, and is switch B on? Computers are built from tiny deciders just like it."
+    },
+    {
+      "id": "card.computers.006.c2",
+      "type": "comparison",
+      "headline": "AND, OR, NOT: three ways to decide",
+      "items": [
+        {
+          "label": "AND",
+          "points": [
+            "Outputs 1 only if every input is 1",
+            "Like two switches in series: both must close"
+          ]
+        },
+        {
+          "label": "OR",
+          "points": [
+            "Outputs 1 if any input is 1",
+            "Like two switches in parallel: either one will do"
+          ]
+        },
+        {
+          "label": "NOT",
+          "points": [
+            "One input, flipped: 1 becomes 0, 0 becomes 1",
+            "Also called an inverter"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.computers.006.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Gates are switches in disguise",
+      "body": "A logic gate takes yes-or-no inputs, 1s and 0s, and produces one yes-or-no output. It works like a switch, passing or blocking electrical pulses, and its circuits are built from parts such as transistors, the same on-off switches that store Level 2's bits. Wire gates together and they can even do arithmetic. That's the next level's trick."
+    },
+    {
+      "id": "card.computers.006.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The math came first",
+      "body": "In 1847 and 1854 George Boole worked out an algebra of logic, now called Boolean algebra, in which statements are simply true or false, written 1 or 0. Much later, Claude Shannon's master's thesis used Boolean algebra to lay the theoretical groundwork for digital circuits. In other words, circuits full of switches could be worked out with algebra, on paper."
+    },
+    {
+      "id": "card.computers.006.c5",
+      "type": "mcq",
+      "questionId": "question.computers.006.q1"
+    },
+    {
+      "id": "card.computers.006.c6",
+      "type": "mcq",
+      "questionId": "question.computers.006.q2"
+    },
+    {
+      "id": "card.computers.006.c7",
+      "type": "mcq",
+      "questionId": "question.computers.006.q3"
+    },
+    {
+      "id": "card.computers.006.c8",
+      "type": "checkpoint",
+      "headline": "Gates: decided",
+      "learned": [
+        "AND outputs 1 only if all inputs are 1",
+        "OR outputs 1 if any input is 1; NOT flips its input",
+        "Gates act like switches and are built from transistors",
+        "Boole wrote the algebra; Shannon applied it to circuits"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.006.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.logic_gates"
+      ],
+      "sourceCardIds": [
+        "card.computers.006.c2"
+      ],
+      "prompt": "An AND gate gets the inputs 1 and 0. What does it output?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1",
+          "correct": false,
+          "rationale": "That is what an OR gate would give."
+        },
+        {
+          "id": "b",
+          "label": "0",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "10",
+          "correct": false,
+          "rationale": "A gate has a single one-bit output."
+        },
+        {
+          "id": "d",
+          "label": "Both 1 and 0",
+          "correct": false,
+          "rationale": "A gate gives exactly one output."
+        }
+      ],
+      "explanation": "AND outputs 1 only when every input is 1, so 1 and 0 give 0.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.computers.006.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.logic_gates"
+      ],
+      "sourceCardIds": [
+        "card.computers.006.c2"
+      ],
+      "prompt": "A lamp has two switches wired in parallel. When does it light?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only when both switches are closed",
+          "correct": false,
+          "rationale": "That is switches in series, an AND."
+        },
+        {
+          "id": "b",
+          "label": "Never, because the switches cancel out",
+          "correct": false,
+          "rationale": "Parallel switches give the current two paths."
+        },
+        {
+          "id": "c",
+          "label": "Whenever either switch is closed",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only when both switches are open",
+          "correct": false,
+          "rationale": "With both open there is no path at all."
+        }
+      ],
+      "explanation": "Switches in parallel behave like OR: either closed switch completes a path.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.006.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.boolean_switching",
+        "concept.computers.bit_definition"
+      ],
+      "sourceCardIds": [
+        "card.computers.006.c4",
+        "card.computers.002.c2"
+      ],
+      "prompt": "Boole's algebra works with true and false. How does that fit Level 2's bits?",
+      "options": [
+        {
+          "id": "a",
+          "label": "True and false map to 1 and 0, a bit's two values",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Boole invented the transistor to store them",
+          "correct": false,
+          "rationale": "Boole worked on logic in 1847 and 1854, long before transistors."
+        },
+        {
+          "id": "c",
+          "label": "Each statement needs a full byte of 256 values",
+          "correct": false,
+          "rationale": "True or false is a single two-way choice."
+        },
+        {
+          "id": "d",
+          "label": "Bits can only store numbers, not logic",
+          "correct": false,
+          "rationale": "A 1 or 0 can stand for true or false."
+        }
+      ],
+      "explanation": "Boolean algebra writes true as 1 and false as 0: exactly one bit.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.electronicstutorials_switching_theory",
+    "source.brit_logic_gate",
+    "source.libretexts_not_gate",
+    "source.intel_digital_information",
+    "source.brit_george_boole",
+    "source.brit_boolean_algebra",
+    "source.brit_claude_shannon"
+  ],
+  "art": "computers.gate-block"
+}

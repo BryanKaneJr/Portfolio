@@ -1,0 +1,214 @@
+{
+  "id": "level.world_systems.computers.078",
+  "skillId": "skill.world_systems.computers",
+  "number": 78,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Feedback Loops",
+  "objective": "After this level you can explain how a recommendation can shape the very behavior it later learns from.",
+  "summary": "In a music experiment published in 2006, visible download counts made hits unequal and unpredictable; recommenders face the same loop because they learn from clicks they helped cause.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.feedbackloop_recommendations",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.fetch_decode_execute",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.077"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.078.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "What if the hits were partly luck?",
+      "body": "In 2004 three Columbia University researchers built their own music site to test that. They let the same songs compete in eight separate worlds and watched which ones became hits. The answer matters for any system that learns from what people click."
+    },
+    {
+      "id": "card.computers.078.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Eight worlds, different hits",
+      "body": "Salganik, Dodds and Watts offered listeners songs by unknown bands. In each of eight social worlds, people could see how often every song had been downloaded in their own world; another group couldn't see counts at all. Showing popularity made success more unequal and harder to predict. The best songs rarely did badly and the worst rarely did well, but anything in between could happen."
+    },
+    {
+      "id": "card.computers.078.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The loop inside a recommender",
+      "body": "A recommender runs a similar loop automatically. It shows you items, you click some, and those clicks become its next lesson. But it is usually trained on data from people who were already shown its recommendations. So it can't easily tell whether you picked something because you liked it or because it was put in front of you. Researchers call this a feedback loop."
+    },
+    {
+      "id": "card.computers.078.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where the loop leads",
+      "body": "Recommenders tend to show a few popular items often while most items get ignored, and the loop of recommending, reacting and retraining can amplify that popularity bias. Simulations by Chaney and colleagues found it can make people's behavior more alike without making them any better off. The system ends up shaping the very data it learns from.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "This ties the chapter together: recommendations and ranked feeds both learn from clicks they helped cause."
+      }
+    },
+    {
+      "id": "card.computers.078.c5",
+      "type": "mcq",
+      "questionId": "question.computers.078.q1"
+    },
+    {
+      "id": "card.computers.078.c6",
+      "type": "mcq",
+      "questionId": "question.computers.078.q2"
+    },
+    {
+      "id": "card.computers.078.c7",
+      "type": "mcq",
+      "questionId": "question.computers.078.q3"
+    },
+    {
+      "id": "card.computers.078.c8",
+      "type": "checkpoint",
+      "headline": "Loop: spotted",
+      "learned": [
+        "Visible popularity made hits unequal and unpredictable",
+        "Recommenders learn from clicks they helped cause",
+        "The loop can amplify popularity bias",
+        "It can make behavior more alike without helping users"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.078.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.feedbackloop_recommendations"
+      ],
+      "sourceCardIds": [
+        "card.computers.078.c2"
+      ],
+      "prompt": "In the eight-worlds music experiment, what happened when people could see download counts?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every world ended up with the same top song",
+          "correct": false,
+          "rationale": "Different worlds produced different hits."
+        },
+        {
+          "id": "b",
+          "label": "Success became more unequal and harder to predict",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The worst songs usually came out on top",
+          "correct": false,
+          "rationale": "The worst rarely did well."
+        },
+        {
+          "id": "d",
+          "label": "People stopped downloading songs",
+          "correct": false,
+          "rationale": "They kept downloading; counts shaped their choices."
+        }
+      ],
+      "explanation": "Showing download counts increased both the inequality and the unpredictability of which songs succeeded.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.078.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.feedbackloop_recommendations"
+      ],
+      "sourceCardIds": [
+        "card.computers.078.c3"
+      ],
+      "prompt": "How does a recommender end up learning from its own influence?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It copies its recommendations from other apps' top charts",
+          "correct": false,
+          "rationale": "It learns from its own users' clicks."
+        },
+        {
+          "id": "b",
+          "label": "It deletes the clicks it didn't predict",
+          "correct": false,
+          "rationale": "Nothing is deleted; the data is shaped by earlier suggestions."
+        },
+        {
+          "id": "c",
+          "label": "It trains on clicks from people its suggestions already steered",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It only learns from people who never use it",
+          "correct": false,
+          "rationale": "Its data comes from people it already showed items to."
+        }
+      ],
+      "explanation": "Its training data comes from users already exposed to its recommendations, so it partly learns from choices it caused.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.computers.078.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.feedbackloop_recommendations",
+        "concept.computers.fetch_decode_execute"
+      ],
+      "sourceCardIds": [
+        "card.computers.078.c3",
+        "card.computers.008.c3"
+      ],
+      "prompt": "Level 8's processor runs a loop too. What makes a recommender's feedback loop different?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It never repeats any step",
+          "correct": false,
+          "rationale": "It repeats: show, click, learn, show again."
+        },
+        {
+          "id": "b",
+          "label": "It has no connection to people's choices",
+          "correct": false,
+          "rationale": "People's clicks are exactly what it feeds on."
+        },
+        {
+          "id": "c",
+          "label": "It fetches and runs one instruction at a time",
+          "correct": false,
+          "rationale": "That describes the processor's loop."
+        },
+        {
+          "id": "d",
+          "label": "Each round's results change what the system learns next",
+          "correct": true
+        }
+      ],
+      "explanation": "The processor simply starts the same cycle over; a feedback loop feeds each round's clicks back in, changing what it learns and shows next.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.salganik_music_market_2006",
+    "source.chaney_algorithmic_confounding_2018",
+    "source.mansoury_feedback_loop_2020",
+    "source.uvm_fetch_decode_execute"
+  ],
+  "art": "mind.logic-ouroboros"
+}

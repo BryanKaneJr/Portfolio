@@ -1,0 +1,217 @@
+{
+  "id": "level.mind.logic.005",
+  "skillId": "skill.mind.logic",
+  "number": 5,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Premises and Conclusions",
+  "objective": "After this level you can name the premises and the conclusion of a simple argument.",
+  "summary": "Premises are an argument's reasons; the conclusion is the claim they support. 'Premise' means 'set before'. Conclusions can come first, last or in the middle.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.premise_conclusion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.argument_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.004"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"The bakery sells out by noon, and it's one o'clock. The croissants are gone.\"",
+      "body": "Sad, but well reasoned. Two claims do the work, and a third is the payoff. Logic has names for those jobs, and once you know them you can take almost any argument apart.",
+      "id": "card.logic.005.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Premises and conclusion",
+      "body": "The reasons offered in an argument are its premises. The claim they're offered for is its conclusion. At the bakery, \"it sells out by noon\" and \"it's one o'clock\" are the premises, and \"the croissants are gone\" is the conclusion. Every argument needs both: reasons, and something they're reasons for.",
+      "id": "card.logic.005.c2"
+    },
+    {
+      "type": "fact",
+      "fact": "\"Premise\" means \"set before\". \"Conclude\" comes from the Latin for \"to shut\".",
+      "context": "\"Premise\" comes from Medieval Latin praemissa, the proposition set before. \"Conclusion\" comes from Latin concludere, built on claudere, to shut. Premises go first; the conclusion closes the case. A handy memory hook, though real arguments don't always keep that order.",
+      "id": "card.logic.005.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Standard form: lining it up",
+      "body": "Logicians often rewrite an argument in standard form: number the premises, then put the conclusion last, marked \"therefore\" or with three dots. 1. The bakery sells out by noon. 2. It's one o'clock. Therefore, the croissants are gone. It looks fussy, but it puts every part where you can see it and question it.",
+      "id": "card.logic.005.c4"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Conclusions don't always come last",
+      "body": "Everyday speech shuffles the order. \"The gardener did it. After all, it was either the butler or the gardener. And the butler didn't do it.\" Here the conclusion comes first. It can sit in the middle, too, and one sentence can hold a whole argument: \"The butler has an alibi; so they cannot have done it.\" Spotting it is the next level's job.",
+      "id": "card.logic.005.c5"
+    },
+    {
+      "id": "card.logic.005.c6",
+      "type": "mcq",
+      "questionId": "question.logic.005.q1"
+    },
+    {
+      "id": "card.logic.005.c7",
+      "type": "mcq",
+      "questionId": "question.logic.005.q2"
+    },
+    {
+      "id": "card.logic.005.c8",
+      "type": "mcq",
+      "questionId": "question.logic.005.q3"
+    },
+    {
+      "id": "card.logic.005.c9",
+      "type": "checkpoint",
+      "headline": "Premises: named",
+      "learned": [
+        "Premises are reasons; the conclusion is what they support",
+        "\"Premise\" means set before; \"conclude\", to shut",
+        "Standard form: numbered premises, conclusion last",
+        "A conclusion can come first, last or in between"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.005.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.premise_conclusion"
+      ],
+      "sourceCardIds": [
+        "card.logic.005.c2"
+      ],
+      "prompt": "In an argument, what are the premises?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The claim being argued for",
+          "correct": false,
+          "rationale": "That's the conclusion."
+        },
+        {
+          "id": "b",
+          "label": "The reasons offered for the conclusion",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The questions the argument raises",
+          "correct": false,
+          "rationale": "Premises are claims, not questions."
+        },
+        {
+          "id": "d",
+          "label": "The final words of the argument",
+          "correct": false,
+          "rationale": "Premises often come first, and position doesn't define them."
+        }
+      ],
+      "explanation": "Premises are the reasons offered; the conclusion is the claim they support.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.005.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.premise_conclusion"
+      ],
+      "sourceCardIds": [
+        "card.logic.005.c5"
+      ],
+      "prompt": "\"The gardener did it. After all, the butler didn't.\" Where is the conclusion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In the first sentence",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "In the second sentence",
+          "correct": false,
+          "rationale": "\"After all\" introduces the reason, so that's a premise."
+        },
+        {
+          "id": "c",
+          "label": "There is no conclusion",
+          "correct": false,
+          "rationale": "\"The butler didn't\" is offered as a reason for a claim."
+        },
+        {
+          "id": "d",
+          "label": "Split across both sentences",
+          "correct": false,
+          "rationale": "The first sentence is one complete claim."
+        }
+      ],
+      "explanation": "\"The gardener did it\" is supported by the rest, so it's the conclusion, even though it comes first.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.005.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.premise_conclusion",
+        "concept.logic.argument_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.005.c3",
+        "card.logic.002.c3"
+      ],
+      "prompt": "How does the word \"premise\" fit Level 2's definition of an argument?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Premises are claims nobody can dispute",
+          "correct": false,
+          "rationale": "Premises can be disputed; that's how arguments get tested."
+        },
+        {
+          "id": "b",
+          "label": "Premises shut the case, like a door",
+          "correct": false,
+          "rationale": "That's \"conclude\", from claudere, to shut."
+        },
+        {
+          "id": "c",
+          "label": "Premises are the reasons set before the claim",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Premises are questions put to a listener",
+          "correct": false,
+          "rationale": "Premises are claims, never questions."
+        }
+      ],
+      "explanation": "An argument offers statements as reasons for another; premise means the proposition set before.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_argument",
+    "source.libretexts_vancleave_what_is_an_argument",
+    "source.etymonline_premise",
+    "source.etymonline_conclusion",
+    "source.forallx_calgary"
+  ],
+  "art": "mind.logic-puzzle-pieces"
+}

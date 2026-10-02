@@ -1,0 +1,218 @@
+{
+  "id": "level.mind.philosophy.016",
+  "skillId": "skill.mind.philosophy",
+  "number": 16,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Descartes Doubts Everything",
+  "objective": "After this level you can explain Descartes's method of doubt, his dream and evil demon arguments, and why \"I think, therefore I am\" survived them.",
+  "summary": "Descartes tipped out all his beliefs like apples from a basket, doubted them with dreams and a deceiver, and found one certainty: I am, I exist, whenever I think it.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.descartes_method_of_doubt",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.avicenna_floating_man",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.015"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.016.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "How do you get the rotten apples out of a basket?",
+      "body": "René Descartes had a drastic answer, and it wasn’t really about fruit."
+    },
+    {
+      "id": "card.philosophy.016.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tip out the whole basket",
+      "body": "Descartes compared his beliefs to a basket of apples, some of them possibly rotten. The best move is to tip them all out, then put back only the ones you can see are sound. So in his Meditations (1641) he resolved to hold back belief from anything with even some reason for doubt, hoping to reach solid ground to build on."
+    },
+    {
+      "id": "card.philosophy.016.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Dreams, then a deceiver",
+      "body": "First, dreams. You can’t be sure you aren’t dreaming right now, so your senses can’t give certainty. But awake or asleep, two and three make five. So Descartes went further and imagined a deceiver of supreme power and cunning, able to fool him even about the simplest truths."
+    },
+    {
+      "id": "card.philosophy.016.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The one thing the deceiver can’t touch",
+      "body": "Let the deceiver do his worst: if he is deceiving me, then I exist. “I am, I exist,” the Meditations say, is necessarily true whenever I put it forward or conceive it. The famous line “I think, therefore I am” comes from elsewhere: French in the Discourse on the Method (1637), and Latin, “cogito, ergo sum”, in the Principles of Philosophy (1644).",
+      "mascot": {
+        "pose": "oops",
+        "line": "Common mix-up: the Meditations never say “cogito, ergo sum”. There it’s “I am, I exist”."
+      }
+    },
+    {
+      "id": "card.philosophy.016.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Was it overkill?",
+      "body": "Pierre Gassendi, one of the Meditations’ first critics, thought so. Why treat everything as false and invent a deceiving demon, he asked, when noting the weakness of the human mind would do? Descartes replied that errors soaked up since infancy don’t leave just because you say they might be there."
+    },
+    {
+      "id": "card.philosophy.016.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.016.q1"
+    },
+    {
+      "id": "card.philosophy.016.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.016.q2"
+    },
+    {
+      "id": "card.philosophy.016.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.016.q3"
+    },
+    {
+      "id": "card.philosophy.016.c9",
+      "type": "checkpoint",
+      "headline": "Descartes Doubts Everything: the big picture",
+      "learned": [
+        "Tip out every belief, keep only the certain ones",
+        "Dreams, then an all-powerful deceiver",
+        "“I am, I exist” survives every doubt",
+        "Gassendi: the doubt was overkill"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.016.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.descartes_method_of_doubt"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.016.c4"
+      ],
+      "prompt": "What did Descartes find that even an all-powerful deceiver could not make false?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That two and three added together make five",
+          "correct": false,
+          "rationale": "The deceiver could fool him even about that."
+        },
+        {
+          "id": "b",
+          "label": "That he exists whenever he thinks it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "That he is awake and not dreaming",
+          "correct": false,
+          "rationale": "Dreams made that doubtful."
+        },
+        {
+          "id": "d",
+          "label": "That the world outside him exists",
+          "correct": false,
+          "rationale": "That was among the things he doubted."
+        }
+      ],
+      "explanation": "If the deceiver deceives him, he must exist: “I am, I exist” is true whenever he thinks it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.philosophy.016.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.descartes_method_of_doubt"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.016.c3"
+      ],
+      "prompt": "Why did Descartes add the all-powerful deceiver after his dream doubt?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dreams already made him certain of nothing",
+          "correct": false,
+          "rationale": "Some truths survived the dream doubt."
+        },
+        {
+          "id": "b",
+          "label": "He believed such a deceiver really existed",
+          "correct": false,
+          "rationale": "It was a hypothesis to test beliefs."
+        },
+        {
+          "id": "c",
+          "label": "His critic Gassendi asked him to go further",
+          "correct": false,
+          "rationale": "Gassendi objected to the deceiver."
+        },
+        {
+          "id": "d",
+          "label": "Even in dreams, 2 + 3 = 5 still seemed certain",
+          "correct": true
+        }
+      ],
+      "explanation": "The dream doubt couldn’t touch simple truths such as two and three making five, so he imagined a deceiver who could fool him even there.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.philosophy.016.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.descartes_method_of_doubt",
+        "concept.philosophy.avicenna_floating_man"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.016.c4",
+        "card.philosophy.011.c3"
+      ],
+      "prompt": "Avicenna’s floating man in Level 11 and Descartes’s “I am, I exist” share one key feature. Which?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both prove that the senses are always completely reliable",
+          "correct": false,
+          "rationale": "Both set the senses aside."
+        },
+        {
+          "id": "b",
+          "label": "Both find the self sure it exists with the body set aside",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Both conclude that the self is really just the brain",
+          "correct": false,
+          "rationale": "Neither concludes that."
+        },
+        {
+          "id": "d",
+          "label": "Both were first written in French for a wide audience",
+          "correct": false,
+          "rationale": "Avicenna wrote centuries earlier, not in French."
+        }
+      ],
+      "explanation": "Avicenna’s man affirms his self with no sensation of his body; Descartes finds “I exist” certain while doubting everything bodily.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.sep_descartes_epistemology"
+  ],
+  "art": "arts.candle"
+}

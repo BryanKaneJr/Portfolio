@@ -1,0 +1,217 @@
+{
+  "id": "level.science.astronomy.005",
+  "skillId": "skill.science.astronomy",
+  "number": 5,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Why We Have Seasons",
+  "objective": "After this level you can explain that seasons come from Earth's tilt, not its distance from the Sun.",
+  "summary": "Earth's axis is tilted about 23.5°. Each hemisphere takes turns leaning toward the Sun, which is why seasons are opposite north and south.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.seasons_tilt",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.seasons_not_distance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.venus_greenhouse",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.004"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.005.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Most people get this one wrong: summer isn't when Earth is closest to the Sun.",
+      "body": "It's the obvious guess: summer is hot because Earth swings closer to the Sun. Nice guess. The calendar disagrees."
+    },
+    {
+      "id": "card.astronomy.005.c2",
+      "type": "fact",
+      "fact": "Earth is closest to the Sun in early January.",
+      "context": "That's the middle of winter in the Northern Hemisphere. If distance ran the seasons, New Year's Day would be beach weather in New York. Instead, northern summer arrives when Earth is farther from the Sun. So distance can't be what makes summer. Something else is in charge."
+    },
+    {
+      "id": "card.astronomy.005.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "It's the tilt",
+      "body": "Earth's axis is tilted about 23.5°. When your half of the planet leans toward the Sun, sunlight hits the ground more directly and days last longer, so more energy lands on each patch of ground. That's summer. Lean away, and the same sunlight arrives at a slant and spreads thin, like a flashlight beam tipped across a table. That's winter. Same Sun, different angle.",
+      "callout": "Tilt → angle of sunlight → season",
+      "mascot": {
+        "pose": "pointing",
+        "line": "If you remember one thing from this level, make it this: the tilt makes the seasons, not the distance."
+      }
+    },
+    {
+      "id": "card.astronomy.005.c4",
+      "type": "text",
+      "role": "connect",
+      "headline": "Opposite seasons",
+      "body": "Here's the proof it's the lean. The two hemispheres tilt opposite ways, so they take turns. In December, New York shivers while Sydney has summer. In July it flips: summer up north, winter in Australia. Same planet, same trip around the Sun, opposite seasons. Somewhere on Earth, someone is always wearing a scarf."
+    },
+    {
+      "id": "card.astronomy.005.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.005.q1"
+    },
+    {
+      "id": "card.astronomy.005.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.005.q2"
+    },
+    {
+      "id": "card.astronomy.005.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.005.q3"
+    },
+    {
+      "id": "card.astronomy.005.c8",
+      "type": "checkpoint",
+      "headline": "Seasons: solved",
+      "learned": [
+        "Earth's axis is tilted about 23.5°",
+        "Tilt, not distance, causes seasons",
+        "Earth is closest to the Sun in January",
+        "The hemispheres have opposite seasons"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.005.q1",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.seasons_tilt"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.005.c3"
+      ],
+      "prompt": "What mainly causes Earth's seasons?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The tilt of Earth's axis",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Earth's changing distance from the Sun",
+          "correct": false,
+          "rationale": "Earth is closest in January, during northern winter."
+        },
+        {
+          "id": "c",
+          "label": "Changes in the Sun's brightness",
+          "correct": false,
+          "rationale": "The Sun's output is nearly constant."
+        },
+        {
+          "id": "d",
+          "label": "The Moon's position",
+          "correct": false,
+          "rationale": "The Moon affects tides, not seasons."
+        }
+      ],
+      "explanation": "Earth's ~23.5° tilt changes how directly sunlight hits each hemisphere through the year.",
+      "difficulty": 0.3,
+      "purpose": "recall"
+    },
+    {
+      "id": "question.astronomy.005.q2",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.seasons_not_distance"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.005.c4"
+      ],
+      "prompt": "It's July. What season is it in Australia?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Summer",
+          "correct": false,
+          "rationale": "July is summer in the north, so it's winter in the south."
+        },
+        {
+          "id": "b",
+          "label": "Spring",
+          "correct": false,
+          "rationale": "Not in July."
+        },
+        {
+          "id": "c",
+          "label": "It depends on the distance to the Sun",
+          "correct": false,
+          "rationale": "Distance isn't the cause."
+        },
+        {
+          "id": "d",
+          "label": "Winter",
+          "correct": true
+        }
+      ],
+      "explanation": "The hemispheres tilt opposite ways, so northern summer is southern winter.",
+      "difficulty": 0.35,
+      "purpose": "understanding"
+    },
+    {
+      "id": "question.astronomy.005.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.seasons_not_distance",
+        "concept.astronomy.venus_greenhouse"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.003.c3",
+        "card.astronomy.005.c2"
+      ],
+      "prompt": "Venus is hotter than Mercury (Level 3), and northern summer happens when Earth is farther from the Sun. What do both show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Planets closer to the Sun are always hotter",
+          "correct": false,
+          "rationale": "Both examples break that rule."
+        },
+        {
+          "id": "b",
+          "label": "Distance alone doesn’t set temperature",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Venus causes Earth's seasons",
+          "correct": false,
+          "rationale": "Venus has no effect on our seasons."
+        },
+        {
+          "id": "d",
+          "label": "Earth's orbit is a perfect circle",
+          "correct": false,
+          "rationale": "It's slightly oval, but that isn't the point here."
+        }
+      ],
+      "explanation": "Venus's atmosphere traps heat, and Earth's tilt sets the angle of sunlight. In both cases something other than distance is in charge.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_spaceplace_seasons",
+    "source.nasa_earth_perihelion"
+  ],
+  "art": "astronomy.earth"
+}

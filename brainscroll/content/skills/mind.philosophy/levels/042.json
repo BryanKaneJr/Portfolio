@@ -1,0 +1,222 @@
+{
+  "id": "level.mind.philosophy.042",
+  "skillId": "skill.mind.philosophy",
+  "number": 42,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Euthyphro Dilemma",
+  "objective": "After this level you can explain Plato's Euthyphro dilemma: is something good because God commands it, or commanded because it is good?",
+  "summary": "Plato’s Euthyphro asks: is the pious loved because pious, or pious because loved? For God, one horn makes morality arbitrary, the other independent of God.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.morals_euthyphro",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.plato_forms",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.041"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.042.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A man is taking his own father to court, and he’s sure the gods approve.",
+      "body": "Socrates, on his way to answer the charges against him, meets this man at the court. Their short talk leaves behind one of ethics’ sharpest questions."
+    },
+    {
+      "id": "card.philosophy.042.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Not examples: the one idea",
+      "body": "The man is Euthyphro, prosecuting his father over the death of a laborer, and he claims special knowledge of piety. So Socrates asks what piety is. Euthyphro offers his own case as the answer. Socrates wants more: not examples, but the one idea that makes every pious thing pious, a standard to measure actions by. Sound familiar? It’s the many-and-one shape of Level 4’s Forms."
+    },
+    {
+      "id": "card.philosophy.042.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The question",
+      "body": "Euthyphro tries again: piety is what all the gods love. Then Socrates asks: is the pious loved by the gods because it is pious, or pious because it is loved? Philosophers today restate it for God and morality. Does God command an action because it is right, or is it right because God commands it?"
+    },
+    {
+      "id": "card.philosophy.042.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two horns",
+      "body": "Take the second option, and morality looks arbitrary: had God commanded cruelty for fun, cruelty would be right. Take the first, and rightness exists independently of God, who then recognizes morality rather than creating it. Either way, something seems lost.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep the two horns: commanded because right, or right because commanded. Every reply has to deal with both."
+      }
+    },
+    {
+      "id": "card.philosophy.042.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Theists reply, critics reply",
+      "body": "Theists reply by rooting morality in God’s nature. Robert Adams argued that an act is wrong if and only if it goes against the commands of a loving God, so cruelty for its own sake could never be commanded. Critics reply that the puzzle has moved, not vanished: why is God’s character the standard of goodness, unless it measures up to some standard itself?"
+    },
+    {
+      "id": "card.philosophy.042.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.042.q1"
+    },
+    {
+      "id": "card.philosophy.042.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.042.q2"
+    },
+    {
+      "id": "card.philosophy.042.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.042.q3"
+    },
+    {
+      "id": "card.philosophy.042.c9",
+      "type": "checkpoint",
+      "headline": "The Euthyphro Dilemma: the big picture",
+      "learned": [
+        "Euthyphro prosecutes his father, sure of piety",
+        "Is the pious loved because pious, or pious because loved?",
+        "One horn: arbitrary; the other: independent of God",
+        "Adams: morality rests on a loving God’s nature"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.042.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.morals_euthyphro"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.042.c2"
+      ],
+      "prompt": "What was Euthyphro doing when Socrates met him?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Prosecuting his own father",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Defending Socrates at his trial",
+          "correct": false,
+          "rationale": "Socrates was on his way to his own case."
+        },
+        {
+          "id": "c",
+          "label": "Offering a sacrifice for the city",
+          "correct": false,
+          "rationale": "He was at the court, not a temple."
+        },
+        {
+          "id": "d",
+          "label": "Teaching young Athenians about the gods",
+          "correct": false,
+          "rationale": "He claimed knowledge of piety, but wasn’t teaching."
+        }
+      ],
+      "explanation": "Euthyphro was prosecuting his own father over the death of a laborer, sure that piety demanded it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.philosophy.042.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.morals_euthyphro"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.042.c4"
+      ],
+      "prompt": "Why does the option “right because God commands it” seem to make morality arbitrary?",
+      "options": [
+        {
+          "id": "a",
+          "label": "God never gives commands",
+          "correct": false,
+          "rationale": "The dilemma assumes God commands."
+        },
+        {
+          "id": "b",
+          "label": "Cruelty would be right if God commanded it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "People disagree about which gods exist",
+          "correct": false,
+          "rationale": "That’s a different problem."
+        },
+        {
+          "id": "d",
+          "label": "Commands can only come from rulers",
+          "correct": false,
+          "rationale": "The dilemma is about God’s commands."
+        }
+      ],
+      "explanation": "If rightness just is being commanded, then a command to be cruel for fun would make cruelty right.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.philosophy.042.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.morals_euthyphro",
+        "concept.philosophy.plato_forms"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.042.c2",
+        "card.philosophy.004.c2"
+      ],
+      "prompt": "Socrates wants the one idea that makes every pious act pious. Which Level 4 theory has the same many-and-one shape?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Aristotle’s four causes, which explain a statue four ways",
+          "correct": false,
+          "rationale": "They explain a thing four ways, not one over many."
+        },
+        {
+          "id": "b",
+          "label": "The Buddhist chariot",
+          "correct": false,
+          "rationale": "That argues a whole is only its parts."
+        },
+        {
+          "id": "c",
+          "label": "Plato’s Forms, which many things share in",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Daoist image of water",
+          "correct": false,
+          "rationale": "That’s a model for acting without forcing."
+        }
+      ],
+      "explanation": "In Level 4 many beautiful things are beautiful by sharing in one Form of Beauty, just as Socrates seeks one idea behind all pious acts.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.gutenberg_plato_euthyphro",
+    "source.iep_divine_command",
+    "source.sep_metaethics",
+    "source.sep_plato",
+    "source.iep_plato"
+  ],
+  "art": "rome.altar-flame"
+}

@@ -1,0 +1,229 @@
+{
+  "id": "level.geography.earth_climate.021",
+  "skillId": "skill.geography.earth_climate",
+  "number": 21,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "How Rock Falls Apart",
+  "objective": "After this level you can explain how frost, roots and slightly acidic rain break solid rock down through weathering.",
+  "summary": "Weathering breaks rock down where it sits. Ice and roots wedge cracks apart; carbonic acid in rain and soil water turns feldspar into clay and rusts iron minerals, while quartz barely changes.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.land_mechanical_weathering",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.land_chemical_weathering",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.quartz_sand",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.crust_minerals",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.020"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.021.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Water, one of the softest things around, can split solid rock.",
+      "body": "No hammer needed: just a crack, a cold night and a lot of patience. Rock looks permanent, but at Earth's surface it is always slowly coming apart. Here's how."
+    },
+    {
+      "id": "card.earth_climate.021.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Break it where it sits",
+      "body": "You met the two jobs in World Geography: weathering breaks rock down, erosion carries it off. This whole level is the first job. Weathering happens in place, at or near the surface, and it comes in two kinds. Mechanical weathering breaks rock into smaller pieces. Chemical weathering changes the minerals themselves.",
+      "mascot": {
+        "pose": "oops",
+        "line": "People mix these up all the time. Weathering breaks rock where it sits; erosion is the moving van that hauls the pieces away."
+      }
+    },
+    {
+      "id": "card.earth_climate.021.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Wedges of ice and roots",
+      "body": "Rain seeps into a crack and freezes overnight. Ice takes up about 9% more room than the water did, so it shoves the crack wider, like a wedge. It thaws, water trickles deeper, and it freezes again. That's frost wedging, and it works best where temperatures swing across freezing again and again. Plant roots do the same job more slowly: they creep into cracks and pry the rock apart as they grow."
+    },
+    {
+      "id": "card.earth_climate.021.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rain with a bite",
+      "body": "Carbon dioxide dissolves in water and makes a weak acid, carbonic acid. Soil holds far more carbon dioxide than air, so water seeping through soil gets more acidic still. That mild acid goes to work on minerals. It turns feldspar, the crust's most common mineral, into soft clay. Iron-bearing minerals rust, which is why weathered basalt turns reddish. Quartz? It is very resistant, and barely changes."
+    },
+    {
+      "id": "card.earth_climate.021.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.021.q1"
+    },
+    {
+      "id": "card.earth_climate.021.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.021.q2"
+    },
+    {
+      "id": "card.earth_climate.021.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.021.q3"
+    },
+    {
+      "id": "card.earth_climate.021.c8",
+      "type": "checkpoint",
+      "headline": "Weathering: cracked",
+      "learned": [
+        "Weathering breaks rock in place; erosion moves it",
+        "Freezing water and roots wedge cracks apart",
+        "Carbonic acid turns feldspar into clay",
+        "Quartz survives almost untouched"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.021.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.land_mechanical_weathering"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.021.c3"
+      ],
+      "prompt": "In frost wedging, what actually pushes a crack in the rock wider?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ice melting the minerals that hold the rock together",
+          "correct": false,
+          "rationale": "Ice doesn't melt minerals; it pushes the crack apart."
+        },
+        {
+          "id": "b",
+          "label": "Cold making the rock shrink until it snaps",
+          "correct": false,
+          "rationale": "The force comes from the ice, which takes up more room than water."
+        },
+        {
+          "id": "c",
+          "label": "Water expanding as it freezes inside the crack",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Carbonic acid carried in by the frost",
+          "correct": false,
+          "rationale": "That's chemical weathering, from dissolved carbon dioxide."
+        }
+      ],
+      "explanation": "Water expands by about 9% as it freezes, so ice in a crack acts like a wedge; repeated freezing and thawing pries the rock apart.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.021.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.land_chemical_weathering"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.021.c4"
+      ],
+      "prompt": "How does chemical weathering turn feldspar into clay?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Roots grind the feldspar into fine powder",
+          "correct": false,
+          "rationale": "Roots break rock mechanically; they don't make new minerals."
+        },
+        {
+          "id": "b",
+          "label": "Carbonic acid in water reacts with the feldspar",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Freezing ice squeezes the feldspar soft",
+          "correct": false,
+          "rationale": "Ice cracks rock but doesn't change its minerals."
+        },
+        {
+          "id": "d",
+          "label": "Sunlight bleaches feldspar until it crumbles",
+          "correct": false,
+          "rationale": "Sunlight isn't what drives this reaction."
+        }
+      ],
+      "explanation": "Carbon dioxide dissolved in water makes carbonic acid, which reacts with feldspar and turns it into clay minerals.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.021.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.land_chemical_weathering",
+        "concept.earth_climate.quartz_sand"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.021.c4",
+        "card.earth_climate.004.c4"
+      ],
+      "prompt": "Feldspar is the crust's most common mineral, yet most sand is quartz. Using Levels 4 and 21, what explains this?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Quartz forms fresh on beaches from seawater",
+          "correct": false,
+          "rationale": "The quartz in sand comes from rocks that broke down."
+        },
+        {
+          "id": "b",
+          "label": "Feldspar is harder, so it stays locked in cliffs",
+          "correct": false,
+          "rationale": "Quartz is the harder one, at 7 on the Mohs scale."
+        },
+        {
+          "id": "c",
+          "label": "Frost wedging melts feldspar but not quartz",
+          "correct": false,
+          "rationale": "Frost wedging breaks rock; it doesn't melt anything."
+        },
+        {
+          "id": "d",
+          "label": "Weathering turns feldspar to clay; quartz resists",
+          "correct": true
+        }
+      ],
+      "explanation": "Carbonic acid turns feldspar into clay, while tough, nearly insoluble quartz outlasts its neighbors and ends up as sand.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_weathering",
+    "source.nps_bryce_hoodoos",
+    "source.usgs_water_density",
+    "source.libretexts_physical_weathering",
+    "source.libretexts_weathering_erosion",
+    "source.libretexts_chemical_weathering",
+    "source.brit_feldspar",
+    "source.brit_quartz",
+    "source.brit_sand"
+  ],
+  "art": "earth.split-boulder"
+}

@@ -1,0 +1,213 @@
+{
+  "id": "level.mind.psychology.021",
+  "skillId": "skill.mind.psychology",
+  "number": 21,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Pavlov's Dogs",
+  "objective": "After this level you can explain classical conditioning using Ivan Pavlov's experiments with dogs.",
+  "summary": "Studying digestion, Ivan Pavlov noticed dogs drooling before food arrived. Pairing a tone with food, he showed how a neutral signal becomes a conditioned stimulus.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.conditioning_pavlov_discovery",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.conditioning_classical",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.behaviorism",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.020"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.021.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A Nobel Prize winner in digestion is famous for drooling dogs.",
+      "body": "Ivan Pavlov won the 1904 Nobel Prize for his work on how digestion works. Yet the experiment everyone remembers is about dogs drooling at a sound. What was a digestion expert doing in a psychology course?"
+    },
+    {
+      "id": "card.psychology.021.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The drool that came too early",
+      "body": "Pavlov was a physiologist, and his dogs were there to help him study digestion. He measured how much saliva they made in response to food. Then the dogs got ahead of him. They began to drool at the sight of food, at an empty bowl, even at the sound of the lab assistants' footsteps. Drooling at food in the mouth is a reflex; nobody has to learn it. Drooling at footsteps is different. Those dogs had learned something."
+    },
+    {
+      "id": "card.psychology.021.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sound first, then food",
+      "body": "So Pavlov tested it. Meat powder was his unconditioned stimulus: it triggers drooling, the unconditioned response, with no learning needed. Just before the food, he sounded a tone, a neutral stimulus that at first meant nothing to the dogs. After he paired them over and over, the tone alone made the dogs drool. The tone had become a conditioned stimulus, and the drool it caused, a conditioned response. His sounds included a metronome and a buzzer, not just the famous bell."
+    },
+    {
+      "id": "card.psychology.021.c4",
+      "type": "fact",
+      "fact": "Classical conditioning: learning that one stimulus predicts another.",
+      "context": "In classical conditioning, animals and people learn to associate stimuli, and so to anticipate events. Pavlov's dogs learned that the tone meant dinner was coming. John Watson, the founder of behaviorism you met in Level 5, drew on Pavlov's work and believed the same principles could condition human emotions too."
+    },
+    {
+      "id": "card.psychology.021.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.021.q1"
+    },
+    {
+      "id": "card.psychology.021.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.021.q2"
+    },
+    {
+      "id": "card.psychology.021.c7",
+      "type": "recall",
+      "questionId": "question.psychology.021.q3"
+    },
+    {
+      "id": "card.psychology.021.c8",
+      "type": "checkpoint",
+      "headline": "Pavlov's Dogs",
+      "learned": [
+        "Pavlov studied digestion, then spotted learned drooling",
+        "Unconditioned: food triggers drool with no learning",
+        "Conditioned: a tone paired with food triggers drool",
+        "Watson's behaviorism built on this"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.021.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.conditioning_pavlov_discovery"
+      ],
+      "sourceCardIds": [
+        "card.psychology.021.c2"
+      ],
+      "prompt": "What first told Pavlov that his dogs had learned something?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They drooled when food was in their mouths",
+          "correct": false,
+          "rationale": "That's a reflex; no learning is needed."
+        },
+        {
+          "id": "b",
+          "label": "They stopped eating their usual food",
+          "correct": false,
+          "rationale": "Their eating didn't change; their drooling did."
+        },
+        {
+          "id": "c",
+          "label": "They barked whenever a bell rang",
+          "correct": false,
+          "rationale": "Barking wasn't what he measured."
+        },
+        {
+          "id": "d",
+          "label": "They drooled at lab assistants' footsteps",
+          "correct": true
+        }
+      ],
+      "explanation": "Dogs don't naturally drool at footsteps or an empty bowl, so those responses had to be learned.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.021.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.conditioning_classical"
+      ],
+      "sourceCardIds": [
+        "card.psychology.021.c3"
+      ],
+      "prompt": "How did the tone come to make Pavlov's dogs drool?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was louder than other lab noises",
+          "correct": false,
+          "rationale": "Loudness wasn't the point; the pairing was."
+        },
+        {
+          "id": "b",
+          "label": "It was sounded after the dogs ate",
+          "correct": false,
+          "rationale": "The tone came just before the food, not after."
+        },
+        {
+          "id": "c",
+          "label": "It came just before food, over and over",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The dogs got a treat for drooling at it",
+          "correct": false,
+          "rationale": "Nothing rewarded the drool; the tone simply predicted food."
+        }
+      ],
+      "explanation": "Pavlov sounded the tone just before the meat powder, again and again, until the tone alone triggered drooling.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.021.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.behaviorism",
+        "concept.psychology.conditioning_classical"
+      ],
+      "sourceCardIds": [
+        "card.psychology.021.c4",
+        "card.psychology.005.c2"
+      ],
+      "prompt": "Which school of psychology from Level 5, founded by John Watson, drew on Pavlov's conditioning?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Psychoanalysis",
+          "correct": false,
+          "rationale": "That was Freud's approach, which looked for hidden causes."
+        },
+        {
+          "id": "b",
+          "label": "Behaviorism",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Introspection",
+          "correct": false,
+          "rationale": "That was Wundt's method, which Watson rejected."
+        },
+        {
+          "id": "d",
+          "label": "Cognitive psychology",
+          "correct": false,
+          "rationale": "That came later and brought the mind back in."
+        }
+      ],
+      "explanation": "Watson's behaviorism studied observable behavior and built on Pavlov's classical conditioning.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_classical_conditioning",
+    "source.nobel_pavlov_1904_facts",
+    "source.brit_ivan_pavlov"
+  ],
+  "art": "mind.pavlov-bell"
+}

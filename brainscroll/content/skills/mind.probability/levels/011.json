@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.probability.011",
+  "skillId": "skill.mind.probability",
+  "number": 11,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Mean: Add Up and Share Out",
+  "objective": "After this level you can find the mean of a set of numbers and explain it as the amount each would get if the total were shared equally.",
+  "summary": "The mean adds up every value and divides by how many there are: the fair share each would get if the total were split equally. Per person figures are means.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.averages_mean_fair_share",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.rates_per_person",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.010"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.011.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Pour every glass into one jug, then share it out evenly.",
+      "body": "Each glass ends up with the same amount. That amount has a name you hear all the time, usually as \"the average\". This level shows what it really is."
+    },
+    {
+      "id": "card.probability.011.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Add up, then share out",
+      "body": "To find the mean, add up all the values, then divide by how many there are. Picture five bottles holding 1, 4, 2, 3 and 0 liters of water. Pour them together and you have 10 liters. Share that equally among the 5 bottles and each gets 2 liters. So the mean is 2 liters, even though only one bottle held exactly that to begin with.",
+      "mascot": {
+        "pose": "idea",
+        "line": "If you remember one thing from this level: add them all up, then share equally. That is the mean."
+      }
+    },
+    {
+      "id": "card.probability.011.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A fair share nobody has to own",
+      "body": "That is the best way to picture a mean: the fair share each member would get if everything were pooled and split evenly. It works for anything you can add. Quiz scores of 70, 90, 86 and 94 total 340; shared over 4 quizzes, that is 85 each. Not one quiz actually scored 85, and that is fine. The mean is not a value picked from the list. It is the level everything would settle at if you evened it out."
+    },
+    {
+      "id": "card.probability.011.c4",
+      "type": "fact",
+      "fact": "\"Average\" usually means the mean, and it counts every value.",
+      "context": "The two words are used interchangeably, and the mean is the most common way to describe a center. Per capita income is a mean: all the income in a place, divided among every man, woman and child. That is Level 6's move of dividing by the population. And because the mean counts every value, one huge value can move it. Level 13 shows how far."
+    },
+    {
+      "id": "card.probability.011.c5",
+      "type": "mcq",
+      "questionId": "question.probability.011.q1"
+    },
+    {
+      "id": "card.probability.011.c6",
+      "type": "mcq",
+      "questionId": "question.probability.011.q2"
+    },
+    {
+      "id": "card.probability.011.c7",
+      "type": "recall",
+      "questionId": "question.probability.011.q3"
+    },
+    {
+      "id": "card.probability.011.c8",
+      "type": "checkpoint",
+      "headline": "The mean: shared out",
+      "learned": [
+        "Mean = total ÷ number of values",
+        "Picture it as a fair share",
+        "It need not be a value in the list",
+        "Per person figures are means"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.011.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.averages_mean_fair_share"
+      ],
+      "sourceCardIds": [
+        "card.probability.011.c2"
+      ],
+      "prompt": "How do you find the mean of a set of numbers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pick whichever value turns up most often",
+          "correct": false,
+          "rationale": "That is the mode, a different average."
+        },
+        {
+          "id": "b",
+          "label": "Add them all up, then divide by how many there are",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Put them in order and take the one in the middle",
+          "correct": false,
+          "rationale": "That is the median, a different average."
+        },
+        {
+          "id": "d",
+          "label": "Subtract the smallest value from the largest",
+          "correct": false,
+          "rationale": "That is the range, which measures spread."
+        }
+      ],
+      "explanation": "Add up every value, then divide by how many values there are: 10 liters over 5 bottles is 2 each.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.probability.011.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.averages_mean_fair_share"
+      ],
+      "sourceCardIds": [
+        "card.probability.011.c3"
+      ],
+      "prompt": "Four quiz scores of 70, 90, 86 and 94 have a mean of 85. What does the 85 tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "At least one of the quizzes scored exactly 85",
+          "correct": false,
+          "rationale": "None did; a mean need not appear in the list."
+        },
+        {
+          "id": "b",
+          "label": "The most common score among the four quizzes",
+          "correct": false,
+          "rationale": "No score repeats; the mean is a fair share, not the most common value."
+        },
+        {
+          "id": "c",
+          "label": "The score each quiz would get if the points were shared out equally",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The lowest score you could get on a quiz",
+          "correct": false,
+          "rationale": "The lowest score was 70; the mean sits in between."
+        }
+      ],
+      "explanation": "The 340 points shared equally over 4 quizzes gives 85 each: the fair share, even though no quiz scored 85.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.011.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.averages_mean_fair_share",
+        "concept.probability.rates_per_person"
+      ],
+      "sourceCardIds": [
+        "card.probability.011.c4",
+        "card.probability.006.c3"
+      ],
+      "prompt": "Per capita income divides a place's total income by its population, like Level 6's rates. What kind of average is it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A median: the income of the person in the middle",
+          "correct": false,
+          "rationale": "It adds everything up and divides, so it is a mean."
+        },
+        {
+          "id": "b",
+          "label": "A mode: the income most people have",
+          "correct": false,
+          "rationale": "It adds up all the income, so it is a mean."
+        },
+        {
+          "id": "c",
+          "label": "Not an average at all, just a total",
+          "correct": false,
+          "rationale": "It is a total divided by the population: a mean."
+        },
+        {
+          "id": "d",
+          "label": "A mean: each person's equal share of the total",
+          "correct": true
+        }
+      ],
+      "explanation": "Dividing a total by the number of people is exactly how the mean shares a total out, person by person.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.abs_central_tendency",
+    "source.openstax_intro_stats_center",
+    "source.illustrativemath_mean_fair_share",
+    "source.utah_ibis_per_capita_income",
+    "source.cdc_epi_lesson3_morbidity"
+  ],
+  "art": "mind.seesaw"
+}

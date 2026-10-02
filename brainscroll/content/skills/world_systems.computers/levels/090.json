@@ -1,0 +1,354 @@
+{
+  "id": "level.world_systems.computers.090",
+  "skillId": "skill.world_systems.computers",
+  "number": 90,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "published",
+  "title": "Checkpoint: Machine Learning and AI",
+  "objective": "After this level you can explain how machine learning, neural networks and language models learn from data, and where each one fails.",
+  "summary": "Everything in this chapter learned from examples, stored as numbers. Overfit models, confabulating chatbots and outpaced detectors all trace back to their data.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.ml_data_limits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.neural_weights",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.llm_tokens",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.ml_train_test",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.llm_confabulation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.synthetic_provenance",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.bits_need_context",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.ml_rules_vs_examples",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.ai_parallel_chips",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.089"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.090.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Nine levels, one ingredient: examples.",
+      "body": "Checkers positions, labeled pictures, human rankings, noisy images. Every system in this chapter was trained on data rather than following explicit rules. So when one goes wrong, a good first question is: what did it learn from?"
+    },
+    {
+      "id": "card.computers.090.c2",
+      "type": "comparison",
+      "headline": "Where each one fails",
+      "items": [
+        {
+          "label": "An overfit model",
+          "points": [
+            "Memorized its training set",
+            "Fails on new data it never saw"
+          ]
+        },
+        {
+          "label": "A chatbot",
+          "points": [
+            "Produces text that fits patterns in its data",
+            "Can state false things confidently"
+          ]
+        },
+        {
+          "label": "A deepfake detector",
+          "points": [
+            "Works best on generators it trained on",
+            "Newer generators slip past it"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.computers.090.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Everything is numbers, so data is everything",
+      "body": "Chapter 1's lesson still holds: to a computer, everything is numbers. Text reaches a model as token IDs, pictures are pixel values, and what a network learned is stored in its weights. That's why graphics chips, which run thousands of calculations at once, can train language and image models alike. It's also why Google's guide asks for data that is abundant, reliable, correct and representative."
+    },
+    {
+      "id": "card.computers.090.c4",
+      "type": "mcq",
+      "questionId": "question.computers.090.q1"
+    },
+    {
+      "id": "card.computers.090.c5",
+      "type": "mcq",
+      "questionId": "question.computers.090.q2"
+    },
+    {
+      "id": "card.computers.090.c6",
+      "type": "mcq",
+      "questionId": "question.computers.090.q3"
+    },
+    {
+      "id": "card.computers.090.c7",
+      "type": "recall",
+      "questionId": "question.computers.090.q4"
+    },
+    {
+      "id": "card.computers.090.c8",
+      "type": "recall",
+      "questionId": "question.computers.090.q5"
+    },
+    {
+      "id": "card.computers.090.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 9 complete",
+      "learned": [
+        "How machine learning finds patterns in examples, and when hand-written rules are the better choice.",
+        "Why a model must be tested on data it never saw, and how a network learns by nudging its weights.",
+        "How a chatbot writes one token at a time, and why it can sound sure while being wrong.",
+        "What image generators do with noise, and why provenance labels beat squinting at pixels."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.090.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.ml_data_limits",
+        "concept.computers.ml_train_test"
+      ],
+      "sourceCardIds": [
+        "card.computers.090.c2"
+      ],
+      "prompt": "In the chapter recap, which system fails because it memorized its training set?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A chatbot",
+          "correct": false,
+          "rationale": "A chatbot's problem is fluent text that may be false."
+        },
+        {
+          "id": "b",
+          "label": "An overfit model",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A deepfake detector",
+          "correct": false,
+          "rationale": "A detector's problem is newer generators."
+        },
+        {
+          "id": "d",
+          "label": "A hand-written rule",
+          "correct": false,
+          "rationale": "Rules aren't trained, so they can't memorize a training set."
+        }
+      ],
+      "explanation": "An overfit model memorized its training set and fails on new data it never saw.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.090.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.ml_data_limits"
+      ],
+      "sourceCardIds": [
+        "card.computers.090.c3",
+        "card.computers.090.c2"
+      ],
+      "prompt": "A face-recognition model was trained almost only on daytime photos. What problem would you predict?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It will refuse to run after dark",
+          "correct": false,
+          "rationale": "It will run; it just hasn't learned from night photos."
+        },
+        {
+          "id": "b",
+          "label": "It may do poorly on night photos its data didn't represent",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Nothing, because the amount of data never matters",
+          "correct": false,
+          "rationale": "Data should be abundant and representative."
+        },
+        {
+          "id": "d",
+          "label": "It will turn night photos into daytime ones",
+          "correct": false,
+          "rationale": "Recognizing faces doesn't change the photos."
+        }
+      ],
+      "explanation": "Training data should be representative; a model meeting cases its data didn't cover is likely to do badly on them.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.computers.090.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.ml_data_limits",
+        "concept.computers.bits_need_context"
+      ],
+      "sourceCardIds": [
+        "card.computers.090.c3",
+        "card.computers.010.c4"
+      ],
+      "prompt": "Which Chapter 1 idea explains why the same chips can train both language models and image models?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every chip has the same clock speed",
+          "correct": false,
+          "rationale": "Clock speed paces work; it isn't why one chip suits both."
+        },
+        {
+          "id": "b",
+          "label": "Cache memory holds a whole model",
+          "correct": false,
+          "rationale": "Cache is small and fast; it doesn't explain this."
+        },
+        {
+          "id": "c",
+          "label": "Text and pictures are both stored as numbers",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "ASCII covers every language",
+          "correct": false,
+          "rationale": "ASCII has only 128 characters."
+        }
+      ],
+      "explanation": "Text, pictures and weights are all numbers, so the same fast multiplication hardware can train models of both.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.computers.090.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.neural_weights"
+      ],
+      "sourceCardIds": [
+        "card.computers.083.c3"
+      ],
+      "prompt": "From Level 83: after training measures the loss, what happens to each weight?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is reset to zero so that training can start over again",
+          "correct": false,
+          "rationale": "Weights are nudged, not reset."
+        },
+        {
+          "id": "b",
+          "label": "It is copied into the test set so it can be checked later",
+          "correct": false,
+          "rationale": "The test set holds examples, not weights."
+        },
+        {
+          "id": "c",
+          "label": "It moves a small amount in the direction that shrinks the loss",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is rewritten by hand by a programmer",
+          "correct": false,
+          "rationale": "The adjustment is automatic."
+        }
+      ],
+      "explanation": "Each weight moves a small amount in the direction that reduces the loss, and the loop repeats.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.090.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.llm_tokens"
+      ],
+      "sourceCardIds": [
+        "card.computers.085.c4"
+      ],
+      "prompt": "From Level 85: what happens right after a language model picks its next token?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is added, and the longer text goes back in for the next pick",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The model stops and waits for a person to approve the token",
+          "correct": false,
+          "rationale": "It carries straight on to the next pick."
+        },
+        {
+          "id": "c",
+          "label": "The token is turned into a pixel and drawn on the screen",
+          "correct": false,
+          "rationale": "Tokens stay as numbers standing for text."
+        },
+        {
+          "id": "d",
+          "label": "The whole answer so far is thrown away and restarted",
+          "correct": false,
+          "rationale": "It keeps the token and builds on it."
+        }
+      ],
+      "explanation": "Generation is one token at a time: each new token is appended, and the next pick depends on all before it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.google_ml_what_is_ml",
+    "source.ibm_machine_learning",
+    "source.google_mlcc_overfitting",
+    "source.nist_ai_600_1_genai_profile",
+    "source.nist_ai_100_4_synthetic_content",
+    "source.ibm_gpu",
+    "source.hf_llm_course_tokenizers",
+    "source.google_mlcc_neural_nodes",
+    "source.google_ml_problem_framing"
+  ],
+  "art": "computers.neural-net"
+}

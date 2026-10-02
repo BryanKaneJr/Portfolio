@@ -1,0 +1,219 @@
+{
+  "id": "level.history.ancient_rome.063",
+  "skillId": "skill.history.ancient_rome",
+  "number": 63,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Bread and Circuses",
+  "objective": "After this level you can explain the grain dole and public games and why rulers provided them.",
+  "summary": "Rome fed about 200,000 citizens with free grain and staged huge free games. A poet mocked it as “bread and circuses.”",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.bread_circuses",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.gracchi",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.actium",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.062"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.063.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A Roman poet said his people wanted only two things: bread and circuses.",
+      "body": "He wasn’t paying them a compliment. So what were the bread and the circuses, and who was handing them out?"
+    },
+    {
+      "id": "card.ancient_rome.063.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Free grain",
+      "body": "The bread was real. Rome gave free grain to many citizens living in the city, and under Augustus about 200,000 people received it. That’s a lot of mouths to feed. Much of that grain came from Egypt, a province under the emperor’s personal control. The emperor didn’t just run the city. He ran its pantry."
+    },
+    {
+      "id": "card.ancient_rome.063.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Free games",
+      "body": "The circuses were real too. Public games, ludi, began as religious festivals and grew into huge free entertainments. Worship had become a show. Who paid? Emperors and politicians, who funded games and food to win popularity and keep the city calm. Crowd control, served with a side of spectacle.",
+      "callout": "Ludi: public games"
+    },
+    {
+      "id": "card.ancient_rome.063.c4",
+      "type": "fact",
+      "fact": "“Bread and circuses” was a complaint.",
+      "context": "The poet Juvenal said the Roman people, who once handed out commands, now wanted only these two things. His jab: citizens who used to give the orders had settled for free food and shows.",
+      "mascot": {
+        "pose": "oops",
+        "line": "People often quote this as a catchy slogan. Juvenal meant it as a complaint."
+      }
+    },
+    {
+      "id": "card.ancient_rome.063.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.063.q1"
+    },
+    {
+      "id": "card.ancient_rome.063.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.063.q2"
+    },
+    {
+      "id": "card.ancient_rome.063.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.063.q3"
+    },
+    {
+      "id": "card.ancient_rome.063.c8",
+      "type": "checkpoint",
+      "headline": "Bread and circuses: explained",
+      "learned": [
+        "Rome fed citizens with free grain",
+        "About 200,000 received it",
+        "Games began as religious festivals",
+        "Juvenal mocked “bread and circuses”"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.063.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.bread_circuses"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.063.c2"
+      ],
+      "prompt": "About how many people received free grain under Augustus?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 2,000",
+          "correct": false,
+          "rationale": "Far more."
+        },
+        {
+          "id": "b",
+          "label": "About 20,000",
+          "correct": false,
+          "rationale": "Far more."
+        },
+        {
+          "id": "c",
+          "label": "About 200,000",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 2 million",
+          "correct": false,
+          "rationale": "More than lived in Rome."
+        }
+      ],
+      "explanation": "Under Augustus about 200,000 people in Rome received free grain.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.063.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.bread_circuses"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.063.c3"
+      ],
+      "prompt": "Why did emperors pay for grain and games?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The law required it of every consul",
+          "correct": false,
+          "rationale": "It was a political choice."
+        },
+        {
+          "id": "b",
+          "label": "To win popularity and keep the city calm",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "To train citizens as soldiers",
+          "correct": false,
+          "rationale": "It was about popularity."
+        },
+        {
+          "id": "d",
+          "label": "Because farmers refused to sell grain",
+          "correct": false,
+          "rationale": "It was about popularity."
+        }
+      ],
+      "explanation": "Feeding and entertaining the crowd kept rulers popular and the city calm.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.063.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.bread_circuses",
+        "concept.ancient_rome.gracchi"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.063.c2",
+        "card.ancient_rome.031.c3"
+      ],
+      "prompt": "From Level 31: which reformer had pushed for cheap grain for citizens?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Gaius Gracchus",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Sulla",
+          "correct": false,
+          "rationale": "He strengthened the Senate."
+        },
+        {
+          "id": "c",
+          "label": "Cato the Elder",
+          "correct": false,
+          "rationale": "He wanted Carthage destroyed."
+        },
+        {
+          "id": "d",
+          "label": "Marius",
+          "correct": false,
+          "rationale": "He reformed the army."
+        }
+      ],
+      "explanation": "Gaius Gracchus pushed wider reforms, including cheap grain, before he was killed in 121 BCE.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_juvenal",
+    "source.brit_ancient_rome",
+    "source.brit_augustus",
+    "source.brit_ludi"
+  ],
+  "art": "rome.bread-and-circus"
+}

@@ -1,0 +1,221 @@
+{
+  "id": "level.arts.film_tv.085",
+  "skillId": "skill.arts.film_tv",
+  "number": 85,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Miniatures and Matte Paintings",
+  "objective": "After this level you can explain how models, forced perspective and painted backgrounds created impossible places before computers.",
+  "summary": "Before computers, cheap scale models, forced perspective, high-speed filming and matte paintings on glass (from Norman Dawn in 1907) put impossible places on screen.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.miniature_effects",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.matte_painting_glass",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.frame_rate_standard_24",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.084"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.085.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Emerald City was never built. It was painted.",
+      "body": "The distant Emerald City in The Wizard of Oz (1939) is a matte painting, and Gone With the Wind is filled with matte-painted backdrops. Before computers, how did filmmakers put places that didn't exist on screen?"
+    },
+    {
+      "id": "card.film_tv.085.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Small, cheap and close to the lens",
+      "body": "One answer was to build small. Miniatures, or scale models, are often used because they are relatively inexpensive and easy to handle. Where you put them matters. Forced perspective makes objects look larger, smaller, nearer or farther than they are, because the closer something is to the camera, the larger it appears. A model near the lens can pass for a building far away."
+    },
+    {
+      "id": "card.film_tv.085.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Film it fast to make it big",
+      "body": "Models can also be filmed at more than 24 frames per second. Played back at normal speed, the action runs in slow motion, which gives a more realistic-looking perspective and time scale. Slow the action down, and a model moves more like the full-size thing.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Common mix-up: filming faster gives slower action on screen, because playback stays at normal speed."
+      }
+    },
+    {
+      "id": "card.film_tv.085.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Painting on glass",
+      "body": "The other answer was paint. Matte painting is credited to filmmaker Norman Dawn, who first used it in his 1907 film Missions of California. Painters put scenery on a sheet of glass and left parts unpainted. With the glass in front of the camera, the actors were filmed through the clear parts, so they seemed to stand inside the painted world."
+    },
+    {
+      "id": "card.film_tv.085.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.085.q1"
+    },
+    {
+      "id": "card.film_tv.085.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.085.q2"
+    },
+    {
+      "id": "card.film_tv.085.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.085.q3"
+    },
+    {
+      "id": "card.film_tv.085.c8",
+      "type": "checkpoint",
+      "headline": "Miniatures and Matte Paintings: done",
+      "learned": [
+        "Miniatures are cheap and easy to handle",
+        "Closer to the lens looks bigger",
+        "Filmed fast, models play back slow",
+        "Matte paintings on glass, from 1907"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.085.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.matte_painting_glass"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.085.c4"
+      ],
+      "prompt": "Who is credited with first using matte painting, in 1907?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Georges Méliès",
+          "correct": false,
+          "rationale": "Méliès is known for the stop trick."
+        },
+        {
+          "id": "b",
+          "label": "Norman Dawn",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Willis O'Brien",
+          "correct": false,
+          "rationale": "O'Brien worked on stop-motion effects later."
+        },
+        {
+          "id": "d",
+          "label": "Walt Disney",
+          "correct": false,
+          "rationale": "Disney worked in animation, decades later."
+        }
+      ],
+      "explanation": "Norman Dawn first used matte painting in Missions of California (1907).",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.085.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.miniature_effects"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.085.c2"
+      ],
+      "prompt": "A crew wants a small model castle to look like a full-size castle behind an actor, with no painting or computers. Which trick from this level fits best?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Place the model far behind the actor",
+          "correct": false,
+          "rationale": "Farther away makes it look even smaller."
+        },
+        {
+          "id": "b",
+          "label": "Film the actor through clear glass",
+          "correct": false,
+          "rationale": "That's the matte method, which needs a painting."
+        },
+        {
+          "id": "c",
+          "label": "Place the model close to the camera so it appears larger",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Film the actor at a slower frame rate",
+          "correct": false,
+          "rationale": "That would speed up the actor, not enlarge the castle."
+        }
+      ],
+      "explanation": "Forced perspective: the closer something is to the camera, the larger it appears.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.film_tv.085.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.frame_rate_standard_24",
+        "concept.film_tv.miniature_effects"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.003.c3",
+        "card.film_tv.085.c3"
+      ],
+      "prompt": "Level 3 said sound films run at a steady 24 frames per second. So what happens to a miniature filmed at more than 24?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It plays back in slow motion, for a more realistic time scale",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It plays back faster, like a silent comedy",
+          "correct": false,
+          "rationale": "Shooting faster gives slower playback."
+        },
+        {
+          "id": "c",
+          "label": "Its colors look brighter",
+          "correct": false,
+          "rationale": "Frame rate changes speed, not color."
+        },
+        {
+          "id": "d",
+          "label": "Its sound goes out of sync",
+          "correct": false,
+          "rationale": "Miniature shots aren't about dialogue sync."
+        }
+      ],
+      "explanation": "Shot at a higher rate and shown at 24, the model's action slows down and looks more realistic.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.uh_engines_matte_painting",
+    "source.brit_mpt_special_effects",
+    "source.nfi_forced_perspective",
+    "source.brit_mpt_introduction_of_sound",
+    "source.loc_malkiewicz_cinematography_sample",
+    "source.brit_history_film_sound_era"
+  ],
+  "art": "film.miniature-set"
+}

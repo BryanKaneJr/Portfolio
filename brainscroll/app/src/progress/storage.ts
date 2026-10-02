@@ -1,0 +1,37 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+/** JSON persistence that never throws: storage can be unavailable (private mode, previews). */
+export async function load<T>(key: string): Promise<T | undefined> {
+  try {
+    const v = await AsyncStorage.getItem(key);
+    return v ? (JSON.parse(v) as T) : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+export async function save(key: string, value: unknown): Promise<void> {
+  try {
+    await AsyncStorage.setItem(key, JSON.stringify(value));
+  } catch {
+    // Progress still lives in memory for this session.
+  }
+}
+
+export function newIdempotencyKey(): string {
+  const c = globalThis.crypto as { randomUUID?: () => string } | undefined;
+  return c?.randomUUID?.() ?? `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+}
+
+export async function remove(key: string): Promise<void> {
+  try {
+    await AsyncStorage.removeItem(key);
+  } catch {
+    // Nothing to clean up.
+  }
+}
+
+/** Trophy ids an account has already been shown (`${key}:${userId}`), for the "Trophy earned" moment. */
+export const TROPHIES_SEEN_KEY = 'brainscroll.trophiesSeen.v1';
+/** Trophy ids an account has already looked at on the Trophies screen (`${key}:${userId}`), for the NEW tag. */
+export const TROPHIES_VIEWED_KEY = 'brainscroll.trophiesViewed.v1';

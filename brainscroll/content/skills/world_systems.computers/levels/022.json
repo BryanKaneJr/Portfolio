@@ -1,0 +1,215 @@
+{
+  "id": "level.world_systems.computers.022",
+  "skillId": "skill.world_systems.computers",
+  "number": 22,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "From Code to Machine Code",
+  "objective": "After this level you can explain how compilers and interpreters turn code people can read into instructions a processor runs.",
+  "summary": "Only machine code runs on a processor, and each processor family has its own. Compilers translate ahead of time; interpreters, bytecode and just-in-time compilers translate as the program runs.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.software_machine_code",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.software_translation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.fetch_decode_execute",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.021"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.022.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your processor has never read a line of code you'd recognize.",
+      "body": "Only machine code actually runs on a processor. Everything else, from a game to a photo filter, was written in a language people can read and then translated. You met compilers in Everyday Technology. Here's what comes out of them, and the other ways the translation happens."
+    },
+    {
+      "id": "card.computers.022.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every processor family has its own tongue",
+      "body": "Machine code is a processor's native language, hardwired into the chip's design. Each family of compatible processors, such as Intel's x86, has its own machine code, and other families can't run it. The instructions are extremely simple, like adding two numbers or testing whether a number is zero, and each takes just a few bytes. A big program is millions of them."
+    },
+    {
+      "id": "card.computers.022.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Translate once, ahead of time",
+      "body": "A compiler translates a whole program in advance. Firefox's source code, for example, is compiled into Firefox.exe, a file made mostly of machine code bytes. No single machine instruction can print, so even one line of source code becomes many instructions. And with only the finished file, you can run the program but not change it: programmers edit the human-readable source code, then compile again."
+    },
+    {
+      "id": "card.computers.022.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Or translate as it runs",
+      "body": "Python is interpreted: you run the source file directly, with no separate program file to build. Its standard interpreter first compiles the code into bytecode, an in-between form that a virtual machine carries out. JavaScript in your browser takes a third road: every major browser's engine has a built-in just-in-time compiler that turns code into machine code while the page runs. Different routes, one destination."
+    },
+    {
+      "id": "card.computers.022.c5",
+      "type": "mcq",
+      "questionId": "question.computers.022.q1"
+    },
+    {
+      "id": "card.computers.022.c6",
+      "type": "mcq",
+      "questionId": "question.computers.022.q2"
+    },
+    {
+      "id": "card.computers.022.c7",
+      "type": "mcq",
+      "questionId": "question.computers.022.q3"
+    },
+    {
+      "id": "card.computers.022.c8",
+      "type": "checkpoint",
+      "headline": "Translation: complete",
+      "learned": [
+        "Only machine code runs on a processor",
+        "Each processor family, like x86, has its own machine code",
+        "Compilers translate ahead of time into a program file",
+        "Interpreters, bytecode and JIT compilers translate as code runs"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.022.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.software_machine_code"
+      ],
+      "sourceCardIds": [
+        "card.computers.022.c1"
+      ],
+      "prompt": "Which kind of code can a processor actually run?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Python source code",
+          "correct": false,
+          "rationale": "Source code has to be translated first."
+        },
+        {
+          "id": "b",
+          "label": "Bytecode",
+          "correct": false,
+          "rationale": "Bytecode needs a virtual machine to carry it out."
+        },
+        {
+          "id": "c",
+          "label": "Machine code",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Any language, as long as it is spelled correctly",
+          "correct": false,
+          "rationale": "Only machine code runs; everything else is translated."
+        }
+      ],
+      "explanation": "Only machine code runs on a processor; code in any programming language is translated into it.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.computers.022.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.software_translation"
+      ],
+      "sourceCardIds": [
+        "card.computers.022.c4"
+      ],
+      "prompt": "How does Python's standard interpreter run a program you've written?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It compiles the code into bytecode, which a virtual machine carries out",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The processor reads the Python text directly, line by line",
+          "correct": false,
+          "rationale": "Only machine code runs on a processor."
+        },
+        {
+          "id": "c",
+          "label": "It builds an .exe file you must install first",
+          "correct": false,
+          "rationale": "Python source files run directly, with no separate executable."
+        },
+        {
+          "id": "d",
+          "label": "It sends the code to a browser to be compiled",
+          "correct": false,
+          "rationale": "Browsers compile JavaScript; Python has its own interpreter."
+        }
+      ],
+      "explanation": "The interpreter first compiles Python source into bytecode, an in-between form that its virtual machine runs.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.022.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.software_machine_code",
+        "concept.computers.fetch_decode_execute"
+      ],
+      "sourceCardIds": [
+        "card.computers.022.c2",
+        "card.computers.008.c2"
+      ],
+      "prompt": "A program compiled for Intel's x86 family won't run on a different processor family. Given Level 8's decode step, why not?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The other chip's clock ticks at a different speed from Intel's",
+          "correct": false,
+          "rationale": "Clock speed doesn't decide which instructions a chip understands."
+        },
+        {
+          "id": "b",
+          "label": "The other chip has no program counter",
+          "correct": false,
+          "rationale": "Every processor has one; the machine code is the problem."
+        },
+        {
+          "id": "c",
+          "label": "The file is too large for the other chip's memory",
+          "correct": false,
+          "rationale": "Size isn't the issue; the instructions are."
+        },
+        {
+          "id": "d",
+          "label": "That chip decodes bit patterns by its own, different machine code",
+          "correct": true
+        }
+      ],
+      "explanation": "Machine code is hardwired into each processor family. Another family's decode step splits the same bits into different meanings, or none.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.stanford_cs101_software_languages",
+    "source.stanford_cs101_software_machine_code",
+    "source.mdn_compile_glossary",
+    "source.python_glossary"
+  ],
+  "art": "computers.keyboard"
+}

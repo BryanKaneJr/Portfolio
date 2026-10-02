@@ -1,0 +1,225 @@
+{
+  "id": "level.world_systems.government.096",
+  "skillId": "skill.world_systems.government",
+  "number": 96,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Young People and Politics",
+  "objective": "After this level you can describe ways young people take part before they can vote.",
+  "summary": "The UN Convention on the Rights of the Child gives children a right to be heard. Youth parliaments, letters to representatives and volunteering are ways in before voting age.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.youth_right_to_be_heard",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.youth_parliaments",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.representative_contact",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.volunteering_definition",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.rights_voting_amendments",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.095"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2009, teenagers took over the green benches of the House of Commons.",
+      "body": "On 30 October 2009, about 300 Members of the UK Youth Parliament debated in the Commons chamber. It was the first time a group other than MPs had used it. So what can you do in politics before you're old enough to vote?",
+      "id": "card.government.096.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A right to be heard",
+      "body": "The UN Convention on the Rights of the Child, adopted in 1989, is the world's most widely ratified human rights treaty. It counts everyone under 18 as a child, unless the law sets adulthood earlier. Its Article 12 gives a child capable of forming views the right to express them freely in all matters affecting them, given due weight for age and maturity. Too young to vote isn't too young to be heard.",
+      "id": "card.government.096.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Practice parliaments",
+      "body": "Youth parliaments turn that right into a habit. In the UK Youth Parliament, any young person aged 11 to 18 can vote or stand, members are elected, and once elected they run campaigns on issues that matter to young people. It's the real machinery in miniature. You learn politics the way you learn to swim: by getting in.",
+      "id": "card.government.096.c3"
+    },
+    {
+      "type": "text",
+      "role": "connect",
+      "headline": "Tools that don't need a ballot",
+      "body": "This chapter has already handed you two more. Level 93: a UK MP represents all the people who live in the constituency, not only voters, so your letter counts. Level 94: volunteering is unpaid, non-compulsory work that anyone can choose to give. Neither one asks to see a voter card.",
+      "id": "card.government.096.c4"
+    },
+    {
+      "id": "card.government.096.c5",
+      "type": "mcq",
+      "questionId": "question.government.096.q1"
+    },
+    {
+      "id": "card.government.096.c6",
+      "type": "mcq",
+      "questionId": "question.government.096.q2"
+    },
+    {
+      "id": "card.government.096.c7",
+      "type": "recall",
+      "questionId": "question.government.096.q3"
+    },
+    {
+      "id": "card.government.096.c8",
+      "type": "checkpoint",
+      "headline": "Young people: heard",
+      "learned": [
+        "The Convention on the Rights of the Child: a right to be heard",
+        "Its Article 12 covers all matters affecting children",
+        "UK Youth Parliament: elected members aged 11 to 18",
+        "Letters and volunteering need no voter card"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.096.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.youth_right_to_be_heard"
+      ],
+      "sourceCardIds": [
+        "card.government.096.c2"
+      ],
+      "prompt": "What does Article 12 of the UN Convention on the Rights of the Child give children?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The right to vote from age 16",
+          "correct": false,
+          "rationale": "It's about being heard, not voting."
+        },
+        {
+          "id": "b",
+          "label": "The right to stand for parliament",
+          "correct": false,
+          "rationale": "It doesn't cover standing for office."
+        },
+        {
+          "id": "c",
+          "label": "The right to express their views in matters affecting them",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The right to leave school at any age",
+          "correct": false,
+          "rationale": "Not what Article 12 covers."
+        }
+      ],
+      "explanation": "Article 12 gives a child capable of forming views the right to express them freely in all matters affecting them.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.096.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.youth_parliaments"
+      ],
+      "sourceCardIds": [
+        "card.government.096.c3"
+      ],
+      "prompt": "Why is the UK Youth Parliament called real political machinery in miniature?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its members are elected by and from 11- to 18-year-olds",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It can pass laws that bind the whole country",
+          "correct": false,
+          "rationale": "It campaigns and debates; it doesn't make national law."
+        },
+        {
+          "id": "c",
+          "label": "Its members are appointed by MPs",
+          "correct": false,
+          "rationale": "Members are elected, not appointed."
+        },
+        {
+          "id": "d",
+          "label": "Only people over 18 may take part",
+          "correct": false,
+          "rationale": "It's for ages 11 to 18."
+        }
+      ],
+      "explanation": "Young people aged 11 to 18 vote and stand in its elections, and members run campaigns: an election system in miniature.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.government.096.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.youth_right_to_be_heard",
+        "concept.government.rights_voting_amendments"
+      ],
+      "sourceCardIds": [
+        "card.government.096.c2",
+        "card.government.037.c3"
+      ],
+      "prompt": "Level 37's 26th Amendment opened US voting at 18. Where does the Convention on the Rights of the Child draw its line?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Anyone under 16, as in Austria's voting age",
+          "correct": false,
+          "rationale": "Austria's 16 is a voting age, not the treaty's line."
+        },
+        {
+          "id": "b",
+          "label": "Anyone under 21, Britain's 1928 voting age",
+          "correct": false,
+          "rationale": "21 was Britain's old voting age, not the treaty's line."
+        },
+        {
+          "id": "c",
+          "label": "Anyone under 18, unless law says earlier",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Anyone still in school, whatever their age",
+          "correct": false,
+          "rationale": "The treaty uses age, not schooling."
+        }
+      ],
+      "explanation": "The Convention counts everyone under 18 as a child unless the law sets adulthood earlier: the same age the 26th Amendment set for voting.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.ukparliament_youth_parliament_2009",
+    "source.unicef_crc_text",
+    "source.ukparliament_mps_role",
+    "source.ilo_volunteer_manual"
+  ],
+  "art": "gov.megaphone"
+}

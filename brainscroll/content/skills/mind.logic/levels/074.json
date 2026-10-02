@@ -1,0 +1,212 @@
+{
+  "id": "level.mind.logic.074",
+  "skillId": "skill.mind.logic",
+  "number": 74,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Same Fact, Different Frame",
+  "objective": "After this level you can explain framing: why \"90 percent survive\" and \"10 percent die\" feel different but say the same thing.",
+  "summary": "\"90 percent survive\" and \"10 percent die\" say the same thing, yet the gain frame is judged more favorably. Flip the frame before you decide.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.persuasion_framing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.claim_definition",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.073"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Surgery A: 90 percent survive. Surgery B: 10 percent die. Which one?",
+      "body": "Most people lean toward A; it sounds safer. Now read them again. They describe exactly the same operation. Nothing differs but the wording, and the wording still pulls.",
+      "id": "card.logic.074.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The framing effect",
+      "body": "Researchers call this framing. Describing the same information as a gain (a 90 percent survival rate) or as a loss (a 10 percent mortality rate) can change people's judgments, and the gain version is judged more favorably. Nothing in the facts moved. Only the spotlight did.",
+      "id": "card.logic.074.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "One claim, two sentences",
+      "body": "If 90 percent survive, the other 10 percent don't. So the two descriptions are equivalent: one is true exactly when the other is. In Level 3's terms, they make the same claim. A frame can't change whether a claim is true. It can only change which part of it you notice.",
+      "id": "card.logic.074.c3",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Common mix-up: framing isn't lying. Both frames are true. The trick is which truth gets the spotlight."
+      }
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Flip the frame",
+      "body": "The habit that beats it is simple: before you decide, restate the claim in the opposite frame. \"90 percent survive\" becomes \"10 percent die\". \"Nine in ten dentists agree\" becomes \"one in ten doesn't\". Same information both ways. If your feeling flips with the wording, the wording was doing the persuading.",
+      "id": "card.logic.074.c4"
+    },
+    {
+      "id": "card.logic.074.c5",
+      "type": "mcq",
+      "questionId": "question.logic.074.q1"
+    },
+    {
+      "id": "card.logic.074.c6",
+      "type": "mcq",
+      "questionId": "question.logic.074.q2"
+    },
+    {
+      "id": "card.logic.074.c7",
+      "type": "mcq",
+      "questionId": "question.logic.074.q3"
+    },
+    {
+      "id": "card.logic.074.c8",
+      "type": "checkpoint",
+      "headline": "Frames: flipped",
+      "learned": [
+        "The same fact can be framed as a gain or a loss",
+        "The gain frame is judged more favorably",
+        "Equivalent frames are true or false together",
+        "Before deciding, restate it in the opposite frame"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.074.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.persuasion_framing"
+      ],
+      "sourceCardIds": [
+        "card.logic.074.c2"
+      ],
+      "prompt": "Which description of the same treatment do people tend to judge more favorably?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A 10 percent mortality rate",
+          "correct": false,
+          "rationale": "That's the loss frame, judged less favorably."
+        },
+        {
+          "id": "b",
+          "label": "A 90 percent survival rate",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Neither; they're judged the same",
+          "correct": false,
+          "rationale": "The framing effect is that they aren't."
+        },
+        {
+          "id": "d",
+          "label": "Whichever one they hear second",
+          "correct": false,
+          "rationale": "Order isn't what the card describes."
+        }
+      ],
+      "explanation": "The gain frame (survival) is judged more favorably than the equivalent loss frame (mortality).",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.074.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.persuasion_framing"
+      ],
+      "sourceCardIds": [
+        "card.logic.074.c2",
+        "card.logic.074.c3"
+      ],
+      "prompt": "How can a frame change a decision without changing any facts?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By adding new statistics to the claim",
+          "correct": false,
+          "rationale": "The numbers are the same in both frames."
+        },
+        {
+          "id": "b",
+          "label": "By making one description false",
+          "correct": false,
+          "rationale": "Both frames are true."
+        },
+        {
+          "id": "c",
+          "label": "By hiding where the numbers came from",
+          "correct": false,
+          "rationale": "The source isn't what changes."
+        },
+        {
+          "id": "d",
+          "label": "By presenting the same data as a gain or a loss",
+          "correct": true
+        }
+      ],
+      "explanation": "The information stays the same; describing it as a gain or a loss shifts which part you notice.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.074.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.persuasion_framing",
+        "concept.logic.claim_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.074.c3",
+        "card.logic.003.c2"
+      ],
+      "prompt": "Level 3 says a claim is a sentence that can be true or false. What does that make \"90 percent survive\" and \"10 percent die\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Two claims that can't both be true",
+          "correct": false,
+          "rationale": "They're true together."
+        },
+        {
+          "id": "b",
+          "label": "Opinions, since neither can be checked",
+          "correct": false,
+          "rationale": "Both can be checked, and they stand or fall together."
+        },
+        {
+          "id": "c",
+          "label": "Two wordings of one claim, true or false together",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Questions dressed up as statements",
+          "correct": false,
+          "rationale": "Both are statements."
+        }
+      ],
+      "explanation": "Each is true exactly when the other is, so they make the same claim.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.ncbi_framing_side_effects_2020"
+  ],
+  "art": "arts.frame"
+}

@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.philosophy.067",
+  "skillId": "skill.mind.philosophy",
+  "number": 67,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Ship of Theseus",
+  "objective": "After this level you can explain the Ship of Theseus puzzle and why rebuilding the ship from its old planks makes the question harder.",
+  "summary": "Plutarch’s repaired ship and Hobbes’s ship rebuilt from its old planks ask what keeps a thing the same; constitution theorists and Chisholm answer differently.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.selfhood_ship_of_theseus",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.four_causes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.066"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.067.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Replace every plank. Is it the same ship?",
+      "body": "The Athenians did it for real, according to Plutarch, and philosophers have argued about the result ever since."
+    },
+    {
+      "id": "card.philosophy.067.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A ship that kept being repaired",
+      "body": "Plutarch tells how the Athenians kept the thirty-oared ship in which Theseus came home from Crete, all the way to the time of Demetrius Phalereus. As the old planks decayed, they put in new timber. The ship became a standing example for philosophers: one side held it was still the same ship, the other that it was not."
+    },
+    {
+      "id": "card.philosophy.067.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hobbes collects the planks",
+      "body": "The 17th-century philosopher Thomas Hobbes made it worse. Suppose someone kept every old plank as it came out, then put them back together in the same order. Now there are two ships. The repaired one looks exactly like the original but has none of its planks. The rebuilt one has all of them. If both are Theseus’s ship, there are two of one ship. Hobbes called that absurd.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Hold on to both ships. The next level swaps planks for people, and the same two answers come back."
+      }
+    },
+    {
+      "id": "card.philosophy.067.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two ways out",
+      "body": "Philosophers still split. Constitution theorists say the repaired ship is Theseus’s ship; the rebuilt one is only made of the same planks. Roderick Chisholm went the other way: strictly, nothing survives losing any of its parts, so the repaired ship is the same only in a loose and popular sense. Which answer feels right may reveal what you think a ship is."
+    },
+    {
+      "id": "card.philosophy.067.c5",
+      "type": "mcq",
+      "questionId": "question.philosophy.067.q1"
+    },
+    {
+      "id": "card.philosophy.067.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.067.q2"
+    },
+    {
+      "id": "card.philosophy.067.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.067.q3"
+    },
+    {
+      "id": "card.philosophy.067.c8",
+      "type": "checkpoint",
+      "headline": "The Ship of Theseus: the big picture",
+      "learned": [
+        "Plutarch: a ship repaired plank by plank",
+        "Hobbes: rebuild the old planks into a second ship",
+        "Two ships, one claim: the puzzle gets harder",
+        "Constitution theorists and Chisholm answer differently"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.067.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.selfhood_ship_of_theseus"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.067.c2"
+      ],
+      "prompt": "Which ancient writer recorded the debate over Theseus’s repaired ship?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Thomas Hobbes",
+          "correct": false,
+          "rationale": "Hobbes added the rebuilt ship much later."
+        },
+        {
+          "id": "b",
+          "label": "John Locke",
+          "correct": false,
+          "rationale": "Locke wrote about the prince and the cobbler."
+        },
+        {
+          "id": "c",
+          "label": "Plutarch",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Pierre-Simon Laplace",
+          "correct": false,
+          "rationale": "Laplace imagined an all-knowing intellect."
+        }
+      ],
+      "explanation": "Plutarch reports that the Athenians kept replacing the ship’s decayed planks, and philosophers argued over whether it stayed the same.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.philosophy.067.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.selfhood_ship_of_theseus"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.067.c3"
+      ],
+      "prompt": "How does Hobbes’s rebuilt ship make the Ship of Theseus puzzle harder?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It proves the repaired ship was never Theseus’s",
+          "correct": false,
+          "rationale": "It creates a rival, not a proof."
+        },
+        {
+          "id": "b",
+          "label": "It gives two rival ships that each have a claim to be the original",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It shows that old planks never really decay",
+          "correct": false,
+          "rationale": "The planks did decay."
+        },
+        {
+          "id": "d",
+          "label": "It settles the debate in favor of the repaired ship",
+          "correct": false,
+          "rationale": "It deepens the debate."
+        }
+      ],
+      "explanation": "The repaired ship has continuity and the rebuilt ship has every original plank; if both are the original, there are two of one ship.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.philosophy.067.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.selfhood_ship_of_theseus",
+        "concept.philosophy.four_causes"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.005.c2",
+        "card.philosophy.067.c3"
+      ],
+      "prompt": "The repaired ship keeps the original’s form but none of its planks. In Level 5’s terms, which of Aristotle’s causes has it kept?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its material cause",
+          "correct": false,
+          "rationale": "That’s the planks, which went to the rebuilt ship."
+        },
+        {
+          "id": "b",
+          "label": "Its final cause alone",
+          "correct": false,
+          "rationale": "The question is about form versus matter."
+        },
+        {
+          "id": "c",
+          "label": "Its efficient cause",
+          "correct": false,
+          "rationale": "That’s where the change came from."
+        },
+        {
+          "id": "d",
+          "label": "Its formal cause",
+          "correct": true
+        }
+      ],
+      "explanation": "The formal cause is a thing’s form, like the statue’s shape; the material cause is what it’s made of, and the rebuilt ship has that.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.gutenberg_plutarch_lives_clough",
+    "source.sep_material_constitution",
+    "source.sep_identity_time",
+    "source.sep_aristotle_causality"
+  ],
+  "art": "phil.old-ship"
+}

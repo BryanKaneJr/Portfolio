@@ -1,0 +1,227 @@
+{
+  "id": "level.mind.psychology.083",
+  "skillId": "skill.mind.psychology",
+  "number": 83,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Does Personality Change?",
+  "objective": "After this level you can explain how stable personality is across a lifetime and how it tends to mature.",
+  "summary": "Personality is partly heritable and keeps a steady rank order, yet on average people grow more conscientious and emotionally stable, especially between 20 and 40.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.personality_maturity_change",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.personality_rank_stability",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.heritability",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.psychology.twin_adoption_studies",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.082"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.083.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Will you still be the same person when you're old?",
+      "body": "Some say people never change; others say everyone reinvents themselves. Psychologists answered the slow way, by measuring the same traits again and again over years. The answer turns out to be both, depending on which kind of change you mean."
+    },
+    {
+      "id": "card.psychology.083.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Some of it starts in the genes",
+      "body": "The Minnesota Study of Twins Reared Apart ran from 1979 to 1999. It found that identical twins have very similar personalities whether they were raised together or apart. That's the twin-study logic from Level 7 at work: when identical twins match even after growing up in different homes, genes likely play a part."
+    },
+    {
+      "id": "card.psychology.083.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Everyone matures a little",
+      "body": "Yet traits still move. In 2006, Brent Roberts and colleagues pooled 92 samples of people measured over time. On average, people grew more conscientious, more emotionally stable and more socially assertive, especially between ages 20 and 40. Agreeableness changed only in old age. In short: across adulthood, the typical person gets more reliable and calmer."
+    },
+    {
+      "id": "card.psychology.083.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "You keep your place in line",
+      "body": "There's a second kind of stability: your rank compared with other people. A 2000 review by Brent Roberts and Wendy DelVecchio found that how consistently people keep their rank on traits grows from childhood through the college years and age 30, then levels off between 50 and 70. So a whole group can mature together while the most outgoing person in it stays among the most outgoing.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "People mix these two up. The whole group shifts with age, while each person tends to keep their place in line. Both are true."
+      }
+    },
+    {
+      "id": "card.psychology.083.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.083.q1"
+    },
+    {
+      "id": "card.psychology.083.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.083.q2"
+    },
+    {
+      "id": "card.psychology.083.c7",
+      "type": "mcq",
+      "questionId": "question.psychology.083.q3"
+    },
+    {
+      "id": "card.psychology.083.c8",
+      "type": "checkpoint",
+      "headline": "Change and stability",
+      "learned": [
+        "Identical twins raised apart share personalities",
+        "People grow more conscientious and stable, mostly from 20 to 40",
+        "Rank order steadies, leveling off between 50 and 70",
+        "Heritable traits still change"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.083.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.personality_maturity_change"
+      ],
+      "sourceCardIds": [
+        "card.psychology.083.c3"
+      ],
+      "prompt": "In the 2006 review of 92 samples, which traits rose most, especially between ages 20 and 40?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Openness and neuroticism",
+          "correct": false,
+          "rationale": "Openness wasn't among the traits that rose in young adulthood."
+        },
+        {
+          "id": "b",
+          "label": "Conscientiousness and emotional stability",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Agreeableness only",
+          "correct": false,
+          "rationale": "Agreeableness changed only in old age."
+        },
+        {
+          "id": "d",
+          "label": "None: traits stop changing after childhood",
+          "correct": false,
+          "rationale": "The review found clear change in adulthood."
+        }
+      ],
+      "explanation": "People grew more conscientious, emotionally stable and socially assertive, especially between 20 and 40.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.psychology.083.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.personality_maturity_change",
+        "concept.psychology.personality_rank_stability"
+      ],
+      "sourceCardIds": [
+        "card.psychology.083.c3",
+        "card.psychology.083.c4"
+      ],
+      "prompt": "One friend says people never change; another says adulthood reshapes personality completely. Which view fits the research better?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The first: traits are fixed from childhood",
+          "correct": false,
+          "rationale": "Average levels of traits shift through adulthood."
+        },
+        {
+          "id": "b",
+          "label": "The second: people's ranks scramble with age",
+          "correct": false,
+          "rationale": "Rank order grows more consistent with age."
+        },
+        {
+          "id": "c",
+          "label": "Neither: traits shift on average, while people keep their rank",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both: traits change only in childhood",
+          "correct": false,
+          "rationale": "The biggest shifts came between 20 and 40."
+        }
+      ],
+      "explanation": "Average trait levels mature with age, while each person's rank compared with others grows steadier, leveling off between 50 and 70.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.psychology.083.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.heritability",
+        "concept.psychology.personality_maturity_change"
+      ],
+      "sourceCardIds": [
+        "card.psychology.007.c4",
+        "card.psychology.083.c2",
+        "card.psychology.083.c3"
+      ],
+      "prompt": "Level 7 said a heritable trait isn't fixed. Which personality finding fits that idea?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Twins raised apart differ completely in personality",
+          "correct": false,
+          "rationale": "Identical twins raised apart have very similar personalities."
+        },
+        {
+          "id": "b",
+          "label": "Twins share personalities, yet traits still mature with age",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Personality has a heritability of zero, like language",
+          "correct": false,
+          "rationale": "The twin findings point to a genetic part."
+        },
+        {
+          "id": "d",
+          "label": "Personality stops changing once genes are known",
+          "correct": false,
+          "rationale": "Traits kept changing through adulthood."
+        }
+      ],
+      "explanation": "Identical twins raised apart share personalities, pointing to genes, yet average traits still shift with age: heritable isn't fixed.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_biological_approaches",
+    "source.psychbull_roberts_mean_level_change_2006",
+    "source.psychbull_roberts_delvecchio_rank_order_2000",
+    "source.medlineplus_heritability"
+  ],
+  "art": "mind.personality-sliders"
+}

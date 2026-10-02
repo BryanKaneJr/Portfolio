@@ -1,0 +1,230 @@
+{
+  "id": "level.world_systems.government.083",
+  "skillId": "skill.world_systems.government",
+  "number": 83,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Treaties",
+  "objective": "After this level you can explain how countries make treaties.",
+  "summary": "A treaty is a written agreement between states. Signing comes first; ratification binds. Then pacta sunt servanda: agreements must be kept.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.treaty_kadesh",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.treaty_binding",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.treaty_sign_ratify",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.diplomacy_missions",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.constitution_us_document",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.082"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "A copy of the oldest known peace treaty hangs at the UN.",
+      "body": "Around 1269 BC, the Hittite king Hattusili III and Egypt's Ramesses II put peace in writing. They pledged lasting peace, nonaggression, extradition and mutual help. A replica now hangs near the entrance of the Security Council Chamber at UN Headquarters. Countries still make their biggest promises the same way: in writing.",
+      "id": "card.government.083.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Whatever you call it",
+      "body": "Pact, convention, protocol, agreement: the label doesn't matter. The Vienna Convention on the Law of Treaties (1969) defines a treaty as a written agreement between states, governed by international law, whatever its particular name. Working out the words is diplomats' work: negotiating with the host government was one of Level 82's embassy jobs. Think of a treaty as a contract, with countries as the signatures.",
+      "id": "card.government.083.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Sign first, bind later",
+      "body": "Signing is often not the last step. When a treaty needs ratification, a signature doesn't bind the state yet; ratification is the act by which a state consents to be bound. In between, a signer must not do anything that would defeat the treaty's purpose, unless it makes clear it won't join. The pen says \"we mean to\"; ratification says \"we will\".",
+      "id": "card.government.083.c3",
+      "mascot": {
+        "pose": "oops",
+        "line": "Signing and ratifying are easy to mix up. When a treaty needs both, only ratification binds."
+      }
+    },
+    {
+      "type": "fact",
+      "fact": "Pacta sunt servanda: agreements must be kept.",
+      "context": "That Latin phrase is arguably the oldest principle of international law. The 1969 Vienna Convention puts it in Article 26: every treaty in force binds its parties and must be performed in good faith. Article 27 closes the obvious loophole: a country can't point to its own laws as an excuse for failing to keep a treaty.",
+      "id": "card.government.083.c4"
+    },
+    {
+      "id": "card.government.083.c5",
+      "type": "mcq",
+      "questionId": "question.government.083.q1"
+    },
+    {
+      "id": "card.government.083.c6",
+      "type": "mcq",
+      "questionId": "question.government.083.q2"
+    },
+    {
+      "id": "card.government.083.c7",
+      "type": "recall",
+      "questionId": "question.government.083.q3"
+    },
+    {
+      "id": "card.government.083.c8",
+      "type": "checkpoint",
+      "headline": "Treaties: signed and sealed",
+      "learned": [
+        "The Kadesh treaty is the oldest known peace treaty",
+        "A treaty: a written agreement between states",
+        "Signing isn't binding until the state ratifies",
+        "Pacta sunt servanda: agreements must be kept"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.083.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.treaty_kadesh"
+      ],
+      "sourceCardIds": [
+        "card.government.083.c1"
+      ],
+      "prompt": "A replica of which agreement hangs near the UN Security Council Chamber?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The oldest known peace treaty, from Kadesh",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The first draft of the UN Charter",
+          "correct": false,
+          "rationale": "The replica is more than 3,000 years older than the UN."
+        },
+        {
+          "id": "c",
+          "label": "The Montevideo Convention on statehood",
+          "correct": false,
+          "rationale": "That's from 1933; the replica is ancient."
+        },
+        {
+          "id": "d",
+          "label": "The Vienna Convention on treaties",
+          "correct": false,
+          "rationale": "That dates from 1969, not the Bronze Age."
+        }
+      ],
+      "explanation": "The replica is of the Kadesh treaty between Hattusili III and Ramesses II, the oldest known peace treaty.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.083.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.treaty_binding"
+      ],
+      "sourceCardIds": [
+        "card.government.083.c4"
+      ],
+      "prompt": "Why can't a country excuse breaking a treaty by pointing to its own laws?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Because treaties always override national constitutions",
+          "correct": false,
+          "rationale": "The rule is narrower: internal law is no excuse for non-performance."
+        },
+        {
+          "id": "b",
+          "label": "Because only the UN can change a country's laws",
+          "correct": false,
+          "rationale": "The UN has no such power; the rule comes from the Vienna Convention."
+        },
+        {
+          "id": "c",
+          "label": "Because treaties in force must be kept in good faith",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Because countries lose sovereignty when they sign",
+          "correct": false,
+          "rationale": "Signing is itself an act of a sovereign state."
+        }
+      ],
+      "explanation": "Pacta sunt servanda (Article 26) makes treaties binding in good faith, and Article 27 says internal law can't justify failing to perform one.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.government.083.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.treaty_sign_ratify",
+        "concept.government.constitution_us_document"
+      ],
+      "sourceCardIds": [
+        "card.government.083.c3",
+        "card.government.032.c4"
+      ],
+      "prompt": "Level 32's Constitution was signed in 1787 but took effect only after nine states ratified it. What does ratifying a treaty do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It starts the negotiation between diplomats",
+          "correct": false,
+          "rationale": "Negotiation comes first; ratification follows signing."
+        },
+        {
+          "id": "b",
+          "label": "It's how a state consents to be bound",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It frees the state to ignore the treaty's purpose",
+          "correct": false,
+          "rationale": "Even a signer must not defeat its purpose."
+        },
+        {
+          "id": "d",
+          "label": "It hands the treaty to the UN to enforce",
+          "correct": false,
+          "rationale": "Ratification is the state's own act."
+        }
+      ],
+      "explanation": "As with Level 32's Constitution, signing isn't the last step: ratification is the act by which a state consents to be bound.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.un_kadesh_treaty_replica",
+    "source.un_vienna_convention_law_of_treaties",
+    "source.un_treaty_collection_definitions",
+    "source.un_treaty_collection_glossary",
+    "source.brit_pacta_sunt_servanda",
+    "source.un_vienna_convention_diplomatic_relations"
+  ],
+  "art": "rome.wax-seal"
+}

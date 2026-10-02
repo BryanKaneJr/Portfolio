@@ -1,0 +1,210 @@
+{
+  "id": "level.mind.logic.032",
+  "skillId": "skill.mind.logic",
+  "number": 32,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Who Has to Prove It?",
+  "objective": "After this level you can explain the burden of proof and why it falls on the person making the claim.",
+  "summary": "Whoever makes a claim carries the burden of proof; 'prove I didn't' tries to shift it. Criminal courts put it on the prosecution, Roman law stated it in one line, and it binds critics too.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.evidence_burden_of_proof",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.argument_definition",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.031"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"My cat can predict rain.\" \"Prove it.\" \"You prove she can't!\"",
+      "body": "Maya and Leo could go around like this all afternoon, each waiting for the other to do the work. Logic has a rule that settles who goes first. Once you know it, a lot of stalled arguments get unstuck.",
+      "id": "card.logic.032.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The burden of proof",
+      "body": "Whoever makes a claim carries the burden of proof: it's their job to back it up. \"You can't prove I didn't\" doesn't meet that burden. It tries to shove it onto the listener. The Internet Encyclopedia of Philosophy calls this a misplaced burden of proof, and its example fits Maya nicely: someone reports seeing a green alien and answers every doubt with \"You can't prove I didn't.\"",
+      "id": "card.logic.032.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Courts run on it",
+      "body": "Criminal trials put the rule to work. In the United States, the burden of proving a defendant's guilt is on the prosecution, which must establish it beyond a reasonable doubt. The defendant is presumed innocent until proven guilty. So if the prosecution fails to prove guilt, the verdict is not guilty, even if the defense has offered no evidence of innocence at all.",
+      "id": "card.logic.032.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "An old rule that cuts both ways",
+      "body": "Roman law put it in one line: Ei incumbit probatio qui dicit, non qui negat. Proof lies on the one who asserts, not on the one who denies. And it applies to critics too. Call someone's reasoning a fallacy and you've made a claim of your own, so, the encyclopedia notes, the burden is on you to be able to give your reasons.",
+      "id": "card.logic.032.c4"
+    },
+    {
+      "id": "card.logic.032.c5",
+      "type": "mcq",
+      "questionId": "question.logic.032.q1"
+    },
+    {
+      "id": "card.logic.032.c6",
+      "type": "mcq",
+      "questionId": "question.logic.032.q2"
+    },
+    {
+      "id": "card.logic.032.c7",
+      "type": "mcq",
+      "questionId": "question.logic.032.q3"
+    },
+    {
+      "id": "card.logic.032.c8",
+      "type": "checkpoint",
+      "headline": "Burden of proof: placed",
+      "learned": [
+        "Whoever makes a claim has to back it up",
+        "\"Prove I didn't\" misplaces the burden",
+        "Courts: the prosecution must prove guilt",
+        "Calling \"fallacy!\" is a claim that needs reasons too"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.032.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.evidence_burden_of_proof"
+      ],
+      "sourceCardIds": [
+        "card.logic.032.c2"
+      ],
+      "prompt": "Under the burden of proof, whose job is it to back up a claim?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Whoever doubts the claim",
+          "correct": false,
+          "rationale": "Doubters don't have to disprove it; that's the misplaced burden."
+        },
+        {
+          "id": "b",
+          "label": "Whoever speaks last",
+          "correct": false,
+          "rationale": "Order of speaking doesn't decide it."
+        },
+        {
+          "id": "c",
+          "label": "Whoever makes the claim",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Whoever is outnumbered",
+          "correct": false,
+          "rationale": "Headcounts don't move the burden."
+        }
+      ],
+      "explanation": "The person making a claim carries the burden of proof. \"You can't prove I didn't\" tries to shift it onto the listener.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.032.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.evidence_burden_of_proof"
+      ],
+      "sourceCardIds": [
+        "card.logic.032.c3"
+      ],
+      "prompt": "How does a U.S. criminal trial end if the prosecution fails to prove guilt and the defense offers no evidence?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The defendant is found not guilty",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The defense must then prove innocence",
+          "correct": false,
+          "rationale": "The burden never passes to the defendant."
+        },
+        {
+          "id": "c",
+          "label": "The defendant is found guilty by default",
+          "correct": false,
+          "rationale": "Guilt must be proved; it is never the default."
+        },
+        {
+          "id": "d",
+          "label": "The two sides swap roles and start again",
+          "correct": false,
+          "rationale": "No such rule; the burden stays with the prosecution."
+        }
+      ],
+      "explanation": "The defendant is presumed innocent and the prosecution carries the burden, so an unproved case ends in not guilty even if the defense proved nothing.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.032.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.evidence_burden_of_proof",
+        "concept.logic.argument_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.032.c2",
+        "card.logic.002.c4"
+      ],
+      "prompt": "\"My cat predicts rain, and you can't prove she doesn't!\" offers no reason for the claim. By Level 2's test, what is it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A strong argument, since nobody can refute it",
+          "correct": false,
+          "rationale": "Being unrefuted isn't a reason for the claim."
+        },
+        {
+          "id": "b",
+          "label": "An explanation of the cat's behavior",
+          "correct": false,
+          "rationale": "It doesn't explain anything; it just insists."
+        },
+        {
+          "id": "c",
+          "label": "A premise indicator",
+          "correct": false,
+          "rationale": "Indicators are words like \"because\"; this is a whole claim."
+        },
+        {
+          "id": "d",
+          "label": "A bare assertion, not an argument",
+          "correct": true
+        }
+      ],
+      "explanation": "It states a view and demands a disproof, but gives no statement that supports it. Asserting a view isn't giving an argument, and it leaves the burden unmet.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies",
+    "source.lii_burden_of_proof",
+    "source.lii_presumption_of_innocence",
+    "source.latinlibrary_digest_22"
+  ],
+  "art": "money.scale"
+}

@@ -1,0 +1,228 @@
+{
+  "id": "level.arts.film_tv.098",
+  "skillId": "skill.arts.film_tv",
+  "number": 98,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Who Is the Author of a Film?",
+  "objective": "After this level you can weigh the auteur theory, which credits the director, against the view of film as a team effort.",
+  "summary": "The auteur theory treats the director as a film's author; Kael argued Citizen Kane was a collaboration, and Toland's role supports the team view.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.critical_auteur_theory",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.critical_film_as_team",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.world_new_wave_critics",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.film_tv.studio_kane_deep_focus",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.097"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.098.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Who made Citizen Kane?",
+      "body": "The credits say Orson Welles directed, produced, starred, and co-wrote it with Herman J. Mankiewicz. In 1971 critic Pauline Kael challenged Welles's role as its author and named Mankiewicz its main creative force. So whose film is it?"
+    },
+    {
+      "id": "card.film_tv.098.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The auteur theory: the director as author",
+      "body": "The auteur theory sees the director, who oversees every sound and image, as a film's major creative force, more its author than the screenwriter. The idea grew in France in the late 1940s and was advanced through Cahiers du cinéma, founded in 1951: the magazine where Level 62's Truffaut and Godard wrote as critics. American critic Andrew Sarris named it the auteur theory in a 1962 essay."
+    },
+    {
+      "id": "card.film_tv.098.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The case for a team",
+      "body": "Kael's essay \"Raising Kane\" (1971) argued that Kane wasn't simply Welles's: she named co-writer Herman J. Mankiewicz its main creative force. Sarris and Peter Bogdanovich were among her notable opponents, questioning both her argument and her facts. The fight is still a good one, because both sides can point at the screen."
+    },
+    {
+      "id": "card.film_tv.098.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Evidence you can weigh",
+      "body": "Welles later admitted that his cinematographer, Gregg Toland, advised him on lighting effects and camera placement. That's the man behind Kane's deep focus. Yet a director can also be the one who chooses such collaborators and shapes their work into one style. The honest answer may be both.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Keep this: 'auteur or team?' is a question to weigh with evidence, not a side to pick."
+      }
+    },
+    {
+      "id": "card.film_tv.098.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.098.q1"
+    },
+    {
+      "id": "card.film_tv.098.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.098.q2"
+    },
+    {
+      "id": "card.film_tv.098.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.098.q3"
+    },
+    {
+      "id": "card.film_tv.098.c8",
+      "type": "checkpoint",
+      "headline": "Who Is the Author of a Film?: done",
+      "learned": [
+        "Auteur theory: the director as author",
+        "It grew from Cahiers du cinéma; Sarris named it",
+        "Kael argued Kane was a collaboration",
+        "Weigh the evidence: often it's both"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.098.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.critical_auteur_theory"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.098.c2"
+      ],
+      "prompt": "Whom does the auteur theory treat as the author of a film?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The screenwriter",
+          "correct": false,
+          "rationale": "The theory ranks the director above the screenwriter."
+        },
+        {
+          "id": "b",
+          "label": "The director",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The studio that paid for it",
+          "correct": false,
+          "rationale": "The studio era is Chapter 5; the theory credits the director."
+        },
+        {
+          "id": "d",
+          "label": "The audience",
+          "correct": false,
+          "rationale": "The theory is about who creates the film."
+        }
+      ],
+      "explanation": "The auteur theory sees the director, who oversees sound and image, as the film's major creative force.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.098.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.critical_film_as_team",
+        "concept.film_tv.critical_auteur_theory"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.098.c4",
+        "card.film_tv.098.c3"
+      ],
+      "prompt": "Which piece of evidence best supports the view that Citizen Kane was a team effort?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Welles appears in the film",
+          "correct": false,
+          "rationale": "Acting in it doesn't show others shaped it."
+        },
+        {
+          "id": "b",
+          "label": "Cahiers du cinéma was founded in 1951",
+          "correct": false,
+          "rationale": "That's about the theory's origin, not Kane's making."
+        },
+        {
+          "id": "c",
+          "label": "Welles admitted Toland advised him on lighting and camera placement",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Sarris named the auteur theory in 1962",
+          "correct": false,
+          "rationale": "That supports the idea's history, not the team view."
+        }
+      ],
+      "explanation": "Toland's advice on lighting and camera placement shows key choices came from a collaborator.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.film_tv.098.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.world_new_wave_critics",
+        "concept.film_tv.critical_auteur_theory"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.062.c2",
+        "card.film_tv.098.c2"
+      ],
+      "prompt": "The auteur theory was advanced through Cahiers du cinéma. Who from Level 62 wrote for it as critics before directing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "François Truffaut and Jean-Luc Godard",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Satyajit Ray and Yasujirō Ozu",
+          "correct": false,
+          "rationale": "They weren't Cahiers critics in this tree."
+        },
+        {
+          "id": "c",
+          "label": "Orson Welles and Gregg Toland",
+          "correct": false,
+          "rationale": "They made Citizen Kane in Hollywood."
+        },
+        {
+          "id": "d",
+          "label": "Pauline Kael and Andrew Sarris",
+          "correct": false,
+          "rationale": "They were American critics."
+        }
+      ],
+      "explanation": "Truffaut and Godard wrote for Cahiers du cinéma in the 1950s, then led the New Wave as directors.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_citizen_kane",
+    "source.brit_new_wave_film",
+    "source.history_breathless_new_wave",
+    "source.brit_auteur_theory",
+    "source.hyperallergic_kael_kane",
+    "source.encyclopedia_gregg_toland"
+  ],
+  "art": "film.director-chair"
+}

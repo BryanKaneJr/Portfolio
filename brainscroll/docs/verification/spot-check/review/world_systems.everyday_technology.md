@@ -1,0 +1,34 @@
+# Review: Everyday Technology
+
+**Result:** 19 OK · 0 soften · 1 fix · 0 unsure
+This tree passes: one FIX (a date that follows Britannica's outlier), with no pattern of errors.
+
+## Needs your call
+### 9. Level 46: Cameras  **FIX**
+> Daguerre's process was announced on January 9, 1839, and Britannica says that if Talbot had announced his negative method a few weeks earlier, he would probably be called photography's founder.
+
+**Problem:** Arago announced Daguerre's process to the French Academy of Sciences on Monday, January 7, 1839, not January 9. Britannica's Daguerre article gives January 9 (and wrongly calls it a "full description"; details were withheld until August 19). The Talbot quote itself is accurate to Britannica.
+**Proposed:** "Daguerre's process was announced on January 7, 1839, and Britannica says that if Talbot had announced his negative method a few weeks earlier, he would probably be called photography's founder."  (appears in: card 046.c3 body; no question repeats the date)
+**Evidence:** [The Met: Daguerre and the Invention of Photography](https://www.metmuseum.org/essays/daguerre-1787-1851-and-the-invention-of-photography): "On January 7, 1839, members of the French Académie des Sciences were shown products of an invention that would forever change the nature of visual representation: photography." Also [Wikipedia: Louis Daguerre](https://en.wikipedia.org/wiki/Louis_Daguerre): announced at the Academy on 7 January 1839, specific details withheld. Britannica's own [Louis Daguerre](https://www.britannica.com/biography/Louis-Daguerre) page says January 9, which is where the error came from.
+<!-- fact.everyday_technology.camera_daguerre_talbot | source.brit_talbot -->
+
+## Checked and fine
+- 1. Level 1: Edison's 1879 carbon-filament bulb (also 005.c3: Swan 1878, bamboo up to 1,200 hours). Source: [Incandescent lamp](https://www.britannica.com/technology/incandescent-lamp)  <!-- fact.everyday_technology.edison_1879_bulb | source.brit_incandescent_lamp -->
+- 2. Level 4: current needs a closed loop; a break stops a single loop. Source: [Requirements of a Circuit](https://www.physicsclassroom.com/tutorial/electric-circuits/electric-current/requirements-of-a-circuit)  <!-- fact.everyday_technology.closed_loop | source.physicsclassroom_circuit_requirements -->
+- 3. Level 12: steam turbines generate most of the world's electricity. EIA: "Steam turbines are used to generate most of the world's electricity." Source: [How electricity is generated](https://www.eia.gov/energyexplained/electricity/how-electricity-is-generated.php)  <!-- fact.everyday_technology.thermal_steam_most | source.eia_how_electricity_generated -->
+- 4. Level 14: chain reaction controlled by inserting or withdrawing control rods. Source: [Nuclear explained](https://www.eia.gov/energyexplained/nuclear/)  <!-- fact.everyday_technology.nuclear_chain_reaction | source.eia_nuclear_explained -->
+- 5. Level 22: Newcomen's cold-water spray, partial vacuum, atmosphere pushes piston. Source: [Thomas Newcomen](https://www.britannica.com/biography/Thomas-Newcomen)  <!-- fact.everyday_technology.motion_newcomen_how | source.brit_newcomen -->
+- 6. Level 27: bike low gear is easier but slower on climbs. Source: [Gear Theory for Bicyclists](https://sheldonbrown.com/gear-theory.html)  <!-- fact.everyday_technology.motion_bike_low_gear | source.sheldonbrown_gear_theory -->
+- 7. Level 31: angle of attack drives lift; too steep stalls. Source: [Inclination Effects on Lift](https://www.grc.nasa.gov/www/k-12/VirtualAero/BottleRocket/airplane/incline.html)  <!-- fact.everyday_technology.flight_angle_of_attack | source.nasa_glenn_inclination_lift -->
+- 8. Level 33: Tokaido Shinkansen 1964, overhead-wire electric, 210 km/h. Source: [Shinkansen](https://www.britannica.com/technology/Shinkansen)  <!-- fact.everyday_technology.rail_shinkansen_1964 | source.brit_shinkansen -->
+- 10. Level 48: cellular concept in a 1947 Bell Labs memo. Source: [Cellular Communications](https://eng.libretexts.org/Bookshelves/Electrical_Engineering/Electronics/Microwave_and_RF_Design_I_-_Radio_Systems_(Steer)/05:_RF_Systems/5.03:_Cellular_Communications)  <!-- fact.everyday_technology.cell_bell_1947 | source.libretexts_cellular -->
+- 11. Level 52: binary, two symbols, each is a bit. Source: [Computer](https://www.britannica.com/technology/computer)  <!-- fact.everyday_technology.computer_binary_code | source.brit_computer -->
+- 12. Level 54: most main memory (DRAM) is volatile. Source: [Computer memory](https://www.britannica.com/technology/computer-memory)  <!-- fact.everyday_technology.computer_ram_volatile | source.brit_computer_memory -->
+- 13. Level 61: ARPANET had 15 nodes by 1971. Britannica: "By 1971, the network expanded to 15 nodes and 23 host terminals." Source: [ARPANET](https://www.britannica.com/topic/ARPANET)  <!-- fact.everyday_technology.internet_arpanet_1971_nodes | source.brit_arpanet -->
+- 14. Level 64: 2.4 GHz is 2.4 billion cycles a second, 40 million times 60 Hz (arithmetic checks). Source: [Wi-Fi](https://www.britannica.com/technology/Wi-Fi)  <!-- fact.everyday_technology.wifi_ghz_cycles | source.brit_wifi -->
+- 15. Level 78: penicillin blocks cell-wall building; human cells lack walls. Source: [Penicillin](https://www.britannica.com/science/penicillin)  <!-- fact.everyday_technology.penicillin_cell_wall | source.brit_penicillin -->
+- 16. Level 79: microbial enzymes don't recognize plastic's bonds. Source: [Why isn't plastic biodegradable?](https://news.osu.edu/why-isnt-plastic-biodegradable/)  <!-- fact.everyday_technology.plastic_microbe_enzymes | source.osu_why_plastic_not_biodegradable -->
+- 17. Level 87: 1914 $5 eight-hour day, up from $2.34 for nine hours, after heavy turnover. Source: [Henry Ford: Assembly Line](https://www.thehenryford.org/collections/explore/sets/detail/henry-ford-assembly-line)  <!-- fact.everyday_technology.build_five_dollar_day | source.thehenryford_assembly_line -->
+- 18. Level 90: climbing frame jacks the crane up about 6 m (20 ft) for a new mast section. Source: [How Tower Cranes Work](https://science.howstuffworks.com/transport/engines-equipment/tower-crane4.htm)  <!-- fact.everyday_technology.build_crane_climbing | source.howstuffworks_tower_crane -->
+- 19. Level 91: machine learning finds patterns in labeled examples such as spam. Source: [What is machine learning?](https://developers.google.com/machine-learning/intro-to-ml/what-is-ml)  <!-- fact.everyday_technology.ml_learns_from_examples | source.google_ml_what_is_ml -->
+- 20. Level 98: Fossum's JPL team, CMOS sensors in the 1990s, phones the "killer application". Source: [CMOS Sensors Enable Phone Cameras, HD Video](https://spinoff.nasa.gov/Spinoff2017/cg_1.html)  <!-- fact.everyday_technology.cmos_sensor_jpl | source.nasa_spinoff_cmos_2017 -->

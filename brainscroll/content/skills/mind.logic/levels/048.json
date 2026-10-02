@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.logic.048",
+  "skillId": "skill.mind.logic",
+  "number": 48,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Necessary or Sufficient?",
+  "objective": "After this level you can tell a necessary condition from a sufficient one.",
+  "summary": "A necessary condition must be there (no Y without X); a sufficient one guarantees the result. Some conditions are needed together and enough together.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.causal_necessary_sufficient",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.causal_multiple_causes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.047"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "No key, no entry. But a key in your pocket won't open the door.",
+      "body": "You also have to walk up and turn it. That small gap, between what you need and what's enough, is one of the most useful distinctions in logic. It's also one of the easiest to mix up.",
+      "id": "card.logic.048.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Necessary: no Y without it",
+      "body": "X is a necessary condition for Y when you can't have Y without X: take X away and Y is guaranteed not to happen. Having four sides is necessary for being a square. Oxygen is necessary for life. Requirements and prerequisites are usually necessary conditions. They must be met, but on their own they don't guarantee success.",
+      "id": "card.logic.048.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Sufficient: enough on its own",
+      "body": "X is a sufficient condition for Y when X guarantees Y: if X is there, Y is too. Being a square is sufficient for having four sides. Notice the flip. Four sides is necessary for a square, but it isn't enough. And practice is necessary for becoming a good basketball player, but practice alone isn't sufficient. Talent and coaching, anyone?",
+      "id": "card.logic.048.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Needed together, enough together",
+      "body": "Air is necessary for a flame, but air alone lights nothing. Some conditions are individually necessary and jointly sufficient: peanut butter, jelly, bread and a knife are together enough for a PB&J, though none is enough alone. Confusing necessary with sufficient is all too common in everyday reasoning, so ask which one a claim really means.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Common mix-up: needed is not enough. Necessary means no Y without X; sufficient means X alone brings Y."
+      },
+      "id": "card.logic.048.c4"
+    },
+    {
+      "id": "card.logic.048.c5",
+      "type": "mcq",
+      "questionId": "question.logic.048.q1"
+    },
+    {
+      "id": "card.logic.048.c6",
+      "type": "mcq",
+      "questionId": "question.logic.048.q2"
+    },
+    {
+      "id": "card.logic.048.c7",
+      "type": "mcq",
+      "questionId": "question.logic.048.q3"
+    },
+    {
+      "id": "card.logic.048.c8",
+      "type": "checkpoint",
+      "headline": "Conditions: sorted",
+      "learned": [
+        "Necessary: no Y without X",
+        "Sufficient: X guarantees Y",
+        "Prerequisites are needed, not enough",
+        "Some conditions are enough only together"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.048.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.causal_necessary_sufficient"
+      ],
+      "sourceCardIds": [
+        "card.logic.048.c3"
+      ],
+      "prompt": "What makes X a sufficient condition for Y?",
+      "options": [
+        {
+          "id": "a",
+          "label": "X usually comes before Y",
+          "correct": false,
+          "rationale": "Timing doesn't make a condition sufficient."
+        },
+        {
+          "id": "b",
+          "label": "Y cannot happen without X",
+          "correct": false,
+          "rationale": "That's a necessary condition."
+        },
+        {
+          "id": "c",
+          "label": "X and Y often occur together",
+          "correct": false,
+          "rationale": "That's a correlation, not a guarantee."
+        },
+        {
+          "id": "d",
+          "label": "X guarantees that Y happens",
+          "correct": true
+        }
+      ],
+      "explanation": "Sufficient means enough: if X is present, Y is present too.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.048.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.causal_necessary_sufficient"
+      ],
+      "sourceCardIds": [
+        "card.logic.048.c2",
+        "card.logic.048.c3"
+      ],
+      "prompt": "Why is practice necessary but not sufficient for becoming a good basketball player?",
+      "options": [
+        {
+          "id": "a",
+          "label": "You need it, but it doesn't guarantee success alone",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It guarantees success, but you could skip it",
+          "correct": false,
+          "rationale": "That describes sufficient but not necessary: the reverse."
+        },
+        {
+          "id": "c",
+          "label": "It neither helps nor matters for the result",
+          "correct": false,
+          "rationale": "Practice is needed; it matters."
+        },
+        {
+          "id": "d",
+          "label": "It matters only for players who are tall",
+          "correct": false,
+          "rationale": "Height isn't part of the example."
+        }
+      ],
+      "explanation": "Like any prerequisite, practice must be there, but on its own it doesn't guarantee the result.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.048.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.causal_multiple_causes",
+        "concept.logic.causal_necessary_sufficient"
+      ],
+      "sourceCardIds": [
+        "card.logic.047.c2",
+        "card.logic.048.c4"
+      ],
+      "prompt": "Using Level 47's fire triangle, how is oxygen related to a fire?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sufficient, but not necessary",
+          "correct": false,
+          "rationale": "Backwards: fire can't happen without oxygen, and oxygen alone isn't enough."
+        },
+        {
+          "id": "b",
+          "label": "Necessary, but not sufficient",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Both necessary and sufficient",
+          "correct": false,
+          "rationale": "Oxygen alone doesn't start a fire."
+        },
+        {
+          "id": "d",
+          "label": "Neither necessary nor sufficient",
+          "correct": false,
+          "rationale": "Remove oxygen and the flames stop, so it's necessary."
+        }
+      ],
+      "explanation": "No fire without oxygen, so it's necessary. But oxygen alone lights nothing: heat and fuel are needed too.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.libretexts_lau_necessary_sufficient",
+    "source.libretexts_southworth_necessary_sufficient",
+    "source.libretexts_lavin_necessary_sufficient"
+  ],
+  "art": "mind.logic-key"
+}

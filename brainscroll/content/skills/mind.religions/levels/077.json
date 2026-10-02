@@ -1,0 +1,225 @@
+{
+  "id": "level.mind.religions.077",
+  "skillId": "skill.mind.religions",
+  "number": 77,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Adventists, Witnesses, Pentecostals",
+  "objective": "After this level you can explain how the Seventh-day Adventists, Jehovah's Witnesses and Pentecostals began in America and what sets each apart.",
+  "summary": "Seventh-day Adventists grew from the Great Disappointment of 1844, Jehovah's Witnesses from Russell's Bible Students, and Pentecostals from the 1906 Azusa Street revival.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.america_adventists",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.america_witnesses",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.america_pentecostals",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.shared_elements",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.076"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.077.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Three American-born movements, three distinct paths.",
+      "body": "One keeps a Saturday Sabbath. One goes door to door. One prays in tongues. Here's where each began."
+    },
+    {
+      "id": "card.religions.077.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The day that didn't come",
+      "body": "William Miller predicted Christ's Second Coming for 1843, then 1844. When it didn't come, most of his followers left, and the letdown became known as the Great Disappointment. A small group kept the hope, came to believe that Saturday, not Sunday, is the Sabbath God commanded, and organized the Seventh-day Adventist Church at Battle Creek, Michigan, in 1863. Ellen G. White, who reported visions, shaped it for decades."
+    },
+    {
+      "id": "card.religions.077.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bible students at the door",
+      "body": "In 1872 Charles Taze Russell founded a Bible Students movement in Pittsburgh. In 1931 it took the name Jehovah's Witnesses, from the conviction that Jehovah is God's name. Witnesses see Jesus as God's agent rather than part of a Trinity, expect a coming kingdom on earth, and are known for preaching door to door, which they call witnessing."
+    },
+    {
+      "id": "card.religions.077.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fire on Azusa Street",
+      "body": "Pentecostalism spread across the nation and the world from the Azusa Street revival in Los Angeles, begun in 1906. It was led by William J. Seymour, an African American minister who welcomed worshipers of every race. Pentecostals emphasize baptism with the Holy Spirit, usually shown by speaking in tongues, as at the Pentecost described in Acts.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Easy to blur these three. Adventists began with a date, Witnesses with Bible study, Pentecostals with a revival."
+      }
+    },
+    {
+      "id": "card.religions.077.c5",
+      "type": "mcq",
+      "questionId": "question.religions.077.q1"
+    },
+    {
+      "id": "card.religions.077.c6",
+      "type": "mcq",
+      "questionId": "question.religions.077.q2"
+    },
+    {
+      "id": "card.religions.077.c7",
+      "type": "mcq",
+      "questionId": "question.religions.077.q3"
+    },
+    {
+      "id": "card.religions.077.c8",
+      "type": "checkpoint",
+      "headline": "Adventists, Witnesses, Pentecostals: the takeaways",
+      "learned": [
+        "Adventists grew from the Great Disappointment of 1844",
+        "Jehovah's Witnesses took their name in 1931",
+        "Pentecostalism spread from Azusa Street in 1906"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.077.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.america_pentecostals"
+      ],
+      "sourceCardIds": [
+        "card.religions.077.c4"
+      ],
+      "prompt": "Where did the 1906 revival that spread Pentecostalism take place?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Battle Creek, Michigan",
+          "correct": false,
+          "rationale": "That's where Adventists organized in 1863."
+        },
+        {
+          "id": "b",
+          "label": "Azusa Street, Los Angeles",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Pittsburgh, Pennsylvania",
+          "correct": false,
+          "rationale": "Russell's Bible Students began there."
+        },
+        {
+          "id": "d",
+          "label": "Cane Ridge, Kentucky",
+          "correct": false,
+          "rationale": "That was the 1801 camp meeting."
+        }
+      ],
+      "explanation": "The Azusa Street revival in Los Angeles, led by William J. Seymour, began in 1906.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.religions.077.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.america_adventists"
+      ],
+      "sourceCardIds": [
+        "card.religions.077.c2"
+      ],
+      "prompt": "How did the Seventh-day Adventist Church grow out of the Great Disappointment?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Miller's prediction came true, and his movement grew quickly",
+          "correct": false,
+          "rationale": "The predicted dates passed."
+        },
+        {
+          "id": "b",
+          "label": "Most followers stayed and set a fresh date every single year",
+          "correct": false,
+          "rationale": "Most followers left."
+        },
+        {
+          "id": "c",
+          "label": "A small group kept hope, took a Saturday Sabbath and organized",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Bible students in Pittsburgh renamed their movement in 1931",
+          "correct": false,
+          "rationale": "That's the Witnesses' story."
+        }
+      ],
+      "explanation": "A small group kept its hope, came to keep Saturday as the Sabbath, and organized the church in 1863.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.077.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.america_adventists",
+        "concept.religions.america_witnesses",
+        "concept.religions.shared_elements"
+      ],
+      "sourceCardIds": [
+        "card.religions.077.c2",
+        "card.religions.077.c3",
+        "card.religions.001.c4"
+      ],
+      "prompt": "Adventists await Christ's Second Coming, and Witnesses a kingdom on earth. Which shared element from Level 1 do those hopes belong to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sacred stories of what will come at the end of time",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A community's buildings and sacred objects",
+          "correct": false,
+          "rationale": "These are hopes about the future, not things."
+        },
+        {
+          "id": "c",
+          "label": "The census count of each group's members",
+          "correct": false,
+          "rationale": "Counting isn't one of the four shared elements."
+        },
+        {
+          "id": "d",
+          "label": "Rites of passage from one status to another",
+          "correct": false,
+          "rationale": "These hopes concern the world's future, not a life stage."
+        }
+      ],
+      "explanation": "Smart wrote that every faith hands down stories, including of things to come at the end of time.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.encyclopediacom_seventh_day_adventists",
+    "source.brit_jehovahs_witnesses",
+    "source.brit_pentecostalism",
+    "source.openlearn_smart_worlds_religions"
+  ],
+  "art": "rel.revival-tent"
+}

@@ -1,0 +1,206 @@
+{
+  "id": "level.geography.earth_climate.015",
+  "skillId": "skill.geography.earth_climate",
+  "number": 15,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Seismic Waves",
+  "objective": "After this level you can tell P waves, S waves and surface waves apart and say which kind does the most damage.",
+  "summary": "Quakes send out fast P waves, slower S waves and slowest surface waves. The P waves come first; the S and surface waves do the damage, and early warning uses the gap.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.seismic_wave_types",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.seismic_early_warning",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.fault_types",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.014"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.015.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In an earthquake, the first jolt is a warning shot.",
+      "body": "A quake sends out several kinds of waves at once. They travel at different speeds, so they reach you one after another, and they shake the ground in different ways. Knowing the order can buy you a few seconds."
+    },
+    {
+      "id": "card.earth_climate.015.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "P waves: first to arrive",
+      "body": "P waves are compression waves: they squeeze and stretch the rock in the direction they travel, like a push passed along a Slinky. At 5 or 6 km per second, they're the fastest seismic waves, and they pass through solid rock and liquid alike. They're the first to shake a building, but they aren't the ones that do the damage."
+    },
+    {
+      "id": "card.earth_climate.015.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "S waves and surface waves: the damage",
+      "body": "S waves are shear waves. They shake the rock side to side, across their direction of travel, at about 3 km per second, and they can't pass through liquid. Surface waves come last and slowest: Rayleigh waves roll the ground, Love waves shake it sideways, and both can be very large. Buildings handle an up-and-down jolt better than a sideways shove, so S and surface waves do the damage."
+    },
+    {
+      "id": "card.earth_climate.015.c4",
+      "type": "fact",
+      "fact": "P waves travel almost twice as fast as the damaging S waves and surface waves.",
+      "context": "ShakeAlert, the USGS early warning system for California, Oregon and Washington, uses that head start. Sensors catch the P waves, and an alert can reach people farther away before the strong shaking does. It isn't prediction: the quake has already begun.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Common mix-up: early warning isn't prediction. The quake has already started; you just hear about it before the shaking arrives."
+      }
+    },
+    {
+      "id": "card.earth_climate.015.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.015.q1"
+    },
+    {
+      "id": "card.earth_climate.015.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.015.q2"
+    },
+    {
+      "id": "card.earth_climate.015.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.015.q3"
+    },
+    {
+      "id": "card.earth_climate.015.c8",
+      "type": "checkpoint",
+      "headline": "Seismic waves: ordered",
+      "learned": [
+        "P waves: fastest, push and pull",
+        "S waves: side to side, can't cross liquid",
+        "Surface waves: slowest, rolling",
+        "Early warning uses the P-wave head start"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.015.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.seismic_wave_types"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.015.c2",
+        "card.earth_climate.015.c3"
+      ],
+      "prompt": "Which seismic waves cannot pass through liquid?",
+      "options": [
+        {
+          "id": "a",
+          "label": "P waves",
+          "correct": false,
+          "rationale": "P waves pass through solids and liquids."
+        },
+        {
+          "id": "b",
+          "label": "S waves",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Every kind of seismic wave",
+          "correct": false,
+          "rationale": "P waves do pass through liquid."
+        }
+      ],
+      "explanation": "S waves are shear waves and can't travel through liquids; P waves can.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.015.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.seismic_early_warning"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.015.c4"
+      ],
+      "prompt": "How can ShakeAlert warn people before strong shaking reaches them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It predicts earthquakes days before they happen",
+          "correct": false,
+          "rationale": "It only detects quakes that have begun."
+        },
+        {
+          "id": "b",
+          "label": "It tracks animals that act strangely before quakes",
+          "correct": false,
+          "rationale": "It relies on seismic sensors."
+        },
+        {
+          "id": "c",
+          "label": "It waits for the surface waves, then sounds an alarm",
+          "correct": false,
+          "rationale": "By then the damage is under way."
+        },
+        {
+          "id": "d",
+          "label": "It detects the fast P waves and alerts ahead of slower ones",
+          "correct": true
+        }
+      ],
+      "explanation": "Sensors catch the P waves, which travel almost twice as fast as the damaging waves, so alerts can outrun the shaking.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.015.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.seismic_wave_types",
+        "concept.earth_climate.fault_types"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.015.c2",
+        "card.earth_climate.014.c3"
+      ],
+      "prompt": "A strike-slip fault like the ones in Level 14 suddenly slips. Which of its waves reaches a distant city first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The S waves, because they shake the hardest",
+          "correct": false,
+          "rationale": "Shaking hardest isn't the same as arriving first."
+        },
+        {
+          "id": "b",
+          "label": "The P waves, because they are the fastest",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The surface waves, because they stay near the ground",
+          "correct": false,
+          "rationale": "Surface waves are the slowest."
+        }
+      ],
+      "explanation": "Whatever kind of fault slips, P waves are the fastest seismic waves, so they arrive first.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.pnsn_earthquake_waves",
+    "source.usgs_earthquake_effects",
+    "source.usgs_earthquake_early_warning"
+  ],
+  "art": "earth.seismograph"
+}

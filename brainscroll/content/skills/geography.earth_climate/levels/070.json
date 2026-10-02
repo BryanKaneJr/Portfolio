@@ -1,0 +1,338 @@
+{
+  "id": "level.geography.earth_climate.070",
+  "skillId": "skill.geography.earth_climate",
+  "number": 70,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "published",
+  "title": "Checkpoint: Storms",
+  "objective": "After this level you can explain how heat, moisture and spinning air build thunderstorms, tornadoes, hurricanes and winter storms.",
+  "summary": "Every storm here runs on rising warm, moist air; shear, rotation and structure make the difference. A landfalling hurricane can even carry tornadoes, which its wind-only category can't show.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.storm_hurricane_tornadoes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.storm_thunderstorm_stages",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.storm_supercell",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.storm_ef_scale",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.storm_lightning_charging",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.storm_hail_layers",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.storm_hurricane_eyewall",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.storm_hail_growth",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.storm_saffir_simpson",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.069"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.070.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 7 finale: one storm can hide the others inside it.",
+      "body": "A landfalling hurricane can carry thunderstorms, lightning, flooding rain and even tornadoes. First, the engine they all share."
+    },
+    {
+      "id": "card.earth_climate.070.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Same engine, different shapes",
+      "body": "Every storm in this chapter runs on warm, moist air rising: its moisture condenses into cloud, and the storm grows. Inside, colliding ice charges it for lightning, and supercooled water builds hail layer by layer. The setup decides the rest. In an ordinary cell, the downdraft soon cuts off the updraft. Add wind shear and the storm tilts and spins into a long-lived supercell. Ring thunderstorms into an eyewall around a calm eye and you have a hurricane."
+    },
+    {
+      "id": "card.earth_climate.070.c3",
+      "type": "fact",
+      "fact": "Hurricanes often spawn tornadoes, but not always.",
+      "context": "Some landfalling hurricanes produce no known tornadoes, while others cause major outbreaks. Hurricane Andrew (1992) made none across South Florida but several across the Deep South after crossing the Gulf. One more hazard the wind-only category can't show you.",
+      "mascot": {
+        "pose": "checkpoint",
+        "line": "This connects the whole chapter: learn the engine, and each storm is a variation on it."
+      }
+    },
+    {
+      "id": "card.earth_climate.070.c4",
+      "type": "mcq",
+      "questionId": "question.earth_climate.070.q1"
+    },
+    {
+      "id": "card.earth_climate.070.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.070.q2"
+    },
+    {
+      "id": "card.earth_climate.070.c6",
+      "type": "recall",
+      "questionId": "question.earth_climate.070.q3"
+    },
+    {
+      "id": "card.earth_climate.070.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.070.q4"
+    },
+    {
+      "id": "card.earth_climate.070.c8",
+      "type": "recall",
+      "questionId": "question.earth_climate.070.q5"
+    },
+    {
+      "id": "card.earth_climate.070.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 7 complete",
+      "learned": [
+        "How rising warm, moist air powers every storm, from a thunderstorm cell to a hurricane.",
+        "Why wind shear turns an ordinary storm into a rotating supercell that can spawn tornadoes.",
+        "What a hurricane's category and a tornado's EF rating measure, and what they leave out.",
+        "How hail, lightning and lake-effect snow each form in or downwind of a storm."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.070.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.storm_hurricane_tornadoes"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.070.c3"
+      ],
+      "prompt": "Storms recap: do landfalling hurricanes always produce tornadoes?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Yes, every hurricane makes at least one",
+          "correct": false,
+          "rationale": "Some landfalling hurricanes make none."
+        },
+        {
+          "id": "b",
+          "label": "No, never: tornadoes need supercells over land",
+          "correct": false,
+          "rationale": "Hurricanes can and do spawn tornadoes."
+        },
+        {
+          "id": "c",
+          "label": "No: some make none, while others cause major outbreaks",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only Category 5 hurricanes do",
+          "correct": false,
+          "rationale": "Tornadoes are not tied to category."
+        }
+      ],
+      "explanation": "Hurricanes often, but not always, spawn tornadoes; Andrew (1992) made none across South Florida but several later.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.earth_climate.070.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.storm_supercell",
+        "concept.earth_climate.storm_thunderstorm_stages"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.070.c2",
+        "card.earth_climate.064.c3"
+      ],
+      "prompt": "Storms recap: what lets a supercell outlast an ordinary thunderstorm cell?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It has no downdraft to worry about",
+          "correct": false,
+          "rationale": "It has one, kept apart from the updraft."
+        },
+        {
+          "id": "b",
+          "label": "Wind shear tilts it, keeping its updraft and downdraft apart",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It forms at night, when the air is calm",
+          "correct": false,
+          "rationale": "Its long life comes from shear, not the time of day."
+        },
+        {
+          "id": "d",
+          "label": "Its hail shields the updraft from rain",
+          "correct": false,
+          "rationale": "Hail is a product of the storm, not its protection."
+        }
+      ],
+      "explanation": "In an ordinary cell the downdraft cuts off the updraft; a supercell's shear keeps them apart, so it can last hours.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.070.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.storm_ef_scale"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.070.c2",
+        "card.earth_climate.065.c3"
+      ],
+      "prompt": "Storms recap: which storm is rated by the damage it leaves behind rather than a measured wind?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A hurricane, on the Saffir-Simpson scale",
+          "correct": false,
+          "rationale": "That rates maximum sustained wind."
+        },
+        {
+          "id": "b",
+          "label": "A tornado, on the EF scale",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A blizzard, by the NWS definition",
+          "correct": false,
+          "rationale": "A blizzard is defined by wind, visibility and time."
+        },
+        {
+          "id": "d",
+          "label": "A nor'easter, by its category",
+          "correct": false,
+          "rationale": "Nor'easters have no category scale here."
+        }
+      ],
+      "explanation": "Surveyors rate tornadoes from damage to indicators like homes and barns; the winds are estimates.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.070.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.storm_lightning_charging"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.070.c2",
+        "card.earth_climate.062.c2"
+      ],
+      "prompt": "Storms recap: what charges up a thunderstorm for lightning?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Collisions between rising ice crystals and graupel",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Friction between the cloud and the ground",
+          "correct": false,
+          "rationale": "The charging happens inside the cloud."
+        },
+        {
+          "id": "c",
+          "label": "Sunlight striking the top of the cloud",
+          "correct": false,
+          "rationale": "Ice collisions do the charging."
+        },
+        {
+          "id": "d",
+          "label": "Thunder shaking electrons loose",
+          "correct": false,
+          "rationale": "Thunder is the sound after the flash."
+        }
+      ],
+      "explanation": "In the updraft, rising ice crystals bump graupel; the crystals turn positive and the graupel negative.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.070.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.storm_hail_layers"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.070.c2",
+        "card.earth_climate.063.c4"
+      ],
+      "prompt": "Storms recap: a sliced hailstone shows a clear layer. How did that layer freeze?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Instantly, trapping air bubbles",
+          "correct": false,
+          "rationale": "That makes a milky layer."
+        },
+        {
+          "id": "b",
+          "label": "After it landed on the ground",
+          "correct": false,
+          "rationale": "The layers form in the cloud."
+        },
+        {
+          "id": "c",
+          "label": "Slowly, letting air bubbles escape",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Around a grain of quartz sand",
+          "correct": false,
+          "rationale": "The clear layer is about freezing speed, not the core."
+        }
+      ],
+      "explanation": "Clear ice forms in wet growth: water spreads over the stone and freezes slowly, so bubbles escape.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.spc_tornado_faq",
+    "source.ucar_how_thunderstorms_form",
+    "source.nws_spotter_thunderstorm_life",
+    "source.nws_lightning_electrification",
+    "source.uwmadison_hail_shapes",
+    "source.illinois_extension_hail",
+    "source.nws_amarillo_supercell",
+    "source.aoml_hurricane_faq",
+    "source.nws_norman_ef_scale",
+    "source.nhc_saffir_simpson"
+  ],
+  "art": "earth.tornado"
+}

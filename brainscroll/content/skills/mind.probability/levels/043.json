@@ -1,0 +1,209 @@
+{
+  "id": "level.mind.probability.043",
+  "skillId": "skill.mind.probability",
+  "number": 43,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "How Many Must Take the Pill?",
+  "objective": "After this level you can explain the number needed to treat: how many people take a treatment for one of them to benefit.",
+  "summary": "The number needed to treat turns an absolute risk drop into people: halving a 2% risk means about 100 people take a pill for one to benefit. The ideal NNT is 1.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.risk_number_needed_to_treat",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.risk_relative_risk",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.042"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.043.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A pill halves heart attacks. How many must take it to help one person?",
+      "body": "Take a guess before you read on. Two? Ten? In the example this level walks through, the answer is 100. Both numbers are true, and the gap between them is the whole lesson."
+    },
+    {
+      "id": "card.probability.043.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Half of a small number is a small number",
+      "body": "Picture a study in which the 2-year risk of a heart attack is 2% on a dummy pill (a placebo) and 1% on the real one. That is a 50% relative reduction: the headline number. But the absolute drop is just 1 percentage point, one person in 100. So 100 people would need the pill for 2 years to prevent one heart attack."
+    },
+    {
+      "id": "card.probability.043.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Meet the number needed to treat",
+      "body": "That 100 has a name: the number needed to treat, or NNT. It is how many people must take a treatment over a set time for one of them to benefit. It first appeared in the medical literature in 1988. To find it, divide 100 by the drop in absolute risk in percentage points. A drop from 10% to 5% is 5 points, and 100 ÷ 5 = 20.",
+      "callout": "NNT = 100 ÷ drop in percentage points"
+    },
+    {
+      "id": "card.probability.043.c4",
+      "type": "fact",
+      "fact": "The perfect treatment has an NNT of 1.",
+      "context": "If a treatment helps everyone, you treat 1 person to help 1. If it helps half, 2; a quarter, 4. Think of free throws: a 25% shooter needs about 4 tries per basket. Back in the heart-attack example, of 100 people who take the pill, about 98 would have been fine anyway, about 1 has a heart attack regardless, and about 1 is spared."
+    },
+    {
+      "id": "card.probability.043.c5",
+      "type": "mcq",
+      "questionId": "question.probability.043.q1"
+    },
+    {
+      "id": "card.probability.043.c6",
+      "type": "mcq",
+      "questionId": "question.probability.043.q2"
+    },
+    {
+      "id": "card.probability.043.c7",
+      "type": "mcq",
+      "questionId": "question.probability.043.q3"
+    },
+    {
+      "id": "card.probability.043.c8",
+      "type": "checkpoint",
+      "headline": "Number needed to treat: counted",
+      "learned": [
+        "NNT: how many take it for one to benefit",
+        "NNT = 100 ÷ drop in percentage points",
+        "2% to 1% over 2 years: NNT of 100",
+        "A perfect treatment has an NNT of 1"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.043.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.risk_number_needed_to_treat"
+      ],
+      "sourceCardIds": [
+        "card.probability.043.c3"
+      ],
+      "prompt": "A treatment has a number needed to treat of 50. What does that mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It works for 50% of the people who take it",
+          "correct": false,
+          "rationale": "An NNT is a head count, not a percent."
+        },
+        {
+          "id": "b",
+          "label": "It cuts the risk to one fiftieth of what it was",
+          "correct": false,
+          "rationale": "That would be a relative change; NNT counts people."
+        },
+        {
+          "id": "c",
+          "label": "It must be taken for 50 days before it works",
+          "correct": false,
+          "rationale": "The time period is set by the study, not by the NNT."
+        },
+        {
+          "id": "d",
+          "label": "About 50 people take it for one of them to benefit",
+          "correct": true
+        }
+      ],
+      "explanation": "The number needed to treat is how many people take a treatment, over a set time, for one of them to benefit.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.043.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.risk_number_needed_to_treat",
+        "concept.probability.risk_relative_risk"
+      ],
+      "sourceCardIds": [
+        "card.probability.043.c2",
+        "card.probability.043.c4"
+      ],
+      "prompt": "Why must 100 people take the pill in the example for one to benefit, when it halves heart attacks?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Most of them had a heart attack anyway",
+          "correct": false,
+          "rationale": "The opposite: about 98 in 100 would have been fine anyway."
+        },
+        {
+          "id": "b",
+          "label": "The risk only fell from 2% to 1%, one person in 100",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Half of them stopped taking the pill early",
+          "correct": false,
+          "rationale": "The example says nothing about stopping; the small drop explains it."
+        },
+        {
+          "id": "d",
+          "label": "Heart attacks are too random for any pill to prevent",
+          "correct": false,
+          "rationale": "The pill did prevent some: about 1 in every 100 treated."
+        }
+      ],
+      "explanation": "Halving a 2% risk removes just 1 percentage point: one heart attack avoided per 100 people treated for 2 years.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.043.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.risk_number_needed_to_treat",
+        "concept.probability.risk_relative_risk"
+      ],
+      "sourceCardIds": [
+        "card.probability.043.c3",
+        "card.probability.042.c4"
+      ],
+      "prompt": "Level 42 said to ask for absolute risks. Which number does the NNT turn into a head count?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The relative risk reduction",
+          "correct": false,
+          "rationale": "A 50% relative cut can mean almost any NNT; it depends on the start."
+        },
+        {
+          "id": "b",
+          "label": "The drop in absolute risk",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The number of people in the study",
+          "correct": false,
+          "rationale": "Study size doesn't enter the calculation."
+        },
+        {
+          "id": "d",
+          "label": "The price of the treatment",
+          "correct": false,
+          "rationale": "NNT counts people, not money."
+        }
+      ],
+      "explanation": "NNT is 100 divided by the drop in absolute risk in percentage points, so it answers Level 42's question in people.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.wmj_calder_statistical_thinking_2_2024"
+  ],
+  "art": "body.pill"
+}

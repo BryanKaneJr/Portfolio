@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.logic.094",
+  "skillId": "skill.mind.logic",
+  "number": 94,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Imagine It Failed",
+  "objective": "After this level you can run a pre-mortem: imagine a plan has already failed, then work out why, to find its weak points in advance.",
+  "summary": "Gary Klein's pre-mortem: before a project starts, assume it has already failed and have everyone write down why, so weak points surface while they can be fixed.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.deciding_premortem",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.explanation_vs_argument",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.093"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Picture it: months from now, your plan has flopped. What went wrong?",
+      "body": "A strange question to ask before you've even started. But answering it, in detail, is exactly how a pre-mortem finds a plan's weak spots while there's still time to fix them.",
+      "id": "card.logic.094.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A post-mortem, in advance",
+      "body": "The decision researcher Gary Klein described the pre-mortem in Harvard Business Review in 2007. A post-mortem finds out why a patient died; everyone learns something except the patient. A pre-mortem comes at the start of a project instead, so the plan can be improved rather than autopsied. The team assumes the project has already failed and asks what did go wrong.",
+      "id": "card.logic.094.c2",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Don't memorize the steps. Remember the twist: ask \"why did it fail?\", not \"what might go wrong?\""
+      }
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "How it runs",
+      "body": "The leader announces that the project has failed spectacularly. Everyone spends a few minutes writing down, alone, every reason they can think of, especially the ones they'd normally keep quiet about. Then people read out one reason each, in turn, until all are recorded, and the plan is strengthened. The real gift: it makes it safe for worried people to speak up.",
+      "id": "card.logic.094.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The laptop problem",
+      "body": "In one session, on software for military air-campaign planners, a team member who had been silent through a long kickoff meeting spoke up. One algorithm wouldn't fit easily on the laptops used in the field, so it would take hours to run. The developers had already built a shortcut they'd been reluctant to mention. It went in, and the project succeeded.",
+      "id": "card.logic.094.c4"
+    },
+    {
+      "id": "card.logic.094.c5",
+      "type": "mcq",
+      "questionId": "question.logic.094.q1"
+    },
+    {
+      "id": "card.logic.094.c6",
+      "type": "mcq",
+      "questionId": "question.logic.094.q2"
+    },
+    {
+      "id": "card.logic.094.c7",
+      "type": "mcq",
+      "questionId": "question.logic.094.q3"
+    },
+    {
+      "id": "card.logic.094.c8",
+      "type": "checkpoint",
+      "headline": "Pre-mortem: run",
+      "learned": [
+        "A pre-mortem assumes the plan has already failed",
+        "Everyone writes down why, alone, then shares",
+        "It makes voicing doubts safe and expected",
+        "Each reason is an explanation of the imagined failure"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.094.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.deciding_premortem"
+      ],
+      "sourceCardIds": [
+        "card.logic.094.c2"
+      ],
+      "prompt": "In a pre-mortem, what does the team assume before listing reasons?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The project has already succeeded",
+          "correct": false,
+          "rationale": "That's the opposite of the premise."
+        },
+        {
+          "id": "b",
+          "label": "The budget will run out halfway",
+          "correct": false,
+          "rationale": "No particular cause is assumed; the failure is."
+        },
+        {
+          "id": "c",
+          "label": "The project has already failed",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The leader's plan can't be questioned",
+          "correct": false,
+          "rationale": "The whole point is to question it."
+        }
+      ],
+      "explanation": "The team assumes the project has failed and asks what did go wrong.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.094.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.deciding_premortem"
+      ],
+      "sourceCardIds": [
+        "card.logic.094.c2",
+        "card.logic.094.c3"
+      ],
+      "prompt": "Your club is planning a stall at the street fair. Which opening line starts a pre-mortem?",
+      "options": [
+        {
+          "id": "a",
+          "label": "\"It's over, and it flopped. Why?\"",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "\"What might possibly go wrong?\"",
+          "correct": false,
+          "rationale": "That is an ordinary critique; a pre-mortem assumes the failure has happened."
+        },
+        {
+          "id": "c",
+          "label": "\"How should we celebrate success?\"",
+          "correct": false,
+          "rationale": "A pre-mortem imagines failure, not success."
+        },
+        {
+          "id": "d",
+          "label": "\"Who do we blame if it fails?\"",
+          "correct": false,
+          "rationale": "It hunts for weak points in the plan, not for someone to blame."
+        }
+      ],
+      "explanation": "A pre-mortem opens by declaring the project has already failed, then asks everyone why.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.logic.094.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.deciding_premortem",
+        "concept.logic.explanation_vs_argument"
+      ],
+      "sourceCardIds": [
+        "card.logic.094.c2",
+        "card.logic.008.c2"
+      ],
+      "prompt": "In a pre-mortem, \"it failed because the laptops were too slow\" treats the failure as given. What kind of reasoning is that, by the distinction between arguing and explaining?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An argument that the project failed",
+          "correct": false,
+          "rationale": "Nobody is trying to prove the failure; it is assumed."
+        },
+        {
+          "id": "b",
+          "label": "An explanation of why it failed",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A value judgment about the team",
+          "correct": false,
+          "rationale": "It says what caused the failure, not what ought to be."
+        },
+        {
+          "id": "d",
+          "label": "A question about the laptops",
+          "correct": false,
+          "rationale": "It's a claim, not a question."
+        }
+      ],
+      "explanation": "An explanation starts from something accepted and shows why. The pre-mortem accepts the failure and asks why it happened.",
+      "difficulty": 0.5
+    }
+  ],
+  "sourceIds": [
+    "source.hbr_klein_premortem",
+    "source.iep_argument",
+    "source.libretexts_vancleave_arguments_vs_explanations"
+  ],
+  "art": "mind.logic-crystal-ball"
+}

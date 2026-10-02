@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.philosophy.065",
+  "skillId": "skill.mind.philosophy",
+  "number": 65,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Condemned to Be Free",
+  "objective": "After this level you can explain Sartre's claim that existence precedes essence and his idea of bad faith, using his café waiter who plays at being a waiter.",
+  "summary": "Sartre held that for humans existence precedes essence, so we are condemned to be free and denying it is bad faith; Merleau-Ponty stressed situated freedom.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.freedom_sartre_existentialism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.four_causes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.064"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.065.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A paper-knife knows what it’s for. Do you?",
+      "body": "Before a paper-knife is made, its maker already has its purpose in mind. Jean-Paul Sartre argued that you are the one thing that doesn’t work that way."
+    },
+    {
+      "id": "card.philosophy.065.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Objects: essence first",
+      "body": "Towards the end of 1945, many thousands of Parisians packed into Sartre’s lecture Existentialism is a Humanism, a popular version of his Being and Nothingness (1943). He began with a paper-knife. Its maker had a conception of what it is and what it’s for before it existed. For manufactured things, Sartre said, essence comes before existence."
+    },
+    {
+      "id": "card.philosophy.065.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "You: existence first",
+      "body": "Humans are different, Sartre argued: “existence precedes essence.” You first exist, turn up in the world, and only afterwards define yourself. No pre-given human nature decides who you’ll be. That’s why he called us “condemned to be free”: condemned because we didn’t create ourselves, free because we are still responsible for everything we do."
+    },
+    {
+      "id": "card.philosophy.065.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The waiter who plays a waiter",
+      "body": "Pretending you aren’t free is what Sartre called bad faith. His best-known example, in Being and Nothingness, is a café waiter whose movements are a little too precise, a little too waiterly. He’s playing at being a waiter, as if the role decided what he does. It doesn’t. He does, every moment, and some part of him knows it."
+    },
+    {
+      "id": "card.philosophy.065.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Free, but somewhere",
+      "body": "Critics found this freedom too radical. Maurice Merleau-Ponty argued that our options are already embedded in a social and historical situation “before any personal decision has been made”. As he put it: “We choose the world, and the world chooses us.” Sartre himself later called radical, unconditioned freedom “nonsense”: freedom is always freedom-in-situation."
+    },
+    {
+      "id": "card.philosophy.065.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.065.q1"
+    },
+    {
+      "id": "card.philosophy.065.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.065.q2"
+    },
+    {
+      "id": "card.philosophy.065.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.065.q3"
+    },
+    {
+      "id": "card.philosophy.065.c9",
+      "type": "checkpoint",
+      "headline": "Condemned to Be Free: the big picture",
+      "learned": [
+        "Objects: essence comes before existence",
+        "Humans: existence precedes essence",
+        "Bad faith: the waiter playing a waiter",
+        "Merleau-Ponty: the world chooses us too"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.065.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.freedom_sartre_existentialism"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.065.c4"
+      ],
+      "prompt": "Who is Sartre’s best-known example of bad faith?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An artisan making a paper-knife",
+          "correct": false,
+          "rationale": "The paper-knife shows essence before existence."
+        },
+        {
+          "id": "b",
+          "label": "A café waiter playing a waiter",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A prisoner held in chains",
+          "correct": false,
+          "rationale": "That image is Hume’s."
+        },
+        {
+          "id": "d",
+          "label": "A soldier just following orders",
+          "correct": false,
+          "rationale": "His example is a café waiter."
+        }
+      ],
+      "explanation": "Sartre’s waiter acts as if his role fixed what he does, denying his own freedom.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.philosophy.065.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.freedom_sartre_existentialism"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.065.c3"
+      ],
+      "prompt": "Why did Sartre say humans are “condemned to be free”?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Society forbids us from choosing for ourselves",
+          "correct": false,
+          "rationale": "He meant the opposite."
+        },
+        {
+          "id": "b",
+          "label": "Our fixed nature makes every choice for us",
+          "correct": false,
+          "rationale": "He denied any pre-given nature."
+        },
+        {
+          "id": "c",
+          "label": "We didn’t make ourselves, yet answer for all we do",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Freedom is a punishment handed out by the state",
+          "correct": false,
+          "rationale": "The condemnation is our situation, not a sentence."
+        }
+      ],
+      "explanation": "We didn’t make ourselves, but with no pre-given nature to hide behind, we are responsible for everything we do.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.philosophy.065.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.freedom_sartre_existentialism",
+        "concept.philosophy.four_causes"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.005.c3",
+        "card.philosophy.065.c2",
+        "card.philosophy.065.c3"
+      ],
+      "prompt": "In Level 5, a statue’s final cause is what it’s made for. Why does Sartre say a person, unlike a paper-knife, has no such purpose set in advance?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A person is designed by an artisan first",
+          "correct": false,
+          "rationale": "That’s the paper-knife."
+        },
+        {
+          "id": "b",
+          "label": "A person has a final cause but no material cause",
+          "correct": false,
+          "rationale": "Sartre’s point is about essence, not matter."
+        },
+        {
+          "id": "c",
+          "label": "A person’s shape is poured like bronze",
+          "correct": false,
+          "rationale": "That describes the statue’s formal cause."
+        },
+        {
+          "id": "d",
+          "label": "A person exists first and defines themselves afterwards",
+          "correct": true
+        }
+      ],
+      "explanation": "The paper-knife’s purpose exists before it does; a person, Sartre says, exists first and only then defines what they are for.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.sep_sartre",
+    "source.iep_sartre",
+    "source.sep_existentialism",
+    "source.marxists_sartre_humanism",
+    "source.sep_aristotle_causality"
+  ],
+  "art": "phil.front-door"
+}

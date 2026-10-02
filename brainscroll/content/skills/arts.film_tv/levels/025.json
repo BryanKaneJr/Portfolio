@@ -1,0 +1,237 @@
+{
+  "id": "level.arts.film_tv.025",
+  "skillId": "skill.arts.film_tv",
+  "number": 25,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Shot Sizes",
+  "objective": "After this level you can tell a wide shot, a medium shot and a close-up apart and say what each one is good for.",
+  "summary": "Shot sizes are named by how close the camera is: a wide shot shows the whole body and setting, a medium shot the waist up, a close-up the face and its emotion.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.shoot_shot_sizes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.shoot_shot_size_jobs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.train_robbery_legacy",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.024"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.025.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Same actor, same moment, three different feelings.",
+      "body": "Where you put the camera changes what the audience notices. ACMI explains that filmmakers sort shots by one measure: how close the camera is to its subject, whether that's a character, a setting or an object."
+    },
+    {
+      "id": "card.film_tv.025.c2",
+      "type": "comparison",
+      "headline": "Three sizes, three jobs",
+      "items": [
+        {
+          "label": "Wide or long shot",
+          "points": [
+            "The whole body, head to toe",
+            "Shows the space around a character"
+          ]
+        },
+        {
+          "label": "Medium shot",
+          "points": [
+            "Roughly from the waist up",
+            "Body language and actions"
+          ]
+        },
+        {
+          "label": "Close-up",
+          "points": [
+            "A head fills the frame",
+            "Emotion on a face"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.film_tv.025.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Wide shots tell you where you are",
+      "body": "Establishing shots show where a scene takes place, and they're usually long shots, ACMI notes. Yale's Film Analysis guide adds that extreme long shots are usually the first or last shots of a sequence. A long shot also shows a whole body moving, which is why it's common in Hollywood musicals and 1970s martial arts films."
+    },
+    {
+      "id": "card.film_tv.025.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Close-ups pull you into a feeling",
+      "body": "Close-ups are great for showing emotion, and not only big emotions: ACMI points out that one can catch a character trying hard to hide a feeling. The US Bureau of Labor Statistics gives a cinematographer's example: to draw the audience into a key scene, shoot the actors' faces at close range. Sizes are relative, though. Yale notes a close-up is judged against the other shots in the same film."
+    },
+    {
+      "id": "card.film_tv.025.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.025.q1"
+    },
+    {
+      "id": "card.film_tv.025.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.025.q2"
+    },
+    {
+      "id": "card.film_tv.025.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.025.q3"
+    },
+    {
+      "id": "card.film_tv.025.c8",
+      "type": "checkpoint",
+      "headline": "Shot sizes: framed",
+      "learned": [
+        "Shots are named by the camera's distance from the subject",
+        "Wide shot: the whole body and where we are",
+        "Medium shot: waist up, for body language",
+        "Close-up: a face, and the feeling on it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.025.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.shoot_shot_sizes"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.025.c2"
+      ],
+      "prompt": "Which shot size shows a character from roughly the waist up?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A wide shot",
+          "correct": false,
+          "rationale": "A wide shot shows the whole body, head to toe."
+        },
+        {
+          "id": "b",
+          "label": "A medium shot",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A close-up",
+          "correct": false,
+          "rationale": "In a close-up the head fills the frame."
+        },
+        {
+          "id": "d",
+          "label": "An extreme long shot",
+          "correct": false,
+          "rationale": "That shows a whole setting, with people small in it."
+        }
+      ],
+      "explanation": "A medium shot, or mid shot, frames a character from about the waist up.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.film_tv.025.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.shoot_shot_size_jobs"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.025.c3",
+        "card.film_tv.025.c4"
+      ],
+      "prompt": "How does cutting from a wide shot to a close-up change what a viewer takes in?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It adds more of the setting around the character",
+          "correct": false,
+          "rationale": "That's what a wider shot does."
+        },
+        {
+          "id": "b",
+          "label": "It shows the character's whole body in motion",
+          "correct": false,
+          "rationale": "Full-body action needs a long shot."
+        },
+        {
+          "id": "c",
+          "label": "It trades the setting for the emotion on a face",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It tells the viewer where the scene takes place",
+          "correct": false,
+          "rationale": "That's an establishing shot's job."
+        }
+      ],
+      "explanation": "Wide shots show where we are; a close-up fills the frame with a face, drawing you into the character's emotion.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.025.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.train_robbery_legacy",
+        "concept.film_tv.shoot_shot_sizes"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.008.c4",
+        "card.film_tv.025.c2"
+      ],
+      "prompt": "In The Great Train Robbery (Level 8), the outlaw leader fires his pistol straight at the camera. What shot size was that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Extreme long shot",
+          "correct": false,
+          "rationale": "Level 8 describes this shot as a close-up."
+        },
+        {
+          "id": "b",
+          "label": "Medium shot",
+          "correct": false,
+          "rationale": "Level 8 describes this shot as a close-up."
+        },
+        {
+          "id": "c",
+          "label": "Establishing shot",
+          "correct": false,
+          "rationale": "It didn't show a setting; it showed the outlaw up close."
+        },
+        {
+          "id": "d",
+          "label": "Close-up",
+          "correct": true
+        }
+      ],
+      "explanation": "Level 8 calls it a close-up: the outlaw fills the frame and fires straight at you.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.acmi_shot_types",
+    "source.yale_film_analysis_cinematography",
+    "source.bls_script_to_screen",
+    "source.brit_great_train_robbery"
+  ],
+  "art": "film.viewfinder"
+}

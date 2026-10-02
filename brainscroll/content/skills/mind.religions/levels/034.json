@@ -1,0 +1,225 @@
+{
+  "id": "level.mind.religions.034",
+  "skillId": "skill.mind.religions",
+  "number": 34,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Five Pillars",
+  "objective": "After this level you can name the Five Pillars of Islam and explain how together they shape a Muslim's day, year and life.",
+  "summary": "The shahada, salat, zakat, sawm and hajj run on three clocks: prayer every day, zakat and the Ramadan fast every year, the hajj once in a lifetime.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.pillars_five",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.pillars_life_rhythm",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.islam_tawhid",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.033"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.034.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Five duties, three clocks: the day, the year and a lifetime.",
+      "body": "Islam gives its central practices a builder's name: pillars. Each runs on its own clock, and together they turn belief into a way of living."
+    },
+    {
+      "id": "card.religions.034.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The five",
+      "body": "The Five Pillars of Islam are the shahada, the profession of faith; salat, prayer five times a day; zakat, giving to the poor; sawm, fasting in the month of Ramadan; and hajj, the pilgrimage to Mecca. Islam regards faith without practice as pointless, so the pillars give a Muslim's life its framework, weaving everyday activities and beliefs into one cloth of devotion.",
+      "callout": "Shahada, salat, zakat, sawm, hajj"
+    },
+    {
+      "id": "card.religions.034.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The first pillar opens the door",
+      "body": "The shahada is Level 33's testimony: \"There is no god but God, and Muhammad is his messenger.\" Reciting it sincerely is all a person needs to do to become a Muslim. One sentence, and the other four pillars follow."
+    },
+    {
+      "id": "card.religions.034.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A day, a year, a lifetime",
+      "body": "Salat comes round five times every day. Zakat comes once a year: 2.5 percent of one's wealth, such as savings above a minimum threshold, given to benefit the poor. Sawm fills one month of every year, Ramadan. And the hajj is due at least once in a lifetime, for every adult Muslim who is physically and financially able.",
+      "callout": "Daily: salat. Yearly: zakat, sawm. Once: hajj"
+    },
+    {
+      "id": "card.religions.034.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Giving as worship",
+      "body": "Zakat isn't a tip left out of kindness. Muslims regard it as a form of worship and of self-purification, and as a reminder that wealth is held on loan from God. Handing over a share is a way of saying the rest isn't really yours either."
+    },
+    {
+      "id": "card.religions.034.c6",
+      "type": "mcq",
+      "questionId": "question.religions.034.q1"
+    },
+    {
+      "id": "card.religions.034.c7",
+      "type": "mcq",
+      "questionId": "question.religions.034.q2"
+    },
+    {
+      "id": "card.religions.034.c8",
+      "type": "mcq",
+      "questionId": "question.religions.034.q3"
+    },
+    {
+      "id": "card.religions.034.c9",
+      "type": "checkpoint",
+      "headline": "The Five Pillars: the takeaways",
+      "learned": [
+        "The Five Pillars: shahada, salat, zakat, sawm and hajj",
+        "They run on three clocks: daily prayer, a yearly fast and zakat, a once-in-a-lifetime hajj",
+        "Zakat is 2.5 percent of savings, given as worship"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.034.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.pillars_five"
+      ],
+      "sourceCardIds": [
+        "card.religions.034.c2"
+      ],
+      "prompt": "Which pillar of Islam is the pilgrimage to Mecca?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Shahada",
+          "correct": false,
+          "rationale": "That's the profession of faith."
+        },
+        {
+          "id": "b",
+          "label": "Zakat",
+          "correct": false,
+          "rationale": "That's giving to the poor."
+        },
+        {
+          "id": "c",
+          "label": "Sawm",
+          "correct": false,
+          "rationale": "That's the Ramadan fast."
+        },
+        {
+          "id": "d",
+          "label": "Hajj",
+          "correct": true
+        }
+      ],
+      "explanation": "The hajj is the pilgrimage to Mecca, due once in a lifetime for those able.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.religions.034.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.pillars_life_rhythm"
+      ],
+      "sourceCardIds": [
+        "card.religions.034.c4"
+      ],
+      "prompt": "How do the Five Pillars spread across a Muslim's time?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Prayer weekly, fasting daily, hajj every year",
+          "correct": false,
+          "rationale": "Prayer is five times a day, and the hajj is once in a lifetime."
+        },
+        {
+          "id": "b",
+          "label": "Prayer daily, zakat and fasting yearly, hajj once",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "All of them once a year, during Ramadan",
+          "correct": false,
+          "rationale": "Only the fast belongs to Ramadan."
+        },
+        {
+          "id": "d",
+          "label": "Only the shahada repeats; the rest happen once",
+          "correct": false,
+          "rationale": "Prayer, zakat and fasting all repeat."
+        }
+      ],
+      "explanation": "Salat is daily; zakat and the Ramadan fast come yearly; the hajj is due at least once in a lifetime.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.034.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.pillars_five",
+        "concept.religions.islam_tawhid"
+      ],
+      "sourceCardIds": [
+        "card.religions.034.c3",
+        "card.religions.033.c1"
+      ],
+      "prompt": "Level 33 taught tawhid, the oneness of God. Which pillar puts tawhid into words?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Zakat",
+          "correct": false,
+          "rationale": "Zakat is giving to the poor."
+        },
+        {
+          "id": "b",
+          "label": "Salat",
+          "correct": false,
+          "rationale": "Salat is the daily prayer."
+        },
+        {
+          "id": "c",
+          "label": "The shahada",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Sawm",
+          "correct": false,
+          "rationale": "Sawm is the Ramadan fast."
+        }
+      ],
+      "explanation": "The shahada, \"There is no god but God\", expresses tawhid and is the first pillar.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.bbc_islam_five_pillars",
+    "source.bbc_islam_shahadah",
+    "source.bbc_islam_zakat",
+    "source.brit_pillars_of_islam",
+    "source.brit_hajj",
+    "source.brit_tawhid"
+  ],
+  "art": "rel.mosque"
+}

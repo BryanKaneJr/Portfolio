@@ -1,0 +1,215 @@
+{
+  "id": "level.mind.philosophy.035",
+  "skillId": "skill.mind.philosophy",
+  "number": 35,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Can Machines Think?",
+  "objective": "After this level you can explain Alan Turing's 1950 imitation game and what passing it would and would not show.",
+  "summary": "Turing’s 1950 imitation game asks whether a machine’s typed answers can fool an interrogator; the argument from consciousness and Block’s Blockhead ask what passing would show.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.mind_turing_test",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.mind_functionalism",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.034"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.035.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Can machines think? Turing thought that was the wrong question.",
+      "body": "In 1950 he swapped it for a game you could actually play."
+    },
+    {
+      "id": "card.philosophy.035.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The imitation game",
+      "body": "Picture three players. An interrogator sits in a separate room and puts questions to two hidden players, who answer in typed text, so tone of voice can’t help. In Turing’s first version, the task is to tell which player is the man and which is the woman. Then comes the twist: a machine takes one of the seats. Can the interrogator still tell?"
+    },
+    {
+      "id": "card.philosophy.035.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Turing’s bet",
+      "body": "In “Computing Machinery and Intelligence”, Turing called “Can machines think?” too meaningless to deserve discussion. His game offered a sharper target. He predicted that in about 50 years, computers would play so well that an average interrogator would have no more than a 70 percent chance of picking correctly after five minutes of questions."
+    },
+    {
+      "id": "card.philosophy.035.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "But does it feel anything?",
+      "body": "Turing tackled objections himself. Professor Jefferson had argued in 1949 that a machine must feel its thoughts, not merely produce symbols. Turing replied that, strictly, you can’t be sure anyone but you thinks either. You judge others by how they respond, and keep what he called “the polite convention that everyone thinks”. Why not extend it to machines?"
+    },
+    {
+      "id": "card.philosophy.035.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "The giant look-up table",
+      "body": "So what would passing show? Ned Block imagined “Blockhead”, run by a vast look-up tree with a programmed reply stored for every possible input. It could answer every question just as you would, while only looking things up. Critics take Blockhead to show that passing the test isn’t enough for intelligence: it gives the right answers without thinking them through."
+    },
+    {
+      "id": "card.philosophy.035.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.035.q1"
+    },
+    {
+      "id": "card.philosophy.035.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.035.q2"
+    },
+    {
+      "id": "card.philosophy.035.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.035.q3"
+    },
+    {
+      "id": "card.philosophy.035.c9",
+      "type": "checkpoint",
+      "headline": "Can Machines Think?: the big picture",
+      "learned": [
+        "Turing’s imitation game, from 1950",
+        "Can an interrogator tell machine from human?",
+        "Turing: “the polite convention that everyone thinks”",
+        "Blockhead: passing may not be thinking"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.035.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.mind_turing_test"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.035.c2"
+      ],
+      "prompt": "In Turing’s imitation game, how do the hidden players answer the interrogator?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Face to face, across a table in the same room",
+          "correct": false,
+          "rationale": "The interrogator is in a separate room."
+        },
+        {
+          "id": "b",
+          "label": "In typed text, so voice gives nothing away",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Through brain scans",
+          "correct": false,
+          "rationale": "The game looks only at answers."
+        },
+        {
+          "id": "d",
+          "label": "By drawing pictures",
+          "correct": false,
+          "rationale": "Answers are typed."
+        }
+      ],
+      "explanation": "The interrogator sits apart and gets typewritten answers, so tone of voice can’t help.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.philosophy.035.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.mind_turing_test"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.035.c3"
+      ],
+      "prompt": "How did Turing propose to handle the question “Can machines think?”",
+      "options": [
+        {
+          "id": "a",
+          "label": "Open up machines to look for thoughts inside their circuits",
+          "correct": false,
+          "rationale": "The game looks only at the conversation."
+        },
+        {
+          "id": "b",
+          "label": "Wait until machines report feelings",
+          "correct": false,
+          "rationale": "He replaced the question with a game."
+        },
+        {
+          "id": "c",
+          "label": "Swap it for whether a machine’s answers can fool an interrogator",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Ban the question from science",
+          "correct": false,
+          "rationale": "He replaced it, he didn’t ban it."
+        }
+      ],
+      "explanation": "Turing called the original question too meaningless to deserve discussion and replaced it with the imitation game.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.philosophy.035.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.mind_turing_test",
+        "concept.philosophy.mind_functionalism"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.035.c5",
+        "card.philosophy.034.c4"
+      ],
+      "prompt": "Level 34 compared minds to programs. What does Ned Block’s Blockhead suggest about a program that passes Turing’s test?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It must have experiences just like ours, since it passes",
+          "correct": false,
+          "rationale": "Blockhead is meant to show the opposite."
+        },
+        {
+          "id": "b",
+          "label": "It could pass by looking up stored replies, without thinking",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It proves the program runs on neurons",
+          "correct": false,
+          "rationale": "Blockhead isn’t about neurons."
+        },
+        {
+          "id": "d",
+          "label": "It shows the interrogator was a machine",
+          "correct": false,
+          "rationale": "The interrogator isn’t in question."
+        }
+      ],
+      "explanation": "Blockhead gives the right answers from a giant look-up tree, so passing the test may not be enough for intelligence.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.sep_turing_test",
+    "source.umbc_turing_1950"
+  ],
+  "art": "phil.retro-terminal"
+}

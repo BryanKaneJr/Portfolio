@@ -1,0 +1,216 @@
+{
+  "id": "level.world_systems.computers.054",
+  "skillId": "skill.world_systems.computers",
+  "number": 54,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Two-Factor and Passkeys",
+  "objective": "After this level you can explain why a second factor, or a passkey that never leaves your device, stops most stolen-password attacks.",
+  "summary": "Multifactor authentication adds a second kind of proof, so a stolen password alone fails; codes can still be phished, but passkeys keep the private key on your device and work only on the real site.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.security_second_factor",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.security_passkeys",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.security_password_hashing",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.053"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.054.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Someone has your password. Now what?",
+      "body": "Maybe it leaked in a breach. Maybe you typed it into the wrong page. With a password alone, that's game over. Add one more lock, and the stolen password stops being enough."
+    },
+    {
+      "id": "card.computers.054.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Know, have, are",
+      "body": "Multifactor authentication, often called two-factor, asks for two or more kinds of proof: something you know (a password), something you have (a phone or a security key) or something you are (a fingerprint or face). With it switched on, a thief who stole only your password is stuck at the second door."
+    },
+    {
+      "id": "card.computers.054.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Not all second doors are equal",
+      "body": "A fake login page can ask for your password and the 6-digit code from your phone at the same moment, then pass both straight on to the real site. That's why CISA ranks text and email codes as the weakest second factor and physical security keys as the best defense against phishing. Still, any second factor beats none."
+    },
+    {
+      "id": "card.computers.054.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Passkeys: nothing to steal",
+      "body": "A passkey swaps the password for a pair of keys. The private key stays on your device, and you unlock it the way you unlock your phone. The website stores only the public key, so there's no password on its server to steal. And each passkey is bound to the real website, so a look-alike page gets nothing it can use."
+    },
+    {
+      "id": "card.computers.054.c5",
+      "type": "mcq",
+      "questionId": "question.computers.054.q1"
+    },
+    {
+      "id": "card.computers.054.c6",
+      "type": "mcq",
+      "questionId": "question.computers.054.q2"
+    },
+    {
+      "id": "card.computers.054.c7",
+      "type": "mcq",
+      "questionId": "question.computers.054.q3"
+    },
+    {
+      "id": "card.computers.054.c8",
+      "type": "checkpoint",
+      "headline": "Logins: doubled up",
+      "learned": [
+        "MFA combines something you know, have and are",
+        "A stolen password alone can't open an MFA account",
+        "Phishing pages can relay codes; security keys resist that best",
+        "A passkey keeps its private key on your device and works only on the real site"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.054.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.security_second_factor"
+      ],
+      "sourceCardIds": [
+        "card.computers.054.c2"
+      ],
+      "prompt": "Which three kinds of proof can multifactor authentication combine?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Your name, your address and your birthday",
+          "correct": false,
+          "rationale": "Those are facts others can find; MFA uses know, have and are."
+        },
+        {
+          "id": "b",
+          "label": "Three different passwords",
+          "correct": false,
+          "rationale": "Three passwords are all the same kind: something you know."
+        },
+        {
+          "id": "c",
+          "label": "Something you know, have and are",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A username, an email and a phone number",
+          "correct": false,
+          "rationale": "Those identify you; they do not prove it."
+        }
+      ],
+      "explanation": "MFA mixes kinds of proof: something you know, something you have and something you are.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.054.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.security_second_factor"
+      ],
+      "sourceCardIds": [
+        "card.computers.054.c3"
+      ],
+      "prompt": "Why can a phishing page sometimes get past a text-message code?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Text codes never expire, so an old code still works later",
+          "correct": false,
+          "rationale": "The trick works in real time; expiry does not stop it."
+        },
+        {
+          "id": "b",
+          "label": "It asks for your password and code together, then passes both on",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Phones send the code to every website at once",
+          "correct": false,
+          "rationale": "The code goes only to you; the fake page asks you for it."
+        },
+        {
+          "id": "d",
+          "label": "The code is the same for everyone",
+          "correct": false,
+          "rationale": "Each code is different, but you can be tricked into typing it."
+        }
+      ],
+      "explanation": "A fake page collects the password and the fresh code at the same moment and relays them to the real site.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.054.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.security_passkeys",
+        "concept.computers.security_password_hashing"
+      ],
+      "sourceCardIds": [
+        "card.computers.054.c4",
+        "card.computers.052.c3"
+      ],
+      "prompt": "Level 52's sites keep password hashes that thieves may copy. Why does a passkey leave a site with even less worth stealing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The site stores only a public key, with no password at all",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The site stores the private key in a stronger blender",
+          "correct": false,
+          "rationale": "The private key never goes to the site; it stays on your device."
+        },
+        {
+          "id": "c",
+          "label": "Passkeys are hashed twice",
+          "correct": false,
+          "rationale": "A passkey replaces the password with a key pair."
+        },
+        {
+          "id": "d",
+          "label": "The site deletes the passkey after each login",
+          "correct": false,
+          "rationale": "The site keeps the public key for next time."
+        }
+      ],
+      "explanation": "With a passkey the site holds just the public key, so a breach finds no password or hash to crack.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.cisa_phishing_resistant_mfa",
+    "source.cisa_mfa",
+    "source.fido_passkeys",
+    "source.ncsc_passkeys_blog",
+    "source.owasp_password_storage"
+  ],
+  "art": "computers.key-fob"
+}

@@ -1,0 +1,220 @@
+{
+  "id": "level.science.astronomy.021",
+  "skillId": "skill.science.astronomy",
+  "number": 21,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The First Sky-Watchers",
+  "objective": "After this level you can explain how ancient cultures used the sky to keep calendars and navigate.",
+  "summary": "The sky was humanity’s first calendar and map: monuments, floods, eclipses and ocean voyages were all timed by it.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.ancient_sky_calendars",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.star_navigation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.earth_orbit_year",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.sky_rises_east",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.020"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.021.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Long before clocks, the sky was the clock.",
+      "body": "No watches, no wall calendars, no GPS. So how did people know when to plant, when to celebrate, or which way lay home across the sea? They read the sky, the same patterns you learned in Chapter 2."
+    },
+    {
+      "id": "card.astronomy.021.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Calendars in stone and stars",
+      "body": "Stonehenge in England is a calendar you can walk around. Its stones line up with the midsummer sunrise and the midwinter sunset, so the Sun itself marks the turning points of the year. In ancient Egypt, the alarm clock was a star. When Sirius made its first dawn appearance each year, Egyptians linked it with the start of the Nile's annual flood. Farmers everywhere check the weather. The Egyptians checked a star."
+    },
+    {
+      "id": "card.astronomy.021.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Records that predicted the sky",
+      "body": "The Babylonians took another route: they wrote everything down. Their astronomers recorded the positions of the Moon and planets on clay tablets, night after night. Those records became good enough to predict eclipses. They didn't need to know what caused an eclipse. They only needed to know when the last ones happened. Data science, in clay."
+    },
+    {
+      "id": "card.astronomy.021.c4",
+      "type": "fact",
+      "fact": "Polynesian navigators crossed thousands of kilometers of open Pacific Ocean by reading the sky.",
+      "context": "They knew the points on the horizon where particular stars rise and set, and steered by them, with ocean swells and wildlife as backup clues. Stars rise in the east because Earth spins (Level 11), so a known star coming up over the water points the way. The whole night sky, used as a compass."
+    },
+    {
+      "id": "card.astronomy.021.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.021.q1"
+    },
+    {
+      "id": "card.astronomy.021.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.021.q2"
+    },
+    {
+      "id": "card.astronomy.021.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.021.q3"
+    },
+    {
+      "id": "card.astronomy.021.c8",
+      "type": "checkpoint",
+      "headline": "Ancient astronomy: discovered",
+      "learned": [
+        "The sky was humanity’s first calendar",
+        "Stonehenge aligns with the solstice Sun",
+        "Babylonian records predicted eclipses",
+        "Polynesians navigated oceans by the stars"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.021.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.ancient_sky_calendars"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.021.c2"
+      ],
+      "prompt": "What is Stonehenge aligned with?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The North Star on the longest night",
+          "correct": false,
+          "rationale": "Its alignment is with the Sun."
+        },
+        {
+          "id": "b",
+          "label": "The first dawn rising of Sirius each year",
+          "correct": false,
+          "rationale": "Sirius mattered in ancient Egypt."
+        },
+        {
+          "id": "c",
+          "label": "The path of a total solar eclipse",
+          "correct": false,
+          "rationale": "Eclipses don’t repeat at the same place like that."
+        },
+        {
+          "id": "d",
+          "label": "The midsummer sunrise and midwinter sunset",
+          "correct": true
+        }
+      ],
+      "explanation": "Stonehenge lines up with the Sun at the solstices: sunrise at midsummer and sunset at midwinter.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.021.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.ancient_sky_calendars"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.021.c3"
+      ],
+      "prompt": "How could Babylonian astronomers predict eclipses without knowing what caused them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their long records of the Moon and planets",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They measured the Moon’s shadow",
+          "correct": false,
+          "rationale": "They worked from records of when eclipses happened."
+        },
+        {
+          "id": "c",
+          "label": "They used telescopes",
+          "correct": false,
+          "rationale": "Telescopes came thousands of years later."
+        },
+        {
+          "id": "d",
+          "label": "They calculated orbits with gravity",
+          "correct": false,
+          "rationale": "Newton’s gravity came much later."
+        }
+      ],
+      "explanation": "The Babylonians recorded the positions of the Moon and planets on clay tablets and used those records to predict eclipses.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.021.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.star_navigation",
+        "concept.astronomy.sky_rises_east"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.021.c4",
+        "card.astronomy.011.c3"
+      ],
+      "prompt": "From Level 11: why could Polynesian navigators use a star’s rising point on the horizon to steer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each star rises at a different point every night",
+          "correct": false,
+          "rationale": "If they did, they’d be useless for steering."
+        },
+        {
+          "id": "b",
+          "label": "Earth’s spin brings each star up in the east the same way every night",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Stars only rise and set in the northern sky",
+          "correct": false,
+          "rationale": "Stars rise all along the eastern horizon."
+        },
+        {
+          "id": "d",
+          "label": "The Moon lines up with a new star each night",
+          "correct": false,
+          "rationale": "The Moon’s position doesn’t set where stars rise."
+        }
+      ],
+      "explanation": "Earth’s spin makes each star rise in the east night after night, so navigators who knew where a star comes up could steer by it.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_stonehenge",
+    "source.brit_sirius",
+    "source.brit_babylonian_astronomy",
+    "source.brit_polynesian_navigation",
+    "source.nasa_earth_perihelion"
+  ],
+  "art": "astronomy.orrery"
+}

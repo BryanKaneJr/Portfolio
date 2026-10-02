@@ -1,0 +1,226 @@
+{
+  "id": "level.arts.literature.016",
+  "skillId": "skill.arts.literature",
+  "number": 16,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Sundiata, the Epic of Mali",
+  "objective": "After this level you can retell the epic of Mali's founder and explain how griots have kept it alive by performance.",
+  "summary": "Sundiata Keita founded Mali in the 13th century. In the epic, the boy who could not walk stands up on an iron bar and defeats Sumanguru at Kirina. Griots, many with the kora, keep it alive.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.sundiata_story",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.griot_performance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.type_scenes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.015"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.016.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Mali's founder was a boy who couldn't walk.",
+      "body": "Sundiata Keita, who died in 1255, founded the Mali Empire in West Africa. We know his life from oral traditions repeated by griots, West Africa's storytellers. Here's the story they tell, and then the storytellers themselves."
+    },
+    {
+      "id": "card.literature.016.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The boy who stood up",
+      "body": "In the epic, Sogolon's son can't walk as a child, and he and his mother are mocked at court. Then, in one great effort, he pulls himself to his feet on a huge iron bar, and the bar bends into the shape of a bow. The boy everyone laughed at is standing, and the bar isn't."
+    },
+    {
+      "id": "card.literature.016.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Exile and return",
+      "body": "Here the epic meets history. Sumanguru, ruler of a neighboring state, overran Sundiata's homeland and killed his brothers, sparing him because he was a sickly boy. Sundiata went into exile, then came back and defeated Sumanguru decisively at the Battle of Kirina, about 1235."
+    },
+    {
+      "id": "card.literature.016.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The griot's kora",
+      "body": "Griots, called jeli in the Mande languages, are hereditary troubadour-historians. They preserve genealogies, histories and oral traditions, and many play the kora, a long-necked harp lute with 21 strings. In 1960 Djibril Tamsir Niane published a French retelling of the epic, presented as told by the griot Djeli Mamadou Kouyate. Even on paper, a griot does the talking.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "This connects to Level 6: like Homer's singers, griots carry an epic by voice, not by page."
+      }
+    },
+    {
+      "id": "card.literature.016.c5",
+      "type": "mcq",
+      "questionId": "question.literature.016.q1"
+    },
+    {
+      "id": "card.literature.016.c6",
+      "type": "mcq",
+      "questionId": "question.literature.016.q2"
+    },
+    {
+      "id": "card.literature.016.c7",
+      "type": "mcq",
+      "questionId": "question.literature.016.q3"
+    },
+    {
+      "id": "card.literature.016.c8",
+      "type": "checkpoint",
+      "headline": "Sundiata: heard",
+      "learned": [
+        "Sundiata Keita founded Mali; he died in 1255",
+        "The boy who couldn't walk stood up on an iron bar",
+        "He beat Sumanguru at Kirina, about 1235",
+        "Griots keep the epic alive, many with the kora"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.016.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.griot_performance"
+      ],
+      "sourceCardIds": [
+        "card.literature.016.c4"
+      ],
+      "prompt": "Which instrument do many griots play?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The lyre",
+          "correct": false,
+          "rationale": "That's linked with Greek singers."
+        },
+        {
+          "id": "b",
+          "label": "The kora",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The sitar",
+          "correct": false,
+          "rationale": "That's an Indian instrument."
+        },
+        {
+          "id": "d",
+          "label": "The bagpipes",
+          "correct": false,
+          "rationale": "Not a griot's instrument."
+        }
+      ],
+      "explanation": "Many griots play the kora, a long-necked harp lute with 21 strings.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.016.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.griot_performance",
+        "concept.literature.sundiata_story"
+      ],
+      "sourceCardIds": [
+        "card.literature.016.c1",
+        "card.literature.016.c4"
+      ],
+      "prompt": "How has Sundiata's story been kept alive for centuries?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sundiata wrote it down himself",
+          "correct": false,
+          "rationale": "It lived in oral tradition."
+        },
+        {
+          "id": "b",
+          "label": "Monks copied it onto parchment",
+          "correct": false,
+          "rationale": "Griots kept it, by voice."
+        },
+        {
+          "id": "c",
+          "label": "It was carved on stone at Kirina",
+          "correct": false,
+          "rationale": "It's an oral epic."
+        },
+        {
+          "id": "d",
+          "label": "Griots have passed it on by performance",
+          "correct": true
+        }
+      ],
+      "explanation": "Sundiata's life is known from oral traditions repeated by griots, hereditary keepers of history.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.literature.016.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.griot_performance",
+        "concept.literature.type_scenes"
+      ],
+      "sourceCardIds": [
+        "card.literature.016.c4",
+        "card.literature.016.c1",
+        "card.literature.006.c3"
+      ],
+      "prompt": "Level 6 showed Homer's singers reshaping stories in performance. What do griots share with them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They pass epics on by voice",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They compose in dactylic hexameter",
+          "correct": false,
+          "rationale": "That's Homer's Greek meter."
+        },
+        {
+          "id": "c",
+          "label": "They write on clay tablets",
+          "correct": false,
+          "rationale": "That was Mesopotamia's writing."
+        },
+        {
+          "id": "d",
+          "label": "They avoid music altogether",
+          "correct": false,
+          "rationale": "Many play the kora."
+        }
+      ],
+      "explanation": "Like Homer's singers, griots keep an epic alive through the spoken and sung word.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_sundiata",
+    "source.worldhistory_sundiata",
+    "source.bu_sundiata_study_guide",
+    "source.brit_sundiata_niane",
+    "source.brit_griot",
+    "source.brit_kora",
+    "source.brit_homer",
+    "source.oraltradition_edwards_type_scene"
+  ],
+  "art": "lit.kora"
+}

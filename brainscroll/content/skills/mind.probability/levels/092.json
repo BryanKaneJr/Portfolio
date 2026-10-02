@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.probability.092",
+  "skillId": "skill.mind.probability",
+  "number": 92,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "A/B Tests: Experiments on You",
+  "objective": "After this level you can explain how apps and websites run randomized experiments on their users and what those tests can show.",
+  "summary": "An A/B test randomly splits users between two versions. Bing found a 12% revenue gain this way, yet most tested ideas fail, and a test answers only the question its numbers ask.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.news_ab_testing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.news_ab_test_limits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.percentage_points",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.091"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.092.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "An ignored Bing idea turned out to be worth over $100 million a year.",
+      "body": "In 2012 a Microsoft employee suggested changing how Bing showed ad headlines. It was cheap to build but ranked low priority, so it waited more than six months. Then an engineer simply tested it on real users."
+    },
+    {
+      "id": "card.probability.092.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "How an A/B test works",
+      "body": "Version A is what users already get: the control. Version B has one change. Each user is randomly assigned to one version, and then the numbers are compared. Because chance, not the user, decides who sees what, a clear difference points to the change itself. Bing's test found the new headlines raised revenue by 12%, more than $100 million a year in the US alone."
+    },
+    {
+      "id": "card.probability.092.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Most bright ideas fail",
+      "body": "Microsoft, Amazon, Booking.com, Facebook and Google each run more than 10,000 of these experiments a year. The humbling result: at Google and Bing, only about 10% to 20% of experiments produce a positive result. Across Microsoft, about a third of ideas help, a third do nothing and a third make things worse. Even experts often misjudge which is which. That's exactly why they test."
+    },
+    {
+      "id": "card.probability.092.c4",
+      "type": "fact",
+      "fact": "A test only answers the question its numbers ask.",
+      "context": "Bing found that worse search results make people search more and click more ads, so both numbers rise. Those gains wouldn't last: frustrated users would eventually switch to another search engine. An A/B test can show that a change moved a number. Choosing numbers that match the long-term goal is the hard part."
+    },
+    {
+      "id": "card.probability.092.c5",
+      "type": "mcq",
+      "questionId": "question.probability.092.q1"
+    },
+    {
+      "id": "card.probability.092.c6",
+      "type": "mcq",
+      "questionId": "question.probability.092.q2"
+    },
+    {
+      "id": "card.probability.092.c7",
+      "type": "recall",
+      "questionId": "question.probability.092.q3"
+    },
+    {
+      "id": "card.probability.092.c8",
+      "type": "checkpoint",
+      "headline": "A/B tests: explained",
+      "learned": [
+        "A/B test: randomly split users between two versions",
+        "Bing's quick test: 12% more revenue",
+        "Most tested ideas don't help",
+        "A test answers only the question its numbers ask"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.092.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.news_ab_testing"
+      ],
+      "sourceCardIds": [
+        "card.probability.092.c2"
+      ],
+      "prompt": "In an A/B test, what decides whether a user sees version A or version B?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The user picks the version they prefer",
+          "correct": false,
+          "rationale": "Then the groups would differ in who chose what."
+        },
+        {
+          "id": "b",
+          "label": "Engineers pick the users most likely to click",
+          "correct": false,
+          "rationale": "That would stack the deck."
+        },
+        {
+          "id": "c",
+          "label": "Random assignment",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The user's past purchases",
+          "correct": false,
+          "rationale": "Chance decides, not history."
+        }
+      ],
+      "explanation": "Users are randomly assigned, so a clear difference between the groups points to the change itself.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.092.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.news_ab_test_limits"
+      ],
+      "sourceCardIds": [
+        "card.probability.092.c4"
+      ],
+      "prompt": "A recipe app tests a new search page, and users run many more searches per visit. Using Bing's lesson, why shouldn't the team celebrate yet?",
+      "options": [
+        {
+          "id": "a",
+          "label": "More searches can mean people struggle to find what they want",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Search counts can't be measured properly in an A/B test",
+          "correct": false,
+          "rationale": "They can; the question is what they mean."
+        },
+        {
+          "id": "c",
+          "label": "A/B tests only work for measuring ad revenue, not searches",
+          "correct": false,
+          "rationale": "They test any change, as Bing's thousands of tests show."
+        },
+        {
+          "id": "d",
+          "label": "Random groups always give the same result, so it's luck",
+          "correct": false,
+          "rationale": "Then nothing could ever be learned."
+        }
+      ],
+      "explanation": "At Bing, worse results made people search more. A number going up is only good news if it tracks the real goal.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.092.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.news_ab_testing",
+        "concept.probability.percentage_points"
+      ],
+      "sourceCardIds": [
+        "card.probability.092.c2",
+        "card.probability.005.c2",
+        "card.probability.005.c3"
+      ],
+      "prompt": "In an A/B test, 4 in 100 users click version A's button and 5 in 100 click version B's. Which description is right?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Up 1 percent, a small rise",
+          "correct": false,
+          "rationale": "The share grew by a quarter, not by 1 percent."
+        },
+        {
+          "id": "b",
+          "label": "Up 5 percentage points, a 5% rise",
+          "correct": false,
+          "rationale": "Subtract: 5% minus 4% is 1 point."
+        },
+        {
+          "id": "c",
+          "label": "Up 20 percentage points, a 20% rise",
+          "correct": false,
+          "rationale": "Points are a plain subtraction of the two shares."
+        },
+        {
+          "id": "d",
+          "label": "Up 1 percentage point, a 25% rise",
+          "correct": true
+        }
+      ],
+      "explanation": "From 4% to 5% is 1 percentage point (subtract), and 1 ÷ 4 = 0.25, a 25% rise (divide by the start).",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.hbr_online_experiments_2017",
+    "source.journalistsresource_percent_change",
+    "source.openstax_prealgebra_percent_applications"
+  ],
+  "art": "technology.smartphone"
+}

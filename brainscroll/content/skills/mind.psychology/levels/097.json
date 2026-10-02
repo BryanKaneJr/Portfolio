@@ -1,0 +1,223 @@
+{
+  "id": "level.mind.psychology.097",
+  "skillId": "skill.mind.psychology",
+  "number": 97,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Replication Crisis",
+  "objective": "After this level you can explain why many psychology findings failed to replicate and what psychologists changed as a result.",
+  "summary": "When 100 psychology studies were repeated in 2015, only about a third found their result again. Flexible analysis and publication bias explain much of it, and Registered Reports are one fix.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.replication_crisis",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.replication_causes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.replication_reforms",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.measuring_the_mind",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.096"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.097.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "What happens when you rerun 100 published psychology studies?",
+      "body": "Level 1 said psychologists publish results so others can repeat them. In 2015 a large team, the Open Science Collaboration, actually did that for 100 studies at once. The results shook the field."
+    },
+    {
+      "id": "card.psychology.097.c2",
+      "type": "fact",
+      "fact": "Only 36 percent of the repeated studies found a significant result again.",
+      "context": "Of the 100 originals, from three psychology journals, 97 percent had reported significant results. On the repeats, effects averaged about half their original size. That gap became the headline of what's called the replication crisis.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Keep this: one striking result is a lead, not a law. Repeats decide."
+      }
+    },
+    {
+      "id": "card.psychology.097.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "How to make the Beatles take years off",
+      "body": "In 2011 Joseph Simmons, Leif Nelson and Uri Simonsohn showed how false findings get made. Using flexible choices that are easy to leave unreported, like when to stop collecting data or which measures to report, they \"found\" that listening to the Beatles song \"When I'm Sixty-Four\" made people nearly a year and a half younger. Impossible, of course. That was the point: undisclosed flexibility can make almost anything look significant."
+    },
+    {
+      "id": "card.psychology.097.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fixing the pipeline",
+      "body": "Psychologists changed how studies get published. In a Registered Report, a journal peer-reviews the plan before any data are collected and accepts it in principle, whatever the results. That removes the reward for tiny samples, selective reporting and publication bias, the tilt toward positive results. The format began around 2013 at the journal Cortex, and over 300 journals now offer it."
+    },
+    {
+      "id": "card.psychology.097.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.097.q1"
+    },
+    {
+      "id": "card.psychology.097.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.097.q2"
+    },
+    {
+      "id": "card.psychology.097.c7",
+      "type": "recall",
+      "questionId": "question.psychology.097.q3"
+    },
+    {
+      "id": "card.psychology.097.c8",
+      "type": "checkpoint",
+      "headline": "The replication crisis",
+      "learned": [
+        "2015: only 36 of 100 repeats found the result again",
+        "Undisclosed flexibility can make anything look real",
+        "Publication bias favors positive results",
+        "Registered Reports accept the plan before the data"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.097.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.replication_crisis"
+      ],
+      "sourceCardIds": [
+        "card.psychology.097.c2"
+      ],
+      "prompt": "When the Open Science Collaboration repeated 100 psychology studies, about what share found a significant result again?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 10 percent",
+          "correct": false,
+          "rationale": "It was higher than that."
+        },
+        {
+          "id": "b",
+          "label": "About 36 percent",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 75 percent",
+          "correct": false,
+          "rationale": "It was much lower than that."
+        },
+        {
+          "id": "d",
+          "label": "About 97 percent",
+          "correct": false,
+          "rationale": "That was the share of the original studies."
+        }
+      ],
+      "explanation": "Only 36 percent of the repeats found a significant result, against 97 percent of the originals.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.psychology.097.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.replication_causes"
+      ],
+      "sourceCardIds": [
+        "card.psychology.097.c3"
+      ],
+      "prompt": "How did Simmons, Nelson and Simonsohn \"show\" that a Beatles song made listeners younger?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By inventing their participants' ages",
+          "correct": false,
+          "rationale": "The trick was flexible analysis choices, not invented data."
+        },
+        {
+          "id": "b",
+          "label": "By testing many thousands of people",
+          "correct": false,
+          "rationale": "Their point was about analysis choices, not sample size."
+        },
+        {
+          "id": "c",
+          "label": "By using flexible, unreported analysis choices",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "By repeating the study in dozens of labs",
+          "correct": false,
+          "rationale": "Repeating studies is how such flukes get caught."
+        }
+      ],
+      "explanation": "Undisclosed flexibility, like when to stop collecting data or which measures to report, can make an impossible result look significant.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.psychology.097.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.measuring_the_mind",
+        "concept.psychology.replication_reforms"
+      ],
+      "sourceCardIds": [
+        "card.psychology.001.c3",
+        "card.psychology.097.c4"
+      ],
+      "prompt": "Level 1 said psychologists publish results so others can repeat and check them. How do Registered Reports protect that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Journals accept the plan before the results are known",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Only studies with positive results get published",
+          "correct": false,
+          "rationale": "That's publication bias, the problem they remove."
+        },
+        {
+          "id": "c",
+          "label": "Results stay secret until someone repeats them",
+          "correct": false,
+          "rationale": "Registered Reports are still published openly."
+        },
+        {
+          "id": "d",
+          "label": "Authors pick their measures after seeing the data",
+          "correct": false,
+          "rationale": "That's the flexibility they're designed to block."
+        }
+      ],
+      "explanation": "In a Registered Report the plan is reviewed and accepted before data exist, so results get published whether or not they're positive.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.pubmed_osc_reproducibility_2015",
+    "source.psychsci_simmons_false_positive_2011",
+    "source.cos_registered_reports",
+    "source.openstax_psych_what_is_psychology"
+  ],
+  "art": "mind.clipboard"
+}

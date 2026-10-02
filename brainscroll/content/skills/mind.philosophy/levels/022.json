@@ -1,0 +1,215 @@
+{
+  "id": "level.mind.philosophy.022",
+  "skillId": "skill.mind.philosophy",
+  "number": 22,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Gettier Problem",
+  "objective": "After this level you can explain how Edmund Gettier's 1963 cases, like the job applicant with ten coins in his pocket, show a lucky true belief falling short of knowledge.",
+  "summary": "Gettier’s 1963 cases show a belief that is true, believed and justified yet true only by luck, so justified true belief is not enough for knowledge.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.knowledge_gettier",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.knowledge_jtb",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.021"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.022.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Right, careful and still wrong about knowing.",
+      "body": "In 1963 Edmund Gettier published a short paper that knocked over the three-legged stool from Level 21. His most famous case involves a job, a company president and ten coins."
+    },
+    {
+      "id": "card.philosophy.022.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Smith’s careful reasoning",
+      "body": "Smith and Jones have both applied for a job. The company president has told Smith that Jones will get it. Smith has also counted the coins in Jones’s pocket: ten. So Smith concludes, carefully and sensibly, that the person who will get the job has ten coins in his pocket. No guessing here. Good evidence, good inference."
+    },
+    {
+      "id": "card.philosophy.022.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The twist",
+      "body": "Then Smith gets the job himself. And, unknown to him, he has ten coins in his own pocket too. So his belief is true, he believes it, and he’s justified. All three legs stand. Yet almost everyone agrees Smith didn’t know it. What made his belief true was luck: facts he had no idea about."
+    },
+    {
+      "id": "card.philosophy.022.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A stool that fell over",
+      "body": "Gettier’s article had a dramatic impact. Almost all epistemologists agreed that he had refuted the traditional definition of knowledge. Cases like his became known as Gettier cases, and the hunt was on for a fourth condition, JTB plus something, that would finally keep luck out."
+    },
+    {
+      "id": "card.philosophy.022.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Patching the leak",
+      "body": "One natural patch: a known belief can’t rest on anything false. Smith leaned on a false belief, that Jones would get the job. But this patch isn’t widely accepted, because Gettier cases don’t need false evidence. Luck finds other ways in. In Roderick Chisholm’s sheep in the field, you see what looks exactly like a sheep and believe a sheep is in the field. You’re right: one is hidden behind a hill. What you saw was a dog in disguise."
+    },
+    {
+      "id": "card.philosophy.022.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.022.q1"
+    },
+    {
+      "id": "card.philosophy.022.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.022.q2"
+    },
+    {
+      "id": "card.philosophy.022.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.022.q3"
+    },
+    {
+      "id": "card.philosophy.022.c9",
+      "type": "checkpoint",
+      "headline": "The Gettier Problem: the big picture",
+      "learned": [
+        "Gettier’s 1963 job-and-coins case",
+        "True, believed, justified, yet lucky",
+        "Most agreed JTB was refuted",
+        "Patches like ’no false steps’ leak"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.022.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.knowledge_gettier"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.022.c2"
+      ],
+      "prompt": "In Gettier’s job case, what had Smith counted in Jones’s pocket?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Two keys",
+          "correct": false,
+          "rationale": "Keys play no part in the case."
+        },
+        {
+          "id": "b",
+          "label": "Ten coins",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A job offer letter",
+          "correct": false,
+          "rationale": "The president’s word was his other evidence."
+        },
+        {
+          "id": "d",
+          "label": "Three train tickets",
+          "correct": false,
+          "rationale": "No tickets appear in the case."
+        }
+      ],
+      "explanation": "Smith counted ten coins in Jones’s pocket and reasoned from there.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.philosophy.022.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.knowledge_gettier"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.022.c3"
+      ],
+      "prompt": "How does Smith’s belief about the coins end up true in Gettier’s case?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Smith gets the job and happens to have ten coins himself",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Jones gets the job, just as the president said",
+          "correct": false,
+          "rationale": "Jones doesn’t get the job; that’s the twist."
+        },
+        {
+          "id": "c",
+          "label": "Smith checks Jones’s pocket a second time",
+          "correct": false,
+          "rationale": "A second check isn’t what makes it true."
+        },
+        {
+          "id": "d",
+          "label": "The president changes the rules of the job",
+          "correct": false,
+          "rationale": "The rules don’t change."
+        }
+      ],
+      "explanation": "The belief comes true through facts Smith knew nothing about: he gets the job and has ten coins too.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.philosophy.022.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.knowledge_gettier",
+        "concept.philosophy.knowledge_jtb"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.022.c3",
+        "card.philosophy.021.c2"
+      ],
+      "prompt": "Level 21 said knowledge needs three legs. Which leg was missing from Smith’s belief?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Truth: his belief turned out false",
+          "correct": false,
+          "rationale": "His belief turned out true."
+        },
+        {
+          "id": "b",
+          "label": "Belief: he never accepted the conclusion",
+          "correct": false,
+          "rationale": "He did believe it."
+        },
+        {
+          "id": "c",
+          "label": "Justification: his evidence was weak",
+          "correct": false,
+          "rationale": "His evidence was good."
+        },
+        {
+          "id": "d",
+          "label": "None: all three stood, yet it wasn’t knowledge",
+          "correct": true
+        }
+      ],
+      "explanation": "Smith’s belief was true, believed and justified. That is why it counts against the three-part definition.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.iep_gettier",
+    "source.sep_knowledge_analysis"
+  ],
+  "art": "mind.coin"
+}

@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.probability.063",
+  "skillId": "skill.mind.probability",
+  "number": 63,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Why Flip a Coin to Pick Groups",
+  "objective": "After this level you can explain how random assignment balances hidden differences between groups, which is why it makes a fair test.",
+  "summary": "Random assignment lets chance pick the groups, so hidden differences spread evenly and only the treatment differs. The 1948 streptomycin trial used sealed random numbers.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.experiment_random_assignment",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.experiment_streptomycin_1948",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.one_in_n",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.062"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.063.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Lind never said how he chose which sailor got which remedy.",
+      "body": "Suppose he'd handed the oranges to the two strongest men. Their recovery would prove nothing. How you pick the groups can settle the result before the test even starts."
+    },
+    {
+      "id": "card.probability.063.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Let chance do the picking",
+      "body": "When researchers choose who gets a treatment, the groups can end up different in ways that bias the comparison, even with the best intentions. Random assignment takes the choice away. A coin, a die or a list of random numbers decides. A fair coin lands heads with probability 0.5, so every volunteer has a 50% chance of either group, whoever they are.",
+      "callout": "Random assignment: chance, not people, picks the groups."
+    },
+    {
+      "id": "card.probability.063.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "It balances what nobody measured",
+      "body": "Here's the clever part. People differ in countless ways: fitness, diet, how sick they are. With random assignment, those hidden differences get spread evenly among the groups, so the only difference left is the one the researchers imposed. You don't even need to know what the hidden differences are. Chance balances them anyway."
+    },
+    {
+      "id": "card.probability.063.c4",
+      "type": "fact",
+      "fact": "In 1948, sealed envelopes kept doctors from choosing.",
+      "context": "Britain's Medical Research Council was testing the antibiotic streptomycin on patients with tuberculosis of the lungs. Patients were allocated using random numbers, and the list was kept in sealed envelopes, unknown to the investigators, so no doctor could steer anyone into either group. It is often called the first randomized controlled trial in medicine."
+    },
+    {
+      "id": "card.probability.063.c5",
+      "type": "mcq",
+      "questionId": "question.probability.063.q1"
+    },
+    {
+      "id": "card.probability.063.c6",
+      "type": "mcq",
+      "questionId": "question.probability.063.q2"
+    },
+    {
+      "id": "card.probability.063.c7",
+      "type": "recall",
+      "questionId": "question.probability.063.q3"
+    },
+    {
+      "id": "card.probability.063.c8",
+      "type": "checkpoint",
+      "headline": "Random assignment",
+      "learned": [
+        "Chance, not people, picks the groups",
+        "Hidden differences spread evenly",
+        "1948: random numbers in sealed envelopes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.063.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.experiment_streptomycin_1948"
+      ],
+      "sourceCardIds": [
+        "card.probability.063.c4"
+      ],
+      "prompt": "In the 1948 streptomycin trial, what decided which patients got the drug?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The doctors' judgment of who needed it most",
+          "correct": false,
+          "rationale": "That's exactly what the trial avoided: doctors didn't choose."
+        },
+        {
+          "id": "b",
+          "label": "Each patient's own choice",
+          "correct": false,
+          "rationale": "Patients didn't pick; chance did."
+        },
+        {
+          "id": "c",
+          "label": "Which hospital the patient was in",
+          "correct": false,
+          "rationale": "Allocation came from random numbers, not the hospital."
+        },
+        {
+          "id": "d",
+          "label": "Random numbers kept in sealed envelopes",
+          "correct": true
+        }
+      ],
+      "explanation": "Random numbers, kept in sealed envelopes unknown to the investigators, decided who got streptomycin.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.063.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.experiment_random_assignment"
+      ],
+      "sourceCardIds": [
+        "card.probability.063.c3"
+      ],
+      "prompt": "How does random assignment handle differences between people that nobody measured?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Chance spreads them evenly among the groups",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It removes anyone who differs from the rest",
+          "correct": false,
+          "rationale": "Nobody is removed; chance balances the differences."
+        },
+        {
+          "id": "c",
+          "label": "It measures every difference before the trial",
+          "correct": false,
+          "rationale": "The beauty is that you don't need to measure them."
+        },
+        {
+          "id": "d",
+          "label": "It gives the treatment to the healthiest people",
+          "correct": false,
+          "rationale": "Choosing the healthiest would bias the test; chance avoids that."
+        }
+      ],
+      "explanation": "Random assignment spreads hidden differences evenly, so the only difference left between groups is the treatment.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.063.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.one_in_n",
+        "concept.probability.experiment_random_assignment"
+      ],
+      "sourceCardIds": [
+        "card.probability.007.c2",
+        "card.probability.063.c2"
+      ],
+      "prompt": "A coin toss gives each volunteer a 50% chance of the treatment group. Written as Level 7's \"1 in N\", that is:",
+      "options": [
+        {
+          "id": "a",
+          "label": "1 in 2",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "1 in 5",
+          "correct": false,
+          "rationale": "1 in 5 is 20%."
+        },
+        {
+          "id": "c",
+          "label": "1 in 50",
+          "correct": false,
+          "rationale": "1 in 50 is just 2%."
+        },
+        {
+          "id": "d",
+          "label": "1 in 100",
+          "correct": false,
+          "rationale": "1 in 100 is 1%."
+        }
+      ],
+      "explanation": "Divide 100 by the percent: 100 ÷ 50 = 2, so a 50% chance is 1 in 2.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.jll_streptomycin_randomization",
+    "source.jll_milne_lind",
+    "source.openstax_intro_stats_experimental_design",
+    "source.openstax_intro_stats_definitions"
+  ],
+  "art": "mind.coin"
+}

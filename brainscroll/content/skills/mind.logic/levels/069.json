@@ -1,0 +1,224 @@
+{
+  "id": "level.mind.logic.069",
+  "skillId": "skill.mind.logic",
+  "number": 69,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Spotting Pseudoscience",
+  "objective": "After this level you can spot pseudoscience by its untestable claims and its habit of moving the goalposts.",
+  "summary": "Pseudoscience is non-science posing as science. Two questions expose it: could its claims fail, and what do its promoters do when a test goes against them?",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.science_pseudoscience",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.indicator_words",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.science_falsifiability",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.science_ad_hoc_rescue",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.068"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "A bracelet that \"rebalances your energy field.\" Lab-inspired. Quantum-tuned.",
+      "body": "It sounds as if a lab made it. But sounding scientific and being scientific are different things. Two questions tell them apart, and neither needs a lab.",
+      "id": "card.logic.069.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Science in costume",
+      "body": "Many writers describe pseudoscience as non-science posing as science: it isn't scientific, but its promoters try to make it look that way. It can borrow the whole costume, with conferences, journals and associations that share science's surface features but not its quality standards. Remember Level 6's misleading \"so\"? The word alone proves nothing; the job it does is what counts.",
+      "id": "card.logic.069.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Question one: could it fail?",
+      "body": "One philosopher's list of warning signs includes an unwillingness to test, ignoring results that go against the theory, and tests arranged so the theory can only be confirmed, never disconfirmed. An \"energy field\" that no instrument could ever detect fails Level 62's test before it starts: there's no observation that could count against it.",
+      "id": "card.logic.069.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Question two: what happens after a miss?",
+      "body": "Many pseudoscientific claims have in fact been tested, and failed. What gives them away is the reply. Instead of accepting the result, promoters move the goalposts: they change the requirements after the attempt, so success always stays out of reach. \"It only works if you believe in it.\" That's Level 65's ad hoc rescue, used again and again.",
+      "id": "card.logic.069.c4",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Be kind to people and tough on claims. Ask: could it fail? And what happens when it does?"
+      }
+    },
+    {
+      "id": "card.logic.069.c5",
+      "type": "mcq",
+      "questionId": "question.logic.069.q1"
+    },
+    {
+      "id": "card.logic.069.c6",
+      "type": "mcq",
+      "questionId": "question.logic.069.q2"
+    },
+    {
+      "id": "card.logic.069.c7",
+      "type": "mcq",
+      "questionId": "question.logic.069.q3"
+    },
+    {
+      "id": "card.logic.069.c8",
+      "type": "checkpoint",
+      "headline": "Pseudoscience: spotted",
+      "learned": [
+        "Pseudoscience is non-science posing as science",
+        "Ask whether a claim could ever fail",
+        "Watch what happens after a failed test",
+        "Moving the goalposts is an ad hoc rescue on repeat"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.069.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.science_pseudoscience"
+      ],
+      "sourceCardIds": [
+        "card.logic.069.c2"
+      ],
+      "prompt": "How do many writers describe pseudoscience?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Early science that later proved right",
+          "correct": false,
+          "rationale": "That's just science that hasn't finished testing."
+        },
+        {
+          "id": "b",
+          "label": "Any science done outside a university",
+          "correct": false,
+          "rationale": "Where it happens is not the issue."
+        },
+        {
+          "id": "c",
+          "label": "Non-science posing as science",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Science that uses a lot of mathematics",
+          "correct": false,
+          "rationale": "Mathematics is not the issue."
+        }
+      ],
+      "explanation": "It isn't scientific, but its major proponents try to create the impression that it is.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.069.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.science_pseudoscience",
+        "concept.logic.science_ad_hoc_rescue"
+      ],
+      "sourceCardIds": [
+        "card.logic.069.c4"
+      ],
+      "prompt": "A remedy fails a fair test, and its seller says the test room \"blocked the energy\". How is the seller treating the result?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Accepting that the remedy failed",
+          "correct": false,
+          "rationale": "The seller refuses to accept it."
+        },
+        {
+          "id": "b",
+          "label": "Moving the goalposts to dodge the failure",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Making a risky new prediction",
+          "correct": false,
+          "rationale": "Nothing new could be checked here."
+        },
+        {
+          "id": "d",
+          "label": "Asking for the test to be replicated",
+          "correct": false,
+          "rationale": "The excuse rules out the test instead."
+        }
+      ],
+      "explanation": "Changing the requirements after a failed attempt, so success stays out of reach, is moving the goalposts.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.069.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.science_pseudoscience",
+        "concept.logic.indicator_words"
+      ],
+      "sourceCardIds": [
+        "card.logic.069.c2",
+        "card.logic.006.c4"
+      ],
+      "prompt": "Level 6 warned that a word like \"so\" doesn't prove an argument is there. What's the matching lesson for lab-sounding words?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lab words show a product was tested",
+          "correct": false,
+          "rationale": "Pseudoscience borrows the words without the testing."
+        },
+        {
+          "id": "b",
+          "label": "Long words are a sign a claim is false",
+          "correct": false,
+          "rationale": "Words alone prove nothing either way."
+        },
+        {
+          "id": "c",
+          "label": "A journal name makes a claim scientific",
+          "correct": false,
+          "rationale": "Pseudoscience can have journals too."
+        },
+        {
+          "id": "d",
+          "label": "Scientific words don't make a claim scientific",
+          "correct": true
+        }
+      ],
+      "explanation": "Just as \"so\" can appear without an argument, science words can appear without science. Check the job, not the vocabulary.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sep_pseudoscience",
+    "source.cambridge_move_the_goalposts",
+    "source.libretexts_vancleave_identifying_arguments"
+  ],
+  "art": "mind.logic-goalpost"
+}

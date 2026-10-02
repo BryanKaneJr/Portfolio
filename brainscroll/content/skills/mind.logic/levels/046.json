@@ -1,0 +1,207 @@
+{
+  "id": "level.mind.logic.046",
+  "skillId": "skill.mind.logic",
+  "number": 46,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Just a Coincidence?",
+  "objective": "After this level you can explain why, given enough chances, surprising coincidences are bound to happen.",
+  "summary": "Given enough people and chances, astonishing coincidences are bound to happen somewhere. Diaconis and Mosteller called it the law of truly large numbers.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.causal_coincidence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.causal_confounder",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.045"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "She won the New Jersey lottery twice. The paper said: 1 in 17 trillion.",
+      "body": "A woman's double win made the front page of The New York Times as a long shot. It sounds like fate, or a fix. Two statisticians later took the story apart and reached a far less spooky conclusion, and a far more useful one.",
+      "id": "card.logic.046.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The law of truly large numbers",
+      "body": "In 1989 the statisticians Persi Diaconis and Frederick Mosteller put it in one line: \"With a large enough sample, any outrageous thing is likely to happen.\" When enormous numbers of people and events pile up over time, almost any astonishing event is bound to turn up somewhere. The surprise is real. The mystery usually isn't.",
+      "id": "card.logic.046.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The wrong question",
+      "body": "That 1 in 17 trillion figure answered a not-very-relevant question: the chance that one ticket wins two particular draws. And she had bought multiple tickets, again and again. The question that matters is different. Out of the millions of people buying lottery tickets, will someone, somewhere, win twice? Asked that way, a double winner stops looking like a miracle.",
+      "id": "card.logic.046.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Two questions for any uncanny event",
+      "body": "Diaconis and Mosteller named other sources of coincidences too. Some have a hidden cause, Level 44's third factor in disguise. Memory plays its part: notable events stick while humdrum ones are forgotten. And we count near misses as matches. So when something uncanny happens, ask: how many chances were there? And is something hidden behind it?",
+      "id": "card.logic.046.c4"
+    },
+    {
+      "id": "card.logic.046.c5",
+      "type": "mcq",
+      "questionId": "question.logic.046.q1"
+    },
+    {
+      "id": "card.logic.046.c6",
+      "type": "mcq",
+      "questionId": "question.logic.046.q2"
+    },
+    {
+      "id": "card.logic.046.c7",
+      "type": "mcq",
+      "questionId": "question.logic.046.q3"
+    },
+    {
+      "id": "card.logic.046.c8",
+      "type": "checkpoint",
+      "headline": "Coincidence: explained",
+      "learned": [
+        "With enough chances, outrageous things happen",
+        "Ask the right question: to anyone, anywhere",
+        "Memory keeps the hits, drops the misses",
+        "Some coincidences hide a real cause"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.046.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.causal_coincidence"
+      ],
+      "sourceCardIds": [
+        "card.logic.046.c2"
+      ],
+      "prompt": "What does Diaconis and Mosteller's law of truly large numbers say?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Big samples always give the right answer",
+          "correct": false,
+          "rationale": "The law is about surprising events turning up, not accuracy."
+        },
+        {
+          "id": "b",
+          "label": "Rare events never happen to the same person",
+          "correct": false,
+          "rationale": "The opposite: with enough chances, even that turns up."
+        },
+        {
+          "id": "c",
+          "label": "With enough chances, outrageous things are likely",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Coincidences always have a hidden cause",
+          "correct": false,
+          "rationale": "Some do, but the law is about sheer numbers of chances."
+        }
+      ],
+      "explanation": "With a large enough sample, any outrageous thing is likely to happen.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.046.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.causal_coincidence"
+      ],
+      "sourceCardIds": [
+        "card.logic.046.c3"
+      ],
+      "prompt": "Why was a double lottery winner less astonishing than the front-page figure suggested?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Millions of people were playing, many repeatedly",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The lottery draws were rigged in her favor",
+          "correct": false,
+          "rationale": "Nothing suggests a fix; that's the spooky reading."
+        },
+        {
+          "id": "c",
+          "label": "The newspaper printed the wrong number",
+          "correct": false,
+          "rationale": "The number was correct, just for the wrong question."
+        },
+        {
+          "id": "d",
+          "label": "Winning twice is easy if you pick birthdays",
+          "correct": false,
+          "rationale": "Birthdays have nothing to do with it."
+        }
+      ],
+      "explanation": "The figure was for one ticket in two particular draws. The relevant question is whether anyone among millions of players wins twice.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.046.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.causal_coincidence",
+        "concept.logic.causal_confounder"
+      ],
+      "sourceCardIds": [
+        "card.logic.046.c4",
+        "card.logic.044.c2"
+      ],
+      "prompt": "Diaconis and Mosteller list \"hidden cause\" as one source of coincidence. Which earlier idea is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A premise nobody states",
+          "correct": false,
+          "rationale": "That's Level 7's unstated premise, part of an argument."
+        },
+        {
+          "id": "b",
+          "label": "A confounder behind both events",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A cause that comes second",
+          "correct": false,
+          "rationale": "That's the timing check from Level 45."
+        },
+        {
+          "id": "d",
+          "label": "A sample that is too small",
+          "correct": false,
+          "rationale": "Sample size isn't what a hidden cause means."
+        }
+      ],
+      "explanation": "Two events that seem to match by chance can share a hidden cause, Level 44's confounder.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.jasa_diaconis_mosteller_coincidences"
+  ],
+  "art": "nature.lightning"
+}

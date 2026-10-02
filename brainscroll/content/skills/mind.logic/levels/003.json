@@ -1,0 +1,216 @@
+{
+  "id": "level.mind.logic.003",
+  "skillId": "skill.mind.logic",
+  "number": 3,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Claims: True or False",
+  "objective": "After this level you can explain what a claim is and why only claims, not questions or commands, can be true or false.",
+  "summary": "A claim is a sentence that can be true or false, even a false one. Questions, commands and exclamations are neither, so they can't be premises or conclusions.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.claim_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.non_claims",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.argument_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.002"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"Are you sleepy yet?\" can't be true. It can't be false either.",
+      "body": "Try it: nobody answers a question with \"False!\" But reply \"I'm not sleepy\", and you've said something that is either true or false. That small difference decides what an argument can be built from.",
+      "id": "card.logic.003.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "What a claim is",
+      "body": "A claim, which logicians also call a statement, is a sentence that can be true or false. \"The Nile is a river in northeastern Africa\" is a claim, and a true one. \"The Yangtze is a river in Japan\" is a claim too, just a false one. Being wrong doesn't disqualify a sentence. It only has to be the kind of thing that could be right or wrong.",
+      "id": "card.logic.003.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Questions, commands and ouches",
+      "body": "Three kinds of sentence can't be true or false. Questions: \"Are you sleepy yet?\" Commands: \"Wake up!\" Exclamations: \"Ouch!\" None of them states how things are, so none of them is a claim. Answer the question, though, and you're back in business. Questions aren't claims; answers are.",
+      "id": "card.logic.003.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Why only claims count",
+      "body": "Level 2's arguments are built from statements: the reasons and the conclusion are all claims, because an argument tries to show that something is true. A command can't be a conclusion, since nothing could make \"Wake up!\" true. A claim can still join an argument when it turns out false. What matters is that asking \"true or false?\" makes sense.",
+      "id": "card.logic.003.c4"
+    },
+    {
+      "id": "card.logic.003.c5",
+      "type": "mcq",
+      "questionId": "question.logic.003.q1"
+    },
+    {
+      "id": "card.logic.003.c6",
+      "type": "mcq",
+      "questionId": "question.logic.003.q2"
+    },
+    {
+      "id": "card.logic.003.c7",
+      "type": "mcq",
+      "questionId": "question.logic.003.q3"
+    },
+    {
+      "id": "card.logic.003.c8",
+      "type": "checkpoint",
+      "headline": "Claims: sorted",
+      "learned": [
+        "A claim is a sentence that can be true or false",
+        "A false claim is still a claim",
+        "Questions, commands and exclamations aren't claims",
+        "Premises and conclusions are always claims"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.003.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.claim_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.003.c2"
+      ],
+      "prompt": "What makes a sentence a claim in logic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It can be true or false",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Most people agree with it",
+          "correct": false,
+          "rationale": "Agreement doesn't matter; claims can be unpopular."
+        },
+        {
+          "id": "c",
+          "label": "It is known to be true",
+          "correct": false,
+          "rationale": "False claims are still claims."
+        },
+        {
+          "id": "d",
+          "label": "It ends with a full stop",
+          "correct": false,
+          "rationale": "Punctuation isn't the test."
+        }
+      ],
+      "explanation": "A claim (or statement) is a sentence that can be true or false.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.003.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.non_claims",
+        "concept.logic.claim_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.003.c2",
+        "card.logic.003.c3"
+      ],
+      "prompt": "Which of these is a claim?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Are you sleepy yet?",
+          "correct": false,
+          "rationale": "A question is neither true nor false."
+        },
+        {
+          "id": "b",
+          "label": "Wake up!",
+          "correct": false,
+          "rationale": "A command is neither true nor false."
+        },
+        {
+          "id": "c",
+          "label": "Ouch!",
+          "correct": false,
+          "rationale": "An exclamation is neither true nor false."
+        },
+        {
+          "id": "d",
+          "label": "The Yangtze is a river in Japan.",
+          "correct": true
+        }
+      ],
+      "explanation": "It's false, but it's still a claim: it's the kind of sentence that can be true or false.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.003.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.claim_definition",
+        "concept.logic.non_claims",
+        "concept.logic.argument_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.003.c4",
+        "card.logic.002.c3"
+      ],
+      "prompt": "Why can't a command like \"Wake up!\" be the conclusion of an argument?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Commands are always too short",
+          "correct": false,
+          "rationale": "Length has nothing to do with it."
+        },
+        {
+          "id": "b",
+          "label": "A conclusion must be something that could be true",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Conclusions must already be known to be true",
+          "correct": false,
+          "rationale": "A conclusion only has to be able to be true or false."
+        },
+        {
+          "id": "d",
+          "label": "Arguments can contain only one sentence",
+          "correct": false,
+          "rationale": "An argument needs at least two statements."
+        }
+      ],
+      "explanation": "An argument tries to show that something is true, so its conclusion must be a claim.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.libretexts_vancleave_what_is_an_argument",
+    "source.forallx_calgary"
+  ],
+  "art": "mind.logic-light-switch"
+}

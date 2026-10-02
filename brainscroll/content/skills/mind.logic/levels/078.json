@@ -1,0 +1,213 @@
+{
+  "id": "level.mind.logic.078",
+  "skillId": "skill.mind.logic",
+  "number": 78,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "No True Scotsman",
+  "objective": "After this level you can spot the move that redefines a group to wave away a counterexample.",
+  "summary": "Antony Flew's Scotsman rescues a generalization by redefining the group after a counterexample. The claim survives but becomes true by definition and says nothing.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.persuasion_no_true_scotsman",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.factual_claims",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.077"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"No Scot would do such a thing!\" Then came the news from Aberdeen.",
+      "body": "In a story told by the philosopher Antony Flew, a Scotsman reads about a shocking crime in an English town and declares that no Scot would do such a thing. Soon he reads of something worse, done by a man in Aberdeen. His reply: \"No true Scotsman would do such a thing!\"",
+      "id": "card.logic.078.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The move",
+      "body": "Flew named the fallacy after that story. It's a rescue: faced with a counterexample to a generalization, the speaker redefines the group so the counterexample no longer counts. The claim survives, but only because the rules changed after the evidence came in.",
+      "id": "card.logic.078.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "True, and empty",
+      "body": "\"No real fan leaves early\" sounds like news about fans, something you could test at any stadium. After the rescue, anyone who leaves early isn't a real fan, so the claim is true by definition. It gains truth and loses information: now it tells you only how the speaker uses the word \"fan\".",
+      "id": "card.logic.078.c3",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "It connects: Level 4's factual claims can be checked. Once a claim is true by definition, there's nothing left to check."
+      }
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Warning signs",
+      "body": "Watch for \"true\", \"real\" and \"genuine\" in front of an ordinary noun: true fans, real cooks, genuine gamers. A strict definition can be fair, but it should be set out before the counterexample shows up. A standard invented afterward is just moving the goalposts. So ask before you look: what would count against this claim?",
+      "id": "card.logic.078.c4"
+    },
+    {
+      "id": "card.logic.078.c5",
+      "type": "mcq",
+      "questionId": "question.logic.078.q1"
+    },
+    {
+      "id": "card.logic.078.c6",
+      "type": "mcq",
+      "questionId": "question.logic.078.q2"
+    },
+    {
+      "id": "card.logic.078.c7",
+      "type": "mcq",
+      "questionId": "question.logic.078.q3"
+    },
+    {
+      "id": "card.logic.078.c8",
+      "type": "checkpoint",
+      "headline": "No true Scotsman: exposed",
+      "learned": [
+        "The move redefines a group to dodge a counterexample",
+        "Antony Flew named it after a story about a Scot",
+        "The claim becomes true by definition, and empty",
+        "Watch for \"true\", \"real\" and \"genuine\""
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.078.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.persuasion_no_true_scotsman"
+      ],
+      "sourceCardIds": [
+        "card.logic.078.c1",
+        "card.logic.078.c2"
+      ],
+      "prompt": "Which philosopher's story gave the \"No true Scotsman\" fallacy its name?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bertrand Russell",
+          "correct": false,
+          "rationale": "Russell gave the firm, obstinate, pig-headed conjugation."
+        },
+        {
+          "id": "b",
+          "label": "John Dewey",
+          "correct": false,
+          "rationale": "Dewey wrote about reflective thought."
+        },
+        {
+          "id": "c",
+          "label": "Aristotle",
+          "correct": false,
+          "rationale": "Aristotle sorted the three appeals."
+        },
+        {
+          "id": "d",
+          "label": "Antony Flew",
+          "correct": true
+        }
+      ],
+      "explanation": "Antony Flew named the move after his story of the Scotsman and the Aberdeen report.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.078.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.persuasion_no_true_scotsman"
+      ],
+      "sourceCardIds": [
+        "card.logic.078.c2"
+      ],
+      "prompt": "How does the \"No true Scotsman\" move protect a generalization?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It finds new evidence for the claim",
+          "correct": false,
+          "rationale": "No new evidence is offered."
+        },
+        {
+          "id": "b",
+          "label": "It redefines the group to shut out the counterexample",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It attacks the person who raised the counterexample",
+          "correct": false,
+          "rationale": "It changes a definition, not the subject."
+        },
+        {
+          "id": "d",
+          "label": "It admits the generalization was wrong",
+          "correct": false,
+          "rationale": "The whole point is to avoid admitting that."
+        }
+      ],
+      "explanation": "The counterexample is ruled out by redefining the group after the fact.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.078.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.persuasion_no_true_scotsman",
+        "concept.logic.factual_claims"
+      ],
+      "sourceCardIds": [
+        "card.logic.078.c3",
+        "card.logic.004.c2"
+      ],
+      "prompt": "After the rescue, why can't observation check \"No real fan leaves early\" any more?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It has become true by definition",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Fans' behavior can't be observed",
+          "correct": false,
+          "rationale": "You can watch who leaves; it just no longer counts."
+        },
+        {
+          "id": "c",
+          "label": "It has turned into a question",
+          "correct": false,
+          "rationale": "It's still a statement."
+        },
+        {
+          "id": "d",
+          "label": "It is now a matter of taste",
+          "correct": false,
+          "rationale": "It's a definition, not a taste."
+        }
+      ],
+      "explanation": "A factual claim can be checked by observation, but a claim true by definition can't be caught out by any fan.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.fallacyfiles_no_true_scotsman",
+    "source.iep_fallacies"
+  ],
+  "art": "mind.logic-goalpost"
+}

@@ -1,0 +1,216 @@
+{
+  "id": "level.arts.film_tv.041",
+  "skillId": "skill.arts.film_tv",
+  "number": 41,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Talkies Arrive",
+  "objective": "After this level you can explain why The Jazz Singer's synchronized sound in 1927 upended Hollywood so quickly, and what it cost silent stars and cameras.",
+  "summary": "Warner Brothers bet on Vitaphone; The Jazz Singer's 1927 success, with sound for only a quarter of it, pushed Hollywood into talkies within about 15 months and locked cameras in booths.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.studio_jazz_singer_talkies",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.studio_sound_conversion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.frame_rate_standard_24",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.040"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.041.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1927, a mostly silent movie ended the silent era.",
+      "body": "The Jazz Singer had recorded sound for its songs and some conversations, about a quarter of the film. The rest played like any silent picture. Yet its success pushed all of Hollywood into talking pictures. Why did a part-talkie change everything, and what did the switch cost?"
+    },
+    {
+      "id": "card.film_tv.041.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A small studio's big bet",
+      "body": "The bet came from Warner Brothers, then a minor studio. It bought Vitaphone, Western Electric's sound-on-disc system, which played a recorded disc in step with the film, and debuted it in 1926 with Don Juan. The Jazz Singer followed in 1927, and its phenomenal success virtually ensured the industry's switch to sound. Its star, Al Jolson, performed in blackface, a stage tradition in which white performers caricatured Black people, built on racial derision."
+    },
+    {
+      "id": "card.film_tv.041.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The camera goes into an icebox",
+      "body": "Sound changed how films were shot. Early microphones had a very limited range, so actors spoke toward them and stood practically still. Cameras were shut inside soundproof glass booths, nicknamed iceboxes because they were hot and stuffy, so the camera couldn't tilt or roll on a dolly. That's why so many early talkies look stiff. By 1931 studios had switched to lightweight soundproof camera housings called blimps, and the camera moved again."
+    },
+    {
+      "id": "card.film_tv.041.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fifteen months, and a test for every voice",
+      "body": "Hollywood converted to sound in less than 15 months, between late 1927 and 1929, and studios and theaters had to be completely reequipped. Actors faced a new test: their voices. Some silent stars' careers did not survive the switch: the German actor Emil Jannings, whose heavy accent had never been heard on a silent screen, had to leave Hollywood and went back to making films in Germany."
+    },
+    {
+      "id": "card.film_tv.041.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.041.q1"
+    },
+    {
+      "id": "card.film_tv.041.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.041.q2"
+    },
+    {
+      "id": "card.film_tv.041.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.041.q3"
+    },
+    {
+      "id": "card.film_tv.041.c8",
+      "type": "checkpoint",
+      "headline": "Talkies: switched on",
+      "learned": [
+        "The Jazz Singer (1927): sound for its songs and some talk",
+        "Warner Brothers bet on Vitaphone sound-on-disc",
+        "Cameras went into booths; actors stayed by microphones",
+        "Hollywood converted to sound in under 15 months"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.041.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.studio_jazz_singer_talkies"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.041.c1",
+        "card.film_tv.041.c2"
+      ],
+      "prompt": "How much of The Jazz Singer (1927) had synchronized recorded sound?",
+      "options": [
+        {
+          "id": "a",
+          "label": "None: it played silent, with live music",
+          "correct": false,
+          "rationale": "It had recorded songs and some spoken scenes."
+        },
+        {
+          "id": "b",
+          "label": "Its songs and some conversations, about a quarter",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Every scene, with dialogue from start to finish",
+          "correct": false,
+          "rationale": "Most of the film had no recorded dialogue."
+        },
+        {
+          "id": "d",
+          "label": "Only the opening title",
+          "correct": false,
+          "rationale": "The sound came in its songs and a few conversations."
+        }
+      ],
+      "explanation": "Only the musical numbers and some conversations, about a quarter of the film, had recorded sound. It was still enough to change Hollywood.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.041.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.studio_sound_conversion"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.041.c3"
+      ],
+      "prompt": "Why do so many of the earliest talkies look stiff and static?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Directors wanted them to look like stage plays",
+          "correct": false,
+          "rationale": "The cause was technical: booths and microphones."
+        },
+        {
+          "id": "b",
+          "label": "Film stock of the day couldn't record fast movement",
+          "correct": false,
+          "rationale": "Silent films were full of movement; sound was the new limit."
+        },
+        {
+          "id": "c",
+          "label": "Cameras sat in soundproof booths, and actors stayed by microphones",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Theaters asked studios for fewer camera moves",
+          "correct": false,
+          "rationale": "Theaters had nothing to do with it."
+        }
+      ],
+      "explanation": "Noisy cameras were locked in soundproof booths that couldn't tilt or dolly, and short-range microphones kept actors nearly still.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.041.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.frame_rate_standard_24",
+        "concept.film_tv.studio_jazz_singer_talkies"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.003.c3",
+        "card.film_tv.041.c2"
+      ],
+      "prompt": "Level 3 said sound fixed the frame rate at 24 in 1927, the year of The Jazz Singer. Why did talking pictures need one steady speed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "So recorded voices stayed in sync with moving lips",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "So films could be printed in color",
+          "correct": false,
+          "rationale": "Color had nothing to do with the frame rate."
+        },
+        {
+          "id": "c",
+          "label": "Because microphones only worked at 24 frames",
+          "correct": false,
+          "rationale": "Microphones don't count frames; synchronization does."
+        },
+        {
+          "id": "d",
+          "label": "To make every film exactly the same length",
+          "correct": false,
+          "rationale": "Films still ran different lengths."
+        }
+      ],
+      "explanation": "Sound played in step with the picture, so a wobbling hand-cranked speed would pull voices out of sync. A fixed 24 frames a second kept them together.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_history_film_sound_era",
+    "source.brit_jazz_singer",
+    "source.pbs_blackface_minstrelsy",
+    "source.sciencetimes_birth_of_talkies"
+  ],
+  "art": "film.boom-mic"
+}

@@ -1,0 +1,218 @@
+{
+  "id": "level.mind.psychology.064",
+  "skillId": "skill.mind.psychology",
+  "number": 64,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Knowing Others Have Minds",
+  "objective": "After this level you can explain theory of mind and the false-belief test used to show when children develop it.",
+  "summary": "Theory of mind is understanding that others can think and believe differently from you. False-belief tests like the Sally-Anne task show it arrives around age 4 to 5, at a similar age across cultures.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.lifespan_theory_of_mind",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.lifespan_false_belief_test",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.cognitive_revolution",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.063"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.064.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Anne moves Sally's marble while Sally is away. Where will Sally look?",
+      "body": "You know the marble moved. Sally doesn't. Getting the answer right means holding two versions of the world in mind: what is true, and what Sally believes. Young children often get it wrong, and the age when they start getting it right tells psychologists something big."
+    },
+    {
+      "id": "card.psychology.064.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Minds that differ from yours",
+      "body": "Theory of mind is understanding that other people have thoughts, feelings and beliefs different from your own. Children develop it between about 3 and 5 years old. Psychologists usually spot it with false-belief tasks, which test whether a child understands that someone else can believe something that isn't true. You can't see a belief, so the test has to make one visible."
+    },
+    {
+      "id": "card.psychology.064.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Sally-Anne task",
+      "body": "In one classic false-belief test, a child watches a short scene. Sally puts her marble away and leaves. While she's gone, Anne moves the marble into her own box. Then comes the key question: where will Sally look for her marble? Past the age of 4 to 5, most children say Sally will look where she left it. In early studies, younger children systematically got it wrong, as if Sally must know what they know.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Common mix-up: passing isn't about knowing where the marble is. It's knowing that Sally doesn't."
+      }
+    },
+    {
+      "id": "card.psychology.064.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Same milestone, many cultures",
+      "body": "Is this a quirk of Western children? In 2005, Tara Callaghan and colleagues gave one standard false-belief test to children in Canada, India, Peru, Samoa and Thailand. In every culture, children passed at about age 5. A 2001 review of 178 studies, led by Henry Wellman, found the same shift across countries: preschoolers go from below-chance to above-chance on false-belief tasks."
+    },
+    {
+      "id": "card.psychology.064.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.064.q1"
+    },
+    {
+      "id": "card.psychology.064.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.064.q2"
+    },
+    {
+      "id": "card.psychology.064.c7",
+      "type": "recall",
+      "questionId": "question.psychology.064.q3"
+    },
+    {
+      "id": "card.psychology.064.c8",
+      "type": "checkpoint",
+      "headline": "Knowing others have minds",
+      "learned": [
+        "Theory of mind develops around ages 3 to 5",
+        "The Sally-Anne task tests false belief",
+        "The milestone arrives at a similar age across cultures"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.064.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.lifespan_theory_of_mind"
+      ],
+      "sourceCardIds": [
+        "card.psychology.064.c4"
+      ],
+      "prompt": "In Callaghan's 2005 study across Canada, India, Peru, Samoa and Thailand, at about what age did children pass the false-belief test?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 2",
+          "correct": false,
+          "rationale": "Two-year-olds are well below the milestone."
+        },
+        {
+          "id": "b",
+          "label": "About 9",
+          "correct": false,
+          "rationale": "Children passed years earlier."
+        },
+        {
+          "id": "c",
+          "label": "It differed completely between cultures",
+          "correct": false,
+          "rationale": "The age was similar in every culture studied."
+        },
+        {
+          "id": "d",
+          "label": "About 5",
+          "correct": true
+        }
+      ],
+      "explanation": "Children in all five cultures crossed the false-belief milestone at about age 5.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.psychology.064.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.lifespan_false_belief_test"
+      ],
+      "sourceCardIds": [
+        "card.psychology.064.c3"
+      ],
+      "prompt": "In the Sally-Anne task, which answer shows that a child understands false belief?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sally will look where she left the marble",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Sally will look where Anne put the marble",
+          "correct": false,
+          "rationale": "That's where it really is, but Sally didn't see it move."
+        },
+        {
+          "id": "c",
+          "label": "Sally will know the marble moved",
+          "correct": false,
+          "rationale": "Sally was away when it moved."
+        },
+        {
+          "id": "d",
+          "label": "Sally will stop looking for the marble",
+          "correct": false,
+          "rationale": "The task asks where she will look."
+        }
+      ],
+      "explanation": "Sally still believes the marble is where she left it; a child who says so understands that Sally holds a false belief.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.psychology.064.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.lifespan_false_belief_test",
+        "concept.psychology.cognitive_revolution"
+      ],
+      "sourceCardIds": [
+        "card.psychology.006.c4",
+        "card.psychology.064.c3"
+      ],
+      "prompt": "Level 6 said cognitive science treats the mind as holding representations. What must a child track to pass the Sally-Anne task?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only where the marble really is now",
+          "correct": false,
+          "rationale": "That leads to the wrong answer."
+        },
+        {
+          "id": "b",
+          "label": "How many times the marble was moved",
+          "correct": false,
+          "rationale": "Counting moves doesn't reveal what Sally believes."
+        },
+        {
+          "id": "c",
+          "label": "Which doll is taller",
+          "correct": false,
+          "rationale": "Size has nothing to do with the task."
+        },
+        {
+          "id": "d",
+          "label": "Sally's belief, a representation that no longer matches reality",
+          "correct": true
+        }
+      ],
+      "explanation": "Passing means keeping in mind Sally's own picture of the world, which is now out of date.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_stages_of_development",
+    "source.psychsci_callaghan_false_belief_five_cultures_2005",
+    "source.childdev_wellman_false_belief_metaanalysis_2001",
+    "source.openuniversity_sally_anne_task"
+  ],
+  "art": "mind.psychology-head"
+}

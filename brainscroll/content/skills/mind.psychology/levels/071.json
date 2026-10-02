@@ -1,0 +1,238 @@
+{
+  "id": "level.mind.psychology.071",
+  "skillId": "skill.mind.psychology",
+  "number": 71,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Asch's Lines",
+  "objective": "After this level you can explain Solomon Asch's conformity experiments and what made people more or less likely to go along.",
+  "summary": "In Asch's 1950s line studies, about three in four people went along with an obviously wrong group answer at least once. One ally or a private answer weakened the pull.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.social_asch_conformity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.social_conformity_factors",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.informed_consent",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.070"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.071.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Which line matches? Easy, until everyone else answers first.",
+      "body": "In the 1950s, Solomon Asch gave groups a vision test a child could pass. The catch was the other people at the table. What made careful adults say something they could see was false, and what set them free?"
+    },
+    {
+      "id": "card.psychology.071.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The rigged vision test",
+      "body": "Asch showed a target line and three others, and each person said aloud which one matched. Only one person at the table was a real participant. The rest were confederates, people working for the researcher, and on some trials they all named an obviously wrong line. Then the real participant had to answer. In Asch's 1955 report, 76 percent went along with the wrong answer at least once. Three in four, on a test a child could pass."
+    },
+    {
+      "id": "card.psychology.071.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Saying it without believing it",
+      "body": "Conformity means changing your behavior to go along with a group, even when you disagree. Asch's participants weren't confused. The task was easy, so they didn't need the group for information. They said the wrong answer out loud while privately not accepting it, to fit in and avoid ridicule. Psychologists call that normative social influence: going along to get along.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "People mix up agreeing and going along. Asch's participants mostly went along: the words changed, the belief didn't."
+      }
+    },
+    {
+      "id": "card.psychology.071.c4",
+      "type": "comparison",
+      "headline": "What turns the pressure up or down",
+      "items": [
+        {
+          "label": "A bigger majority",
+          "points": [
+            "More people agreeing raised conformity",
+            "Only up to a point, then it stopped rising"
+          ]
+        },
+        {
+          "label": "One ally",
+          "points": [
+            "A single dissenter from the majority",
+            "Made conformity drop sharply"
+          ]
+        },
+        {
+          "label": "A private answer",
+          "points": [
+            "Answering in writing lowered conformity",
+            "One reason ballots are secret"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.psychology.071.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.071.q1"
+    },
+    {
+      "id": "card.psychology.071.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.071.q2"
+    },
+    {
+      "id": "card.psychology.071.c7",
+      "type": "recall",
+      "questionId": "question.psychology.071.q3"
+    },
+    {
+      "id": "card.psychology.071.c8",
+      "type": "checkpoint",
+      "headline": "Asch's lines",
+      "learned": [
+        "Confederates gave obviously wrong answers aloud",
+        "About three in four went along at least once",
+        "They went along to fit in, not from doubt",
+        "One ally or a private answer weakened the pull"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.071.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.social_asch_conformity"
+      ],
+      "sourceCardIds": [
+        "card.psychology.071.c2"
+      ],
+      "prompt": "In Asch's 1955 report, what share of participants went along with the group's wrong answer at least once?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 1 in 20",
+          "correct": false,
+          "rationale": "Far more gave in at least once."
+        },
+        {
+          "id": "b",
+          "label": "About 1 in 4",
+          "correct": false,
+          "rationale": "Too low: most gave in at least once."
+        },
+        {
+          "id": "c",
+          "label": "About 3 in 4",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Every single one",
+          "correct": false,
+          "rationale": "Some never gave in."
+        }
+      ],
+      "explanation": "Asch found that 76 percent of participants, about three in four, conformed to the wrong answer at least once.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.071.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.social_conformity_factors"
+      ],
+      "sourceCardIds": [
+        "card.psychology.071.c4"
+      ],
+      "prompt": "How could you make a participant in an Asch-style test far less likely to conform?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Add three more confederates to the majority",
+          "correct": false,
+          "rationale": "Past a point, a bigger majority adds no pressure, and it never lowers it."
+        },
+        {
+          "id": "b",
+          "label": "Have one confederate break from the majority",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Make the participant answer aloud, in front of everyone",
+          "correct": false,
+          "rationale": "Public answers make conformity more likely, not less."
+        },
+        {
+          "id": "d",
+          "label": "Repeat the same trial several times",
+          "correct": false,
+          "rationale": "Repetition isn't what weakened conformity."
+        }
+      ],
+      "explanation": "One dissenter from the majority made conformity drop sharply. Private answers also lowered it.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.psychology.071.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.social_asch_conformity",
+        "concept.psychology.informed_consent"
+      ],
+      "sourceCardIds": [
+        "card.psychology.071.c2",
+        "card.psychology.009.c4"
+      ],
+      "prompt": "Asch's real participant never knew the others were planted. Under Level 9's research rules, what does a study like this owe participants at the end?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A bonus payment for being deceived",
+          "correct": false,
+          "rationale": "Money isn't what the rules require."
+        },
+        {
+          "id": "b",
+          "label": "Nothing, as long as no one was physically hurt",
+          "correct": false,
+          "rationale": "Deception still has to be explained afterward."
+        },
+        {
+          "id": "c",
+          "label": "A copy of every other participant's answers",
+          "correct": false,
+          "rationale": "The others were confederates; that isn't the requirement."
+        },
+        {
+          "id": "d",
+          "label": "A full, honest debriefing about the deception",
+          "correct": true
+        }
+      ],
+      "explanation": "When a study uses deception, participants get a full debriefing that honestly explains its purpose and why deception was needed.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_conformity_obedience",
+    "source.openstax_psych_ethics"
+  ],
+  "art": "mind.asch-lines"
+}

@@ -1,0 +1,216 @@
+{
+  "id": "level.mind.religions.076",
+  "skillId": "skill.mind.religions",
+  "number": 76,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Latter-day Saints",
+  "objective": "After this level you can explain the origins and core beliefs of the Church of Jesus Christ of Latter-day Saints and its trek to Utah.",
+  "summary": "Joseph Smith published the Book of Mormon and organized the Church of Jesus Christ of Latter-day Saints in 1830. After his killing in 1844, Brigham Young led the Saints to Utah.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.america_lds_beginnings",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.america_lds_trek",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.scripture_canon",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.075"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.076.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1830 a young New Yorker published a book his followers read as scripture.",
+      "body": "The Church of Jesus Christ of Latter-day Saints reads it beside the Bible. Here is how the church began, and why its members crossed half a continent."
+    },
+    {
+      "id": "card.religions.076.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A vision and the plates",
+      "body": "Joseph Smith grew up in Palmyra, New York. He reported that in 1820, at age 14, God the Father and Jesus Christ appeared to him, and that in 1823 an angel named Moroni told him of golden plates. He published the Book of Mormon in March 1830, and on April 6, 1830, he organized a church."
+    },
+    {
+      "id": "card.religions.076.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Another witness",
+      "body": "Latter-day Saints believe Smith translated the plates \"by the gift and power of God\". The Church teaches that the Book of Mormon is another witness of Jesus Christ, one that supports the Bible rather than replacing it. Members also hold to continuing revelation, and they emphasize temple worship and missionary work."
+    },
+    {
+      "id": "card.religions.076.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "West to the beehive",
+      "body": "The Saints moved from New York to Ohio, Missouri and Illinois, where they built Nauvoo. On June 27, 1844, a mob shot Joseph Smith and his brother Hyrum in jail at Carthage, Illinois. Brigham Young then led a 1,100-mile migration, and the first company entered the Salt Lake Valley in July 1847. Settlers called the region Deseret, a Book of Mormon word for honeybee, and the beehive became Utah's symbol of industry."
+    },
+    {
+      "id": "card.religions.076.c5",
+      "type": "mcq",
+      "questionId": "question.religions.076.q1"
+    },
+    {
+      "id": "card.religions.076.c6",
+      "type": "mcq",
+      "questionId": "question.religions.076.q2"
+    },
+    {
+      "id": "card.religions.076.c7",
+      "type": "mcq",
+      "questionId": "question.religions.076.q3"
+    },
+    {
+      "id": "card.religions.076.c8",
+      "type": "checkpoint",
+      "headline": "The Latter-day Saints: the takeaways",
+      "learned": [
+        "Joseph Smith published the Book of Mormon in 1830",
+        "Latter-day Saints read it as another witness of Christ",
+        "Brigham Young led the Saints to Utah in 1847"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.076.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.america_lds_trek"
+      ],
+      "sourceCardIds": [
+        "card.religions.076.c4"
+      ],
+      "prompt": "Who led the Latter-day Saints' migration to the Salt Lake Valley?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Joseph Smith",
+          "correct": false,
+          "rationale": "He was killed in 1844, before the trek."
+        },
+        {
+          "id": "b",
+          "label": "Hyrum Smith",
+          "correct": false,
+          "rationale": "He was killed with Joseph in 1844."
+        },
+        {
+          "id": "c",
+          "label": "Brigham Young",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Moroni",
+          "correct": false,
+          "rationale": "Moroni is the angel in Smith's account."
+        }
+      ],
+      "explanation": "Brigham Young led the 1,100-mile migration; the first company reached the valley in July 1847.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.religions.076.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.america_lds_beginnings"
+      ],
+      "sourceCardIds": [
+        "card.religions.076.c3"
+      ],
+      "prompt": "How does the Church describe the Book of Mormon's relation to the Bible?",
+      "options": [
+        {
+          "id": "a",
+          "label": "As a replacement for the Bible in worship",
+          "correct": false,
+          "rationale": "The Church says it supports the Bible."
+        },
+        {
+          "id": "b",
+          "label": "As a history book with no religious role at all",
+          "correct": false,
+          "rationale": "Members read it as scripture."
+        },
+        {
+          "id": "c",
+          "label": "As another witness of Christ, supporting the Bible",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "As a summary of the Bible's first five books",
+          "correct": false,
+          "rationale": "It is a separate book of scripture."
+        }
+      ],
+      "explanation": "The Church teaches that the Book of Mormon is another witness of Jesus Christ, supporting the Bible.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.076.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.america_lds_beginnings",
+        "concept.religions.scripture_canon"
+      ],
+      "sourceCardIds": [
+        "card.religions.076.c3",
+        "card.religions.006.c2"
+      ],
+      "prompt": "Level 6 said a text becomes scripture when a community receives it that way. How does that apply to the Book of Mormon?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's scripture because it is very old",
+          "correct": false,
+          "rationale": "Level 6: age alone doesn't make scripture."
+        },
+        {
+          "id": "b",
+          "label": "Latter-day Saints receive it as scripture",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A government declared it the national scripture",
+          "correct": false,
+          "rationale": "No government did."
+        },
+        {
+          "id": "d",
+          "label": "Scholars of religion voted it into a canon",
+          "correct": false,
+          "rationale": "Communities and their bodies fix canons."
+        }
+      ],
+      "explanation": "A text becomes scripture when a community reveres it; Latter-day Saints read the Book of Mormon beside the Bible.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_joseph_smith",
+    "source.lds_book_of_mormon_topic",
+    "source.brit_latter_day_saints",
+    "source.brit_utah_beehive",
+    "source.lds_joseph_smith_topic",
+    "source.brit_scripture"
+  ],
+  "art": "rel.beehive"
+}

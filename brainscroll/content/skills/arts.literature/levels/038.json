@@ -1,0 +1,224 @@
+{
+  "id": "level.arts.literature.038",
+  "skillId": "skill.arts.literature",
+  "number": 38,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Epic's Toolkit",
+  "objective": "After this level you can spot the conventions of epic poetry: calling on the Muse, starting in the middle and the long epic simile.",
+  "summary": "Epics call on the Muse (\"Sing, O goddess\"), begin in medias res (the Iliad opens in the war's last year) and stretch comparisons into epic similes.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.epic_toolkit_openings",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.epic_toolkit_simile",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.story_forms_path",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.037"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.038.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Homer doesn't start the Trojan War from the egg.",
+      "body": "The Roman poet Horace praised Homer for skipping the story's very beginning, ab ovo, \"from the egg\" (the egg from which Helen was born). Instead, Homer hurries his listener straight into the middle of things. Epics run on a few habits like that. Here are three."
+    },
+    {
+      "id": "card.literature.038.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sing, Muse",
+      "body": "Epics often open with an invocation: the poet calls on a Muse or god for inspiration. In Samuel Butler's translations, the Iliad begins, \"Sing, O goddess, the anger of Achilles son of Peleus,\" and the Odyssey, \"Tell me, O Muse, of that ingenious hero.\" Centuries later, John Milton kept the habit in Paradise Lost: \"Sing, Heavenly Muse.\" One line in, and you know you're in an epic."
+    },
+    {
+      "id": "card.literature.038.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Into the middle of things",
+      "body": "Epics also begin in medias res, Latin for \"into the middle of things\": they plunge into a crucial moment in a chain of events. The Iliad doesn't retell the whole Trojan War. It covers a few crucial weeks in the war's final year and focuses on one thing: the wrath of Achilles. You arrive mid-war, with no egg in sight."
+    },
+    {
+      "id": "card.literature.038.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The simile that keeps going",
+      "body": "The third tool is the epic simile: a comparison stretched over several lines, used to raise the heroic scene. In Butler's Iliad: \"As when the rising west wind furs the face of the sea and the waters grow dark beneath it, so sat the companies of Trojans and Achaeans upon the plain.\" Two armies sitting down become the sea darkening under the wind.",
+      "mascot": {
+        "pose": "idea",
+        "line": "It connects: an epic simile is Level 34's simile, just given room to breathe."
+      }
+    },
+    {
+      "id": "card.literature.038.c5",
+      "type": "mcq",
+      "questionId": "question.literature.038.q1"
+    },
+    {
+      "id": "card.literature.038.c6",
+      "type": "mcq",
+      "questionId": "question.literature.038.q2"
+    },
+    {
+      "id": "card.literature.038.c7",
+      "type": "mcq",
+      "questionId": "question.literature.038.q3"
+    },
+    {
+      "id": "card.literature.038.c8",
+      "type": "checkpoint",
+      "headline": "Epics: equipped",
+      "learned": [
+        "Invocation: \"Sing, O goddess\"",
+        "In medias res: into the middle of things",
+        "The Iliad: a few weeks of the war's last year",
+        "Epic simile: a comparison over several lines"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.038.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.epic_toolkit_openings"
+      ],
+      "sourceCardIds": [
+        "card.literature.038.c2"
+      ],
+      "prompt": "What is the invocation at the start of an epic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A list of the heroes who will die",
+          "correct": false,
+          "rationale": "The invocation is a call for help."
+        },
+        {
+          "id": "b",
+          "label": "A summary of the ending",
+          "correct": false,
+          "rationale": "It's a call for inspiration."
+        },
+        {
+          "id": "c",
+          "label": "A long comparison to nature",
+          "correct": false,
+          "rationale": "That's a different tool, not a call for help."
+        },
+        {
+          "id": "d",
+          "label": "The poet's call to a Muse or god for inspiration",
+          "correct": true
+        }
+      ],
+      "explanation": "An invocation appeals to a Muse or god for inspiration, as in \"Sing, O goddess\" and \"Tell me, O Muse.\"",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.038.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.epic_toolkit_openings"
+      ],
+      "sourceCardIds": [
+        "card.literature.038.c3",
+        "card.literature.038.c1"
+      ],
+      "prompt": "How does an epic that starts in medias res begin?",
+      "options": [
+        {
+          "id": "a",
+          "label": "With the hero's birth, then year by year",
+          "correct": false,
+          "rationale": "That's starting \"from the egg.\""
+        },
+        {
+          "id": "b",
+          "label": "By plunging into a crucial moment already under way",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "With the ending, then a flashback to the start",
+          "correct": false,
+          "rationale": "It starts in the middle, not at the end."
+        },
+        {
+          "id": "d",
+          "label": "With a list of the gods",
+          "correct": false,
+          "rationale": "In medias res is about where the story starts."
+        }
+      ],
+      "explanation": "In medias res means \"into the middle of things\": the Iliad opens in the war's final year, with Achilles' wrath.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.literature.038.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.epic_toolkit_simile",
+        "concept.literature.story_forms_path"
+      ],
+      "sourceCardIds": [
+        "card.literature.038.c4",
+        "card.literature.001.c4"
+      ],
+      "prompt": "Level 1 defined an epic as a long poem about heroic deeds. Which tool is used to raise the heroic scene?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The cutting word",
+          "correct": false,
+          "rationale": "That belongs to haiku."
+        },
+        {
+          "id": "b",
+          "label": "The volta",
+          "correct": false,
+          "rationale": "That's a sonnet's turn."
+        },
+        {
+          "id": "c",
+          "label": "The epic simile",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The rhyming couplet",
+          "correct": false,
+          "rationale": "Homer's epics don't rhyme."
+        }
+      ],
+      "explanation": "The epic simile, stretched over several lines, is used to intensify the heroic stature of the subject.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.latinlibrary_horace_ars_poetica",
+    "source.brit_epic",
+    "source.poets_epic",
+    "source.gutenberg_butler_iliad",
+    "source.gutenberg_butler_odyssey",
+    "source.gutenberg_paradise_lost",
+    "source.brit_iliad",
+    "source.brit_epic_simile"
+  ],
+  "art": "greece.shield"
+}

@@ -1,0 +1,218 @@
+{
+  "id": "level.world_systems.computers.008",
+  "skillId": "skill.world_systems.computers",
+  "number": 8,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Processor's Endless Loop",
+  "objective": "After this level you can explain the fetch, decode and execute cycle a processor repeats billions of times a second.",
+  "summary": "A processor fetches the instruction its program counter points to, decodes it, executes it and repeats, paced by a clock ticking billions of times a second.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.fetch_decode_execute",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.clock_speed",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.adder_circuits",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.photo_journey",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.007"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.008.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your processor knows one routine. It runs it billions of times a second.",
+      "body": "Every app, game and photo filter comes down to the same three steps, repeated without a break: get an instruction, work out what it means, do it. This is the loop at the heart of the machine."
+    },
+    {
+      "id": "card.computers.008.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fetch, decode, execute",
+      "body": "The processor keeps a program counter: the memory address of the next instruction. Fetch: it collects the instruction stored at that address. Decode: it splits the instruction's binary pattern into parts, each with a meaning, such as 'add' and which numbers to add. Execute: it carries out the operation, perhaps sending two numbers through Level 7's adders."
+    },
+    {
+      "id": "card.computers.008.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Then again, and again",
+      "body": "After each fetch, the program counter usually steps on to the next instruction, so the processor works through a program in order. Some instructions, called jumps and branches, change the counter to point somewhere else, which lets a program go back and repeat or skip ahead. When one instruction is done, the cycle simply starts over."
+    },
+    {
+      "id": "card.computers.008.c4",
+      "type": "fact",
+      "fact": "A 3.2 GHz processor runs 3.2 billion clock cycles every second.",
+      "context": "A clock sends out pulses at a fixed, precise rate, and those pulses keep the fetch, decode and execute steps in time. Gigahertz means billions of cycles per second. On every single cycle, billions of transistors inside the processor open and close."
+    },
+    {
+      "id": "card.computers.008.c5",
+      "type": "mcq",
+      "questionId": "question.computers.008.q1"
+    },
+    {
+      "id": "card.computers.008.c6",
+      "type": "mcq",
+      "questionId": "question.computers.008.q2"
+    },
+    {
+      "id": "card.computers.008.c7",
+      "type": "mcq",
+      "questionId": "question.computers.008.q3"
+    },
+    {
+      "id": "card.computers.008.c8",
+      "type": "checkpoint",
+      "headline": "The loop: running",
+      "learned": [
+        "The program counter points to the next instruction",
+        "Fetch, decode, execute, then start over",
+        "Jumps and branches send the counter elsewhere",
+        "A 3.2 GHz clock paces 3.2 billion cycles a second"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.008.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.clock_speed"
+      ],
+      "sourceCardIds": [
+        "card.computers.008.c4"
+      ],
+      "prompt": "What does a clock speed of 3.2 GHz mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "3.2 billion cycles every second",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "3.2 million instructions stored in memory",
+          "correct": false,
+          "rationale": "Gigahertz counts cycles per second, not stored instructions."
+        },
+        {
+          "id": "c",
+          "label": "3.2 gigabytes of memory",
+          "correct": false,
+          "rationale": "GB measures size; GHz measures cycles per second."
+        },
+        {
+          "id": "d",
+          "label": "3.2 programs running at once",
+          "correct": false,
+          "rationale": "It counts clock cycles, not programs."
+        }
+      ],
+      "explanation": "Gigahertz means billions of cycles per second: 3.2 GHz is 3.2 billion.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.computers.008.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.fetch_decode_execute"
+      ],
+      "sourceCardIds": [
+        "card.computers.008.c3"
+      ],
+      "prompt": "How can a program go back and repeat a step it already ran?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The clock runs backward for a moment",
+          "correct": false,
+          "rationale": "The clock only ticks forward at a fixed rate."
+        },
+        {
+          "id": "b",
+          "label": "The processor fetches the whole program again from storage",
+          "correct": false,
+          "rationale": "It just changes where the next fetch comes from."
+        },
+        {
+          "id": "c",
+          "label": "A jump instruction changes the program counter to an earlier address",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The decode step reads the instruction twice",
+          "correct": false,
+          "rationale": "Decoding splits one instruction into its parts."
+        }
+      ],
+      "explanation": "Jumps and branches change the program counter, so the next fetch comes from a different address.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.008.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.fetch_decode_execute",
+        "concept.computers.adder_circuits"
+      ],
+      "sourceCardIds": [
+        "card.computers.008.c2",
+        "card.computers.007.c4"
+      ],
+      "prompt": "An add instruction reaches the execute step. Which circuits from Level 7 actually do the sum?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A chain of full adders built from gates",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The program counter",
+          "correct": false,
+          "rationale": "It only points to the next instruction."
+        },
+        {
+          "id": "c",
+          "label": "The clock",
+          "correct": false,
+          "rationale": "The clock paces the cycle; it does not add."
+        },
+        {
+          "id": "d",
+          "label": "The camera sensor",
+          "correct": false,
+          "rationale": "The sensor turns light into numbers."
+        }
+      ],
+      "explanation": "The arithmetic-logic unit adds with gates wired into adders, each passing its carry along.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.uvm_fetch_decode_execute",
+    "source.brit_cpu",
+    "source.intel_cpu_clock_speed"
+  ],
+  "art": "technology.chip"
+}

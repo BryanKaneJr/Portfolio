@@ -1,0 +1,222 @@
+{
+  "id": "level.arts.film_tv.016",
+  "skillId": "skill.arts.film_tv",
+  "number": 16,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "A Night at the Silent Movies",
+  "objective": "After this level you can describe how silent films were shown, with intertitles, live music and grand movie palaces.",
+  "summary": "Silent films were shown with intertitles for dialogue, live music from pianists, organs or orchestras guided by cue sheets, and from 1914 in huge movie palaces like the Strand.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.silent_intertitles",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.silent_live_music",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.silent_movie_palaces",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.silent_nickelodeon_boom",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.015"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.016.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Silent movies were almost never silent.",
+      "body": "No voices came from the screen, but the room was rarely quiet. Silent films were almost always shown with live music, and in the grandest theaters around 3,000 people watched together. Here's how a night at the silent movies worked."
+    },
+    {
+      "id": "card.film_tv.016.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Words between the pictures",
+      "body": "When a character needed to speak, or the audience needed to know where and when, the film cut to a printed card: an intertitle. Filmmakers used them for dialogue or explanation. Some directors tried to do without. F. W. Murnau's The Last Laugh (1924) told its story almost entirely without intertitles. The pictures had to do the talking."
+    },
+    {
+      "id": "card.film_tv.016.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Music in the room",
+      "body": "Early screenings usually had a solo pianist, often improvising. Larger theaters used organists or whole orchestras. Films were eventually sent out with published cue sheets suggesting what the pianist or organist should play. Cue sheets gave accompanists a plan for each film."
+    },
+    {
+      "id": "card.film_tv.016.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Palaces for pictures",
+      "body": "In 1914 New York's Strand Theatre opened as the first of the 'dream palaces': huge movie theaters with luxurious interiors. It seated around 3,000 people. Big films got big sound: The Birth of a Nation was shown with an orchestra playing Joseph Carl Breil's score, compiled from many sources. Pittsburgh's nickel storefront had opened in 1905. In nine years, movies had moved into palaces."
+    },
+    {
+      "id": "card.film_tv.016.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.016.q1"
+    },
+    {
+      "id": "card.film_tv.016.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.016.q2"
+    },
+    {
+      "id": "card.film_tv.016.c7",
+      "type": "mcq",
+      "questionId": "question.film_tv.016.q3"
+    },
+    {
+      "id": "card.film_tv.016.c8",
+      "type": "checkpoint",
+      "headline": "A silent night out: described",
+      "learned": [
+        "Intertitles carried dialogue or explanation",
+        "Live music: pianists, organists, orchestras",
+        "Cue sheets suggested what to play",
+        "1914: the Strand, first of the 'dream palaces'"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.016.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.silent_intertitles"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.016.c2"
+      ],
+      "prompt": "In a silent film, what was an intertitle used for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dialogue or explanation, printed on a card",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A pause while the projectionist changed reels",
+          "correct": false,
+          "rationale": "The level describes intertitles as text for dialogue or explanation."
+        },
+        {
+          "id": "c",
+          "label": "The name of the theater, shown before the film",
+          "correct": false,
+          "rationale": "Intertitles appeared within the film."
+        },
+        {
+          "id": "d",
+          "label": "Music for the pianist to play",
+          "correct": false,
+          "rationale": "That was the job of cue sheets."
+        }
+      ],
+      "explanation": "Silent films cut to printed intertitles for dialogue or explanation.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.film_tv.016.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.silent_live_music"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.016.c3"
+      ],
+      "prompt": "How could a theater's pianist or organist know what to play for a new film?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They listened to a recording sent with the film",
+          "correct": false,
+          "rationale": "The music was live; nothing in the level mentions recordings."
+        },
+        {
+          "id": "b",
+          "label": "Published cue sheets sent out with films suggested the music",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The intertitles printed the notes on screen",
+          "correct": false,
+          "rationale": "Intertitles carried dialogue or explanation."
+        },
+        {
+          "id": "d",
+          "label": "The law required the same song for every film",
+          "correct": false,
+          "rationale": "Nothing in the level says so."
+        }
+      ],
+      "explanation": "Films were eventually distributed with published cue sheets suggesting what the pianist or organist should play.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.film_tv.016.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.silent_movie_palaces",
+        "concept.film_tv.silent_nickelodeon_boom"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.016.c4",
+        "card.film_tv.011.c2"
+      ],
+      "prompt": "How did the Strand of 1914 differ from the nickelodeons of Level 11?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It showed films without any music",
+          "correct": false,
+          "rationale": "Big theaters used organists or orchestras."
+        },
+        {
+          "id": "b",
+          "label": "It charged exactly one nickel",
+          "correct": false,
+          "rationale": "That was the nickelodeon's price."
+        },
+        {
+          "id": "c",
+          "label": "It was a huge, luxurious palace for about 3,000, not a storefront",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It showed only films from the Lumières",
+          "correct": false,
+          "rationale": "Nothing in the level says so."
+        }
+      ],
+      "explanation": "Nickelodeons were makeshift storefront theaters; the Strand was the first of the huge, luxurious dream palaces, seating around 3,000.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_silent_era_europe",
+    "source.loc_silent_film_music",
+    "source.aso_silent_film_accompaniment",
+    "source.loc_guide_music_silent_film_reference",
+    "source.smithsonian_movie_palaces",
+    "source.brit_nickelodeon"
+  ],
+  "art": "film.marquee"
+}

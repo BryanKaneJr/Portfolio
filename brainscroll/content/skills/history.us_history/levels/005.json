@@ -1,0 +1,227 @@
+{
+  "id": "level.history.us_history.005",
+  "skillId": "skill.history.us_history",
+  "number": 5,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Towns in the Cliffs",
+  "objective": "After this level you can explain how Ancestral Puebloans built the great houses of Chaco Canyon and the cliff dwellings of Mesa Verde.",
+  "summary": "Ancestral Puebloans built Chaco Canyon's multistory great houses from the mid-800s and Mesa Verde's cliff dwellings from about 1180 to 1300, then moved south after the Great Drought.",
+  "concepts": [
+    {
+      "conceptId": "concept.us_history.ancestral_puebloans_chaco",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.mesa_verde_cliff_dwellings",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.cahokia_mounds",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.us_history.004"
+  ],
+  "cards": [
+    {
+      "id": "card.us_history.005.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some Americans once built apartment blocks into the side of a cliff.",
+      "body": "Then they moved away and left the buildings standing. Who built them, and why walk away?"
+    },
+    {
+      "id": "card.us_history.005.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Whose ancestors?",
+      "body": "The builders are called Ancestral Puebloans, because they are among the ancestors of today’s Pueblo peoples. You may still see an older name, Anasazi. It comes from Navajo, and Pueblo people consider it disrespectful. So the newer name does two jobs: it’s polite, and it tells you who the living descendants are."
+    },
+    {
+      "id": "card.us_history.005.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Chaco’s great houses",
+      "body": "In Chaco Canyon, in today’s New Mexico, Chacoan culture flourished from the mid-800s for more than 300 years. Its builders raised great houses: massive stone buildings several stories tall with hundreds of rooms, often lined up with the sun and the moon. The largest, Pueblo Bonito, was D-shaped, four to five stories high and held over 600 rooms. Roads linked Chaco to more than 150 great houses across the region. Think of a hub with spokes."
+    },
+    {
+      "id": "card.us_history.005.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Moving into the cliffs",
+      "body": "To the north, at Mesa Verde in today’s Colorado, people built most of their cliff dwellings between about 1180 and 1300, tucked into alcoves in the canyon walls. The biggest, Cliff Palace, is the largest cliff dwelling in North America. A home with a stone roof overhead and a very steep driveway."
+    },
+    {
+      "id": "card.us_history.005.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why leave?",
+      "body": "By 1300, after the Great Drought of 1276 to 1299, most people had left Mesa Verde. They moved south into what is now New Mexico and Arizona. The cliff towns stayed behind, and the people who built them are among the ancestors of today’s Pueblo peoples.",
+      "mascot": {
+        "pose": "oops",
+        "line": "People often say the cliff dwellers “vanished.” They didn’t. They moved south, and their descendants are the Pueblo peoples."
+      }
+    },
+    {
+      "id": "card.us_history.005.c6",
+      "type": "mcq",
+      "questionId": "question.us_history.005.q1"
+    },
+    {
+      "id": "card.us_history.005.c7",
+      "type": "mcq",
+      "questionId": "question.us_history.005.q2"
+    },
+    {
+      "id": "card.us_history.005.c8",
+      "type": "recall",
+      "questionId": "question.us_history.005.q3"
+    },
+    {
+      "id": "card.us_history.005.c9",
+      "type": "checkpoint",
+      "headline": "Towns in the cliffs: explained",
+      "learned": [
+        "Ancestral Puebloans are ancestors of today’s Pueblo peoples",
+        "Chaco’s great houses: stone, multistory, hundreds of rooms",
+        "Mesa Verde’s cliff dwellings date from about 1180 to 1300",
+        "After the Great Drought, people moved south"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.us_history.005.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.mesa_verde_cliff_dwellings"
+      ],
+      "sourceCardIds": [
+        "card.us_history.005.c4"
+      ],
+      "prompt": "Where did Mesa Verde’s people build most of their homes between about 1180 and 1300?",
+      "options": [
+        {
+          "id": "a",
+          "label": "On top of earthen mounds",
+          "correct": false,
+          "rationale": "That was Cahokia’s style (Level 4)."
+        },
+        {
+          "id": "b",
+          "label": "In alcoves in the canyon walls",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "In villages along the Pacific coast",
+          "correct": false,
+          "rationale": "Mesa Verde is in Colorado."
+        },
+        {
+          "id": "d",
+          "label": "Inside one giant D-shaped great house",
+          "correct": false,
+          "rationale": "That was Pueblo Bonito, at Chaco."
+        }
+      ],
+      "explanation": "They built most of their cliff dwellings in alcoves in the canyon walls.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.us_history.005.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.mesa_verde_cliff_dwellings"
+      ],
+      "sourceCardIds": [
+        "card.us_history.005.c5"
+      ],
+      "prompt": "What most likely drove most people out of Mesa Verde by 1300?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Spanish soldiers arriving from Mexico",
+          "correct": false,
+          "rationale": "Spain came centuries later."
+        },
+        {
+          "id": "b",
+          "label": "Floods from cutting down the forests",
+          "correct": false,
+          "rationale": "That was the likely story at Cahokia."
+        },
+        {
+          "id": "c",
+          "label": "The Great Drought of 1276 to 1299",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "An earthquake that cracked the cliffs",
+          "correct": false,
+          "rationale": "The record points to drought."
+        }
+      ],
+      "explanation": "After the Great Drought of 1276 to 1299, most people moved south into New Mexico and Arizona.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.us_history.005.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.us_history.ancestral_puebloans_chaco",
+        "concept.us_history.cahokia_mounds"
+      ],
+      "sourceCardIds": [
+        "card.us_history.005.c3",
+        "card.us_history.004.c3"
+      ],
+      "prompt": "Cahokia (Level 4) built its seat of power on a hill of earth. What did Chaco’s builders use for their great houses?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Earth piled in baskets, like Cahokia",
+          "correct": false,
+          "rationale": "Chaco built in stone."
+        },
+        {
+          "id": "b",
+          "label": "Timber planks, like the Northwest Coast",
+          "correct": false,
+          "rationale": "Chaco built in stone."
+        },
+        {
+          "id": "c",
+          "label": "Hides stretched over poles",
+          "correct": false,
+          "rationale": "The great houses were stone."
+        },
+        {
+          "id": "d",
+          "label": "Stone, rising several stories",
+          "correct": true
+        }
+      ],
+      "explanation": "Chaco’s great houses were massive stone buildings several stories tall with hundreds of rooms.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nps_mesa_verde_cliff_dwellings",
+    "source.brit_mesa_verde",
+    "source.ipcc_anasazi_name",
+    "source.nps_chaco_history",
+    "source.nps_chaco_article"
+  ],
+  "art": "us.cliff-dwelling"
+}

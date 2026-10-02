@@ -1,0 +1,221 @@
+{
+  "id": "level.mind.philosophy.081",
+  "skillId": "skill.mind.philosophy",
+  "number": 81,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Trolley Problem",
+  "objective": "After this level you can explain Philippa Foot’s trolley problem and use it to test whether saving five by diverting harm to one is allowed.",
+  "summary": "Foot’s runaway tram and her judge case trade one for five yet get different verdicts; her doing/allowing explanation was tested by Thomson’s bystander, and Thomson later changed her mind.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.dilemma_trolley_problem",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.thought_experiments",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.080"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.081.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Five on one track, one on the other. You’re steering.",
+      "body": "In 1967 Philippa Foot built a small case to test a big question: may you divert harm onto one person to save five?"
+    },
+    {
+      "id": "card.philosophy.081.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Foot’s runaway tram",
+      "body": "Philippa Foot imagined the driver of a runaway tram. He can’t stop it; he can only steer from one track to another. Five people are on one track, one person on the other. Foot held that the driver may steer toward the one. It sounds like simple arithmetic: five is more than one. Her next case shows why it isn’t."
+    },
+    {
+      "id": "card.philosophy.081.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The judge next door",
+      "body": "Foot set the tram beside a darker case. Rioters will kill five people unless a culprit is found, and a judge could stop them only by framing one innocent man. The trade is again one for five. Yet Foot held that the judge must not do it, while the driver may steer. Same numbers, opposite verdicts. Whatever decides these cases, it isn’t only counting."
+    },
+    {
+      "id": "card.philosophy.081.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Doing versus allowing",
+      "body": "Foot’s explanation: the judge chooses between killing one and allowing five to die, and not harming weighs more than helping. The driver chooses between killing one and killing five, so fewer deaths wins. Then Judith Jarvis Thomson swapped the driver for a bystander at a switch. The bystander would kill one rather than let five die, yet turning still seemed permissible to many. Foot’s explanation wobbled.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "People mix these up: the tram driver is Foot’s case. The bystander at the switch is Thomson’s twist on it."
+      }
+    },
+    {
+      "id": "card.philosophy.081.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Thomson changes her mind",
+      "body": "Thomson later argued against the consensus that the bystander may turn. In 2008 she asked: would you turn the trolley onto yourself? Few would. Then, she argued, you may not turn it onto a stranger either, just as you may not steal someone’s wallet to give to charity. Her critics hold to the older consensus. The lever is still argued over."
+    },
+    {
+      "id": "card.philosophy.081.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.081.q1"
+    },
+    {
+      "id": "card.philosophy.081.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.081.q2"
+    },
+    {
+      "id": "card.philosophy.081.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.081.q3"
+    },
+    {
+      "id": "card.philosophy.081.c9",
+      "type": "checkpoint",
+      "headline": "The Trolley Problem: the big picture",
+      "learned": [
+        "Foot’s tram: steer from five onto one",
+        "Her judge case gets the opposite verdict",
+        "Doing versus allowing, tested by Thomson",
+        "Thomson later reversed her view"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.081.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.dilemma_trolley_problem"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.081.c3"
+      ],
+      "prompt": "In Foot’s paired cases, what did she hold about the judge who could stop the rioters by framing one innocent man?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He may frame the man, since five outweigh one",
+          "correct": false,
+          "rationale": "That was not Foot’s verdict for the judge."
+        },
+        {
+          "id": "b",
+          "label": "He must not frame him, though the tram driver may steer",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "He should ask the rioters to choose",
+          "correct": false,
+          "rationale": "Foot’s case has no such option."
+        },
+        {
+          "id": "d",
+          "label": "He and the driver face exactly the same verdict",
+          "correct": false,
+          "rationale": "Foot gave them opposite verdicts."
+        }
+      ],
+      "explanation": "Foot held the judge must not frame the innocent man, even though the tram driver may steer toward the one: same numbers, different verdicts.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.philosophy.081.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.dilemma_trolley_problem"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.081.c4"
+      ],
+      "prompt": "A bystander, not the driver, can turn the runaway trolley onto one person. Why does this case strain Foot’s doing/allowing explanation?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The bystander would save fewer people than the driver would",
+          "correct": false,
+          "rationale": "The numbers are the same."
+        },
+        {
+          "id": "b",
+          "label": "The bystander is too far from the track to be responsible for it",
+          "correct": false,
+          "rationale": "Distance is not the issue here."
+        },
+        {
+          "id": "c",
+          "label": "The bystander has no way at all to change the trolley’s path",
+          "correct": false,
+          "rationale": "The bystander has a switch."
+        },
+        {
+          "id": "d",
+          "label": "The bystander would kill one instead of letting five die, yet may turn",
+          "correct": true
+        }
+      ],
+      "explanation": "For the bystander, turning means killing one instead of letting five die. Foot said avoiding harm outweighs helping, yet many still thought turning was permissible.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.philosophy.081.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.dilemma_trolley_problem",
+        "concept.philosophy.thought_experiments"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.081.c2",
+        "card.philosophy.003.c2"
+      ],
+      "prompt": "Foot never steered a real tram. What makes her case a thought experiment in Level 3’s sense?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It tests an idea with an imagined, carefully built case",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It reports what tram drivers did in a real crash",
+          "correct": false,
+          "rationale": "Nothing real is described."
+        },
+        {
+          "id": "c",
+          "label": "It runs a survey of what people would do",
+          "correct": false,
+          "rationale": "No survey is involved."
+        },
+        {
+          "id": "d",
+          "label": "It measures reaction times in a simulator",
+          "correct": false,
+          "rationale": "Nothing is measured."
+        }
+      ],
+      "explanation": "A thought experiment pictures a carefully built situation and reasons about it, as Foot does with her imagined tram.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.sep_doing_allowing",
+    "source.sep_philippa_foot",
+    "source.sep_double_effect",
+    "source.sep_thought_experiments"
+  ],
+  "art": "phil.trolley"
+}

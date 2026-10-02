@@ -1,0 +1,228 @@
+{
+  "id": "level.history.us_history.031",
+  "skillId": "skill.history.us_history",
+  "number": 31,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Why the Articles Failed",
+  "objective": "After this level you can explain why the Articles of Confederation left the new nation weak, and why Shays' Rebellion alarmed its leaders.",
+  "summary": "The Articles of Confederation gave each state one vote and let Congress only ask for money. Shays’ Rebellion in 1786 and 1787 convinced many leaders to build a stronger government.",
+  "concepts": [
+    {
+      "conceptId": "concept.us_history.republic_articles_weakness",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.republic_shays_rebellion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.us_turning_points",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.history.us_history.030"
+  ],
+  "cards": [
+    {
+      "id": "card.us_history.031.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "America’s first national government couldn’t make anyone pay its bills.",
+      "body": "Its Congress could only ask the states for money. Then, in 1786, armed farmers in Massachusetts started shutting down the courts."
+    },
+    {
+      "id": "card.us_history.031.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A Congress that could only ask",
+      "body": "The Articles of Confederation were adopted by Congress in November 1777, but the states didn’t finish ratifying them until March 1, 1781. They created a Congress where each state had one vote. Congress could request money and troops from the states, but it had no power to make them pay. Picture a club that can send out dues reminders but can’t collect a cent."
+    },
+    {
+      "id": "card.us_history.031.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Repairs needed everyone",
+      "body": "Fixing the Articles was just as hard. Any change had to be agreed in Congress and then confirmed by the legislatures of every state. A single holdout could block a repair that everyone else wanted.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Keep this: one vote per state, no power to make states pay, and no change without every state. That’s the whole problem."
+      }
+    },
+    {
+      "id": "card.us_history.031.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Farmers close the courts",
+      "body": "In 1786, armed bands in Massachusetts protesting high taxes and hard times forced courts to close, to stop foreclosures and debt cases. Most were farmers in the western part of the state, many of them Revolutionary War veterans. In January 1787, Daniel Shays led an attack on the federal arsenal at Springfield. It was driven back, and militia routed the rebels at Petersham in February."
+    },
+    {
+      "id": "card.us_history.031.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two ways to see it",
+      "body": "To the rebels, this was a stand against crushing new taxes. To many leaders, the weak national response proved the country needed a stronger central government. That conviction fed the movement for a convention, and in the summer of 1787 delegates met in Philadelphia to write the Constitution."
+    },
+    {
+      "id": "card.us_history.031.c6",
+      "type": "mcq",
+      "questionId": "question.us_history.031.q1"
+    },
+    {
+      "id": "card.us_history.031.c7",
+      "type": "mcq",
+      "questionId": "question.us_history.031.q2"
+    },
+    {
+      "id": "card.us_history.031.c8",
+      "type": "mcq",
+      "questionId": "question.us_history.031.q3"
+    },
+    {
+      "id": "card.us_history.031.c9",
+      "type": "checkpoint",
+      "headline": "Why the Articles Failed: explained",
+      "learned": [
+        "The Articles gave each state one vote and let Congress only request money",
+        "Changing the Articles needed every state",
+        "Shays’ Rebellion: farmers against taxes and foreclosures, 1786 to 1787",
+        "Its lesson for leaders: build a stronger government"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.us_history.031.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.republic_articles_weakness"
+      ],
+      "sourceCardIds": [
+        "card.us_history.031.c2"
+      ],
+      "prompt": "Under the Articles of Confederation, how many votes did each state have in Congress?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One vote per state",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A number based on population",
+          "correct": false,
+          "rationale": "Size didn’t matter: every state had one vote."
+        },
+        {
+          "id": "c",
+          "label": "Two votes per state",
+          "correct": false,
+          "rationale": "Each state had one."
+        },
+        {
+          "id": "d",
+          "label": "None; Congress members voted as individuals",
+          "correct": false,
+          "rationale": "Votes were counted by state."
+        }
+      ],
+      "explanation": "Each state had one vote in Congress, whatever its size.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.us_history.031.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.republic_articles_weakness"
+      ],
+      "sourceCardIds": [
+        "card.us_history.031.c3"
+      ],
+      "prompt": "How could Americans change the Articles of Confederation?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A simple majority in Congress was enough",
+          "correct": false,
+          "rationale": "Every state legislature also had to confirm it."
+        },
+        {
+          "id": "b",
+          "label": "Congress, then every state legislature, agreed",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The largest states could approve it alone",
+          "correct": false,
+          "rationale": "Every state had to agree."
+        },
+        {
+          "id": "d",
+          "label": "Voters approved it in a national election",
+          "correct": false,
+          "rationale": "It went through Congress and the state legislatures."
+        }
+      ],
+      "explanation": "Any change needed Congress and then the legislatures of every state, so one holdout could block it.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.us_history.031.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.us_history.republic_shays_rebellion",
+        "concept.us_history.republic_articles_weakness"
+      ],
+      "sourceCardIds": [
+        "card.us_history.031.c5",
+        "card.us_history.031.c2"
+      ],
+      "prompt": "Shays’ Rebellion was a Massachusetts crisis. Why did it matter to people worried about the Articles?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It showed Congress could now tax the states",
+          "correct": false,
+          "rationale": "Congress still had no power to make states pay."
+        },
+        {
+          "id": "b",
+          "label": "It ended when Congress amended the Articles",
+          "correct": false,
+          "rationale": "Changes needed every state, and none came."
+        },
+        {
+          "id": "c",
+          "label": "It was a revolt against the new Constitution",
+          "correct": false,
+          "rationale": "The Constitution hadn’t been written yet."
+        },
+        {
+          "id": "d",
+          "label": "It convinced many to seek a stronger government",
+          "correct": true
+        }
+      ],
+      "explanation": "The weak national response fed the movement for the Constitutional Convention of 1787.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_articles_confederation",
+    "source.brit_shays_rebellion",
+    "source.avalon_articles_confederation",
+    "source.battlefields_shays_rebellion",
+    "source.brit_constitution_united_states",
+    "source.state_historian_articles"
+  ],
+  "art": "us.parchment"
+}

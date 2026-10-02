@@ -1,0 +1,215 @@
+{
+  "id": "level.arts.film_tv.007",
+  "skillId": "skill.arts.film_tv",
+  "number": 7,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Méliès and the Trick Film",
+  "objective": "After this level you can explain how Georges Méliès used stop tricks and staged scenes to make films of fantasy, like A Trip to the Moon.",
+  "summary": "Magician Georges Méliès made the camera a magic box with the stop trick, which Edison's company had also used. His A Trip to the Moon (1902) helped make story films mainstream.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.melies_stop_trick",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.trip_to_the_moon",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.lumiere_screening",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.006"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.007.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A magician saw the Lumières' machine and spotted a new kind of stage.",
+      "body": "Georges Méliès owned a Paris magic theater, the Théâtre Robert-Houdin. In December 1895 he saw the Lumière Cinématographe demonstrated. The Lumières pointed their camera at real life. Méliès would use it to make impossible things happen."
+    },
+    {
+      "id": "card.film_tv.007.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The bus that turned into a hearse",
+      "body": "By Méliès's own account, his camera jammed while he was filming in the Place de l'Opéra in Paris. When he projected the footage, a bus suddenly seemed to turn into a hearse. Stop the camera, change what's in front of it, start again, and on screen one thing transforms into another: the stop trick. He wasn't the first to use it. Edison's company had stopped a camera in 1895 to swap an actor for a dummy in a beheading scene."
+    },
+    {
+      "id": "card.film_tv.007.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A magic show, built for the camera",
+      "body": "Méliès turned the trick into a style. He built a glass-walled film studio at Montreuil, near Paris, and filled his films with stop motion, slow motion, dissolves, fade-outs, superimposition and double exposure. Where the Lumières caught a street as it was, Méliès made scenes that could only exist on film."
+    },
+    {
+      "id": "card.film_tv.007.c4",
+      "type": "fact",
+      "fact": "A Trip to the Moon (1902) crashes a spacecraft into the Moon's eye.",
+      "context": "Loosely adapted from Jules Verne, it runs about 14 minutes and uses stop motion and superimposition to make fantasy look real. It was one of the first films to be distributed internationally, and it helped make story films a mainstream product. Not bad for a trick born from a jammed camera."
+    },
+    {
+      "id": "card.film_tv.007.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.007.q1"
+    },
+    {
+      "id": "card.film_tv.007.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.007.q2"
+    },
+    {
+      "id": "card.film_tv.007.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.007.q3"
+    },
+    {
+      "id": "card.film_tv.007.c8",
+      "type": "checkpoint",
+      "headline": "Méliès: conjured",
+      "learned": [
+        "A magician who saw the Lumière machine in 1895",
+        "The stop trick: stop, change the scene, restart",
+        "Edison's company used the trick in 1895 too",
+        "A Trip to the Moon (1902) helped make story films mainstream"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.007.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.melies_stop_trick"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.007.c2"
+      ],
+      "prompt": "What is the stop trick that Méliès made famous?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stopping the camera, changing the scene, then filming again",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Painting over frames after filming",
+          "correct": false,
+          "rationale": "The trick happens in the camera, by stopping it."
+        },
+        {
+          "id": "c",
+          "label": "Running the film backward in the projector",
+          "correct": false,
+          "rationale": "Nothing is reversed; something is swapped."
+        },
+        {
+          "id": "d",
+          "label": "Filming through colored glass",
+          "correct": false,
+          "rationale": "The trick is about stopping, not color."
+        }
+      ],
+      "explanation": "Stop the camera, change what's in front of it, restart: on screen, one thing seems to turn into another.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.007.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.trip_to_the_moon"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.007.c4"
+      ],
+      "prompt": "Why does A Trip to the Moon matter in film history?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was the first film ever projected",
+          "correct": false,
+          "rationale": "Projection was years older."
+        },
+        {
+          "id": "b",
+          "label": "It helped make story films a mainstream, international product",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It was filmed on location on the real Moon's surface",
+          "correct": false,
+          "rationale": "It was staged, with tricks."
+        },
+        {
+          "id": "d",
+          "label": "It introduced synchronized sound",
+          "correct": false,
+          "rationale": "It was a silent film."
+        }
+      ],
+      "explanation": "It was one of the first films distributed internationally and helped establish story films as mainstream.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.film_tv.007.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.lumiere_screening",
+        "concept.film_tv.melies_stop_trick"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.007.c1",
+        "card.film_tv.007.c3",
+        "card.film_tv.006.c4"
+      ],
+      "prompt": "Méliès saw the Lumières' machine in 1895. How did his films differ from their first films (Level 6)?",
+      "options": [
+        {
+          "id": "a",
+          "label": "His were all documentaries of Paris streets",
+          "correct": false,
+          "rationale": "That's closer to the Lumières' everyday scenes."
+        },
+        {
+          "id": "b",
+          "label": "His had spoken dialogue",
+          "correct": false,
+          "rationale": "All these films were silent."
+        },
+        {
+          "id": "c",
+          "label": "He staged fantasy with tricks; they filmed everyday life",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "He used a peephole cabinet instead of a projector",
+          "correct": false,
+          "rationale": "He projected films, like the Lumières."
+        }
+      ],
+      "explanation": "The Lumières' first films showed everyday French life; Méliès used stop tricks and effects to stage impossible scenes.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.cinematheque_melies_magic",
+    "source.brit_melies",
+    "source.loc_execution_mary_queen_of_scots",
+    "source.brit_trip_to_the_moon"
+  ],
+  "art": "astronomy.moon"
+}

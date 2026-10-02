@@ -1,0 +1,211 @@
+{
+  "id": "level.mind.logic.063",
+  "skillId": "skill.mind.logic",
+  "number": 63,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Hypothesis, Prediction, Test",
+  "objective": "After this level you can explain the logic of a scientific test: a hypothesis predicts something, and a failed prediction counts against it.",
+  "summary": "A hypothesis predicts what we should observe; a mismatch counts against it. Rutherford's gold-foil surprise sank the spread-out atom. A passed test supports an idea but doesn't prove it.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.science_hypothesis_test",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.premise_conclusion",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.062"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Fire tiny particles at gold foil. A few come flying back.",
+      "body": "That surprise, in Ernest Rutherford's lab, overturned the picture of the atom. It only counted as a surprise because someone had first worked out what ought to happen.",
+      "id": "card.logic.063.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Idea first, then a prediction",
+      "body": "A hypothesis is a proposed explanation, reasoned from what's already known. It isn't a wild guess. Testing it takes two steps. First: if the idea is correct, what would we expect to see? Second: does that match what we actually observe? A match supports the idea. A mismatch counts against it.",
+      "id": "card.logic.063.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The snowball atom",
+      "body": "Before 1910, Rutherford, like many scientists, pictured an atom's positive charge and mass spread evenly through it, like a loosely packed snowball. The prediction followed: alpha particles fired through gold foil should pass with only minor scattering. Most did. But some bounced back, as if they had hit something dense. The prediction failed, so the snowball had to go. Rutherford concluded the atom has a dense core: a nucleus.",
+      "id": "card.logic.063.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Passing isn't proving",
+      "body": "The two outcomes aren't equally final. A mismatch counts against an idea, as the gold foil showed. A match supports it, but the next test could still go the other way. That's why science neither proves nor disproves ideas once and for all. It accepts or rejects them on the evidence, and stays ready to revise the verdict.",
+      "id": "card.logic.063.c4"
+    },
+    {
+      "id": "card.logic.063.c5",
+      "type": "mcq",
+      "questionId": "question.logic.063.q1"
+    },
+    {
+      "id": "card.logic.063.c6",
+      "type": "mcq",
+      "questionId": "question.logic.063.q2"
+    },
+    {
+      "id": "card.logic.063.c7",
+      "type": "mcq",
+      "questionId": "question.logic.063.q3"
+    },
+    {
+      "id": "card.logic.063.c8",
+      "type": "checkpoint",
+      "headline": "Scientific tests: explained",
+      "learned": [
+        "A hypothesis is a reasoned explanation, not a guess",
+        "Predict what you should see, then check",
+        "Rutherford's failed prediction sank the snowball atom",
+        "A passed test supports; it never proves"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.063.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.science_hypothesis_test"
+      ],
+      "sourceCardIds": [
+        "card.logic.063.c2"
+      ],
+      "prompt": "What are the two steps of a scientific test?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ask experts, then take a vote",
+          "correct": false,
+          "rationale": "Scientific testing compares expectations with observations."
+        },
+        {
+          "id": "b",
+          "label": "Work out what to expect, then compare with what you see",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Collect every fact, then look for a pattern",
+          "correct": false,
+          "rationale": "The test starts from an idea and its predictions."
+        },
+        {
+          "id": "d",
+          "label": "Guess an answer, then defend it",
+          "correct": false,
+          "rationale": "A hypothesis isn't a guess, and the aim is testing, not defending."
+        }
+      ],
+      "explanation": "Step one: if the idea is correct, what would we expect? Step two: does that match what we observe?",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.063.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.science_hypothesis_test"
+      ],
+      "sourceCardIds": [
+        "card.logic.063.c3"
+      ],
+      "prompt": "How did the gold-foil results count against the snowball model of the atom?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The foil was too thin to test anything",
+          "correct": false,
+          "rationale": "The test worked; its result was the surprise."
+        },
+        {
+          "id": "b",
+          "label": "Rutherford changed his mind for other reasons",
+          "correct": false,
+          "rationale": "He changed it because of this result."
+        },
+        {
+          "id": "c",
+          "label": "All the particles passed straight through",
+          "correct": false,
+          "rationale": "Most did, as predicted; the problem was the rest."
+        },
+        {
+          "id": "d",
+          "label": "It predicted little scattering, but some particles bounced back",
+          "correct": true
+        }
+      ],
+      "explanation": "The spread-out atom predicted only minor scattering. Some particles bounced back, so the prediction failed.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.063.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.science_hypothesis_test",
+        "concept.logic.premise_conclusion"
+      ],
+      "sourceCardIds": [
+        "card.logic.063.c3",
+        "card.logic.005.c2"
+      ],
+      "prompt": "\"If the snowball model is right, particles pass through. Some bounced back.\" Which claim is the conclusion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The snowball model is wrong",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Some particles bounced back",
+          "correct": false,
+          "rationale": "That's a premise: the observation offered as a reason."
+        },
+        {
+          "id": "c",
+          "label": "If the model is right, particles pass through",
+          "correct": false,
+          "rationale": "That's a premise: the prediction."
+        },
+        {
+          "id": "d",
+          "label": "Gold foil is very thin",
+          "correct": false,
+          "rationale": "That's not part of the argument at all."
+        }
+      ],
+      "explanation": "The prediction and the observation are the premises; the claim they're offered for, that the model is wrong, is the conclusion.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.berkeley_undsci_testing_ideas",
+    "source.berkeley_undsci_testable_ideas",
+    "source.berkeley_undsci_relies_on_evidence",
+    "source.berkeley_undsci_multiple_levels",
+    "source.libretexts_vancleave_what_is_an_argument"
+  ],
+  "art": "chem.test-tubes"
+}

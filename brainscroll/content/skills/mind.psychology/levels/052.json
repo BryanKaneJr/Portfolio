@@ -1,0 +1,216 @@
+{
+  "id": "level.mind.psychology.052",
+  "skillId": "skill.mind.psychology",
+  "number": 52,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "If It Comes to Mind, It Seems Common",
+  "objective": "After this level you can explain the availability heuristic and why dramatic risks feel more likely than they are.",
+  "summary": "The availability heuristic judges how common something is by how easily examples come to mind. That is why dramatic, widely reported risks feel more likely than quiet ones.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.shortcuts_heuristic_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.shortcuts_availability",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.shortcuts_two_systems",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.051"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.052.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Which kills more people: tornadoes or asthma?",
+      "body": "In a 1978 study, college students said tornadoes. In the figures the researchers used, asthma was about 20 times more likely to kill. Why would bright people guess so badly?"
+    },
+    {
+      "id": "card.psychology.052.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A mental shortcut",
+      "body": "A heuristic is a mental shortcut, a rule of thumb that saves time and energy but isn't always the best way to decide. In 1974 Amos Tversky and Daniel Kahneman described three of them, including availability: judging how frequent or likely something is by the ease with which examples come to mind. Kahneman later explained heuristics as a quiet swap made by System 1: faced with a hard question, it answers an easier one. Here, \"how common is it?\" becomes \"how easily can I think of cases?\""
+    },
+    {
+      "id": "card.psychology.052.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Easy to recall is not the same as common",
+      "body": "Try this: are there more English words that start with r, or that have r as the third letter? Most people say first, because words are easier to search by their first letter. Yet consonants such as r and k are actually more frequent in third position. In another test, people heard a list of famous men and women, then judged that the sex with the more famous names had more names on the list. It didn't."
+    },
+    {
+      "id": "card.psychology.052.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why dramatic risks feel bigger",
+      "body": "Back to the tornadoes. The 1978 study found the most overestimated causes of death were dramatic ones, such as botulism, tornadoes, floods and homicide. The underestimated ones, such as asthma, diabetes and stroke, were undramatic \"quiet killers\". The researchers traced the errors to how often and how memorably people meet each cause, including in the news. And when warned about these biases, people still couldn't correct them."
+    },
+    {
+      "id": "card.psychology.052.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.052.q1"
+    },
+    {
+      "id": "card.psychology.052.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.052.q2"
+    },
+    {
+      "id": "card.psychology.052.c7",
+      "type": "recall",
+      "questionId": "question.psychology.052.q3"
+    },
+    {
+      "id": "card.psychology.052.c8",
+      "type": "checkpoint",
+      "headline": "The availability heuristic",
+      "learned": [
+        "A heuristic is a mental shortcut",
+        "Availability: easy to recall feels common",
+        "Words with r first feel more common than they are",
+        "Dramatic risks are overestimated, quiet killers missed"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.052.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.shortcuts_availability"
+      ],
+      "sourceCardIds": [
+        "card.psychology.052.c2"
+      ],
+      "prompt": "What is the availability heuristic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Judging how common something is by how easily examples come to mind",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Judging how likely something is by how much it fits a stereotype",
+          "correct": false,
+          "rationale": "That is representativeness, coming in Level 54."
+        },
+        {
+          "id": "c",
+          "label": "Judging a number by adjusting away from a starting value",
+          "correct": false,
+          "rationale": "That is anchoring, coming in Level 53."
+        },
+        {
+          "id": "d",
+          "label": "Judging how often something happens by carefully counting cases",
+          "correct": false,
+          "rationale": "That is the slow route the shortcut skips."
+        }
+      ],
+      "explanation": "Availability judges frequency or likelihood by the ease with which instances come to mind.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.052.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.shortcuts_availability"
+      ],
+      "sourceCardIds": [
+        "card.psychology.052.c4",
+        "card.psychology.052.c1"
+      ],
+      "prompt": "In the 1978 study, why did people overestimate deaths from tornadoes, floods and botulism?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Those were the most common causes of death",
+          "correct": false,
+          "rationale": "They were rare; asthma alone killed about 20 times more people than tornadoes."
+        },
+        {
+          "id": "b",
+          "label": "Vivid, widely reported deaths come easily to mind",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Researchers gave them misleading statistics",
+          "correct": false,
+          "rationale": "Nobody misled them; the errors followed what came to mind."
+        },
+        {
+          "id": "d",
+          "label": "Warnings about the bias made them worse",
+          "correct": false,
+          "rationale": "Warnings didn't help, but they didn't cause the error."
+        }
+      ],
+      "explanation": "Dramatic causes are memorable and often in the news, so examples come to mind easily and they feel more frequent than they are.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.psychology.052.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.shortcuts_heuristic_definition",
+        "concept.psychology.shortcuts_two_systems"
+      ],
+      "sourceCardIds": [
+        "card.psychology.052.c2",
+        "card.psychology.051.c2"
+      ],
+      "prompt": "Kahneman explained heuristics as quietly swapping a hard question for an easier one. Which system from Level 51 makes that swap?",
+      "options": [
+        {
+          "id": "a",
+          "label": "System 2, the slow and deliberate one",
+          "correct": false,
+          "rationale": "System 2 is the effortful checker, not the quick swapper."
+        },
+        {
+          "id": "b",
+          "label": "Neither, since heuristics are rules applied on purpose",
+          "correct": false,
+          "rationale": "The swap happens automatically, without deciding to."
+        },
+        {
+          "id": "c",
+          "label": "Both, taking turns every few seconds",
+          "correct": false,
+          "rationale": "The swap is described as a System 1 operation."
+        },
+        {
+          "id": "d",
+          "label": "System 1, the fast and automatic one",
+          "correct": true
+        }
+      ],
+      "explanation": "Attribute substitution is an automatic, effortless operation of System 1.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_problem_solving",
+    "source.science_tversky_kahneman_1974",
+    "source.nobel_kahneman_lecture_2002",
+    "source.jephlm_lichtenstein_lethal_events_1978"
+  ],
+  "art": "gov.newspaper"
+}

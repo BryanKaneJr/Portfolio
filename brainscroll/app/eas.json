@@ -1,0 +1,41 @@
+{
+  "cli": {
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "base": {
+      "node": "22.22.2"
+    },
+    "development": {
+      "extends": "base",
+      "developmentClient": true,
+      "distribution": "internal",
+      "environment": "development",
+      "env": {
+        "EXPO_PUBLIC_INVITE_DOMAIN": "invite.brainscroll.app"
+      }
+    },
+    "preview": {
+      "extends": "base",
+      "distribution": "internal",
+      "environment": "preview",
+      "env": {
+        "EXPO_PUBLIC_RELEASE": "1",
+        "EXPO_PUBLIC_INVITE_DOMAIN": "invite.brainscroll.app"
+      }
+    },
+    "production": {
+      "extends": "base",
+      "distribution": "store",
+      "environment": "production",
+      "autoIncrement": true,
+      "env": {
+        "EXPO_PUBLIC_RELEASE": "1",
+        "EXPO_PUBLIC_INVITE_DOMAIN": "invite.brainscroll.app"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}

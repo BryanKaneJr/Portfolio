@@ -1,0 +1,45 @@
+{
+  "name": "brainscroll",
+  "private": true,
+  "version": "0.0.0",
+  "description": "BrainScroll: an anti-doomscrolling knowledge RPG. Stop scrolling. Start leveling.",
+  "workspaces": [
+    "app",
+    "packages/*",
+    "scripts",
+    "admin"
+  ],
+  "scripts": {
+    "test": "npm run test -w @brainscroll/core && npm run test -w @brainscroll/scripts && npm run test -w @brainscroll/admin",
+    "typecheck": "npm run typecheck -w @brainscroll/core && npm run typecheck -w @brainscroll/scripts && npm run typecheck -w @brainscroll/app && npm run typecheck -w @brainscroll/admin",
+    "validate:content": "npm run validate -w @brainscroll/scripts --",
+    "test:db": "bash backend/tests/run.sh",
+    "app": "npm run start -w @brainscroll/app",
+    "check": "npm run typecheck && npm run lint && npm run lint:copy && npm test && npm run validate:content && npm run content:build -- --check && npm run art:sync -- --check && npm run card-art -- --check",
+    "content:build": "npm run build -w @brainscroll/scripts --",
+    "content:import": "npm run import -w @brainscroll/scripts --",
+    "e2e": "bash e2e/run.sh local",
+    "screens": "bash e2e/run.sh screens",
+    "e2e:remote": "bash e2e/run.sh remote",
+    "lint": "npm run lint -w @brainscroll/app",
+    "verify:report": "npm run verify -w @brainscroll/scripts -- report",
+    "verify:sync": "npm run verify -w @brainscroll/scripts -- sync",
+    "verify:record": "npm run verify -w @brainscroll/scripts -- record",
+    "verify:import-csv": "npm run verify -w @brainscroll/scripts -- import-csv",
+    "verify:flag-weak": "npm run verify -w @brainscroll/scripts -- flag-weak",
+    "admin": "npm run start -w @brainscroll/admin",
+    "supabase:check": "npm run supabase:check -w @brainscroll/scripts --",
+    "insights:pull": "npm run insights -w @brainscroll/scripts --",
+    "lint:copy": "npm run copy-lint -w @brainscroll/scripts",
+    "art:sync": "npm run art -w @brainscroll/scripts --",
+    "card-art": "npm run card-art -w @brainscroll/scripts --",
+    "site:build": "npm run site -w @brainscroll/scripts"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "pg": "^8.23.0",
+    "playwright": "^1.56.1"
+  }
+}

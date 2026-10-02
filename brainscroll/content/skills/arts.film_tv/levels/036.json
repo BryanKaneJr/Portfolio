@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.film_tv.036",
+  "skillId": "skill.arts.film_tv",
+  "number": 36,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Jump Cuts and Match Cuts",
+  "objective": "After this level you can tell a jump cut from a match cut and explain the effect each has on a viewer.",
+  "summary": "A jump cut leaves out part of an action so time visibly skips, as in Godard's Breathless (1960). A match cut joins shots with matching shapes, as when a bone becomes a satellite in 2001.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.cutting_jump_cut",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.cutting_match_cut",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.cutting_continuity_editing",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.035"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.036.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some cuts hide. These two want you to notice them.",
+      "body": "Level 32's invisible editing works hard to hide every join. But filmmakers also have cuts that do the opposite. One makes time skip like a scratched record. The other makes two different things rhyme. Here's what each one does to you."
+    },
+    {
+      "id": "card.film_tv.036.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The jump cut: time skips",
+      "body": "A jump cut leaves out part of an action, so the picture visibly jumps: a person is here, then suddenly a little further along. Nothing hides the gap. Jean-Luc Godard's Breathless (1960) used jump cuts that left out parts of the action, and French New Wave films made them a hallmark of their style."
+    },
+    {
+      "id": "card.film_tv.036.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why a jump cut feels jumpy",
+      "body": "Continuity editing supports your sense that space and time run on unbroken. A jump cut breaks that promise on purpose. It breaks with mainstream storytelling and reminds you that someone assembled what you're watching. Used well, the jolt can also suggest a character's restless thoughts."
+    },
+    {
+      "id": "card.film_tv.036.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The match cut: a visual rhyme",
+      "body": "A match cut, or graphic match, joins two shots with strongly similar compositions, matching shape or color, to smooth a transition or suggest a comparison. The famous one: in 2001: A Space Odyssey (1968), a man-ape tosses a bone into the air, and a single cut turns it into an orbiting satellite. One shape carries you from prehistory to the space age.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "People mix these two up. A jump cut breaks time; a match cut links two shapes. One jolts, the other rhymes."
+      }
+    },
+    {
+      "id": "card.film_tv.036.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.036.q1"
+    },
+    {
+      "id": "card.film_tv.036.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.036.q2"
+    },
+    {
+      "id": "card.film_tv.036.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.036.q3"
+    },
+    {
+      "id": "card.film_tv.036.c8",
+      "type": "checkpoint",
+      "headline": "Jumps and matches: spotted",
+      "learned": [
+        "Jump cut: part of an action removed, time skips",
+        "Godard's Breathless (1960) and the French New Wave",
+        "Match cut: matching shapes or colors link two shots",
+        "2001's bone becomes a satellite in one cut"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.036.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.cutting_match_cut"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.036.c4"
+      ],
+      "prompt": "In 2001: A Space Odyssey, what does the tumbling bone become after the famous cut?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A black monolith",
+          "correct": false,
+          "rationale": "The monolith appears elsewhere; the bone becomes a satellite."
+        },
+        {
+          "id": "b",
+          "label": "An orbiting satellite",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A rocket on the Moon",
+          "correct": false,
+          "rationale": "The cut lands on a satellite in orbit."
+        },
+        {
+          "id": "d",
+          "label": "A spinning wagon wheel",
+          "correct": false,
+          "rationale": "The cut leaps to the space age."
+        }
+      ],
+      "explanation": "A single match cut turns the tossed bone into an orbiting satellite, from prehistory to the space age.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.036.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.cutting_jump_cut"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.036.c2"
+      ],
+      "prompt": "How does a jump cut make time seem to skip?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It adds extra frames to slow the action",
+          "correct": false,
+          "rationale": "A jump cut removes action; it does not add frames."
+        },
+        {
+          "id": "b",
+          "label": "It cuts between two places at once",
+          "correct": false,
+          "rationale": "That's crosscutting."
+        },
+        {
+          "id": "c",
+          "label": "It fades the picture to black between scenes",
+          "correct": false,
+          "rationale": "A jump cut is abrupt, with no fade."
+        },
+        {
+          "id": "d",
+          "label": "It leaves out part of an action, so the picture jumps",
+          "correct": true
+        }
+      ],
+      "explanation": "A jump cut leaves out part of an action, producing a visible break that shrinks time.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.film_tv.036.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.cutting_continuity_editing",
+        "concept.film_tv.cutting_jump_cut"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.036.c3",
+        "card.film_tv.032.c2"
+      ],
+      "prompt": "Level 32's continuity editing keeps space and time feeling unbroken. Which cut breaks that on purpose?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The jump cut",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The match on action",
+          "correct": false,
+          "rationale": "That hides a cut inside a movement."
+        },
+        {
+          "id": "c",
+          "label": "Shot/reverse shot",
+          "correct": false,
+          "rationale": "That builds a smooth conversation."
+        },
+        {
+          "id": "d",
+          "label": "The eyeline match",
+          "correct": false,
+          "rationale": "That keeps space clear across a cut."
+        }
+      ],
+      "explanation": "A jump cut breaks continuity on purpose, showing that someone assembled the film.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.yale_film_analysis_editing",
+    "source.encyclopedia_com_film_editing",
+    "source.loc_nfr_2001_essay",
+    "source.nasa_2001_fifty_years"
+  ],
+  "art": "film.scissors"
+}

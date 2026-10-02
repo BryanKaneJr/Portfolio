@@ -1,0 +1,587 @@
+{
+  "id": "level.mind.logic.100",
+  "skillId": "skill.mind.logic",
+  "number": 100,
+  "type": "mastery",
+  "revision": 1,
+  "status": "published",
+  "title": "Mastery Challenge: Logic & Critical Thinking",
+  "objective": "After this level you can demonstrate command of Logic & Critical Thinking Levels 1 to 99 across the whole tree.",
+  "summary": "One question per chapter: arguments, deduction, fallacies, evidence, causes, traps, science, persuasion, sources and decisions. Every question can be corrected.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.unstated_premise",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.deduction_soundness",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.deduction_validity",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.classic_fallacy_ad_hominem",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.evidence_survivorship_bias",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.causal_confounder",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.causal_correlation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.trap_confirmation_bias",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.trap_seeking_disconfirmation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.science_falsifiability",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.persuasion_framing",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.sourcing_conflict_of_interest",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.sourcing_vested_interest_dismissal",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.deciding_fallacy_fallacy",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.logic.classic_fallacy_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.099"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "The Logic & Critical Thinking Mastery Challenge.",
+      "body": "Questions from across the whole tree, from what an argument is to how to decide and think clearly. Level 1 asked whether dark windows really mean a café is closed; now see how far that one question reaches. Take your time: every question can be corrected.",
+      "id": "card.logic.100.c1"
+    },
+    {
+      "id": "card.logic.100.c2",
+      "type": "recall",
+      "questionId": "question.logic.100.q1"
+    },
+    {
+      "id": "card.logic.100.c3",
+      "type": "recall",
+      "questionId": "question.logic.100.q2"
+    },
+    {
+      "id": "card.logic.100.c4",
+      "type": "recall",
+      "questionId": "question.logic.100.q3"
+    },
+    {
+      "id": "card.logic.100.c5",
+      "type": "recall",
+      "questionId": "question.logic.100.q4"
+    },
+    {
+      "id": "card.logic.100.c6",
+      "type": "recall",
+      "questionId": "question.logic.100.q5"
+    },
+    {
+      "id": "card.logic.100.c7",
+      "type": "recall",
+      "questionId": "question.logic.100.q6"
+    },
+    {
+      "id": "card.logic.100.c8",
+      "type": "recall",
+      "questionId": "question.logic.100.q7"
+    },
+    {
+      "id": "card.logic.100.c9",
+      "type": "recall",
+      "questionId": "question.logic.100.q8"
+    },
+    {
+      "id": "card.logic.100.c10",
+      "type": "recall",
+      "questionId": "question.logic.100.q9"
+    },
+    {
+      "id": "card.logic.100.c11",
+      "type": "recall",
+      "questionId": "question.logic.100.q10"
+    },
+    {
+      "id": "card.logic.100.c12",
+      "type": "checkpoint",
+      "headline": "Logic & Critical Thinking: mastered",
+      "learned": [
+        "How to take any argument apart, and test it for a valid form and true premises.",
+        "How classic fallacies dodge or distort the point, and why a fallacy never proves its conclusion false.",
+        "How to weigh evidence and causes: who is missing from the picture, and what hidden factor could fake a link.",
+        "How to catch your own reasoning traps, and test ideas the way science does: ask what would prove them wrong.",
+        "How to see past framing, weigh a source's interests fairly, and decide by what was known at the time."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.100.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.unstated_premise"
+      ],
+      "sourceCardIds": [
+        "card.logic.007.c3"
+      ],
+      "prompt": "\"The shop is shut, so it must be a holiday.\" Which unstated premise would make this work?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Holidays are good for business",
+          "correct": false,
+          "rationale": "That doesn't link shut to holiday."
+        },
+        {
+          "id": "b",
+          "label": "The shop shuts only on holidays",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Everyone likes a holiday",
+          "correct": false,
+          "rationale": "A taste claim does not help the argument."
+        },
+        {
+          "id": "d",
+          "label": "Shops should open every day",
+          "correct": false,
+          "rationale": "A value judgment doesn't connect the claims."
+        }
+      ],
+      "explanation": "Ask what else must be true for the conclusion to follow: the shop shuts only on holidays.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.logic.100.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.deduction_soundness",
+        "concept.logic.deduction_validity"
+      ],
+      "sourceCardIds": [
+        "card.logic.012.c2",
+        "card.logic.013.c2"
+      ],
+      "prompt": "\"All birds can fly. Penguins are birds. So penguins can fly.\" What is wrong with this argument?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's invalid: the conclusion doesn't follow",
+          "correct": false,
+          "rationale": "The form is airtight: if both premises were true, so would the conclusion be."
+        },
+        {
+          "id": "b",
+          "label": "It's circular: it assumes what it proves",
+          "correct": false,
+          "rationale": "The conclusion is not simply restated in a premise."
+        },
+        {
+          "id": "c",
+          "label": "It's valid but unsound: a premise is false",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Nothing: a valid argument must be true",
+          "correct": false,
+          "rationale": "Only if its premises are true as well. That is soundness."
+        }
+      ],
+      "explanation": "The form is valid, but \"all birds can fly\" is false. Sound means valid plus true premises.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.logic.100.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_ad_hominem"
+      ],
+      "sourceCardIds": [
+        "card.logic.022.c2",
+        "card.logic.022.c4"
+      ],
+      "prompt": "\"Don't take Omar's advice on fixing the bike. He failed science at school.\" Why is this a weak reply?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It restates Omar's advice as something sillier",
+          "correct": false,
+          "rationale": "That would be a straw man; his advice isn't restated at all."
+        },
+        {
+          "id": "b",
+          "label": "It assumes its own conclusion",
+          "correct": false,
+          "rationale": "Nothing circular here; it rests on his grades."
+        },
+        {
+          "id": "c",
+          "label": "It offers only two choices",
+          "correct": false,
+          "rationale": "No either/or is offered."
+        },
+        {
+          "id": "d",
+          "label": "It aims at Omar, not at his reasons",
+          "correct": true
+        }
+      ],
+      "explanation": "That's an ad hominem. Omar's advice can be checked on its own reasons; his old grades don't bear on it.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.logic.100.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.evidence_survivorship_bias"
+      ],
+      "sourceCardIds": [
+        "card.logic.037.c4",
+        "card.logic.037.c2"
+      ],
+      "prompt": "A podcast interviews ten people who quit their jobs to start a business and got rich. It concludes quitting is a smart move. What is the main flaw?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It never hears from quitters who failed",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Ten interviews are far too many to judge",
+          "correct": false,
+          "rationale": "More cases would help, not hurt; the problem is which cases."
+        },
+        {
+          "id": "c",
+          "label": "It relies on experts outside their field",
+          "correct": false,
+          "rationale": "No experts are quoted; the gap is who is missing."
+        },
+        {
+          "id": "d",
+          "label": "Stories about money can never be evidence",
+          "correct": false,
+          "rationale": "They can be; these ones passed through a filter first."
+        }
+      ],
+      "explanation": "Survivorship bias: only those who made it through the filter are in the picture. Ask who never made it into the picture.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.logic.100.q5",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.causal_confounder",
+        "concept.logic.causal_correlation"
+      ],
+      "sourceCardIds": [
+        "card.logic.044.c2",
+        "card.logic.042.c2"
+      ],
+      "prompt": "Towns with more ice rinks report more winter coughs. Which explanation should you check first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The ice rinks are spreading the coughs",
+          "correct": false,
+          "rationale": "Possible, but the link alone does not show it."
+        },
+        {
+          "id": "b",
+          "label": "Coughs lead towns to build more rinks",
+          "correct": false,
+          "rationale": "That reverses the cause, and nothing suggests it."
+        },
+        {
+          "id": "c",
+          "label": "It's a coincidence with no link at all",
+          "correct": false,
+          "rationale": "There is an obvious third factor to check first."
+        },
+        {
+          "id": "d",
+          "label": "Colder towns get more of both",
+          "correct": true
+        }
+      ],
+      "explanation": "A cold climate brings rinks and coughs alike. Like hot weather behind ice cream and sunscreen, it is a confounder.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.logic.100.q6",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.trap_confirmation_bias",
+        "concept.logic.trap_seeking_disconfirmation"
+      ],
+      "sourceCardIds": [
+        "card.logic.051.c2",
+        "card.logic.051.c4"
+      ],
+      "prompt": "A temple wall shows portraits of sailors who prayed and survived. Which habit best counters the trap behind treating it as proof?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Collect more portraits of the survivors",
+          "correct": false,
+          "rationale": "More hits don't answer the missing misses."
+        },
+        {
+          "id": "b",
+          "label": "Look for sailors who prayed and drowned",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Trust the view that most sailors hold",
+          "correct": false,
+          "rationale": "Popularity is not evidence."
+        },
+        {
+          "id": "d",
+          "label": "Ask the priests how sure they feel",
+          "correct": false,
+          "rationale": "Confidence is not evidence either."
+        }
+      ],
+      "explanation": "Confirmation bias counts only the hits. Bacon's counter: seek the negative instance, the case that could prove you wrong.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.logic.100.q7",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.science_falsifiability"
+      ],
+      "sourceCardIds": [
+        "card.logic.062.c2",
+        "card.logic.062.c4"
+      ],
+      "prompt": "A fortune cookie says, \"Something in your life will change soon.\" Why would Popper say this is not a scientific claim?",
+      "options": [
+        {
+          "id": "a",
+          "label": "No possible outcome could show it is wrong",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It has not yet been tested in a science lab",
+          "correct": false,
+          "rationale": "Untested is not the problem; untestable is."
+        },
+        {
+          "id": "c",
+          "label": "It was written by a cookie company",
+          "correct": false,
+          "rationale": "Who wrote it doesn't decide whether it could fail."
+        },
+        {
+          "id": "d",
+          "label": "It makes too bold a prediction",
+          "correct": false,
+          "rationale": "The opposite: it risks nothing at all."
+        }
+      ],
+      "explanation": "A scientific claim must stick its neck out. A claim that fits every outcome makes no real prediction.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.logic.100.q8",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.persuasion_framing"
+      ],
+      "sourceCardIds": [
+        "card.logic.074.c2",
+        "card.logic.074.c3"
+      ],
+      "prompt": "One yogurt says \"90% fat-free.\" An identical yogurt says \"10% fat.\" What does the idea of framing tell you?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The fat-free one has less fat in it",
+          "correct": false,
+          "rationale": "90% fat-free means 10% fat: the same amount."
+        },
+        {
+          "id": "b",
+          "label": "One of the two labels must be false",
+          "correct": false,
+          "rationale": "Each is true exactly when the other is."
+        },
+        {
+          "id": "c",
+          "label": "They make one claim, framed two ways",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The \"10% fat\" label uses weasel words",
+          "correct": false,
+          "rationale": "It is precise and checkable."
+        }
+      ],
+      "explanation": "The facts are equal; only the spotlight moved. A gain frame usually feels better, but it cannot change what is true.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.logic.100.q9",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.sourcing_conflict_of_interest",
+        "concept.logic.sourcing_vested_interest_dismissal",
+        "concept.logic.classic_fallacy_ad_hominem"
+      ],
+      "sourceCardIds": [
+        "card.logic.082.c2",
+        "card.logic.082.c4",
+        "card.logic.022.c2"
+      ],
+      "prompt": "A study praising a new running shoe was paid for by the shoe's maker. What is the soundest response?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Throw it out, since the maker benefits",
+          "correct": false,
+          "rationale": "Dismissing it for that alone is an attack on the person."
+        },
+        {
+          "id": "b",
+          "label": "Accept it, since it was published",
+          "correct": false,
+          "rationale": "A conflict is a real risk worth a closer look."
+        },
+        {
+          "id": "c",
+          "label": "Ignore the funding; it never matters",
+          "correct": false,
+          "rationale": "Funding may sway judgment, which is why it is disclosed."
+        },
+        {
+          "id": "d",
+          "label": "Check what the study measured, and how",
+          "correct": true
+        }
+      ],
+      "explanation": "A conflict of interest is a risk, not a verdict. Rejecting a claim just because of who benefits is Level 22's ad hominem in new clothes.",
+      "difficulty": 0.55
+    },
+    {
+      "id": "question.logic.100.q10",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.deciding_fallacy_fallacy",
+        "concept.logic.classic_fallacy_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.098.c2",
+        "card.logic.098.c3",
+        "card.logic.021.c5"
+      ],
+      "prompt": "You spot a fallacy in a friend's argument that the café is open. What does that tell you about whether it's open?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That the café must be closed",
+          "correct": false,
+          "rationale": "That's the fallacy fallacy."
+        },
+        {
+          "id": "b",
+          "label": "Nothing yet: check the café itself",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "That it's open after all",
+          "correct": false,
+          "rationale": "A fallacy tells you nothing either way about the claim."
+        },
+        {
+          "id": "d",
+          "label": "That your friend can't be trusted on it",
+          "correct": false,
+          "rationale": "That's an attack on the arguer, not the claim."
+        }
+      ],
+      "explanation": "A fallacy is a flaw in the argument, not a verdict on its conclusion. Reject the argument, then check the claim on its own.",
+      "difficulty": 0.55
+    }
+  ],
+  "sourceIds": [
+    "source.libretexts_vancleave_what_is_an_argument",
+    "source.forallx_calgary",
+    "source.iep_argument",
+    "source.libretexts_vancleave_missing_premises",
+    "source.libretexts_vancleave_arguments_vs_explanations",
+    "source.pmc_outcome_bias_replication",
+    "source.openstax_managerial_accounting_relevant_info",
+    "source.hbr_klein_premortem",
+    "source.koehler_calibration_expert_judgment",
+    "source.gutenberg_hume_enquiry",
+    "source.mw_slang_steelman",
+    "source.gutenberg_mill_on_liberty",
+    "source.libretexts_payne_fallacies"
+  ],
+  "art": "mind.logic-mastery"
+}

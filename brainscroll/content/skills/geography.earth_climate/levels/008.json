@@ -1,0 +1,221 @@
+{
+  "id": "level.geography.earth_climate.008",
+  "skillId": "skill.geography.earth_climate",
+  "number": 8,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Gems and Ores",
+  "objective": "After this level you can explain what makes a mineral a gem and what makes a rock an ore worth mining.",
+  "summary": "A gem is a mineral prized for beauty, durability and rarity; ruby and sapphire are both corundum. An ore is rock whose minerals can be mined at a profit.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.gemstones",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.ores",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.mohs_hardness",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.streak_and_luster",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.007"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.008.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A ruby and a blue sapphire are the same mineral.",
+      "body": "Same recipe, different color. So what turns a mineral into a gem? And what turns a rock into something worth digging up?"
+    },
+    {
+      "id": "card.earth_climate.008.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "What makes a gem",
+      "body": "A gemstone is a mineral prized for three things: beauty, durability and rarity. Beauty comes from color, clarity and the way it plays with light. Durability means it keeps its polish through years of handling, which is where hardness helps: remember Level 3's diamond at 10? A few gems break Level 2's rules entirely. Pearl, coral and amber aren't minerals at all."
+    },
+    {
+      "id": "card.earth_climate.008.c3",
+      "type": "fact",
+      "fact": "Ruby and sapphire are both corundum, a mineral made of aluminum oxide.",
+      "context": "Pure corundum is colorless. A trace of chromium turns it red, and it's a ruby. Iron and titanium turn it blue, and it's a sapphire. At 9 on the Mohs scale, corundum is second in hardness only to diamond, which helps both gems last."
+    },
+    {
+      "id": "card.earth_climate.008.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What makes an ore",
+      "body": "An ore is a natural collection of minerals that can be mined and sold at a profit. That's an economic test, not a geological one: every ore deposit is a mineral deposit, but not the other way round. Whether a deposit pays depends on how rich and big it is, the cost of mining and shipping, and market prices. Level 3's red-streaked hematite is a key iron ore."
+    },
+    {
+      "id": "card.earth_climate.008.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.008.q1"
+    },
+    {
+      "id": "card.earth_climate.008.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.008.q2"
+    },
+    {
+      "id": "card.earth_climate.008.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.008.q3"
+    },
+    {
+      "id": "card.earth_climate.008.c8",
+      "type": "checkpoint",
+      "headline": "Gems and ores: valued",
+      "learned": [
+        "Gems need beauty, durability and rarity",
+        "Ruby and sapphire are both corundum",
+        "An ore can be mined at a profit",
+        "Hematite is a key iron ore"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.008.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.gemstones"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.008.c3"
+      ],
+      "prompt": "What do ruby and sapphire have in common?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both are colored red by chromium",
+          "correct": false,
+          "rationale": "Only ruby is; sapphire's blue comes from iron and titanium."
+        },
+        {
+          "id": "b",
+          "label": "Both are varieties of quartz",
+          "correct": false,
+          "rationale": "Amethyst is quartz; ruby and sapphire are not."
+        },
+        {
+          "id": "c",
+          "label": "Both are the mineral corundum",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both are organic, like pearl",
+          "correct": false,
+          "rationale": "Corundum is a mineral, aluminum oxide."
+        }
+      ],
+      "explanation": "Ruby and sapphire are both corundum; trace elements give them their different colors.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.earth_climate.008.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.ores"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.008.c4"
+      ],
+      "prompt": "Why is \"ore\" called an economic term rather than a geological one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's measured with the Mohs scale",
+          "correct": false,
+          "rationale": "Hardness doesn't decide whether rock is ore."
+        },
+        {
+          "id": "b",
+          "label": "It depends on whether mining it pays",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only governments can name a rock an ore",
+          "correct": false,
+          "rationale": "The test is profit, not an official label."
+        },
+        {
+          "id": "d",
+          "label": "Ores are always gems like ruby",
+          "correct": false,
+          "rationale": "Most ores are metal sources, like iron."
+        }
+      ],
+      "explanation": "An ore can be mined and sold at a profit, which depends on richness, size, costs and prices.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.earth_climate.008.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.ores",
+        "concept.earth_climate.streak_and_luster"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.008.c4",
+        "card.earth_climate.003.c4"
+      ],
+      "prompt": "A miner finds a black mineral that leaves a reddish streak. Using Level 3, which ore mineral is it most likely to be?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pyrite",
+          "correct": false,
+          "rationale": "Pyrite leaves a greenish-black streak."
+        },
+        {
+          "id": "b",
+          "label": "Hematite",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Quartz",
+          "correct": false,
+          "rationale": "Quartz isn't one of the iron ores named in this level."
+        },
+        {
+          "id": "d",
+          "label": "Gold",
+          "correct": false,
+          "rationale": "Gold leaves a yellow streak."
+        }
+      ],
+      "explanation": "Hematite can look black or silver but always leaves a reddish streak, and it's a key iron ore.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_corundum",
+    "source.brit_gemstone",
+    "source.brit_mohs_hardness",
+    "source.brit_ore_mineral",
+    "source.brit_ore_deposit",
+    "source.geologycom_hematite"
+  ],
+  "art": "earth.geode"
+}

@@ -1,0 +1,210 @@
+{
+  "id": "level.mind.probability.077",
+  "skillId": "skill.mind.probability",
+  "number": 77,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Log Scales",
+  "objective": "After this level you can read a chart where each step up the axis multiplies instead of adds, and explain when that helps.",
+  "summary": "On a log scale each step multiplies, so 1 to 10 is as far as 10 to 100, and steady doubling becomes a straight line, as on Moore's 1965 chart.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.chart_log_scale",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.number_ladder",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.076"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.077.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1965, Gordon Moore drew explosive growth as a straight line.",
+      "body": "He was tracking transistors, the tiny switches on computer chips. The trick was in his axis: each step up it multiplied instead of adding."
+    },
+    {
+      "id": "card.probability.077.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Each step multiplies",
+      "body": "On an ordinary axis, each step up adds the same amount. On a log scale, each step multiplies: 1, 10, 100, 1,000. The gap from 1 to 10 is as wide as the gap from 100,000 to 1,000,000. That lets one chart fit a thousand, a million and a billion at equal steps, since each is 1,000 times the one before."
+    },
+    {
+      "id": "card.probability.077.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Straight means steady growth",
+      "body": "Here's the payoff. On an ordinary chart, something that doubles at a steady pace curves upward ever more steeply. On a log scale, that same growth becomes a straight line. That's what Moore's chart showed: the transistor count has doubled roughly every two years, and on a log axis the points line up."
+    },
+    {
+      "id": "card.probability.077.c4",
+      "type": "fact",
+      "fact": "Log scales are useful, and easy to misread.",
+      "context": "In a 2020 experiment, about 2,000 Americans saw COVID-19 deaths on either a log chart or an ordinary one. Asked a basic question about it, about 84% of the ordinary-chart group got it right, against about 41% of the log group. So check the axis labels first: if each step multiplies, read it that way."
+    },
+    {
+      "id": "card.probability.077.c5",
+      "type": "mcq",
+      "questionId": "question.probability.077.q1"
+    },
+    {
+      "id": "card.probability.077.c6",
+      "type": "mcq",
+      "questionId": "question.probability.077.q2"
+    },
+    {
+      "id": "card.probability.077.c7",
+      "type": "recall",
+      "questionId": "question.probability.077.q3"
+    },
+    {
+      "id": "card.probability.077.c8",
+      "type": "checkpoint",
+      "headline": "Log scales: read",
+      "learned": [
+        "Each step multiplies",
+        "1 to 10 spans as far as 10 to 100",
+        "Steady doubling looks straight",
+        "Check the labels before the slope"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.077.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.chart_log_scale"
+      ],
+      "sourceCardIds": [
+        "card.probability.077.c2"
+      ],
+      "prompt": "On a log scale, what happens with each equal step up the axis?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The value goes up by the same amount",
+          "correct": false,
+          "rationale": "That's an ordinary axis."
+        },
+        {
+          "id": "b",
+          "label": "The value is multiplied by the same amount",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The value is cut in half",
+          "correct": false,
+          "rationale": "Steps up a log axis multiply upward."
+        },
+        {
+          "id": "d",
+          "label": "The value stays the same",
+          "correct": false,
+          "rationale": "Each step is a bigger value."
+        }
+      ],
+      "explanation": "Each step multiplies: 1, 10, 100, 1,000. So 1 to 10 is as far as 100,000 to 1,000,000.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.077.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.chart_log_scale"
+      ],
+      "sourceCardIds": [
+        "card.probability.077.c3"
+      ],
+      "prompt": "How does something that doubles at a steady pace look on a log-scale chart?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A curve that grows ever steeper",
+          "correct": false,
+          "rationale": "That's how it looks on an ordinary chart."
+        },
+        {
+          "id": "b",
+          "label": "A line that rises then falls",
+          "correct": false,
+          "rationale": "Steady doubling never falls."
+        },
+        {
+          "id": "c",
+          "label": "A flat line",
+          "correct": false,
+          "rationale": "A flat line on a log scale means no growth."
+        },
+        {
+          "id": "d",
+          "label": "A straight line",
+          "correct": true
+        }
+      ],
+      "explanation": "Steady doubling multiplies by the same amount each period, and a log axis turns equal multiplications into equal steps: a straight line.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.077.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.number_ladder",
+        "concept.probability.chart_log_scale"
+      ],
+      "sourceCardIds": [
+        "card.probability.077.c2",
+        "card.probability.008.c2"
+      ],
+      "prompt": "Given Level 8's ladder of thousand, million and billion, where would those three sit on a log axis?",
+      "options": [
+        {
+          "id": "a",
+          "label": "At equal steps, since each is 1,000 times the last",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Bunched together near the bottom",
+          "correct": false,
+          "rationale": "That's an ordinary axis, where a thousand and a million look tiny."
+        },
+        {
+          "id": "c",
+          "label": "The billion would be off the chart",
+          "correct": false,
+          "rationale": "A log axis fits all three easily."
+        },
+        {
+          "id": "d",
+          "label": "In reverse order",
+          "correct": false,
+          "rationale": "Bigger values still sit higher."
+        }
+      ],
+      "explanation": "Each rung multiplies by 1,000, and a log axis spaces equal multiplications equally.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.datawrapper_log_scale",
+    "source.owid_moores_law",
+    "source.lse_covid_log_scale_blog",
+    "source.health_economics_romano_2020",
+    "source.nist_si_prefixes"
+  ],
+  "art": "money.chart-up"
+}

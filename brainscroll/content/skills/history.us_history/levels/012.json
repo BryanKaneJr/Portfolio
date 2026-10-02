@@ -1,0 +1,214 @@
+{
+  "id": "level.history.us_history.012",
+  "skillId": "skill.history.us_history",
+  "number": 12,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "A City Upon a Hill",
+  "objective": "After this level you can explain what the Puritans hoped to build in Massachusetts and why they banished dissenters like Roger Williams and Anne Hutchinson.",
+  "summary": "In 1630 Winthrop's Puritans set out to be a model \"city upon a hill\". Roger Williams and Anne Hutchinson challenged them, were banished, and moved to what became Rhode Island.",
+  "concepts": [
+    {
+      "conceptId": "concept.us_history.puritan_city_upon_hill",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.puritan_dissenters_banished",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.plymouth_wampanoag_alliance",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.us_history.011"
+  ],
+  "cards": [
+    {
+      "id": "card.us_history.012.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Puritans built a model society. Dissenters were shown the door.",
+      "body": "They believed the whole world was watching. So what happened to people who disagreed out loud?"
+    },
+    {
+      "id": "card.us_history.012.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A city upon a hill",
+      "body": "In 1630 John Winthrop, governor of the Massachusetts Bay Colony, led a fleet of mostly Puritan settlers to New England. Puritans wanted a godly society and a church purified of what they saw as corruptions in the Church of England. In his sermon A Model of Christian Charity, Winthrop said the colony would be “a city upon a hill”, with all the world watching it. No pressure."
+    },
+    {
+      "id": "card.us_history.012.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Roger Williams says no",
+      "body": "Roger Williams, a minister, argued that magistrates had no right to rule anyone’s conscience. Worse, to the colony’s leaders, he said Native people, not the king’s charter, truly owned the land. Massachusetts banished him in 1635. The Narragansett sold him land, and he founded Providence, open to people of all faiths."
+    },
+    {
+      "id": "card.us_history.012.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Anne Hutchinson’s meetings",
+      "body": "Anne Hutchinson held weekly meetings of Boston women to discuss sermons and share her own religious views. The colony’s leaders saw a challenge to its ministers. Convicted in 1637 of slandering them, she was banished, and in 1638 she helped found a settlement on Aquidneck, an island now in Rhode Island. The city upon a hill had no room for a second preacher."
+    },
+    {
+      "id": "card.us_history.012.c5",
+      "type": "mcq",
+      "questionId": "question.us_history.012.q1"
+    },
+    {
+      "id": "card.us_history.012.c6",
+      "type": "mcq",
+      "questionId": "question.us_history.012.q2"
+    },
+    {
+      "id": "card.us_history.012.c7",
+      "type": "recall",
+      "questionId": "question.us_history.012.q3"
+    },
+    {
+      "id": "card.us_history.012.c8",
+      "type": "checkpoint",
+      "headline": "A City Upon a Hill: explained",
+      "learned": [
+        "Winthrop’s Puritans founded Massachusetts Bay in 1630",
+        "They meant to be “a city upon a hill”, a model watched by all",
+        "Roger Williams was banished in 1635 and founded Providence",
+        "Anne Hutchinson was convicted in 1637 and left for Aquidneck"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.us_history.012.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.puritan_city_upon_hill"
+      ],
+      "sourceCardIds": [
+        "card.us_history.012.c2"
+      ],
+      "prompt": "What did John Winthrop mean when he called Massachusetts Bay “a city upon a hill”?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It would be built on the highest ground",
+          "correct": false,
+          "rationale": "It was a picture, not a building plan."
+        },
+        {
+          "id": "b",
+          "label": "All the world would be watching it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It would be a fortress against Spain",
+          "correct": false,
+          "rationale": "Spain wasn’t the point of the sermon."
+        },
+        {
+          "id": "d",
+          "label": "It would be governed from London",
+          "correct": false,
+          "rationale": "The image was about being an example."
+        }
+      ],
+      "explanation": "Winthrop said the colony would be a city upon a hill, with all the world watching it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.us_history.012.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.puritan_dissenters_banished"
+      ],
+      "sourceCardIds": [
+        "card.us_history.012.c3"
+      ],
+      "prompt": "Why did Massachusetts banish Roger Williams in 1635?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He refused to pay the colony’s taxes",
+          "correct": false,
+          "rationale": "His offense was his ideas."
+        },
+        {
+          "id": "b",
+          "label": "He led an armed revolt against Boston",
+          "correct": false,
+          "rationale": "He argued; he didn’t fight."
+        },
+        {
+          "id": "c",
+          "label": "He denied rulers power over conscience and the king’s title to Native land",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "He wanted the colony to rejoin the Church of England",
+          "correct": false,
+          "rationale": "He wanted less state power over religion, not more."
+        }
+      ],
+      "explanation": "Williams said magistrates couldn’t rule consciences and that Native people truly owned the land.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.us_history.012.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.us_history.puritan_dissenters_banished",
+        "concept.us_history.plymouth_wampanoag_alliance"
+      ],
+      "sourceCardIds": [
+        "card.us_history.012.c3",
+        "card.us_history.011.c3"
+      ],
+      "prompt": "Roger Williams got land for Providence from the Narragansett. What part had that nation played in Level 11?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were Plymouth’s first allies",
+          "correct": false,
+          "rationale": "That was Ousamequin’s Wampanoag."
+        },
+        {
+          "id": "b",
+          "label": "They were the rivals Ousamequin feared",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They had been emptied by the epidemic",
+          "correct": false,
+          "rationale": "They escaped it."
+        },
+        {
+          "id": "d",
+          "label": "They sailed on the Mayflower",
+          "correct": false,
+          "rationale": "They lived in New England already."
+        }
+      ],
+      "explanation": "Ousamequin allied with Plymouth for help against the Narragansett.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.billofrights_winthrop_city_upon_hill",
+    "source.massmoments_roger_williams_banished",
+    "source.brit_anne_hutchinson"
+  ],
+  "art": "us.meetinghouse"
+}

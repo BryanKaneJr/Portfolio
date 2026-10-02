@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.psychology.011",
+  "skillId": "skill.mind.psychology",
+  "number": 11,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Sensing Versus Perceiving",
+  "objective": "After this level you can tell sensation from perception and explain how the mind turns raw signals into experience.",
+  "summary": "Sensation is your receptors detecting a stimulus and turning it into nerve signals. Perception is organizing and interpreting those signals into experience, and the two can come apart.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.perception_sensation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.perception_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.perception_sensory_adaptation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.measuring_the_mind",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.010"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.011.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A light can flash in your window all night, and you stop seeing it.",
+      "body": "Your eyes still register every flash. You just stop noticing it. That gap, between what your senses pick up and what you actually experience, is where the psychology of perception begins. So what exactly is the difference?"
+    },
+    {
+      "id": "card.psychology.011.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step one: sensation",
+      "body": "Sensation happens when a sensory receptor, a specialized nerve cell, detects something. Light entering your eye causes changes in cells at the back of it, and those cells relay messages to your brain and spinal cord. Converting light, sound or pressure into nerve signals is called transduction. The Human Body tree covers the hardware. The point here: at this stage nothing has been understood yet. It's raw data."
+    },
+    {
+      "id": "card.psychology.011.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Step two: perception",
+      "body": "Perception is the way that sensory information is organized, interpreted and consciously experienced. One textbook puts it neatly: sensation is a physical process, perception a psychological one. Walk into a kitchen where cinnamon rolls are baking. The sensation is your scent receptors detecting cinnamon. The perception might be \"this smells like Grandma's holiday baking.\" Same molecules, very different experience."
+    },
+    {
+      "id": "card.psychology.011.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sensed, but not perceived",
+      "body": "Perceptions are built from sensations, but not every sensation becomes a perception. When a stimulus stays constant for a long time, you often stop perceiving it even though your receptors still sense it. That's sensory adaptation, and it's why you don't feel the weight of your clothes or hear the hum of a projector. Back to the flashing light: sensed every time, perceived less and less. Two different jobs."
+    },
+    {
+      "id": "card.psychology.011.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.011.q1"
+    },
+    {
+      "id": "card.psychology.011.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.011.q2"
+    },
+    {
+      "id": "card.psychology.011.c7",
+      "type": "recall",
+      "questionId": "question.psychology.011.q3"
+    },
+    {
+      "id": "card.psychology.011.c8",
+      "type": "checkpoint",
+      "headline": "Sensing vs. perceiving",
+      "learned": [
+        "Sensation: receptors detect a stimulus",
+        "Transduction turns it into nerve signals",
+        "Perception organizes and interprets it",
+        "Sensory adaptation: sensed, but no longer perceived"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.011.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.perception_sensation"
+      ],
+      "sourceCardIds": [
+        "card.psychology.011.c2"
+      ],
+      "prompt": "What is transduction, the first step of sensing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Interpreting a smell as a happy memory",
+          "correct": false,
+          "rationale": "That's perception, the later step."
+        },
+        {
+          "id": "b",
+          "label": "Turning stimulus energy into signals",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Ignoring a stimulus that never changes",
+          "correct": false,
+          "rationale": "That's sensory adaptation."
+        },
+        {
+          "id": "d",
+          "label": "Grouping shapes and colors into whole objects",
+          "correct": false,
+          "rationale": "That's how perception organizes input."
+        }
+      ],
+      "explanation": "Transduction is the conversion of stimulus energy, such as light, into nerve signals that receptors send to the brain.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.011.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.perception_sensory_adaptation"
+      ],
+      "sourceCardIds": [
+        "card.psychology.011.c4"
+      ],
+      "prompt": "Why do you stop noticing the feel of your clothes during the day?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Your skin receptors stop working until you undress",
+          "correct": false,
+          "rationale": "Receptors still sense the clothes; you just stop perceiving them."
+        },
+        {
+          "id": "b",
+          "label": "Clothes press less on the skin after an hour",
+          "correct": false,
+          "rationale": "The stimulus stays the same; that's the point."
+        },
+        {
+          "id": "c",
+          "label": "A constant stimulus often stops being perceived",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Your brain can only perceive one sense at a time",
+          "correct": false,
+          "rationale": "That isn't what explains it."
+        }
+      ],
+      "explanation": "That's sensory adaptation: when a stimulus stays constant, you often stop perceiving it even though receptors still sense it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.011.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.perception_definition",
+        "concept.psychology.measuring_the_mind"
+      ],
+      "sourceCardIds": [
+        "card.psychology.011.c3",
+        "card.psychology.001.c3"
+      ],
+      "prompt": "Level 1 said psychologists use self-reports. In the cinnamon example, which part could only a self-report reveal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That scent receptors detected cinnamon",
+          "correct": false,
+          "rationale": "Receptor activity is a physical, biological signal."
+        },
+        {
+          "id": "b",
+          "label": "That the oven was switched on",
+          "correct": false,
+          "rationale": "Anyone could observe that directly."
+        },
+        {
+          "id": "c",
+          "label": "How many rolls were baking in the oven",
+          "correct": false,
+          "rationale": "That's observable, not part of the experience."
+        },
+        {
+          "id": "d",
+          "label": "The memory of Grandma it brought up",
+          "correct": true
+        }
+      ],
+      "explanation": "The perception, a personal experience like a memory, is psychological. Only the person can report it; the sensation is a physical process.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_sensation_perception",
+    "source.noba_sensation_perception",
+    "source.openstax_psych_what_is_psychology"
+  ],
+  "art": "body.eye"
+}

@@ -1,0 +1,221 @@
+{
+  "id": "level.mind.probability.009",
+  "skillId": "skill.mind.probability",
+  "number": 9,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Too Precise to Be True",
+  "objective": "After this level you can explain how a number can look more exact than the measurement behind it, using the 98.6 degree fever line.",
+  "summary": "The 98.6°F fever-chart line comes from Wunderlich's round 37°C, converted to Fahrenheit. The decimal came from the formula, not a sharper thermometer; a 1992 study found an average of 98.2°F.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.wunderlich_98_6",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.false_precision",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.mackowiak_1992",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.fraction_to_percent",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.008"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.009.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "98.6°F looks measured to a tenth of a degree. It never was.",
+      "body": "That famous line on fever charts goes back to a German doctor's book from 1868. His number was a round 37°C. The .6 turned up when someone converted it."
+    },
+    {
+      "id": "card.probability.009.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A huge study, a round number",
+      "body": "Carl Wunderlich reportedly analyzed over a million underarm readings from some 25,000 patients. The average he gave for healthy adults was 37°C. Written as 37, that's a number to the nearest whole degree: it could stand for anything from 36.5°C to 37.5°C. The digits you write down are a promise about how sharp the measuring was."
+    },
+    {
+      "id": "card.probability.009.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where the .6 came from",
+      "body": "To turn Celsius into Fahrenheit, multiply by 1.8 and add 32. Do that to 37 and you get exactly 98.6. The decimal comes from the formula, not from a better thermometer, and a calculation can't make a number more precise than its measurement. That 36.5 to 37.5 range is 97.7°F to 99.5°F. Tellingly, NIST's table of everyday temperatures lists body temperature as 37°C and 99°F."
+    },
+    {
+      "id": "card.probability.009.c4",
+      "type": "fact",
+      "fact": "When researchers measured again in 1992, the average was 98.2°F.",
+      "context": "A University of Maryland team took 700 oral readings from 148 healthy adults. The average was 36.8°C (98.2°F), and exactly 98.6°F came up in only 56 of the 700 readings. A number's decimals only mean something if the measurement behind them was that sharp."
+    },
+    {
+      "id": "card.probability.009.c5",
+      "type": "mcq",
+      "questionId": "question.probability.009.q1"
+    },
+    {
+      "id": "card.probability.009.c6",
+      "type": "mcq",
+      "questionId": "question.probability.009.q2"
+    },
+    {
+      "id": "card.probability.009.c7",
+      "type": "recall",
+      "questionId": "question.probability.009.q3"
+    },
+    {
+      "id": "card.probability.009.c8",
+      "type": "checkpoint",
+      "headline": "98.6°F: questioned",
+      "learned": [
+        "Wunderlich's average: a round 37°C",
+        "37 × 1.8 + 32 = 98.6, a decimal from a formula",
+        "Conversions add digits, not precision",
+        "1992: 148 adults averaged 98.2°F"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.009.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.wunderlich_98_6"
+      ],
+      "sourceCardIds": [
+        "card.probability.009.c1",
+        "card.probability.009.c2"
+      ],
+      "prompt": "Wunderlich's 1868 average body temperature was which round Celsius number?",
+      "options": [
+        {
+          "id": "a",
+          "label": "35°C",
+          "correct": false,
+          "rationale": "Too low; his figure became 98.6°F."
+        },
+        {
+          "id": "b",
+          "label": "36°C",
+          "correct": false,
+          "rationale": "Too low; his figure became 98.6°F."
+        },
+        {
+          "id": "c",
+          "label": "37°C",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "38°C",
+          "correct": false,
+          "rationale": "Too high; 38°C is about 100.4°F."
+        }
+      ],
+      "explanation": "Wunderlich gave 37°C, which converts to exactly 98.6°F.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.009.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.false_precision",
+        "concept.probability.wunderlich_98_6"
+      ],
+      "sourceCardIds": [
+        "card.probability.009.c2",
+        "card.probability.009.c3"
+      ],
+      "prompt": "Why does \"98.6°F\" look more precise than the measurement behind it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fahrenheit thermometers are always more accurate",
+          "correct": false,
+          "rationale": "The scale doesn't add accuracy; the decimal came from a formula."
+        },
+        {
+          "id": "b",
+          "label": "Its decimal came from converting a round 37°C",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Wunderlich measured to a hundredth of a degree",
+          "correct": false,
+          "rationale": "His average was a round 37°C."
+        },
+        {
+          "id": "d",
+          "label": "The 1992 study added the decimal",
+          "correct": false,
+          "rationale": "The 98.6 came from converting 37°C long before 1992."
+        }
+      ],
+      "explanation": "37 × 1.8 + 32 = 98.6. The .6 is arithmetic, and a calculation is never more precise than the measurement it starts from.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.009.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.mackowiak_1992",
+        "concept.probability.fraction_to_percent"
+      ],
+      "sourceCardIds": [
+        "card.probability.009.c4",
+        "card.probability.002.c3"
+      ],
+      "prompt": "The 1992 study found 98.6°F in 56 of 700 readings. Using Level 2's method, what percent is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "5.6%",
+          "correct": false,
+          "rationale": "That's 56 ÷ 1,000; divide by 700 instead."
+        },
+        {
+          "id": "b",
+          "label": "8%",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "12.5%",
+          "correct": false,
+          "rationale": "That's 1 in 8, not 56 in 700."
+        },
+        {
+          "id": "d",
+          "label": "56%",
+          "correct": false,
+          "rationale": "That's the count, not the share."
+        }
+      ],
+      "explanation": "56 ÷ 700 = 0.08; move the decimal point two places and you get 8%.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.jama_mackowiak_98_6_1992",
+    "source.nist_si_temperature",
+    "source.openstax_chem_uncertainty"
+  ],
+  "art": "nature.thermometer"
+}

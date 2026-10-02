@@ -1,0 +1,231 @@
+{
+  "id": "level.geography.earth_climate.016",
+  "skillId": "skill.geography.earth_climate",
+  "number": 16,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The San Andreas Fault",
+  "objective": "After this level you can describe the plate boundary running through California and why it builds up large quakes.",
+  "summary": "Along the San Andreas, locked sections bend rock and store strain until it snaps back in great quakes like 1906; a creeping section slips steadily with only small ones.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.quake_san_andreas",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.quake_elastic_rebound",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.fault_types",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.015"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.016.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1906, a fence across the San Andreas was suddenly offset by about 2.6 m.",
+      "body": "The two halves of the fence ended up about 2.6 m apart. How the ground stored up that jump explains how this fault makes earthquakes."
+    },
+    {
+      "id": "card.earth_climate.016.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A plate boundary on land",
+      "body": "The San Andreas runs about 1,300 km through California. Along it, the Pacific Plate grinds northwest past the North American Plate. The plates never stop, but much of the fault doesn't move for long stretches: it's locked. The locked sections have produced great quakes, including the magnitude 7.9 Fort Tejon earthquake of 1857 and the 7.9 San Francisco earthquake of 1906."
+    },
+    {
+      "id": "card.earth_climate.016.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bend, then snap",
+      "body": "After 1906, Henry Fielding Reid studied how the ground had moved and proposed elastic rebound. While a fault is locked, the moving plates slowly bend the rock beside it, so gently, over many miles, that only precise instruments can see it; diagrams draw it as a fence bent into an S shape. The rock stores that strain like a bent ruler. When the fault finally slips, the rock snaps back all at once. That snap is the earthquake. In 1906 more than 400 km of the fault slipped."
+    },
+    {
+      "id": "card.earth_climate.016.c4",
+      "type": "comparison",
+      "headline": "Locked or creeping?",
+      "items": [
+        {
+          "label": "Locked sections",
+          "points": [
+            "Stick while strain builds",
+            "Release it suddenly",
+            "Great quakes: 1857 and 1906, both M 7.9"
+          ]
+        },
+        {
+          "label": "Creeping section",
+          "points": [
+            "Between San Juan Bautista and Parkfield",
+            "Many small quakes, mostly M 5 or less",
+            "No large ones"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.earth_climate.016.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.016.q1"
+    },
+    {
+      "id": "card.earth_climate.016.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.016.q2"
+    },
+    {
+      "id": "card.earth_climate.016.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.016.q3"
+    },
+    {
+      "id": "card.earth_climate.016.c8",
+      "type": "checkpoint",
+      "headline": "San Andreas: explained",
+      "learned": [
+        "Pacific Plate grinds past North America",
+        "Locked sections store strain",
+        "Elastic rebound: bend, then snap",
+        "The creeping section has only small quakes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.016.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.quake_san_andreas"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.016.c4"
+      ],
+      "prompt": "What happens along the San Andreas's creeping section, between San Juan Bautista and Parkfield?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It produces many small quakes but no large ones",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It has produced the fault's biggest quakes",
+          "correct": false,
+          "rationale": "Those came from locked sections."
+        },
+        {
+          "id": "c",
+          "label": "It never has earthquakes of any size",
+          "correct": false,
+          "rationale": "It has many small ones."
+        },
+        {
+          "id": "d",
+          "label": "It is where the plates have stopped moving",
+          "correct": false,
+          "rationale": "The plates keep moving there too."
+        }
+      ],
+      "explanation": "The creeping section slips steadily, with many small earthquakes (mostly M 5 and smaller) but no large ones.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.earth_climate.016.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.quake_elastic_rebound"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.016.c3"
+      ],
+      "prompt": "According to elastic rebound, how does a locked fault make an earthquake?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Magma pushes the two blocks apart",
+          "correct": false,
+          "rationale": "The San Andreas isn't driven by magma."
+        },
+        {
+          "id": "b",
+          "label": "The plates stop moving, then suddenly restart",
+          "correct": false,
+          "rationale": "The plates keep moving the whole time."
+        },
+        {
+          "id": "c",
+          "label": "Bent rock stores strain, then snaps back when the fault slips",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The rock melts until the fault can slide",
+          "correct": false,
+          "rationale": "The rock doesn't melt; it bends."
+        }
+      ],
+      "explanation": "The moving plates bend the rock beside a locked fault; when the fault slips, the rock snaps back, and that is the quake.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.016.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.quake_san_andreas",
+        "concept.earth_climate.fault_types"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.016.c2",
+        "card.earth_climate.014.c3"
+      ],
+      "prompt": "Along the San Andreas, the Pacific Plate grinds past the North American Plate. In Level 14's terms, what kind of fault is it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A normal fault",
+          "correct": false,
+          "rationale": "That's where the hanging wall drops."
+        },
+        {
+          "id": "b",
+          "label": "A thrust fault",
+          "correct": false,
+          "rationale": "That's a low-angle reverse fault."
+        },
+        {
+          "id": "c",
+          "label": "A strike-slip fault",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Not a fault, just a boundary",
+          "correct": false,
+          "rationale": "The boundary is a fault."
+        }
+      ],
+      "explanation": "The blocks slide sideways past each other, which makes the San Andreas a strike-slip fault.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.usgs_dynamic_plate_motions",
+    "source.usgs_parkfield_geology",
+    "source.usgs_1906_reid",
+    "source.usgs_1906_earthquake"
+  ],
+  "art": "earth.cracked-ground"
+}

@@ -1,0 +1,240 @@
+{
+  "id": "level.mind.religions.008",
+  "skillId": "skill.mind.religions",
+  "number": 8,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Families of Faith",
+  "objective": "After this level you can sort the world's religions into the Abrahamic, Indian, East Asian and Indigenous families and say what links each family.",
+  "summary": "The Abrahamic faiths share Abraham; the Indian family shares karma and rebirth; East Asian traditions blend and honor ancestors; Indigenous traditions are many, each tied to its people and place.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.abrahamic_family",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.indian_family",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.east_asian_family",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.indigenous_diversity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.religion_word_east_asia",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.007"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.008.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Religions have family trees, too.",
+      "body": "Sorting them into families shows who shares an ancestor, an idea or a homeland. Here are four families, and a warning about the last one."
+    },
+    {
+      "id": "card.religions.008.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Abrahamic family",
+      "body": "Judaism, Christianity and Islam share reverence for Abraham, who is often considered the first monotheist. They trace the family line differently: Jews and Christians through his son Isaac, Muslims through his son Ishmael. Three faiths, one ancestor.",
+      "callout": "Linked by: Abraham"
+    },
+    {
+      "id": "card.religions.008.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Indian family",
+      "body": "Hinduism, Buddhism, Jainism and Sikhism all began in the Indian subcontinent, Sikhism in the Punjab in the late 15th century. Running through much of this family is karma, the law by which good or bad actions shape future existence, together with rebirth (samsara) and the hope of release from it (moksha).",
+      "callout": "Linked by: karma, rebirth, release"
+    },
+    {
+      "id": "card.religions.008.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The East Asian family",
+      "body": "In China, religion draws on Confucianism, Daoism and Buddhism, often blended with folk traditions; in Japan, Shinto is the indigenous religion. Remember Level 2's Confucian scholar at a Daoist ritual? East Asians, Britannica notes, may call themselves Shintoists, Daoists, Buddhists or Christians, yet seldom stop being Confucians. Honoring ancestors is widespread: in a 2023 survey, roughly half or more of adults everywhere surveyed had made them offerings in the past year.",
+      "callout": "Linked by: blending traditions, honoring ancestors"
+    },
+    {
+      "id": "card.religions.008.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Indigenous traditions: many, not one",
+      "body": "Here's the warning. There is no single \"Native American religion\". Practices differ from people to people, are often tied to particular places, and are passed on orally. The Menominee, for instance, explain their origins through the geography of their own homeland. \"Indigenous\" names many traditions, each belonging to its own people and land."
+    },
+    {
+      "id": "card.religions.008.c6",
+      "type": "mcq",
+      "questionId": "question.religions.008.q1"
+    },
+    {
+      "id": "card.religions.008.c7",
+      "type": "mcq",
+      "questionId": "question.religions.008.q2"
+    },
+    {
+      "id": "card.religions.008.c8",
+      "type": "mcq",
+      "questionId": "question.religions.008.q3"
+    },
+    {
+      "id": "card.religions.008.c9",
+      "type": "checkpoint",
+      "headline": "Families of Faith: the takeaways",
+      "learned": [
+        "Judaism, Christianity and Islam share Abraham",
+        "The Indian family shares karma, rebirth and release",
+        "East Asian traditions blend; Indigenous traditions are many, not one"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.008.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.abrahamic_family"
+      ],
+      "sourceCardIds": [
+        "card.religions.008.c2"
+      ],
+      "prompt": "Judaism, Christianity and Islam all revere the same ancestor figure. Who is he?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Siddhartha Gautama",
+          "correct": false,
+          "rationale": "He is revered in Buddhism."
+        },
+        {
+          "id": "b",
+          "label": "Guru Nanak",
+          "correct": false,
+          "rationale": "He founded Sikhism."
+        },
+        {
+          "id": "c",
+          "label": "Confucius",
+          "correct": false,
+          "rationale": "He belongs to the East Asian family."
+        },
+        {
+          "id": "d",
+          "label": "Abraham",
+          "correct": true
+        }
+      ],
+      "explanation": "All three honor Abraham, often considered the first monotheist.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.religions.008.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.indigenous_diversity"
+      ],
+      "sourceCardIds": [
+        "card.religions.008.c5"
+      ],
+      "prompt": "Why is it misleading to speak of one \"Native American religion\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Practices differ between peoples and are tied to particular places",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Native peoples have no religious practices",
+          "correct": false,
+          "rationale": "They have many, and they differ."
+        },
+        {
+          "id": "c",
+          "label": "All Native peoples share one scripture and one set of rites",
+          "correct": false,
+          "rationale": "Knowledge is passed on orally and varies."
+        },
+        {
+          "id": "d",
+          "label": "Religion arrived only with European settlers",
+          "correct": false,
+          "rationale": "Native traditions are far older."
+        }
+      ],
+      "explanation": "Practices differ from people to people, are often localized to place, and are passed on orally.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.008.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.indian_family",
+        "concept.religions.east_asian_family"
+      ],
+      "sourceCardIds": [
+        "card.religions.008.c3",
+        "card.religions.008.c4"
+      ],
+      "prompt": "Which pairing of family and link is right?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Indian: descent from Abraham. East Asian: karma and rebirth",
+          "correct": false,
+          "rationale": "Those links belong to other families."
+        },
+        {
+          "id": "b",
+          "label": "Indian: karma and rebirth. East Asian: blending and ancestors",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Indian: honoring ancestors. East Asian: descent from Abraham",
+          "correct": false,
+          "rationale": "Abraham links the Abrahamic family."
+        },
+        {
+          "id": "d",
+          "label": "Indian: one shared scripture. East Asian: karma and rebirth",
+          "correct": false,
+          "rationale": "Karma runs through the Indian family."
+        }
+      ],
+      "explanation": "Karma, rebirth and release run through the Indian family; blending traditions and honoring ancestors mark East Asia.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_abrahamic_religions",
+    "source.brit_karma",
+    "source.csuohio_world_religions_india",
+    "source.brit_sikhism",
+    "source.brit_chinese_religion",
+    "source.brit_shinto",
+    "source.brit_confucianism",
+    "source.pew_east_asia_religion_2024",
+    "source.columbia_afe_chinese_religion",
+    "source.brit_native_american_religion"
+  ],
+  "art": "plant.tree"
+}

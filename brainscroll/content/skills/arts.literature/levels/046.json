@@ -1,0 +1,215 @@
+{
+  "id": "level.arts.literature.046",
+  "skillId": "skill.arts.literature",
+  "number": 46,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Shahnameh",
+  "objective": "After this level you can explain why Ferdowsi's Book of Kings is credited with keeping the Persian language alive.",
+  "summary": "Ferdowsi's Shahnameh (finished 1010) runs from Iran's myths to the Arab conquest. Written in nearly pure Persian when Arabic dominated writing, it's credited with keeping Persian alive.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.shahnameh_epic",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.shahnameh_persian_language",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.story_forms_path",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.045"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.046.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One poem is credited with keeping a language alive.",
+      "body": "Ferdowsi completed the Shahnameh, the Book of Kings, in 1010. It's the Persian national epic. How could a single poem help save a whole language?"
+    },
+    {
+      "id": "card.literature.046.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A nation's memory in verse",
+      "body": "Ferdowsi gave the Persian national epic its final and enduring form. The Shahnameh runs from Iran's mythical times down to the Arab conquest of the 7th century, and it's a mixture of myth, legend and history. One poem holds a whole nation's past, the way a family album holds generations."
+    },
+    {
+      "id": "card.literature.046.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A father, a son, a fight",
+      "body": "The poem's first section is entirely legendary, and its most famous story is a tragedy. The great hero Rostam fights his own son, Sohrab, and the fight ends with the father unwittingly killing his son. All of the hero's strength, turned against his own family: that's the epic's great heartbreak."
+    },
+    {
+      "id": "card.literature.046.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why it's credited with saving Persian",
+      "body": "Arabic once held a monopoly on writing in the Muslim world. Persian was the first language to break through it, emerging again as a written language in the 9th century. Ferdowsi's epic, based on a Middle Persian original, is pure Persian with only the slightest admixture of Arabic, and it quickly became Iranians' literary expression of their national feeling. The stories and the language survived together, in one book."
+    },
+    {
+      "id": "card.literature.046.c5",
+      "type": "mcq",
+      "questionId": "question.literature.046.q1"
+    },
+    {
+      "id": "card.literature.046.c6",
+      "type": "mcq",
+      "questionId": "question.literature.046.q2"
+    },
+    {
+      "id": "card.literature.046.c7",
+      "type": "recall",
+      "questionId": "question.literature.046.q3"
+    },
+    {
+      "id": "card.literature.046.c8",
+      "type": "checkpoint",
+      "headline": "The Shahnameh: kept",
+      "learned": [
+        "Shahnameh: the Book of Kings, 1010",
+        "Myth, legend and history to the Arab conquest",
+        "Rostam unwittingly kills his son Sohrab",
+        "Pure Persian when Arabic ruled writing"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.046.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.shahnameh_epic"
+      ],
+      "sourceCardIds": [
+        "card.literature.046.c3"
+      ],
+      "prompt": "How does the Shahnameh's famous fight between Rostam and Sohrab end?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sohrab defeats Rostam and becomes king",
+          "correct": false,
+          "rationale": "Rostam wins, at a terrible price."
+        },
+        {
+          "id": "b",
+          "label": "They learn they are brothers and make peace",
+          "correct": false,
+          "rationale": "Sohrab is his son, and the fight ends in death."
+        },
+        {
+          "id": "c",
+          "label": "The father unwittingly kills his own son",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A god stops the fight and turns both to stone",
+          "correct": false,
+          "rationale": "No god steps in; it ends in tragedy."
+        }
+      ],
+      "explanation": "The tragic fight ends with Rostam unwittingly killing his own son, Sohrab.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.046.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.shahnameh_persian_language"
+      ],
+      "sourceCardIds": [
+        "card.literature.046.c4"
+      ],
+      "prompt": "Why is the Shahnameh credited with keeping the Persian language alive?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was the first book ever written in Arabic",
+          "correct": false,
+          "rationale": "It's famous for how little Arabic it uses."
+        },
+        {
+          "id": "b",
+          "label": "It was written in nearly pure Persian when Arabic dominated writing",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It replaced Persian with a newly invented language",
+          "correct": false,
+          "rationale": "It kept Persian, based on a Middle Persian original."
+        },
+        {
+          "id": "d",
+          "label": "It was sung only in Greek translation",
+          "correct": false,
+          "rationale": "It's a Persian poem."
+        }
+      ],
+      "explanation": "When Arabic held a monopoly on writing, Ferdowsi wrote in pure Persian with only the slightest admixture of Arabic, and Iranians embraced it.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.literature.046.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.shahnameh_epic",
+        "concept.literature.story_forms_path"
+      ],
+      "sourceCardIds": [
+        "card.literature.046.c2",
+        "card.literature.046.c3",
+        "card.literature.001.c4"
+      ],
+      "prompt": "Level 1 defined the epic. What makes the Shahnameh fit that definition?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's an invented story told in prose",
+          "correct": false,
+          "rationale": "That's the novel."
+        },
+        {
+          "id": "b",
+          "label": "It's a short animal tale with a moral",
+          "correct": false,
+          "rationale": "That's a fable."
+        },
+        {
+          "id": "c",
+          "label": "It's a set of tales held inside one frame",
+          "correct": false,
+          "rationale": "That's the Nights' structure."
+        },
+        {
+          "id": "d",
+          "label": "It's a long poem about heroes like Rostam",
+          "correct": true
+        }
+      ],
+      "explanation": "An epic is a long narrative poem about heroic deeds, and the Shahnameh is Persia's, full of heroes like Rostam.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_ferdowsi",
+    "source.brit_persian_lit_classical",
+    "source.brit_persian_literature"
+  ],
+  "art": "lit.simurgh-feather"
+}

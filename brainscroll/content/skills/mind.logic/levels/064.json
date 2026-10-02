@@ -1,0 +1,213 @@
+{
+  "id": "level.mind.logic.064",
+  "skillId": "skill.mind.logic",
+  "number": 64,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "A Theory Isn't a Guess",
+  "objective": "After this level you can explain what scientists mean by a theory, and why \"just a theory\" misunderstands the word.",
+  "summary": "Everyday \"theory\" means a hunch; a scientific theory is a broad explanation backed by many lines of evidence, like atomic theory or gravity. Theories never graduate into laws.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.science_theory_meaning",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.explanation_vs_argument",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.063"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"It's just a theory.\" Would you say that about gravity?",
+      "body": "People say it to wave an idea away. But the word \"theory\" means something very different in a lab than it does over dinner, and mixing up the two meanings turns a compliment into a put-down.",
+      "id": "card.logic.064.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "One word, two meanings",
+      "body": "In everyday talk, a theory is a hunch: \"My theory is the dog ate the cake.\" In science, a theory is a powerful explanation for a broad set of observations, and to be accepted it has to be backed by many different lines of evidence. So \"it's just a theory\" swaps the scientific meaning for the everyday one.",
+      "id": "card.logic.064.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "What theories look like",
+      "body": "Atomic theory, gravity and plate tectonics are all theories in the scientific sense: broad explanations that tie together huge ranges of observations, each supported by multiple lines of evidence. Nobody drops a pen and wonders whether gravity is only a hunch. Calling something a theory is how science names its biggest explanations.",
+      "id": "card.logic.064.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Theories don't graduate",
+      "body": "A popular picture says a hypothesis grows up into a theory, and a theory into a law, as evidence piles up. It doesn't work that way. Hypotheses, theories and laws differ in breadth, not in how well supported they are. A theory isn't a law in waiting. It's already the big explanation.",
+      "id": "card.logic.064.c4",
+      "mascot": {
+        "pose": "explaining",
+        "line": "People mix these up all the time: theory and law aren't ranks on a ladder. They're different kinds of claim."
+      }
+    },
+    {
+      "id": "card.logic.064.c5",
+      "type": "mcq",
+      "questionId": "question.logic.064.q1"
+    },
+    {
+      "id": "card.logic.064.c6",
+      "type": "mcq",
+      "questionId": "question.logic.064.q2"
+    },
+    {
+      "id": "card.logic.064.c7",
+      "type": "mcq",
+      "questionId": "question.logic.064.q3"
+    },
+    {
+      "id": "card.logic.064.c8",
+      "type": "checkpoint",
+      "headline": "Scientific theories: explained",
+      "learned": [
+        "Everyday \"theory\" means a hunch",
+        "A scientific theory is a broad, well-supported explanation",
+        "Atomic theory, gravity and plate tectonics are theories",
+        "Theories don't graduate into laws"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.064.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.science_theory_meaning"
+      ],
+      "sourceCardIds": [
+        "card.logic.064.c2"
+      ],
+      "prompt": "In science, what is a theory?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An idea nobody has tested yet",
+          "correct": false,
+          "rationale": "An untested idea is closer to the everyday meaning."
+        },
+        {
+          "id": "b",
+          "label": "A law that still needs more proof",
+          "correct": false,
+          "rationale": "Theories don't turn into laws."
+        },
+        {
+          "id": "c",
+          "label": "A broad explanation backed by many lines of evidence",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A scientist's personal hunch",
+          "correct": false,
+          "rationale": "That's the everyday meaning, not the scientific one."
+        }
+      ],
+      "explanation": "A scientific theory is a powerful explanation for a broad set of observations, backed by many lines of evidence.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.064.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.science_theory_meaning"
+      ],
+      "sourceCardIds": [
+        "card.logic.064.c2"
+      ],
+      "prompt": "Why is \"it's just a theory\" a misleading put-down of a scientific theory?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It uses the everyday meaning of the word: a hunch",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Scientific theories have been proven beyond doubt",
+          "correct": false,
+          "rationale": "Science holds even theories open to revision."
+        },
+        {
+          "id": "c",
+          "label": "Only laws count as real science",
+          "correct": false,
+          "rationale": "Laws are not higher-ranked than theories."
+        },
+        {
+          "id": "d",
+          "label": "Theories are too complicated to judge",
+          "correct": false,
+          "rationale": "Complexity has nothing to do with it."
+        }
+      ],
+      "explanation": "It swaps the scientific meaning (a well-supported explanation) for the everyday one (a hunch).",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.064.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.science_theory_meaning",
+        "concept.logic.explanation_vs_argument"
+      ],
+      "sourceCardIds": [
+        "card.logic.064.c2",
+        "card.logic.008.c2"
+      ],
+      "prompt": "Level 8 split explaining why something is so from arguing that it's so. Which job is a theory's main one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Listing facts without saying why",
+          "correct": false,
+          "rationale": "A theory is an explanation, not a list."
+        },
+        {
+          "id": "b",
+          "label": "Guessing at an answer nobody can check",
+          "correct": false,
+          "rationale": "That's the everyday sense of theory."
+        },
+        {
+          "id": "c",
+          "label": "Ranking ideas by how popular they are",
+          "correct": false,
+          "rationale": "Popularity isn't what theories are about."
+        },
+        {
+          "id": "d",
+          "label": "Explaining why a wide range of things happen",
+          "correct": true
+        }
+      ],
+      "explanation": "A theory is an explanation: it shows why things happen. The evidence behind it is what makes accepting it reasonable.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.berkeley_undsci_multiple_levels",
+    "source.libretexts_vancleave_arguments_vs_explanations",
+    "source.iep_argument"
+  ],
+  "art": "object.book"
+}

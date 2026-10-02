@@ -1,0 +1,223 @@
+{
+  "id": "level.science.astronomy.068",
+  "skillId": "skill.science.astronomy",
+  "number": 68,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "White Dwarfs",
+  "objective": "After this level you can describe white dwarfs and why they slowly cool.",
+  "summary": "A white dwarf is a dead star’s core: Earth-sized, nearly Sun-massive, so dense a teaspoon weighs tons, and slowly cooling.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.white_dwarfs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.binary_stars",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.red_giants",
+      "role": "reinforce",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.hr_diagram",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.astronomy.luminosity",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.astronomy.star_life_cycle",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.067"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.068.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A teaspoon of this star would weigh several tons.",
+      "body": "When the planetary nebula from Level 67 drifts away, something is left behind. It’s small, it’s hot, and it’s astonishingly heavy for its size."
+    },
+    {
+      "id": "card.astronomy.068.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A star-sized core in an Earth-sized ball",
+      "body": "What’s left is the star’s exposed core: a white dwarf. It’s about the size of Earth, but with a mass comparable to the Sun’s. Picture roughly a star’s worth of matter packed into a ball the size of our planet. The result is absurdly dense: a teaspoonful would weigh several tons on Earth. Your kitchen scale would not survive the experiment.",
+      "callout": "Earth-sized · Sun-massive"
+    },
+    {
+      "id": "card.astronomy.068.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Slowly fading",
+      "body": "A white dwarf no longer fuses anything. It shines only with leftover heat, like an oven after it’s switched off, and slowly cools over billions of years. That’s why it sits in the lower left of the H–R diagram: hot, but dim. A famous example is Sirius B, the faint partner of Sirius, the brightest star in the night sky. It’s also the most common ending: most stars in the Milky Way, the Sun included, will finish as white dwarfs."
+    },
+    {
+      "id": "card.astronomy.068.c4",
+      "type": "mcq",
+      "questionId": "question.astronomy.068.q1"
+    },
+    {
+      "id": "card.astronomy.068.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.068.q2"
+    },
+    {
+      "id": "card.astronomy.068.c6",
+      "type": "recall",
+      "questionId": "question.astronomy.068.q3"
+    },
+    {
+      "id": "card.astronomy.068.c7",
+      "type": "checkpoint",
+      "headline": "White dwarfs: understood",
+      "learned": [
+        "A white dwarf is a dead Sun-like star’s core",
+        "It’s about Earth-sized with much of the Sun’s mass",
+        "A teaspoon would weigh several tons",
+        "It no longer fuses; it slowly cools"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.068.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.white_dwarfs"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.068.c2"
+      ],
+      "prompt": "How big is a typical white dwarf?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About the size of the Sun",
+          "correct": false,
+          "rationale": "It’s much smaller."
+        },
+        {
+          "id": "b",
+          "label": "About the size of Jupiter",
+          "correct": false,
+          "rationale": "Smaller still."
+        },
+        {
+          "id": "c",
+          "label": "About the size of a city",
+          "correct": false,
+          "rationale": "That’s closer to a neutron star."
+        },
+        {
+          "id": "d",
+          "label": "About the size of Earth",
+          "correct": true
+        }
+      ],
+      "explanation": "A white dwarf packs a mass comparable to the Sun’s into a ball about the size of Earth.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.068.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.white_dwarfs"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.068.c3"
+      ],
+      "prompt": "Why does a white dwarf slowly get dimmer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It no longer fuses, so it just cools off",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It is pulled apart by nearby planets",
+          "correct": false,
+          "rationale": "Planets don’t dim it."
+        },
+        {
+          "id": "c",
+          "label": "Its fusion slowly speeds up",
+          "correct": false,
+          "rationale": "It no longer fuses at all."
+        },
+        {
+          "id": "d",
+          "label": "Dust gradually covers it",
+          "correct": false,
+          "rationale": "Dust isn’t the reason."
+        }
+      ],
+      "explanation": "With no fusion left, a white dwarf only radiates stored heat, slowly cooling over billions of years.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.astronomy.068.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.white_dwarfs",
+        "concept.astronomy.star_life_cycle"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.068.c3",
+        "card.astronomy.009.c4"
+      ],
+      "prompt": "From Level 9: why will the Sun end as a white dwarf instead of a supernova?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It isn’t massive enough to explode",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It has already used up all its helium",
+          "correct": false,
+          "rationale": "Mass decides the ending, not helium."
+        },
+        {
+          "id": "c",
+          "label": "Its planets will absorb the explosion",
+          "correct": false,
+          "rationale": "Planets play no part in a star’s ending."
+        },
+        {
+          "id": "d",
+          "label": "White dwarfs only form near other stars",
+          "correct": false,
+          "rationale": "Most stars end as white dwarfs on their own."
+        }
+      ],
+      "explanation": "Only stars much more massive than the Sun explode as supernovae, so the Sun fades out as a white dwarf.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.brit_white_dwarf",
+    "source.brit_sirius_star",
+    "source.brit_hr_diagram"
+  ],
+  "art": "astronomy.dying-star"
+}

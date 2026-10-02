@@ -1,0 +1,208 @@
+{
+  "id": "level.mind.philosophy.066",
+  "skillId": "skill.mind.philosophy",
+  "number": 66,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Locke's Prince and Cobbler",
+  "objective": "After this level you can explain Locke's memory theory of personal identity, using a prince's memories waking up in a cobbler's body.",
+  "summary": "Locke held that a person is the same as far back as consciousness reaches, as with the prince in the cobbler’s body; Reid and Butler objected.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.selfhood_memory_theory",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.no_self",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.065"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.066.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Wake up in someone else’s body. Are you still you?",
+      "body": "John Locke asked his readers to imagine exactly that, with a prince and a cobbler."
+    },
+    {
+      "id": "card.philosophy.066.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A thinking thing over time",
+      "body": "Locke added a chapter on identity to the second edition of his Essay Concerning Human Understanding in 1694. A person, he wrote, is a thinking intelligent being that can consider itself as itself, the same thinking thing, in different times and places. He also called “person” a forensic term: persons are the beings we hold accountable for what they do."
+    },
+    {
+      "id": "card.philosophy.066.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The prince and the cobbler",
+      "body": "Now the test. Imagine the soul of a prince, carrying all his princely thoughts, entering the body of a cobbler. Who is the cobbler now? Locke’s answer: the prince. A person goes where their consciousness goes, and identity reaches as far back as consciousness extends to past actions and thoughts. The same body, the “same man”, isn’t the same person."
+    },
+    {
+      "id": "card.philosophy.066.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The brave officer",
+      "body": "Thomas Reid replied in 1785. A boy is flogged for robbing an orchard. As a young officer he captures an enemy standard and remembers the flogging. As an old general he remembers the standard but not the flogging. By Locke’s chain the general is the boy; by Locke’s rule he isn’t. Joseph Butler added that consciousness of identity presupposes identity, so it can’t create it."
+    },
+    {
+      "id": "card.philosophy.066.c5",
+      "type": "mcq",
+      "questionId": "question.philosophy.066.q1"
+    },
+    {
+      "id": "card.philosophy.066.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.066.q2"
+    },
+    {
+      "id": "card.philosophy.066.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.066.q3"
+    },
+    {
+      "id": "card.philosophy.066.c8",
+      "type": "checkpoint",
+      "headline": "Locke’s Prince and Cobbler: the big picture",
+      "learned": [
+        "A person: a thinking being aware of itself over time",
+        "Identity reaches as far as consciousness does",
+        "The prince in the cobbler’s body is still the prince",
+        "Reid and Butler: memory can’t be the whole story"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.066.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.selfhood_memory_theory"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.066.c3"
+      ],
+      "prompt": "In Locke’s thought experiment, who is the cobbler once the prince’s soul and thoughts enter his body?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The cobbler, because the body is unchanged",
+          "correct": false,
+          "rationale": "Locke separates the same man from the same person."
+        },
+        {
+          "id": "b",
+          "label": "Nobody at all",
+          "correct": false,
+          "rationale": "Locke says a person is still there."
+        },
+        {
+          "id": "c",
+          "label": "Both people at once",
+          "correct": false,
+          "rationale": "Locke follows the consciousness."
+        },
+        {
+          "id": "d",
+          "label": "The prince, because his consciousness went along",
+          "correct": true
+        }
+      ],
+      "explanation": "For Locke a person goes where their consciousness goes, so the cobbler’s body now carries the prince.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.philosophy.066.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.selfhood_memory_theory"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.066.c4"
+      ],
+      "prompt": "How does Reid’s brave officer turn Locke’s theory against itself?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Memory links make the general the boy, yet his lost memory says he isn’t",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The officer forgets everything, so he is nobody",
+          "correct": false,
+          "rationale": "He keeps some memories."
+        },
+        {
+          "id": "c",
+          "label": "The officer’s body changes, so Locke calls him a new man",
+          "correct": false,
+          "rationale": "Locke’s test is consciousness, not the body."
+        },
+        {
+          "id": "d",
+          "label": "The officer remembers everything, so Locke’s view works perfectly",
+          "correct": false,
+          "rationale": "He forgets the flogging."
+        }
+      ],
+      "explanation": "The general remembers the officer who remembers the boy, but not the flogging itself, so Locke’s view makes him both the boy and not the boy.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.philosophy.066.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.selfhood_memory_theory",
+        "concept.philosophy.no_self"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.008.c5",
+        "card.philosophy.066.c3"
+      ],
+      "prompt": "Nyaya critics in Level 8 said memory needs an enduring self. How does Locke reverse that direction?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He says memory is an illusion we can’t trust about ourselves",
+          "correct": false,
+          "rationale": "Memory is central to his view."
+        },
+        {
+          "id": "b",
+          "label": "He makes consciousness of your past what makes you you",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "He says only an unchanging soul can remember",
+          "correct": false,
+          "rationale": "Locke follows consciousness, not the soul."
+        },
+        {
+          "id": "d",
+          "label": "He denies anyone remembers past actions",
+          "correct": false,
+          "rationale": "His view depends on remembering them."
+        }
+      ],
+      "explanation": "Nyaya said a lasting self explains memory; Locke says consciousness reaching back to the past is what makes you the same person.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.sep_locke_personal_identity",
+    "source.iep_nyaya"
+  ],
+  "art": "phil.cobbler-boot"
+}

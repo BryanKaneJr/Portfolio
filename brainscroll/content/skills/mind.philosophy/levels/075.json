@@ -1,0 +1,221 @@
+{
+  "id": "level.mind.philosophy.075",
+  "skillId": "skill.mind.philosophy",
+  "number": 75,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Ontological Argument",
+  "objective": "After this level you can explain Anselm's ontological argument for God, Gaunilo's perfect island reply and Kant's objection that existence is not a property.",
+  "summary": "Anselm argued that the greatest conceivable being must exist in reality; Gaunilo replied with a perfect island, Anselm answered him, and Kant objected that existence is not a real predicate.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.god_ontological_argument",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.indian_schools",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.074"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.075.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Can you prove something exists just by thinking about it?",
+      "body": "For almost anything, surely not. In 1078, Anselm of Canterbury argued that there is exactly one exception."
+    },
+    {
+      "id": "card.philosophy.075.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The greatest conceivable",
+      "body": "In his Proslogion, Anselm defines God as “that than which nothing greater can be conceived.” Even the fool who denies God understands the phrase, so it exists in his understanding. But if it existed only there, you could conceive it existing in reality too, which is greater. Then it wouldn’t be the greatest conceivable after all. So it exists in reality. No observation needed: reason alone."
+    },
+    {
+      "id": "card.philosophy.075.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The perfect island",
+      "body": "Gaunilo, a monk and Anselm’s contemporary, replied in On Behalf of the Fool. Imagine an island more excellent than all other lands. It’s in your understanding, and it would be more excellent if it really existed, so by Anselm’s reasoning it must exist somewhere. Nobody books a trip. So, Gaunilo concluded, something is wrong with the argument’s form."
+    },
+    {
+      "id": "card.philosophy.075.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Islands can always improve",
+      "body": "Anselm replied that his argument applies only to that than which nothing greater can be conceived, not to islands. Later defenders sharpen the point: an island has no built-in maximum. However much fruit it has, you can always imagine more, so “the greatest possible island” makes no sense. The greatest possible being, they say, is a different kind of idea."
+    },
+    {
+      "id": "card.philosophy.075.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Existence isn’t a feature",
+      "body": "Kant struck at a different spot in his Critique of Pure Reason: “Being is evidently not a real predicate.” Saying a thing exists adds nothing to the idea of it. A hundred real thalers contain no more than a hundred possible ones, though your wallet notices the difference. If existence isn’t a perfection in the concept, no definition can deliver it.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "People mix these up: Gaunilo copies the argument’s form to prove an absurdity; Kant denies existence is a property at all."
+      }
+    },
+    {
+      "id": "card.philosophy.075.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.075.q1"
+    },
+    {
+      "id": "card.philosophy.075.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.075.q2"
+    },
+    {
+      "id": "card.philosophy.075.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.075.q3"
+    },
+    {
+      "id": "card.philosophy.075.c9",
+      "type": "checkpoint",
+      "headline": "The Ontological Argument: the big picture",
+      "learned": [
+        "God: that than which nothing greater can be conceived",
+        "Gaunilo’s perfect island parody",
+        "Anselm: islands can always be improved",
+        "Kant: existence is not a real predicate"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.075.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.god_ontological_argument"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.075.c3"
+      ],
+      "prompt": "What did Gaunilo say Anselm’s reasoning could also prove?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That existence is not a real predicate",
+          "correct": false,
+          "rationale": "That’s Kant’s objection."
+        },
+        {
+          "id": "b",
+          "label": "That a perfect island exists",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "That the fool was right all along",
+          "correct": false,
+          "rationale": "He argued about the form, not the fool."
+        },
+        {
+          "id": "d",
+          "label": "That God has no properties at all",
+          "correct": false,
+          "rationale": "That isn’t his point."
+        }
+      ],
+      "explanation": "Gaunilo ran Anselm’s reasoning on an island more excellent than all lands to show the form proves too much.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.philosophy.075.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.god_ontological_argument"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.075.c2"
+      ],
+      "prompt": "How does Anselm’s argument reach its conclusion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Denying that the greatest conceivable being exists leads to a contradiction",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It infers a designer from the purpose found in living things",
+          "correct": false,
+          "rationale": "That’s a design argument."
+        },
+        {
+          "id": "c",
+          "label": "It traces a chain of causes back to a first cause",
+          "correct": false,
+          "rationale": "That’s a cosmological argument."
+        },
+        {
+          "id": "d",
+          "label": "It relies on reports of people who say they met God",
+          "correct": false,
+          "rationale": "It uses reason alone."
+        }
+      ],
+      "explanation": "If the greatest conceivable being existed only in the mind, a greater could be conceived: a contradiction, so it exists in reality.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.philosophy.075.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.god_ontological_argument",
+        "concept.philosophy.indian_schools"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.075.c2",
+        "card.philosophy.009.c4"
+      ],
+      "prompt": "Anselm argues from reason alone, with no observation. Why would Level 9’s Carvaka materialists reject that approach from the start?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They held that reality is many-sided",
+          "correct": false,
+          "rationale": "That’s the Jains."
+        },
+        {
+          "id": "b",
+          "label": "They trusted testimony above all else",
+          "correct": false,
+          "rationale": "They rejected testimony."
+        },
+        {
+          "id": "c",
+          "label": "They identified the self with Brahman",
+          "correct": false,
+          "rationale": "That’s Advaita Vedanta."
+        },
+        {
+          "id": "d",
+          "label": "They accepted perception, not inference about what can’t be experienced",
+          "correct": true
+        }
+      ],
+      "explanation": "For the Carvakas only perception was reliable; inferences about what nobody can experience didn’t count.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.sep_ontological_arguments",
+    "source.iep_ontological_argument",
+    "source.gutenberg_kant_critique_meiklejohn",
+    "source.iep_carvaka"
+  ],
+  "art": "geo.island"
+}

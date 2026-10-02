@@ -1,0 +1,370 @@
+{
+  "id": "level.mind.philosophy.010",
+  "skillId": "skill.mind.philosophy",
+  "number": 10,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "published",
+  "title": "Checkpoint: Where Philosophy Began",
+  "objective": "After this level you can compare how Greek, Chinese and Indian thinkers first asked what is real and how to live.",
+  "summary": "Greek thinkers asked what is most real (Forms or form in things), Chinese thinkers how to live and govern, and Indian schools argued over the self.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.early_traditions_compared",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.what_is_philosophy",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.philosophy.branches",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.philosophy.thought_experiments",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.philosophy.plato_forms",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.philosophy.four_causes",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.philosophy.confucius_junzi",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.philosophy.dao_wu_wei",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.philosophy.no_self",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.philosophy.indian_schools",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.009"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.010.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 1 finale: three places, two big questions.",
+      "body": "What is real? How should you live? Greek, Chinese and Indian thinkers gave very different first answers, and argued over the self. Line them up."
+    },
+    {
+      "id": "card.philosophy.010.c2",
+      "type": "comparison",
+      "headline": "Three traditions side by side",
+      "items": [
+        {
+          "label": "Greece",
+          "points": [
+            "Plato: the most real are Forms, known by thought",
+            "Aristotle: form lives in things, like the bronze statue’s shape"
+          ]
+        },
+        {
+          "label": "China",
+          "points": [
+            "Confucius: become a junzi through ren and li",
+            "Laozi: follow the Dao and act like water"
+          ]
+        },
+        {
+          "label": "India",
+          "points": [
+            "Buddhists: no lasting self, only changing parts",
+            "Advaita: the self is one with Brahman"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.philosophy.010.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rulers were listening",
+      "body": "Chinese philosophers spoke to rulers as well as to individuals. Training in li was part of preparing rulers and officials. Even the Daodejing gives political advice: when the sage governs through non-action, it says, good order is universal. How to live and how to rule came as a pair."
+    },
+    {
+      "id": "card.philosophy.010.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The self on trial",
+      "body": "India’s schools argued hardest about the self. Buddhist philosophers found only impermanent parts, a person named the way a chariot is. Nyaya thinkers insisted memory needs an enduring self. Advaita Vedanta went the other way entirely: your self is identical with Brahman, the reality under everything. One question, three incompatible answers, each defended with arguments."
+    },
+    {
+      "id": "card.philosophy.010.c5",
+      "type": "recall",
+      "questionId": "question.philosophy.010.q1"
+    },
+    {
+      "id": "card.philosophy.010.c6",
+      "type": "recall",
+      "questionId": "question.philosophy.010.q2"
+    },
+    {
+      "id": "card.philosophy.010.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.010.q3"
+    },
+    {
+      "id": "card.philosophy.010.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.010.q4"
+    },
+    {
+      "id": "card.philosophy.010.c9",
+      "type": "mcq",
+      "questionId": "question.philosophy.010.q5"
+    },
+    {
+      "id": "card.philosophy.010.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 1 complete",
+      "learned": [
+        "How Greek, Chinese and Indian thinkers first asked what is real and how to live.",
+        "What philosophy is, and why it answers its questions with arguments, not only experiments.",
+        "How a thought experiment such as Galileo’s tied balls or Gyges’s ring tests an idea.",
+        "Why Buddhist philosophers compared a person to a chariot, and how their critics replied."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.010.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.thought_experiments"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.003.c5"
+      ],
+      "prompt": "Where Philosophy Began recap: what one thing does Glaucon’s ring of invisibility remove from the test?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The chance of being caught",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The person’s memories",
+          "correct": false,
+          "rationale": "Memory stays the same."
+        },
+        {
+          "id": "c",
+          "label": "The difference between rich and poor",
+          "correct": false,
+          "rationale": "Only getting caught is removed."
+        },
+        {
+          "id": "d",
+          "label": "The laws of the kingdom",
+          "correct": false,
+          "rationale": "The laws still exist."
+        }
+      ],
+      "explanation": "The ring removes only the chance of being caught, so it tests whether people are just only out of fear.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.philosophy.010.q2",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.dao_wu_wei"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.007.c3"
+      ],
+      "prompt": "Where Philosophy Began recap: which natural image does the Daodejing use as its model for wu wei?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fire",
+          "correct": false,
+          "rationale": "The model is soft and yielding."
+        },
+        {
+          "id": "b",
+          "label": "A mountain",
+          "correct": false,
+          "rationale": "The model is soft and yielding."
+        },
+        {
+          "id": "c",
+          "label": "Water",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Lightning",
+          "correct": false,
+          "rationale": "The model is soft and yielding."
+        }
+      ],
+      "explanation": "Water benefits all things without striving, yet nothing beats it against the hard and strong.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.philosophy.010.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.early_traditions_compared",
+        "concept.philosophy.indian_schools"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.010.c4"
+      ],
+      "prompt": "In Where Philosophy Began, how did Advaita Vedanta’s view of the self differ from the Buddhist no-self view?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both denied any self at all",
+          "correct": false,
+          "rationale": "Advaita affirms a self."
+        },
+        {
+          "id": "b",
+          "label": "Advaita identified the self with Brahman instead of denying it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Advaita said the self is just the body",
+          "correct": false,
+          "rationale": "That’s closer to the Carvakas."
+        },
+        {
+          "id": "d",
+          "label": "Buddhists said the self is identical with Brahman",
+          "correct": false,
+          "rationale": "That’s the Advaita view."
+        }
+      ],
+      "explanation": "Buddhist philosophers found no lasting self; Advaita held that the individual self is identical with Brahman.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.philosophy.010.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.early_traditions_compared"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.010.c3"
+      ],
+      "prompt": "Where Philosophy Began recap: whom besides individuals did early Chinese philosophers address?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only monks in monasteries",
+          "correct": false,
+          "rationale": "They spoke to rulers too."
+        },
+        {
+          "id": "b",
+          "label": "Rulers and officials",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Greek philosophers",
+          "correct": false,
+          "rationale": "The traditions developed separately."
+        },
+        {
+          "id": "d",
+          "label": "Merchants abroad",
+          "correct": false,
+          "rationale": "They spoke to rulers too."
+        }
+      ],
+      "explanation": "Training in li prepared rulers and officials, and the Daodejing advises the sage who governs through non-action.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.philosophy.010.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.early_traditions_compared",
+        "concept.philosophy.four_causes",
+        "concept.philosophy.plato_forms"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.010.c2",
+        "card.philosophy.005.c4",
+        "card.philosophy.004.c4"
+      ],
+      "prompt": "Where Philosophy Began recap: which pair correctly contrasts Plato and Aristotle on form?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Plato: form lives in things; Aristotle: Forms live apart",
+          "correct": false,
+          "rationale": "That’s reversed."
+        },
+        {
+          "id": "b",
+          "label": "Both: Forms are known only by the senses",
+          "correct": false,
+          "rationale": "Plato said by thought."
+        },
+        {
+          "id": "c",
+          "label": "Plato: eternal Forms apart from things; Aristotle: form in the thing itself",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Both: form is an illusion",
+          "correct": false,
+          "rationale": "Neither held that."
+        }
+      ],
+      "explanation": "Plato placed eternal Forms apart from changing things; Aristotle, his student, put form inside things, like a statue’s shape in its bronze.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.sep_plato",
+    "source.iep_plato",
+    "source.sep_aristotle_causality",
+    "source.sep_aristotle_metaphysics",
+    "source.iep_aristotle",
+    "source.sep_chinese_ethics",
+    "source.sep_confucius",
+    "source.sep_laozi",
+    "source.gutenberg_laozi_legge",
+    "source.sep_buddha",
+    "source.iep_nyaya",
+    "source.iep_advaita"
+  ],
+  "art": "rome.scroll"
+}

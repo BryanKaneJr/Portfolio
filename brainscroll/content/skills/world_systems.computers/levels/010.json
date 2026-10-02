@@ -1,0 +1,373 @@
+{
+  "id": "level.world_systems.computers.010",
+  "skillId": "skill.world_systems.computers",
+  "number": 10,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "published",
+  "title": "Checkpoint: Inside the Machine",
+  "objective": "After this level you can explain how bits, gates, a processor and memory turn stored numbers into text, pictures and sums.",
+  "summary": "The bytes 72, 73, 33 spell HI! as text and a shade of yellow as a pixel: context decides. Recap of bits, codes, gates, adders, the processor loop and memory.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.bits_need_context",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.ascii_code",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.pixel_rgb",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.fetch_decode_execute",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.memory_hierarchy",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.unicode_emoji",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.bit_patterns",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.logic_gates",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.adder_circuits",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.clock_speed",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.audio_sampling",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.009"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.010.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "72, 73, 33. A word, a color or a sum?",
+      "body": "Chapter 1 finale. Every stop in this chapter turned something into numbers. Now take one short row of bytes and read it three ways, then ask who decides which reading is right."
+    },
+    {
+      "id": "card.computers.010.c2",
+      "type": "comparison",
+      "headline": "Same three bytes, three meanings",
+      "items": [
+        {
+          "label": "Read as ASCII text",
+          "points": [
+            "72 is H, 73 is I, 33 is !",
+            "The screen shows HI!"
+          ]
+        },
+        {
+          "label": "Read as one pixel",
+          "points": [
+            "Red 72, green 73, blue 33",
+            "A shade of yellow"
+          ]
+        },
+        {
+          "label": "Read as plain numbers",
+          "points": [
+            "Just 72, 73 and 33",
+            "Sent through adders, they sum to 178"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.computers.010.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Who decides?",
+      "body": "The bits themselves don't say. Context does, such as the file's format: a text app reads those bytes through the ASCII codebook, while an image viewer reads them as red, green and blue. Even an instruction is only a binary pattern until the processor's decode step splits it into meaningful parts. Same bits, different reader, different meaning."
+    },
+    {
+      "id": "card.computers.010.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The whole chapter in one breath",
+      "body": "A bit is one yes-or-no. Eight make a byte, with 256 patterns. Codebooks like ASCII turn bytes into letters, while pixels and samples turn pictures and sound into numbers. Gates built from switches combine bits, and adders built from gates do sums. A processor fetches, decodes and executes instructions billions of times a second, fed through layers of memory from fast cache to roomy storage."
+    },
+    {
+      "id": "card.computers.010.c5",
+      "type": "mcq",
+      "questionId": "question.computers.010.q1"
+    },
+    {
+      "id": "card.computers.010.c6",
+      "type": "mcq",
+      "questionId": "question.computers.010.q2"
+    },
+    {
+      "id": "card.computers.010.c7",
+      "type": "recall",
+      "questionId": "question.computers.010.q3"
+    },
+    {
+      "id": "card.computers.010.c8",
+      "type": "recall",
+      "questionId": "question.computers.010.q4"
+    },
+    {
+      "id": "card.computers.010.c9",
+      "type": "recall",
+      "questionId": "question.computers.010.q5"
+    },
+    {
+      "id": "card.computers.010.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 1 complete",
+      "learned": [
+        "How a computer turns text, pictures and sound into numbers, and why the same bytes can mean different things.",
+        "Why each extra bit doubles the patterns, and how bytes stack up from kilobytes to terabytes.",
+        "How AND, OR and NOT gates, wired into adders, add two binary numbers.",
+        "Why a processor loops through fetch, decode and execute, fed by layers of memory."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.010.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.bits_need_context"
+      ],
+      "sourceCardIds": [
+        "card.computers.010.c2"
+      ],
+      "prompt": "Read as ASCII text, what do the bytes 72, 73 and 33 say?",
+      "options": [
+        {
+          "id": "a",
+          "label": "ABC",
+          "correct": false,
+          "rationale": "A, B and C are 65, 66 and 67."
+        },
+        {
+          "id": "b",
+          "label": "HI!",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Yes",
+          "correct": false,
+          "rationale": "Those letters have different codes."
+        },
+        {
+          "id": "d",
+          "label": "Nothing: they are only a color",
+          "correct": false,
+          "rationale": "The same bytes can be read as text too."
+        }
+      ],
+      "explanation": "In ASCII, 72 is H, 73 is I and 33 is an exclamation mark.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.010.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.bits_need_context"
+      ],
+      "sourceCardIds": [
+        "card.computers.010.c3"
+      ],
+      "prompt": "What decides whether a program shows the bytes 72, 73, 33 as HI! or as a shade of yellow?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The bits themselves carry a hidden label",
+          "correct": false,
+          "rationale": "The bits alone do not say what they mean."
+        },
+        {
+          "id": "b",
+          "label": "Context, such as the file format",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Whichever meaning has the bigger number",
+          "correct": false,
+          "rationale": "Both readings use exactly the same numbers."
+        },
+        {
+          "id": "d",
+          "label": "The speed of the processor's clock",
+          "correct": false,
+          "rationale": "Clock speed paces work; it does not choose a meaning."
+        }
+      ],
+      "explanation": "Context, such as the file format, tells a program whether to read bytes as text, colors or numbers.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.010.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.fetch_decode_execute",
+        "concept.computers.bits_need_context"
+      ],
+      "sourceCardIds": [
+        "card.computers.010.c3",
+        "card.computers.008.c2"
+      ],
+      "prompt": "In Level 8's decode step, what is an instruction before the processor splits it into parts?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A picture of the operation",
+          "correct": false,
+          "rationale": "Instructions are stored as numbers, like everything else."
+        },
+        {
+          "id": "b",
+          "label": "A binary pattern, like any other data",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A line of English text",
+          "correct": false,
+          "rationale": "The processor reads binary patterns, not English."
+        },
+        {
+          "id": "d",
+          "label": "A packet from the internet",
+          "correct": false,
+          "rationale": "Instructions are fetched from memory."
+        }
+      ],
+      "explanation": "An instruction is a binary pattern; decoding splits it into fields that each mean something.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.010.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.memory_hierarchy"
+      ],
+      "sourceCardIds": [
+        "card.computers.009.c2"
+      ],
+      "prompt": "From Level 9: which layer of memory is fast SRAM right on the processor chip?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Main memory",
+          "correct": false,
+          "rationale": "Main memory is slower DRAM."
+        },
+        {
+          "id": "b",
+          "label": "Storage",
+          "correct": false,
+          "rationale": "Storage is the slowest, cheapest layer."
+        },
+        {
+          "id": "c",
+          "label": "Cache",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The program counter",
+          "correct": false,
+          "rationale": "That holds one address, not a layer of memory."
+        }
+      ],
+      "explanation": "Cache is fast SRAM, up to several megabytes, on the processor chip.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.010.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.unicode_emoji"
+      ],
+      "sourceCardIds": [
+        "card.computers.004.c3"
+      ],
+      "prompt": "From Level 4: what does Unicode give every character?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A unique number, on any platform",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Its own font and color",
+          "correct": false,
+          "rationale": "Unicode assigns numbers; phones and apps choose the look."
+        },
+        {
+          "id": "c",
+          "label": "A place on every keyboard",
+          "correct": false,
+          "rationale": "Most characters are not on a keyboard."
+        },
+        {
+          "id": "d",
+          "label": "A 7-bit code",
+          "correct": false,
+          "rationale": "That describes ASCII's 128 characters."
+        }
+      ],
+      "explanation": "Unicode gives every character a unique number, whatever the platform, program or language.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.cs50_lecture0_notes",
+    "source.uvm_fetch_decode_execute",
+    "source.brit_cpu",
+    "source.stanford_cs101_bits_bytes",
+    "source.intel_digital_information",
+    "source.brit_ascii",
+    "source.brit_sound_recording_digital",
+    "source.stanford_cs101_images",
+    "source.brit_logic_gate",
+    "source.vlabs_iitr_adders",
+    "source.intel_cpu_clock_speed",
+    "source.brit_computer_memory",
+    "source.cs50_x_2022_lecture0_notes"
+  ],
+  "art": "computers.gate-block"
+}

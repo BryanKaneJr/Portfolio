@@ -1,0 +1,232 @@
+{
+  "id": "level.mind.probability.054",
+  "skillId": "skill.mind.probability",
+  "number": 54,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Why 1,000 People Are Enough",
+  "objective": "After this level you can explain why a random sample of about 1,000 can describe a whole country, whatever its size.",
+  "summary": "The sample a poll needs depends on the precision wanted, not the population's size. About 1,000 random people give about plus or minus 3 points; more buys little.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.sample_size_not_population",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.sample_size_diminishing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.poll_literary_digest_1936",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.one_in_n",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.sample_population",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.poll_sampling_list_bias",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.053"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.054.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your chance of being in a Pew poll is about 1 in 26,000.",
+      "body": "Pew's panel has about 10,000 adults, out of about 260 million in the US. Yet its polls speak for all of them. How can so few speak for so many? The answer surprises almost everyone: the size of the country barely matters."
+    },
+    {
+      "id": "card.probability.054.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The size of the pot doesn't matter",
+      "body": "Taste a well-stirred small pot and a well-stirred giant vat: one spoonful tells you about as much in each. Samples work the same way. The sample size you need depends on how precise you want to be, not on how big the population is. The same 1,000 people can represent a population of 100,000 or of 1,000,000."
+    },
+    {
+      "id": "card.probability.054.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bigger helps, then barely",
+      "body": "Size still matters, just not how you'd guess. The margin of error falls steeply as a sample grows from 100 to 1,000 people. After that it crawls: a random sample of about 1,000 gives about plus or minus 3 points, and doubling from 1,000 to 2,000 cuts it by only about one point. That's why national polls usually ask 1,000 to 2,000 people."
+    },
+    {
+      "id": "card.probability.054.c4",
+      "type": "fact",
+      "fact": "The mix matters more than the size.",
+      "context": "Remember Level 53: about 2.4 million answers from tilted lists lost to Gallup's far smaller, carefully drawn sample. Randomness buys fairness. Only then does size buy precision, and after about 1,000 people it buys less and less."
+    },
+    {
+      "id": "card.probability.054.c5",
+      "type": "mcq",
+      "questionId": "question.probability.054.q1"
+    },
+    {
+      "id": "card.probability.054.c6",
+      "type": "mcq",
+      "questionId": "question.probability.054.q2"
+    },
+    {
+      "id": "card.probability.054.c7",
+      "type": "recall",
+      "questionId": "question.probability.054.q3"
+    },
+    {
+      "id": "card.probability.054.c8",
+      "type": "checkpoint",
+      "headline": "Sample size: how many?",
+      "learned": [
+        "Population size barely matters",
+        "About 1,000 gives about ±3 points",
+        "Doubling to 2,000 buys about 1 point",
+        "Fairness first, then size"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.054.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.sample_size_not_population"
+      ],
+      "sourceCardIds": [
+        "card.probability.054.c2"
+      ],
+      "prompt": "The sample size a poll needs depends mainly on:",
+      "options": [
+        {
+          "id": "a",
+          "label": "How many people live in the population",
+          "correct": false,
+          "rationale": "Surprisingly, population size barely matters."
+        },
+        {
+          "id": "b",
+          "label": "How many questions the poll asks",
+          "correct": false,
+          "rationale": "More questions don't change how many people you need."
+        },
+        {
+          "id": "c",
+          "label": "How precise the result needs to be",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "How many pollsters are working on it",
+          "correct": false,
+          "rationale": "Staff numbers don't set the sample size."
+        }
+      ],
+      "explanation": "Sample size is a function of the precision wanted, not of population size: 1,000 can serve 100,000 or 1,000,000.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.054.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.sample_size_diminishing"
+      ],
+      "sourceCardIds": [
+        "card.probability.054.c3"
+      ],
+      "prompt": "Why do national polls usually stop around 1,000 to 2,000 people instead of asking 10,000?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Samples over 2,000 are always biased",
+          "correct": false,
+          "rationale": "Big random samples aren't biased; they're just costly for little gain."
+        },
+        {
+          "id": "b",
+          "label": "Past about 1,000, extra people shrink the margin only a little",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Rules forbid polls larger than 2,000 people",
+          "correct": false,
+          "rationale": "No rule caps poll size."
+        },
+        {
+          "id": "d",
+          "label": "Only about 2,000 people ever answer polls",
+          "correct": false,
+          "rationale": "Many more could be asked; it just buys little precision."
+        }
+      ],
+      "explanation": "The margin falls steeply up to about 1,000 people, then crawls: doubling from 1,000 to 2,000 cuts only about one point.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.054.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.sample_size_not_population",
+        "concept.probability.one_in_n"
+      ],
+      "sourceCardIds": [
+        "card.probability.054.c1",
+        "card.probability.007.c2"
+      ],
+      "prompt": "Using Level 7's \"1 in N\", which gives you a bigger chance of being polled?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1 in 26,000, because 26,000 is the bigger number",
+          "correct": false,
+          "rationale": "A bigger N means a smaller share."
+        },
+        {
+          "id": "b",
+          "label": "They're the same chance",
+          "correct": false,
+          "rationale": "1 in 2,600 is ten times the chance of 1 in 26,000."
+        },
+        {
+          "id": "c",
+          "label": "You can't compare them without percents",
+          "correct": false,
+          "rationale": "Comparing N is enough: smaller N, bigger share."
+        },
+        {
+          "id": "d",
+          "label": "1 in 2,600, because a smaller N means a bigger share",
+          "correct": true
+        }
+      ],
+      "explanation": "In \"1 in N\", a bigger N means a smaller share. 1 in 2,600 is ten times the chance of 1 in 26,000.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.pew_survey_faq",
+    "source.openstax_intro_stats_sampling",
+    "source.aapor_margin_of_sampling_error",
+    "source.pew_margin_of_error_2016",
+    "source.openstax_intro_stats_definitions",
+    "source.emory_statistical_blunders",
+    "source.gallup_first_gallup_poll"
+  ],
+  "art": "mind.soup-ladle"
+}

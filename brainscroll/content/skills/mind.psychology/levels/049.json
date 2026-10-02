@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.psychology.049",
+  "skillId": "skill.mind.psychology",
+  "number": 49,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "What Dreams Say About You",
+  "objective": "After this level you can explain what research on dream content shows and how it compares with Freud's dream interpretation.",
+  "summary": "Freud read dreams for hidden meanings. Counting what happens in many dreams shows most dreams are ordinary, often negative, and follow the dreamer's waking concerns.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.dream_freud_interpretation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.dream_content_research",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.freud_evidence",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.048"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.049.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Freud read dreams like coded letters. What if you just count what's in them?",
+      "body": "Freud thought dreams hid a deeper meaning that an expert could decode. Later researchers tried something far less mysterious: collect lots of dreams and tally what actually happens in them. The two approaches don't agree."
+    },
+    {
+      "id": "card.psychology.049.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Freud's hidden meanings",
+      "body": "Freud believed dreams opened a door to the unconscious. He split each dream in two. The manifest content is the storyline you remember: a chase, a party, a missed train. The latent content is the hidden meaning he believed lay beneath it. Remember Level 4? His evidence for such meanings was mostly his own interpretation."
+    },
+    {
+      "id": "card.psychology.049.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Counting dreams",
+      "body": "Calvin Hall and Robert Van de Castle took a different route. They built a system for counting what happens in dreams, and in 1966 set norms from five dreams each of 100 men and 100 women students in Cleveland, Ohio. A study of 635 dream reports from a sleep lab found the typical dream is a clear, coherent story of a realistic situation, with the dreamer and other people doing very ordinary things.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "This is Level 4's lesson again: counting what's in many dreams can be checked; one expert's reading can't."
+      }
+    },
+    {
+      "id": "card.psychology.049.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Dreams follow your concerns",
+      "body": "The counts show dreams lean negative: 80 percent of men's and 77 percent of women's dreams in the norms hold at least one bad element, like aggression or misfortune, while 53 percent hold a good one. Dreams also track your general waking concerns and main relationships, though not the day's specific events. In one study by Rosalind Cartwright, women going through divorce who thought more about their former spouse dreamed about that person more often."
+    },
+    {
+      "id": "card.psychology.049.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.049.q1"
+    },
+    {
+      "id": "card.psychology.049.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.049.q2"
+    },
+    {
+      "id": "card.psychology.049.c7",
+      "type": "recall",
+      "questionId": "question.psychology.049.q3"
+    },
+    {
+      "id": "card.psychology.049.c8",
+      "type": "checkpoint",
+      "headline": "Dreams: counted",
+      "learned": [
+        "Freud: manifest storyline, latent hidden meaning",
+        "Hall and Van de Castle counted dream content",
+        "Most dreams are ordinary and lean negative",
+        "Dreams follow the dreamer's waking concerns"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.049.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.dream_freud_interpretation"
+      ],
+      "sourceCardIds": [
+        "card.psychology.049.c2"
+      ],
+      "prompt": "What did Freud call the hidden meaning he believed lay beneath a dream's storyline?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The manifest content",
+          "correct": false,
+          "rationale": "That is the storyline itself."
+        },
+        {
+          "id": "b",
+          "label": "The latent content",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The continuity principle",
+          "correct": false,
+          "rationale": "Continuity is a finding from dream counting, not Freud's term."
+        },
+        {
+          "id": "d",
+          "label": "The dream norms",
+          "correct": false,
+          "rationale": "Norms came from Hall and Van de Castle."
+        }
+      ],
+      "explanation": "Freud split dreams into manifest content (the storyline) and latent content (the hidden meaning).",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.049.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.dream_content_research"
+      ],
+      "sourceCardIds": [
+        "card.psychology.049.c3",
+        "card.psychology.049.c4"
+      ],
+      "prompt": "Why do dream-content researchers doubt that most dreams are coded secret messages?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Most people never remember a single dream",
+          "correct": false,
+          "rationale": "The research used many recalled dreams."
+        },
+        {
+          "id": "b",
+          "label": "Dreams contain only positive emotions",
+          "correct": false,
+          "rationale": "Dreams lean negative."
+        },
+        {
+          "id": "c",
+          "label": "Counted dreams are mostly ordinary and track waking concerns",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Freud never wrote about dreams at all",
+          "correct": false,
+          "rationale": "Freud wrote a great deal about dreams."
+        }
+      ],
+      "explanation": "Counting many dream reports shows mostly realistic, ordinary scenes that follow the dreamer's general waking concerns.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.psychology.049.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.dream_content_research",
+        "concept.psychology.freud_evidence"
+      ],
+      "sourceCardIds": [
+        "card.psychology.049.c3",
+        "card.psychology.004.c3"
+      ],
+      "prompt": "Level 4 showed Freud treated his own interpretations as proof. How did Hall and Van de Castle study dreams differently?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They interpreted one patient's dreams in depth",
+          "correct": false,
+          "rationale": "That is closer to Freud's approach."
+        },
+        {
+          "id": "b",
+          "label": "They asked people to invent dreams in the lab",
+          "correct": false,
+          "rationale": "They studied reported dreams."
+        },
+        {
+          "id": "c",
+          "label": "They relied on the dreamers' own interpretations",
+          "correct": false,
+          "rationale": "They counted content rather than interpreting it."
+        },
+        {
+          "id": "d",
+          "label": "They counted dream content with a set system",
+          "correct": true
+        }
+      ],
+      "explanation": "Hall and Van de Castle counted what happens in dreams with a coding system and built norms from many reports, instead of relying on one interpreter.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_stages_sleep",
+    "source.ucsc_domhoff_hall_van_de_castle_1999",
+    "source.ucsc_domhoff_realistic_dreams_2007"
+  ],
+  "art": "astronomy.moon-craters"
+}

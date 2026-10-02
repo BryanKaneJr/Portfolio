@@ -1,0 +1,226 @@
+{
+  "id": "level.world_systems.government.082",
+  "skillId": "skill.world_systems.government",
+  "number": 82,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Diplomacy",
+  "objective": "After this level you can explain how ambassadors and diplomats work.",
+  "summary": "Embassies represent, protect, negotiate and report. The 1961 Vienna Convention makes embassies inviolable and diplomats immune, but the host can send any diplomat home.",
+  "concepts": [
+    {
+      "conceptId": "concept.government.diplomacy_missions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.diplomacy_immunity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.government.sovereignty_montevideo_statehood",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.government.weber_state_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.government.081"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Police can go almost anywhere in a city. An embassy's door stops them.",
+      "body": "Under the Vienna Convention on Diplomatic Relations, an embassy's premises are inviolable: the host country's officials may not enter without the consent of the head of the mission. Why would a sovereign country accept a door it can't open on its own soil?",
+      "id": "card.government.082.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "What an embassy is for",
+      "body": "An embassy is one country's permanent office inside another. The Vienna Convention lists its jobs: represent its country, protect its interests and citizens, negotiate with the host government, report home on what's happening, and promote friendly relations. None of it is forced: diplomatic relations are set up by mutual consent. Level 81's fourth test for a state was the capacity to enter into relations with other states. Embassies are that capacity at work.",
+      "id": "card.government.082.c2"
+    },
+    {
+      "type": "fact",
+      "fact": "Protecting envoys is an ancient rule, written down in 1961.",
+      "context": "The Vienna Convention's preamble recalls that peoples of all nations from ancient times have recognized the status of diplomats. The Convention itself, signed on 18 April 1961, wrote down rules that had been stable for over 200 years, and almost all states are now parties. Diplomacy's rulebook was mostly copied out, not invented.",
+      "id": "card.government.082.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Can't arrest you, can send you home",
+      "body": "A diplomat can't be arrested or detained, and is immune from the host country's criminal courts. That sounds like a license to misbehave, but the Convention says immunity isn't there to benefit individuals: it lets missions do their work without coercion or harassment. Diplomats must still respect local laws. And the host holds a trump card: it can declare any diplomat persona non grata, at any time, without saying why, and the sending country must recall them.",
+      "id": "card.government.082.c4",
+      "mascot": {
+        "pose": "oops",
+        "line": "Immunity isn't a license to misbehave. It protects the mission's work, not the person."
+      }
+    },
+    {
+      "id": "card.government.082.c5",
+      "type": "mcq",
+      "questionId": "question.government.082.q1"
+    },
+    {
+      "id": "card.government.082.c6",
+      "type": "mcq",
+      "questionId": "question.government.082.q2"
+    },
+    {
+      "id": "card.government.082.c7",
+      "type": "recall",
+      "questionId": "question.government.082.q3"
+    },
+    {
+      "id": "card.government.082.c8",
+      "type": "checkpoint",
+      "headline": "Diplomacy: decoded",
+      "learned": [
+        "Embassies represent, protect, negotiate and report",
+        "Diplomatic relations are set up by mutual consent",
+        "Embassies are inviolable; diplomats can't be arrested",
+        "The host can declare any diplomat persona non grata"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.government.082.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.government.diplomacy_immunity"
+      ],
+      "sourceCardIds": [
+        "card.government.082.c1"
+      ],
+      "prompt": "Under the Vienna Convention, when may the host country's officials enter an embassy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Whenever a crime has been reported there",
+          "correct": false,
+          "rationale": "A report doesn't open the door; consent does."
+        },
+        {
+          "id": "b",
+          "label": "Only once a local court issues a warrant",
+          "correct": false,
+          "rationale": "No warrant is enough; the premises are inviolable."
+        },
+        {
+          "id": "c",
+          "label": "Only with the consent of the head of the mission",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Never, even if they are invited in",
+          "correct": false,
+          "rationale": "Consent from the head of the mission lets them in."
+        }
+      ],
+      "explanation": "Embassy premises are inviolable: the host's officials may not enter without the consent of the head of the mission.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.government.082.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.government.diplomacy_immunity"
+      ],
+      "sourceCardIds": [
+        "card.government.082.c4"
+      ],
+      "prompt": "According to the Vienna Convention, what is diplomatic immunity for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Putting diplomats above the host country's laws",
+          "correct": false,
+          "rationale": "Diplomats must still respect local laws."
+        },
+        {
+          "id": "b",
+          "label": "Rewarding diplomats for long public service",
+          "correct": false,
+          "rationale": "It isn't a personal reward; the Convention says so."
+        },
+        {
+          "id": "c",
+          "label": "Letting the home country avoid paying fines",
+          "correct": false,
+          "rationale": "Money isn't the point; the work of the mission is."
+        },
+        {
+          "id": "d",
+          "label": "Letting missions work free of coercion",
+          "correct": true
+        }
+      ],
+      "explanation": "The Convention says immunities exist not to benefit individuals but so missions can do their work representing their states.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.government.082.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.government.diplomacy_immunity",
+        "concept.government.diplomacy_missions",
+        "concept.government.weber_state_definition"
+      ],
+      "sourceCardIds": [
+        "card.government.082.c1",
+        "card.government.082.c2",
+        "card.government.009.c3"
+      ],
+      "prompt": "Level 9's state claims a monopoly of legitimate force in its territory. Where does the Vienna Convention stop the host's officials without consent?",
+      "options": [
+        {
+          "id": "a",
+          "label": "At the country's own courts",
+          "correct": false,
+          "rationale": "Courts are part of the state's own machinery."
+        },
+        {
+          "id": "b",
+          "label": "At the border with its neighbors",
+          "correct": false,
+          "rationale": "Borders mark the territory, not an exception inside it."
+        },
+        {
+          "id": "c",
+          "label": "At the home of any foreign tourist",
+          "correct": false,
+          "rationale": "Only diplomatic premises and diplomats are protected."
+        },
+        {
+          "id": "d",
+          "label": "At a foreign embassy's premises",
+          "correct": true
+        }
+      ],
+      "explanation": "An embassy's premises are inviolable: the host's officials may not enter without the head of mission's consent, a limit on the state's force inside its own territory.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.un_vienna_convention_diplomatic_relations",
+    "source.un_avl_vienna_diplomatic_relations",
+    "source.brit_diplomatic_immunity",
+    "source.brit_montevideo_convention",
+    "source.avalon_montevideo_convention"
+  ],
+  "art": "money.handshake"
+}

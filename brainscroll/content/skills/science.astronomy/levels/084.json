@@ -1,0 +1,227 @@
+{
+  "id": "level.science.astronomy.084",
+  "skillId": "skill.science.astronomy",
+  "number": 84,
+  "type": "regular",
+  "revision": 2,
+  "status": "published",
+  "title": "The Local Group",
+  "objective": "After this level you can describe the small group of galaxies the Milky Way belongs to.",
+  "summary": "The Milky Way is one of about 100 or more galaxies in the Local Group, dominated by us and Andromeda, about 10 million light-years across.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.local_group",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.galaxy_types",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.galaxy_collisions",
+      "role": "reinforce",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.andromeda",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.milky_way_home",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.083"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.084.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Our galaxy lives in a neighborhood.",
+      "body": "The Milky Way isn't alone out there. It has a big neighbor, a couple of small hangers-on, and a crowd of little ones. Time to meet the neighborhood."
+    },
+    {
+      "id": "card.astronomy.084.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two mansions, lots of cottages",
+      "body": "The Milky Way belongs to the Local Group, about 100 or more galaxies spread across about 10 million light-years. Most of them are small dwarf galaxies. Two big spirals run the place: the Milky Way and Andromeda. Think of a small town with two mansions and a lot of cottages. We live in one of the mansions.",
+      "callout": "~100+ galaxies · ~10 million ly"
+    },
+    {
+      "id": "card.astronomy.084.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Our satellites",
+      "body": "Some of the cottages are practically in our yard. The Large and Small Magellanic Clouds are small galaxies orbiting the Milky Way, the irregulars from Level 81 with no clear shape. From the Southern Hemisphere you can see both with the naked eye, as two faint, cloudy patches of light. Two whole galaxies, no telescope required. Just the right hemisphere."
+    },
+    {
+      "id": "card.astronomy.084.c4",
+      "type": "fact",
+      "fact": "Andromeda is the Local Group's other giant.",
+      "context": "It's the other mansion, about 2.5 million light-years away, and from a dark site you can spot it with the naked eye as a faint smudge. Remember Level 83: it's also the neighbor that might, someday, move in."
+    },
+    {
+      "id": "card.astronomy.084.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.084.q1"
+    },
+    {
+      "id": "card.astronomy.084.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.084.q2"
+    },
+    {
+      "id": "card.astronomy.084.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.084.q3"
+    },
+    {
+      "id": "card.astronomy.084.c8",
+      "type": "checkpoint",
+      "headline": "Local Group: mapped",
+      "learned": [
+        "The Milky Way belongs to the Local Group",
+        "It has about 100 or more galaxies",
+        "The Milky Way and Andromeda dominate it",
+        "The Magellanic Clouds orbit our galaxy"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.084.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.local_group"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.084.c2"
+      ],
+      "prompt": "Which two galaxies dominate the Local Group?",
+      "options": [
+        {
+          "id": "a",
+          "label": "M87 and the Sombrero",
+          "correct": false,
+          "rationale": "They aren’t Local Group members."
+        },
+        {
+          "id": "b",
+          "label": "The Milky Way and Andromeda",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The two Magellanic Clouds",
+          "correct": false,
+          "rationale": "They’re small satellites."
+        },
+        {
+          "id": "d",
+          "label": "Andromeda and M87",
+          "correct": false,
+          "rationale": "M87 is far outside the Local Group."
+        }
+      ],
+      "explanation": "The Milky Way and Andromeda are the two big spirals that dominate the Local Group.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.084.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.local_group"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.084.c3"
+      ],
+      "prompt": "Where can you see the Magellanic Clouds with the naked eye?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only through a large telescope",
+          "correct": false,
+          "rationale": "They’re visible without one."
+        },
+        {
+          "id": "b",
+          "label": "From anywhere on Earth",
+          "correct": false,
+          "rationale": "They’re in the far southern sky."
+        },
+        {
+          "id": "c",
+          "label": "From the Southern Hemisphere",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only from the North Pole",
+          "correct": false,
+          "rationale": "They’re southern-sky objects."
+        }
+      ],
+      "explanation": "The Magellanic Clouds sit in the southern sky and are visible to the naked eye from the Southern Hemisphere.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.astronomy.084.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.local_group",
+        "concept.astronomy.andromeda"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.084.c4",
+        "card.astronomy.010.c3"
+      ],
+      "prompt": "From Level 10: when you spot Andromeda, the Local Group's other giant, how old is the light you see?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 8 minutes",
+          "correct": false,
+          "rationale": "That’s sunlight."
+        },
+        {
+          "id": "b",
+          "label": "About 4.2 years",
+          "correct": false,
+          "rationale": "That’s Proxima Centauri."
+        },
+        {
+          "id": "c",
+          "label": "About 2.5 million years",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "About 13.8 billion years",
+          "correct": false,
+          "rationale": "That’s the universe’s age."
+        }
+      ],
+      "explanation": "Andromeda is about 2.5 million light-years away, so its light has traveled about 2.5 million years to reach you.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.brit_local_group",
+    "source.brit_magellanic",
+    "source.brit_galaxy_types",
+    "source.nasa_galaxies",
+    "source.nasa_milky_way",
+    "source.brit_andromeda"
+  ],
+  "art": "astronomy.observable-universe"
+}

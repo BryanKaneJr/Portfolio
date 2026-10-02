@@ -1,0 +1,209 @@
+{
+  "id": "level.mind.logic.035",
+  "skillId": "skill.mind.logic",
+  "number": 35,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Jumping to Conclusions",
+  "objective": "After this level you can spot a hasty generalization drawn from too few or unusual cases.",
+  "summary": "A hasty generalization jumps from too few or unusual cases to a verdict about all. One rainy day in Flagstaff, one first day of class and a plate of edible plants show both failures.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.evidence_hasty_generalization",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.premise_conclusion",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.034"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "One day in, a student decides the whole course will be boring.",
+      "body": "\"Even though it's only the first day, I can tell this is going to be a boring course.\" That line is a textbook example, literally: Purdue University's Online Writing Lab uses it. One day of evidence, a verdict on a whole course. Reasoning from examples is fine. The problem is how few examples, and which ones.",
+      "id": "card.logic.035.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Hasty generalization",
+      "body": "A hasty generalization is a conclusion based on insufficient or biased evidence: rushing to a verdict before you have the relevant facts. The bigger the claim, the more it needs. Meet two friendly people in Nicaragua and conclude everyone you meet there will be friendly? \"All\" leaves no room for error, so, as the Internet Encyclopedia of Philosophy points out, it would take meeting everyone.",
+      "id": "card.logic.035.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Too few cases",
+      "body": "The first way to go wrong is too few cases. Matthew Van Cleave's open logic textbook imagines spending one day in Flagstaff, Arizona. It rains, so you conclude it rains there every day. A good generalization needs a large enough sample, and one day of weather says very little about a whole year of it.",
+      "id": "card.logic.035.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Unusual cases",
+      "body": "The second way is unusual cases, a sample that isn't typical. Purdue's point about the first day is that it's usually full of housekeeping, so it's a poor preview of the course. Or take the encyclopedia's example: every plant on my plate is edible, so all plants are edible. The plants on a plate were chosen for being edible.",
+      "id": "card.logic.035.c4"
+    },
+    {
+      "id": "card.logic.035.c5",
+      "type": "mcq",
+      "questionId": "question.logic.035.q1"
+    },
+    {
+      "id": "card.logic.035.c6",
+      "type": "mcq",
+      "questionId": "question.logic.035.q2"
+    },
+    {
+      "id": "card.logic.035.c7",
+      "type": "mcq",
+      "questionId": "question.logic.035.q3"
+    },
+    {
+      "id": "card.logic.035.c8",
+      "type": "checkpoint",
+      "headline": "Hasty generalizations: spotted",
+      "learned": [
+        "Don't rush from a few cases to \"all\"",
+        "Too few cases: one day in Flagstaff",
+        "Unusual cases: the plants on your plate",
+        "The bigger the claim, the more cases it needs"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.035.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.evidence_hasty_generalization"
+      ],
+      "sourceCardIds": [
+        "card.logic.035.c2"
+      ],
+      "prompt": "What is a hasty generalization?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A conclusion drawn from insufficient or biased evidence",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Any conclusion drawn from examples",
+          "correct": false,
+          "rationale": "Reasoning from examples is fine when there are enough typical ones."
+        },
+        {
+          "id": "c",
+          "label": "A conclusion that is stated too quickly",
+          "correct": false,
+          "rationale": "Speed of speech isn't the problem; the evidence is."
+        },
+        {
+          "id": "d",
+          "label": "A general claim that turns out to be true",
+          "correct": false,
+          "rationale": "It's about weak support, whatever the truth."
+        }
+      ],
+      "explanation": "A hasty generalization rushes to a conclusion on insufficient or biased evidence.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.035.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.evidence_hasty_generalization"
+      ],
+      "sourceCardIds": [
+        "card.logic.035.c4"
+      ],
+      "prompt": "\"Every plant on my plate is edible, so all plants are edible.\" How does this go wrong?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It uses too many plants",
+          "correct": false,
+          "rationale": "More cases don't help if they're all the same unusual kind."
+        },
+        {
+          "id": "b",
+          "label": "Its plants were chosen for being edible, so they aren't typical",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Plants can't be counted as evidence",
+          "correct": false,
+          "rationale": "They can; these just aren't typical ones."
+        },
+        {
+          "id": "d",
+          "label": "It assumes its conclusion in the premise",
+          "correct": false,
+          "rationale": "The premise is about the plate, the conclusion about all plants."
+        }
+      ],
+      "explanation": "The plate is an unusual sample: its plants were picked because they're edible, so they can't speak for all plants.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.035.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.evidence_hasty_generalization",
+        "concept.logic.premise_conclusion"
+      ],
+      "sourceCardIds": [
+        "card.logic.035.c1",
+        "card.logic.005.c2"
+      ],
+      "prompt": "Take the student from this level's hook, judging a whole course by its first day. Which part of their sentence is the conclusion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's only the first day",
+          "correct": false,
+          "rationale": "That's the (thin) reason offered."
+        },
+        {
+          "id": "b",
+          "label": "First days are full of housekeeping",
+          "correct": false,
+          "rationale": "That's a point against the argument, not part of it."
+        },
+        {
+          "id": "c",
+          "label": "This is going to be a boring course",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "I can tell",
+          "correct": false,
+          "rationale": "That's just the speaker's framing."
+        }
+      ],
+      "explanation": "\"This is going to be a boring course\" is the claim the first day is offered as a reason for, and it's a generalization from one day.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.purdue_owl_fallacies",
+    "source.iep_fallacies",
+    "source.libretexts_vancleave_statistical_generalizations"
+  ],
+  "art": "mind.marble-jar"
+}

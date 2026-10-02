@@ -1,0 +1,29 @@
+# Review: World Geography
+
+**Result:** 20 OK · 0 soften · 0 fix · 0 unsure
+This tree passes: every sampled claim, and the card text and questions around it, matches its cited source.
+
+## Needs your call
+None.
+
+## Checked and fine
+- 1. Level 6: compass follows the North Magnetic Pole, not 90° N, so it is off from true north. Source: [Compass (navigational instrument)](https://www.britannica.com/technology/compass-navigational-instrument)  <!-- fact.world_geography.magnetic_not_geographic | source.brit_compass -->
+- 2. Level 7: map heights usually measured above mean sea level. Source: [Topographic Maps](https://www.sco.wisc.edu/maps/topographic/)  <!-- fact.world_geography.elevation_sea_level | source.sco_wisc_topographic_maps -->
+- 3. Level 13: Pangaea began breaking apart about 200 million years ago (USGS: "about 225-200 million years ago"). Source: [Historical perspective](https://pubs.usgs.gov/gip/dynamic/historical.html)  <!-- fact.world_geography.pangaea_breakup | source.usgs_dynamic_historical -->
+- 4. Level 14: energy spreads as seismic waves "like ripples on a pond", recorded by seismographs; hypocenter and epicenter definitions also match. Source: [The Science of Earthquakes](https://www.usgs.gov/programs/earthquake-hazards/science-earthquakes)  <!-- fact.world_geography.seismic_waves | source.usgs_science_of_earthquakes -->
+- 5. Level 29: southern Mesopotamian farmers dug branching canal networks ("a widely branching network of canals"). Source: [Mesopotamia](https://www.britannica.com/place/Mesopotamia-historical-region-Asia)  <!-- fact.world_geography.mesopotamia_canals | source.brit_mesopotamia -->
+- 6. Level 30: lower sea exposed Beringia, the Bering Strait seafloor, linking Siberia and Alaska. Source: [Beringia](https://www.britannica.com/place/Beringia)  <!-- fact.world_geography.beringia | source.brit_beringia -->
+- 7. Level 35: about three-quarters of India's yearly rain falls in the summer monsoon ("Approximately three-fourths"). Source: [Indian monsoon](https://www.britannica.com/science/Indian-monsoon)  <!-- fact.world_geography.india_three_quarters | source.brit_indian_monsoon -->
+- 8. Level 38: Köppen's five groups are tropical, dry, temperate, continental, polar. Source: [What Are the Different Climate Types?](https://www.nesdis.noaa.gov/about/k-12-education/understanding-our-planet/what-are-the-different-climate-types)  <!-- fact.world_geography.koppen_five_groups | source.nesdis_climate_types -->
+- 9. Level 41: hot and wet all year gives rainforest, very dry gives desert. Source: [The Five Major Types of Biomes](https://education.nationalgeographic.org/resource/five-major-types-biomes/)  <!-- fact.world_geography.biome_dial_examples | source.natgeo_five_biomes -->
+- 10. Level 44: largest savannas in Africa, home of the African elephant, largest land animal (Britannica savanna page lists Africa first and notes its extent). Source: [Grasslands Explained](https://education.nationalgeographic.org/resource/grasslands-explained/)  <!-- fact.world_geography.savanna_africa | source.natgeo_grasslands -->
+- 11. Level 57: Lagos is Nigeria's largest city; Abuja replaced it as capital in December 1991. Source: [Lagos](https://www.britannica.com/place/Lagos-Nigeria)  <!-- fact.world_geography.lagos_abuja | source.brit_lagos -->
+- 12. Level 59: crude oil from ancient marine plants and animals, buried under sand, silt and rock, turned to oil by heat and pressure. Source: [Oil and petroleum products explained](https://www.eia.gov/energyexplained/oil-and-petroleum-products/)  <!-- fact.world_geography.oil_formation | source.eia_oil_explained -->
+- 13. Level 61: Western Uplands, North European Plain, Central Uplands, Alpine Mountains, north to south; card details (densest population, wooded uplands, named ranges) also match. Source: [Europe: Physical Geography](https://education.nationalgeographic.org/resource/europe-physical-geography/)  <!-- fact.world_geography.europe_four_regions | source.natgeo_europe_physical -->
+- 14. Level 64: most Russians live in the European part, especially around Moscow. Source: [Russia](https://www.britannica.com/place/Russia)  <!-- fact.world_geography.russia_people_west | source.brit_russia -->
+- 15. Level 73: Missouri rises in the Rockies of southwestern Montana; longest Mississippi tributary. Source: [Missouri River](https://www.britannica.com/place/Missouri-River)  <!-- fact.world_geography.missouri_rockies | source.brit_missouri_river -->
+- 16. Level 78: Brazil speaks Portuguese, Spanish in most of the rest; Brazil about half the land and borders all but Chile and Ecuador also match. Source: [Brazil](https://www.britannica.com/place/Brazil)  <!-- fact.world_geography.sa_languages | source.brit_brazil -->
+- 17. Level 89: treaty guarantees freedom of scientific investigation (Art. II). Source: [The Antarctic Treaty](https://www.ats.aq/e/antarctictreaty.html)  <!-- fact.world_geography.treaty_science | source.ats_antarctic_treaty -->
+- 18. Level 90: winter averages about -60 °C at the South Pole and -40 °C at the North Pole; stated reasons (altitude, ocean heat) also match. Source: [Polar Discovery: Weather at the poles](https://polardiscovery.whoi.edu/poles/weather.html)  <!-- fact.world_geography.pole_winter_temps | source.whoi_polar_weather -->
+- 19. Level 94: drei, tres, treis, trayas share a PIE root (*trei-). Source: [three](https://www.etymonline.com/word/three)  <!-- fact.world_geography.three_cognates | source.etymonline_three -->
+- 20. Level 99: dead zone is low or no oxygen water that can kill fish and marine life; the algae and decomposition mechanism in the card and questions also matches. Source: [Below Average Summer 2025 'Dead Zone' Measured in Gulf](https://coastalscience.noaa.gov/news/below-average-summer-2025-dead-zone-measured-in-gulf/)  <!-- fact.world_geography.dead_zone_definition | source.noaa_gulf_dead_zone_2025 -->

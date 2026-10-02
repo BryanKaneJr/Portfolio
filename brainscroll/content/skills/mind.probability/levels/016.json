@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.probability.016",
+  "skillId": "skill.mind.probability",
+  "number": 16,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Same Average, Different Spread",
+  "objective": "After this level you can explain why two sets with the same average can be very different, and measure the gap with the range.",
+  "summary": "Two sets can share an average yet differ in spread. The range, largest minus smallest, measures it quickly, but it uses only two values.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.spread_range",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.averages_mean_fair_share",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.averages_outliers",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.015"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.016.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Two classes both average 70 on a test. Are they the same?",
+      "body": "In one, the scores were 40, 70 and 100. In the other, 69, 70 and 71. Same mean, very different rooms."
+    },
+    {
+      "id": "card.probability.016.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The average isn't the whole story",
+      "body": "In the first class, one student scored 30 below the mean and another 30 above it. In the second, everyone sat within a point of 70. The mean cannot tell those rooms apart. That is why a good summary also reports how spread out the values are: two sets can share a mean and still look nothing alike."
+    },
+    {
+      "id": "card.probability.016.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The range: biggest minus smallest",
+      "body": "The simplest measure of spread is the range: subtract the smallest value from the largest. First class: 100 − 40 = 60 points. Second class: 71 − 69 = 2 points. One more number, and suddenly the two rooms look as different as they really are.",
+      "callout": "Range = largest value − smallest value"
+    },
+    {
+      "id": "card.probability.016.c4",
+      "type": "fact",
+      "fact": "The range looks at only two values.",
+      "context": "It uses just the largest and the smallest and ignores everything in between. So a single outlier at either end can stretch it, even if every other value sits tight. Handy for a quick look; for a fuller picture you need a measure that listens to every value. That is next level."
+    },
+    {
+      "id": "card.probability.016.c5",
+      "type": "mcq",
+      "questionId": "question.probability.016.q1"
+    },
+    {
+      "id": "card.probability.016.c6",
+      "type": "mcq",
+      "questionId": "question.probability.016.q2"
+    },
+    {
+      "id": "card.probability.016.c7",
+      "type": "recall",
+      "questionId": "question.probability.016.q3"
+    },
+    {
+      "id": "card.probability.016.c8",
+      "type": "checkpoint",
+      "headline": "Spread: the range",
+      "learned": [
+        "Same mean can hide different spread",
+        "Range = largest minus smallest",
+        "The range uses only two values",
+        "One outlier can stretch it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.016.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.spread_range"
+      ],
+      "sourceCardIds": [
+        "card.probability.016.c3"
+      ],
+      "prompt": "How do you find the range of a set of values?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Add them up and divide by how many",
+          "correct": false,
+          "rationale": "That gives the mean."
+        },
+        {
+          "id": "b",
+          "label": "Find the value in the middle of the list",
+          "correct": false,
+          "rationale": "That gives the median."
+        },
+        {
+          "id": "c",
+          "label": "Subtract the smallest value from the largest",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Count how often the top value appears",
+          "correct": false,
+          "rationale": "Counting how often gives the mode idea, not the range."
+        }
+      ],
+      "explanation": "The range is the largest value minus the smallest: 100 − 40 = 60 for the first class.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.probability.016.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.spread_range"
+      ],
+      "sourceCardIds": [
+        "card.probability.016.c2",
+        "card.probability.016.c3"
+      ],
+      "prompt": "Class A scored 40, 70 and 100; Class B scored 69, 70 and 71. What is the difference?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Class A has the higher mean",
+          "correct": false,
+          "rationale": "Both means are 70."
+        },
+        {
+          "id": "b",
+          "label": "Class B has the bigger range",
+          "correct": false,
+          "rationale": "B's range is 2; A's is 60."
+        },
+        {
+          "id": "c",
+          "label": "Same mean, but Class A is far more spread out",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "There is no difference, since the means match",
+          "correct": false,
+          "rationale": "The spread differs a lot."
+        }
+      ],
+      "explanation": "Both means are 70, but A's range is 60 points and B's is 2: same center, very different spread.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.016.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.spread_range",
+        "concept.probability.averages_outliers"
+      ],
+      "sourceCardIds": [
+        "card.probability.016.c4",
+        "card.probability.015.c2"
+      ],
+      "prompt": "Why can one outlier, like those in Level 15, distort the range so easily?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The range is a kind of median",
+          "correct": false,
+          "rationale": "The range is a spread, not a middle value."
+        },
+        {
+          "id": "b",
+          "label": "The range uses only the largest and smallest values",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The range counts the most common value",
+          "correct": false,
+          "rationale": "That is the mode."
+        },
+        {
+          "id": "d",
+          "label": "Outliers are always removed before the range is found",
+          "correct": false,
+          "rationale": "Not always; that is why they can distort it."
+        }
+      ],
+      "explanation": "An outlier is by nature the largest or smallest value, and those are the only two the range uses.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_data_science_variation",
+    "source.abs_measures_of_spread"
+  ],
+  "art": "mind.seesaw"
+}

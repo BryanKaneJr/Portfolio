@@ -1,0 +1,213 @@
+{
+  "id": "level.geography.earth_climate.026",
+  "skillId": "skill.geography.earth_climate",
+  "number": 26,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "How Wind Shapes Deserts",
+  "objective": "After this level you can explain how wind builds dunes, strips away sand and sandblasts rock.",
+  "summary": "Only about 20% of deserts are sand. Wind strips fine particles, leaving desert pavement, carves ventifacts and yardangs, and walks dunes downwind by saltation and slipface avalanches.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.land_wind_erosion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.land_dunes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.land_river_load",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.025"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.026.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Only about 20% of Earth's deserts are covered in sand.",
+      "body": "Picture a desert and you probably see dunes. Most deserts are rock and gravel instead. The wind explains both."
+    },
+    {
+      "id": "card.earth_climate.026.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The wind as a vacuum cleaner",
+      "body": "Wind is good at picking up loose, fine particles, and geologists call that deflation. Blow the fine stuff away long enough and what's left is desert pavement: a sheet of rock fragments fitted together like a cobbled street. Nearly half of desert surfaces are plains of loose gravel stripped this way."
+    },
+    {
+      "id": "card.earth_climate.026.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The wind as a sandblaster",
+      "body": "Wind-driven sand is also an abrasive. Rocks sitting in its path get cut into flat, sometimes polished faces; geologists call them ventifacts. On a bigger scale, desert winds streamline whole ridges called yardangs, up to tens of meters high and kilometers long."
+    },
+    {
+      "id": "card.earth_climate.026.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "How a dune walks",
+      "body": "Sand moves mostly by saltation: grains bounce along close to the ground. On a dune, they bounce up the gentle upwind slope. At the crest they pile up until they spill down the steep downwind side, the slipface, in tiny avalanches. Grain by grain, the whole dune moves downwind."
+    },
+    {
+      "id": "card.earth_climate.026.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.026.q1"
+    },
+    {
+      "id": "card.earth_climate.026.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.026.q2"
+    },
+    {
+      "id": "card.earth_climate.026.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.026.q3"
+    },
+    {
+      "id": "card.earth_climate.026.c8",
+      "type": "checkpoint",
+      "headline": "Deserts: read",
+      "learned": [
+        "Only about a fifth of desert is sand",
+        "Deflation leaves desert pavement behind",
+        "Windblown sand carves ventifacts and yardangs",
+        "Dunes move downwind, grain by grain"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.026.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.land_wind_erosion"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.026.c2"
+      ],
+      "prompt": "What is desert pavement?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rock fragments left after wind removes the fine particles",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A layer of sand buried at the base of a dune",
+          "correct": false,
+          "rationale": "Desert pavement is rock fragments at the surface."
+        },
+        {
+          "id": "c",
+          "label": "Rock cut flat and polished by windblown sand",
+          "correct": false,
+          "rationale": "That's a ventifact."
+        },
+        {
+          "id": "d",
+          "label": "A streamlined ridge shaped by desert winds",
+          "correct": false,
+          "rationale": "That's a yardang."
+        }
+      ],
+      "explanation": "Deflation blows away the fine particles, leaving a sheetlike surface of rock fragments: desert pavement.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.026.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.land_dunes"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.026.c4"
+      ],
+      "prompt": "How does a sand dune move downwind?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The whole dune slides along on a film of water",
+          "correct": false,
+          "rationale": "Desert dunes are moved by wind, grain by grain."
+        },
+        {
+          "id": "b",
+          "label": "Wind blows the crest off and rebuilds it upwind",
+          "correct": false,
+          "rationale": "The dune moves downwind, not upwind."
+        },
+        {
+          "id": "c",
+          "label": "Sand climbs the gentle side, then avalanches down the slipface",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The upwind side sinks as the ground settles",
+          "correct": false,
+          "rationale": "The ground isn't what moves."
+        }
+      ],
+      "explanation": "Grains bounce up the gentle upwind slope and spill down the steep slipface, so the dune creeps downwind.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.earth_climate.026.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.land_dunes",
+        "concept.earth_climate.land_river_load"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.026.c4",
+        "card.earth_climate.023.c2"
+      ],
+      "prompt": "Desert sand bounces along the ground by saltation. Which part of a river's load (Level 23) can travel the same way?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Dissolved load",
+          "correct": false,
+          "rationale": "Dissolved minerals travel invisibly, in solution."
+        },
+        {
+          "id": "b",
+          "label": "Bed load",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Suspended load",
+          "correct": false,
+          "rationale": "Suspended load is held up in the water."
+        },
+        {
+          "id": "d",
+          "label": "Floating ice",
+          "correct": false,
+          "rationale": "A river's load is sediment, not ice."
+        }
+      ],
+      "explanation": "A river's bed load is pushed or bounced along the bottom, just as windblown sand saltates across a dune.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.usgs_desert_features",
+    "source.usgs_eolian_processes"
+  ],
+  "art": "geo.desert"
+}

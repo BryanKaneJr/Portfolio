@@ -1,0 +1,376 @@
+{
+  "id": "level.history.us_history.060",
+  "skillId": "skill.history.us_history",
+  "number": 60,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "published",
+  "title": "Checkpoint: Civil War and Reconstruction",
+  "objective": "After this level you can explain how the war ended slavery and what Reconstruction promised, won and lost.",
+  "summary": "From Dred Scott to 1877 on one timeline: a war that ended slavery, amendments that promised citizenship and the vote, and a retreat that left those promises unprotected.",
+  "concepts": [
+    {
+      "conceptId": "concept.us_history.civilwar_reconstruction_arc",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.dred_scott_decision",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.us_history.sumter_war_begins",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.us_history.war_end_1865",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.us_history.reconstruction_achievements",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.us_history.secession_road_1860",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.us_history.emancipation_proclamation_terms",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.us_history.self_emancipation_contraband",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.us_history.gettysburg_turning_point",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.us_history.amendments_citizenship_14th",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.us_history.reconstruction_violence_end",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.us_history.us_turning_points",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.history.us_history.059"
+  ],
+  "cards": [
+    {
+      "id": "card.us_history.060.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Chapter 6 finale: freedom was won in war. Equality was promised, then abandoned.",
+      "body": "Twenty years, from a court ruling to a troop withdrawal. Let’s put the whole story on one line."
+    },
+    {
+      "id": "card.us_history.060.c2",
+      "type": "timeline",
+      "headline": "Civil War and Reconstruction, in order",
+      "events": [
+        {
+          "when": "1857",
+          "label": "Dred Scott: Black Americans declared not citizens"
+        },
+        {
+          "when": "1861",
+          "label": "Confederates fire on Fort Sumter"
+        },
+        {
+          "when": "1863",
+          "label": "Emancipation Proclamation; Gettysburg"
+        },
+        {
+          "when": "1865",
+          "label": "Lee surrenders; the 13th Amendment ends slavery"
+        },
+        {
+          "when": "1868",
+          "label": "The 14th Amendment makes freedpeople citizens"
+        },
+        {
+          "when": "1877",
+          "label": "The last federal troops leave the South"
+        }
+      ]
+    },
+    {
+      "id": "card.us_history.060.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Won, then lost",
+      "body": "Between 1865 and 1877, the United States abolished slavery and wrote citizenship and voting rights into the Constitution, then withdrew the federal troops that protected them. The gains were real: Freedmen’s Bureau schools, and Black lawmakers like Hiram Revels in Congress. So was the backlash, from Klan terror to the bargain of 1877. The war settled slavery for good. Reconstruction’s promises stayed in the Constitution, waiting for later generations to enforce them."
+    },
+    {
+      "id": "card.us_history.060.c4",
+      "type": "mcq",
+      "questionId": "question.us_history.060.q1"
+    },
+    {
+      "id": "card.us_history.060.c5",
+      "type": "recall",
+      "questionId": "question.us_history.060.q2"
+    },
+    {
+      "id": "card.us_history.060.c6",
+      "type": "mcq",
+      "questionId": "question.us_history.060.q3"
+    },
+    {
+      "id": "card.us_history.060.c7",
+      "type": "recall",
+      "questionId": "question.us_history.060.q4"
+    },
+    {
+      "id": "card.us_history.060.c8",
+      "type": "recall",
+      "questionId": "question.us_history.060.q5"
+    },
+    {
+      "id": "card.us_history.060.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 6 complete",
+      "learned": [
+        "How the fight over slavery split the Union, and how the war became a war to end slavery.",
+        "Why Lincoln framed emancipation as a war measure, and what the Proclamation left out.",
+        "How enslaved people and Black soldiers helped win their own freedom.",
+        "What the three amendments promised, and why those promises went unprotected after 1877."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.us_history.060.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.dred_scott_decision",
+        "concept.us_history.emancipation_proclamation_terms",
+        "concept.us_history.reconstruction_violence_end"
+      ],
+      "sourceCardIds": [
+        "card.us_history.060.c2"
+      ],
+      "prompt": "Civil War and Reconstruction: which order of events is right?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Emancipation Proclamation, Dred Scott, troops leave the South",
+          "correct": false,
+          "rationale": "Dred Scott (1857) came first."
+        },
+        {
+          "id": "b",
+          "label": "Dred Scott, Emancipation Proclamation, troops leave the South",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Dred Scott, troops leave the South, Emancipation Proclamation",
+          "correct": false,
+          "rationale": "The troops left in 1877, last."
+        },
+        {
+          "id": "d",
+          "label": "Troops leave the South, Dred Scott, Emancipation Proclamation",
+          "correct": false,
+          "rationale": "The troop withdrawal ended the story in 1877."
+        }
+      ],
+      "explanation": "Dred Scott came in 1857, the Proclamation in 1863, and the last troops left in 1877.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.us_history.060.q2",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.gettysburg_turning_point"
+      ],
+      "sourceCardIds": [
+        "card.us_history.055.c3"
+      ],
+      "prompt": "What did Vicksburg’s surrender in July 1863 give the Union?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Control of the Mississippi River",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Confederate capital",
+          "correct": false,
+          "rationale": "Richmond was in Virginia, far to the east."
+        },
+        {
+          "id": "c",
+          "label": "The border state of Kentucky",
+          "correct": false,
+          "rationale": "Kentucky never left the Union."
+        },
+        {
+          "id": "d",
+          "label": "Lee’s surrender",
+          "correct": false,
+          "rationale": "That came at Appomattox in 1865."
+        }
+      ],
+      "explanation": "Vicksburg’s fall gave the Union the Mississippi and split the Confederacy.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.us_history.060.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.civilwar_reconstruction_arc"
+      ],
+      "sourceCardIds": [
+        "card.us_history.060.c3",
+        "card.us_history.059.c5"
+      ],
+      "prompt": "Why can Reconstruction be described as rights won, then lost?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The amendments were repealed in 1877",
+          "correct": false,
+          "rationale": "The amendments stayed in the Constitution."
+        },
+        {
+          "id": "b",
+          "label": "Slavery returned after federal troops left",
+          "correct": false,
+          "rationale": "The war settled slavery for good."
+        },
+        {
+          "id": "c",
+          "label": "The Constitution promised rights, but federal protection of them was withdrawn",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Supreme Court ended the 13th Amendment",
+          "correct": false,
+          "rationale": "The 13th Amendment still stands."
+        }
+      ],
+      "explanation": "The amendments stayed, but after 1877 the troops that protected Southern Republican governments were gone.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.us_history.060.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.emancipation_proclamation_terms"
+      ],
+      "sourceCardIds": [
+        "card.us_history.053.c4"
+      ],
+      "prompt": "What did the Emancipation Proclamation announce about Black men and the military?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They would be drafted into the Confederate army",
+          "correct": false,
+          "rationale": "It was a Union order."
+        },
+        {
+          "id": "b",
+          "label": "They could join only as unpaid laborers",
+          "correct": false,
+          "rationale": "It accepted them into the Army and Navy."
+        },
+        {
+          "id": "c",
+          "label": "They were barred from all military service",
+          "correct": false,
+          "rationale": "It did the opposite."
+        },
+        {
+          "id": "d",
+          "label": "They would be accepted into the Union Army and Navy",
+          "correct": true
+        }
+      ],
+      "explanation": "The Proclamation announced that Black men would be accepted into the Union Army and Navy.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.us_history.060.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.us_history.self_emancipation_contraband",
+        "concept.us_history.secession_road_1860"
+      ],
+      "sourceCardIds": [
+        "card.us_history.054.c2",
+        "card.us_history.051.c3"
+      ],
+      "prompt": "John Brown hoped enslaved people would rise up in 1859. How did many enslaved people actually seize freedom during the war?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By joining Brown’s raid on Harpers Ferry",
+          "correct": false,
+          "rationale": "The raid failed in 1859, before the war."
+        },
+        {
+          "id": "b",
+          "label": "By escaping to Union lines, as at Fort Monroe",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "By voting in the 1860 election",
+          "correct": false,
+          "rationale": "Enslaved people could not vote in 1860."
+        },
+        {
+          "id": "d",
+          "label": "By moving to the Confederate capital",
+          "correct": false,
+          "rationale": "Freedom lay behind Union lines."
+        }
+      ],
+      "explanation": "From Fort Monroe onward, enslaved people escaped to Union lines, becoming “contraband of war.”",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.battlefields_fort_sumter",
+    "source.battlefields_gettysburg",
+    "source.brit_compromise_1877",
+    "source.nara_13th_amendment",
+    "source.nara_14th_amendment",
+    "source.nara_dred_scott",
+    "source.nara_emancipation_proclamation",
+    "source.nps_appomattox_surrender_meeting",
+    "source.brit_ku_klux_klan",
+    "source.nara_15th_amendment",
+    "source.senate_freedmens_bureau",
+    "source.senate_revels_first_senator"
+  ],
+  "art": "us.kepi"
+}

@@ -1,0 +1,233 @@
+{
+  "id": "level.world_systems.computers.068",
+  "skillId": "skill.world_systems.computers",
+  "number": 68,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "End-to-End Encryption",
+  "objective": "After this level you can explain why end-to-end encryption means even the service can't read your messages, and why governments debate it.",
+  "summary": "With end-to-end encryption only sender and recipient hold the keys. Officials call it warrant-proof; security experts say any built-in door adds a weakness.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.privacy_end_to_end",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.privacy_encryption_debate",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.bit_patterns",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.067"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.068.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some messaging services can't read your messages, even if they wanted to.",
+      "body": "Not because they promise not to peek, but because they never hold the key. That design is why law enforcement officials and security experts argue about it."
+    },
+    {
+      "id": "card.computers.068.c2",
+      "type": "comparison",
+      "headline": "Two ways to lock a message",
+      "items": [
+        {
+          "label": "Encrypted in transit",
+          "points": [
+            "Locked from your phone to the service's servers, then on to your friend",
+            "The service can see unencrypted copies in the middle"
+          ]
+        },
+        {
+          "label": "End-to-end encrypted",
+          "points": [
+            "Locked by the sender, unlocked only by the recipient",
+            "Only the two ends hold the keys; the service can't read it"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.computers.068.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The key is just bits",
+      "body": "An encryption key is a string of bits. The widely used AES standard offers keys 128, 192 or 256 bits long. Each added bit of key doubles the number of possible keys, so every extra bit doubles the guessing an attacker would face. But remember Level 63: even end-to-end encryption leaves visible who is talking, and when and for how long."
+    },
+    {
+      "id": "card.computers.068.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The lawful access debate",
+      "body": "Law enforcement officials call strong end-to-end encryption 'warrant-proof': a company without the keys can't decrypt messages even for a search warrant. Security experts answer that any built-in door that a key can open, whoever holds the key, adds a weakness criminals could exploit too. As of a January 2024 congressional research report, no one had shown how to build a door that opens only for lawful use.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "This is a debate with named sides. Your job here is to understand both arguments, not to pick a winner."
+      }
+    },
+    {
+      "id": "card.computers.068.c5",
+      "type": "mcq",
+      "questionId": "question.computers.068.q1"
+    },
+    {
+      "id": "card.computers.068.c6",
+      "type": "mcq",
+      "questionId": "question.computers.068.q2"
+    },
+    {
+      "id": "card.computers.068.c7",
+      "type": "mcq",
+      "questionId": "question.computers.068.q3"
+    },
+    {
+      "id": "card.computers.068.c8",
+      "type": "checkpoint",
+      "headline": "Encryption: end to end",
+      "learned": [
+        "End-to-end means only sender and recipient hold the keys",
+        "In-transit encryption lets the service see copies",
+        "Each extra bit of key doubles the possible keys",
+        "Officials want lawful access; security experts warn any door adds risk"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.068.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.privacy_end_to_end"
+      ],
+      "sourceCardIds": [
+        "card.computers.068.c2"
+      ],
+      "prompt": "With end-to-end encryption, who holds the keys to read a message?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The messaging service's servers",
+          "correct": false,
+          "rationale": "That's encryption in transit, where the service can read copies."
+        },
+        {
+          "id": "b",
+          "label": "Your internet provider",
+          "correct": false,
+          "rationale": "Providers carry the locked message but can't open it."
+        },
+        {
+          "id": "c",
+          "label": "Only the sender and the recipient",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A government key registry",
+          "correct": false,
+          "rationale": "No third party holds the keys."
+        }
+      ],
+      "explanation": "End-to-end encryption is locked by the sender and unlocked only by the recipient.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.068.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.privacy_encryption_debate"
+      ],
+      "sourceCardIds": [
+        "card.computers.068.c4"
+      ],
+      "prompt": "In the lawful access debate, why do security experts object to building in a door for police?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Police would not be able to use such a door",
+          "correct": false,
+          "rationale": "The concern is about who else could use it."
+        },
+        {
+          "id": "b",
+          "label": "Any such door adds a weakness attackers could use too",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Encryption would stop working for everyone",
+          "correct": false,
+          "rationale": "Messages would still be encrypted; the risk is the extra way in."
+        },
+        {
+          "id": "d",
+          "label": "It would make every message much slower to send",
+          "correct": false,
+          "rationale": "The argument is about security, not speed."
+        }
+      ],
+      "explanation": "A built-in door that a key can open, whoever holds that key, is a potential vulnerability for criminals as well.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.computers.068.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.privacy_end_to_end",
+        "concept.computers.bit_patterns"
+      ],
+      "sourceCardIds": [
+        "card.computers.068.c3",
+        "card.computers.002.c3"
+      ],
+      "prompt": "By Level 2's rule, how does the number of possible keys change if a key gets just one bit longer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It goes up by one",
+          "correct": false,
+          "rationale": "Each bit multiplies the patterns; it doesn't add one."
+        },
+        {
+          "id": "b",
+          "label": "It stays the same",
+          "correct": false,
+          "rationale": "Each extra bit changes the count."
+        },
+        {
+          "id": "c",
+          "label": "It doubles",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It goes up tenfold",
+          "correct": false,
+          "rationale": "Bits have two values, so the count doubles, not tenfolds."
+        }
+      ],
+      "explanation": "Every added bit doubles the possible patterns, so every added bit of key doubles the keys an attacker would have to try.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.eff_ssd_encryption",
+    "source.crs_lawful_access_2024",
+    "source.nist_fips_197",
+    "source.stanford_cs101_bits_bytes"
+  ],
+  "art": "rome.wax-seal"
+}

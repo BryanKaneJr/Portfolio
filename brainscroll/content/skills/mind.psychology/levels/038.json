@@ -1,0 +1,215 @@
+{
+  "id": "level.mind.psychology.038",
+  "skillId": "skill.mind.psychology",
+  "number": 38,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Memories That Never Happened",
+  "objective": "After this level you can explain how Elizabeth Loftus showed that leading questions and suggestion can create false memories.",
+  "summary": "Elizabeth Loftus showed that information after an event can change memory of it: one word in a question altered speed estimates and planted broken glass. Whole false events can be implanted too.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.memory_misinformation_effect",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.memory_false_memories",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.memory_reconstruction",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.037"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.038.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Change one word in a question, and people remember glass that wasn't there.",
+      "body": "Elizabeth Loftus showed how easily memories can be edited after the fact. Her most famous experiment started with car crashes on film."
+    },
+    {
+      "id": "card.psychology.038.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Smashed or contacted?",
+      "body": "In 1974, Loftus and John Palmer showed students films of car accidents and asked how fast the cars were going when they \"smashed,\" \"collided,\" \"bumped,\" \"hit\" or \"contacted\" each other. \"Smashed\" drew higher speed estimates than \"contacted.\" A week later, people who had heard \"smashed\" were more than twice as likely to say they had seen broken glass. The film showed none."
+    },
+    {
+      "id": "card.psychology.038.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The misinformation effect",
+      "body": "Misleading information you meet after an event can contaminate your memory of the event itself. Hundreds of studies have shown it, for everything from a small detail of a face to a barn that wasn't there. Even tiny wording matters: in a 1975 study, people were more likely to say yes to \"Did you see the broken headlight?\" than to \"Did you see a broken headlight?\""
+    },
+    {
+      "id": "card.psychology.038.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Lost in the mall",
+      "body": "Could a whole event be planted? In a 1995 study by Loftus and Pickrell, students were asked about four childhood events supposedly supplied by relatives. One, getting lost in a shopping mall, was invented. After repeated questioning, a quarter came to believe it had happened. A preregistered 2023 replication with 123 people found 35 percent. Once planted, false memories are extremely hard to tell from true ones."
+    },
+    {
+      "id": "card.psychology.038.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.038.q1"
+    },
+    {
+      "id": "card.psychology.038.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.038.q2"
+    },
+    {
+      "id": "card.psychology.038.c7",
+      "type": "recall",
+      "questionId": "question.psychology.038.q3"
+    },
+    {
+      "id": "card.psychology.038.c8",
+      "type": "checkpoint",
+      "headline": "Memories that never happened",
+      "learned": [
+        "Loftus and Palmer (1974): one word changed memories",
+        "Misinformation after an event contaminates memory",
+        "Lost in the mall (1995): a quarter accepted a false event",
+        "A 2023 replication found 35 percent"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.038.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.memory_misinformation_effect"
+      ],
+      "sourceCardIds": [
+        "card.psychology.038.c2"
+      ],
+      "prompt": "In Loftus and Palmer's 1974 study, which verb drew higher speed estimates than \"contacted\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "\"Smashed\"",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "\"Stopped\"",
+          "correct": false,
+          "rationale": "\"Stopped\" wasn't one of the verbs tested."
+        },
+        {
+          "id": "c",
+          "label": "\"Passed\"",
+          "correct": false,
+          "rationale": "\"Passed\" wasn't one of the verbs tested; the verbs described a collision."
+        },
+        {
+          "id": "d",
+          "label": "\"Parked\"",
+          "correct": false,
+          "rationale": "\"Parked\" wasn't one of the verbs tested."
+        }
+      ],
+      "explanation": "Asking how fast the cars \"smashed\" into each other drew higher estimates than \"contacted\", and later more reports of broken glass.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.038.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.memory_misinformation_effect"
+      ],
+      "sourceCardIds": [
+        "card.psychology.038.c3",
+        "card.psychology.038.c2"
+      ],
+      "prompt": "How does the misinformation effect change a memory?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The event is recorded wrongly at the time",
+          "correct": false,
+          "rationale": "The change comes after the event, from what people hear later."
+        },
+        {
+          "id": "b",
+          "label": "The memory fades evenly over a week",
+          "correct": false,
+          "rationale": "The memory didn't just fade; it gained details like broken glass."
+        },
+        {
+          "id": "c",
+          "label": "Later misleading information gets blended into it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only a person's confidence changes",
+          "correct": false,
+          "rationale": "The content of the memory changed, not only confidence."
+        }
+      ],
+      "explanation": "Misleading information met after the event contaminates the memory of the event itself, as when \"smashed\" led people to recall broken glass.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.psychology.038.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.memory_false_memories",
+        "concept.psychology.memory_reconstruction"
+      ],
+      "sourceCardIds": [
+        "card.psychology.038.c4",
+        "card.psychology.037.c4"
+      ],
+      "prompt": "Level 37 showed that recalling means reconstructing. How does that help explain how a false memory of getting lost in a mall can take hold?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rebuilt memories are always more accurate",
+          "correct": false,
+          "rationale": "Bartlett's retellings grew more distorted, not more accurate."
+        },
+        {
+          "id": "b",
+          "label": "A suggested event can be built into what is recalled",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only children rebuild their memories",
+          "correct": false,
+          "rationale": "The students in these studies were adults recalling their childhood."
+        },
+        {
+          "id": "d",
+          "label": "Rebuilding happens only for stories people read",
+          "correct": false,
+          "rationale": "Reconstruction applies to remembering in general, including personal events."
+        }
+      ],
+      "explanation": "If each recall rebuilds a memory rather than replaying it, suggested details, or even a whole suggested event, can be built in.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_memory_problems",
+    "source.noba_eyewitness_memory_biases",
+    "source.memory_murphy_lost_in_mall_2023"
+  ],
+  "art": "mind.logic-crystal-ball"
+}

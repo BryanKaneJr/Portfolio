@@ -1,0 +1,216 @@
+{
+  "id": "level.mind.logic.095",
+  "skillId": "skill.mind.logic",
+  "number": 95,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "How Sure Are You?",
+  "objective": "After this level you can explain calibration: matching how confident you feel to how often you turn out to be right.",
+  "summary": "Calibration: whether your confidence matches how often you turn out right. It can be off in several directions, and checking it needs a scored record, as IARPA's forecasting tournament showed.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.deciding_calibration",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.deciding_forecasting_tournament",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.claim_definition",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.094"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Two friends both say \"I'm sure\" a lot. One is usually right. One isn't.",
+      "body": "They sound equally confident, so how would you know which one to trust? You'd have to keep track. That is the idea behind calibration, and it works on the confident voice in your own head too.",
+      "id": "card.logic.095.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Confidence that matches the record",
+      "body": "Researchers call it calibration: whether the confidence you attach to your predictions matches how often those predictions come true. If you're well calibrated, the things you feel very sure about come true very often, and the things you feel unsure about come true less often. Your sense of sureness becomes a gauge you can actually read.",
+      "id": "card.logic.095.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Ways to be off",
+      "body": "Miscalibration comes in more than one shape. Your confidence can run consistently too high, or too low. Or your judgments can be too extreme, leaping to near-certain yes or no, or too timid, hugging the middle. Overconfidence is the best-known form, and psychologists study it in depth. Your job is simpler: notice which way you lean.",
+      "id": "card.logic.095.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Keeping score",
+      "body": "You can't check calibration without a record. In 2011, IARPA, the US intelligence community's research agency, launched a public forecasting tournament. Teams answered about 500 questions over four years and were eliminated if they missed accuracy benchmarks. After two years one team remained: Good Judgment, led by Philip Tetlock and Barbara Mellers at the University of Pennsylvania's Wharton School.",
+      "id": "card.logic.095.c4"
+    },
+    {
+      "id": "card.logic.095.c5",
+      "type": "mcq",
+      "questionId": "question.logic.095.q1"
+    },
+    {
+      "id": "card.logic.095.c6",
+      "type": "mcq",
+      "questionId": "question.logic.095.q2"
+    },
+    {
+      "id": "card.logic.095.c7",
+      "type": "mcq",
+      "questionId": "question.logic.095.q3"
+    },
+    {
+      "id": "card.logic.095.c8",
+      "type": "checkpoint",
+      "headline": "Calibration: checked",
+      "learned": [
+        "Calibration: confidence that matches how often you are right",
+        "You can be off by being too sure, too unsure or too extreme",
+        "Checking calibration takes a record of scored predictions",
+        "Only claims can be scored, since only claims are true or false"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.095.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.deciding_calibration"
+      ],
+      "sourceCardIds": [
+        "card.logic.095.c2"
+      ],
+      "prompt": "What does it mean to be well calibrated?",
+      "options": [
+        {
+          "id": "a",
+          "label": "You are almost always completely certain",
+          "correct": false,
+          "rationale": "Constant certainty is only calibrated if you are almost always right."
+        },
+        {
+          "id": "b",
+          "label": "You never give an opinion until sure",
+          "correct": false,
+          "rationale": "That's caution, not calibration."
+        },
+        {
+          "id": "c",
+          "label": "You are right more often than anyone else",
+          "correct": false,
+          "rationale": "Calibration compares you with your own record, not with others."
+        },
+        {
+          "id": "d",
+          "label": "Your confidence matches how often you are right",
+          "correct": true
+        }
+      ],
+      "explanation": "Calibration is the match between the confidence you attach to predictions and how often they come true.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.logic.095.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.deciding_calibration"
+      ],
+      "sourceCardIds": [
+        "card.logic.095.c2",
+        "card.logic.095.c3"
+      ],
+      "prompt": "Jo calls lots of her predictions \"very sure\", yet they come true no more often than the ones she calls \"unsure\". What does that show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "She is well calibrated",
+          "correct": false,
+          "rationale": "Her sureness doesn't track her record, so she isn't."
+        },
+        {
+          "id": "b",
+          "label": "Her confidence isn't tracking her record",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "She should stop making predictions",
+          "correct": false,
+          "rationale": "The fix is to adjust her confidence, not to stop."
+        },
+        {
+          "id": "d",
+          "label": "Her predictions are all correct",
+          "correct": false,
+          "rationale": "Nothing says they're all correct."
+        }
+      ],
+      "explanation": "If her \"very sure\" calls come true no more often than her \"unsure\" ones, her confidence carries no information: she's miscalibrated.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.logic.095.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.deciding_forecasting_tournament",
+        "concept.logic.claim_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.095.c4",
+        "card.logic.003.c2"
+      ],
+      "prompt": "The forecasting tournament scored predictions for accuracy. Why must a prediction be a claim, not a question, to be scored?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Claims are always about the future",
+          "correct": false,
+          "rationale": "Claims can be about the past or present too."
+        },
+        {
+          "id": "b",
+          "label": "Questions are harder to write down",
+          "correct": false,
+          "rationale": "Writing is not the issue; truth is."
+        },
+        {
+          "id": "c",
+          "label": "Only a claim can turn out true or false",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Questions are never about real events",
+          "correct": false,
+          "rationale": "They can be; they just are not true or false."
+        }
+      ],
+      "explanation": "A claim is a sentence that can be true or false. Only that kind of sentence can be checked against what happened.",
+      "difficulty": 0.5
+    }
+  ],
+  "sourceIds": [
+    "source.koehler_calibration_expert_judgment",
+    "source.iarpa_superforecasters",
+    "source.libretexts_vancleave_what_is_an_argument",
+    "source.forallx_calgary"
+  ],
+  "art": "mind.logic-gauge"
+}

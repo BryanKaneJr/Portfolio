@@ -1,0 +1,218 @@
+{
+  "id": "level.arts.literature.093",
+  "skillId": "skill.arts.literature",
+  "number": 93,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Detective Story",
+  "objective": "After this level you can use the fair-play rules of detective fiction, from Poe's Dupin to Sherlock Holmes, to spot a planted clue.",
+  "summary": "Poe's Dupin (1841) set the detective pattern that Holmes and Watson (1887) followed. Fair play means every clue reaches you when it reaches the detective.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.detective_dupin_holmes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.detective_fair_play",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.type_scenes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.092"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.093.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Sherlock Holmes on the first great detective: \"very inferior\".",
+      "body": "In A Study in Scarlet, Watson tells Holmes he reminds him of Poe's Dupin. Holmes is not flattered: \"Dupin was a very inferior fellow.\" Rude, but revealing. Holmes had an ancestor, and the rules of his game were already set."
+    },
+    {
+      "id": "card.literature.093.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Poe invents the detective",
+      "body": "\"The Murders in the Rue Morgue\" by Edgar Allan Poe, the short-story craftsman of Level 71, published in April 1841, is called the first detective story. Its amateur detective, C. Auguste Dupin, solves a murder in a sealed room by reasoning from the clues, and his nameless friend tells the story. Sherlock Holmes and Dr. Watson, who narrates, first appeared in Arthur Conan Doyle's A Study in Scarlet (1887). Same pattern: a brilliant mind and a friend with a pen."
+    },
+    {
+      "id": "card.literature.093.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The rule of fair play",
+      "body": "Detective fiction grew a rule of fair play: the clues that lead to the solution should reach the reader at the same moment they reach the detective. In 1929 the writer Ronald Knox set out ten rules. Two of them: the criminal must be someone mentioned early in the story, and the detective must not find any clue that isn't shown to the reader at once. The mystery becomes a contest you could win."
+    },
+    {
+      "id": "card.literature.093.c4",
+      "type": "fact",
+      "fact": "Holmes shows you his clues, then explains them.",
+      "context": "Holmes greets Watson with \"You have been in Afghanistan, I perceive.\" Later he lays out the clues: a medical man with a military air, a face darkened by the tropics while the wrists are fair, a haggard face, a stiffly held, injured left arm. An English army doctor who suffered in the tropics: Afghanistan. Every clue was on the page for you too.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "Planted-clue test: could you have spotted it before the detective explained it? If so, the writer played fair."
+      }
+    },
+    {
+      "id": "card.literature.093.c5",
+      "type": "mcq",
+      "questionId": "question.literature.093.q1"
+    },
+    {
+      "id": "card.literature.093.c6",
+      "type": "mcq",
+      "questionId": "question.literature.093.q2"
+    },
+    {
+      "id": "card.literature.093.c7",
+      "type": "recall",
+      "questionId": "question.literature.093.q3"
+    },
+    {
+      "id": "card.literature.093.c8",
+      "type": "checkpoint",
+      "headline": "The detective story: solved",
+      "learned": [
+        "Poe's Dupin, 1841: the first detective",
+        "Holmes and Watson follow his pattern",
+        "Fair play: you see each clue the detective sees",
+        "Knox: the criminal must appear early"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.093.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.detective_dupin_holmes"
+      ],
+      "sourceCardIds": [
+        "card.literature.093.c2"
+      ],
+      "prompt": "Which story is called the first detective story?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Doyle's A Study in Scarlet",
+          "correct": false,
+          "rationale": "That introduced Holmes, in 1887."
+        },
+        {
+          "id": "b",
+          "label": "Ronald Knox's ten rules",
+          "correct": false,
+          "rationale": "Those are rules, from 1929, not a story."
+        },
+        {
+          "id": "c",
+          "label": "The Grimms' Cinderella",
+          "correct": false,
+          "rationale": "That's a fairy tale, not a mystery."
+        },
+        {
+          "id": "d",
+          "label": "Poe's \"The Murders in the Rue Morgue\"",
+          "correct": true
+        }
+      ],
+      "explanation": "Poe's \"The Murders in the Rue Morgue\" (1841), with its detective Dupin, is called the first detective story.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.093.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.detective_fair_play"
+      ],
+      "sourceCardIds": [
+        "card.literature.093.c3"
+      ],
+      "prompt": "In a new mystery, the butler is unmasked as the killer on the last page, but he is never mentioned before then. Which fair-play rule is broken?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The criminal must be mentioned early in the story",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The detective must reason from the clues",
+          "correct": false,
+          "rationale": "The problem is when the criminal first appears."
+        },
+        {
+          "id": "c",
+          "label": "A friend must narrate the detective's cases",
+          "correct": false,
+          "rationale": "Who narrates isn't the problem here."
+        },
+        {
+          "id": "d",
+          "label": "Clues must come after the solution",
+          "correct": false,
+          "rationale": "Fair play puts the clues first."
+        }
+      ],
+      "explanation": "Knox's rules say the criminal must be someone mentioned early in the story; a killer who appears only at the end gives the reader no chance.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.literature.093.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.type_scenes",
+        "concept.literature.detective_dupin_holmes"
+      ],
+      "sourceCardIds": [
+        "card.literature.006.c3",
+        "card.literature.093.c2"
+      ],
+      "prompt": "Level 6's type-scenes were story blocks with a set structure. What set pattern did Holmes's stories take over from Poe's?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A king who seeks a plant of youth",
+          "correct": false,
+          "rationale": "That's Gilgamesh."
+        },
+        {
+          "id": "b",
+          "label": "A brilliant detective and a friend who tells the story",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A warrior putting on his armor",
+          "correct": false,
+          "rationale": "That's a Homeric type-scene."
+        },
+        {
+          "id": "d",
+          "label": "A moral stated at the very end",
+          "correct": false,
+          "rationale": "That's a fable."
+        }
+      ],
+      "explanation": "Like a type-scene, the detective story reuses a set block: Poe's Dupin and his narrating friend became Holmes and Watson.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.gutenberg_study_in_scarlet",
+    "source.brit_detective_story",
+    "source.brit_murders_rue_morgue",
+    "source.umsl_knox_decalogue"
+  ],
+  "art": "mind.logic-deerstalker"
+}

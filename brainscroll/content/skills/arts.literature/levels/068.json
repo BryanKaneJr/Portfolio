@@ -1,0 +1,213 @@
+{
+  "id": "level.arts.literature.068",
+  "skillId": "skill.arts.literature",
+  "number": 68,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Dostoevsky's Crime and Punishment",
+  "objective": "After this level you can explain how Crime and Punishment turns a murder into a psychological drama of guilt and conscience.",
+  "summary": "In Dostoyevsky's Crime and Punishment (1866), a poor student kills a pawnbroker to prove a theory. The real drama is his guilt: Porfiry's mind games, Sonya's persuasion, confession and Siberia.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.dostoevsky_raskolnikov_theory",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.dostoevsky_guilt_drama",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.fable",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.067"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.068.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A poor student kills an old pawnbroker. Then the real story starts.",
+      "body": "Fyodor Dostoyevsky's Crime and Punishment, first published in 1866, follows what comes after the crime: Raskolnikov's descent into psychological torment."
+    },
+    {
+      "id": "card.literature.068.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A theory that permits a crime",
+      "body": "Raskolnikov, an impoverished former student in St. Petersburg, decides to solve his problems at a stroke by murdering an old pawnbroker. He has a theory to back it: extraordinary people must have \"the right to transgress,\" or progress would be impossible. The rest of the book puts that theory on trial, inside his own head."
+    },
+    {
+      "id": "card.literature.068.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cat and mouse",
+      "body": "The detective Porfiry Petrovich guesses who did it but can't prove it, so he plays psychological games instead. Raskolnikov does half the work for him: conscience and mounting suspicion wear him down. The chase happens in conversations, not in alleys. You know who did it from the start; the suspense is whether he will crack."
+    },
+    {
+      "id": "card.literature.068.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Confession and Siberia",
+      "body": "His way out comes through Sonya. She persuades Raskolnikov to confess, and she follows him to Siberia. Even there he clings at first to his theories; repentance comes slowly. By the end, the punishment in the title means much more than a prison sentence."
+    },
+    {
+      "id": "card.literature.068.c5",
+      "type": "mcq",
+      "questionId": "question.literature.068.q1"
+    },
+    {
+      "id": "card.literature.068.c6",
+      "type": "mcq",
+      "questionId": "question.literature.068.q2"
+    },
+    {
+      "id": "card.literature.068.c7",
+      "type": "recall",
+      "questionId": "question.literature.068.q3"
+    },
+    {
+      "id": "card.literature.068.c8",
+      "type": "checkpoint",
+      "headline": "Crime and Punishment: confessed",
+      "learned": [
+        "Raskolnikov kills to prove a theory",
+        "\"The right to transgress\"",
+        "Porfiry's psychological games",
+        "Confession, Siberia, slow repentance"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.068.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.dostoevsky_raskolnikov_theory"
+      ],
+      "sourceCardIds": [
+        "card.literature.068.c2"
+      ],
+      "prompt": "What did Raskolnikov's theory claim extraordinary people must have?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A duty to obey every law",
+          "correct": false,
+          "rationale": "His theory said the opposite."
+        },
+        {
+          "id": "b",
+          "label": "A fortune to give away",
+          "correct": false,
+          "rationale": "His motive was his own problems."
+        },
+        {
+          "id": "c",
+          "label": "The right to transgress",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A detective as a friend",
+          "correct": false,
+          "rationale": "Porfiry is his pursuer."
+        }
+      ],
+      "explanation": "Raskolnikov theorized that extraordinary people must have \"the right to transgress,\" or progress would be impossible.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.literature.068.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.dostoevsky_guilt_drama"
+      ],
+      "sourceCardIds": [
+        "card.literature.068.c3"
+      ],
+      "prompt": "How does Porfiry Petrovich pursue Raskolnikov without proof?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He plays psychological games with him",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "He plants false evidence at the scene",
+          "correct": false,
+          "rationale": "He works on Raskolnikov's mind."
+        },
+        {
+          "id": "c",
+          "label": "He pays Sonya to spy on him",
+          "correct": false,
+          "rationale": "Sonya persuades him to confess."
+        },
+        {
+          "id": "d",
+          "label": "He reads Raskolnikov's secret diary",
+          "correct": false,
+          "rationale": "He relies on conversation."
+        }
+      ],
+      "explanation": "Porfiry guesses Raskolnikov's guilt but cannot prove it, so he plays psychological games with him.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.literature.068.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.dostoevsky_guilt_drama",
+        "concept.literature.fable"
+      ],
+      "sourceCardIds": [
+        "card.literature.068.c3",
+        "card.literature.002.c2"
+      ],
+      "prompt": "A fable in Level 2 states its moral, often at the end. Where does Crime and Punishment put Raskolnikov's reckoning instead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In a moral printed on the last page",
+          "correct": false,
+          "rationale": "The novel doesn't spell it out."
+        },
+        {
+          "id": "b",
+          "label": "In a talking animal's warning",
+          "correct": false,
+          "rationale": "That's the fable's way."
+        },
+        {
+          "id": "c",
+          "label": "In a speech by Napoleon",
+          "correct": false,
+          "rationale": "Napoleon isn't a character here."
+        },
+        {
+          "id": "d",
+          "label": "Inside his own mind, in guilt and suspicion",
+          "correct": true
+        }
+      ],
+      "explanation": "The novel's reckoning is psychological: conscience and mounting suspicion wear Raskolnikov down long before any court.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_crime_and_punishment",
+    "source.brit_dostoyevsky_crime_punishment"
+  ],
+  "art": "lit.candle-stub"
+}

@@ -1,0 +1,215 @@
+{
+  "id": "level.arts.film_tv.003",
+  "skillId": "skill.arts.film_tv",
+  "number": 3,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Frames per Second",
+  "objective": "After this level you can explain what a frame rate is and why sound films settled on 24 frames every second.",
+  "summary": "Frame rate counts frames per second. Hand-cranked silent films averaged 16 to 18; sound fixed 24 in 1927. Film shown faster than it was shot speeds up.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.frame_rate_standard_24",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.projection_speed_mismatch",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.apparent_motion",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.002"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.003.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Why does everyone in an old silent film seem to be in such a hurry?",
+      "body": "Crowds scurry, cars zip, a chase looks like a wind-up toy. Before you blame the actors, count something: how many still frames pass every second. That one number, the frame rate, decides whether life on screen runs at the right speed."
+    },
+    {
+      "id": "card.film_tv.003.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Frames per second: the film's heartbeat",
+      "body": "A frame rate counts how many still frames a camera records, or a projector shows, each second. Your brain needs a fast enough stream: above about 15 frames per second, stills read as continuous movement. Silent-era cameras were mainly cranked by hand, averaging 16 to 18 frames a second, and silent films were photographed and projected at widely varying speeds."
+    },
+    {
+      "id": "card.film_tv.003.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sound demanded a steady beat",
+      "body": "Talking pictures ended the guesswork. Sound made a standard speed necessary, and in 1927 it was fixed at 24 frames per second, which works out to 90 feet of 35 mm film a minute. In 1929 cameras were motorized to run at an even 24, so voices stayed in sync with moving lips. A hand crank can wobble. A soundtrack can't."
+    },
+    {
+      "id": "card.film_tv.003.c4",
+      "type": "fact",
+      "fact": "Shoot at 12 frames a second, show at 24, and life runs twice as fast.",
+      "context": "Film must be projected at the speed it was shot to look natural. Film something at 36 frames a second or more, show it at 24, and it plays slow and dreamy. Now picture a scene hand-cranked at 16 and projected at 24: everything moves one and a half times too fast. Hello, scurrying silent comedians."
+    },
+    {
+      "id": "card.film_tv.003.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.003.q1"
+    },
+    {
+      "id": "card.film_tv.003.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.003.q2"
+    },
+    {
+      "id": "card.film_tv.003.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.003.q3"
+    },
+    {
+      "id": "card.film_tv.003.c8",
+      "type": "checkpoint",
+      "headline": "Frame rates: counted",
+      "learned": [
+        "Frame rate: still frames recorded or shown per second",
+        "Above about 15 per second, stills read as movement",
+        "Hand-cranked silent films averaged 16 to 18",
+        "Sound fixed the standard at 24 in 1927"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.003.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.frame_rate_standard_24"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.003.c3"
+      ],
+      "prompt": "What frame rate became the standard for sound films in 1927?",
+      "options": [
+        {
+          "id": "a",
+          "label": "16 frames per second",
+          "correct": false,
+          "rationale": "That's near the silent-era hand-cranked average."
+        },
+        {
+          "id": "b",
+          "label": "18 frames per second",
+          "correct": false,
+          "rationale": "Silent cameras averaged 16 to 18; sound needed more."
+        },
+        {
+          "id": "c",
+          "label": "24 frames per second",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "48 frames per second",
+          "correct": false,
+          "rationale": "That's twice the standard."
+        }
+      ],
+      "explanation": "Sound needed a fixed speed, and in 1927 it was set at 24 frames per second.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.film_tv.003.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.projection_speed_mismatch"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.003.c4"
+      ],
+      "prompt": "A scene is filmed at 12 frames per second and projected at 24. What does the audience see?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The action in slow motion",
+          "correct": false,
+          "rationale": "Slow motion comes from filming faster than you project."
+        },
+        {
+          "id": "b",
+          "label": "The action running twice as fast",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The action at its natural speed",
+          "correct": false,
+          "rationale": "That needs the same speed for shooting and showing."
+        },
+        {
+          "id": "d",
+          "label": "A frozen picture",
+          "correct": false,
+          "rationale": "The frames still change; they just change too quickly."
+        }
+      ],
+      "explanation": "Twelve frames of action are used up in half a second at 24 per second, so everything moves twice as fast.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.film_tv.003.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.apparent_motion",
+        "concept.film_tv.frame_rate_standard_24"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.003.c2",
+        "card.film_tv.002.c3"
+      ],
+      "prompt": "Level 2's beta movement needs stills shown quickly. Above about how many frames per second do stills read as continuous movement?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 2",
+          "correct": false,
+          "rationale": "Far too slow: you'd see a slideshow."
+        },
+        {
+          "id": "b",
+          "label": "About 15",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Exactly 24",
+          "correct": false,
+          "rationale": "Twenty-four is the sound standard, not the threshold."
+        },
+        {
+          "id": "d",
+          "label": "At least 100",
+          "correct": false,
+          "rationale": "Films work far below that."
+        }
+      ],
+      "explanation": "Above about 15 frames per second, the brain sees continuous movement from still images.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_motion_picture_technology",
+    "source.brit_intermittent",
+    "source.brit_history_film_sound_era",
+    "source.brit_mpt_introduction_of_sound",
+    "source.loc_malkiewicz_cinematography_sample"
+  ],
+  "art": "film.projector"
+}

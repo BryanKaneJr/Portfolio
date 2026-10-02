@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>You're invited to BrainScroll</title>
+  <meta name="description" content="A friend wants to learn with you on BrainScroll.">
+  <meta property="og:title" content="You're invited to BrainScroll">
+  <meta property="og:description" content="A friend wants to learn with you. Real knowledge, one level at a time.">
+  <link rel="icon" href="/favicon.png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <!--
+    The invite page (docs/invite-links.md). With BrainScroll installed, the
+    phone opens the app instead and this page is never seen. Without it, this
+    page links to the store and shows the code to enter after installing.
+    No trackers, no third-party requests, nothing stored.
+  -->
+  <main>
+    <img class="mascot" src="/dr-scroll.webp" alt="Dr. Scroll, waving">
+    <p class="eyebrow">Invite</p>
+    <h1>You're invited to BrainScroll</h1>
+    <p>A friend wants to learn with you. BrainScroll turns a few minutes a day into real knowledge, one level at a time, and you can see who learns more each week.</p>
+
+    <div class="buttons">
+      <a class="button" id="app-store" href="{{APP_STORE_URL}}" hidden>Get it on the App Store</a>
+      <a class="button" id="play-store" href="{{PLAY_STORE_URL}}" hidden>Get it on Google Play</a>
+      <p id="soon" hidden>BrainScroll is coming soon to the App Store and Google Play.</p>
+    </div>
+
+    <div class="card" id="code-card" hidden>
+      <p>Your friend's code</p>
+      <div class="code" id="code"></div>
+      <ol class="steps">
+        <li><strong>Get BrainScroll</strong> and sign in.</li>
+        <li>Open this link again, <strong>or</strong> go to Social, tap Add friends, and enter the code.</li>
+      </ol>
+    </div>
+
+    <a class="button secondary" id="open-app" href="brainscroll://" hidden>I have it: open BrainScroll</a>
+    <p class="fine" id="bad-link" hidden>This invite link looks incomplete. Ask your friend to send it again.</p>
+  </main>
+  <script>
+    (function () {
+      var m = /^\/invite\/([A-Za-z0-9]{8})\/?$/.exec(location.pathname);
+      var show = function (id) { document.getElementById(id).hidden = false; };
+      var appStore = document.getElementById('app-store');
+      var play = document.getElementById('play-store');
+      var hasApple = /^https:\/\//.test(appStore.getAttribute('href'));
+      var hasPlay = /^https:\/\//.test(play.getAttribute('href'));
+      var ua = navigator.userAgent;
+      var ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+      var android = /Android/.test(ua);
+      if (hasApple && !android) show('app-store');
+      if (hasPlay && !ios) show('play-store');
+      if (!hasApple && !hasPlay) show('soon');
+      if (!m) return show('bad-link');
+      var code = m[1].toUpperCase();
+      document.getElementById('code').textContent = code;
+      document.getElementById('open-app').setAttribute('href', 'brainscroll://invite/' + code);
+      show('code-card');
+      show('open-app');
+    })();
+  </script>
+</body>
+</html>

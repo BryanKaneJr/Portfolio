@@ -1,0 +1,213 @@
+{
+  "id": "level.mind.logic.085",
+  "skillId": "skill.mind.logic",
+  "number": 85,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Occam's Razor",
+  "objective": "After this level you can use Occam's razor to prefer the explanation that needs the fewest extra assumptions.",
+  "summary": "Occam's razor: when explanations fit the facts equally well, prefer the one that assumes fewer extra things. It's a tiebreaker, not a proof, and its famous slogan isn't Ockham's own wording.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.sourcing_occams_razor",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.explanation_vs_argument",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.084"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "One sock vanished in the wash. A sock-eating gremlin, or the back of the drum?",
+      "body": "Both explanations account for the lonely sock in your drawer. One needs a creature nobody has ever seen, with a taste for socks. The other needs a small gap behind the drum. You already know which to check first. Philosophers have a name for that instinct.",
+      "id": "card.logic.085.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The razor",
+      "body": "Britannica states Occam's razor like this: other things equal, explanations that posit fewer entities, or fewer kinds of entities, are to be preferred. The idea is old. Aristotle wrote that, other things equal, a demonstration from fewer postulates or hypotheses is superior. In plain terms: don't add extra assumptions you don't need. The gremlin is a whole extra creature.",
+      "id": "card.logic.085.c2"
+    },
+    {
+      "type": "fact",
+      "fact": "The famous slogan \"entities must not be multiplied beyond necessity\" isn't in Ockham's writings.",
+      "context": "The razor is named for William of Ockham, a 14th-century philosopher. The Stanford Encyclopedia of Philosophy says the sentiment is his, but not that wording. His own version runs: plurality should not be posited without necessity. A fitting fate for a principle about not adding extras.",
+      "id": "card.logic.085.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A tiebreaker, not a proof",
+      "body": "The razor only applies between explanations that fit the facts equally well, and the biologist Kent Holsinger, quoted in the Stanford Encyclopedia, notes such ties are comparatively rare. So if the machine has no gap and the sock is still missing, the simple story is out. Simpler tells you where to start checking. It doesn't tell you what's true.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Common mix-up: the razor doesn't say the simplest idea is true. It says which one to test first."
+      },
+      "id": "card.logic.085.c4"
+    },
+    {
+      "id": "card.logic.085.c5",
+      "type": "mcq",
+      "questionId": "question.logic.085.q1"
+    },
+    {
+      "id": "card.logic.085.c6",
+      "type": "mcq",
+      "questionId": "question.logic.085.q2"
+    },
+    {
+      "id": "card.logic.085.c7",
+      "type": "mcq",
+      "questionId": "question.logic.085.q3"
+    },
+    {
+      "id": "card.logic.085.c8",
+      "type": "checkpoint",
+      "headline": "The razor: sharpened",
+      "learned": [
+        "Prefer explanations with fewer extra assumptions",
+        "Only between explanations that fit equally well",
+        "A tiebreaker for testing, not a proof",
+        "The famous slogan isn't Ockham's own words"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.085.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.sourcing_occams_razor"
+      ],
+      "sourceCardIds": [
+        "card.logic.085.c2"
+      ],
+      "prompt": "Other things being equal, which explanation does Occam's razor prefer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The one that sounds most exciting",
+          "correct": false,
+          "rationale": "Excitement isn't the razor's test."
+        },
+        {
+          "id": "b",
+          "label": "The one that most people believe",
+          "correct": false,
+          "rationale": "Popularity isn't the razor's test."
+        },
+        {
+          "id": "c",
+          "label": "The oldest one on record",
+          "correct": false,
+          "rationale": "Age isn't the razor's test."
+        },
+        {
+          "id": "d",
+          "label": "The one that posits fewer entities",
+          "correct": true
+        }
+      ],
+      "explanation": "Other things equal, prefer explanations positing fewer entities, or fewer kinds of entities.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.085.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.sourcing_occams_razor"
+      ],
+      "sourceCardIds": [
+        "card.logic.085.c2",
+        "card.logic.085.c4"
+      ],
+      "prompt": "The lights flicker. One friend blames a loose wire; another, a neighbor who sneaks in nightly to flip the breaker. Both fit. What does the razor advise?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Pick the neighbor, since it's more dramatic",
+          "correct": false,
+          "rationale": "Drama isn't a reason to prefer an explanation."
+        },
+        {
+          "id": "b",
+          "label": "Check the loose wire first: it assumes less",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Believe neither until everyone votes",
+          "correct": false,
+          "rationale": "A vote doesn't test either explanation."
+        },
+        {
+          "id": "d",
+          "label": "The razor can't compare explanations",
+          "correct": false,
+          "rationale": "Comparing explanations is its whole job."
+        }
+      ],
+      "explanation": "With both fitting the facts, the razor favors the one needing fewer extra assumptions, as the place to start checking.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.logic.085.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.sourcing_occams_razor",
+        "concept.logic.explanation_vs_argument"
+      ],
+      "sourceCardIds": [
+        "card.logic.085.c2",
+        "card.logic.008.c2"
+      ],
+      "prompt": "Occam's razor chooses between explanations. In Level 8's terms, what does an explanation do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Proves that a doubtful claim is true",
+          "correct": false,
+          "rationale": "That's what an argument tries to do."
+        },
+        {
+          "id": "b",
+          "label": "Sorts facts from opinions",
+          "correct": false,
+          "rationale": "That's Level 4's job."
+        },
+        {
+          "id": "c",
+          "label": "Shows why something accepted is true",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Names an argument's hidden premise",
+          "correct": false,
+          "rationale": "That's finding an unstated premise."
+        }
+      ],
+      "explanation": "An explanation starts from something accepted (the sock is gone) and shows why; the razor helps choose which why to test first.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_occams_razor",
+    "source.sep_simplicity",
+    "source.sep_ockham"
+  ],
+  "art": "mind.logic-razor"
+}

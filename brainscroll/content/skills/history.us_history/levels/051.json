@@ -1,0 +1,230 @@
+{
+  "id": "level.history.us_history.051",
+  "skillId": "skill.history.us_history",
+  "number": 51,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Dred Scott to Secession",
+  "objective": "After this level you can explain how the Dred Scott decision, John Brown's raid and Lincoln's election led Southern states to secede.",
+  "summary": "The Dred Scott ruling, John Brown’s raid and Lincoln’s election came in quick succession. Seven Deep South states seceded, and their own declarations named slavery as the reason.",
+  "concepts": [
+    {
+      "conceptId": "concept.us_history.dred_scott_decision",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.secession_road_1860",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.us_turning_points",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.us_history.050"
+  ],
+  "cards": [
+    {
+      "id": "card.us_history.051.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A court case, a raid and an election broke the Union apart.",
+      "body": "Americans had argued for decades over slavery in the West. Then three shocks landed within a few years, and each one pushed Southern leaders closer to leaving. Why did they finally go?"
+    },
+    {
+      "id": "card.us_history.051.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The Court slams a door",
+      "body": "Dred Scott, an enslaved man, sued for his freedom because he had lived in a free state and a free territory. On March 6, 1857, Chief Justice Roger Taney ruled against him and went much further. Black Americans, free or enslaved, were not US citizens, Taney wrote, so Scott could not even sue in federal court. And Congress had no power to ban slavery in the western territories. One ruling shut Scott out of court and threw the West open to slavery."
+    },
+    {
+      "id": "card.us_history.051.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A raid at Harpers Ferry",
+      "body": "In October 1859, the abolitionist John Brown led a party of 22 raiders to seize the federal arsenal at Harpers Ferry, Virginia, hoping to spark a revolt of enslaved people. US Marines under Robert E. Lee captured him, and Virginia hanged him for treason on December 2, 1859. Many Northerners hailed Brown as a martyr. Many white Southerners saw his raid as proof of a Northern plot against the South. The same man looked like a hero or a terrorist, depending on where you stood."
+    },
+    {
+      "id": "card.us_history.051.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Lincoln wins, the Deep South leaves",
+      "body": "In November 1860, Republican Abraham Lincoln won the presidency without carrying a single slave state. He opposed slavery’s spread into the western territories, and said he had no purpose to interfere with it where it already existed. For many Southern leaders, that was not enough. South Carolina seceded on December 20, 1860. In February 1861, the seceded Deep South states formed the Confederate States of America, with Jefferson Davis as president; it was seven strong once Texas joined in March."
+    },
+    {
+      "id": "card.us_history.051.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "In their own words",
+      "body": "Why leave? The seceding states explained it themselves. Several issued declarations of causes that named the defense of slavery as their reason. Mississippi’s was blunt: “Our position is thoroughly identified with the institution of slavery.” On this point the evidence is settled, and it comes straight from the people who made the decision.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep this one: the seceding states named slavery as their reason, in their own documents."
+      }
+    },
+    {
+      "id": "card.us_history.051.c6",
+      "type": "mcq",
+      "questionId": "question.us_history.051.q1"
+    },
+    {
+      "id": "card.us_history.051.c7",
+      "type": "mcq",
+      "questionId": "question.us_history.051.q2"
+    },
+    {
+      "id": "card.us_history.051.c8",
+      "type": "recall",
+      "questionId": "question.us_history.051.q3"
+    },
+    {
+      "id": "card.us_history.051.c9",
+      "type": "checkpoint",
+      "headline": "Dred Scott to secession: explained",
+      "learned": [
+        "Dred Scott (1857): Black Americans not citizens; no ban on slavery in the territories",
+        "John Brown’s 1859 raid: a martyr in the North, a threat in the South",
+        "Lincoln won in 1860 without a single slave state",
+        "Seceding states named slavery as their reason"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.us_history.051.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.dred_scott_decision"
+      ],
+      "sourceCardIds": [
+        "card.us_history.051.c2"
+      ],
+      "prompt": "In the Dred Scott decision of 1857, what did Chief Justice Taney rule about Black Americans?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Free Black Americans could vote in every state",
+          "correct": false,
+          "rationale": "The ruling denied them citizenship altogether."
+        },
+        {
+          "id": "b",
+          "label": "They were not US citizens and could not sue in federal court",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Anyone enslaved who reached a free state became free",
+          "correct": false,
+          "rationale": "Scott lived in a free state and still lost."
+        },
+        {
+          "id": "d",
+          "label": "Congress could decide whether they were citizens",
+          "correct": false,
+          "rationale": "Taney said they were not citizens, full stop."
+        }
+      ],
+      "explanation": "Taney ruled that Black Americans, free or enslaved, were not citizens, so Scott could not sue.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.us_history.051.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.secession_road_1860"
+      ],
+      "sourceCardIds": [
+        "card.us_history.051.c4",
+        "card.us_history.051.c5"
+      ],
+      "prompt": "Why did Deep South states secede after Lincoln’s election, though he promised not to touch slavery where it existed?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He had ordered John Brown’s raid on Harpers Ferry",
+          "correct": false,
+          "rationale": "Brown acted on his own; Lincoln had nothing to do with it."
+        },
+        {
+          "id": "b",
+          "label": "He had carried most of the slave states",
+          "correct": false,
+          "rationale": "He carried not a single slave state."
+        },
+        {
+          "id": "c",
+          "label": "He opposed slavery’s spread, and they saw slavery’s future at stake",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Dred Scott decision had declared secession legal",
+          "correct": false,
+          "rationale": "Dred Scott was about citizenship and the territories."
+        }
+      ],
+      "explanation": "Lincoln opposed slavery’s spread; the seceding states’ own declarations said defending slavery was their reason.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.us_history.051.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.us_history.secession_road_1860",
+        "concept.us_history.us_turning_points"
+      ],
+      "sourceCardIds": [
+        "card.us_history.051.c4",
+        "card.us_history.001.c4"
+      ],
+      "prompt": "The Confederacy began with seven Deep South states. How many Southern states did the United States end up fighting in the Civil War?",
+      "options": [
+        {
+          "id": "a",
+          "label": "7",
+          "correct": false,
+          "rationale": "That was only the first wave."
+        },
+        {
+          "id": "b",
+          "label": "11",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "13",
+          "correct": false,
+          "rationale": "That’s the number of original colonies."
+        },
+        {
+          "id": "d",
+          "label": "4",
+          "correct": false,
+          "rationale": "More than seven had already left."
+        }
+      ],
+      "explanation": "The Confederacy began with seven Deep South states; the war pitted the United States against 11.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nara_dred_scott",
+    "source.brit_harpers_ferry_raid",
+    "source.brit_american_civil_war",
+    "source.millercenter_lincoln_first_inaugural",
+    "source.nps_elections_1860_1864",
+    "source.avalon_mississippi_secession",
+    "source.battlefields_declaration_causes"
+  ],
+  "art": "us.stovepipe-hat"
+}

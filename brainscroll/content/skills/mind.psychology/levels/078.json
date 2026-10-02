@@ -1,0 +1,224 @@
+{
+  "id": "level.mind.psychology.078",
+  "skillId": "skill.mind.psychology",
+  "number": 78,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Us Versus Them",
+  "objective": "After this level you can explain in-group favoritism and how the minimal group studies produced it from almost nothing.",
+  "summary": "We prefer our in-groups. Tajfel's minimal group studies showed that boys sorted into groups on trivial, actually random grounds still favored their own group, even at a cost.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.social_in_group_bias",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.social_minimal_groups",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.surveys",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.077"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.078.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Pick a painting. Congratulations, you now have a team.",
+      "body": "Around 1970, Henri Tajfel told schoolboys in Bristol that they had been grouped by which of two painters they preferred. The groups meant nothing; he had actually assigned them at random. Would the boys still take sides?"
+    },
+    {
+      "id": "card.psychology.078.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Us and them",
+      "body": "An in-group is a group you identify with; an out-group is one you see as different from you. The groups we belong to are a powerful source of identity and self-esteem, so we tend to feel good about them. In-group bias is the result: a preference for our own group over other groups."
+    },
+    {
+      "id": "card.psychology.078.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Klee or Kandinsky?",
+      "body": "In experiments at the University of Bristol reported in 1970, Tajfel divided boys aged 14 and 15 into groups on trivial grounds, such as preferring paintings by Paul Klee or Wassily Kandinsky. In fact, the boys were assigned at random. No history, no rivalry, nothing to fight over."
+    },
+    {
+      "id": "card.psychology.078.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Winning by a wider margin",
+      "body": "Next, each boy shared out points worth real money between other boys, identified only by code number and group, and never to himself. Most boys gave more to their own group. Often they chose the biggest gap in their group's favor, even when that meant their own group got less overall. Beating them mattered more than having more."
+    },
+    {
+      "id": "card.psychology.078.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Almost nothing is enough",
+      "body": "Tajfel concluded that the mere fact of being divided into groups can be enough to trigger discrimination, even without any conflict of interests or past hostility."
+    },
+    {
+      "id": "card.psychology.078.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.078.q1"
+    },
+    {
+      "id": "card.psychology.078.c7",
+      "type": "mcq",
+      "questionId": "question.psychology.078.q2"
+    },
+    {
+      "id": "card.psychology.078.c8",
+      "type": "recall",
+      "questionId": "question.psychology.078.q3"
+    },
+    {
+      "id": "card.psychology.078.c9",
+      "type": "checkpoint",
+      "headline": "Us and them",
+      "learned": [
+        "In-groups feed identity and self-esteem",
+        "Tajfel's groups were assigned at random",
+        "Boys still favored their own group",
+        "They often chose a bigger gap over more for everyone"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.078.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.social_minimal_groups"
+      ],
+      "sourceCardIds": [
+        "card.psychology.078.c4"
+      ],
+      "prompt": "When sharing out points in Tajfel's studies, what did the boys often choose, even when it cost their own group?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An exactly equal split for everyone",
+          "correct": false,
+          "rationale": "Most boys favored their own group."
+        },
+        {
+          "id": "b",
+          "label": "The most points for themselves",
+          "correct": false,
+          "rationale": "They never gave points to themselves."
+        },
+        {
+          "id": "c",
+          "label": "More for the other group, to be polite",
+          "correct": false,
+          "rationale": "They leaned toward their own group."
+        },
+        {
+          "id": "d",
+          "label": "The biggest gap in their own group's favor",
+          "correct": true
+        }
+      ],
+      "explanation": "The boys often picked the largest difference in favor of their group, even when that meant their group got less overall.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.psychology.078.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.social_minimal_groups",
+        "concept.psychology.social_in_group_bias"
+      ],
+      "sourceCardIds": [
+        "card.psychology.078.c3",
+        "card.psychology.078.c5"
+      ],
+      "prompt": "Why are Tajfel's experiments called minimal group studies?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The groups were tiny, just two boys each",
+          "correct": false,
+          "rationale": "They were groups of boys, not pairs, and size isn't the point."
+        },
+        {
+          "id": "b",
+          "label": "The groups were based on almost nothing, with no conflict or history",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The boys spent only a few minutes together",
+          "correct": false,
+          "rationale": "Time together isn't what makes them minimal."
+        },
+        {
+          "id": "d",
+          "label": "The rewards were worth very little money",
+          "correct": false,
+          "rationale": "The point is how little the groups meant, not the stakes."
+        }
+      ],
+      "explanation": "The groups rested on trivial or random grounds, with no rivalry or past hostility, yet favoritism appeared anyway.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.psychology.078.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.social_minimal_groups",
+        "concept.psychology.surveys"
+      ],
+      "sourceCardIds": [
+        "card.psychology.078.c4",
+        "card.psychology.008.c4"
+      ],
+      "prompt": "Level 8 warned that people may answer surveys in ways that make them look good. How did Tajfel's study get around that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It measured how the boys actually shared out money",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It asked the boys to rate their own fairness",
+          "correct": false,
+          "rationale": "That would be a self-report, the thing Level 8 warned about."
+        },
+        {
+          "id": "c",
+          "label": "It interviewed the boys' teachers instead",
+          "correct": false,
+          "rationale": "Teachers weren't the source of the data."
+        },
+        {
+          "id": "d",
+          "label": "It used a case study of one boy",
+          "correct": false,
+          "rationale": "Many boys took part."
+        }
+      ],
+      "explanation": "Instead of asking, Tajfel recorded what the boys did with real rewards, which avoids answers shaped to look good.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_prejudice",
+    "source.sciam_tajfel_1970",
+    "source.ejsp_tajfel_minimal_group_1971",
+    "source.openstax_psych_approaches_research"
+  ],
+  "art": "mind.group-badges"
+}

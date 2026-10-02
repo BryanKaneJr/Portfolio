@@ -1,0 +1,228 @@
+{
+  "id": "level.mind.religions.019",
+  "skillId": "skill.mind.religions",
+  "number": 19,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Branches of Judaism Today",
+  "objective": "After this level you can compare Orthodox, Conservative and Reform Judaism, and tell these branches apart from Ashkenazi and Sephardi heritage.",
+  "summary": "Orthodox, Conservative and Reform Judaism differ over how binding traditional Jewish law is. Ashkenazi and Sephardi describe family heritage and custom, not branches of belief.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.judaism_branches",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.judaism_heritage",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.judaism_mishnah_talmud",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.018"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.019.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Orthodox or Reform? Ashkenazi or Sephardi? Two different questions.",
+      "body": "One is about how binding Jewish law is today. The other is about where a family's customs come from. Let's take them one at a time."
+    },
+    {
+      "id": "card.religions.019.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Orthodox: the law stands",
+      "body": "Orthodox Judaism holds that the Written Law, the Torah, and the Oral Law, set down in the Mishnah and interpreted in the Talmud, are fixed and remain the sole guide for religious life. Orthodox Jews keep daily worship, kashrut, traditional prayers and intensive Torah study, with men and women seated apart in the synagogue."
+    },
+    {
+      "id": "card.religions.019.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Reform and Conservative",
+      "body": "Reform Judaism began early in the 19th century in Germany; its first services, in 1810, brought an organ, a choir and prayers in German. It teaches that Judaism is a living, developing faith, and questions the binding force of ritual law. Conservative Judaism, inspired by Zacharias Frankel, treats the Law as sacred and living, and changes it more slowly; since 1985 it has ordained women as rabbis."
+    },
+    {
+      "id": "card.religions.019.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Who belongs where",
+      "body": "In Pew's 2020 survey of US Jews, 37% identified as Reform, 17% as Conservative and 9% as Orthodox, with about 4% in other branches. And 32% named no branch at all."
+    },
+    {
+      "id": "card.religions.019.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Heritage is a different question",
+      "body": "Ashkenazim descend from Jews of the Rhineland and France who moved east to lands like Poland and Lithuania; many spoke Yiddish. Sephardim descend from the Jews of Spain and Portugal, and many kept Judeo-Spanish, Ladino. Jews of North Africa and the Middle East are more properly called Mizrahim. Their customs differ, but as a matter of tradition, not of sect.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Branch answers \"how do you practice?\" Heritage answers \"where is your family from?\" Keep the two apart."
+      }
+    },
+    {
+      "id": "card.religions.019.c6",
+      "type": "mcq",
+      "questionId": "question.religions.019.q1"
+    },
+    {
+      "id": "card.religions.019.c7",
+      "type": "mcq",
+      "questionId": "question.religions.019.q2"
+    },
+    {
+      "id": "card.religions.019.c8",
+      "type": "mcq",
+      "questionId": "question.religions.019.q3"
+    },
+    {
+      "id": "card.religions.019.c9",
+      "type": "checkpoint",
+      "headline": "Branches of Judaism Today: the takeaways",
+      "learned": [
+        "Orthodox, Conservative and Reform differ over how binding Jewish law is",
+        "Reform began in 19th-century Germany; Conservative ordains women since 1985",
+        "Ashkenazi and Sephardi are heritages, not branches"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.019.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.judaism_branches"
+      ],
+      "sourceCardIds": [
+        "card.religions.019.c3"
+      ],
+      "prompt": "Where and when did Reform Judaism begin?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In medieval Spain",
+          "correct": false,
+          "rationale": "Reform is a modern movement."
+        },
+        {
+          "id": "b",
+          "label": "In early 19th-century Germany",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "In Babylon during the exile",
+          "correct": false,
+          "rationale": "That was about 2,400 years earlier."
+        },
+        {
+          "id": "d",
+          "label": "In 20th-century New York",
+          "correct": false,
+          "rationale": "It began a century earlier, in Germany."
+        }
+      ],
+      "explanation": "Reform Judaism began early in the 19th century in Germany; its first services were in 1810.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.religions.019.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.judaism_branches"
+      ],
+      "sourceCardIds": [
+        "card.religions.019.c2",
+        "card.religions.019.c3"
+      ],
+      "prompt": "What is the main difference between Orthodox and Reform Judaism?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Whether they read the Torah at all",
+          "correct": false,
+          "rationale": "Both read the Torah."
+        },
+        {
+          "id": "b",
+          "label": "Whether they believe in one God",
+          "correct": false,
+          "rationale": "Both hold belief in one God."
+        },
+        {
+          "id": "c",
+          "label": "Which country their members come from",
+          "correct": false,
+          "rationale": "That is heritage, not branch."
+        },
+        {
+          "id": "d",
+          "label": "How binding they hold traditional Jewish law to be",
+          "correct": true
+        }
+      ],
+      "explanation": "Orthodox Judaism holds the Written and Oral Law fixed and binding; Reform questions the binding force of ritual law.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.019.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.judaism_branches",
+        "concept.religions.judaism_mishnah_talmud"
+      ],
+      "sourceCardIds": [
+        "card.religions.019.c2",
+        "card.religions.015.c4"
+      ],
+      "prompt": "Orthodox Judaism holds the Oral Law binding. According to Level 15, where was that oral law gathered?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In the Mishnah, the core of the Talmud",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "In the Book of Psalms",
+          "correct": false,
+          "rationale": "Psalms is part of the written Tanakh."
+        },
+        {
+          "id": "c",
+          "label": "In the Haggadah read at Passover",
+          "correct": false,
+          "rationale": "That guides the seder."
+        },
+        {
+          "id": "d",
+          "label": "In the inscription of Merneptah",
+          "correct": false,
+          "rationale": "That is an Egyptian royal text."
+        }
+      ],
+      "explanation": "Judah ha-Nasi gave the Mishnah its final form; with the Gemara it makes up the Talmud.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_orthodox_judaism",
+    "source.brit_reform_judaism",
+    "source.brit_conservative_judaism",
+    "source.pew_jewish_americans_2020",
+    "source.brit_ashkenazi",
+    "source.brit_sephardi"
+  ],
+  "art": "rel.torah-scroll"
+}

@@ -1,0 +1,214 @@
+{
+  "id": "level.geography.earth_climate.081",
+  "skillId": "skill.geography.earth_climate",
+  "number": 81,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Keeling Curve",
+  "objective": "After this level you can read the record of carbon dioxide since 1958 and explain both its steady rise and its yearly zigzag.",
+  "summary": "Carbon dioxide measured at Mauna Loa since 1958 climbs every year because sinks absorb only half our emissions, and it zigzags as northern plants grow and decay.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.warming_keeling_rise",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.warming_keeling_seasons",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.earth_spheres",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.080"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.081.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Each May, Hawaii's air holds more carbon dioxide than in any other month.",
+      "body": "One graph from a Hawaiian volcano shows two things at once: a line that climbs every single year, and a wobble that repeats every single year. Learn to read both."
+    },
+    {
+      "id": "card.earth_climate.081.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A flask of air on a volcano",
+      "body": "In March 1958, C. David Keeling of the Scripps Institution of Oceanography began measuring carbon dioxide at Mauna Loa Observatory in Hawaii. The record never stopped, and it is now the longest direct record of CO2 in the air. The Keeling Curve started at about 315 parts per million (ppm). In 2024 the yearly average at Mauna Loa was about 425 ppm. Before the Industrial Revolution, it was 280 ppm or less."
+    },
+    {
+      "id": "card.earth_climate.081.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the line only climbs",
+      "body": "Each year people release carbon dioxide by burning fossil fuels. Plant growth and the ocean soak up about half of it. The other half stays in the air, so the total ratchets up year after year. That is how the air came to hold about 50 percent more CO2 than before the Industrial Revolution. Think of a bathtub with the tap running faster than the drain."
+    },
+    {
+      "id": "card.earth_climate.081.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The yearly zigzag",
+      "body": "Zoom in and the line wiggles like a saw blade. In Northern Hemisphere spring and summer, plants draw carbon dioxide in to grow, and the level falls. In autumn and winter, growth slows and dead leaves decay, releasing it again. At Mauna Loa the peak comes each May. The Southern Hemisphere does the same in opposite seasons, only weaker, because the north has far more land and plants. You are watching the planet breathe."
+    },
+    {
+      "id": "card.earth_climate.081.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.081.q1"
+    },
+    {
+      "id": "card.earth_climate.081.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.081.q2"
+    },
+    {
+      "id": "card.earth_climate.081.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.081.q3"
+    },
+    {
+      "id": "card.earth_climate.081.c8",
+      "type": "checkpoint",
+      "headline": "The Keeling Curve: read",
+      "learned": [
+        "CO2 measured at Mauna Loa since 1958",
+        "About 315 ppm then, about 425 in 2024",
+        "Only half our emissions get soaked up",
+        "Plants make the yearly zigzag"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.081.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.warming_keeling_rise"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.081.c2"
+      ],
+      "prompt": "When the Keeling Curve began in 1958, about how much carbon dioxide did the air hold?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 280 ppm",
+          "correct": false,
+          "rationale": "That was the level before the Industrial Revolution."
+        },
+        {
+          "id": "b",
+          "label": "About 315 ppm",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 425 ppm",
+          "correct": false,
+          "rationale": "That was the 2024 yearly average at Mauna Loa."
+        },
+        {
+          "id": "d",
+          "label": "About 1,000 ppm",
+          "correct": false,
+          "rationale": "The record has never come close to that."
+        }
+      ],
+      "explanation": "The Mauna Loa record started at about 315 ppm in 1958 and averaged about 425 ppm in 2024.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.081.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.warming_keeling_seasons"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.081.c4"
+      ],
+      "prompt": "A station in Australia records carbon dioxide all year. Compared with Mauna Loa's zigzag, what should its yearly cycle look like?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stronger, with the same timing",
+          "correct": false,
+          "rationale": "The north has more land and plants, so its cycle is bigger."
+        },
+        {
+          "id": "b",
+          "label": "Weaker, with the seasons flipped",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Flat, with no seasonal cycle at all",
+          "correct": false,
+          "rationale": "Southern plants also grow and decay with the seasons."
+        },
+        {
+          "id": "d",
+          "label": "Identical, peaking every May",
+          "correct": false,
+          "rationale": "Southern seasons are opposite to northern ones."
+        }
+      ],
+      "explanation": "The Southern Hemisphere has a similar but less intense cycle in opposite seasons, because it has much less land and vegetation.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.earth_climate.081.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.warming_keeling_seasons",
+        "concept.earth_climate.earth_spheres"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.081.c4",
+        "card.earth_climate.001.c2"
+      ],
+      "prompt": "The Keeling Curve dips every northern summer. Which of Level 1's four spheres is pulling that carbon dioxide out of the air?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The geosphere",
+          "correct": false,
+          "rationale": "Rock does not take up CO2 on a yearly beat."
+        },
+        {
+          "id": "b",
+          "label": "The atmosphere",
+          "correct": false,
+          "rationale": "The atmosphere is where the CO2 is lost from."
+        },
+        {
+          "id": "c",
+          "label": "The hydrosphere",
+          "correct": false,
+          "rationale": "The summer dip follows plant growth, not water."
+        },
+        {
+          "id": "d",
+          "label": "The biosphere",
+          "correct": true
+        }
+      ],
+      "explanation": "Growing plants, part of the biosphere, draw carbon dioxide in each northern spring and summer.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.noaa_gml_co2_trends",
+    "source.climategov_atmospheric_co2",
+    "source.nasa_co2_indicator"
+  ],
+  "art": "earth.air-sample-flask"
+}

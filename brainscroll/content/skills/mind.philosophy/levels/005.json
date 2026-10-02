@@ -1,0 +1,222 @@
+{
+  "id": "level.mind.philosophy.005",
+  "skillId": "skill.mind.philosophy",
+  "number": 5,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Aristotle's Four Causes",
+  "objective": "After this level you can use Aristotle's four causes (material, formal, efficient and final) to explain what a bronze statue is and why it exists.",
+  "summary": "Aristotle explained a bronze statue by four causes: the bronze (material), its shape (formal), the art of bronze-casting (efficient) and the finished statue everything is done for (final).",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.four_causes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.plato_forms",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.004"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.005.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Ask “Why is there a statue?” and Aristotle hands you four answers.",
+      "body": "Not four guesses: four different kinds of “because”. A full explanation can use all four."
+    },
+    {
+      "id": "card.philosophy.005.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Made of what? Shaped as what?",
+      "body": "Aristotle held that you only know a thing when you grasp its cause, its “why”. A why-question has more than one kind of answer, so his four causes are four kinds of explanation. Take a bronze statue. The material cause answers “What is it made of?” The bronze. The formal cause answers “What is it?” Its form: the shape the melted bronze is poured into, which makes this lump a statue and not a doorstop."
+    },
+    {
+      "id": "card.philosophy.005.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Made by what? Made for what?",
+      "body": "The efficient cause answers “Where did the change come from?” Aristotle’s precise answer is the art of bronze-casting, the know-how in the sculptor. The final cause is what it’s for. A model is made, a mold prepared, the bronze melted and poured: every step is done for the sake of the finished statue.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Keep the four questions: made of what, what is it, made by what, and made for what?"
+      }
+    },
+    {
+      "id": "card.philosophy.005.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Form, but not in the sky",
+      "body": "Remember Level 4’s Forms? Aristotle studied at Plato’s Academy, yet he rejected Forms that exist apart from things. For him, form lives in the thing itself. In a bronze sphere, the bronze and the roundness aren’t two separate things. Melt the sphere, and its roundness doesn’t float off to another world."
+    },
+    {
+      "id": "card.philosophy.005.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bacon wants one cause out",
+      "body": "Not everyone wanted all four. In 1605, Francis Bacon argued that final causes belong to metaphysics, not physics. Saying clouds are “for” watering the earth, he complained, had held back the search for real physical causes. Physics, for Bacon, should stick to material and efficient causes: what things are made of and what moves them."
+    },
+    {
+      "id": "card.philosophy.005.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.005.q1"
+    },
+    {
+      "id": "card.philosophy.005.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.005.q2"
+    },
+    {
+      "id": "card.philosophy.005.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.005.q3"
+    },
+    {
+      "id": "card.philosophy.005.c9",
+      "type": "checkpoint",
+      "headline": "Aristotle's Four Causes: the big picture",
+      "learned": [
+        "Material: what it’s made of",
+        "Formal: what it is",
+        "Efficient: where the change came from",
+        "Final: what it’s for"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.005.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.four_causes"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.005.c3"
+      ],
+      "prompt": "Which of Aristotle’s four causes answers “What is it for?”",
+      "options": [
+        {
+          "id": "a",
+          "label": "The material cause",
+          "correct": false,
+          "rationale": "That’s what it’s made of."
+        },
+        {
+          "id": "b",
+          "label": "The formal cause",
+          "correct": false,
+          "rationale": "That’s what it is, its form."
+        },
+        {
+          "id": "c",
+          "label": "The final cause",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The efficient cause",
+          "correct": false,
+          "rationale": "That’s where the change came from."
+        }
+      ],
+      "explanation": "The final cause is that for the sake of which something is done, like the finished statue every step aims at.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.philosophy.005.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.four_causes"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.005.c2"
+      ],
+      "prompt": "Why does Aristotle give four causes instead of one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A why-question can be answered in four different ways",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "He counted four elements in nature",
+          "correct": false,
+          "rationale": "The causes aren’t the elements."
+        },
+        {
+          "id": "c",
+          "label": "Each cause belongs to a different statue",
+          "correct": false,
+          "rationale": "All four explain one thing."
+        },
+        {
+          "id": "d",
+          "label": "Plato had already given three",
+          "correct": false,
+          "rationale": "It’s about kinds of explanation."
+        }
+      ],
+      "explanation": "For Aristotle a cause is an answer to “why?”, and there are four kinds of answer: material, formal, efficient and final.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.philosophy.005.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.four_causes",
+        "concept.philosophy.plato_forms"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.005.c4",
+        "card.philosophy.004.c4"
+      ],
+      "prompt": "How does Aristotle’s idea of form differ from Plato’s Forms in Level 4?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Aristotle’s forms are eternal and live apart",
+          "correct": false,
+          "rationale": "That describes Plato’s Forms."
+        },
+        {
+          "id": "b",
+          "label": "Aristotle said forms exist only in words",
+          "correct": false,
+          "rationale": "He put form in things."
+        },
+        {
+          "id": "c",
+          "label": "Aristotle thought form was the same as matter",
+          "correct": false,
+          "rationale": "Form and matter differ, but aren’t separate things."
+        },
+        {
+          "id": "d",
+          "label": "Aristotle’s form exists in the thing itself, not a separate world",
+          "correct": true
+        }
+      ],
+      "explanation": "Aristotle rejected separately existing Forms: a bronze sphere’s roundness is in the bronze, not in another realm.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sep_aristotle_causality",
+    "source.sep_aristotle_metaphysics",
+    "source.iep_aristotle",
+    "source.gutenberg_bacon_advancement",
+    "source.sep_francis_bacon"
+  ],
+  "art": "arts.marble-block"
+}

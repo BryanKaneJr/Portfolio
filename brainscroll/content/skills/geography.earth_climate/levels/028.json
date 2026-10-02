@@ -1,0 +1,227 @@
+{
+  "id": "level.geography.earth_climate.028",
+  "skillId": "skill.geography.earth_climate",
+  "number": 28,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "How Arches and Hoodoos Form",
+  "objective": "After this level you can explain how uneven erosion of hard and soft rock leaves arches, hoodoos and mesas.",
+  "summary": "Hard caprock shields softer rock, leaving mesas and buttes. At Bryce Canyon, fins become windows, then hoodoos; in Arches, sandstone fins weather through into arches.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.land_differential_erosion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.land_hoodoos",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.land_arches",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.land_mechanical_weathering",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.027"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.028.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Utah's Arches National Park has more than 2,000 stone arches.",
+      "body": "Nobody carved them. Weathering and erosion did, by wearing away some rock faster than the rock right next to it. That unevenness is the whole secret."
+    },
+    {
+      "id": "card.earth_climate.028.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hard hats for rock",
+      "body": "Where a hard layer sits on a soft one, erosion plays favorites. The hard top, called caprock, resists weathering and erosion and protects the softer rock beneath. That's how you get a mesa: broad and flat-topped, with steep sides. As streams cut through a mesa, they leave smaller pieces called buttes, with steep slopes all round and usually taller than they are wide."
+    },
+    {
+      "id": "card.earth_climate.028.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "From fins to hoodoos",
+      "body": "Bryce Canyon, with the greatest concentration of hoodoos on Earth, shows the next step. Caprock protects softer rock below, leaving thin rock walls called fins. Water in their cracks freezes and widens them into holes called windows. As the windows grow, the caprock above collapses, leaving spires: hoodoos. Meanwhile slightly acidic rain dissolves the calcium carbonate that cements the rock.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "This is Level 21 again: frost wedging and slightly acidic rain, now working unevenly on hard and soft rock."
+      }
+    },
+    {
+      "id": "card.earth_climate.028.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Arches in the making",
+      "body": "In Arches, buried salt pushed the rock above into domes, cracking the sandstone into roughly parallel lines. Erosion widened the cracks and left fins. Water seeping in dissolves the calcite that binds the sand grains, and winter ice pries the rock apart. Where the sides of a fin wear all the way through, an opening forms: an arch."
+    },
+    {
+      "id": "card.earth_climate.028.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.028.q1"
+    },
+    {
+      "id": "card.earth_climate.028.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.028.q2"
+    },
+    {
+      "id": "card.earth_climate.028.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.028.q3"
+    },
+    {
+      "id": "card.earth_climate.028.c8",
+      "type": "checkpoint",
+      "headline": "Rock sculptures: explained",
+      "learned": [
+        "Hard caprock shields softer rock below",
+        "Streams cut mesas into buttes",
+        "Fins become windows, then hoodoos",
+        "Arches open as fins weather through"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.028.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.land_arches"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.028.c4"
+      ],
+      "prompt": "In Arches National Park, what pushed the rock up into domes that cracked into fins?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rising magma",
+          "correct": false,
+          "rationale": "The push came from salt, not magma."
+        },
+        {
+          "id": "b",
+          "label": "Buried salt",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Glacier ice",
+          "correct": false,
+          "rationale": "Glaciers didn't build these domes."
+        },
+        {
+          "id": "d",
+          "label": "Tree roots",
+          "correct": false,
+          "rationale": "Roots pry cracks, but they didn't raise the domes."
+        }
+      ],
+      "explanation": "Buried salt pushed the rock above into domes, cracking the sandstone into roughly parallel lines that eroded into fins.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.028.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.land_hoodoos"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.028.c3"
+      ],
+      "prompt": "How does a rock fin at Bryce Canyon become a row of hoodoos?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wind sandblasts spires out of a single boulder",
+          "correct": false,
+          "rationale": "At Bryce, ice and water do the work."
+        },
+        {
+          "id": "b",
+          "label": "Ice opens windows, then the caprock above collapses",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Lava cools into tall, thin columns",
+          "correct": false,
+          "rationale": "Hoodoos are carved from sedimentary rock, not cooled lava."
+        },
+        {
+          "id": "d",
+          "label": "A river carves them from below",
+          "correct": false,
+          "rationale": "Hoodoos form as fins break apart."
+        }
+      ],
+      "explanation": "Freezing water widens cracks in fins into windows; as the windows grow, the caprock collapses, leaving hoodoos.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.028.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.land_hoodoos",
+        "concept.earth_climate.land_mechanical_weathering"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.028.c3",
+        "card.earth_climate.021.c3"
+      ],
+      "prompt": "Which Level 21 process breaks windows through Bryce Canyon's rock fins?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Frost wedging",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Oxidation",
+          "correct": false,
+          "rationale": "Oxidation rusts iron minerals; it doesn't open windows."
+        },
+        {
+          "id": "c",
+          "label": "Deflation",
+          "correct": false,
+          "rationale": "That's wind removing fine particles (Level 26)."
+        },
+        {
+          "id": "d",
+          "label": "Root wedging",
+          "correct": false,
+          "rationale": "Roots can pry rock, but at Bryce it's freezing water."
+        }
+      ],
+      "explanation": "Water in cracks freezes, expands and pries the rock apart: frost wedging opens the windows.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nps_arches_geology",
+    "source.brit_arches_np",
+    "source.natgeo_butte",
+    "source.nps_rock_formations",
+    "source.nps_hoodoo_wayside",
+    "source.nps_bryce_geologic_formations",
+    "source.nps_bryce_hoodoos"
+  ],
+  "art": "earth.rock-arch"
+}

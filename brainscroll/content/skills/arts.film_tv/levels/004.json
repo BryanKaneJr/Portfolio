@@ -1,0 +1,215 @@
+{
+  "id": "level.arts.film_tv.004",
+  "skillId": "skill.arts.film_tv",
+  "number": 4,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Muybridge's Galloping Horse",
+  "objective": "After this level you can explain how Eadweard Muybridge's row of cameras settled whether a galloping horse ever lifts all four hooves.",
+  "summary": "In 1878 Muybridge's 12 thread-triggered cameras showed a galloping horse lifts all four hooves, legs tucked. His zoopraxiscope projected such images in succession.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.muybridge_gallop",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.zoopraxiscope",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.apparent_motion",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.003"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.004.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Does a galloping horse ever fly? In 1878, a row of cameras answered.",
+      "body": "Watch a horse gallop and its legs become a blur. Does it ever have all four hooves off the ground at once? No eye was quick enough to say. So railroad magnate Leland Stanford hired photographer Eadweard Muybridge to prove that, for one moment, it does."
+    },
+    {
+      "id": "card.film_tv.004.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Twelve cameras and a mare named Sallie Gardner",
+      "body": "On June 19, 1878, at Stanford's track in Palo Alto, Muybridge lined up 12 cameras beside the course. As the mare Sallie Gardner galloped past, she broke threads attached to the shutters, and each camera fired in turn. Instead of one blur, he got a sequence: the gallop sliced into still moments, one after another."
+    },
+    {
+      "id": "card.film_tv.004.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Yes, but not the way painters drew it",
+      "body": "The photos showed all four hooves off the ground at once. Stanford was right. But the legs weren't stretched out front and back like a rocking horse, the way painters had shown galloping horses. They were tucked up under the horse's body. The camera saw what eyes had missed, and painters had been getting it wrong."
+    },
+    {
+      "id": "card.film_tv.004.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "From proof to projection",
+      "body": "Muybridge then built the zoopraxiscope, a lantern that projected images in rapid succession onto a screen. Show his horse in sequence and it gallops again, an important step toward cinema. The catch: every sequence came from a whole row of cameras. A camera that recorded the sequence by itself, built in Edison's lab, would prove far more practical."
+    },
+    {
+      "id": "card.film_tv.004.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.004.q1"
+    },
+    {
+      "id": "card.film_tv.004.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.004.q2"
+    },
+    {
+      "id": "card.film_tv.004.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.004.q3"
+    },
+    {
+      "id": "card.film_tv.004.c8",
+      "type": "checkpoint",
+      "headline": "Muybridge's horse: settled",
+      "learned": [
+        "Stanford hired Muybridge to prove a horse can fly",
+        "1878: 12 cameras, fired by threads, caught the gallop",
+        "All four hooves leave the ground, legs tucked under",
+        "His zoopraxiscope projected images in rapid succession"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.004.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.muybridge_gallop"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.004.c3"
+      ],
+      "prompt": "What did Muybridge's 1878 photographs show about a galloping horse?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One hoof always stays on the ground",
+          "correct": false,
+          "rationale": "Stanford was right: all four leave it."
+        },
+        {
+          "id": "b",
+          "label": "All four hooves off the ground, legs stretched out",
+          "correct": false,
+          "rationale": "That's how painters drew it; the photos disagreed."
+        },
+        {
+          "id": "c",
+          "label": "All four hooves off the ground, legs tucked under",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Its legs move too fast for any camera",
+          "correct": false,
+          "rationale": "Twelve cameras caught every phase."
+        }
+      ],
+      "explanation": "At one moment all four hooves are off the ground, with the legs gathered under the body.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.004.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.muybridge_gallop"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.004.c2"
+      ],
+      "prompt": "How did Muybridge's setup capture a gallop that no eye could follow?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One camera filmed the horse on a long roll of film",
+          "correct": false,
+          "rationale": "That came later, from Edison's lab."
+        },
+        {
+          "id": "b",
+          "label": "The horse broke threads that fired a row of cameras in turn",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A painter sketched the horse very quickly",
+          "correct": false,
+          "rationale": "The point was to replace eyes with cameras."
+        },
+        {
+          "id": "d",
+          "label": "The horse was photographed standing in each pose",
+          "correct": false,
+          "rationale": "It was galloping at full speed."
+        }
+      ],
+      "explanation": "Twelve cameras sat in a row, and the galloping mare broke the threads that released each shutter in turn.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.film_tv.004.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.apparent_motion",
+        "concept.film_tv.zoopraxiscope"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.004.c4",
+        "card.film_tv.002.c3"
+      ],
+      "prompt": "Muybridge's zoopraxiscope projected his horse photos in rapid succession. Why did the horse seem to run?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each photo was itself a short film",
+          "correct": false,
+          "rationale": "Each was a single still."
+        },
+        {
+          "id": "b",
+          "label": "The lantern shook the screen",
+          "correct": false,
+          "rationale": "Nothing moved on the screen but the images."
+        },
+        {
+          "id": "c",
+          "label": "Muybridge painted blur between the photos",
+          "correct": false,
+          "rationale": "The images were projected in sequence, not painted over."
+        },
+        {
+          "id": "d",
+          "label": "Beta movement: each image showed the horse slightly shifted",
+          "correct": true
+        }
+      ],
+      "explanation": "A run of stills, each with the horse in a slightly different position, is seen as one moving horse.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_muybridge",
+    "source.loc_muybridge_horse_in_motion",
+    "source.univorleans_epsom_derby",
+    "source.loc_edison_origins_motion_pictures"
+  ],
+  "art": "medieval.horse"
+}

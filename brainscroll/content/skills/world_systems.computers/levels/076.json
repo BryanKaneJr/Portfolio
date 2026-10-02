@@ -1,0 +1,219 @@
+{
+  "id": "level.world_systems.computers.076",
+  "skillId": "skill.world_systems.computers",
+  "number": 76,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Matching Riders and Drivers",
+  "objective": "After this level you can explain how ride and delivery apps match each request to a nearby driver and raise prices when demand spikes.",
+  "summary": "Closest isn't always quickest, so ride apps match riders and drivers in batches to cut average waits; when requests outnumber drivers, surge prices rise, within legal limits.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.ridematch_batching",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.ridematch_surge",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.photo_journey",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.075"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.076.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Why doesn't a ride app just send the closest car?",
+      "body": "It used to. Uber says it first matched riders by asking \"Who's closest?\" and learned that closest doesn't always mean quickest. Traffic, an overpass or a river can turn a car that looks near into a long wait."
+    },
+    {
+      "id": "card.computers.076.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Matching in batches",
+      "body": "Now, in the seconds after you request a ride, Uber looks at nearby drivers and riders together, as one batch. Then it pairs them up to cut the average wait for everyone, not just to hand each rider the closest car. Picture two riders on the same street: giving the first one the nearest car might leave the second waiting ages. Sorting out all the pairs at once can do better for both."
+    },
+    {
+      "id": "card.computers.076.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "When requests outnumber cars",
+      "body": "Bad weather, rush hour and big events can bring more ride requests to an area than there are drivers. That's when surge pricing switches on. Prices rise, updated in real time and different from one neighborhood to the next. The higher price is meant to pull more drivers toward the busy area, while some riders choose to wait for prices to drop. The price becomes a signal that moves cars."
+    },
+    {
+      "id": "card.computers.076.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A limit on the surge",
+      "body": "Surge pricing also has limits set outside the app. In July 2014 Uber agreed with New York's attorney general to cap its prices during emergencies and natural disasters, in line with the state's price-gouging law, and the rules applied nationally."
+    },
+    {
+      "id": "card.computers.076.c5",
+      "type": "mcq",
+      "questionId": "question.computers.076.q1"
+    },
+    {
+      "id": "card.computers.076.c6",
+      "type": "mcq",
+      "questionId": "question.computers.076.q2"
+    },
+    {
+      "id": "card.computers.076.c7",
+      "type": "mcq",
+      "questionId": "question.computers.076.q3"
+    },
+    {
+      "id": "card.computers.076.c8",
+      "type": "checkpoint",
+      "headline": "Ride: matched",
+      "learned": [
+        "Closest isn't always quickest: rivers and traffic matter",
+        "Batches pair riders and drivers to cut the average wait",
+        "Surge prices rise when requests outnumber drivers",
+        "Since 2014, prices are capped during emergencies"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.076.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.ridematch_surge"
+      ],
+      "sourceCardIds": [
+        "card.computers.076.c3"
+      ],
+      "prompt": "When does Uber's surge pricing switch on?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every night after midnight, whatever the demand",
+          "correct": false,
+          "rationale": "It depends on demand, not the clock."
+        },
+        {
+          "id": "b",
+          "label": "Whenever a rider's trip is long",
+          "correct": false,
+          "rationale": "Trip length isn't the trigger."
+        },
+        {
+          "id": "c",
+          "label": "When an area has more ride requests than available drivers",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only on public holidays",
+          "correct": false,
+          "rationale": "It follows demand in real time, any day."
+        }
+      ],
+      "explanation": "Surge pricing goes into effect when there are more riders in an area than available drivers, as in bad weather or rush hour.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.076.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.ridematch_batching"
+      ],
+      "sourceCardIds": [
+        "card.computers.076.c2",
+        "card.computers.076.c1"
+      ],
+      "prompt": "Why does Uber match riders and drivers in batches instead of always sending the closest car?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To cut the average wait for everyone in the batch",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "To give drivers longer breaks between trips",
+          "correct": false,
+          "rationale": "The goal named is shorter average waits."
+        },
+        {
+          "id": "c",
+          "label": "Because GPS can only locate cars in groups",
+          "correct": false,
+          "rationale": "Location isn't the limit; closest isn't always quickest."
+        },
+        {
+          "id": "d",
+          "label": "To make every rider pay the same fare",
+          "correct": false,
+          "rationale": "Batching is about waits, not fares."
+        }
+      ],
+      "explanation": "Closest doesn't always mean quickest, so pairing a whole batch at once reduces the average wait for everyone.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.076.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.ridematch_batching",
+        "concept.computers.photo_journey"
+      ],
+      "sourceCardIds": [
+        "card.computers.076.c2",
+        "card.computers.001.c4"
+      ],
+      "prompt": "Your ride request has to cross the internet to reach the app's matching system. How does it travel, per Level 1?",
+      "options": [
+        {
+          "id": "a",
+          "label": "As one unbroken message on a line held open for it",
+          "correct": false,
+          "rationale": "The internet doesn't reserve a line; data is split up."
+        },
+        {
+          "id": "b",
+          "label": "As a radio signal straight to the nearest driver",
+          "correct": false,
+          "rationale": "Requests go through the network, not directly to a car."
+        },
+        {
+          "id": "c",
+          "label": "In small packets that travel separately and are reassembled",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "As a picture copied by each router",
+          "correct": false,
+          "rationale": "Routers pass along packets of numbers."
+        }
+      ],
+      "explanation": "Like Level 1's photo, the request is broken into packets that travel independently and are reassembled at the other end.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.uber_marketplace_matching",
+    "source.uber_surge_pricing",
+    "source.nyag_uber_surge_cap_2014",
+    "source.brit_internet",
+    "source.mdn_how_internet_works",
+    "source.ethw_packet_switching",
+    "source.stanford_cs101_images"
+  ],
+  "art": "technology.car"
+}

@@ -1,0 +1,393 @@
+{
+  "id": "level.world_systems.computers.020",
+  "skillId": "skill.world_systems.computers",
+  "number": 20,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "published",
+  "title": "Checkpoint: How Computers Came to Be",
+  "objective": "After this level you can trace computing from punched cards to smartphones and name the switch that powered each era.",
+  "summary": "Each era of computing ran on a switch: pins through punched holes, vacuum tubes, transistors, then transistors on chips. Recap of cards, Lovelace, Turing, ENIAC, stored programs and the PC.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.history_switch_eras",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.history_hollerith_census",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.history_vacuum_tube",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.history_transistor",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.history_integrated_circuit",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.history_lovelace_symbols",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.history_manchester_baby",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.bit_definition",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.history_jacquard_cards",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.history_analytical_engine",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.history_universal_machine",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.history_eniac_programming",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.history_moore_prediction",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.history_home_computer",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.history_smartphone_platforms",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.019"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.020.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Holes, tubes, transistors, chips. What was the switch?",
+      "body": "Chapter 2 finale. The machines in this chapter kept swapping one kind of switch for a better one. Line the eras up by their switch, from pins closing circuits through punched holes to transistors built into chips, and the whole story falls into place."
+    },
+    {
+      "id": "card.computers.020.c2",
+      "type": "comparison",
+      "headline": "From holes to chips",
+      "items": [
+        {
+          "label": "Holes in cards",
+          "points": [
+            "A pin through a hole dips into mercury and closes a circuit",
+            "No hole, no circuit"
+          ]
+        },
+        {
+          "label": "Vacuum tubes",
+          "points": [
+            "ENIAC had about 18,000",
+            "Heated cathodes: hot, power-hungry, prone to burn out"
+          ]
+        },
+        {
+          "label": "Transistors, then chips",
+          "points": [
+            "Small, cool and reliable, so circuits could shrink",
+            "Chips build transistors and their wiring on one piece of silicon"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.computers.020.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The whole chapter in one breath",
+      "body": "Jacquard's loom read punched cards, and Hollerith counted a census with a card per person. Babbage conceived an engine programmed with cards, and Lovelace saw it might act on things besides number. Turing's universal machine read its program from a tape. ENIAC took days of rewiring for each problem, until the Manchester Baby ran a program stored in memory. Microprocessors made personal computers affordable, and the smartphone turned a phone into a computer you can install software on."
+    },
+    {
+      "id": "card.computers.020.c4",
+      "type": "mcq",
+      "questionId": "question.computers.020.q1"
+    },
+    {
+      "id": "card.computers.020.c5",
+      "type": "mcq",
+      "questionId": "question.computers.020.q2"
+    },
+    {
+      "id": "card.computers.020.c6",
+      "type": "recall",
+      "questionId": "question.computers.020.q3"
+    },
+    {
+      "id": "card.computers.020.c7",
+      "type": "recall",
+      "questionId": "question.computers.020.q4"
+    },
+    {
+      "id": "card.computers.020.c8",
+      "type": "recall",
+      "questionId": "question.computers.020.q5"
+    },
+    {
+      "id": "card.computers.020.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 2 complete",
+      "learned": [
+        "How computing's switch changed from holes in cards to vacuum tubes, transistors and chips.",
+        "Why storing the program in memory freed computers from days of rewiring by hand.",
+        "What Lovelace and Turing saw: machines can work on symbols and run any written program.",
+        "Who programmed ENIAC, and how the computer moved into homes and then into phones."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.020.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.history_switch_eras",
+        "concept.computers.history_vacuum_tube"
+      ],
+      "sourceCardIds": [
+        "card.computers.020.c2"
+      ],
+      "prompt": "ENIAC had about 18,000 of which kind of switch?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Transistors",
+          "correct": false,
+          "rationale": "The transistor came in 1947, after ENIAC."
+        },
+        {
+          "id": "b",
+          "label": "Vacuum tubes",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Pins over mercury",
+          "correct": false,
+          "rationale": "That was Hollerith's census tabulator."
+        },
+        {
+          "id": "d",
+          "label": "Integrated circuits",
+          "correct": false,
+          "rationale": "Chips arrived in 1958 and 1959."
+        }
+      ],
+      "explanation": "ENIAC switched with about 18,000 vacuum tubes, and lost one roughly every day or two.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.020.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.history_switch_eras",
+        "concept.computers.history_integrated_circuit"
+      ],
+      "sourceCardIds": [
+        "card.computers.020.c2"
+      ],
+      "prompt": "What let circuits shrink once transistors went onto chips?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each transistor was heated so it glowed brighter",
+          "correct": false,
+          "rationale": "Heating was the tubes' problem."
+        },
+        {
+          "id": "b",
+          "label": "Chips used punched cards in place of their wiring",
+          "correct": false,
+          "rationale": "Cards were an earlier technology."
+        },
+        {
+          "id": "c",
+          "label": "Transistors and wiring were built together on one piece of silicon",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Chips needed far fewer switches to do anything useful",
+          "correct": false,
+          "rationale": "Chips allowed more switches, not fewer."
+        }
+      ],
+      "explanation": "A chip builds transistors and the connections between them on one piece of silicon, so parts no longer had to be wired by hand.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.020.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.history_switch_eras",
+        "concept.computers.bit_definition"
+      ],
+      "sourceCardIds": [
+        "card.computers.020.c1",
+        "card.computers.002.c2"
+      ],
+      "prompt": "Every switch in this chapter was on or off. Which Chapter 1 idea is one such two-way choice?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A bit",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A byte",
+          "correct": false,
+          "rationale": "A byte is eight bits."
+        },
+        {
+          "id": "c",
+          "label": "A kilobyte",
+          "correct": false,
+          "rationale": "That's a size, many bits long."
+        },
+        {
+          "id": "d",
+          "label": "A pixel",
+          "correct": false,
+          "rationale": "A pixel is a dot of color on a screen."
+        }
+      ],
+      "explanation": "A bit is one choice between two options, 1 or 0, the job every switch does.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.020.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.history_lovelace_symbols"
+      ],
+      "sourceCardIds": [
+        "card.computers.012.c4"
+      ],
+      "prompt": "From Level 12: what did Lovelace say the Analytical Engine might act upon?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only very large numbers",
+          "correct": false,
+          "rationale": "She looked beyond numbers."
+        },
+        {
+          "id": "b",
+          "label": "Other things besides number, even music",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Cloth, like the Jacquard loom",
+          "correct": false,
+          "rationale": "She compared it to the loom, but not for weaving cloth."
+        },
+        {
+          "id": "d",
+          "label": "Electric circuits closed through mercury",
+          "correct": false,
+          "rationale": "That's Hollerith's tabulator."
+        }
+      ],
+      "explanation": "She wrote that it might act upon other things besides number, and might even compose music.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.020.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.history_manchester_baby"
+      ],
+      "sourceCardIds": [
+        "card.computers.015.c3"
+      ],
+      "prompt": "From Level 15: what did the Manchester Baby do first, in June 1948?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Counted a national census",
+          "correct": false,
+          "rationale": "That was Hollerith's machine, in 1890."
+        },
+        {
+          "id": "b",
+          "label": "Ran a program stored in its electronic memory",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Put a whole processor on one chip",
+          "correct": false,
+          "rationale": "That was the 4004, in 1971."
+        },
+        {
+          "id": "d",
+          "label": "Replaced its vacuum tubes with transistors",
+          "correct": false,
+          "rationale": "Transistors replaced tubes in many uses only by the late 1950s."
+        }
+      ],
+      "explanation": "On June 21, 1948, the Baby became the first computer to run a program stored in its electronic memory.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.chm_hollerith_punched_cards",
+    "source.chm_eniac",
+    "source.brit_transistor",
+    "source.brit_integrated_circuit",
+    "source.ibm_punched_card_tabulator",
+    "source.brit_electron_tube",
+    "source.scienceandindustry_jacquard_loom",
+    "source.brit_jacquard_loom",
+    "source.census_hollerith_tabulation",
+    "source.sciencemuseum_babbage_engines",
+    "source.chm_babbage_ada_lovelace",
+    "source.sep_turing_machine",
+    "source.brit_alan_turing",
+    "source.brit_eniac",
+    "source.manchester_baby_computer50",
+    "source.chm_stored_program",
+    "source.brit_personal_computer",
+    "source.brit_smartphone"
+  ],
+  "art": "computers.transistor"
+}

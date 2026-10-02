@@ -1,0 +1,213 @@
+{
+  "id": "level.arts.film_tv.013",
+  "skillId": "skill.arts.film_tv",
+  "number": 13,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Alice Guy-Blaché",
+  "objective": "After this level you can describe the career of Alice Guy-Blaché, one of the first directors to film made-up stories.",
+  "summary": "Alice Guy, Léon Gaumont's secretary, made La Fée aux choux, one of the first story films, ran Gaumont's production, then founded Solax in America; much of her credit was later lost.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.silent_alice_guy_story_films",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.silent_alice_guy_career",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.lumiere_screening",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.012"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.013.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A company secretary directed one of cinema's first story films.",
+      "body": "Alice Guy was hired as Léon Gaumont's secretary in Paris. Then she directed a film of her own, La Fée aux choux (The Cabbage Fairy), which Britannica dates to 1896. How did she go from taking letters to making films, and why did history nearly misplace her?"
+    },
+    {
+      "id": "card.film_tv.013.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A fairy tale, not a train",
+      "body": "The Lumières filmed everyday life: workers leaving a factory, a train arriving (Level 6). Guy filmed something made up. Britannica says she is generally acknowledged as the first director to film a narrative story, and many historians hold that her fairy tale came before Méliès's story films. A few historians date it as late as 1900, though. That's why 'one of the first' is the safe way to say it."
+    },
+    {
+      "id": "card.film_tv.013.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Running a studio's films",
+      "body": "Gaumont made Guy its head of production, and she directed nearly all of the company's films until 1905. She kept experimenting, too: from 1906 to 1907 she directed short sound films using Gaumont's Chronophone. The secretary had become the person deciding what the company put on screen."
+    },
+    {
+      "id": "card.film_tv.013.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Her own studio, then her name forgotten",
+      "body": "In 1907 Guy married cameraman Herbert Blaché and moved to the United States. In 1910 she founded the Solax Company, and by 1912 it had a new, state-of-the-art studio in Fort Lee, New Jersey. Yet many of her accomplishments were later forgotten or credited to male colleagues. After she returned to France in 1922, she couldn't find work in its film industry. The films outlasted the credit."
+    },
+    {
+      "id": "card.film_tv.013.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.013.q1"
+    },
+    {
+      "id": "card.film_tv.013.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.013.q2"
+    },
+    {
+      "id": "card.film_tv.013.c7",
+      "type": "mcq",
+      "questionId": "question.film_tv.013.q3"
+    },
+    {
+      "id": "card.film_tv.013.c8",
+      "type": "checkpoint",
+      "headline": "Alice Guy: credited",
+      "learned": [
+        "Gaumont's secretary who directed La Fée aux choux",
+        "Head of Gaumont's production until 1905",
+        "Founded Solax in the US in 1910; Fort Lee studio by 1912",
+        "Much of her credit was lost, then restored"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.013.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.silent_alice_guy_story_films"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.013.c1"
+      ],
+      "prompt": "What job did Alice Guy hold at Gaumont before she began directing films?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Camera operator",
+          "correct": false,
+          "rationale": "Her husband, Herbert Blaché, was the cameraman."
+        },
+        {
+          "id": "b",
+          "label": "Theater pianist",
+          "correct": false,
+          "rationale": "Nothing in the level says so."
+        },
+        {
+          "id": "c",
+          "label": "Léon Gaumont's secretary",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Film critic",
+          "correct": false,
+          "rationale": "She was hired as a secretary."
+        }
+      ],
+      "explanation": "Alice Guy was hired as Léon Gaumont's secretary, then directed La Fée aux choux.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.film_tv.013.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.silent_alice_guy_career"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.013.c4"
+      ],
+      "prompt": "Why is Alice Guy's name less familiar than her achievements deserve?",
+      "options": [
+        {
+          "id": "a",
+          "label": "She made all her films under a man's name",
+          "correct": false,
+          "rationale": "The level says her work was credited to others, not that she used a false name."
+        },
+        {
+          "id": "b",
+          "label": "Many of her accomplishments were forgotten or credited to male colleagues",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "None of her films were shown in America",
+          "correct": false,
+          "rationale": "She founded Solax and built a studio in Fort Lee, New Jersey."
+        },
+        {
+          "id": "d",
+          "label": "She only ever made one film",
+          "correct": false,
+          "rationale": "She directed nearly all Gaumont films until 1905, then ran Solax."
+        }
+      ],
+      "explanation": "Many of her accomplishments were forgotten or credited to male colleagues, and she found no film work in France after 1922.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.film_tv.013.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.silent_alice_guy_story_films",
+        "concept.film_tv.lumiere_screening"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.013.c2",
+        "card.film_tv.006.c4"
+      ],
+      "prompt": "The Lumières filmed everyday life (Level 6). What did Guy's La Fée aux choux do differently?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was projected for a paying crowd for the first time",
+          "correct": false,
+          "rationale": "The Lumières' paid show came in December 1895."
+        },
+        {
+          "id": "b",
+          "label": "It filmed a real train arriving",
+          "correct": false,
+          "rationale": "That's a Lumière subject."
+        },
+        {
+          "id": "c",
+          "label": "It added recorded sound to a factory scene",
+          "correct": false,
+          "rationale": "Her Chronophone films came later, from 1906."
+        },
+        {
+          "id": "d",
+          "label": "It told a made-up story, a fairy tale",
+          "correct": true
+        }
+      ],
+      "explanation": "Guy filmed a fairy tale, a made-up story, where the Lumières filmed real life.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_alice_guy_blache",
+    "source.brit_lumiere_brothers"
+  ],
+  "art": "film.cabbage"
+}

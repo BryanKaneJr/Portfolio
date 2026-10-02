@@ -1,0 +1,219 @@
+{
+  "id": "level.world_systems.computers.048",
+  "skillId": "skill.world_systems.computers",
+  "number": 48,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Squeezing Data: Compression",
+  "objective": "After this level you can explain why photos and video can shrink to a fraction of their size, and what lossy compression throws away.",
+  "summary": "Lossless compression removes repetition and restores data exactly; lossy compression like JPEG discards detail the eye misses; video stores only what changes between frames.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.compression_lossless_lossy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.compression_video_frames",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.size_ladder",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.047"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.048.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Level 3's photo: about 73 MB of pixels, about 3.6 MB as a JPEG.",
+      "body": "The saved file is about a twentieth of the raw pixels, and it still looks sharp. Where did the rest go? Some of it was repetition, and some of it was detail your eyes were never going to miss."
+    },
+    {
+      "id": "card.computers.048.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Lossless: say it shorter",
+      "body": "Lossless compression can be reversed to give back the original data exactly. It works by cutting repetition. The simplest trick, run-length encoding, replaces a run of repeated items with a count and one copy: instead of the same white pixel over and over, store how many, then one white pixel. Zip files are lossless, which matters for text, where every character has to come back exactly."
+    },
+    {
+      "id": "card.computers.048.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Lossy: drop what you won't see",
+      "body": "Lossy compression goes further and loses some detail for good. JPEG averages out small variations in color and throws away what the human eye cannot see, which is how Level 3's photo shrank about 20 to 1 with practically invisible loss. That works for pictures and voices, where small errors spread over scattered spots are hard to notice. On your bank statement, it would be a disaster.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Common mix-up: lossless gives back every bit exactly. Lossy gives back something that only looks or sounds the same."
+      }
+    },
+    {
+      "id": "card.computers.048.c4",
+      "type": "fact",
+      "fact": "Video shrinks by storing only what changes between frames.",
+      "context": "Instead of saving every frame whole, standards such as MPEG store the slight differences between one frame and the next. Where little moves, like a face talking against a still wall, little needs storing."
+    },
+    {
+      "id": "card.computers.048.c5",
+      "type": "mcq",
+      "questionId": "question.computers.048.q1"
+    },
+    {
+      "id": "card.computers.048.c6",
+      "type": "mcq",
+      "questionId": "question.computers.048.q2"
+    },
+    {
+      "id": "card.computers.048.c7",
+      "type": "mcq",
+      "questionId": "question.computers.048.q3"
+    },
+    {
+      "id": "card.computers.048.c8",
+      "type": "checkpoint",
+      "headline": "Data: squeezed",
+      "learned": [
+        "Lossless compression restores data exactly",
+        "Run-length encoding: a count and one copy",
+        "Lossy JPEG discards what the eye can't see",
+        "Video stores only the changes between frames"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.048.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.compression_video_frames"
+      ],
+      "sourceCardIds": [
+        "card.computers.048.c4"
+      ],
+      "prompt": "How does video compression avoid saving every frame whole?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It saves only every tenth frame and skips the rest",
+          "correct": false,
+          "rationale": "Frames aren't skipped; changes are stored."
+        },
+        {
+          "id": "b",
+          "label": "It stores only the differences between successive frames",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It turns the video into black and white",
+          "correct": false,
+          "rationale": "Color is kept; repetition between frames is cut."
+        },
+        {
+          "id": "d",
+          "label": "It plays the frames faster",
+          "correct": false,
+          "rationale": "Speed isn't changed; storage is."
+        }
+      ],
+      "explanation": "Standards such as MPEG store only the slight differences between one frame and the next.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.048.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.compression_lossless_lossy"
+      ],
+      "sourceCardIds": [
+        "card.computers.048.c3",
+        "card.computers.048.c2"
+      ],
+      "prompt": "Why is lossy compression fine for a photo but not for a text document?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Text files are always too small to compress",
+          "correct": false,
+          "rationale": "Text compresses well, just losslessly."
+        },
+        {
+          "id": "b",
+          "label": "Photos contain no repeated patterns worth removing",
+          "correct": false,
+          "rationale": "Photos have plenty of repetition."
+        },
+        {
+          "id": "c",
+          "label": "Picture errors are hard to spot; text must come back exact",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Lossy compression can only be used on colored files",
+          "correct": false,
+          "rationale": "The issue is exactness, not color."
+        }
+      ],
+      "explanation": "Lossy compression suits images and voice, where scattered small errors go unnoticed; text needs every character back exactly, so it's compressed losslessly.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.048.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.compression_lossless_lossy",
+        "concept.computers.size_ladder"
+      ],
+      "sourceCardIds": [
+        "card.computers.048.c3",
+        "card.computers.003.c3"
+      ],
+      "prompt": "Level 3's 73 MB photo became about 3.6 MB as a JPEG. Where did most of the saving come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The camera took fewer pixels",
+          "correct": false,
+          "rationale": "The pixel count stayed the same."
+        },
+        {
+          "id": "b",
+          "label": "Each pixel was shrunk to half its size",
+          "correct": false,
+          "rationale": "The pixels stayed the same; detail was discarded."
+        },
+        {
+          "id": "c",
+          "label": "The JPEG file was stored in the cloud",
+          "correct": false,
+          "rationale": "Where it's stored doesn't change its size."
+        },
+        {
+          "id": "d",
+          "label": "Discarding color detail the eye can't see",
+          "correct": true
+        }
+      ],
+      "explanation": "JPEG is lossy: it averages color variation and discards what the eye can't see, easily reaching about 20 to 1.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_data_compression",
+    "source.brit_jpeg",
+    "source.brit_digital_camera",
+    "source.stanford_cs101_images"
+  ],
+  "art": "computers.vacuum-bag"
+}

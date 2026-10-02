@@ -1,0 +1,213 @@
+{
+  "id": "level.mind.logic.075",
+  "skillId": "skill.mind.logic",
+  "number": 75,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Weasel Words",
+  "objective": "After this level you can spot vague words like \"up to\" and \"helps\" that make a claim sound bigger than it is.",
+  "summary": "Weasel words like \"up to\" and \"helps\" make a claim sound big while promising almost nothing. Ask for the version you could check.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.persuasion_weasel_words",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.factual_claims",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.074"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "The sign shouts \"70% OFF!\" Squint, and there's a tiny \"Up to\".",
+      "body": "One logic textbook uses exactly this shop window. For all you know, one unloved item at the back is 70% off and everything else barely budges. Two small words turned a promise into a ceiling.",
+      "id": "card.logic.075.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Why weasels?",
+      "body": "Merriam-Webster defines a weasel word as one used to evade a direct statement. The name comes from old lore that a weasel could suck out an egg and leave the shell intact: it looks fine but it's empty. Real weasels can't manage it. Weasel words can. The term's first known use was in 1900.",
+      "id": "card.logic.075.c2",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Don't memorize the date. Remember the egg: a weasel word looks full and holds nothing."
+      }
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "\"Up to\" on trial",
+      "body": "In 2012 the US Federal Trade Commission released a study of ads for replacement windows promising \"up to 47%\" savings on energy costs. Many consumers believed they would get the full 47%. The FTC's view: if you say \"up to\", you should be able to show people are likely to get that result under normal conditions.",
+      "id": "card.logic.075.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Make it checkable",
+      "body": "Other weasels are quieter. \"Helps fight plaque\" dodges a direct statement: it doesn't say how much, for whom or compared with what, so almost no result could prove it wrong. The fix is to ask for the version you could check. How much? For whom? By when? A claim that can't lose can't tell you much either.",
+      "id": "card.logic.075.c4"
+    },
+    {
+      "id": "card.logic.075.c5",
+      "type": "mcq",
+      "questionId": "question.logic.075.q1"
+    },
+    {
+      "id": "card.logic.075.c6",
+      "type": "mcq",
+      "questionId": "question.logic.075.q2"
+    },
+    {
+      "id": "card.logic.075.c7",
+      "type": "mcq",
+      "questionId": "question.logic.075.q3"
+    },
+    {
+      "id": "card.logic.075.c8",
+      "type": "checkpoint",
+      "headline": "Weasel words: caught",
+      "learned": [
+        "Weasel words dodge a direct statement",
+        "\"Up to\" promises a ceiling, not a result",
+        "Many readers take \"up to\" as the maximum they'll get",
+        "Ask: how much, for whom, by when?"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.075.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.persuasion_weasel_words"
+      ],
+      "sourceCardIds": [
+        "card.logic.075.c2"
+      ],
+      "prompt": "Where does the name \"weasel word\" come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A weasel's knack for slipping out of traps",
+          "correct": false,
+          "rationale": "The name comes from eggs, not traps."
+        },
+        {
+          "id": "b",
+          "label": "Old lore of weasels emptying eggs but leaving the shell",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A cartoon weasel who sold soap in 1900",
+          "correct": false,
+          "rationale": "No cartoon is involved."
+        },
+        {
+          "id": "d",
+          "label": "The squeak weasels make when cornered",
+          "correct": false,
+          "rationale": "The name has nothing to do with sounds."
+        }
+      ],
+      "explanation": "The lore said a weasel sucks out an egg and leaves the shell intact: it looks full but is empty.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.075.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.persuasion_weasel_words"
+      ],
+      "sourceCardIds": [
+        "card.logic.075.c3"
+      ],
+      "prompt": "How did the \"up to 47%\" window ads mislead, according to the FTC's 2012 study?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The windows raised energy costs instead",
+          "correct": false,
+          "rationale": "The study was about what buyers believed, not results."
+        },
+        {
+          "id": "b",
+          "label": "The ads hid the price of the windows",
+          "correct": false,
+          "rationale": "Price wasn't the issue."
+        },
+        {
+          "id": "c",
+          "label": "Many buyers expected the full 47% savings",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Nobody noticed the savings claim at all",
+          "correct": false,
+          "rationale": "People noticed it and read it as the maximum."
+        }
+      ],
+      "explanation": "\"Up to\" sets a ceiling, but many consumers read it as the result they'd get.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.075.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.persuasion_weasel_words",
+        "concept.logic.factual_claims"
+      ],
+      "sourceCardIds": [
+        "card.logic.075.c4",
+        "card.logic.004.c2"
+      ],
+      "prompt": "Level 4 says a factual claim can be checked by observation or research. Which ad line would be easiest to check?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Halves plaque within two weeks",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Helps fight plaque",
+          "correct": false,
+          "rationale": "\"Helps\" doesn't say how much, so almost nothing could disprove it."
+        },
+        {
+          "id": "c",
+          "label": "Up to twice as fresh",
+          "correct": false,
+          "rationale": "\"Up to\" sets only a ceiling."
+        },
+        {
+          "id": "d",
+          "label": "Fights plaque like never before",
+          "correct": false,
+          "rationale": "There's nothing specific to measure."
+        }
+      ],
+      "explanation": "It says how much and by when, so observation could show it true or false.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.libretexts_knachel_linguistic_emphasis",
+    "source.merriam_webster_weasel_word",
+    "source.ftc_up_to_claims_2012"
+  ],
+  "art": "mind.logic-sugar-cube"
+}

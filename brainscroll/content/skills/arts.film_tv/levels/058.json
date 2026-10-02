@@ -1,0 +1,219 @@
+{
+  "id": "level.arts.film_tv.058",
+  "skillId": "skill.arts.film_tv",
+  "number": 58,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Suspense and Surprise",
+  "objective": "After this level you can explain Alfred Hitchcock's difference between surprise and suspense, and why giving the audience information builds tension.",
+  "summary": "Hitchcock's bomb under the table: hide it and you get 15 seconds of surprise; show it and you get 15 minutes of suspense, because the audience takes part. Double Indemnity uses the same idea.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.genre_hitchcock_bomb",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.genre_suspense_known_outcome",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.genre_noir_roots",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.057"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.058.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Two people chat at a table. Underneath it, there's a bomb.",
+      "body": "In 1962 the French director François Truffaut sat down with Alfred Hitchcock for a long series of interviews; the book came out in 1966. To explain the difference between surprise and suspense, Hitchcock described a scene. Same table, same chat, same bomb. Only one thing changes: what you know."
+    },
+    {
+      "id": "card.film_tv.058.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Version one: surprise",
+      "body": "Two people talk about nothing much. Then, boom. The audience jumps, but everything before the blast was an ordinary scene with nothing at stake as far as anyone could tell. Hitchcock's verdict: you've given the audience 15 seconds of surprise, at the moment of the explosion, and that's all."
+    },
+    {
+      "id": "card.film_tv.058.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Version two: suspense",
+      "body": "Now show the audience the bomb being planted. Let them know it will go off at one o'clock, and put a clock in the scene reading a quarter to one. The same harmless chat becomes fascinating, Hitchcock said, because the audience is now participating in the scene. You want to shout at the screen. That's 15 minutes of suspense instead of 15 seconds of surprise.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep this: surprise hides information from you; suspense hands it over. Hitchcock chose to tell."
+      }
+    },
+    {
+      "id": "card.film_tv.058.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Telling you whodunit, on purpose",
+      "body": "The same logic can run a whole film. Double Indemnity, one of Level 56's noirs, lets you know who committed the crime from the start. Britannica says that makes it a character-driven drama rather than a mystery. You aren't guessing who did it. You're watching what happens to them, and knowing is exactly what keeps you tense."
+    },
+    {
+      "id": "card.film_tv.058.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.058.q1"
+    },
+    {
+      "id": "card.film_tv.058.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.058.q2"
+    },
+    {
+      "id": "card.film_tv.058.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.058.q3"
+    },
+    {
+      "id": "card.film_tv.058.c8",
+      "type": "checkpoint",
+      "headline": "Suspense: defused",
+      "learned": [
+        "Hitchcock explained his method to Truffaut in 1962",
+        "Surprise: 15 seconds of shock at the explosion",
+        "Suspense: show the bomb and the clock, get 15 minutes",
+        "Double Indemnity reveals its culprit to build tension"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.058.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.genre_hitchcock_bomb"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.058.c2",
+        "card.film_tv.058.c3"
+      ],
+      "prompt": "In Hitchcock's bomb example, how does the suspense version compare with the surprise version?",
+      "options": [
+        {
+          "id": "a",
+          "label": "15 seconds of suspense instead of 15 minutes of surprise",
+          "correct": false,
+          "rationale": "It's the other way round."
+        },
+        {
+          "id": "b",
+          "label": "15 minutes of suspense instead of 15 seconds of surprise",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The same amount of tension either way",
+          "correct": false,
+          "rationale": "Hitchcock's point is that they differ enormously."
+        },
+        {
+          "id": "d",
+          "label": "Surprise lasts longer if the bomb is bigger",
+          "correct": false,
+          "rationale": "The length depends on what the audience knows."
+        }
+      ],
+      "explanation": "Hiding the bomb gives 15 seconds of surprise; showing it gives 15 minutes of suspense.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.058.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.genre_hitchcock_bomb"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.058.c3"
+      ],
+      "prompt": "Why does the ordinary chat become gripping in the suspense version of Hitchcock's scene?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The dialogue is rewritten to make the chat exciting",
+          "correct": false,
+          "rationale": "The chat stays the same and harmless."
+        },
+        {
+          "id": "b",
+          "label": "The bomb goes off sooner",
+          "correct": false,
+          "rationale": "It goes off at one o'clock either way."
+        },
+        {
+          "id": "c",
+          "label": "The actors speak faster and louder",
+          "correct": false,
+          "rationale": "Nothing about the acting changes."
+        },
+        {
+          "id": "d",
+          "label": "The audience knows about the bomb and the time, so it takes part",
+          "correct": true
+        }
+      ],
+      "explanation": "Knowing the bomb is there and when it will explode makes the audience participate in the scene.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.058.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.genre_suspense_known_outcome",
+        "concept.film_tv.genre_noir_roots"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.058.c4",
+        "card.film_tv.056.c3"
+      ],
+      "prompt": "Double Indemnity, a noir from Level 56, reveals who committed the crime at the start. By Hitchcock's logic, what does that trade?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A mystery's guessing game for the tension of knowing",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Suspense for a surprise twist at the very end",
+          "correct": false,
+          "rationale": "It does the reverse: it gives up surprise."
+        },
+        {
+          "id": "c",
+          "label": "Its dark lighting for bright lighting",
+          "correct": false,
+          "rationale": "The choice is about information, not light."
+        },
+        {
+          "id": "d",
+          "label": "Its crime story for a musical",
+          "correct": false,
+          "rationale": "It stays a crime drama."
+        }
+      ],
+      "explanation": "Knowing the culprit from the start makes Double Indemnity a character-driven drama rather than a mystery: suspense, not surprise.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.cinematheque_truffaut_hitchcock",
+    "source.bordwell_hitchcock_bomb",
+    "source.brit_double_indemnity"
+  ],
+  "art": "film.bomb"
+}

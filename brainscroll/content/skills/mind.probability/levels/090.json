@@ -1,0 +1,384 @@
+{
+  "id": "level.mind.probability.090",
+  "skillId": "skill.mind.probability",
+  "number": 90,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "published",
+  "title": "Checkpoint: Statistical Traps",
+  "objective": "After this level you can explain which trap, from Simpson's paradox to survivorship bias, is at work in a surprising statistic.",
+  "summary": "Surprising statistics often come from a mix of groups, an extreme that drifts back, small groups or many tests, or a filter or group-level pattern. Survivorship bias is one more filter.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.trap_which_trap",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.trap_simpsons_paradox",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.trap_regression_to_mean",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.trap_regression_remedies",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.trap_small_groups_extremes",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.trap_selection_fake_links",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.trap_multiple_testing",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.trap_cancer_clusters",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.trap_ecological_fallacy",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.trap_nobody_average",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.one_in_n",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.089"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.090.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A statistic surprises you. Before you believe it, name the trap.",
+      "body": "Chapter 9 has shown you how honest numbers can tell the wrong story. This checkpoint sorts those traps into a few questions you can ask of any surprising number."
+    },
+    {
+      "id": "card.probability.090.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four questions for a surprising number",
+      "body": "Is it a mix? Combining groups can flip a trend, as at Berkeley. Was it an extreme? Extremes drift back toward average, so a fix applied at the worst moment looks like it worked. Is the group small, or were many things tested? Chance alone then throws up standouts and \"significant\" flukes. Who got through the filter, and were groups or people measured? A selected group, or a pattern across places, may not describe everyone, or you."
+    },
+    {
+      "id": "card.probability.090.c3",
+      "type": "comparison",
+      "headline": "Chapter 9's traps, side by side",
+      "items": [
+        {
+          "label": "Mixing groups",
+          "points": [
+            "Berkeley: departments vs. the total",
+            "Split the data before trusting a total"
+          ]
+        },
+        {
+          "label": "Luck",
+          "points": [
+            "Extremes drift back; small places swing",
+            "Test enough and something wins"
+          ]
+        },
+        {
+          "label": "Filters and levels",
+          "points": [
+            "A gate can create a link",
+            "Groups aren't people; nobody is average"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.probability.090.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where survivorship bias fits",
+      "body": "You may know survivorship bias from Logic: paying attention only to what passed through a selective filter. It belongs with Berkson's hospital patients and Downey's admitted students. In each case the data tell you about the gate as much as about the world, so the fix is the same: ask who is missing."
+    },
+    {
+      "id": "card.probability.090.c5",
+      "type": "mcq",
+      "questionId": "question.probability.090.q1"
+    },
+    {
+      "id": "card.probability.090.c6",
+      "type": "mcq",
+      "questionId": "question.probability.090.q2"
+    },
+    {
+      "id": "card.probability.090.c7",
+      "type": "mcq",
+      "questionId": "question.probability.090.q3"
+    },
+    {
+      "id": "card.probability.090.c8",
+      "type": "recall",
+      "questionId": "question.probability.090.q4"
+    },
+    {
+      "id": "card.probability.090.c9",
+      "type": "recall",
+      "questionId": "question.probability.090.q5"
+    },
+    {
+      "id": "card.probability.090.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 9 complete",
+      "learned": [
+        "How a trend in every group can flip when the groups are combined, as at Berkeley in 1973.",
+        "Why extreme results drift back toward average, and how that makes remedies look like they work.",
+        "Why small groups and many tests throw up standouts and flukes by chance alone.",
+        "How filters and group-level data create links that don't hold for everyone, or for you."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.090.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.trap_which_trap",
+        "concept.probability.trap_simpsons_paradox"
+      ],
+      "sourceCardIds": [
+        "card.probability.081.c3",
+        "card.probability.081.c4",
+        "card.probability.090.c2",
+        "card.probability.090.c3"
+      ],
+      "prompt": "Berkeley's 1973 data: women were admitted less often overall, but more often in most big departments. Which statistical trap is this?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Regression to the mean",
+          "correct": false,
+          "rationale": "Nothing was measured twice; groups were combined."
+        },
+        {
+          "id": "b",
+          "label": "The ecological fallacy",
+          "correct": false,
+          "rationale": "That's about groups vs. individuals, not pooling groups."
+        },
+        {
+          "id": "c",
+          "label": "Simpson's paradox",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Testing too many things",
+          "correct": false,
+          "rationale": "The issue was combining departments with different odds."
+        }
+      ],
+      "explanation": "A trend in most departments reversed when they were combined: Simpson's paradox.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.090.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.trap_regression_remedies",
+        "concept.probability.trap_regression_to_mean"
+      ],
+      "sourceCardIds": [
+        "card.probability.083.c2",
+        "card.probability.083.c4",
+        "card.probability.090.c2"
+      ],
+      "prompt": "A school scheme targets the 10 worst-scoring classes, and the next year 8 of them improve. What should you ask first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Would the worst classes have improved anyway?",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Why didn't all 10 improve?",
+          "correct": false,
+          "rationale": "Some variation is normal; the drift is the bigger question."
+        },
+        {
+          "id": "c",
+          "label": "Did the scheme cost too much?",
+          "correct": false,
+          "rationale": "Cost doesn't tell you whether it worked."
+        },
+        {
+          "id": "d",
+          "label": "Are smaller classes always better?",
+          "correct": false,
+          "rationale": "Class size isn't what the scheme or the data were about."
+        }
+      ],
+      "explanation": "Classes picked at their worst tend to drift back toward average. Compare with similar classes left out of the scheme.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.probability.090.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.trap_which_trap",
+        "concept.probability.trap_small_groups_extremes"
+      ],
+      "sourceCardIds": [
+        "card.probability.084.c3",
+        "card.probability.084.c4",
+        "card.probability.090.c2"
+      ],
+      "prompt": "The villages with the highest and the lowest rates of a rare illness are all tiny. Which trap is the likeliest explanation?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Simpson's paradox",
+          "correct": false,
+          "rationale": "No groups are being combined here."
+        },
+        {
+          "id": "b",
+          "label": "Small groups swing more by chance",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Survivorship bias",
+          "correct": false,
+          "rationale": "Nobody was filtered out; the villages are just small."
+        },
+        {
+          "id": "d",
+          "label": "The ecological fallacy",
+          "correct": false,
+          "rationale": "The claim is about villages' rates, not individuals."
+        }
+      ],
+      "explanation": "In a tiny village, one case moves the rate a lot, so small places crowd both ends of the ranking.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.probability.090.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.trap_multiple_testing",
+        "concept.probability.one_in_n"
+      ],
+      "sourceCardIds": [
+        "card.probability.086.c2",
+        "card.probability.007.c2"
+      ],
+      "prompt": "At the usual 5% bar, about 1 test in 20 of nothing passes by luck. Out of 60 such tests, about how many flukes should you expect?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 1",
+          "correct": false,
+          "rationale": "That's for 20 tests; 60 is three times as many."
+        },
+        {
+          "id": "b",
+          "label": "About 20",
+          "correct": false,
+          "rationale": "That would be 1 in 3, not 1 in 20."
+        },
+        {
+          "id": "c",
+          "label": "About 6",
+          "correct": false,
+          "rationale": "That would be 1 in 10."
+        },
+        {
+          "id": "d",
+          "label": "About 3",
+          "correct": true
+        }
+      ],
+      "explanation": "60 ÷ 20 = 3, so about 3 flukes are expected even when nothing real is going on.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.090.q5",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.trap_ecological_fallacy",
+        "concept.probability.trap_selection_fake_links"
+      ],
+      "sourceCardIds": [
+        "card.probability.088.c4",
+        "card.probability.085.c4",
+        "card.probability.090.c4"
+      ],
+      "prompt": "Robinson's 1930 states and Downey's filtered college both mislead in a similar way. What should you ask of each?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Was the result significant at 5%?",
+          "correct": false,
+          "rationale": "Both patterns were real in their data; the question is whom they describe."
+        },
+        {
+          "id": "b",
+          "label": "Was the sample larger than 1,000?",
+          "correct": false,
+          "rationale": "Both involved plenty of data; size wasn't the problem."
+        },
+        {
+          "id": "c",
+          "label": "Who, exactly, do these data describe?",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Did the numbers change over time?",
+          "correct": false,
+          "rationale": "Neither trap is about change over time."
+        }
+      ],
+      "explanation": "States aren't individuals, and admitted students aren't all students. Ask who the data actually describe before applying them to everyone.",
+      "difficulty": 0.5
+    }
+  ],
+  "sourceIds": [
+    "source.libretexts_navarro_simpsons_paradox",
+    "source.bmj_morton_regression_to_mean_2003",
+    "source.princeton_wainer_most_dangerous_equation",
+    "source.biostathandbook_multiple_comparisons",
+    "source.catalogofbias_berkson",
+    "source.freedman_ecological_inference_1999",
+    "source.britannica_simpsons_paradox",
+    "source.ije_barnett_regression_to_mean_2005",
+    "source.downey_berkson_goes_to_college",
+    "source.dtic_daniels_average_man_1952",
+    "source.britannica_survivorship_bias"
+  ],
+  "art": "mind.graduation-cap"
+}

@@ -1,0 +1,211 @@
+{
+  "id": "level.world_systems.computers.065",
+  "skillId": "skill.world_systems.computers",
+  "number": 65,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Data Brokers",
+  "objective": "After this level you can explain how companies you have never dealt with buy, combine and sell profiles of people.",
+  "summary": "Data brokers gather details about people from records, purchases and browsing, combine them into profiles and segments (3,000 per person at one broker) and sell them, usually without people knowing.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.privacy_data_brokers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.bit_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.064"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.065.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Companies you've never heard of may have a file on you.",
+      "body": "You never signed up with them, bought from them or clicked their ads. Yet they may have your age range, your hobbies and guesses about your health. Meet the data brokers."
+    },
+    {
+      "id": "card.computers.065.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Buy, combine, sell",
+      "body": "Data brokers collect information about people from public records such as voter registrations, from purchase data, web browsing and warranty cards. They don't get it from you, so most people have no idea it's happening. Each source adds only a few details, but put together they form a detailed picture of a life, which brokers sell for uses like marketing and fraud checks.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep this: each source knows a little. The broker's trick is putting the pieces together."
+      }
+    },
+    {
+      "id": "card.computers.065.c3",
+      "type": "fact",
+      "fact": "One broker the FTC studied held 3,000 data segments for nearly every US consumer.",
+      "context": "The FTC looked closely at nine data brokers in 2014. A segment is a category a person is either placed in or not. Some sound harmless; others, like 'Expectant Parent', 'Diabetes Interest' and 'Cholesterol Focus', guess at sensitive matters such as health."
+    },
+    {
+      "id": "card.computers.065.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "When the data is where you go",
+      "body": "Remember Level 62's location trail? In 2024 the FTC barred a broker, X-Mode Social, and its successor Outlogic from selling sensitive location data. The FTC alleged it had sold precise locations, gathered through its own apps and code built into other apps, that could reveal visits to medical clinics, places of worship and shelters. The company settled without admitting wrongdoing."
+    },
+    {
+      "id": "card.computers.065.c5",
+      "type": "mcq",
+      "questionId": "question.computers.065.q1"
+    },
+    {
+      "id": "card.computers.065.c6",
+      "type": "mcq",
+      "questionId": "question.computers.065.q2"
+    },
+    {
+      "id": "card.computers.065.c7",
+      "type": "mcq",
+      "questionId": "question.computers.065.q3"
+    },
+    {
+      "id": "card.computers.065.c8",
+      "type": "checkpoint",
+      "headline": "Data brokers: exposed",
+      "learned": [
+        "Brokers buy and gather data you never gave them directly",
+        "A few details from many sources add up to a detailed profile",
+        "One broker had 3,000 segments for nearly every US consumer",
+        "The FTC acted against a broker selling sensitive location data"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.065.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.privacy_data_brokers"
+      ],
+      "sourceCardIds": [
+        "card.computers.065.c2"
+      ],
+      "prompt": "Where do data brokers get most of their information about people?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From interviews with each person",
+          "correct": false,
+          "rationale": "Brokers don't get data from people directly."
+        },
+        {
+          "id": "b",
+          "label": "From many sources, like public records, purchases and browsing",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only from social media posts people make public",
+          "correct": false,
+          "rationale": "Their sources are much wider than that."
+        },
+        {
+          "id": "d",
+          "label": "From the people's own phones, with a signed form",
+          "correct": false,
+          "rationale": "Most people don't know brokers are collecting at all."
+        }
+      ],
+      "explanation": "Brokers gather public records, purchase data, browsing and more, without getting it from consumers directly.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.065.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.privacy_data_brokers"
+      ],
+      "sourceCardIds": [
+        "card.computers.065.c2"
+      ],
+      "prompt": "Why can a data broker know a lot about you when each of its sources knows only a little?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each source secretly sends everything it has",
+          "correct": false,
+          "rationale": "Each source may give only a few details."
+        },
+        {
+          "id": "b",
+          "label": "Brokers make up details to fill the gaps",
+          "correct": false,
+          "rationale": "The profile comes from combining real data."
+        },
+        {
+          "id": "c",
+          "label": "It combines the pieces into one detailed picture",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Your phone sends brokers a daily summary",
+          "correct": false,
+          "rationale": "The power comes from combining many sources."
+        }
+      ],
+      "explanation": "A few details from each source, put together, form a detailed composite of a person's life.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.065.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.privacy_data_brokers",
+        "concept.computers.bit_definition"
+      ],
+      "sourceCardIds": [
+        "card.computers.065.c3",
+        "card.computers.002.c2"
+      ],
+      "prompt": "A broker's segment such as 'Expectant Parent' either applies to a person or it doesn't. In Level 2's terms, how much information is one such yes-or-no label?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One bit",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "One byte",
+          "correct": false,
+          "rationale": "A byte is eight yes-or-no choices."
+        },
+        {
+          "id": "c",
+          "label": "256 patterns",
+          "correct": false,
+          "rationale": "That's how many patterns a whole byte can make."
+        },
+        {
+          "id": "d",
+          "label": "One pixel",
+          "correct": false,
+          "rationale": "A pixel is a dot of color in an image."
+        }
+      ],
+      "explanation": "A bit is the information in one choice between two options, just like being in a segment or not.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ftc_data_brokers_2014",
+    "source.ftc_xmode_order_2024"
+  ],
+  "art": "mind.type-pigeonholes"
+}

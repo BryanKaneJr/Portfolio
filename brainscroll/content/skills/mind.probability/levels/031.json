@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.probability.031",
+  "skillId": "skill.mind.probability",
+  "number": 31,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Odds and Probability",
+  "objective": "After this level you can turn odds like \"3 to 1 against\" into a probability and back again.",
+  "summary": "Odds compare the chances against with the chances for; probability compares the chances for with the whole. Add the two numbers of the odds to find the whole: 3 to 1 against is 1 in 4.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.bet_odds_meaning",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.bet_odds_conversion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.one_in_n",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.030"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.031.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Pick a card. The odds it's a heart are \"3 to 1 against\". What's the chance?",
+      "body": "Not 3 in 4, and not 1 in 3. Odds and probability are two ways of saying the same chance, and they're easy to mix up. By the end of this level you'll switch between them in your head."
+    },
+    {
+      "id": "card.probability.031.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Odds compare two piles. Probability uses the whole deck.",
+      "body": "A standard deck has 52 cards in four suits of 13. Draw one: 13 cards are hearts and 39 aren't. Odds compare the chances against with the chances for: 39 to 13, which shrinks to 3 to 1 against. Probability compares the hearts with the whole deck: 13 out of 52, or 1 in 4. Same draw, same chance, two different ways of saying it."
+    },
+    {
+      "id": "card.probability.031.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Odds to probability: add the two numbers",
+      "body": "To turn odds into a chance, add both numbers to find the whole. \"3 to 1 against\" means 3 ways to lose and 1 way to win, 4 in all. So the chance of winning is 1 in 4, or 25%. It's Chapter 1's question again: out of what? For odds, the whole is hiding in plain sight. You just have to add it up."
+    },
+    {
+      "id": "card.probability.031.c4",
+      "type": "fact",
+      "fact": "Going back, split the whole into wins and losses.",
+      "context": "A 1 in 5 chance means 1 win to 4 losses: 4 to 1 against. Likely events flip around. An 80% chance is 80 wins to 20 losses, which shrinks to 4 to 1 in favor. And a 50% chance is 1 to 1, a true toss-up.",
+      "mascot": {
+        "pose": "oops",
+        "line": "People mix these up all the time. \"To\" compares wins with losses. \"In\" compares wins with everything."
+      }
+    },
+    {
+      "id": "card.probability.031.c5",
+      "type": "mcq",
+      "questionId": "question.probability.031.q1"
+    },
+    {
+      "id": "card.probability.031.c6",
+      "type": "mcq",
+      "questionId": "question.probability.031.q2"
+    },
+    {
+      "id": "card.probability.031.c7",
+      "type": "recall",
+      "questionId": "question.probability.031.q3"
+    },
+    {
+      "id": "card.probability.031.c8",
+      "type": "checkpoint",
+      "headline": "Odds and chances: switched",
+      "learned": [
+        "Odds compare against with for",
+        "Probability compares for with the whole",
+        "Odds to chance: add the two numbers",
+        "3 to 1 against is 1 in 4"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.031.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.bet_odds_conversion"
+      ],
+      "sourceCardIds": [
+        "card.probability.031.c2",
+        "card.probability.031.c3"
+      ],
+      "prompt": "The odds of drawing a heart from a full deck are 3 to 1 against. What is the chance of drawing one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1 in 3",
+          "correct": false,
+          "rationale": "That divides 1 by 3; the whole is 3 plus 1, which is 4."
+        },
+        {
+          "id": "b",
+          "label": "3 in 4",
+          "correct": false,
+          "rationale": "That's the chance of not drawing a heart."
+        },
+        {
+          "id": "c",
+          "label": "1 in 4",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "3 in 1",
+          "correct": false,
+          "rationale": "A chance can't be more than the whole."
+        }
+      ],
+      "explanation": "3 to 1 against means 3 losing cards for every winning one: 4 in all, so the chance is 1 in 4 (13 hearts out of 52).",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.031.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.bet_odds_conversion",
+        "concept.probability.bet_odds_meaning"
+      ],
+      "sourceCardIds": [
+        "card.probability.031.c3",
+        "card.probability.031.c4"
+      ],
+      "prompt": "How do you turn odds of 4 to 1 against into a probability?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Add 4 and 1 to find the whole: a 1 in 5 chance",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Divide 1 by 4: a 1 in 4 chance",
+          "correct": false,
+          "rationale": "Odds compare wins with losses, so the whole is 4 plus 1."
+        },
+        {
+          "id": "c",
+          "label": "Subtract 1 from 4: a 3 in 4 chance",
+          "correct": false,
+          "rationale": "Subtracting mixes up the two piles; add them instead."
+        },
+        {
+          "id": "d",
+          "label": "Read it as 4%",
+          "correct": false,
+          "rationale": "Odds are not a percent; add the two numbers to get the whole."
+        }
+      ],
+      "explanation": "Odds of 4 to 1 against mean 4 ways to lose and 1 to win. Adding gives the whole, 5, so the chance is 1 in 5.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.031.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.bet_odds_conversion",
+        "concept.probability.one_in_n"
+      ],
+      "sourceCardIds": [
+        "card.probability.031.c3",
+        "card.probability.007.c2"
+      ],
+      "prompt": "Odds of 9 to 1 against make a 1 in 10 chance. Using Level 7's \"1 in N\" switch, what percent is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "9%",
+          "correct": false,
+          "rationale": "That uses the 9 from the odds; the chance is 1 in 10."
+        },
+        {
+          "id": "b",
+          "label": "90%",
+          "correct": false,
+          "rationale": "That's the chance of losing."
+        },
+        {
+          "id": "c",
+          "label": "11%",
+          "correct": false,
+          "rationale": "Divide 100 by 10, not by 9."
+        },
+        {
+          "id": "d",
+          "label": "10%",
+          "correct": true
+        }
+      ],
+      "explanation": "Add 9 and 1 to get the whole, 10. Then 100 ÷ 10 turns \"1 in 10\" into 10%.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ucla_oarc_odds_ratios",
+    "source.britannica_playing_card"
+  ],
+  "art": "mind.playing-cards"
+}

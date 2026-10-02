@@ -1,0 +1,224 @@
+{
+  "id": "level.history.us_history.023",
+  "skillId": "skill.history.us_history",
+  "number": 23,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Lexington and Concord",
+  "objective": "After this level you can explain how the shooting war began in April 1775 and why the militia were ready for it.",
+  "summary": "On April 19, 1775, British troops marched to seize supplies at Concord. Organized, alerted militia met them at Lexington and Concord, and the war began.",
+  "concepts": [
+    {
+      "conceptId": "concept.us_history.revolution_militia_ready",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.revolution_lexington_concord",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.revolution_intolerable_acts",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.us_history.022"
+  ],
+  "cards": [
+    {
+      "id": "card.us_history.023.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The shooting started on a village green at dawn.",
+      "body": "On April 19, 1775, British regulars met colonial militia at Lexington. Why were farmers ready to fight at a moment’s notice?"
+    },
+    {
+      "id": "card.us_history.023.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ready in a minute",
+      "body": "In 1774 Massachusetts patriots set up their own Provincial Congress. It took control of the colony’s militia and stockpiled arms, ammunition and provisions. In October 1774 it urged towns to raise minutemen: volunteers who trained and would be ready at a minute’s notice. The colony was preparing for a fight before anyone fired a shot."
+    },
+    {
+      "id": "card.us_history.023.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The midnight warning",
+      "body": "General Thomas Gage ordered British troops to march from Boston and seize the colonists’ military stores at Concord. The patriots had planned for this. Prearranged lantern signals showed whether the troops went by water or by land, and riders set off to spread the alarm.",
+      "mascot": {
+        "pose": "oops",
+        "line": "A common mix-up: Paul Revere wasn’t a lone rider. William Dawes and Samuel Prescott carried the alarm too."
+      }
+    },
+    {
+      "id": "card.us_history.023.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Lexington, then Concord",
+      "body": "At dawn on April 19, 1775, British regulars faced militia on Lexington’s green. The British volley killed 8 militiamen and wounded 10. At Concord’s North Bridge, the militia fired on a British party and forced it to pull back."
+    },
+    {
+      "id": "card.us_history.023.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "A long road back",
+      "body": "The march back to Boston was an ordeal. Militia fired on the British from behind houses, barns, trees and stone walls along the road. Then thousands of New Englanders gathered around Boston and besieged it. The argument had become a war."
+    },
+    {
+      "id": "card.us_history.023.c6",
+      "type": "mcq",
+      "questionId": "question.us_history.023.q1"
+    },
+    {
+      "id": "card.us_history.023.c7",
+      "type": "mcq",
+      "questionId": "question.us_history.023.q2"
+    },
+    {
+      "id": "card.us_history.023.c8",
+      "type": "recall",
+      "questionId": "question.us_history.023.q3"
+    },
+    {
+      "id": "card.us_history.023.c9",
+      "type": "checkpoint",
+      "headline": "Lexington and Concord: explained",
+      "learned": [
+        "A Provincial Congress armed the Massachusetts militia",
+        "Minutemen were ready at a minute’s notice",
+        "Lanterns and riders spread the alarm",
+        "April 19, 1775: the war began"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.us_history.023.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.revolution_lexington_concord"
+      ],
+      "sourceCardIds": [
+        "card.us_history.023.c4"
+      ],
+      "prompt": "What happened at Concord’s North Bridge on April 19, 1775?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The British captured the colonists’ supplies",
+          "correct": false,
+          "rationale": "The militia pushed the British back."
+        },
+        {
+          "id": "b",
+          "label": "Militia fired and forced a British party back",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Paul Revere was arrested by a patrol",
+          "correct": false,
+          "rationale": "Revere’s ride was the night before, on the road."
+        },
+        {
+          "id": "d",
+          "label": "The First Continental Congress met there",
+          "correct": false,
+          "rationale": "Congress met in Philadelphia."
+        }
+      ],
+      "explanation": "At the North Bridge, the militia fired on a British party and forced it to pull back.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.us_history.023.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.revolution_militia_ready"
+      ],
+      "sourceCardIds": [
+        "card.us_history.023.c3"
+      ],
+      "prompt": "How did patriots spread the alarm when British troops set out for Concord?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A patriot newspaper printed the news overnight",
+          "correct": false,
+          "rationale": "There was no time for a newspaper."
+        },
+        {
+          "id": "b",
+          "label": "Church bells rang in every town at the same time",
+          "correct": false,
+          "rationale": "The plan used lanterns and riders."
+        },
+        {
+          "id": "c",
+          "label": "Lantern signals showed the route; riders spread the alarm",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Paul Revere rode alone to warn every single town",
+          "correct": false,
+          "rationale": "Dawes and Prescott rode too."
+        }
+      ],
+      "explanation": "Lanterns showed whether the British went by water or land; Revere, Dawes and Prescott rode out.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.us_history.023.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.us_history.revolution_militia_ready",
+        "concept.us_history.revolution_intolerable_acts"
+      ],
+      "sourceCardIds": [
+        "card.us_history.023.c2",
+        "card.us_history.022.c5"
+      ],
+      "prompt": "After the Intolerable Acts of 1774, how did Massachusetts prepare for a possible fight?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It asked Parliament to send more British troops",
+          "correct": false,
+          "rationale": "It did the opposite."
+        },
+        {
+          "id": "b",
+          "label": "A Provincial Congress took over the militia and stored arms",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It disbanded its militia to avoid any more trouble",
+          "correct": false,
+          "rationale": "It strengthened the militia instead."
+        },
+        {
+          "id": "d",
+          "label": "It paid the East India Company for the destroyed tea",
+          "correct": false,
+          "rationale": "It did not pay for the tea."
+        }
+      ],
+      "explanation": "Its Provincial Congress took control of the militia, stockpiled arms and raised minutemen.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nps_mima_april_19_1775",
+    "source.brit_lexington_concord"
+  ],
+  "art": "us.flag"
+}

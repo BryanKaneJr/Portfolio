@@ -1,0 +1,220 @@
+{
+  "id": "level.geography.earth_climate.024",
+  "skillId": "skill.geography.earth_climate",
+  "number": 24,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "How Rivers Build New Land",
+  "objective": "After this level you can explain how floodplains and deltas form where a river slows down and drops its load.",
+  "summary": "Slowing floodwater drops coarse grains as levees and fine silt across the floodplain. At its mouth a river builds a delta; cut off its sediment, as on the Nile, and the delta shrinks.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.land_floodplains",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.land_deltas",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.land_river_load",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.sedimentary_types",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.023"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.024.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Some of the world's richest farmland was delivered by floods.",
+      "body": "Ancient Egypt grew up on the Nile's floodplain. The same rivers that carry land away upstream build new land downstream. The whole trick is slowing down."
+    },
+    {
+      "id": "card.earth_climate.024.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A flood's delivery",
+      "body": "Level 23 ended with a rule: slow water drops its load. A flood puts it to work. When a river overtops its banks and spreads across its floodplain, the flat land beside it, the water slows sharply. The coarsest grains drop first, right beside the channel, building low ridges called natural levees. Finer silt and clay settle farther out. Flood after flood, that nutrient-rich silt makes floodplains very fertile farmland."
+    },
+    {
+      "id": "card.earth_climate.024.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Building at the mouth",
+      "body": "The biggest slowdown comes at a river's mouth. The current fades, the sediment falls to the bottom, and a delta grows. As it builds out, the river splits into smaller branching channels called distributaries. The name comes from the triangle-shaped Greek letter delta (Δ), the shape of the Nile's delta. Not every delta keeps that shape: the Mississippi builds a bird's-foot."
+    },
+    {
+      "id": "card.earth_climate.024.c4",
+      "type": "fact",
+      "fact": "The Nile delta is shrinking.",
+      "context": "A delta grows only while sediment keeps arriving. On the Nile, the Aswan High Dam and other river management now hold back the sediment that once reached the coast, and the coast is eroding. Cut the supply and the land retreats."
+    },
+    {
+      "id": "card.earth_climate.024.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.024.q1"
+    },
+    {
+      "id": "card.earth_climate.024.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.024.q2"
+    },
+    {
+      "id": "card.earth_climate.024.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.024.q3"
+    },
+    {
+      "id": "card.earth_climate.024.c8",
+      "type": "checkpoint",
+      "headline": "New land: built",
+      "learned": [
+        "Floods slow on the floodplain and drop their load",
+        "Coarse grains build natural levees",
+        "Deltas grow where rivers slow at their mouths",
+        "Cut off the sediment and a delta shrinks"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.024.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.land_deltas"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.024.c3"
+      ],
+      "prompt": "What are the smaller channels that branch off a river across its delta called?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Meanders",
+          "correct": false,
+          "rationale": "Meanders are bends in a river."
+        },
+        {
+          "id": "b",
+          "label": "Levees",
+          "correct": false,
+          "rationale": "Levees are ridges along the banks."
+        },
+        {
+          "id": "c",
+          "label": "Oxbows",
+          "correct": false,
+          "rationale": "Oxbows are abandoned loops that became lakes."
+        },
+        {
+          "id": "d",
+          "label": "Distributaries",
+          "correct": true
+        }
+      ],
+      "explanation": "As a delta builds out, the river splits into smaller branching channels called distributaries.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.024.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.land_floodplains"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.024.c2"
+      ],
+      "prompt": "How does a flood build a natural levee along a river?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Clay settles first, right at the channel's edge",
+          "correct": false,
+          "rationale": "Clay is the finest; it settles farther out."
+        },
+        {
+          "id": "b",
+          "label": "Floodwater slows on the floodplain and drops coarse grains by the channel",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Fast water piles gravel in the middle of the channel",
+          "correct": false,
+          "rationale": "Levees form along the banks, not mid-channel."
+        },
+        {
+          "id": "d",
+          "label": "Wind blows floodplain sand back toward the bank",
+          "correct": false,
+          "rationale": "Levees are built by floodwater, not wind."
+        }
+      ],
+      "explanation": "Spreading floodwater slows sharply, so its coarsest grains drop first beside the channel and build up a natural levee.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.024.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.land_floodplains",
+        "concept.earth_climate.sedimentary_types"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.024.c2",
+        "card.earth_climate.006.c3"
+      ],
+      "prompt": "Fine silt and clay settle across a floodplain, then get buried and compacted. Using Level 6, which rock can they become?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Granite",
+          "correct": false,
+          "rationale": "Granite is igneous, cooled from magma."
+        },
+        {
+          "id": "b",
+          "label": "Shale",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Marble",
+          "correct": false,
+          "rationale": "Marble is metamorphic, made from limestone."
+        },
+        {
+          "id": "d",
+          "label": "Obsidian",
+          "correct": false,
+          "rationale": "Obsidian is volcanic glass."
+        }
+      ],
+      "explanation": "Shale is the fine-grained sedimentary rock made of silt- and clay-sized particles.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_flood_plain",
+    "source.libretexts_stream_erosion",
+    "source.natgeo_delta",
+    "source.brit_aswan_high_dam",
+    "source.brit_shale"
+  ],
+  "art": "geo.river"
+}

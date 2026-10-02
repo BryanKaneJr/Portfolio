@@ -1,0 +1,215 @@
+{
+  "id": "level.arts.film_tv.023",
+  "skillId": "skill.arts.film_tv",
+  "number": 23,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Storyboards and Shot Lists",
+  "objective": "After this level you can explain how storyboards and shot lists plan a scene before a camera rolls.",
+  "summary": "A storyboard draws a film shot by shot, a method the Disney studio pioneered; a shot list tracks every shot the crew must capture.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.shoot_storyboard",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.shoot_shot_list",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.shoot_screenplay_layout",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.022"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.023.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A film can be drawn, shot by shot, before a camera rolls.",
+      "body": "Filmmakers plan scenes on paper long before the shoot. Two documents do most of the work: a storyboard, which shows what each shot will look like, and a shot list, which keeps track of every shot the crew needs to film."
+    },
+    {
+      "id": "card.film_tv.023.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The storyboard: your film as a comic strip",
+      "body": "ACMI, a museum of screen culture in Melbourne, calls a storyboard a shot-by-shot visual plan that shows what a film will look like before it's shot. Each panel stands for one camera shot, and the board guides the team doing the filming. You don't draw every frame, and it needn't be art: stick figures will do, as long as the shot type and what's in it are clear."
+    },
+    {
+      "id": "card.film_tv.023.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A tool that grew up in animation",
+      "body": "The Walt Disney Family Museum says the Walt Disney Studios pioneered storyboarding. A storyboard maps out a story in a series of sketches, so filmmakers can see the plot in sequence and judge whether the story is clear. Laid out like that, plot holes and other inconsistencies are easier to spot."
+    },
+    {
+      "id": "card.film_tv.023.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The shot list: the checklist for the day",
+      "body": "A shot list keeps track of all your shots, ACMI explains, so when filming day comes you know exactly what you need to film. It can note each shot's camera movement, even when the answer is 'static', meaning the camera doesn't move. On set, filmmakers often keep the storyboard and script at hand too, to set up shots the way they planned."
+    },
+    {
+      "id": "card.film_tv.023.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.023.q1"
+    },
+    {
+      "id": "card.film_tv.023.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.023.q2"
+    },
+    {
+      "id": "card.film_tv.023.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.023.q3"
+    },
+    {
+      "id": "card.film_tv.023.c8",
+      "type": "checkpoint",
+      "headline": "Storyboards and shot lists: planned",
+      "learned": [
+        "A storyboard: a shot-by-shot visual plan, one panel per shot",
+        "Stick figures are fine; clarity beats art",
+        "The Disney studio pioneered storyboarding",
+        "A shot list tracks every shot to film, even 'static' ones"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.023.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.shoot_storyboard"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.023.c2"
+      ],
+      "prompt": "On a storyboard, what does each panel stand for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One whole scene from the screenplay",
+          "correct": false,
+          "rationale": "A scene can need many shots; each panel is one shot."
+        },
+        {
+          "id": "b",
+          "label": "One camera shot",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "One day of the filming schedule",
+          "correct": false,
+          "rationale": "Schedules are planned elsewhere; panels show shots."
+        },
+        {
+          "id": "d",
+          "label": "One page of dialogue",
+          "correct": false,
+          "rationale": "Panels show what the camera sees, not pages of lines."
+        }
+      ],
+      "explanation": "A storyboard is a shot-by-shot plan: each panel represents one camera shot.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.film_tv.023.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.shoot_shot_list"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.023.c4"
+      ],
+      "prompt": "How does a shot list help a crew on the day of filming?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It sketches each shot so the actors can see it",
+          "correct": false,
+          "rationale": "Drawings are the storyboard's job."
+        },
+        {
+          "id": "b",
+          "label": "It sets the budget for the whole film",
+          "correct": false,
+          "rationale": "Budgets are estimated in development."
+        },
+        {
+          "id": "c",
+          "label": "It lists the actors' lines in the order they're spoken",
+          "correct": false,
+          "rationale": "Dialogue lives in the screenplay."
+        },
+        {
+          "id": "d",
+          "label": "It tracks every planned shot, so the crew knows what to film",
+          "correct": true
+        }
+      ],
+      "explanation": "A shot list keeps track of all the shots, with details such as camera movement, so nothing is missed on the day.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.film_tv.023.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.shoot_screenplay_layout",
+        "concept.film_tv.shoot_storyboard"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.022.c2"
+      ],
+      "prompt": "A storyboard artist starts from the screenplay (Level 22). What does each scene heading tell them?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The camera angle for every shot",
+          "correct": false,
+          "rationale": "Scene headings give place and time, not camera angles."
+        },
+        {
+          "id": "b",
+          "label": "How many panels to draw",
+          "correct": false,
+          "rationale": "The heading doesn't count shots."
+        },
+        {
+          "id": "c",
+          "label": "Inside or outside, the place and the time of day",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "What each actor will wear",
+          "correct": false,
+          "rationale": "Costumes aren't part of the scene heading."
+        }
+      ],
+      "explanation": "A scene heading says INT. or EXT., names the place and gives the time of day.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.acmi_storyboards",
+    "source.wdfm_storyboarding",
+    "source.wdfm_open_studio_storyboards",
+    "source.acmi_script_storyboard",
+    "source.acmi_camera_movement"
+  ],
+  "art": "film.storyboard"
+}

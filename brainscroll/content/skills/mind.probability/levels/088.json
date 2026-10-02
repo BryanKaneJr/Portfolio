@@ -1,0 +1,212 @@
+{
+  "id": "level.mind.probability.088",
+  "skillId": "skill.mind.probability",
+  "number": 88,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "True for the Group, Not for You",
+  "objective": "After this level you can explain why a pattern across groups or places may not hold for the individuals in them.",
+  "summary": "In 1930, states with more immigrants had higher literacy, yet immigrants were less often literate: they lived in states where the native-born read well. Groups aren't individuals.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.trap_ecological_fallacy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.fraction_to_percent",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.087"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.088.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1930, states with more immigrants read better. Did immigrants read better?",
+      "body": "It's the obvious conclusion, and it's backwards. The pattern across states was real. What it seemed to say about individual people was wrong."
+    },
+    {
+      "id": "card.probability.088.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The pattern across states",
+      "body": "Using the 1930 census, sociologist W. S. Robinson lined up the 48 states. The higher a state's share of residents born abroad, the higher its share who could read and write. Put on a chart, it's a clear trend: more immigrants, more literacy."
+    },
+    {
+      "id": "card.probability.088.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Now count people",
+      "body": "Count people instead of states and it reverses. Of foreign-born residents aged 10 and over, about 10 in 100 could not read and write; among the native-born, about 3 in 100. The explanation: immigrants tended to live in states where the native-born were relatively literate. The states' pattern was real. It just wasn't a fact about individual immigrants."
+    },
+    {
+      "id": "card.probability.088.c4",
+      "type": "fact",
+      "fact": "A pattern across groups may not hold for the individuals in them.",
+      "context": "Assuming it does is called the ecological fallacy. Robinson's 1950 paper concluded that links measured across areas can't stand in for links between individuals. So when a headline links two things across countries, states or schools, ask: was anyone actually measured one by one?",
+      "mascot": {
+        "pose": "explaining",
+        "line": "Common mix-up: a pattern across states is a fact about states. To learn about people, you have to measure people."
+      }
+    },
+    {
+      "id": "card.probability.088.c5",
+      "type": "mcq",
+      "questionId": "question.probability.088.q1"
+    },
+    {
+      "id": "card.probability.088.c6",
+      "type": "mcq",
+      "questionId": "question.probability.088.q2"
+    },
+    {
+      "id": "card.probability.088.c7",
+      "type": "recall",
+      "questionId": "question.probability.088.q3"
+    },
+    {
+      "id": "card.probability.088.c8",
+      "type": "checkpoint",
+      "headline": "Groups vs. people: sorted",
+      "learned": [
+        "1930: more immigrants, more literate states",
+        "Person by person, the link reversed",
+        "Immigrants lived in more literate states",
+        "Group patterns aren't personal facts"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.088.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.trap_ecological_fallacy"
+      ],
+      "sourceCardIds": [
+        "card.probability.088.c4"
+      ],
+      "prompt": "What is the ecological fallacy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Blaming the environment for a person's choices",
+          "correct": false,
+          "rationale": "It's about data, not the natural environment."
+        },
+        {
+          "id": "b",
+          "label": "Using too small a sample",
+          "correct": false,
+          "rationale": "That's a different trap; here the samples can be huge."
+        },
+        {
+          "id": "c",
+          "label": "Assuming a pattern among groups holds for each person",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Studying animals instead of people",
+          "correct": false,
+          "rationale": "'Ecological' here means data about areas or groups."
+        }
+      ],
+      "explanation": "The ecological fallacy is thinking that relationships observed for groups must hold for individuals.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.088.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.trap_ecological_fallacy"
+      ],
+      "sourceCardIds": [
+        "card.probability.088.c3",
+        "card.probability.088.c4"
+      ],
+      "prompt": "Neighborhoods with more gyms have a lower average weight. What does that tell you about a person who joins a gym?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They will lose weight",
+          "correct": false,
+          "rationale": "The data describe neighborhoods, not what happens to one person."
+        },
+        {
+          "id": "b",
+          "label": "Nothing directly: the pattern is across neighborhoods",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They weigh less than people who don't",
+          "correct": false,
+          "rationale": "Nobody was measured one by one."
+        },
+        {
+          "id": "d",
+          "label": "Gyms make neighborhoods healthier",
+          "correct": false,
+          "rationale": "A link across neighborhoods doesn't show what causes what."
+        }
+      ],
+      "explanation": "The pattern is about neighborhoods. As with Robinson's states, it may not hold for the individuals in them.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.probability.088.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.trap_ecological_fallacy",
+        "concept.probability.fraction_to_percent"
+      ],
+      "sourceCardIds": [
+        "card.probability.002.c3",
+        "card.probability.088.c3"
+      ],
+      "prompt": "Robinson's 1930 table counts about 1,304 thousand of 13,217 thousand foreign-born people who couldn't read and write. Using Level 2's method, that's roughly:",
+      "options": [
+        {
+          "id": "a",
+          "label": "1%",
+          "correct": false,
+          "rationale": "1,304 ÷ 13,217 is about 0.1, which is 10%."
+        },
+        {
+          "id": "b",
+          "label": "10%",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "13%",
+          "correct": false,
+          "rationale": "13 comes from the 13,217, not the share."
+        },
+        {
+          "id": "d",
+          "label": "25%",
+          "correct": false,
+          "rationale": "That would be about a quarter; the share is near a tenth."
+        }
+      ],
+      "explanation": "1,304 ÷ 13,217 is about 0.1; move the decimal point two places to get about 10%, or about 10 in 100.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.freedman_ecological_inference_1999",
+    "source.asr_robinson_ecological_1950"
+  ],
+  "art": "geo.people"
+}

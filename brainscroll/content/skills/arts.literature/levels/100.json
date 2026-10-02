@@ -1,0 +1,613 @@
+{
+  "id": "level.arts.literature.100",
+  "skillId": "skill.arts.literature",
+  "number": 100,
+  "type": "mastery",
+  "revision": 1,
+  "status": "published",
+  "title": "Mastery Challenge: Literature",
+  "objective": "After this level you can demonstrate command of Literature Levels 1 to 99 across the whole tree.",
+  "summary": "Ten questions, one from each chapter: myths and epics, story craft, poetry, the old classics, Shakespeare and the novel, the 1800s, American voices, Modernism and genre.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.myth_legend_folktale",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.myth_rhyme_shared_roots",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.storycraft_unreliable_narrator",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.sonnet_forms",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.sonnet_volta",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.dante_vernacular",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.shakespeare_borrowed_plots",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.ovid_influence",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.dickens_serial_parts",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.c19_installments",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.american_whitman_vision",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.freeverse_rhythm",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.modern_make_it_new",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.modern_what_changed",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.detective_fair_play",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.099"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.100.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Literature Mastery Challenge.",
+      "body": "Questions from across the whole tree, from clay tablets to the detective story. Level 1 asked how literature got from spoken stories to the novel on your shelf. Now see how far you've traveled. Take your time: every question can be corrected."
+    },
+    {
+      "id": "card.literature.100.c2",
+      "type": "recall",
+      "questionId": "question.literature.100.q1"
+    },
+    {
+      "id": "card.literature.100.c3",
+      "type": "recall",
+      "questionId": "question.literature.100.q2"
+    },
+    {
+      "id": "card.literature.100.c4",
+      "type": "recall",
+      "questionId": "question.literature.100.q3"
+    },
+    {
+      "id": "card.literature.100.c5",
+      "type": "recall",
+      "questionId": "question.literature.100.q4"
+    },
+    {
+      "id": "card.literature.100.c6",
+      "type": "recall",
+      "questionId": "question.literature.100.q5"
+    },
+    {
+      "id": "card.literature.100.c7",
+      "type": "recall",
+      "questionId": "question.literature.100.q6"
+    },
+    {
+      "id": "card.literature.100.c8",
+      "type": "recall",
+      "questionId": "question.literature.100.q7"
+    },
+    {
+      "id": "card.literature.100.c9",
+      "type": "recall",
+      "questionId": "question.literature.100.q8"
+    },
+    {
+      "id": "card.literature.100.c10",
+      "type": "recall",
+      "questionId": "question.literature.100.q9"
+    },
+    {
+      "id": "card.literature.100.c11",
+      "type": "recall",
+      "questionId": "question.literature.100.q10"
+    },
+    {
+      "id": "card.literature.100.c12",
+      "type": "checkpoint",
+      "headline": "Literature: mastered",
+      "learned": [
+        "How myths and epics from every continent were composed, passed on and written down, and why they rhyme.",
+        "How plot, conflict, character, narrator and theme work, and how meter, sound, image and form make a poem.",
+        "Why the old classics and Shakespeare carried whole languages and kept borrowing and retelling old stories.",
+        "How the novel grew, from Don Quixote and Dickens's monthly parts to American voices and Modernism's broken forms.",
+        "How to read a genre, a translation or a classic for where it comes from, how it works and what others took from it."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.100.q1",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.myth_legend_folktale"
+      ],
+      "sourceCardIds": [
+        "card.literature.002.c4",
+        "card.literature.002.c3"
+      ],
+      "prompt": "Why does this tree never use the word myth to mean \"false\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Scholars use it for a traditional sacred story",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Every myth has since been proved true",
+          "correct": false,
+          "rationale": "Truth isn't what the word is about."
+        },
+        {
+          "id": "c",
+          "label": "Myths are only about talking animals",
+          "correct": false,
+          "rationale": "That's closer to a fable."
+        },
+        {
+          "id": "d",
+          "label": "A myth is any story told as history",
+          "correct": false,
+          "rationale": "That's a legend."
+        }
+      ],
+      "explanation": "In the scholarly sense a myth is a traditional, symbolic story tied to religious belief, not a falsehood.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.literature.100.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.myth_rhyme_shared_roots"
+      ],
+      "sourceCardIds": [
+        "card.literature.019.c2",
+        "card.literature.019.c1"
+      ],
+      "prompt": "India's Dyaus, Greece's Zeus and Rome's Jupiter have related names. Which explanation for similar myths do they best support?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Contact: travelers carried one story to all three",
+          "correct": false,
+          "rationale": "Contact fits the Ramayana in Thailand; these names were inherited."
+        },
+        {
+          "id": "b",
+          "label": "Shared roots: all three inherited one old sky god",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Shared minds: all people dream up the same gods",
+          "correct": false,
+          "rationale": "Shared minds can't explain names that sound alike."
+        },
+        {
+          "id": "d",
+          "label": "Chance: the three names match by accident",
+          "correct": false,
+          "rationale": "The names are cognates from one ancestor, not a coincidence."
+        }
+      ],
+      "explanation": "The three names go back to one Proto-Indo-European sky god. When myths rhyme because of a common origin, they aren't copies of each other: they're relatives.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.literature.100.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.storycraft_unreliable_narrator"
+      ],
+      "sourceCardIds": [
+        "card.literature.025.c4",
+        "card.literature.025.c2"
+      ],
+      "prompt": "A narrator tells you she has never been jealous. Later, other characters' letters show her spying on her sister. What should you conclude?",
+      "options": [
+        {
+          "id": "a",
+          "label": "She is omniscient, so she knows best",
+          "correct": false,
+          "rationale": "Omniscience means seeing into many minds, not being honest."
+        },
+        {
+          "id": "b",
+          "label": "A first-person narrator is always right",
+          "correct": false,
+          "rationale": "Telling a story as \"I\" doesn't make the teller trustworthy."
+        },
+        {
+          "id": "c",
+          "label": "The story has switched to third person",
+          "correct": false,
+          "rationale": "Who tells the story hasn't changed; whether to trust her has."
+        },
+        {
+          "id": "d",
+          "label": "She may be unreliable: new facts contradict her",
+          "correct": true
+        }
+      ],
+      "explanation": "Unreliability shows as you learn more and the new information contradicts what the narrator told you, as with Poe's calm storyteller in The Tell-Tale Heart.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.literature.100.q4",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.sonnet_forms",
+        "concept.literature.sonnet_volta"
+      ],
+      "sourceCardIds": [
+        "card.literature.035.c3",
+        "card.literature.035.c4"
+      ],
+      "prompt": "A 14-line poem in iambic pentameter rhymes abab cdcd efef gg. Where should you look for its turn?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Between lines 8 and 9",
+          "correct": false,
+          "rationale": "That's where the Italian sonnet turns."
+        },
+        {
+          "id": "b",
+          "label": "In its very first line",
+          "correct": false,
+          "rationale": "The turn comes after the setup, not before it."
+        },
+        {
+          "id": "c",
+          "label": "Before the closing couplet",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Nowhere: this form has no turn",
+          "correct": false,
+          "rationale": "Sonnet 130, in this form, turns right on cue with \"And yet\"."
+        }
+      ],
+      "explanation": "Three quatrains and a couplet make the English (Shakespearean) sonnet, and its volta comes before the couplet. Find the turn and you've found what the poem is about.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.literature.100.q5",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.dante_vernacular"
+      ],
+      "sourceCardIds": [
+        "card.literature.048.c3",
+        "card.literature.048.c4"
+      ],
+      "prompt": "Dante could have written in Latin, the language of learning. What did he gain by writing the Divine Comedy in Italian?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To reach readers without a Latin education",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Words for Hell and Paradise Latin lacked",
+          "correct": false,
+          "rationale": "Latin had plenty; his choice was about readers."
+        },
+        {
+          "id": "c",
+          "label": "Freedom from the Church's rules on Latin",
+          "correct": false,
+          "rationale": "Nothing like that; Latin was the Church's own language."
+        },
+        {
+          "id": "d",
+          "label": "Easier rhymes than Latin could give him",
+          "correct": false,
+          "rationale": "Rhyme wasn't the reason; reaching a wider audience was."
+        }
+      ],
+      "explanation": "Writing in the vernacular let people outside the clergy follow Dante into Hell, and his choice had a revolutionary impact on the Italian language itself.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.literature.100.q6",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.shakespeare_borrowed_plots",
+        "concept.literature.ovid_influence"
+      ],
+      "sourceCardIds": [
+        "card.literature.053.c3",
+        "card.literature.053.c2",
+        "card.literature.007.c4"
+      ],
+      "prompt": "Romeo and Juliet goes back through Arthur Brooke's poem to Ovid's Pyramus and Thisbe. Why did no one think Shakespeare was cheating?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Brooke's poem had long been forgotten",
+          "correct": false,
+          "rationale": "It was a popular poem, and the play's main source."
+        },
+        {
+          "id": "b",
+          "label": "Ovid's tales were unknown to English audiences",
+          "correct": false,
+          "rationale": "From the 15th to 17th centuries nearly every poet owed Ovid something."
+        },
+        {
+          "id": "c",
+          "label": "He kept Brooke's story exactly as it was",
+          "correct": false,
+          "rationale": "He squeezed nine months into four days and grew Mercutio."
+        },
+        {
+          "id": "d",
+          "label": "Plays then reworked old plots; the telling mattered",
+          "correct": true
+        }
+      ],
+      "explanation": "Playwrights of the time reworked old stories and even other people's plots. The question wasn't what happens but how well you could tell it, and Ovid had supplied such stories for centuries.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.literature.100.q7",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.dickens_serial_parts",
+        "concept.literature.c19_installments"
+      ],
+      "sourceCardIds": [
+        "card.literature.064.c3",
+        "card.literature.064.c2",
+        "card.literature.070.c3"
+      ],
+      "prompt": "How did publishing in monthly parts shape Dickens's novels?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He finished each novel before part one appeared",
+          "correct": false,
+          "rationale": "He wrote only weeks or days ahead of publication."
+        },
+        {
+          "id": "b",
+          "label": "Each part had to work alone, and plots ran side by side",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Each part kept to one plot and a few characters",
+          "correct": false,
+          "rationale": "He filled the space with several plots and scores of characters."
+        },
+        {
+          "id": "d",
+          "label": "Only Dickens used parts; other novelists refused",
+          "correct": false,
+          "rationale": "Madame Bovary, Crime and Punishment and Anna Karenina came out in installments too."
+        }
+      ],
+      "explanation": "Each episode had to be shaped on its own, several plots could run side by side, and readers grew close to the author, like a TV series before television.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.literature.100.q8",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.american_whitman_vision",
+        "concept.literature.freeverse_rhythm"
+      ],
+      "sourceCardIds": [
+        "card.literature.075.c3",
+        "card.literature.037.c3"
+      ],
+      "prompt": "Whitman's catalog in \"I Hear America Singing\" has no rhyme and no regular beat. How does it still have rhythm?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every line hides iambic pentameter",
+          "correct": false,
+          "rationale": "His lines have no regular beat at all."
+        },
+        {
+          "id": "b",
+          "label": "Each stanza is a 5-7-5 haiku",
+          "correct": false,
+          "rationale": "Haiku is a Japanese form of 17 syllables."
+        },
+        {
+          "id": "c",
+          "label": "Repeated words and phrases keep the beat",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It doesn't: it's prose cut into lines",
+          "correct": false,
+          "rationale": "Free verse keeps the line and patterns sounds and phrases."
+        }
+      ],
+      "explanation": "Level 37: free verse builds rhythm from repetition. Whitman's list of workers, each singing, repeats its pattern the way Song of Myself echoes \"myself\".",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.literature.100.q9",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.modern_make_it_new",
+        "concept.literature.modern_what_changed"
+      ],
+      "sourceCardIds": [
+        "card.literature.081.c2",
+        "card.literature.081.c3",
+        "card.literature.090.c4"
+      ],
+      "prompt": "Why did so much writing after World War I come in fragments and broken forms, like Eliot's Waste Land?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Paper was scarce, so poems were short",
+          "correct": false,
+          "rationale": "The Waste Land runs 433 lines; the cause was shaken faith, not paper."
+        },
+        {
+          "id": "b",
+          "label": "Writers wanted 1800s plots back",
+          "correct": false,
+          "rationale": "Modernists broke the conventions of the whole post-Romantic era."
+        },
+        {
+          "id": "c",
+          "label": "Readers asked for simpler stories",
+          "correct": false,
+          "rationale": "Modernists expected readers to work harder, not less."
+        },
+        {
+          "id": "d",
+          "label": "The war shook faith in Western culture",
+          "correct": true
+        }
+      ],
+      "explanation": "The war's enormity undermined faith in Western society and culture, and writing filled with disillusion and fragments. If the world had broken, why should a story arrive in one neat piece?",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.literature.100.q10",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.detective_fair_play"
+      ],
+      "sourceCardIds": [
+        "card.literature.093.c3"
+      ],
+      "prompt": "A detective solves the case with a letter that the reader never got to see. What has gone wrong?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It breaks fair play: readers must see every clue",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The criminal was mentioned too early in the story",
+          "correct": false,
+          "rationale": "Knox wanted the criminal mentioned early."
+        },
+        {
+          "id": "c",
+          "label": "Nothing: a detective may keep a clue to himself",
+          "correct": false,
+          "rationale": "Fair play says they may not."
+        },
+        {
+          "id": "d",
+          "label": "The story needed a friend to narrate the case",
+          "correct": false,
+          "rationale": "That's a pattern, not the problem here."
+        }
+      ],
+      "explanation": "Fair play means clues reach the reader when they reach the detective; Knox: no clue that isn't shown to the reader at once.",
+      "difficulty": 0.45
+    }
+  ],
+  "sourceIds": [
+    "source.brit_myth",
+    "source.brit_legend",
+    "source.brit_william_tell",
+    "source.brit_folk_literature",
+    "source.brit_dyaus",
+    "source.ebsco_unreliable_narrator",
+    "source.uwaterloo_booth_rhetoric_fiction",
+    "source.brit_tell_tale_heart",
+    "source.gutenberg_poe_works_vol2",
+    "source.gutenberg_shakespeare_sonnets",
+    "source.folger_sonnet_130",
+    "source.poets_sonnet",
+    "source.brit_sonnet",
+    "source.poets_volta",
+    "source.brit_dante",
+    "source.brit_divine_comedy",
+    "source.gutenberg_romeo_juliet",
+    "source.brit_romeo_juliet",
+    "source.globe_writing_plays",
+    "source.brit_shakespeare_sources",
+    "source.brit_ovid_works",
+    "source.brit_ovid_legacy",
+    "source.brit_pyramus_thisbe",
+    "source.globe_shakespeare_ovid",
+    "source.brit_dickens",
+    "source.brit_english_literature_dickens",
+    "source.brit_flaubert",
+    "source.brit_crime_and_punishment",
+    "source.brit_anna_karenina",
+    "source.gutenberg_leaves_of_grass",
+    "source.nps_walt_whitman",
+    "source.brit_free_verse",
+    "source.poets_free_verse",
+    "source.guernica_make_it_new",
+    "source.brit_modernist_literature",
+    "source.yale_achebe_unit",
+    "source.brit_detective_story",
+    "source.umsl_knox_decalogue",
+    "source.gutenberg_study_in_scarlet"
+  ],
+  "art": "lit.mastery"
+}

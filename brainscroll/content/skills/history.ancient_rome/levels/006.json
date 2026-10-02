@@ -1,0 +1,216 @@
+{
+  "id": "level.history.ancient_rome.006",
+  "skillId": "skill.history.ancient_rome",
+  "number": 6,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Seven Kings",
+  "objective": "After this level you can outline Rome’s age of kings and how kingship worked there.",
+  "summary": "Seven kings ruled from 753 to 509 BCE, each chosen with the Senate’s and people’s approval. Numa founded religion; Servius, the census.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.roman_kings",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.etruscans",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.senate_republic",
+      "role": "preview",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.005"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.006.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Rome had seven kings, if you trust the legends. Not the kind you picture.",
+      "body": "No crown passed neatly from father to son. Most of the time, Rome had other ideas about who got the job."
+    },
+    {
+      "id": "card.ancient_rome.006.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Seven kings",
+      "body": "Roman tradition counted seven kings, from Romulus in 753 BCE to Tarquin the Proud in 509 BCE, the last three of them Etruscans. But this wasn’t a family business. Kingship was not simply inherited: tradition says most kings were chosen with the approval of the Senate and the people. Being the old king’s son didn’t get you the job. Getting approved did."
+    },
+    {
+      "id": "card.ancient_rome.006.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Remembered for different things",
+      "body": "Each king came with a reputation, like a line on a résumé. Numa Pompilius, the second king, was remembered as the founder of Rome’s religious institutions and its calendar. Servius Tullius, the sixth, was credited with the first census, which sorted citizens by wealth. Ask a Roman who started a custom, and there was often a king ready to take the credit."
+    },
+    {
+      "id": "card.ancient_rome.006.c4",
+      "type": "fact",
+      "fact": "The Senate started as the king’s advisers.",
+      "context": "It began as a council of elders who advised the king. Keep an eye on it. The kings would go, but the Senate would stay, long after the last king was gone."
+    },
+    {
+      "id": "card.ancient_rome.006.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.006.q1"
+    },
+    {
+      "id": "card.ancient_rome.006.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.006.q2"
+    },
+    {
+      "id": "card.ancient_rome.006.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.006.q3"
+    },
+    {
+      "id": "card.ancient_rome.006.c8",
+      "type": "checkpoint",
+      "headline": "The kings: listed",
+      "learned": [
+        "Tradition counts seven kings, 753–509 BCE",
+        "Kings were approved by the Senate and people",
+        "Numa founded religion; Servius the census",
+        "The Senate began as the king’s advisers"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.006.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.roman_kings"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.006.c3"
+      ],
+      "prompt": "Which king was remembered as the founder of Rome’s religious institutions?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Romulus",
+          "correct": false,
+          "rationale": "Romulus was the founder of the city."
+        },
+        {
+          "id": "b",
+          "label": "Tarquin the Proud",
+          "correct": false,
+          "rationale": "He was the last, tyrannical king."
+        },
+        {
+          "id": "c",
+          "label": "Numa Pompilius",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Servius Tullius",
+          "correct": false,
+          "rationale": "He was credited with the census."
+        }
+      ],
+      "explanation": "Numa, the second king, was remembered for founding Rome’s religion and calendar.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.006.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.roman_kings"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.006.c2"
+      ],
+      "prompt": "According to tradition, how did most new Roman kings take power?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He was chosen with the approval of the Senate and people",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "He inherited the crown as the eldest son",
+          "correct": false,
+          "rationale": "Kingship wasn’t simply inherited."
+        },
+        {
+          "id": "c",
+          "label": "He won a chariot race against rivals",
+          "correct": false,
+          "rationale": "No such contest."
+        },
+        {
+          "id": "d",
+          "label": "Priests read his name in the stars",
+          "correct": false,
+          "rationale": "Not how kings were chosen."
+        }
+      ],
+      "explanation": "Tradition says most kings were chosen with the approval of the Senate and the people.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.ancient_rome.006.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.roman_kings",
+        "concept.ancient_rome.etruscans"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.006.c2",
+        "card.ancient_rome.005.c3"
+      ],
+      "prompt": "From Level 5: what did tradition say Rome’s last three kings had in common?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They were brothers",
+          "correct": false,
+          "rationale": "They weren’t all brothers."
+        },
+        {
+          "id": "b",
+          "label": "They were Greek",
+          "correct": false,
+          "rationale": "They weren’t Greek."
+        },
+        {
+          "id": "c",
+          "label": "They were chosen by lot",
+          "correct": false,
+          "rationale": "Kings were approved, not drawn."
+        },
+        {
+          "id": "d",
+          "label": "They were Etruscans",
+          "correct": true
+        }
+      ],
+      "explanation": "Roman tradition held that the last three kings were Etruscans, a sign of Etruscan influence.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_ancient_rome",
+    "source.brit_numa",
+    "source.brit_servius",
+    "source.brit_senate",
+    "source.brit_etruscans",
+    "source.brit_tarquin"
+  ],
+  "art": "rome.curule-chair"
+}

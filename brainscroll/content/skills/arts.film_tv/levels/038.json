@@ -1,0 +1,213 @@
+{
+  "id": "level.arts.film_tv.038",
+  "skillId": "skill.arts.film_tv",
+  "number": 38,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Sound in the Story, Sound for Us",
+  "objective": "After this level you can tell diegetic sound, which the characters can hear, from non-diegetic sound, which only the audience hears.",
+  "summary": "Diegetic sound comes from the story world, so characters could hear it; non-diegetic sound, like most background music, is only for the audience.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.cutting_diegetic_sound",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.frame_rate_standard_24",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.037"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.038.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The music swells. Why doesn't the hero hear it and run?",
+      "body": "The strings shriek, the drums pound, and the character on screen strolls on, calm as ever. The music isn't in their world. It's in yours. Film sound comes in two kinds, and the difference is simply who can hear it."
+    },
+    {
+      "id": "card.film_tv.038.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The story world and its sounds",
+      "body": "Film scholars call the world of the story its diegesis: the objects, events, places and characters in it, including things you infer but never see. Diegetic sound, whether a voice, music or a sound effect, is presented as coming from a source inside that world: a character talking, a band playing at a party, a radio on the kitchen counter."
+    },
+    {
+      "id": "card.film_tv.038.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sound just for you",
+      "body": "Non-diegetic sound comes from outside the story world. Most background music is non-diegetic: you hear it, the characters don't. There's no orchestra hiding behind the sofa. So the test is simple. Could someone in the scene hear it, if they listened? Yes means diegetic. No means it's only for you.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this test: could anyone in the scene hear it? Yes, diegetic. No, it plays only for you."
+      }
+    },
+    {
+      "id": "card.film_tv.038.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sounds inside a head",
+      "body": "Some sounds sit in between. Internal diegetic sound comes from inside a character's mind, such as their thoughts or sounds they imagine. It belongs to the story world, but no one else in the scene can hear it. It's a way of putting you inside one person's head."
+    },
+    {
+      "id": "card.film_tv.038.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.038.q1"
+    },
+    {
+      "id": "card.film_tv.038.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.038.q2"
+    },
+    {
+      "id": "card.film_tv.038.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.038.q3"
+    },
+    {
+      "id": "card.film_tv.038.c8",
+      "type": "checkpoint",
+      "headline": "Sound: sorted",
+      "learned": [
+        "Diegesis: the story world of a film",
+        "Diegetic sound: its source is in the story",
+        "Non-diegetic: from outside, like most scores",
+        "Internal diegetic: inside one character's head"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.038.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.cutting_diegetic_sound"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.038.c3"
+      ],
+      "prompt": "What is non-diegetic sound?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A character's spoken dialogue",
+          "correct": false,
+          "rationale": "Dialogue comes from inside the story world, so it's diegetic."
+        },
+        {
+          "id": "b",
+          "label": "Sound from outside the story world, like most scores",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Any sound recorded on the film set",
+          "correct": false,
+          "rationale": "Diegesis is about the story world, not where it was recorded."
+        },
+        {
+          "id": "d",
+          "label": "A radio playing in the scene",
+          "correct": false,
+          "rationale": "The characters could hear that, so it is diegetic."
+        }
+      ],
+      "explanation": "Non-diegetic sound comes from outside the story world, as most background music does; only the audience hears it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.038.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.cutting_diegetic_sound"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.038.c2",
+        "card.film_tv.038.c3"
+      ],
+      "prompt": "How can you tell whether a song playing in a scene is diegetic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Check whether the song has lyrics",
+          "correct": false,
+          "rationale": "Songs with or without words can be either."
+        },
+        {
+          "id": "b",
+          "label": "Check whether it is louder than the dialogue",
+          "correct": false,
+          "rationale": "Volume does not decide it."
+        },
+        {
+          "id": "c",
+          "label": "Ask whether its source is inside the story world",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Check whether it was recorded live on set",
+          "correct": false,
+          "rationale": "Diegesis is about the story world, not the recording."
+        }
+      ],
+      "explanation": "Diegetic sound is presented as coming from a source inside the film's world, so characters could hear it.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.film_tv.038.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.frame_rate_standard_24",
+        "concept.film_tv.cutting_diegetic_sound"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.038.c2",
+        "card.film_tv.003.c3"
+      ],
+      "prompt": "Level 3: sound films ran at a steady 24 frames a second so voices stayed in sync with lips. Is that on-screen dialogue diegetic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Yes: its source is a character in the story",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "No: all recorded sound is non-diegetic",
+          "correct": false,
+          "rationale": "Recorded or not, dialogue comes from the story world."
+        },
+        {
+          "id": "c",
+          "label": "No: only music can be diegetic",
+          "correct": false,
+          "rationale": "Voices, music and effects can all be diegetic."
+        },
+        {
+          "id": "d",
+          "label": "Only if the film is in color",
+          "correct": false,
+          "rationale": "Color has nothing to do with it."
+        }
+      ],
+      "explanation": "A character speaking is a source inside the story world, so the dialogue is diegetic.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.yale_film_analysis_sound",
+    "source.yale_film_analysis_basic_terms"
+  ],
+  "art": "technology.radio"
+}

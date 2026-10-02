@@ -1,0 +1,226 @@
+{
+  "id": "level.mind.philosophy.032",
+  "skillId": "skill.mind.philosophy",
+  "number": 32,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Ghost in the Machine",
+  "objective": "After this level you can explain Descartes's dualism of mind and matter, Princess Elisabeth's question about how they interact, and Ryle's nickname for it.",
+  "summary": "Descartes held the mind is a thinking, unextended thing distinct from the body; Elisabeth asked how such a mind could move a body, and Ryle mocked the view as the ghost in the machine.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.mind_cartesian_dualism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.mind_body_problem",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.philosophy.no_self",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.031"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.032.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Is there a ghost steering your body?",
+      "body": "Descartes said your mind and your body are two different things. A princess asked him how they could ever touch. Three centuries later, a philosopher gave his view a mocking nickname."
+    },
+    {
+      "id": "card.philosophy.032.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two kinds of thing",
+      "body": "René Descartes argued that the mind is a thinking thing with no extension: it takes up no space. The body is the reverse, an extended thing that doesn’t think. Since their natures are so different, he concluded they are really distinct, and one could exist without the other. He added that a body can always be divided into parts, while he could find no parts in himself as a thinking thing. This is mind-body dualism."
+    },
+    {
+      "id": "card.philosophy.032.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A princess asks the obvious question",
+      "body": "In 1643 Princess Elisabeth of Bohemia began writing to Descartes with a sharp question: how can a soul that is only a thinking thing move a body? Her worry went like this. To set something moving, a thing has to come into contact with it, like one pool ball striking another. Contact needs a surface, and a mind with no extension has none. How does a ghost push a button?"
+    },
+    {
+      "id": "card.philosophy.032.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ryle names the ghost",
+      "body": "In The Concept of Mind (1949), Gilbert Ryle called the Cartesian picture, “with deliberate abusiveness”, “the dogma of the Ghost in the Machine”. His diagnosis was a category mistake: the dogma treats the facts of mental life as if they belonged to one logical category, when they belong to another. On Ryle’s diagnosis, Descartes filed the mind on the wrong shelf."
+    },
+    {
+      "id": "card.philosophy.032.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "“But where is the University?”",
+      "body": "Ryle’s example: a visitor to Oxford or Cambridge is shown the colleges, libraries and offices, then asks, “But where is the University?” The University isn’t one more building. It’s the way all of them are organized. Ryle wasn’t denying that people think: doing long division is a mental process, he said, and so is making a joke. What he denied was a hidden extra thing doing it.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "Common mix-up: Ryle never said people don’t think. He said the mind isn’t an extra thing hiding inside the body."
+      }
+    },
+    {
+      "id": "card.philosophy.032.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.032.q1"
+    },
+    {
+      "id": "card.philosophy.032.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.032.q2"
+    },
+    {
+      "id": "card.philosophy.032.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.032.q3"
+    },
+    {
+      "id": "card.philosophy.032.c9",
+      "type": "checkpoint",
+      "headline": "The Ghost in the Machine: the big picture",
+      "learned": [
+        "Descartes: mind thinks but takes up no space",
+        "Elisabeth: how can such a mind move a body?",
+        "Ryle: “the Ghost in the Machine”",
+        "A category mistake, like seeking the University"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.032.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.mind_cartesian_dualism"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.032.c4"
+      ],
+      "prompt": "What nickname did Gilbert Ryle give the Cartesian picture of the mind?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The captain of the ship",
+          "correct": false,
+          "rationale": "That isn’t Ryle’s phrase."
+        },
+        {
+          "id": "b",
+          "label": "The Ghost in the Machine",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The theater of dreams",
+          "correct": false,
+          "rationale": "That isn’t Ryle’s phrase."
+        },
+        {
+          "id": "d",
+          "label": "The chariot of the self",
+          "correct": false,
+          "rationale": "A chariot is Nagasena’s image from Level 8."
+        }
+      ],
+      "explanation": "In The Concept of Mind (1949), Ryle called it “the dogma of the Ghost in the Machine”, with deliberate abusiveness.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.philosophy.032.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.mind_cartesian_dualism"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.032.c3"
+      ],
+      "prompt": "On Elisabeth’s worry, how does one thing normally set another moving, and why can’t Descartes’s mind do it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By thinking about it, which a mind can do but a body can’t",
+          "correct": false,
+          "rationale": "Her point was that motion needs contact, not thought."
+        },
+        {
+          "id": "b",
+          "label": "By magnetism, which a mind is too weak to use",
+          "correct": false,
+          "rationale": "Contact, not magnetism, was the issue."
+        },
+        {
+          "id": "c",
+          "label": "By waiting, since bodies move on their own",
+          "correct": false,
+          "rationale": "Something has to set the body moving."
+        },
+        {
+          "id": "d",
+          "label": "By contact, and a mind with no extension has no surface to touch with",
+          "correct": true
+        }
+      ],
+      "explanation": "Setting something in motion seemed to need contact, like pool balls striking. Contact needs a surface, which an unextended mind lacks.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.philosophy.032.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.mind_cartesian_dualism",
+        "concept.philosophy.no_self"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.032.c5",
+        "card.philosophy.008.c4"
+      ],
+      "prompt": "Ryle’s University is just the way its colleges and libraries are organized. Which image from Level 8 makes a similar point about a person?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nagasena’s chariot, a name for parts put together",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Gyges’s ring, which makes its wearer invisible",
+          "correct": false,
+          "rationale": "The ring tests whether people stay just."
+        },
+        {
+          "id": "c",
+          "label": "Plato’s equal sticks",
+          "correct": false,
+          "rationale": "The sticks point to the Form of Equality."
+        },
+        {
+          "id": "d",
+          "label": "Butcher Ding’s knife",
+          "correct": false,
+          "rationale": "The knife shows wu wei."
+        }
+      ],
+      "explanation": "Both refuse to add an extra thing: the University is its organized parts, and the chariot is a name for its parts put together.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_descartes_mind",
+    "source.sep_elisabeth_bohemia",
+    "source.purdue_ryle_descartes_myth",
+    "source.sep_dualism"
+  ],
+  "art": "phil.ghost"
+}

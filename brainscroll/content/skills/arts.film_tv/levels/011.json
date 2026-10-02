@@ -1,0 +1,214 @@
+{
+  "id": "level.arts.film_tv.011",
+  "skillId": "skill.arts.film_tv",
+  "number": 11,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Nickelodeon Boom",
+  "objective": "After this level you can explain how five-cent storefront theaters made movies a cheap, everyday entertainment.",
+  "summary": "Nickelodeons, storefront theaters charging a nickel, spread from Pittsburgh in 1905 to thousands by 1908, and film exchanges rented them a steady supply of films.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.silent_nickelodeon_boom",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.silent_film_exchanges",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.train_robbery_legacy",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.010"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.011.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "For a nickel, you could walk in off the street and watch the movies.",
+      "body": "In 1905 Harry Davis opened a nickelodeon in Pittsburgh: a movie theater named for its price, one nickel. It became the model for thousands more across the United States. Chapter 1 ended with films that could tell a story. This chapter starts with where people went to see them, and how cheap it was."
+    },
+    {
+      "id": "card.film_tv.011.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A theater in a shop front",
+      "body": "Nickelodeons were makeshift theaters in converted storefronts. For 5 to 10 cents you got about an hour's worth of short films, shown continuously with a piano playing along. What got them started? Britannica credits the popularity of The Great Train Robbery (Level 8) with encouraging investors to open these first permanent film theaters. A story film built the rooms that would show stories."
+    },
+    {
+      "id": "card.film_tv.011.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "From a handful to thousands",
+      "body": "In 1904 the United States had only a handful of nickelodeons. By 1908 it had between 8,000 and 10,000. They were first identified with working-class audiences, then drew more middle-class viewers as the decade went on, and they became tied to the rising popularity of the story film."
+    },
+    {
+      "id": "card.film_tv.011.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rent it, don't buy it",
+      "body": "Thousands of screens needed a steady supply of films. From about 1897 producers sold prints outright, so a theater had to buy every film it showed. Around 1903 Harry and Herbert Miles opened a film exchange in San Francisco: it bought prints from producers and leased them to theaters for a quarter of the purchase price. Renting made a fresh program affordable, and the exchange became the middleman between the people who made films and the people who showed them."
+    },
+    {
+      "id": "card.film_tv.011.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.011.q1"
+    },
+    {
+      "id": "card.film_tv.011.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.011.q2"
+    },
+    {
+      "id": "card.film_tv.011.c7",
+      "type": "mcq",
+      "questionId": "question.film_tv.011.q3"
+    },
+    {
+      "id": "card.film_tv.011.c8",
+      "type": "checkpoint",
+      "headline": "The nickelodeon: open for business",
+      "learned": [
+        "1905: a nickel theater in Pittsburgh becomes the model",
+        "Storefront theaters: about an hour of films for 5 to 10 cents",
+        "From a handful in 1904 to 8,000 to 10,000 by 1908",
+        "Film exchanges leased prints instead of selling them"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.011.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.silent_nickelodeon_boom"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.011.c1"
+      ],
+      "prompt": "Where did the nickelodeon, the early storefront movie theater, get its name?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From its admission price, a nickel",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "From an inventor called Nick Odeon",
+          "correct": false,
+          "rationale": "No such person; the name comes from the ticket price."
+        },
+        {
+          "id": "c",
+          "label": "From the nickel-plated projectors inside",
+          "correct": false,
+          "rationale": "The level ties the name to the price, not the equipment."
+        },
+        {
+          "id": "d",
+          "label": "From a Pittsburgh street",
+          "correct": false,
+          "rationale": "Davis's theater was in Pittsburgh, but the name comes from the nickel it charged."
+        }
+      ],
+      "explanation": "A nickelodeon was named for its admission price: one nickel.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.film_tv.011.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.silent_film_exchanges"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.011.c4"
+      ],
+      "prompt": "How did film exchanges make it easier for theaters to keep showing new films?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They filmed new movies for each theater",
+          "correct": false,
+          "rationale": "Exchanges didn't make films; they bought and leased prints."
+        },
+        {
+          "id": "b",
+          "label": "They leased prints for a quarter of the purchase price",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They gave films away to fill the new theaters",
+          "correct": false,
+          "rationale": "Theaters paid to lease the prints."
+        },
+        {
+          "id": "d",
+          "label": "They sold prints outright at a discount",
+          "correct": false,
+          "rationale": "Selling outright was the older system the exchanges replaced."
+        }
+      ],
+      "explanation": "An exchange bought prints from producers and leased them to theaters for 25 percent of the purchase price, far cheaper than buying.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.film_tv.011.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.silent_nickelodeon_boom",
+        "concept.film_tv.train_robbery_legacy"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.011.c2",
+        "card.film_tv.008.c4"
+      ],
+      "prompt": "How did The Great Train Robbery (Level 8) help create the nickelodeons, according to Britannica?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Porter built the first nickelodeon to show it",
+          "correct": false,
+          "rationale": "Harry Davis opened the Pittsburgh nickelodeon; Porter made films."
+        },
+        {
+          "id": "b",
+          "label": "It was banned from other venues, so new theaters opened",
+          "correct": false,
+          "rationale": "Nothing in the level says it was banned."
+        },
+        {
+          "id": "c",
+          "label": "Its popularity encouraged investors to open permanent film theaters",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It was short enough to fit a five-minute program",
+          "correct": false,
+          "rationale": "Nickelodeon programs ran about an hour."
+        }
+      ],
+      "explanation": "Britannica credits the film's popularity with encouraging investors and leading to the first permanent film theaters, the nickelodeons.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_nickelodeon",
+    "source.brit_history_film_early_industry",
+    "source.brit_great_train_robbery"
+  ],
+  "art": "mind.coin"
+}

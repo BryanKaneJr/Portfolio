@@ -1,0 +1,213 @@
+{
+  "id": "level.mind.psychology.007",
+  "skillId": "skill.mind.psychology",
+  "number": 7,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Nature, Nurture or Both?",
+  "objective": "After this level you can explain how twin and adoption studies separate the effects of genes and upbringing.",
+  "summary": "Twin studies compare identical and fraternal twins, and adoption studies compare biological and adoptive relatives. Across 50 years of twin studies, heritability averaged 49 percent.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.twin_adoption_studies",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.heritability",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.006"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.007.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Psychologists can't swap babies between families. Families do it for them.",
+      "body": "Ethics rule out many experiments psychologists might like to run, like assigning children to different homes. But twins and adopted children already provide the comparison. How do they help untangle genes from upbringing?"
+    },
+    {
+      "id": "card.psychology.007.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Twins and adoptees",
+      "body": "Identical twins have almost no differences in their DNA, while fraternal twins share on average 50 percent of theirs. So twin studies compare how often a trait is shared by identical versus fraternal twins. If identical twins raised together are more alike on a trait than fraternal twins, genes likely play a role. Adoption studies flip the setup: they compare children with their biological relatives and with the family that raised them."
+    },
+    {
+      "id": "card.psychology.007.c3",
+      "type": "fact",
+      "fact": "Across 50 years of twin studies, the average heritability was 49 percent.",
+      "context": "In 2015, Tinca Polderman and colleagues pooled virtually every twin study published over 50 years: 17,804 traits and about 14.5 million twin pairs. Averaged across all traits, heritability came out at 49 percent. Roughly half of the differences between people traced to genetic differences, and the rest to everything else."
+    },
+    {
+      "id": "card.psychology.007.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What heritability does not mean",
+      "body": "Heritability describes differences within a population, not a person. A heritability of 0.7 doesn't mean a trait is 70 percent caused by genes; it means 70 percent of the variation between people in that group comes from genetic differences, in that environment. It also isn't destiny. The language you speak runs in families yet has a heritability of zero. Hair color is highly heritable, and one bottle of dye changes it.",
+      "mascot": {
+        "pose": "oops",
+        "line": "People mix up \"heritable\" and \"fixed\" all the time. Highly heritable hair color still changes with dye."
+      }
+    },
+    {
+      "id": "card.psychology.007.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.007.q1"
+    },
+    {
+      "id": "card.psychology.007.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.007.q2"
+    },
+    {
+      "id": "card.psychology.007.c7",
+      "type": "mcq",
+      "questionId": "question.psychology.007.q3"
+    },
+    {
+      "id": "card.psychology.007.c8",
+      "type": "checkpoint",
+      "headline": "Nature and nurture",
+      "learned": [
+        "Twin studies compare identical and fraternal twins",
+        "Adoption studies compare biological and adoptive families",
+        "Average heritability across twin studies: 49 percent",
+        "Heritability describes groups, not individuals or destiny"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.007.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.twin_adoption_studies"
+      ],
+      "sourceCardIds": [
+        "card.psychology.007.c2"
+      ],
+      "prompt": "What do adoption studies compare to weigh genes against upbringing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Identical twins with each other only",
+          "correct": false,
+          "rationale": "Twin studies compare identical and fraternal twins."
+        },
+        {
+          "id": "b",
+          "label": "Children with biological relatives and with adoptive relatives",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Children before and after they learn a language",
+          "correct": false,
+          "rationale": "That doesn't separate genes from family environment."
+        },
+        {
+          "id": "d",
+          "label": "Siblings of different ages in one school",
+          "correct": false,
+          "rationale": "That comparison can't separate genes from upbringing."
+        }
+      ],
+      "explanation": "Adoption studies compare children with their biological relatives and with the family that raised them.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.007.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.heritability"
+      ],
+      "sourceCardIds": [
+        "card.psychology.007.c4"
+      ],
+      "prompt": "A trait has a heritability of 0.7 in one population. What does that mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "70 percent of each person's trait comes from genes",
+          "correct": false,
+          "rationale": "Heritability describes a group, not one person."
+        },
+        {
+          "id": "b",
+          "label": "The trait can't be changed by the environment",
+          "correct": false,
+          "rationale": "Heritable isn't fixed: hair color changes with dye."
+        },
+        {
+          "id": "c",
+          "label": "70 percent of the differences between people in that group trace to genes",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Seven in ten people will inherit the trait",
+          "correct": false,
+          "rationale": "It doesn't predict who inherits the trait."
+        }
+      ],
+      "explanation": "Heritability describes how much of the variation in a trait within a population comes from genetic differences.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.psychology.007.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.twin_adoption_studies",
+        "concept.psychology.heritability"
+      ],
+      "sourceCardIds": [
+        "card.psychology.007.c2",
+        "card.psychology.007.c3"
+      ],
+      "prompt": "On a trait, identical twins raised together are much more alike than fraternal twins. What does that point to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Genes play a role in that trait",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The trait has a heritability of zero",
+          "correct": false,
+          "rationale": "Zero heritability would mean genes explain none of the differences."
+        },
+        {
+          "id": "c",
+          "label": "The twins' parents taught them differently",
+          "correct": false,
+          "rationale": "Both kinds of twins were raised together, so upbringing is similar."
+        },
+        {
+          "id": "d",
+          "label": "Fraternal twins share all their DNA",
+          "correct": false,
+          "rationale": "Fraternal twins share on average 50 percent."
+        }
+      ],
+      "explanation": "Identical twins share almost all their DNA and fraternal twins about half, so extra similarity in identical twins suggests genes matter.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_approaches_research",
+    "source.openstax_psych_genetics",
+    "source.medlineplus_heritability",
+    "source.natgenet_polderman_twins_2015"
+  ],
+  "art": "technology.dna"
+}

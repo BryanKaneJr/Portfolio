@@ -1,0 +1,246 @@
+{
+  "id": "level.geography.earth_climate.095",
+  "skillId": "skill.geography.earth_climate",
+  "number": 95,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Heat: The Quiet Killer",
+  "objective": "After this level you can explain why extreme heat is so dangerous, why cities run hotter, and who is most at risk.",
+  "summary": "Extreme heat is the top weather killer in the US. Humid air slows cooling by sweat, heat stroke is a 911 emergency, and cities stay hotter, especially at night.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.hazard_heat_body",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.hazard_heat_illness",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.hazard_urban_heat_island",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.spheres_interact",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.094"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.095.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The deadliest weather in the US doesn't roar.",
+      "body": "No funnel, no thunder, no rushing water. The National Weather Service calls extreme heat the number one weather-related killer in the United States. Here's why something so quiet is so dangerous."
+    },
+    {
+      "id": "card.earth_climate.095.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Your body's cooling system",
+      "body": "Your body cools itself by sweating: as sweat evaporates, it carries heat away. In humid air, sweat evaporates more slowly, so the cooling system stalls while the heat keeps coming. That's why forecasters give a heat index, what the temperature feels like once humidity is counted in. Sticky heat is harder on you than dry heat."
+    },
+    {
+      "id": "card.earth_climate.095.c3",
+      "type": "comparison",
+      "headline": "Know the warning signs",
+      "items": [
+        {
+          "label": "Heat exhaustion",
+          "points": [
+            "Heavy sweating",
+            "Cold, pale, clammy skin",
+            "Fast, weak pulse",
+            "Move somewhere cool, loosen clothes, sip water"
+          ]
+        },
+        {
+          "label": "Heat stroke",
+          "points": [
+            "Body temperature of 103°F or higher",
+            "Hot, red, dry or damp skin",
+            "Fast, strong pulse; confusion",
+            "A medical emergency: call 911 right away"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.earth_climate.095.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why cities run hotter",
+      "body": "Roofs, roads and parking lots soak up the Sun's heat and give it back, more than forests or lakes do. Cities also have fewer trees to shade the ground and release water from their leaves. The result is a heat island: in the US, about 1 to 7°F hotter than outlying areas by day and 2 to 5°F hotter at night, as the pavement slowly lets its stored heat go."
+    },
+    {
+      "id": "card.earth_climate.095.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Who is most at risk",
+      "body": "Heat doesn't hit everyone equally. The National Weather Service lists infants and children, older adults (especially those with health conditions or living alone), people with chronic illnesses and pregnant women as the most vulnerable. That's why heat safety includes other people: check on older, sick or frail neighbors when a heat wave arrives."
+    },
+    {
+      "id": "card.earth_climate.095.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.095.q1"
+    },
+    {
+      "id": "card.earth_climate.095.c7",
+      "type": "mcq",
+      "questionId": "question.earth_climate.095.q2"
+    },
+    {
+      "id": "card.earth_climate.095.c8",
+      "type": "recall",
+      "questionId": "question.earth_climate.095.q3"
+    },
+    {
+      "id": "card.earth_climate.095.c9",
+      "type": "checkpoint",
+      "headline": "Heat: understood",
+      "learned": [
+        "Heat is the top weather killer in the US",
+        "Humid air slows cooling by sweat",
+        "Heat stroke: hot skin, confusion, call 911",
+        "Cities hold heat, especially at night"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.095.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.hazard_heat_illness"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.095.c3"
+      ],
+      "prompt": "A runner has hot, red skin, a fast, strong pulse and seems confused. What do the CDC's warning signs point to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Heat exhaustion: rest and sip water",
+          "correct": false,
+          "rationale": "Heat exhaustion brings cold, pale, clammy skin and a weak pulse."
+        },
+        {
+          "id": "b",
+          "label": "Ordinary tiredness after a long run",
+          "correct": false,
+          "rationale": "Confusion and hot, red skin are warning signs."
+        },
+        {
+          "id": "c",
+          "label": "Heat stroke: call 911 right away",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A mild sunburn that needs lotion",
+          "correct": false,
+          "rationale": "These signs point to a medical emergency."
+        }
+      ],
+      "explanation": "Hot, red skin, a fast, strong pulse and confusion are signs of heat stroke, a medical emergency: call 911.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.095.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.hazard_heat_body"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.095.c2"
+      ],
+      "prompt": "Why is humid heat harder on your body than dry heat at the same temperature?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Humid air holds less oxygen to breathe",
+          "correct": false,
+          "rationale": "The issue is cooling, not oxygen."
+        },
+        {
+          "id": "b",
+          "label": "Sweat evaporates more slowly, so you cool less",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Humidity stops your body from sweating at all",
+          "correct": false,
+          "rationale": "You still sweat; it just evaporates more slowly."
+        },
+        {
+          "id": "d",
+          "label": "Water vapor heats the skin like a stove",
+          "correct": false,
+          "rationale": "Humid air doesn't add heat; it slows your cooling."
+        }
+      ],
+      "explanation": "Evaporating sweat carries heat away. In humid air it evaporates more slowly, so the body struggles to cool.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.095.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.hazard_urban_heat_island",
+        "concept.earth_climate.spheres_interact"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.095.c4",
+        "card.earth_climate.001.c3"
+      ],
+      "prompt": "A street lined with trees stays cooler than a bare parking lot nearby. Which process from Level 1 helps explain that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Eruption cooling: leaves give off sulfur droplets",
+          "correct": false,
+          "rationale": "Sulfur droplets come from big eruptions, not trees."
+        },
+        {
+          "id": "b",
+          "label": "Heat storage: trees soak up heat for the night",
+          "correct": false,
+          "rationale": "That's what pavement does."
+        },
+        {
+          "id": "c",
+          "label": "Erosion: roots break up the hot pavement",
+          "correct": false,
+          "rationale": "The cooling comes from shade and water vapor."
+        },
+        {
+          "id": "d",
+          "label": "Transpiration: leaves release water vapor",
+          "correct": true
+        }
+      ],
+      "explanation": "Trees shade the ground and release water vapor from their leaves (transpiration), which cools the air. Pavement does neither.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nws_mkx_heat_waves",
+    "source.nws_heat_index",
+    "source.cdc_heat_illness_poster",
+    "source.epa_heat_islands",
+    "source.nws_heat_during"
+  ],
+  "art": "nature.thermometer"
+}

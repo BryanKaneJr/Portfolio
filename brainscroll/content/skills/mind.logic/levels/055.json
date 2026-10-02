@@ -1,0 +1,210 @@
+{
+  "id": "level.mind.logic.055",
+  "skillId": "skill.mind.logic",
+  "number": 55,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Perfect or Nothing",
+  "objective": "After this level you can spot the perfect-solution fallacy: rejecting an idea because it doesn't solve the whole problem.",
+  "summary": "The perfect-solution fallacy rejects a real improvement because it isn't total. Seat belts cut deaths by about half. Demsetz's fix: compare real options, not reality with an ideal.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.trap_perfect_solution_fallacy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.trap_compared_with_what",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.054"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"Seat belts don't save everyone. So why bother wearing one?\"",
+      "body": "Said out loud, it sounds silly. Yet the same shape of argument turns up everywhere: a spelling checker is useless because it misses some typos; a new bike lane is pointless because some cyclists will still ride in traffic. This level names the pattern and gives you one question that deflates it.",
+      "id": "card.logic.055.c1"
+    },
+    {
+      "type": "fact",
+      "fact": "Seat belts cut serious crash injuries and deaths by about half.",
+      "context": "That's the U.S. Centers for Disease Control and Prevention's figure. About half is not all, so some people wearing belts still die in crashes. \"Not all\" is exactly the gap the hook's argument pounces on, as if a huge improvement counted for nothing because it isn't total.",
+      "id": "card.logic.055.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The perfect-solution fallacy",
+      "body": "The Internet Encyclopedia of Philosophy calls it the perfectionist fallacy: rejecting a proposal solely because it doesn't solve the problem perfectly, in cases where perfection isn't really required. It also goes by the perfect solution fallacy or the nirvana fallacy. The hidden rule is \"if it isn't perfect, it isn't worth doing\". Notice the fine print, though: sometimes perfection really is required. A lock that works most days isn't much of a lock.",
+      "id": "card.logic.055.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Compared with what?",
+      "body": "In 1969 the economist Harold Demsetz criticized what he called the nirvana viewpoint: find gaps between the ideal and the real, then conclude the real is failing. He urged comparing real alternatives instead, and economists now call the mistake the Nirvana fallacy. That gives you the question that deflates it: compared with what? Not belts against a crash nobody gets hurt in. Belts against no belts.",
+      "id": "card.logic.055.c4"
+    },
+    {
+      "id": "card.logic.055.c5",
+      "type": "mcq",
+      "questionId": "question.logic.055.q1"
+    },
+    {
+      "id": "card.logic.055.c6",
+      "type": "mcq",
+      "questionId": "question.logic.055.q2"
+    },
+    {
+      "id": "card.logic.055.c7",
+      "type": "mcq",
+      "questionId": "question.logic.055.q3"
+    },
+    {
+      "id": "card.logic.055.c8",
+      "type": "checkpoint",
+      "headline": "Perfect-or-nothing: spotted",
+      "learned": [
+        "Rejecting a fix for not being total is a fallacy",
+        "Also called the nirvana fallacy",
+        "Seat belts cut deaths by about half",
+        "Always ask: compared with what?"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.055.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.trap_perfect_solution_fallacy"
+      ],
+      "sourceCardIds": [
+        "card.logic.055.c3"
+      ],
+      "prompt": "What does the perfect-solution fallacy do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Accepts any idea as long as it sounds ambitious",
+          "correct": false,
+          "rationale": "It does the opposite: it rejects ideas."
+        },
+        {
+          "id": "b",
+          "label": "Picks the cheapest option every time",
+          "correct": false,
+          "rationale": "Cost isn't the issue."
+        },
+        {
+          "id": "c",
+          "label": "Compares two real options side by side",
+          "correct": false,
+          "rationale": "That's the cure Demsetz recommended."
+        },
+        {
+          "id": "d",
+          "label": "Rejects an idea for not solving the whole problem",
+          "correct": true
+        }
+      ],
+      "explanation": "It rejects a proposal solely because it isn't a perfect solution, where perfection isn't required.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.055.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.trap_compared_with_what"
+      ],
+      "sourceCardIds": [
+        "card.logic.055.c2",
+        "card.logic.055.c4"
+      ],
+      "prompt": "Why does \"seat belts don't save everyone\" fail as a reason not to wear one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It compares belts with perfection, not with no belts",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Seat belts actually do save everyone who wears them",
+          "correct": false,
+          "rationale": "They cut deaths by about half, not all."
+        },
+        {
+          "id": "c",
+          "label": "Nobody has measured what belts do",
+          "correct": false,
+          "rationale": "The CDC has: about half."
+        },
+        {
+          "id": "d",
+          "label": "The argument is too short to judge",
+          "correct": false,
+          "rationale": "Length isn't the flaw; the comparison is."
+        }
+      ],
+      "explanation": "The fair comparison is belts against no belts, and belts cut serious injuries and deaths by about half.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.055.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.trap_compared_with_what",
+        "concept.logic.trap_perfect_solution_fallacy"
+      ],
+      "sourceCardIds": [
+        "card.logic.055.c3",
+        "card.logic.055.c4"
+      ],
+      "prompt": "A school rejects a crossing guard because some kids will still cross badly. What question exposes the flaw?",
+      "options": [
+        {
+          "id": "a",
+          "label": "\"Who first suggested a crossing guard?\"",
+          "correct": false,
+          "rationale": "Who suggested it doesn't affect whether it helps."
+        },
+        {
+          "id": "b",
+          "label": "\"Compared with no guard at all, is it better?\"",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "\"Is a crossing guard natural?\"",
+          "correct": false,
+          "rationale": "That's Level 54's trap, and beside the point here."
+        },
+        {
+          "id": "d",
+          "label": "\"How sure does the principal sound?\"",
+          "correct": false,
+          "rationale": "Confidence isn't the issue."
+        }
+      ],
+      "explanation": "Demsetz's question: compare the real option with the real alternative, not with a perfect world.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies",
+    "source.skepdic_perfect_solution",
+    "source.cdc_seat_belt_facts",
+    "source.econlib_demsetz"
+  ],
+  "art": "money.scale"
+}

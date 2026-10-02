@@ -1,0 +1,213 @@
+{
+  "id": "level.mind.probability.064",
+  "skillId": "skill.mind.probability",
+  "number": 64,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Placebos and Blinding",
+  "objective": "After this level you can explain why trials use placebos and keep people blind to who got what.",
+  "summary": "A placebo is an inactive look-alike, so the gap between drug and placebo groups is the drug's own effect. Blinding keeps expectations from tipping the results.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.experiment_placebo",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.experiment_blinding",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.percentage_points",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.063"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.064.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Expecting to feel better can make you feel better.",
+      "body": "Doctors call it the placebo effect: a real benefit that comes from a person's expectation that a treatment will help. That's lovely for patients and a headache for anyone testing a new drug. How can you tell what the drug did from what the hoping did?"
+    },
+    {
+      "id": "card.probability.064.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The placebo: a pill that does nothing on purpose",
+      "body": "A placebo is an inactive substance that looks like the treatment being tested. In a placebo-controlled trial, volunteers are randomly split: one group gets the real treatment, the other gets the placebo. Both groups get the expectation; only one gets the drug. So the gap between the groups' results is the drug's own effect, over and above hope."
+    },
+    {
+      "id": "card.probability.064.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Blinding: nobody knows who got what",
+      "body": "A placebo only works as a control if people can't tell which pill they got. So in a blinded study, participants aren't told who is getting the active treatment and who the placebo. In a double-blind study, the researchers working with them don't know either, so their hopes can't tip how patients are treated or how results are judged.",
+      "callout": "Double-blind: neither patients nor researchers know who got the real thing."
+    },
+    {
+      "id": "card.probability.064.c4",
+      "type": "fact",
+      "fact": "When patients can't be blinded, the judges still can.",
+      "context": "Some treatments are impossible to disguise. In one textbook study, people solved mazes wearing a flower-scented mask for some and an unscented one for others. They could smell the difference, so they couldn't be blinded. But the researchers timing the mazes could be kept in the dark about which mask was which."
+    },
+    {
+      "id": "card.probability.064.c5",
+      "type": "mcq",
+      "questionId": "question.probability.064.q1"
+    },
+    {
+      "id": "card.probability.064.c6",
+      "type": "mcq",
+      "questionId": "question.probability.064.q2"
+    },
+    {
+      "id": "card.probability.064.c7",
+      "type": "recall",
+      "questionId": "question.probability.064.q3"
+    },
+    {
+      "id": "card.probability.064.c8",
+      "type": "checkpoint",
+      "headline": "Placebos and blinding",
+      "learned": [
+        "Placebo: an inactive look-alike",
+        "The drug's effect is the gap over placebo",
+        "Blind: patients don't know",
+        "Double-blind: researchers don't either"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.064.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.experiment_placebo"
+      ],
+      "sourceCardIds": [
+        "card.probability.064.c2"
+      ],
+      "prompt": "In a trial, what is a placebo?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A smaller dose of the real drug",
+          "correct": false,
+          "rationale": "A placebo contains no active drug at all."
+        },
+        {
+          "id": "b",
+          "label": "A second drug given for comparison",
+          "correct": false,
+          "rationale": "It's not another drug; it's inactive."
+        },
+        {
+          "id": "c",
+          "label": "An inactive look-alike of the treatment",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The group that gets the real treatment",
+          "correct": false,
+          "rationale": "That's the treatment group; the placebo goes to the control group."
+        }
+      ],
+      "explanation": "A placebo is an inactive substance that looks like the treatment being tested.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.064.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.experiment_blinding"
+      ],
+      "sourceCardIds": [
+        "card.probability.064.c3"
+      ],
+      "prompt": "Why does a double-blind trial keep the researchers in the dark too?",
+      "options": [
+        {
+          "id": "a",
+          "label": "So the trial can finish faster",
+          "correct": false,
+          "rationale": "Blinding doesn't speed anything up; it removes a source of bias."
+        },
+        {
+          "id": "b",
+          "label": "So their hopes can't tip how patients are treated or judged",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Because doctors aren't allowed to know about placebos",
+          "correct": false,
+          "rationale": "Researchers designed the trial; they just don't know who got which pill."
+        },
+        {
+          "id": "d",
+          "label": "So the researchers can't take the drug themselves",
+          "correct": false,
+          "rationale": "It's about their expectations, not their own use of the drug."
+        }
+      ],
+      "explanation": "If researchers knew who got the drug, their expectations could shape how they treat patients or read results. Blinding them removes that.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.064.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.percentage_points",
+        "concept.probability.experiment_placebo"
+      ],
+      "sourceCardIds": [
+        "card.probability.005.c2",
+        "card.probability.064.c2"
+      ],
+      "prompt": "In a trial, 30% of the placebo group improve and 45% of the drug group do. In Level 5's terms, the drug adds:",
+      "options": [
+        {
+          "id": "a",
+          "label": "45 percentage points",
+          "correct": false,
+          "rationale": "45% is the drug group's total, hope included; the placebo group shows 30 of it without the drug."
+        },
+        {
+          "id": "b",
+          "label": "15 percent",
+          "correct": false,
+          "rationale": "The difference between two percents is in percentage points, not percent."
+        },
+        {
+          "id": "c",
+          "label": "50 percentage points",
+          "correct": false,
+          "rationale": "50% is the percent change (15 ÷ 30), not the gap in points."
+        },
+        {
+          "id": "d",
+          "label": "15 percentage points",
+          "correct": true
+        }
+      ],
+      "explanation": "The drug's own effect is the gap between the groups: 45 minus 30 is 15 percentage points.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nccih_placebo",
+    "source.openstax_intro_stats_experimental_design"
+  ],
+  "art": "mind.blindfold"
+}

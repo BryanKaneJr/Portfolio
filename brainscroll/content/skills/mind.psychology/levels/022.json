@@ -1,0 +1,218 @@
+{
+  "id": "level.mind.psychology.022",
+  "skillId": "skill.mind.psychology",
+  "number": 22,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Unlearning a Response",
+  "objective": "After this level you can explain extinction and spontaneous recovery in classical conditioning.",
+  "summary": "Sound the tone without food and the drool fades: extinction. After a rest it returns: spontaneous recovery. Extinction adds new learning instead of erasing the old.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.conditioning_extinction",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.conditioning_spontaneous_recovery",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.conditioning_classical",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.021"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.022.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Sound the tone with no food, and the drooling stops. For a while.",
+      "body": "Once Pavlov's dogs drooled at a tone, he sounded it without the food, and soon they stopped responding. So is a learned response gone for good once it stops? The dogs had a surprise in store."
+    },
+    {
+      "id": "card.psychology.022.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Extinction: the signal stops meaning anything",
+      "body": "Pavlov kept sounding the tone, his conditioned stimulus, but no meat powder followed. The drooling grew weaker and weaker, until there was none at all. This fading is called extinction: the conditioned response weakens once the unconditioned stimulus stops following the conditioned stimulus. A signal that no longer predicts anything stops getting a reaction. The tone was just a noise again. Or so it seemed."
+    },
+    {
+      "id": "card.psychology.022.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The comeback",
+      "body": "Then Pavlov let the dogs rest. After a couple of hours away from extinction training, he sounded the tone again, and the dogs drooled. The response that had vanished came back on its own. Pavlov called this spontaneous recovery: an extinguished conditioned response returning after a rest. So extinction hadn't wiped the slate clean. Something of the old lesson was still in there."
+    },
+    {
+      "id": "card.psychology.022.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Painted over, not scraped off",
+      "body": "Later research explains the comeback. Extinction doesn't destroy the original learning. It adds a new lesson on top, roughly \"the tone means nothing now\", and that new lesson depends heavily on context. That's why an old response tends to return when time passes, which is spontaneous recovery, or when the animal is back where it first learned, which is called renewal. The old lesson was painted over, not scraped off.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep this one: extinction teaches a second lesson on top of the first. The first lesson is still underneath."
+      }
+    },
+    {
+      "id": "card.psychology.022.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.022.q1"
+    },
+    {
+      "id": "card.psychology.022.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.022.q2"
+    },
+    {
+      "id": "card.psychology.022.c7",
+      "type": "recall",
+      "questionId": "question.psychology.022.q3"
+    },
+    {
+      "id": "card.psychology.022.c8",
+      "type": "checkpoint",
+      "headline": "Unlearning a Response",
+      "learned": [
+        "Extinction: the signal stops predicting, the response fades",
+        "Spontaneous recovery: it returns after a rest",
+        "Extinction adds new learning; it doesn't erase",
+        "Renewal: the old response returns in the old setting"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.022.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.conditioning_spontaneous_recovery"
+      ],
+      "sourceCardIds": [
+        "card.psychology.022.c3"
+      ],
+      "prompt": "What did Pavlov call the return of an extinguished response after a rest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Extinction",
+          "correct": false,
+          "rationale": "Extinction is the fading, not the return."
+        },
+        {
+          "id": "b",
+          "label": "Renewal",
+          "correct": false,
+          "rationale": "Renewal is a return in the original setting, not after a rest."
+        },
+        {
+          "id": "c",
+          "label": "Spontaneous recovery",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A conditioned stimulus",
+          "correct": false,
+          "rationale": "That's the signal, like the tone, not a response coming back."
+        }
+      ],
+      "explanation": "Spontaneous recovery is the return of an extinguished conditioned response after a rest period.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.022.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.conditioning_extinction"
+      ],
+      "sourceCardIds": [
+        "card.psychology.022.c2"
+      ],
+      "prompt": "How did Pavlov produce extinction in his dogs?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By sounding the tone again and again with no food",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "By giving food with no tone first",
+          "correct": false,
+          "rationale": "Extinction needs the tone to keep sounding without the food."
+        },
+        {
+          "id": "c",
+          "label": "By letting the dogs rest for a few hours",
+          "correct": false,
+          "rationale": "Rest is what brought the response back."
+        },
+        {
+          "id": "d",
+          "label": "By pairing the tone with an unpleasant noise",
+          "correct": false,
+          "rationale": "He simply stopped the food from following the tone."
+        }
+      ],
+      "explanation": "Presenting the conditioned stimulus without the unconditioned stimulus makes the conditioned response fade.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.022.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.conditioning_extinction",
+        "concept.psychology.conditioning_classical"
+      ],
+      "sourceCardIds": [
+        "card.psychology.022.c2",
+        "card.psychology.021.c3"
+      ],
+      "prompt": "During extinction, which element from Level 21 did Pavlov keep presenting without food?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The unconditioned stimulus, the meat powder",
+          "correct": false,
+          "rationale": "The meat powder was exactly what he left out."
+        },
+        {
+          "id": "b",
+          "label": "The unconditioned response, the drool at food",
+          "correct": false,
+          "rationale": "That's a response, not something he presented."
+        },
+        {
+          "id": "c",
+          "label": "The conditioned response, the drool at the tone",
+          "correct": false,
+          "rationale": "That's what faded, not what he presented."
+        },
+        {
+          "id": "d",
+          "label": "The conditioned stimulus, the tone",
+          "correct": true
+        }
+      ],
+      "explanation": "Extinction means sounding the conditioned stimulus, the tone, with no meat powder after it.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_classical_conditioning",
+    "source.learnmem_bouton_extinction_2004",
+    "source.frontiers_extinction_learning_editorial_2016"
+  ],
+  "art": "arts.candle"
+}

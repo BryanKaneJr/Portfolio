@@ -1,0 +1,209 @@
+{
+  "id": "level.world_systems.computers.001",
+  "skillId": "skill.world_systems.computers",
+  "number": 1,
+  "type": "regular",
+  "revision": 2,
+  "status": "published",
+  "title": "Computers & the Internet: The Big Picture",
+  "objective": "After this level you can follow a single photo from your phone's switches and software, across the internet, to a friend's screen.",
+  "summary": "One photo, start to finish: the camera turns light into binary numbers, switches follow software, packets cross a network of networks, and pixels rebuild it.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.photo_journey",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [],
+  "cards": [
+    {
+      "id": "card.computers.001.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Tap send. A photo leaves your phone and lands on a friend's.",
+      "body": "Between your tap and their screen, the photo becomes numbers, gets handled by billions of tiny switches, is broken into pieces and is rebuilt on the other side. This level follows that one photo the whole way. The rest of the tree zooms in on each stop."
+    },
+    {
+      "id": "card.computers.001.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stop 1: light becomes numbers",
+      "body": "Your camera's sensor is covered in light receptors called pixels. Light hitting each one makes a tiny electric current, and the phone translates that into binary digits, 0s and 1s, for storage. From that moment your photo isn't a picture in any ordinary sense. It's a very long list of numbers, which is exactly what a computer can store and move."
+    },
+    {
+      "id": "card.computers.001.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stop 2: switches that follow orders",
+      "body": "Inside the phone, the processor holds billions of transistors, tiny switches that open and close on every tick of its clock. The switches have no idea what a photo is. Software does the telling: an app is a set of instructions that tells the hardware what to do with those numbers. Hardware does the work; software gives the orders.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep this map in mind. Every chapter ahead zooms in on one stop of this trip."
+      }
+    },
+    {
+      "id": "card.computers.001.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Stop 3: in pieces across the internet",
+      "body": "The internet is a network of networks, with routers linking them. Your photo doesn't cross it in one piece. It's broken into small packets that each travel on their own, by whatever route is available, and your friend's phone reassembles them. Then it turns the numbers back into a grid of pixels, each a mix of red, green and blue light. Numbers in, numbers out, and a beach in between."
+    },
+    {
+      "id": "card.computers.001.c5",
+      "type": "mcq",
+      "questionId": "question.computers.001.q1"
+    },
+    {
+      "id": "card.computers.001.c6",
+      "type": "mcq",
+      "questionId": "question.computers.001.q2"
+    },
+    {
+      "id": "card.computers.001.c7",
+      "type": "mcq",
+      "questionId": "question.computers.001.q3"
+    },
+    {
+      "id": "card.computers.001.c8",
+      "type": "checkpoint",
+      "headline": "One photo: delivered",
+      "learned": [
+        "A camera turns light into binary numbers",
+        "Billions of transistor switches do the work; software gives the orders",
+        "The internet carries data as packets, reassembled at the other end",
+        "A screen rebuilds the photo as red, green and blue pixels"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.001.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.photo_journey"
+      ],
+      "sourceCardIds": [
+        "card.computers.001.c4"
+      ],
+      "prompt": "How does your photo travel across the internet to a friend's phone?",
+      "options": [
+        {
+          "id": "a",
+          "label": "As one unbroken file on a line held open just for it",
+          "correct": false,
+          "rationale": "Packet switching needs no dedicated line; the photo is split up."
+        },
+        {
+          "id": "b",
+          "label": "In small packets that travel separately and are reassembled",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "As a picture beamed straight from screen to screen",
+          "correct": false,
+          "rationale": "It travels as numbers, not as a picture."
+        },
+        {
+          "id": "d",
+          "label": "As printed pixels copied by each router",
+          "correct": false,
+          "rationale": "Routers pass along packets of numbers."
+        }
+      ],
+      "explanation": "Packet switching breaks data into small packets that travel independently by any available route and are reassembled at the destination.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.computers.001.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.photo_journey"
+      ],
+      "sourceCardIds": [
+        "card.computers.001.c2"
+      ],
+      "prompt": "What makes it possible for a phone to store and send a photo at all?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The sensor keeps a tiny printed copy inside the phone",
+          "correct": false,
+          "rationale": "Nothing is printed; light becomes electric current."
+        },
+        {
+          "id": "b",
+          "label": "The lens squeezes the light into the memory chip",
+          "correct": false,
+          "rationale": "Light is converted, not stored as light."
+        },
+        {
+          "id": "c",
+          "label": "The camera translates light into binary numbers",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The screen remembers whatever it last showed",
+          "correct": false,
+          "rationale": "The photo is stored as numbers, not held by the screen."
+        }
+      ],
+      "explanation": "Light striking the sensor makes a current that is translated into binary digits, and numbers are what a computer stores and moves.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.001.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.photo_journey"
+      ],
+      "sourceCardIds": [
+        "card.computers.001.c3",
+        "card.computers.001.c2"
+      ],
+      "prompt": "A processor's switches have no idea what a photo is. What tells them what to do with its numbers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The camera sensor",
+          "correct": false,
+          "rationale": "The sensor turns light into numbers; it does not give orders."
+        },
+        {
+          "id": "b",
+          "label": "The packets themselves",
+          "correct": false,
+          "rationale": "Packets carry data across the network."
+        },
+        {
+          "id": "c",
+          "label": "The pixels on the screen",
+          "correct": false,
+          "rationale": "Pixels show the result at the end."
+        },
+        {
+          "id": "d",
+          "label": "Software: the app's instructions",
+          "correct": true
+        }
+      ],
+      "explanation": "Software is the instructions that tell the hardware, the billions of switches, what to do with the numbers.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_digital_camera",
+    "source.intel_cpu_clock_speed",
+    "source.brit_internet",
+    "source.ethw_packet_switching",
+    "source.brit_software",
+    "source.mdn_how_internet_works",
+    "source.stanford_cs101_images"
+  ],
+  "art": "technology.laptop"
+}

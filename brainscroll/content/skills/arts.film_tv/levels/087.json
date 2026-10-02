@@ -1,0 +1,216 @@
+{
+  "id": "level.arts.film_tv.087",
+  "skillId": "skill.arts.film_tv",
+  "number": 87,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Hand-Drawn Animation",
+  "objective": "After this level you can explain how cel animation works and why Snow White and the Seven Dwarfs in 1937 was a gamble.",
+  "summary": "Cel animation lays clear, painted sheets over a painted background, so only moving parts are redrawn. Snow White (1937), the first US feature-length cartoon, was a costly gamble.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.cel_animation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.snow_white_gamble",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.apparent_motion",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.086"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.087.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "People called it Disney's Folly.",
+      "body": "Snow White and the Seven Dwarfs (1937) was Walt Disney's biggest gamble to date: an expensive production, worked on by hundreds of technicians, that became known as Disney's Folly. To see why it was such a risk, start with how a hand-drawn cartoon is built."
+    },
+    {
+      "id": "card.film_tv.087.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A drawing on a clear sheet",
+      "body": "An animation cel is a line drawing on the face of a transparent sheet of cellulose acetate, colored with paint on the back. The idea goes back at least to December 19, 1914, when Earl Hurd applied for a patent on using transparent sheets over a background that was photographed through them."
+    },
+    {
+      "id": "card.film_tv.087.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Draw only what moves",
+      "body": "Here's the saving. Characters on transparent sheets were laid over painted backgrounds, so only the moving parts had to be drawn. The painted cels were registered, one after another, over the background and photographed on an animation camera stand. The forest gets painted once; only the walker is drawn again and again."
+    },
+    {
+      "id": "card.film_tv.087.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The gamble pays",
+      "body": "That was the heart of the gamble: Snow White was the first full-length animated feature film from an American studio. On release, it was an immediate box-office sensation, and it set the standard for later Disney animated films. The folly became the model."
+    },
+    {
+      "id": "card.film_tv.087.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.087.q1"
+    },
+    {
+      "id": "card.film_tv.087.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.087.q2"
+    },
+    {
+      "id": "card.film_tv.087.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.087.q3"
+    },
+    {
+      "id": "card.film_tv.087.c8",
+      "type": "checkpoint",
+      "headline": "Hand-Drawn Animation: done",
+      "learned": [
+        "A cel is a painted clear sheet",
+        "Only the moving parts get redrawn",
+        "Snow White: first US animated feature",
+        "Disney's Folly became the model"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.087.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.snow_white_gamble"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.087.c4"
+      ],
+      "prompt": "What was new about Snow White and the Seven Dwarfs (1937)?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was the first film with synchronized sound",
+          "correct": false,
+          "rationale": "Sound arrived a decade earlier."
+        },
+        {
+          "id": "b",
+          "label": "It was the first computer-animated feature",
+          "correct": false,
+          "rationale": "That was Toy Story, in 1995."
+        },
+        {
+          "id": "c",
+          "label": "It was the first stop-motion feature",
+          "correct": false,
+          "rationale": "It was hand-drawn cel animation."
+        },
+        {
+          "id": "d",
+          "label": "It was the first full-length animated feature from an American studio",
+          "correct": true
+        }
+      ],
+      "explanation": "Snow White was the first full-length animated feature film from an American studio.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.087.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.cel_animation"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.087.c3"
+      ],
+      "prompt": "Why did cels save animators so much work?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The background was painted once, and only the moving parts had to be drawn",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A computer filled in the drawings between key poses",
+          "correct": false,
+          "rationale": "Cels are a hand-made process."
+        },
+        {
+          "id": "c",
+          "label": "Each cel could be reused for a whole film",
+          "correct": false,
+          "rationale": "The moving parts had to be drawn again and again."
+        },
+        {
+          "id": "d",
+          "label": "Cels didn't need to be photographed",
+          "correct": false,
+          "rationale": "They were photographed over the background."
+        }
+      ],
+      "explanation": "Characters on clear cels sat over a painted background, so only what moved had to be redrawn.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.087.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.apparent_motion",
+        "concept.film_tv.cel_animation"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.002.c3",
+        "card.film_tv.087.c3"
+      ],
+      "prompt": "Photographed one after another, cels become a moving cartoon. Which Level 2 idea explains why you see movement?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Persistence of vision: images linger and pile up",
+          "correct": false,
+          "rationale": "Level 2 calls that the older, oversimplified story."
+        },
+        {
+          "id": "b",
+          "label": "Beta movement: stills each slightly different look like motion",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Flicker fusion: flashing light looks steady",
+          "correct": false,
+          "rationale": "That explains steady light, not movement."
+        },
+        {
+          "id": "d",
+          "label": "The Kuleshov effect: the cut changes how a face reads",
+          "correct": false,
+          "rationale": "That's about editing and meaning."
+        }
+      ],
+      "explanation": "Beta movement: a series of stills, each slightly different, is seen as one object moving.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_snow_white_1937",
+    "source.aic_barbagallo_disney_cels",
+    "source.encyclopedia_com_bray",
+    "source.brit_phi_phenomenon",
+    "source.jfv_anderson_persistence_myth"
+  ],
+  "art": "film.flipbook"
+}

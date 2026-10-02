@@ -1,0 +1,238 @@
+{
+  "id": "level.world_systems.computers.009",
+  "skillId": "skill.world_systems.computers",
+  "number": 9,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Why Memory Comes in Layers",
+  "objective": "After this level you can explain why a computer keeps data in layers, from tiny fast cache to roomy RAM to big slow storage.",
+  "summary": "Main memory is far slower than the processor, so memory comes in layers: registers and SRAM cache on the chip, denser DRAM main memory, then cheap storage.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.memory_hierarchy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.cache_locality",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.fetch_decode_execute",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.008"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.009.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your processor is faster than its own memory.",
+      "body": "A processor can do a sum in a nanosecond or less. Fetching a number from main memory typically takes 20 to 80 nanoseconds. Level 8's loop fetches all the time, so without a plan the fastest part of the computer would spend most of its time waiting."
+    },
+    {
+      "id": "card.computers.009.c2",
+      "type": "comparison",
+      "headline": "Three layers, from quick to roomy",
+      "items": [
+        {
+          "label": "On the processor chip",
+          "points": [
+            "Registers: a small number, very fast",
+            "Cache: fast SRAM, up to several megabytes",
+            "Holds what is being used right now"
+          ]
+        },
+        {
+          "label": "Main memory (RAM)",
+          "points": [
+            "DRAM: slower, but several times denser",
+            "Loses everything when the power goes off"
+          ]
+        },
+        {
+          "label": "Storage",
+          "points": [
+            "Slowest and cheapest layer",
+            "Keeps your files with the power off"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.computers.009.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why not make it all fast?",
+      "body": "Because fast memory costs space and money. Cache is made of SRAM, which is quick but physically large: a chip the same size holds several times as much of the slower DRAM used for main memory. So memory comes as a hierarchy, from fast, expensive registers inside the processor down to slower, cheaper storage. Think of a desk, a bookshelf and a warehouse."
+    },
+    {
+      "id": "card.computers.009.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why a small cache is enough",
+      "body": "Programs are creatures of habit. They repeat the same instructions in loops and work on related data, a pattern called locality of reference. So once values are copied from main memory into the cache, many later requests find them already there. A cache of up to several megabytes near the processor takes a lot of the waiting out of the loop.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "This connects to Level 8: every fetch asks memory for something. Cache keeps many of those trips short."
+      }
+    },
+    {
+      "id": "card.computers.009.c5",
+      "type": "mcq",
+      "questionId": "question.computers.009.q1"
+    },
+    {
+      "id": "card.computers.009.c6",
+      "type": "mcq",
+      "questionId": "question.computers.009.q2"
+    },
+    {
+      "id": "card.computers.009.c7",
+      "type": "mcq",
+      "questionId": "question.computers.009.q3"
+    },
+    {
+      "id": "card.computers.009.c8",
+      "type": "checkpoint",
+      "headline": "Memory: layered",
+      "learned": [
+        "Main memory is far slower than the processor",
+        "Registers and SRAM cache sit on the chip; DRAM is denser but slower",
+        "Storage is slowest and cheapest, and keeps data with the power off",
+        "Programs reuse data, so a small cache helps a lot"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.009.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.memory_hierarchy"
+      ],
+      "sourceCardIds": [
+        "card.computers.009.c2"
+      ],
+      "prompt": "Where does cache memory sit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "On the processor chip, as fast SRAM",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "On the hard drive, as spare space",
+          "correct": false,
+          "rationale": "Storage is the slowest layer, far from the processor."
+        },
+        {
+          "id": "c",
+          "label": "In the internet's routers",
+          "correct": false,
+          "rationale": "Cache here means memory inside your own computer."
+        },
+        {
+          "id": "d",
+          "label": "In the screen, beside the pixels",
+          "correct": false,
+          "rationale": "The screen displays; it is not the processor's memory."
+        }
+      ],
+      "explanation": "Cache is fast SRAM on the processor chip, up to several megabytes.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.computers.009.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.cache_locality"
+      ],
+      "sourceCardIds": [
+        "card.computers.009.c4"
+      ],
+      "prompt": "Why can a cache of just a few megabytes speed up a much bigger program?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It compresses the whole program to fit",
+          "correct": false,
+          "rationale": "Cache keeps copies of values; it does not compress programs."
+        },
+        {
+          "id": "b",
+          "label": "It stores the program permanently with the power off",
+          "correct": false,
+          "rationale": "That is storage's job."
+        },
+        {
+          "id": "c",
+          "label": "It makes main memory itself run faster",
+          "correct": false,
+          "rationale": "Main memory stays just as slow."
+        },
+        {
+          "id": "d",
+          "label": "Programs keep reusing the same instructions and related data",
+          "correct": true
+        }
+      ],
+      "explanation": "Locality of reference: loops repeat instructions and use related data, so copies in cache get reused.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.009.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.memory_hierarchy",
+        "concept.computers.fetch_decode_execute"
+      ],
+      "sourceCardIds": [
+        "card.computers.009.c1",
+        "card.computers.008.c2"
+      ],
+      "prompt": "Level 8's processor fetches from memory on every cycle. Why does a 20 to 80 nanosecond memory delay matter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Memory access resets the program counter",
+          "correct": false,
+          "rationale": "Access time does not change the counter."
+        },
+        {
+          "id": "b",
+          "label": "The processor can finish an operation in a nanosecond or less, so it would wait",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The clock stops completely during every fetch",
+          "correct": false,
+          "rationale": "The clock keeps ticking at a fixed rate."
+        },
+        {
+          "id": "d",
+          "label": "Slow memory changes the values it stores",
+          "correct": false,
+          "rationale": "Slow memory is late, not wrong."
+        }
+      ],
+      "explanation": "Main memory is many times slower than the processor, which is why caches exist.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_computer_memory"
+  ],
+  "art": "computers.ram-stick"
+}

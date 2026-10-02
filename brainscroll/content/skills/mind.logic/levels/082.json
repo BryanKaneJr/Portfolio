@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.logic.082",
+  "skillId": "skill.mind.logic",
+  "number": 82,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Who Benefits?",
+  "objective": "After this level you can weigh a conflict of interest without dismissing a claim just because of who made it.",
+  "summary": "A conflict of interest is a secondary interest, like money, that may sway judgment about a primary one. It calls for disclosure and a closer look at the evidence, not for dismissing the claim.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.sourcing_conflict_of_interest",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.sourcing_vested_interest_dismissal",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.critical_thinking_dewey",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.081"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "A study says Sparkle toothpaste whitens best. Sparkle paid for the study.",
+      "body": "Your first thought might be: well, of course it did. That instinct is half right. Knowing who benefits is useful. But on its own it can't tell you whether the study is wrong. This level is about holding both thoughts at once.",
+      "id": "card.logic.082.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "What a conflict of interest is",
+      "body": "The International Committee of Medical Journal Editors (ICMJE) defines it carefully. A conflict of interest exists when professional judgment about a primary interest, such as the validity of research, may be influenced by a secondary interest, such as financial gain. Money is the easiest kind to spot, but rivalries and strong intellectual beliefs can count too. Notice the word \"may\": a conflict is a risk, not a verdict.",
+      "id": "card.logic.082.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Why journals ask for disclosure",
+      "body": "The ICMJE says a relationship doesn't always mean a paper was badly influenced. Its answer is transparency: readers must be able to make their own judgments, and that takes full disclosure. So the Sparkle study should say, plainly, who paid for it. Then you can decide how hard to look.",
+      "id": "card.logic.082.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The trap on the other side",
+      "body": "Throwing the study out just because Sparkle benefits is its own mistake. The Internet Encyclopedia of Philosophy files it under attacks on the person: pointing to an arguer's vested interest doesn't undermine the reasoning, which should stand or fall on the evidence. So ask the next question. What exactly did the study measure, and how?",
+      "mascot": {
+        "pose": "thinking",
+        "line": "\"Who benefits?\" is a reason to look closer. It's never a reason to stop looking."
+      },
+      "id": "card.logic.082.c4"
+    },
+    {
+      "id": "card.logic.082.c5",
+      "type": "mcq",
+      "questionId": "question.logic.082.q1"
+    },
+    {
+      "id": "card.logic.082.c6",
+      "type": "mcq",
+      "questionId": "question.logic.082.q2"
+    },
+    {
+      "id": "card.logic.082.c7",
+      "type": "mcq",
+      "questionId": "question.logic.082.q3"
+    },
+    {
+      "id": "card.logic.082.c8",
+      "type": "checkpoint",
+      "headline": "Interests: weighed",
+      "learned": [
+        "A conflict of interest is a risk, not a verdict",
+        "Money is common, but rivalries count too",
+        "Disclosure lets readers judge for themselves",
+        "Who benefits? Look closer; don't stop looking"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.082.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.sourcing_conflict_of_interest"
+      ],
+      "sourceCardIds": [
+        "card.logic.082.c2"
+      ],
+      "prompt": "In the ICMJE's definition, what can a secondary interest such as financial gain do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Prove that the research is false",
+          "correct": false,
+          "rationale": "A conflict is a risk, not proof."
+        },
+        {
+          "id": "b",
+          "label": "Influence judgment about a primary interest",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Replace the need for any evidence",
+          "correct": false,
+          "rationale": "Evidence still decides the question."
+        },
+        {
+          "id": "d",
+          "label": "Make disclosure unnecessary",
+          "correct": false,
+          "rationale": "The ICMJE asks for disclosure precisely because of it."
+        }
+      ],
+      "explanation": "A conflict exists when judgment about a primary interest, like valid research, may be influenced by a secondary one, like money.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.082.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.sourcing_conflict_of_interest",
+        "concept.logic.sourcing_vested_interest_dismissal"
+      ],
+      "sourceCardIds": [
+        "card.logic.082.c3",
+        "card.logic.082.c4"
+      ],
+      "prompt": "A bakery funds a study finding that its bread keeps you full for longer. What is the best response?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ignore it, because the funder benefits",
+          "correct": false,
+          "rationale": "That dismisses the evidence because of who benefits."
+        },
+        {
+          "id": "b",
+          "label": "Accept it, because bakers know bread",
+          "correct": false,
+          "rationale": "Knowing bread doesn't remove the conflict."
+        },
+        {
+          "id": "c",
+          "label": "Note the funding and check the evidence closely",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Wait for the bakery to fund a second study",
+          "correct": false,
+          "rationale": "A second study from the same funder adds little."
+        }
+      ],
+      "explanation": "Disclosed funding tells you how hard to look; the claim still stands or falls on the evidence.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.logic.082.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.sourcing_vested_interest_dismissal",
+        "concept.logic.critical_thinking_dewey"
+      ],
+      "sourceCardIds": [
+        "card.logic.082.c4",
+        "card.logic.001.c4"
+      ],
+      "prompt": "Instead of rejecting the Sparkle study because of its funder, what would Dewey's reflective thought from Level 1 do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Weigh it in the light of the grounds that support it",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Reject it until Sparkle discloses its profits",
+          "correct": false,
+          "rationale": "Profits aren't the grounds for the claim."
+        },
+        {
+          "id": "c",
+          "label": "Accept it because it was published",
+          "correct": false,
+          "rationale": "Publication alone isn't a ground Dewey names."
+        },
+        {
+          "id": "d",
+          "label": "Count how many people trust Sparkle",
+          "correct": false,
+          "rationale": "Popularity isn't evidence about whitening."
+        }
+      ],
+      "explanation": "Dewey asks us to weigh a belief by the grounds that support it: what the study measured, not who paid.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.icmje_conflicts_of_interest",
+    "source.iep_fallacies"
+  ],
+  "art": "money.banknote"
+}

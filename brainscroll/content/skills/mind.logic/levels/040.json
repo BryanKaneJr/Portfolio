@@ -1,0 +1,346 @@
+{
+  "id": "level.mind.logic.040",
+  "skillId": "skill.mind.logic",
+  "number": 40,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "published",
+  "title": "Checkpoint: Weighing Evidence",
+  "objective": "After this level you can rank evidence from weak to strong and explain what makes the difference.",
+  "summary": "Carl Sagan's 1995 baloney detection kit, read as a map of the chapter: independent confirmation, the traps of ignorance, small numbers and selected evidence, and a warning about misuse.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.evidence_baloney_kit",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.evidence_cherry_picking",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.evidence_burden_of_proof",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.evidence_survivorship_bias",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.evidence_anecdotal",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.evidence_appeal_to_ignorance",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.evidence_convergence",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.039"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1995, Carl Sagan packed a toolkit for testing claims.",
+      "body": "He called it a baloney detection kit, and it fills a chapter of his book The Demon-Haunted World. Remember Sagan's slogan from Level 38? His kit reads like a map of this whole chapter. Let's open it.",
+      "id": "card.logic.040.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The first tool",
+      "body": "The kit starts with things to do, and the first is: wherever possible, there must be independent confirmation of the \"facts\". That's Level 39's cable. One vivid story or one witness is a single fiber. Before you rank a claim as well supported, look for a second line of evidence that could have failed on its own.",
+      "id": "card.logic.040.c2"
+    },
+    {
+      "type": "comparison",
+      "headline": "Traps in the kit, and where you met them",
+      "items": [
+        {
+          "label": "Appeal to ignorance",
+          "points": [
+            "Not proved false, so true, or the reverse",
+            "Met in Level 33"
+          ]
+        },
+        {
+          "label": "Statistics of small numbers",
+          "points": [
+            "Too few cases for the conclusion",
+            "Met in Level 35"
+          ]
+        },
+        {
+          "label": "Observational selection",
+          "points": [
+            "Counting the hits and forgetting the misses",
+            "Cherry-picking and survivors, Level 36 onward"
+          ]
+        }
+      ],
+      "id": "card.logic.040.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Handle with care",
+      "body": "Sagan added a warning: like all tools, the kit can be misused, applied out of context, or used as a rote substitute for thinking. Spotting a trap tells you the evidence is weak, not that the claim is false. Weigh what's there, then decide how sure to be.",
+      "id": "card.logic.040.c4"
+    },
+    {
+      "id": "card.logic.040.c5",
+      "type": "mcq",
+      "questionId": "question.logic.040.q1"
+    },
+    {
+      "id": "card.logic.040.c6",
+      "type": "mcq",
+      "questionId": "question.logic.040.q2"
+    },
+    {
+      "id": "card.logic.040.c7",
+      "type": "recall",
+      "questionId": "question.logic.040.q3"
+    },
+    {
+      "id": "card.logic.040.c8",
+      "type": "recall",
+      "questionId": "question.logic.040.q4"
+    },
+    {
+      "id": "card.logic.040.c9",
+      "type": "recall",
+      "questionId": "question.logic.040.q5"
+    },
+    {
+      "id": "card.logic.040.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 4 complete",
+      "learned": [
+        "How to rank evidence, from a lone story up to independent lines that agree.",
+        "Why the one making a claim must back it, and when \"not found\" really counts.",
+        "Which traps skew evidence: small or unusual samples, picked cases and missing survivors.",
+        "Why a surprising claim needs stronger evidence without being ruled out."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.040.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.evidence_baloney_kit"
+      ],
+      "sourceCardIds": [
+        "card.logic.040.c2"
+      ],
+      "prompt": "What is the first tool in Carl Sagan's baloney detection kit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Trust the most confident speaker",
+          "correct": false,
+          "rationale": "Confidence isn't one of Sagan's tools."
+        },
+        {
+          "id": "b",
+          "label": "Seek independent confirmation of the facts",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Reject any claim that sounds surprising",
+          "correct": false,
+          "rationale": "Surprising claims need more evidence, not automatic rejection."
+        },
+        {
+          "id": "d",
+          "label": "Count only the cases that fit",
+          "correct": false,
+          "rationale": "That's a trap in the kit, not a tool."
+        }
+      ],
+      "explanation": "The kit's first tool: wherever possible, there must be independent confirmation of the \"facts\".",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.040.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.evidence_baloney_kit",
+        "concept.logic.evidence_cherry_picking"
+      ],
+      "sourceCardIds": [
+        "card.logic.040.c3",
+        "card.logic.036.c3"
+      ],
+      "prompt": "Sagan's kit warns against \"counting the hits and forgetting the misses\". How does that trap mislead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It uses a sample that's far too large",
+          "correct": false,
+          "rationale": "The problem is which cases, not how many."
+        },
+        {
+          "id": "b",
+          "label": "It shifts the burden of proof onto the listener",
+          "correct": false,
+          "rationale": "That's a different trap."
+        },
+        {
+          "id": "c",
+          "label": "It shows only the cases that fit the claim",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It treats a lack of evidence as proof",
+          "correct": false,
+          "rationale": "That's the appeal to ignorance."
+        }
+      ],
+      "explanation": "Keeping the hits and dropping the misses shows only the helpful evidence, the same move as cherry-picking.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.040.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.evidence_burden_of_proof"
+      ],
+      "sourceCardIds": [
+        "card.logic.032.c3"
+      ],
+      "prompt": "Weighing Evidence checkpoint: in a U.S. criminal trial, which side carries the burden of proof?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The defense, which must prove innocence",
+          "correct": false,
+          "rationale": "The defendant is presumed innocent."
+        },
+        {
+          "id": "b",
+          "label": "The judge, who must find the truth",
+          "correct": false,
+          "rationale": "The judge doesn't carry the burden."
+        },
+        {
+          "id": "c",
+          "label": "Whichever side speaks first",
+          "correct": false,
+          "rationale": "Order doesn't set the burden."
+        },
+        {
+          "id": "d",
+          "label": "The prosecution, which must prove guilt",
+          "correct": true
+        }
+      ],
+      "explanation": "The prosecution carries the burden of proving guilt beyond a reasonable doubt; the defendant is presumed innocent.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.040.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.evidence_survivorship_bias"
+      ],
+      "sourceCardIds": [
+        "card.logic.037.c4"
+      ],
+      "prompt": "Famous rich dropouts make a degree look pointless. Which error is at work?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Survivorship bias",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Appeal to ignorance",
+          "correct": false,
+          "rationale": "Nobody is treating missing evidence as proof."
+        },
+        {
+          "id": "c",
+          "label": "Misplaced burden of proof",
+          "correct": false,
+          "rationale": "Nobody is demanding a disproof."
+        },
+        {
+          "id": "d",
+          "label": "Consilience",
+          "correct": false,
+          "rationale": "Consilience is independent evidence agreeing, a strength."
+        }
+      ],
+      "explanation": "You hear about the dropouts who got rich, not the great majority who didn't: attention only to what passed a filter.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.040.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.evidence_anecdotal",
+        "concept.logic.evidence_appeal_to_ignorance",
+        "concept.logic.evidence_convergence"
+      ],
+      "sourceCardIds": [
+        "card.logic.034.c2",
+        "card.logic.033.c3",
+        "card.logic.039.c4"
+      ],
+      "prompt": "Which is the strongest evidence that a new bike lock resists thieves?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A friend's story that his was never stolen",
+          "correct": false,
+          "rationale": "One story is one case: an anecdote."
+        },
+        {
+          "id": "b",
+          "label": "Nobody has proved it can be broken",
+          "correct": false,
+          "rationale": "Without a real test, that's an appeal to ignorance."
+        },
+        {
+          "id": "c",
+          "label": "Several independent tests that agree",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "One impressive test run by the maker",
+          "correct": false,
+          "rationale": "A single line of evidence, from an interested source."
+        }
+      ],
+      "explanation": "Independent lines that agree form a cable: each could have failed on its own, and none did.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.skepticalinquirer_baloney_detection",
+    "source.marginalian_baloney_detection"
+  ],
+  "art": "mind.logic-deerstalker"
+}

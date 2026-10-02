@@ -1,0 +1,212 @@
+{
+  "id": "level.mind.probability.036",
+  "skillId": "skill.mind.probability",
+  "number": 36,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Monty Hall Puzzle",
+  "objective": "After this level you can explain why switching doors in the Monty Hall puzzle wins two times out of three.",
+  "summary": "When a host who knows where the car is opens a goat door, switching wins 2 times in 3: your first pick was a goat 2 times in 3, and then the other closed door hides the car.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.bet_monty_hall",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.bet_odds_conversion",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.035"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.036.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Three doors: one car, two goats. The host opens a goat door. Do you switch?",
+      "body": "It's tempting to shrug: two doors left, so why bother? In 1990 the columnist Marilyn vos Savant told Parade magazine readers to switch. Thousands of letters poured in, many from academics, insisting she was wrong. She wasn't."
+    },
+    {
+      "id": "card.probability.036.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The rule that makes the puzzle",
+      "body": "The puzzle is named after Monty Hall, host of the TV game show Let's Make a Deal. You pick a door. Then the host, who knows where the car is, opens one of the other two doors and shows a goat. He never opens your door, and he never reveals the car. His knowledge is the whole puzzle: the door he opens isn't random."
+    },
+    {
+      "id": "card.probability.036.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Count the three ways it can start",
+      "body": "Your first pick is the car 1 time in 3. Then switching loses. But 2 times in 3, your first pick is a goat. The host must open the other goat, so the only other closed door hides the car, and switching wins. Switch every time and you win 2 games in 3. Stay every time and you win 1 in 3.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Two doors left does not mean 50-50. The host's knowledge tipped the scales before you chose."
+      }
+    },
+    {
+      "id": "card.probability.036.c4",
+      "type": "fact",
+      "fact": "Switching wins 2 times in 3: odds of 2 to 1 in your favor.",
+      "context": "Another way to see it: your first door had a 1 in 3 chance, and the other two doors together had 2 in 3. When the host opens the goat among those two, that whole 2 in 3 rests on the one door he left shut. Switching is like trading your one door for both of the others."
+    },
+    {
+      "id": "card.probability.036.c5",
+      "type": "mcq",
+      "questionId": "question.probability.036.q1"
+    },
+    {
+      "id": "card.probability.036.c6",
+      "type": "mcq",
+      "questionId": "question.probability.036.q2"
+    },
+    {
+      "id": "card.probability.036.c7",
+      "type": "recall",
+      "questionId": "question.probability.036.q3"
+    },
+    {
+      "id": "card.probability.036.c8",
+      "type": "checkpoint",
+      "headline": "Monty Hall: solved",
+      "learned": [
+        "The host knows and always shows a goat",
+        "Your first pick is a goat 2 times in 3",
+        "Switching wins 2 in 3; staying 1 in 3",
+        "Vos Savant, 1990: right despite thousands of letters"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.036.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.bet_monty_hall"
+      ],
+      "sourceCardIds": [
+        "card.probability.036.c3"
+      ],
+      "prompt": "In the Monty Hall puzzle, how often does always switching win the car?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1 time in 3",
+          "correct": false,
+          "rationale": "That's how often staying wins."
+        },
+        {
+          "id": "b",
+          "label": "1 time in 2",
+          "correct": false,
+          "rationale": "Two doors are left, but they are not equally likely."
+        },
+        {
+          "id": "c",
+          "label": "2 times in 3",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "3 times in 4",
+          "correct": false,
+          "rationale": "There are only three doors; switching wins 2 in 3."
+        }
+      ],
+      "explanation": "Your first pick is a goat 2 times in 3, and switching wins in every one of those games.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.036.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.bet_monty_hall"
+      ],
+      "sourceCardIds": [
+        "card.probability.036.c2",
+        "card.probability.036.c3"
+      ],
+      "prompt": "How does switching win whenever your first pick was a goat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The host picks his door at random, so he helps half the time",
+          "correct": false,
+          "rationale": "He knows where the car is and always shows a goat."
+        },
+        {
+          "id": "b",
+          "label": "The car moves to the other door after you choose",
+          "correct": false,
+          "rationale": "Nothing moves; the host only opens a door."
+        },
+        {
+          "id": "c",
+          "label": "Switching gives you a second pick of all three doors",
+          "correct": false,
+          "rationale": "You can't pick the open door; the switch is to the one closed door."
+        },
+        {
+          "id": "d",
+          "label": "The host must open the other goat, leaving the car behind the last door",
+          "correct": true
+        }
+      ],
+      "explanation": "With a goat picked, the host has to reveal the other goat, so the remaining closed door must hide the car.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.036.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.bet_monty_hall",
+        "concept.probability.bet_odds_conversion"
+      ],
+      "sourceCardIds": [
+        "card.probability.031.c4",
+        "card.probability.036.c4"
+      ],
+      "prompt": "Switching wins 2 times in 3. Using Level 31, what are the odds in favor of a switch winning?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1 to 2 in favor",
+          "correct": false,
+          "rationale": "That's the odds for staying."
+        },
+        {
+          "id": "b",
+          "label": "2 to 3 in favor",
+          "correct": false,
+          "rationale": "Odds compare wins with losses (2 to 1), not wins with the whole."
+        },
+        {
+          "id": "c",
+          "label": "2 to 1 in favor",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "3 to 1 in favor",
+          "correct": false,
+          "rationale": "That would be a 3 in 4 chance."
+        }
+      ],
+      "explanation": "2 wins in 3 means 2 wins to 1 loss: odds of 2 to 1 in favor.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.britannica_monty_hall",
+    "source.ucla_oarc_odds_ratios"
+  ],
+  "art": "mind.playing-cards"
+}

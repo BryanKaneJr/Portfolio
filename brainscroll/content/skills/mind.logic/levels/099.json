@@ -1,0 +1,229 @@
+{
+  "id": "level.mind.logic.099",
+  "skillId": "skill.mind.logic",
+  "number": 99,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Your Thinking Toolkit",
+  "objective": "After this level you can run a new claim through the tree's key checks: the argument, the evidence, the cause, your own biases and the source.",
+  "summary": "Dewey's disordered rooms show the toolkit at work: rival explanations, tests, then belief. The SEP's checklist and a check on your own bias complete it.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.deciding_dewey_burglary",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.deciding_toolkit_checklist",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.unstated_premise",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.critical_thinking_dewey",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.098"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "You come home. Your things are thrown everywhere. What happened?",
+      "body": "John Dewey used exactly this scene in How We Think, back in 1910. Remember him from Level 1? Follow what his man does next, and you'll see the thinking toolkit at work in one messy room.",
+      "id": "card.logic.099.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Two stories, held open",
+      "body": "Dewey's man first thinks: burglary. Then a second explanation occurs to him. His children are mischievous, and they may have thrown things about. That rival explanation stops him from accepting the first idea dogmatically. Judgment is held in suspense.",
+      "id": "card.logic.099.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Test, then believe",
+      "body": "If burglars did it, valuables would be missing. He checks a box: some things are gone, but he might have moved them himself, so that test isn't decisive. Then the silver in the sideboard, which the children wouldn't take: all gone. Windows and doors show signs of tampering. Only now does belief settle on burglary.",
+      "id": "card.logic.099.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The checklist",
+      "body": "The Stanford Encyclopedia of Philosophy suggests picturing critical thinking as a checklist, used in any order, selectively and more than once. Items include laying out possible solutions, deciding which evidence is relevant, judging the credibility of what others tell you, and accepting only what the evidence adequately supports. For a new claim: what's the argument, and its hidden premise? What's the evidence? What else could explain it? Who says so?",
+      "id": "card.logic.099.c4"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Check yourself too",
+      "body": "The last check points inward. People seek and interpret evidence in ways that favor what they already believe, often without noticing: confirmation bias. One remedy the encyclopedia names is holding off on a favorite explanation until the evidence rules out the others. That's just what Dewey's man did.",
+      "id": "card.logic.099.c5"
+    },
+    {
+      "id": "card.logic.099.c6",
+      "type": "mcq",
+      "questionId": "question.logic.099.q1"
+    },
+    {
+      "id": "card.logic.099.c7",
+      "type": "mcq",
+      "questionId": "question.logic.099.q2"
+    },
+    {
+      "id": "card.logic.099.c8",
+      "type": "mcq",
+      "questionId": "question.logic.099.q3"
+    },
+    {
+      "id": "card.logic.099.c9",
+      "type": "checkpoint",
+      "headline": "Toolkit: assembled",
+      "learned": [
+        "Keep rival explanations open before you believe one",
+        "Test each idea by what it predicts you should find",
+        "Check the argument, evidence, alternatives and source",
+        "Check your own bias: hold off on favorite explanations"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.099.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.deciding_dewey_burglary"
+      ],
+      "sourceCardIds": [
+        "card.logic.099.c2"
+      ],
+      "prompt": "In Dewey's example, what kept the man from simply concluding \"burglary\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A neighbor who had seen the burglars",
+          "correct": false,
+          "rationale": "No witness appears in the story."
+        },
+        {
+          "id": "b",
+          "label": "A police report about the break-in",
+          "correct": false,
+          "rationale": "No report appears in the story."
+        },
+        {
+          "id": "c",
+          "label": "A rival explanation: his mischievous children",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "His belief that burglaries never happen",
+          "correct": false,
+          "rationale": "He takes burglary seriously and tests it."
+        }
+      ],
+      "explanation": "Thinking of his mischievous children gave him a rival explanation, so he held judgment in suspense.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.099.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.deciding_dewey_burglary",
+        "concept.logic.deciding_toolkit_checklist"
+      ],
+      "sourceCardIds": [
+        "card.logic.099.c2",
+        "card.logic.099.c3"
+      ],
+      "prompt": "Your bike is gone from outside a shop. Following Dewey's man, what's your best next move?",
+      "options": [
+        {
+          "id": "a",
+          "label": "List other explanations, then look for signs that tell them apart",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Report it stolen at once, since theft is the obvious story",
+          "correct": false,
+          "rationale": "That accepts the first idea dogmatically."
+        },
+        {
+          "id": "c",
+          "label": "Assume you parked it somewhere else and walk home",
+          "correct": false,
+          "rationale": "That jumps to a different idea without testing it."
+        },
+        {
+          "id": "d",
+          "label": "Decide it can't be known and stop thinking about it",
+          "correct": false,
+          "rationale": "The point is to test, not give up."
+        }
+      ],
+      "explanation": "Hold rival explanations open (theft, moved, parked elsewhere), then check for what each one predicts, as Dewey's man did with the silver.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.logic.099.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.deciding_toolkit_checklist",
+        "concept.logic.unstated_premise"
+      ],
+      "sourceCardIds": [
+        "card.logic.099.c4",
+        "card.logic.007.c2"
+      ],
+      "prompt": "The toolkit's first check takes a new claim's argument apart. What does it look for that the argument never says out loud?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its signal words",
+          "correct": false,
+          "rationale": "Those are said; they are how you find the conclusion."
+        },
+        {
+          "id": "b",
+          "label": "Its unstated premise",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Its conclusion",
+          "correct": false,
+          "rationale": "The conclusion is usually stated."
+        },
+        {
+          "id": "d",
+          "label": "Its explanation",
+          "correct": false,
+          "rationale": "An explanation is a different kind of reasoning, not a hidden part."
+        }
+      ],
+      "explanation": "An unstated premise is one an argument needs but never states, often the part most worth questioning.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.gutenberg_dewey_how_we_think",
+    "source.sep_critical_thinking",
+    "source.iep_argument",
+    "source.libretexts_vancleave_missing_premises"
+  ],
+  "art": "mind.clipboard"
+}

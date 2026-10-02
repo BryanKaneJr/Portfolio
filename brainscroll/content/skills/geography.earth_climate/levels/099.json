@@ -1,0 +1,224 @@
+{
+  "id": "level.geography.earth_climate.099",
+  "skillId": "skill.geography.earth_climate",
+  "number": 99,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Myths About Weather and Climate",
+  "objective": "After this level you can spot and correct common mix-ups, from the ozone hole causing warming to a cold snap disproving it.",
+  "summary": "Three common mix-ups, corrected: the ozone hole isn't what's warming Earth, one cold week is weather, not climate, and humans emit far more CO2 than volcanoes.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.myth_ozone_hole",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.myth_cold_snap",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.myth_volcano_co2",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.spheres_interact",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.098"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.099.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Humans emit at least 60 times as much CO2 as all the world's volcanoes.",
+      "body": "Yet \"it's really the volcanoes\" is a claim you'll hear. So are two others. Here are three common mix-ups, and the evidence that fixes each one."
+    },
+    {
+      "id": "card.earth_climate.099.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Myth: the ozone hole is warming the planet",
+      "body": "It sounds logical: a hole in the sky lets in more sunlight. But what the ozone hole lets through is extra ultraviolet light, and NASA says that can't explain the warming of Earth's surface. The ozone hole's role in global warming is small compared with the impacts of other human activities. Two real problems; don't swap their causes."
+    },
+    {
+      "id": "card.earth_climate.099.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Myth: a cold snap disproves warming",
+      "body": "You met weather versus climate in World Geography. Climate is a long-term average, often taken over 30 years; weather changes by the hour. Earth has warmed over the past century or so, but that doesn't mean it never gets cold. Blizzards and hard freezes still happen each winter; they're just likely to come less often. One cold week proves nothing either way."
+    },
+    {
+      "id": "card.earth_climate.099.c4",
+      "type": "fact",
+      "fact": "People emit 60 or more times as much carbon dioxide each year as volcanoes.",
+      "context": "And the carbon dioxide from today's eruptions has never caused detectable global warming. Their sulfur dioxide has done the opposite, occasionally cooling the planet in a way instruments can detect.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "This is Level 1's volcano again. Big eruptions nudge Earth's thermostat down, not up."
+      }
+    },
+    {
+      "id": "card.earth_climate.099.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.099.q1"
+    },
+    {
+      "id": "card.earth_climate.099.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.099.q2"
+    },
+    {
+      "id": "card.earth_climate.099.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.099.q3"
+    },
+    {
+      "id": "card.earth_climate.099.c8",
+      "type": "checkpoint",
+      "headline": "Myths: busted",
+      "learned": [
+        "The ozone hole isn't what's warming Earth",
+        "One cold week is weather, not climate",
+        "People emit far more CO2 than volcanoes",
+        "Big eruptions tend to cool, not warm"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.099.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.myth_ozone_hole"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.099.c2"
+      ],
+      "prompt": "What does NASA say about the ozone hole's role in global warming?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It's the main cause of global warming",
+          "correct": false,
+          "rationale": "NASA says its role is small."
+        },
+        {
+          "id": "b",
+          "label": "It's small compared with other human impacts",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It cools the planet more than CO2 warms it",
+          "correct": false,
+          "rationale": "It isn't a big player in either direction."
+        },
+        {
+          "id": "d",
+          "label": "It has nothing to do with sunlight at all",
+          "correct": false,
+          "rationale": "It lets through extra ultraviolet light."
+        }
+      ],
+      "explanation": "Extra ultraviolet light through the ozone hole can't explain surface warming; its role is small compared with other human impacts.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.099.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.myth_cold_snap"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.099.c3"
+      ],
+      "prompt": "A friend says last week's record cold proves global warming has stopped. What's the best correction?",
+      "options": [
+        {
+          "id": "a",
+          "label": "You're right: warming means it can never get cold",
+          "correct": false,
+          "rationale": "Cold snaps still happen in a warming world."
+        },
+        {
+          "id": "b",
+          "label": "Record cold only happens in unusually warm years",
+          "correct": false,
+          "rationale": "Cold records can happen any year; they're weather."
+        },
+        {
+          "id": "c",
+          "label": "One cold week is weather; warming is a long-term trend",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Cold snaps stopped happening decades ago",
+          "correct": false,
+          "rationale": "Blizzards and freezes still happen each winter."
+        }
+      ],
+      "explanation": "Climate is a long-term average and weather changes by the hour, so one cold week says nothing about a decades-long warming trend.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.earth_climate.099.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.myth_volcano_co2",
+        "concept.earth_climate.spheres_interact"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.099.c4",
+        "card.earth_climate.001.c4"
+      ],
+      "prompt": "Someone says volcanoes, not people, are driving today's warming. What do Level 1 and this level suggest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They're right: volcanic CO2 outweighs ours",
+          "correct": false,
+          "rationale": "People emit 60 or more times as much."
+        },
+        {
+          "id": "b",
+          "label": "Volcanic ash traps heat for decades",
+          "correct": false,
+          "rationale": "Ash falls out within days to weeks."
+        },
+        {
+          "id": "c",
+          "label": "Only undersea volcanoes matter for climate",
+          "correct": false,
+          "rationale": "Even counting them all, people emit far more."
+        },
+        {
+          "id": "d",
+          "label": "People emit far more CO2, and big eruptions tend to cool",
+          "correct": true
+        }
+      ],
+      "explanation": "Humans emit 60 or more times as much CO2 as volcanoes, and big eruptions' sulfur droplets reflect sunlight and cool the planet.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_ozone_hole_climate",
+    "source.nasa_kids_cold_weather",
+    "source.ncei_weather_vs_climate",
+    "source.climategov_volcanoes_vs_humans",
+    "source.usgs_volcanoes_climate"
+  ],
+  "art": "object.magnifier"
+}

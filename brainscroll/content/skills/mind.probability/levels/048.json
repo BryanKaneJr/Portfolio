@@ -1,0 +1,216 @@
+{
+  "id": "level.mind.probability.048",
+  "skillId": "skill.mind.probability",
+  "number": 48,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Changing Your Mind by the Right Amount",
+  "objective": "After this level you can explain Bayes' idea in words: start from the base rate and let each new piece of evidence shift it.",
+  "summary": "Bayes' idea in words: start from the base rate and let each piece of evidence move it. A second positive lifts 1 in 12 to 45%; a negative cuts 1 in 100 to about 1 in 900.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.risk_bayes_updating",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.risk_false_positives",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.risk_base_rates",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.047"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.048.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Your positive result means a 1 in 12 chance. Then a second test says yes too.",
+      "body": "Should you panic now? Shrug? Neither. There is a right amount to change your mind, and an 18th-century English minister worked out the idea behind it."
+    },
+    {
+      "id": "card.probability.048.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Bayes: start with the base rate, then update",
+      "body": "Thomas Bayes was an English minister who died in 1761. His friend Richard Price found an essay on probability among his papers and sent it to the Royal Society, which published it. Its big idea, in words: begin with a starting chance, such as a base rate, then let each new piece of evidence shift it. The updated chance becomes the start for the next clue."
+    },
+    {
+      "id": "card.probability.048.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two positives: from 1 in 12 to nearly half",
+      "body": "Back to Level 47's 1,080 positives: 90 sick, 990 healthy. Give them a second test of the same quality whose mistakes are unrelated to the first. It catches 81 of the 90 sick and flags 99 of the 990 healthy. Now 81 of 180 positives are real: 45%. That is why doctors often follow a positive screening test with a second, more specific one.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "This connects: Level 45's base rate is where Bayes starts, and Level 47's count is Bayes in action."
+      }
+    },
+    {
+      "id": "card.probability.048.c4",
+      "type": "fact",
+      "fact": "Evidence can push the chance down, too.",
+      "context": "Suppose instead the first test is negative. Of the 8,920 people who test negative, only 10 are sick. Your chance falls from 1 in 100 to about 1 in 900. Changing your mind by the right amount means neither ignoring evidence nor leaping to certainty: start from the base rate, then let each result move you."
+    },
+    {
+      "id": "card.probability.048.c5",
+      "type": "mcq",
+      "questionId": "question.probability.048.q1"
+    },
+    {
+      "id": "card.probability.048.c6",
+      "type": "mcq",
+      "questionId": "question.probability.048.q2"
+    },
+    {
+      "id": "card.probability.048.c7",
+      "type": "mcq",
+      "questionId": "question.probability.048.q3"
+    },
+    {
+      "id": "card.probability.048.c8",
+      "type": "checkpoint",
+      "headline": "Bayes' idea: in words",
+      "learned": [
+        "Start from the base rate",
+        "Let each piece of evidence shift it",
+        "Two positives: 1 in 12 to 45%",
+        "A negative: 1 in 100 to about 1 in 900"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.048.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.risk_bayes_updating"
+      ],
+      "sourceCardIds": [
+        "card.probability.048.c2"
+      ],
+      "prompt": "In Bayes' idea, where should your estimate of a chance start?",
+      "options": [
+        {
+          "id": "a",
+          "label": "With the latest test result alone",
+          "correct": false,
+          "rationale": "The result shifts the estimate; it isn't the start."
+        },
+        {
+          "id": "b",
+          "label": "At 50%, since anything could happen",
+          "correct": false,
+          "rationale": "A coin-flip start ignores how common the thing is."
+        },
+        {
+          "id": "c",
+          "label": "At zero until there is proof",
+          "correct": false,
+          "rationale": "Bayes starts from how common it is, not from zero."
+        },
+        {
+          "id": "d",
+          "label": "With the base rate, before the new evidence",
+          "correct": true
+        }
+      ],
+      "explanation": "Bayes' idea: begin with a starting chance such as the base rate, then let each piece of evidence shift it.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.048.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.risk_bayes_updating"
+      ],
+      "sourceCardIds": [
+        "card.probability.048.c3"
+      ],
+      "prompt": "Why did a second positive test raise the chance from 1 in 12 to nearly half?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Most false alarms didn't repeat, while most true cases did",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The second test was perfect and made no mistakes",
+          "correct": false,
+          "rationale": "It had the same 90% accuracy as the first."
+        },
+        {
+          "id": "c",
+          "label": "Two positive results always mean you have it",
+          "correct": false,
+          "rationale": "Even after two positives, 99 of 180 were false alarms."
+        },
+        {
+          "id": "d",
+          "label": "The condition became more common between tests",
+          "correct": false,
+          "rationale": "Nothing changed except the evidence."
+        }
+      ],
+      "explanation": "Only 99 of 990 false alarms repeated, while 81 of 90 true cases did: 81 of 180, or 45%.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.probability.048.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.risk_bayes_updating",
+        "concept.probability.risk_false_positives"
+      ],
+      "sourceCardIds": [
+        "card.probability.048.c4"
+      ],
+      "prompt": "In Level 47's example, the chance of having the condition starts at 1 in 100. After a negative first test, what is it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 1 in 12",
+          "correct": false,
+          "rationale": "That was the chance after a positive test."
+        },
+        {
+          "id": "b",
+          "label": "About 1 in 50",
+          "correct": false,
+          "rationale": "Too high: only 10 of 8,920 negatives are sick."
+        },
+        {
+          "id": "c",
+          "label": "About 1 in 900",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Exactly zero",
+          "correct": false,
+          "rationale": "The test misses 10 sick people, so some risk remains."
+        }
+      ],
+      "explanation": "10 sick people among 8,920 negatives is about 1 in 900: the evidence pushed the chance down.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.mactutor_bayes",
+    "source.aphl_sensitivity_specificity",
+    "source.wmj_calder_statistical_thinking_3_2024"
+  ],
+  "art": "mind.marble-jar"
+}

@@ -1,0 +1,223 @@
+{
+  "id": "level.mind.psychology.072",
+  "skillId": "skill.mind.psychology",
+  "number": 72,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Milgram's Shock Machine",
+  "objective": "After this level you can explain Stanley Milgram's obedience studies, their main criticisms and later partial replications.",
+  "summary": "In Milgram's best-known version, 65 percent obeyed to the top shock. Archives show lower obedience across versions and doubting participants; a 2009 replication still found similar obedience.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.social_milgram_obedience",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.social_milgram_criticism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.ethics_review_boards",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.071"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.072.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Would you shock a stranger because a man in a lab coat said so?",
+      "body": "Stanley Milgram, a professor at Yale, wanted to test the defense of Nazi war criminal Adolf Eichmann: he was just following orders. The experiment he built became one of psychology's most famous, and one of its most argued over."
+    },
+    {
+      "id": "card.psychology.072.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The shock machine",
+      "body": "In Milgram's 1963 study, 40 men were told they were helping with research on learning. Each was to shock a learner for wrong answers, stepping up 15 volts at a time to 450 volts. The learner was a confederate and felt nothing, but the men didn't know that. When the experimenter told them to continue, 65 percent kept going to the very last switch."
+    },
+    {
+      "id": "card.psychology.072.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Change the room, change the obedience",
+      "body": "Milgram kept changing the setup. With the learner in the same room as the teacher, obedience fell to 40 percent. When the experimenter gave orders by phone, it fell further. The pattern: the more human the victim felt, and the weaker the authority seemed, the more people refused."
+    },
+    {
+      "id": "card.psychology.072.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What the archives show",
+      "body": "The famous 65 percent was one version, not the rule. A 2014 synthesis led by Nick Haslam counted 23 versions; across 21 of them, 43.6 percent went to the maximum. And an unpublished analysis by Milgram's assistant Taketo Murata, reported by Gina Perry's team in 2020, found that in 18 of 23 versions, people who fully believed the shocks were real gave lower shocks than doubters."
+    },
+    {
+      "id": "card.psychology.072.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Still obeying in 2009",
+      "body": "In 2009 Jerry Burger published a partial replication. To protect participants, his 70 adults went only as far as 150 volts, the learner's first spoken protest. Obedience was only slightly lower than in Milgram's day. The criticisms are real, and so is the core finding: many people still obey."
+    },
+    {
+      "id": "card.psychology.072.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.072.q1"
+    },
+    {
+      "id": "card.psychology.072.c7",
+      "type": "mcq",
+      "questionId": "question.psychology.072.q2"
+    },
+    {
+      "id": "card.psychology.072.c8",
+      "type": "recall",
+      "questionId": "question.psychology.072.q3"
+    },
+    {
+      "id": "card.psychology.072.c9",
+      "type": "checkpoint",
+      "headline": "Milgram's shocks",
+      "learned": [
+        "65 percent obeyed to 450 volts in the best-known version",
+        "Obedience fell when the victim was closer",
+        "Across versions, fewer than half went all the way",
+        "Burger's 2009 partial replication found similar obedience"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.072.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.social_milgram_obedience"
+      ],
+      "sourceCardIds": [
+        "card.psychology.072.c2"
+      ],
+      "prompt": "In Milgram's best-known 1963 version, what share of participants went all the way to 450 volts?",
+      "options": [
+        {
+          "id": "a",
+          "label": "65 percent",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "5 percent",
+          "correct": false,
+          "rationale": "Milgram's result was far higher than that."
+        },
+        {
+          "id": "c",
+          "label": "25 percent",
+          "correct": false,
+          "rationale": "Too low for his best-known version."
+        },
+        {
+          "id": "d",
+          "label": "100 percent",
+          "correct": false,
+          "rationale": "Some participants refused before the end."
+        }
+      ],
+      "explanation": "In the best-known version, 65 percent of participants obeyed all the way to 450 volts.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.072.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.social_milgram_criticism"
+      ],
+      "sourceCardIds": [
+        "card.psychology.072.c4"
+      ],
+      "prompt": "According to Murata's unpublished analysis, how did believing the shocks were real affect what participants did?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Believers gave higher shocks than doubters",
+          "correct": false,
+          "rationale": "It was the other way round in most versions."
+        },
+        {
+          "id": "b",
+          "label": "Belief made no difference at all",
+          "correct": false,
+          "rationale": "In 18 of 23 versions it did make a difference."
+        },
+        {
+          "id": "c",
+          "label": "Believers gave lower shocks than doubters",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only doubters refused to continue",
+          "correct": false,
+          "rationale": "Believers were the ones who tended to stop earlier."
+        }
+      ],
+      "explanation": "In 18 of 23 versions, participants who fully believed the shocks were real gave lower shocks than those who doubted it.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.psychology.072.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.social_milgram_criticism",
+        "concept.psychology.ethics_review_boards"
+      ],
+      "sourceCardIds": [
+        "card.psychology.072.c5",
+        "card.psychology.009.c4"
+      ],
+      "prompt": "Burger's 2009 replication stopped at 150 volts to protect participants. Which body from Level 9 reviews a plan like that before a study can go ahead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The American Psychological Association's divisions",
+          "correct": false,
+          "rationale": "Those are interest groups, not review committees."
+        },
+        {
+          "id": "b",
+          "label": "An institutional review board",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A state licensing exam board",
+          "correct": false,
+          "rationale": "That board licenses psychologists; it doesn't review studies."
+        },
+        {
+          "id": "d",
+          "label": "The journal that publishes it",
+          "correct": false,
+          "rationale": "Journals review papers after the research, not plans before it."
+        }
+      ],
+      "explanation": "An institutional review board, a committee of scientists, administrators and community members, reviews study proposals before they proceed.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_conformity_obedience",
+    "source.plosone_meta_milgram_2014",
+    "source.spq_perry_milgram_credibility_2020",
+    "source.amp_burger_milgram_2009",
+    "source.openstax_psych_ethics"
+  ],
+  "art": "mind.milgram-dial"
+}

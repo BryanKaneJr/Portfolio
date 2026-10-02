@@ -1,0 +1,211 @@
+{
+  "id": "level.mind.probability.066",
+  "skillId": "skill.mind.probability",
+  "number": 66,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "How Strong Is a Link?",
+  "objective": "After this level you can read a scatter plot and explain what a correlation near 0, near 1 or below 0 says about how closely two things move together.",
+  "summary": "A scatter plot shows two measurements as dots; the correlation, from -1 to +1, rates how tightly they follow a straight line. The sign is direction, the size is strength.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.correlation_strength",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.two_jobs",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.065"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.066.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Hotter days, more ice cream. But how tightly do the two move together?",
+      "body": "In a textbook example, a shop owner writes down the noon temperature and the cones sold on nine days. Plot them and a pattern jumps out. Statistics can put a single number on how strong it is."
+    },
+    {
+      "id": "card.probability.066.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One dot per day",
+      "body": "Put temperature along the bottom and cones sold up the side, and each day becomes one dot. That's a scatter plot. When the dots drift upward from left to right, as they do here, hotter days tend to bring more cones: a positive link. If they drifted downward, one would tend to fall as the other rose: a negative link."
+    },
+    {
+      "id": "card.probability.066.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The correlation: a score from -1 to +1",
+      "body": "The correlation coefficient, written r, rates how closely the dots follow a straight line. It always lands between -1 and +1. Near +1 means a tight upward line; near -1, a tight downward one; near 0, no straight-line pattern at all. Exactly 1 or -1 would put every dot on a line, which real data almost never do. The sign gives the direction; the size gives the strength.",
+      "callout": "Sign = direction. Size = strength."
+    },
+    {
+      "id": "card.probability.066.c4",
+      "type": "fact",
+      "fact": "Always look at the dots, not just the number.",
+      "context": "A correlation only measures straight-line patterns. Dots that curve, rising and then falling, can score 0 even though the two things are clearly related. And even a strong correlation doesn't show that one thing causes the other.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "People mix these up: -0.8 is a stronger link than +0.5. The minus sign only says the line slopes down."
+      }
+    },
+    {
+      "id": "card.probability.066.c5",
+      "type": "mcq",
+      "questionId": "question.probability.066.q1"
+    },
+    {
+      "id": "card.probability.066.c6",
+      "type": "mcq",
+      "questionId": "question.probability.066.q2"
+    },
+    {
+      "id": "card.probability.066.c7",
+      "type": "recall",
+      "questionId": "question.probability.066.q3"
+    },
+    {
+      "id": "card.probability.066.c8",
+      "type": "checkpoint",
+      "headline": "How strong is a link?",
+      "learned": [
+        "Scatter plot: one dot per case",
+        "Correlation runs from -1 to +1",
+        "Sign is direction; size is strength",
+        "Curves can score 0"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.066.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.correlation_strength"
+      ],
+      "sourceCardIds": [
+        "card.probability.066.c3"
+      ],
+      "prompt": "A correlation coefficient always lands between which two values?",
+      "options": [
+        {
+          "id": "a",
+          "label": "0 and 1",
+          "correct": false,
+          "rationale": "It can be negative too, when one value falls as the other rises."
+        },
+        {
+          "id": "b",
+          "label": "-1 and +1",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "0 and 100",
+          "correct": false,
+          "rationale": "It isn't a percent; it runs from -1 to +1."
+        },
+        {
+          "id": "d",
+          "label": "-100 and +100",
+          "correct": false,
+          "rationale": "The scale stops at -1 and +1."
+        }
+      ],
+      "explanation": "A correlation is always between -1 and +1, with 0 meaning no straight-line link.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.066.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.correlation_strength"
+      ],
+      "sourceCardIds": [
+        "card.probability.066.c3"
+      ],
+      "prompt": "Which correlation describes the tightest straight-line pattern of dots?",
+      "options": [
+        {
+          "id": "a",
+          "label": "+0.5",
+          "correct": false,
+          "rationale": "+0.5 is moderate; -0.8 is closer to a perfect line."
+        },
+        {
+          "id": "b",
+          "label": "0",
+          "correct": false,
+          "rationale": "0 means no straight-line pattern at all."
+        },
+        {
+          "id": "c",
+          "label": "-0.8",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "+0.3",
+          "correct": false,
+          "rationale": "+0.3 is weak."
+        }
+      ],
+      "explanation": "Strength is how far r is from 0, whatever the sign. -0.8 is closest to -1, so its dots hug a (downward) line most tightly.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.066.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.two_jobs",
+        "concept.probability.correlation_strength"
+      ],
+      "sourceCardIds": [
+        "card.probability.001.c4",
+        "card.probability.066.c3"
+      ],
+      "prompt": "A correlation sums up a whole cloud of dots in one number. Which of Level 1's two jobs is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Measuring how likely a future event is",
+          "correct": false,
+          "rationale": "That's probability's job; a correlation describes data already collected."
+        },
+        {
+          "id": "b",
+          "label": "Splitting the pot of an unfinished game",
+          "correct": false,
+          "rationale": "That was Pascal and Fermat's puzzle, the start of probability."
+        },
+        {
+          "id": "c",
+          "label": "Describing many cases with a few numbers",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Proving that one thing causes another",
+          "correct": false,
+          "rationale": "A correlation can't prove cause; it describes how two things move together."
+        }
+      ],
+      "explanation": "Boiling many data points down to one summary number is statistics' first job: describing what the data say.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_intro_stats_regression_equation"
+  ],
+  "art": "money.chart-up"
+}

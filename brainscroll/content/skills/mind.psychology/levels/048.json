@@ -1,0 +1,215 @@
+{
+  "id": "level.mind.psychology.048",
+  "skillId": "skill.mind.psychology",
+  "number": 48,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Sleep-Deprived Mind",
+  "objective": "After this level you can explain how losing sleep affects mood, attention and judgment.",
+  "summary": "Losing sleep dulls attention and judgment, often without you noticing, and makes the emotional brain overreact.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.sleeploss_thinking",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.sleeploss_mood",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.measuring_the_mind",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.047"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.048.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "After 17 hours awake, you may test like someone who has been drinking.",
+      "body": "A short night leaves you groggy; everyone knows that. Less obvious is how far the damage reaches: into attention, judgment and even mood. And the strangest part is how little you may notice it."
+    },
+    {
+      "id": "card.psychology.048.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Attention and judgment slip",
+      "body": "Sleep loss makes it harder to keep your attention on a task, make decisions and recall what you know, and the harm grows as sleep loss mounts. In a 2000 study, after 17 to 19 hours without sleep, performance on some tests was as bad as, or worse than, at a blood alcohol level of 0.05 percent. That's roughly an early start and a late night."
+    },
+    {
+      "id": "card.psychology.048.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "You can't feel how tired you are",
+      "body": "In a 2003 lab study, Hans Van Dongen and colleagues let adults spend 6 hours or less in bed a night for 14 days. Their thinking deficits built up to match up to 2 nights of no sleep at all. Yet their ratings of their own sleepiness rose only a little after the first days. Their scores kept falling; their sense of being fine didn't."
+    },
+    {
+      "id": "card.psychology.048.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A shorter fuse",
+      "body": "Mood takes a hit too. In a 2007 brain-imaging study, Matthew Walker's team kept people awake about 35 hours, then showed them disturbing images. Their emotional brain centers were over 60 percent more reactive than in rested people. Walker's team concluded that without sleep, the brain struggles to put emotional experiences into context and respond in a controlled way."
+    },
+    {
+      "id": "card.psychology.048.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.048.q1"
+    },
+    {
+      "id": "card.psychology.048.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.048.q2"
+    },
+    {
+      "id": "card.psychology.048.c7",
+      "type": "recall",
+      "questionId": "question.psychology.048.q3"
+    },
+    {
+      "id": "card.psychology.048.c8",
+      "type": "checkpoint",
+      "headline": "Sleep loss: measured",
+      "learned": [
+        "Sleep loss dulls attention, decisions and recall",
+        "17 to 19 hours awake can match 0.05% blood alcohol",
+        "Short sleepers don't notice their own decline",
+        "Without sleep, the emotional brain overreacts"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.048.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.sleeploss_mood"
+      ],
+      "sourceCardIds": [
+        "card.psychology.048.c4"
+      ],
+      "prompt": "In the 2007 study, how did the emotional brain respond to disturbing images after about 35 hours awake?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Over 60 percent more reactive than in rested people",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "About the same as in rested people",
+          "correct": false,
+          "rationale": "The sleep-deprived brain overreacted."
+        },
+        {
+          "id": "c",
+          "label": "Far calmer, as if numbed by tiredness",
+          "correct": false,
+          "rationale": "It was more reactive, not less."
+        },
+        {
+          "id": "d",
+          "label": "Only reactive to pleasant images",
+          "correct": false,
+          "rationale": "The images were disturbing ones."
+        }
+      ],
+      "explanation": "After about 35 hours awake, emotional brain centers were over 60 percent more reactive to disturbing images than in rested people.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.048.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.sleeploss_thinking"
+      ],
+      "sourceCardIds": [
+        "card.psychology.048.c3"
+      ],
+      "prompt": "Why is it risky to judge your own sharpness after two weeks of short sleep?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Short sleep improves thinking at first",
+          "correct": false,
+          "rationale": "Deficits built up from the start."
+        },
+        {
+          "id": "b",
+          "label": "Deficits only appear after a month",
+          "correct": false,
+          "rationale": "They built up within 14 days."
+        },
+        {
+          "id": "c",
+          "label": "Sleepiness ratings barely rose while deficits kept growing",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "People always overrate how tired they are",
+          "correct": false,
+          "rationale": "The opposite: they underrated their impairment."
+        }
+      ],
+      "explanation": "In Van Dongen's study, sleepiness ratings rose only a little after the first days, while thinking deficits kept building.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.psychology.048.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.sleeploss_thinking",
+        "concept.psychology.measuring_the_mind"
+      ],
+      "sourceCardIds": [
+        "card.psychology.048.c3",
+        "card.psychology.001.c3"
+      ],
+      "prompt": "Level 1 said psychologists measure behavior as well as self-reports. Why did that matter in Van Dongen's sleep study?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Self-reports were the only data collected",
+          "correct": false,
+          "rationale": "Performance tests were measured too."
+        },
+        {
+          "id": "b",
+          "label": "Performance tests caught deficits the sleepers' ratings missed",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Brain scans replaced all the behavior tests",
+          "correct": false,
+          "rationale": "The key contrast was tests versus ratings."
+        },
+        {
+          "id": "d",
+          "label": "The volunteers overstated how sleepy they felt",
+          "correct": false,
+          "rationale": "They understated it."
+        }
+      ],
+      "explanation": "Measuring behavior as well as self-reports revealed impairment the volunteers did not report feeling.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_why_sleep",
+    "source.oem_williamson_feyer_sleep_alcohol_2000",
+    "source.sleep_van_dongen_restriction_2003",
+    "source.berkeley_sleep_loss_emotion_2007"
+  ],
+  "art": "mind.sleep-mask"
+}

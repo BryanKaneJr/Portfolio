@@ -1,0 +1,234 @@
+{
+  "id": "level.science.astronomy.001",
+  "skillId": "skill.science.astronomy",
+  "number": 1,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Your Cosmic Address",
+  "objective": "After this level you can state Earth's address: third planet from the Sun, a star in the Milky Way.",
+  "summary": "The Sun is a star, Earth is planet three, and our whole solar system lives in the Milky Way.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.sun_is_a_star",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.earth_third_planet",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.sunlight_travel_time",
+      "role": "teach",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.astronomy.milky_way_home",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.light_year",
+      "role": "preview",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.astronomy.milky_way_structure",
+      "role": "preview",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [],
+  "cards": [
+    {
+      "id": "card.astronomy.001.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every star you see at night is a sun. Ours is just the closest one.",
+      "body": "That little twinkle you wish on? It's a sun. It looks tiny for one reason only: it's unbelievably far away."
+    },
+    {
+      "id": "card.astronomy.001.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Your cosmic mailing address",
+      "body": "If aliens wanted to mail you a postcard, they'd need a long address. Line one: Earth. Line two: the third planet from the Sun, with two neighbors closer in and five farther out. Line three: the solar system, which is just the Sun plus everything swinging around it. And we're not done yet.",
+      "callout": "Earth → planet 3 → the solar system"
+    },
+    {
+      "id": "card.astronomy.001.c3",
+      "type": "fact",
+      "fact": "The Sun you see is 8 minutes old.",
+      "context": "Sunlight takes about 8 minutes to reach us, so the Sun in the sky is the Sun from 8 minutes ago. If it vanished right now, you'd keep seeing it for about 8 more minutes. Light is the fastest thing there is. The Sun is just that far away.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Hold on to this 8-minute delay. Level 8 turns it into a whole way of measuring space."
+      }
+    },
+    {
+      "id": "card.astronomy.001.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Last line: the Milky Way",
+      "body": "The final line on the envelope is the Milky Way, a spiral of at least 100 billion stars. We live out in the suburbs, about 26,000 light-years from downtown. On a dark night, that hazy stripe across the sky is the rest of our galaxy. You're looking at your own neighborhood from the sidewalk."
+    },
+    {
+      "id": "card.astronomy.001.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.001.q1"
+    },
+    {
+      "id": "card.astronomy.001.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.001.q2"
+    },
+    {
+      "id": "card.astronomy.001.c7",
+      "type": "mcq",
+      "questionId": "question.astronomy.001.q3"
+    },
+    {
+      "id": "card.astronomy.001.c8",
+      "type": "checkpoint",
+      "headline": "Cosmic address: unlocked",
+      "learned": [
+        "The Sun is a star, the closest one",
+        "Earth is the third of eight planets",
+        "Sunlight is about 8 minutes old when it arrives",
+        "Our solar system lives in the Milky Way"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.001.q1",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.earth_third_planet"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.001.c2"
+      ],
+      "prompt": "Counting outward from the Sun, which planet is Earth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The first",
+          "correct": false,
+          "rationale": "That's Mercury."
+        },
+        {
+          "id": "b",
+          "label": "The third",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The fifth",
+          "correct": false,
+          "rationale": "That's Jupiter."
+        },
+        {
+          "id": "d",
+          "label": "The eighth",
+          "correct": false,
+          "rationale": "That's Neptune, the outermost planet."
+        }
+      ],
+      "explanation": "Mercury, Venus, then Earth: third of the eight planets.",
+      "difficulty": 0.1,
+      "purpose": "recall"
+    },
+    {
+      "id": "question.astronomy.001.q2",
+      "kind": "mcq",
+      "conceptIds": [
+        "concept.astronomy.sun_is_a_star",
+        "concept.astronomy.milky_way_home"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.001.c1",
+        "card.astronomy.001.c4"
+      ],
+      "prompt": "Which is the most accurate description of the Sun?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One star among many in the Milky Way",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The center of the Milky Way",
+          "correct": false,
+          "rationale": "The Sun orbits within the Milky Way; it isn't its center."
+        },
+        {
+          "id": "c",
+          "label": "A planet that gives off light",
+          "correct": false,
+          "rationale": "Planets reflect light; the Sun is a star that makes its own."
+        },
+        {
+          "id": "d",
+          "label": "The only star in our galaxy",
+          "correct": false,
+          "rationale": "The Milky Way has at least 100 billion stars."
+        }
+      ],
+      "explanation": "The Sun is an ordinary star, one of at least 100 billion in the Milky Way.",
+      "difficulty": 0.15,
+      "purpose": "understanding"
+    },
+    {
+      "id": "question.astronomy.001.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.earth_third_planet",
+        "concept.astronomy.milky_way_home"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.001.c2",
+        "card.astronomy.001.c4"
+      ],
+      "prompt": "Which list goes from smallest to largest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Solar system → Earth → Milky Way",
+          "correct": false,
+          "rationale": "Earth is one part of the solar system."
+        },
+        {
+          "id": "b",
+          "label": "Milky Way → solar system → Earth",
+          "correct": false,
+          "rationale": "That's largest to smallest."
+        },
+        {
+          "id": "c",
+          "label": "Earth → solar system → Milky Way",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Earth → Milky Way → solar system",
+          "correct": false,
+          "rationale": "The solar system sits inside the Milky Way."
+        }
+      ],
+      "explanation": "Earth is one planet in the solar system, and the whole solar system is one tiny part of the Milky Way.",
+      "difficulty": 0.15
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_sun_facts",
+    "source.nasa_solar_system",
+    "source.nasa_milky_way",
+    "source.nasa_light_year"
+  ],
+  "art": "astronomy.earth"
+}

@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.probability.074",
+  "skillId": "skill.mind.probability",
+  "number": 74,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Maps That Show Where People Live",
+  "objective": "After this level you can explain why many maps of totals simply show where people live, and why per person maps tell more.",
+  "summary": "Shade places by totals and you mostly redraw where people live, as a 2012 xkcd comic joked. Dividing by population turns a map of people into a map of the thing itself.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.chart_population_map",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.rates_per_person",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.073"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.074.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Three maps of very different things. They look almost exactly alike. Why?",
+      "body": "In a 2012 comic, xkcd showed a presenter comparing three US maps, each of a different group of people. The maps matched almost perfectly. The joke was that none of them really showed its group at all."
+    },
+    {
+      "id": "card.probability.074.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Most maps of totals are maps of people",
+      "body": "Shade each place by how many people do something, and the darkest patches land on the big cities. Of course they do: that's where the people are. So a map of totals mostly redraws where people live, whatever its title says. That's why the comic's three maps matched. Each was basically a population map."
+    },
+    {
+      "id": "card.probability.074.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Divide by the people",
+      "body": "Mapmakers fix this by normalizing: divide each area's count by its population and map a rate instead, such as cases per 100,000 people. A Penn State mapping course calls the problem population dependence. Skip that division and you get endless maps that just light up population centers. Do it, and big and small places are measured on the same footing.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "It connects: this is Level 6's rate per person, painted onto a map."
+      }
+    },
+    {
+      "id": "card.probability.074.c4",
+      "type": "fact",
+      "fact": "Before you read a map, read its legend.",
+      "context": "If the legend counts totals, the map is mostly telling you where people live. If it says per person or per 100,000 people, it's comparing like with like, and a dark patch finally means something."
+    },
+    {
+      "id": "card.probability.074.c5",
+      "type": "mcq",
+      "questionId": "question.probability.074.q1"
+    },
+    {
+      "id": "card.probability.074.c6",
+      "type": "mcq",
+      "questionId": "question.probability.074.q2"
+    },
+    {
+      "id": "card.probability.074.c7",
+      "type": "recall",
+      "questionId": "question.probability.074.q3"
+    },
+    {
+      "id": "card.probability.074.c8",
+      "type": "checkpoint",
+      "headline": "Maps: normalized",
+      "learned": [
+        "Totals mostly map where people live",
+        "xkcd's 2012 matching maps",
+        "Divide by population to map a rate",
+        "Check the legend: totals or per person?"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.074.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.chart_population_map"
+      ],
+      "sourceCardIds": [
+        "card.probability.074.c1",
+        "card.probability.074.c2"
+      ],
+      "prompt": "What was the point of xkcd's 2012 comic about three matching US maps?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each map was basically a map of where people live",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The three groups all lived in the same town",
+          "correct": false,
+          "rationale": "The maps matched because people are concentrated in cities, not because the groups overlapped."
+        },
+        {
+          "id": "c",
+          "label": "The maps had been drawn with the wrong colors",
+          "correct": false,
+          "rationale": "The colors were fine; the maps showed totals."
+        },
+        {
+          "id": "d",
+          "label": "US maps are always too small to read",
+          "correct": false,
+          "rationale": "The problem was what the maps counted, not their size."
+        }
+      ],
+      "explanation": "The maps showed totals, so all three mostly traced where people live: population maps in disguise.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.074.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.chart_population_map"
+      ],
+      "sourceCardIds": [
+        "card.probability.074.c3"
+      ],
+      "prompt": "How does normalizing fix a map that shades places by totals?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It removes the biggest cities from the map",
+          "correct": false,
+          "rationale": "Every place stays; each is divided by its own population."
+        },
+        {
+          "id": "b",
+          "label": "It uses brighter colors for small places",
+          "correct": false,
+          "rationale": "The fix is a calculation, not a color choice."
+        },
+        {
+          "id": "c",
+          "label": "It divides each area's count by its population to map a rate",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It rounds every total to the nearest thousand",
+          "correct": false,
+          "rationale": "Rounding totals leaves them totals."
+        }
+      ],
+      "explanation": "Normalizing divides each count by the population, so the map shows a rate rather than where people happen to live.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.074.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.rates_per_person",
+        "concept.probability.chart_population_map"
+      ],
+      "sourceCardIds": [
+        "card.probability.074.c3",
+        "card.probability.006.c3"
+      ],
+      "prompt": "A map shades each county by its total number of break-ins. What would Level 6 tell you to map instead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The biggest county's total, for comparison",
+          "correct": false,
+          "rationale": "One total still ignores population."
+        },
+        {
+          "id": "b",
+          "label": "Break-ins per 100,000 people in each county",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The same totals in darker colors",
+          "correct": false,
+          "rationale": "Totals mostly show where people live."
+        },
+        {
+          "id": "d",
+          "label": "The number of streets in each county",
+          "correct": false,
+          "rationale": "That changes the subject; divide by people instead."
+        }
+      ],
+      "explanation": "Level 6: a rate divides the count by the population, often per 100,000 people, so counties of different sizes compare fairly.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.xkcd_heatmap",
+    "source.psu_map_normalization",
+    "source.handsondataviz_normalize_choropleth",
+    "source.cdc_epi_lesson3_morbidity"
+  ],
+  "art": "geo.map"
+}

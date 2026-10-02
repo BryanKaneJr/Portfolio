@@ -1,0 +1,214 @@
+{
+  "id": "level.geography.earth_climate.046",
+  "skillId": "skill.geography.earth_climate",
+  "number": 46,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Why the Sky Is Blue",
+  "objective": "After this level you can explain why air scatters blue light and why sunsets turn red and orange.",
+  "summary": "Air molecules, far smaller than light waves, scatter short blue waves much more than red (Rayleigh scattering). At sunset, light crosses so much air that the blue is scattered away.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.sky_rayleigh_scattering",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.sky_sunset_colors",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.air_composition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.045"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.046.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Stand on the Moon at noon and the sky is black.",
+      "body": "The Sun blazes overhead, yet the sky is as dark as night, as the Apollo photos show. The Moon has no atmosphere. So Earth's blue sky isn't coming from the Sun alone. It's coming from the air."
+    },
+    {
+      "id": "card.earth_climate.046.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sunlight is every color at once",
+      "body": "Sunlight looks white, but it is a mix of colors, each with its own wavelength. Red has the longest waves. Blue and violet have much shorter ones. A prism sorts them by bending the light. The air sorts them a different way: by scattering it."
+    },
+    {
+      "id": "card.earth_climate.046.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tiny molecules, picky scattering",
+      "body": "The air is mostly nitrogen and oxygen molecules (Level 41), far smaller than a wave of light. Molecules that small scatter short waves much more than long ones, bouncing blue light all over the sky. That's Rayleigh scattering. Violet scatters even more, but sunlight has less violet and your eyes are more sensitive to blue. So you see blue arriving from every direction."
+    },
+    {
+      "id": "card.earth_climate.046.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why sunsets turn red",
+      "body": "When the Sun is low, its light crosses a much thicker slice of atmosphere to reach you. Along the way, more of the blue is scattered off to the side, leaving the reds and oranges to come through. Dust and other tiny particles can deepen the red. Blue noon, red evening: it's the same scattering, seen along different paths."
+    },
+    {
+      "id": "card.earth_climate.046.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.046.q1"
+    },
+    {
+      "id": "card.earth_climate.046.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.046.q2"
+    },
+    {
+      "id": "card.earth_climate.046.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.046.q3"
+    },
+    {
+      "id": "card.earth_climate.046.c8",
+      "type": "checkpoint",
+      "headline": "Sky colors: explained",
+      "learned": [
+        "Sunlight is a mix of wavelengths",
+        "Air scatters short blue waves the most",
+        "Eyes favor blue over violet",
+        "Sunsets: long paths scatter the blue away"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.046.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.sky_rayleigh_scattering"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.046.c3"
+      ],
+      "prompt": "Which colors of sunlight do air molecules scatter the most?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Red and orange, the long waves",
+          "correct": false,
+          "rationale": "Long waves scatter least."
+        },
+        {
+          "id": "b",
+          "label": "Blue and violet, the short waves",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "All colors equally",
+          "correct": false,
+          "rationale": "Tiny molecules scatter short waves much more."
+        },
+        {
+          "id": "d",
+          "label": "Only green",
+          "correct": false,
+          "rationale": "Green is not singled out."
+        }
+      ],
+      "explanation": "Molecules far smaller than light waves scatter short wavelengths, blue and violet, much more than long ones.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.earth_climate.046.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.sky_sunset_colors"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.046.c4"
+      ],
+      "prompt": "Why do sunsets glow red and orange?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Sun gives off redder light in the evening",
+          "correct": false,
+          "rationale": "The sunlight is the same; the path changes."
+        },
+        {
+          "id": "b",
+          "label": "The air cools and turns red at dusk",
+          "correct": false,
+          "rationale": "Temperature does not color the sky."
+        },
+        {
+          "id": "c",
+          "label": "Light crosses more air, so more blue is scattered away",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Clouds reflect the red color of the ground",
+          "correct": false,
+          "rationale": "The red comes from scattering along a long path."
+        }
+      ],
+      "explanation": "A low Sun's light passes through a thicker layer of air, so blue is scattered out and reds and oranges get through.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.046.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.sky_rayleigh_scattering",
+        "concept.earth_climate.air_composition"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.046.c1",
+        "card.earth_climate.046.c3"
+      ],
+      "prompt": "Why is the daytime sky black on the Moon but blue on Earth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Moon is too far from the Sun",
+          "correct": false,
+          "rationale": "The Sun is overhead and very bright there."
+        },
+        {
+          "id": "b",
+          "label": "The Moon's dark rocks absorb the blue",
+          "correct": false,
+          "rationale": "The ground is not the reason."
+        },
+        {
+          "id": "c",
+          "label": "The Moon has no air to scatter sunlight",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Moon only has daylight at night",
+          "correct": false,
+          "rationale": "Its sky is black by day, too."
+        }
+      ],
+      "explanation": "Earth's blue sky comes from air molecules scattering sunlight; the Moon has no atmosphere to do it.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_starchild_space_black",
+    "source.metoffice_sky_blue",
+    "source.nasa_spaceplace_blue_sky"
+  ],
+  "art": "astronomy.prism"
+}

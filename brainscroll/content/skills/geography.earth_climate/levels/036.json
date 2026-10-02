@@ -1,0 +1,226 @@
+{
+  "id": "level.geography.earth_climate.036",
+  "skillId": "skill.geography.earth_climate",
+  "number": 36,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Geologic Time Scale",
+  "objective": "After this level you can explain how eons, eras and periods divide Earth's history and where humans appear on it.",
+  "summary": "The geologic time scale splits Earth's history into eons, eras, periods, epochs and ages, with boundaries set mostly by fossils. Humans arrived about 300,000 years ago.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.deeptime_time_scale_units",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.deeptime_humans_on_timescale",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.deeptime_earth_age_meteorites",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.deeptime_index_fossils",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.035"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.036.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "If Earth's history were one day, humans would arrive in the last few seconds.",
+      "body": "About 4.54 billion years is too big to picture. So geologists slice it into named chunks, like chapters in a very long book. The chapter you live in is brand new."
+    },
+    {
+      "id": "card.earth_climate.036.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Chapters of Earth's story",
+      "body": "The geologic time scale splits Earth's history into named units, from longest to shortest: eons, eras, periods, epochs and ages. The International Commission on Stratigraphy keeps the standard chart. There are four eons: the Hadean, Archean, Proterozoic and Phanerozoic. That last one is the eon of visible life, yet it covers only about the last eighth of Earth's history.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "You don't need the boundary dates. Remember the nesting: eons hold eras, eras hold periods, periods hold epochs."
+      }
+    },
+    {
+      "id": "card.earth_climate.036.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where the lines are drawn",
+      "body": "The boundaries aren't round numbers. They are drawn mostly by fossils: where widespread species appear in the rock record or vanish from it, a new unit begins. That's Level 33's index fossils at work. The Phanerozoic's three eras are the Paleozoic, Mesozoic and Cenozoic, meeting about 252 and 66 million years ago."
+    },
+    {
+      "id": "card.earth_climate.036.c4",
+      "type": "fact",
+      "fact": "Homo sapiens evolved in Africa about 300,000 years ago.",
+      "context": "That puts us in the Cenozoic Era, in the Quaternary Period and its Holocene Epoch. Squeeze all 4.54 billion years into one day and our species shows up in about the last six seconds before midnight. The whole eon of visible life gets only the last three hours."
+    },
+    {
+      "id": "card.earth_climate.036.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.036.q1"
+    },
+    {
+      "id": "card.earth_climate.036.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.036.q2"
+    },
+    {
+      "id": "card.earth_climate.036.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.036.q3"
+    },
+    {
+      "id": "card.earth_climate.036.c8",
+      "type": "checkpoint",
+      "headline": "Time scale: mapped",
+      "learned": [
+        "Eons hold eras, which hold periods and epochs",
+        "Four eons, ending with the Phanerozoic",
+        "Fossils mark most time-scale boundaries",
+        "We live in the Cenozoic's Holocene Epoch"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.036.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_time_scale_units"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.036.c2"
+      ],
+      "prompt": "Which list runs from the longest unit of geologic time to the shortest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Era, eon, epoch, period",
+          "correct": false,
+          "rationale": "The eon is the longest unit."
+        },
+        {
+          "id": "b",
+          "label": "Eon, era, period, epoch",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Period, epoch, era, eon",
+          "correct": false,
+          "rationale": "That list starts in the middle."
+        },
+        {
+          "id": "d",
+          "label": "Epoch, period, era, eon",
+          "correct": false,
+          "rationale": "That runs from shortest to longest."
+        }
+      ],
+      "explanation": "Eons hold eras, eras hold periods, and periods hold epochs, which hold ages.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.036.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_time_scale_units",
+        "concept.earth_climate.deeptime_index_fossils"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.036.c3"
+      ],
+      "prompt": "How are most boundaries on the geologic time scale drawn?",
+      "options": [
+        {
+          "id": "a",
+          "label": "At every round hundred million years",
+          "correct": false,
+          "rationale": "The boundaries aren't round numbers."
+        },
+        {
+          "id": "b",
+          "label": "By where rock changes color in the Grand Canyon",
+          "correct": false,
+          "rationale": "The boundaries are set worldwide, mostly by fossils."
+        },
+        {
+          "id": "c",
+          "label": "By counting yearly layers from the start of Earth",
+          "correct": false,
+          "rationale": "Most rock layers can't be counted year by year."
+        },
+        {
+          "id": "d",
+          "label": "By where widespread fossil species appear or vanish",
+          "correct": true
+        }
+      ],
+      "explanation": "The appearance and disappearance of widespread species in the rock record mark the beginnings and ends of time units.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.036.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_humans_on_timescale",
+        "concept.earth_climate.deeptime_earth_age_meteorites"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.036.c4",
+        "card.earth_climate.035.c4"
+      ],
+      "prompt": "Earth is about 4.54 billion years old and Homo sapiens about 300,000 years old. Squeezed into one day, when do humans appear?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Around noon, halfway through the day",
+          "correct": false,
+          "rationale": "That would make humans billions of years old."
+        },
+        {
+          "id": "b",
+          "label": "In the last few seconds before midnight",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Somewhere in the last three hours",
+          "correct": false,
+          "rationale": "That's the whole eon of visible life, not humans."
+        },
+        {
+          "id": "d",
+          "label": "At the very first second after midnight",
+          "correct": false,
+          "rationale": "Humans are among the newest arrivals."
+        }
+      ],
+      "explanation": "300,000 years is a tiny sliver of 4.54 billion: about the last six seconds of a 24-hour day.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.usgs_age_of_earth",
+    "source.brit_geologic_time",
+    "source.usgs_divisions_geologic_time_2018",
+    "source.brit_phanerozoic",
+    "source.si_homo_sapiens",
+    "source.ics_chronostrat_chart_2024"
+  ],
+  "art": "object.hourglass"
+}

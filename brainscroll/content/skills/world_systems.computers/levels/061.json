@@ -1,0 +1,215 @@
+{
+  "id": "level.world_systems.computers.061",
+  "skillId": "skill.world_systems.computers",
+  "number": 61,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "What a Database Is",
+  "objective": "After this level you can explain how a database stores records in tables and uses an index to find one among billions.",
+  "summary": "A database keeps records as rows in tables, with typed columns that give the data meaning, and an index that jumps straight to one row instead of scanning them all.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.privacy_database_tables",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.privacy_database_index",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.bits_need_context",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.060"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.061.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A computer just found your order in a blink. It didn't read every one.",
+      "body": "Shops, banks and apps keep their records in databases: collections of data organized so a computer can search them and pull out one entry fast. Chapter 7 is about your data, so start with where it lives. How do you find one row among a mountain of them?"
+    },
+    {
+      "id": "card.computers.061.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tables: rows and columns",
+      "body": "The most popular kind, the relational database, stores data in tables, much like a spreadsheet. Each row is one record, say one customer, and each column is one field of that record: name, address, date joined. The columns are fixed; the rows come and go. Sign up for a new app and, somewhere, a table grows by exactly one row. That row is you."
+    },
+    {
+      "id": "card.computers.061.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every column has a type",
+      "body": "Each column also has a data type, such as whole numbers, text or dates. The type limits what can go in the column and gives the stored data its meaning, so the database knows a number column can be added up and a date column can be compared with other dates. The same bits in a text column would just be letters. The table's design tells the database how to read every cell."
+    },
+    {
+      "id": "card.computers.061.c4",
+      "type": "fact",
+      "fact": "Without an index, a database must check every row, one by one.",
+      "context": "An index works like the one at the back of a book: look up the term, flip straight to the page. A database index keeps one column's values in sorted order, each pointing to its row, so searching it is much faster than searching the table. The price is upkeep: every change to the table must update the index too, so indexes nobody uses get removed."
+    },
+    {
+      "id": "card.computers.061.c5",
+      "type": "mcq",
+      "questionId": "question.computers.061.q1"
+    },
+    {
+      "id": "card.computers.061.c6",
+      "type": "mcq",
+      "questionId": "question.computers.061.q2"
+    },
+    {
+      "id": "card.computers.061.c7",
+      "type": "mcq",
+      "questionId": "question.computers.061.q3"
+    },
+    {
+      "id": "card.computers.061.c8",
+      "type": "checkpoint",
+      "headline": "Databases: found",
+      "learned": [
+        "A database organizes data for fast search and retrieval",
+        "Tables hold records as rows and fields as columns",
+        "Each column's data type gives its data meaning",
+        "An index jumps straight to a row instead of scanning every one"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.061.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.privacy_database_tables"
+      ],
+      "sourceCardIds": [
+        "card.computers.061.c2"
+      ],
+      "prompt": "In a relational database table, what does each row hold?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A single column's worth of values",
+          "correct": false,
+          "rationale": "A column runs down the table; a row runs across it."
+        },
+        {
+          "id": "b",
+          "label": "One record, such as one customer",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The table's data types",
+          "correct": false,
+          "rationale": "Types belong to columns."
+        },
+        {
+          "id": "d",
+          "label": "An index of the whole table",
+          "correct": false,
+          "rationale": "An index is kept separately from the rows."
+        }
+      ],
+      "explanation": "Each row is one record and each column is a field of that record.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.061.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.privacy_database_index"
+      ],
+      "sourceCardIds": [
+        "card.computers.061.c4"
+      ],
+      "prompt": "How does a database index let the system find one record without checking every row?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It keeps the whole table in the processor's cache",
+          "correct": false,
+          "rationale": "An index is a separate lookup structure, not a copy in cache."
+        },
+        {
+          "id": "b",
+          "label": "It deletes rows that nobody has searched for lately",
+          "correct": false,
+          "rationale": "Indexes never remove records."
+        },
+        {
+          "id": "c",
+          "label": "It looks the value up in a sorted list that points straight to the row",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It guesses the row's position from the size of the table",
+          "correct": false,
+          "rationale": "It looks the value up; it doesn't guess."
+        }
+      ],
+      "explanation": "An index keeps a column's values sorted, each pointing to its row, like a book's index points to pages.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.061.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.privacy_database_tables",
+        "concept.computers.bits_need_context"
+      ],
+      "sourceCardIds": [
+        "card.computers.061.c3",
+        "card.computers.010.c3"
+      ],
+      "prompt": "Level 10 said the same bits can mean different things. In a database table, what tells the system how to read the bits in a cell?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The column's data type",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The order the rows were added",
+          "correct": false,
+          "rationale": "Row order doesn't change what a value means."
+        },
+        {
+          "id": "c",
+          "label": "The speed of the storage drive",
+          "correct": false,
+          "rationale": "Speed affects how fast data arrives, not what it means."
+        },
+        {
+          "id": "d",
+          "label": "The size of the index",
+          "correct": false,
+          "rationale": "An index helps find rows; it doesn't give them meaning."
+        }
+      ],
+      "explanation": "Each column's data type assigns meaning to the data stored in it, just as context decides what bytes mean.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_database",
+    "source.mslearn_sql_tables",
+    "source.postgresql_table_basics",
+    "source.postgresql_indexes_intro",
+    "source.mslearn_sql_indexes"
+  ],
+  "art": "mind.memory-cabinet"
+}

@@ -1,0 +1,213 @@
+{
+  "id": "level.mind.psychology.005",
+  "skillId": "skill.mind.psychology",
+  "number": 5,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Behaviorism: Only What You Can See",
+  "objective": "After this level you can explain why behaviorists like John Watson and B. F. Skinner studied only observable behavior.",
+  "summary": "In 1913 John Watson argued psychology should study only observable behavior. B. F. Skinner studied how consequences shape it, and behaviorism dominated for decades.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.behaviorism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.skinner_consequences",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.introspection",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.004"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.005.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1913, a psychologist proposed leaving the mind out of psychology.",
+      "body": "John B. Watson argued that psychology should be a purely objective science of behavior, with no need for introspection. Why would a science of the mind drop the mind?"
+    },
+    {
+      "id": "card.psychology.005.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Watson's manifesto",
+      "body": "Watson's 1913 paper declared that psychology, as the behaviorist sees it, is a purely objective, experimental branch of natural science. Its goal: to predict and control behavior. Introspection, he wrote, forms no essential part of its methods. Remember how Wundt's trained observers kept disagreeing? Watson believed the mind couldn't be analyzed objectively at all, so he studied what anyone could watch: behavior."
+    },
+    {
+      "id": "card.psychology.005.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Skinner: it's all in the consequences",
+      "body": "B. F. Skinner, another behaviorist, focused on how behavior is changed by its consequences. Reinforcement and punishment, in his view, were major forces driving what we do. Behaviorists often experimented on animals, like rats in the chamber that became known as the Skinner box, assuming the results would apply, to some degree, to people too. Chapter 3 opens that box properly."
+    },
+    {
+      "id": "card.psychology.005.c4",
+      "type": "fact",
+      "fact": "Behaviorism ruled experimental psychology for decades.",
+      "context": "Especially in North America, it dominated through the 1950s. Its insistence on objective methods, above all experiments, helped establish psychology as a science. And its ideas never left: they still shape behavioral therapy and classroom techniques today."
+    },
+    {
+      "id": "card.psychology.005.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.005.q1"
+    },
+    {
+      "id": "card.psychology.005.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.005.q2"
+    },
+    {
+      "id": "card.psychology.005.c7",
+      "type": "recall",
+      "questionId": "question.psychology.005.q3"
+    },
+    {
+      "id": "card.psychology.005.c8",
+      "type": "checkpoint",
+      "headline": "Behaviorism",
+      "learned": [
+        "Watson (1913): study only observable behavior",
+        "Goal: predict and control behavior",
+        "Skinner: consequences shape behavior",
+        "Dominated through the 1950s"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.005.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.skinner_consequences"
+      ],
+      "sourceCardIds": [
+        "card.psychology.005.c3"
+      ],
+      "prompt": "What did B. F. Skinner mainly study about behavior?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How dreams reveal hidden urges",
+          "correct": false,
+          "rationale": "That was Freud's interest."
+        },
+        {
+          "id": "b",
+          "label": "How consequences change it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "How fast people react to light",
+          "correct": false,
+          "rationale": "That was Wundt's reaction-time work."
+        },
+        {
+          "id": "d",
+          "label": "How genes set personality",
+          "correct": false,
+          "rationale": "Skinner focused on consequences, not genes."
+        }
+      ],
+      "explanation": "Skinner concentrated on how behavior is affected by its consequences, such as reinforcement and punishment.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.psychology.005.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.behaviorism"
+      ],
+      "sourceCardIds": [
+        "card.psychology.005.c2"
+      ],
+      "prompt": "Why did John Watson want psychology to study only observable behavior?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He thought the mind couldn't be analyzed objectively",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "He believed animals had no behavior worth studying",
+          "correct": false,
+          "rationale": "Behaviorists studied animals a great deal."
+        },
+        {
+          "id": "c",
+          "label": "He wanted to interpret patients' dreams",
+          "correct": false,
+          "rationale": "That was Freud's approach, which Watson rejected."
+        },
+        {
+          "id": "d",
+          "label": "He thought reaction times were too slow to measure",
+          "correct": false,
+          "rationale": "Reaction times were measurable; that wasn't his objection."
+        }
+      ],
+      "explanation": "Watson believed objective analysis of the mind was impossible, so he focused on behavior anyone could observe.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.005.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.behaviorism",
+        "concept.psychology.introspection"
+      ],
+      "sourceCardIds": [
+        "card.psychology.005.c2",
+        "card.psychology.003.c4"
+      ],
+      "prompt": "Which method from Wundt's lab in Level 3 did Watson say forms no essential part of psychology?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Reaction timing",
+          "correct": false,
+          "rationale": "Timing responses is observable, so it fit behaviorism."
+        },
+        {
+          "id": "b",
+          "label": "Animal experiments",
+          "correct": false,
+          "rationale": "Behaviorists relied heavily on animal experiments."
+        },
+        {
+          "id": "c",
+          "label": "Introspection",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Surveys of large groups",
+          "correct": false,
+          "rationale": "Surveys weren't part of Wundt's lab or Watson's complaint."
+        }
+      ],
+      "explanation": "Watson's 1913 paper said introspection forms no essential part of psychology's methods.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_history",
+    "source.psychreview_watson_1913",
+    "source.sep_cognitive_science"
+  ],
+  "art": "mind.lab-rat"
+}

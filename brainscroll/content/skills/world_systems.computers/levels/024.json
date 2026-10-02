@@ -1,0 +1,216 @@
+{
+  "id": "level.world_systems.computers.024",
+  "skillId": "skill.world_systems.computers",
+  "number": 24,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Remember, Choose, Repeat",
+  "objective": "After this level you can explain the three moves nearly every program makes: storing values in variables, choosing with if, and repeating with loops.",
+  "summary": "Variables name changing values, conditionals pick between paths, and loops repeat until a condition is met. Under the hood, ifs and loops are jumps that move the program counter.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.software_variables",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.software_if_and_loops",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.fetch_decode_execute",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.023"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.024.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Count your unread messages. You just ran a tiny program.",
+      "body": "You kept a running total, checked each message, and repeated until there were none left. Remembering a value, choosing between paths and repeating steps are the basic moves programs are built from. Here's each one."
+    },
+    {
+      "id": "card.computers.024.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Remember: variables",
+      "body": "A variable is a name that refers to a value, so a value you can't predict can still be reached by a name you picked in advance. Call it unread. It starts at zero, and every time the program finds an unread message, it adds one to whatever unread holds right now. The name never changes; the value inside it does. That's the whole idea of a variable."
+    },
+    {
+      "id": "card.computers.024.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Choose: if",
+      "body": "A conditional runs some instructions only if a condition is met, and different ones if it isn't. Written out, it reads almost like English: if this message is unread, add one to unread; otherwise, move on. One test, two possible paths, and the program takes exactly one of them each time."
+    },
+    {
+      "id": "card.computers.024.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Repeat: loops, and what's underneath",
+      "body": "A loop repeats a set of instructions until a condition is met, like a counter reaching a set number or, here, running out of messages. Down at the level of machine code, both moves become jumps, which Level 8 showed you: a loop is an instruction that jumps back to an earlier point, and an if is one that skips over instructions when a condition is true."
+    },
+    {
+      "id": "card.computers.024.c5",
+      "type": "mcq",
+      "questionId": "question.computers.024.q1"
+    },
+    {
+      "id": "card.computers.024.c6",
+      "type": "mcq",
+      "questionId": "question.computers.024.q2"
+    },
+    {
+      "id": "card.computers.024.c7",
+      "type": "mcq",
+      "questionId": "question.computers.024.q3"
+    },
+    {
+      "id": "card.computers.024.c8",
+      "type": "checkpoint",
+      "headline": "Three moves: learned",
+      "learned": [
+        "A variable is a name for a value that can change",
+        "An if runs one set of steps or another, depending on a condition",
+        "A loop repeats until a condition is met",
+        "Underneath, ifs and loops are jumps that move the program counter"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.024.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.software_variables"
+      ],
+      "sourceCardIds": [
+        "card.computers.024.c2"
+      ],
+      "prompt": "What is a variable in a program?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A step that repeats until a condition is met",
+          "correct": false,
+          "rationale": "That's a loop."
+        },
+        {
+          "id": "b",
+          "label": "A test that picks one of two paths",
+          "correct": false,
+          "rationale": "That's a conditional."
+        },
+        {
+          "id": "c",
+          "label": "A name that refers to a value, which can change",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A special chip that stores numbers",
+          "correct": false,
+          "rationale": "A variable is a name in the program, not hardware."
+        }
+      ],
+      "explanation": "A variable is a named reference to a value: the name stays fixed while the value it refers to can change.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.computers.024.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.software_if_and_loops"
+      ],
+      "sourceCardIds": [
+        "card.computers.024.c4"
+      ],
+      "prompt": "How does a loop know when to stop repeating?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It always stops after exactly ten repeats",
+          "correct": false,
+          "rationale": "The number of repeats depends on the condition."
+        },
+        {
+          "id": "b",
+          "label": "It repeats until a condition is met, such as a counter reaching a set number",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The operating system watches and guesses when it looks finished",
+          "correct": false,
+          "rationale": "The loop's own condition decides."
+        },
+        {
+          "id": "d",
+          "label": "It stops when its variable changes its name",
+          "correct": false,
+          "rationale": "Variable names stay fixed; values change."
+        }
+      ],
+      "explanation": "A loop repeats its instructions until a condition is met, such as a counter reaching a set number.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.024.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.software_if_and_loops",
+        "concept.computers.fetch_decode_execute"
+      ],
+      "sourceCardIds": [
+        "card.computers.024.c4",
+        "card.computers.008.c3"
+      ],
+      "prompt": "At the machine level, how does a loop get the processor to repeat its steps?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The clock runs backward to an earlier tick",
+          "correct": false,
+          "rationale": "The clock only ticks forward."
+        },
+        {
+          "id": "b",
+          "label": "The processor copies the loop's instructions many times",
+          "correct": false,
+          "rationale": "It reuses the same instructions."
+        },
+        {
+          "id": "c",
+          "label": "The operating system restarts the whole program",
+          "correct": false,
+          "rationale": "The program itself jumps back."
+        },
+        {
+          "id": "d",
+          "label": "A jump instruction changes the program counter back to an earlier point",
+          "correct": true
+        }
+      ],
+      "explanation": "Loops are built from jumps: the instruction resets the program counter to an earlier address, so the next fetch repeats those steps.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.mdn_variable_glossary",
+    "source.mdn_conditional_glossary",
+    "source.mdn_loop_glossary",
+    "source.uvm_fetch_decode_execute",
+    "source.stanford_cs101_software_machine_code"
+  ],
+  "art": "mind.signpost"
+}

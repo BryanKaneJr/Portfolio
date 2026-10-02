@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.religions.024",
+  "skillId": "skill.mind.religions",
+  "number": 24,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Baptism and Communion",
+  "objective": "After this level you can explain how Christians practice baptism and Communion and why churches understand them differently.",
+  "summary": "Baptism with water admits a person to the church, as an infant or as a professing believer; Communion recalls the Last Supper, and churches differ on what happens to the bread and wine.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.christianity_baptism",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.christianity_eucharist",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.rites_of_passage",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.023"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.024.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Water, bread and wine: Christianity's two great rituals.",
+      "body": "Churches practice both, and practice them differently. Who should be baptized? What happens to the bread? The answers show what each church believes."
+    },
+    {
+      "id": "card.religions.024.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Baptism: the way in",
+      "body": "Baptism is Christianity's rite of admission. Water is used, by full immersion, pouring or sprinkling, with the words \"in the name of the Father, and of the Son, and of the Holy Spirit\". Paul described it as sharing in Christ's death, burial and resurrection. Picture the full-immersion version: going under, coming back up."
+    },
+    {
+      "id": "card.religions.024.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Babies or believers?",
+      "body": "Most traditional churches, including Catholic, Lutheran, Anglican and Reformed, baptize infants. Baptists and some others baptize only people old enough to profess their faith themselves, a practice rooted in the Anabaptists of the Reformation. Both agree baptism starts a Christian life. They disagree on whether the person's own faith must come first."
+    },
+    {
+      "id": "card.religions.024.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Communion: a remembered meal",
+      "body": "The Eucharist, from the Greek for \"thanksgiving\", is also called Holy Communion or the Lord's Supper. It commemorates Jesus's Last Supper, when, the Gospels say, he blessed bread and wine and told his disciples to repeat it in his memory. For most churches it is the central act of worship."
+    },
+    {
+      "id": "card.religions.024.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "What's in the cup?",
+      "body": "Here churches part ways. Catholics teach transubstantiation: the bread and wine become Christ's body and blood while still looking like bread and wine. Orthodox Christians affirm Christ's real presence in their own terms. Lutherans affirm a real presence too, but not transubstantiation. The Swiss reformer Zwingli saw a memorial, and some churches call it an ordinance rather than a sacrament."
+    },
+    {
+      "id": "card.religions.024.c6",
+      "type": "mcq",
+      "questionId": "question.religions.024.q1"
+    },
+    {
+      "id": "card.religions.024.c7",
+      "type": "mcq",
+      "questionId": "question.religions.024.q2"
+    },
+    {
+      "id": "card.religions.024.c8",
+      "type": "mcq",
+      "questionId": "question.religions.024.q3"
+    },
+    {
+      "id": "card.religions.024.c9",
+      "type": "checkpoint",
+      "headline": "Baptism and Communion: the takeaways",
+      "learned": [
+        "Baptism admits a person to the church, as infant or believer",
+        "Communion recalls the Last Supper",
+        "Churches differ on what happens to the bread and wine"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.024.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.christianity_baptism"
+      ],
+      "sourceCardIds": [
+        "card.religions.024.c3"
+      ],
+      "prompt": "Which churches baptize only people old enough to profess their own faith?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Catholic Church",
+          "correct": false,
+          "rationale": "Catholics baptize infants."
+        },
+        {
+          "id": "b",
+          "label": "The Lutheran churches",
+          "correct": false,
+          "rationale": "Lutherans baptize infants."
+        },
+        {
+          "id": "c",
+          "label": "The Anglican churches",
+          "correct": false,
+          "rationale": "Anglicans baptize infants."
+        },
+        {
+          "id": "d",
+          "label": "Baptist churches",
+          "correct": true
+        }
+      ],
+      "explanation": "Baptists baptize professing believers, a practice rooted in the Anabaptists.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.religions.024.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.christianity_eucharist"
+      ],
+      "sourceCardIds": [
+        "card.religions.024.c5"
+      ],
+      "prompt": "How does Catholic teaching describe what happens to the bread and wine at the Eucharist?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They remain only symbols of a memory",
+          "correct": false,
+          "rationale": "That's close to Zwingli's memorial view."
+        },
+        {
+          "id": "b",
+          "label": "They become Christ's body and blood but look unchanged",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They are blessed but nothing about them changes",
+          "correct": false,
+          "rationale": "Catholics teach a change: transubstantiation."
+        },
+        {
+          "id": "d",
+          "label": "They are replaced by water",
+          "correct": false,
+          "rationale": "Water belongs to baptism."
+        }
+      ],
+      "explanation": "Transubstantiation: the bread and wine become Christ's body and blood while keeping their appearance.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.religions.024.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.christianity_baptism",
+        "concept.religions.rites_of_passage"
+      ],
+      "sourceCardIds": [
+        "card.religions.024.c2",
+        "card.religions.007.c2"
+      ],
+      "prompt": "Baptism admits a person into the church. What does that make it, in Level 7's terms?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A canon of sacred texts",
+          "correct": false,
+          "rationale": "A canon is a collection of scriptures."
+        },
+        {
+          "id": "b",
+          "label": "A census of believers",
+          "correct": false,
+          "rationale": "Counting is Level 9's topic."
+        },
+        {
+          "id": "c",
+          "label": "A rite of passage: a move to a new status",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A creed recited in worship",
+          "correct": false,
+          "rationale": "A creed states beliefs; baptism changes a person's status."
+        }
+      ],
+      "explanation": "Like any rite of passage, baptism moves a person from one religious status to another: into the church.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_baptism",
+    "source.brit_eucharist"
+  ],
+  "art": "rel.chalice-bread"
+}

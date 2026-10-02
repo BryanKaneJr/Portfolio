@@ -1,0 +1,209 @@
+{
+  "id": "level.mind.probability.061",
+  "skillId": "skill.mind.probability",
+  "number": 61,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Watching vs. Testing",
+  "objective": "After this level you can tell an observational study, which watches what people already do, from an experiment, which changes something.",
+  "summary": "An observational study watches what people already do; an experiment changes something and compares. Watching shows links, but other habits can explain them.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.experiment_observational_vs_experiment",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.graunt_bills_of_mortality",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.060"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.061.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "People who take vitamin E are healthier. So vitamin E works, right?",
+      "body": "It's a classic statistics textbook puzzle. Vitamin E takers really do show better health on average. Whether the pill causes it depends on how the data were gathered, and that's the big question of this chapter."
+    },
+    {
+      "id": "card.probability.061.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Watching: the observational study",
+      "body": "One way to learn is to watch. In an observational study, researchers record what people already do, such as taking vitamin E, without changing who does it. The catch: vitamin E takers often do other healthy things too. They exercise, eat well, take other supplements and don't smoke. Any of those could explain their better health. Watching shows a link, but it can't say which habit made the difference."
+    },
+    {
+      "id": "card.probability.061.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Testing: the experiment",
+      "body": "The other way is to change something yourself. In an experiment, researchers introduce an intervention, like giving one group vitamin E and another group none, and then measure what happens. The design goal: the only difference between the groups is the planned treatment. Then, if the groups end up different, the treatment is the prime suspect.",
+      "callout": "Observational: watch. Experiment: change something, then compare."
+    },
+    {
+      "id": "card.probability.061.c4",
+      "type": "fact",
+      "fact": "Sometimes watching is the only fair option.",
+      "context": "Researchers can't ethically expose people to something harmful just to see what happens. So some questions can only be answered by watching. Those results stay open to dispute, because the groups may differ in hidden ways that explain the link. The next few levels show how a good experiment shuts that door."
+    },
+    {
+      "id": "card.probability.061.c5",
+      "type": "mcq",
+      "questionId": "question.probability.061.q1"
+    },
+    {
+      "id": "card.probability.061.c6",
+      "type": "mcq",
+      "questionId": "question.probability.061.q2"
+    },
+    {
+      "id": "card.probability.061.c7",
+      "type": "recall",
+      "questionId": "question.probability.061.q3"
+    },
+    {
+      "id": "card.probability.061.c8",
+      "type": "checkpoint",
+      "headline": "Watching vs. testing",
+      "learned": [
+        "Observational: record what people already do",
+        "Experiment: change something, then compare",
+        "Other habits can explain a link",
+        "Some questions can only be watched"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.061.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.experiment_observational_vs_experiment"
+      ],
+      "sourceCardIds": [
+        "card.probability.061.c2",
+        "card.probability.061.c3"
+      ],
+      "prompt": "What makes a study an experiment rather than an observational study?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The researchers change something, like who gets a treatment",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It includes more than a thousand people",
+          "correct": false,
+          "rationale": "Size doesn't decide it; changing something does."
+        },
+        {
+          "id": "c",
+          "label": "It takes place in a laboratory",
+          "correct": false,
+          "rationale": "Experiments can happen anywhere; what matters is that researchers intervene."
+        },
+        {
+          "id": "d",
+          "label": "It measures people's health instead of their habits",
+          "correct": false,
+          "rationale": "Both kinds can measure health; the difference is whether anything is changed."
+        }
+      ],
+      "explanation": "An experiment introduces an intervention and measures its effect. An observational study records what people already do.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.061.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.experiment_observational_vs_experiment"
+      ],
+      "sourceCardIds": [
+        "card.probability.061.c2"
+      ],
+      "prompt": "Vitamin E takers show better health on average. How could that happen even if the pill does nothing?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Vitamin E can't be measured in the blood",
+          "correct": false,
+          "rationale": "Measurement isn't the issue; other habits are."
+        },
+        {
+          "id": "b",
+          "label": "Takers also tend to exercise, eat well and not smoke",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The study watched too many people",
+          "correct": false,
+          "rationale": "More people doesn't create a false link; other differences can."
+        },
+        {
+          "id": "d",
+          "label": "Observational studies never find real links",
+          "correct": false,
+          "rationale": "They find real links; they just can't say what causes them."
+        }
+      ],
+      "explanation": "The groups differ in more than vitamin E. Exercise, diet, other supplements and not smoking could each explain the better health.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.061.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.graunt_bills_of_mortality",
+        "concept.probability.experiment_observational_vs_experiment"
+      ],
+      "sourceCardIds": [
+        "card.probability.001.c2",
+        "card.probability.061.c2"
+      ],
+      "prompt": "In 1662 John Graunt studied London's Bills of Mortality (Level 1). What kind of study was that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An experiment: he gave Londoners different treatments",
+          "correct": false,
+          "rationale": "Graunt changed nothing; he summed up lists that already existed."
+        },
+        {
+          "id": "b",
+          "label": "A randomized trial of christenings and burials",
+          "correct": false,
+          "rationale": "Nobody was assigned anything; he read the weekly Bills."
+        },
+        {
+          "id": "c",
+          "label": "An observational study: he counted records and changed nothing",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Not a study at all, since he only added up lists",
+          "correct": false,
+          "rationale": "Summing up records to find patterns is exactly what an observational study does."
+        }
+      ],
+      "explanation": "Graunt summed up records of what had already happened, changing nothing: watching, not testing.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_intro_stats_experimental_design",
+    "source.iwh_observational_vs_experimental"
+  ],
+  "art": "science.microscope"
+}

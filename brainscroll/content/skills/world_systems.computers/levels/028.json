@@ -1,0 +1,220 @@
+{
+  "id": "level.world_systems.computers.028",
+  "skillId": "skill.world_systems.computers",
+  "number": 28,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Where Deleted Files Go",
+  "objective": "After this level you can explain how a file system tracks where files live, and why a \"deleted\" file can often be recovered.",
+  "summary": "A file system links names to inodes and marks blocks free or used. Deleting removes the link and marks space free without erasing it, so data often survives until overwritten; SSDs often wipe it.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.software_file_system",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.software_file_deletion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.bit_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.027"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.028.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You emptied the trash. The photo may still be on the drive.",
+      "body": "Deleting feels final, but on many drives it's more like crossing a name out of a library catalog while the book stays on the shelf. A deleted file is typically not erased at all. To see why, look at how a drive keeps track of files in the first place."
+    },
+    {
+      "id": "card.computers.028.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A catalog, not a pile",
+      "body": "Many file systems keep three kinds of records. A directory is a list of entries, each pairing a file's name with an inode number. The inode records facts about the file, including its size and where its blocks of data sit on the drive. And a bitmap tracks free space with one bit per block: 0 if the block is free, 1 if it's in use."
+    },
+    {
+      "id": "card.computers.028.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What delete really does",
+      "body": "Deleting removes the link between a file's name and its inode. Once no names point to it, the file system frees the inode and blocks. But freeing isn't erasing: the data typically stays on the drive, just no longer listed, and its space is treated as free for the operating system to overwrite whenever it likes. Until that happens, recovery tools can often bring it back.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "People mix these two up all the time. Deleting hides a file. Erasing destroys the data."
+      }
+    },
+    {
+      "id": "card.computers.028.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "SSDs, and deleting for real",
+      "body": "Solid-state drives change the odds. With a command called TRIM, the operating system tells the drive which areas are no longer needed, and the drive's own background clean-up can then clear them, destroying deleted data. To truly clear a device, the UK's National Cyber Security Centre says hitting Delete isn't enough: overwrite all its memory, or use a factory reset that deletes the encryption keys."
+    },
+    {
+      "id": "card.computers.028.c5",
+      "type": "mcq",
+      "questionId": "question.computers.028.q1"
+    },
+    {
+      "id": "card.computers.028.c6",
+      "type": "mcq",
+      "questionId": "question.computers.028.q2"
+    },
+    {
+      "id": "card.computers.028.c7",
+      "type": "mcq",
+      "questionId": "question.computers.028.q3"
+    },
+    {
+      "id": "card.computers.028.c8",
+      "type": "checkpoint",
+      "headline": "Deleted, not erased",
+      "learned": [
+        "A directory links names to inodes; inodes point to blocks",
+        "A bitmap marks each block free or in use",
+        "Deleting frees space but typically doesn't erase data",
+        "SSDs often wipe freed blocks; real clearing needs overwriting"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.028.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.software_file_deletion"
+      ],
+      "sourceCardIds": [
+        "card.computers.028.c3"
+      ],
+      "prompt": "On a typical hard drive, what happens to a deleted file's data?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is overwritten with zeros right away",
+          "correct": false,
+          "rationale": "Deleting typically doesn't erase anything."
+        },
+        {
+          "id": "b",
+          "label": "It moves into the processor's cache",
+          "correct": false,
+          "rationale": "Cache holds data in use, not deleted files."
+        },
+        {
+          "id": "c",
+          "label": "It is sent to the cloud for safekeeping",
+          "correct": false,
+          "rationale": "It stays on the same drive."
+        },
+        {
+          "id": "d",
+          "label": "It stays on the drive, in space marked as free",
+          "correct": true
+        }
+      ],
+      "explanation": "A deleted file is typically not erased: its space is marked free, and the data remains until something overwrites it.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.computers.028.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.software_file_deletion"
+      ],
+      "sourceCardIds": [
+        "card.computers.028.c3"
+      ],
+      "prompt": "How can a recovery tool bring back a file you deleted last week?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The drive secretly keeps a backup copy of every file you save",
+          "correct": false,
+          "rationale": "There's no backup; the original data was never erased."
+        },
+        {
+          "id": "b",
+          "label": "Its data stays on the drive until something new is written over it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Deleting only renames the file",
+          "correct": false,
+          "rationale": "Deleting removes the name's link to the file."
+        },
+        {
+          "id": "d",
+          "label": "The operating system emails a copy to the tool",
+          "correct": false,
+          "rationale": "The tool reads leftover data on the drive."
+        }
+      ],
+      "explanation": "Deleting removes the link and marks the space free, but the data typically stays until it's overwritten, so tools can often recover it.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.028.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.software_file_system",
+        "concept.computers.bit_definition"
+      ],
+      "sourceCardIds": [
+        "card.computers.028.c2",
+        "card.computers.002.c2"
+      ],
+      "prompt": "Level 2's bit holds one choice between two options. How does a file system's bitmap use bits?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One bit per block: 0 if it's free, 1 if it's in use",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Eight bits for every letter of every file name",
+          "correct": false,
+          "rationale": "That's text encoding, not the free-space bitmap."
+        },
+        {
+          "id": "c",
+          "label": "One bit per file, set when it's erased forever",
+          "correct": false,
+          "rationale": "The bitmap tracks blocks, and deleting doesn't erase."
+        },
+        {
+          "id": "d",
+          "label": "A single bit that counts all the files",
+          "correct": false,
+          "rationale": "One bit can only hold two values."
+        }
+      ],
+      "explanation": "A bitmap gives each block one bit, one yes-or-no answer: 0 for free, 1 for in use.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.nist_sp800_86_forensics",
+    "source.ostep_file_implementation",
+    "source.ostep_files_directories",
+    "source.ucd_ssd_forensics",
+    "source.ncsc_sanitisation"
+  ],
+  "art": "computers.flash-drive"
+}

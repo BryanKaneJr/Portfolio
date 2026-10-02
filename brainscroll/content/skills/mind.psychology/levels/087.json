@@ -1,0 +1,218 @@
+{
+  "id": "level.mind.psychology.087",
+  "skillId": "skill.mind.psychology",
+  "number": 87,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Bouncing Back",
+  "objective": "After this level you can explain what research on loss and hardship shows about how common resilience is.",
+  "summary": "Resilience, staying fairly stable through loss or trauma, differs from recovery and is common: about 46 percent after a spouse's death in one study, and 65 percent after September 11.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.resilience_common",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.resilience_absent_grief",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.freud_evidence",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.086"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.087.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Experts once saw calm after a loss as a warning sign.",
+      "body": "In a 1993 survey, 65 percent of self-identified bereavement experts said that absent grief usually stems from denial and is harmful in the long run. If someone seemed to cope well after a death, the thinking went, the grief was just hidden. Then researchers started following people through loss and checking."
+    },
+    {
+      "id": "card.psychology.087.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Resilience isn't recovery",
+      "body": "In 2004, psychologist George Bonanno drew a line between two paths. In recovery, a person's functioning drops for months or longer, then returns. In resilience, a person keeps relatively stable, healthy functioning through the loss or a potentially traumatic event. Resilient people still have rough patches, such as several weeks of restless sleep, but they don't fall into a long slump.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep the difference: recovery dips and climbs back, while resilience bends without a long slump."
+      }
+    },
+    {
+      "id": "card.psychology.087.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Checking before the loss",
+      "body": "Most grief studies begin after a death, so nobody knows what people were like before. One prospective study had data from about three years before a spouse died. About 46 percent of participants had low depression before the loss and 18 months after, and they weren't cold or distant. No clear sign of delayed grief appeared, and most still felt pangs of yearning. Resilience isn't feeling nothing."
+    },
+    {
+      "id": "card.psychology.087.c4",
+      "type": "fact",
+      "fact": "After the September 11 attacks, about 65 percent of New York-area residents in one large study were resilient.",
+      "context": "In 2006, George Bonanno and colleagues studied 2,752 people in the six months after the attacks. Resilience was less common among the most exposed, yet it never fell below about a third in any group. Resilience turned out to be the rule, not the rare exception."
+    },
+    {
+      "id": "card.psychology.087.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.087.q1"
+    },
+    {
+      "id": "card.psychology.087.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.087.q2"
+    },
+    {
+      "id": "card.psychology.087.c7",
+      "type": "mcq",
+      "questionId": "question.psychology.087.q3"
+    },
+    {
+      "id": "card.psychology.087.c8",
+      "type": "checkpoint",
+      "headline": "Resilience",
+      "learned": [
+        "Resilience stays stable; recovery dips and returns",
+        "About 46 percent were resilient after a spouse's death in one study",
+        "No clear delayed grief was found",
+        "About 65 percent were resilient after September 11"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.087.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.resilience_common"
+      ],
+      "sourceCardIds": [
+        "card.psychology.087.c2"
+      ],
+      "prompt": "How did George Bonanno tell resilience apart from recovery?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Resilience means feeling no distress at all",
+          "correct": false,
+          "rationale": "Resilient people still have rough patches."
+        },
+        {
+          "id": "b",
+          "label": "Recovery happens only with professional help",
+          "correct": false,
+          "rationale": "Recovery is defined by its path, not by treatment."
+        },
+        {
+          "id": "c",
+          "label": "Resilience stays fairly stable; recovery dips, then returns",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Recovery is quicker than resilience",
+          "correct": false,
+          "rationale": "Resilience avoids the long dip altogether."
+        }
+      ],
+      "explanation": "In recovery, functioning drops for months or longer before returning; in resilience, it stays relatively stable.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.psychology.087.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.resilience_absent_grief"
+      ],
+      "sourceCardIds": [
+        "card.psychology.087.c3"
+      ],
+      "prompt": "A man seems to be coping well months after his wife's death. What did the prospective study suggest about people like him?",
+      "options": [
+        {
+          "id": "a",
+          "label": "His grief will surely surface later",
+          "correct": false,
+          "rationale": "No clear sign of delayed grief appeared."
+        },
+        {
+          "id": "b",
+          "label": "He probably had a cold, distant marriage",
+          "correct": false,
+          "rationale": "Resilient people weren't cold or distant."
+        },
+        {
+          "id": "c",
+          "label": "He feels no sadness at all",
+          "correct": false,
+          "rationale": "Most resilient people still felt pangs of yearning."
+        },
+        {
+          "id": "d",
+          "label": "Many like him are genuinely resilient, not in denial",
+          "correct": true
+        }
+      ],
+      "explanation": "With data from before the loss, the study found many calm bereaved people were resilient: not cold, still feeling pangs, and without delayed grief.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.psychology.087.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.freud_evidence",
+        "concept.psychology.resilience_absent_grief"
+      ],
+      "sourceCardIds": [
+        "card.psychology.004.c3",
+        "card.psychology.087.c1",
+        "card.psychology.087.c3"
+      ],
+      "prompt": "Many experts believed calm after a loss meant hidden denial, until data showed otherwise. Which lesson from Level 4 does this echo?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A convincing interpretation can still fail when tested",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Case studies are the strongest evidence",
+          "correct": false,
+          "rationale": "Following many people over time beat interpretation here."
+        },
+        {
+          "id": "c",
+          "label": "Most of mental life is fully conscious",
+          "correct": false,
+          "rationale": "Level 4 argued the opposite."
+        },
+        {
+          "id": "d",
+          "label": "Only animal studies reveal real feelings",
+          "correct": false,
+          "rationale": "These studies followed people."
+        }
+      ],
+      "explanation": "Like Freud's interpretations, the experts' belief felt convincing but did not survive testing; that's why science checks.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.amp_bonanno_resilience_2004",
+    "source.psychsci_bonanno_nyc_resilience_2006",
+    "source.openstax_psych_freud"
+  ],
+  "art": "plant.tree"
+}

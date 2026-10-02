@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.psychology.032",
+  "skillId": "skill.mind.psychology",
+  "number": 32,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Holding Things in Mind",
+  "objective": "After this level you can explain working memory's small capacity and how chunking stretches it.",
+  "summary": "Working memory holds the few thoughts you are using right now. Miller put its limit at seven, plus or minus two; later research says about four chunks, and chunking packs more into each one.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.memory_working_capacity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.memory_chunking",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.memory_three_stores",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.031"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.032.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Try holding 5205550467 in your head. Now try 520-555-0467.",
+      "body": "Same ten digits, yet the second version feels far easier to keep. Nothing about the numbers changed. What changed is how many things your mind has to juggle at once."
+    },
+    {
+      "id": "card.psychology.032.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Working memory: the mind's workbench",
+      "body": "Short-term memory is best seen as one part of working memory: the few thoughts you're actively holding and using right now. You lean on it when you carry a digit in mental arithmetic, keep the start of a sentence in mind until it ends, or plan the order of your errands. It's where thinking happens, and the bench is surprisingly small."
+    },
+    {
+      "id": "card.psychology.032.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Seven, then four",
+      "body": "In 1956, George Miller reviewed the research on short-term memory and found people can hold between 5 and 9 items. He called it \"the magical number seven, plus or minus two.\" Later research revised it downward. When people can't rehearse or group items, young adults hold only about 3 to 5 chunks, and researchers led by Nelson Cowan now put working memory's capacity at about 4."
+    },
+    {
+      "id": "card.psychology.032.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Chunking: packing more into each slot",
+      "body": "The limit counts chunks, not raw items. A chunk is any group your mind treats as one unit, so 520-555-0467 is three chunks, not ten digits. In Cowan's studies, word pairs people had learned together, like desk-ball, took up one slot, the same as a single word. Need bread, milk and pepper? Picture bread floating in peppery milk, and three items become one."
+    },
+    {
+      "id": "card.psychology.032.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.032.q1"
+    },
+    {
+      "id": "card.psychology.032.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.032.q2"
+    },
+    {
+      "id": "card.psychology.032.c7",
+      "type": "recall",
+      "questionId": "question.psychology.032.q3"
+    },
+    {
+      "id": "card.psychology.032.c8",
+      "type": "checkpoint",
+      "headline": "Holding things in mind",
+      "learned": [
+        "Working memory holds the few thoughts in use right now",
+        "Miller (1956): seven, plus or minus two",
+        "Today: about four chunks",
+        "Chunking packs several items into one unit"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.032.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.memory_working_capacity"
+      ],
+      "sourceCardIds": [
+        "card.psychology.032.c3"
+      ],
+      "prompt": "Which capacity for short-term memory did George Miller's 1956 review make famous?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Two items, plus or minus one",
+          "correct": false,
+          "rationale": "Far too low: Miller found people held 5 to 9 items."
+        },
+        {
+          "id": "b",
+          "label": "Four chunks, plus or minus one",
+          "correct": false,
+          "rationale": "That's the later revision by Cowan and others, not Miller's number."
+        },
+        {
+          "id": "c",
+          "label": "Seven items, plus or minus two",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Twelve items, plus or minus three",
+          "correct": false,
+          "rationale": "Too high: Miller's range topped out at 9 items."
+        }
+      ],
+      "explanation": "Miller found people hold between 5 and 9 items and called it \"the magical number seven, plus or minus two.\" Later research revised it to about four chunks.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.032.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.memory_chunking"
+      ],
+      "sourceCardIds": [
+        "card.psychology.032.c4"
+      ],
+      "prompt": "How does chunking let you hold more in working memory?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It makes working memory physically bigger",
+          "correct": false,
+          "rationale": "The limit stays about the same; chunking changes what fills each slot."
+        },
+        {
+          "id": "b",
+          "label": "It groups items into units that each fill one slot",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It sends the items straight to sensory memory",
+          "correct": false,
+          "rationale": "Sensory memory lasts only seconds and isn't where you work with information."
+        },
+        {
+          "id": "d",
+          "label": "It removes the need to pay attention",
+          "correct": false,
+          "rationale": "Chunking is an active strategy, not a way to skip attention."
+        }
+      ],
+      "explanation": "The limit counts chunks, not items. Grouping several items into one meaningful unit lets each slot hold more.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.psychology.032.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.memory_working_capacity",
+        "concept.psychology.memory_three_stores"
+      ],
+      "sourceCardIds": [
+        "card.psychology.032.c2",
+        "card.psychology.031.c4"
+      ],
+      "prompt": "Level 31's short-term memory, which lasts about 15 to 30 seconds, is best seen as one part of which larger system?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Working memory",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Sensory memory",
+          "correct": false,
+          "rationale": "Sensory memory is the stop before short-term memory, not a larger system around it."
+        },
+        {
+          "id": "c",
+          "label": "Long-term memory",
+          "correct": false,
+          "rationale": "Long-term memory is where rehearsed information goes next."
+        },
+        {
+          "id": "d",
+          "label": "The forgetting curve",
+          "correct": false,
+          "rationale": "That's a pattern of forgetting, not a memory system."
+        }
+      ],
+      "explanation": "Short-term memory is one component of working memory, the few thoughts you actively hold and use.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_memory_functions",
+    "source.openstax_psych_memory_enhance",
+    "source.pmc_cowan_working_memory_2010"
+  ],
+  "art": "mind.abacus"
+}

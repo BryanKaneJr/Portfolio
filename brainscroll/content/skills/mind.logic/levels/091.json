@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.logic.091",
+  "skillId": "skill.mind.logic",
+  "number": 91,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Good Decision, Bad Outcome",
+  "objective": "After this level you can explain why a decision should be judged by what was known at the time, not only by how it turned out.",
+  "summary": "A good decision can end badly. Outcome bias judges choices by their endings; the fair test asks what was known at the time, as Hume's June-week forecaster shows.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.deciding_outcome_bias",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.deciding_hume_weather",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.critical_thinking_dewey",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.090"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "The forecast said sun, so you left the umbrella. It poured. Bad call?",
+      "body": "You got soaked, so it feels like a mistake. But was the decision bad, or just the luck? Those are two different questions. Mixing them up is an easy slip, whether you're judging your own choices or anyone else's.",
+      "id": "card.logic.091.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Judged by the ending",
+      "body": "The slip has a name: outcome bias. The same decision gets rated better when it turns out well than when it turns out badly. The researchers Baron and Hershey described it in 1988, and people show it even when they say outcomes shouldn't count. The ending is loud. The reasoning behind the choice is quiet.",
+      "id": "card.logic.091.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The fair test: what was known then",
+      "body": "The fix is to judge a decision on the information the decision-maker had at the time, not on what happened next. Outcomes can have little to do with the quality of a choice. So ask: given what they knew then, were the reasons good? A sensible choice can end badly, and a reckless one can get lucky.",
+      "id": "card.logic.091.c3",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: judge the choice by what was known then. Judge the luck separately."
+      }
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Hume's June and December",
+      "body": "In 1748 the philosopher David Hume made the point with the weather. Someone who expects better weather in any week of June than in one of December, he wrote, reasons justly. Yet they may still turn out mistaken. And when they do, they have no cause to complain of experience: it had already told them the weather was uncertain. Good reasoning, rained-out week.",
+      "id": "card.logic.091.c4"
+    },
+    {
+      "id": "card.logic.091.c5",
+      "type": "mcq",
+      "questionId": "question.logic.091.q1"
+    },
+    {
+      "id": "card.logic.091.c6",
+      "type": "mcq",
+      "questionId": "question.logic.091.q2"
+    },
+    {
+      "id": "card.logic.091.c7",
+      "type": "mcq",
+      "questionId": "question.logic.091.q3"
+    },
+    {
+      "id": "card.logic.091.c8",
+      "type": "checkpoint",
+      "headline": "Decisions: judged fairly",
+      "learned": [
+        "Outcome bias judges a choice by how it turned out",
+        "Judge a decision by what was known at the time",
+        "Good reasoning can still end badly, as Hume saw",
+        "Luck and judgment are two separate questions"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.091.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.deciding_outcome_bias"
+      ],
+      "sourceCardIds": [
+        "card.logic.091.c2"
+      ],
+      "prompt": "What is outcome bias?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Refusing to decide until the result is certain",
+          "correct": false,
+          "rationale": "That's indecision, not judging by results."
+        },
+        {
+          "id": "b",
+          "label": "Rating a choice better because it turned out well",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Choosing whatever pays off fastest",
+          "correct": false,
+          "rationale": "It's about judging decisions, not making quick ones."
+        },
+        {
+          "id": "d",
+          "label": "Predicting outcomes more exactly than you can",
+          "correct": false,
+          "rationale": "That's overconfidence about the future."
+        }
+      ],
+      "explanation": "Outcome bias rates the same decision better after a good outcome than after a bad one.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.091.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.deciding_outcome_bias"
+      ],
+      "sourceCardIds": [
+        "card.logic.091.c3"
+      ],
+      "prompt": "Priya takes the highway because the traffic report says it is clear. A crash blocks it and she is late. How should her choice be judged?",
+      "options": [
+        {
+          "id": "a",
+          "label": "As a bad choice, since she ended up late",
+          "correct": false,
+          "rationale": "That judges it by the outcome, the error this level names."
+        },
+        {
+          "id": "b",
+          "label": "As good only if the highway is clear next time",
+          "correct": false,
+          "rationale": "Next time is a new decision; this one is judged on its own information."
+        },
+        {
+          "id": "c",
+          "label": "By whether the report made the highway a sensible pick",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It can't be judged at all",
+          "correct": false,
+          "rationale": "It can: by the information she had when she chose."
+        }
+      ],
+      "explanation": "A fair judgment uses the information she had at the time: a clear traffic report made the highway a reasonable choice.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.logic.091.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.deciding_hume_weather",
+        "concept.logic.critical_thinking_dewey"
+      ],
+      "sourceCardIds": [
+        "card.logic.091.c4",
+        "card.logic.001.c4"
+      ],
+      "prompt": "Dewey's reflective thought weighs a belief by its grounds. Applied to Hume's June-week forecaster who got rained on, what does it look at?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The rain that fell that week",
+          "correct": false,
+          "rationale": "That is the outcome, which the forecaster couldn't know in advance."
+        },
+        {
+          "id": "b",
+          "label": "How confident the forecaster felt",
+          "correct": false,
+          "rationale": "Feelings are not the grounds Dewey means."
+        },
+        {
+          "id": "c",
+          "label": "How many people agreed with the forecast",
+          "correct": false,
+          "rationale": "Popularity is not a ground either."
+        },
+        {
+          "id": "d",
+          "label": "The experience behind expecting June to be better",
+          "correct": true
+        }
+      ],
+      "explanation": "Dewey weighs the grounds that support a belief. The forecaster's grounds, experience of June weather, were good even though the week turned out wet.",
+      "difficulty": 0.5
+    }
+  ],
+  "sourceIds": [
+    "source.pmc_outcome_bias_replication",
+    "source.gutenberg_hume_enquiry",
+    "source.sep_critical_thinking",
+    "source.gutenberg_dewey_how_we_think"
+  ],
+  "art": "money.chess-king"
+}

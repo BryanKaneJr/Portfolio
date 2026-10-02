@@ -1,0 +1,224 @@
+{
+  "id": "level.history.us_history.043",
+  "skillId": "skill.history.us_history",
+  "number": 43,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "King Cotton",
+  "objective": "After this level you can explain how the cotton gin and the domestic slave trade spread slavery across the Deep South.",
+  "summary": "Whitney’s 1793 gin made inland cotton profitable and raised demand for enslaved labor. After 1808, about a million people or more were forced to the Deep South.",
+  "concepts": [
+    {
+      "conceptId": "concept.us_history.cotton_gin",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.cotton_slavery_spread",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.cotton_domestic_slave_trade",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.jamestown_tobacco",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.history.us_history.042"
+  ],
+  "cards": [
+    {
+      "id": "card.us_history.043.c1",
+      "role": "hook",
+      "headline": "A machine built to save labor ended up spreading slavery.",
+      "body": "In 1793 Eli Whitney built a machine to clean cotton. Over the next decades cotton took over the South, and slavery moved with it. How did a labor-saving machine do that?",
+      "type": "text"
+    },
+    {
+      "id": "card.us_history.043.c2",
+      "headline": "The sticky-seed problem",
+      "body": "Long-staple cotton, whose seeds come out easily, grew only near the coast. The cotton that grew inland had sticky seeds that were slow to pick out by hand. Whitney’s gin (1793) pulled the fiber through wire teeth on a turning cylinder, leaving the seeds behind. Suddenly, inland cotton was worth growing almost anywhere in the South.",
+      "type": "text",
+      "role": "explain"
+    },
+    {
+      "id": "card.us_history.043.c3",
+      "headline": "Why the gin spread slavery",
+      "body": "The gin sped up one step, cleaning. Someone still had to plant, hoe and pick every boll. Cotton became so profitable that enslavers demanded more land and more enslaved people to work it. A machine that saved labor at the gin multiplied forced labor in the fields.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Common mix-up: the gin saved work at one step. Planting and picking still took people, so slavery grew."
+      },
+      "type": "text",
+      "role": "explain"
+    },
+    {
+      "id": "card.us_history.043.c4",
+      "headline": "Sold south",
+      "body": "In 1808 Congress banned bringing enslaved people from Africa. Enslavers turned to a trade inside the country. About a million enslaved people, perhaps more, were forced from the Upper South, places like Virginia and Maryland, to cotton plantations in the Deep South. Many were marched in chained gangs, and sales split spouses, parents and children.",
+      "type": "text",
+      "role": "explain"
+    },
+    {
+      "id": "card.us_history.043.c5",
+      "type": "mcq",
+      "questionId": "question.us_history.043.q1"
+    },
+    {
+      "id": "card.us_history.043.c6",
+      "type": "mcq",
+      "questionId": "question.us_history.043.q2"
+    },
+    {
+      "id": "card.us_history.043.c7",
+      "type": "mcq",
+      "questionId": "question.us_history.043.q3"
+    },
+    {
+      "id": "card.us_history.043.c8",
+      "type": "checkpoint",
+      "headline": "King Cotton",
+      "learned": [
+        "Whitney’s gin (1793) cleaned sticky-seeded inland cotton",
+        "It saved cleaning work but raised demand for enslaved labor",
+        "After 1808, the domestic slave trade moved people south",
+        "About a million were forced to the Deep South"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.us_history.043.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.cotton_domestic_slave_trade"
+      ],
+      "sourceCardIds": [
+        "card.us_history.043.c4"
+      ],
+      "prompt": "After Congress banned imports from Africa in 1808, how did Deep South enslavers get more enslaved workers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They hired newly arrived Irish immigrants to pick cotton",
+          "correct": false,
+          "rationale": "Irish immigrants mostly settled in Northern cities."
+        },
+        {
+          "id": "b",
+          "label": "They ignored the ban and kept importing from Africa",
+          "correct": false,
+          "rationale": "The trade shifted inside the country instead."
+        },
+        {
+          "id": "c",
+          "label": "They bought people from the Upper South in the domestic slave trade",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They switched their plantations from cotton to wheat",
+          "correct": false,
+          "rationale": "Cotton kept spreading."
+        }
+      ],
+      "explanation": "About a million enslaved people, perhaps more, were forced from the Upper South to the Deep South.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.us_history.043.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.cotton_slavery_spread"
+      ],
+      "sourceCardIds": [
+        "card.us_history.043.c3"
+      ],
+      "prompt": "Why did the cotton gin increase slavery instead of reducing it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It needed enslaved mechanics to run it",
+          "correct": false,
+          "rationale": "Horses or water could power larger gins; the demand was for field work."
+        },
+        {
+          "id": "b",
+          "label": "It could clean only coastal cotton",
+          "correct": false,
+          "rationale": "It made sticky-seeded inland cotton worth growing."
+        },
+        {
+          "id": "c",
+          "label": "Congress required every gin owner to enslave workers",
+          "correct": false,
+          "rationale": "No such law existed."
+        },
+        {
+          "id": "d",
+          "label": "Profits raised demand for land and people to plant and pick it",
+          "correct": true
+        }
+      ],
+      "explanation": "The gin only sped up cleaning. Planting and picking still took people, and profits drove demand for more.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.us_history.043.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.us_history.cotton_slavery_spread",
+        "concept.us_history.jamestown_tobacco"
+      ],
+      "sourceCardIds": [
+        "card.us_history.043.c3",
+        "card.us_history.009.c6"
+      ],
+      "prompt": "Tobacco in early Virginia and cotton after 1793 had what in common?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both were first grown by the Cherokee",
+          "correct": false,
+          "rationale": "Neither level says so."
+        },
+        {
+          "id": "b",
+          "label": "A profitable crop drove a hunger for more land",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Both were cleaned by Whitney’s gin",
+          "correct": false,
+          "rationale": "The gin cleaned cotton only."
+        },
+        {
+          "id": "d",
+          "label": "Both were banned by Congress in 1808",
+          "correct": false,
+          "rationale": "Congress banned the African slave trade, not crops."
+        }
+      ],
+      "explanation": "Tobacco pushed Virginia’s settlers onto Native land; cotton drove demand for land and enslaved people.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_cotton_gin",
+    "source.nara_cotton_gin_patent",
+    "source.nmah_domestic_slave_trade",
+    "source.nps_forks_of_the_road"
+  ],
+  "art": "us.cotton-boll"
+}

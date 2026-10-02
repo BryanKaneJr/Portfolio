@@ -1,0 +1,213 @@
+{
+  "id": "level.mind.logic.062",
+  "skillId": "skill.mind.logic",
+  "number": 62,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Could It Be Proved Wrong?",
+  "objective": "After this level you can explain Karl Popper's idea that a scientific claim must be falsifiable.",
+  "summary": "Popper's test: a scientific theory must clash with some possible observation. Einstein's risky light-bending prediction passed it; theories that fit any behaviour could not.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.science_falsifiability",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.claim_definition",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.061"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"Tomorrow it will rain, or it won't.\" Never wrong. Never useful.",
+      "body": "A forecast that no weather could prove wrong tells you nothing about the weather. The philosopher Karl Popper turned that simple thought into a test for science itself.",
+      "id": "card.logic.062.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Popper's test",
+      "body": "Karl Popper, an Austrian-British philosopher who lived from 1902 to 1994, asked what makes a theory scientific. His answer was falsifiability: a scientific theory must clash with some possible observation. It has to stick its neck out and say, in effect, \"If you ever see this, I'm wrong.\" A theory that no observation could ever contradict fails the test.",
+      "id": "card.logic.062.c2",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Common mix-up: \"falsifiable\" doesn't mean false. It means a test could show it false, if it were."
+      }
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Einstein bet on bending light",
+      "body": "Popper admired Einstein's theory of relativity because it made a risky prediction: light bends towards massive bodies. If careful measurements had shown no bending, the theory would have been in serious trouble. In 1919, Eddington's observations bore it out. That's Popper's point: evidence for a theory counts only when it comes from a prediction that might have failed.",
+      "id": "card.logic.062.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The theory that explains everything",
+      "body": "Popper saw the opposite in the psychoanalytic theories of his day. They could account for any human behaviour at all, so no conceivable observation could contradict them. Admirers counted that as a strength. Popper counted it as a weakness: like the forecast of rain or no rain, a theory that fits every outcome makes no real prediction.",
+      "id": "card.logic.062.c4"
+    },
+    {
+      "id": "card.logic.062.c5",
+      "type": "mcq",
+      "questionId": "question.logic.062.q1"
+    },
+    {
+      "id": "card.logic.062.c6",
+      "type": "mcq",
+      "questionId": "question.logic.062.q2"
+    },
+    {
+      "id": "card.logic.062.c7",
+      "type": "mcq",
+      "questionId": "question.logic.062.q3"
+    },
+    {
+      "id": "card.logic.062.c8",
+      "type": "checkpoint",
+      "headline": "Falsifiability: explained",
+      "learned": [
+        "A scientific theory must clash with some observation",
+        "Einstein risked a prediction about bending light",
+        "A theory that fits every outcome predicts nothing",
+        "Falsifiable means testable, not false"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.062.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.science_falsifiability"
+      ],
+      "sourceCardIds": [
+        "card.logic.062.c2"
+      ],
+      "prompt": "According to Karl Popper, what must a scientific theory be?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Proven true by many observations",
+          "correct": false,
+          "rationale": "Popper held that no pile of observations proves a theory."
+        },
+        {
+          "id": "b",
+          "label": "Accepted by most scientists",
+          "correct": false,
+          "rationale": "Popularity is not his test."
+        },
+        {
+          "id": "c",
+          "label": "Able to explain every possible result",
+          "correct": false,
+          "rationale": "That is exactly what fails his test."
+        },
+        {
+          "id": "d",
+          "label": "Falsifiable: open to being refuted",
+          "correct": true
+        }
+      ],
+      "explanation": "His test was falsifiability: a scientific theory must clash with some possible observation.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.062.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.science_falsifiability"
+      ],
+      "sourceCardIds": [
+        "card.logic.062.c3"
+      ],
+      "prompt": "How did Einstein's relativity meet Popper's standard?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It predicted bending light, which could have failed",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It could explain any measurement at all",
+          "correct": false,
+          "rationale": "Explaining anything is what Popper criticized."
+        },
+        {
+          "id": "c",
+          "label": "Famous scientists agreed with it",
+          "correct": false,
+          "rationale": "Agreement is not the test; risk is."
+        },
+        {
+          "id": "d",
+          "label": "It was never tested, so never refuted",
+          "correct": false,
+          "rationale": "It was tested, in 1919, and could have failed."
+        }
+      ],
+      "explanation": "Relativity made a risky prediction, light bending towards massive bodies, that observations could have contradicted.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.062.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.science_falsifiability",
+        "concept.logic.claim_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.062.c2",
+        "card.logic.003.c2"
+      ],
+      "prompt": "Level 3 says any claim can be true or false. What more does Popper ask of a scientific claim?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That it has already been proven true",
+          "correct": false,
+          "rationale": "He asks for a way it could fail, not proof."
+        },
+        {
+          "id": "b",
+          "label": "That it uses precise technical words",
+          "correct": false,
+          "rationale": "Vocabulary is not his test."
+        },
+        {
+          "id": "c",
+          "label": "A possible observation that would refute it",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "That nobody has ever doubted it",
+          "correct": false,
+          "rationale": "Doubt is welcome; untestability is the problem."
+        }
+      ],
+      "explanation": "Every claim is true or false; a scientific one must also clash with some possible observation, so a test could show it false.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sep_popper",
+    "source.libretexts_vancleave_what_is_an_argument",
+    "source.forallx_calgary"
+  ],
+  "art": "mind.logic-black-swan"
+}

@@ -1,0 +1,213 @@
+{
+  "id": "level.mind.psychology.029",
+  "skillId": "skill.mind.psychology",
+  "number": 29,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "How Habits Form",
+  "objective": "After this level you can explain how a cue, a routine and a reward build a habit, and how long habits really take to form.",
+  "summary": "Repeat a behavior in the same setting, with a reward, and the setting's cues come to trigger it automatically. In one study, habits took a median of 66 days.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.learning_habit_formation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.learning_habit_formation_time",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.conditioning_law_of_effect",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.028"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.029.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "How long does a new habit take to stick? One study counted.",
+      "body": "You probably brush your teeth without deciding to. That's a habit doing the work. Psychologists have mapped how habits form, and one team timed the process in real people. The answer is neither quick nor tidy."
+    },
+    {
+      "id": "card.psychology.029.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cue, routine, reward",
+      "body": "Habits grow out of repetition in one setting. You pursue a goal by doing the same thing in the same context, again and again. With each repetition, the link in memory between the context's cues, like a coffee filter on the counter, and your response gets a little stronger. The reward that follows, like the coffee itself, strengthens the link further. Eventually the cue alone sets off the routine, automatically."
+    },
+    {
+      "id": "card.psychology.029.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The law of effect, on autopilot",
+      "body": "This builds on Thorndike's principle from Level 25: rewarded responses get repeated. A habit is what you get when that repetition goes on long enough in one setting that the cues take over. You stop choosing; the coffee filter chooses for you."
+    },
+    {
+      "id": "card.psychology.029.c4",
+      "type": "fact",
+      "fact": "In one study, new daily habits took a median of 66 days to become automatic.",
+      "context": "Phillippa Lally's team had 96 volunteers pick an eating, drinking or activity behavior and do it daily in the same context, like after breakfast, for 12 weeks. The spread was huge: from 18 days to an estimated 254. Good news for the imperfect: missing one opportunity didn't materially set habit formation back."
+    },
+    {
+      "id": "card.psychology.029.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.029.q1"
+    },
+    {
+      "id": "card.psychology.029.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.029.q2"
+    },
+    {
+      "id": "card.psychology.029.c7",
+      "type": "recall",
+      "questionId": "question.psychology.029.q3"
+    },
+    {
+      "id": "card.psychology.029.c8",
+      "type": "checkpoint",
+      "headline": "How Habits Form",
+      "learned": [
+        "Habits form by repeating a response in one setting",
+        "Cues get linked to the response; rewards strengthen it",
+        "One study: a median of about two months",
+        "Missing one day didn't derail habit formation"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.029.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.learning_habit_formation_time"
+      ],
+      "sourceCardIds": [
+        "card.psychology.029.c4"
+      ],
+      "prompt": "In Lally's 2010 study, what was the median time for a new habit to become automatic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "21 days",
+          "correct": false,
+          "rationale": "That popular figure isn't what the study found."
+        },
+        {
+          "id": "b",
+          "label": "66 days",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "254 days",
+          "correct": false,
+          "rationale": "That was the slowest estimate, not the median."
+        },
+        {
+          "id": "d",
+          "label": "One year",
+          "correct": false,
+          "rationale": "The study ran 12 weeks, and the median was far shorter."
+        }
+      ],
+      "explanation": "The median was 66 days, with a range from 18 to an estimated 254 days.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.029.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.learning_habit_formation"
+      ],
+      "sourceCardIds": [
+        "card.psychology.029.c2"
+      ],
+      "prompt": "How does repeating a behavior in the same setting turn it into a habit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It makes the reward bigger each time",
+          "correct": false,
+          "rationale": "The reward strengthens the link; it doesn't grow."
+        },
+        {
+          "id": "b",
+          "label": "It makes you think harder before acting",
+          "correct": false,
+          "rationale": "Habits end up running with less thought, not more."
+        },
+        {
+          "id": "c",
+          "label": "It links the setting's cues to the response",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It removes the goal from memory",
+          "correct": false,
+          "rationale": "Habits form while people pursue goals."
+        }
+      ],
+      "explanation": "Each repetition strengthens the link between context cues and the response until the cues trigger it automatically.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.029.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.conditioning_law_of_effect",
+        "concept.psychology.learning_habit_formation"
+      ],
+      "sourceCardIds": [
+        "card.psychology.029.c3",
+        "card.psychology.025.c2"
+      ],
+      "prompt": "Habit research builds on which principle from Level 25?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Stimulus generalization",
+          "correct": false,
+          "rationale": "That's about fear spreading, from Level 23."
+        },
+        {
+          "id": "b",
+          "label": "Thorndike's law of effect",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Spontaneous recovery",
+          "correct": false,
+          "rationale": "That's a response returning after rest, from Level 22."
+        },
+        {
+          "id": "d",
+          "label": "Vicarious reinforcement",
+          "correct": false,
+          "rationale": "That's about watching a model rewarded, from Level 28."
+        }
+      ],
+      "explanation": "Habits rest on the law of effect: responses followed by satisfying results get repeated.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.annurev_wood_runger_habit_2016",
+    "source.ejsp_lally_habit_formation_2010",
+    "source.openstax_psych_operant_conditioning"
+  ],
+  "art": "mind.habit-toothbrush"
+}

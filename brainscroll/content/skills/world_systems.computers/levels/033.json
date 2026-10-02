@@ -1,0 +1,216 @@
+{
+  "id": "level.world_systems.computers.033",
+  "skillId": "skill.world_systems.computers",
+  "number": 33,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "DNS: The Internet's Phone Book",
+  "objective": "After this level you can explain how DNS turns a name like example.com into the number address a computer can reach.",
+  "summary": "DNS turns names into IP addresses: a resolver checks its cache, then asks a root server, the .com servers and the domain's own name servers in turn.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.net_dns_lookup",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.net_dns_root_cache",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.net_ip_address",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.032"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.033.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Once, one file listed every computer on the internet.",
+      "body": "It was called HOSTS.TXT. One office kept it, and every computer on the network copied it. As the network grew, that plan fell apart. Its replacement is the system you use every time you type a web address."
+    },
+    {
+      "id": "card.computers.033.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Names for people, numbers for machines",
+      "body": "Computers reach each other by IP address, but people remember names. The Domain Name System, DNS, turns a name like example.com into the IP address a computer can use. (That name is real, reserved just for examples like this one.) Your browser hands the question to a program called a resolver, which does the looking up."
+    },
+    {
+      "id": "card.computers.033.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ask the root, then .com, then the owner",
+      "body": "A resolver with no saved answer starts at the top. A root server doesn't know example.com's address, but it knows who runs .com, so it replies with a referral to those servers. A .com server, in turn, refers the resolver to example.com's own name servers, which hold the actual address. Three questions, each narrowing it down, like asking the library desk, then the right floor, then the shelf."
+    },
+    {
+      "id": "card.computers.033.c4",
+      "type": "fact",
+      "fact": "13 named root servers, run by 12 organizations, answer from more than 2,000 machines worldwide.",
+      "context": "Each name, a to m, is really many copies spread around the globe. Resolvers also keep a cache of answers they've looked up recently and check it before asking anyone, so most lookups never reach the root. That caching is what lets DNS keep up with the whole internet."
+    },
+    {
+      "id": "card.computers.033.c5",
+      "type": "mcq",
+      "questionId": "question.computers.033.q1"
+    },
+    {
+      "id": "card.computers.033.c6",
+      "type": "mcq",
+      "questionId": "question.computers.033.q2"
+    },
+    {
+      "id": "card.computers.033.c7",
+      "type": "mcq",
+      "questionId": "question.computers.033.q3"
+    },
+    {
+      "id": "card.computers.033.c8",
+      "type": "checkpoint",
+      "headline": "Names: resolved",
+      "learned": [
+        "DNS turns names into IP addresses",
+        "A resolver asks the root, then .com, then the owner",
+        "13 root server names, over 2,000 machines",
+        "Cached answers skip most of the trip"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.033.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.net_dns_root_cache"
+      ],
+      "sourceCardIds": [
+        "card.computers.033.c4"
+      ],
+      "prompt": "What do resolvers do that keeps most lookups from ever reaching a root server?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They keep a cache of answers they looked up recently",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They skip looking up any name that ends in .com",
+          "correct": false,
+          "rationale": "Every name still needs an answer."
+        },
+        {
+          "id": "c",
+          "label": "They work the address out from the letters of the name",
+          "correct": false,
+          "rationale": "Addresses cannot be worked out from names."
+        },
+        {
+          "id": "d",
+          "label": "They ask the nearest switch, which remembers every name",
+          "correct": false,
+          "rationale": "Switches forward frames; they do not look up names."
+        }
+      ],
+      "explanation": "Resolvers check their cache of recent answers first, which is critical to letting DNS work at the scale of the internet.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.033.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.net_dns_lookup"
+      ],
+      "sourceCardIds": [
+        "card.computers.033.c3"
+      ],
+      "prompt": "How does a resolver with no saved answer find the address for example.com?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It downloads one master file listing every website online",
+          "correct": false,
+          "rationale": "That single-file approach is what DNS replaced."
+        },
+        {
+          "id": "b",
+          "label": "It guesses an address for example.com and asks the site directly",
+          "correct": false,
+          "rationale": "It cannot ask a site whose address it does not know."
+        },
+        {
+          "id": "c",
+          "label": "It asks every router on the internet until one of them answers",
+          "correct": false,
+          "rationale": "Routers forward packets; name servers answer lookups."
+        },
+        {
+          "id": "d",
+          "label": "It asks a root server, then a .com server, then example.com's own name servers",
+          "correct": true
+        }
+      ],
+      "explanation": "Each step hands back a referral: the root points to the .com servers, and those point to the domain's own name servers, which hold the address.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.033.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.net_dns_lookup",
+        "concept.computers.net_ip_address"
+      ],
+      "sourceCardIds": [
+        "card.computers.033.c2",
+        "card.computers.032.c2"
+      ],
+      "prompt": "Once DNS returns example.com's IP address, where does your device put it on the packets it sends?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In the packet header as the destination address",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "In the switch's MAC address table",
+          "correct": false,
+          "rationale": "Switches record MAC addresses, not IP addresses."
+        },
+        {
+          "id": "c",
+          "label": "In the HOSTS.TXT file",
+          "correct": false,
+          "rationale": "That old file was replaced by DNS."
+        },
+        {
+          "id": "d",
+          "label": "Nowhere: DNS sends the packets itself",
+          "correct": false,
+          "rationale": "DNS only answers the lookup."
+        }
+      ],
+      "explanation": "Every packet's header carries a source and a destination IP address, so the looked-up address becomes the destination.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.ietf_rfc1034_dns",
+    "source.icann_root_server_system_overview",
+    "source.ietf_rfc2606_reserved_names",
+    "source.rootservers_root_server_system",
+    "source.ietf_rfc791_ip",
+    "source.arin_ipv4_ipv6_questions"
+  ],
+  "art": "object.book"
+}

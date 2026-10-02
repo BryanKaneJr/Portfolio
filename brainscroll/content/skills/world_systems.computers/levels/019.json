@@ -1,0 +1,219 @@
+{
+  "id": "level.world_systems.computers.019",
+  "skillId": "skill.world_systems.computers",
+  "number": 19,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Smartphone Era",
+  "objective": "After this level you can explain how the smartphone and its app stores, from 2007 on, became most people's main computer.",
+  "summary": "A smartphone runs an OS that installs apps. The 2007 iPhone, the 2008 App Store and Android made phones computers; by 2025 91% of US adults had one and 16% relied on it alone.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.history_smartphone_platforms",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.history_smartphone_everyday",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.history_ibm_pc",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.018"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.019.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 2011, 35% of US adults owned a smartphone. By 2025, 91% did.",
+      "body": "In fourteen years the smartphone went from something about a third of adults owned to something nearly all of them did. What turned a phone into a computer?"
+    },
+    {
+      "id": "card.computers.019.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A computer that also makes calls",
+      "body": "A smartphone is a mobile phone with an operating system that lets other software be installed: web browsing, email, music, video and more. Apple announced the iPhone in January 2007, and it went on sale in the US in June 2007. You worked it with your fingertips on a touchscreen, not a stylus or physical keys."
+    },
+    {
+      "id": "card.computers.019.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Opening the phone to everyone's apps",
+      "body": "On July 10, 2008, Apple opened the App Store with 500 apps, letting outside developers offer software for the phone. In October 2008 the first phone running Google's Android, the T-Mobile G1, went on sale. Android is free and open source, supports third-party apps and is used by many phone makers, a little like the IBM-compatible PCs of Level 18."
+    },
+    {
+      "id": "card.computers.019.c4",
+      "type": "fact",
+      "fact": "In October 2016, phones and tablets passed desktops in worldwide web use.",
+      "context": "StatCounter measured 51.3% of web use on mobile and tablet devices, against 48.7% on desktops. By 2025, 16% of US adults were smartphone-only internet users: they had a smartphone but no home broadband. For them, the phone isn't a second computer. It's the computer."
+    },
+    {
+      "id": "card.computers.019.c5",
+      "type": "mcq",
+      "questionId": "question.computers.019.q1"
+    },
+    {
+      "id": "card.computers.019.c6",
+      "type": "mcq",
+      "questionId": "question.computers.019.q2"
+    },
+    {
+      "id": "card.computers.019.c7",
+      "type": "mcq",
+      "questionId": "question.computers.019.q3"
+    },
+    {
+      "id": "card.computers.019.c8",
+      "type": "checkpoint",
+      "headline": "Smartphone: in hand",
+      "learned": [
+        "A smartphone's OS lets you install apps",
+        "iPhone 2007; App Store and Android 2008",
+        "Mobile passed desktop web use in 2016",
+        "16% of US adults rely on the phone alone"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.019.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.history_smartphone_platforms"
+      ],
+      "sourceCardIds": [
+        "card.computers.019.c3"
+      ],
+      "prompt": "When did Apple's App Store open, with 500 apps?",
+      "options": [
+        {
+          "id": "a",
+          "label": "January 2007",
+          "correct": false,
+          "rationale": "That's when the iPhone was announced."
+        },
+        {
+          "id": "b",
+          "label": "October 2016",
+          "correct": false,
+          "rationale": "That's when mobile passed desktop in web use."
+        },
+        {
+          "id": "c",
+          "label": "August 1981",
+          "correct": false,
+          "rationale": "That's the IBM PC."
+        },
+        {
+          "id": "d",
+          "label": "July 2008",
+          "correct": true
+        }
+      ],
+      "explanation": "The App Store opened on July 10, 2008, with 500 apps.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.019.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.history_smartphone_everyday"
+      ],
+      "sourceCardIds": [
+        "card.computers.019.c4"
+      ],
+      "prompt": "In 2025, 16% of US adults were \"smartphone-only\" internet users. What does that mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They had a smartphone but no home broadband",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They owned only one app",
+          "correct": false,
+          "rationale": "It's about how they get online, not apps."
+        },
+        {
+          "id": "c",
+          "label": "They never used a computer at work",
+          "correct": false,
+          "rationale": "The measure is home internet access."
+        },
+        {
+          "id": "d",
+          "label": "They used their phone only for calls",
+          "correct": false,
+          "rationale": "They used it to get online."
+        }
+      ],
+      "explanation": "Smartphone-only means owning a smartphone without a home broadband subscription.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.019.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.history_smartphone_platforms",
+        "concept.computers.history_ibm_pc"
+      ],
+      "sourceCardIds": [
+        "card.computers.019.c3",
+        "card.computers.018.c4"
+      ],
+      "prompt": "Level 18's IBM PC design was built on by many other companies. Which smartphone system is used by many phone makers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "MS-DOS",
+          "correct": false,
+          "rationale": "That was the IBM PC's operating system."
+        },
+        {
+          "id": "b",
+          "label": "Android",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The Altair's front panel",
+          "correct": false,
+          "rationale": "That was a 1975 kit's switches and lights."
+        },
+        {
+          "id": "d",
+          "label": "The App Store",
+          "correct": false,
+          "rationale": "That's a store for apps, not an operating system."
+        }
+      ],
+      "explanation": "Android is free, open source and used by many phone makers, as IBM compatibles were made by many PC makers.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.pew_mobile_fact_sheet",
+    "source.brit_smartphone",
+    "source.apple_iphone_2007",
+    "source.brit_iphone",
+    "source.ibm_personal_computer",
+    "source.brit_personal_computer",
+    "source.apple_app_store_10",
+    "source.brit_android",
+    "source.statcounter_mobile_desktop_2016"
+  ],
+  "art": "technology.smartphone"
+}

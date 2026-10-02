@@ -1,0 +1,208 @@
+{
+  "id": "level.mind.probability.032",
+  "skillId": "skill.mind.probability",
+  "number": 32,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Expected Value",
+  "objective": "After this level you can work out the average result of a bet over many plays by weighing each outcome by its chance.",
+  "summary": "A bet's expected value is its average result per play over many plays: multiply each outcome by its chance and add. It is an average, not a promise about any single play.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.bet_expected_value",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.bet_odds_conversion",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.031"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.032.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Heads, you win $3. Tails, you lose $2. Should you play?",
+      "body": "It feels close. One number settles it: the expected value, the average a bet pays per play if you play it over and over."
+    },
+    {
+      "id": "card.probability.032.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Weigh each outcome by its chance, then add",
+      "body": "Heads and tails each come up half the time, so weigh each result by one half. Winning $3 counts as $1.50. Losing $2 counts as minus $1. Add them: $1.50 minus $1 is 50 cents. That's the expected value of one flip. The recipe works for any bet: multiply each outcome by its probability, then add the results."
+    },
+    {
+      "id": "card.probability.032.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "An average, not a promise",
+      "body": "You'll never win exactly 50 cents on a flip. You win $3 or lose $2. Expected value is an average over many plays: play 100 times and you'd expect to finish about $50 ahead, though any real run of flips wanders around that. That's why it's called expected, not guaranteed."
+    },
+    {
+      "id": "card.probability.032.c4",
+      "type": "fact",
+      "fact": "A $2 game with a 1 in 100,000 chance at $100,000 is worth about minus $1 a play.",
+      "context": "This one comes from a statistics textbook. The prize weighed by its chance is $100,000 ÷ 100,000, or $1 per play. You pay $2. So on average you lose about $1 every time you play. A negative expected value means a game takes back more than it gives. Keep an eye out: the next few levels are full of them."
+    },
+    {
+      "id": "card.probability.032.c5",
+      "type": "mcq",
+      "questionId": "question.probability.032.q1"
+    },
+    {
+      "id": "card.probability.032.c6",
+      "type": "mcq",
+      "questionId": "question.probability.032.q2"
+    },
+    {
+      "id": "card.probability.032.c7",
+      "type": "recall",
+      "questionId": "question.probability.032.q3"
+    },
+    {
+      "id": "card.probability.032.c8",
+      "type": "checkpoint",
+      "headline": "Expected value: worked out",
+      "learned": [
+        "Weigh each outcome by its chance, then add",
+        "The coin game is worth 50 cents a flip",
+        "An average over many plays, not a promise",
+        "Negative expected value: the game takes more than it gives"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.032.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.bet_expected_value"
+      ],
+      "sourceCardIds": [
+        "card.probability.032.c1",
+        "card.probability.032.c3"
+      ],
+      "prompt": "What is a bet's expected value?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The amount you will win on your next play",
+          "correct": false,
+          "rationale": "Expected value is an average; one play gives an actual outcome."
+        },
+        {
+          "id": "b",
+          "label": "Its average result per play over many plays",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The biggest prize it can pay",
+          "correct": false,
+          "rationale": "The biggest prize ignores how likely it is."
+        },
+        {
+          "id": "d",
+          "label": "The chance that you win",
+          "correct": false,
+          "rationale": "That's the probability, not the value."
+        }
+      ],
+      "explanation": "Expected value is the long-run average result per play, found by weighing each outcome by its chance.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.032.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.bet_expected_value"
+      ],
+      "sourceCardIds": [
+        "card.probability.032.c2"
+      ],
+      "prompt": "Heads, you win $4. Tails, you lose $2. How does the expected value per flip work out?",
+      "options": [
+        {
+          "id": "a",
+          "label": "$4 minus $2, which is plus $2",
+          "correct": false,
+          "rationale": "Each outcome must be weighed by its chance, one half."
+        },
+        {
+          "id": "b",
+          "label": "Zero, because a coin is fair",
+          "correct": false,
+          "rationale": "A fair coin can still pay unequal amounts."
+        },
+        {
+          "id": "c",
+          "label": "$4 × ½ minus $2 × ½, which is plus $1",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "½ × ½, which is 25 cents",
+          "correct": false,
+          "rationale": "That multiplies the chances and ignores the dollars."
+        }
+      ],
+      "explanation": "Weigh each result by one half: $2 minus $1 is plus $1 per flip.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.032.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.bet_expected_value",
+        "concept.probability.bet_odds_conversion"
+      ],
+      "sourceCardIds": [
+        "card.probability.031.c3",
+        "card.probability.032.c2"
+      ],
+      "prompt": "A game pays $10 if you win, and the odds are 4 to 1 against. What is the prize worth per play, on average?",
+      "options": [
+        {
+          "id": "a",
+          "label": "$2.50",
+          "correct": false,
+          "rationale": "That uses a 1 in 4 chance; 4 to 1 against is 1 in 5."
+        },
+        {
+          "id": "b",
+          "label": "$8",
+          "correct": false,
+          "rationale": "That weighs the prize by the chance of losing."
+        },
+        {
+          "id": "c",
+          "label": "$40",
+          "correct": false,
+          "rationale": "That multiplies by the odds instead of the chance."
+        },
+        {
+          "id": "d",
+          "label": "$2",
+          "correct": true
+        }
+      ],
+      "explanation": "Odds of 4 to 1 against are a 1 in 5 chance. $10 × 1/5 = $2 per play.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_intro_stats_expected_value",
+    "source.ucla_oarc_odds_ratios"
+  ],
+  "art": "money.scale"
+}

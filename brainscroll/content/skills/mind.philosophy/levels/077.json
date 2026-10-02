@@ -1,0 +1,218 @@
+{
+  "id": "level.mind.philosophy.077",
+  "skillId": "skill.mind.philosophy",
+  "number": 77,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Watchmaker Argument",
+  "objective": "After this level you can explain William Paley's argument from a watch found on a heath and the replies from Hume and from Darwin's theory of evolution.",
+  "summary": "Paley inferred a designer from a watch and the eye; Hume’s Philo questioned the analogy, Darwin offered natural selection, and fine-tuning arguments and their critics carry the debate on.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.god_design_argument",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.four_causes",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.076"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.077.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You trip over a stone on a heath. Then you find a watch.",
+      "body": "Would you shrug at both? William Paley bet you wouldn’t, and built an argument for God on the difference."
+    },
+    {
+      "id": "card.philosophy.077.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The watch and the eye",
+      "body": "In Natural Theology (1802), Paley says a stone might have lain there forever. A watch is different: its parts are framed and put together for a purpose, so it must have had a maker. Then he turns to nature. There is, he argues, precisely the same proof that the eye was made for vision as that a telescope was made for assisting it."
+    },
+    {
+      "id": "card.philosophy.077.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hume got there first",
+      "body": "Hume’s Dialogues Concerning Natural Religion (1779) had already attacked this kind of reasoning. His character Philo says “the world plainly resembles more an animal or a vegetable, than it does a watch.” And even granting a designer, Philo adds, for all we know this world was “the first rude essay of some infant deity.” Design, if proved, tells us little about the designer."
+    },
+    {
+      "id": "card.philosophy.077.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Darwin’s alternative",
+      "body": "As a student, Charles Darwin was delighted by the logic of Paley’s book. But natural selection offered another route to fit: chance variations, kept or lost as organisms survive, can build creatures well suited to their surroundings with no one intending it. Darwin later wrote that the argument from design “as given by Paley, which formerly seemed to me so conclusive, fails.”"
+    },
+    {
+      "id": "card.philosophy.077.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Theists reply: the laws themselves",
+      "body": "Some defenders move the argument from living things to physics. They note that life would be impossible if about two dozen properties of the universe were even slightly different, and Darwinian theory doesn’t explain how the first life arose. George Schlesinger argued that design best explains such fine-tuning. Critics reply that other kinds of life might be possible, or that ours may be one universe in a vast multiverse."
+    },
+    {
+      "id": "card.philosophy.077.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.077.q1"
+    },
+    {
+      "id": "card.philosophy.077.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.077.q2"
+    },
+    {
+      "id": "card.philosophy.077.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.077.q3"
+    },
+    {
+      "id": "card.philosophy.077.c9",
+      "type": "checkpoint",
+      "headline": "The Watchmaker Argument: the big picture",
+      "learned": [
+        "Paley: a watch, then an eye, implies a designer",
+        "Philo: the world is more like an animal",
+        "Darwin: natural selection explains fit",
+        "Fine-tuning and its critics"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.077.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.god_design_argument"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.077.c2"
+      ],
+      "prompt": "In Paley’s argument, what makes the watch different from the stone?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is made of metal, not rock",
+          "correct": false,
+          "rationale": "Material isn’t his point."
+        },
+        {
+          "id": "b",
+          "label": "It was found in a town, not on a heath",
+          "correct": false,
+          "rationale": "Both lie on the heath."
+        },
+        {
+          "id": "c",
+          "label": "Its parts are put together for a purpose",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is newer than the stone",
+          "correct": false,
+          "rationale": "Age isn’t his point."
+        }
+      ],
+      "explanation": "The watch’s parts are framed and put together for a purpose, so Paley infers it must have had a maker.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.philosophy.077.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.god_design_argument"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.077.c4"
+      ],
+      "prompt": "How does natural selection challenge Paley’s inference from the eye?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It shows the universe is fine-tuned for life",
+          "correct": false,
+          "rationale": "That’s a later argument for design."
+        },
+        {
+          "id": "b",
+          "label": "It explains a good fit to a job without anyone intending it",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It shows watches were never really designed",
+          "correct": false,
+          "rationale": "No one doubts the watch had a maker."
+        },
+        {
+          "id": "d",
+          "label": "It proves the world resembles a vegetable",
+          "correct": false,
+          "rationale": "That’s Philo’s analogy."
+        }
+      ],
+      "explanation": "Chance variations, kept or lost as organisms survive, can produce well-fitted organisms with no intention behind them.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.philosophy.077.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.god_design_argument",
+        "concept.philosophy.four_causes"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.077.c4",
+        "card.philosophy.005.c5"
+      ],
+      "prompt": "Darwin explained the eye’s fit without asking what it is “for.” Which Level 5 thinker had argued that final causes belong to metaphysics, not physics?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Aristotle",
+          "correct": false,
+          "rationale": "He made the final cause one of his four."
+        },
+        {
+          "id": "b",
+          "label": "Francis Bacon",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Plato",
+          "correct": false,
+          "rationale": "He isn’t the one who ruled them out of physics."
+        },
+        {
+          "id": "d",
+          "label": "Laozi",
+          "correct": false,
+          "rationale": "He isn’t part of that debate."
+        }
+      ],
+      "explanation": "In 1605 Francis Bacon argued that final causes belong to metaphysics and that mixing them into physics held back the search for physical causes.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sep_teleological_arguments",
+    "source.iep_design_arguments",
+    "source.gutenberg_hume_dialogues",
+    "source.gutenberg_darwin_life_letters",
+    "source.gutenberg_bacon_advancement"
+  ],
+  "art": "technology.gears"
+}

@@ -1,0 +1,368 @@
+{
+  "id": "level.world_systems.computers.060",
+  "skillId": "skill.world_systems.computers",
+  "number": 60,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "published",
+  "title": "Checkpoint: Security Online",
+  "objective": "After this level you can explain why attackers target people, passwords and old software, and which defenses stop each kind of attack.",
+  "summary": "Chapter 6 finale: line up each attack with the habit that stops it. CISA boils it down to four steps: spot phishing, strong passwords, MFA and updates, plus offline backups.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.security_four_steps",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.security_salt_slow_hash",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.security_padlock_limits",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.security_malware_types",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.security_patch_race",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.security_passkeys",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.security_second_factor",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.security_phishing_defense",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.security_offline_backups",
+      "role": "reinforce",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.computers.security_password_length",
+      "role": "reinforce",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.059"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.060.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Four habits, many attacks.",
+      "body": "Chapter 6 finale. You met attackers who use old software holes, stolen password lists, rushed people and locked files. Line the attacks up, and the same few habits keep coming back as the answer."
+    },
+    {
+      "id": "card.computers.060.c2",
+      "type": "comparison",
+      "headline": "The attack, and the habit that blocks it",
+      "items": [
+        {
+          "label": "Old software holes",
+          "points": [
+            "Install updates as soon as possible",
+            "Turn on automatic updates"
+          ]
+        },
+        {
+          "label": "Stolen or guessed passwords",
+          "points": [
+            "A different passphrase for every account, in a password manager",
+            "MFA or a passkey, so a password alone is useless"
+          ]
+        },
+        {
+          "label": "Tricked people",
+          "points": [
+            "Verify using contact details you already have",
+            "Passkeys give fake pages nothing to use"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.computers.060.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four steps",
+      "body": "CISA, the US cyber defense agency, boils its everyday advice down to four steps in its Secure Our World campaign: recognize and report phishing, use strong passwords, turn on multifactor authentication and update software. Every one of them answers an attack from this chapter."
+    },
+    {
+      "id": "card.computers.060.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why updates made the list",
+      "body": "CISA's reason for the fourth step is blunt: flaws in software can give criminals access to files or accounts, so don't delay updates. WannaCry is what losing that race looks like: it hit computers that had skipped a fix released two months earlier. Add Level 58's offline, tested backups, and even an attack that gets through can't hold your files hostage."
+    },
+    {
+      "id": "card.computers.060.c5",
+      "type": "mcq",
+      "questionId": "question.computers.060.q1"
+    },
+    {
+      "id": "card.computers.060.c6",
+      "type": "mcq",
+      "questionId": "question.computers.060.q2"
+    },
+    {
+      "id": "card.computers.060.c7",
+      "type": "recall",
+      "questionId": "question.computers.060.q3"
+    },
+    {
+      "id": "card.computers.060.c8",
+      "type": "recall",
+      "questionId": "question.computers.060.q4"
+    },
+    {
+      "id": "card.computers.060.c9",
+      "type": "recall",
+      "questionId": "question.computers.060.q5"
+    },
+    {
+      "id": "card.computers.060.c10",
+      "type": "checkpoint",
+      "headline": "Chapter 6 complete",
+      "learned": [
+        "Why attackers go after people, passwords and old software instead of breaking encryption head-on.",
+        "How hashing, salts, long passphrases and passkeys protect accounts even when a site is breached.",
+        "How public keys and certificates let your browser set up a private line to the right site.",
+        "Which habits stop which attacks: updates, MFA, offline backups and a pause before you click."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.060.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.security_four_steps"
+      ],
+      "sourceCardIds": [
+        "card.computers.060.c3"
+      ],
+      "prompt": "Which of these is one of the four steps in CISA's Secure Our World campaign?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Change every password once a month",
+          "correct": false,
+          "rationale": "Not one of the four: phishing, strong passwords, MFA and updates."
+        },
+        {
+          "id": "b",
+          "label": "Turn on multifactor authentication",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Browse only in incognito mode",
+          "correct": false,
+          "rationale": "Not on the list; the steps are phishing, passwords, MFA and updates."
+        },
+        {
+          "id": "d",
+          "label": "Avoid websites that use HTTPS",
+          "correct": false,
+          "rationale": "HTTPS protects your connection; avoiding it would not help."
+        }
+      ],
+      "explanation": "CISA's four steps: recognize and report phishing, use strong passwords, turn on MFA, update software.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.computers.060.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.security_four_steps"
+      ],
+      "sourceCardIds": [
+        "card.computers.060.c4"
+      ],
+      "prompt": "Why does CISA tell people not to delay software updates?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Updates make devices run faster every time",
+          "correct": false,
+          "rationale": "CISA's reason is security, not speed."
+        },
+        {
+          "id": "b",
+          "label": "Old software simply stops working a month after it is released",
+          "correct": false,
+          "rationale": "The risk is known flaws, not a deadline."
+        },
+        {
+          "id": "c",
+          "label": "Flaws in software can give criminals access to files or accounts",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Updates replace the need for passwords",
+          "correct": false,
+          "rationale": "Updates and passwords protect against different attacks."
+        }
+      ],
+      "explanation": "Unpatched flaws are open doors; CISA says they can give criminals access to files or accounts.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.060.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.security_salt_slow_hash"
+      ],
+      "sourceCardIds": [
+        "card.computers.052.c5"
+      ],
+      "prompt": "From Level 52: what does adding a unique salt before hashing do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Lets the site decrypt your password if needed",
+          "correct": false,
+          "rationale": "Hashes stay one-way, salted or not."
+        },
+        {
+          "id": "b",
+          "label": "Makes identical passwords get different hashes",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Shortens the password so it hashes faster",
+          "correct": false,
+          "rationale": "Salt adds a value; it does not shorten anything."
+        },
+        {
+          "id": "d",
+          "label": "Replaces the need for a password",
+          "correct": false,
+          "rationale": "Salt protects stored passwords; it does not replace them."
+        }
+      ],
+      "explanation": "A unique random salt gives identical passwords different hashes and defeats ready-made tables.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.060.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.security_padlock_limits"
+      ],
+      "sourceCardIds": [
+        "card.computers.056.c4"
+      ],
+      "prompt": "From Level 56: what does the browser padlock actually promise?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That the site's owner is honest",
+          "correct": false,
+          "rationale": "The FBI warns phishing sites show the padlock too."
+        },
+        {
+          "id": "b",
+          "label": "That the site contains no malware",
+          "correct": false,
+          "rationale": "The padlock says nothing about what the site serves."
+        },
+        {
+          "id": "c",
+          "label": "That a government has approved the site",
+          "correct": false,
+          "rationale": "Certificate authorities check domain control, nothing more."
+        },
+        {
+          "id": "d",
+          "label": "A private line to whoever controls that address",
+          "correct": true
+        }
+      ],
+      "explanation": "The padlock means an encrypted connection to whoever controls that exact domain, not that they are trustworthy.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.060.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.security_malware_types"
+      ],
+      "sourceCardIds": [
+        "card.computers.057.c2"
+      ],
+      "prompt": "From Level 57: how does a worm differ from a virus?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A worm spreads by itself, with no host program or click",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A worm only attacks phones",
+          "correct": false,
+          "rationale": "Worms spread across networks of all kinds of computers."
+        },
+        {
+          "id": "c",
+          "label": "A worm is harmless; a virus is not",
+          "correct": false,
+          "rationale": "Worms can cause major problems, as in 1988."
+        },
+        {
+          "id": "d",
+          "label": "A worm needs you to install and launch it yourself",
+          "correct": false,
+          "rationale": "That describes a trojan."
+        }
+      ],
+      "explanation": "A virus rides inside other programs; a worm is self-contained and spreads across networks on its own.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.cisa_secure_our_world",
+    "source.cisa_patches_updates",
+    "source.cisa_strong_passwords",
+    "source.cisa_phishing_resistant_mfa",
+    "source.fido_passkeys",
+    "source.ncsc_passkeys_blog",
+    "source.cisa_avoiding_social_engineering",
+    "source.microsoft_wannacrypt_2017",
+    "source.nao_wannacry_nhs",
+    "source.cisa_ransomware_guide",
+    "source.owasp_password_storage",
+    "source.mdn_tls",
+    "source.fbi_ic3_https_phishing",
+    "source.nist_glossary_virus",
+    "source.nist_glossary_worm"
+  ],
+  "art": "object.padlock"
+}

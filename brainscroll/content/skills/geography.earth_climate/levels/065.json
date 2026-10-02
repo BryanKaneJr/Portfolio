@@ -1,0 +1,217 @@
+{
+  "id": "level.geography.earth_climate.065",
+  "skillId": "skill.geography.earth_climate",
+  "number": 65,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Tornado Alley and the EF Scale",
+  "objective": "After this level you can explain why the central US gets so many tornadoes and how damage is used to rate them.",
+  "summary": "Flat, fast-heating land, Gulf moisture and cooler northern air make the central US a tornado hotspot. The EF scale rates tornadoes afterward from their damage, so its winds are estimates.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.storm_tornado_alley",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.storm_ef_scale",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.mohs_hardness",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.064"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.065.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The US averages about 1,200 tornadoes a year.",
+      "body": "Why do so many form in the middle of the country? And how do experts rate a tornado when nobody could measure its winds?"
+    },
+    {
+      "id": "card.earth_climate.065.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the middle of the country",
+      "body": "The central US is a big, fairly flat core, and the Great Plains and Mississippi River valley heat up quickly much of the year. Moisture flows in from the Gulf of Mexico, along with water vapor from the region's own plants, while cooler air arrives from the Upper Great Plains and Canada. Together they feed frequent outbreaks of severe thunderstorms. Forecasters stress that this recipe is a simplification: most storms in these setups never make a tornado, and nobody fully understands why some do."
+    },
+    {
+      "id": "card.earth_climate.065.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rated by what's left behind",
+      "body": "Nobody knows the true ground-level winds in most tornadoes. So since February 1, 2007, the US has rated them with the Enhanced Fujita (EF) scale. After a tornado, National Weather Service surveyors compare the damage with 28 damage indicators, from barns to schools, each with up to 8 degrees of damage. The rating reflects the strongest wind along the damage path. Its winds are estimates, not measurements."
+    },
+    {
+      "id": "card.earth_climate.065.c4",
+      "type": "fact",
+      "fact": "An EF5 tornado has estimated gusts of over 200 mph.",
+      "context": "The scale starts at EF0, with gusts of 65 to 85 mph. But a rating can only be as high as the damage surveyors can find. In 1999, part of an Oklahoma tornado that did top-level damage elsewhere was rated only F2 to F3 across a sparsely built valley, possibly because there was little there to wreck.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Don't memorize the wind speeds. Remember the method: the EF scale reads the damage, then estimates the wind."
+      }
+    },
+    {
+      "id": "card.earth_climate.065.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.065.q1"
+    },
+    {
+      "id": "card.earth_climate.065.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.065.q2"
+    },
+    {
+      "id": "card.earth_climate.065.c7",
+      "type": "mcq",
+      "questionId": "question.earth_climate.065.q3"
+    },
+    {
+      "id": "card.earth_climate.065.c8",
+      "type": "checkpoint",
+      "headline": "Tornadoes: rated",
+      "learned": [
+        "Flat, warm land plus Gulf moisture feeds storms",
+        "Why some storms make tornadoes is still open",
+        "EF ratings come from damage surveys",
+        "EF winds are estimates, not measurements"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.065.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.storm_tornado_alley"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.065.c2"
+      ],
+      "prompt": "Where does much of the moisture feeding central US thunderstorms come from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Pacific Ocean, over the Rockies",
+          "correct": false,
+          "rationale": "The moisture described here comes from the south, not the west."
+        },
+        {
+          "id": "b",
+          "label": "The Gulf of Mexico",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Canada's lakes, carried south in winter",
+          "correct": false,
+          "rationale": "Canada supplies cooler air, not the main moisture."
+        },
+        {
+          "id": "d",
+          "label": "Melting snow on the Great Plains",
+          "correct": false,
+          "rationale": "The main supply flows in from the Gulf."
+        }
+      ],
+      "explanation": "Moisture flows north from the Gulf of Mexico, plus vapor released by the region's plants.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.065.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.storm_ef_scale"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.065.c4"
+      ],
+      "prompt": "A violent tornado crosses mostly empty farmland. Why might its EF rating come out lower than its true strength?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Tornadoes always weaken over farmland",
+          "correct": false,
+          "rationale": "The storm isn't weaker; there's just less to judge."
+        },
+        {
+          "id": "b",
+          "label": "Radar cannot see tornadoes over fields",
+          "correct": false,
+          "rationale": "EF ratings come from damage surveys, not radar."
+        },
+        {
+          "id": "c",
+          "label": "There's little built there for surveyors to judge the damage by",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Farm buildings are too strong to be damaged",
+          "correct": false,
+          "rationale": "Barns are one of the damage indicators; they can be damaged."
+        }
+      ],
+      "explanation": "EF ratings come from surveyed damage to buildings and other indicators; with few structures in the path, surveyors have less to go on.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.earth_climate.065.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.storm_ef_scale",
+        "concept.earth_climate.mohs_hardness"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.065.c3",
+        "card.earth_climate.003.c2"
+      ],
+      "prompt": "Level 3's Mohs scale ranks minerals by which one scratches which. What does the EF scale have in common with it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Both rate strength from an effect you can observe",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Both have ten evenly spaced steps",
+          "correct": false,
+          "rationale": "Mohs has ten uneven steps; the EF scale has six, EF0 to EF5."
+        },
+        {
+          "id": "c",
+          "label": "Both are read off an instrument at the scene",
+          "correct": false,
+          "rationale": "Mohs uses scratches; EF uses damage surveys."
+        },
+        {
+          "id": "d",
+          "label": "Both were introduced in 2007",
+          "correct": false,
+          "rationale": "Mohs ranked his minerals in 1812."
+        }
+      ],
+      "explanation": "Mohs ranks hardness by what scratches what; the EF scale estimates wind from the damage it left.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.spc_tornado_faq",
+    "source.brit_us_tornadoes",
+    "source.nws_norman_ef_scale"
+  ],
+  "art": "earth.tornado"
+}

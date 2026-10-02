@@ -1,0 +1,454 @@
+{
+  "id": "level.mind.probability.050",
+  "skillId": "skill.mind.probability",
+  "number": 50,
+  "type": "milestone",
+  "revision": 1,
+  "status": "published",
+  "title": "Milestone: Thinking in Chances",
+  "objective": "After this level you can connect percentages, averages, chance, expected value and base rates to judge one real-world risk.",
+  "summary": "One scary headline, taken apart with the first half of the tree: percents, averages, chance, expected value and base rates, all together.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.risk_four_questions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.percentage_points",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.averages_mean_median_skew",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.chance_gamblers_fallacy",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.chance_independence_no_memory",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.probability.bet_house_edge",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.chance_law_large_numbers",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.risk_relative_risk",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.risk_false_positives",
+      "role": "recall",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.risk_base_rates",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.risk_prosecutors_fallacy",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.out_of_what",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.049"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.050.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Milestone: halfway to Mastery. Time to take apart one scary headline.",
+      "body": "Here it is, made up but typical: \"Late-night snacking doubles your risk of a rare condition, and a new test can spot it!\" Everything you need to judge it, you already have."
+    },
+    {
+      "id": "card.probability.050.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four questions for any risk",
+      "body": "One: doubled from what? Ask for the absolute risks before and after, and over how long. Two: per what? A risk is a rate, so check what it is counted out of. Three: how common is it to begin with? Start from the base rate. Four: if a test says yes, how many yeses are real? For a rare condition, many can be false alarms."
+    },
+    {
+      "id": "card.probability.050.c3",
+      "type": "comparison",
+      "headline": "The headline, taken apart",
+      "items": [
+        {
+          "label": "The headline says",
+          "points": [
+            "Doubles your risk",
+            "A new test can spot it"
+          ]
+        },
+        {
+          "label": "You ask",
+          "points": [
+            "From 1 in 10,000 to 2 in 10,000? That is 1 extra per 10,000",
+            "For a rare condition, how many positives are real?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.probability.050.c4",
+      "type": "recall",
+      "questionId": "question.probability.050.q1"
+    },
+    {
+      "id": "card.probability.050.c5",
+      "type": "recall",
+      "questionId": "question.probability.050.q2"
+    },
+    {
+      "id": "card.probability.050.c6",
+      "type": "recall",
+      "questionId": "question.probability.050.q3"
+    },
+    {
+      "id": "card.probability.050.c7",
+      "type": "recall",
+      "questionId": "question.probability.050.q4"
+    },
+    {
+      "id": "card.probability.050.c8",
+      "type": "recall",
+      "questionId": "question.probability.050.q5"
+    },
+    {
+      "id": "card.probability.050.c9",
+      "type": "recall",
+      "questionId": "question.probability.050.q6"
+    },
+    {
+      "id": "card.probability.050.c10",
+      "type": "mcq",
+      "questionId": "question.probability.050.q7"
+    },
+    {
+      "id": "card.probability.050.c11",
+      "type": "checkpoint",
+      "headline": "Milestone: halfway, in chances",
+      "learned": [
+        "Why a good test for a rare condition can give mostly false alarms, and how base rates explain it.",
+        "How to read a percent change, a rate or \"doubles your risk\" by first asking: out of what?",
+        "Which average fits lopsided numbers like income, and how spread shows what an average hides.",
+        "Why the casino wins in the long run, even though no streak ever makes a win \"due\"."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.050.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.percentage_points"
+      ],
+      "sourceCardIds": [
+        "card.probability.005.c2",
+        "card.probability.005.c3"
+      ],
+      "prompt": "A risk rises from 2% to 3%. Which description is correct?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Up 1 percent, a 1 point relative rise",
+          "correct": false,
+          "rationale": "Mixed up: it is 1 point, and a 50% relative rise."
+        },
+        {
+          "id": "b",
+          "label": "Up 50 percentage points",
+          "correct": false,
+          "rationale": "Subtract: 3 minus 2 is 1 point."
+        },
+        {
+          "id": "c",
+          "label": "Up 1 percentage point, a 50% relative rise",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Up 3 percentage points",
+          "correct": false,
+          "rationale": "3% is where it ends, not how much it rose."
+        }
+      ],
+      "explanation": "Subtract for points (3 minus 2 = 1 point); divide by the start for the relative rise (1 ÷ 2 = 50%).",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.050.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.averages_mean_median_skew"
+      ],
+      "sourceCardIds": [
+        "card.probability.013.c2",
+        "card.probability.013.c4"
+      ],
+      "prompt": "Why do reports on typical household income usually quote the median, not the mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The mean is much harder to work out from census data",
+          "correct": false,
+          "rationale": "Both are easy to work out; the issue is what they describe."
+        },
+        {
+          "id": "b",
+          "label": "A few very high incomes pull the mean above most households",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The median always comes out higher, which looks better",
+          "correct": false,
+          "rationale": "For income the median is lower: $83,730 against $121,000 in 2024."
+        },
+        {
+          "id": "d",
+          "label": "Only the median counts every household's income",
+          "correct": false,
+          "rationale": "It's the other way round: the mean counts every value."
+        }
+      ],
+      "explanation": "Income has a long tail of high earners that lifts the mean. The median, the middle household, stays put, so it shows what is typical.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.050.q3",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.chance_gamblers_fallacy",
+        "concept.probability.chance_independence_no_memory"
+      ],
+      "sourceCardIds": [
+        "card.probability.026.c2",
+        "card.probability.026.c3"
+      ],
+      "prompt": "At Monte Carlo in 1913, black came up 26 times in a row. What was the chance of red on the next spin?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Much higher than usual, since red was overdue",
+          "correct": false,
+          "rationale": "The wheel keeps no score; nothing is ever due."
+        },
+        {
+          "id": "b",
+          "label": "Much lower, since the wheel was on a black streak",
+          "correct": false,
+          "rationale": "A streak doesn't make black likelier either."
+        },
+        {
+          "id": "c",
+          "label": "Impossible to say until the streak had ended",
+          "correct": false,
+          "rationale": "Each spin is independent, so the chance is known."
+        },
+        {
+          "id": "d",
+          "label": "Exactly what it was on the very first spin",
+          "correct": true
+        }
+      ],
+      "explanation": "Each spin is independent, so red's chance on spin 27 was the same as on spin 1. The crowd that thought red was due lost millions.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.050.q4",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.bet_house_edge",
+        "concept.probability.chance_law_large_numbers"
+      ],
+      "sourceCardIds": [
+        "card.probability.033.c3",
+        "card.probability.033.c4",
+        "card.probability.028.c2"
+      ],
+      "prompt": "Any roulette player can get lucky tonight. Why can the casino still count on keeping its edge?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Over many bets, results settle close to the expected value",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The wheel is secretly tilted to favor the house",
+          "correct": false,
+          "rationale": "No tricks needed: the payouts are set as if there were 36 pockets."
+        },
+        {
+          "id": "c",
+          "label": "Lucky players are banned before they can win much",
+          "correct": false,
+          "rationale": "The edge works without stopping anyone from winning."
+        },
+        {
+          "id": "d",
+          "label": "Every player loses a little on every single spin",
+          "correct": false,
+          "rationale": "Single spins win or lose; only the long-run average is fixed."
+        }
+      ],
+      "explanation": "Each bet pays as if the wheel had 36 pockets, so its expected value is negative. Across thousands of bets, the law of large numbers keeps the casino's take close to that average: about 5.26 cents per dollar.",
+      "difficulty": 0.5
+    },
+    {
+      "id": "question.probability.050.q5",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.risk_false_positives",
+        "concept.probability.risk_base_rates"
+      ],
+      "sourceCardIds": [
+        "card.probability.047.c4",
+        "card.probability.045.c3"
+      ],
+      "prompt": "A good test for a rare condition comes back positive. What should you ask before worrying?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Whether the test was expensive",
+          "correct": false,
+          "rationale": "Price says nothing about how many positives are real."
+        },
+        {
+          "id": "b",
+          "label": "How common the condition is to begin with",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Whether the result arrived quickly",
+          "correct": false,
+          "rationale": "Speed says nothing about how many positives are real."
+        },
+        {
+          "id": "d",
+          "label": "How many tests the lab ran that day",
+          "correct": false,
+          "rationale": "The base rate matters, not the lab's workload."
+        }
+      ],
+      "explanation": "With a rare condition, false alarms from healthy people can outnumber true cases. The base rate tells you how many.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.050.q6",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.risk_prosecutors_fallacy"
+      ],
+      "sourceCardIds": [
+        "card.probability.049.c4"
+      ],
+      "prompt": "What is the prosecutor's fallacy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Trusting a statistic just because an expert presented it in court",
+          "correct": false,
+          "rationale": "That can be a problem, but the fallacy is a specific mix-up."
+        },
+        {
+          "id": "b",
+          "label": "Refusing to allow any numbers at all as evidence in a courtroom",
+          "correct": false,
+          "rationale": "The fallacy is misreading a number, not avoiding numbers."
+        },
+        {
+          "id": "c",
+          "label": "Treating how unlikely the evidence is by chance as the chance of innocence",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Rounding a very small chance of the evidence down to zero",
+          "correct": false,
+          "rationale": "The error is about which chance is being described."
+        }
+      ],
+      "explanation": "A tiny chance of the evidence arising innocently is not the chance of innocence. Rival explanations must be compared.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.probability.050.q7",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.risk_four_questions",
+        "concept.probability.risk_relative_risk"
+      ],
+      "sourceCardIds": [
+        "card.probability.050.c2"
+      ],
+      "prompt": "A headline says late-night snacking doubles your risk of a rare condition. What should you ask first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How many people read the headline?",
+          "correct": false,
+          "rationale": "Readership doesn't change the risk."
+        },
+        {
+          "id": "b",
+          "label": "Does the condition have a long name?",
+          "correct": false,
+          "rationale": "The name says nothing about the risk."
+        },
+        {
+          "id": "c",
+          "label": "Was the study published this year?",
+          "correct": false,
+          "rationale": "Recent or not, you still need the numbers."
+        },
+        {
+          "id": "d",
+          "label": "Doubled from what, and over how long?",
+          "correct": true
+        }
+      ],
+      "explanation": "\"Doubles\" is a relative risk. Ask for the absolute risks before and after, over a set time.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.cruk_absolute_vs_relative_risk",
+    "source.aphl_sensitivity_specificity",
+    "source.openstax_prealgebra_understand_percent",
+    "source.openstax_prealgebra_percent_applications",
+    "source.cdc_epi_lesson3_frequency_measures",
+    "source.wmj_calder_statistical_thinking_3_2024",
+    "source.nci_dictionary_relative_risk"
+  ],
+  "art": "mind.roulette-wheel"
+}

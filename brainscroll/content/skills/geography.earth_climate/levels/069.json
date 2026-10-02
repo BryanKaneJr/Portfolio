@@ -1,0 +1,214 @@
+{
+  "id": "level.geography.earth_climate.069",
+  "skillId": "skill.geography.earth_climate",
+  "number": 69,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Lake-Effect Snow",
+  "objective": "After this level you can explain how cold air crossing warm lakes dumps narrow bands of very heavy snow.",
+  "summary": "Cold air crossing the warmer, unfrozen Great Lakes picks up heat and moisture, rises and dumps narrow bands of heavy snow on downwind shores until the lakes freeze.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.storm_lake_effect",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.storm_lake_effect_limits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.mineral_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.068"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.069.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Sunshine here, and a mile away, 2 to 3 inches of snow an hour.",
+      "body": "Near the Great Lakes, that's an ordinary winter day. The lakes themselves make the snow."
+    },
+    {
+      "id": "card.earth_climate.069.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cold air, warm water",
+      "body": "It starts when cold air, often from Canada, crosses the open water of the Great Lakes in late fall and winter. The unfrozen lakes are warmer than that air, so they pass warmth and moisture into its lowest layer. Warmed from below, that air becomes lighter than the cold air above it, so it rises. Clouds form, and the lake's water comes down as snow on the downwind, or leeward, shores."
+    },
+    {
+      "id": "card.earth_climate.069.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Narrow bands",
+      "body": "Lake-effect snow usually falls in narrow bands of intense snow. Sunny skies can turn to blinding snow within minutes, and totals can range from a trace to several inches over a short distance. Wind direction decides who gets buried: even a small shift sends the band to a different town."
+    },
+    {
+      "id": "card.earth_climate.069.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "More lake, more snow",
+      "body": "The farther the wind travels across open water, the more water the air picks up, and a bigger temperature difference between lake and air adds more. Most of that moisture falls within about 25 miles of the lake, though it can reach 100 miles. The season usually slows around February, when the lakes freeze over and the air can no longer take their moisture."
+    },
+    {
+      "id": "card.earth_climate.069.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.069.q1"
+    },
+    {
+      "id": "card.earth_climate.069.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.069.q2"
+    },
+    {
+      "id": "card.earth_climate.069.c7",
+      "type": "mcq",
+      "questionId": "question.earth_climate.069.q3"
+    },
+    {
+      "id": "card.earth_climate.069.c8",
+      "type": "checkpoint",
+      "headline": "Lake-effect snow: explained",
+      "learned": [
+        "Warm lakes heat and moisten cold air",
+        "The air rises and snows downwind",
+        "Narrow bands, set by the wind",
+        "Frozen lakes shut it off"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.069.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.storm_lake_effect"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.069.c2"
+      ],
+      "prompt": "On which side of a Great Lake does lake-effect snow usually fall?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The upwind side, where the cold air arrives",
+          "correct": false,
+          "rationale": "The air picks up moisture over the lake first."
+        },
+        {
+          "id": "b",
+          "label": "Right in the middle of the lake",
+          "correct": false,
+          "rationale": "The snow falls on the shores."
+        },
+        {
+          "id": "c",
+          "label": "The downwind, or leeward, side",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Evenly all around the lake",
+          "correct": false,
+          "rationale": "Snow falls in narrow bands, set by the wind."
+        }
+      ],
+      "explanation": "The air gathers heat and moisture as it crosses, then rises and drops snow on the leeward shores.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.069.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.storm_lake_effect_limits"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.069.c4"
+      ],
+      "prompt": "Why does lake-effect snow usually slow down around February?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The air over the lakes stops being cold enough",
+          "correct": false,
+          "rationale": "The air is still cold; the water supply is the problem."
+        },
+        {
+          "id": "b",
+          "label": "The lakes freeze over, so the air can't take their moisture",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The winds stop blowing across the lakes",
+          "correct": false,
+          "rationale": "The wind still blows; frozen lakes give it no moisture."
+        },
+        {
+          "id": "d",
+          "label": "The lakes have run out of water by then",
+          "correct": false,
+          "rationale": "The water is still there, under the ice."
+        }
+      ],
+      "explanation": "Once the lakes freeze over, the cold air can no longer pick up their moisture.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.069.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.storm_lake_effect",
+        "concept.earth_climate.mineral_definition"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.069.c2",
+        "card.earth_climate.002.c2"
+      ],
+      "prompt": "Lake water ends up as snow on the shore. By Level 2's mineral checklist, when does that water become a mineral?",
+      "options": [
+        {
+          "id": "a",
+          "label": "While it is liquid in the lake",
+          "correct": false,
+          "rationale": "Liquid water fails the solid test."
+        },
+        {
+          "id": "b",
+          "label": "When it evaporates into vapor",
+          "correct": false,
+          "rationale": "Vapor is not a solid either."
+        },
+        {
+          "id": "c",
+          "label": "Never: water can never be a mineral",
+          "correct": false,
+          "rationale": "Ice qualifies; only the liquid fails."
+        },
+        {
+          "id": "d",
+          "label": "When it freezes into solid ice as snow",
+          "correct": true
+        }
+      ],
+      "explanation": "Level 2: ice, the solid form of water, passes the mineral checklist, but liquid water fails the solid test.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nws_lake_effect_snow",
+    "source.nws_gaylord_lake_effect",
+    "source.nesdis_lake_effect_snow"
+  ],
+  "art": "earth.snowflake"
+}

@@ -1,0 +1,215 @@
+{
+  "id": "level.mind.probability.015",
+  "skillId": "skill.mind.probability",
+  "number": 15,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Outliers",
+  "objective": "After this level you can spot an outlier and decide whether it is a mistake to fix or a real case worth keeping.",
+  "summary": "An outlier sits far from the rest and can pull the mean. Investigate it: a proven mistake is corrected or removed; a real case, like Robert Wadlow's 272 cm, is kept.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.averages_outliers",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.averages_mean_median_skew",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.014"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.015.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A height survey lists someone at 272 cm. Typo, or record?",
+      "body": "It could be a slip of the keyboard. Or it could be Robert Wadlow, measured at 272 cm in 1940. Values that stand far from the rest are called outliers, and the job is working out which kind you have found."
+    },
+    {
+      "id": "card.probability.015.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Far from the rest",
+      "body": "An outlier is a value notably different from the rest of the data, and it matters because it can bend your results. Swap one retirement age of 60 for 81 in Level 12's list of 11, and the mean jumps from about 56.6 to about 58.5. The median? Still 57. Before you trust any average, look for values sitting far out on their own."
+    },
+    {
+      "id": "card.probability.015.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A mistake? Fix it",
+      "body": "Some outliers are simply bad data: a number typed wrong, an experiment run incorrectly. If a survey of schoolchildren lists a child aged 123, somebody slipped. When a value is shown to be an error, you correct it if you can, or take it out."
+    },
+    {
+      "id": "card.probability.015.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Real? Keep it",
+      "body": "Other outliers are true. Wadlow really was 272 cm (8 ft 11.1 in), the tallest man in medical history with irrefutable evidence. Deleting him would make the data tidier and wrong. That is why outliers get investigated before anyone touches them, and are not deleted just for being inconvenient. A real outlier can be the most interesting value you have.",
+      "mascot": {
+        "pose": "magnifier",
+        "line": "If you remember one thing: investigate an outlier before you touch it. Mistakes get fixed; real cases stay."
+      }
+    },
+    {
+      "id": "card.probability.015.c5",
+      "type": "mcq",
+      "questionId": "question.probability.015.q1"
+    },
+    {
+      "id": "card.probability.015.c6",
+      "type": "mcq",
+      "questionId": "question.probability.015.q2"
+    },
+    {
+      "id": "card.probability.015.c7",
+      "type": "recall",
+      "questionId": "question.probability.015.q3"
+    },
+    {
+      "id": "card.probability.015.c8",
+      "type": "checkpoint",
+      "headline": "Outliers: investigated",
+      "learned": [
+        "Outliers sit far from the rest",
+        "They pull the mean, not the median",
+        "Errors: correct or remove",
+        "Real cases: keep them"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.015.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.averages_outliers"
+      ],
+      "sourceCardIds": [
+        "card.probability.015.c2"
+      ],
+      "prompt": "What is an outlier?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The most common value in a set",
+          "correct": false,
+          "rationale": "That is the mode."
+        },
+        {
+          "id": "b",
+          "label": "Any value above the mean",
+          "correct": false,
+          "rationale": "Plenty of ordinary values sit above the mean; an outlier is extreme."
+        },
+        {
+          "id": "c",
+          "label": "A value notably different from the rest",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The value in the middle of the list",
+          "correct": false,
+          "rationale": "That is the median."
+        }
+      ],
+      "explanation": "An outlier stands far from the rest of the data, like a retirement age of 81 in a list of 54 to 60.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.probability.015.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.averages_outliers"
+      ],
+      "sourceCardIds": [
+        "card.probability.015.c3",
+        "card.probability.015.c4"
+      ],
+      "prompt": "Why shouldn't you delete every outlier you find?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Some are real cases, like Robert Wadlow's height",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Outliers never change the mean",
+          "correct": false,
+          "rationale": "They can pull the mean a long way."
+        },
+        {
+          "id": "c",
+          "label": "Deleting data is always against the rules",
+          "correct": false,
+          "rationale": "A proven error can be corrected or removed."
+        },
+        {
+          "id": "d",
+          "label": "Outliers are always typing mistakes",
+          "correct": false,
+          "rationale": "Some are real values."
+        }
+      ],
+      "explanation": "Some outliers are errors to fix, but others are real, like Wadlow at 272 cm. Investigate first.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.015.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.averages_outliers",
+        "concept.probability.averages_mean_median_skew"
+      ],
+      "sourceCardIds": [
+        "card.probability.015.c2",
+        "card.probability.013.c2"
+      ],
+      "prompt": "One retirement age in a list changes from 60 to 81. Which average barely notices?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The mean, because it is an average",
+          "correct": false,
+          "rationale": "The mean counts every value, so it jumps from about 56.6 to about 58.5."
+        },
+        {
+          "id": "b",
+          "label": "Both move by the same amount",
+          "correct": false,
+          "rationale": "The mean moves; the median stays at 57."
+        },
+        {
+          "id": "c",
+          "label": "Neither: one value cannot matter",
+          "correct": false,
+          "rationale": "One value moved the mean by about 2 years."
+        },
+        {
+          "id": "d",
+          "label": "The median, which only needs the middle value",
+          "correct": true
+        }
+      ],
+      "explanation": "As with the friends' salaries in Level 13, the mean counts every value but the median only needs the middle.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.abs_central_tendency",
+    "source.openstax_intro_stats_location",
+    "source.nist_handbook_outliers",
+    "source.guinness_tallest_man"
+  ],
+  "art": "object.magnifier"
+}

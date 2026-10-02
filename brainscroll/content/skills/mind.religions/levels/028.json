@@ -1,0 +1,225 @@
+{
+  "id": "level.mind.religions.028",
+  "skillId": "skill.mind.religions",
+  "number": 28,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Protestant Reformation",
+  "objective": "After this level you can explain how Martin Luther's protest in 1517 split Western Christianity and what \"scripture alone\" and \"faith alone\" mean.",
+  "summary": "In 1517 Luther challenged indulgences; print spread his teaching of faith alone and scripture alone, and Western Christianity split into new Protestant churches.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.christianity_luther_1517",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.christianity_reformation_teachings",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.christianity_reformation_branches",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.christianity_baptism",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.027"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.028.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "History's most famous church door may never have had anything nailed to it.",
+      "body": "In the familiar story, Martin Luther hammers his Ninety-five Theses to a church door in 1517. What historians can prove is plainer, and it still split Western Christianity."
+    },
+    {
+      "id": "card.religions.028.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A letter, then a legend",
+      "body": "On October 31, 1517, the German theologian Martin Luther challenged the church's practice of indulgences in his Ninety-five Theses, and sent them to Archbishop Albrecht of Mainz. That much is certain. The door-posting story was first recorded nearly 30 years later, by his colleague Philipp Melanchthon, and Luther himself never mentioned it. Historians still debate whether the theses were posted at all.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Remember the date and the challenge, not the hammer. The theses changed history however they went public."
+      }
+    },
+    {
+      "id": "card.religions.028.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Faith alone, scripture alone",
+      "body": "Luther's answer to indulgences was sola fide, \"faith alone\": salvation is a gift God grants to sinners who have faith in Christ, not something earned by good works. His measure for every church teaching was sola scriptura, \"scripture alone\". He translated the Bible into German, so lay people depended less on church authority to know what it said."
+    },
+    {
+      "id": "card.religions.028.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Printed fast, split for good",
+      "body": "Printers reprinted Luther's ideas within weeks, and copies were read across Europe. Pope Leo X excommunicated him on January 3, 1521; that April, at the Diet of Worms, he refused to recant unless shown wrong by Scripture or reason. Western Christianity split. Lutheran, Reformed (Calvinist), Anglican and Anabaptist churches grew out of the Reformation; Henry VIII founded the Church of England in 1534."
+    },
+    {
+      "id": "card.religions.028.c5",
+      "type": "mcq",
+      "questionId": "question.religions.028.q1"
+    },
+    {
+      "id": "card.religions.028.c6",
+      "type": "mcq",
+      "questionId": "question.religions.028.q2"
+    },
+    {
+      "id": "card.religions.028.c7",
+      "type": "mcq",
+      "questionId": "question.religions.028.q3"
+    },
+    {
+      "id": "card.religions.028.c8",
+      "type": "checkpoint",
+      "headline": "The Protestant Reformation: the takeaways",
+      "learned": [
+        "Luther challenged indulgences on October 31, 1517",
+        "Faith alone and scripture alone",
+        "The Reformation split Western Christianity into new branches"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.028.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.christianity_luther_1517"
+      ],
+      "sourceCardIds": [
+        "card.religions.028.c2"
+      ],
+      "prompt": "In what year did Luther send out his Ninety-five Theses?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1054",
+          "correct": false,
+          "rationale": "That's the East-West schism."
+        },
+        {
+          "id": "b",
+          "label": "1517",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "1521",
+          "correct": false,
+          "rationale": "That's when he was excommunicated."
+        },
+        {
+          "id": "d",
+          "label": "1534",
+          "correct": false,
+          "rationale": "That's when Henry VIII founded the Church of England."
+        }
+      ],
+      "explanation": "On October 31, 1517, Luther sent his theses against indulgences to Archbishop Albrecht of Mainz.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.religions.028.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.christianity_reformation_teachings"
+      ],
+      "sourceCardIds": [
+        "card.religions.028.c3"
+      ],
+      "prompt": "How did Luther's 'faith alone' challenge the practice of indulgences?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It said only priests could have faith",
+          "correct": false,
+          "rationale": "Luther taught the opposite of a clergy-only faith."
+        },
+        {
+          "id": "b",
+          "label": "It said indulgences should cost less",
+          "correct": false,
+          "rationale": "His objection was to the idea, not the price."
+        },
+        {
+          "id": "c",
+          "label": "It said good works earn salvation",
+          "correct": false,
+          "rationale": "That's what 'faith alone' denies."
+        },
+        {
+          "id": "d",
+          "label": "It said salvation is God's gift received by faith, not earned",
+          "correct": true
+        }
+      ],
+      "explanation": "If salvation is a gift received by faith rather than earned by works, nothing can buy or earn it.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.religions.028.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.christianity_reformation_branches",
+        "concept.religions.christianity_baptism"
+      ],
+      "sourceCardIds": [
+        "card.religions.028.c4",
+        "card.religions.024.c3"
+      ],
+      "prompt": "Today's Baptists baptize only professing believers. Which Reformation branch did that practice grow from?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Lutherans",
+          "correct": false,
+          "rationale": "Lutherans baptize infants."
+        },
+        {
+          "id": "b",
+          "label": "The Anglicans",
+          "correct": false,
+          "rationale": "Anglicans baptize infants."
+        },
+        {
+          "id": "c",
+          "label": "The Anabaptists",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Reformed (Calvinist) churches",
+          "correct": false,
+          "rationale": "Reformed churches baptize infants."
+        }
+      ],
+      "explanation": "Believer's baptism is rooted in the Anabaptists, one of the Reformation's branches.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_martin_luther",
+    "source.history_luther_theses_door",
+    "source.newberry_print_reformation",
+    "source.brit_diet_of_worms",
+    "source.brit_reformation",
+    "source.brit_baptism"
+  ],
+  "art": "rel.church-door"
+}

@@ -1,0 +1,222 @@
+{
+  "id": "level.mind.probability.021",
+  "skillId": "skill.mind.probability",
+  "number": 21,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "What a Probability Is",
+  "objective": "After this level you can place a chance on the scale from impossible (0) to certain (1) and explain it as a long-run share of outcomes.",
+  "summary": "A probability is a number from 0 (never) to 1 (always). It describes the long run, the share of times something happens over many tries, and for equally likely outcomes you count and divide.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.chance_zero_to_one_scale",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.chance_long_run_share",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.chance_equally_likely_count",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.one_in_n",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.percent_per_hundred",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.020"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.021.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A coin has a 1 in 2 chance of heads. So what will the next flip be?",
+      "body": "Nobody knows, and nobody can. A probability doesn't predict one flip. It tells you something sturdier, about what happens when you flip again and again. This level shows what that number really measures."
+    },
+    {
+      "id": "card.probability.021.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every chance lives between 0 and 1",
+      "body": "Probabilities run on a scale from 0 to 1. A 0 means the event never happens, like rolling a 7 on one ordinary die, whose faces only go from 1 to 6. A 1 means it always happens. Halfway, 0.5 means it's as likely to happen as not. Chapter 1's tools still work here: 0.5 is 50%, or 1 in 2. The closer to 1, the likelier the event."
+    },
+    {
+      "id": "card.probability.021.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A probability is a long-run share",
+      "body": "So what does 0.5 promise for a coin? Not the next flip. It describes the long run: flip a fair coin 20 times, then 2,000, then 20,000, and the share of heads creeps closer and closer to 0.5. That's how statisticians define it: the probability of an outcome is its long-term relative frequency. One flip is a surprise. Twenty thousand flips are a pattern."
+    },
+    {
+      "id": "card.probability.021.c4",
+      "type": "fact",
+      "fact": "When outcomes are equally likely, count them.",
+      "context": "A fair die's six faces are equally likely. What's the chance of rolling at least 5? Two faces (5 and 6) out of six, so 2 in 6, which is 1 in 3. Count the outcomes you want, divide by all the outcomes, and you have a probability. That simple rule powers the next few levels."
+    },
+    {
+      "id": "card.probability.021.c5",
+      "type": "mcq",
+      "questionId": "question.probability.021.q1"
+    },
+    {
+      "id": "card.probability.021.c6",
+      "type": "mcq",
+      "questionId": "question.probability.021.q2"
+    },
+    {
+      "id": "card.probability.021.c7",
+      "type": "mcq",
+      "questionId": "question.probability.021.q3"
+    },
+    {
+      "id": "card.probability.021.c8",
+      "type": "checkpoint",
+      "headline": "Probability: defined",
+      "learned": [
+        "0 is never, 1 is always",
+        "A probability is a long-run share",
+        "Equally likely? Count and divide",
+        "0.5 = 50% = 1 in 2"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.021.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.chance_zero_to_one_scale"
+      ],
+      "sourceCardIds": [
+        "card.probability.021.c2"
+      ],
+      "prompt": "On the probability scale, what does a probability of 0 mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The event is as likely as not",
+          "correct": false,
+          "rationale": "That is 0.5, the middle of the scale."
+        },
+        {
+          "id": "b",
+          "label": "The event can never happen",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The event always happens",
+          "correct": false,
+          "rationale": "That is 1, the top of the scale."
+        },
+        {
+          "id": "d",
+          "label": "Nobody knows the chance yet",
+          "correct": false,
+          "rationale": "A 0 is a known chance: never."
+        }
+      ],
+      "explanation": "Probabilities run from 0 to 1: 0 means the event never happens, like rolling a 7 on one die.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.probability.021.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.chance_long_run_share"
+      ],
+      "sourceCardIds": [
+        "card.probability.021.c3"
+      ],
+      "prompt": "How does a 0.5 chance of heads actually show up when you flip a fair coin?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Every second flip lands heads",
+          "correct": false,
+          "rationale": "Flips follow no set pattern; only the long-run share is predictable."
+        },
+        {
+          "id": "b",
+          "label": "Exactly 10 heads in every 20 flips",
+          "correct": false,
+          "rationale": "Twenty flips can easily give 8 or 12 heads."
+        },
+        {
+          "id": "c",
+          "label": "Heads and tails take turns",
+          "correct": false,
+          "rationale": "Coins don't alternate; the share settles only over many flips."
+        },
+        {
+          "id": "d",
+          "label": "The share of heads nears half over many flips",
+          "correct": true
+        }
+      ],
+      "explanation": "A probability is a long-run share: over 20, 2,000 and 20,000 flips, the share of heads gets closer and closer to 0.5.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.021.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.chance_equally_likely_count",
+        "concept.probability.one_in_n"
+      ],
+      "sourceCardIds": [
+        "card.probability.021.c4",
+        "card.probability.007.c2"
+      ],
+      "prompt": "Written as \"1 in N\" (Level 7), what is the chance of rolling at least 5 on a fair die?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1 in 2",
+          "correct": false,
+          "rationale": "That would need three of the six faces."
+        },
+        {
+          "id": "b",
+          "label": "1 in 3",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "1 in 5",
+          "correct": false,
+          "rationale": "The die has six faces, not five; count 2 out of 6."
+        },
+        {
+          "id": "d",
+          "label": "1 in 6",
+          "correct": false,
+          "rationale": "That is the chance of one face; at least 5 covers two."
+        }
+      ],
+      "explanation": "Two faces (5 and 6) out of six equally likely faces: 2 in 6, which is 1 in 3.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_intro_stats_probability_terminology",
+    "source.openstax_prealgebra_understand_percent"
+  ],
+  "art": "mind.coin"
+}

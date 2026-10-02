@@ -1,0 +1,216 @@
+{
+  "id": "level.world_systems.computers.089",
+  "skillId": "skill.world_systems.computers",
+  "number": 89,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Deepfakes and Proving What's Real",
+  "objective": "After this level you can weigh the ways to tell a real photo, video or voice from a synthetic one, including provenance labels.",
+  "summary": "People spot AI faces at about chance (48%) and detectors chase generators. Provenance, like C2PA Content Credentials, can be signed, but metadata is often stripped.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.synthetic_provenance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.bits_need_context",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.088"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.089.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Real face or AI face? People scored 48%.",
+      "body": "In a 2022 study, people sorting real faces from AI-made ones were right 48% of the time, close to the 50% of pure chance. Training raised that only to 59%. So if your eyes can't settle it, what can?"
+    },
+    {
+      "id": "card.computers.089.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Detectors: a race with no finish line",
+      "body": "Software detectors hunt for traces that generators leave behind. NIST describes it as a cat-and-mouse game: as new detection methods appear, generators improve and learn to slip past them. And detectors often work best only on the generators they were trained on, while fakes from newer generators keep arriving.",
+      "mascot": {
+        "pose": "idea",
+        "line": "This is Level 82 again: a detector that only knows its training generators hasn't learned to generalize."
+      }
+    },
+    {
+      "id": "card.computers.089.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ask where it came from, not how it looks",
+      "body": "Provenance flips the question. The C2PA, a coalition of companies and organizations, publishes an open standard that records a file's origin and edits, shown to people as Content Credentials: a sort of nutrition label for media. The record can carry a digital signature, which gives assurance of who signed it and that nothing changed after signing."
+    },
+    {
+      "id": "card.computers.089.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What a missing label means",
+      "body": "The weak spot: metadata can be stripped from a file, and often is when files are shared on social media, sometimes to deceive and sometimes for privacy. So a label that checks out is real evidence, but a missing label proves little either way. As Level 10 showed, context decides what bits mean, and a photo's pixels don't say who made them."
+    },
+    {
+      "id": "card.computers.089.c5",
+      "type": "mcq",
+      "questionId": "question.computers.089.q1"
+    },
+    {
+      "id": "card.computers.089.c6",
+      "type": "mcq",
+      "questionId": "question.computers.089.q2"
+    },
+    {
+      "id": "card.computers.089.c7",
+      "type": "mcq",
+      "questionId": "question.computers.089.q3"
+    },
+    {
+      "id": "card.computers.089.c8",
+      "type": "checkpoint",
+      "headline": "Real or synthetic: weighed",
+      "learned": [
+        "People spot AI faces at about chance",
+        "Detectors chase generators and struggle with new ones",
+        "C2PA Content Credentials record origin and edits, with signatures",
+        "Stripped labels are common, so no label proves little"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.089.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.synthetic_provenance"
+      ],
+      "sourceCardIds": [
+        "card.computers.089.c1"
+      ],
+      "prompt": "In the 2022 study, how often did people correctly tell AI-made faces from real ones?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 10% of the time, far below chance",
+          "correct": false,
+          "rationale": "They did far better than that, but no better than chance."
+        },
+        {
+          "id": "b",
+          "label": "About 48% of the time, close to chance",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "About 75% of the time, well above chance",
+          "correct": false,
+          "rationale": "Even after training they reached only 59%."
+        },
+        {
+          "id": "d",
+          "label": "About 99% of the time, almost perfectly",
+          "correct": false,
+          "rationale": "People found it very hard."
+        }
+      ],
+      "explanation": "Accuracy was 48%, close to the 50% of chance, and training raised it only to 59%.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.089.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.synthetic_provenance"
+      ],
+      "sourceCardIds": [
+        "card.computers.089.c4",
+        "card.computers.089.c3"
+      ],
+      "prompt": "A viral photo has no Content Credentials attached. What can you conclude?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It must be AI-generated, since real photos carry labels",
+          "correct": false,
+          "rationale": "Real photos often lose their metadata when shared."
+        },
+        {
+          "id": "b",
+          "label": "It must be a real photo, since fakes are always labeled",
+          "correct": false,
+          "rationale": "A fake can have no label too."
+        },
+        {
+          "id": "c",
+          "label": "Very little: labels are often stripped when files are shared",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Its pixels have been encrypted to hide the label",
+          "correct": false,
+          "rationale": "A missing label says nothing about encryption."
+        }
+      ],
+      "explanation": "Metadata is often stripped on social media, so a missing label proves little; a label that checks out is the real evidence.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.computers.089.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.synthetic_provenance",
+        "concept.computers.bits_need_context"
+      ],
+      "sourceCardIds": [
+        "card.computers.089.c3",
+        "card.computers.010.c3"
+      ],
+      "prompt": "Level 10 said the bits themselves don't say what they mean. How does provenance deal with that for photos?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It reads hidden truth labels inside each pixel",
+          "correct": false,
+          "rationale": "Pixels carry no such label."
+        },
+        {
+          "id": "b",
+          "label": "It counts the pixels to spot a fake",
+          "correct": false,
+          "rationale": "Pixel counts don't reveal where a file came from."
+        },
+        {
+          "id": "c",
+          "label": "It makes every photo impossible to edit",
+          "correct": false,
+          "rationale": "Edits are allowed; provenance records them."
+        },
+        {
+          "id": "d",
+          "label": "It attaches a separate, signed record of origin and edits",
+          "correct": true
+        }
+      ],
+      "explanation": "Since the pixels don't say who made them, provenance adds a signed record of the file's origin and edits.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.lancaster_ai_faces_2022",
+    "source.nist_ai_100_4_synthetic_content",
+    "source.c2pa_home",
+    "source.cs50_lecture0_notes",
+    "source.cs50_x_2022_lecture0_notes"
+  ],
+  "art": "greece.mask"
+}

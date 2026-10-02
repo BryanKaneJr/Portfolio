@@ -1,0 +1,223 @@
+{
+  "id": "level.arts.film_tv.059",
+  "skillId": "skill.arts.film_tv",
+  "number": 59,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "When Genres Bend",
+  "objective": "After this level you can explain how parodies and revisionist films bend a genre's rules, and why that only works once the rules are familiar.",
+  "summary": "Parodies like Blazing Saddles and Young Frankenstein (1974) play a genre's rules for laughs; revisionist films like Unforgiven (1992) turn them serious. Both need viewers who know the rules.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.genre_parody",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.genre_revisionist",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.genre_western_american",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.film_tv.genre_promise",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.058"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.059.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A joke about a genre only lands if you know the genre.",
+      "body": "Britannica points out that often the most acclaimed films invoke a genre's conventions only to break them down. Breaking a rule is only interesting when everyone knows the rule. After decades of Westerns and monster movies, filmmakers had plenty of rules to bend."
+    },
+    {
+      "id": "card.film_tv.059.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Parody: the rules, played for laughs",
+      "body": "In 1974 Mel Brooks released two parodies. Blazing Saddles spoofs the Western with a Black sheriff at its center, satirizing both racial prejudice and the genre's conventions. Young Frankenstein parodies Universal's Frankenstein films, down to black-and-white photography that copies the look of Bride of Frankenstein (1935). The gags need the old films. You laugh because you recognize what's being bent."
+    },
+    {
+      "id": "card.film_tv.059.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Revision: the rules, turned serious",
+      "body": "Classic Westerns settle conflicts with violence and physical courage. Revisionist films question that. Britannica traces the Western from Stagecoach to Unforgiven (1992), which it calls an ironic perversion of the genre's codes. Clint Eastwood's film takes an unsentimental look at frontier violence, and it won Academy Awards for best picture and best director. The gunfight is still there. It just stops being fun."
+    },
+    {
+      "id": "card.film_tv.059.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why familiar has to come first",
+      "body": "Both moves run on Level 51's genre promise. Viewers know what to expect from a genre film, down to its music, lighting and plot devices, because they've watched so many. Parody plays with that knowledge for laughs; revision turns it against you. Without the rules already in your head, a spoof is just a strange film."
+    },
+    {
+      "id": "card.film_tv.059.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.059.q1"
+    },
+    {
+      "id": "card.film_tv.059.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.059.q2"
+    },
+    {
+      "id": "card.film_tv.059.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.059.q3"
+    },
+    {
+      "id": "card.film_tv.059.c8",
+      "type": "checkpoint",
+      "headline": "Genres: bent",
+      "learned": [
+        "Acclaimed films often use a genre's rules to break them",
+        "Parody: Blazing Saddles and Young Frankenstein (1974)",
+        "Revision: Unforgiven (1992) and frontier violence",
+        "Bending works only when viewers know the rules"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.059.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.genre_parody"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.059.c2"
+      ],
+      "prompt": "Which 1974 Mel Brooks film spoofed the Western with a Black sheriff at its center?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Young Frankenstein",
+          "correct": false,
+          "rationale": "That one parodies Universal's Frankenstein films."
+        },
+        {
+          "id": "b",
+          "label": "Unforgiven",
+          "correct": false,
+          "rationale": "That's Eastwood's serious, revisionist Western from 1992."
+        },
+        {
+          "id": "c",
+          "label": "Blazing Saddles",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Stagecoach",
+          "correct": false,
+          "rationale": "That's John Ford's 1939 Western, played straight."
+        }
+      ],
+      "explanation": "Blazing Saddles (1974) spoofs Westerns with a Black sheriff, satirizing racial prejudice and the genre's conventions.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.059.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.genre_parody",
+        "concept.film_tv.genre_promise"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.059.c2",
+        "card.film_tv.059.c4"
+      ],
+      "prompt": "Why did Young Frankenstein copy the black-and-white look of Bride of Frankenstein (1935)?",
+      "options": [
+        {
+          "id": "a",
+          "label": "So viewers would recognize the horror style it mocks",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Color film was unavailable in 1974",
+          "correct": false,
+          "rationale": "The look was a choice, made to echo the old films."
+        },
+        {
+          "id": "c",
+          "label": "To hide that it was a comedy",
+          "correct": false,
+          "rationale": "The look sets up the jokes rather than hiding them."
+        },
+        {
+          "id": "d",
+          "label": "Because it was a straight remake with no jokes",
+          "correct": false,
+          "rationale": "It is a parody."
+        }
+      ],
+      "explanation": "Parody works through recognition: copying the old films' look lets viewers see exactly what is being played for laughs.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.059.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.genre_revisionist",
+        "concept.film_tv.genre_western_american"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.059.c3",
+        "card.film_tv.052.c2"
+      ],
+      "prompt": "Level 52's classic Westerns settle conflicts with violence and physical courage. How did Unforgiven (1992) bend that rule?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It dropped violence from the story entirely",
+          "correct": false,
+          "rationale": "The gunfight is still there."
+        },
+        {
+          "id": "b",
+          "label": "It turned the violence into slapstick",
+          "correct": false,
+          "rationale": "That's closer to Blazing Saddles."
+        },
+        {
+          "id": "c",
+          "label": "It moved the showdown to outer space",
+          "correct": false,
+          "rationale": "It stays on the frontier."
+        },
+        {
+          "id": "d",
+          "label": "It took an unsentimental look at frontier violence",
+          "correct": true
+        }
+      ],
+      "explanation": "Unforgiven, a revisionist Western, took an unsentimental look at frontier violence, an ironic perversion of the genre's codes.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_film_fictional_genres",
+    "source.brit_blazing_saddles",
+    "source.brit_young_frankenstein",
+    "source.brit_eastwood_1990s",
+    "source.brit_western"
+  ],
+  "art": "greece.mask"
+}

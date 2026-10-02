@@ -1,0 +1,218 @@
+{
+  "id": "level.mind.probability.067",
+  "skillId": "skill.mind.probability",
+  "number": 67,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "What \"Statistically Significant\" Means",
+  "objective": "After this level you can explain honestly what a significant result and a p-value tell you: how surprising the data would be if nothing were going on.",
+  "summary": "Fisher's tea test shows the idea of significance: how surprising would this be by luck? A p-value measures that; it is not the chance a finding is true.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.significance_tea_test",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.significance_p_value",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.one_in_n",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.066"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.067.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A lady said she could taste whether the milk went in first.",
+      "body": "In his 1935 book The Design of Experiments, the statistician Ronald Fisher turned that claim into a famous test. The question it answers: when is a result too good to be luck?"
+    },
+    {
+      "id": "card.probability.067.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "What would luck look like?",
+      "body": "Fisher's plan: 8 cups, 4 with milk first and 4 with tea first, served in random order. She had to pick out the 4 milk-first cups. There are 70 ways to choose 4 cups from 8, so someone just guessing would get them all right only 1 time in 70, about 1.4%. Sort all 8 correctly, and pure luck becomes a hard story to believe."
+    },
+    {
+      "id": "card.probability.067.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "That's what a p-value measures",
+      "body": "A p-value asks the same question of any study: if nothing were going on, how surprising would results at least this striking be? A small p-value means luck alone would rarely produce them. Fisher wrote that it was usual and convenient to draw the line at 5 percent. Results that clear the line are called statistically significant.",
+      "callout": "Small p-value: this would be rare if nothing were going on."
+    },
+    {
+      "id": "card.probability.067.c4",
+      "type": "fact",
+      "fact": "A p-value is not the chance the finding is true.",
+      "context": "That's the classic misreading, and the American Statistical Association warned against it in 2016. A p-value doesn't measure the chance the hypothesis is true, or that the data came from luck alone. So p = 0.05 isn't a 5% chance the result is a fluke. It only says how badly the data fit the idea that nothing is going on.",
+      "mascot": {
+        "pose": "oops",
+        "line": "Common mix-up: a p-value starts by assuming nothing is going on, so it can't also be the chance that something is."
+      }
+    },
+    {
+      "id": "card.probability.067.c5",
+      "type": "mcq",
+      "questionId": "question.probability.067.q1"
+    },
+    {
+      "id": "card.probability.067.c6",
+      "type": "mcq",
+      "questionId": "question.probability.067.q2"
+    },
+    {
+      "id": "card.probability.067.c7",
+      "type": "recall",
+      "questionId": "question.probability.067.q3"
+    },
+    {
+      "id": "card.probability.067.c8",
+      "type": "checkpoint",
+      "headline": "Statistically significant",
+      "learned": [
+        "Tea test: guessing wins 1 time in 70",
+        "p-value: how surprising if nothing's going on",
+        "Fisher's usual line: 5 percent",
+        "Not the chance the finding is true"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.067.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.significance_tea_test"
+      ],
+      "sourceCardIds": [
+        "card.probability.067.c2"
+      ],
+      "prompt": "In Fisher's tea test, how often would pure guessing sort all 8 cups correctly?",
+      "options": [
+        {
+          "id": "a",
+          "label": "1 time in 8",
+          "correct": false,
+          "rationale": "There are 70 ways to pick 4 cups of 8, not 8."
+        },
+        {
+          "id": "b",
+          "label": "1 time in 20",
+          "correct": false,
+          "rationale": "With 4 cups of each kind there are 70 possible picks, so it's rarer than that."
+        },
+        {
+          "id": "c",
+          "label": "1 time in 70",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "1 time in 1,000",
+          "correct": false,
+          "rationale": "Much rarer than guessing really is: 70 possible picks means 1 time in 70."
+        }
+      ],
+      "explanation": "There are 70 ways to choose 4 cups out of 8, and only one is right: 1 time in 70, about 1.4%.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.067.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.significance_p_value"
+      ],
+      "sourceCardIds": [
+        "card.probability.067.c3",
+        "card.probability.067.c4"
+      ],
+      "prompt": "What does a small p-value tell you about a study's results?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The finding is almost certainly true",
+          "correct": false,
+          "rationale": "The ASA warns a p-value isn't the chance the hypothesis is true."
+        },
+        {
+          "id": "b",
+          "label": "The effect is large and important",
+          "correct": false,
+          "rationale": "Significance says nothing about size, as the next level shows."
+        },
+        {
+          "id": "c",
+          "label": "The study made no mistakes",
+          "correct": false,
+          "rationale": "A p-value can't check a study for errors."
+        },
+        {
+          "id": "d",
+          "label": "Results this striking would be rare if nothing were going on",
+          "correct": true
+        }
+      ],
+      "explanation": "A p-value asks how surprising the results would be if nothing were going on. Small means luck alone would rarely produce them.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.067.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.one_in_n",
+        "concept.probability.significance_p_value"
+      ],
+      "sourceCardIds": [
+        "card.probability.007.c2",
+        "card.probability.067.c3"
+      ],
+      "prompt": "Fisher's usual line for significance was 5 percent. Written as Level 7's \"1 in N\", that is:",
+      "options": [
+        {
+          "id": "a",
+          "label": "1 in 5",
+          "correct": false,
+          "rationale": "1 in 5 is 20%."
+        },
+        {
+          "id": "b",
+          "label": "1 in 20",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "1 in 50",
+          "correct": false,
+          "rationale": "1 in 50 is 2%."
+        },
+        {
+          "id": "d",
+          "label": "1 in 95",
+          "correct": false,
+          "rationale": "Divide 100 by the percent: 100 ÷ 5 = 20."
+        }
+      ],
+      "explanation": "To turn a percent into \"1 in N\", divide 100 by it: 100 ÷ 5 = 20, so 5% is 1 in 20.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.fisher_design_of_experiments_1935",
+    "source.amstat_pvalue_statement_2016"
+  ],
+  "art": "mind.teacup"
+}

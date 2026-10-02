@@ -1,0 +1,215 @@
+{
+  "id": "level.mind.logic.026",
+  "skillId": "skill.mind.logic",
+  "number": 26,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Going in Circles",
+  "objective": "After this level you can spot circular reasoning, where the conclusion is quietly assumed in the premises.",
+  "summary": "Circular reasoning starts with what it wants to end with; begging the question hides the conclusion in a premise. Test: could the premise be accepted without the conclusion?",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.classic_fallacy_circular_reasoning",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.premise_conclusion",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.025"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"You can trust my diary. Page one says everything in it is true.\"",
+      "body": "The diary vouches for the diary. It sounds like a reason, but follow it and you end up right where you started, like a snake swallowing its own tail.",
+      "id": "card.logic.026.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Ending where you began",
+      "body": "Circular reasoning starts with what it's trying to end up with. Its tightest form is begging the question: a premise quietly assumes the conclusion. \"Dana is the best captain, because no one leads better than Dana.\" The reason is just the claim in a new outfit. Good reasoning takes you somewhere new; this only repeats the point.",
+      "id": "card.logic.026.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Small circles and big ones",
+      "body": "Imagine a dictionary that defines \"endless loop\" as \"see loop, endless\", and \"loop, endless\" as \"see endless loop\". Useless. Yet a whole dictionary is one giant circle of words defined by other words, and it's hugely informative. The fallacy is the small, tight circle that never lets any new information in.",
+      "id": "card.logic.026.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The way out of the circle",
+      "body": "To catch a circle, ask of each premise: could someone who doesn't yet accept the conclusion still accept this? \"Page one says it's true\" only persuades someone who already trusts the diary. A premise you could defend on its own, without first accepting the conclusion, breaks the circle.",
+      "id": "card.logic.026.c4"
+    },
+    {
+      "type": "fact",
+      "fact": "\"Beg the question\" is a 16th-century translation of Aristotle's petitio principii.",
+      "context": "Merriam-Webster says a better translation would have been \"assume the conclusion\". Today most people use \"that begs the question\" to mean \"that raises the question\", and that use is established too. In logic, though, it means the circle.",
+      "id": "card.logic.026.c5"
+    },
+    {
+      "id": "card.logic.026.c6",
+      "type": "mcq",
+      "questionId": "question.logic.026.q1"
+    },
+    {
+      "id": "card.logic.026.c7",
+      "type": "mcq",
+      "questionId": "question.logic.026.q2"
+    },
+    {
+      "id": "card.logic.026.c8",
+      "type": "mcq",
+      "questionId": "question.logic.026.q3"
+    },
+    {
+      "id": "card.logic.026.c9",
+      "type": "checkpoint",
+      "headline": "Circles: spotted",
+      "learned": [
+        "Circular reasoning ends where it began",
+        "Begging the question hides the conclusion in a premise",
+        "Test: could you accept the premise alone?",
+        "In logic, \"beg the question\" means assume it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.026.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_circular_reasoning"
+      ],
+      "sourceCardIds": [
+        "card.logic.026.c5",
+        "card.logic.026.c2"
+      ],
+      "prompt": "In logic, what does \"begging the question\" mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Raising an obvious follow-up question",
+          "correct": false,
+          "rationale": "That's the everyday sense, not the logical one."
+        },
+        {
+          "id": "b",
+          "label": "Asking the audience for agreement",
+          "correct": false,
+          "rationale": "Not what the phrase means."
+        },
+        {
+          "id": "c",
+          "label": "Refusing to answer a question",
+          "correct": false,
+          "rationale": "That's evasion, not the logical sense."
+        },
+        {
+          "id": "d",
+          "label": "Assuming the conclusion in the premises",
+          "correct": true
+        }
+      ],
+      "explanation": "It comes from Aristotle's petitio principii, better translated as \"assume the conclusion\".",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.026.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_circular_reasoning"
+      ],
+      "sourceCardIds": [
+        "card.logic.026.c4"
+      ],
+      "prompt": "How can you test whether a premise begs the question?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ask if you could accept it without the conclusion",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Check whether it is longer than the conclusion",
+          "correct": false,
+          "rationale": "Length has nothing to do with it."
+        },
+        {
+          "id": "c",
+          "label": "See whether it contains the word \"because\"",
+          "correct": false,
+          "rationale": "Circular arguments may or may not use it."
+        },
+        {
+          "id": "d",
+          "label": "Count how many people accept it",
+          "correct": false,
+          "rationale": "Popularity is no test for a circle."
+        }
+      ],
+      "explanation": "A premise that could be defended without first accepting the conclusion breaks the circle; one that only persuades believers begs the question.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.026.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.classic_fallacy_circular_reasoning",
+        "concept.logic.premise_conclusion"
+      ],
+      "sourceCardIds": [
+        "card.logic.026.c2",
+        "card.logic.005.c2"
+      ],
+      "prompt": "Level 5 says premises are reasons offered for a conclusion. What goes wrong in \"Dana is the best captain, because no one leads better\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It has no conclusion",
+          "correct": false,
+          "rationale": "It does: Dana is the best captain."
+        },
+        {
+          "id": "b",
+          "label": "Its premise is a question",
+          "correct": false,
+          "rationale": "The premise is a claim."
+        },
+        {
+          "id": "c",
+          "label": "The premise just restates the conclusion",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The conclusion comes first",
+          "correct": false,
+          "rationale": "Order doesn't matter; Level 5 showed conclusions can come first."
+        }
+      ],
+      "explanation": "A premise is supposed to be a separate reason. Here it only says the conclusion again, so nothing new supports it.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies",
+    "source.mw_beg_the_question"
+  ],
+  "art": "mind.logic-ouroboros"
+}

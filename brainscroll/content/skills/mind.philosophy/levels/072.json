@@ -1,0 +1,220 @@
+{
+  "id": "level.mind.philosophy.072",
+  "skillId": "skill.mind.philosophy",
+  "number": 72,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Zeno's Impossible Race",
+  "objective": "After this level you can explain Zeno's paradox of Achilles and the tortoise and how the mathematics of infinite series is often said to answer it.",
+  "summary": "Zeno argued Achilles can never catch a head-started tortoise; the standard reply sums an infinite series to a finite total, while James Thomson doubted infinitely many tasks can be finished.",
+  "concepts": [
+    {
+      "conceptId": "concept.philosophy.reality_zeno_achilles",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.philosophy.thought_experiments",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.philosophy.071"
+  ],
+  "cards": [
+    {
+      "id": "card.philosophy.072.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The fastest runner in Greece can never catch a tortoise.",
+      "body": "Zeno of Elea had a proof. It looks airtight, which is exactly the problem: where does it go wrong?"
+    },
+    {
+      "id": "card.philosophy.072.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Zeno’s game",
+      "body": "Zeno of Elea was born around 490 BCE, and his book of paradoxes is lost: we know his arguments mainly through Aristotle. He was defending his mentor Parmenides, who held that reality is one and unchanging, and change an illusion. Zeno’s tactic was sly. Assume your opponents are right, then show that absurd conclusions follow."
+    },
+    {
+      "id": "card.philosophy.072.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The race",
+      "body": "Give the tortoise a head start. Before Achilles can pass it, he must reach the spot where it was. By then it has crawled a little further, so he must reach that new spot, and by then it has moved again. There is always one more gap to close: infinitely many catch-ups. So, Zeno concludes, Achilles never catches the tortoise."
+    },
+    {
+      "id": "card.philosophy.072.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The answer from sums",
+      "body": "The standard reply comes from mathematics: an infinite series can add up to a finite total. Eat half a cake, then half of what’s left, and so on forever, and you have eaten exactly one cake. Achilles’ gaps shrink the same way, so infinitely many catch-ups fit in a finite distance and time. A rigorous theory of such sums came only in the 19th century, from Cauchy.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Don’t memorize the fractions. Keep the idea: infinitely many steps can still add up to a finite total."
+      }
+    },
+    {
+      "id": "card.philosophy.072.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Is the sum the whole story?",
+      "body": "Some philosophers say the math shows the distance is finite, not that anyone can finish infinitely many tasks. Bertrand Russell held that Achilles does exactly that. In 1954 James Thomson imagined a lamp switched on for half a minute, off for a quarter, on for an eighth, and so on. When the minute is up, is it on or off? Thomson argued neither answer works, so no such task can be completed."
+    },
+    {
+      "id": "card.philosophy.072.c6",
+      "type": "mcq",
+      "questionId": "question.philosophy.072.q1"
+    },
+    {
+      "id": "card.philosophy.072.c7",
+      "type": "mcq",
+      "questionId": "question.philosophy.072.q2"
+    },
+    {
+      "id": "card.philosophy.072.c8",
+      "type": "mcq",
+      "questionId": "question.philosophy.072.q3"
+    },
+    {
+      "id": "card.philosophy.072.c9",
+      "type": "checkpoint",
+      "headline": "Zeno's Impossible Race: the big picture",
+      "learned": [
+        "Zeno defended Parmenides’ unchanging reality",
+        "Achilles faces infinitely many catch-ups",
+        "Infinite series can have finite sums",
+        "Thomson’s lamp questions infinite tasks"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.philosophy.072.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.philosophy.reality_zeno_achilles"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.072.c3"
+      ],
+      "prompt": "In Zeno’s paradox, what must Achilles do before he can pass the tortoise?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Run exactly twice as fast as usual",
+          "correct": false,
+          "rationale": "Speed doesn’t remove the gaps."
+        },
+        {
+          "id": "b",
+          "label": "Wait for the tortoise to stop",
+          "correct": false,
+          "rationale": "The tortoise keeps crawling."
+        },
+        {
+          "id": "c",
+          "label": "Reach the spot where the tortoise was",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Start from the same line as the tortoise",
+          "correct": false,
+          "rationale": "The tortoise has a head start."
+        }
+      ],
+      "explanation": "Each time, Achilles must first reach where the tortoise was; by then it has moved on, so there is always another gap.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.philosophy.072.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.philosophy.reality_zeno_achilles"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.072.c4"
+      ],
+      "prompt": "How does the standard mathematical reply get Achilles past the tortoise?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It shows the tortoise must stop to rest at some point",
+          "correct": false,
+          "rationale": "The tortoise never needs to stop."
+        },
+        {
+          "id": "b",
+          "label": "It shows infinitely many shrinking gaps can add up to a finite total",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It denies that Achilles ever has to cross those gaps at all",
+          "correct": false,
+          "rationale": "He does cross them; they just sum to a finite distance."
+        },
+        {
+          "id": "d",
+          "label": "It proves, as Parmenides said, that motion is an illusion",
+          "correct": false,
+          "rationale": "That’s Zeno’s side, not the reply."
+        }
+      ],
+      "explanation": "An infinite series can have a finite sum, like half a cake plus a quarter plus an eighth making one cake, so the catch-ups fit in a finite distance and time.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.philosophy.072.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.philosophy.reality_zeno_achilles",
+        "concept.philosophy.thought_experiments"
+      ],
+      "sourceCardIds": [
+        "card.philosophy.072.c3",
+        "card.philosophy.003.c2"
+      ],
+      "prompt": "No one needs a real tortoise to test Zeno. Like the thought experiments of Level 3, what does his paradox do instead?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Measures real runners with a stopwatch",
+          "correct": false,
+          "rationale": "No race is run."
+        },
+        {
+          "id": "b",
+          "label": "Pictures a situation and reasons about what would happen",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Takes a vote among philosophers",
+          "correct": false,
+          "rationale": "It rests on reasoning, not votes."
+        },
+        {
+          "id": "d",
+          "label": "Relies on the word of an oracle",
+          "correct": false,
+          "rationale": "It rests on reasoning alone."
+        }
+      ],
+      "explanation": "A thought experiment pictures a carefully built situation and reasons about it; Zeno’s race is run only in the mind.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.sep_zeno_paradoxes",
+    "source.iep_zeno_paradoxes",
+    "source.sep_thought_experiments"
+  ],
+  "art": "phil.tortoise"
+}

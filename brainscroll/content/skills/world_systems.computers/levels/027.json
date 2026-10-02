@@ -1,0 +1,211 @@
+{
+  "id": "level.world_systems.computers.027",
+  "skillId": "skill.world_systems.computers",
+  "number": 27,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "One Processor, Many Programs",
+  "objective": "After this level you can explain how the operating system switches the processor between programs so quickly they seem to run at once.",
+  "summary": "A timer hands control back to the operating system every few milliseconds, and a context switch saves one program's place and restores another's. Multicore chips truly run programs at once.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.software_time_sharing",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.fetch_decode_execute",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.026"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.027.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Music, a download and your typing, all on one processor core.",
+      "body": "Everyday Technology showed the trick: programs take turns in tiny slices, running one for a little while, then another. But a program never volunteers to stop. So how does the operating system take the processor back, and how does each program pick up exactly where it left off?"
+    },
+    {
+      "id": "card.computers.027.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "An alarm clock that can't be ignored",
+      "body": "At start-up, the operating system sets a hardware timer to raise an interrupt every few milliseconds. When it fires, whatever program is running is halted and the operating system's own handler runs instead. Without it, a program stuck in an endless loop could keep the processor forever, and your only fix would be to reboot. With it, the operating system always gets control back."
+    },
+    {
+      "id": "card.computers.027.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Saving your place",
+      "body": "Now the operating system can switch programs. This context switch is simple in principle: save the running program's registers and program counter, then restore the saved ones of the next program. The program counter matters most, because it holds the address of the next instruction the processor will fetch. So when a paused program gets its turn again, it resumes exactly where it stopped."
+    },
+    {
+      "id": "card.computers.027.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Waiting in line, and extra cores",
+      "body": "A program waiting on a disk can be blocked for milliseconds or longer, so the scheduler gives the processor to another program meanwhile. And most devices now have multicore chips, several processor cores on one chip, which really do run programs at the same moment. The catch: a typical program uses only one core unless it's rewritten to run in parallel."
+    },
+    {
+      "id": "card.computers.027.c5",
+      "type": "mcq",
+      "questionId": "question.computers.027.q1"
+    },
+    {
+      "id": "card.computers.027.c6",
+      "type": "mcq",
+      "questionId": "question.computers.027.q2"
+    },
+    {
+      "id": "card.computers.027.c7",
+      "type": "mcq",
+      "questionId": "question.computers.027.q3"
+    },
+    {
+      "id": "card.computers.027.c8",
+      "type": "checkpoint",
+      "headline": "Turns: taken",
+      "learned": [
+        "A hardware timer returns control to the operating system",
+        "A context switch saves registers and the program counter",
+        "Programs waiting on a disk step aside for others",
+        "Multicore chips truly run programs at once"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.027.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.software_time_sharing"
+      ],
+      "sourceCardIds": [
+        "card.computers.027.c3"
+      ],
+      "prompt": "What does the operating system save when it pauses a program in a context switch?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The program's registers and program counter",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A copy of the program's whole file on disk",
+          "correct": false,
+          "rationale": "Only the processor state needs saving."
+        },
+        {
+          "id": "c",
+          "label": "The pixels on the screen",
+          "correct": false,
+          "rationale": "The screen isn't part of the program's processor state."
+        },
+        {
+          "id": "d",
+          "label": "The processor's clock speed",
+          "correct": false,
+          "rationale": "Clock speed doesn't change between programs."
+        }
+      ],
+      "explanation": "A context switch saves the running program's registers and program counter, then restores the next program's.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.027.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.software_time_sharing"
+      ],
+      "sourceCardIds": [
+        "card.computers.027.c2"
+      ],
+      "prompt": "How does the operating system take the processor back from a program that never gives it up?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It waits patiently until the program finishes on its own, however long",
+          "correct": false,
+          "rationale": "A stuck program might never finish."
+        },
+        {
+          "id": "b",
+          "label": "A hardware timer raises an interrupt that hands control to the operating system",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It reboots the computer every few milliseconds",
+          "correct": false,
+          "rationale": "Rebooting is the fix when there's no timer."
+        },
+        {
+          "id": "d",
+          "label": "It deletes the program from storage",
+          "correct": false,
+          "rationale": "The program is paused, not deleted."
+        }
+      ],
+      "explanation": "The timer, set at start-up, fires every few milliseconds; the running program is halted and the operating system's handler runs.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.027.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.software_time_sharing",
+        "concept.computers.fetch_decode_execute"
+      ],
+      "sourceCardIds": [
+        "card.computers.027.c3",
+        "card.computers.008.c2"
+      ],
+      "prompt": "Why must the program counter from Level 8 be saved when a program is paused?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It counts how many programs are open, so the system can track them all",
+          "correct": false,
+          "rationale": "It holds an address, not a count of programs."
+        },
+        {
+          "id": "b",
+          "label": "It sets how fast the clock ticks",
+          "correct": false,
+          "rationale": "The clock is separate from the program counter."
+        },
+        {
+          "id": "c",
+          "label": "It holds the address of the next instruction, so the program can resume there",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It stores the program's files",
+          "correct": false,
+          "rationale": "Files live on the drive, not in the program counter."
+        }
+      ],
+      "explanation": "The processor fetches whatever the program counter points to, so saving it lets the paused program continue from its next instruction.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.ostep_limited_direct_execution",
+    "source.uvm_fetch_decode_execute",
+    "source.brit_cpu",
+    "source.ostep_scheduling_intro",
+    "source.ostep_multiprocessor_scheduling"
+  ],
+  "art": "computers.juggling-balls"
+}

@@ -1,0 +1,235 @@
+{
+  "id": "level.arts.literature.001",
+  "skillId": "skill.arts.literature",
+  "number": 1,
+  "type": "regular",
+  "revision": 2,
+  "status": "published",
+  "title": "Literature: The Big Picture",
+  "objective": "After this level you can explain what literature is and trace its path from spoken myths to the modern novel.",
+  "summary": "Literature is named for letters (Latin littera), yet it began as spoken stories. It runs from myths told aloud to clay tablets, epics like Gilgamesh and Homer, and the novel.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.what_literature_is",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.story_forms_path",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [],
+  "cards": [
+    {
+      "id": "card.literature.001.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Literature is named after letters. It started without any.",
+      "body": "The word comes from the Latin littera, a letter of the alphabet. Yet scholars also speak of oral literature: stories and poems passed on by voice, by people who had no writing at all. So how did literature get from spoken stories to the novel on your shelf?"
+    },
+    {
+      "id": "card.literature.001.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "What counts as literature?",
+      "body": "In its simplest sense, literature is a body of written works. But the word usually means something narrower: imaginative poems and prose, prized for how well they're made. And it isn't only written. A poem kept alive in people's memories counts as oral literature. Your shopping list, sadly, doesn't count, even though it's written down."
+    },
+    {
+      "id": "card.literature.001.c3",
+      "type": "timeline",
+      "headline": "From spoken stories to the novel",
+      "events": [
+        {
+          "when": "Before writing",
+          "label": "Stories and poems are passed on by voice"
+        },
+        {
+          "when": "About 5,200 years ago",
+          "label": "Some of the earliest writing appears in Mesopotamia, pressed into clay"
+        },
+        {
+          "when": "Early 2nd millennium BCE",
+          "label": "Poems about Gilgamesh are written on clay tablets"
+        },
+        {
+          "when": "9th or 8th century BCE",
+          "label": "Homer's epics take shape among singers"
+        },
+        {
+          "when": "About 1010",
+          "label": "The Tale of Genji, often called the first novel"
+        }
+      ]
+    },
+    {
+      "id": "card.literature.001.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "From heroes to people",
+      "body": "Notice what changes along that line. Gilgamesh and Homer's poems are epics: long poems about heroic deeds. The novel, the newest form here, is an invented story in prose, long and complex. Where the epic lifts its heroes up, the novel often shows life as unheroic, imperfect, even absurd. The epic gave you heroes. The novel gave you people.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "If you remember one thing from this level: stories were spoken long before they were written."
+      }
+    },
+    {
+      "id": "card.literature.001.c5",
+      "type": "mcq",
+      "questionId": "question.literature.001.q1"
+    },
+    {
+      "id": "card.literature.001.c6",
+      "type": "mcq",
+      "questionId": "question.literature.001.q2"
+    },
+    {
+      "id": "card.literature.001.c7",
+      "type": "mcq",
+      "questionId": "question.literature.001.q3"
+    },
+    {
+      "id": "card.literature.001.c8",
+      "type": "checkpoint",
+      "headline": "Literature: mapped",
+      "learned": [
+        "Literature comes from littera, \"letter\"",
+        "Oral literature counts too",
+        "Spoken stories, clay tablets, epics, then the novel",
+        "Epics lift heroes; novels show people"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.001.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.what_literature_is"
+      ],
+      "sourceCardIds": [
+        "card.literature.001.c1"
+      ],
+      "prompt": "The word literature comes from the Latin littera. What does littera mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A story told out loud",
+          "correct": false,
+          "rationale": "That would be oral literature, not the word's root."
+        },
+        {
+          "id": "b",
+          "label": "A letter of the alphabet",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A bound book of poems",
+          "correct": false,
+          "rationale": "Close in spirit, but littera is a single letter."
+        },
+        {
+          "id": "d",
+          "label": "A wise saying or proverb",
+          "correct": false,
+          "rationale": "That's nearer to a proverb."
+        }
+      ],
+      "explanation": "Literature comes from littera, \"a letter of the alphabet\", which is why it first meant writing.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.literature.001.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.what_literature_is"
+      ],
+      "sourceCardIds": [
+        "card.literature.001.c2",
+        "card.literature.001.c1"
+      ],
+      "prompt": "How can a poem that was never written down still count as literature?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It only counts once someone prints it in a book",
+          "correct": false,
+          "rationale": "Scholars count oral literature too."
+        },
+        {
+          "id": "b",
+          "label": "Only novels count as literature",
+          "correct": false,
+          "rationale": "Poems, epics and myths all count."
+        },
+        {
+          "id": "c",
+          "label": "Scholars also recognize oral literature, passed on by voice",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Any words at all count, even a shopping list",
+          "correct": false,
+          "rationale": "Literature usually means imaginative, well-made work."
+        }
+      ],
+      "explanation": "Literature is usually written, but scholars also speak of oral literature: the stories and poems of peoples without writing.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.literature.001.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.story_forms_path"
+      ],
+      "sourceCardIds": [
+        "card.literature.001.c4",
+        "card.literature.001.c3"
+      ],
+      "prompt": "The Tale of Genji is a novel; Homer's Iliad is an epic. What sets the novel apart?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is a long poem about heroic deeds",
+          "correct": false,
+          "rationale": "That describes the epic."
+        },
+        {
+          "id": "b",
+          "label": "It is always a true story",
+          "correct": false,
+          "rationale": "A novel is invented."
+        },
+        {
+          "id": "c",
+          "label": "It was sung by oral poets",
+          "correct": false,
+          "rationale": "That's how Homer's epics took shape."
+        },
+        {
+          "id": "d",
+          "label": "It is an invented story in prose",
+          "correct": true
+        }
+      ],
+      "explanation": "An epic is a long narrative poem about heroic deeds; a novel is an invented prose story that often shows life as unheroic and imperfect.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_literature",
+    "source.brit_cuneiform",
+    "source.brit_epic_of_gilgamesh",
+    "source.brit_homer",
+    "source.brit_tale_of_genji",
+    "source.brit_novel",
+    "source.brit_epic"
+  ],
+  "art": "lit.stack-of-books"
+}

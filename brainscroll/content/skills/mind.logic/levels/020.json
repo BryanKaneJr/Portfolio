@@ -1,0 +1,344 @@
+{
+  "id": "level.mind.logic.020",
+  "skillId": "skill.mind.logic",
+  "number": 20,
+  "type": "checkpoint",
+  "revision": 1,
+  "status": "published",
+  "title": "Checkpoint: Deduction and Induction",
+  "objective": "After this level you can compare deduction, induction and best-explanation reasoning and say how much certainty each gives.",
+  "summary": "Peirce's bag of white beans, rearranged three ways: deduction guarantees, induction makes probable, and hypothesis (abduction) makes a fair guess.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.induction_peirce_beans",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.deduction_definition",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.induction_definition",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.induction_best_explanation",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.deduction_soundness",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.deduction_if_then_fallacies",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.induction_black_swan",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.019"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "A handful of white beans on a table. Where did they come from?",
+      "body": "In 1878 the philosopher Charles Sanders Peirce imagined a room full of bags of beans. One bag holds only white beans, and a handful of white beans lies on the table. Peirce guessed the handful came from that bag. From one little scene he drew all three kinds of reasoning in this chapter.",
+      "id": "card.logic.020.c1"
+    },
+    {
+      "type": "comparison",
+      "headline": "One bag of beans, three arguments",
+      "items": [
+        {
+          "label": "Deduction",
+          "points": [
+            "All beans from this bag are white",
+            "These beans are from this bag",
+            "So these beans are white"
+          ]
+        },
+        {
+          "label": "Induction",
+          "points": [
+            "These beans are from this bag",
+            "These beans are white",
+            "So all beans from this bag are white"
+          ]
+        },
+        {
+          "label": "Hypothesis",
+          "points": [
+            "All beans from this bag are white",
+            "These beans are white",
+            "So these beans are from this bag"
+          ]
+        }
+      ],
+      "id": "card.logic.020.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "How much each one promises",
+      "body": "Same three sentences, shuffled. Deduction runs from the rule to the result, and true premises guarantee it. Induction runs from cases to the rule, so it's only probable: one black bean would sink it, black-swan style. Hypothesis, which Peirce also called abduction, guesses the story behind what you see. He wrote: \"As a general rule, hypothesis is a weak kind of argument.\"",
+      "id": "card.logic.020.c3"
+    },
+    {
+      "id": "card.logic.020.c4",
+      "type": "mcq",
+      "questionId": "question.logic.020.q1"
+    },
+    {
+      "id": "card.logic.020.c5",
+      "type": "mcq",
+      "questionId": "question.logic.020.q2"
+    },
+    {
+      "id": "card.logic.020.c6",
+      "type": "recall",
+      "questionId": "question.logic.020.q3"
+    },
+    {
+      "id": "card.logic.020.c7",
+      "type": "recall",
+      "questionId": "question.logic.020.q4"
+    },
+    {
+      "id": "card.logic.020.c8",
+      "type": "recall",
+      "questionId": "question.logic.020.q5"
+    },
+    {
+      "id": "card.logic.020.c9",
+      "type": "checkpoint",
+      "headline": "Chapter 2 complete",
+      "learned": [
+        "How deduction, induction and best-explanation reasoning differ in the certainty each gives.",
+        "Why a valid argument can reach a false conclusion, and what it takes for one to be sound.",
+        "Which if-then arguments are valid, and how to spot the two backwards ones.",
+        "Why no pile of white swans proves a rule, while one black swan can sink it."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.020.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.induction_peirce_beans"
+      ],
+      "sourceCardIds": [
+        "card.logic.020.c2"
+      ],
+      "prompt": "In Peirce's bean example, which argument concludes that all the beans from the bag are white?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Deduction",
+          "correct": false,
+          "rationale": "Deduction starts from that rule; it concludes that these beans are white."
+        },
+        {
+          "id": "b",
+          "label": "Induction",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Hypothesis",
+          "correct": false,
+          "rationale": "Hypothesis concludes where these beans came from."
+        },
+        {
+          "id": "d",
+          "label": "None of the three",
+          "correct": false,
+          "rationale": "One of them reaches the rule."
+        }
+      ],
+      "explanation": "Induction runs from cases (these beans, from this bag, are white) to the general rule.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.020.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.induction_peirce_beans",
+        "concept.logic.deduction_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.020.c3",
+        "card.logic.011.c2"
+      ],
+      "prompt": "Which of Peirce's three bean arguments guarantees its conclusion if its premises are true?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Induction",
+          "correct": false,
+          "rationale": "Induction is only probable: one black bean would sink it."
+        },
+        {
+          "id": "b",
+          "label": "Hypothesis",
+          "correct": false,
+          "rationale": "Peirce called it a weak kind of argument."
+        },
+        {
+          "id": "c",
+          "label": "All three equally",
+          "correct": false,
+          "rationale": "Only one of them carries a guarantee."
+        },
+        {
+          "id": "d",
+          "label": "Deduction",
+          "correct": true
+        }
+      ],
+      "explanation": "Deduction runs from the rule to the result, so true premises guarantee the conclusion.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.020.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.induction_peirce_beans",
+        "concept.logic.induction_best_explanation"
+      ],
+      "sourceCardIds": [
+        "card.logic.020.c3",
+        "card.logic.019.c3"
+      ],
+      "prompt": "Deduction and Induction checkpoint: guessing the handful came from the white bag is which kind of reasoning?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Deduction, since the bag is all white",
+          "correct": false,
+          "rationale": "The premises leave other sources possible."
+        },
+        {
+          "id": "b",
+          "label": "Inference to the best explanation",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Induction from many beans",
+          "correct": false,
+          "rationale": "It concludes where these beans came from, not a general rule."
+        },
+        {
+          "id": "d",
+          "label": "Affirming the if part",
+          "correct": false,
+          "rationale": "No if-then statement is affirmed here."
+        }
+      ],
+      "explanation": "Peirce called it hypothesis, also abduction: Level 19's inference to the best explanation.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.020.q4",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.deduction_soundness"
+      ],
+      "sourceCardIds": [
+        "card.logic.013.c2"
+      ],
+      "prompt": "An argument is valid and all its premises are true. What can you say about its conclusion?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is probably true",
+          "correct": false,
+          "rationale": "Sound arguments do better than probably."
+        },
+        {
+          "id": "b",
+          "label": "It must be true",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It might still be false",
+          "correct": false,
+          "rationale": "Not if it is valid with true premises."
+        },
+        {
+          "id": "d",
+          "label": "It still needs a counterexample",
+          "correct": false,
+          "rationale": "A counterexample would show it invalid, and it is valid."
+        }
+      ],
+      "explanation": "That makes the argument sound, and a sound argument always has a true conclusion.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.020.q5",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.deduction_if_then_fallacies"
+      ],
+      "sourceCardIds": [
+        "card.logic.016.c2"
+      ],
+      "prompt": "\"If it's a black swan, it isn't white. This swan isn't white. So it's a black swan.\" What's wrong with it?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It affirms the then part",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It denies the then part",
+          "correct": false,
+          "rationale": "It affirms the then part: this swan is not white."
+        },
+        {
+          "id": "c",
+          "label": "Nothing at all: it is valid",
+          "correct": false,
+          "rationale": "The swan could be grey, or any other color."
+        },
+        {
+          "id": "d",
+          "label": "It has no conclusion",
+          "correct": false,
+          "rationale": "It concludes that this is a black swan."
+        }
+      ],
+      "explanation": "It affirms the consequent: the then part is true, so the if part is assumed. A swan that isn't white need not be black.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.wikisource_peirce_deduction_induction_hypothesis",
+    "source.sep_peirce",
+    "source.iep_validity_soundness",
+    "source.libretexts_vancleave_deductive_inductive",
+    "source.iep_deductive_inductive",
+    "source.conversation_black_swan"
+  ],
+  "art": "mind.logic-key"
+}

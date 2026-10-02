@@ -1,0 +1,228 @@
+{
+  "id": "level.world_systems.computers.031",
+  "skillId": "skill.world_systems.computers",
+  "number": 31,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "What a Network Is",
+  "objective": "After this level you can explain how a home or office network links devices through a switch or router so they can share data.",
+  "summary": "A local network links nearby devices. Each has a 48-bit MAC address; a switch learns which port each one is on, and a router joins networks together.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.net_local_network",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.net_switch_mac",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.photo_journey",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.030"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.031.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You press Print on your phone. How does the page find the right printer?",
+      "body": "It doesn't come out of the wrong device. Your home network has to deliver the job to one device out of many. This level opens up the small network in your home or office and shows how it knows which device is which."
+    },
+    {
+      "id": "card.computers.031.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A network is devices that can reach each other",
+      "body": "A local area network, or LAN, connects computers within a building or a small group of buildings: the laptop, phone, printer and TV in your home, or every desk in an office. Since the mid-1970s the most common LAN design has been Ethernet, first developed at Xerox PARC."
+    },
+    {
+      "id": "card.computers.031.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Every device wears a name tag",
+      "body": "Each network card carries a MAC address: 48 bits, or 6 bytes, written into its read-only memory at the factory. On the local network, that address identifies which device sent a message and which one should get it. Think of it as a name tag sewn in at the factory, though software can swap the tag a device shows."
+    },
+    {
+      "id": "card.computers.031.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The switch learns who sits where",
+      "body": "A switch is a box with a row of ports. Each time a frame (a chunk of data on the local network) comes in, the switch notes the sender's MAC address and the port it arrived on. Later frames for that address go out of that one port only. If the switch hasn't met the destination yet, it sends the frame out of every port except the one it came in on. It's a new mail clerk learning the office from the return addresses."
+    },
+    {
+      "id": "card.computers.031.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Switches link devices; routers link networks",
+      "body": "A switch connects the devices inside one network. A router connects networks to each other, and your network to the internet, directing packets toward where they're going. Remember Level 1's network of networks? Routers are the joints between them.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "People mix these two up all the time. Switch: devices inside one network. Router: one network to the next."
+      }
+    },
+    {
+      "id": "card.computers.031.c6",
+      "type": "mcq",
+      "questionId": "question.computers.031.q1"
+    },
+    {
+      "id": "card.computers.031.c7",
+      "type": "mcq",
+      "questionId": "question.computers.031.q2"
+    },
+    {
+      "id": "card.computers.031.c8",
+      "type": "mcq",
+      "questionId": "question.computers.031.q3"
+    },
+    {
+      "id": "card.computers.031.c9",
+      "type": "checkpoint",
+      "headline": "Your network: mapped",
+      "learned": [
+        "A LAN links the devices in one building",
+        "Each network card has a 48-bit MAC address",
+        "A switch learns which port each address is on",
+        "Routers join one network to the next"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.031.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.net_switch_mac"
+      ],
+      "sourceCardIds": [
+        "card.computers.031.c3"
+      ],
+      "prompt": "What is a MAC address?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The name you gave your home Wi-Fi network",
+          "correct": false,
+          "rationale": "That is a network name you choose, not a device address."
+        },
+        {
+          "id": "b",
+          "label": "A 48-bit address stored on a device's network card",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The password a device needs to join the network",
+          "correct": false,
+          "rationale": "A MAC address identifies a device; it is not a secret."
+        },
+        {
+          "id": "d",
+          "label": "A list of every device in the building, kept by the switch",
+          "correct": false,
+          "rationale": "A MAC address belongs to one device's network card."
+        }
+      ],
+      "explanation": "A MAC address is 48 bits (6 bytes), written into the network card at the factory, and identifies the device on its local network.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.031.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.net_switch_mac"
+      ],
+      "sourceCardIds": [
+        "card.computers.031.c4"
+      ],
+      "prompt": "How does a switch learn which device is plugged into which of its ports?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Someone types in a list when the switch is installed",
+          "correct": false,
+          "rationale": "It learns on its own from the traffic."
+        },
+        {
+          "id": "b",
+          "label": "It asks the internet provider for a map",
+          "correct": false,
+          "rationale": "The switch only looks at its own local traffic."
+        },
+        {
+          "id": "c",
+          "label": "It measures how long each cable is",
+          "correct": false,
+          "rationale": "Cable length has nothing to do with it."
+        },
+        {
+          "id": "d",
+          "label": "It notes each frame's sender address and the port it came in on",
+          "correct": true
+        }
+      ],
+      "explanation": "Every incoming frame teaches the switch one pairing: this sender's MAC address lives behind this port. Later frames for that address go out that port only.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.031.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.net_local_network",
+        "concept.computers.photo_journey"
+      ],
+      "sourceCardIds": [
+        "card.computers.031.c5",
+        "card.computers.001.c4"
+      ],
+      "prompt": "Level 1 called the internet a network of networks. Which device joins one network to the next?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A switch",
+          "correct": false,
+          "rationale": "A switch links devices inside one network."
+        },
+        {
+          "id": "b",
+          "label": "A network card",
+          "correct": false,
+          "rationale": "The card connects one device to its local network."
+        },
+        {
+          "id": "c",
+          "label": "A router",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A printer",
+          "correct": false,
+          "rationale": "A printer is just one device on the network."
+        }
+      ],
+      "explanation": "Routers connect networks to each other and to the internet, so they are the joints in the network of networks.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.brit_local_area_network",
+    "source.ciscopress_ethernet_mac_address",
+    "source.ciscopress_mac_address_table",
+    "source.cisco_switch_vs_router",
+    "source.brit_internet",
+    "source.mdn_how_internet_works"
+  ],
+  "art": "computers.ethernet-cable"
+}

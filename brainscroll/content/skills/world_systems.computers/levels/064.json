@@ -1,0 +1,215 @@
+{
+  "id": "level.world_systems.computers.064",
+  "skillId": "skill.world_systems.computers",
+  "number": 64,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Why \"Free\" Apps Show Ads",
+  "objective": "After this level you can connect the ad-funded business model to the data that apps and websites collect about you.",
+  "summary": "Free services are often paid for by advertisers (about 98% of Meta's 2024 revenue), which rewards collecting data for targeted ads, often through ad companies' SDK code built into apps.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.privacy_ad_business",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.privacy_ad_sdk",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.photo_journey",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.063"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.064.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The app is free. Someone is still paying.",
+      "body": "You paid nothing for the app, yet someone pays for it to exist. For many free services, that someone is an advertiser. Follow the money and Level 62's data trail starts to make sense."
+    },
+    {
+      "id": "card.computers.064.c2",
+      "type": "fact",
+      "fact": "In 2024, advertising brought in about 98% of Meta's revenue.",
+      "context": "Its own results put ad revenue at $160.6 billion out of $164.5 billion in total. It's one clear example of the deal behind many free services: the people using it pay nothing, and the companies paying to reach them pay for almost everything."
+    },
+    {
+      "id": "card.computers.064.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the data matters to the deal",
+      "body": "Apps and websites can pick the ads you see from your browsing history or your location. A 2024 FTC staff report on nine large social media and video services found that many of their business models encouraged mass collection of user data to make money, especially through targeted ads. The staff saw that pull as in tension with users' privacy; two of the five commissioners filed partly dissenting statements."
+    },
+    {
+      "id": "card.computers.064.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Someone else's code inside your app",
+      "body": "Apps often show ads by building in a software development kit, or SDK: ready-made code from another company. Google's own disclosure for its mobile ads SDK says it automatically collects your phone's IP address (to estimate your general location), your taps and your advertising ID. Google Play makes app makers declare data their SDKs collect as part of the app's own disclosures."
+    },
+    {
+      "id": "card.computers.064.c5",
+      "type": "mcq",
+      "questionId": "question.computers.064.q1"
+    },
+    {
+      "id": "card.computers.064.c6",
+      "type": "mcq",
+      "questionId": "question.computers.064.q2"
+    },
+    {
+      "id": "card.computers.064.c7",
+      "type": "mcq",
+      "questionId": "question.computers.064.q3"
+    },
+    {
+      "id": "card.computers.064.c8",
+      "type": "checkpoint",
+      "headline": "Free apps: explained",
+      "learned": [
+        "Many free services are paid for by advertisers",
+        "About 98% of Meta's 2024 revenue came from ads",
+        "An FTC staff report linked mass data collection to targeted ads",
+        "Ad SDKs inside apps can collect IP address, taps and the advertising ID"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.064.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.privacy_ad_business"
+      ],
+      "sourceCardIds": [
+        "card.computers.064.c2"
+      ],
+      "prompt": "According to its 2024 results, about how much of Meta's revenue came from advertising?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 25%",
+          "correct": false,
+          "rationale": "Ads brought in far more than a quarter."
+        },
+        {
+          "id": "b",
+          "label": "About 50%",
+          "correct": false,
+          "rationale": "Ads brought in far more than half."
+        },
+        {
+          "id": "c",
+          "label": "About 75%",
+          "correct": false,
+          "rationale": "Close, but still too low."
+        },
+        {
+          "id": "d",
+          "label": "About 98%",
+          "correct": true
+        }
+      ],
+      "explanation": "Advertising was $160.6 billion of $164.5 billion in 2024 revenue, about 98%.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.064.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.privacy_ad_business"
+      ],
+      "sourceCardIds": [
+        "card.computers.064.c3"
+      ],
+      "prompt": "Why, according to a 2024 FTC staff report, did many large platforms collect so much user data?",
+      "options": [
+        {
+          "id": "a",
+          "label": "US laws required them to keep every record for years",
+          "correct": false,
+          "rationale": "The report pointed to business incentives, not legal duties."
+        },
+        {
+          "id": "b",
+          "label": "Their business models rewarded data-driven targeted ads",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Users kept asking them to store more of their data",
+          "correct": false,
+          "rationale": "The report describes the companies' incentives."
+        },
+        {
+          "id": "d",
+          "label": "Extra data made their apps load and run faster",
+          "correct": false,
+          "rationale": "Speed wasn't the reason given."
+        }
+      ],
+      "explanation": "The staff found business models that incentivized mass data collection to monetize, especially through targeted advertising.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.064.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.privacy_ad_sdk",
+        "concept.computers.photo_journey"
+      ],
+      "sourceCardIds": [
+        "card.computers.064.c4",
+        "card.computers.001.c3"
+      ],
+      "prompt": "Level 1 said an app is a set of instructions for the hardware. How can an ad company's data collection end up inside a free app?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The app includes the ad company's own code, an SDK",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The phone's processor sends data to advertisers on its own",
+          "correct": false,
+          "rationale": "Hardware follows software's instructions; it doesn't decide this."
+        },
+        {
+          "id": "c",
+          "label": "Advertisers rewrite the phone's operating system",
+          "correct": false,
+          "rationale": "The data collection comes from code built into the app."
+        },
+        {
+          "id": "d",
+          "label": "The screen's pixels report what you look at",
+          "correct": false,
+          "rationale": "Pixels display images; they don't collect data."
+        }
+      ],
+      "explanation": "An SDK is another company's ready-made code inside the app, and its instructions can collect data such as the advertising ID.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.sec_meta_2024_results",
+    "source.ftc_protect_privacy_online",
+    "source.ftc_behind_the_screens_2024",
+    "source.google_admob_play_disclosure",
+    "source.google_play_data_safety"
+  ],
+  "art": "money.price-tag"
+}

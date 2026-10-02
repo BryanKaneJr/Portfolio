@@ -1,0 +1,228 @@
+{
+  "id": "level.geography.earth_climate.018",
+  "skillId": "skill.geography.earth_climate",
+  "number": 18,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Shield, Cone and Stratovolcano",
+  "objective": "After this level you can tell the three main kinds of volcano apart and link each one to runny or sticky magma.",
+  "summary": "Silica makes magma sticky. Runny, low-silica basalt builds broad shields like Mauna Loa; cinders build cones like Paricutin; sticky, gassy magma builds steep stratovolcanoes like Fuji.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.volcano_viscosity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.volcano_shapes",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.granite_vs_basalt",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.017"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.018.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Earth's largest active volcano is a broad, gentle dome, not a steep cone.",
+      "body": "That's Mauna Loa in Hawaii. Mount Fuji and Mount St. Helens, meanwhile, rise as steep, symmetrical cones. Why the different shapes? It comes down to how runny the magma is."
+    },
+    {
+      "id": "card.earth_climate.018.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Runny or sticky",
+      "body": "Viscosity is a lava's resistance to flow: thin and runny, or thick and sticky. The key ingredient is silica. The more silica, the longer and more tangled its molecular chains, like a pot of spaghetti. Gas escapes easily from runny magma, the way bubbles spatter out of simmering jam; in sticky magma it gets trapped. So low-silica basalt is runny and erupts quietly, and high-silica magma tends to explode."
+    },
+    {
+      "id": "card.earth_climate.018.c3",
+      "type": "comparison",
+      "headline": "Three volcano shapes",
+      "items": [
+        {
+          "label": "Shield",
+          "points": [
+            "Thousands of fluid basalt lava flows",
+            "Broad, gently sloping dome",
+            "Example: Mauna Loa"
+          ]
+        },
+        {
+          "label": "Cinder cone",
+          "points": [
+            "A cone of cinders",
+            "Example: Paricutin, which began growing on a Mexican farm in 1943 and erupted for nine years"
+          ]
+        },
+        {
+          "label": "Stratovolcano",
+          "points": [
+            "Alternating layers of lava, ash and cinders",
+            "Steep, symmetrical cone",
+            "Examples: Mount Fuji, Mount St. Helens"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.earth_climate.018.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Read the shape, guess the magma",
+      "body": "A shield is Level 5's basalt at work: dark, iron-rich and runny, stacked flow upon flow into a gentle dome. A stratovolcano mixes its lava flows with layers of ash and cinders from more violent bursts, and the pile grows steep. So a volcano's silhouette is a clue to its magma, and to whether its next eruption is more likely to be quiet or explosive."
+    },
+    {
+      "id": "card.earth_climate.018.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.018.q1"
+    },
+    {
+      "id": "card.earth_climate.018.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.018.q2"
+    },
+    {
+      "id": "card.earth_climate.018.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.018.q3"
+    },
+    {
+      "id": "card.earth_climate.018.c8",
+      "type": "checkpoint",
+      "headline": "Volcano shapes: matched",
+      "learned": [
+        "Silica makes magma sticky",
+        "Sticky magma traps gas and explodes",
+        "Runny basalt builds shields",
+        "Layers of lava and ash build stratovolcanoes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.018.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.volcano_shapes"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.018.c3"
+      ],
+      "prompt": "What kind of volcano is Mauna Loa?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A cinder cone",
+          "correct": false,
+          "rationale": "Paricutin is the cinder cone example."
+        },
+        {
+          "id": "b",
+          "label": "A shield volcano",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A stratovolcano",
+          "correct": false,
+          "rationale": "Those are steep cones like Fuji."
+        }
+      ],
+      "explanation": "Mauna Loa is a shield volcano: a broad, gentle dome built of thousands of fluid basalt flows.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.018.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.volcano_viscosity"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.018.c2"
+      ],
+      "prompt": "Why does high-silica magma tend to erupt explosively?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is sticky, so gas stays trapped until it bursts out",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It is runny, so it sprays out of the vent",
+          "correct": false,
+          "rationale": "Runny magma lets gas escape quietly."
+        },
+        {
+          "id": "c",
+          "label": "It holds no gas at all",
+          "correct": false,
+          "rationale": "The problem is trapped gas."
+        },
+        {
+          "id": "d",
+          "label": "It is colder, so it cracks the volcano",
+          "correct": false,
+          "rationale": "Stickiness and trapped gas are the cause."
+        }
+      ],
+      "explanation": "Silica makes magma thick and sticky, which traps gas; runny magma lets gas escape easily.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.018.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.volcano_viscosity",
+        "concept.earth_climate.volcano_shapes",
+        "concept.earth_climate.granite_vs_basalt"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.005.c4",
+        "card.earth_climate.018.c2",
+        "card.earth_climate.018.c3"
+      ],
+      "prompt": "Level 5's basalt is the dark, fine-grained rock of the ocean floor. What kind of volcano does runny basalt lava usually build?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A steep stratovolcano like Mount Fuji",
+          "correct": false,
+          "rationale": "Those form from stickier magma."
+        },
+        {
+          "id": "b",
+          "label": "A tall cone of cinders",
+          "correct": false,
+          "rationale": "Cinder cones are built of cinders, not long flows."
+        },
+        {
+          "id": "c",
+          "label": "A broad shield volcano like Mauna Loa",
+          "correct": true
+        }
+      ],
+      "explanation": "Low-silica basalt is runny, and thousands of its fluid flows stack into broad shield volcanoes.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.usgs_volcano_types",
+    "source.nps_volcanic_eruptions",
+    "source.brit_basalt",
+    "source.natgeo_crust"
+  ],
+  "art": "nature.volcano"
+}

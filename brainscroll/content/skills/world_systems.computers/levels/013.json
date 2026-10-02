@@ -1,0 +1,217 @@
+{
+  "id": "level.world_systems.computers.013",
+  "skillId": "skill.world_systems.computers",
+  "number": 13,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Turing's Imaginary Machine",
+  "objective": "After this level you can explain Alan Turing's 1936 idea of a simple machine reading a tape, and why it can compute anything computable.",
+  "summary": "Turing's 1936 machine: a tape of squares, a head that reads, writes and moves one square at a time, and a finite rulebook. A universal machine runs any machine's rules from its tape.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.history_turing_machine",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.history_universal_machine",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.fetch_decode_execute",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.012"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.013.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1936 Alan Turing described a computer made of little more than a tape.",
+      "body": "It was an abstract machine, an idea on paper rather than a device to build. So why does a machine that never existed sit at the heart of computer science?"
+    },
+    {
+      "id": "card.computers.013.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A tape, a head and a rulebook",
+      "body": "Picture a tape divided into squares, as long as you need, each blank or holding one symbol. A head sits over one square at a time. It can read the symbol there, write or erase one, and move one square left or right. At every moment the machine is in one of a limited number of states, and a finite table of instructions says what to do next. That's the whole machine."
+    },
+    {
+      "id": "card.computers.013.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "One machine that can be any machine",
+      "body": "Turing's cleverest step was to write a machine's instructions onto the tape itself. His universal machine reads that description and then does whatever the described machine would do. Change what's on the tape, and the same machine does a different job.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: a program can be written down as data for another machine to read. Every computer since builds on that."
+      }
+    },
+    {
+      "id": "card.computers.013.c4",
+      "type": "fact",
+      "fact": "Everything humanly computable can be computed by a universal Turing machine.",
+      "context": "That claim is called the Church-Turing thesis. Strictly, it can't be proved, because it matches an everyday idea, what can be computed, to a precise definition. It's a thesis, not a theorem."
+    },
+    {
+      "id": "card.computers.013.c5",
+      "type": "mcq",
+      "questionId": "question.computers.013.q1"
+    },
+    {
+      "id": "card.computers.013.c6",
+      "type": "mcq",
+      "questionId": "question.computers.013.q2"
+    },
+    {
+      "id": "card.computers.013.c7",
+      "type": "mcq",
+      "questionId": "question.computers.013.q3"
+    },
+    {
+      "id": "card.computers.013.c8",
+      "type": "checkpoint",
+      "headline": "Turing's machine: imagined",
+      "learned": [
+        "A tape of squares, a head and a rulebook",
+        "The head reads, writes and moves one square",
+        "A universal machine reads another's instructions",
+        "The Church-Turing thesis can't be proved"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.013.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.history_turing_machine"
+      ],
+      "sourceCardIds": [
+        "card.computers.013.c2"
+      ],
+      "prompt": "In Turing's 1936 machine, what can the head do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Read the whole tape at once, from end to end",
+          "correct": false,
+          "rationale": "It works on one square at a time."
+        },
+        {
+          "id": "b",
+          "label": "Read, write or erase one square, then move one square",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Add two numbers together in one single step",
+          "correct": false,
+          "rationale": "It only reads, writes and moves."
+        },
+        {
+          "id": "d",
+          "label": "Rewrite its own table of instructions as it goes",
+          "correct": false,
+          "rationale": "The table is fixed; the tape changes."
+        }
+      ],
+      "explanation": "The head reads, writes or erases the symbol on one square and moves one square left or right.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.013.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.history_universal_machine"
+      ],
+      "sourceCardIds": [
+        "card.computers.013.c3"
+      ],
+      "prompt": "How can one universal Turing machine do the job of any other Turing machine?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is taken apart and rebuilt for each new job",
+          "correct": false,
+          "rationale": "Its point is that it never needs rebuilding."
+        },
+        {
+          "id": "b",
+          "label": "It has an endless number of heads, one per job",
+          "correct": false,
+          "rationale": "It has one head, like any Turing machine."
+        },
+        {
+          "id": "c",
+          "label": "It guesses the answer first, then checks it",
+          "correct": false,
+          "rationale": "It follows the described machine's instructions."
+        },
+        {
+          "id": "d",
+          "label": "It reads the other machine's instructions from its tape",
+          "correct": true
+        }
+      ],
+      "explanation": "The other machine's instructions are written on the tape, and the universal machine carries them out.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.013.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.history_turing_machine",
+        "concept.computers.fetch_decode_execute"
+      ],
+      "sourceCardIds": [
+        "card.computers.013.c2",
+        "card.computers.008.c2"
+      ],
+      "prompt": "Turing's machine checks its table of instructions before every step. Which Level 8 cycle does a real processor repeat for each instruction?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Fetch, decode, execute",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Read, write, erase",
+          "correct": false,
+          "rationale": "Those are a Turing machine head's actions."
+        },
+        {
+          "id": "c",
+          "label": "Store, mill, print",
+          "correct": false,
+          "rationale": "Those echo Babbage's engine, not a processor's cycle."
+        },
+        {
+          "id": "d",
+          "label": "Punch, sort, count",
+          "correct": false,
+          "rationale": "That describes census cards."
+        }
+      ],
+      "explanation": "A processor fetches the instruction its program counter points to, decodes it and executes it.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_turing_machine",
+    "source.sep_turing_machine",
+    "source.brit_alan_turing"
+  ],
+  "art": "computers.tape-machine"
+}

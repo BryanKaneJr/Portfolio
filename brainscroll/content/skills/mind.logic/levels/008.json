@@ -1,0 +1,210 @@
+{
+  "id": "level.mind.logic.008",
+  "skillId": "skill.mind.logic",
+  "number": 8,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Explaining Isn't Arguing",
+  "objective": "After this level you can tell an explanation of why something happened from an argument that something is true.",
+  "summary": "An argument tries to show that a claim is true; an explanation shows why something already accepted is true. Both can use 'because', so ask what job the words do.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.explanation_vs_argument",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.indicator_words",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.007"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"The grass is wet because it rained.\" Is that an argument?",
+      "body": "Now try: \"It must have rained, because the grass is wet.\" Same two facts, same \"because\". But the first tells you why the grass is wet, and the second tries to convince you that it rained. One explains; the other argues.",
+      "id": "card.logic.008.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "That versus why",
+      "body": "An argument tries to establish that a claim is true. An explanation starts from something already accepted and shows why it's true. \"The grass is wet because it rained\" doesn't try to prove the grass is wet. You can see that for yourself. It tells you how it got that way.",
+      "id": "card.logic.008.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Different jobs",
+      "body": "The two aim at different things. Explaining aims at understanding: the explainer assumes you already accept the fact. Arguing aims to make a claim acceptable to someone who doesn't accept it yet. So here's a quick check: is the claim in doubt? If everyone already agrees it's true, the \"because\" is probably explaining.",
+      "id": "card.logic.008.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Why the difference matters",
+      "body": "Asked \"Why did this metal expand?\", you might answer: \"It was heated, and all metals expand when heated.\" That explains; it doesn't prove the metal expanded. Mistake an explanation for an argument and you'll go hunting for proof nobody offered. And as Level 6 warned, \"because\" alone can't tell you which you're facing. The job it's doing can.",
+      "id": "card.logic.008.c4"
+    },
+    {
+      "id": "card.logic.008.c5",
+      "type": "mcq",
+      "questionId": "question.logic.008.q1"
+    },
+    {
+      "id": "card.logic.008.c6",
+      "type": "mcq",
+      "questionId": "question.logic.008.q2"
+    },
+    {
+      "id": "card.logic.008.c7",
+      "type": "mcq",
+      "questionId": "question.logic.008.q3"
+    },
+    {
+      "id": "card.logic.008.c8",
+      "type": "checkpoint",
+      "headline": "Explanations: spotted",
+      "learned": [
+        "Arguments show that; explanations show why",
+        "Explaining aims at understanding",
+        "Arguing aims to make a claim acceptable",
+        "\"Because\" appears in both, so check the job"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.008.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.explanation_vs_argument"
+      ],
+      "sourceCardIds": [
+        "card.logic.008.c2"
+      ],
+      "prompt": "What does an explanation try to show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Why an accepted claim is true",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "That a doubtful claim is true",
+          "correct": false,
+          "rationale": "That's what an argument does."
+        },
+        {
+          "id": "c",
+          "label": "Which side won a debate",
+          "correct": false,
+          "rationale": "Explanations aren't contests."
+        },
+        {
+          "id": "d",
+          "label": "That a claim cannot be checked",
+          "correct": false,
+          "rationale": "Explanations are about causes and reasons why."
+        }
+      ],
+      "explanation": "An explanation starts from something already accepted and shows why it's true.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.008.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.explanation_vs_argument"
+      ],
+      "sourceCardIds": [
+        "card.logic.008.c2",
+        "card.logic.008.c3"
+      ],
+      "prompt": "A friend asks why the kettle is hot. You say, \"I just boiled it.\" What have you given?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An argument that the kettle is hot",
+          "correct": false,
+          "rationale": "Nobody doubted it was hot; you explained why."
+        },
+        {
+          "id": "b",
+          "label": "An unstated premise",
+          "correct": false,
+          "rationale": "You stated your reason out loud."
+        },
+        {
+          "id": "c",
+          "label": "An explanation of why it is hot",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A value judgment",
+          "correct": false,
+          "rationale": "It says nothing about what ought to be."
+        }
+      ],
+      "explanation": "Your friend already accepts the kettle is hot, so your answer explains why.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.logic.008.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.explanation_vs_argument",
+        "concept.logic.indicator_words"
+      ],
+      "sourceCardIds": [
+        "card.logic.008.c4",
+        "card.logic.006.c4"
+      ],
+      "prompt": "Why can't the word \"because\" tell you whether you're reading an argument or an explanation?",
+      "options": [
+        {
+          "id": "a",
+          "label": "\"Because\" only ever marks a conclusion",
+          "correct": false,
+          "rationale": "\"Because\" usually introduces a reason, not a conclusion."
+        },
+        {
+          "id": "b",
+          "label": "Both use it; the job it does decides",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Explanations never use signal words",
+          "correct": false,
+          "rationale": "Explanations use \"because\" all the time."
+        },
+        {
+          "id": "d",
+          "label": "\"Because\" appears only in questions",
+          "correct": false,
+          "rationale": "It appears in claims, arguments and explanations."
+        }
+      ],
+      "explanation": "Signal words don't always signal an argument; what matters is whether the claim is being proved or explained.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.libretexts_vancleave_identifying_arguments",
+    "source.iep_argument",
+    "source.libretexts_vancleave_arguments_vs_explanations"
+  ],
+  "art": "technology.gears"
+}

@@ -1,0 +1,223 @@
+{
+  "id": "level.mind.probability.038",
+  "skillId": "skill.mind.probability",
+  "number": 38,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Same Average, Different Risk",
+  "objective": "After this level you can explain why two choices with the same expected value can differ in how badly things might go.",
+  "summary": "Two bets can share an expected value and still be very different: a sure $50 and a coin flip for $100 or nothing both average $50. Expected value hides the spread, so also ask how bad it can get.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.bet_same_average_spread",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.bet_expected_value",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.bet_risk_aversion",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.bet_insurance_expected_value",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.037"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.038.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A: $50 for sure. B: flip a coin for $100 or nothing. Which do you take?",
+      "body": "Level 32's number calls them equal: both have an expected value of $50. Most people still grab the sure thing. They aren't bad at math."
+    },
+    {
+      "id": "card.probability.038.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The average hides the spread",
+      "body": "Both choices average $50, but look at what can actually happen. A pays exactly $50 every time. B pays $100 or $0, and never $50. Expected value squeezes all the outcomes into one average, so it can't show how far apart they are. Two bets can share an average and still be very different bets.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: expected value gives you the middle, not the edges. Always ask how bad it can get."
+      }
+    },
+    {
+      "id": "card.probability.038.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Same average, bigger stakes",
+      "body": "Now two coin bets. In one, you win or lose $1. In the other, you win or lose $1,000. Both have an expected value of $0, since the win and the loss cancel out. But only the second can cost you $1,000 on one bad flip. When the worst case is something you couldn't afford, the spread matters more than the average."
+    },
+    {
+      "id": "card.probability.038.c4",
+      "type": "fact",
+      "fact": "Risk-averse people prefer a sure thing to a gamble with the same expected value.",
+      "context": "That's a preference about risk, not an arithmetic error. It's why insurance sells (Level 35), and why a fair-looking bet can still be a poor idea. So judge any gamble on two things: its average, and how bad it can get."
+    },
+    {
+      "id": "card.probability.038.c5",
+      "type": "mcq",
+      "questionId": "question.probability.038.q1"
+    },
+    {
+      "id": "card.probability.038.c6",
+      "type": "mcq",
+      "questionId": "question.probability.038.q2"
+    },
+    {
+      "id": "card.probability.038.c7",
+      "type": "recall",
+      "questionId": "question.probability.038.q3"
+    },
+    {
+      "id": "card.probability.038.c8",
+      "type": "checkpoint",
+      "headline": "Risk: measured",
+      "learned": [
+        "A sure $50 and a $100-or-nothing flip both average $50",
+        "Expected value hides the spread",
+        "Same average, bigger stakes, bigger worst case",
+        "Judge a bet by its average and how bad it can get"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.038.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.bet_same_average_spread"
+      ],
+      "sourceCardIds": [
+        "card.probability.038.c1",
+        "card.probability.038.c2"
+      ],
+      "prompt": "What do a sure $50 and a coin flip for $100 or nothing have in common?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The same worst case",
+          "correct": false,
+          "rationale": "The sure $50 can't pay $0; the flip can."
+        },
+        {
+          "id": "b",
+          "label": "The same expected value",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The same chance of $100",
+          "correct": false,
+          "rationale": "Only the flip can pay $100."
+        },
+        {
+          "id": "d",
+          "label": "Nothing at all",
+          "correct": false,
+          "rationale": "Both average $50 per play."
+        }
+      ],
+      "explanation": "Half of $100 plus half of $0 is $50, the same as the sure thing.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.038.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.bet_same_average_spread"
+      ],
+      "sourceCardIds": [
+        "card.probability.038.c2",
+        "card.probability.038.c3"
+      ],
+      "prompt": "How can two bets with the same expected value differ in risk?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their outcomes can be close together or far apart",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "One must have a higher average after all",
+          "correct": false,
+          "rationale": "Both averages can be exactly the same."
+        },
+        {
+          "id": "c",
+          "label": "Expected value changes each time you play",
+          "correct": false,
+          "rationale": "It stays the same; the actual results vary."
+        },
+        {
+          "id": "d",
+          "label": "Only bets with positive expected value are risky",
+          "correct": false,
+          "rationale": "A $0 expected value bet can still cost $1,000."
+        }
+      ],
+      "explanation": "Expected value squeezes outcomes into one average, so it hides how far apart they are, like $1 against $1,000 stakes.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.038.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.bet_insurance_expected_value",
+        "concept.probability.bet_same_average_spread"
+      ],
+      "sourceCardIds": [
+        "card.probability.035.c2",
+        "card.probability.038.c3"
+      ],
+      "prompt": "Insurance swaps a big possible loss for a small, sure cost. In this level's terms, what does it do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Raises your expected value",
+          "correct": false,
+          "rationale": "Buyers lose a little on average, so it lowers it slightly."
+        },
+        {
+          "id": "b",
+          "label": "Removes every possible loss",
+          "correct": false,
+          "rationale": "You still pay the premium every year."
+        },
+        {
+          "id": "c",
+          "label": "Narrows the spread of outcomes, at a small cost to the average",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Leaves both the spread and the average unchanged",
+          "correct": false,
+          "rationale": "It cuts the worst case sharply."
+        }
+      ],
+      "explanation": "Premiums cost a little more than the expected loss, but the huge worst case is gone.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_intro_stats_expected_value",
+    "source.saylor_micro_avoiding_risk"
+  ],
+  "art": "money.scale"
+}

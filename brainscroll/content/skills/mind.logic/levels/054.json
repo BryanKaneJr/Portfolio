@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.logic.054",
+  "skillId": "skill.mind.logic",
+  "number": 54,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Natural Isn't Always Better",
+  "objective": "After this level you can spot the appeal to nature: assuming something is good or safe just because it is natural.",
+  "summary": "The appeal to nature says natural means good and unnatural means bad. Its hidden premise fails: the death cap is natural, and natural supplements carry real risks.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.trap_appeal_to_nature",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.trap_natural_not_safe",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.unstated_premise",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.053"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"All natural!\" says the label. What is that supposed to prove?",
+      "body": "It sounds like a promise. But read it again: the label never says the product is safe, or that it works. It leaves you to fill that in yourself. This level is about the gap it leaves you to fill.",
+      "id": "card.logic.054.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The premise nobody says",
+      "body": "The appeal to nature runs: it's natural, so it's good. Or its mirror: it's unnatural, so it's bad. Remember Level 7's unstated premise, the one an argument needs but never says? Here it's \"whatever is natural is good\". Say it out loud and it wobbles. There's a second problem: \"natural\" is vague, and it often works as a loaded word that slips in praise instead of describing anything.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "This is Level 7's move in a new place: find the premise nobody said, then check it."
+      },
+      "id": "card.logic.054.c2"
+    },
+    {
+      "type": "fact",
+      "fact": "The death cap is a wild mushroom, and the deadliest mushroom known to humans.",
+      "context": "It causes most of the world's fatal mushroom poisonings. Nobody made it in a lab; it's as natural as anything gets. As the Fallacy Files puts it, poisonous plants and animals are as natural as any other living thing, and nobody recommends eating them. So \"natural, therefore good\" fails on its very first test.",
+      "id": "card.logic.054.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Natural isn't a safety rating",
+      "body": "The U.S. National Center for Complementary and Integrative Health says it directly: \"natural\" does not always mean safe. Kava belongs to the pepper family, yet kava supplements can cause liver disease. The herbal supplement St. John's wort makes many medicines less effective. None of this makes natural things bad. It makes \"Is it natural?\" the wrong question. Ask what the evidence says about this thing, wherever it came from.",
+      "id": "card.logic.054.c4"
+    },
+    {
+      "id": "card.logic.054.c5",
+      "type": "mcq",
+      "questionId": "question.logic.054.q1"
+    },
+    {
+      "id": "card.logic.054.c6",
+      "type": "mcq",
+      "questionId": "question.logic.054.q2"
+    },
+    {
+      "id": "card.logic.054.c7",
+      "type": "mcq",
+      "questionId": "question.logic.054.q3"
+    },
+    {
+      "id": "card.logic.054.c8",
+      "type": "checkpoint",
+      "headline": "Appeal to nature: spotted",
+      "learned": [
+        "\"Natural, so good\" hides a premise",
+        "\"Natural\" is vague and often loaded",
+        "The death cap is natural and deadly",
+        "Ask what the evidence says, not where it came from"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.054.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.trap_appeal_to_nature"
+      ],
+      "sourceCardIds": [
+        "card.logic.054.c2"
+      ],
+      "prompt": "Which argument has the form of the appeal to nature?",
+      "options": [
+        {
+          "id": "a",
+          "label": "\"It comes from a plant, so it must be good for you\"",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "\"Tests show it works, so it's worth trying\"",
+          "correct": false,
+          "rationale": "That appeals to evidence, not to nature."
+        },
+        {
+          "id": "c",
+          "label": "\"Everyone uses it, so it must be fine\"",
+          "correct": false,
+          "rationale": "That's an appeal to popularity."
+        },
+        {
+          "id": "d",
+          "label": "\"An expert recommends it, so I'll consider it\"",
+          "correct": false,
+          "rationale": "That appeals to expertise, not nature."
+        }
+      ],
+      "explanation": "The appeal to nature runs: it's natural, so it's good (or unnatural, so bad).",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.054.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.trap_natural_not_safe"
+      ],
+      "sourceCardIds": [
+        "card.logic.054.c3",
+        "card.logic.054.c4"
+      ],
+      "prompt": "Why is \"it's natural\" a weak reason to believe something is safe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Natural things are always weaker than lab-made ones",
+          "correct": false,
+          "rationale": "Some natural things, like the death cap, are deadly strong."
+        },
+        {
+          "id": "b",
+          "label": "Deadly things, like the death cap, are natural too",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Nothing natural has ever been studied",
+          "correct": false,
+          "rationale": "Plenty has; kava's risks are known from study."
+        },
+        {
+          "id": "d",
+          "label": "The word \"natural\" is illegal on labels",
+          "correct": false,
+          "rationale": "The problem is logic, not law."
+        }
+      ],
+      "explanation": "Poisons are as natural as anything else, so naturalness says nothing about safety.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.054.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.trap_appeal_to_nature",
+        "concept.logic.unstated_premise"
+      ],
+      "sourceCardIds": [
+        "card.logic.054.c2",
+        "card.logic.007.c2"
+      ],
+      "prompt": "\"It grows wild, so it must be healthy.\" Which unstated premise does this argument need?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Wild plants are always expensive",
+          "correct": false,
+          "rationale": "Price has nothing to do with the argument."
+        },
+        {
+          "id": "b",
+          "label": "Science can't study wild plants",
+          "correct": false,
+          "rationale": "The argument doesn't rely on that."
+        },
+        {
+          "id": "c",
+          "label": "Whatever comes from nature is good",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Everything unnatural is dangerous",
+          "correct": false,
+          "rationale": "That's the mirror form; this argument needs the positive one."
+        }
+      ],
+      "explanation": "Like Level 7's hidden premises, the argument only works if whatever is natural is good. Said out loud, it's easy to doubt.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.fallacyfiles_appeal_to_nature",
+    "source.britannica_death_cap",
+    "source.nccih_dietary_supplements_wisely",
+    "source.libretexts_vancleave_missing_premises"
+  ],
+  "art": "plant.tree"
+}

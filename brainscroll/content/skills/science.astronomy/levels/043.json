@@ -1,0 +1,207 @@
+{
+  "id": "level.science.astronomy.043",
+  "skillId": "skill.science.astronomy",
+  "number": 43,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Earth: The Planet We Know Best",
+  "objective": "After this level you can explain how Earth’s magnetic field and atmosphere protect life.",
+  "summary": "A magnetic field from the molten core deflects solar particles; the atmosphere and ozone layer shield us; water covers 71%.",
+  "concepts": [
+    {
+      "conceptId": "concept.astronomy.earth_protection",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.astronomy.earth_third_planet",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.astronomy.042"
+  ],
+  "cards": [
+    {
+      "id": "card.astronomy.043.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Earth wears invisible armor.",
+      "body": "The Sun sends out a steady stream of charged particles and harmful ultraviolet light. Life on Earth is fine anyway, because the planet wears layers of protection you mostly can't see."
+    },
+    {
+      "id": "card.astronomy.043.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A magnetic shield",
+      "body": "The first layer starts deep underground. Molten iron moving in Earth's outer core generates a magnetic field. That field deflects most of the charged particles streaming from the Sun, like an umbrella in sideways rain. A few slip through near the poles, where they reach the upper atmosphere and make the sky glow as auroras. The northern lights are the armor showing where it gets hit."
+    },
+    {
+      "id": "card.astronomy.043.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Air and ozone",
+      "body": "The second layer is the air itself. Earth's atmosphere is about 78% nitrogen and 21% oxygen, so every breath you take is mostly nitrogen, with about a fifth oxygen. High up, the ozone layer absorbs most of the Sun's harmful ultraviolet light before it reaches the ground. It's sunscreen the planet puts on for you, no sticky hands required.",
+      "callout": "78% nitrogen · 21% oxygen"
+    },
+    {
+      "id": "card.astronomy.043.c4",
+      "type": "fact",
+      "fact": "About 71% of Earth's surface is covered by water.",
+      "context": "So what is all that armor guarding? A mostly blue planet, and something no other world has shown us. So far, Earth is the only planet known to have life. With 71% of the surface under water, you could argue we named the planet after the wrong part."
+    },
+    {
+      "id": "card.astronomy.043.c5",
+      "type": "mcq",
+      "questionId": "question.astronomy.043.q1"
+    },
+    {
+      "id": "card.astronomy.043.c6",
+      "type": "mcq",
+      "questionId": "question.astronomy.043.q2"
+    },
+    {
+      "id": "card.astronomy.043.c7",
+      "type": "recall",
+      "questionId": "question.astronomy.043.q3"
+    },
+    {
+      "id": "card.astronomy.043.c8",
+      "type": "checkpoint",
+      "headline": "Home planet: understood",
+      "learned": [
+        "Molten iron in the core makes a magnetic field",
+        "The field deflects charged particles from the Sun",
+        "Air: 78% nitrogen, 21% oxygen; ozone blocks UV",
+        "Water covers about 71% of Earth"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.astronomy.043.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.astronomy.earth_protection"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.043.c3"
+      ],
+      "prompt": "What is Earth’s atmosphere made of, mostly?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Oxygen, with a little carbon dioxide",
+          "correct": false,
+          "rationale": "Oxygen is only about 21%."
+        },
+        {
+          "id": "b",
+          "label": "Carbon dioxide, like Venus",
+          "correct": false,
+          "rationale": "That’s Venus and Mars."
+        },
+        {
+          "id": "c",
+          "label": "Hydrogen and helium, like Jupiter",
+          "correct": false,
+          "rationale": "Those are giant-planet gases."
+        },
+        {
+          "id": "d",
+          "label": "Nitrogen, with about a fifth oxygen",
+          "correct": true
+        }
+      ],
+      "explanation": "Earth’s air is about 78% nitrogen and 21% oxygen.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.astronomy.043.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.astronomy.earth_protection"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.043.c2"
+      ],
+      "prompt": "What generates Earth’s magnetic field?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Moon’s pull on Earth’s oceans",
+          "correct": false,
+          "rationale": "That creates tides, not magnetism."
+        },
+        {
+          "id": "b",
+          "label": "Molten iron moving in Earth’s outer core",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Sunlight striking the ozone layer",
+          "correct": false,
+          "rationale": "The ozone layer absorbs ultraviolet light."
+        },
+        {
+          "id": "d",
+          "label": "Magnetic rocks in Earth’s crust",
+          "correct": false,
+          "rationale": "The field comes from deep inside the planet."
+        }
+      ],
+      "explanation": "Moving molten iron in the outer core generates Earth’s magnetic field.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.astronomy.043.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.astronomy.earth_protection",
+        "concept.astronomy.earth_third_planet"
+      ],
+      "sourceCardIds": [
+        "card.astronomy.043.c4",
+        "card.astronomy.001.c2"
+      ],
+      "prompt": "From Level 1: Earth is the third planet from the Sun. What else about Earth is, so far, unique?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is the only planet with an atmosphere",
+          "correct": false,
+          "rationale": "Venus, Mars and the giants all have atmospheres."
+        },
+        {
+          "id": "b",
+          "label": "It has the fastest orbit of any planet",
+          "correct": false,
+          "rationale": "Mercury orbits much faster."
+        },
+        {
+          "id": "c",
+          "label": "It is the only planet known to have life",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is the only planet with a moon",
+          "correct": false,
+          "rationale": "Many planets have moons."
+        }
+      ],
+      "explanation": "Earth is the only planet known to host life, protected by its magnetic field, atmosphere and ozone layer.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_earth_perihelion"
+  ],
+  "art": "astronomy.earth"
+}

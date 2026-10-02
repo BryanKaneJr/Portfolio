@@ -1,0 +1,232 @@
+{
+  "id": "level.mind.psychology.033",
+  "skillId": "skill.mind.psychology",
+  "number": 33,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Knowing That and Knowing How",
+  "objective": "After this level you can tell explicit memories of facts and events from implicit memories like skills, using patient H.M.'s case.",
+  "summary": "Explicit memory holds facts and events you can put into words; implicit memory shows up in skills. Patient H.M. lost the first after 1953 surgery but kept learning the second.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.memory_explicit_implicit",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.memory_patient_hm",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.case_studies",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.032"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.033.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A man improved at a drawing task for days, and never remembered doing it.",
+      "body": "Each session, the task felt brand new to him, yet his skill kept growing. He is probably the best known single patient in the history of neuroscience, and five decades of study with him split memory in two."
+    },
+    {
+      "id": "card.psychology.033.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The patient known as H.M.",
+      "body": "In 1953, at age 27, H.M. had surgery on both sides of his brain to control severe seizures. Afterward he forgot daily events almost as fast as they happened, yet he kept most of his older memories from before the operation. His IQ stayed above average, and he could hold a phone number briefly. To protect his privacy, science knew him only as H.M.; his name, Henry Molaison, was disclosed after his death in 2008."
+    },
+    {
+      "id": "card.psychology.033.c3",
+      "type": "comparison",
+      "headline": "Two kinds of long-term memory",
+      "items": [
+        {
+          "label": "Explicit: knowing that",
+          "points": [
+            "Consciously recalled and put into words",
+            "Episodic: events you lived, like your last birthday",
+            "Semantic: facts and word meanings"
+          ]
+        },
+        {
+          "label": "Implicit: knowing how",
+          "points": [
+            "Shows up in performance, not recalled on purpose",
+            "Procedural: skills like riding a bike or brushing your teeth",
+            "Usually hard to put into words"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.psychology.033.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What H.M. proved",
+      "body": "Brenda Milner had H.M. trace shapes while watching his hand in a mirror. Over 3 days he kept improving, yet each time he had no memory of having done it. So memory isn't one system: the region removed in his surgery is critical for forming new memories of facts and events, while skill learning runs on other brain networks. His own view of the testing: \"What they find out about me helps them to help other people.\""
+    },
+    {
+      "id": "card.psychology.033.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.033.q1"
+    },
+    {
+      "id": "card.psychology.033.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.033.q2"
+    },
+    {
+      "id": "card.psychology.033.c7",
+      "type": "recall",
+      "questionId": "question.psychology.033.q3"
+    },
+    {
+      "id": "card.psychology.033.c8",
+      "type": "checkpoint",
+      "headline": "Knowing that, knowing how",
+      "learned": [
+        "Explicit memory: facts and events you can put into words",
+        "Implicit memory: skills shown in performance",
+        "H.M. (1953 surgery) lost new explicit memories",
+        "He still learned skills, so memory has separate systems"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.033.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.memory_explicit_implicit"
+      ],
+      "sourceCardIds": [
+        "card.psychology.033.c3"
+      ],
+      "prompt": "Which of these is an explicit (declarative) memory?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Riding a bicycle without thinking",
+          "correct": false,
+          "rationale": "Riding a bike is a procedural skill, an implicit memory."
+        },
+        {
+          "id": "b",
+          "label": "Recalling what you did on your last birthday",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Brushing your teeth on autopilot",
+          "correct": false,
+          "rationale": "Brushing your teeth is a skill, so it's implicit."
+        },
+        {
+          "id": "d",
+          "label": "Tracing a shape faster after practice",
+          "correct": false,
+          "rationale": "Improving at a skill like mirror tracing is implicit learning, as H.M. showed."
+        }
+      ],
+      "explanation": "Explicit memories are consciously recalled and can be put into words; a birthday is an episodic memory, one kind of explicit memory.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.psychology.033.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.memory_patient_hm"
+      ],
+      "sourceCardIds": [
+        "card.psychology.033.c4",
+        "card.psychology.033.c1"
+      ],
+      "prompt": "How did H.M.'s mirror-tracing results show that memory has separate systems?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He remembered every session but never improved",
+          "correct": false,
+          "rationale": "It was the reverse: his skill improved while his recollection didn't."
+        },
+        {
+          "id": "b",
+          "label": "He lost his childhood memories but kept new skills",
+          "correct": false,
+          "rationale": "His older memories, such as from childhood, stayed largely intact."
+        },
+        {
+          "id": "c",
+          "label": "His skill grew though he never recalled practicing",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "His IQ fell as his skills improved",
+          "correct": false,
+          "rationale": "His IQ stayed above average."
+        }
+      ],
+      "explanation": "His skill improved across days while he had no memory of doing the task, so skill learning must run on a different system from memory for events.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.psychology.033.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.memory_patient_hm",
+        "concept.psychology.case_studies"
+      ],
+      "sourceCardIds": [
+        "card.psychology.033.c1",
+        "card.psychology.033.c2",
+        "card.psychology.008.c2"
+      ],
+      "prompt": "H.M. was one person studied in depth for decades, a classic case study. What trade-off of case studies did Level 8 describe?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Huge samples, but thin answers",
+          "correct": false,
+          "rationale": "That trade-off belongs to surveys."
+        },
+        {
+          "id": "b",
+          "label": "Proof of cause, but only in labs",
+          "correct": false,
+          "rationale": "Only experiments show cause and effect; case studies can't."
+        },
+        {
+          "id": "c",
+          "label": "Realistic behavior, but no control",
+          "correct": false,
+          "rationale": "That trade-off belongs to naturalistic observation."
+        },
+        {
+          "id": "d",
+          "label": "Rich detail, but hard to generalize",
+          "correct": true
+        }
+      ],
+      "explanation": "Case studies gather unmatched detail about one person or a few, but those people are often rare, so findings can be hard to generalize.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_memory_functions",
+    "source.pmc_squire_hm_legacy_2009",
+    "source.mit_news_corkin_hm_2009"
+  ],
+  "art": "mind.memory-cabinet"
+}

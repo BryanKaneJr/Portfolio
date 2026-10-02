@@ -1,0 +1,216 @@
+{
+  "id": "level.history.ancient_rome.067",
+  "skillId": "skill.history.ancient_rome",
+  "number": 67,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "What Romans Ate",
+  "objective": "After this level you can describe what rich and poor Romans ate, including garum.",
+  "summary": "Most Romans ate grain, oil, wine and beans; the rich reclined at banquets. Almost everyone loved garum, a fermented fish sauce.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.roman_food",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.city_life",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.actium",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.066"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.067.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One of Rome’s most popular flavors came from fermented fish.",
+      "body": "Before you wince, see what else was on the table, and what definitely wasn’t."
+    },
+    {
+      "id": "card.ancient_rome.067.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Everyday food",
+      "body": "Most Romans lived on grain, eaten as porridge or bread, with olive oil, wine, vegetables and beans. Remember the apartment dwellers from Level 61? Many had no kitchen at home, so street counters called thermopolia sold them hot food. Ancient Rome had takeout."
+    },
+    {
+      "id": "card.ancient_rome.067.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Fish sauce and feasts",
+      "body": "Garum, a fermented fish sauce, was one of the most popular seasonings in the Roman world. Coastal factories, especially in Spain, made it, and clay jars called amphorae carried it around the empire. Fish sauce went everywhere Rome did. The rich dined differently: they held dinner parties in the triclinium, reclining on couches around a table. Dinner, lying down, with fish sauce."
+    },
+    {
+      "id": "card.ancient_rome.067.c4",
+      "type": "fact",
+      "fact": "No Roman ever ate a tomato.",
+      "context": "Tomatoes, potatoes and maize came from the Americas more than a thousand years later. A Roman cookbook attributed to Apicius survives, with many recipes that use fish sauce and not one tomato. Fish sauce, yes. Tomato sauce, no."
+    },
+    {
+      "id": "card.ancient_rome.067.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.067.q1"
+    },
+    {
+      "id": "card.ancient_rome.067.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.067.q2"
+    },
+    {
+      "id": "card.ancient_rome.067.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.067.q3"
+    },
+    {
+      "id": "card.ancient_rome.067.c8",
+      "type": "checkpoint",
+      "headline": "Dinner: served",
+      "learned": [
+        "Grain, oil, wine and beans fed most Romans",
+        "Garum was a fish sauce",
+        "The rich reclined at banquets",
+        "Romans had no tomatoes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.067.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.roman_food"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.067.c3"
+      ],
+      "prompt": "What was garum?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A spiced wine",
+          "correct": false,
+          "rationale": "It was made from fish."
+        },
+        {
+          "id": "b",
+          "label": "A fermented fish sauce",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A barley porridge",
+          "correct": false,
+          "rationale": "It was made from fish."
+        },
+        {
+          "id": "d",
+          "label": "A honey cake",
+          "correct": false,
+          "rationale": "It was made from fish."
+        }
+      ],
+      "explanation": "Garum was a fermented fish sauce, one of the most popular Roman seasonings.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.ancient_rome.067.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.roman_food"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.067.c4"
+      ],
+      "prompt": "Which food could a Roman NOT have eaten?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bread",
+          "correct": false,
+          "rationale": "Grain was the staple."
+        },
+        {
+          "id": "b",
+          "label": "Olives",
+          "correct": false,
+          "rationale": "Olive oil was everywhere."
+        },
+        {
+          "id": "c",
+          "label": "Beans",
+          "correct": false,
+          "rationale": "Beans were common."
+        },
+        {
+          "id": "d",
+          "label": "Tomatoes",
+          "correct": true
+        }
+      ],
+      "explanation": "Tomatoes came from the Americas more than a thousand years after Rome.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.ancient_rome.067.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.roman_food",
+        "concept.ancient_rome.actium"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.067.c2",
+        "card.ancient_rome.043.c4"
+      ],
+      "prompt": "From Level 43: grain was the Roman staple, so which province under the emperor’s personal control helped feed Rome?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Spain",
+          "correct": false,
+          "rationale": "Spain is where much of the fish sauce was made."
+        },
+        {
+          "id": "b",
+          "label": "Britain",
+          "correct": false,
+          "rationale": "Level 43 names a different province."
+        },
+        {
+          "id": "c",
+          "label": "Egypt",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Dacia",
+          "correct": false,
+          "rationale": "Level 43 names a different province."
+        }
+      ],
+      "explanation": "After Actium, Egypt became a province under Octavian’s personal control, and its grain helped feed Rome.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.brit_garum",
+    "source.brit_ancient_rome",
+    "source.brit_pompeii",
+    "source.brit_triclinium",
+    "source.brit_columbian",
+    "source.brit_apicius"
+  ],
+  "art": "rome.amphora-feast"
+}

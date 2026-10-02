@@ -1,0 +1,218 @@
+{
+  "id": "level.mind.probability.029",
+  "skillId": "skill.mind.probability",
+  "number": 29,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Birthday Problem",
+  "objective": "After this level you can explain why 23 people are enough for a better than even chance that two share a birthday.",
+  "summary": "In a group of 23 people, the chance two share a birthday is 50.7%. The trick is counting pairs (253 of them) and working out the chance that nobody matches.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.chance_birthday_problem",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.chance_birthday_pairs",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.chance_complement_rule",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.chance_multiply_independent",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.028"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.029.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "23 people in a room. Better than even odds that two share a birthday.",
+      "body": "It sounds far too few. There are 365 days to choose from, after all. Yet with just 23 people, a shared birthday is more likely than not. The secret is in what you're counting."
+    },
+    {
+      "id": "card.probability.029.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Count pairs, not people",
+      "body": "The usual mistake is thinking about your own birthday. The question is whether any two people match, and 23 people make 253 different pairs: the first person pairs with 22 others, the next with 21 more, and so on down to 1. Each pair is a fresh chance for a match. With 253 chances, a match stops sounding strange."
+    },
+    {
+      "id": "card.probability.029.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Level 24's trick does the math",
+      "body": "It's easier to find the chance that nobody matches. The second person misses the first one's birthday 364 times in 365. The third must miss both: 363 in 365. Keep multiplying, one person at a time. By the 23rd person, the chance of no match has sunk just below half, so the chance of at least one match is 50.7%."
+    },
+    {
+      "id": "card.probability.029.c4",
+      "type": "fact",
+      "fact": "At 57 people, a match is about 99% certain.",
+      "context": "The chance climbs fast because pairs grow much faster than people: 23 people make 253 pairs, but 57 people make 1,596. The math assumes birthdays are spread evenly over 365 days and leaves out leap years. Real births aren't perfectly even, but the difference this makes is negligible."
+    },
+    {
+      "id": "card.probability.029.c5",
+      "type": "mcq",
+      "questionId": "question.probability.029.q1"
+    },
+    {
+      "id": "card.probability.029.c6",
+      "type": "mcq",
+      "questionId": "question.probability.029.q2"
+    },
+    {
+      "id": "card.probability.029.c7",
+      "type": "mcq",
+      "questionId": "question.probability.029.q3"
+    },
+    {
+      "id": "card.probability.029.c8",
+      "type": "checkpoint",
+      "headline": "Birthdays: shared",
+      "learned": [
+        "23 people: a 50.7% chance of a match",
+        "Count pairs: 23 people make 253",
+        "Find no match, then take it from 1",
+        "57 people: about 99%"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.029.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.chance_birthday_problem"
+      ],
+      "sourceCardIds": [
+        "card.probability.029.c3"
+      ],
+      "prompt": "How many people make it more likely than not that two of them share a birthday?",
+      "options": [
+        {
+          "id": "a",
+          "label": "12",
+          "correct": false,
+          "rationale": "Twelve people give a much smaller chance."
+        },
+        {
+          "id": "b",
+          "label": "23",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "57",
+          "correct": false,
+          "rationale": "At 57 the chance is already about 99%."
+        },
+        {
+          "id": "d",
+          "label": "183",
+          "correct": false,
+          "rationale": "Far fewer are needed: 23 people give 50.7%."
+        }
+      ],
+      "explanation": "With 23 people, the chance of a shared birthday is 50.7%.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.029.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.chance_birthday_pairs"
+      ],
+      "sourceCardIds": [
+        "card.probability.029.c2"
+      ],
+      "prompt": "How do just 23 people create so many chances for a shared birthday?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Birthdays cluster in a few months",
+          "correct": false,
+          "rationale": "The math assumes birthdays are spread evenly; pairs do the work."
+        },
+        {
+          "id": "b",
+          "label": "Each person has 23 dates to match",
+          "correct": false,
+          "rationale": "Each person has one birthday; it is the pairs that multiply."
+        },
+        {
+          "id": "c",
+          "label": "Leap years add extra days",
+          "correct": false,
+          "rationale": "Leap years are left out, and make little difference."
+        },
+        {
+          "id": "d",
+          "label": "They form 253 pairs, each a chance to match",
+          "correct": true
+        }
+      ],
+      "explanation": "The question is about any two people, and 23 people make 253 different pairs.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.029.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.chance_birthday_problem",
+        "concept.probability.chance_complement_rule"
+      ],
+      "sourceCardIds": [
+        "card.probability.029.c3",
+        "card.probability.024.c2"
+      ],
+      "prompt": "Why does the birthday calculation start from the chance that nobody matches, as in Level 24?",
+      "options": [
+        {
+          "id": "a",
+          "label": "No match is always the likelier result",
+          "correct": false,
+          "rationale": "From 23 people on, a match is the likelier result."
+        },
+        {
+          "id": "b",
+          "label": "Birthdays are dependent events",
+          "correct": false,
+          "rationale": "The calculation treats birthdays as independent."
+        },
+        {
+          "id": "c",
+          "label": "No match is one case, easy to multiply out",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It avoids counting leap years",
+          "correct": false,
+          "rationale": "Leap years are left out either way."
+        }
+      ],
+      "explanation": "At least one match hides many cases; no match is a single case you can build by multiplying. Then take it from 1.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_birthday_problem",
+    "source.hmc_birthday_problem",
+    "source.cut_the_knot_de_mere"
+  ],
+  "art": "mind.birthday-cake"
+}

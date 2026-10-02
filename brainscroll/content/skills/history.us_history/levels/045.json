@@ -1,0 +1,223 @@
+{
+  "id": "level.history.us_history.045",
+  "skillId": "skill.history.us_history",
+  "number": 45,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Resisting Slavery",
+  "objective": "After this level you can explain the ways enslaved people resisted, from slowing work and escaping to Nat Turner's revolt and the Underground Railroad.",
+  "summary": "Enslaved people resisted daily, rose with Nat Turner in 1831, and escaped, often alone. The Underground Railroad and Harriet Tubman’s about 13 trips helped others.",
+  "concepts": [
+    {
+      "conceptId": "concept.us_history.resistance_everyday_and_revolt",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.resistance_underground_railroad",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.us_history.resistance_harriet_tubman",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.history.us_history.044"
+  ],
+  "cards": [
+    {
+      "id": "card.us_history.045.c1",
+      "role": "hook",
+      "headline": "Resistance didn’t start with a lantern in the window. It started in the fields.",
+      "body": "Enslaved people resisted slavery in small ways every day, in rare revolts, and by walking away. Here are all three.",
+      "type": "text"
+    },
+    {
+      "id": "card.us_history.045.c2",
+      "headline": "Everyday resistance",
+      "body": "Some enslaved people slowed down work, pretended to be sick or broke tools. Each act was small, and each cost an enslaver time and money. It was resistance an overseer could never quite prove.",
+      "type": "text",
+      "role": "explain"
+    },
+    {
+      "id": "card.us_history.045.c3",
+      "headline": "Nat Turner’s revolt",
+      "body": "In August 1831, in Southampton County, Virginia, Nat Turner led a revolt in which at least 55 white people were killed. Whites then killed at least 100 Black people, many with no part in it, and Turner was hanged. Southern lawmakers answered with new laws banning the education, movement and assembly of enslaved people.",
+      "type": "text",
+      "role": "explain"
+    },
+    {
+      "id": "card.us_history.045.c4",
+      "headline": "The Underground Railroad",
+      "body": "Many freedom seekers escaped on their own, without help. Over time, helpers of all races built a secret network, and it borrowed railway words: safe houses were stations and guides were conductors. Freedom seekers headed not only north but to Canada, Mexico, Spanish Florida and beyond.",
+      "type": "text",
+      "role": "explain"
+    },
+    {
+      "id": "card.us_history.045.c5",
+      "headline": "Harriet Tubman, conductor",
+      "body": "Harriet Tubman escaped slavery in Maryland in 1849 when she was about to be sold. Then she went back, about 13 times, to rescue family and friends, and she later said she never lost a passenger. An 1868 biography inflated her record to about 19 trips and 300 people. The real numbers are impressive enough.",
+      "type": "text",
+      "role": "explain"
+    },
+    {
+      "id": "card.us_history.045.c6",
+      "type": "mcq",
+      "questionId": "question.us_history.045.q1"
+    },
+    {
+      "id": "card.us_history.045.c7",
+      "type": "mcq",
+      "questionId": "question.us_history.045.q2"
+    },
+    {
+      "id": "card.us_history.045.c8",
+      "type": "mcq",
+      "questionId": "question.us_history.045.q3"
+    },
+    {
+      "id": "card.us_history.045.c9",
+      "type": "checkpoint",
+      "headline": "Resisting slavery",
+      "learned": [
+        "Everyday resistance: slowed work, feigned illness, broken tools",
+        "Nat Turner’s 1831 revolt brought harsher laws",
+        "Stations and conductors helped freedom seekers",
+        "Tubman made about 13 trips back and lost no one"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.us_history.045.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.us_history.resistance_underground_railroad"
+      ],
+      "sourceCardIds": [
+        "card.us_history.045.c4"
+      ],
+      "prompt": "On the Underground Railroad, what were stations?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Safe houses where freedom seekers could rest",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Army posts on the Canadian border",
+          "correct": false,
+          "rationale": "It was a secret civilian network."
+        },
+        {
+          "id": "c",
+          "label": "Real train depots in the South",
+          "correct": false,
+          "rationale": "It wasn’t a real railroad."
+        },
+        {
+          "id": "d",
+          "label": "Plantations that freed their workers",
+          "correct": false,
+          "rationale": "Stations were safe houses along escape routes."
+        }
+      ],
+      "explanation": "The network borrowed railway words: safe houses were stations and guides were conductors.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.us_history.045.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.us_history.resistance_everyday_and_revolt"
+      ],
+      "sourceCardIds": [
+        "card.us_history.045.c3"
+      ],
+      "prompt": "Why did Southern states pass harsher laws after 1831?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Harriet Tubman had just escaped",
+          "correct": false,
+          "rationale": "Tubman escaped in 1849."
+        },
+        {
+          "id": "b",
+          "label": "The Erie Canal carried freedom seekers north",
+          "correct": false,
+          "rationale": "The canal had nothing to do with it."
+        },
+        {
+          "id": "c",
+          "label": "They reacted to Nat Turner’s revolt",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Congress ordered them to",
+          "correct": false,
+          "rationale": "These were state laws answering the revolt."
+        }
+      ],
+      "explanation": "Turner’s revolt set off new laws banning the education, movement and assembly of enslaved people.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.us_history.045.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.us_history.resistance_harriet_tubman",
+        "concept.us_history.resistance_underground_railroad"
+      ],
+      "sourceCardIds": [
+        "card.us_history.045.c4",
+        "card.us_history.045.c5"
+      ],
+      "prompt": "In the Underground Railroad’s own railway words, what was Harriet Tubman?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A station",
+          "correct": false,
+          "rationale": "Stations were safe houses."
+        },
+        {
+          "id": "b",
+          "label": "A conductor",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "A passenger who never returned",
+          "correct": false,
+          "rationale": "She went back about 13 times."
+        },
+        {
+          "id": "d",
+          "label": "An engineer who laid track",
+          "correct": false,
+          "rationale": "There was no real track."
+        }
+      ],
+      "explanation": "Guides were conductors; Tubman went back about 13 times and said she never lost a passenger.",
+      "difficulty": 0.2
+    }
+  ],
+  "sourceIds": [
+    "source.nps_resisting_slavery",
+    "source.brit_nat_turner",
+    "source.nps_underground_railroad",
+    "source.brit_underground_railroad",
+    "source.nps_harriet_tubman"
+  ],
+  "art": "us.lantern"
+}

@@ -1,0 +1,209 @@
+{
+  "id": "level.mind.logic.067",
+  "skillId": "skill.mind.logic",
+  "number": 67,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Peer Review",
+  "objective": "After this level you can explain what peer review checks before a study is published, and what it can miss.",
+  "summary": "Editors send a study to other scientists in its field, who check its reasoning and evidence before publication. It is a filter, not a guarantee: Hwang's fabricated cloning claims got through.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.science_peer_review",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.logic_definition",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.066"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Before a study reaches a journal, other experts try to pick it apart.",
+      "body": "The journal asks them to. It's called peer review, and it's one of science's main quality checks. It catches a lot. It doesn't catch everything.",
+      "id": "card.logic.067.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "How it works",
+      "body": "Scientists write up a study and send it to a journal. The editors pass it to several other scientists who work in the same field: the peers. They send back criticism and tell the editor whether they think it's good enough to publish. Often the authors revise and try again.",
+      "id": "card.logic.067.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "What reviewers check",
+      "body": "To be accepted, an article must meet science's standards: build on other work in the field, rely on logical reasoning and well-designed studies, and back up its claims with evidence. In Level 1's terms, reviewers are sorting good arguments from bad before the rest of us read them.",
+      "id": "card.logic.067.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "A filter, not a guarantee",
+      "body": "Peer-reviewed work isn't necessarily correct. Woo Suk Hwang published a claim that his lab had cloned human embryos and collected stem cells from them. Scientists scrutinizing his data later spotted duplicated graph peaks, the claim turned out to be fabricated, and his papers were retracted. Publication isn't where checking ends; it's where the wider checking begins.",
+      "id": "card.logic.067.c4"
+    },
+    {
+      "id": "card.logic.067.c5",
+      "type": "mcq",
+      "questionId": "question.logic.067.q1"
+    },
+    {
+      "id": "card.logic.067.c6",
+      "type": "mcq",
+      "questionId": "question.logic.067.q2"
+    },
+    {
+      "id": "card.logic.067.c7",
+      "type": "mcq",
+      "questionId": "question.logic.067.q3"
+    },
+    {
+      "id": "card.logic.067.c8",
+      "type": "checkpoint",
+      "headline": "Peer review: explained",
+      "learned": [
+        "Editors send studies to experts in the same field",
+        "Reviewers check reasoning, design and evidence",
+        "Peer-reviewed doesn't mean proven true",
+        "Hwang's fabricated claims got through, then fell"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.067.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.science_peer_review"
+      ],
+      "sourceCardIds": [
+        "card.logic.067.c2"
+      ],
+      "prompt": "In peer review, who judges a study before it is published?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Other scientists in the same field",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The public, in an online vote",
+          "correct": false,
+          "rationale": "Reviewers are experts chosen by the editors."
+        },
+        {
+          "id": "c",
+          "label": "The authors themselves",
+          "correct": false,
+          "rationale": "The point is that someone else checks."
+        },
+        {
+          "id": "d",
+          "label": "Journalists who will report it",
+          "correct": false,
+          "rationale": "Reviewers are scientists in the same field."
+        }
+      ],
+      "explanation": "The journal's editors send it to several scientists who work in the same field: the peers.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.067.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.science_peer_review"
+      ],
+      "sourceCardIds": [
+        "card.logic.067.c4"
+      ],
+      "prompt": "Why doesn't \"peer-reviewed\" mean \"proven true\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Reviewers only check spelling and style",
+          "correct": false,
+          "rationale": "They check reasoning, design and evidence."
+        },
+        {
+          "id": "b",
+          "label": "Journals publish everything they receive",
+          "correct": false,
+          "rationale": "Reviewers can recommend rejection."
+        },
+        {
+          "id": "c",
+          "label": "Review can miss errors, even fabricated data",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Peer review only starts after publication",
+          "correct": false,
+          "rationale": "It happens before publication."
+        }
+      ],
+      "explanation": "Peer-reviewed work isn't necessarily correct: Hwang's fabricated cloning claims were published before scrutiny exposed them.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.067.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.science_peer_review",
+        "concept.logic.logic_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.067.c3",
+        "card.logic.001.c2"
+      ],
+      "prompt": "Level 1 says logic, as forall x uses it, sorts good arguments from bad. Which peer review standard is closest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The authors must be well known",
+          "correct": false,
+          "rationale": "Reputation is not a standard reviewers apply."
+        },
+        {
+          "id": "b",
+          "label": "The results must be surprising",
+          "correct": false,
+          "rationale": "Surprise is not a standard."
+        },
+        {
+          "id": "c",
+          "label": "The article must be short",
+          "correct": false,
+          "rationale": "Length is not a standard."
+        },
+        {
+          "id": "d",
+          "label": "Claims must rest on sound reasoning and evidence",
+          "correct": true
+        }
+      ],
+      "explanation": "Relying on logical reasoning and backing claims with evidence is logic's job applied to science.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.berkeley_undsci_peer_review",
+    "source.berkeley_undsci_not_getting_away",
+    "source.forallx_calgary"
+  ],
+  "art": "mind.clipboard"
+}

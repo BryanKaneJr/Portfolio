@@ -1,0 +1,220 @@
+{
+  "id": "level.world_systems.computers.012",
+  "skillId": "skill.world_systems.computers",
+  "number": 12,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Ada Lovelace's Big Idea",
+  "objective": "After this level you can explain Lovelace's 1843 insight that Babbage's Analytical Engine could work with symbols, not just numbers.",
+  "summary": "Babbage's Analytical Engine, never built, was to read punched cards and hold a store and a mill. Lovelace's 1843 notes saw it might act on things besides number, such as music.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.history_analytical_engine",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.history_lovelace_symbols",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.history_jacquard_cards",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.computers.ascii_code",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.011"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.012.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A machine built for sums, and a woman who saw it could do more.",
+      "body": "Charles Babbage designed an engine to calculate. In 1843 Ada Lovelace published notes on it that asked a bigger question: if a machine can work with numbers, what else could those numbers stand for?"
+    },
+    {
+      "id": "card.computers.012.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "An engine run by cards",
+      "body": "In the 1830s Babbage conceived the Analytical Engine, a general-purpose calculating machine to be programmed with punched cards, the very trick Jacquard's loom used for its patterns. The design had a store to hold numbers and a separate mill to do the arithmetic. Think of them as memory and processor. The funding never came, and it was never built."
+    },
+    {
+      "id": "card.computers.012.c3",
+      "type": "fact",
+      "fact": "In 1843 Lovelace published notes on the Analytical Engine.",
+      "context": "She had translated an article about the engine by the Italian mathematician Luigi Menabrea, then added extensive notes of her own. In them she compared the engine to the loom: it would weave algebraic patterns just as the Jacquard loom weaves flowers and leaves."
+    },
+    {
+      "id": "card.computers.012.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Numbers that stand for other things",
+      "body": "Her boldest line: the engine \"might act upon other things besides number.\" If the rules of harmony could be written in its terms, she suggested, it might even compose elaborate pieces of music. The key is that a number doesn't have to be a quantity. It can stand for a letter, a symbol or a musical note, and a machine can work on those too."
+    },
+    {
+      "id": "card.computers.012.c5",
+      "type": "mcq",
+      "questionId": "question.computers.012.q1"
+    },
+    {
+      "id": "card.computers.012.c6",
+      "type": "mcq",
+      "questionId": "question.computers.012.q2"
+    },
+    {
+      "id": "card.computers.012.c7",
+      "type": "mcq",
+      "questionId": "question.computers.012.q3"
+    },
+    {
+      "id": "card.computers.012.c8",
+      "type": "checkpoint",
+      "headline": "Lovelace's idea: seen",
+      "learned": [
+        "Babbage's engine: cards, a store and a mill",
+        "It was never built",
+        "Lovelace's 1843 notes looked beyond sums",
+        "A number can stand for a letter or a note"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.012.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.history_analytical_engine"
+      ],
+      "sourceCardIds": [
+        "card.computers.012.c2"
+      ],
+      "prompt": "In Babbage's Analytical Engine design, what was the mill for?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Holding numbers until they were needed",
+          "correct": false,
+          "rationale": "That was the store's job."
+        },
+        {
+          "id": "b",
+          "label": "Reading the punched cards",
+          "correct": false,
+          "rationale": "Cards carried the program; the mill calculated."
+        },
+        {
+          "id": "c",
+          "label": "Doing the arithmetic",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Weaving cloth",
+          "correct": false,
+          "rationale": "The engine borrowed the loom's cards, not its weaving."
+        }
+      ],
+      "explanation": "The store held numbers; the separate mill did the arithmetic.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.012.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.history_lovelace_symbols"
+      ],
+      "sourceCardIds": [
+        "card.computers.012.c4"
+      ],
+      "prompt": "What was Lovelace's big idea about the Analytical Engine?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It could be built from cheaper parts",
+          "correct": false,
+          "rationale": "Her notes were about what it could do, not its cost."
+        },
+        {
+          "id": "b",
+          "label": "It could act on things besides numbers, such as music",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It would be faster than any human clerk",
+          "correct": false,
+          "rationale": "Speed wasn't her key insight."
+        },
+        {
+          "id": "d",
+          "label": "It would never work without Jacquard's help",
+          "correct": false,
+          "rationale": "She compared it to the loom; she didn't depend on it."
+        }
+      ],
+      "explanation": "She wrote that it might act upon other things besides number, and might even compose music.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.012.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.history_lovelace_symbols",
+        "concept.computers.ascii_code"
+      ],
+      "sourceCardIds": [
+        "card.computers.012.c4",
+        "card.computers.004.c1"
+      ],
+      "prompt": "Level 4's ASCII stores the letter A as the number 65. Which of Lovelace's ideas does that show at work?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A machine needs punched cards to store letters",
+          "correct": false,
+          "rationale": "ASCII is stored as bits, not punched cards."
+        },
+        {
+          "id": "b",
+          "label": "Numbers can only count quantities",
+          "correct": false,
+          "rationale": "That's the opposite of her idea."
+        },
+        {
+          "id": "c",
+          "label": "Letters are too complex for machines",
+          "correct": false,
+          "rationale": "ASCII shows machines handle letters easily."
+        },
+        {
+          "id": "d",
+          "label": "A number can stand for a symbol, not just a quantity",
+          "correct": true
+        }
+      ],
+      "explanation": "In ASCII, 65 isn't a quantity: it stands for the letter A, exactly the kind of use Lovelace foresaw.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_ada_lovelace",
+    "source.chm_babbage_ada_lovelace",
+    "source.brit_jacquard_loom",
+    "source.sciencemuseum_babbage_engines",
+    "source.brit_analytical_engine"
+  ],
+  "art": "computers.difference-engine"
+}

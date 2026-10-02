@@ -1,0 +1,221 @@
+{
+  "id": "level.mind.religions.049",
+  "skillId": "skill.mind.religions",
+  "number": 49,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Jain Vows and Many-Sided Truth",
+  "objective": "After this level you can explain the five Jain vows, how monks, nuns and laypeople keep them, and the idea that truth has many sides.",
+  "summary": "Jains keep five vows, fully as monks and nuns, in a lesser form as laypeople. Anekanta teaches that no single view captures the whole truth.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.jain_five_vows",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.jain_anekantavada",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.jain_ahimsa_life",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.048"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.049.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Why would a monk carry a small broom wherever he goes?",
+      "body": "Not for housework. It's one of the simplest tools of a life built on five vows, and a clue to how Jains think about truth itself."
+    },
+    {
+      "id": "card.religions.049.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Five vows",
+      "body": "Jains keep five vows: non-violence (ahimsa), truthfulness (satya), not stealing, sexual restraint, and non-attachment to possessions (aparigraha). Monks and nuns keep them as mahavratas, \"great vows\". Laypeople keep them as anuvratas, \"lesser vows\". Same five promises, kept at different depths.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "People mix up the two sets. Great vows (mahavratas): monks and nuns. Lesser vows (anuvratas): laypeople. Same five."
+      }
+    },
+    {
+      "id": "card.religions.049.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Two ways to keep them",
+      "body": "A monk sweeps the ground ahead with great care to avoid crushing insects, and some wear a cloth over the mouth. Digambara (\"sky clad\") monks wear no clothes and own only a whisk broom and a water pot; Svetambara (\"white clad\") monks and nuns wear white. Full non-violence doesn't fit everyday life, so lay Jains keep the vows in a limited way: eating vegetarian, filtering drinking water, not eating at night, owning only what they need."
+    },
+    {
+      "id": "card.religions.049.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The elephant and the blind men",
+      "body": "A famous Jain parable: several blind men meet an elephant. One feels an ear and says it's a fan. One feels a leg: a post. One feels the side: a wall. Each is partly right, and none has the whole. That's anekanta, \"non-one-sidedness\": no single view or statement captures the complete truth. Next time you're sure you've got the whole elephant, check which part you're holding."
+    },
+    {
+      "id": "card.religions.049.c5",
+      "type": "mcq",
+      "questionId": "question.religions.049.q1"
+    },
+    {
+      "id": "card.religions.049.c6",
+      "type": "mcq",
+      "questionId": "question.religions.049.q2"
+    },
+    {
+      "id": "card.religions.049.c7",
+      "type": "mcq",
+      "questionId": "question.religions.049.q3"
+    },
+    {
+      "id": "card.religions.049.c8",
+      "type": "checkpoint",
+      "headline": "Jain Vows and Many-Sided Truth: the takeaways",
+      "learned": [
+        "Five vows: great for monks and nuns, lesser for laypeople",
+        "Monks sweep their path to protect tiny lives",
+        "Anekanta: no single view holds the whole truth"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.049.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.jain_five_vows"
+      ],
+      "sourceCardIds": [
+        "card.religions.049.c2"
+      ],
+      "prompt": "Which Jain vow means non-attachment to possessions?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Ahimsa",
+          "correct": false,
+          "rationale": "Ahimsa is non-violence."
+        },
+        {
+          "id": "b",
+          "label": "Satya",
+          "correct": false,
+          "rationale": "Satya is truthfulness."
+        },
+        {
+          "id": "c",
+          "label": "Anuvrata",
+          "correct": false,
+          "rationale": "That's the name for the laity's lesser vows."
+        },
+        {
+          "id": "d",
+          "label": "Aparigraha",
+          "correct": true
+        }
+      ],
+      "explanation": "Aparigraha is non-attachment to possessions, the fifth of the five vows.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.religions.049.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.jain_anekantavada"
+      ],
+      "sourceCardIds": [
+        "card.religions.049.c4"
+      ],
+      "prompt": "Why do Jains tell the parable of the blind men and the elephant?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To warn people against keeping elephants",
+          "correct": false,
+          "rationale": "It's about knowledge, not animals."
+        },
+        {
+          "id": "b",
+          "label": "To show that no single view captures the whole truth",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "To teach that the senses always deceive",
+          "correct": false,
+          "rationale": "Each man is partly right."
+        },
+        {
+          "id": "d",
+          "label": "To explain why monks carry a whisk broom",
+          "correct": false,
+          "rationale": "The broom is about non-violence."
+        }
+      ],
+      "explanation": "Each man grasps one part: anekanta teaches that no single view captures the complete truth.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.religions.049.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.jain_ahimsa_life",
+        "concept.religions.jain_five_vows"
+      ],
+      "sourceCardIds": [
+        "card.religions.048.c4",
+        "card.religions.049.c3"
+      ],
+      "prompt": "Why does a Jain monk sweep the ground ahead of him as he walks?",
+      "options": [
+        {
+          "id": "a",
+          "label": "To keep the temple floors clean for visitors",
+          "correct": false,
+          "rationale": "The care is for living beings."
+        },
+        {
+          "id": "b",
+          "label": "To mark the path for laypeople to follow",
+          "correct": false,
+          "rationale": "The sweeping protects insects."
+        },
+        {
+          "id": "c",
+          "label": "To avoid crushing tiny beings, which Jains believe have souls",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "To show that he owns nothing else at all",
+          "correct": false,
+          "rationale": "Some own a water pot too; the point is ahimsa."
+        }
+      ],
+      "explanation": "Level 48's ahimsa in action: insects have souls, so the monk sweeps them gently out of harm's way.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.bbc_jainism_glance",
+    "source.brit_jainism",
+    "source.bbc_jain_lay_code",
+    "source.bbc_jain_ahimsa",
+    "source.bbc_jain_aparigraha",
+    "source.iep_jain",
+    "source.worldhistory_jainism"
+  ],
+  "art": "rel.whisk-broom"
+}

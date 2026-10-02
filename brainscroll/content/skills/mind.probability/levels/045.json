@@ -1,0 +1,209 @@
+{
+  "id": "level.mind.probability.045",
+  "skillId": "skill.mind.probability",
+  "number": 45,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Base Rates: Start With How Common",
+  "objective": "After this level you can explain why you should start with how common something is before judging a single case.",
+  "summary": "The base rate is how common something is in the whole population. Start there before judging one case: when you hear hoofbeats, think horses, not zebras.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.risk_base_rates",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.rates_per_person",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.044"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.045.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "You hear hoofbeats outside. Horse or zebra?",
+      "body": "Unless you live next to a zoo, you guess horse. Doctors have a saying built on exactly that hunch, and it holds one of the most useful ideas in this chapter."
+    },
+    {
+      "id": "card.probability.045.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Think horses, not zebras",
+      "body": "\"When you hear hoofbeats, think horses, not zebras.\" The saying is usually credited to Theodore Woodward of the University of Maryland School of Medicine, who reportedly used a version of it from the 1940s. It reminds doctors that a common explanation is far likelier than a rare one. \"Zebra\" even became medical slang for a surprising, rare diagnosis."
+    },
+    {
+      "id": "card.probability.045.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The base rate: how common, before any clue",
+      "body": "The share of people in a whole population who have something is its prevalence, or base rate. It can be given as a percent, or per 10,000 or 100,000 people. It is where you start: before you judge any one case, ask how common the thing is to begin with."
+    },
+    {
+      "id": "card.probability.045.c4",
+      "type": "fact",
+      "fact": "A clue that fits both explanations can't beat a big base-rate gap.",
+      "context": "Picture a made-up town of 10,000 people. This week 1,000 have a cold and 1 has a rare illness, and both cause a cough. Among people coughing, colds outnumber the rare illness 1,000 to 1. That is why test results and other clues are read against how common a condition is. Horses first."
+    },
+    {
+      "id": "card.probability.045.c5",
+      "type": "mcq",
+      "questionId": "question.probability.045.q1"
+    },
+    {
+      "id": "card.probability.045.c6",
+      "type": "mcq",
+      "questionId": "question.probability.045.q2"
+    },
+    {
+      "id": "card.probability.045.c7",
+      "type": "mcq",
+      "questionId": "question.probability.045.q3"
+    },
+    {
+      "id": "card.probability.045.c8",
+      "type": "checkpoint",
+      "headline": "Base rates: set",
+      "learned": [
+        "Think horses, not zebras",
+        "Base rate = how common in the whole population",
+        "Start with the base rate before any clue",
+        "A shared clue can't beat a big base-rate gap"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.045.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.risk_base_rates"
+      ],
+      "sourceCardIds": [
+        "card.probability.045.c3"
+      ],
+      "prompt": "What is a base rate?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The rate at which a test gives wrong answers",
+          "correct": false,
+          "rationale": "That describes a test's errors, not how common something is."
+        },
+        {
+          "id": "b",
+          "label": "How fast a disease spreads between people",
+          "correct": false,
+          "rationale": "Spread is a different measure; a base rate is a share of the population."
+        },
+        {
+          "id": "c",
+          "label": "How common something is in the whole population",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The lowest risk any one person can have",
+          "correct": false,
+          "rationale": "It is a share of a population, not a minimum."
+        }
+      ],
+      "explanation": "The base rate, or prevalence, is the share of a whole population who have something: the place to start.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.045.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.risk_base_rates"
+      ],
+      "sourceCardIds": [
+        "card.probability.045.c2",
+        "card.probability.045.c4"
+      ],
+      "prompt": "Why do doctors say \"think horses, not zebras\"?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rare diseases can never be diagnosed",
+          "correct": false,
+          "rationale": "Rare diagnoses are real; they are just less likely."
+        },
+        {
+          "id": "b",
+          "label": "A common cause is far likelier than a rare one",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Zebras are hard to tell apart from horses",
+          "correct": false,
+          "rationale": "It is about how common things are, not how they look."
+        },
+        {
+          "id": "d",
+          "label": "Common illnesses are always more dangerous",
+          "correct": false,
+          "rationale": "The saying is about likelihood, not danger."
+        }
+      ],
+      "explanation": "When a clue fits both a common and a rare cause, the common one is usually the answer, because it is so much more frequent.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.045.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.rates_per_person",
+        "concept.probability.risk_base_rates"
+      ],
+      "sourceCardIds": [
+        "card.probability.006.c4",
+        "card.probability.045.c3"
+      ],
+      "prompt": "Like Level 6's rates, a base rate is often given per 100,000 people. What does that let you see that a total can't?",
+      "options": [
+        {
+          "id": "a",
+          "label": "How common it is, person for person",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Exactly who in the population has it",
+          "correct": false,
+          "rationale": "A rate describes a whole group, not individuals."
+        },
+        {
+          "id": "c",
+          "label": "How many people will have it next year",
+          "correct": false,
+          "rationale": "A base rate describes now; it isn't a forecast."
+        },
+        {
+          "id": "d",
+          "label": "Whether a test for it is accurate",
+          "correct": false,
+          "rationale": "How accurate a test is is a separate question."
+        }
+      ],
+      "explanation": "Dividing by the population puts places of any size on one scale: how common something is for each person.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.quoteinvestigator_hoofbeats_zebras",
+    "source.nimh_what_is_prevalence",
+    "source.aphl_sensitivity_specificity"
+  ],
+  "art": "mind.marble-jar"
+}

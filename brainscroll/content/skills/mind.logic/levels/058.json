@@ -1,0 +1,215 @@
+{
+  "id": "level.mind.logic.058",
+  "skillId": "skill.mind.logic",
+  "number": 58,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Bias Blind Spot",
+  "objective": "After this level you can explain why people spot bias in others far more easily than in themselves.",
+  "summary": "People see bias in others far more readily than in themselves, because they judge themselves by their thoughts and others by their behavior. Intelligence doesn't shrink the blind spot.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.trap_bias_blind_spot",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.trap_introspection_illusion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.trap_double_standard",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.057"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Quick: are you more biased or less biased than the average person?",
+      "body": "If you said \"less\", you're in large company. In surveys, people rate themselves as less subject to biases than the average American. They can't all be right. This level is about why the answer feels so obvious from the inside.",
+      "id": "card.logic.058.c1"
+    },
+    {
+      "type": "fact",
+      "fact": "People see bias far more readily in others than in themselves.",
+      "context": "Psychologists Emily Pronin, Daniel Lin and Lee Ross called this the bias blind spot in a 2002 paper. Notice the twist. Every trap in this chapter so far, you can probably spot in a friend. Spotting it in yourself is the hard part.",
+      "id": "card.logic.058.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Why you can't see it",
+      "body": "When you judge yourself, you look inward, at your thoughts and intentions, and they seem fair. But bias often works outside awareness, so looking inward finds nothing. When you judge others, you look at what they actually do. There's a second reason: your own view feels like a plain view of reality, so people who see things differently seem to be the biased ones.",
+      "id": "card.logic.058.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Smarter isn't safer",
+      "body": "You might hope intelligence helps. In a 2012 study, Richard West, Russell Meserve and Keith Stanovich found that higher cognitive ability did not shrink the blind spot; if anything, it went with a larger one. What did help, in a 2007 study, was learning how much of judgment runs outside awareness. The habit: judge yourself by your behavior, the way you'd judge anyone else.",
+      "id": "card.logic.058.c4"
+    },
+    {
+      "id": "card.logic.058.c5",
+      "type": "mcq",
+      "questionId": "question.logic.058.q1"
+    },
+    {
+      "id": "card.logic.058.c6",
+      "type": "mcq",
+      "questionId": "question.logic.058.q2"
+    },
+    {
+      "id": "card.logic.058.c7",
+      "type": "mcq",
+      "questionId": "question.logic.058.q3"
+    },
+    {
+      "id": "card.logic.058.c8",
+      "type": "checkpoint",
+      "headline": "Blind spot: found",
+      "learned": [
+        "People see bias in others more than in themselves",
+        "We judge ourselves by thoughts, others by actions",
+        "Intelligence doesn't shrink the blind spot",
+        "Judge yourself by your behavior too"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.058.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.trap_bias_blind_spot"
+      ],
+      "sourceCardIds": [
+        "card.logic.058.c2"
+      ],
+      "prompt": "What is the bias blind spot?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Seeing bias in others more than in yourself",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Being unable to spot any bias at all",
+          "correct": false,
+          "rationale": "People spot bias in others easily."
+        },
+        {
+          "id": "c",
+          "label": "Believing everyone is equally biased",
+          "correct": false,
+          "rationale": "The blind spot is exactly the opposite belief."
+        },
+        {
+          "id": "d",
+          "label": "A bias that affects only eyesight",
+          "correct": false,
+          "rationale": "It's about judgment, not vision."
+        }
+      ],
+      "explanation": "People see biases much more in others than in themselves.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.058.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.trap_introspection_illusion"
+      ],
+      "sourceCardIds": [
+        "card.logic.058.c3"
+      ],
+      "prompt": "Why does looking inward fail to reveal your own bias?",
+      "options": [
+        {
+          "id": "a",
+          "label": "People never think about their own motives",
+          "correct": false,
+          "rationale": "They do; the trouble is what introspection can reach."
+        },
+        {
+          "id": "b",
+          "label": "Only other people have biases",
+          "correct": false,
+          "rationale": "That's the blind spot talking."
+        },
+        {
+          "id": "c",
+          "label": "Bias often works outside awareness",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Looking inward always makes bias worse",
+          "correct": false,
+          "rationale": "It doesn't worsen bias; it just misses it."
+        }
+      ],
+      "explanation": "Bias often operates nonconsciously, so introspection finds fair-seeming thoughts and misses the bias.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.logic.058.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.trap_introspection_illusion",
+        "concept.logic.trap_double_standard"
+      ],
+      "sourceCardIds": [
+        "card.logic.058.c3",
+        "card.logic.053.c2"
+      ],
+      "prompt": "Judging others by their actions but yourself by your intentions is which Level 53 error?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The appeal to nature",
+          "correct": false,
+          "rationale": "Nature has nothing to do with it."
+        },
+        {
+          "id": "b",
+          "label": "The perfect-solution fallacy",
+          "correct": false,
+          "rationale": "Nobody is rejecting an imperfect fix."
+        },
+        {
+          "id": "c",
+          "label": "The Texas sharpshooter",
+          "correct": false,
+          "rationale": "No target is being drawn after the fact."
+        },
+        {
+          "id": "d",
+          "label": "A double standard",
+          "correct": true
+        }
+      ],
+      "explanation": "Two cases that deserve one standard (actions) get two: that's a double standard, pointed at yourself.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nj_pronin_bias_blind_spot_2002",
+    "source.tics_pronin_misperception_bias_2007",
+    "source.princeton_pronin_kugler_introspection_2007",
+    "source.jpsp_west_bias_blind_spot_2012",
+    "source.iep_fallacies"
+  ],
+  "art": "mind.logic-iceberg"
+}

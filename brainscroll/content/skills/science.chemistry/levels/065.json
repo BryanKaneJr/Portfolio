@@ -1,0 +1,231 @@
+{
+  "id": "level.science.chemistry.065",
+  "skillId": "skill.science.chemistry",
+  "number": 65,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Indicators",
+  "objective": "After this level you can explain how red cabbage juice can test for acids.",
+  "summary": "Indicators change color with pH: red cabbage runs from red to greenish-yellow, litmus turns red in acid and blue in base. Blue hydrangeas mean acidic soil.",
+  "concepts": [
+    {
+      "conceptId": "concept.chemistry.indicator_basics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.hydrangea_soil_ph",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.chemistry.ph_scale_basics",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.chemistry.molecule_shape_matters",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.science.chemistry.064"
+  ],
+  "cards": [
+    {
+      "id": "card.chemistry.065.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A red cabbage can tell an acid from a base.",
+      "body": "Its purplish juice turns red in strong acids and greenish-yellow in strong bases. No batteries, no screen, no lab. So how does a vegetable run a chemistry test?"
+    },
+    {
+      "id": "card.chemistry.065.c2",
+      "type": "fact",
+      "fact": "An indicator is a substance that changes color when it meets an acid or a base.",
+      "context": "The trick is in the molecule's shape. In pigments like the ones in red cabbage, a change in pH changes the molecule's structure, and a different structure shows a different color. So an indicator's color is a readout: Level 63's number, painted on."
+    },
+    {
+      "id": "card.chemistry.065.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Cabbage's rainbow",
+      "body": "Red cabbage gets its color from pigments called anthocyanins, and they're sensitive to pH. Very acidic solutions turn them red. Neutral ones leave them purplish. Mildly basic ones turn them blue to blue-green, and strongly basic ones greenish-yellow. One vegetable, a whole pH chart."
+    },
+    {
+      "id": "card.chemistry.065.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Litmus: the lichen test",
+      "body": "The classic lab indicator comes from lichens. Litmus is a mix of colored compounds from several lichen species that grow in the Netherlands. It turns red in acids and blue in bases, and it's the oldest and most commonly used acid-base indicator. Red means acid, blue means base: two colors, one answer.",
+      "callout": "Litmus: red in acid, blue in base.",
+      "mascot": {
+        "pose": "whisper",
+        "line": "You don't need the lichens. Remember the colors: red means acid, blue means base."
+      }
+    },
+    {
+      "id": "card.chemistry.065.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "A garden-sized pH test, with a twist",
+      "body": "Hydrangeas bloom blue in acidic soil and pink in alkaline soil. But here the flower isn't acting as the indicator. Acidic soil makes aluminum more available to the roots, and aluminum reaching the flowers turns them blue. In alkaline soil, less aluminum gets through, and the blooms stay pink. The pH opens the gate; the aluminum paints."
+    },
+    {
+      "id": "card.chemistry.065.c6",
+      "type": "mcq",
+      "questionId": "question.chemistry.065.q1"
+    },
+    {
+      "id": "card.chemistry.065.c7",
+      "type": "mcq",
+      "questionId": "question.chemistry.065.q2"
+    },
+    {
+      "id": "card.chemistry.065.c8",
+      "type": "mcq",
+      "questionId": "question.chemistry.065.q3"
+    },
+    {
+      "id": "card.chemistry.065.c9",
+      "type": "checkpoint",
+      "headline": "Indicators: read",
+      "learned": [
+        "An indicator changes color with pH",
+        "Red cabbage: red in acid, purplish when neutral, greenish-yellow in strong base",
+        "Litmus, from lichens: red in acid, blue in base",
+        "Blue hydrangeas: acidic soil frees aluminum"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.chemistry.065.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.chemistry.indicator_basics"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.065.c3"
+      ],
+      "prompt": "Red cabbage pigments are added to an unknown liquid and turn red. What does that signal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A very acidic solution",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A neutral solution",
+          "correct": false,
+          "rationale": "Neutral leaves them purplish."
+        },
+        {
+          "id": "c",
+          "label": "A mildly basic solution",
+          "correct": false,
+          "rationale": "Mild bases turn them blue to blue-green."
+        },
+        {
+          "id": "d",
+          "label": "A strongly basic solution",
+          "correct": false,
+          "rationale": "Strong bases turn them greenish-yellow."
+        }
+      ],
+      "explanation": "Red cabbage anthocyanins turn red in very acidic solutions.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.chemistry.065.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.chemistry.hydrangea_soil_ph"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.065.c5"
+      ],
+      "prompt": "Why do hydrangeas bloom blue in acidic soil?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Their petals contain litmus",
+          "correct": false,
+          "rationale": "Litmus comes from lichens, not hydrangeas."
+        },
+        {
+          "id": "b",
+          "label": "The acid dyes the petals directly",
+          "correct": false,
+          "rationale": "The acid works indirectly, through aluminum."
+        },
+        {
+          "id": "c",
+          "label": "Alkaline soil adds aluminum to the flowers",
+          "correct": false,
+          "rationale": "Alkaline soil keeps aluminum away; the flowers stay pink."
+        },
+        {
+          "id": "d",
+          "label": "Acidic soil frees aluminum, which turns the flowers blue",
+          "correct": true
+        }
+      ],
+      "explanation": "Acidic soil makes aluminum more available to the roots; aluminum in the flowers turns them blue.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.chemistry.065.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.chemistry.indicator_basics",
+        "concept.chemistry.molecule_shape_matters"
+      ],
+      "sourceCardIds": [
+        "card.chemistry.065.c2",
+        "card.chemistry.049.c1"
+      ],
+      "prompt": "Level 49 showed that a molecule's shape can change its smell. How does a change in pH change an indicator's color?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It changes the pigment's structure, which shows a new color",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It turns the pigment's atoms into other elements",
+          "correct": false,
+          "rationale": "Reactions never change one element into another."
+        },
+        {
+          "id": "c",
+          "label": "It dissolves the pigment until the color fades",
+          "correct": false,
+          "rationale": "The pigment stays; its color changes."
+        },
+        {
+          "id": "d",
+          "label": "It makes the pigment give off light like a flame",
+          "correct": false,
+          "rationale": "Indicators change color without glowing."
+        }
+      ],
+      "explanation": "In an indicator, a change in pH changes the molecule's structure, and a different structure shows a different color.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.sciam_cabbage_chemistry",
+    "source.compoundchem_red_cabbage",
+    "source.britannica_litmus",
+    "source.uga_hydrangea_color"
+  ],
+  "art": "chem.test-tubes"
+}

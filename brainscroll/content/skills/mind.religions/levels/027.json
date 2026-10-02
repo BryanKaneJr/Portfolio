@@ -1,0 +1,232 @@
+{
+  "id": "level.mind.religions.027",
+  "skillId": "skill.mind.religions",
+  "number": 27,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Eastern Orthodoxy",
+  "objective": "After this level you can explain what sets Orthodox Christianity apart, from its self-governing churches to icons and its own date for Easter.",
+  "summary": "Orthodoxy is a communion of self-governing churches with the Ecumenical Patriarch as 'first among equals'; icons are venerated, not worshipped; and Easter follows the Julian calendar.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.christianity_orthodox_communion",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.christianity_orthodox_icons",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.christianity_creed_use",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.religions.christianity_easter_date",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.religions.internal_diversity",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.026"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.027.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A family of churches with no single head.",
+      "body": "Orthodox Christians live mainly in the Balkans, the Middle East and the former Soviet countries. How do their churches hold together with no pope? Here's the answer, plus icons and a second Easter."
+    },
+    {
+      "id": "card.religions.027.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Self-governing churches",
+      "body": "Eastern Orthodoxy is a communion of autocephalous, meaning self-governing, churches. Some are ancient patriarchates: Constantinople, Alexandria, Antioch and Jerusalem. Others are national churches, like those of Russia, Serbia, Romania and Greece. Think of a family of households that share one faith, each running its own home."
+    },
+    {
+      "id": "card.religions.027.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "First among equals",
+      "body": "The Patriarch of Constantinople, called the Ecumenical Patriarch, is \"first among equals\": an honor, not a pope's authority over the other churches. That difference over authority, with the dispute over the added \"and the Son\" from Level 23, helped separate East and West in the schism of 1054."
+    },
+    {
+      "id": "card.religions.027.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Windows, not idols",
+      "body": "Icons, images of Christ, the Virgin Mary and the saints, hold a central place in Orthodox churches and in Orthodox homes. Orthodox teaching separates the veneration given to an icon, honor that passes to the person shown, from worship, which is due to God alone. Worship centers on the Divine Liturgy, usually held in national languages, though some churches keep older liturgical ones."
+    },
+    {
+      "id": "card.religions.027.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "A different Easter",
+      "body": "Orthodox churches still calculate Easter by the Julian calendar, so their Easter usually falls later than the Western one. Same kind of rule, different calendar."
+    },
+    {
+      "id": "card.religions.027.c6",
+      "type": "mcq",
+      "questionId": "question.religions.027.q1"
+    },
+    {
+      "id": "card.religions.027.c7",
+      "type": "mcq",
+      "questionId": "question.religions.027.q2"
+    },
+    {
+      "id": "card.religions.027.c8",
+      "type": "mcq",
+      "questionId": "question.religions.027.q3"
+    },
+    {
+      "id": "card.religions.027.c9",
+      "type": "checkpoint",
+      "headline": "Eastern Orthodoxy: the takeaways",
+      "learned": [
+        "Orthodoxy is a family of self-governing churches",
+        "Icons are venerated; God alone is worshipped",
+        "Orthodox Easter follows the Julian calendar"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.027.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.christianity_orthodox_communion"
+      ],
+      "sourceCardIds": [
+        "card.religions.027.c3"
+      ],
+      "prompt": "What phrase describes the Ecumenical Patriarch's place among Orthodox churches?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Supreme head of all churches",
+          "correct": false,
+          "rationale": "He has no papal authority over the others."
+        },
+        {
+          "id": "b",
+          "label": "First among equals",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Bishop of Rome",
+          "correct": false,
+          "rationale": "That's the pope's title."
+        },
+        {
+          "id": "d",
+          "label": "Vicar of the national churches",
+          "correct": false,
+          "rationale": "The churches govern themselves."
+        }
+      ],
+      "explanation": "The Ecumenical Patriarch of Constantinople holds an honorary primacy as 'first among equals'.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.religions.027.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.christianity_orthodox_icons"
+      ],
+      "sourceCardIds": [
+        "card.religions.027.c4"
+      ],
+      "prompt": "How does Orthodox teaching separate honoring an icon from worship?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Veneration goes to the person shown; worship is for God alone",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Icons are worshipped only on feast days",
+          "correct": false,
+          "rationale": "Worship is due to God alone, on any day."
+        },
+        {
+          "id": "c",
+          "label": "Icons may be kept at home but never in church",
+          "correct": false,
+          "rationale": "They're central in both."
+        },
+        {
+          "id": "d",
+          "label": "Only clergy may honor icons",
+          "correct": false,
+          "rationale": "Icons are honored in ordinary homes too."
+        }
+      ],
+      "explanation": "Veneration of an icon passes to the person depicted; worship belongs to God alone.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.religions.027.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.christianity_orthodox_communion",
+        "concept.religions.internal_diversity"
+      ],
+      "sourceCardIds": [
+        "card.religions.027.c2",
+        "card.religions.004.c4"
+      ],
+      "prompt": "Smart's candlelit Orthodox church in Romania, from Level 4, belongs to what kind of church body?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A diocese under the pope",
+          "correct": false,
+          "rationale": "Orthodox churches don't come under the pope."
+        },
+        {
+          "id": "b",
+          "label": "A Baptist chapel",
+          "correct": false,
+          "rationale": "That was Smart's contrasting example, in Georgia."
+        },
+        {
+          "id": "c",
+          "label": "A self-governing national Orthodox church",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A Protestant church of the Reformation",
+          "correct": false,
+          "rationale": "Romania's church is one of the Orthodox communion."
+        }
+      ],
+      "explanation": "The Romanian church is one of Orthodoxy's autocephalous churches, part of one faith with many voices.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_eastern_orthodoxy",
+    "source.wcc_orthodox_churches",
+    "source.brit_schism_1054",
+    "source.brit_nicene_creed",
+    "source.brit_easter"
+  ],
+  "art": "rel.onion-dome"
+}

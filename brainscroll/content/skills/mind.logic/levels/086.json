@@ -1,0 +1,212 @@
+{
+  "id": "level.mind.logic.086",
+  "skillId": "skill.mind.logic",
+  "number": 86,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Weighing a Conspiracy Claim",
+  "objective": "After this level you can judge a conspiracy claim by whether it could be tested and how many people would have to keep the secret.",
+  "summary": "Some conspiracies are real, like Watergate. Judge a conspiracy claim by how many people must keep the secret, for how long, and whether it makes testable predictions or dodges evidence.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.sourcing_conspiracy_claims",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.unstated_premise",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.085"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "Some conspiracies are real. So how do you judge the next one?",
+      "body": "The Internet Encyclopedia of Philosophy calls Watergate the standard example of a conspiracy theory that uncovered a real conspiracy. So \"that's just a conspiracy theory\" is not an argument. Two fair questions do much better, and they work on any claim, from office gossip to history.",
+      "id": "card.logic.086.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Question one: how many would have to keep quiet?",
+      "body": "Philosophers who study these claims point to scale: the more people supposedly involved, and the longer the secret must hold, the less likely the claim. Part of this is pure logic. \"A and B are in on it\" can never be more likely than \"A is in on it.\" In 2016, David Robert Grimes modeled secret-keeping and found that very large conspiracies quickly become prone to failure.",
+      "id": "card.logic.086.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Question two: could it be tested?",
+      "body": "A strong theory makes predictions that come true. The philosopher Steve Clarke points to Watergate: the journalists' theory led them to successful predictions about how the people involved would behave. A weak theory works the other way. It makes no confirmed predictions, and each time evidence turns against it, its assumptions get adjusted to protect it.",
+      "id": "card.logic.086.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Missing evidence, fairly weighed",
+      "body": "Here's the tricky part. A real conspiracy hides its evidence, so a lack of evidence counts for little on its own. But the philosopher Brian Keeley argues that if diligent searches keep failing where similar searches in similar cases have succeeded, we may fairly trust the claim less. Neither sneer nor swallow: look, and let what you find count.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: two questions. How many would have to stay silent, and what would prove it wrong?"
+      },
+      "id": "card.logic.086.c4"
+    },
+    {
+      "id": "card.logic.086.c5",
+      "type": "mcq",
+      "questionId": "question.logic.086.q1"
+    },
+    {
+      "id": "card.logic.086.c6",
+      "type": "mcq",
+      "questionId": "question.logic.086.q2"
+    },
+    {
+      "id": "card.logic.086.c7",
+      "type": "mcq",
+      "questionId": "question.logic.086.q3"
+    },
+    {
+      "id": "card.logic.086.c8",
+      "type": "checkpoint",
+      "headline": "Conspiracies: weighed",
+      "learned": [
+        "Some conspiracies are real, like Watergate",
+        "More people, longer secret: less likely",
+        "Strong theories make predictions that come true",
+        "Weak ones adjust to dodge every piece of evidence"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.086.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.sourcing_conspiracy_claims"
+      ],
+      "sourceCardIds": [
+        "card.logic.086.c2"
+      ],
+      "prompt": "According to the scale test, what makes a conspiracy claim less likely?",
+      "options": [
+        {
+          "id": "a",
+          "label": "More people involved for a longer time",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A more famous group being accused",
+          "correct": false,
+          "rationale": "Fame of the accused isn't part of the scale test."
+        },
+        {
+          "id": "c",
+          "label": "More people discussing it online",
+          "correct": false,
+          "rationale": "Discussion isn't involvement in the plot."
+        },
+        {
+          "id": "d",
+          "label": "A shorter, simpler version of events",
+          "correct": false,
+          "rationale": "Fewer people and less time make it more likely, not less."
+        }
+      ],
+      "explanation": "The more people involved and the longer the secret must hold, the less likely a conspiracy is.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.086.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.sourcing_conspiracy_claims"
+      ],
+      "sourceCardIds": [
+        "card.logic.086.c3"
+      ],
+      "prompt": "Each time evidence against a theory appears, its fans adjust it, and none of its predictions ever comes true. What does that show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The theory is being tested and passing",
+          "correct": false,
+          "rationale": "Passing tests means predictions come true."
+        },
+        {
+          "id": "b",
+          "label": "The evidence against it must be fake",
+          "correct": false,
+          "rationale": "That's the adjustment move itself."
+        },
+        {
+          "id": "c",
+          "label": "It is being protected rather than tested",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It is probably a real conspiracy",
+          "correct": false,
+          "rationale": "Real ones, like Watergate, produced confirmed predictions."
+        }
+      ],
+      "explanation": "A theory that only adjusts to dodge evidence and never confirms a prediction is being protected, not tested.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.logic.086.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.sourcing_conspiracy_claims",
+        "concept.logic.unstated_premise"
+      ],
+      "sourceCardIds": [
+        "card.logic.086.c2",
+        "card.logic.007.c3"
+      ],
+      "prompt": "A claim says thousands of people kept a secret for decades. Using Level 7, which unstated premise must also be true?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The secret concerned something important",
+          "correct": false,
+          "rationale": "That doesn't help the conclusion follow."
+        },
+        {
+          "id": "b",
+          "label": "The people involved all knew each other",
+          "correct": false,
+          "rationale": "Not needed for the claim to work."
+        },
+        {
+          "id": "c",
+          "label": "Someone wrote the secret down",
+          "correct": false,
+          "rationale": "The claim doesn't depend on that."
+        },
+        {
+          "id": "d",
+          "label": "None of them ever talked",
+          "correct": true
+        }
+      ],
+      "explanation": "For the claim to hold, every one of thousands must have stayed silent for decades: the hidden premise the scale test questions.",
+      "difficulty": 0.45
+    }
+  ],
+  "sourceIds": [
+    "source.iep_conspiracy_theories",
+    "source.grimes_plosone_conspiracy_2016"
+  ],
+  "art": "mind.memory-cabinet"
+}

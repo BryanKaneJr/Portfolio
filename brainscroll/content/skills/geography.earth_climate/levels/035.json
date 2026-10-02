@@ -1,0 +1,218 @@
+{
+  "id": "level.geography.earth_climate.035",
+  "skillId": "skill.geography.earth_climate",
+  "number": 35,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "How Old Is the Earth?",
+  "objective": "After this level you can explain how meteorites and ancient zircon crystals pin Earth's age at about 4.5 billion years.",
+  "summary": "Earth's first rocks were recycled, but Jack Hills zircons survive from about 4.4 billion years ago. Meteorites and lead isotopes put Earth's age at about 4.54 billion years.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.deeptime_oldest_zircons",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.deeptime_earth_age_meteorites",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.quartz_sand",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.deeptime_uranium_lead_zircon",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.034"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.035.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Earth's birth certificate was found in rocks from space.",
+      "body": "Earth has recycled its oldest rocks, so no rock here reaches all the way back to the start. To find Earth's age, scientists had to look to meteorites."
+    },
+    {
+      "id": "card.earth_climate.035.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The missing first pages",
+      "body": "You might expect to date Earth's first rocks and be done. You can't: Earth's oldest rocks have been recycled and destroyed by plate tectonics (World Geography covered the plates). The oldest things left are tiny zircon crystals from the Jack Hills of Western Australia, about 4.4 billion years old, found inside much younger sedimentary rock. Zircon resists weathering and wear so well that it survives cycle after cycle of erosion and burial."
+    },
+    {
+      "id": "card.earth_climate.035.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Rocks from space",
+      "body": "Scientists assume Earth formed at the same time as the Solar System's other solid bodies. Meteorites, primitive fragments of asteroids, give the best ages for that moment. More than 70 of them have been dated with radioactive clocks, and they formed between 4.53 and 4.58 billion years ago."
+    },
+    {
+      "id": "card.earth_climate.035.c4",
+      "type": "fact",
+      "fact": "Earth is about 4.54 billion years old, with an uncertainty under 1%.",
+      "context": "The best figure comes from lead. Uranium decay slowly changes the mix of lead isotopes, so comparing lead in Earth's oldest lead ores with the nearly uranium-free lead in iron meteorites, such as Canyon Diablo, times the whole system."
+    },
+    {
+      "id": "card.earth_climate.035.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.035.q1"
+    },
+    {
+      "id": "card.earth_climate.035.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.035.q2"
+    },
+    {
+      "id": "card.earth_climate.035.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.035.q3"
+    },
+    {
+      "id": "card.earth_climate.035.c8",
+      "type": "checkpoint",
+      "headline": "Earth's age: found",
+      "learned": [
+        "Earth's first rocks were recycled by plate tectonics",
+        "Jack Hills zircons date to about 4.4 billion years",
+        "Meteorites formed 4.53 to 4.58 billion years ago",
+        "Earth is about 4.54 billion years old"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.035.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_oldest_zircons"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.035.c2"
+      ],
+      "prompt": "What is the oldest known material formed on Earth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Zircon crystals from Western Australia's Jack Hills",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The red sandstone layers at Siccar Point in Scotland",
+          "correct": false,
+          "rationale": "Those layers are far younger."
+        },
+        {
+          "id": "c",
+          "label": "An iron meteorite that crashed into Arizona",
+          "correct": false,
+          "rationale": "Meteorites formed in space, not on Earth."
+        },
+        {
+          "id": "d",
+          "label": "Moon rocks brought back by the Apollo astronauts",
+          "correct": false,
+          "rationale": "Those formed on the Moon."
+        }
+      ],
+      "explanation": "Jack Hills zircons crystallized about 4.4 billion years ago, the oldest known Earth material.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.035.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_earth_age_meteorites"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.035.c3"
+      ],
+      "prompt": "How do meteorites help scientists work out Earth's age?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They show how old the Moon's craters are",
+          "correct": false,
+          "rationale": "The method dates the meteorites themselves."
+        },
+        {
+          "id": "b",
+          "label": "They carry Earth's oldest surface rocks back to us",
+          "correct": false,
+          "rationale": "Meteorites come from asteroids, not from Earth."
+        },
+        {
+          "id": "c",
+          "label": "They are primitive leftovers that formed along with Earth",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "They fall at a steady rate, like a clock",
+          "correct": false,
+          "rationale": "Their radioactive atoms are the clock, not their falling."
+        }
+      ],
+      "explanation": "Earth and meteorites formed at the same time, and meteorites haven't been recycled the way Earth's first rocks were.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.035.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.deeptime_oldest_zircons",
+        "concept.earth_climate.quartz_sand"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.035.c2",
+        "card.earth_climate.004.c4"
+      ],
+      "prompt": "Jack Hills zircons outlasted cycle after cycle of erosion. Which common mineral survives the same way and makes up most beach sand?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Mica",
+          "correct": false,
+          "rationale": "Mica splits into thin sheets and breaks down."
+        },
+        {
+          "id": "b",
+          "label": "Feldspar",
+          "correct": false,
+          "rationale": "Feldspar is common in rock but weathers away more easily."
+        },
+        {
+          "id": "c",
+          "label": "Calcite",
+          "correct": false,
+          "rationale": "Calcite dissolves in slightly acidic water."
+        },
+        {
+          "id": "d",
+          "label": "Quartz",
+          "correct": true
+        }
+      ],
+      "explanation": "Like zircon, quartz resists weathering and wear, so it outlasts other minerals and dominates sand.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.usgs_age_of_earth",
+    "source.uw_jack_hills_zircon",
+    "source.geologycom_zircon"
+  ],
+  "art": "astronomy.asteroid"
+}

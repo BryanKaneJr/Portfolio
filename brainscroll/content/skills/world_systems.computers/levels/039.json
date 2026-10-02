@@ -1,0 +1,221 @@
+{
+  "id": "level.world_systems.computers.039",
+  "skillId": "skill.world_systems.computers",
+  "number": 39,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Last Mile",
+  "objective": "After this level you can compare how homes connect to the internet by cable, fiber, cell networks and low-orbit satellites.",
+  "summary": "The last mile reaches homes by DSL over phone lines, cable over TV coax, fiber, or radio; geostationary satellites hover far away while low-orbit ones need big constellations.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.net_last_mile_links",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.net_satellite_orbits",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.net_nat_translation",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.038"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.039.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Every home needs its own last mile.",
+      "body": "Your data's trip starts with one short link: the last mile, from your home or business to the local network provider. It can be built from very different stuff: old phone wire, TV cable, glass or radio."
+    },
+    {
+      "id": "card.computers.039.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Wires that were already there",
+      "body": "DSL, the digital subscriber line, sends data over the copper telephone line, and the line still works for calls at the same time. Cable internet uses the same coaxial cable that brings TV pictures and sound. Fiber to the home runs Level 37's glass right to the building, and fiber carries data much faster than DSL or cable."
+    },
+    {
+      "id": "card.computers.039.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Radio instead of wire",
+      "body": "Wireless links skip the cable altogether. Fixed wireless sends data from a local antenna to one on your home or business, much like DSL or cable but through the air. Mobile broadband reaches phones wherever they go. Satellites serve remote and thinly populated places."
+    },
+    {
+      "id": "card.computers.039.c4",
+      "type": "fact",
+      "fact": "A geostationary satellite orbits 35,786 km up, where one lap takes as long as one turn of the Earth.",
+      "context": "So it seems to hover over one spot, and three can cover the whole Earth. The catch is distance: data has to travel all the way up and back down, so users can notice more lag than with other kinds of internet link."
+    },
+    {
+      "id": "card.computers.039.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Closer, faster, and many more of them",
+      "body": "Low Earth orbit satellites fly below 2,000 km, so data's trip up and back is far shorter and the lag smaller. The trade-off: each one races across the sky and stays in view of a home only for a while. Keeping everyone covered takes a constellation of hundreds to thousands of satellites."
+    },
+    {
+      "id": "card.computers.039.c6",
+      "type": "mcq",
+      "questionId": "question.computers.039.q1"
+    },
+    {
+      "id": "card.computers.039.c7",
+      "type": "mcq",
+      "questionId": "question.computers.039.q2"
+    },
+    {
+      "id": "card.computers.039.c8",
+      "type": "mcq",
+      "questionId": "question.computers.039.q3"
+    },
+    {
+      "id": "card.computers.039.c9",
+      "type": "checkpoint",
+      "headline": "Last mile: connected",
+      "learned": [
+        "DSL uses phone lines; cable uses TV coax",
+        "Fiber to the home is the fastest wire",
+        "Geostationary satellites hover but add lag",
+        "Low-orbit satellites need big constellations"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.039.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.net_last_mile_links"
+      ],
+      "sourceCardIds": [
+        "card.computers.039.c2"
+      ],
+      "prompt": "Which last-mile link sends data over the copper telephone line already in a home?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cable",
+          "correct": false,
+          "rationale": "Cable uses the coaxial TV cable."
+        },
+        {
+          "id": "b",
+          "label": "DSL",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Fiber to the home",
+          "correct": false,
+          "rationale": "That runs new glass fiber to the building."
+        },
+        {
+          "id": "d",
+          "label": "Fixed wireless",
+          "correct": false,
+          "rationale": "That uses antennas, not wires."
+        }
+      ],
+      "explanation": "DSL, the digital subscriber line, carries data over the telephone line while it still handles calls.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.computers.039.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.net_satellite_orbits"
+      ],
+      "sourceCardIds": [
+        "card.computers.039.c5"
+      ],
+      "prompt": "How does a low-orbit satellite network keep a home connected when each satellite races across the sky?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It uses hundreds to thousands of satellites so another is always in view",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Each satellite slows down and waits above busy cities",
+          "correct": false,
+          "rationale": "Satellites cannot pause in orbit."
+        },
+        {
+          "id": "c",
+          "label": "It parks one satellite permanently above each home",
+          "correct": false,
+          "rationale": "Only far-off geostationary satellites seem to hover."
+        },
+        {
+          "id": "d",
+          "label": "Each dish follows a single satellite all the way around Earth",
+          "correct": false,
+          "rationale": "Each satellite is only in view for a while."
+        }
+      ],
+      "explanation": "Each low-orbit satellite is overhead only briefly, so a large constellation keeps one in view at all times.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.039.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.net_last_mile_links",
+        "concept.computers.net_nat_translation"
+      ],
+      "sourceCardIds": [
+        "card.computers.038.c3"
+      ],
+      "prompt": "Whatever last-mile link a home uses, its devices usually go online through one router. From Level 38, what address does the outside world see?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each device's own private address",
+          "correct": false,
+          "rationale": "Private addresses are swapped out at the router."
+        },
+        {
+          "id": "b",
+          "label": "The satellite's address",
+          "correct": false,
+          "rationale": "The router's address is what outsiders see."
+        },
+        {
+          "id": "c",
+          "label": "The router's single public address",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Each device's MAC address",
+          "correct": false,
+          "rationale": "MAC addresses never leave the local network."
+        }
+      ],
+      "explanation": "With NAT, the router swaps each device's private address for its own public address, so the world sees just that one.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.ntia_broadband_glossary",
+    "source.ncdit_broadband_technology_types",
+    "source.esa_types_of_orbits",
+    "source.crs_leo_satellites_broadband",
+    "source.ietf_rfc3022_nat"
+  ],
+  "art": "computers.fiber-strands"
+}

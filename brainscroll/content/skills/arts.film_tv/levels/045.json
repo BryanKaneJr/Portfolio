@@ -1,0 +1,215 @@
+{
+  "id": "level.arts.film_tv.045",
+  "skillId": "skill.arts.film_tv",
+  "number": 45,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Technicolor",
+  "objective": "After this level you can explain how three-strip Technicolor recorded color and why black and white stayed common into the 1960s.",
+  "summary": "Three-strip Technicolor split light into three black-and-white records and printed them in dye. Costly rented cameras kept most films black and white until the 1960s.",
+  "concepts": [
+    {
+      "conceptId": "concept.film_tv.studio_three_strip_technicolor",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.studio_black_and_white_lasts",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.film_tv.studio_sound_conversion",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.film_tv.044"
+  ],
+  "cards": [
+    {
+      "id": "card.film_tv.045.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The famous color camera held only black-and-white film.",
+      "body": "Three-strip Technicolor cameras recorded nothing but black-and-white images. Yet the prints came out in full color. How did that work, and why did so many films stay black and white for decades afterward?"
+    },
+    {
+      "id": "card.film_tv.045.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "One lens, three films",
+      "body": "Behind the lens sat a beam-splitting cube. It divided the incoming light three ways, one beam favoring red, one green and one blue, and each beam exposed its own strip of black-and-white film. Each strip was a record of one color. The process was perfected in 1932 and introduced in Disney's cartoon Flowers and Trees, then in the feature Becky Sharp in 1935."
+    },
+    {
+      "id": "card.film_tv.045.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Putting the color back",
+      "body": "The color went in at the lab. The three strips were developed and printed separately, each print passed through its matching dye, and the three were laid together into one print. Stack the red, green and blue records and you get a reasonably faithful copy of natural color, a bit like three stencils printing one poster."
+    },
+    {
+      "id": "card.film_tv.045.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why gray lasted",
+      "body": "Color was hard to get. Studios couldn't buy the heavy, costly cameras; Technicolor rented them out, with a color consultant from a team headed by Natalie Kalmus. In the early 1950s single-strip Eastmancolor negatives took over, and the three-strip camera was retired. Even so, color was less revolutionary than sound: silent film vanished quickly, but most features have been in color only since the 1960s."
+    },
+    {
+      "id": "card.film_tv.045.c5",
+      "type": "mcq",
+      "questionId": "question.film_tv.045.q1"
+    },
+    {
+      "id": "card.film_tv.045.c6",
+      "type": "mcq",
+      "questionId": "question.film_tv.045.q2"
+    },
+    {
+      "id": "card.film_tv.045.c7",
+      "type": "recall",
+      "questionId": "question.film_tv.045.q3"
+    },
+    {
+      "id": "card.film_tv.045.c8",
+      "type": "checkpoint",
+      "headline": "Technicolor: developed",
+      "learned": [
+        "A prism split light into red, green and blue records",
+        "Three black-and-white strips, dyed and combined in the lab",
+        "Rented, costly cameras kept most films black and white",
+        "Most features went color only in the 1960s"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.film_tv.045.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.film_tv.studio_three_strip_technicolor"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.045.c2"
+      ],
+      "prompt": "What kind of film ran through a three-strip Technicolor camera?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One color film that caught every color at once",
+          "correct": false,
+          "rationale": "That single-strip approach came later, with Eastmancolor."
+        },
+        {
+          "id": "b",
+          "label": "Film already tinted red, green and blue",
+          "correct": false,
+          "rationale": "The strips were plain black and white."
+        },
+        {
+          "id": "c",
+          "label": "Paper rolls, like early copyright prints",
+          "correct": false,
+          "rationale": "That's Level 10's paper prints, not a camera."
+        },
+        {
+          "id": "d",
+          "label": "Black-and-white film, one strip per color",
+          "correct": true
+        }
+      ],
+      "explanation": "A beam-splitter sent red, green and blue light to three separate black-and-white strips; the color came back in printing.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.film_tv.045.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.studio_black_and_white_lasts"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.045.c4"
+      ],
+      "prompt": "Why did black and white stay common long after Technicolor arrived?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Color meant renting costly cameras from one company",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Audiences refused to watch color films",
+          "correct": false,
+          "rationale": "Audiences had nothing against color; getting it was hard."
+        },
+        {
+          "id": "c",
+          "label": "The Production Code banned color",
+          "correct": false,
+          "rationale": "The code dealt with content, not color."
+        },
+        {
+          "id": "d",
+          "label": "Color couldn't be shown at 24 frames per second",
+          "correct": false,
+          "rationale": "Color films ran at the same speed."
+        }
+      ],
+      "explanation": "Studios couldn't buy Technicolor's heavy, costly cameras; they rented them, with a consultant, so black and white stayed the everyday choice.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.film_tv.045.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.film_tv.studio_sound_conversion",
+        "concept.film_tv.studio_black_and_white_lasts"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.041.c4",
+        "card.film_tv.045.c4"
+      ],
+      "prompt": "Hollywood switched to sound in under 15 months (Level 41). Why is color's arrival called less revolutionary than sound's?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Color took over even faster than sound",
+          "correct": false,
+          "rationale": "It was much slower: most features went color only in the 1960s."
+        },
+        {
+          "id": "b",
+          "label": "Silent film vanished, but black and white lived on",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Color films were banned until 1968",
+          "correct": false,
+          "rationale": "No ban; 1968 is when ratings replaced the Production Code."
+        },
+        {
+          "id": "d",
+          "label": "Color replaced black and white within a year",
+          "correct": false,
+          "rationale": "Black-and-white films are still made."
+        }
+      ],
+      "explanation": "Sound wiped out silent film almost at once, but black and white carried on for decades and is still chosen today.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_technicolor",
+    "source.brit_film_editing",
+    "source.eastman_technicolor_camera",
+    "source.filmatlas_three_color_technicolor"
+  ],
+  "art": "astronomy.prism"
+}

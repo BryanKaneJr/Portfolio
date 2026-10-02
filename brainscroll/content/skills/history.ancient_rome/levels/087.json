@@ -1,0 +1,208 @@
+{
+  "id": "level.history.ancient_rome.087",
+  "skillId": "skill.history.ancient_rome",
+  "number": 87,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Julian the Apostate",
+  "objective": "After this level you can describe Julian's attempt to restore the old religion.",
+  "summary": "Constantine’s nephew Julian tried to bring back the old gods in 361 CE. He died in Persia in 363, and his program died with him.",
+  "concepts": [
+    {
+      "conceptId": "concept.ancient_rome.julian",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.ancient_rome.constantine",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.ancient_rome.roman_religion",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.history.ancient_rome.086"
+  ],
+  "cards": [
+    {
+      "id": "card.ancient_rome.087.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One emperor tried to turn the clock back to the old gods.",
+      "body": "Half a century after the Milvian Bridge, Constantine’s own nephew set out to undo his uncle’s work."
+    },
+    {
+      "id": "card.ancient_rome.087.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The last pagan emperor",
+      "body": "Julian, Constantine’s nephew, became sole emperor in 361 CE. His uncle had backed Christianity; Julian rejected it, and tried to restore worship of the traditional gods. He was the last Roman emperor to follow the old gods. The old religion got one more emperor on its side, and then no more."
+    },
+    {
+      "id": "card.ancient_rome.087.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "A short reign",
+      "body": "Christians gave him the name he’s still known by: Julian the Apostate. An apostate is someone who abandons their faith. His revival never got time to take root. He was killed on campaign against Persia in 363 CE, about two years after becoming sole emperor, and his religious program died with him.",
+      "callout": "Apostate: someone who abandons their faith"
+    },
+    {
+      "id": "card.ancient_rome.087.c4",
+      "type": "fact",
+      "fact": "Julian banned Christians from teaching classical literature.",
+      "context": "Picture a school where the old poets and philosophers are on the syllabus, but Christian teachers aren’t allowed to teach them. That was Julian’s rule for classical literature."
+    },
+    {
+      "id": "card.ancient_rome.087.c5",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.087.q1"
+    },
+    {
+      "id": "card.ancient_rome.087.c6",
+      "type": "mcq",
+      "questionId": "question.ancient_rome.087.q2"
+    },
+    {
+      "id": "card.ancient_rome.087.c7",
+      "type": "recall",
+      "questionId": "question.ancient_rome.087.q3"
+    },
+    {
+      "id": "card.ancient_rome.087.c8",
+      "type": "checkpoint",
+      "headline": "Julian: remembered",
+      "learned": [
+        "Julian became sole emperor in 361 CE",
+        "He tried to restore the old gods",
+        "Christians called him the Apostate",
+        "He died in Persia in 363 CE"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.ancient_rome.087.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.ancient_rome.julian"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.087.c2"
+      ],
+      "prompt": "What did Julian try to restore?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Tetrarchy",
+          "correct": false,
+          "rationale": "His aim was religious."
+        },
+        {
+          "id": "b",
+          "label": "The Republic",
+          "correct": false,
+          "rationale": "His aim was religious."
+        },
+        {
+          "id": "c",
+          "label": "Worship of the traditional gods",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Rome as the only capital",
+          "correct": false,
+          "rationale": "His aim was religious."
+        }
+      ],
+      "explanation": "Julian rejected Christianity and tried to restore the traditional gods.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.ancient_rome.087.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.ancient_rome.julian"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.087.c3"
+      ],
+      "prompt": "Why did Julian’s program fail to last?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He died after a very short reign",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Senate voted it down",
+          "correct": false,
+          "rationale": "He died in Persia."
+        },
+        {
+          "id": "c",
+          "label": "He changed his mind in 362",
+          "correct": false,
+          "rationale": "He died in Persia."
+        },
+        {
+          "id": "d",
+          "label": "Persia conquered Rome",
+          "correct": false,
+          "rationale": "Persia didn’t conquer Rome."
+        }
+      ],
+      "explanation": "Julian was killed in Persia in 363 CE, and his successors did not continue his program.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.ancient_rome.087.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.ancient_rome.julian",
+        "concept.ancient_rome.roman_religion"
+      ],
+      "sourceCardIds": [
+        "card.ancient_rome.087.c2",
+        "card.ancient_rome.007.c3"
+      ],
+      "prompt": "From Level 7: Julian hoped to revive the old gods, so who was the king of the gods in Rome’s greatest temple?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Vesta",
+          "correct": false,
+          "rationale": "She was the hearth goddess whose fire the Vestals tended."
+        },
+        {
+          "id": "b",
+          "label": "Jupiter",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Mars",
+          "correct": false,
+          "rationale": "In legend he was the father of Romulus and Remus."
+        }
+      ],
+      "explanation": "Rome’s greatest temple, on the Capitoline, was dedicated to Jupiter, king of the gods, one of the gods Julian tried to restore.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.brit_julian",
+    "source.brit_constantine",
+    "source.brit_edict_milan"
+  ],
+  "art": "rome.altar-flame"
+}

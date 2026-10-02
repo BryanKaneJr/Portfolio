@@ -1,0 +1,229 @@
+{
+  "id": "level.mind.probability.099",
+  "skillId": "skill.mind.probability",
+  "number": 99,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Your Checklist for Any Statistic",
+  "objective": "After this level you can run any number in the news through a short set of questions: of what, compared to what, from whom, and how sure.",
+  "summary": "Run any number through four questions: of what (definitions and real counts), compared to what (no cherry-picking), from whom (source and motives), and how sure (size and uncertainty).",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.news_statistic_checklist",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.out_of_what",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.percent_change_base",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.098"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.099.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A shocking number is going viral. Four questions tell you whether to care.",
+      "body": "Before you share it, run it through a short checklist. The Royal Statistical Society's guide to statistics on social media lists ten things to check; they boil down to four questions."
+    },
+    {
+      "id": "card.probability.099.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Of what?",
+      "body": "What exactly is being counted, and how is it defined? Then look for the actual numbers behind any percent. The guide warns that percentage changes can overstate an effect: a 200% rise can mean 1 case becoming 3. Chapter 1's first question, \"out of what?\", is still the first question.",
+      "mascot": {
+        "pose": "idea",
+        "line": "If you remember one thing from this chapter, make it these four: of what, compared to what, from whom, how sure?"
+      }
+    },
+    {
+      "id": "card.probability.099.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Compared to what?",
+      "body": "A number alone means little. Is it high compared with last year, with other places, with what you'd expect? Watch for cherry-picking: quoting the figures that help while leaving out others that tell a different tale, or picking a convenient time period."
+    },
+    {
+      "id": "card.probability.099.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "From whom?",
+      "body": "Who produced the number, who paid for it and who is promoting it? Companies tend to publicize results that reflect well on them. That doesn't make a figure false, but it's a reason to check it elsewhere. No source at all? Be skeptical."
+    },
+    {
+      "id": "card.probability.099.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "How sure?",
+      "body": "How many people or cases is it based on, how were they chosen, and how uncertain is it? A poll of 2,000 people beats one of 200. A single confident number with no range hides how shaky it might be."
+    },
+    {
+      "id": "card.probability.099.c6",
+      "type": "mcq",
+      "questionId": "question.probability.099.q1"
+    },
+    {
+      "id": "card.probability.099.c7",
+      "type": "mcq",
+      "questionId": "question.probability.099.q2"
+    },
+    {
+      "id": "card.probability.099.c8",
+      "type": "recall",
+      "questionId": "question.probability.099.q3"
+    },
+    {
+      "id": "card.probability.099.c9",
+      "type": "checkpoint",
+      "headline": "Checklist: ready",
+      "learned": [
+        "Of what: definitions and real counts",
+        "Compared to what: watch for cherry-picking",
+        "From whom: source and motives",
+        "How sure: size and uncertainty"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.099.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.news_statistic_checklist"
+      ],
+      "sourceCardIds": [
+        "card.probability.099.c2",
+        "card.probability.099.c3",
+        "card.probability.099.c4",
+        "card.probability.099.c5"
+      ],
+      "prompt": "Which four questions make up this level's checklist for any statistic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Who, what, where and when?",
+          "correct": false,
+          "rationale": "Close, but the checklist asks about counts, comparisons, sources and certainty."
+        },
+        {
+          "id": "b",
+          "label": "Is it big, new, popular and shared?",
+          "correct": false,
+          "rationale": "Popularity says nothing about accuracy."
+        },
+        {
+          "id": "c",
+          "label": "Of what, compared to what, from whom, how sure?",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Is it round, recent, rising and viral?",
+          "correct": false,
+          "rationale": "None of these tests whether a number holds up."
+        }
+      ],
+      "explanation": "Of what (counts and definitions), compared to what (context), from whom (source), how sure (size and uncertainty).",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.099.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.news_statistic_checklist"
+      ],
+      "sourceCardIds": [
+        "card.probability.099.c4",
+        "card.probability.099.c5"
+      ],
+      "prompt": "A juice company's press release says its drink \"boosts focus\", citing a study it paid for with 20 volunteers. Which two questions raise the loudest alarms?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Of what, and compared to what",
+          "correct": false,
+          "rationale": "Worth asking, but the funding and the tiny sample stand out."
+        },
+        {
+          "id": "b",
+          "label": "From whom, and how sure",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only compared to what",
+          "correct": false,
+          "rationale": "The source and the size are the bigger worries here."
+        },
+        {
+          "id": "d",
+          "label": "None: a study is a study",
+          "correct": false,
+          "rationale": "Who paid and how many took part both matter."
+        }
+      ],
+      "explanation": "The company paid for it (from whom?) and it rests on just 20 people (how sure?).",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.099.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.news_statistic_checklist",
+        "concept.probability.out_of_what"
+      ],
+      "sourceCardIds": [
+        "card.probability.099.c2",
+        "card.probability.010.c2"
+      ],
+      "prompt": "A post says bike thefts are \"up 200%\" in your town. Which follow-up from Chapter 1 comes first?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Is a 200% rise more than double?",
+          "correct": false,
+          "rationale": "It's triple, but that doesn't tell you how many thefts."
+        },
+        {
+          "id": "b",
+          "label": "Was the post shared by lots of people?",
+          "correct": false,
+          "rationale": "Popularity isn't evidence."
+        },
+        {
+          "id": "c",
+          "label": "Is 200 a suspiciously round number?",
+          "correct": false,
+          "rationale": "Roundness says nothing about the base."
+        },
+        {
+          "id": "d",
+          "label": "Out of what: 200% of how many thefts?",
+          "correct": true
+        }
+      ],
+      "explanation": "Every share hides an \"out of what\". A 200% rise can mean 1 theft becoming 3.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.rss_statistics_social_media_2024",
+    "source.journalistsresource_poll_questions",
+    "source.openstax_prealgebra_understand_percent"
+  ],
+  "art": "mind.clipboard"
+}

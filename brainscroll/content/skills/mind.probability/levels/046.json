@@ -1,0 +1,212 @@
+{
+  "id": "level.mind.probability.046",
+  "skillId": "skill.mind.probability",
+  "number": 46,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Two Ways a Test Can Be Right",
+  "objective": "After this level you can explain a test's sensitivity (catching true cases) and specificity (clearing healthy people) in plain words.",
+  "summary": "Sensitivity is how many people with a condition a test catches; specificity is how many without it the test clears. Moving the cutoff trades one against the other.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.risk_sensitivity_specificity",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.percent_per_hundred",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.045"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.046.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A smoke alarm can fail in two ways.",
+      "body": "It can stay silent during a real fire, or shriek at burned toast. Medical tests can go wrong in the same two ways, and each has its own number. Learn both and you'll read any test result more wisely."
+    },
+    {
+      "id": "card.probability.046.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four ways a test result can land",
+      "body": "Cross what the test says (positive or negative) with the truth (has it or doesn't) and you get four boxes. True positive: sick, and flagged. True negative: healthy, and cleared. False negative: sick but missed, the silent alarm. False positive: healthy but flagged, the burned toast."
+    },
+    {
+      "id": "card.probability.046.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Sensitivity catches, specificity clears",
+      "body": "Sensitivity is about people who have the condition: a test with 90% sensitivity catches 90 of every 100 of them and misses 10. Specificity is about people who don't: a test with 90% specificity correctly clears 90 of every 100 healthy people and gives the other 10 a false alarm.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "People mix these two up. Sensitivity is about the people who have it; specificity is about the people who don't."
+      }
+    },
+    {
+      "id": "card.probability.046.c4",
+      "type": "fact",
+      "fact": "You usually can't max out both.",
+      "context": "Many tests give a reading, and someone picks the cutoff for calling it positive. Lower the cutoff and you catch more true cases, but more healthy people get flagged too: sensitivity rises, specificity falls. A touchier smoke alarm misses fewer fires and ruins more toast."
+    },
+    {
+      "id": "card.probability.046.c5",
+      "type": "mcq",
+      "questionId": "question.probability.046.q1"
+    },
+    {
+      "id": "card.probability.046.c6",
+      "type": "mcq",
+      "questionId": "question.probability.046.q2"
+    },
+    {
+      "id": "card.probability.046.c7",
+      "type": "mcq",
+      "questionId": "question.probability.046.q3"
+    },
+    {
+      "id": "card.probability.046.c8",
+      "type": "checkpoint",
+      "headline": "Test accuracy: two numbers",
+      "learned": [
+        "Four outcomes: true or false, positive or negative",
+        "Sensitivity: catches people who have it",
+        "Specificity: clears people who don't",
+        "Moving the cutoff trades one for the other"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.046.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.risk_sensitivity_specificity"
+      ],
+      "sourceCardIds": [
+        "card.probability.046.c3"
+      ],
+      "prompt": "A test has 90% sensitivity. What does that mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It clears 90 of every 100 people who are healthy",
+          "correct": false,
+          "rationale": "That is specificity."
+        },
+        {
+          "id": "b",
+          "label": "90 of every 100 positive results are real",
+          "correct": false,
+          "rationale": "That also depends on how common the condition is."
+        },
+        {
+          "id": "c",
+          "label": "It catches 90 of every 100 people who have the condition",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It gives a result for 90 of every 100 people tested",
+          "correct": false,
+          "rationale": "Sensitivity is about catching true cases."
+        }
+      ],
+      "explanation": "Sensitivity is about people who have the condition: 90% sensitivity catches 90 of every 100 and misses 10.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.046.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.risk_sensitivity_specificity"
+      ],
+      "sourceCardIds": [
+        "card.probability.046.c4"
+      ],
+      "prompt": "Why does lowering a test's cutoff lead to more false positives?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The test stops detecting people who are sick",
+          "correct": false,
+          "rationale": "A lower cutoff catches more sick people, not fewer."
+        },
+        {
+          "id": "b",
+          "label": "Fewer people agree to take the test",
+          "correct": false,
+          "rationale": "The cutoff doesn't change who takes the test."
+        },
+        {
+          "id": "c",
+          "label": "The lab must run every test twice",
+          "correct": false,
+          "rationale": "Nothing about the cutoff requires repeat runs."
+        },
+        {
+          "id": "d",
+          "label": "More healthy people cross the line and get flagged",
+          "correct": true
+        }
+      ],
+      "explanation": "A lower cutoff catches more true cases, but more healthy readings cross it too: sensitivity up, specificity down.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.probability.046.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.percent_per_hundred",
+        "concept.probability.risk_sensitivity_specificity"
+      ],
+      "sourceCardIds": [
+        "card.probability.002.c2",
+        "card.probability.046.c3"
+      ],
+      "prompt": "Percent means \"out of every 100\" (Level 2). If a test with 90% specificity checks 1,000 healthy people, about how many false alarms will it give?",
+      "options": [
+        {
+          "id": "a",
+          "label": "10",
+          "correct": false,
+          "rationale": "10 is the false alarms per 100; there are 1,000 people."
+        },
+        {
+          "id": "b",
+          "label": "90",
+          "correct": false,
+          "rationale": "90 per 100 are cleared, not flagged."
+        },
+        {
+          "id": "c",
+          "label": "100",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "900",
+          "correct": false,
+          "rationale": "900 are correctly cleared."
+        }
+      ],
+      "explanation": "90% specificity clears 90 of every 100, so 10 of every 100 get a false alarm: 100 of 1,000.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.aphl_sensitivity_specificity",
+    "source.acutecaretesting_roc_curves",
+    "source.wmj_calder_statistical_thinking_3_2024"
+  ],
+  "art": "mind.test-kit"
+}

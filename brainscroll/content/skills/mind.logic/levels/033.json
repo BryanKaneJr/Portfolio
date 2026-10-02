@@ -1,0 +1,213 @@
+{
+  "id": "level.mind.logic.033",
+  "skillId": "skill.mind.logic",
+  "number": 33,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Not Found Isn't Disproved",
+  "objective": "After this level you can explain when a lack of evidence counts against a claim and when it proves nothing.",
+  "summary": "Taking 'not proved' as 'false' (or 'not disproved' as 'true') is the appeal to ignorance, named by Locke. Absence counts only after a thorough search that would have found the evidence.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.evidence_appeal_to_ignorance",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.chained_arguments",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.032"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"Nobody has shown my lucky charm doesn't work.\" So it works?",
+      "body": "It sounds almost fair: no one has proved it wrong. But turn it around. Nobody has proved it works, either. If \"not disproved\" meant true, the charm would work and not work at the same time. Something is off, and it has a name.",
+      "id": "card.logic.033.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "The appeal to ignorance",
+      "body": "Treating a lack of evidence as proof is the appeal to ignorance, also called the argument from ignorance. It comes in two forms: not knowing a claim is true is taken to prove it false, or not knowing it's false is taken to prove it true. Its Latin name, argumentum ad ignorantiam, comes from John Locke's Essay Concerning Human Understanding of 1690.",
+      "id": "card.logic.033.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "When absence does count",
+      "body": "Sometimes not finding something is good evidence it isn't there. The Internet Encyclopedia of Philosophy sets two conditions: the search was thorough, and if the thing existed, there would be evidence to find. So ask two questions. Did anyone really look? And if it were there, would they have found it? Two yeses turn \"no evidence\" into evidence of absence.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "People mix these up: \"no evidence\" after no search, and \"no evidence\" after a good one. Only the second one counts."
+      },
+      "id": "card.logic.033.c3"
+    },
+    {
+      "type": "text",
+      "role": "connect",
+      "headline": "Back in Level 9's kitchen",
+      "body": "Remember the lost keys? \"I searched the kitchen and didn't find the keys, so they're not in the kitchen.\" That's an argument from absence, and it's only as good as the search. A glance at a cluttered counter proves little. Emptying every drawer proves a lot. Same words, very different evidence.",
+      "id": "card.logic.033.c4"
+    },
+    {
+      "id": "card.logic.033.c5",
+      "type": "mcq",
+      "questionId": "question.logic.033.q1"
+    },
+    {
+      "id": "card.logic.033.c6",
+      "type": "mcq",
+      "questionId": "question.logic.033.q2"
+    },
+    {
+      "id": "card.logic.033.c7",
+      "type": "mcq",
+      "questionId": "question.logic.033.q3"
+    },
+    {
+      "id": "card.logic.033.c8",
+      "type": "checkpoint",
+      "headline": "Absence of evidence: weighed",
+      "learned": [
+        "\"Not proved\" doesn't mean \"false\", or the reverse",
+        "Locke named it: argumentum ad ignorantiam",
+        "Absence counts after a thorough search",
+        "Ask: if it were there, would we have found it?"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.033.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.evidence_appeal_to_ignorance"
+      ],
+      "sourceCardIds": [
+        "card.logic.033.c2"
+      ],
+      "prompt": "Which of these is an appeal to ignorance?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nobody has disproved that my lucky charm works, so it works",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "I searched the whole fridge and found no milk, so we're out",
+          "correct": false,
+          "rationale": "A thorough search that would have found milk makes this fair."
+        },
+        {
+          "id": "c",
+          "label": "There's smoke in the kitchen, so something is burning",
+          "correct": false,
+          "rationale": "That reasons from evidence, not from a lack of it."
+        },
+        {
+          "id": "d",
+          "label": "The bus is faster, so we should take it",
+          "correct": false,
+          "rationale": "That rests on a hidden value, not on missing evidence."
+        }
+      ],
+      "explanation": "It treats \"not known to be false\" as proof of \"true\", one of the two forms of the appeal to ignorance.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.logic.033.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.evidence_appeal_to_ignorance"
+      ],
+      "sourceCardIds": [
+        "card.logic.033.c3"
+      ],
+      "prompt": "How can a lack of evidence properly count against a claim?",
+      "options": [
+        {
+          "id": "a",
+          "label": "When most people already doubt the claim",
+          "correct": false,
+          "rationale": "Popular doubt isn't one of the conditions."
+        },
+        {
+          "id": "b",
+          "label": "When nobody has looked for evidence yet",
+          "correct": false,
+          "rationale": "With no search, absence proves nothing."
+        },
+        {
+          "id": "c",
+          "label": "It never can: missing evidence proves nothing",
+          "correct": false,
+          "rationale": "Too strong; after a thorough search it can count."
+        },
+        {
+          "id": "d",
+          "label": "After a thorough search that would have found it",
+          "correct": true
+        }
+      ],
+      "explanation": "Absence counts when the search was thorough and the thing, if it existed, would have left evidence to find.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.logic.033.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.evidence_appeal_to_ignorance",
+        "concept.logic.chained_arguments"
+      ],
+      "sourceCardIds": [
+        "card.logic.033.c4",
+        "card.logic.009.c1"
+      ],
+      "prompt": "In Level 9's lost-keys chain, what makes \"the keys aren't in the kitchen\" a strong step?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The bedroom being the only other place",
+          "correct": false,
+          "rationale": "That's the premise of the next step, not this one."
+        },
+        {
+          "id": "b",
+          "label": "A search thorough enough to have found them",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The word \"so\" in the sentence",
+          "correct": false,
+          "rationale": "A signpost marks a conclusion; it doesn't make it strong."
+        },
+        {
+          "id": "d",
+          "label": "Nobody having proved the keys are there",
+          "correct": false,
+          "rationale": "That alone would be an appeal to ignorance."
+        }
+      ],
+      "explanation": "It's an argument from absence, so it's only as good as the search: a thorough one that would have found the keys.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.iep_fallacies",
+    "source.sep_fallacies",
+    "source.iep_argument"
+  ],
+  "art": "object.magnifier"
+}

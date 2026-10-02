@@ -1,0 +1,215 @@
+{
+  "id": "level.geography.earth_climate.064",
+  "skillId": "skill.geography.earth_climate",
+  "number": 64,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Supercells: Storms That Rotate",
+  "objective": "After this level you can explain how changing winds with height set a supercell spinning and why it spawns the strongest tornadoes.",
+  "summary": "Wind shear sets air rolling sideways; a strong updraft tips that spin upright into a rotating updraft, a mesocyclone. Supercells last hours and make the biggest hail and nearly all violent tornadoes.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.storm_supercell",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.storm_wind_shear_spin",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.mineral_definition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.063"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.064.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The biggest hailstone ever measured in the US fell from one rotating storm.",
+      "body": "On July 23, 2010, a supercell over Vivian, South Dakota, dropped a stone of ice 8 inches across, weighing almost 2 pounds. What makes these storms so powerful?"
+    },
+    {
+      "id": "card.earth_climate.064.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Wind that changes with height",
+      "body": "A supercell needs wind shear: winds that change speed or direction as you go up. Picture the wind near the ground blowing from the southeast, while the wind higher up blows from the southwest, and faster. That difference sets the air in between rolling sideways, like a football spinning on its side."
+    },
+    {
+      "id": "card.earth_climate.064.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Tipping the spin upright",
+      "body": "When a strong updraft draws in that rolling air, the updraft itself starts to rotate. A deep, persistent rotating updraft is called a mesocyclone, and it's what makes a supercell a supercell. The shear also tilts the storm, keeping its updraft apart from its downdraft. So the storm doesn't choke on its own rain the way Level 61's ordinary cell did, and it can last for several hours."
+    },
+    {
+      "id": "card.earth_climate.064.c4",
+      "type": "fact",
+      "fact": "Virtually all of the most violent tornadoes come from supercells.",
+      "context": "So do the vast majority of significant ones. Even so, scientists are still studying exactly how a tornado forms inside one."
+    },
+    {
+      "id": "card.earth_climate.064.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.064.q1"
+    },
+    {
+      "id": "card.earth_climate.064.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.064.q2"
+    },
+    {
+      "id": "card.earth_climate.064.c7",
+      "type": "mcq",
+      "questionId": "question.earth_climate.064.q3"
+    },
+    {
+      "id": "card.earth_climate.064.c8",
+      "type": "checkpoint",
+      "headline": "Supercells: spinning",
+      "learned": [
+        "Wind shear sets the air rolling",
+        "The updraft tips the spin upright",
+        "A mesocyclone makes a supercell",
+        "Supercells make the worst hail and tornadoes"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.064.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.storm_supercell"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.064.c3"
+      ],
+      "prompt": "What makes a supercell different from every other kind of thunderstorm?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It always produces a tornado",
+          "correct": false,
+          "rationale": "Supercells make most violent tornadoes, but not every supercell does."
+        },
+        {
+          "id": "b",
+          "label": "It has no downdraft at all",
+          "correct": false,
+          "rationale": "It has one; shear just keeps it apart from the updraft."
+        },
+        {
+          "id": "c",
+          "label": "A deep, persistent rotating updraft called a mesocyclone",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It forms only over the ocean",
+          "correct": false,
+          "rationale": "Supercells are famous over land, like the one at Vivian."
+        }
+      ],
+      "explanation": "A supercell is defined by its mesocyclone, a deep and persistent rotating updraft.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.earth_climate.064.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.storm_wind_shear_spin",
+        "concept.earth_climate.storm_supercell"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.064.c2",
+        "card.earth_climate.064.c3"
+      ],
+      "prompt": "How does wind shear set a supercell's updraft spinning?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It sets air rolling sideways, and the updraft draws that spin in and rotates",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Earth's spin twists each thunderstorm as it grows",
+          "correct": false,
+          "rationale": "The spin here comes from winds changing with height."
+        },
+        {
+          "id": "c",
+          "label": "Falling hail stirs the updraft into a spin",
+          "correct": false,
+          "rationale": "The spin comes from the wind shear, not the hail."
+        },
+        {
+          "id": "d",
+          "label": "Lightning bolts push the cloud around in circles",
+          "correct": false,
+          "rationale": "Lightning does not rotate storms."
+        }
+      ],
+      "explanation": "Winds that change with height make horizontal spin; the updraft pulls it in and starts to rotate.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.064.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.storm_supercell",
+        "concept.earth_climate.mineral_definition"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.064.c1",
+        "card.earth_climate.002.c2"
+      ],
+      "prompt": "The Vivian hailstone was solid ice. By Level 2's mineral checklist, is it a mineral?",
+      "options": [
+        {
+          "id": "a",
+          "label": "No: minerals must come from underground",
+          "correct": false,
+          "rationale": "The checklist asks for a natural solid, not an underground one."
+        },
+        {
+          "id": "b",
+          "label": "No: anything that can melt is ruled out",
+          "correct": false,
+          "rationale": "Ice melts, and it still qualifies."
+        },
+        {
+          "id": "c",
+          "label": "Only once it is cut and polished",
+          "correct": false,
+          "rationale": "Cutting has nothing to do with the checklist."
+        },
+        {
+          "id": "d",
+          "label": "Yes: ice is a natural solid with a set recipe and ordered atoms",
+          "correct": true
+        }
+      ],
+      "explanation": "Level 2: ice, the solid form of water, passes every test on the mineral checklist; the liquid rain in the same storm does not.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nws_vivian_hailstone",
+    "source.psu_markowski_tornadoes",
+    "source.nws_amarillo_supercell"
+  ],
+  "art": "earth.thunderhead"
+}

@@ -1,0 +1,224 @@
+{
+  "id": "level.mind.probability.018",
+  "skillId": "skill.mind.probability",
+  "number": 18,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Bell Curve",
+  "objective": "After this level you can describe the bell curve, where most values bunch near the middle, and name everyday measurements that follow it.",
+  "summary": "In a bell curve most values bunch near the middle and thin out evenly on both sides. About 68% sit within one standard deviation of the mean, about 95% within two.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.spread_bell_curve",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.spread_standard_deviation",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.averages_mean_median_skew",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.017"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.018.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Line up 5,738 soldiers' chest sizes and a bell appears.",
+      "body": "In 1846 the Belgian scholar Adolphe Quetelet did roughly that with old army records. The shape he showed off turns up again and again in measurements of people, and it has a name: the bell curve."
+    },
+    {
+      "id": "card.probability.018.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Most in the middle, fewer at the edges",
+      "body": "The records came from Scottish militiamen. The most common chest sizes were 39 and 40 inches, with more than 1,000 men each. Step away from the middle in either direction and the counts shrink steadily, down to a handful at 33 and 48 inches. Draw it as a bar chart and you get a hump in the middle with tails on both sides: a bell."
+    },
+    {
+      "id": "card.probability.018.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The shape of the bell",
+      "body": "A bell curve is symmetrical: its left half mirrors its right. So the mean, median and mode all land together, right in the middle. Heights within one sex come close to this shape, and so do most IQ scores. But not everything is bell-shaped. Level 13's incomes have a long tail on one side, which is exactly why their mean and median split apart."
+    },
+    {
+      "id": "card.probability.018.c4",
+      "type": "fact",
+      "fact": "About 68% of values fall within one standard deviation of the mean.",
+      "context": "About 95% fall within two, and about 99.7% within three. In a textbook example, boys aged 15 to 18 in Chile in 2009 to 2010 averaged 170 cm, with a standard deviation of about 6 cm. So roughly two-thirds were between about 164 and 176 cm. On a bell curve, the standard deviation tells you how unusual a value is.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Don't memorize 99.7. Keep 68 and 95: about two-thirds within one step, nearly all within two."
+      }
+    },
+    {
+      "id": "card.probability.018.c5",
+      "type": "mcq",
+      "questionId": "question.probability.018.q1"
+    },
+    {
+      "id": "card.probability.018.c6",
+      "type": "mcq",
+      "questionId": "question.probability.018.q2"
+    },
+    {
+      "id": "card.probability.018.c7",
+      "type": "recall",
+      "questionId": "question.probability.018.q3"
+    },
+    {
+      "id": "card.probability.018.c8",
+      "type": "checkpoint",
+      "headline": "The bell curve",
+      "learned": [
+        "Most values near the middle",
+        "Symmetrical: mean, median, mode together",
+        "About 68% within one SD, 95% within two",
+        "Quetelet, 1846: 5,738 chests"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.018.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.spread_bell_curve"
+      ],
+      "sourceCardIds": [
+        "card.probability.018.c2",
+        "card.probability.018.c3"
+      ],
+      "prompt": "On a bell curve, where do most of the values sit?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Bunched at the low end, with a long tail to the right",
+          "correct": false,
+          "rationale": "That is a skewed shape, like income."
+        },
+        {
+          "id": "b",
+          "label": "Near the middle, with fewer toward both edges",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Spread evenly across the whole range",
+          "correct": false,
+          "rationale": "A bell has a hump in the middle, not a flat top."
+        },
+        {
+          "id": "d",
+          "label": "Mostly out at the two ends",
+          "correct": false,
+          "rationale": "The ends are the thin tails."
+        }
+      ],
+      "explanation": "Like Quetelet's chest sizes, most values bunch near the middle and thin out evenly on both sides.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.018.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.spread_bell_curve",
+        "concept.probability.spread_standard_deviation"
+      ],
+      "sourceCardIds": [
+        "card.probability.018.c4"
+      ],
+      "prompt": "In a bell curve, about what share of values lie within one standard deviation of the mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "About 50%",
+          "correct": false,
+          "rationale": "It is more: about 68%."
+        },
+        {
+          "id": "b",
+          "label": "About 95%",
+          "correct": false,
+          "rationale": "That is within two standard deviations."
+        },
+        {
+          "id": "c",
+          "label": "About 68%",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "All of them",
+          "correct": false,
+          "rationale": "Some values lie further out."
+        }
+      ],
+      "explanation": "About 68%, roughly two-thirds, lie within one standard deviation; about 95% within two.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.probability.018.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.spread_bell_curve",
+        "concept.probability.averages_mean_median_skew"
+      ],
+      "sourceCardIds": [
+        "card.probability.018.c3",
+        "card.probability.013.c3"
+      ],
+      "prompt": "Why isn't household income, from Level 13, shaped like a bell?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Incomes are all exactly the same",
+          "correct": false,
+          "rationale": "Incomes vary a lot."
+        },
+        {
+          "id": "b",
+          "label": "Its long tail of high incomes makes it lopsided",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Income has no mean",
+          "correct": false,
+          "rationale": "It has one: $121,000 in 2024."
+        },
+        {
+          "id": "d",
+          "label": "It is a bell, so its mean and median match",
+          "correct": false,
+          "rationale": "They do not: the mean is far above the median."
+        }
+      ],
+      "explanation": "A bell is symmetrical, but income has a long tail of high earners, which pulls the mean above the median.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.histdata_quetelet_chests",
+    "source.abs_central_tendency",
+    "source.openstax_intro_stats_skewness",
+    "source.openstax_intro_stats_normal",
+    "source.openstax_intro_stats_normal_intro",
+    "source.abs_measures_of_spread",
+    "source.openstax_intro_stats_spread",
+    "source.openstax_data_science_variation"
+  ],
+  "art": "mind.bar-chart"
+}

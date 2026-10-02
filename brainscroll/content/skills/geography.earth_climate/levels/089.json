@@ -1,0 +1,225 @@
+{
+  "id": "level.geography.earth_climate.089",
+  "skillId": "skill.geography.earth_climate",
+  "number": 89,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Extreme Weather and Attribution",
+  "objective": "After this level you can explain how warming shifts the odds of heat waves and downpours and how scientists test a single event.",
+  "summary": "Warming has made heatwaves and downpours more frequent and intense. Attribution studies compare today's climate with one without human influence; tornado links remain uncertain.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.warming_extremes_shift",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.warming_event_attribution",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.warming_water_vapor_feedback",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.spheres_interact",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.088"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.089.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Scientists don't ask if warming caused a storm. They ask a sharper question.",
+      "body": "How much more likely, or how much stronger, did warming make it? That question has answers, and for some kinds of weather the answer is very clear."
+    },
+    {
+      "id": "card.earth_climate.089.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Loaded dice",
+      "body": "The IPCC finds it virtually certain that heatwaves and other hot extremes have become more frequent and more intense over most land since the 1950s, with human-caused warming the main driver. Heavy downpours have increased too. Part of the reason is from Level 85: for every 1 °C of warming, the air can hold about 7 percent more water vapor, so storms have more water to drop."
+    },
+    {
+      "id": "card.earth_climate.089.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Testing one event",
+      "body": "To test a single event, scientists run computer models twice: once for today's climate and once with the human influence removed. Comparing them shows how much more likely or intense the event became. For the record July 2019 heatwave in France and the Netherlands, World Weather Attribution found climate change made it at least 10 times more likely."
+    },
+    {
+      "id": "card.earth_climate.089.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Not every extreme is the same",
+      "body": "The evidence is strongest for heat and heavy rain. For tornadoes, scientists have low confidence in any link to climate change so far: tornadoes are small and short-lived, which makes them very hard to model. Good science says \"we know\" where it knows, and \"not yet\" where it doesn't.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "People mix this up: attribution doesn't say warming caused a storm. It measures how much warming loaded the dice."
+      }
+    },
+    {
+      "id": "card.earth_climate.089.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.089.q1"
+    },
+    {
+      "id": "card.earth_climate.089.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.089.q2"
+    },
+    {
+      "id": "card.earth_climate.089.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.089.q3"
+    },
+    {
+      "id": "card.earth_climate.089.c8",
+      "type": "checkpoint",
+      "headline": "Extremes and attribution: tested",
+      "learned": [
+        "Heatwaves are more frequent and intense",
+        "Heavy downpours have increased",
+        "Attribution compares two simulated worlds",
+        "Tornado links are still uncertain"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.089.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.warming_extremes_shift"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.089.c4"
+      ],
+      "prompt": "For which kind of extreme weather do scientists so far have low confidence in a link to climate change?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Heatwaves",
+          "correct": false,
+          "rationale": "The link to heat is strong."
+        },
+        {
+          "id": "b",
+          "label": "Heavy downpours",
+          "correct": false,
+          "rationale": "Heavy rain has increased, likely driven by human warming."
+        },
+        {
+          "id": "c",
+          "label": "Tornadoes",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Hot extremes over land",
+          "correct": false,
+          "rationale": "That link is virtually certain."
+        }
+      ],
+      "explanation": "Tornadoes are small and short-lived, so their link to climate change is still uncertain.",
+      "difficulty": 0.4
+    },
+    {
+      "id": "question.earth_climate.089.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.warming_event_attribution"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.089.c3"
+      ],
+      "prompt": "Scientists want to know whether warming made a record flood worse. What would an attribution study compare?",
+      "options": [
+        {
+          "id": "a",
+          "label": "This year's flood with last year's flood",
+          "correct": false,
+          "rationale": "One year versus another is just weather."
+        },
+        {
+          "id": "b",
+          "label": "Models of today's climate and one without human influence",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Two rain gauges in the same town",
+          "correct": false,
+          "rationale": "That measures the flood, not warming's role."
+        },
+        {
+          "id": "d",
+          "label": "The flood with a heatwave in another country",
+          "correct": false,
+          "rationale": "Each event is tested against its own no-warming world."
+        }
+      ],
+      "explanation": "Attribution compares simulations of today's climate with a climate that has the human influence removed.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.earth_climate.089.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.warming_extremes_shift",
+        "concept.earth_climate.spheres_interact"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.089.c2",
+        "card.earth_climate.001.c3"
+      ],
+      "prompt": "Level 1's oak releases water vapor into the air. In a warmer world the air can hold more of it. What follows for rainstorms?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They have more water available to drop",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They become rarer, since vapor stays aloft forever",
+          "correct": false,
+          "rationale": "Vapor rains out within days."
+        },
+        {
+          "id": "c",
+          "label": "They lose their water back to the trees",
+          "correct": false,
+          "rationale": "The added vapor feeds the storms."
+        },
+        {
+          "id": "d",
+          "label": "Nothing, since vapor isn't part of the water cycle",
+          "correct": false,
+          "rationale": "Level 1 counts vapor in the hydrosphere."
+        }
+      ],
+      "explanation": "Warmer air holds about 7 percent more vapor per 1 °C, giving storms more water for heavy downpours.",
+      "difficulty": 0.45
+    }
+  ],
+  "sourceIds": [
+    "source.ipcc_ar6_wg1_spm",
+    "source.nasa_water_vapor_feedback",
+    "source.metoffice_attribution",
+    "source.wwa_2019_western_europe_heat",
+    "source.natgeo_tornadoes_climate"
+  ],
+  "art": "earth.rain-gauge"
+}

@@ -1,0 +1,208 @@
+{
+  "id": "level.world_systems.computers.044",
+  "skillId": "skill.world_systems.computers",
+  "number": 44,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Why the Cloud Won",
+  "objective": "After this level you can explain why companies rent computing from cloud providers instead of running their own servers, and what they give up.",
+  "summary": "Cloud computing swaps buying servers for elastic, metered capacity that follows demand, cheaper through economies of scale; the price is control, while responsibility stays with you.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.cloud_rent_economics",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.cloud_control_tradeoff",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.043"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.044.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Own the computers, or rent them?",
+      "body": "Owning means buying machines up front, before you know exactly how busy you'll be. Renting from a cloud provider turns that big purchase into running costs that follow what you actually use. So why did renting win so many companies over, and what do they trade away?"
+    },
+    {
+      "id": "card.computers.044.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Pay for what you use",
+      "body": "NIST, the US standards agency, lists what makes a service a cloud. Two features matter most for the bill. Rapid elasticity: capacity can be added and released quickly, sometimes automatically, as demand rises and falls, so to the customer it can seem unlimited. Measured service: storage, processing and bandwidth are metered, like electricity. Busy week? Rent more. Quiet night? Hand it back."
+    },
+    {
+      "id": "card.computers.044.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why sharing is cheaper",
+      "body": "A cloud provider pools its machines to serve many customers, gaining economies of scale that a single company can't reach alone. For the customer, the cloud swaps a large capital investment in computers for operating costs that track real use, and it can lower the up-front cost of launching something new. No room full of idle servers required."
+    },
+    {
+      "id": "card.computers.044.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "What you give up",
+      "body": "Control. Moving to a public cloud hands control of data and systems to the provider, and NIST warns that the customer then depends on the provider's cooperation for jobs like monitoring and responding to incidents. Yet the customer stays accountable for the security and privacy of what it moved. You can rent the computers. You can't rent out the responsibility."
+    },
+    {
+      "id": "card.computers.044.c5",
+      "type": "mcq",
+      "questionId": "question.computers.044.q1"
+    },
+    {
+      "id": "card.computers.044.c6",
+      "type": "mcq",
+      "questionId": "question.computers.044.q2"
+    },
+    {
+      "id": "card.computers.044.c7",
+      "type": "mcq",
+      "questionId": "question.computers.044.q3"
+    },
+    {
+      "id": "card.computers.044.c8",
+      "type": "checkpoint",
+      "headline": "The cloud: weighed",
+      "learned": [
+        "The cloud turns buying servers into metered running costs",
+        "Rapid elasticity: add and release capacity as demand shifts",
+        "Pooling many customers brings economies of scale",
+        "The provider gains control; you keep the responsibility"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.044.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.cloud_rent_economics"
+      ],
+      "sourceCardIds": [
+        "card.computers.044.c2"
+      ],
+      "prompt": "In NIST's definition of cloud computing, what does \"rapid elasticity\" mean?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Capacity can be added and released quickly as demand changes",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Servers are built to bend without breaking",
+          "correct": false,
+          "rationale": "It's about capacity, not physical toughness."
+        },
+        {
+          "id": "c",
+          "label": "Prices change every hour with the weather",
+          "correct": false,
+          "rationale": "Elasticity is about scaling capacity up and down."
+        },
+        {
+          "id": "d",
+          "label": "Data is stretched across as many drives as possible",
+          "correct": false,
+          "rationale": "It describes adding and releasing capacity."
+        }
+      ],
+      "explanation": "Rapid elasticity means capacity can be provisioned and released quickly, sometimes automatically, as demand rises and falls.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.044.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.cloud_rent_economics"
+      ],
+      "sourceCardIds": [
+        "card.computers.044.c3"
+      ],
+      "prompt": "Why can a cloud provider offer computing more cheaply than one company running its own servers?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its computers run without needing any electricity",
+          "correct": false,
+          "rationale": "Cloud machines use plenty of power."
+        },
+        {
+          "id": "b",
+          "label": "It never has to replace its hardware",
+          "correct": false,
+          "rationale": "Providers replace hardware too."
+        },
+        {
+          "id": "c",
+          "label": "It avoids paying for any network connections",
+          "correct": false,
+          "rationale": "It still pays for networks."
+        },
+        {
+          "id": "d",
+          "label": "It pools machines for many customers: economies of scale",
+          "correct": true
+        }
+      ],
+      "explanation": "Pooling resources across many customers gives providers economies of scale that one company alone can't reach.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.044.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.cloud_control_tradeoff",
+        "concept.computers.cloud_rent_economics"
+      ],
+      "sourceCardIds": [
+        "card.computers.044.c4",
+        "card.computers.044.c2"
+      ],
+      "prompt": "A shop rents extra cloud capacity for a big sale, then hands it back. What has it given up by not owning the machines?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its responsibility for its customers' data",
+          "correct": false,
+          "rationale": "NIST says the customer stays accountable for security and privacy."
+        },
+        {
+          "id": "b",
+          "label": "Direct control, while staying accountable for security",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The ability to pay only for what it used",
+          "correct": false,
+          "rationale": "Metered service is exactly what it gained."
+        },
+        {
+          "id": "d",
+          "label": "Any way to add capacity quickly next time",
+          "correct": false,
+          "rationale": "Rapid elasticity lets it scale again whenever needed."
+        }
+      ],
+      "explanation": "Renting brings elastic, metered capacity, but control passes to the provider while accountability stays with the customer.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.nist_sp800_144_public_cloud",
+    "source.nist_sp800_145_cloud"
+  ],
+  "art": "earth.cumulus-cloud"
+}

@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.psychology.095",
+  "skillId": "skill.mind.psychology",
+  "number": 95,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "How Talk Therapy Works",
+  "objective": "After this level you can explain what cognitive behavioral therapy does and what research says about how well therapy works.",
+  "summary": "CBT, rooted in Aaron Beck's cognitive therapy, helps people question unhelpful thoughts and change what they do. A 1977 analysis of 375 studies found therapy helps on average.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.therapy_cbt",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.therapy_evidence",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.behaviorism",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.psychology.freud_unconscious",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.094"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.095.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Two people talk in a room once a week. Can that change how one feels?",
+      "body": "Stories of therapy helping are everywhere, but stories aren't evidence. In 1977 two researchers pulled together 375 studies to find out."
+    },
+    {
+      "id": "card.psychology.095.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The psychiatrist who switched methods",
+      "body": "Aaron Beck, a psychiatrist, spent his early career studying psychoanalysis, Freud's talking cure from Level 4. He came to believe it lacked scientific rigor and evidence that it worked. So in the early 1960s he developed cognitive therapy, helping patients catch their \"automatic\" negative thoughts, the quick, gloomy verdicts that feed depression."
+    },
+    {
+      "id": "card.psychology.095.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Thoughts, feelings, actions: one loop",
+      "body": "Cognitive behavioral therapy, or CBT, grew from that work. A therapist helps a person change how they think and act, treating thoughts, feelings, body sensations and actions as linked. Together they question unhelpful thoughts and try other ways of seeing things. CBT focuses on current problems rather than the past, and most people have between 5 and 15 sessions. It's used for depression, anxiety, OCD and PTSD."
+    },
+    {
+      "id": "card.psychology.095.c4",
+      "type": "fact",
+      "fact": "The average person in therapy ended up better off than 75 percent of untreated people.",
+      "context": "Mary Lee Smith and Gene Glass reached that in 1977 by combining 375 controlled studies. They found few important differences between quite different types of therapy. It's an average, not a promise: CBT may not work for everyone, and other treatments exist."
+    },
+    {
+      "id": "card.psychology.095.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.095.q1"
+    },
+    {
+      "id": "card.psychology.095.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.095.q2"
+    },
+    {
+      "id": "card.psychology.095.c7",
+      "type": "recall",
+      "questionId": "question.psychology.095.q3"
+    },
+    {
+      "id": "card.psychology.095.c8",
+      "type": "checkpoint",
+      "headline": "Talk therapy, tested",
+      "learned": [
+        "Aaron Beck built cognitive therapy in the early 1960s",
+        "CBT links thoughts, feelings and actions, focused on now",
+        "1977: average client better off than 75 percent untreated",
+        "An average isn't a promise for every person"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.095.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.therapy_cbt"
+      ],
+      "sourceCardIds": [
+        "card.psychology.095.c2"
+      ],
+      "prompt": "What did Aaron Beck conclude about psychoanalysis before he developed cognitive therapy?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It lacked rigor and evidence that it worked",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It worked well but took too long",
+          "correct": false,
+          "rationale": "His objection was the missing evidence."
+        },
+        {
+          "id": "c",
+          "label": "It should only be used with medication",
+          "correct": false,
+          "rationale": "That wasn't his conclusion."
+        },
+        {
+          "id": "d",
+          "label": "It was the only proven therapy",
+          "correct": false,
+          "rationale": "He concluded the opposite."
+        }
+      ],
+      "explanation": "Beck came to believe psychoanalysis lacked scientific rigor and evidence, and built cognitive therapy around catching automatic negative thoughts.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.psychology.095.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.therapy_evidence"
+      ],
+      "sourceCardIds": [
+        "card.psychology.095.c4"
+      ],
+      "prompt": "Smith and Glass found the average therapy client better off than 75 percent of untreated people. What does that result NOT show?",
+      "options": [
+        {
+          "id": "a",
+          "label": "That therapy helps people on average",
+          "correct": false,
+          "rationale": "That is exactly what it shows."
+        },
+        {
+          "id": "b",
+          "label": "That many studies were combined",
+          "correct": false,
+          "rationale": "It combined 375 of them."
+        },
+        {
+          "id": "c",
+          "label": "That therapy works for every single person",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "That different therapies gave broadly similar results",
+          "correct": false,
+          "rationale": "They did find few important differences."
+        }
+      ],
+      "explanation": "An average says nothing certain about each individual; CBT and other therapies don't work for everyone.",
+      "difficulty": 0.45
+    },
+    {
+      "id": "question.psychology.095.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.behaviorism",
+        "concept.psychology.therapy_cbt"
+      ],
+      "sourceCardIds": [
+        "card.psychology.005.c4",
+        "card.psychology.095.c3"
+      ],
+      "prompt": "CBT works on actions as well as thoughts. Which school from Level 5 still shapes behavioral therapy today?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Psychoanalysis",
+          "correct": false,
+          "rationale": "That was Freud's approach, which Beck moved away from."
+        },
+        {
+          "id": "b",
+          "label": "Introspection",
+          "correct": false,
+          "rationale": "That was Wundt's method of looking inward."
+        },
+        {
+          "id": "c",
+          "label": "The cognitive revolution",
+          "correct": false,
+          "rationale": "That brought thoughts back, the 'cognitive' side."
+        },
+        {
+          "id": "d",
+          "label": "Behaviorism",
+          "correct": true
+        }
+      ],
+      "explanation": "Behaviorism's ideas still shape behavioral therapy, the 'behavioral' half of CBT.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.pennmed_aaron_beck",
+    "source.nhs_cbt",
+    "source.ampsych_smith_glass_1977",
+    "source.openstax_psych_history"
+  ],
+  "art": "mind.therapy-couch"
+}

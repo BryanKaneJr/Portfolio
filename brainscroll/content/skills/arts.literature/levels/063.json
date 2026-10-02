@@ -1,0 +1,224 @@
+{
+  "id": "level.arts.literature.063",
+  "skillId": "skill.arts.literature",
+  "number": 63,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Frankenstein, the Modern Prometheus",
+  "objective": "After this level you can connect Mary Shelley's Frankenstein to the Prometheus myth and to the birth of science fiction.",
+  "summary": "Mary Shelley's Frankenstein (1818), begun in Byron's ghost story contest, swaps Gothic magic for a scientist who makes life. Its subtitle recalls Prometheus, fire-thief and, in Ovid, maker of humans.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.frankenstein_origin",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.frankenstein_prometheus",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.frankenstein_science_fiction",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.metamorphoses",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.062"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.063.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "A ghost story contest on a stormy summer gave us Frankenstein.",
+      "body": "In the cold, stormy summer of 1816, near Lake Geneva, Lord Byron challenged his guests to write ghost stories. Mary Shelley came away with something new. In January 1818, aged 20, she published it anonymously: Frankenstein; or, The Modern Prometheus."
+    },
+    {
+      "id": "card.literature.063.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "No ghost, just an experiment",
+      "body": "Shelley dropped the Gothic's old occult props. Her hero, Victor Frankenstein, is a practicing scientist interested in galvanic electricity, one of the advanced technologies of the early 1800s, and he artificially creates a human being. His creation brings tragedy into his life. The horror isn't a spirit in a castle; it's something a man builds on purpose."
+    },
+    {
+      "id": "card.literature.063.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why Prometheus?",
+      "body": "The subtitle points to an old myth. In Greek myth Prometheus stole fire for humans, and Zeus punished him by fastening him to a mountain. Ovid's Metamorphoses gives him a second job: in one account of the first people, Prometheus mixes new earth with the water of new streams and shapes a man in the image of the gods. A maker of life who pays dearly: that's the frame for Victor.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "This is Level 7's Ovid again. Old myths keep lending new stories their shape, even a story about science."
+      }
+    },
+    {
+      "id": "card.literature.063.c4",
+      "type": "fact",
+      "fact": "Frankenstein is often considered an early example of science fiction.",
+      "context": "It's part Gothic novel and part philosophical novel. But because its what-if rests on an experiment rather than a spell, its champions call Mary Shelley the mother of science fiction."
+    },
+    {
+      "id": "card.literature.063.c5",
+      "type": "mcq",
+      "questionId": "question.literature.063.q1"
+    },
+    {
+      "id": "card.literature.063.c6",
+      "type": "mcq",
+      "questionId": "question.literature.063.q2"
+    },
+    {
+      "id": "card.literature.063.c7",
+      "type": "recall",
+      "questionId": "question.literature.063.q3"
+    },
+    {
+      "id": "card.literature.063.c8",
+      "type": "checkpoint",
+      "headline": "Frankenstein: assembled",
+      "learned": [
+        "Begun in Byron's 1816 ghost story contest",
+        "Published anonymously in 1818",
+        "Prometheus: fire-thief and maker of humans",
+        "A scientist, not a spell: early science fiction"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.063.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.frankenstein_origin"
+      ],
+      "sourceCardIds": [
+        "card.literature.063.c1"
+      ],
+      "prompt": "What started Mary Shelley on Frankenstein in 1816?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Byron's ghost story contest near Lake Geneva",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "A newspaper story competition in London",
+          "correct": false,
+          "rationale": "It began with friends in Switzerland."
+        },
+        {
+          "id": "c",
+          "label": "A lecture on Prometheus in Rome",
+          "correct": false,
+          "rationale": "The myth came into the subtitle, not the start."
+        },
+        {
+          "id": "d",
+          "label": "A dream after reading Dracula",
+          "correct": false,
+          "rationale": "Dracula came out in 1897."
+        }
+      ],
+      "explanation": "In the stormy summer of 1816, Byron challenged his guests near Lake Geneva to a ghost story contest, and Frankenstein grew from it.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.literature.063.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.frankenstein_science_fiction"
+      ],
+      "sourceCardIds": [
+        "card.literature.063.c2",
+        "card.literature.063.c4"
+      ],
+      "prompt": "Why is Frankenstein often counted as early science fiction rather than only a Gothic tale?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It is set on another planet",
+          "correct": false,
+          "rationale": "It is set on Earth."
+        },
+        {
+          "id": "b",
+          "label": "Its hero makes life by experiment, not magic",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It has no mystery or terror at all",
+          "correct": false,
+          "rationale": "It is still part Gothic novel."
+        },
+        {
+          "id": "d",
+          "label": "Its creature is a Greek god in disguise",
+          "correct": false,
+          "rationale": "The creature is made by a scientist."
+        }
+      ],
+      "explanation": "Shelley made her hero a scientist interested in galvanic electricity, so the story rests on an experiment instead of the occult.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.literature.063.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.frankenstein_prometheus",
+        "concept.literature.metamorphoses"
+      ],
+      "sourceCardIds": [
+        "card.literature.063.c3",
+        "card.literature.007.c2"
+      ],
+      "prompt": "In Ovid's poem of transformations from Level 7, what does Prometheus do that makes Victor Frankenstein a \"modern\" Prometheus?",
+      "options": [
+        {
+          "id": "a",
+          "label": "He turns into a laurel tree",
+          "correct": false,
+          "rationale": "That's Daphne."
+        },
+        {
+          "id": "b",
+          "label": "He shoots down nine burning suns",
+          "correct": false,
+          "rationale": "That's Hou Yi, from Level 8."
+        },
+        {
+          "id": "c",
+          "label": "He shapes a human from earth and water",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "He survives a flood in a great boat",
+          "correct": false,
+          "rationale": "That's Utnapishtim."
+        }
+      ],
+      "explanation": "In one of Ovid's accounts, Prometheus mixes new earth with water and shapes man; Victor, too, makes a human being.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_mary_shelley",
+    "source.brit_science_fiction_19th",
+    "source.brit_prometheus",
+    "source.theoi_ovid_metamorphoses_1"
+  ],
+  "art": "nature.lightning"
+}

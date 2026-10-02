@@ -1,0 +1,215 @@
+{
+  "id": "level.mind.religions.016",
+  "skillId": "skill.mind.religions",
+  "number": 16,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Shabbat",
+  "objective": "After this level you can explain how and why many Jews keep a weekly day of rest from Friday evening to Saturday night.",
+  "summary": "Shabbat runs from sunset Friday to nightfall Saturday, recalling God resting on the seventh day. It opens with candles, wine and two challah loaves and closes with havdalah.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.judaism_shabbat_basis",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.judaism_shabbat_practice",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.judaism_sinai_torah",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.015"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.016.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "One day a week, many Jews stop working on purpose.",
+      "body": "For about a day, the week's work is set aside. Where does that come from, what exactly stops, and what fills the time instead?"
+    },
+    {
+      "id": "card.religions.016.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A palace in time",
+      "body": "Shabbat runs from sunset on Friday to nightfall on Saturday. Genesis says God \"rested on the seventh day from all His work\", and it is the only Jewish holiday in the Ten Commandments: \"Remember the sabbath day, to keep it holy.\" In his 1951 book The Sabbath, Rabbi Abraham Joshua Heschel called it \"a palace in time\": holiness you enter by the calendar, not through a door."
+    },
+    {
+      "id": "card.religions.016.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "What stops",
+      "body": "The Talmud lists 39 general categories of forbidden work, including cooking and baking. But the rules give way when life or health is seriously at risk. Practice varies: Orthodox Jews strive to keep the day in full, while Conservative and Reform Jews vary in how they observe it."
+    },
+    {
+      "id": "card.religions.016.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Candles, wine and two loaves",
+      "body": "Before sunset on Friday, traditionally the woman of the house lights the Sabbath candles. Dinner opens with Kiddush, a blessing of sanctification over wine, and two loaves of challah, recalling the double portion of manna the Bible says God gave in the wilderness. On Saturday night, havdalah, with blessings over wine, spices and a braided candle, separates the holy day from the ordinary week."
+    },
+    {
+      "id": "card.religions.016.c5",
+      "type": "mcq",
+      "questionId": "question.religions.016.q1"
+    },
+    {
+      "id": "card.religions.016.c6",
+      "type": "mcq",
+      "questionId": "question.religions.016.q2"
+    },
+    {
+      "id": "card.religions.016.c7",
+      "type": "mcq",
+      "questionId": "question.religions.016.q3"
+    },
+    {
+      "id": "card.religions.016.c8",
+      "type": "checkpoint",
+      "headline": "Shabbat: the takeaways",
+      "learned": [
+        "Shabbat runs from sunset Friday to nightfall Saturday",
+        "It recalls God resting on the seventh day and is in the Ten Commandments",
+        "Candles, Kiddush and two challah loaves open it; havdalah closes it"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.016.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.judaism_shabbat_basis"
+      ],
+      "sourceCardIds": [
+        "card.religions.016.c2"
+      ],
+      "prompt": "When does Shabbat begin and end?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From sunrise to sunset on Saturday",
+          "correct": false,
+          "rationale": "It begins the evening before."
+        },
+        {
+          "id": "b",
+          "label": "From sunset Friday to nightfall Saturday",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "From sunset Saturday to nightfall Sunday",
+          "correct": false,
+          "rationale": "Shabbat is the seventh day, Saturday."
+        },
+        {
+          "id": "d",
+          "label": "From midnight Friday to midnight Saturday",
+          "correct": false,
+          "rationale": "It follows sunset, not the clock."
+        }
+      ],
+      "explanation": "Shabbat runs from sunset on Friday to nightfall on Saturday.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.religions.016.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.judaism_shabbat_practice"
+      ],
+      "sourceCardIds": [
+        "card.religions.016.c4"
+      ],
+      "prompt": "Why are two loaves of challah served at the Friday night Shabbat meal?",
+      "options": [
+        {
+          "id": "a",
+          "label": "One loaf for each day of the weekend",
+          "correct": false,
+          "rationale": "Shabbat is one day."
+        },
+        {
+          "id": "b",
+          "label": "To feed guests who arrive after havdalah",
+          "correct": false,
+          "rationale": "Havdalah comes at the end, on Saturday night."
+        },
+        {
+          "id": "c",
+          "label": "To recall the double portion of manna in the wilderness",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Because the Talmud forbids cutting a single loaf",
+          "correct": false,
+          "rationale": "The loaves recall the manna."
+        }
+      ],
+      "explanation": "The two loaves commemorate the double portion of manna the Bible says God provided.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.religions.016.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.judaism_shabbat_basis",
+        "concept.religions.judaism_sinai_torah"
+      ],
+      "sourceCardIds": [
+        "card.religions.016.c2",
+        "card.religions.012.c3"
+      ],
+      "prompt": "Shabbat is the only Jewish holiday named in a text from Level 12. Which one?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Ten Commandments given at Sinai",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Mishnah of Judah ha-Nasi",
+          "correct": false,
+          "rationale": "That came much later, in the 3rd century CE."
+        },
+        {
+          "id": "c",
+          "label": "The inscription of Merneptah",
+          "correct": false,
+          "rationale": "It mentions Israel, not a holiday."
+        },
+        {
+          "id": "d",
+          "label": "Psalm 137 from the exile",
+          "correct": false,
+          "rationale": "That psalm is a lament from Babylon."
+        }
+      ],
+      "explanation": "\"Remember the sabbath day, to keep it holy\" is one of the Ten Commandments given at Sinai.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.mechonmamre_jps1917_tanakh",
+    "source.brit_sabbath",
+    "source.hebrewcollege_heschel_sabbath",
+    "source.brit_challah",
+    "source.brit_havdalah"
+  ],
+  "art": "rel.challah"
+}

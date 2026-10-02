@@ -1,0 +1,214 @@
+{
+  "id": "level.geography.earth_climate.011",
+  "skillId": "skill.geography.earth_climate",
+  "number": 11,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Heat Inside the Earth",
+  "objective": "After this level you can explain where Earth's inner heat comes from and why it keeps the planet active.",
+  "summary": "Earth's inside is hot from leftover formation heat, radioactive decay (about half) and a freezing core. Convection carries that heat up and keeps the plates moving.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.inner_heat_sources",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.inner_heat_convection",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.earth_spheres",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.010"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.011.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Dig down a kilometer and the rock gets about 25 °C hotter.",
+      "body": "That heat isn't a leftover curiosity. It's the engine behind this whole chapter: moving plates, earthquakes and volcanoes. So where does it come from, and how does it get out?"
+    },
+    {
+      "id": "card.earth_climate.011.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Three sources of heat",
+      "body": "Earth's inner heat comes from three places. Some is left over from when the planet formed. Some is made fresh as radioactive elements in the rock decay. And some is released deep in the core, as liquid iron slowly freezes onto the solid inner core. Think of a pie just out of the oven that also has a few tiny heaters baked into the filling."
+    },
+    {
+      "id": "card.earth_climate.011.c3",
+      "type": "fact",
+      "fact": "About half of Earth's inner heat comes from radioactive decay.",
+      "context": "Physicists showed it in 2011 by catching geoneutrinos, ghostly particles given off when uranium and thorium decay. Their detector, KamLAND, is a tank of about 1,000 tonnes of mineral oil buried deep underground in Japan. The rest is likely heat left over from Earth's formation. The planet is still living partly on its savings."
+    },
+    {
+      "id": "card.earth_climate.011.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Heat on the move",
+      "body": "The heat escapes by convection, like soup simmering in a pot. Mantle rock near the hot core warms and rises, very slowly, while cooler rock sinks. You met this in World Geography as the force behind moving plates. Rising hot material feeds plate boundaries and hotspots, and cool slabs sink back down where plates dive under each other. No escaping heat, no moving plates."
+    },
+    {
+      "id": "card.earth_climate.011.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.011.q1"
+    },
+    {
+      "id": "card.earth_climate.011.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.011.q2"
+    },
+    {
+      "id": "card.earth_climate.011.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.011.q3"
+    },
+    {
+      "id": "card.earth_climate.011.c8",
+      "type": "checkpoint",
+      "headline": "Inner heat: traced",
+      "learned": [
+        "Earth's heat: leftovers, decay and a freezing core",
+        "About half comes from radioactive decay",
+        "Rock gets about 25 °C hotter per km",
+        "Convection carries heat up and moves plates"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.011.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.inner_heat_sources"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.011.c3"
+      ],
+      "prompt": "What did the KamLAND detector reveal about the heat inside the Earth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "All of it is left over from Earth's formation",
+          "correct": false,
+          "rationale": "Decay supplies about half of it."
+        },
+        {
+          "id": "b",
+          "label": "About half of it comes from radioactive decay",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Most of it is sunlight soaked up by rock",
+          "correct": false,
+          "rationale": "Sunlight doesn't heat the deep interior."
+        },
+        {
+          "id": "d",
+          "label": "It comes mainly from friction between plates",
+          "correct": false,
+          "rationale": "It comes from decay and leftover heat."
+        }
+      ],
+      "explanation": "Geoneutrinos caught by KamLAND showed that radioactive decay of uranium and thorium supplies about half of Earth's heat.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.earth_climate.011.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.inner_heat_convection"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.011.c4"
+      ],
+      "prompt": "How does heat from deep inside the Earth work its way up toward the plates?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Warm mantle rock slowly rises while cooler rock sinks",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Pipes of lava carry it straight up to the crust",
+          "correct": false,
+          "rationale": "The mantle moves heat by slow convection."
+        },
+        {
+          "id": "c",
+          "label": "It radiates up through empty gaps in the rock",
+          "correct": false,
+          "rationale": "Rock carries it by moving, in convection."
+        },
+        {
+          "id": "d",
+          "label": "Ocean water carries it down and back up",
+          "correct": false,
+          "rationale": "The heat moves through the mantle itself."
+        }
+      ],
+      "explanation": "In convection, heated mantle rock rises slowly and cooler, denser rock sinks, carrying heat outward.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.earth_climate.011.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.inner_heat_convection",
+        "concept.earth_climate.earth_spheres"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.001.c2",
+        "card.earth_climate.011.c4"
+      ],
+      "prompt": "In Level 1's terms, the churning mantle rock that moves the plates belongs to which of Earth's spheres?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The atmosphere",
+          "correct": false,
+          "rationale": "That's the air above the ground."
+        },
+        {
+          "id": "b",
+          "label": "The hydrosphere",
+          "correct": false,
+          "rationale": "That's Earth's water."
+        },
+        {
+          "id": "c",
+          "label": "The biosphere",
+          "correct": false,
+          "rationale": "That's where life exists."
+        },
+        {
+          "id": "d",
+          "label": "The geosphere",
+          "correct": true
+        }
+      ],
+      "explanation": "The geosphere is the solid, rocky Earth, and convection in its mantle rock carries heat up and keeps the plates moving.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.natgeo_core",
+    "source.lbl_kamland_geoneutrinos",
+    "source.natgeo_mantle",
+    "source.natgeo_biosphere"
+  ],
+  "art": "earth.geyser"
+}

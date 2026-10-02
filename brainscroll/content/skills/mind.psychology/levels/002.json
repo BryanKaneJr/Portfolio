@@ -1,0 +1,238 @@
+{
+  "id": "level.mind.psychology.002",
+  "skillId": "skill.mind.psychology",
+  "number": 2,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Who Psychologists Are",
+  "objective": "After this level you can tell psychologists, psychiatrists and counselors apart and name the main fields psychologists work in.",
+  "summary": "Psychologists hold a doctorate, psychiatrists are medical doctors who can prescribe, and counselors usually hold a master's. Psychologists also work in courts, schools, workplaces and labs.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.mental_health_professions",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.psychology_work_fields",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.psychology_areas",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.psychology.001"
+  ],
+  "cards": [
+    {
+      "id": "card.psychology.002.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Say \"psychologist\" and most people picture a couch.",
+      "body": "Clinical psychology gets the most attention in films and news, so many people assume all psychology is clinical. It isn't. And the person beside the couch might not be a psychologist at all. Who does what?"
+    },
+    {
+      "id": "card.psychology.002.c2",
+      "type": "comparison",
+      "headline": "Three helpers, three trainings",
+      "items": [
+        {
+          "label": "Psychologist",
+          "points": [
+            "Doctoral degree: a PhD or PsyD",
+            "Assesses with interviews and tests",
+            "Diagnoses and provides therapy"
+          ]
+        },
+        {
+          "label": "Psychiatrist",
+          "points": [
+            "Medical doctor (MD or DO) trained in psychiatry",
+            "Can prescribe medication",
+            "Also diagnoses and provides therapy"
+          ]
+        },
+        {
+          "label": "Counselor or therapist",
+          "points": [
+            "Usually a master's degree",
+            "Licensed under titles like Licensed Professional Counselor",
+            "Provides therapy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.psychology.002.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Most psychologists never sit by a couch",
+      "body": "Clinical psychologists diagnose and treat psychological disorders, and counseling psychologists help people who are generally healthy with emotional, social and career goals. But forensic psychologists work in the justice system, judging whether someone is competent to stand trial or advising on eyewitness testimony. Industrial-organizational psychologists work on workplaces, school psychologists work in education, and many psychologists teach and run research at universities. Prescribing, though, stays with medical training: that is why the psychiatrist can do it."
+    },
+    {
+      "id": "card.psychology.002.c4",
+      "type": "fact",
+      "fact": "\"Therapist\" is a broad title. \"Licensed psychologist\" takes an exam.",
+      "context": "In the United States, only people who meet state requirements and pass a licensure exam can call themselves licensed clinical or counseling psychologists. So a psychologist's title is earned twice: once with a doctorate, once with a license."
+    },
+    {
+      "id": "card.psychology.002.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.002.q1"
+    },
+    {
+      "id": "card.psychology.002.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.002.q2"
+    },
+    {
+      "id": "card.psychology.002.c7",
+      "type": "recall",
+      "questionId": "question.psychology.002.q3"
+    },
+    {
+      "id": "card.psychology.002.c8",
+      "type": "checkpoint",
+      "headline": "Who's who",
+      "learned": [
+        "Psychologists: doctorate, tests and therapy",
+        "Psychiatrists: medical doctors who can prescribe",
+        "Counselors: usually a master's degree",
+        "Psychologists also work in courts, schools, workplaces and labs"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.002.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.mental_health_professions"
+      ],
+      "sourceCardIds": [
+        "card.psychology.002.c2"
+      ],
+      "prompt": "Which of these professionals must hold a medical degree, an MD or a DO?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A licensed professional counselor",
+          "correct": false,
+          "rationale": "Counselors usually hold a master's degree."
+        },
+        {
+          "id": "b",
+          "label": "A clinical psychologist",
+          "correct": false,
+          "rationale": "Clinical psychologists hold a PhD or PsyD, not a medical degree."
+        },
+        {
+          "id": "c",
+          "label": "A psychiatrist",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A school psychologist",
+          "correct": false,
+          "rationale": "School psychologists train in psychology, not medicine."
+        }
+      ],
+      "explanation": "Psychiatrists are medical doctors (MD or DO) who trained in psychiatry.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.psychology.002.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.mental_health_professions"
+      ],
+      "sourceCardIds": [
+        "card.psychology.002.c2",
+        "card.psychology.002.c3"
+      ],
+      "prompt": "Why can a psychiatrist prescribe medication for a patient?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Because they trained as a medical doctor",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Because they hold the most senior therapy license",
+          "correct": false,
+          "rationale": "Therapy licenses don't grant prescribing; medical training does."
+        },
+        {
+          "id": "c",
+          "label": "Because they only treat severe cases",
+          "correct": false,
+          "rationale": "Prescribing comes from training, not from which cases they see."
+        },
+        {
+          "id": "d",
+          "label": "Because they studied the most statistics",
+          "correct": false,
+          "rationale": "Statistics has nothing to do with it."
+        }
+      ],
+      "explanation": "Psychiatrists go through medical school, and that medical training is what lets them prescribe.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.002.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.psychology_work_fields",
+        "concept.psychology.psychology_areas"
+      ],
+      "sourceCardIds": [
+        "card.psychology.002.c3",
+        "card.psychology.001.c4"
+      ],
+      "prompt": "Level 1 showed psychology has many areas. Which kind of psychologist advises a court about eyewitness testimony?",
+      "options": [
+        {
+          "id": "a",
+          "label": "An industrial-organizational psychologist",
+          "correct": false,
+          "rationale": "They work on workplaces."
+        },
+        {
+          "id": "b",
+          "label": "A counseling psychologist",
+          "correct": false,
+          "rationale": "They help generally healthy people with life goals."
+        },
+        {
+          "id": "c",
+          "label": "A biopsychologist",
+          "correct": false,
+          "rationale": "They study the nervous system and behavior."
+        },
+        {
+          "id": "d",
+          "label": "A forensic psychologist",
+          "correct": true
+        }
+      ],
+      "explanation": "Forensic psychologists work within the justice system, including advising on eyewitness testimony.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_psych_contemporary",
+    "source.nami_mental_health_professionals",
+    "source.openstax_psych_careers"
+  ],
+  "art": "mind.therapy-couch"
+}

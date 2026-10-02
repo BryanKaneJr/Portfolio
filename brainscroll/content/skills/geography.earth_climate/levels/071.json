@@ -1,0 +1,218 @@
+{
+  "id": "level.geography.earth_climate.071",
+  "skillId": "skill.geography.earth_climate",
+  "number": 71,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Why the Hottest Days Come Late",
+  "objective": "After this level you can explain why the warmest weeks arrive well after the longest day of the year (seasonal lag).",
+  "summary": "The hottest weeks come well after the longest day because daytime heating outpaces nighttime cooling for weeks. Slow-warming water is the main reason, so the lag is longest near cool coasts.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.climates_seasonal_lag",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.climates_water_slow_heat",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.earth_spheres",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.070"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.071.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The longest day is in June. The hottest days usually aren't.",
+      "body": "Across most of the contiguous US, the hottest day of the year comes, on average, between July 15 and 31. By then the days are already getting shorter. So why does the heat keep climbing?"
+    },
+    {
+      "id": "card.earth_climate.071.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Still filling the tank",
+      "body": "In the Northern Hemisphere, sunlight peaks at the summer solstice, around June 21. But temperature follows a running balance, not today's sunshine alone. For several weeks after the solstice, the sun's heating by day still beats the cooling by night, so the warmth keeps piling up. Think of a bathtub with the tap turned down a little: it keeps filling as long as more pours in than drains out."
+    },
+    {
+      "id": "card.earth_climate.071.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The same delay, on a bigger clock",
+      "body": "You already know a small version of this. The warmest part of the day usually comes several hours after noon, when the sun is highest. The seasons do the same thing, because ground and water take time to heat up. Winter lags too: in the UK, the coldest weather usually arrives in January or February, well after the December solstice.",
+      "mascot": {
+        "pose": "oops",
+        "line": "People mix these up: the sunniest day isn't the hottest one. Heat piles up first, so the peak comes weeks later."
+      }
+    },
+    {
+      "id": "card.earth_climate.071.c4",
+      "type": "fact",
+      "fact": "Water covers over 70% of Earth's surface, and it warms far more slowly than land.",
+      "context": "Water has a much higher heat capacity: it takes more heat, and more time, to warm it up. That's the main reason for seasonal lag. Near chilly water the lag can stretch a long way. In San Francisco, a marine layer of low clouds over the cold coastal sea keeps early summer cool, and normal daily highs don't peak until October 2."
+    },
+    {
+      "id": "card.earth_climate.071.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.071.q1"
+    },
+    {
+      "id": "card.earth_climate.071.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.071.q2"
+    },
+    {
+      "id": "card.earth_climate.071.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.071.q3"
+    },
+    {
+      "id": "card.earth_climate.071.c8",
+      "type": "checkpoint",
+      "headline": "Seasonal lag: explained",
+      "learned": [
+        "The hottest days come weeks after the solstice",
+        "Daytime heating outpaces nighttime cooling",
+        "Water warms far more slowly than land",
+        "Near cold coasts, summer peaks even later"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.071.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.climates_seasonal_lag"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.071.c1"
+      ],
+      "prompt": "On average, when do most places in the contiguous US have their hottest day of the year?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Right around the June solstice",
+          "correct": false,
+          "rationale": "Sunlight peaks then, but temperatures keep rising for weeks."
+        },
+        {
+          "id": "b",
+          "label": "Between July 15 and 31",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "In late May, before the solstice",
+          "correct": false,
+          "rationale": "That comes before sunlight even peaks."
+        },
+        {
+          "id": "d",
+          "label": "In the first week of September",
+          "correct": false,
+          "rationale": "That's late even for most places; foggy coasts are the exception."
+        }
+      ],
+      "explanation": "Most places in the contiguous US hit their hottest day, on average, between July 15 and 31, weeks after the solstice.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.earth_climate.071.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.climates_seasonal_lag"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.071.c2"
+      ],
+      "prompt": "How can temperatures keep rising for weeks after the summer solstice, when the days are already getting shorter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Sun itself shines brighter in July",
+          "correct": false,
+          "rationale": "Sunlight reaching the hemisphere peaks at the solstice."
+        },
+        {
+          "id": "b",
+          "label": "Summer storms trap heat near the ground",
+          "correct": false,
+          "rationale": "The level explains it with a heat balance, not storms."
+        },
+        {
+          "id": "c",
+          "label": "Daytime heating still outweighs nighttime cooling",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The days keep lengthening until August",
+          "correct": false,
+          "rationale": "Days start shortening right after the solstice."
+        }
+      ],
+      "explanation": "As long as the sun adds more heat by day than escapes at night, warmth keeps building, even as the days shorten.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.earth_climate.071.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.climates_water_slow_heat",
+        "concept.earth_climate.earth_spheres"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.071.c4",
+        "card.earth_climate.001.c2"
+      ],
+      "prompt": "Seasonal lag comes mainly from slow-warming water. Which of Level 1's four spheres does that water belong to?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The geosphere",
+          "correct": false,
+          "rationale": "That's the solid, rocky Earth."
+        },
+        {
+          "id": "b",
+          "label": "The atmosphere",
+          "correct": false,
+          "rationale": "That's the air above."
+        },
+        {
+          "id": "c",
+          "label": "The biosphere",
+          "correct": false,
+          "rationale": "That's everywhere life exists."
+        },
+        {
+          "id": "d",
+          "label": "The hydrosphere",
+          "correct": true
+        }
+      ],
+      "explanation": "The hydrosphere is all of Earth's water, and water's high heat capacity is the main cause of seasonal lag.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.climategov_hottest_day_normals",
+    "source.ncei_warmest_day_year",
+    "source.nws_cle_seasons",
+    "source.rmets_seasonal_lag"
+  ],
+  "art": "nature.thermometer"
+}

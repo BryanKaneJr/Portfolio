@@ -1,0 +1,214 @@
+{
+  "id": "level.mind.probability.026",
+  "skillId": "skill.mind.probability",
+  "number": 26,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Gambler's Fallacy",
+  "objective": "After this level you can explain the gambler's fallacy using the 1913 Monte Carlo roulette run where black came up 26 times.",
+  "summary": "The gambler's fallacy is believing that after a streak, a different outcome is due. At Monte Carlo in 1913, black came up 26 times in a row and gamblers lost millions betting on red.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.chance_gamblers_fallacy",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.chance_monte_carlo_1913",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.chance_independence_no_memory",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.025"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.026.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "18 August 1913, Monte Carlo: black, black, black... 26 times.",
+      "body": "At one roulette table, the ball kept landing on black. As the streak grew, so did the crowd, and so did its bets on red. Surely red was due."
+    },
+    {
+      "id": "card.probability.026.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The mistake has a name",
+      "body": "The gambler's fallacy is the belief that after a long streak of one outcome, a different outcome has become more likely. It feels like fairness: the wheel owes you some red. But a roulette wheel is like Level 25's coin. Each spin is independent, so the chance of red on spin 27 was exactly what it was on spin 1."
+    },
+    {
+      "id": "card.probability.026.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "How the crowd lost",
+      "body": "The bettors moved their money to red, spin after spin, feeling that red was due, and black kept coming. By the end of the 26 blacks, they had lost millions. Their error was treating a streak's rarity as a force. The run was astonishing before it began, but once it had happened, it said nothing about the next spin."
+    },
+    {
+      "id": "card.probability.026.c4",
+      "type": "fact",
+      "fact": "The law of averages doesn't push back.",
+      "context": "The law of averages does not say that after lots of black, red becomes more likely. The wheel keeps no score, just like a coin. Level 28 shows what really happens over thousands of spins: an early streak isn't paid back. It simply gets drowned out."
+    },
+    {
+      "id": "card.probability.026.c5",
+      "type": "mcq",
+      "questionId": "question.probability.026.q1"
+    },
+    {
+      "id": "card.probability.026.c6",
+      "type": "mcq",
+      "questionId": "question.probability.026.q2"
+    },
+    {
+      "id": "card.probability.026.c7",
+      "type": "mcq",
+      "questionId": "question.probability.026.q3"
+    },
+    {
+      "id": "card.probability.026.c8",
+      "type": "checkpoint",
+      "headline": "Gambler's fallacy: named",
+      "learned": [
+        "After a streak, nothing is \"due\"",
+        "Monte Carlo, 1913: 26 blacks in a row",
+        "Bettors lost millions on red",
+        "Each spin is independent"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.026.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.chance_monte_carlo_1913"
+      ],
+      "sourceCardIds": [
+        "card.probability.026.c1"
+      ],
+      "prompt": "At the Monte Carlo casino in 1913, how many times in a row did the roulette ball land on black?",
+      "options": [
+        {
+          "id": "a",
+          "label": "7",
+          "correct": false,
+          "rationale": "The real streak was far longer: 26."
+        },
+        {
+          "id": "b",
+          "label": "12",
+          "correct": false,
+          "rationale": "The real streak was 26 in a row."
+        },
+        {
+          "id": "c",
+          "label": "19",
+          "correct": false,
+          "rationale": "It went on to 26."
+        },
+        {
+          "id": "d",
+          "label": "26",
+          "correct": true
+        }
+      ],
+      "explanation": "On 18 August 1913 the ball fell on black 26 times in a row.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.probability.026.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.chance_gamblers_fallacy"
+      ],
+      "sourceCardIds": [
+        "card.probability.026.c2",
+        "card.probability.026.c3"
+      ],
+      "prompt": "How does the gambler's fallacy go wrong about the next spin after a long run of black?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It treats a past streak as if it changes the next spin",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It forgets the wheel has more black than red",
+          "correct": false,
+          "rationale": "The fallacy is about streaks, not the wheel's layout."
+        },
+        {
+          "id": "c",
+          "label": "It assumes the wheel keeps no score",
+          "correct": false,
+          "rationale": "The wheel really keeps no score; that is the correct view."
+        },
+        {
+          "id": "d",
+          "label": "It bets too little on red",
+          "correct": false,
+          "rationale": "Betting more on red was the mistake, not the fix."
+        }
+      ],
+      "explanation": "Each spin is independent, so a streak, however rare, does not make red any more likely next time.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.probability.026.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.chance_monte_carlo_1913",
+        "concept.probability.chance_independence_no_memory"
+      ],
+      "sourceCardIds": [
+        "card.probability.026.c2",
+        "card.probability.025.c2"
+      ],
+      "prompt": "Why was red no more likely on spin 27 at Monte Carlo than on spin 1?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Casinos reset their wheels after long streaks",
+          "correct": false,
+          "rationale": "Nothing needs resetting: the wheel never kept score."
+        },
+        {
+          "id": "b",
+          "label": "Red had already come up enough earlier that night",
+          "correct": false,
+          "rationale": "Earlier results do not change later chances."
+        },
+        {
+          "id": "c",
+          "label": "Each spin is independent, like Level 25's coin flips",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The wheel remembers black but not red",
+          "correct": false,
+          "rationale": "A wheel remembers nothing at all."
+        }
+      ],
+      "explanation": "Independent events have no memory: knowing that black came up 26 times does not change the chance of red.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.elderresearch_gamblers_fallacy",
+    "source.openstax_intro_stats_independent_events",
+    "source.uw_stat220_chance_variability"
+  ],
+  "art": "mind.roulette-wheel"
+}

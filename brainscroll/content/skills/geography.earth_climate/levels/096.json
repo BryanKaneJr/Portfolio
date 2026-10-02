@@ -1,0 +1,225 @@
+{
+  "id": "level.geography.earth_climate.096",
+  "skillId": "skill.geography.earth_climate",
+  "number": 96,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Floods: Turn Around, Don't Drown",
+  "objective": "After this level you can explain how flash floods form and why driving into floodwater is so dangerous.",
+  "summary": "A flash flood begins within hours of heavy rain, fastest where water can't soak in. A foot of rushing water can carry away most cars, so Turn Around, Don't Drown.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.hazard_flash_floods",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.hazard_flood_driving",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.soil_composition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.095"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.096.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Six inches of fast water can knock you off your feet.",
+      "body": "A flash flood can turn a quiet creek or a highway underpass into a torrent within hours. Here's how that happens, and why a car is the worst place to meet one."
+    },
+    {
+      "id": "card.earth_climate.096.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "What makes a flood flash",
+      "body": "A flash flood begins within 6 hours of heavy rain, often within 3, and the rain usually comes from thunderstorms. How fast it arrives depends on how hard it rains, the slope, the plants and how soggy the soil already is. It can even strike where it isn't raining: heavy rain upstream can turn your quiet creek into a torrent."
+    },
+    {
+      "id": "card.earth_climate.096.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Where rain can't soak in",
+      "body": "In a forest, much of the rain soaks into the soil and trickles to streams slowly. A city swaps that sponge for roofs, roads and parking lots. The water can't sink in, so it races off and reaches the streams all at once. Same storm, faster flood: pavement makes floods more frequent and more severe."
+    },
+    {
+      "id": "card.earth_climate.096.c4",
+      "type": "fact",
+      "fact": "It takes just 12 inches of rushing water to carry away most cars.",
+      "context": "Two feet carries off SUVs and trucks. Over half of flood drownings happen when someone drives into floodwater, and the road under that water may already have collapsed."
+    },
+    {
+      "id": "card.earth_climate.096.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Turn Around, Don't Drown",
+      "body": "That's the rule from the National Weather Service and Ready.gov, and it's short on purpose. Never drive around the barriers on a flooded road. Never drive or walk into floodwater, however passable it looks. Turning around costs you a few minutes. It's the easiest safety decision you'll ever make.",
+      "mascot": {
+        "pose": "idea",
+        "line": "If you remember one thing from this level, make it this: Turn Around, Don't Drown. Floodwater is never worth the shortcut."
+      }
+    },
+    {
+      "id": "card.earth_climate.096.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.096.q1"
+    },
+    {
+      "id": "card.earth_climate.096.c7",
+      "type": "mcq",
+      "questionId": "question.earth_climate.096.q2"
+    },
+    {
+      "id": "card.earth_climate.096.c8",
+      "type": "recall",
+      "questionId": "question.earth_climate.096.q3"
+    },
+    {
+      "id": "card.earth_climate.096.c9",
+      "type": "checkpoint",
+      "headline": "Floods: understood",
+      "learned": [
+        "Flash floods start within hours of heavy rain",
+        "Pavement makes rain run off fast",
+        "A foot of rushing water floats most cars",
+        "Turn Around, Don't Drown"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.096.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.hazard_flood_driving"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.096.c4"
+      ],
+      "prompt": "Water about a foot deep is rushing across the road ahead. According to the NWS, what can that depth do?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Carry away most cars",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Nothing, as long as it's below the doors",
+          "correct": false,
+          "rationale": "Just 12 inches of rushing water can float most cars."
+        },
+        {
+          "id": "c",
+          "label": "Only slow a car down a little",
+          "correct": false,
+          "rationale": "It can carry most cars away."
+        },
+        {
+          "id": "d",
+          "label": "Move trucks, but never ordinary cars",
+          "correct": false,
+          "rationale": "Cars go first; trucks and SUVs take about 2 feet."
+        }
+      ],
+      "explanation": "The NWS says 12 inches of rushing water can carry away most cars, and 2 feet can carry away SUVs and trucks.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.earth_climate.096.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.hazard_flash_floods"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.096.c3"
+      ],
+      "prompt": "Why does the same storm flood a paved city faster than a forest?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cities get heavier rain than forests do",
+          "correct": false,
+          "rationale": "It's the same storm; the ground makes the difference."
+        },
+        {
+          "id": "b",
+          "label": "Forest trees drink up nearly all the rain",
+          "correct": false,
+          "rationale": "Most of it soaks into the soil."
+        },
+        {
+          "id": "c",
+          "label": "Pavement stops rain soaking in, so it runs off at once",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Pavement is colder, so rain can't evaporate",
+          "correct": false,
+          "rationale": "The problem is fast runoff, not evaporation."
+        }
+      ],
+      "explanation": "Roofs, roads and parking lots stop rain from soaking in, so more water reaches streams more quickly.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.096.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.soil_composition",
+        "concept.earth_climate.hazard_flash_floods"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.096.c3",
+        "card.earth_climate.009.c1"
+      ],
+      "prompt": "Level 9 said about half of a handful of healthy soil is open space. How does that help a forest flood less than a parking lot?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Soil minerals push rainwater back into the air",
+          "correct": false,
+          "rationale": "Soil soaks water up; it doesn't repel it."
+        },
+        {
+          "id": "b",
+          "label": "Rain soaks into the soil's spaces instead of running off",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Parking lots sit lower, so every drop flows to them",
+          "correct": false,
+          "rationale": "The difference is soaking in, not height."
+        },
+        {
+          "id": "d",
+          "label": "The soil turns rainwater into rock",
+          "correct": false,
+          "rationale": "Water fills the soil's pore spaces."
+        }
+      ],
+      "explanation": "Soil's pore spaces hold water and air, so forest soil soaks up rain. Pavement has nowhere for the water to go.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.nws_phi_flash_flood",
+    "source.usgs_impervious_flooding",
+    "source.nws_turn_around_dont_drown",
+    "source.readygov_floods"
+  ],
+  "art": "earth.rain-gauge"
+}

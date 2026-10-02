@@ -1,0 +1,225 @@
+{
+  "id": "level.arts.literature.044",
+  "skillId": "skill.arts.literature",
+  "number": 44,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Tale of Genji",
+  "objective": "After this level you can explain why Murasaki Shikibu's Tale of Genji is often called the world's first novel.",
+  "summary": "Murasaki Shikibu, a court lady, finished The Tale of Genji about 1010. Hiragana let Heian women write, and its 54 chapters of inner life are why it's often called the first novel.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.genji_novel",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.genji_kana_court",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.kojiki",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.literature.story_forms_path",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.043"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.044.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "About 1010, a court lady finished what's often called the first novel.",
+      "body": "She was Murasaki Shikibu, and she wrote The Tale of Genji while serving at the Japanese court. Why does a book that old get that title? Start with who got to write what."
+    },
+    {
+      "id": "card.literature.044.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The script that let women write",
+      "body": "We don't know her real name. We do know she learned Chinese, then generally the exclusive sphere of men. At the Heian court, men composed official documents in stilted Chinese. Hiragana, a script for writing Japanese, gave court women their chance to create works of literature. The men kept the official language. The women got the stories."
+    },
+    {
+      "id": "card.literature.044.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "One life, 54 chapters",
+      "body": "Genji follows one character and his legacy through 54 chapters. The hero is a handsome, sensitive, gifted courtier, an excellent lover and a worthy friend. The book shows supreme sensitivity to human emotions and to nature, and as it goes on, its tone darkens, reflecting the Buddhist conviction that this world doesn't last. A long story that follows inner lives over time: that's what a novel does.",
+      "mascot": {
+        "pose": "thinking",
+        "line": "Keep the hedge: Genji is often called the first novel. Scholars argue about firsts, so say it that way too."
+      }
+    },
+    {
+      "id": "card.literature.044.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "From heroes to people",
+      "body": "Remember Level 1: the epic lifts its heroes up, while the novel often shows life as unheroic and imperfect. Genji fights no monsters. He's a lover and a friend at court, and the book is an absorbing picture of Heian aristocrats: their entertainment, dress, daily life and moral code. A hero's story with the heroics left out."
+    },
+    {
+      "id": "card.literature.044.c5",
+      "type": "mcq",
+      "questionId": "question.literature.044.q1"
+    },
+    {
+      "id": "card.literature.044.c6",
+      "type": "mcq",
+      "questionId": "question.literature.044.q2"
+    },
+    {
+      "id": "card.literature.044.c7",
+      "type": "recall",
+      "questionId": "question.literature.044.q3"
+    },
+    {
+      "id": "card.literature.044.c8",
+      "type": "checkpoint",
+      "headline": "The Tale of Genji: read",
+      "learned": [
+        "Murasaki Shikibu, a court lady, about 1010",
+        "Hiragana gave Heian women a way to write",
+        "54 chapters of one life and its legacy",
+        "Often called the first novel: keep the hedge"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.044.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.genji_kana_court"
+      ],
+      "sourceCardIds": [
+        "card.literature.044.c2"
+      ],
+      "prompt": "Which script gave Heian court women like Murasaki Shikibu their chance to write literature?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Hiragana",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Stilted official Chinese",
+          "correct": false,
+          "rationale": "That was how men wrote official documents."
+        },
+        {
+          "id": "c",
+          "label": "Cuneiform on clay tablets",
+          "correct": false,
+          "rationale": "That's Mesopotamia's writing, from Level 1."
+        },
+        {
+          "id": "d",
+          "label": "Latin",
+          "correct": false,
+          "rationale": "That's the learned language of medieval Europe."
+        }
+      ],
+      "explanation": "Hiragana, a script for Japanese, gave Heian court women the opportunity to create works of literature.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.literature.044.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.genji_novel"
+      ],
+      "sourceCardIds": [
+        "card.literature.044.c3",
+        "card.literature.044.c1"
+      ],
+      "prompt": "Why is The Tale of Genji often called the world's first novel?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It was the first book ever printed in Japan",
+          "correct": false,
+          "rationale": "The title is about how the story is told, not printing."
+        },
+        {
+          "id": "b",
+          "label": "It's a long poem about a warrior's heroic deeds",
+          "correct": false,
+          "rationale": "That describes an epic."
+        },
+        {
+          "id": "c",
+          "label": "It follows one life and its legacy across 54 chapters",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It was written in Chinese for government officials",
+          "correct": false,
+          "rationale": "Hiragana gave court women their chance to write."
+        }
+      ],
+      "explanation": "Genji follows one character and his legacy through 54 chapters, with deep sensitivity to human emotion: what novels do.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.literature.044.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.genji_kana_court",
+        "concept.literature.kojiki"
+      ],
+      "sourceCardIds": [
+        "card.literature.044.c2",
+        "card.literature.009.c2"
+      ],
+      "prompt": "Level 9's Kojiki was written with Chinese characters. What made Murasaki Shikibu's knowledge of Chinese unusual?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Chinese had not yet reached Japan",
+          "correct": false,
+          "rationale": "The Kojiki used Chinese characters back in 712."
+        },
+        {
+          "id": "b",
+          "label": "Chinese was then generally the exclusive sphere of men",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only the empress was allowed to read it",
+          "correct": false,
+          "rationale": "Men used Chinese for official documents."
+        },
+        {
+          "id": "d",
+          "label": "She invented the Chinese characters herself",
+          "correct": false,
+          "rationale": "The characters came from China."
+        }
+      ],
+      "explanation": "Murasaki Shikibu learned Chinese, then generally the exclusive sphere of men, who wrote official documents in it.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.brit_tale_of_genji",
+    "source.brit_novel",
+    "source.brit_murasaki_shikibu",
+    "source.brit_japan_heian"
+  ],
+  "art": "lit.folding-fan"
+}

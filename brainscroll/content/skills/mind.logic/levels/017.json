@@ -1,0 +1,216 @@
+{
+  "id": "level.mind.logic.017",
+  "skillId": "skill.mind.logic",
+  "number": 17,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Induction",
+  "objective": "After this level you can explain induction: reasoning from examples to a conclusion that is probable, not certain.",
+  "summary": "Induction reasons from cases to a probable conclusion. It is graded strong or weak, not valid or invalid, and new premises can overturn it.",
+  "concepts": [
+    {
+      "conceptId": "concept.logic.induction_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.logic.deduction_definition",
+      "role": "recall",
+      "weight": 0.3
+    },
+    {
+      "conceptId": "concept.logic.deduction_validity",
+      "role": "recall",
+      "weight": 0.3
+    }
+  ],
+  "prerequisites": [
+    "level.mind.logic.016"
+  ],
+  "cards": [
+    {
+      "type": "text",
+      "role": "hook",
+      "headline": "\"It has snowed in Calgary every winter so far. So it will this winter.\"",
+      "body": "Would you bet on it? Almost certainly. Would you call it proof? The textbook forall x says no: the argument is invalid. That isn't a criticism. It's a different kind of reasoning, the kind you use whenever you trust tomorrow to behave like yesterday.",
+      "id": "card.logic.017.c1"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "From cases to a conclusion",
+      "body": "This is induction, Aristotle's second kind of argument from Level 11: from the cases you've seen to a general rule. Its conclusion is meant to follow with high probability, not certainty. However many snowy winters pile up, a dry one stays possible, so the premises could all be true while the conclusion is false. Deduction says \"must\". Induction says \"very likely\".",
+      "id": "card.logic.017.c2"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "Strong or weak, not valid or invalid",
+      "body": "So induction gets its own grades. Instead of valid or invalid, an inductive argument is strong or weak. A strong one's premises make its conclusion likely. \"Every winter so far\" makes a strong case for snow. \"It snowed last winter\" would make a much weaker one. The question shifts from \"Is there any way out?\" to \"How good are the odds?\"",
+      "id": "card.logic.017.c3"
+    },
+    {
+      "type": "text",
+      "role": "explain",
+      "headline": "New facts can flip it",
+      "body": "\"Tweets is a healthy bird. Most healthy birds fly. So Tweets probably flies.\" Strong. Now add: Tweets is 6 feet tall and runs 30 miles an hour. Suddenly you're picturing an ostrich, and the conclusion collapses. New premises can defeat an inductive argument. A valid deduction can't be overturned by adding premises: it stays valid whatever you add.",
+      "id": "card.logic.017.c4"
+    },
+    {
+      "id": "card.logic.017.c5",
+      "type": "mcq",
+      "questionId": "question.logic.017.q1"
+    },
+    {
+      "id": "card.logic.017.c6",
+      "type": "mcq",
+      "questionId": "question.logic.017.q2"
+    },
+    {
+      "id": "card.logic.017.c7",
+      "type": "mcq",
+      "questionId": "question.logic.017.q3"
+    },
+    {
+      "id": "card.logic.017.c8",
+      "type": "checkpoint",
+      "headline": "Induction: introduced",
+      "learned": [
+        "Induction: from cases to a probable conclusion",
+        "Graded strong or weak, not valid or invalid",
+        "Even a strong induction can be wrong",
+        "New premises can overturn an induction"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.logic.017.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.logic.induction_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.017.c2"
+      ],
+      "prompt": "How does an inductive argument's conclusion follow from its premises?",
+      "options": [
+        {
+          "id": "a",
+          "label": "With certainty, if the premises are true",
+          "correct": false,
+          "rationale": "That's deduction."
+        },
+        {
+          "id": "b",
+          "label": "With high probability, not certainty",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only when it is stated first",
+          "correct": false,
+          "rationale": "Order has nothing to do with it."
+        },
+        {
+          "id": "d",
+          "label": "Without needing any premises",
+          "correct": false,
+          "rationale": "Induction reasons from cases, which are its premises."
+        }
+      ],
+      "explanation": "An inductive conclusion is meant to be probable: the premises could be true and it could still be false.",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.logic.017.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.logic.induction_definition"
+      ],
+      "sourceCardIds": [
+        "card.logic.017.c2",
+        "card.logic.017.c4"
+      ],
+      "prompt": "Why can a new premise overturn a strong inductive argument about Tweets?",
+      "options": [
+        {
+          "id": "a",
+          "label": "New premises make every argument invalid",
+          "correct": false,
+          "rationale": "A valid deduction stays valid whatever you add."
+        },
+        {
+          "id": "b",
+          "label": "Strong arguments are secretly weak ones",
+          "correct": false,
+          "rationale": "It really was strong, until the new fact arrived."
+        },
+        {
+          "id": "c",
+          "label": "Its premises never guaranteed the conclusion",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Adding any premise rewords the whole conclusion",
+          "correct": false,
+          "rationale": "The conclusion stays the same; its support changes."
+        }
+      ],
+      "explanation": "Inductive premises make a conclusion likely, not certain, so a new fact (6 feet tall, 30 miles an hour) can defeat it.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.logic.017.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.logic.induction_definition",
+        "concept.logic.deduction_validity"
+      ],
+      "sourceCardIds": [
+        "card.logic.017.c3",
+        "card.logic.012.c2"
+      ],
+      "prompt": "Which grades go with induction, and which with deduction (Level 12)?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Valid or invalid for induction; strong or weak for deduction",
+          "correct": false,
+          "rationale": "It's the other way round."
+        },
+        {
+          "id": "b",
+          "label": "True or false for both kinds",
+          "correct": false,
+          "rationale": "Claims are true or false; arguments get these other grades."
+        },
+        {
+          "id": "c",
+          "label": "Sound or unsound for induction only",
+          "correct": false,
+          "rationale": "Soundness belongs to deduction."
+        },
+        {
+          "id": "d",
+          "label": "Strong or weak for induction; valid or invalid for deduction",
+          "correct": true
+        }
+      ],
+      "explanation": "Induction is graded strong or weak; deduction is graded valid or invalid.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.libretexts_vancleave_deductive_inductive",
+    "source.iep_deductive_inductive",
+    "source.forallx_calgary",
+    "source.sep_aristotle_logic"
+  ],
+  "art": "mind.marble-jar"
+}

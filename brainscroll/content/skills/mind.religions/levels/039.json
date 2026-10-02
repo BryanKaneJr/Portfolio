@@ -1,0 +1,229 @@
+{
+  "id": "level.mind.religions.039",
+  "skillId": "skill.mind.religions",
+  "number": 39,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Hadith and Islamic Law",
+  "objective": "After this level you can explain how scholars build sharia from the Quran and the Prophet's example, and why schools of law reach different rulings.",
+  "summary": "Hadith record the Prophet's example; with the Quran, consensus and analogy, jurists use them to work out sharia, and four Sunni schools reach different rulings by different methods.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.hadith_sunna",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.sharia_fiqh_schools",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.sunni_shia_succession",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.038"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.039.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Quran comes first. What happens when it doesn't answer the question?",
+      "body": "They look next to the Prophet's example, recorded in the hadith, and then to scholars' consensus and careful reasoning by analogy. That chain of steps is how Islamic law gets built."
+    },
+    {
+      "id": "card.religions.039.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Hadith: the Prophet's example on record",
+      "body": "A hadith is a report of what Muhammad said or did, and Muslims revere the hadith as a source of law and guidance second only to the Quran. Together they show his Sunnah, the norms and practices he set. Every report carries a chain of narrators, the isnad, running back to Muhammad and his Companions, plus its text. Scholars graded reports as sound, fair or weak.",
+      "callout": "Isnad = chain of narrators. Matn = the text"
+    },
+    {
+      "id": "card.religions.039.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Collected and checked",
+      "body": "Al-Bukhari, who died in 870, and Muslim ibn al-Hajjaj, who died in 875, each compiled a collection titled \"The Authentic\"; both are among the six collections Sunnis hold canonical. Shia Muslims have their own, such as al-Kulayni's Kitab al-kafi. Among the transmitters was Muhammad's wife Aisha, who spent her later years passing on hadith and interpreting the Quran."
+    },
+    {
+      "id": "card.religions.039.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "From sources to rulings",
+      "body": "Sharia literally means \"path leading to the watering place\". Fiqh, \"understanding\", is the human effort to know it, held to be imperfect and changeable where sharia is not. Jurists work from four sources: the Quran, the Sunnah, ijma (scholars' consensus) and qiyas (analogy). Qiyas at work: drugs were ruled forbidden by analogy with the Quran's ban on alcohol, because both intoxicate.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "People mix up sharia and fiqh. Sharia is the path Muslims believe God set; fiqh is scholars' human attempt to map it."
+      }
+    },
+    {
+      "id": "card.religions.039.c5",
+      "type": "text",
+      "role": "explain",
+      "headline": "Four schools, one path",
+      "body": "Sunnis accept four schools of law: Hanafi, Maliki, Shafii and Hanbali. Their methods differ. Malikis and Hanafis gave more weight to their regional traditions, while al-Shafii stressed the Quran, the Sunnah and systematic analogy. The Hanafi school came to predominate in the Middle East and the Indian subcontinent, the Maliki in North, West and Central Africa, the Hanbali in Saudi Arabia. A saying attributed to the Prophet calls difference of opinion \"a sign of God's bounty\"."
+    },
+    {
+      "id": "card.religions.039.c6",
+      "type": "mcq",
+      "questionId": "question.religions.039.q1"
+    },
+    {
+      "id": "card.religions.039.c7",
+      "type": "mcq",
+      "questionId": "question.religions.039.q2"
+    },
+    {
+      "id": "card.religions.039.c8",
+      "type": "mcq",
+      "questionId": "question.religions.039.q3"
+    },
+    {
+      "id": "card.religions.039.c9",
+      "type": "checkpoint",
+      "headline": "Hadith and Islamic Law: the takeaways",
+      "learned": [
+        "Hadith record the Prophet's words and deeds, checked by their chains of narrators",
+        "Jurists build rulings from the Quran, Sunnah, consensus and analogy",
+        "Four Sunni schools reach different rulings by different methods"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.039.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.hadith_sunna"
+      ],
+      "sourceCardIds": [
+        "card.religions.039.c2"
+      ],
+      "prompt": "What is the isnad of a hadith?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Its grade: sound, fair or weak",
+          "correct": false,
+          "rationale": "That's the grade scholars gave it."
+        },
+        {
+          "id": "b",
+          "label": "Its chain of narrators back to Muhammad",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The words of the report itself",
+          "correct": false,
+          "rationale": "That's the text, the matn."
+        },
+        {
+          "id": "d",
+          "label": "The sura where it appears",
+          "correct": false,
+          "rationale": "Hadith aren't part of the Quran's suras."
+        }
+      ],
+      "explanation": "The isnad is the chain of narrators running back to Muhammad and his Companions.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.religions.039.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.sharia_fiqh_schools"
+      ],
+      "sourceCardIds": [
+        "card.religions.039.c4"
+      ],
+      "prompt": "How does qiyas let jurists rule on something the Quran never mentions?",
+      "options": [
+        {
+          "id": "a",
+          "label": "By holding a vote of all living Muslims",
+          "correct": false,
+          "rationale": "Ijma is scholars' consensus, not a popular vote."
+        },
+        {
+          "id": "b",
+          "label": "By adopting the local ruler's decision",
+          "correct": false,
+          "rationale": "Rulings come from the four sources, not a ruler."
+        },
+        {
+          "id": "c",
+          "label": "By extending a ruling to a case with the same cause",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "By waiting for a new revelation",
+          "correct": false,
+          "rationale": "Muslims believe revelation ended with Muhammad."
+        }
+      ],
+      "explanation": "Qiyas reasons by analogy: drugs were ruled forbidden like alcohol because both intoxicate.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.religions.039.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.hadith_sunna",
+        "concept.religions.sunni_shia_succession"
+      ],
+      "sourceCardIds": [
+        "card.religions.039.c3",
+        "card.religions.038.c2"
+      ],
+      "prompt": "Level 38 showed Sunnis and Shia differing over leadership. How does that difference show up in hadith?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Shia Muslims have their own collections, such as Kitab al-kafi",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Shia Muslims reject all reports about Muhammad",
+          "correct": false,
+          "rationale": "Shia Muslims have their own hadith collections."
+        },
+        {
+          "id": "c",
+          "label": "Sunnis use no hadith collections at all",
+          "correct": false,
+          "rationale": "Sunnis hold six collections canonical."
+        },
+        {
+          "id": "d",
+          "label": "Both branches use a single shared collection",
+          "correct": false,
+          "rationale": "Each branch has its own authoritative collections."
+        }
+      ],
+      "explanation": "Sunnis hold six collections canonical, including al-Bukhari's and Muslim's; Shia Muslims have their own, such as al-Kulayni's Kitab al-kafi.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_hadith",
+    "source.brit_aishah",
+    "source.brit_sharia",
+    "source.brit_fiqh",
+    "source.bbc_islam_sharia",
+    "source.brit_sunni",
+    "source.brit_sharia_schools"
+  ],
+  "art": "lit.stack-of-books"
+}

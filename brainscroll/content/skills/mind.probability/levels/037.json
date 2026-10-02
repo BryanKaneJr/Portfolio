@@ -1,0 +1,211 @@
+{
+  "id": "level.mind.probability.037",
+  "skillId": "skill.mind.probability",
+  "number": 37,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Should You Risk the Parking Ticket?",
+  "objective": "After this level you can use expected value to compare two everyday choices, like paying for parking or risking a fine.",
+  "summary": "Compare a sure cost with the expected cost of a gamble. With a $4 meter, a $50 fine and a 1 in 5 chance of a ticket, skipping costs $10 on average. The choices break even at a chance of 8 in 100.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.bet_parking_choice",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.bet_expected_value",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.probability.bet_risk_aversion",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.036"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.037.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The meter costs $4. The fine is $50. Pay, or take your chances?",
+      "body": "Nobody calls it a bet, but it is one. Let's put made-up round numbers on it and let expected value decide."
+    },
+    {
+      "id": "card.probability.037.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "The cost of skipping, on average",
+      "body": "Suppose 1 time in 5 you'd get a ticket. Skipping then costs $50 × 1/5, or $10 on average, against a sure $4 at the meter. Paying saves you $6 a visit on average. Even if tickets came only 1 time in 10, skipping would cost $5 on average: still more than the meter."
+    },
+    {
+      "id": "card.probability.037.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Find the break-even point",
+      "body": "Where would the choice flip? When the expected fine equals the meter: the chance times $50 equals $4. That happens at a chance of 4 in 50, or 8 in 100. Unless tickets were rarer than that, the meter is the better deal. Finding the break-even chance works for any either-or choice: it tells you how likely the bad outcome must be before the gamble stops paying."
+    },
+    {
+      "id": "card.probability.037.c4",
+      "type": "fact",
+      "fact": "Expected value counts only what you put into it.",
+      "context": "The sum above includes the fine and nothing else. Any cost you leave out of the calculation, like lost time or a ruined afternoon, can't show up in the answer. So a neat average can make a gamble look cheaper than it feels. Level 35's risk-averse buyer knew that already."
+    },
+    {
+      "id": "card.probability.037.c5",
+      "type": "mcq",
+      "questionId": "question.probability.037.q1"
+    },
+    {
+      "id": "card.probability.037.c6",
+      "type": "mcq",
+      "questionId": "question.probability.037.q2"
+    },
+    {
+      "id": "card.probability.037.c7",
+      "type": "recall",
+      "questionId": "question.probability.037.q3"
+    },
+    {
+      "id": "card.probability.037.c8",
+      "type": "checkpoint",
+      "headline": "The parking bet: decided",
+      "learned": [
+        "Skipping costs chance × fine on average",
+        "1 in 5 × $50 = $10, against a $4 meter",
+        "Break-even chance: meter ÷ fine",
+        "The average counts only what you put in"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.037.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.bet_parking_choice"
+      ],
+      "sourceCardIds": [
+        "card.probability.037.c2"
+      ],
+      "prompt": "With a $4 meter, a $50 fine and a 1 in 5 chance of a ticket, what does skipping cost on average?",
+      "options": [
+        {
+          "id": "a",
+          "label": "$4",
+          "correct": false,
+          "rationale": "That's the meter, the sure cost."
+        },
+        {
+          "id": "b",
+          "label": "$10",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "$46",
+          "correct": false,
+          "rationale": "That subtracts the meter from the fine."
+        },
+        {
+          "id": "d",
+          "label": "$50",
+          "correct": false,
+          "rationale": "That's the fine if you're caught, not the average."
+        }
+      ],
+      "explanation": "$50 × 1/5 = $10 on average, more than the sure $4.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.037.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.bet_parking_choice"
+      ],
+      "sourceCardIds": [
+        "card.probability.037.c3"
+      ],
+      "prompt": "How do you find the chance at which paying the meter and skipping it cost the same on average?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Divide the fine by the meter price",
+          "correct": false,
+          "rationale": "That gives 50 ÷ 4, which is not a chance."
+        },
+        {
+          "id": "b",
+          "label": "Subtract the meter price from the fine",
+          "correct": false,
+          "rationale": "That gives dollars, not a chance."
+        },
+        {
+          "id": "c",
+          "label": "Divide the meter price by the fine",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Multiply the fine by the meter price",
+          "correct": false,
+          "rationale": "That gives a meaningless $200."
+        }
+      ],
+      "explanation": "Break-even is where chance × $50 = $4, so the chance is 4 ÷ 50, or 8 in 100.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.037.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.bet_risk_aversion",
+        "concept.probability.bet_parking_choice"
+      ],
+      "sourceCardIds": [
+        "card.probability.035.c4",
+        "card.probability.037.c4"
+      ],
+      "prompt": "Suppose skipping the meter cost $3 on average against a $4 meter. Why might a risk-averse driver still pay?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They'd pay a bit more to avoid a big, uncertain cost",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "They misread the expected value",
+          "correct": false,
+          "rationale": "They can read it fine; they are weighing risk, not average."
+        },
+        {
+          "id": "c",
+          "label": "A lower average always means a worse choice",
+          "correct": false,
+          "rationale": "It doesn't; the average is only part of the picture."
+        },
+        {
+          "id": "d",
+          "label": "Paying the meter has a negative expected value",
+          "correct": false,
+          "rationale": "Paying is a sure cost, not a gamble."
+        }
+      ],
+      "explanation": "Risk-averse people pay more than a gamble's expected loss to avoid it, and the average leaves out costs you did not count.",
+      "difficulty": 0.4
+    }
+  ],
+  "sourceIds": [
+    "source.openstax_intro_stats_expected_value"
+  ],
+  "art": "money.receipt"
+}

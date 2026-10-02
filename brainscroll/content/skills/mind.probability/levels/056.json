@@ -1,0 +1,209 @@
+{
+  "id": "level.mind.probability.056",
+  "skillId": "skill.mind.probability",
+  "number": 56,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The People Who Don't Answer",
+  "objective": "After this level you can explain nonresponse bias: why the people who skip a survey can skew its results.",
+  "summary": "Phone response rates fell from 36% to 6%. Low response alone isn't fatal; bias comes when answering is tied to the topic, as with volunteering, and as with the 1936 Digest.",
+  "concepts": [
+    {
+      "conceptId": "concept.probability.poll_nonresponse_bias",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.probability.poll_literary_digest_1936",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.probability.055"
+  ],
+  "cards": [
+    {
+      "id": "card.probability.056.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1997, 36% of the people Pew phoned took part. By 2018, 6%.",
+      "body": "Pew Research Center's typical phone poll now hears from only a small slice of the people it tries. The ones who pick up are a special crowd. Does that ruin polls? Surprisingly, not always."
+    },
+    {
+      "id": "card.probability.056.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Who picks up?",
+      "body": "Pew's typical phone survey response rate fell from 36% in 1997 to 9% in 2012 and 6% in 2018. Robocalls may be part of it: a poll call looks like one more unknown number, and phones flag some as spam. The danger isn't the low number itself. It's nonresponse bias: if the people who skip a survey differ from those who answer on what it measures, the results skew."
+    },
+    {
+      "id": "card.probability.056.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "The volunteers who answer everything",
+      "body": "Pew studies in 1997, 2003, 2012 and 2016 found little link between response rates and accuracy. What matters is whether the topic is tied to who answers. Politics mostly wasn't. Volunteering was: in 2012, 55% of Pew's respondents said they'd volunteered in the past year, against 27% in the government's Current Population Survey. The urge to help out seems to include helping pollsters."
+    },
+    {
+      "id": "card.probability.056.c4",
+      "type": "fact",
+      "fact": "Ask who's missing, and whether they'd answer differently.",
+      "context": "Remember Level 53. The Digest's replies were biased too: a 1988 study found that had everyone it polled answered, it would at least have picked Roosevelt to win. Nonresponse, not just the list, helped sink it."
+    },
+    {
+      "id": "card.probability.056.c5",
+      "type": "mcq",
+      "questionId": "question.probability.056.q1"
+    },
+    {
+      "id": "card.probability.056.c6",
+      "type": "mcq",
+      "questionId": "question.probability.056.q2"
+    },
+    {
+      "id": "card.probability.056.c7",
+      "type": "recall",
+      "questionId": "question.probability.056.q3"
+    },
+    {
+      "id": "card.probability.056.c8",
+      "type": "checkpoint",
+      "headline": "Nonresponse: who's missing",
+      "learned": [
+        "Phone response: 36% to 6%",
+        "Low response isn't automatically wrong",
+        "Bias when the topic drives who answers",
+        "Volunteers answer more surveys"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.probability.056.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.probability.poll_nonresponse_bias"
+      ],
+      "sourceCardIds": [
+        "card.probability.056.c2"
+      ],
+      "prompt": "What is nonresponse bias?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Error from asking too few people",
+          "correct": false,
+          "rationale": "That's sampling error, which the margin measures."
+        },
+        {
+          "id": "b",
+          "label": "Skew from a question worded to push an answer",
+          "correct": false,
+          "rationale": "That's a wording effect."
+        },
+        {
+          "id": "c",
+          "label": "Skew when people who skip a survey differ from those who answer",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Error from counting the same person twice",
+          "correct": false,
+          "rationale": "That's a data-cleaning slip, not nonresponse."
+        }
+      ],
+      "explanation": "If the people who don't answer differ from those who do on what the survey measures, the results skew.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.probability.056.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.probability.poll_nonresponse_bias"
+      ],
+      "sourceCardIds": [
+        "card.probability.056.c3"
+      ],
+      "prompt": "Why did Pew's phone surveys overstate how many people volunteer?",
+      "options": [
+        {
+          "id": "a",
+          "label": "People who volunteer are also more willing to take surveys",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The question was worded to flatter volunteers",
+          "correct": false,
+          "rationale": "The problem was who answered, not the wording."
+        },
+        {
+          "id": "c",
+          "label": "The samples were too small to be accurate",
+          "correct": false,
+          "rationale": "Size wasn't the issue; the kind of person answering was."
+        },
+        {
+          "id": "d",
+          "label": "Volunteers were weighted up on purpose",
+          "correct": false,
+          "rationale": "No one weighted them up; they simply answered more."
+        }
+      ],
+      "explanation": "The same motivation that leads people to volunteer seems to make them readier to take surveys, so volunteers were overrepresented.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.probability.056.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.probability.poll_literary_digest_1936",
+        "concept.probability.poll_nonresponse_bias"
+      ],
+      "sourceCardIds": [
+        "card.probability.056.c4",
+        "card.probability.053.c4"
+      ],
+      "prompt": "What did the 1988 study find would have happened if everyone the Literary Digest polled had replied?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It would have been exactly right",
+          "correct": false,
+          "rationale": "The study only says it would have picked the right winner."
+        },
+        {
+          "id": "b",
+          "label": "It would still have picked Landon",
+          "correct": false,
+          "rationale": "The study found the opposite."
+        },
+        {
+          "id": "c",
+          "label": "It would have called a tie",
+          "correct": false,
+          "rationale": "The study said it would have picked Roosevelt."
+        },
+        {
+          "id": "d",
+          "label": "It would at least have picked Roosevelt to win",
+          "correct": true
+        }
+      ],
+      "explanation": "The replies were biased as well as the lists: had everyone answered, the Digest would at least have picked Roosevelt.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.pew_representativeness_2012",
+    "source.pew_response_rates_2019",
+    "source.aapor_sampling_methods_polling",
+    "source.squire_poq_literary_digest_1988"
+  ],
+  "art": "technology.telephone"
+}

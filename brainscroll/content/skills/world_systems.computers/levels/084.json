@@ -1,0 +1,210 @@
+{
+  "id": "level.world_systems.computers.084",
+  "skillId": "skill.world_systems.computers",
+  "number": 84,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Why AI Needs So Many Chips",
+  "objective": "After this level you can explain why training large models takes thousands of graphics chips and large amounts of electricity.",
+  "summary": "GPUs, built for 3-D graphics, run thousands of calculations at once. GPT-3 needed 10,000 of them for about 15 days and an estimated 1,287 MWh (2021 estimate).",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.ai_parallel_chips",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.fetch_decode_execute",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.083"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.084.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The chips that train AI were built to draw 3-D graphics.",
+      "body": "Graphics processing units, or GPUs, were designed to speed up 3-D graphics. Today they train neural networks. Why would a chip made for pictures be the right tool for learning? Because deep learning is a mountain of calculations that a GPU can run thousands at a time."
+    },
+    {
+      "id": "card.computers.084.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Thousands of workers at once",
+      "body": "Level 8's processor races through instructions largely one after another: CPUs generally work serially, finishing one process before the next. A GPU spreads the work over hundreds or even thousands of cores, all calculating at the same moment. Deep learning is mostly huge grids of multiplications, like Level 83's neurons, so for training a GPU is far more efficient than a traditional processor."
+    },
+    {
+      "id": "card.computers.084.c3",
+      "type": "fact",
+      "fact": "A 2021 study estimated that training GPT-3 kept 10,000 GPUs busy for about 15 days.",
+      "context": "That's 148,000 chip-days: about 400 years of work for a single chip. Splitting the job across thousands of chips turns centuries into weeks. And the clusters keep growing: in 2024, Meta reported training its largest Llama 3 model on up to 16,000 GPUs."
+    },
+    {
+      "id": "card.computers.084.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "The electricity bill",
+      "body": "Thousands of chips running for weeks draw serious power. A 2021 study estimated that training GPT-3 used 1,287 megawatt-hours of electricity. That's about what 120 average US homes used in a year in 2022. And it's one training run of one model, as estimated in 2021."
+    },
+    {
+      "id": "card.computers.084.c5",
+      "type": "mcq",
+      "questionId": "question.computers.084.q1"
+    },
+    {
+      "id": "card.computers.084.c6",
+      "type": "mcq",
+      "questionId": "question.computers.084.q2"
+    },
+    {
+      "id": "card.computers.084.c7",
+      "type": "mcq",
+      "questionId": "question.computers.084.q3"
+    },
+    {
+      "id": "card.computers.084.c8",
+      "type": "checkpoint",
+      "headline": "AI chips: counted",
+      "learned": [
+        "GPUs began as chips for 3-D graphics",
+        "Their thousands of cores calculate at the same moment",
+        "GPT-3's training used an estimated 10,000 GPUs for about 15 days",
+        "One training run can use as much electricity as 120 homes in a year"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.084.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.ai_parallel_chips"
+      ],
+      "sourceCardIds": [
+        "card.computers.084.c2"
+      ],
+      "prompt": "How does a GPU get through a huge pile of calculations?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It works through them one at a time, very fast",
+          "correct": false,
+          "rationale": "That's closer to how a CPU works."
+        },
+        {
+          "id": "b",
+          "label": "It skips the ones that seem unimportant",
+          "correct": false,
+          "rationale": "It does them all, just many at once."
+        },
+        {
+          "id": "c",
+          "label": "It runs them at the same moment across many cores",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "It looks the answers up in stored tables",
+          "correct": false,
+          "rationale": "It calculates them, in parallel."
+        }
+      ],
+      "explanation": "A GPU spreads calculations over hundreds or thousands of cores that work simultaneously.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.computers.084.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.ai_parallel_chips"
+      ],
+      "sourceCardIds": [
+        "card.computers.084.c3"
+      ],
+      "prompt": "Training a model would keep a single chip busy for centuries. What makes it possible in weeks?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Splitting the work across thousands of chips running in parallel",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Swapping in one single chip with a much faster clock",
+          "correct": false,
+          "rationale": "One chip, however quick, still does all the work alone."
+        },
+        {
+          "id": "c",
+          "label": "Training the model on just a single example",
+          "correct": false,
+          "rationale": "That would teach the model almost nothing."
+        },
+        {
+          "id": "d",
+          "label": "Storing the model on a much bigger hard drive",
+          "correct": false,
+          "rationale": "Storage size doesn't speed up the calculations."
+        }
+      ],
+      "explanation": "By a 2021 estimate, GPT-3's training took about 400 chip-years, done in about 15 days by 10,000 GPUs working at once.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.computers.084.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.ai_parallel_chips",
+        "concept.computers.fetch_decode_execute"
+      ],
+      "sourceCardIds": [
+        "card.computers.084.c2",
+        "card.computers.008.c3"
+      ],
+      "prompt": "Level 8's processor steps through a program's instructions largely in order. Why is a GPU a better fit for training a neural network?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It fetches each instruction from a much faster cache",
+          "correct": false,
+          "rationale": "The gain comes from parallel work, not faster fetching."
+        },
+        {
+          "id": "b",
+          "label": "It skips the decode step to save time on every cycle",
+          "correct": false,
+          "rationale": "GPUs still run instructions; they just run many at once."
+        },
+        {
+          "id": "c",
+          "label": "It needs almost no electricity while it trains",
+          "correct": false,
+          "rationale": "Training on GPUs uses a lot of electricity."
+        },
+        {
+          "id": "d",
+          "label": "Its many cores do the network's multiplications side by side",
+          "correct": true
+        }
+      ],
+      "explanation": "A CPU generally works serially, while a GPU's many cores run the network's multiplications at the same time.",
+      "difficulty": 0.35
+    }
+  ],
+  "sourceIds": [
+    "source.brit_graphics_processing_unit",
+    "source.ibm_gpu",
+    "source.arxiv_patterson_2021_carbon",
+    "source.arxiv_llama3_herd_2024",
+    "source.eia_home_electricity"
+  ],
+  "art": "computers.graphics-card"
+}

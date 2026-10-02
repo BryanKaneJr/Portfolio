@@ -1,0 +1,219 @@
+{
+  "id": "level.world_systems.computers.071",
+  "skillId": "skill.world_systems.computers",
+  "number": 71,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "How Maps Find the Fastest Route",
+  "objective": "After this level you can explain how a route-finding algorithm explores a road network step by step and uses live traffic to update it.",
+  "summary": "A map becomes a weighted graph; Dijkstra's 1956 method grows outward from the start, closest place first, and live traffic keeps changing the weights.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.routes_dijkstra",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.routes_live_traffic",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.fetch_decode_execute",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.070"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.071.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "In 1956, a programmer solved your drive home over a cup of coffee.",
+      "body": "Finding the quickest way from here to there is the puzzle your map app solves every time you ask for directions. Edsger Dijkstra cracked it in about twenty minutes on a café terrace in Amsterdam. His trick starts by seeing a map not as a picture, but as dots and lines."
+    },
+    {
+      "id": "card.computers.071.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A map made of dots and lines",
+      "body": "To a computer, a road map is a weighted graph. Each intersection is a dot, called a node. Each road between two intersections is a line, called an edge. And each edge carries a weight: the cost of travelling it, such as minutes of driving. The best route is simply the path whose weights add up to the smallest total. Fewest turns doesn't count. Smallest sum wins."
+    },
+    {
+      "id": "card.computers.071.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Always grow from the closest place",
+      "body": "Start at your front door, at distance 0. Note how far each neighboring intersection is. Now take the unvisited place with the smallest known distance, check its neighbors, and lower any distance you can beat. Then repeat. The search spreads outward like a ripple, nearest places first, until your destination is the one picked next. At that moment, its distance is the shortest there is.",
+      "mascot": {
+        "pose": "idea",
+        "line": "Keep this: always expand the closest unfinished place next. That one rule, repeated, is the whole algorithm."
+      }
+    },
+    {
+      "id": "card.computers.071.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Weights that change by the minute",
+      "body": "Dijkstra's 1956 map had fixed distances. A map app keeps changing its weights. Google Maps, for example, uses aggregate location data from people navigating to see current traffic, and blends it with each road's historical patterns to predict traffic later in your drive. If it predicts a jam ahead, it automatically finds a lower-traffic alternative. A route search is only as good as the numbers it adds up."
+    },
+    {
+      "id": "card.computers.071.c5",
+      "type": "mcq",
+      "questionId": "question.computers.071.q1"
+    },
+    {
+      "id": "card.computers.071.c6",
+      "type": "mcq",
+      "questionId": "question.computers.071.q2"
+    },
+    {
+      "id": "card.computers.071.c7",
+      "type": "mcq",
+      "questionId": "question.computers.071.q3"
+    },
+    {
+      "id": "card.computers.071.c8",
+      "type": "checkpoint",
+      "headline": "Route: found",
+      "learned": [
+        "A road map becomes a weighted graph of nodes and edges",
+        "Dijkstra's rule: expand the closest unfinished place next",
+        "The best route has the smallest total weight",
+        "Live and predicted traffic keep changing the weights"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.071.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.routes_live_traffic"
+      ],
+      "sourceCardIds": [
+        "card.computers.071.c4"
+      ],
+      "prompt": "Where does Google Maps get its picture of current traffic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "From aggregate location data of people navigating",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "From a fixed table of posted speed limits for each road",
+          "correct": false,
+          "rationale": "Speed limits don't change with a jam; live location data does."
+        },
+        {
+          "id": "c",
+          "label": "From the weather forecast for the area you drive through",
+          "correct": false,
+          "rationale": "Weather isn't the source named; aggregate location data is."
+        },
+        {
+          "id": "d",
+          "label": "From Dijkstra's original 1956 map",
+          "correct": false,
+          "rationale": "That map had fixed distances, not live traffic."
+        }
+      ],
+      "explanation": "Google Maps uses aggregate location data from people navigating to understand current traffic, blended with historical patterns.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.computers.071.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.routes_dijkstra"
+      ],
+      "sourceCardIds": [
+        "card.computers.071.c3"
+      ],
+      "prompt": "How does Dijkstra's algorithm choose which place to explore next?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The place nearest the destination as the crow flies",
+          "correct": false,
+          "rationale": "It uses known distances from the start, not straight lines to the goal."
+        },
+        {
+          "id": "b",
+          "label": "A random neighbor of the place it just checked",
+          "correct": false,
+          "rationale": "Nothing is random: it always takes the smallest known distance."
+        },
+        {
+          "id": "c",
+          "label": "The unvisited place with the smallest known distance so far",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The intersection with the most roads leading out",
+          "correct": false,
+          "rationale": "Road count doesn't matter; distance does."
+        }
+      ],
+      "explanation": "It always expands the unvisited place with the smallest known distance, updating neighbors, until the destination is picked.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.071.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.routes_dijkstra",
+        "concept.computers.fetch_decode_execute"
+      ],
+      "sourceCardIds": [
+        "card.computers.071.c3",
+        "card.computers.008.c3"
+      ],
+      "prompt": "Dijkstra's search repeats one step until the destination comes up. Which Level 8 instructions let a program loop back and repeat steps?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Decode steps that read each instruction twice",
+          "correct": false,
+          "rationale": "Decoding splits one instruction into parts."
+        },
+        {
+          "id": "b",
+          "label": "A clock that briefly runs backward",
+          "correct": false,
+          "rationale": "The clock only ticks forward at a fixed rate."
+        },
+        {
+          "id": "c",
+          "label": "Cache copies of recently used data",
+          "correct": false,
+          "rationale": "Cache speeds up memory; it doesn't change what runs next."
+        },
+        {
+          "id": "d",
+          "label": "Jumps and branches that change the program counter",
+          "correct": true
+        }
+      ],
+      "explanation": "Jumps and branches point the program counter back to earlier instructions, so a program can run the same steps again and again.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.cwi_dijkstra_history",
+    "source.byu_acme_dijkstra",
+    "source.google_maps_traffic_routes_2020",
+    "source.uvm_fetch_decode_execute"
+  ],
+  "art": "geo.map"
+}

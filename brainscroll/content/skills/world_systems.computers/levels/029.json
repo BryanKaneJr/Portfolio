@@ -1,0 +1,221 @@
+{
+  "id": "level.world_systems.computers.029",
+  "skillId": "skill.world_systems.computers",
+  "number": 29,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Bugs",
+  "objective": "After this level you can explain how a bug creeps into a program, from the 1947 moth to the 1996 Ariane 5 rocket failure.",
+  "summary": "The 1947 moth was a literal bug, but the word was older. Ariane 5 was lost in 1996 when reused Ariane 4 software tried to fit a too-large number into 16 bits.",
+  "concepts": [
+    {
+      "conceptId": "concept.computers.software_bug_moth",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.software_ariane_overflow",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.computers.binary_addition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.world_systems.computers.028"
+  ],
+  "cards": [
+    {
+      "id": "card.computers.029.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "On 9 September 1947, a team found a moth inside a computer.",
+      "body": "They taped it into the logbook as the \"First actual case of bug being found.\" The joke only works because engineers already called faults bugs. This level follows a far costlier bug, one with no wings at all."
+    },
+    {
+      "id": "card.computers.029.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "A real bug, but not the first \"bug\"",
+      "body": "The moth was caught between the relay contacts of the Harvard Mark II in Cambridge, Massachusetts. Grace Hopper was there, and she later made the story famous in her many talks. But the word was older: calling a technical fault a bug goes back to Thomas Edison in the 1800s. The moth didn't coin the term. It was just a very literal example of it.",
+      "mascot": {
+        "pose": "oops",
+        "line": "People often say this moth gave us the word bug. It didn't: the joke in the logbook only works because the word already existed."
+      }
+    },
+    {
+      "id": "card.computers.029.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Ariane 5: lost in under a minute",
+      "body": "On 4 June 1996, the first Ariane 5 rocket veered off its flight path, broke up and exploded about 40 seconds after its flight sequence began. The inquiry board found it had lost its guidance and attitude information 37 seconds after the main engine ignition sequence started. The cause was errors in the software of its inertial reference system, the unit that measures which way the rocket points and moves."
+    },
+    {
+      "id": "card.computers.029.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "A number too big for its box",
+      "body": "That software was practically the same as Ariane 4's. It converted a 64-bit floating-point number into a 16-bit signed integer, and on Ariane 5's faster early trajectory, with much higher horizontal velocity, the value was too large to fit. The backup unit, identical in hardware and software, had already failed the same way. Code that was right for one rocket was wrong for the next.",
+      "callout": "16 bits give 65,536 combinations. A number that runs out of bits overflows: there's nowhere left to carry."
+    },
+    {
+      "id": "card.computers.029.c5",
+      "type": "mcq",
+      "questionId": "question.computers.029.q1"
+    },
+    {
+      "id": "card.computers.029.c6",
+      "type": "mcq",
+      "questionId": "question.computers.029.q2"
+    },
+    {
+      "id": "card.computers.029.c7",
+      "type": "mcq",
+      "questionId": "question.computers.029.q3"
+    },
+    {
+      "id": "card.computers.029.c8",
+      "type": "checkpoint",
+      "headline": "Bugs: traced",
+      "learned": [
+        "The 1947 moth was a literal bug; the word was older",
+        "Ariane 5 was lost in 1996 to a software fault",
+        "Reused code converted a too-large value into 16 bits",
+        "An identical backup fails the same way"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.computers.029.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.computers.software_bug_moth"
+      ],
+      "sourceCardIds": [
+        "card.computers.029.c2"
+      ],
+      "prompt": "Where was the famous 1947 moth found?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Inside an early smartphone",
+          "correct": false,
+          "rationale": "Smartphones came decades later."
+        },
+        {
+          "id": "b",
+          "label": "Between the relay contacts of the Harvard Mark II",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "In Ariane 5's inertial reference system",
+          "correct": false,
+          "rationale": "Ariane 5's bug was in its software, in 1996."
+        },
+        {
+          "id": "d",
+          "label": "In a Bell Labs telephone line",
+          "correct": false,
+          "rationale": "It was in the Harvard Mark II computer."
+        }
+      ],
+      "explanation": "The moth was caught between relay contacts of the Harvard Mark II and taped into its logbook.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.computers.029.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.computers.software_ariane_overflow"
+      ],
+      "sourceCardIds": [
+        "card.computers.029.c4"
+      ],
+      "prompt": "How did software that worked on Ariane 4 fail on Ariane 5?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A moth got into Ariane 5's relays",
+          "correct": false,
+          "rationale": "The failure was in software, not insects."
+        },
+        {
+          "id": "b",
+          "label": "One team used English units and another metric",
+          "correct": false,
+          "rationale": "That was Mars Climate Orbiter, in Level 21."
+        },
+        {
+          "id": "c",
+          "label": "Ariane 5's faster trajectory gave a value too big for a 16-bit integer",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The backup unit ran different software, and that software crashed",
+          "correct": false,
+          "rationale": "The backup ran identical software and failed the same way."
+        }
+      ],
+      "explanation": "Ariane 5's early trajectory gave much higher horizontal velocity, so a value converted into a 16-bit signed integer no longer fit.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.computers.029.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.computers.software_ariane_overflow",
+        "concept.computers.binary_addition"
+      ],
+      "sourceCardIds": [
+        "card.computers.029.c4",
+        "card.computers.007.c2"
+      ],
+      "prompt": "Level 7's binary addition carries a 1 into the next place. What goes wrong when a fixed-size number runs out of bits?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The processor adds more bits automatically",
+          "correct": false,
+          "rationale": "The number of bits is fixed."
+        },
+        {
+          "id": "b",
+          "label": "The number rounds itself to the nearest thousand",
+          "correct": false,
+          "rationale": "Nothing rounds it; it simply doesn't fit."
+        },
+        {
+          "id": "c",
+          "label": "The clock slows down to make room",
+          "correct": false,
+          "rationale": "Clock speed has nothing to do with it."
+        },
+        {
+          "id": "d",
+          "label": "There's nowhere left to carry, so the number overflows",
+          "correct": true
+        }
+      ],
+      "explanation": "A number stored in a fixed number of bits overflows when it runs out of bits: the carry has nowhere to go.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.chm_first_bug",
+    "source.esa_ariane501_press",
+    "source.esa_ariane501_inquiry_report",
+    "source.stanford_cs101_lecture3",
+    "source.stanford_cs101_bits_bytes"
+  ],
+  "art": "computers.moth"
+}

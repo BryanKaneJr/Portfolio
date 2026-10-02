@@ -1,0 +1,230 @@
+{
+  "id": "level.geography.earth_climate.006",
+  "skillId": "skill.geography.earth_climate",
+  "number": 6,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Rocks Made of Layers",
+  "objective": "After this level you can recognize sandstone, shale and limestone and say what each one started out as.",
+  "summary": "Sedimentary rock forms when layers of sediment are compacted and cemented. Sandstone started as sand, shale as mud, and limestone largely as the shells of sea creatures.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.lithification",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.sedimentary_types",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.quartz_sand",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.005"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.006.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Sedimentary rock covers about 75% of the land, yet it's about 5% of the crust.",
+      "body": "It's a thin coat of paint over a much bigger building. And every layer of that paint started out as something loose: sand, mud or shells."
+    },
+    {
+      "id": "card.earth_climate.006.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Squeeze, then glue",
+      "body": "Sediment settles in layers, and each new layer presses down on the ones beneath. That's compaction. Meanwhile, minerals crystallize in the tiny spaces between the grains and cement them together. In sandstone, that cement is often silica or calcium carbonate. Squeeze, then glue: that's how loose sand can end up as a cliff."
+    },
+    {
+      "id": "card.earth_climate.006.c3",
+      "type": "comparison",
+      "headline": "Sand or mud?",
+      "items": [
+        {
+          "label": "Sandstone",
+          "points": [
+            "Started as sand: grains 0.063 to 2 mm across",
+            "Mostly quartz grains, cemented together"
+          ]
+        },
+        {
+          "label": "Shale",
+          "points": [
+            "Started as mud: silt- and clay-sized bits",
+            "Splits into thin layers",
+            "Roughly 70% of all sedimentary rock"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.earth_climate.006.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Limestone: built by sea life",
+      "body": "Limestone is a different story: sea life did most of the building. It's mostly calcium carbonate, usually as the mineral calcite. In many limestones, the grains are microscopic pieces of fossil shells from sea creatures that pulled lime out of seawater. So a limestone block can be a crowd of ancient shells, packed so tightly you'd never guess."
+    },
+    {
+      "id": "card.earth_climate.006.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.006.q1"
+    },
+    {
+      "id": "card.earth_climate.006.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.006.q2"
+    },
+    {
+      "id": "card.earth_climate.006.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.006.q3"
+    },
+    {
+      "id": "card.earth_climate.006.c8",
+      "type": "checkpoint",
+      "headline": "Layered rocks: sorted",
+      "learned": [
+        "Compaction and cement turn sediment to rock",
+        "Sandstone started as sand",
+        "Shale started as mud",
+        "Limestone is often ancient shells"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.006.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.sedimentary_types"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.006.c3"
+      ],
+      "prompt": "What did shale start out as?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Sand grains",
+          "correct": false,
+          "rationale": "That's sandstone."
+        },
+        {
+          "id": "b",
+          "label": "Mud made of silt and clay",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Shells of sea creatures",
+          "correct": false,
+          "rationale": "That's limestone."
+        },
+        {
+          "id": "d",
+          "label": "Lava that cooled quickly",
+          "correct": false,
+          "rationale": "That's an igneous rock like basalt."
+        }
+      ],
+      "explanation": "Shale is made of silt- and clay-sized particles: it started as mud.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.earth_climate.006.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.lithification"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.006.c2"
+      ],
+      "prompt": "How does a layer of loose sand become solid sandstone?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It melts deep underground and then cools",
+          "correct": false,
+          "rationale": "Melting and cooling makes igneous rock."
+        },
+        {
+          "id": "b",
+          "label": "Waves fuse the grains together as they wash in",
+          "correct": false,
+          "rationale": "Waves move sand; they don't cement it."
+        },
+        {
+          "id": "c",
+          "label": "Sunlight bakes the grains hard over time",
+          "correct": false,
+          "rationale": "The change happens buried, not in the sun."
+        },
+        {
+          "id": "d",
+          "label": "It is compacted and cemented by minerals",
+          "correct": true
+        }
+      ],
+      "explanation": "Layers above compact the sand, and minerals crystallizing between the grains cement them into rock.",
+      "difficulty": 0.25
+    },
+    {
+      "id": "question.earth_climate.006.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.sedimentary_types",
+        "concept.earth_climate.quartz_sand"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.006.c3",
+        "card.earth_climate.004.c4"
+      ],
+      "prompt": "Why is sandstone usually made mostly of quartz grains?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Cement turns other minerals into quartz",
+          "correct": false,
+          "rationale": "Cement glues grains; it doesn't change them."
+        },
+        {
+          "id": "b",
+          "label": "Quartz outlasts other minerals as rocks wear down",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Only quartz grains can be compacted",
+          "correct": false,
+          "rationale": "Any grains can be compacted."
+        },
+        {
+          "id": "d",
+          "label": "Quartz grows inside the rock after it forms",
+          "correct": false,
+          "rationale": "The quartz grains were already in the sand."
+        }
+      ],
+      "explanation": "Quartz resists wear, water and decay, so it dominates sand, and sandstone is sand turned to rock.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_sedimentary_rock",
+    "source.brit_sandstone",
+    "source.brit_shale",
+    "source.brit_limestone"
+  ],
+  "art": "geo.rocks"
+}

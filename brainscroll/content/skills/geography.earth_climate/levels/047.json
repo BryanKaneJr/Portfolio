@@ -1,0 +1,215 @@
+{
+  "id": "level.geography.earth_climate.047",
+  "skillId": "skill.geography.earth_climate",
+  "number": 47,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Greenhouse Effect, Up Close",
+  "objective": "After this level you can explain why carbon dioxide and water vapor trap heat while nitrogen and oxygen let it pass.",
+  "summary": "Sunlight warms the surface, which gives off infrared. Molecules of three or more atoms, like carbon dioxide and water vapor, vibrate in ways that absorb it; two-atom nitrogen and oxygen cannot.",
+  "concepts": [
+    {
+      "conceptId": "concept.earth_climate.greenhouse_infrared",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.greenhouse_molecule_shape",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.earth_climate.air_trace_gases",
+      "role": "recall",
+      "weight": 0.5
+    },
+    {
+      "conceptId": "concept.earth_climate.air_composition",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.geography.earth_climate.046"
+  ],
+  "cards": [
+    {
+      "id": "card.earth_climate.047.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Nitrogen and oxygen are 99% of the air, and they can't absorb Earth's heat.",
+      "body": "You met the greenhouse effect in World Geography: some gases trap heat like a blanket. This level asks the sharper question. Why do a few rare gases catch heat while the two big ones let it slip straight past?"
+    },
+    {
+      "id": "card.earth_climate.047.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Light in, heat out",
+      "body": "Roughly half of the sunlight arriving at Earth passes through the air and is absorbed by the ground and ocean. The warmed surface then gives off energy of a different kind: thermal infrared, the invisible heat you feel from a heat lamp. So the question becomes: which gases can catch that outgoing heat?"
+    },
+    {
+      "id": "card.earth_climate.047.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "It's all in the wiggle",
+      "body": "Molecules vibrate. A two-atom molecule like nitrogen (N2) or oxygen (O2) can only stretch in and out, and because its two atoms are identical, its electric charge stays balanced as it moves. Carbon dioxide, water vapor and methane have three or more atoms and vibrate in more complex patterns that shift their charge. Those wiggles let them absorb infrared. Nitrogen and oxygen just let it pass."
+    },
+    {
+      "id": "card.earth_climate.047.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Heat passed around like a ball",
+      "body": "A greenhouse gas molecule that absorbs infrared soon sends it back out. Some heads to space. Some is caught by another greenhouse gas molecule. Some goes back down to the surface. That game of catch keeps heat near the ground, which is exactly what the blanket picture was trying to say."
+    },
+    {
+      "id": "card.earth_climate.047.c5",
+      "type": "mcq",
+      "questionId": "question.earth_climate.047.q1"
+    },
+    {
+      "id": "card.earth_climate.047.c6",
+      "type": "mcq",
+      "questionId": "question.earth_climate.047.q2"
+    },
+    {
+      "id": "card.earth_climate.047.c7",
+      "type": "recall",
+      "questionId": "question.earth_climate.047.q3"
+    },
+    {
+      "id": "card.earth_climate.047.c8",
+      "type": "checkpoint",
+      "headline": "Greenhouse: up close",
+      "learned": [
+        "Sunlight in, infrared heat out",
+        "Molecules of 3 or more atoms absorb infrared",
+        "Nitrogen and oxygen let heat pass",
+        "Absorbed heat is sent back out in all directions"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.earth_climate.047.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.earth_climate.greenhouse_molecule_shape"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.047.c3"
+      ],
+      "prompt": "Which of these gases absorbs the infrared heat given off by Earth?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Nitrogen",
+          "correct": false,
+          "rationale": "Its two identical atoms let infrared pass."
+        },
+        {
+          "id": "b",
+          "label": "Oxygen",
+          "correct": false,
+          "rationale": "Like nitrogen, it has two identical atoms."
+        },
+        {
+          "id": "c",
+          "label": "Carbon dioxide",
+          "correct": true
+        }
+      ],
+      "explanation": "Carbon dioxide has three atoms and vibrates in ways that absorb infrared; nitrogen and oxygen do not.",
+      "difficulty": 0.15
+    },
+    {
+      "id": "question.earth_climate.047.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.earth_climate.greenhouse_molecule_shape"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.047.c3"
+      ],
+      "prompt": "Why can't nitrogen and oxygen absorb Earth's infrared heat?",
+      "options": [
+        {
+          "id": "a",
+          "label": "They are too rare in the air",
+          "correct": false,
+          "rationale": "They are about 99% of dry air."
+        },
+        {
+          "id": "b",
+          "label": "Their two identical atoms only stretch, keeping charge balanced",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They sit too high in the atmosphere",
+          "correct": false,
+          "rationale": "They fill the air right down to the ground."
+        },
+        {
+          "id": "d",
+          "label": "They absorb all the sunlight on the way in",
+          "correct": false,
+          "rationale": "Most sunlight passes through the air."
+        }
+      ],
+      "explanation": "Two-atom molecules like N2 and O2 only stretch in and out without shifting their charge, so they cannot absorb infrared.",
+      "difficulty": 0.35
+    },
+    {
+      "id": "question.earth_climate.047.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.earth_climate.greenhouse_molecule_shape",
+        "concept.earth_climate.air_trace_gases"
+      ],
+      "sourceCardIds": [
+        "card.earth_climate.047.c3",
+        "card.earth_climate.041.c4"
+      ],
+      "prompt": "Level 41 said carbon dioxide is only about 0.04% of the air. Why does such a small share matter?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It absorbs infrared that nitrogen and oxygen let pass",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "It makes the air heavier",
+          "correct": false,
+          "rationale": "Its weight is not the point."
+        },
+        {
+          "id": "c",
+          "label": "It blocks sunlight from reaching the ground",
+          "correct": false,
+          "rationale": "Sunlight mostly passes through."
+        },
+        {
+          "id": "d",
+          "label": "It turns into ozone high up",
+          "correct": false,
+          "rationale": "That's not what carbon dioxide does."
+        }
+      ],
+      "explanation": "Carbon dioxide can absorb outgoing infrared, a job the air's two main gases cannot do, so a small amount has a big effect.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.nasa_earth_energy_budget",
+    "source.ucar_molecular_vibration",
+    "source.lhs_gss_infrared",
+    "source.ucar_greenhouse_effect",
+    "source.brit_atmosphere"
+  ],
+  "art": "chem.molecule"
+}

@@ -1,0 +1,224 @@
+{
+  "id": "level.arts.literature.059",
+  "skillId": "skill.arts.literature",
+  "number": 59,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "Jane Austen",
+  "objective": "After this level you can explain why Austen's irony and her way of slipping into a character's thoughts still feel fresh.",
+  "summary": "Pride and Prejudice (1813) opens with a solemn truth that is really a joke about the marriage market. Austen's free indirect style slips into characters' thoughts, blind spots and all.",
+  "concepts": [
+    {
+      "conceptId": "concept.literature.austen_irony",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.austen_free_indirect",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.literature.hamlet_soliloquy_device",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.arts.literature.058"
+  ],
+  "cards": [
+    {
+      "id": "card.literature.059.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Pride and Prejudice opens with a solemn truth. It's a joke.",
+      "body": "\"It is a truth universally acknowledged, that a single man in possession of a good fortune must be in want of a wife.\" Now read the next sentence: the neighborhood families consider such a man \"the rightful property of some one or other of their daughters.\" So who, exactly, is in want of whom?"
+    },
+    {
+      "id": "card.literature.059.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "Saying one thing, meaning another",
+      "body": "Pride and Prejudice was published anonymously in 1813. Its opening runs on irony. Readers have long enjoyed the gap between what the sentence seems to say and the marriage market it really describes, and the drop from its grave start to its comic finish. Austen never explains the joke. She trusts you to catch it.",
+      "callout": "Irony: the words say one thing; you hear another."
+    },
+    {
+      "id": "card.literature.059.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Inside a head, no quotation marks",
+      "body": "Austen also made pioneering use of free indirect discourse: third-person narration that takes on a character's own voice, with no \"he thought\". In Persuasion, the narration slips into Captain Wentworth's view of the woman who once gave him up: \"He had not forgiven Anne Elliot. She had used him ill, deserted and disappointed him.\" Is that the narrator's verdict, or his wounded pride? It's both at once.",
+      "mascot": {
+        "pose": "explaining",
+        "line": "This is Level 52's trick in a new place: a soliloquy lets you hear a mind on stage; this does it on the page."
+      }
+    },
+    {
+      "id": "card.literature.059.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Why it still feels fresh",
+      "body": "Austen could use that inside view to comically undercut a heroine, letting you watch her mistakes from within her own thoughts. Irony keeps you a step ahead of the characters; free indirect style puts you in their heads. She is credited with first giving the novel its distinctly modern character through ordinary people in everyday life. You're not told what to think. You're trusted to notice."
+    },
+    {
+      "id": "card.literature.059.c5",
+      "type": "mcq",
+      "questionId": "question.literature.059.q1"
+    },
+    {
+      "id": "card.literature.059.c6",
+      "type": "mcq",
+      "questionId": "question.literature.059.q2"
+    },
+    {
+      "id": "card.literature.059.c7",
+      "type": "recall",
+      "questionId": "question.literature.059.q3"
+    },
+    {
+      "id": "card.literature.059.c8",
+      "type": "checkpoint",
+      "headline": "Austen: read closely",
+      "learned": [
+        "Pride and Prejudice appeared in 1813",
+        "Irony: the solemn truth is a joke",
+        "Free indirect discourse: narration in a character's voice",
+        "A modern novel of ordinary lives"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.literature.059.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.literature.austen_free_indirect"
+      ],
+      "sourceCardIds": [
+        "card.literature.059.c3"
+      ],
+      "prompt": "What is free indirect discourse?",
+      "options": [
+        {
+          "id": "a",
+          "label": "A character speaking alone on stage",
+          "correct": false,
+          "rationale": "That's a soliloquy."
+        },
+        {
+          "id": "b",
+          "label": "A novel told in letters between characters",
+          "correct": false,
+          "rationale": "That's the epistolary form, like Pamela."
+        },
+        {
+          "id": "c",
+          "label": "Third-person narration that takes on a character's own voice",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A narrator who says \"I\" from start to finish",
+          "correct": false,
+          "rationale": "Free indirect discourse is third-person."
+        }
+      ],
+      "explanation": "Free indirect discourse is third-person narration that takes on a character's voice and thoughts, with no \"he thought\".",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.literature.059.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.literature.austen_irony"
+      ],
+      "sourceCardIds": [
+        "card.literature.059.c1",
+        "card.literature.059.c2"
+      ],
+      "prompt": "Why does the opening sentence of Pride and Prejudice read as ironic?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It sounds like a grave universal truth but describes families hunting husbands",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Austen explains the joke in a footnote",
+          "correct": false,
+          "rationale": "She never explains it; she trusts you."
+        },
+        {
+          "id": "c",
+          "label": "It is spoken aloud by a villain",
+          "correct": false,
+          "rationale": "It is the narrator's sentence."
+        },
+        {
+          "id": "d",
+          "label": "It was translated from French",
+          "correct": false,
+          "rationale": "Nothing in the level says so."
+        }
+      ],
+      "explanation": "The sentence sounds philosophical, but the families treat the rich man as property for their daughters: the gap between the two is the irony.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.literature.059.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.literature.austen_free_indirect",
+        "concept.literature.hamlet_soliloquy_device"
+      ],
+      "sourceCardIds": [
+        "card.literature.059.c3",
+        "card.literature.052.c3"
+      ],
+      "prompt": "A soliloquy lets an audience hear Hamlet think (Level 52). How does Austen let readers hear a character think?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Characters step out and speak straight to the reader",
+          "correct": false,
+          "rationale": "The narration does the work, not a speech."
+        },
+        {
+          "id": "b",
+          "label": "She prints each character's secret diary",
+          "correct": false,
+          "rationale": "Nothing in the level says so."
+        },
+        {
+          "id": "c",
+          "label": "Every chapter is a letter from a character",
+          "correct": false,
+          "rationale": "That's the epistolary form."
+        },
+        {
+          "id": "d",
+          "label": "Her narration slips into the character's own voice",
+          "correct": true
+        }
+      ],
+      "explanation": "On stage, a character speaks alone; in Austen's novels, third-person narration takes on the character's voice, so you hear the thought without a speech.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.gutenberg_pride_prejudice",
+    "source.brit_pride_prejudice",
+    "source.jasna_moler_truth",
+    "source.gutenberg_persuasion",
+    "source.janeausten_free_indirect",
+    "source.brit_jane_austen",
+    "source.jasna_flavin_emma"
+  ],
+  "art": "lit.bonnet"
+}

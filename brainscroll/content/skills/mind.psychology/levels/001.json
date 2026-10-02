@@ -1,0 +1,237 @@
+{
+  "id": "level.mind.psychology.001",
+  "skillId": "skill.mind.psychology",
+  "number": 1,
+  "type": "regular",
+  "revision": 2,
+  "status": "published",
+  "title": "Psychology: The Big Picture",
+  "objective": "After this level you can explain what psychology studies, how psychologists test their ideas and what its main areas are.",
+  "summary": "Psychology is the scientific study of mind and behavior. Since no one can read minds, psychologists measure what they can observe, and the field spans many areas.",
+  "concepts": [
+    {
+      "conceptId": "concept.psychology.psychology_definition",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.measuring_the_mind",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.psychology.psychology_areas",
+      "role": "teach",
+      "weight": 1
+    }
+  ],
+  "prerequisites": [],
+  "cards": [
+    {
+      "id": "card.psychology.001.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "Does a bird sing because it's happy? Science can't say.",
+      "body": "Nobody can measure a bird's happiness, so the idea can't be tested. Yet psychology, the scientific study of the mind and behavior, faces a version of that problem every day. How do you study something you can't see? And why does the field reach from memory to friendship?"
+    },
+    {
+      "id": "card.psychology.001.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "From soul-study to science",
+      "body": "The word psychology joins Greek psykhe, \"breath, spirit, soul\", with -logia, \"study of\". So the name promises a study of the soul. The modern job description is more down to earth: psychology is the scientific study of the mind and behavior. The soul part got quietly retired; the curiosity stayed."
+    },
+    {
+      "id": "card.psychology.001.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "Measuring what you can't see",
+      "body": "Nobody can read another person's mind, so psychologists work indirectly. They measure what they can observe: behavior, biological signals and self-reports, meaning what people tell them. From those, they infer what the mind is doing. That rescues half the bird puzzle: you can't quiz a bird, but you can ask people whether they sing because they're happy. Then psychologists publish their results so others can repeat the test and check.",
+      "mascot": {
+        "pose": "pointing",
+        "line": "Keep this one: psychology measures what it can observe and reasons its way to the mind behind it."
+      }
+    },
+    {
+      "id": "card.psychology.001.c4",
+      "type": "comparison",
+      "headline": "One field, many rooms",
+      "items": [
+        {
+          "label": "Body and mind",
+          "points": [
+            "Biopsychology: how the nervous system shapes behavior",
+            "Cognitive: thoughts and how they guide action"
+          ]
+        },
+        {
+          "label": "People over time",
+          "points": [
+            "Developmental: how people change across the lifespan",
+            "Personality: what makes each person unique"
+          ]
+        },
+        {
+          "label": "People together",
+          "points": [
+            "Social: how we relate to and influence others",
+            "The APA, the largest group of psychologists, has 54 divisions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "card.psychology.001.c5",
+      "type": "mcq",
+      "questionId": "question.psychology.001.q1"
+    },
+    {
+      "id": "card.psychology.001.c6",
+      "type": "mcq",
+      "questionId": "question.psychology.001.q2"
+    },
+    {
+      "id": "card.psychology.001.c7",
+      "type": "mcq",
+      "questionId": "question.psychology.001.q3"
+    },
+    {
+      "id": "card.psychology.001.c8",
+      "type": "checkpoint",
+      "headline": "Psychology: mapped",
+      "learned": [
+        "Psychology is the scientific study of mind and behavior",
+        "Minds are studied through behavior, body signals and self-reports",
+        "Results are published so others can repeat them",
+        "Many areas: biological, cognitive, developmental, social, personality"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.psychology.001.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.psychology.psychology_definition"
+      ],
+      "sourceCardIds": [
+        "card.psychology.001.c2"
+      ],
+      "prompt": "By today's definition, what does psychology scientifically study?",
+      "options": [
+        {
+          "id": "a",
+          "label": "The soul and what happens to it",
+          "correct": false,
+          "rationale": "That was the old sense of the Greek name, not the modern definition."
+        },
+        {
+          "id": "b",
+          "label": "The mind and behavior",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The anatomy of the brain only",
+          "correct": false,
+          "rationale": "Brain anatomy is biology; psychology studies mind and behavior."
+        },
+        {
+          "id": "d",
+          "label": "Hidden meanings in dreams",
+          "correct": false,
+          "rationale": "That was one theorist's method, not the definition of the field."
+        }
+      ],
+      "explanation": "Psychology is the scientific study of the mind and behavior. Its Greek name once meant \"study of the soul\".",
+      "difficulty": 0.1
+    },
+    {
+      "id": "question.psychology.001.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.psychology.measuring_the_mind"
+      ],
+      "sourceCardIds": [
+        "card.psychology.001.c3",
+        "card.psychology.001.c1"
+      ],
+      "prompt": "Why can people be asked whether they sing because they're happy, when the same question about birds can't be tested?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Birds never sing when they are happy",
+          "correct": false,
+          "rationale": "Nobody can tell, because a bird's happiness can't be measured."
+        },
+        {
+          "id": "b",
+          "label": "Human happiness can be seen on a brain scan alone",
+          "correct": false,
+          "rationale": "Self-report is the measure here, not a scan alone."
+        },
+        {
+          "id": "c",
+          "label": "People can report what they feel; birds cannot",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Only humans have a mind to study",
+          "correct": false,
+          "rationale": "The problem is measuring the bird's feelings, not whether it has any."
+        }
+      ],
+      "explanation": "Psychologists study the mind through what they can observe, including self-reports. People can tell us why they sing; a bird can't.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.psychology.001.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.psychology.psychology_areas",
+        "concept.psychology.psychology_definition"
+      ],
+      "sourceCardIds": [
+        "card.psychology.001.c4"
+      ],
+      "prompt": "A researcher studies how people's thinking and friendships change from childhood to old age. Which area of psychology is that?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Developmental psychology",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Biopsychology",
+          "correct": false,
+          "rationale": "That area focuses on the nervous system."
+        },
+        {
+          "id": "c",
+          "label": "Social psychology only",
+          "correct": false,
+          "rationale": "Social psychology covers relationships, but change across a lifetime is developmental."
+        },
+        {
+          "id": "d",
+          "label": "Personality psychology",
+          "correct": false,
+          "rationale": "That area studies what makes each person unique."
+        }
+      ],
+      "explanation": "Developmental psychology studies how people change across the lifespan.",
+      "difficulty": 0.25
+    }
+  ],
+  "sourceIds": [
+    "source.etymonline_psychology",
+    "source.openstax_psych_what_is_psychology",
+    "source.openstax_psych_contemporary"
+  ],
+  "art": "mind.psychology-head"
+}

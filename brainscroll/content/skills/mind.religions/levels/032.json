@@ -1,0 +1,219 @@
+{
+  "id": "level.mind.religions.032",
+  "skillId": "skill.mind.religions",
+  "number": 32,
+  "type": "regular",
+  "revision": 1,
+  "status": "published",
+  "title": "The Quran",
+  "objective": "After this level you can explain how the Quran is organized into suras and why Muslims treat its recitation in Arabic as central.",
+  "summary": "The Quran's 114 suras run roughly from longest to shortest; Muslims believe it is God's speech in Arabic, so they learn to recite it in Arabic and keep it by heart and by voice.",
+  "concepts": [
+    {
+      "conceptId": "concept.religions.quran_structure",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.quran_arabic_word",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.quran_preservation",
+      "role": "teach",
+      "weight": 1
+    },
+    {
+      "conceptId": "concept.religions.oral_transmission",
+      "role": "recall",
+      "weight": 0.5
+    }
+  ],
+  "prerequisites": [
+    "level.mind.religions.031"
+  ],
+  "cards": [
+    {
+      "id": "card.religions.032.c1",
+      "type": "text",
+      "role": "hook",
+      "headline": "The Quran's name is a verb in disguise.",
+      "body": "It means \"recitation\", and its verses are recited in the five daily prayers. So how is the book put together, and why does its sound matter so much?"
+    },
+    {
+      "id": "card.religions.032.c2",
+      "type": "text",
+      "role": "explain",
+      "headline": "114 suras, longest first",
+      "body": "The Quran is divided into 114 chapter-like units called suras, and each sura into verses called ayat, a word that means \"sign\". The order surprises newcomers: it isn't the order in which Muslims believe the suras were revealed. After a short opening sura, recited in every one of the five daily prayers, the suras run roughly from longest to shortest. Start at the front and the long ones come first.",
+      "callout": "Sura = chapter, aya = verse (literally \"sign\")"
+    },
+    {
+      "id": "card.religions.032.c3",
+      "type": "text",
+      "role": "explain",
+      "headline": "God's words, in Arabic",
+      "body": "Muslims traditionally believe the Quran is a literal transcript of God's speech, revealed to Muhammad in stages, in Arabic, over 23 years. That belief shapes how it is read. Muslims are taught to learn and recite it in Arabic even when Arabic isn't their language. A translation can help a reader understand, but it isn't treated as the Quran itself."
+    },
+    {
+      "id": "card.religions.032.c4",
+      "type": "text",
+      "role": "explain",
+      "headline": "Kept by heart and by voice",
+      "body": "Muslims believe the standard written text was set shortly after Muhammad's death, under the caliph Uthman. Memory guarded it too: someone who learns the whole Quran by heart is called a hafiz. And recitation is an art. At popular competitions, renowned reciters, women and men, show skills mastered over years. You can read the Quran silently, but it was made to be heard."
+    },
+    {
+      "id": "card.religions.032.c5",
+      "type": "mcq",
+      "questionId": "question.religions.032.q1"
+    },
+    {
+      "id": "card.religions.032.c6",
+      "type": "mcq",
+      "questionId": "question.religions.032.q2"
+    },
+    {
+      "id": "card.religions.032.c7",
+      "type": "mcq",
+      "questionId": "question.religions.032.q3"
+    },
+    {
+      "id": "card.religions.032.c8",
+      "type": "checkpoint",
+      "headline": "The Quran: the takeaways",
+      "learned": [
+        "The Quran has 114 suras, ordered roughly by length",
+        "Muslims believe it is God's speech in Arabic, so they recite it in Arabic",
+        "A hafiz knows the whole Quran by heart"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "question.religions.032.q1",
+      "kind": "mcq",
+      "purpose": "recall",
+      "conceptIds": [
+        "concept.religions.quran_arabic_word"
+      ],
+      "sourceCardIds": [
+        "card.religions.032.c3"
+      ],
+      "prompt": "What status does a translation of the Quran have for most Muslims?",
+      "options": [
+        {
+          "id": "a",
+          "label": "It replaces the Arabic for non-Arabic speakers",
+          "correct": false,
+          "rationale": "The Arabic stays central, even for those who don't speak it."
+        },
+        {
+          "id": "b",
+          "label": "It is a help to understanding, not the Quran itself",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "It is forbidden to read at all",
+          "correct": false,
+          "rationale": "Translations exist and help readers understand."
+        },
+        {
+          "id": "d",
+          "label": "It is used in prayer instead of Arabic",
+          "correct": false,
+          "rationale": "Muslims are taught to recite in Arabic."
+        }
+      ],
+      "explanation": "Muslims believe the Quran is God's speech in Arabic, so they learn to recite it in Arabic; a translation helps understanding but isn't the Quran itself.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.032.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.religions.quran_structure"
+      ],
+      "sourceCardIds": [
+        "card.religions.032.c2"
+      ],
+      "prompt": "How are the Quran's suras arranged?",
+      "options": [
+        {
+          "id": "a",
+          "label": "In the order Muhammad received them",
+          "correct": false,
+          "rationale": "The order isn't the order of revelation."
+        },
+        {
+          "id": "b",
+          "label": "Alphabetically by their Arabic names",
+          "correct": false,
+          "rationale": "Length, not the alphabet, sets the order."
+        },
+        {
+          "id": "c",
+          "label": "Roughly from longest to shortest, after a short opening",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "By the city where each was revealed",
+          "correct": false,
+          "rationale": "Length, not place, sets the order."
+        }
+      ],
+      "explanation": "After the short opening sura, the suras run roughly from longest to shortest, not in the order of revelation.",
+      "difficulty": 0.3
+    },
+    {
+      "id": "question.religions.032.q3",
+      "kind": "mcq",
+      "purpose": "connection",
+      "conceptIds": [
+        "concept.religions.quran_preservation",
+        "concept.religions.oral_transmission"
+      ],
+      "sourceCardIds": [
+        "card.religions.032.c4",
+        "card.religions.006.c4"
+      ],
+      "prompt": "Level 6 showed scripture living on through voice. How does the Quran continue that today?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Only one reciter in each generation may learn it",
+          "correct": false,
+          "rationale": "Many people, women and men, learn and recite it."
+        },
+        {
+          "id": "b",
+          "label": "It has never been written down",
+          "correct": false,
+          "rationale": "Muslims believe the written text was set under Uthman."
+        },
+        {
+          "id": "c",
+          "label": "Its recitation was replaced by silent reading",
+          "correct": false,
+          "rationale": "Recitation is still central, even in daily prayer."
+        },
+        {
+          "id": "d",
+          "label": "People memorize it whole, and a hafiz knows it by heart",
+          "correct": true
+        }
+      ],
+      "explanation": "Memorizers (a hafiz knows the whole Quran by heart) and skilled reciters keep the Quran alive by voice, alongside the written text.",
+      "difficulty": 0.3
+    }
+  ],
+  "sourceIds": [
+    "source.brit_quran",
+    "source.bbc_islam_quran",
+    "source.gale_quran_encyclopedia"
+  ],
+  "art": "rel.quran-stand"
+}
