@@ -147,17 +147,29 @@ try {
   await home(page);
   check(/Up next/i.test(await bodyText(page)) && (await page.getByRole('button', { name: /^Open Science, level 1, learning now$/ }).count()) === 1, 'Home shows each subject and its level, and what is up next');
 
-  // Resume mid-level.
+  // Leaving a level partway: Dr. Scroll checks first, and the level starts over next time.
   await questMap(page);
   await button(page, 'Start Level 2').click();
   await page.waitForTimeout(400);
+  const firstCard = (await bodyText(page)).slice(0, 200);
   await button(page, 'Continue').click();
   await button(page, 'Continue').click();
-  const before = (await bodyText(page)).slice(0, 200);
+  const midway = (await bodyText(page)).slice(0, 200);
+  await button(page, 'Leave level').click();
+  await page.waitForTimeout(300);
+  check(/this level starts over from the beginning next time/.test(await bodyText(page)), 'leaving partway, Dr. Scroll warns the level will start over');
+  await exactButton(page, 'Keep going').click();
+  await page.waitForTimeout(300);
+  check((await bodyText(page)).slice(0, 200) === midway, 'Keep going stays on the same card');
+  await button(page, 'Leave level').click();
+  await page.waitForTimeout(300);
+  await exactButton(page, 'Leave anyway').click();
+  await page.waitForTimeout(800);
+  check(!/Leave anyway/.test(await bodyText(page)) && (await page.getByRole('button', { name: 'Report a problem' }).count()) === 0, 'Leave anyway leaves the level');
   await questMap(page);
-  await button(page, 'Resume Level 2').click();
+  await button(page, 'Start Level 2').click();
   await page.waitForTimeout(600);
-  check((await bodyText(page)).slice(0, 200) === before, 'an interrupted level resumes on the same card');
+  check((await bodyText(page)).slice(0, 200) === firstCard, 'a level left partway starts over from its first card');
   const l2Texts = [];
   await playLevel(page, { texts: l2Texts });
   check(!/Trophy earned/i.test(await bodyText(page)), 'a trophy is celebrated once, not again on the next level');

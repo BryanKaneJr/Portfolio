@@ -3,8 +3,8 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 import { color, fw } from '@/theme/tokens';
 
 /**
- * The launch screen: Dr. Scroll's minimalist mark (bald crown, white hair
- * tufts, round glasses) on plum, with the wordmark at the bottom. It matches the
+ * The launch screen: crowned Dr. Scroll (the same art as the Android icon) on
+ * plum, with the wordmark at the bottom. It matches the
  * native splash (app.json → expo-splash-screen) so the hand-off is seamless.
  *
  * To swap the art, replace assets/images/splash-mark.png (1024 × 1024,

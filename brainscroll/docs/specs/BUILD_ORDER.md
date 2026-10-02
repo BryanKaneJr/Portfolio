@@ -245,7 +245,7 @@ Pick one flagship skill (Astronomy or Ancient Rome are strong choices) and hand-
 
 7.  Show immediate feedback. After a wrong answer, keep the question visible, show its source card beneath it (“Take another look”) and require the correct answer before moving on.
 
-8.  Persist in-progress position locally so an interrupted level resumes correctly.
+8.  ~~Persist in-progress position locally so an interrupted level resumes correctly.~~ Superseded (owner, 2026-10-02): a level left partway starts over; see CURRENT_PRODUCT_DECISIONS §3.
 
 9.  Implement the level-complete event and a temporary completion screen.
 
