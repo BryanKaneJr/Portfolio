@@ -99,6 +99,8 @@ export default function LevelCompleteScreen() {
   const label = LEARNING_STRUCTURE[level.type].label;
   const mastery = s.masteryCleared;
   const leveledUp = !s.alreadyCompleted && s.skillLevel > s.skillLevelBefore;
+  // A perfect level's lucky +1: Dr. Scroll sneaks off with a treat of his own.
+  const luckyDrop = s.daily.brainpowerEarned.some((e) => e.kind === 'perfect' && e.granted === 1);
   const view = skillProgressView(s.skillLevel);
   const intoBand = s.skillLevel % MASTERY_BAND_SIZE === 0 && s.skillLevel > 0 ? MASTERY_BAND_SIZE : s.skillLevel % MASTERY_BAND_SIZE;
   const nextStar = Math.floor(s.skillLevel / MASTERY_BAND_SIZE) + (intoBand === MASTERY_BAND_SIZE ? 0 : 1);
@@ -242,7 +244,7 @@ export default function LevelCompleteScreen() {
             <View style={{ alignItems: 'center', gap: space.lg }}>
               {!proof && (
                 <DrScrollSays
-                  spot={mastery ? 'level-complete.mastery' : leveledUp ? 'level-complete.level-up' : 'level-complete.cleared'}
+                  spot={mastery ? 'level-complete.mastery' : luckyDrop ? 'level-complete.lucky-drop' : leveledUp ? 'level-complete.level-up' : 'level-complete.cleared'}
                   lines={[drScrollSaying(s.alreadyCompleted ? 'levelReplay' : mastery ? 'levelMastery' : DR_SCROLL_OUTCOME[s.outcome], s.skillId, level?.number ?? 0)]}
                   size="md"
                   style={{ width: '100%', minWidth: 300 }}

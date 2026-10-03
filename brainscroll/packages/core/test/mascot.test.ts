@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { EM_DASH } from '../src/editorial';
-import { cardPicturePose, mascotPictureCard, CARD_PICTURE_POSES, SKILL_ACTION_POSES, DR_SCROLL_SAYINGS, drScrollSaying, MIN_SAYINGS_PER_MOMENT, DR_SCROLL_LINES, DR_SCROLL_TIPS, MASCOT_LINE_MAX, MASCOT_POSES, MASCOT_SPOTS, QUIET_MASCOT_POSES, SKILL_GUIDE_POSE } from '../src/mascot';
+import { SPOT_POSE_VARIANTS, spotPose, cardPicturePose, mascotPictureCard, CARD_PICTURE_POSES, SKILL_ACTION_POSES, DR_SCROLL_SAYINGS, drScrollSaying, MIN_SAYINGS_PER_MOMENT, DR_SCROLL_LINES, DR_SCROLL_TIPS, MASCOT_LINE_MAX, MASCOT_POSES, MASCOT_SPOTS, QUIET_MASCOT_POSES, SKILL_GUIDE_POSE } from '../src/mascot';
 
 describe('Dr. Scroll', () => {
   it('has unique poses', () => {
@@ -90,5 +90,29 @@ describe('Dr. Scroll', () => {
   it('never says the same thing on the next level or the next day', () => {
     for (const moment of Object.keys(DR_SCROLL_SAYINGS) as (keyof typeof DR_SCROLL_SAYINGS)[])
       for (let n = 1; n < 30; n++) expect(drScrollSaying(moment, 'skill.science.astronomy', n)).not.toBe(drScrollSaying(moment, 'skill.science.astronomy', n + 1));
+  });
+});
+
+describe('spot pose variants', () => {
+  it('start with the spot\'s own pose, use real poses, and never vary inside a lesson', () => {
+    for (const [spot, poses] of Object.entries(SPOT_POSE_VARIANTS)) {
+      const def = MASCOT_SPOTS[spot as keyof typeof MASCOT_SPOTS];
+      expect(poses![0], spot).toBe(def.pose);
+      for (const p of poses!) expect(MASCOT_POSES, `${spot}: ${p}`).toContain(p);
+      expect('lesson' in def && def.lesson, spot).toBeFalsy();
+    }
+  });
+  it('takes a different pose on different days, and the same one all day', () => {
+    const week = new Set(Array.from({ length: 7 }, (_, d) => spotPose('daily-complete', 20_000 + d)));
+    expect(week.size).toBe(7);
+    expect(spotPose('loading', 20_123)).toBe(spotPose('loading', 20_123));
+    expect(spotPose('level-complete.cleared', 5)).toBe('clapping');
+  });
+  it('places every everyday pose except the few kept for later', () => {
+    const placed = new Set([...Object.values(SPOT_POSE_VARIANTS).flat(), ...Object.values(MASCOT_SPOTS).map((s) => s.pose)]);
+    const later = ['bee-chase', 'hiccups', 'sneeze', 'trick-candle'];
+    for (const p of ['bee-hello', 'book-tower', 'coffee-jitter', 'cupcake-sneak', 'giant-sandwich', 'paddling-pool', 'pigeon-head', 'sandwich', 'spaghetti', 'storm-umbrella', 'stuck-jar', 'sun-reflector', 'tape-measure', 'tea-pinky', 'tiny-hat', 'yoga-wobble'])
+      expect(placed.has(p as never), p).toBe(true);
+    for (const p of later) expect(placed.has(p as never), p).toBe(false);
   });
 });

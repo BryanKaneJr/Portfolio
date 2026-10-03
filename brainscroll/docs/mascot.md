@@ -148,7 +148,7 @@ Mastery images: you already have Dr. Scroll holding trophies and gold objects (f
 
 ### Everyday moments (made by the owner, 2026-10-02)
 
-Dr. Scroll off duty: light, silly moments for screens outside lessons (never inside a lesson, which stays quiet). In the app as `mascot/<name>.webp`; where each one appears is decided separately.
+Dr. Scroll off duty: light, silly moments for screens outside lessons (never inside a lesson, which stays quiet). In the app as `mascot/<name>.webp`; where each appears is in the Spots table below ("Taking turns").
 
 | Pose | What he's doing |
 | --- | --- |
@@ -203,16 +203,19 @@ Each fixed place in the app is a **spot** with a stable ID. Screens ask for a sp
 | `level-complete.cleared` | `clapping` | Level Complete, no level-up (replays) |
 | `level-complete.level-up` | `celebrate` | Level Complete with a level-up |
 | `level-complete.mastery` | `mastery` | Level Complete on a mastery star |
+| `level-complete.lucky-drop` | `cupcake-sneak` | Level Complete when a perfect level dropped a lucky +1 Brainpower (a mastery star still wins) |
 | `review-complete` | `clapping` | Review Complete screen |
-| `daily-complete` | `go-outside` | Brainpower used up: "Go touch grass." |
-| `review.empty` | `sleeping` | Review tab when nothing is due |
-| `loading` | `waiting` | Loading a level or the review queue (after a short delay) |
-| `error.load` | `tangled` | A level or screen that could not load (never about account or payment data) |
+| `daily-complete` | `go-outside` | Brainpower used up: "Go touch grass." Takes turns, one a day, with paddling-pool, sun-reflector, tea-pinky, yoga-wobble, bee-hello and giant-sandwich |
+| `review.empty` | `sleeping` | Review tab when nothing is due. Takes turns with tea-pinky and sandwich |
+| `loading` | `waiting` | Loading a level or the review queue (after a short delay). Takes turns with coffee-jitter, book-tower and spaghetti |
+| `error.load` | `tangled` | A level or screen that could not load (never about account or payment data). Takes turns with stuck-jar, tape-measure and storm-umbrella |
 | `level.locked` | `thinking` | Opening a level that is not unlocked yet |
 | `home.start` | `pointing` | Home, before any level is started: points to a first subject or Choose for me |
 | `home.path` | `reading` | Home: beside the level path. On a skill's map he wears that skill's costume (`SKILL_GUIDE_POSE` in core: a telescope on Astronomy, a toga on Rome, a map on World Geography, a piggy bank on How Money Works, an easel on Art History, a laptop on Everyday Technology); `reading` is the fallback |
 | `review.ready` | `review` | Review tab when concepts are due |
-| `not-found` | `tangled` | A link to something that does not exist |
+| `not-found` | `tangled` | A link to something that does not exist. Takes turns with pigeon-head and tiny-hat |
+
+**Taking turns** (`SPOT_POSE_VARIANTS` / `spotPose` in core): a few light spots outside lessons show a different everyday pose each day (the same one all day, and spots don't change in lockstep). Lesson spots never vary. Kept for later: bee-chase, hiccups, sneeze and trick-candle (a birthday or anniversary moment, if one is added).
 
 Writer-placed card asides (`mascot` on a learning card) aren't spots; their pose comes from the content, and they're labeled `mascot:pose:<pose>`.
 
