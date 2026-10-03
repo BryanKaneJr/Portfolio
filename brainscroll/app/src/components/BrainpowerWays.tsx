@@ -4,10 +4,11 @@ import type { UiArtName } from '@/components/ui/uiArt';
 import { iconSize, space } from '@/theme/tokens';
 
 /** The ways to earn Brainpower, each with its art (Brainpower screen, out-of-Brainpower screen, Level Complete). */
-export const BRAINPOWER_WAYS: { kind: 'streak' | 'trophy' | 'chapter_review' | 'perfect'; art: UiArtName; text: string; note: string; short: string }[] = [
+export const BRAINPOWER_WAYS: { kind: 'streak' | 'trophy' | 'chapter_review' | 'perfect' | 'quest'; art: UiArtName; text: string; note: string; short: string }[] = [
   { kind: 'streak', art: 'streak-flame', text: 'Keep your streak going', note: '+1 each day, from day 2', short: 'Streak' },
   { kind: 'trophy', art: 'trophy', text: 'Win a trophy', note: '+1 for every one', short: 'Trophies' },
   { kind: 'chapter_review', art: 'review', text: 'Finish a chapter review', note: '+1 the first time per chapter', short: 'Chapter reviews' },
+  { kind: 'quest', art: 'medal', text: 'Work on a Weekly Quest', note: '+1 for each goal, +1 for finishing', short: 'Quests' },
   { kind: 'perfect', art: 'lucky-drop', text: 'Get a level perfect', note: 'sometimes drops +1', short: 'Perfect levels' },
 ];
 

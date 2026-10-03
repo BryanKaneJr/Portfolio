@@ -193,7 +193,6 @@ Each fixed place in the app is a **spot** with a stable ID. Screens ask for a sp
 | `tip.first-checkpoint` | `idea` | Lesson: tip on the first checkpoint level (lesson: calm pose) |
 | `tip.first-review` | `thinking` | Review session: tip on the first review (lesson: calm pose) |
 | `lesson.card-picture` | `reading` | Lesson: above at most one learning card a level that has no reviewed illustration (it would otherwise show its filled one), in about two levels out of five, when there is room. The card comes from `mascotPictureCard`, the pose from `cardPicturePose` (calm pose, or the skill's costume or prop; see below) |
-| `social.reaction` | `clapping` | Social feed: each reaction is Dr. Scroll in a pose (core `FEED_REACTIONS`) |
 | `social.empty` | `wave` | Social: no friends yet, inviting the learner to add some |
 | `profile.dr-scroll` | `celebrate` | Dr. Scroll's own profile (everyone's first friend, core `drScrollFriend.ts`): a fun line that changes on each tap |
 | `social.dr-scroll-post` | `tea-pinky` | Social feed: his own post, one a day, each in its moment's everyday pose (core `DR_SCROLL_POSTS`); tapping it opens his profile |
@@ -227,7 +226,7 @@ A spot can play a short animation instead of its still pose: `DrScrollSays anima
 
 | Animation | Where | What it does |
 |---|---|---|
-| `wave-point` | `social.empty` (Social, no friends yet) | Waves hello, then points to his right at his speech bubble. 57 frames, about 4 s |
+| `wave-point` | `social.empty` (Social, no friends yet) | Waves hello, then points to his right at his speech bubble. 57 frames at 24 fps, about 2.4 s |
 
 **Making one:** export the animation from the generator as a **PNG ZIP with Transparent background ticked** (the MP4 export keeps the green screen). Frames are packed into one sprite sheet, `app/assets/images/mascot/anim/<name>.webp`: square frames cropped to the union of the figure across all frames, 240 px each, 8 across, WebP quality 75 (about 0.5 MB). Register it in `app/src/components/ui/mascotAnim.ts` with its frame count and speed. If an export ever still has the green screen, key it out (remove the green by its excess over red and blue, and take each edge pixel's colour from the solid figure just inside it, never from the green).
 

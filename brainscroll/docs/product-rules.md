@@ -16,7 +16,7 @@ A social-media-shaped learning app where users level up real knowledge like an R
    - **Refill:** free learners refill to **5** at the start of each local day; more than 5 is kept. New accounts start at 5.
    - **Capacity:** at most **10**. Anything earned at 10 is not kept (*Brainpower Full*); there is no pending balance.
    - **Spending:** a new level needs 1 to start and spends **1** when it is first cleared (leaving a level wastes nothing). It can't be started at 0 (`DAILY_COMPLETE`). Nothing else costs Brainpower: review, replays, chapter reviews, the character sheet, skill browsing, social and profiles are free. **Wrong answers never cost Brainpower.**
-   - **Earning +1:** extending the streak (once a day, from streak day 2 on); every trophy; the first completed chapter review of each chapter; and a **10%** truly random drop after a perfect first clear (no pity). Each award is recorded once (`brainpower_awards`), so nothing pays twice.
+   - **Earning +1:** extending the streak (once a day, from streak day 2 on); every trophy; the first completed chapter review of each chapter; a **10%** truly random drop after a perfect first clear (no pity); and each Weekly Quest goal met and each quest completed (owner, 2026-10-03). Each award is recorded once (`brainpower_awards`), so nothing pays twice.
    - **Unlimited** is ∞ Brainpower: it never spends, and awards earned on it are recorded but add nothing.
    - The local day is computed **server-side** from the profile's IANA time zone, never from the device clock.
 6. **Progress is earned by completion and recall.** Passive scrolling never awards XP or levels.
@@ -166,7 +166,7 @@ These are the guardrails. The design lives in [`social-expansion.md`](social-exp
 
 ## Never build (before launch)
 
-Social ships before launch (owner, 2026-10-01; CURRENT_PRODUCT_DECISIONS §22): friends, weekly leagues and a feed of moments with Dr. Scroll reactions. Challenges and the rest of the [Social + Rewards expansion](social-expansion.md) stay later. Everything below stays out of the core loop.
+Social ships before launch (owner, 2026-10-01; CURRENT_PRODUCT_DECISIONS §22): friends, weekly leagues and a feed of moments with hearts (owner, 2026-10-03; Dr. Scroll reactions before). Challenges and the rest of the [Social + Rewards expansion](social-expansion.md) stay later. Everything below stays out of the core loop.
 
 
 Guest or anonymous play · social posts, comments, followers, clans, messaging · leaderboards that reward time or speed · avatars, equipment, currencies other than Brainpower, shops · live AI tutor as a core dependency · user-generated lessons · web/desktop learning clients · 201–300 prestige content · recommendation ML · custom billing · microservices · streak punishment or fake urgency.

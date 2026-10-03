@@ -27,7 +27,7 @@ import { skills, trophyCatalog } from '@/content';
 /**
  * Social in the development harness (localBackend): the same screens, with
  * a simulated league of learners whose XP grows through the week, who accept
- * friend requests, earn trophies and react to yours. Your own row is real:
+ * friend requests, earn trophies and heart yours. Your own row is real:
  * your weekly XP, trophies, chapters and streak come from your progress, and
  * a podium finish pays its prize into your ledger like the server's
  * finalize_leagues_of. Nothing here talks to a network.
@@ -224,9 +224,10 @@ export function feedView(userId: string, social: LocalSocialState, state: Progre
       // Simulated learners react too, so your moments don't sit unanswered.
       const h = hash(`${i.owner.id}|${i.key}`);
       const reactions: FeedItem['reactions'] = {};
-      if (h % 3 !== 0) reactions[(['clapping', 'celebrate', 'thumbs-up', 'surprised', 'mastery'] as const)[h % 5]] = 1 + (h % 4);
-      const mine = social.reactions[`${i.owner.id}|${i.key}`];
-      if (mine) reactions[mine] = (reactions[mine] ?? 0) + 1;
+      if (h % 3 !== 0) reactions.heart = 1 + (h % 4);
+      // Any saved reaction (older Dr. Scroll ones too) is a heart now.
+      const mine = social.reactions[`${i.owner.id}|${i.key}`] ? ('heart' as const) : undefined;
+      if (mine) reactions.heart = (reactions.heart ?? 0) + 1;
       return { ...i, reactions, ...(mine ? { mine } : {}) };
     });
 }

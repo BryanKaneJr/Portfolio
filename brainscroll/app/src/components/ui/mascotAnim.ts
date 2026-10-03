@@ -17,8 +17,8 @@ export interface MascotAnimation {
 }
 
 export const MASCOT_ANIMATIONS = {
-  /** Waves hello, then points to his right (at a speech bubble beside him). 57 frames, about 4 s. */
-  'wave-point': { sheet: require('../../../assets/images/mascot/anim/wave-point.webp'), frames: 57, cols: 8, frameMs: 70 },
+  /** Waves hello, then points to his right (at a speech bubble beside him). 57 frames at 24 fps, about 2.4 s. */
+  'wave-point': { sheet: require('../../../assets/images/mascot/anim/wave-point.webp'), frames: 57, cols: 8, frameMs: 42 },
 } satisfies Record<string, MascotAnimation>;
 
 export type MascotAnimationName = keyof typeof MASCOT_ANIMATIONS;

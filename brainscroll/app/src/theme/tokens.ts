@@ -40,6 +40,7 @@ export const color = {
   masteryEdge: '#C28A1E',
   masteryShine: 'rgba(255,240,200,0.4)', // the light sweeping across a gold trophy as it arrives
   danger: '#FF6B6B', // Coral: incorrect/reinforcement; always restrained
+  heart: '#FF4F7B', // A liked moment in the feed only (the heart, filled)
   streak: '#FF9F43', // Flame orange: the learning streak only, never gold (mastery) or coral (a miss)
   streakEdge: '#C2661A', // the outline on a streak trophy's count
   streakSoft: 'rgba(255,159,67,0.14)', // the streak chip's wash in the header

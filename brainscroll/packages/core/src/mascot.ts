@@ -391,7 +391,6 @@ export const MASCOT_SPOTS = {
   'map.rest': { pose: 'tea-pinky', where: 'Skill map: in each chapter you have finished, Dr. Scroll stayed behind goofing off, a different everyday pose per chapter (mapRestPose)' },
   'review.ready': { pose: 'review', where: 'Review tab when concepts are due' },
   'not-found': { pose: 'tangled', where: 'A link to something that does not exist' },
-  'social.reaction': { pose: 'clapping', where: 'Social feed: each reaction button is Dr. Scroll in a pose (core FEED_REACTIONS)' },
   'social.empty': { pose: 'wave', where: 'Social: no friends yet, inviting the learner to add some' },
   'profile.dr-scroll': { pose: 'celebrate', where: 'Dr. Scroll\'s own profile (everyone\'s first friend): a fun line that changes on each tap' },
   'social.dr-scroll-post': { pose: 'tea-pinky', where: 'Social feed: Dr. Scroll\'s own daily post, each in its moment\'s everyday pose (core DR_SCROLL_POSTS)' },

@@ -62,7 +62,7 @@ try {
   await page.waitForTimeout(1000);
   check((await page.getByRole('button', { name: /^First Level\. Share$/ }).count()) === 1, 'and the tag is gone on the next visit');
 
-  // Social (owner, 2026-10-01): the league banner, the feed, Dr. Scroll reactions, friends and profiles.
+  // Social (owner, 2026-10-01): the league banner, the feed and its hearts, friends and profiles.
   // In local play the league is simulated; your own row and moments are real.
   await home(page);
   await page.getByRole('tab', { name: /Social/ }).click();
@@ -70,7 +70,7 @@ try {
   let social = await bodyText(page);
   check(/League/i.test(social) && /\d+(st|nd|rd|th) place/.test(social) && /XP this week/.test(social) && /XP to pass @/.test(social) && /\+1,000 XP[\s\S]*\+500 XP[\s\S]*\+250 XP/.test(social),
     'Social opens on the league banner: your place, your XP, how far the next place is, and the podium with its prizes');
-  check(/You earned First Level/.test(social), 'your own trophy is in the feed');
+  check(/You earned the First Level trophy/.test(social), 'your own trophy is in the feed');
   // Dr. Scroll: everyone's first friend, with a profile like no one else's.
   check(/Dr\. Scroll[\s\S]*Your first friend/.test(social), 'Dr. Scroll is everyone\'s first friend');
   await page.getByRole('button', { name: 'Dr. Scroll, your first friend. Open his profile' }).click();
@@ -91,12 +91,16 @@ try {
   await exactButton(page, 'Accept').click();
   await page.waitForTimeout(1000);
   check(/This week with friends[\s\S]*@priya/.test(await bodyText(page)), 'accepting makes a friend, ranked by this week\'s XP with you');
-  await exactButton(page, 'React').first().click();
-  await page.waitForTimeout(400);
-  check((await exactButton(page, 'Genius').count()) === 1, 'React opens the five Dr. Scroll poses, each with its name');
-  await exactButton(page, 'Applause').click();
+  const liked = async () => page.getByRole('button', { name: /^Liked/ }).count();
+  const before = await liked();
+  await page.getByRole('button', { name: /^Like(,|$)/ }).first().click();
   await page.waitForTimeout(500);
-  check((await exactButton(page, 'Your reaction: Applause. Change it').count()) === 1, 'a Dr. Scroll reaction lands on a moment, one per moment');
+  check((await liked()) === before + 1, 'tapping the heart likes a moment');
+  await page.getByRole('button', { name: /^Liked/ }).first().click();
+  await page.waitForTimeout(500);
+  check((await liked()) === before, 'tapping it again takes the like back');
+  await page.getByRole('button', { name: /^Like(,|$)/ }).first().click();
+  await page.waitForTimeout(500);
   await page.getByRole('button', { name: /League: you're/ }).click();
   await page.waitForTimeout(1000);
   social = await bodyText(page);

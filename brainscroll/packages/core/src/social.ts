@@ -13,7 +13,7 @@
  *   league of more than k learners, and only with XP that week.
  * - The feed shows the last 14 days of moments from you, your friends and
  *   your league mates: trophies, chapters finished, streak milestones and
- *   league podiums. Reactions are Dr. Scroll poses; there are no comments or
+ *   league podiums. The only reaction is a heart; there are no comments or
  *   messages.
  */
 import { MILESTONE_TROPHIES } from './trophies';
@@ -36,14 +36,8 @@ export const LEAGUE = {
 /** Streak lengths that make a feed moment. Mirrors SQL streak_feed_milestones(). */
 export const STREAK_FEED_MILESTONES = [3, 7, 14, 21, 30, 50, 75, 100, 150, 200, 250, 300, 365, 500, 750, 1000] as const;
 
-/** The only reactions: Dr. Scroll poses (mirrors the feed_reactions check). */
-export const FEED_REACTIONS = [
-  { id: 'clapping', label: 'Applause' },
-  { id: 'celebrate', label: 'Celebrate' },
-  { id: 'thumbs-up', label: 'Nice one' },
-  { id: 'surprised', label: 'Wow' },
-  { id: 'mastery', label: 'Genius' },
-] as const;
+/** The one reaction: a heart (owner, 2026-10-03: "cleaner, like every other app"). Mirrors the feed_reactions check. */
+export const FEED_REACTIONS = [{ id: 'heart', label: 'Like' }] as const;
 export type FeedReaction = (typeof FEED_REACTIONS)[number]['id'];
 
 /** The Monday (UTC) a league week starts on, as YYYY-MM-DD. Mirrors SQL league_week_start. */

@@ -25,6 +25,7 @@ import {
   openFinalRound,
   questsView,
   questView,
+  questWindow,
   QuestError,
   setEquipped,
   startQuest,
@@ -34,6 +35,7 @@ import {
   SocialError,
   milestoneTrophies,
   trophyBrainpower,
+  questBrainpower,
   type DailyAllowance,
   gradeAnswer,
 } from '@brainscroll/core';
@@ -386,10 +388,14 @@ function devEntitlement(active: boolean, grant: DevUnlimitedGrant | null | undef
   return { active, expiresAt: null, willRenew: active ? true : null, store: active ? (grant?.store ?? 'SANDBOX') : null };
 }
 
-/** +1 Brainpower for each trophy now held (quest trophies and milestones), as the SQL trophy triggers do. */
+/**
+ * +1 Brainpower for each trophy now held (quest trophies and milestones), each
+ * quest requirement met and each quest completed, as the SQL triggers do.
+ */
 function withTrophyBrainpower(state: ProgressState, now: Date): ProgressState {
   const ids = [...(state.trophies ?? []).map((t) => t.trophyId), ...milestoneTrophies(state, trophyCatalog).map((t) => t.trophyId)];
-  return trophyBrainpower(state, [...new Set(ids)], now);
+  const withTrophies = trophyBrainpower(state, [...new Set(ids)], now);
+  return questBrainpower(withTrophies, questDefs.filter((d) => d.startsOn && questWindow(d).startsAt <= now).map((d) => questView(withTrophies, d, now)), now);
 }
 
 /** Today's status after an action, with what the action earned. */

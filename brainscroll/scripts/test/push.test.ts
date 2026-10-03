@@ -15,7 +15,7 @@ test('every kind renders, alone and grouped, with a route to open', () => {
     }
   assert.equal(renderPush('friend_new', sample('friend_new'))!.body, 'You and @ana are friends now. See how you compare!');
   assert.equal(renderPush('friend_new', sample('friend_new'))!.url, '/person/u0');
-  assert.equal(renderPush('reaction', sample('reaction', 3))!.body, '@ana and 2 others reacted to your moments in the feed.');
+  assert.equal(renderPush('reaction', sample('reaction', 3))!.body, '@ana and 2 others liked your moments in the feed.');
   assert.equal(renderPush('passed', sample('passed'))!.body, '@ana just passed you by 30 XP. One level could put you back in front.');
   assert.equal(renderPush('passed', [{ username: 'ana', gap: 260, league_id: 9 }])!.body, '@ana just passed you by 260 XP. A couple of levels could put you back in front.');
   assert.equal(renderPush('league_result', sample('league_result'))!.body, 'You finished 2nd and won 500 XP! A new league starts now.');

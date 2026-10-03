@@ -47,6 +47,10 @@ begin
   perform public.answer_question('level.science.testing.' || lpad(n::text, 3, '0'), 'question.testing.' || lpad(n::text, 3, '0') || '.q1', 'a');
   perform public.complete_level('level.science.testing.' || lpad(n::text, 3, '0'), 1, gen_random_uuid());
 end $$;
+-- brainpower_awards is RPC-only, so these checks run as the test owner (reset role).
+create function pg_temp.awarded(key text) returns boolean language sql as $$
+  select exists (select 1 from public.brainpower_awards where user_id = current_setting('request.jwt.claim.sub')::uuid and award_key = key)
+$$;
 create function pg_temp.clear_curve() returns void language plpgsql as $$
 begin
   perform public.answer_question('level.science.curve.001', 'question.curve.001.q' || n, 'a') from generate_series(1, 3) n;
@@ -76,7 +80,19 @@ select pg_temp.expect_error($$select public.start_quest('quest.tbd')$$, 'QUEST_N
 select pg_temp.expect_error($$select public.open_final_round('quest.live')$$, 'FINAL_ROUND_LOCKED');
 
 select pg_temp.clear_testing(1);
+reset role;
+do $$ begin
+  assert not pg_temp.awarded('quest_step:quest.live:skill.science.testing'), 'a goal half met earns no Brainpower yet';
+end $$;
+set role authenticated;
 select pg_temp.clear_testing(2);
+reset role;
+do $$ begin
+  assert pg_temp.awarded('quest_step:quest.live:skill.science.testing'), 'meeting a quest goal earns +1 Brainpower';
+  assert (select kind from public.brainpower_awards where award_key = 'quest_step:quest.live:skill.science.testing') = 'quest_step';
+  assert not pg_temp.awarded('quest_step:quest.past:skill.science.testing'), 'not for a quest you have not taken on';
+end $$;
+set role authenticated;
 select pg_temp.clear_curve();
 -- A replay is not a new level: nothing more counts.
 select pg_temp.clear_testing(1);
@@ -117,6 +133,14 @@ begin
   assert (select count(*) from jsonb_array_elements(public.get_quests() -> 'trophies') x where x ->> 'kind' = 'quest') = 1, 'the trophy is on the shelf';
 end $$;
 
+reset role;
+do $$ begin
+  assert pg_temp.awarded('quest_step:quest.live:skill.science.curve'), 'each goal earns its own +1';
+  assert pg_temp.awarded('quest:quest.live') and pg_temp.awarded('trophy:trophy.live'), 'finishing earns +1, as does its trophy';
+  assert (select count(*) from public.brainpower_awards where award_key like 'quest%') = 3, 'once each: two goals and the quest';
+end $$;
+set role authenticated;
+
 -- The live clear's title and emblem can be shown; anything unearned is refused.
 select pg_temp.expect_error($$select public.set_equipped('quest.past', null)$$, 'NOT_EARNED');
 do $$ begin
@@ -145,6 +169,11 @@ begin
   assert (select count(*) from jsonb_array_elements(public.get_quests() -> 'trophies') x where x ->> 'kind' = 'quest') = 1, 'still one quest trophy';
   assert not (pg_temp.quest('quest.past') ->> 'active')::boolean, 'a finished quest is no longer the active one';
 end $$;
+reset role;
+do $$ begin
+  assert pg_temp.awarded('quest_step:quest.past:skill.science.testing') and pg_temp.awarded('quest:quest.past'), 'an Archive quest earns Brainpower too';
+end $$;
+set role authenticated;
 -- An Archive clear unlocks no title or emblem either.
 select pg_temp.expect_error($$select public.set_equipped('quest.past', null)$$, 'NOT_EARNED');
 reset role;

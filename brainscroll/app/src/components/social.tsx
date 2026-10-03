@@ -1,9 +1,10 @@
-import { DR_SCROLL_FRIEND, FEED_REACTIONS, leagueName, LEAGUE, ordinal, trophyInfo, type FeedItem, type DrScrollPost, type FeedReaction, type LeagueView } from '@brainscroll/core';
-import { useState } from 'react';
-import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { DR_SCROLL_FRIEND, leagueName, LEAGUE, ordinal, trophyInfo, type FeedItem, type DrScrollPost, type FeedReaction, type LeagueView } from '@brainscroll/core';
+import { Animated, Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import Svg, { Path } from 'react-native-svg';
 import { TrophyBadge } from '@/components/TrophyBadge';
 import { AVATAR_ART, Caption, Card, DrScroll, GradientFill, Icon, Row, UiArt } from '@/components/ui';
 import { getSkill, trophyCatalog } from '@/content';
+import { usePop } from '@/components/ui/motion';
 import { lift } from '@/theme/subjectTheme';
 import { color, depth, elevation, iconSize, radius, space, type } from '@/theme/tokens';
 
@@ -97,11 +98,18 @@ export function LeagueBanner({ league, onPress }: { league: LeagueView; onPress:
   );
 }
 
-/** One line for a moment ("finished Chapter 3 of Astronomy"). */
+/** A trophy moment's name, shown in bold gold so it reads as a trophy (owner, 2026-10-03). */
+function trophyName(item: FeedItem): string | undefined {
+  return item.kind === 'trophy' ? (trophyInfo(item.data.trophyId ?? '', trophyCatalog)?.name ?? item.data.name) : undefined;
+}
+
+/** One line for a moment ("finished Chapter 3 of Astronomy", "earned the First Level trophy"). */
 export function momentLine(item: FeedItem): string {
   switch (item.kind) {
-    case 'trophy':
-      return `earned ${trophyInfo(item.data.trophyId ?? '', trophyCatalog)?.name ?? item.data.name ?? 'a trophy'}`;
+    case 'trophy': {
+      const name = trophyName(item);
+      return name ? `earned the ${name} trophy` : 'earned a trophy';
+    }
     case 'chapter':
       return `finished Chapter ${item.data.chapter} of ${getSkill(item.data.skillId ?? '')?.name ?? 'a skill'}`;
     case 'streak':
@@ -118,11 +126,6 @@ function timeAgo(at: string, now = Date.now()): string {
   return h < 24 ? `${h}h` : `${Math.round(h / 24)}d`;
 }
 
-/**
- * A moment in the feed: who, what, when; the reactions it has so far (Dr.
- * Scroll poses with counts); and, on other people's moments, React, which
- * opens the five poses large enough to tell apart, each with its name.
- */
 /**
  * Dr. Scroll's own moment in the feed (core DR_SCROLL_POSTS): his gold
  * avatar, what he's up to, and the pose to match. No reactions (he isn't an
@@ -149,12 +152,16 @@ export function DrScrollPostCard({ post, onOpen }: { post: DrScrollPost; onOpen:
   );
 }
 
+/**
+ * A moment in the feed: who, what, when, and a heart: on other people's
+ * moments you can like it; on yours it shows how many have.
+ */
 export function MomentCard({ item, onOpen, onReact }: { item: FeedItem; onOpen: () => void; onReact: (reaction: FeedReaction | null) => void }) {
-  const [picking, setPicking] = useState(false);
   const who = item.owner.you ? 'You' : `@${item.owner.username}`;
   const line = momentLine(item);
-  const given = FEED_REACTIONS.filter((r) => (item.reactions[r.id] ?? 0) > 0);
-  const mine = FEED_REACTIONS.find((r) => r.id === item.mine);
+  // Every reaction counts as a heart (older Dr. Scroll reactions included).
+  const hearts = Object.values(item.reactions).reduce<number>((n, c) => n + (c ?? 0), 0);
+  const liked = item.mine !== undefined && item.mine !== null;
   return (
     <Card variant="plain" style={{ gap: space.sm }}>
       <Pressable accessibilityRole="button" accessibilityLabel={`${who} ${line}, ${timeAgo(item.at)} ago. Open their profile`} onPress={onOpen}>
@@ -162,7 +169,14 @@ export function MomentCard({ item, onOpen, onReact }: { item: FeedItem; onOpen: 
           <Avatar username={item.owner.username} avatar={item.owner.avatar} />
           <View style={{ flex: 1, gap: space.xxs }}>
             <Text style={[type.body, { color: color.text }]}>
-              <Text style={{ fontWeight: '800' }}>{who}</Text> {line}
+              <Text style={{ fontWeight: '800' }}>{who}</Text>{' '}
+              {trophyName(item) ? (
+                <>
+                  earned the <Text style={styles.trophyName}>{trophyName(item)}</Text> trophy
+                </>
+              ) : (
+                line
+              )}
             </Text>
             <Caption>{`${timeAgo(item.at)} ago${item.owner.you ? '' : item.owner.friend ? ' · Friend' : ' · League'}`}</Caption>
           </View>
@@ -173,66 +187,57 @@ export function MomentCard({ item, onOpen, onReact }: { item: FeedItem; onOpen: 
           ) : null}
         </Row>
       </Pressable>
-      {(given.length > 0 || !item.owner.you) && (
-        <Row gap={space.xs} style={{ flexWrap: 'wrap' }}>
-          {given.map((r) => (
-            <View
-              key={r.id}
-              accessible
-              accessibilityLabel={`${r.label}: ${item.reactions[r.id]}${item.mine === r.id ? ', including yours' : ''}`}
-              style={[styles.reaction, item.mine === r.id && styles.reactionMine]}>
-              <DrScroll spot="social.reaction" pose={r.id} size={28} />
-              <Caption style={item.mine === r.id ? { color: color.brandText } : undefined}>{String(item.reactions[r.id])}</Caption>
-            </View>
-          ))}
-          {!item.owner.you && (
-            <Pressable
-              accessibilityRole="button"
-              accessibilityState={{ expanded: picking }}
-              accessibilityLabel={mine ? `Your reaction: ${mine.label}. Change it` : 'React'}
-              onPress={() => setPicking((v) => !v)}
-              hitSlop={4}
-              style={({ pressed }) => [styles.reaction, styles.react, pressed && { opacity: 0.7 }]}>
-              <Caption style={{ color: color.brandText, fontWeight: '800' }}>{mine ? mine.label : 'React'}</Caption>
-            </Pressable>
-          )}
-        </Row>
-      )}
-      {picking && (
-        <Row gap={space.xs} style={{ justifyContent: 'space-between' }}>
-          {FEED_REACTIONS.map((r) => {
-            const chosen = item.mine === r.id;
-            return (
-              <Pressable
-                key={r.id}
-                accessibilityRole="button"
-                accessibilityState={{ selected: chosen }}
-                accessibilityLabel={chosen ? `${r.label}, your reaction. Take it back` : r.label}
-                onPress={() => {
-                  setPicking(false);
-                  onReact(chosen ? null : r.id);
-                }}
-                style={({ pressed }) => [styles.pick, chosen && styles.reactionMine, pressed && { opacity: 0.7 }]}>
-                <DrScroll spot="social.reaction" pose={r.id} size={48} />
-                <Caption center numberOfLines={1}>
-                  {r.label}
-                </Caption>
-              </Pressable>
-            );
-          })}
-        </Row>
+      {(hearts > 0 || !item.owner.you) && (
+        <HeartButton liked={liked} count={hearts} onPress={item.owner.you ? undefined : () => onReact(liked ? null : 'heart')} />
       )}
     </Card>
   );
 }
 
+/**
+ * A heart: an outline, filled when you've liked it (tap again to take it
+ * back), with the count beside it. On your own moments it only shows the count.
+ */
+function HeartButton({ liked, count, onPress }: { liked: boolean; count: number; onPress?: () => void }) {
+  const pop = usePop(liked ? 'liked' : null, { from: 0.6 });
+  const label = onPress ? `${liked ? 'Liked' : 'Like'}${count ? `, ${count} ${count === 1 ? 'like' : 'likes'}` : ''}` : `${count} ${count === 1 ? 'like' : 'likes'}`;
+  const heart = (
+    <Row gap={space.xxs} style={styles.heart}>
+      <Animated.View style={pop}>
+        <Svg width={22} height={22} viewBox="0 0 24 24">
+          <Path d={HEART} fill={liked ? color.heart : 'none'} stroke={liked ? color.heart : color.textMuted} strokeWidth={2} strokeLinejoin="round" />
+        </Svg>
+      </Animated.View>
+      {count > 0 && <Caption style={liked ? { color: color.heart, fontWeight: '800' } : undefined}>{String(count)}</Caption>}
+    </Row>
+  );
+  if (!onPress)
+    return (
+      <View accessible accessibilityLabel={label} style={{ alignSelf: 'flex-start' }}>
+        {heart}
+      </View>
+    );
+  return (
+    <Pressable
+      accessibilityRole="button"
+      accessibilityLabel={label}
+      accessibilityState={{ selected: liked }}
+      onPress={onPress}
+      hitSlop={8}
+      style={({ pressed }) => [{ alignSelf: 'flex-start' }, pressed && { transform: [{ scale: 0.92 }] }]}>
+      {heart}
+    </Pressable>
+  );
+}
+
+/** Material's heart, drawn so it can be an outline or filled on every platform. */
+const HEART = 'M12 20.6l-1.3-1.2C6 15.2 3 12.4 3 9a4.5 4.5 0 0 1 4.5-4.5c1.7 0 3.4.8 4.5 2.1a6 6 0 0 1 4.5-2.1A4.5 4.5 0 0 1 21 9c0 3.4-3 6.2-7.7 10.4L12 20.6z';
+
 const styles = StyleSheet.create({
+  trophyName: { color: color.mastery, fontWeight: '800' },
+  heart: { alignItems: 'center', paddingVertical: space.xxs },
   banner: { borderRadius: radius.lg, padding: space.lg, gap: space.md, borderWidth: depth.border, borderBottomWidth: depth.edge, borderColor: color.brandEdge, overflow: 'hidden', ...elevation.raised },
   medalArt: { width: 76, height: 76, alignItems: 'center', justifyContent: 'center' },
   podium: { flexDirection: 'row', gap: space.sm, paddingTop: space.md, borderTopWidth: 1, borderTopColor: 'rgba(255,255,255,0.18)' },
   podiumSpot: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: space.xs },
-  reaction: { flexDirection: 'row', alignItems: 'center', gap: space.xxs, paddingHorizontal: space.xs, paddingVertical: space.xxs, borderRadius: radius.pill, borderWidth: 1.5, borderColor: color.border },
-  reactionMine: { borderColor: color.brandLine, backgroundColor: color.brandSoft },
-  react: { paddingHorizontal: space.md, minHeight: 36, borderColor: color.brandLine },
-  pick: { flex: 1, alignItems: 'center', gap: space.xxs, paddingVertical: space.xs, borderRadius: radius.md, borderWidth: 1.5, borderColor: color.border },
 });

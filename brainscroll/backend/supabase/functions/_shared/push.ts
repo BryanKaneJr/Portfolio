@@ -73,7 +73,7 @@ export function renderPush(kind: PushKind, items: Record<string, unknown>[]): { 
       };
     }
     case 'reaction':
-      return { title: 'Dr. Scroll reactions', body: `${people(items)} reacted to your moment${items.length > 1 ? 's' : ''} in the feed.`, url: '/social' };
+      return { title: 'New hearts', body: `${people(items)} liked your moment${items.length > 1 ? 's' : ''} in the feed.`, url: '/social' };
     default:
       return null;
   }
