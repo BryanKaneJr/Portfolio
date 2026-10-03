@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 15,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Seven Wonders",
   "objective": "After this level you can name the Seven Wonders of the ancient world.",
@@ -153,41 +153,31 @@
     },
     {
       "id": "question.architecture.015.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.wonders_seven_fates"
       ],
       "sourceCardIds": [
-        "card.architecture.015.c3"
+        "card.architecture.015.c3",
+        "card.architecture.015.c5"
       ],
-      "prompt": "Which of the Seven Wonders was toppled by an earthquake only decades after it was finished?",
-      "options": [
+      "prompt": "Match each wonder with what happened to it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The Colossus of Rhodes",
-          "correct": true
+          "left": "The Temple of Artemis",
+          "right": "Burned in 356 BCE"
         },
         {
-          "id": "b",
-          "label": "The Temple of Artemis",
-          "correct": false,
-          "rationale": "It was burned by Herostratus, then destroyed by Goths."
+          "left": "The Colossus of Rhodes",
+          "right": "Toppled by an earthquake"
         },
         {
-          "id": "c",
-          "label": "The Pyramids of Giza",
-          "correct": false,
-          "rationale": "They are the one wonder still standing."
-        },
-        {
-          "id": "d",
-          "label": "The Statue of Zeus at Olympia",
-          "correct": false,
-          "rationale": "The earthquake that struck decades after completion hit Rhodes."
+          "left": "The Pyramids of Giza",
+          "right": "Still substantially in existence"
         }
       ],
-      "explanation": "The Colossus of Rhodes was toppled by an earthquake about 226 BCE, little more than half a century after it was finished.",
+      "explanation": "The Temple of Artemis was burned in 356 BCE, the Colossus of Rhodes was toppled by an earthquake about 226 BCE, and the Pyramids of Giza are the only wonder still substantially in existence.",
       "difficulty": 0.2
     },
     {

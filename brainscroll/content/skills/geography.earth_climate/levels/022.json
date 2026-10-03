@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 22,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How Caves and Sinkholes Form",
   "objective": "After this level you can explain how slightly acidic groundwater dissolves limestone into caves, stalactites and sinkholes.",
@@ -179,7 +179,7 @@
     },
     {
       "id": "question.earth_climate.022.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.earth_climate.land_limestone_caves",
@@ -187,35 +187,25 @@
       ],
       "sourceCardIds": [
         "card.earth_climate.022.c2",
-        "card.earth_climate.021.c4"
+        "card.earth_climate.021.c4",
+        "card.earth_climate.022.c3"
       ],
-      "prompt": "Why do caves like Mammoth Cave form in limestone rather than in quartz-rich rock? Use Levels 21 and 22.",
-      "options": [
+      "prompt": "Match each cave formation with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Limestone is harder, so its cave roofs stay up",
-          "correct": false,
-          "rationale": "Hardness isn't the reason; dissolving is."
+          "left": "Stalactites",
+          "right": "Hang from the ceiling"
         },
         {
-          "id": "b",
-          "label": "Limestone's calcite dissolves in weak acid; quartz barely reacts",
-          "correct": true
+          "left": "Stalagmites",
+          "right": "Rise from the floor"
         },
         {
-          "id": "c",
-          "label": "Quartz-rich rock has no cracks for water to enter",
-          "correct": false,
-          "rationale": "Water can enter cracks in any rock."
-        },
-        {
-          "id": "d",
-          "label": "Caves only form where lava once flowed",
-          "correct": false,
-          "rationale": "These caves were dissolved, not left by lava."
+          "left": "Soda straw",
+          "right": "Thin, hollow stone tube"
         }
       ],
-      "explanation": "Carbonic acid in groundwater dissolves limestone's calcite, while quartz is very resistant to chemical weathering.",
+      "explanation": "Stalactites hang from the ceiling, stalagmites rise from the floor, and a soda straw is a thin, hollow stone tube, the simplest stalactite.",
       "difficulty": 0.3
     }
   ],

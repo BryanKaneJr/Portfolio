@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 77,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Art of the Americas",
   "objective": "After this level you can describe Maya, Aztec and Inca art and building.",
@@ -102,41 +102,32 @@
   "questions": [
     {
       "id": "question.art_history.077.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.maya_stelae"
       ],
       "sourceCardIds": [
-        "card.art_history.077.c2"
+        "card.art_history.077.c2",
+        "card.art_history.077.c1",
+        "card.art_history.077.c3"
       ],
-      "prompt": "What does a Classic Maya stela usually show?",
-      "options": [
+      "prompt": "Match each people with the art this level links them to.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A ruler with hieroglyphic texts",
-          "correct": true
+          "left": "Maya",
+          "right": "Stelae"
         },
         {
-          "id": "b",
-          "label": "A wheel of twenty day signs",
-          "correct": false,
-          "rationale": "That's the Mexica Sun Stone."
+          "left": "Mexica",
+          "right": "The Sun Stone"
         },
         {
-          "id": "c",
-          "label": "A pattern woven into fine cloth",
-          "correct": false,
-          "rationale": "That describes Inca qompi, not carved slabs."
-        },
-        {
-          "id": "d",
-          "label": "A map of the city walls",
-          "correct": false,
-          "rationale": "Stelae show rulers, with texts naming them and recording deeds."
+          "left": "Inca",
+          "right": "Walls without mortar"
         }
       ],
-      "explanation": "A stela is a carved stone slab, usually showing a ruler's portrait beside hieroglyphic texts with dates and deeds.",
+      "explanation": "The Maya carved stelae with rulers and hieroglyphs, the Mexica carved the Sun Stone, and the Inca built walls without mortar.",
       "difficulty": 0.2
     },
     {

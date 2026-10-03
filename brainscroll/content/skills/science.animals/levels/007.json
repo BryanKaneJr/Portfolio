@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 7,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Food Chains and Webs",
   "objective": "After this level you can explain how energy passes along a food chain.",
@@ -91,7 +91,7 @@
   "questions": [
     {
       "id": "question.animals.007.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.animals.food_chain_levels"
@@ -99,33 +99,17 @@
       "sourceCardIds": [
         "card.animals.007.c2"
       ],
-      "prompt": "In a food chain, what can producers do that consumers cannot?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Make their own food",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Eat other animals",
-          "correct": false,
-          "rationale": "That's what secondary consumers do."
-        },
-        {
-          "id": "c",
-          "label": "Break down dead things",
-          "correct": false,
-          "rationale": "That's the decomposers' job."
-        },
-        {
-          "id": "d",
-          "label": "Sit at the top of the chain",
-          "correct": false,
-          "rationale": "That's the apex predators."
-        }
+      "prompt": "Put the levels of a food chain in order, from bottom to top.",
+      "items": [
+        "Producers",
+        "Primary consumers",
+        "Secondary consumers",
+        "Tertiary consumers",
+        "Apex predators"
       ],
-      "explanation": "Producers make their own food, nearly all of them by photosynthesis.",
+      "first": "Bottom of the chain",
+      "last": "Top of the chain",
+      "explanation": "Producers are eaten by primary consumers, then secondary and tertiary consumers, with apex predators on top.",
       "difficulty": 0.1
     },
     {

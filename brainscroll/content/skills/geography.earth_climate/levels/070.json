@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 70,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Storms",
   "objective": "After this level you can explain how heat, moisture and spinning air build thunderstorms, tornadoes, hurricanes and winter storms.",
@@ -162,7 +162,7 @@
     },
     {
       "id": "question.earth_climate.070.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.storm_supercell",
@@ -172,33 +172,22 @@
         "card.earth_climate.070.c2",
         "card.earth_climate.064.c3"
       ],
-      "prompt": "Storms recap: what lets a supercell outlast an ordinary thunderstorm cell?",
-      "options": [
+      "prompt": "Storms recap: match each storm with what shapes it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It has no downdraft to worry about",
-          "correct": false,
-          "rationale": "It has one, kept apart from the updraft."
+          "left": "Ordinary cell",
+          "right": "The downdraft soon cuts off the updraft"
         },
         {
-          "id": "b",
-          "label": "Wind shear tilts it, keeping its updraft and downdraft apart",
-          "correct": true
+          "left": "Supercell",
+          "right": "Tilts and spins"
         },
         {
-          "id": "c",
-          "label": "It forms at night, when the air is calm",
-          "correct": false,
-          "rationale": "Its long life comes from shear, not the time of day."
-        },
-        {
-          "id": "d",
-          "label": "Its hail shields the updraft from rain",
-          "correct": false,
-          "rationale": "Hail is a product of the storm, not its protection."
+          "left": "Hurricane",
+          "right": "Eyewall around a calm eye"
         }
       ],
-      "explanation": "In an ordinary cell the downdraft cuts off the updraft; a supercell's shear keeps them apart, so it can last hours.",
+      "explanation": "In an ordinary cell the downdraft soon cuts off the updraft. Wind shear makes a supercell tilt and spin. A hurricane rings thunderstorms into an eyewall around a calm eye.",
       "difficulty": 0.35
     },
     {

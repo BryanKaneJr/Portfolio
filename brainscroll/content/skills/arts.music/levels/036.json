@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 36,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Orchestra Takes Shape",
   "objective": "After this level you can explain how the orchestra grew and why it came to need a conductor.",
@@ -92,41 +92,37 @@
   "questions": [
     {
       "id": "question.music.036.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.orchestra_conductor_rise"
       ],
       "sourceCardIds": [
-        "card.music.036.c2"
+        "card.music.036.c2",
+        "card.music.036.c1",
+        "card.music.036.c3",
+        "card.music.036.c4"
       ],
-      "prompt": "In Bach's and Handel's day, who usually led an orchestra's performance?",
-      "options": [
+      "prompt": "Match each name with its part in the orchestra's story.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A standing conductor with a baton",
-          "correct": false,
-          "rationale": "Batons caught on only around 1820."
+          "left": "Lully",
+          "right": "Struck his own foot"
         },
         {
-          "id": "b",
-          "label": "The principal trumpet, from the back row",
-          "correct": false,
-          "rationale": "Leaders played keyboard or first violin."
+          "left": "Mannheim",
+          "right": "An army of generals"
         },
         {
-          "id": "c",
-          "label": "The composer, from the organ or harpsichord",
-          "correct": true
+          "left": "Louis Spohr",
+          "right": "Brought the baton"
         },
         {
-          "id": "d",
-          "label": "No one: players followed a printed tempo",
-          "correct": false,
-          "rationale": "Someone led, while playing along."
+          "left": "Monteverdi",
+          "right": "About 40 instruments"
         }
       ],
-      "explanation": "Baroque performances were usually led by the composer at the keyboard, or by the first violinist.",
+      "explanation": "Lully struck his own foot with his time-beating stick, Burney called Mannheim's orchestra an army of generals, Louis Spohr brought the baton to London, and Monteverdi's Orfeo used about 40 instruments.",
       "difficulty": 0.25
     },
     {

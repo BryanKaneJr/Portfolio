@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 24,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Disaster at Cannae",
   "objective": "After this level you can explain what happened at Cannae and why it is still studied.",
@@ -115,7 +115,7 @@
     },
     {
       "id": "question.ancient_rome.024.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_rome.cannae"
@@ -123,33 +123,15 @@
       "sourceCardIds": [
         "card.ancient_rome.024.c2"
       ],
-      "prompt": "How did Hannibal defeat a larger army at Cannae?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He let his center give way, then closed in from both sides",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "He attacked the Roman camp at night",
-          "correct": false,
-          "rationale": "It was a pitched battle."
-        },
-        {
-          "id": "c",
-          "label": "He used elephants to break the Roman line",
-          "correct": false,
-          "rationale": "The trap was about movement, not elephants."
-        },
-        {
-          "id": "d",
-          "label": "He flooded the battlefield",
-          "correct": false,
-          "rationale": "The trap was an encirclement."
-        }
+      "prompt": "Put Hannibal’s trap at Cannae in order, from first to last.",
+      "items": [
+        "Center falls back",
+        "Wings close in",
+        "Suddenly surrounded"
       ],
-      "explanation": "A retreating center drew the Romans in while the wings and cavalry surrounded them: a double envelopment.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Hannibal’s center fell back as the Romans pushed, then his wings and cavalry closed in, and the Roman army was suddenly surrounded.",
       "difficulty": 0.4
     },
     {

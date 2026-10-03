@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 14,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Whales and Dolphins",
   "objective": "After this level you can explain how whales and dolphins are mammals that live in the sea.",
@@ -185,7 +185,7 @@
     },
     {
       "id": "question.animals.014.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.cetacean_baleen_toothed",
@@ -193,35 +193,25 @@
       ],
       "sourceCardIds": [
         "card.animals.014.c4",
-        "card.animals.009.c2"
+        "card.animals.009.c2",
+        "card.animals.014.c2"
       ],
-      "prompt": "Level 9's blue whale lives almost entirely on krill. Which group of whales does it belong to?",
-      "options": [
+      "prompt": "Match each whale term with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Toothed whales, like dolphins",
-          "correct": false,
-          "rationale": "Toothed whales have teeth; blue whales don't."
+          "left": "Toothed whales",
+          "right": "One blowhole"
         },
         {
-          "id": "b",
-          "label": "Baleen whales",
-          "correct": true
+          "left": "Baleen whales",
+          "right": "Plates of keratin"
         },
         {
-          "id": "c",
-          "label": "It isn't a whale but a fish",
-          "correct": false,
-          "rationale": "Blue whales are mammals."
-        },
-        {
-          "id": "d",
-          "label": "Porpoises",
-          "correct": false,
-          "rationale": "Porpoises are toothed whales."
+          "left": "Blowholes",
+          "right": "Nostrils on top of the head"
         }
       ],
-      "explanation": "Blue whales are baleen whales: keratin plates strain krill from the water.",
+      "explanation": "Toothed whales have teeth and one blowhole. Baleen whales have plates of keratin instead of teeth. Blowholes are nostrils on top of the head.",
       "difficulty": 0.2
     }
   ],

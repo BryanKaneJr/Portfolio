@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 83,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Bucephalus",
   "objective": "After this level you can retell the story of Alexander's horse.",
@@ -95,41 +95,25 @@
   "questions": [
     {
       "id": "question.ancient_greece.083.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_greece.bucephalus_story"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.083.c2"
+        "card.ancient_greece.083.c2",
+        "card.ancient_greece.083.c3"
       ],
-      "prompt": "In Plutarch’s story, why could nobody ride the young Bucephalus?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He had never worn a saddle",
-          "correct": false,
-          "rationale": "Plutarch blames something else."
-        },
-        {
-          "id": "b",
-          "label": "He was blind in one eye",
-          "correct": false,
-          "rationale": "He could see only too well."
-        },
-        {
-          "id": "c",
-          "label": "He had been trained to pull chariots",
-          "correct": false,
-          "rationale": "Plutarch blames something else."
-        },
-        {
-          "id": "d",
-          "label": "He was frightened by his own shadow",
-          "correct": true
-        }
+      "prompt": "Put the story of Bucephalus in order, from first to last.",
+      "items": [
+        "13 talents",
+        "Turned him toward the sun",
+        "All the way to India",
+        "Died, aged 30"
       ],
-      "explanation": "Alexander saw the horse was scared of his own shadow and turned him toward the sun.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "A dealer offered the horse for 13 talents. Alexander turned him toward the sun and rode him, and later Bucephalus carried him all the way to India, where he died, aged 30.",
       "difficulty": 0.2
     },
     {

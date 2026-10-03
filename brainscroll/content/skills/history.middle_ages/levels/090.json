@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 90,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Plague and War",
   "objective": "After this level you can explain how famine, plague and gunpowder shook the medieval world.",
@@ -154,7 +154,7 @@
   "questions": [
     {
       "id": "question.middle_ages.090.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.late_medieval_crisis",
@@ -166,33 +166,17 @@
         "card.middle_ages.081.c2",
         "card.middle_ages.082.c3"
       ],
-      "prompt": "Plague and war: which of these came in the right order?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Great Famine, the Black Death reaches Messina, the Peasants’ Revolt",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The Black Death reaches Messina, the Great Famine, the Peasants’ Revolt",
-          "correct": false,
-          "rationale": "The famine began in 1315, before the plague."
-        },
-        {
-          "id": "c",
-          "label": "The Peasants’ Revolt, the Great Famine, the Black Death reaches Messina",
-          "correct": false,
-          "rationale": "The revolt came last, in 1381."
-        },
-        {
-          "id": "d",
-          "label": "The Great Famine, the Peasants’ Revolt, the Black Death reaches Messina",
-          "correct": false,
-          "rationale": "The plague (1347) came before the revolt."
-        }
+      "prompt": "Put these events in order, from earliest to latest.",
+      "items": [
+        "The Great Famine begins",
+        "The Black Death reaches Messina",
+        "The Peasants’ Revolt reaches London",
+        "Mehmed II takes Constantinople",
+        "Henry Tudor defeats Richard III"
       ],
-      "explanation": "1315, then 1347, then 1381.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Great Famine began in 1315 and the Black Death reached Messina in 1347. The Peasants’ Revolt reached London in 1381, Mehmed II took Constantinople in 1453, and Henry Tudor defeated Richard III in 1485.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 17,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Roman Art",
   "objective": "After this level you can explain what Roman art borrowed from Greece and what it added.",
@@ -135,41 +135,25 @@
     },
     {
       "id": "question.art_history.017.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.roman_pantheon_dome"
       ],
       "sourceCardIds": [
-        "card.art_history.017.c4"
+        "card.art_history.017.c4",
+        "card.art_history.017.c3",
+        "card.art_history.015.c4"
       ],
-      "prompt": "What makes the Pantheon's dome such a feat?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It is carved from a single block of marble",
-          "correct": false,
-          "rationale": "It is poured concrete."
-        },
-        {
-          "id": "b",
-          "label": "Steel beams hidden inside hold it up",
-          "correct": false,
-          "rationale": "It has no steel reinforcement at all."
-        },
-        {
-          "id": "c",
-          "label": "It spans about 43 m in unreinforced concrete",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It has no opening, so it stays dry",
-          "correct": false,
-          "rationale": "It has an opening about 8 m wide: the oculus."
-        }
+      "prompt": "Put these works in order, from earliest to latest.",
+      "items": [
+        "The Spear Bearer",
+        "Roman portrait sculptors",
+        "Hadrian rebuilt the Pantheon"
       ],
-      "explanation": "The dome spans about 43 m in concrete with no reinforcement, unmatched in scale until modern times.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Polyclitus made the Spear Bearer about 450 to 440 BCE, Roman portrait sculpture flowered around 100 BCE, and Hadrian rebuilt the Pantheon between 118 and 128 CE.",
       "difficulty": 0.2
     },
     {

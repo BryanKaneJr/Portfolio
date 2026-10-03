@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 92,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Cities",
   "objective": "After this level you can explain why cities grow and name the largest urban areas.",
@@ -95,41 +95,24 @@
   "questions": [
     {
       "id": "question.world_geography.092.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.megacities"
       ],
       "sourceCardIds": [
-        "card.world_geography.092.c3"
+        "card.world_geography.092.c3",
+        "card.world_geography.092.c4"
       ],
-      "prompt": "What makes an urban area a megacity?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Being a national capital",
-          "correct": false,
-          "rationale": "Plenty of capitals are small."
-        },
-        {
-          "id": "b",
-          "label": "Having more than 100 skyscrapers",
-          "correct": false,
-          "rationale": "Buildings do not define it; people do."
-        },
-        {
-          "id": "c",
-          "label": "Having 10 million or more people",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Spreading across two countries",
-          "correct": false,
-          "rationale": "Borders have nothing to do with it."
-        }
+      "prompt": "By the UN's 2025 count, put these cities in order, from most people to fewest.",
+      "items": [
+        "Jakarta",
+        "Dhaka",
+        "Tokyo"
       ],
-      "explanation": "A megacity is an urban area with 10 million or more inhabitants. There were 33 in 2025.",
+      "first": "Most people",
+      "last": "Fewest people",
+      "explanation": "By the UN's 2025 count, Jakarta has nearly 42 million people, Dhaka almost 40 million and Tokyo 33 million.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 31,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Castles",
   "objective": "After this level you can explain how castles were designed for defense.",
@@ -95,41 +95,31 @@
   "questions": [
     {
       "id": "question.architecture.031.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.castles_defensive_design"
       ],
       "sourceCardIds": [
-        "card.architecture.031.c4"
+        "card.architecture.031.c4",
+        "card.architecture.031.c2"
       ],
-      "prompt": "Why did castle builders make towers protrude from the wall?",
-      "options": [
+      "prompt": "Match each castle word with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "To hold up the roof of the miners' tunnels below",
-          "correct": false,
-          "rationale": "That's what miners' props did."
+          "left": "Mining",
+          "right": "Dug a tunnel beneath it"
         },
         {
-          "id": "b",
-          "label": "So defenders could shoot along the wall's face and foot",
-          "correct": true
+          "left": "A tower that protrudes",
+          "right": "Shoot along the wall's face"
         },
         {
-          "id": "c",
-          "label": "To carry rainwater off the wall-walk to the moat",
-          "correct": false,
-          "rationale": "It's about firing lines, not drainage."
-        },
-        {
-          "id": "d",
-          "label": "To let the curtain wall be built thinner and cheaper",
-          "correct": false,
-          "rationale": "Towers add stone; they give defenders a line of fire."
+          "left": "Machicolations",
+          "right": "Permanent stone galleries"
         }
       ],
-      "explanation": "Towers protruding from the wall let defenders bring flanking fire along its face and foot, and they rose higher than the wall for range.",
+      "explanation": "In mining, attackers dug a tunnel beneath a wall. From a tower that protrudes, defenders can shoot along the wall's face and foot. Machicolations are permanent stone galleries overhanging the wall top.",
       "difficulty": 0.15
     },
     {

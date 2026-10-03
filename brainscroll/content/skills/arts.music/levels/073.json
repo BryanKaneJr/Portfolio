@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 73,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Rock and Roll",
   "objective": "After this level you can explain how rock and roll grew from blues, country and gospel.",
@@ -130,42 +130,25 @@
     },
     {
       "id": "question.music.073.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.rocknroll_first_record"
       ],
       "sourceCardIds": [
         "card.music.073.c1",
-        "card.music.073.c3"
+        "card.music.073.c3",
+        "card.music.073.c4"
       ],
-      "prompt": "Why is it so hard to name the one \"first\" rock and roll record?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Rock and roll grew gradually, so several records have a claim",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "No recordings survive from before 1960",
-          "correct": false,
-          "rationale": "\"Rocket 88\" from 1951 survives, and so do earlier records."
-        },
-        {
-          "id": "c",
-          "label": "Record labels hid their recording dates",
-          "correct": false,
-          "rationale": "The dates are known; the style itself grew step by step."
-        },
-        {
-          "id": "d",
-          "label": "The term was only invented in the 1980s",
-          "correct": false,
-          "rationale": "Rock and roll was already a style in the mid-1950s."
-        }
+      "prompt": "Put these records in order, from earliest to latest.",
+      "items": [
+        "Rocket 88",
+        "That's All Right",
+        "Maybellene"
       ],
-      "explanation": "Rock and roll evolved gradually. \"Rocket 88\" (1951) is often billed as first, but contenders go back at least to Tharpe's 1944 recording.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "\"Rocket 88\" was recorded in March 1951, Elvis Presley recorded \"That's All Right\" in July 1954, and Chuck Berry's \"Maybellene\" was a 1955 hit.",
       "difficulty": 0.3
     },
     {

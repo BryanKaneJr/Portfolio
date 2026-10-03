@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 86,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Wayfinders of the Pacific",
   "objective": "After this level you can explain how Polynesian navigators crossed the Pacific by reading stars, waves and birds.",
@@ -94,41 +94,31 @@
   "questions": [
     {
       "id": "question.world_geography.086.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.wayfinding"
       ],
       "sourceCardIds": [
-        "card.world_geography.086.c4"
+        "card.world_geography.086.c4",
+        "card.world_geography.086.c3"
       ],
-      "prompt": "How can seabirds lead a wayfinder to land?",
-      "options": [
+      "prompt": "Match each clue with how a wayfinder uses it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They fly back to land in the late afternoon",
-          "correct": true
+          "left": "Stars",
+          "right": "Direction"
         },
         {
-          "id": "b",
-          "label": "They circle above schools of whales",
-          "correct": false,
-          "rationale": "Whales don't point to land."
+          "left": "Ocean swells",
+          "right": "Steering"
         },
         {
-          "id": "c",
-          "label": "They always fly toward the sunset",
-          "correct": false,
-          "rationale": "They fly toward home, whatever the direction."
-        },
-        {
-          "id": "d",
-          "label": "They only fly over deep water",
-          "correct": false,
-          "rationale": "Terns fly out to fish and return to land."
+          "left": "Seabirds like terns",
+          "right": "Head back to land"
         }
       ],
-      "explanation": "Terns fly out to sea in the morning to fish and return to land in the late afternoon, so a wayfinder can follow them in.",
+      "explanation": "Wayfinders use stars for direction and ocean swells for steering. Seabirds like terns head back to land in the late afternoon, so you can follow them.",
       "difficulty": 0.15
     },
     {

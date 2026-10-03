@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 46,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Tundra",
   "objective": "After this level you can describe the tundra and the frozen ground beneath it.",
@@ -171,7 +171,7 @@
     },
     {
       "id": "question.world_geography.046.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.world_geography.tundra_biome",
@@ -179,35 +179,25 @@
       ],
       "sourceCardIds": [
         "card.world_geography.046.c2",
-        "card.world_geography.004.c4"
+        "card.world_geography.004.c4",
+        "card.world_geography.046.c3"
       ],
-      "prompt": "From Level 4: Arctic tundra lies on land beyond which line?",
-      "options": [
+      "prompt": "Match each one with what this level said about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The Arctic Circle",
-          "correct": true
+          "left": "Arctic tundra",
+          "right": "Above the Arctic Circle"
         },
         {
-          "id": "b",
-          "label": "The Tropic of Cancer",
-          "correct": false,
-          "rationale": "That marks the northern edge of the tropics."
+          "left": "Alpine tundra",
+          "right": "High on mountains"
         },
         {
-          "id": "c",
-          "label": "The Equator",
-          "correct": false,
-          "rationale": "The Equator is far too warm for tundra."
-        },
-        {
-          "id": "d",
-          "label": "The prime meridian",
-          "correct": false,
-          "rationale": "That's a line of longitude, and it runs pole to pole."
+          "left": "Permafrost",
+          "right": "Stays frozen for at least two years"
         }
       ],
-      "explanation": "Arctic tundra lies on land above the Arctic Circle, at about 66.5° N.",
+      "explanation": "Arctic tundra lies above the Arctic Circle, and alpine tundra lies high on mountains. Permafrost is ground that stays frozen for at least two years.",
       "difficulty": 0.2
     }
   ],

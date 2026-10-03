@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 66,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Baths",
   "objective": "After this level you can explain what Roman baths were like and why they mattered socially.",
@@ -91,7 +91,7 @@
   "questions": [
     {
       "id": "question.ancient_rome.066.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_rome.baths"
@@ -99,33 +99,15 @@
       "sourceCardIds": [
         "card.ancient_rome.066.c2"
       ],
-      "prompt": "What was the hot room of a Roman bath called?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The frigidarium",
-          "correct": false,
-          "rationale": "That was the cold room."
-        },
-        {
-          "id": "b",
-          "label": "The tepidarium",
-          "correct": false,
-          "rationale": "That was the warm room."
-        },
-        {
-          "id": "c",
-          "label": "The caldarium",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The atrium",
-          "correct": false,
-          "rationale": "That was a hall in a house."
-        }
+      "prompt": "Put the rooms of a Roman bath in order, from hottest to coldest.",
+      "items": [
+        "Caldarium",
+        "Tepidarium",
+        "Frigidarium"
       ],
-      "explanation": "The caldarium was the hot room; the tepidarium was warm and the frigidarium cold.",
+      "first": "Hottest",
+      "last": "Coldest",
+      "explanation": "The caldarium was hot, the tepidarium warm and the frigidarium cold.",
       "difficulty": 0.2
     },
     {

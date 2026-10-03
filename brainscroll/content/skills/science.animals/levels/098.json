@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 98,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Animals in Space",
   "objective": "After this level you can describe the animals that flew in space before humans.",
@@ -147,41 +147,26 @@
     },
     {
       "id": "question.animals.098.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.space_animals_why"
       ],
       "sourceCardIds": [
-        "card.animals.098.c2"
+        "card.animals.098.c2",
+        "card.animals.098.c4"
       ],
-      "prompt": "Why did scientists send fruit flies into space before people?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Flies were thought to be immune to radiation",
-          "correct": false,
-          "rationale": "Radiation's effects were exactly what they wanted to test."
-        },
-        {
-          "id": "b",
-          "label": "To test whether living things could survive spaceflight",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Rockets were too small for dogs",
-          "correct": false,
-          "rationale": "Size helped, but the goal was the test."
-        },
-        {
-          "id": "d",
-          "label": "To study how insects fly without air",
-          "correct": false,
-          "rationale": "The question was survival, not flight."
-        }
+      "prompt": "Put these space travelers in order, earliest first.",
+      "items": [
+        "Fruit flies",
+        "Laika",
+        "Belka and Strelka",
+        "Ham the chimpanzee",
+        "Yuri Gagarin"
       ],
-      "explanation": "Weightlessness and radiation were unknowns, so small animals went first to test whether living bodies could cope.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Fruit flies flew in 1947, Laika in 1957, Belka and Strelka in 1960, Ham the chimpanzee in January 1961 and Yuri Gagarin in April 1961.",
       "difficulty": 0.25
     },
     {

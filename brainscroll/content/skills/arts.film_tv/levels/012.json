@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 12,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why Hollywood?",
   "objective": "After this level you can explain why American filmmaking moved from the East Coast to Southern California in the 1910s.",
@@ -169,7 +169,7 @@
     },
     {
       "id": "question.film_tv.012.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.film_tv.silent_patents_trust",
@@ -177,35 +177,18 @@
       ],
       "sourceCardIds": [
         "card.film_tv.012.c2",
-        "card.film_tv.005.c2"
+        "card.film_tv.005.c2",
+        "card.film_tv.012.c1"
       ],
-      "prompt": "Edison's lab built the Kinetoscope (Level 5). What part did Edison's company play in 1908?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It was one of the companies that formed the patent-pooling Trust",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "It opened Hollywood's first studio",
-          "correct": false,
-          "rationale": "That was a site on Sunset Boulevard in 1911, not Edison."
-        },
-        {
-          "id": "c",
-          "label": "It sued the Trust under antitrust law",
-          "correct": false,
-          "rationale": "The US government sued the Trust; Edison's company was a member."
-        },
-        {
-          "id": "d",
-          "label": "It sold its patents to Kodak",
-          "correct": false,
-          "rationale": "Kodak supplied film stock under an exclusive deal with the Trust."
-        }
+      "prompt": "Put these milestones in order, from earliest to latest.",
+      "items": [
+        "The Motion Picture Patents Company",
+        "Hollywood's first film studio",
+        "The center of the American film industry"
       ],
-      "explanation": "Edison's company, with Biograph and others, formed the Motion Picture Patents Company in 1908 and pooled their patents.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Motion Picture Patents Company formed in 1908, Hollywood got its first film studio in 1911, and by 1915 Hollywood was the center of the American film industry.",
       "difficulty": 0.3
     }
   ],

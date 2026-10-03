@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 2,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Romulus and Remus",
   "objective": "After this level you can retell Rome’s founding legend and explain why Romans valued it.",
@@ -169,7 +169,7 @@
     },
     {
       "id": "question.ancient_rome.002.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_rome.founding_legend",
@@ -177,35 +177,26 @@
       ],
       "sourceCardIds": [
         "card.ancient_rome.002.c3",
-        "card.ancient_rome.001.c2"
+        "card.ancient_rome.001.c2",
+        "card.ancient_rome.002.c2",
+        "card.ancient_rome.002.c4"
       ],
-      "prompt": "From Level 1: Romans dated the founding to 753 BCE. How did the legend explain the city’s name?",
-      "options": [
+      "prompt": "Match each figure from Rome’s origin stories with what the legend says about them.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It was named after the Tiber",
-          "correct": false,
-          "rationale": "The legend credits a founder."
+          "left": "Aeneas",
+          "right": "A Trojan prince"
         },
         {
-          "id": "b",
-          "label": "It was named after Aeneas",
-          "correct": false,
-          "rationale": "Aeneas came much earlier."
+          "left": "The she-wolf",
+          "right": "Nursed them"
         },
         {
-          "id": "c",
-          "label": "It was named after the she-wolf",
-          "correct": false,
-          "rationale": "The wolf nursed the founders."
-        },
-        {
-          "id": "d",
-          "label": "It was named after Romulus",
-          "correct": true
+          "left": "Romulus",
+          "right": "Killed Remus"
         }
       ],
-      "explanation": "After Romulus killed Remus, the new city took Romulus’s name.",
+      "explanation": "Aeneas was a Trojan prince who fled to Italy, the she-wolf found and nursed the twins, and Romulus killed Remus, so the city was named Rome after him.",
       "difficulty": 0.2
     }
   ],

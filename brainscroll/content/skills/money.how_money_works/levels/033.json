@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 33,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "What a Stock Is",
   "objective": "After this level you can explain what owning a share of a company means.",
@@ -86,41 +86,32 @@
   "questions": [
     {
       "id": "question.how_money_works.033.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.stock_share_ownership"
       ],
       "sourceCardIds": [
-        "card.how_money_works.033.c2"
+        "card.how_money_works.033.c1",
+        "card.how_money_works.033.c2",
+        "card.how_money_works.033.c3"
       ],
-      "prompt": "What do you own when you own a share of stock?",
-      "options": [
+      "prompt": "Match each stock word with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A loan the company must repay with interest",
-          "correct": false,
-          "rationale": "That's a bond, the subject of Level 34."
+          "left": "The VOC",
+          "right": "The Dutch East India Company"
         },
         {
-          "id": "b",
-          "label": "A guaranteed yearly payment from the company",
-          "correct": false,
-          "rationale": "Dividends are possible, never guaranteed."
+          "left": "Dividends",
+          "right": "Hands out part of its earnings"
         },
         {
-          "id": "c",
-          "label": "A deposit that the company keeps for you",
-          "correct": false,
-          "rationale": "A deposit is a bank's IOU, not ownership."
-        },
-        {
-          "id": "d",
-          "label": "A small slice of ownership in the company",
-          "correct": true
+          "left": "Common stock",
+          "right": "A vote at shareholder meetings"
         }
       ],
-      "explanation": "A share of stock is a piece of ownership in a company.",
+      "explanation": "The VOC was the Dutch East India Company. With dividends, a company hands out part of its earnings. Common stock usually gets you a vote at shareholder meetings.",
       "difficulty": 0.1
     },
     {

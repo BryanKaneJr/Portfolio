@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 2,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The First Americans",
   "objective": "After this level you can explain how people first reached the Americas from Asia during the last Ice Age, and why the timing is still debated.",
@@ -170,7 +170,7 @@
     },
     {
       "id": "question.us_history.002.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.us_history.first_americans_timing",
@@ -178,35 +178,25 @@
       ],
       "sourceCardIds": [
         "card.us_history.002.c4",
+        "card.us_history.002.c3",
         "card.us_history.001.c2"
       ],
-      "prompt": "Level 1 dated the first Americans to about 25,000 to 15,000 years ago. Which find sits near the older end of that range?",
-      "options": [
+      "prompt": "Match each find with how old it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Clovis spear points",
-          "correct": false,
-          "rationale": "They are about 13,000 years old."
+          "left": "Clovis artifacts",
+          "right": "about 13,000 years old"
         },
         {
-          "id": "b",
-          "label": "The Monte Verde campsite",
-          "correct": false,
-          "rationale": "It is more than 14,000 years old, not over 20,000."
+          "left": "Monte Verde",
+          "right": "more than 14,000 years ago"
         },
         {
-          "id": "c",
-          "label": "The White Sands footprints",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The Bering Land Bridge",
-          "correct": false,
-          "rationale": "That’s a route, not a dated find."
+          "left": "White Sands",
+          "right": "21,000 to 23,000 years ago"
         }
       ],
-      "explanation": "The White Sands footprints are dated to about 21,000 to 23,000 years ago, though some archaeologists doubt it.",
+      "explanation": "Clovis artifacts are about 13,000 years old. People lived at Monte Verde more than 14,000 years ago, and the White Sands footprints are dated to about 21,000 to 23,000 years ago.",
       "difficulty": 0.35
     }
   ],

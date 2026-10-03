@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 35,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Crocodiles",
   "objective": "After this level you can describe crocodiles and alligators and how to tell them apart.",
@@ -108,41 +108,31 @@
   "questions": [
     {
       "id": "question.animals.035.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.animals.croc_vs_alligator"
       ],
       "sourceCardIds": [
-        "card.animals.035.c3"
+        "card.animals.035.c3",
+        "card.animals.035.c2"
       ],
-      "prompt": "Which one shows some lower teeth when its mouth is closed?",
-      "options": [
+      "prompt": "Match each crocodilian with its telltale feature.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The alligator",
-          "correct": false,
-          "rationale": "An alligator's lower teeth fit inside the upper jaw."
+          "left": "Alligator",
+          "right": "U-shaped snout"
         },
         {
-          "id": "b",
-          "label": "The crocodile",
-          "correct": true
+          "left": "Crocodile",
+          "right": "V-shaped snout"
         },
         {
-          "id": "c",
-          "label": "Both, equally",
-          "correct": false,
-          "rationale": "This is exactly the difference between them."
-        },
-        {
-          "id": "d",
-          "label": "Neither",
-          "correct": false,
-          "rationale": "The crocodile's lower teeth show."
+          "left": "Eyes, ears and nostrils",
+          "right": "On top of its head"
         }
       ],
-      "explanation": "Crocodiles show some lower teeth with the mouth shut; an alligator's lower teeth, including the big fourth one, are hidden.",
+      "explanation": "An alligator has a broad, U-shaped snout and a crocodile a narrow, V-shaped one. A crocodilian's eyes, ears and nostrils sit on top of its head.",
       "difficulty": 0.1
     },
     {

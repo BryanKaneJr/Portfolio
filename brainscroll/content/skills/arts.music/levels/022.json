@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 22,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Music in Ancient Greece",
   "objective": "After this level you can explain Greek ideas about music, from Pythagoras to the theater.",
@@ -175,7 +175,7 @@
     },
     {
       "id": "question.music.022.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.music.pythagorean_ratios",
@@ -185,33 +185,22 @@
         "card.music.022.c2",
         "card.music.008.c2"
       ],
-      "prompt": "A string's 2:1 length ratio gives an octave. How does that match Level 8's A at 440 Hz and 880 Hz?",
-      "options": [
+      "prompt": "Match each string-length ratio with the interval it gives.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The longer string vibrates twice as fast",
-          "correct": false,
-          "rationale": "It's the shorter string that vibrates faster."
+          "left": "2:1",
+          "right": "The octave"
         },
         {
-          "id": "b",
-          "label": "Both strings vibrate at 440 Hz",
-          "correct": false,
-          "rationale": "Then they would sound the same pitch."
+          "left": "3:2",
+          "right": "A fifth"
         },
         {
-          "id": "c",
-          "label": "The ratio only works for hammers",
-          "correct": false,
-          "rationale": "The hammer story is the legend; strings do work this way."
-        },
-        {
-          "id": "d",
-          "label": "Half the length gives double the frequency",
-          "correct": true
+          "left": "4:3",
+          "right": "A fourth"
         }
       ],
-      "explanation": "At the same tension, halving a string doubles its frequency: 440 Hz becomes 880 Hz, an octave up.",
+      "explanation": "Halving a string (2:1) gives the octave, two-thirds of it (3:2) gives a fifth, and three-quarters (4:3) gives a fourth.",
       "difficulty": 0.3
     }
   ],

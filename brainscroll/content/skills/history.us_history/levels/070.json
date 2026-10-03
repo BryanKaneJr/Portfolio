@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 70,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Rails, Factories, Newcomers",
   "objective": "After this level you can explain how industry, immigration and the conquest of the West remade the country between 1865 and 1920.",
@@ -159,7 +159,7 @@
   "questions": [
     {
       "id": "question.us_history.070.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.rails_transcontinental",
@@ -167,37 +167,20 @@
         "concept.us_history.votesforwomen_nineteenth_amendment"
       ],
       "sourceCardIds": [
-        "card.us_history.070.c2",
-        "card.us_history.061.c2",
-        "card.us_history.067.c3"
+        "card.us_history.070.c2"
       ],
-      "prompt": "Rails, Factories, Newcomers: which order of events is right?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Plessy v. Ferguson, the railroad is completed, the 19th Amendment",
-          "correct": false,
-          "rationale": "The railroad (1869) came before Plessy (1896)."
-        },
-        {
-          "id": "b",
-          "label": "The railroad is completed, Plessy v. Ferguson, the 19th Amendment",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The 19th Amendment, the railroad is completed, Plessy v. Ferguson",
-          "correct": false,
-          "rationale": "The 19th Amendment came last, in 1920."
-        },
-        {
-          "id": "d",
-          "label": "The railroad is completed, the 19th Amendment, Plessy v. Ferguson",
-          "correct": false,
-          "rationale": "Plessy (1896) came before 1920."
-        }
+      "prompt": "Put these events from rails to the ballot box in order, from earliest to latest.",
+      "items": [
+        "The transcontinental railroad",
+        "The Dawes Act breaks up reservation land",
+        "Wounded Knee",
+        "Plessy v. Ferguson allows segregation",
+        "The Triangle fire kills 146 workers",
+        "Ratification of the 19th Amendment"
       ],
-      "explanation": "The railroad was completed in 1869, Plessy came in 1896 and the 19th Amendment was ratified in 1920.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The railroad was completed in 1869, the Dawes Act came in 1887, Wounded Knee in 1890, Plessy v. Ferguson in 1896, the Triangle fire in 1911, and the 19th Amendment was ratified in 1920.",
       "difficulty": 0.25
     },
     {

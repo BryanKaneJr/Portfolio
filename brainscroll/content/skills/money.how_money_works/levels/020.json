@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 20,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Earning and Spending",
   "objective": "After this level you can build a budget and explain how income, prices and ways of paying affect it.",
@@ -131,41 +131,37 @@
   "questions": [
     {
       "id": "question.how_money_works.020.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.engel_food_share"
       ],
       "sourceCardIds": [
-        "card.how_money_works.020.c2"
+        "card.how_money_works.020.c2",
+        "card.how_money_works.013.c3",
+        "card.how_money_works.014.c1",
+        "card.how_money_works.016.c1"
       ],
-      "prompt": "What did Ernst Engel find in the budgets of Belgian families?",
-      "options": [
+      "prompt": "Match each person from Chapter 2 with their work.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Richer families spent a bigger share on food",
-          "correct": false,
-          "rationale": "It was the other way around."
+          "left": "Ernst Engel",
+          "right": "153 Belgian families"
         },
         {
-          "id": "b",
-          "label": "Every family spent the same share on food",
-          "correct": false,
-          "rationale": "The share changed with income."
+          "left": "Elizabeth Warren",
+          "right": "All Your Worth"
         },
         {
-          "id": "c",
-          "label": "The lower the income, the bigger the share spent on food",
-          "correct": true
+          "left": "Adam Smith",
+          "right": "The Wealth of Nations"
         },
         {
-          "id": "d",
-          "label": "Poorer families spent more dollars on food",
-          "correct": false,
-          "rationale": "It was about the share of income, not the dollar amount."
+          "left": "Eric Anderson",
+          "right": "A catalog study"
         }
       ],
-      "explanation": "Engel's law: the lower a family's income, the greater the share spent on food.",
+      "explanation": "Ernst Engel studied 153 Belgian families, Elizabeth Warren co-wrote All Your Worth, Adam Smith wrote The Wealth of Nations, and Eric Anderson ran a catalog study of prices.",
       "difficulty": 0.15
     },
     {

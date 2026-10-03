@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 50,
   "type": "milestone",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Milestone: The High Middle Ages",
   "objective": "After this level you can connect feudalism, the Church and the Crusades into one picture of medieval Europe.",
@@ -169,7 +169,7 @@
   "questions": [
     {
       "id": "question.middle_ages.050.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.crusades_era_overview"
@@ -177,33 +177,18 @@
       "sourceCardIds": [
         "card.middle_ages.050.c2"
       ],
-      "prompt": "Crusades milestone: which order of events is right?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Crusaders take Jerusalem, Saladin retakes it, crusaders sack Constantinople",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Saladin takes Jerusalem, crusaders sack Constantinople, crusaders take Jerusalem",
-          "correct": false,
-          "rationale": "The crusaders took Jerusalem first, in 1099."
-        },
-        {
-          "id": "c",
-          "label": "Crusaders sack Constantinople, crusaders take Jerusalem, Saladin retakes it",
-          "correct": false,
-          "rationale": "The sack of 1204 came last."
-        },
-        {
-          "id": "d",
-          "label": "Crusaders take Jerusalem, crusaders sack Constantinople, Saladin retakes it",
-          "correct": false,
-          "rationale": "Saladin (1187) came before 1204."
-        }
+      "prompt": "Put these crusade events in order, from earliest to latest.",
+      "items": [
+        "Urban II calls for a crusade at Clermont",
+        "Crusaders storm Jerusalem",
+        "Zengi captures Edessa",
+        "Saladin takes Jerusalem",
+        "Crusaders sack Constantinople",
+        "The Mamluks take Acre"
       ],
-      "explanation": "1099, then 1187, then 1204.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Urban II called for a crusade in 1095, crusaders stormed Jerusalem in 1099, Zengi captured Edessa in 1144, Saladin took Jerusalem in 1187, crusaders sacked Constantinople in 1204, and the Mamluks took Acre in 1291.",
       "difficulty": 0.3
     },
     {

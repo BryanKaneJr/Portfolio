@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 47,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Salmon Runs",
   "objective": "After this level you can explain how salmon return to the rivers where they hatched.",
@@ -154,41 +154,26 @@
     },
     {
       "id": "question.animals.047.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.salmon_life_cycle"
       ],
       "sourceCardIds": [
-        "card.animals.047.c4"
+        "card.animals.047.c4",
+        "card.animals.047.c2"
       ],
-      "prompt": "Why do dead sockeye matter to the river where they spawned?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They block the river for other fish",
-          "correct": false,
-          "rationale": "Their bodies feed the river instead."
-        },
-        {
-          "id": "b",
-          "label": "They scare predators away from eggs",
-          "correct": false,
-          "rationale": "Predators and scavengers eat them."
-        },
-        {
-          "id": "c",
-          "label": "Their bodies help young salmon grow",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "They turn back into salmon eggs",
-          "correct": false,
-          "rationale": "Their nutrients feed the stream."
-        }
+      "prompt": "Put a sockeye salmon's life in order, from first to last.",
+      "items": [
+        "Hatches",
+        "Grows up in fresh water",
+        "Heads out to the ocean",
+        "Swims back upstream",
+        "Dies"
       ],
-      "explanation": "Salmon carcasses supply energy and nutrients to the river, improving the growth and survival of newly hatched salmon.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "A sockeye hatches and grows up in fresh water, heads out to the ocean, swims back upstream to spawn, and dies within weeks.",
       "difficulty": 0.2
     },
     {

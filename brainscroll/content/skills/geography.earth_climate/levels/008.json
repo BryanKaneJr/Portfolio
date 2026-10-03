@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 8,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Gems and Ores",
   "objective": "After this level you can explain what makes a mineral a gem and what makes a rock an ore worth mining.",
@@ -169,7 +169,7 @@
     },
     {
       "id": "question.earth_climate.008.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.earth_climate.ores",
@@ -179,33 +179,22 @@
         "card.earth_climate.008.c4",
         "card.earth_climate.003.c4"
       ],
-      "prompt": "A miner finds a black mineral that leaves a reddish streak. Using Level 3, which ore mineral is it most likely to be?",
-      "options": [
+      "prompt": "Match each mineral with the streak it leaves on a streak plate.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Pyrite",
-          "correct": false,
-          "rationale": "Pyrite leaves a greenish-black streak."
+          "left": "Hematite",
+          "right": "Reddish streak"
         },
         {
-          "id": "b",
-          "label": "Hematite",
-          "correct": true
+          "left": "Pyrite",
+          "right": "Greenish-black streak"
         },
         {
-          "id": "c",
-          "label": "Quartz",
-          "correct": false,
-          "rationale": "Quartz isn't one of the iron ores named in this level."
-        },
-        {
-          "id": "d",
-          "label": "Gold",
-          "correct": false,
-          "rationale": "Gold leaves a yellow streak."
+          "left": "Gold",
+          "right": "Yellow"
         }
       ],
-      "explanation": "Hematite can look black or silver but always leaves a reddish streak, and it's a key iron ore.",
+      "explanation": "Hematite leaves a reddish streak, pyrite a greenish-black one and real gold a yellow one.",
       "difficulty": 0.3
     }
   ],

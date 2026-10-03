@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 54,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Tunnels",
   "objective": "After this level you can explain how tunnels are dug through rock and under water.",
@@ -135,7 +135,7 @@
     },
     {
       "id": "question.architecture.054.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.marvel_tunnel_drill_blast"
@@ -143,33 +143,17 @@
       "sourceCardIds": [
         "card.architecture.054.c2"
       ],
-      "prompt": "Why does a drill-and-blast tunnel advance in a repeating cycle?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Each blast leaves broken rock to clear before the next drilling",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Explosives can only be used once a year",
-          "correct": false,
-          "rationale": "Blasting happens every cycle."
-        },
-        {
-          "id": "c",
-          "label": "The tunnel is poured in concrete sections that must cool",
-          "correct": false,
-          "rationale": "That's Hoover Dam's cooling problem, not tunnelling."
-        },
-        {
-          "id": "d",
-          "label": "Each section is floated in by boat",
-          "correct": false,
-          "rationale": "That's an immersed tube."
-        }
+      "prompt": "Put one round of a drill-and-blast tunnel's cycle in order.",
+      "items": [
+        "Drill holes into the rock face",
+        "Load them with explosives",
+        "Blast",
+        "Clear the fumes",
+        "Haul away the broken rock"
       ],
-      "explanation": "Tunnellers drill holes, load explosives, blast, clear the fumes and the muck, then start again at the new face.",
+      "first": "First",
+      "last": "Last, before starting again",
+      "explanation": "Drill holes into the rock face, load them with explosives, blast, clear the fumes, then haul away the broken rock (the muck) and start again.",
       "difficulty": 0.3
     },
     {

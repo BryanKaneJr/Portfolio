@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 3,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Latitude and Longitude",
   "objective": "After this level you can find any place on Earth using latitude and longitude.",
@@ -101,41 +101,32 @@
   "questions": [
     {
       "id": "question.world_geography.003.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.latitude"
       ],
       "sourceCardIds": [
-        "card.world_geography.003.c2"
+        "card.world_geography.003.c2",
+        "card.world_geography.003.c3",
+        "card.world_geography.003.c4"
       ],
-      "prompt": "What does latitude measure?",
-      "options": [
+      "prompt": "Match each term with what it tells you or where it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Distance east or west of Greenwich",
-          "correct": false,
-          "rationale": "That's longitude."
+          "left": "Latitude",
+          "right": "How far north or south"
         },
         {
-          "id": "b",
-          "label": "Height above sea level",
-          "correct": false,
-          "rationale": "That's elevation, a different map measurement."
+          "left": "Longitude",
+          "right": "How far east or west"
         },
         {
-          "id": "c",
-          "label": "Distance north or south of the Equator",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Time difference from Greenwich",
-          "correct": false,
-          "rationale": "Latitude is a position, not a time."
+          "left": "Null Island",
+          "right": "Gulf of Guinea"
         }
       ],
-      "explanation": "Latitude runs from 0° at the Equator to 90° at each pole.",
+      "explanation": "Latitude tells you how far north or south you are, and longitude how far east or west. Null Island, at 0°, 0°, is in the Gulf of Guinea.",
       "difficulty": 0.1
     },
     {

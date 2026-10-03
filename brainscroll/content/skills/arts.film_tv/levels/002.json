@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 2,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Illusion of Motion",
   "objective": "After this level you can explain how a quick run of still pictures tricks the eye and brain into seeing smooth movement.",
@@ -91,41 +91,36 @@
   "questions": [
     {
       "id": "question.film_tv.002.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.apparent_motion"
       ],
       "sourceCardIds": [
-        "card.film_tv.002.c2"
+        "card.film_tv.002.c2",
+        "card.film_tv.002.c3",
+        "card.film_tv.002.c4"
       ],
-      "prompt": "What did Max Wertheimer's phi phenomenon describe?",
-      "options": [
+      "prompt": "Match each effect with what this level says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A picture staying on the retina after it disappears",
-          "correct": false,
-          "rationale": "That's the old persistence-of-vision idea."
+          "left": "Phi phenomenon",
+          "right": "Two railway signal lights"
         },
         {
-          "id": "b",
-          "label": "Light flashing too slowly and looking jumpy",
-          "correct": false,
-          "rationale": "That's flicker, not the phi phenomenon."
+          "left": "Beta movement",
+          "right": "A series of still images"
         },
         {
-          "id": "c",
-          "label": "Colors blending when a wheel spins fast",
-          "correct": false,
-          "rationale": "Wertheimer's lights didn't change color; they seemed to move."
+          "left": "Flicker fusion",
+          "right": "Makes flickering light look steady"
         },
         {
-          "id": "d",
-          "label": "Two lights flashing in turn seen as one moving light",
-          "correct": true
+          "left": "Persistence of vision",
+          "right": "The older, oversimplified story"
         }
       ],
-      "explanation": "Wertheimer saw movement between two alternating lights, though nothing actually traveled between them.",
+      "explanation": "Wertheimer's phi phenomenon came from two railway signal lights, beta movement uses a series of still images, flicker fusion makes flickering light look steady, and persistence of vision is the older, oversimplified story.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 15,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Opportunity Cost",
   "objective": "After this level you can explain that every choice costs the next best thing you give up.",
@@ -90,41 +90,31 @@
   "questions": [
     {
       "id": "question.how_money_works.015.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.oppcost_definition"
       ],
       "sourceCardIds": [
-        "card.how_money_works.015.c2"
+        "card.how_money_works.015.c2",
+        "card.how_money_works.015.c3"
       ],
-      "prompt": "What is opportunity cost?",
-      "options": [
+      "prompt": "Match each choice with its opportunity cost.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The price printed on the receipt",
-          "correct": false,
-          "rationale": "The receipt shows the money cost, not what you gave up."
+          "left": "Sleep through a class",
+          "right": "The learning you missed"
         },
         {
-          "id": "b",
-          "label": "The value of the next best alternative you give up",
-          "correct": true
+          "left": "Pick pizza for dinner",
+          "right": "The burger you didn't have"
         },
         {
-          "id": "c",
-          "label": "The tax added at the checkout",
-          "correct": false,
-          "rationale": "Tax is part of the money cost."
-        },
-        {
-          "id": "d",
-          "label": "The fee for paying by card",
-          "correct": false,
-          "rationale": "A card fee is a money cost too."
+          "left": "College",
+          "right": "The earnings you give up"
         }
       ],
-      "explanation": "Opportunity cost is the value of the next best thing you gave up by choosing.",
+      "explanation": "Sleep through a class and you give up the learning you missed. Pick pizza and you give up the burger. For college, the biggest cost is the earnings you give up.",
       "difficulty": 0.1
     },
     {

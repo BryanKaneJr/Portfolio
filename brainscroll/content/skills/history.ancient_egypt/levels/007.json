@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 7,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Before the Pharaohs",
   "objective": "After this level you can describe Egypt's earliest farming villages.",
@@ -126,41 +126,25 @@
     },
     {
       "id": "question.ancient_egypt.007.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.before_pharaohs"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.007.c3"
+        "card.ancient_egypt.007.c3",
+        "card.ancient_egypt.007.c2",
+        "card.ancient_egypt.007.c4"
       ],
-      "prompt": "Why do experts rate Badarian pottery so highly?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It was thin-walled and well fired",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "It was the first pottery painted with gold",
-          "correct": false,
-          "rationale": "Its quality was in how it was made."
-        },
-        {
-          "id": "c",
-          "label": "It was made on the first potter’s wheels",
-          "correct": false,
-          "rationale": "Its fame rests on thin, well-fired walls."
-        },
-        {
-          "id": "d",
-          "label": "It was carved from solid stone",
-          "correct": false,
-          "rationale": "It was fired clay pottery."
-        }
+      "prompt": "Put these steps before the pharaohs in order, from earliest to latest.",
+      "items": [
+        "Villages in the Faiyum",
+        "The Badarian people",
+        "Villages grew into towns"
       ],
-      "explanation": "Badarian pots were extremely thin-walled and well fired, with distinctive black tops.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Villages in the Faiyum were farming by about 5000 BCE. The Badarian people came around 4000 BCE, and over the following centuries villages grew into towns.",
       "difficulty": 0.3
     },
     {

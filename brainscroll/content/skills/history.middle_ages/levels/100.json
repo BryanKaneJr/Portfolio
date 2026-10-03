@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 100,
   "type": "mastery",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Mastery Challenge: The Middle Ages",
   "objective": "After this level you can demonstrate command of The Middle Ages Levels 1–99 across the whole tree.",
@@ -166,43 +166,30 @@
   "questions": [
     {
       "id": "question.middle_ages.100.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.fall_of_west_476",
         "concept.middle_ages.medieval_end_dates"
       ],
       "sourceCardIds": [
-        "card.middle_ages.098.c3",
-        "card.middle_ages.003.c2"
+        "card.middle_ages.010.c2",
+        "card.middle_ages.020.c2",
+        "card.middle_ages.050.c2",
+        "card.middle_ages.090.c2",
+        "card.middle_ages.098.c2"
       ],
-      "prompt": "Which pair of dates makes the Middle Ages begin and end with the fall of each half of Rome?",
-      "options": [
-        {
-          "id": "a",
-          "label": "410 and 1066",
-          "correct": false,
-          "rationale": "410 is Britain’s Roman exit; 1066 is too early for the end."
-        },
-        {
-          "id": "b",
-          "label": "476 and 1453",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "527 and 1492",
-          "correct": false,
-          "rationale": "527 is when Justinian began to rule."
-        },
-        {
-          "id": "d",
-          "label": "622 and 1517",
-          "correct": false,
-          "rationale": "622 is the hijra."
-        }
+      "prompt": "Put these events from across the Middle Ages in order, from earliest to latest.",
+      "items": [
+        "Odoacer deposes the last western emperor",
+        "Vikings raid Lindisfarne",
+        "Urban II calls for a crusade at Clermont",
+        "The Black Death reaches Messina",
+        "The Ottomans take Constantinople"
       ],
-      "explanation": "The West fell in 476; the Roman East, Byzantium, fell with Constantinople in 1453.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Odoacer deposed the last western emperor in 476. Vikings raided Lindisfarne in 793, Urban II called for a crusade in 1095, the Black Death reached Messina in 1347, and the Ottomans took Constantinople in 1453.",
       "difficulty": 0.4
     },
     {

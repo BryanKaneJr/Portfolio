@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 28,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Liberty and Slavery in the War",
   "objective": "After this level you can explain how enslaved people sought freedom on both sides of the war, and why northern states began to end slavery.",
@@ -98,41 +98,28 @@
   "questions": [
     {
       "id": "question.us_history.028.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.revolution_freedom_seekers"
       ],
       "sourceCardIds": [
-        "card.us_history.028.c2"
+        "card.us_history.028.c2",
+        "card.us_history.028.c3",
+        "card.us_history.028.c4",
+        "card.us_history.028.c5"
       ],
-      "prompt": "What did Lord Dunmore promise in November 1775?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Free land to every Loyalist family in Virginia",
-          "correct": false,
-          "rationale": "He promised freedom, not land."
-        },
-        {
-          "id": "b",
-          "label": "Freedom for rebels’ enslaved people who fought for Britain",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "An end to slavery in all of Britain’s colonies",
-          "correct": false,
-          "rationale": "His offer covered only rebels’ servants and enslaved people."
-        },
-        {
-          "id": "d",
-          "label": "Pay for colonists who joined the Continental Army",
-          "correct": false,
-          "rationale": "He was recruiting for the British."
-        }
+      "prompt": "Put these steps toward freedom in order, from earliest to latest.",
+      "items": [
+        "Dunmore’s offer",
+        "1st Rhode Island Regiment",
+        "First gradual abolition law",
+        "Mum Bett sued",
+        "Massachusetts’ courts had ruled"
       ],
-      "explanation": "Dunmore promised freedom to servants and enslaved people of rebels who bore arms for the British.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Dunmore made his offer in 1775, Rhode Island promised freedom to its regiment in 1778, Pennsylvania passed the first gradual abolition law in 1780, Mum Bett sued in 1781, and by 1783 Massachusetts’ courts had ruled against slavery.",
       "difficulty": 0.25
     },
     {

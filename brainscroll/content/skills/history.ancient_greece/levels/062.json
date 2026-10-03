@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 62,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Archimedes",
   "objective": "After this level you can explain Archimedes’ discoveries about levers and floating.",
@@ -131,41 +131,36 @@
     },
     {
       "id": "question.ancient_greece.062.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_greece.archimedes_lever_floating"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.062.c4"
+        "card.ancient_greece.062.c4",
+        "card.ancient_greece.062.c2",
+        "card.ancient_greece.062.c3"
       ],
-      "prompt": "According to On Floating Bodies, why does a stone weigh less when you hold it underwater?",
-      "options": [
+      "prompt": "Match each name with what the level links it to about Archimedes.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It loses the weight of the water it pushes aside",
-          "correct": true
+          "left": "Lever",
+          "right": "Inverse proportion"
         },
         {
-          "id": "b",
-          "label": "Water softens the stone and makes it smaller",
-          "correct": false,
-          "rationale": "The stone doesn’t change."
+          "left": "Pappus of Alexandria",
+          "right": "Give me a place to stand"
         },
         {
-          "id": "c",
-          "label": "Cold water makes every object lighter",
-          "correct": false,
-          "rationale": "Temperature isn’t the reason."
+          "left": "Vitruvius",
+          "right": "King Hiero’s gold wreath"
         },
         {
-          "id": "d",
-          "label": "The stone absorbs air bubbles from the water",
-          "correct": false,
-          "rationale": "It’s about the water displaced."
+          "left": "On Floating Bodies",
+          "right": "Lighter by the weight of the fluid"
         }
       ],
-      "explanation": "A solid denser than a fluid is lighter in it by the weight of the fluid it displaces.",
+      "explanation": "Weights balance on a lever in inverse proportion. Pappus of Alexandria gave us “give me a place to stand”, Vitruvius told of King Hiero’s gold wreath, and On Floating Bodies showed a solid is lighter by the weight of the fluid it pushes aside.",
       "difficulty": 0.3
     },
     {

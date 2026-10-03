@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 18,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Hatshepsut",
   "objective": "After this level you can explain how Hatshepsut ruled as pharaoh.",
@@ -103,41 +103,25 @@
   "questions": [
     {
       "id": "question.ancient_egypt.018.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_egypt.hatshepsut_king"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.018.c2"
+        "card.ancient_egypt.018.c2",
+        "card.ancient_egypt.018.c5"
       ],
-      "prompt": "How did Hatshepsut first come to rule for the young Thutmose III?",
-      "options": [
-        {
-          "id": "a",
-          "label": "As his army commander",
-          "correct": false,
-          "rationale": "She governed for him, not as a general."
-        },
-        {
-          "id": "b",
-          "label": "As vizier of Upper Egypt",
-          "correct": false,
-          "rationale": "The vizier was an official, not a regent."
-        },
-        {
-          "id": "c",
-          "label": "As his regent",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "As high priest of Amun",
-          "correct": false,
-          "rationale": "She ruled the country for him."
-        }
+      "prompt": "Put these events in Hatshepsut’s story in order, from first to last.",
+      "items": [
+        "Ruled for him as regent",
+        "Crowned king herself",
+        "Her statues were broken",
+        "The pieces turned up"
       ],
-      "explanation": "When Thutmose II died, Thutmose III was young, and Hatshepsut acted as regent before being crowned king.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Hatshepsut first ruled for Thutmose III as regent, then was crowned king herself. Years after her death her statues were broken, and the pieces turned up at Deir el-Bahri in the 1920s.",
       "difficulty": 0.2
     },
     {

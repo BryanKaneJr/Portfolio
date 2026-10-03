@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 85,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Electronic Dance Music",
   "objective": "After this level you can describe disco, house and techno.",
@@ -131,42 +131,32 @@
     },
     {
       "id": "question.music.085.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.dance_disco_house"
       ],
       "sourceCardIds": [
         "card.music.085.c2",
-        "card.music.085.c3"
+        "card.music.085.c3",
+        "card.music.085.c4"
       ],
-      "prompt": "A dance track has a bass drum on all four beats of every bar under soaring soul vocals. Which style fits best?",
-      "options": [
+      "prompt": "Match each city with the dance music it gave the family tree.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Chicago house",
-          "correct": true
+          "left": "New York",
+          "right": "Disco"
         },
         {
-          "id": "b",
-          "label": "Detroit techno",
-          "correct": false,
-          "rationale": "Soaring soul vocals over a steady kick point to house, not Detroit."
+          "left": "Chicago",
+          "right": "House"
         },
         {
-          "id": "c",
-          "label": "Breakbeat hip-hop",
-          "correct": false,
-          "rationale": "Hip-hop loops funk breaks rather than a steady four-beat kick."
-        },
-        {
-          "id": "d",
-          "label": "Reggae",
-          "correct": false,
-          "rationale": "Reggae's signature is chords on the offbeats."
+          "left": "Detroit",
+          "right": "Techno"
         }
       ],
-      "explanation": "House kept disco's soul vocals and four-to-the-floor kick and added synthesizers.",
+      "explanation": "Disco grew in New York City clubs, house came from Chicago, and techno from Detroit.",
       "difficulty": 0.3
     },
     {

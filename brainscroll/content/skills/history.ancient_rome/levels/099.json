@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 99,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Integration: The Arc of Roman History",
   "objective": "After this level you can connect the major turning points of Roman history into one story.",
@@ -154,7 +154,7 @@
   "questions": [
     {
       "id": "question.ancient_rome.099.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_rome.roman_arc",
@@ -163,33 +163,18 @@
       "sourceCardIds": [
         "card.ancient_rome.099.c2"
       ],
-      "prompt": "Which came first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Octavian becomes Augustus",
-          "correct": false,
-          "rationale": "That was 27 BCE."
-        },
-        {
-          "id": "b",
-          "label": "The Republic begins",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The empire reaches its greatest extent",
-          "correct": false,
-          "rationale": "That was 117 CE."
-        },
-        {
-          "id": "d",
-          "label": "Constantinople falls",
-          "correct": false,
-          "rationale": "That was 1453 CE."
-        }
+      "prompt": "Put the arc of Rome in order, from earliest to latest.",
+      "items": [
+        "Traditional founding of Rome",
+        "The Republic begins",
+        "Octavian becomes Augustus",
+        "The empire reaches its greatest extent",
+        "The last western emperor is deposed",
+        "Constantinople falls"
       ],
-      "explanation": "The Republic began in 509 BCE, centuries before the others.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Rome’s traditional founding was 753 BCE, the Republic began in 509 BCE, Octavian became Augustus in 27 BCE, the empire peaked in 117 CE, the last western emperor fell in 476 CE, and Constantinople fell in 1453 CE.",
       "difficulty": 0.2
     },
     {

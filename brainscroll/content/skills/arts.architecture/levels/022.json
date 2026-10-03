@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 22,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Great Mosques",
   "objective": "After this level you can describe great mosques from Córdoba to Istanbul.",
@@ -130,41 +130,31 @@
     },
     {
       "id": "question.architecture.022.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.mosque_cordoba_growth"
       ],
       "sourceCardIds": [
-        "card.architecture.022.c3"
+        "card.architecture.022.c3",
+        "card.architecture.022.c2"
       ],
-      "prompt": "How could Córdoba's Great Mosque keep being extended as the city grew?",
-      "options": [
+      "prompt": "Match each part of a mosque with what it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Its single dome could be raised higher each time",
-          "correct": false,
-          "rationale": "Córdoba's hall is rows of columns, not one dome."
+          "left": "Mihrab",
+          "right": "A niche for the imam"
         },
         {
-          "id": "b",
-          "label": "Its walls were wooden and easy to move",
-          "correct": false,
-          "rationale": "The builders knocked down and rebuilt the qibla wall in stone."
+          "left": "Minbar",
+          "right": "A pulpit of steps"
         },
         {
-          "id": "c",
-          "label": "It had no qibla wall to worry about",
-          "correct": false,
-          "rationale": "It did; the extension moved it."
-        },
-        {
-          "id": "d",
-          "label": "Its roof rested on rows of columns, so more rows could be added",
-          "correct": true
+          "left": "Minaret",
+          "right": "The tower"
         }
       ],
-      "explanation": "Córdoba's prayer hall is roofed on rows of columns, so builders extended it by adding rows and building a new qibla wall farther out.",
+      "explanation": "The mihrab is a niche for the imam in the qibla wall, the minbar is a pulpit of steps for the preacher, and the minaret is the tower for the call to prayer.",
       "difficulty": 0.25
     },
     {

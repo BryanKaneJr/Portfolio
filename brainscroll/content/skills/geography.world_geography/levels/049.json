@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 49,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Wetlands",
   "objective": "After this level you can explain what wetlands do for water and wildlife.",
@@ -99,41 +99,36 @@
   "questions": [
     {
       "id": "question.world_geography.049.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.wetland_definition"
       ],
       "sourceCardIds": [
-        "card.world_geography.049.c2"
+        "card.world_geography.049.c2",
+        "card.world_geography.049.c3",
+        "card.world_geography.049.c4"
       ],
-      "prompt": "What is the main difference between a marsh and a swamp?",
-      "options": [
+      "prompt": "Match each wetland word or nickname with what it points to.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Marshes are always salty",
-          "correct": false,
-          "rationale": "The difference is the plants, not the salt."
+          "left": "Marsh",
+          "right": "Grasses"
         },
         {
-          "id": "b",
-          "label": "Swamps are dry most of the year",
-          "correct": false,
-          "rationale": "Both are wetlands."
+          "left": "Swamp",
+          "right": "Shrubs and trees"
         },
         {
-          "id": "c",
-          "label": "Swamps are dominated by woody plants",
-          "correct": true
+          "left": "Natural sponges",
+          "right": "Let it go slowly"
         },
         {
-          "id": "d",
-          "label": "Marshes grow only in the tropics",
-          "correct": false,
-          "rationale": "The difference is the plants, not the location."
+          "left": "Kidneys of our watersheds",
+          "right": "Filter out excess nutrients"
         }
       ],
-      "explanation": "Marshes are dominated by grasses and other non-woody plants; swamps by shrubs or trees.",
+      "explanation": "Marshes are ruled by grasses; swamps by shrubs and trees. As natural sponges, wetlands trap water and let it go slowly. As the kidneys of our watersheds, they filter out excess nutrients.",
       "difficulty": 0.2
     },
     {

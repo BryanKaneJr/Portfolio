@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 52,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Caligula",
   "objective": "After this level you can separate what is known about Caligula from later rumor.",
@@ -164,7 +164,7 @@
     },
     {
       "id": "question.ancient_rome.052.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_rome.caligula",
@@ -172,35 +172,18 @@
       ],
       "sourceCardIds": [
         "card.ancient_rome.052.c4",
-        "card.ancient_rome.051.c4"
+        "card.ancient_rome.051.c4",
+        "card.ancient_rome.052.c2"
       ],
-      "prompt": "From Level 51: which force, meant to protect the emperor, killed Caligula?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The legions on the Rhine",
-          "correct": false,
-          "rationale": "They were far away."
-        },
-        {
-          "id": "b",
-          "label": "The Praetorian Guard",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The tribunes of the plebs",
-          "correct": false,
-          "rationale": "They had no soldiers."
-        },
-        {
-          "id": "d",
-          "label": "The Senate’s own bodyguard",
-          "correct": false,
-          "rationale": "It had none."
-        }
+      "prompt": "Put Caligula’s life in order, from first to last.",
+      "items": [
+        "Lived in his father’s army camp",
+        "Became emperor in 37 CE",
+        "Murdered by officers of his own guard"
       ],
-      "explanation": "Officers of the Praetorian Guard, stationed in Rome, murdered Caligula in 41 CE.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "As a child Caligula lived in his father’s army camp. He became emperor in 37 CE and was murdered by officers of his own guard in 41 CE.",
       "difficulty": 0.25
     }
   ],

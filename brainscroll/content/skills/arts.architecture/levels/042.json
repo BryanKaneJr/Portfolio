@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 42,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Igloos",
   "objective": "After this level you can explain how snow houses stay warm.",
@@ -125,41 +125,31 @@
     },
     {
       "id": "question.architecture.042.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.home_igloo_warmth"
       ],
       "sourceCardIds": [
-        "card.architecture.042.c3"
+        "card.architecture.042.c3",
+        "card.architecture.042.c1"
       ],
-      "prompt": "Why are igloos built from blocks of hard snow rather than solid ice?",
-      "options": [
+      "prompt": "Match each igloo word with what the cards say it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Ice is too heavy to lift",
-          "correct": false,
-          "rationale": "Weight isn't the reason given; heat is."
+          "left": "Iglu",
+          "right": "House"
         },
         {
-          "id": "b",
-          "label": "Ice melts faster indoors",
-          "correct": false,
-          "rationale": "The point is insulation: snow holds heat better."
+          "left": "Qulliq",
+          "right": "An oil lamp"
         },
         {
-          "id": "c",
-          "label": "Compressed snow holds in heat better than solid ice",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Snow is easier to see through",
-          "correct": false,
-          "rationale": "Clear ice is the one used for windows."
+          "left": "Hard-packed snow",
+          "right": "A good insulator"
         }
       ],
-      "explanation": "Hard snow walls are good insulators that keep in body heat and lamp heat; solid ice doesn't retain heat as well as compressed snow.",
+      "explanation": "In Inuktitut, iglu means \"house\". A qulliq is an oil lamp, and hard-packed snow is a good insulator, which is why it beats solid ice.",
       "difficulty": 0.2
     },
     {

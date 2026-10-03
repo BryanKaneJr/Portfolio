@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 43,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Actium",
   "objective": "After this level you can explain the Battle of Actium and its consequences.",
@@ -166,7 +166,7 @@
     },
     {
       "id": "question.ancient_rome.043.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_rome.actium",
@@ -174,35 +174,18 @@
       ],
       "sourceCardIds": [
         "card.ancient_rome.043.c2",
-        "card.ancient_rome.042.c3"
+        "card.ancient_rome.042.c3",
+        "card.ancient_rome.043.c3"
       ],
-      "prompt": "From Level 42: what had Antony done that let Octavian call him a traitor?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Surrendered his legions to the Parthians",
-          "correct": false,
-          "rationale": "That didn’t happen."
-        },
-        {
-          "id": "b",
-          "label": "Crossed the Rubicon",
-          "correct": false,
-          "rationale": "That was Caesar."
-        },
-        {
-          "id": "c",
-          "label": "Killed Octavian’s sister",
-          "correct": false,
-          "rationale": "He left her; he didn’t kill her."
-        },
-        {
-          "id": "d",
-          "label": "Given Roman lands to Cleopatra and her children",
-          "correct": true
-        }
+      "prompt": "Put the end of the war in order, from first to last.",
+      "items": [
+        "Declared war on Cleopatra",
+        "Actium",
+        "Took Alexandria"
       ],
-      "explanation": "The Donations of Alexandria handed Roman territory to Cleopatra’s family.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Rome declared war on Cleopatra in 32 BCE, Octavian’s fleet won at Actium in 31 BCE, and in 30 BCE Octavian took Alexandria.",
       "difficulty": 0.3
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 27,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Moving the Camera",
   "objective": "After this level you can explain how pans, tilts, dolly shots, crane shots and handheld shots move a viewer through a scene.",
@@ -138,41 +138,36 @@
     },
     {
       "id": "question.film_tv.027.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.shoot_camera_travel"
       ],
       "sourceCardIds": [
-        "card.film_tv.027.c4"
+        "card.film_tv.027.c4",
+        "card.film_tv.027.c2",
+        "card.film_tv.027.c3"
       ],
-      "prompt": "How does a dolly shot toward an actor differ from zooming in on them?",
-      "options": [
+      "prompt": "Match each camera move with what it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Only the lens's focal length changes, so it looks flat",
-          "correct": false,
-          "rationale": "That describes the zoom, not the dolly."
+          "left": "Pan",
+          "right": "Turns the camera horizontally"
         },
         {
-          "id": "b",
-          "label": "The camera turns in place on its tripod",
-          "correct": false,
-          "rationale": "That's a pan or a tilt."
+          "left": "Tilt",
+          "right": "Swivels the camera up or down"
         },
         {
-          "id": "c",
-          "label": "The frame tips so the horizon isn't level",
-          "correct": false,
-          "rationale": "That's a Dutch angle."
+          "left": "Dolly",
+          "right": "A small wheeled platform"
         },
         {
-          "id": "d",
-          "label": "The camera travels, so the spacing between objects shifts",
-          "correct": true
+          "left": "Zoom",
+          "right": "Changes the lens's focal length"
         }
       ],
-      "explanation": "Dollying changes the camera's distance to everything, so perspective shifts; a zoom just enlarges part of the image.",
+      "explanation": "A pan turns the camera horizontally and a tilt swivels it up or down. A dolly is a small wheeled platform the camera rides, and a zoom only changes the lens's focal length.",
       "difficulty": 0.35
     },
     {

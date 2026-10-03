@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 64,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Wind and Tall Buildings",
   "objective": "After this level you can explain how tall buildings resist the wind.",
@@ -131,42 +131,32 @@
     },
     {
       "id": "question.architecture.064.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.sky_wind_vortex"
       ],
       "sourceCardIds": [
         "card.architecture.064.c2",
-        "card.architecture.064.c3"
+        "card.architecture.064.c3",
+        "card.architecture.064.c4"
       ],
-      "prompt": "Why can wind make a tall building sway across the wind's direction, not just along it?",
-      "options": [
+      "prompt": "Match each wind word with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The building's weight shifts from side to side",
-          "correct": false,
-          "rationale": "Weight doesn't move around; the air does."
+          "left": "Vortices",
+          "right": "Swirls of air"
         },
         {
-          "id": "b",
-          "label": "Wind blows from two directions at once",
-          "correct": false,
-          "rationale": "It's one wind, shedding swirls from alternate sides."
+          "left": "A damper",
+          "right": "Steadies the sway"
         },
         {
-          "id": "c",
-          "label": "Vortices break away from alternate sides, tugging it back and forth",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The foundation slides a little in the soil",
-          "correct": false,
-          "rationale": "The sway comes from the air flowing past."
+          "left": "Wind tunnels",
+          "right": "Designs are tested"
         }
       ],
-      "explanation": "Vortices shed alternately from each side push and pull the building across the wind; in time with its sway, they rock it harder.",
+      "explanation": "Vortices are swirls of air that break away from alternate sides of a tower. Designs are tested in wind tunnels, and when shape isn't enough, a damper like Taipei 101's steel ball steadies the sway.",
       "difficulty": 0.35
     },
     {

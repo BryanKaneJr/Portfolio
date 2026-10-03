@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 70,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Europe and Asia",
   "objective": "After this level you can describe the main mountains, rivers and regions of Europe and Asia.",
@@ -116,7 +116,7 @@
   "questions": [
     {
       "id": "question.world_geography.070.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.alpide_belt"
@@ -124,33 +124,16 @@
       "sourceCardIds": [
         "card.world_geography.070.c2"
       ],
-      "prompt": "Which mountain ranges belong to the Alpide belt?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Andes and the Rockies",
-          "correct": false,
-          "rationale": "Those line the Pacific instead."
-        },
-        {
-          "id": "b",
-          "label": "The Alps and the Himalayas",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The Urals and the Scandinavian mountains",
-          "correct": false,
-          "rationale": "The belt runs along Eurasia's southern edge."
-        },
-        {
-          "id": "d",
-          "label": "The Appalachians and the Great Dividing Range",
-          "correct": false,
-          "rationale": "Those are far from the belt."
-        }
+      "prompt": "Put the Alpide belt in order, from west to east.",
+      "items": [
+        "The Atlantic",
+        "The Mediterranean region",
+        "The Himalayas",
+        "Java and Sumatra"
       ],
-      "explanation": "The Alpide belt's mountains are the Alpine-Himalayan ranges, from the Alps to the Himalayas.",
+      "first": "West end",
+      "last": "East end",
+      "explanation": "The Alpide belt runs from the Atlantic through the Mediterranean region and the Himalayas to Java and Sumatra in Indonesia.",
       "difficulty": 0.2
     },
     {

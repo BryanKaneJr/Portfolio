@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 1,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Planet Earth: The Big Picture",
   "objective": "After this level you can name Earth's continents and oceans and say how much of the surface is water.",
@@ -167,7 +167,7 @@
     },
     {
       "id": "question.world_geography.001.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.world_geography.seven_continents",
@@ -175,35 +175,25 @@
       ],
       "sourceCardIds": [
         "card.world_geography.001.c2",
-        "card.world_geography.001.c3"
+        "card.world_geography.001.c3",
+        "card.world_geography.001.c4"
       ],
-      "prompt": "Which continent does the newest named ocean encircle?",
-      "options": [
+      "prompt": "Match each name with its fact about Earth's land and water.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Australia",
-          "correct": false,
-          "rationale": "Australia sits between the Indian and Pacific Oceans."
+          "left": "Antarctica",
+          "right": "No permanent population"
         },
         {
-          "id": "b",
-          "label": "Asia",
-          "correct": false,
-          "rationale": "Asia borders the Pacific, Indian and Arctic Oceans."
+          "left": "Southern Ocean",
+          "right": "Encircles Antarctica"
         },
         {
-          "id": "c",
-          "label": "South America",
-          "correct": false,
-          "rationale": "It sits between the Atlantic and the Pacific."
-        },
-        {
-          "id": "d",
-          "label": "Antarctica",
-          "correct": true
+          "left": "NOAA",
+          "right": "US ocean agency"
         }
       ],
-      "explanation": "The Southern Ocean encircles Antarctica, the one continent with no permanent population.",
+      "explanation": "Antarctica has no permanent population. The Southern Ocean encircles Antarctica. NOAA is the US ocean agency.",
       "difficulty": 0.2
     }
   ],

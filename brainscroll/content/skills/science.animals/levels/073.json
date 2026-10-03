@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 73,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Bee Dance",
   "objective": "After this level you can explain how honeybees tell each other where food is.",
@@ -96,41 +96,35 @@
   "questions": [
     {
       "id": "question.animals.073.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.animals.behavior_waggle_dance_code"
       ],
       "sourceCardIds": [
-        "card.animals.073.c3"
+        "card.animals.073.c3",
+        "card.animals.073.c2"
       ],
-      "prompt": "In the waggle dance, what does a straight run pointing straight up the comb tell other bees?",
-      "options": [
+      "prompt": "Match each part of the bee dance with its message.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Fly toward the sun",
-          "correct": true
+          "left": "Round dance",
+          "right": "Somewhere close"
         },
         {
-          "id": "b",
-          "label": "Fly straight up into the sky",
-          "correct": false,
-          "rationale": "Up on the comb stands for the sun's direction."
+          "left": "Waggle dance",
+          "right": "Gives an address"
         },
         {
-          "id": "c",
-          "label": "The food is right next to the hive",
-          "correct": false,
-          "rationale": "Nearby food gets a round dance."
+          "left": "Run pointing straight up",
+          "right": "Fly toward the sun"
         },
         {
-          "id": "d",
-          "label": "Stay inside the hive",
-          "correct": false,
-          "rationale": "A waggle dance sends bees out to the food."
+          "left": "The longer the waggle run lasts",
+          "right": "The farther away the food"
         }
       ],
-      "explanation": "On the vertical comb, straight up stands for the direction of the sun.",
+      "explanation": "The round dance says somewhere close, and the waggle dance gives an address. A run pointing straight up means fly toward the sun, and the longer the waggle run lasts, the farther away the food.",
       "difficulty": 0.15
     },
     {

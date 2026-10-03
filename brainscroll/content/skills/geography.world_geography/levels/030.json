@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 30,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Water World",
   "objective": "After this level you can trace water through the oceans, rivers, ice and the water cycle.",
@@ -229,7 +229,7 @@
     },
     {
       "id": "question.world_geography.030.q4",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.world_geography.ice_age_sea_level",
@@ -237,35 +237,25 @@
       ],
       "sourceCardIds": [
         "card.world_geography.030.c4",
-        "card.world_geography.028.c3"
+        "card.world_geography.028.c3",
+        "card.world_geography.030.c2"
       ],
-      "prompt": "From Level 28: over 68% of Earth's fresh water is ice today. What would melting the whole Antarctic Ice Sheet do?",
-      "options": [
+      "prompt": "Match each ice-age change with its size.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Lower sea level about 58 m",
-          "correct": false,
-          "rationale": "Melting adds water to the sea."
+          "left": "Sea level fell",
+          "right": "About 120 m"
         },
         {
-          "id": "b",
-          "label": "Make the ocean fresh",
-          "correct": false,
-          "rationale": "The ocean would still be salty."
+          "left": "Sea level would rise",
+          "right": "About 58 m"
         },
         {
-          "id": "c",
-          "label": "Change nothing, since ice floats",
-          "correct": false,
-          "rationale": "This ice sits on land."
-        },
-        {
-          "id": "d",
-          "label": "Raise sea level about 58 m",
-          "correct": true
+          "left": "Ice sheets covered",
+          "right": "The northern third of North America"
         }
       ],
-      "explanation": "The Antarctic Ice Sheet holds enough water to raise sea level about 58 m if it all melted.",
+      "explanation": "In the last ice age sea level fell by as much as about 120 m, and ice sheets covered the northern third of North America. Melting the whole Antarctic Ice Sheet would raise sea level about 58 m.",
       "difficulty": 0.3
     },
     {

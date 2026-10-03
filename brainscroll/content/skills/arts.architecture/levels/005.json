@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 5,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Domes",
   "objective": "After this level you can explain how a dome spreads its weight.",
@@ -140,41 +140,31 @@
     },
     {
       "id": "question.architecture.005.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.stand_dome_hoops"
       ],
       "sourceCardIds": [
-        "card.architecture.005.c3"
+        "card.architecture.005.c3",
+        "card.architecture.005.c4"
       ],
-      "prompt": "Why can a dome rise ring by ring without a wooden frame?",
-      "options": [
+      "prompt": "Match each part of a dome, or each dome, with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Its bricks are lighter than an arch's",
-          "correct": false,
-          "rationale": "Weight isn't the secret; the rings are."
+          "left": "Near the top",
+          "right": "The rings squeeze"
         },
         {
-          "id": "b",
-          "label": "Domes carry no weight until they are finished",
-          "correct": false,
-          "rationale": "Every ring carries weight as it goes up."
+          "left": "Lower down",
+          "right": "The rings are stretched"
         },
         {
-          "id": "c",
-          "label": "Each finished ring is squeezed tight and holds itself",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The mortar sets instantly",
-          "correct": false,
-          "rationale": "The hoop forces do the work, not the mortar."
+          "left": "Florence Cathedral's dome",
+          "right": "The largest masonry dome in the world"
         }
       ],
-      "explanation": "A dome's horizontal hoop forces squeeze each ring near the top, so a finished ring holds itself: no centering needed.",
+      "explanation": "Near the top of a dome, the rings squeeze. Lower down, the rings are stretched. Florence Cathedral's dome is still the largest masonry dome in the world.",
       "difficulty": 0.25
     },
     {

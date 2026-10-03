@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 39,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Peloponnesian War",
   "objective": "After this level you can explain why Athens and Sparta fought for 27 years.",
@@ -88,41 +88,25 @@
   "questions": [
     {
       "id": "question.ancient_greece.039.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_greece.peloponnesian_war"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.039.c3"
+        "card.ancient_greece.039.c3",
+        "card.ancient_greece.039.c4"
       ],
-      "prompt": "What struck crowded Athens in 430 BCE and killed Pericles?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A Spartan siege",
-          "correct": false,
-          "rationale": "Sparta’s army stayed outside the walls."
-        },
-        {
-          "id": "b",
-          "label": "An earthquake",
-          "correct": false,
-          "rationale": "It was a disease."
-        },
-        {
-          "id": "c",
-          "label": "A great fire",
-          "correct": false,
-          "rationale": "It was a disease."
-        },
-        {
-          "id": "d",
-          "label": "A plague",
-          "correct": true
-        }
+      "prompt": "Put these events of the Peloponnesian War in order, from earliest to latest.",
+      "items": [
+        "Plague struck",
+        "Expedition to Sicily",
+        "Aegospotami",
+        "Athens surrendered"
       ],
-      "explanation": "In 430 BCE plague struck Athens, crowded inside its walls, killing tens of thousands, including Pericles.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Plague struck Athens in 430 BCE. The expedition to Sicily was lost in 415-413, the fleet was destroyed at Aegospotami in 405, and Athens surrendered in 404.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 67,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Duke Ellington",
   "objective": "After this level you can describe Ellington's compositions and his band.",
@@ -91,41 +91,27 @@
   "questions": [
     {
       "id": "question.music.067.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.ellington_cotton_club"
       ],
       "sourceCardIds": [
-        "card.music.067.c3"
+        "card.music.067.c3",
+        "card.music.067.c1",
+        "card.music.067.c2",
+        "card.music.067.c4"
       ],
-      "prompt": "What was segregated about Harlem's Cotton Club, where Ellington's band played from 1927?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Black performers, white-only audience",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Only Black patrons could attend",
-          "correct": false,
-          "rationale": "It was the reverse: white patrons only."
-        },
-        {
-          "id": "c",
-          "label": "Women could not perform there",
-          "correct": false,
-          "rationale": "The club featured many entertainers; the rule was about the audience's race."
-        },
-        {
-          "id": "d",
-          "label": "Jazz was banned there",
-          "correct": false,
-          "rationale": "Ellington's jazz orchestra was the house band."
-        }
+      "prompt": "Put these moments in Duke Ellington's story in order, from earliest to latest.",
+      "items": [
+        "Born in Washington, D.C.",
+        "The Cotton Club",
+        "Mood Indigo",
+        "Special Pulitzer citation"
       ],
-      "explanation": "The club featured Black entertainers but limited its audience to white patrons.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Ellington was born in Washington, D.C., in 1899, his band joined the Cotton Club in 1927, \"Mood Indigo\" came in 1930, and he got a special Pulitzer citation in 1999.",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 96,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Building on the Moon",
   "objective": "After this level you can explain plans for bases on the Moon.",
@@ -100,41 +100,31 @@
   "questions": [
     {
       "id": "question.architecture.096.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.future_lunar_printed_base"
       ],
       "sourceCardIds": [
-        "card.architecture.096.c4"
+        "card.architecture.096.c4",
+        "card.architecture.096.c3"
       ],
-      "prompt": "In ESA's 2013 lunar base study, what would the robot printer build the shell from?",
-      "options": [
+      "prompt": "Match each Moon-base word with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Concrete shipped up from Earth",
-          "correct": false,
-          "rationale": "The study's printer used regolith, found on the Moon."
+          "left": "Regolith",
+          "right": "The Moon's loose, broken soil and rock"
         },
         {
-          "id": "b",
-          "label": "Regolith, the Moon's loose soil and rock",
-          "correct": true
+          "left": "A catenary",
+          "right": "A hanging chain's curve"
         },
         {
-          "id": "c",
-          "label": "Blocks of ice cut from craters",
-          "correct": false,
-          "rationale": "The shell was printed from regolith."
-        },
-        {
-          "id": "d",
-          "label": "Steel panels bolted together",
-          "correct": false,
-          "rationale": "The shell was printed, not bolted."
+          "left": "Hollow, closed cells",
+          "right": "Like bird bones"
         }
       ],
-      "explanation": "ESA and Foster + Partners studied printing a regolith shell over an inflatable dome.",
+      "explanation": "Regolith is the Moon's loose, broken soil and rock. A catenary is a hanging chain's curve, and ESA's printed shell had hollow, closed cells like bird bones.",
       "difficulty": 0.15
     },
     {

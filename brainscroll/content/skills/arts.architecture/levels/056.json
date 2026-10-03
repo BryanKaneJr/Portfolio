@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 56,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Canals",
   "objective": "After this level you can explain the Suez and Panama canals.",
@@ -131,41 +131,32 @@
     },
     {
       "id": "question.architecture.056.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.marvel_panama_disease"
       ],
       "sourceCardIds": [
-        "card.architecture.056.c4"
+        "card.architecture.056.c4",
+        "card.architecture.056.c2",
+        "card.architecture.056.c3"
       ],
-      "prompt": "Why did draining swamps and oiling standing water help build the Panama Canal?",
-      "options": [
+      "prompt": "Match each part of the canal stories with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It gave the locks more water",
-          "correct": false,
-          "rationale": "Gatun Lake supplies the locks."
+          "left": "Suez Canal",
+          "right": "An open cut with no locks"
         },
         {
-          "id": "b",
-          "label": "It made the swampy ground firm enough for the digging machines",
-          "correct": false,
-          "rationale": "The aim was health, not the ground."
+          "left": "Gatun Lake",
+          "right": "Made by damming the Chagres River"
         },
         {
-          "id": "c",
-          "label": "It attacked the mosquitoes that carried yellow fever and malaria",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It kept the dredgers from rusting",
-          "correct": false,
-          "rationale": "The aim was to kill mosquito larvae."
+          "left": "William Gorgas",
+          "right": "In charge of health"
         }
       ],
-      "explanation": "Gorgas knew mosquitoes carried yellow fever and malaria; removing their breeding water cut the diseases that had depleted the French workforce.",
+      "explanation": "The Suez Canal is an open cut with no locks. Panama's Gatun Lake was made by damming the Chagres River. William Gorgas was in charge of health and led the fight against mosquitoes.",
       "difficulty": 0.2
     },
     {

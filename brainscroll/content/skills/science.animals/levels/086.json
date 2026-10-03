@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 86,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Mass Extinctions",
   "objective": "After this level you can explain the five mass extinctions, including the asteroid that ended the dinosaurs.",
@@ -112,7 +112,7 @@
   "questions": [
     {
       "id": "question.animals.086.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.animals.big_five_extinctions"
@@ -120,33 +120,17 @@
       "sourceCardIds": [
         "card.animals.086.c2"
       ],
-      "prompt": "Which of the Big Five mass extinctions was the most severe?",
-      "options": [
-        {
-          "id": "a",
-          "label": "End-Cretaceous",
-          "correct": false,
-          "rationale": "Famous, but not the worst."
-        },
-        {
-          "id": "b",
-          "label": "End-Permian",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Ordovician-Silurian",
-          "correct": false,
-          "rationale": "Severe, but not the worst."
-        },
-        {
-          "id": "d",
-          "label": "End-Triassic",
-          "correct": false,
-          "rationale": "The dinosaurs came through this one."
-        }
+      "prompt": "Put the Big Five mass extinctions in order, from earliest to latest.",
+      "items": [
+        "Ordovician-Silurian",
+        "Late Devonian",
+        "End-Permian",
+        "End-Triassic",
+        "End-Cretaceous"
       ],
-      "explanation": "The end-Permian extinction, about 252 million years ago, took about 90 percent of species.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Big Five run Ordovician-Silurian (about 444 million years ago), Late Devonian, End-Permian, End-Triassic and End-Cretaceous (about 66 million years ago).",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 71,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Recorded Sound",
   "objective": "After this level you can explain how Edison's phonograph first recorded sound.",
@@ -90,7 +90,7 @@
   "questions": [
     {
       "id": "question.music.071.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.phonograph_record_playback"
@@ -98,33 +98,15 @@
       "sourceCardIds": [
         "card.music.071.c2"
       ],
-      "prompt": "What made Edison's 1877 phonograph a first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It recorded sound for the very first time",
-          "correct": false,
-          "rationale": "Scott de Martinville recorded sound in 1860."
-        },
-        {
-          "id": "b",
-          "label": "It was the first machine to both record and play back sound",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It was the first to record sound onto magnetic tape",
-          "correct": false,
-          "rationale": "It pressed pits into tinfoil."
-        },
-        {
-          "id": "d",
-          "label": "It could record music but not speech",
-          "correct": false,
-          "rationale": "Its first test was a spoken nursery rhyme."
-        }
+      "prompt": "Put the steps of Edison's recording in order.",
+      "items": [
+        "Your voice shook a thin diaphragm",
+        "Drove a needlelike stylus",
+        "Pressed tiny pits into tinfoil"
       ],
-      "explanation": "Scott had recorded sound earlier, but Edison's phonograph was the first machine that could record sound and play it back.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Your voice shook a thin diaphragm, the diaphragm drove a needlelike stylus, and the stylus pressed tiny pits into tinfoil around a cylinder.",
       "difficulty": 0.15
     },
     {

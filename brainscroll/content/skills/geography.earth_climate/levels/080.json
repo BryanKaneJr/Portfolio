@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 80,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Climates Past and Present",
   "objective": "After this level you can explain how sunlight, orbit, carbon and volcanoes have set Earth's climate from the ice ages to today.",
@@ -134,41 +134,35 @@
   "questions": [
     {
       "id": "question.earth_climate.080.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.earth_climate.climates_pacemaker_amplifier"
       ],
       "sourceCardIds": [
-        "card.earth_climate.080.c2"
+        "card.earth_climate.080.c2",
+        "card.earth_climate.080.c1"
       ],
-      "prompt": "Climates Past and Present recap: what role do orbital cycles play in the ice ages?",
-      "options": [
+      "prompt": "Climates Past and Present recap: match each climate dial with its clock.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They set the timing, and carbon dioxide and ice amplify it",
-          "correct": true
+          "left": "Summer",
+          "right": "Several weeks late"
         },
         {
-          "id": "b",
-          "label": "They cause all of the cooling on their own",
-          "correct": false,
-          "rationale": "On their own they cause only small changes."
+          "left": "A big eruption",
+          "right": "One to three years"
         },
         {
-          "id": "c",
-          "label": "They release carbon dioxide from rocks",
-          "correct": false,
-          "rationale": "That's volcanoes, in the slow carbon cycle."
+          "left": "Orbital cycles",
+          "right": "Tens of thousands of years"
         },
         {
-          "id": "d",
-          "label": "They matter only for day-to-day weather",
-          "correct": false,
-          "rationale": "They work over tens of thousands of years."
+          "left": "Rock",
+          "right": "Millions"
         }
       ],
-      "explanation": "The orbit is the pacemaker; carbon dioxide and ice are the amplifiers.",
+      "explanation": "Summer peaks several weeks late, a big eruption chills the world for one to three years, orbital cycles swing over tens of thousands of years, and rock locks carbon away for millions.",
       "difficulty": 0.3
     },
     {

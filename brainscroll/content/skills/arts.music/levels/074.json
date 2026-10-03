@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 74,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Electric Guitar",
   "objective": "After this level you can explain how an electric guitar's pickups and amplifier work.",
@@ -135,41 +135,24 @@
     },
     {
       "id": "question.music.074.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.eguitar_solid_body"
       ],
       "sourceCardIds": [
-        "card.music.074.c4"
+        "card.music.074.c4",
+        "card.music.074.c2"
       ],
-      "prompt": "Why did guitar makers move from hollow electric bodies to solid ones?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Solid wood is always lighter",
-          "correct": false,
-          "rationale": "Weight wasn't the reason given."
-        },
-        {
-          "id": "b",
-          "label": "Hollow bodies caused distortion, overtones and feedback",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Pickups couldn't be fitted to hollow guitars",
-          "correct": false,
-          "rationale": "Early electrics were hollow and did have pickups."
-        },
-        {
-          "id": "d",
-          "label": "Solid bodies are louder when unplugged",
-          "correct": false,
-          "rationale": "Loudness came from the amplifier, not the body."
-        }
+      "prompt": "Put these electric guitar milestones in order, from earliest to latest.",
+      "items": [
+        "Frying Pan",
+        "Les Paul",
+        "Fender and Gibson"
       ],
-      "explanation": "Hollow electric guitars picked up unwanted vibrations, causing feedback and overtones; a solid body avoids most of that.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Frying Pan came in 1931, Les Paul built a solid-body electric in the early 1940s, and by 1952 Fender and Gibson were selling solid-body models.",
       "difficulty": 0.25
     },
     {

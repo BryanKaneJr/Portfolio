@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 43,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Deserts",
   "objective": "After this level you can explain why deserts form and why not all of them are hot.",
@@ -141,41 +141,32 @@
     },
     {
       "id": "question.world_geography.043.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.desert_formation"
       ],
       "sourceCardIds": [
-        "card.world_geography.043.c4"
+        "card.world_geography.043.c4",
+        "card.world_geography.043.c3",
+        "card.world_geography.043.c5"
       ],
-      "prompt": "Why is the far side of a mountain range often dry?",
-      "options": [
+      "prompt": "Match each desert with its fact.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The mountains block the sunlight",
-          "correct": false,
-          "rationale": "It's about moisture, not sunlight."
+          "left": "Antarctica",
+          "right": "The largest desert on Earth"
         },
         {
-          "id": "b",
-          "label": "Wind blows sand over the peaks",
-          "correct": false,
-          "rationale": "The air loses its water, not gains sand."
+          "left": "The Sahara",
+          "right": "The largest hot desert"
         },
         {
-          "id": "c",
-          "label": "The air drops its rain on the way up",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The far side is always higher",
-          "correct": false,
-          "rationale": "Height is not the reason; the air has already lost its water."
+          "left": "Death Valley",
+          "right": "Rain shadow of the Sierra Nevada"
         }
       ],
-      "explanation": "Rising air cools and drops rain and snow on the near side. Coming down the far side, it warms and its clouds fade: a rain shadow.",
+      "explanation": "Antarctica is the largest desert on Earth, the Sahara is the largest hot desert, and Death Valley sits in the rain shadow of the Sierra Nevada.",
       "difficulty": 0.3
     },
     {

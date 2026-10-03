@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 43,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Scribes",
   "objective": "After this level you can describe how scribes trained and worked.",
@@ -82,41 +82,31 @@
   "questions": [
     {
       "id": "question.ancient_egypt.043.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_egypt.scribe_training"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.043.c3"
+        "card.ancient_egypt.043.c3",
+        "card.ancient_egypt.043.c2"
       ],
-      "prompt": "On an Egyptian scribe’s papyrus, what was red ink used for?",
-      "options": [
+      "prompt": "Match each script or ink with what it was used for.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The whole text of letters to the king",
-          "correct": false,
-          "rationale": "Black ink carried the main text."
+          "left": "Hieroglyphs",
+          "right": "Monuments and display"
         },
         {
-          "id": "b",
-          "label": "Only the names of gods",
-          "correct": false,
-          "rationale": "Red marked titles and corrections."
+          "left": "Hieratic",
+          "right": "Getting work done"
         },
         {
-          "id": "c",
-          "label": "Numbers above 100",
-          "correct": false,
-          "rationale": "Numbers were written in black like other text."
-        },
-        {
-          "id": "d",
-          "label": "Titles and corrections",
-          "correct": true
+          "left": "Red ink",
+          "right": "Corrections"
         }
       ],
-      "explanation": "Black ink carried the text; red marked titles and corrections.",
+      "explanation": "Hieroglyphs were for monuments and display, and hieratic was for getting work done. Red ink was for titles and corrections.",
       "difficulty": 0.2
     },
     {

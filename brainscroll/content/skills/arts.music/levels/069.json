@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 69,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Improvisation",
   "objective": "After this level you can explain how jazz musicians improvise.",
@@ -106,41 +106,32 @@
   "questions": [
     {
       "id": "question.music.069.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.jazz_improvisation_changes"
       ],
       "sourceCardIds": [
-        "card.music.069.c2"
+        "card.music.069.c2",
+        "card.music.069.c3",
+        "card.music.069.c4"
       ],
-      "prompt": "What does a jazz soloist improvise over?",
-      "options": [
+      "prompt": "Match each idea with what this level says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Silence, with the band stopped",
-          "correct": false,
-          "rationale": "The rhythm section keeps playing the chords."
+          "left": "Chord progression",
+          "right": "The map"
         },
         {
-          "id": "b",
-          "label": "A recording of the original singer",
-          "correct": false,
-          "rationale": "The band itself supplies the chords."
+          "left": "Call-and-response",
+          "right": "Answering another"
         },
         {
-          "id": "c",
-          "label": "The tune's chord progression",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "A new, random chord for every note",
-          "correct": false,
-          "rationale": "The progression is fixed and shared."
+          "left": "Ko Ko",
+          "right": "The chord structure of Cherokee"
         }
       ],
-      "explanation": "Piano, guitar and bass play the chord progression, with drums, and the soloist invents melodies that fit it.",
+      "explanation": "The chord progression is the map soloists share, call-and-response means one part answering another, and \"Ko Ko\" is built on the chord structure of \"Cherokee\".",
       "difficulty": 0.15
     },
     {

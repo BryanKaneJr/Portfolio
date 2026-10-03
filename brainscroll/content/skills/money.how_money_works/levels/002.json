@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 2,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Before Money: Barter",
   "objective": "After this level you can explain how barter works and why it gets awkward.",
@@ -100,41 +100,31 @@
   "questions": [
     {
       "id": "question.how_money_works.002.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.barter_double_coincidence"
       ],
       "sourceCardIds": [
-        "card.how_money_works.002.c2"
+        "card.how_money_works.002.c2",
+        "card.how_money_works.002.c4"
       ],
-      "prompt": "What is a double coincidence of wants?",
-      "options": [
+      "prompt": "Match each one with what this level says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Two people wanting the same item",
-          "correct": false,
-          "rationale": "Then they'd be competing. Each must want what the other has."
+          "left": "Barter",
+          "right": "Trading one good or service directly"
         },
         {
-          "id": "b",
-          "label": "Each person wants what the other can offer",
-          "correct": true
+          "left": "Double coincidence of wants",
+          "right": "Each of you wants what the other has"
         },
         {
-          "id": "c",
-          "label": "Paying twice for the same thing",
-          "correct": false,
-          "rationale": "It's about matching wants, not paying twice."
-        },
-        {
-          "id": "d",
-          "label": "A trade in which both sides use money",
-          "correct": false,
-          "rationale": "It's the match that barter needs when there's no money."
+          "left": "Caroline Humphrey",
+          "right": "No pure barter economy"
         }
       ],
-      "explanation": "Barter only works when each person has something the other wants. That lucky match is a double coincidence of wants.",
+      "explanation": "Barter is trading one good or service directly for another. A double coincidence of wants is when each of you wants what the other has. Caroline Humphrey concluded that no pure barter economy has ever been described.",
       "difficulty": 0.15
     },
     {

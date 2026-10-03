@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 52,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "The Brooklyn Bridge",
   "objective": "After this level you can explain how the Brooklyn Bridge was built.",
@@ -91,7 +91,7 @@
   "questions": [
     {
       "id": "question.architecture.052.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.marvel_brooklyn_roeblings"
@@ -99,33 +99,22 @@
       "sourceCardIds": [
         "card.architecture.052.c3"
       ],
-      "prompt": "While Washington Roebling was confined to his Brooklyn bedroom, who carried his directions to the bridge's engineers?",
-      "options": [
+      "prompt": "Match each Roebling with their part in building the Brooklyn Bridge.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "His father, John A. Roebling",
-          "correct": false,
-          "rationale": "John Roebling died in 1869, before Washington fell ill."
+          "left": "John A. Roebling",
+          "right": "The bridge's designer"
         },
         {
-          "id": "b",
-          "label": "The Forth Bridge's Benjamin Baker",
-          "correct": false,
-          "rationale": "Baker built the Forth Bridge in Scotland."
+          "left": "Washington Roebling",
+          "right": "Watched through his telescope"
         },
         {
-          "id": "c",
-          "label": "A telegraph line to each tower",
-          "correct": false,
-          "rationale": "The directions went by Emily, in person."
-        },
-        {
-          "id": "d",
-          "label": "His wife, Emily Warren Roebling",
-          "correct": true
+          "left": "Emily Warren Roebling",
+          "right": "Carried his directions"
         }
       ],
-      "explanation": "Emily Warren Roebling carried her husband's directions to the engineers on the bridge.",
+      "explanation": "John A. Roebling was the bridge's designer. His son Washington took over and, after the bends, watched through his telescope. Emily Warren Roebling carried his directions to the engineers.",
       "difficulty": 0.15
     },
     {

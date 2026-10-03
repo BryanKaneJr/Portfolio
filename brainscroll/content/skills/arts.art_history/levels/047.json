@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 47,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Velázquez",
   "objective": "After this level you can explain why Las Meninas still puzzles viewers.",
@@ -125,41 +125,36 @@
     },
     {
       "id": "question.art_history.047.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.las_meninas_mirror"
       ],
       "sourceCardIds": [
-        "card.art_history.047.c4"
+        "card.art_history.047.c4",
+        "card.art_history.047.c2",
+        "card.art_history.047.c3"
       ],
-      "prompt": "Why does the mirror in Las Meninas make viewers wonder where they're standing?",
-      "options": [
+      "prompt": "In Las Meninas, match each figure or detail with what it is or shows.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It reflects the king and queen, who might be standing where you are",
-          "correct": true
+          "left": "Infanta Margarita Teresa",
+          "right": "The king's daughter"
         },
         {
-          "id": "b",
-          "label": "It reflects the viewer's own face",
-          "correct": false,
-          "rationale": "It shows the king and queen."
+          "left": "The meninas",
+          "right": "Her maids of honor"
         },
         {
-          "id": "c",
-          "label": "It's empty, so nobody is watching",
-          "correct": false,
-          "rationale": "It clearly shows the royal couple."
+          "left": "Velázquez",
+          "right": "Brush in hand"
         },
         {
-          "id": "d",
-          "label": "It shows the back of Velázquez's canvas",
-          "correct": false,
-          "rationale": "That's what we see directly, not in the mirror."
+          "left": "The mirror",
+          "right": "King Philip IV and Queen Mariana"
         }
       ],
-      "explanation": "If the mirror reflects the royal couple, one reading puts them exactly where you stand.",
+      "explanation": "Infanta Margarita Teresa is the king's daughter, the meninas are her maids of honor, Velázquez stands brush in hand, and the mirror reflects King Philip IV and Queen Mariana.",
       "difficulty": 0.35
     },
     {

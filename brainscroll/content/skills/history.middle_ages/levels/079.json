@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 79,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Holy Roman Empire",
   "objective": "After this level you can explain what the Holy Roman Empire was, and what it was not.",
@@ -169,43 +169,27 @@
     },
     {
       "id": "question.middle_ages.079.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.holy_roman_empire",
         "concept.middle_ages.byzantine_empire"
       ],
       "sourceCardIds": [
-        "card.middle_ages.079.c3",
-        "card.middle_ages.004.c2"
+        "card.middle_ages.079.c1",
+        "card.middle_ages.079.c2",
+        "card.middle_ages.079.c4"
       ],
-      "prompt": "Voltaire said the Holy Roman Empire wasn’t Roman. Which empire’s people called themselves Romaioi, Romans?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Frankish kingdom of Clovis in Gaul",
-          "correct": false,
-          "rationale": "The Franks gave France its name, not Rome."
-        },
-        {
-          "id": "b",
-          "label": "The Umayyad caliphate, ruled from Damascus",
-          "correct": false,
-          "rationale": "A Muslim empire, not a Roman one."
-        },
-        {
-          "id": "c",
-          "label": "The Anglo-Saxon kingdoms of England",
-          "correct": false,
-          "rationale": "They were Germanic kingdoms in England."
-        },
-        {
-          "id": "d",
-          "label": "The Byzantine Empire, ruled from Constantinople",
-          "correct": true
-        }
+      "prompt": "Put these moments in the Holy Roman Empire’s story in order, from earliest to latest.",
+      "items": [
+        "Otto I was crowned emperor",
+        "The Golden Bull",
+        "Voltaire’s verdict",
+        "Francis II gave up the title"
       ],
-      "explanation": "The eastern Roman Empire’s people called themselves Romaioi; “Byzantine” is a later name.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Otto I was crowned emperor in 962. The Golden Bull fixed the electors in 1356, Voltaire gave his verdict in 1756, and Francis II gave up the title in 1806.",
       "difficulty": 0.3
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 79,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Play",
   "objective": "After this level you can explain why young animals play.",
@@ -92,41 +92,31 @@
   "questions": [
     {
       "id": "question.animals.079.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.animals.behavior_play_signals"
       ],
       "sourceCardIds": [
-        "card.animals.079.c2"
+        "card.animals.079.c2",
+        "card.animals.079.c4"
       ],
-      "prompt": "How do dogs, wolves and coyotes invite each other to play?",
-      "options": [
+      "prompt": "Match each with what the cards say about play.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They bare their teeth",
-          "correct": false,
-          "rationale": "That's a threat display."
+          "left": "Dogs, wolves and coyotes",
+          "right": "Front legs down, back end up"
         },
         {
-          "id": "b",
-          "label": "They bow, front legs down and back end up",
-          "correct": true
+          "left": "Young elk",
+          "right": "Lock horns in play"
         },
         {
-          "id": "c",
-          "label": "They roll in the grass",
-          "correct": false,
-          "rationale": "The play invitation is the bow."
-        },
-        {
-          "id": "d",
-          "label": "They howl twice",
-          "correct": false,
-          "rationale": "The signal is a posture."
+          "left": "Rats that never play",
+          "right": "Grow up anxious"
         }
       ],
-      "explanation": "Canids bow, crouching on their forelimbs with the hind end up, a signal used almost only in play.",
+      "explanation": "Dogs, wolves and coyotes bow, front legs down and back end up. Young elk lock horns in play, and rats that never play grow up anxious.",
       "difficulty": 0.15
     },
     {

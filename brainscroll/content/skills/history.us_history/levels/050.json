@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 50,
   "type": "milestone",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Milestone: Colonies to a House Divided",
   "objective": "After this level you can connect colonial slavery, the founders' compromises and westward expansion to explain why the nation split by 1860.",
@@ -430,43 +430,28 @@
     },
     {
       "id": "question.us_history.050.q7",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.us_history.house_divided_speech",
         "concept.us_history.compromise_kansas_nebraska"
       ],
       "sourceCardIds": [
+        "card.us_history.050.c3",
         "card.us_history.050.c2",
         "card.us_history.049.c5"
       ],
-      "prompt": "Lincoln warned in 1858 that the nation could not stay half slave and half free. Which 1854 law had just reopened slavery in territories closed to it since 1820?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Indian Removal Act",
-          "correct": false,
-          "rationale": "That was 1830 and about Native lands."
-        },
-        {
-          "id": "b",
-          "label": "The Fugitive Slave Act",
-          "correct": false,
-          "rationale": "That was part of 1850."
-        },
-        {
-          "id": "c",
-          "label": "The Kansas-Nebraska Act",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The Treaty of Guadalupe Hidalgo",
-          "correct": false,
-          "rationale": "That 1848 treaty ended the Mexican War."
-        }
+      "prompt": "Put these events on the road to a house divided in order, from earliest to latest.",
+      "items": [
+        "The Indian Removal Act",
+        "Nat Turner’s revolt",
+        "Seneca Falls",
+        "The Kansas-Nebraska Act",
+        "Lincoln’s House Divided speech"
       ],
-      "explanation": "Kansas-Nebraska let settlers decide, repealing the Missouri Compromise line.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Indian Removal Act passed in 1830, Nat Turner’s revolt came in 1831, Seneca Falls in 1848, the Kansas-Nebraska Act in 1854, and Lincoln’s House Divided speech in 1858.",
       "difficulty": 0.35
     }
   ],

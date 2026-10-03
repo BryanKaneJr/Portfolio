@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 84,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Persian Rule",
   "objective": "After this level you can explain how Persia conquered Egypt.",
@@ -86,41 +86,25 @@
   "questions": [
     {
       "id": "question.ancient_egypt.084.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_egypt.persian_conquest_egypt"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.084.c2"
+        "card.ancient_egypt.084.c2",
+        "card.ancient_egypt.084.c4"
       ],
-      "prompt": "What did the Persian king Cambyses II do after conquering Egypt in 525 BCE?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He had himself crowned as pharaoh",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "He handed Egypt back to the kings of Kush",
-          "correct": false,
-          "rationale": "He kept Egypt for Persia."
-        },
-        {
-          "id": "c",
-          "label": "He moved every Egyptian temple to Persia",
-          "correct": false,
-          "rationale": "He was crowned in Egypt instead."
-        },
-        {
-          "id": "d",
-          "label": "He made Alexandria the new capital",
-          "correct": false,
-          "rationale": "Alexandria didn’t exist yet."
-        }
+      "prompt": "Put these in order, from the Persian conquest to the last native pharaoh.",
+      "items": [
+        "The Battle of Pelusium",
+        "Darius I",
+        "Amyrtaeus of Sais",
+        "Nectanebo II"
       ],
-      "explanation": "Cambyses II won at Pelusium, took Memphis and was crowned as pharaoh.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Cambyses II won the Battle of Pelusium in 525 BCE, and Darius I ruled later. In 404 BCE Amyrtaeus of Sais won independence, and Nectanebo II, the last native pharaoh, reigned until 343 BCE.",
       "difficulty": 0.2
     },
     {

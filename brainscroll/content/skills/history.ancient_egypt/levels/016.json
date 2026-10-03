@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 16,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Ma'at: Order and Justice",
   "objective": "After this level you can explain ma'at and why keeping order mattered so much.",
@@ -93,41 +93,35 @@
   "questions": [
     {
       "id": "question.ancient_egypt.016.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_egypt.maat_kingship_order"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.016.c2"
+        "card.ancient_egypt.016.c2",
+        "card.ancient_egypt.016.c4"
       ],
-      "prompt": "What did the Egyptian word ma’at stand for?",
-      "options": [
+      "prompt": "Match each name from the world of ma’at with what it was.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Truth, justice and cosmic order",
-          "correct": true
+          "left": "Ma’at",
+          "right": "Truth, justice and cosmic order"
         },
         {
-          "id": "b",
-          "label": "The yearly flood of the Nile",
-          "correct": false,
-          "rationale": "The flood had its own season names."
+          "left": "Isfet",
+          "right": "Disorder and chaos"
         },
         {
-          "id": "c",
-          "label": "Chaos and disorder",
-          "correct": false,
-          "rationale": "That was isfet, ma’at’s opposite."
+          "left": "Khunanup",
+          "right": "A peasant"
         },
         {
-          "id": "d",
-          "label": "The royal palace",
-          "correct": false,
-          "rationale": "That was per-aa."
+          "left": "Rensi",
+          "right": "The high steward"
         }
       ],
-      "explanation": "Ma’at meant truth, justice and cosmic order, and was also a goddess with an ostrich feather.",
+      "explanation": "Ma’at was truth, justice and cosmic order, and isfet was disorder and chaos. In the tale, Khunanup is a peasant who appeals to Rensi, the high steward.",
       "difficulty": 0.2
     },
     {

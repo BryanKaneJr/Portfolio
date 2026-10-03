@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 53,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Gamelan",
   "objective": "After this level you can describe Indonesian gamelan orchestras.",
@@ -97,41 +97,36 @@
   "questions": [
     {
       "id": "question.music.053.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.gamelan_tuning"
       ],
       "sourceCardIds": [
-        "card.music.053.c3"
+        "card.music.053.c3",
+        "card.music.053.c2",
+        "card.music.053.c4"
       ],
-      "prompt": "How is the Javanese pelog tuning organized?",
-      "options": [
+      "prompt": "Match each part of a Javanese gamelan with what this level says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Five nearly equal notes per octave, all used at once",
-          "correct": false,
-          "rationale": "That describes slendro."
+          "left": "Slendro",
+          "right": "Nearly equal"
         },
         {
-          "id": "b",
-          "label": "Twelve equal semitones per octave, like a piano",
-          "correct": false,
-          "rationale": "That's Western equal temperament."
+          "left": "Pelog",
+          "right": "Narrow and wide steps"
         },
         {
-          "id": "c",
-          "label": "Seven pitches per octave, with pieces built on sets of five",
-          "correct": true
+          "left": "Gong ageng",
+          "right": "Marks the end of the main unit"
         },
         {
-          "id": "d",
-          "label": "Three notes per octave, repeated through every piece",
-          "correct": false,
-          "rationale": "Pelog has seven pitches per octave."
+          "left": "Kendhang drums",
+          "right": "Guide the flow of the music"
         }
       ],
-      "explanation": "Pelog has seven pitches with narrow and wide steps; each piece uses a set of five of them.",
+      "explanation": "Slendro's five notes are often called nearly equal, pelog has narrow and wide steps, the gong ageng marks the end of the main unit, and kendhang drums guide the flow of the music.",
       "difficulty": 0.2
     },
     {

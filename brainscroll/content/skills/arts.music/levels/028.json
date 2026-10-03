@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 28,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Renaissance Music",
   "objective": "After this level you can describe music in Renaissance courts and churches.",
@@ -90,41 +90,32 @@
   "questions": [
     {
       "id": "question.music.028.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.josquin"
       ],
       "sourceCardIds": [
-        "card.music.028.c1"
+        "card.music.028.c1",
+        "card.music.028.c3",
+        "card.music.028.c4"
       ],
-      "prompt": "Which composer did Martin Luther call the master of the notes?",
-      "options": [
+      "prompt": "Match each composer with what this level links to him.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Palestrina",
-          "correct": false,
-          "rationale": "Palestrina is the subject of the Trent legend."
+          "left": "Josquin",
+          "right": "The master of the notes"
         },
         {
-          "id": "b",
-          "label": "Thomas Weelkes",
-          "correct": false,
-          "rationale": "Weelkes wrote madrigals for Elizabeth I's collection."
+          "left": "Palestrina",
+          "right": "Pope Marcellus Mass"
         },
         {
-          "id": "c",
-          "label": "Pérotin",
-          "correct": false,
-          "rationale": "Pérotin wrote organum at Notre-Dame, long before."
-        },
-        {
-          "id": "d",
-          "label": "Josquin des Prez",
-          "correct": true
+          "left": "Thomas Weelkes",
+          "right": "As Vesta Was from Latmos Hill"
         }
       ],
-      "explanation": "Luther said the notes must do as Josquin wishes, while other composers do as the notes wish.",
+      "explanation": "Luther called Josquin the master of the notes, Palestrina wrote the Pope Marcellus Mass, and Thomas Weelkes wrote the madrigal As Vesta Was from Latmos Hill Descending.",
       "difficulty": 0.15
     },
     {

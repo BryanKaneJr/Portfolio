@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 1,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Money: The Big Picture",
   "objective": "After this level you can explain the three jobs money does: a way to pay, a measure of value and a way to save.",
@@ -84,7 +84,7 @@
   "questions": [
     {
       "id": "question.how_money_works.001.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.money_three_jobs"
@@ -94,33 +94,22 @@
         "card.how_money_works.001.c3",
         "card.how_money_works.001.c4"
       ],
-      "prompt": "Which list names the three jobs money does?",
-      "options": [
+      "prompt": "Match each job of money with its example from Radford's camp.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A way to earn, a way to spend, a way to give",
-          "correct": false,
-          "rationale": "Earning and giving use money, but the three jobs are paying, measuring and saving."
+          "left": "Medium of exchange",
+          "right": "Sell for cigarettes"
         },
         {
-          "id": "b",
-          "label": "A way to pay, a measure of value, a way to save",
-          "correct": true
+          "left": "Unit of account",
+          "right": "Cheese for seven"
         },
         {
-          "id": "c",
-          "label": "Coins, banknotes and bank balances",
-          "correct": false,
-          "rationale": "Those are forms money takes, not the jobs it does."
-        },
-        {
-          "id": "d",
-          "label": "A way to borrow, a way to tax, a way to lend",
-          "correct": false,
-          "rationale": "Those all use money, but they aren't its three jobs."
+          "left": "Store of value",
+          "right": "Save cigarettes in reserve"
         }
       ],
-      "explanation": "Money is a medium of exchange (a way to pay), a unit of account (a measure of value) and a store of value (a way to save).",
+      "explanation": "Selling for cigarettes made them a medium of exchange, quoting \"cheese for seven\" made them a unit of account, and saving cigarettes in reserve made them a store of value.",
       "difficulty": 0.1
     },
     {

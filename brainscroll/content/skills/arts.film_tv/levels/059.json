@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 59,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "When Genres Bend",
   "objective": "After this level you can explain how parodies and revisionist films bend a genre's rules, and why that only works once the rules are familiar.",
@@ -131,7 +131,7 @@
     },
     {
       "id": "question.film_tv.059.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.genre_parody",
@@ -139,35 +139,25 @@
       ],
       "sourceCardIds": [
         "card.film_tv.059.c2",
-        "card.film_tv.059.c4"
+        "card.film_tv.059.c4",
+        "card.film_tv.059.c3"
       ],
-      "prompt": "Why did Young Frankenstein copy the black-and-white look of Bride of Frankenstein (1935)?",
-      "options": [
+      "prompt": "Match each film with how it bends a genre.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "So viewers would recognize the horror style it mocks",
-          "correct": true
+          "left": "Blazing Saddles",
+          "right": "Spoofs the Western"
         },
         {
-          "id": "b",
-          "label": "Color film was unavailable in 1974",
-          "correct": false,
-          "rationale": "The look was a choice, made to echo the old films."
+          "left": "Young Frankenstein",
+          "right": "Universal's Frankenstein films"
         },
         {
-          "id": "c",
-          "label": "To hide that it was a comedy",
-          "correct": false,
-          "rationale": "The look sets up the jokes rather than hiding them."
-        },
-        {
-          "id": "d",
-          "label": "Because it was a straight remake with no jokes",
-          "correct": false,
-          "rationale": "It is a parody."
+          "left": "Unforgiven",
+          "right": "Clint Eastwood"
         }
       ],
-      "explanation": "Parody works through recognition: copying the old films' look lets viewers see exactly what is being played for laughs.",
+      "explanation": "Blazing Saddles spoofs the Western, Young Frankenstein parodies Universal's Frankenstein films, and Unforgiven is Clint Eastwood's revisionist Western.",
       "difficulty": 0.3
     },
     {

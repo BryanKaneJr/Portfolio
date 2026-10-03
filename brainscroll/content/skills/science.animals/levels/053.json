@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 53,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Bees",
   "objective": "After this level you can explain how bees make honey and pollinate plants.",
@@ -87,7 +87,7 @@
   "questions": [
     {
       "id": "question.animals.053.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.animals.bee_honey_making"
@@ -95,33 +95,15 @@
       "sourceCardIds": [
         "card.animals.053.c2"
       ],
-      "prompt": "How do honeybees help the extra water leave nectar as it becomes honey?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They heat it in the sun outside the hive",
-          "correct": false,
-          "rationale": "The drying happens inside the hive, by wing power."
-        },
-        {
-          "id": "b",
-          "label": "They squeeze it through the wax walls",
-          "correct": false,
-          "rationale": "Wax seals the cells; it doesn’t filter them."
-        },
-        {
-          "id": "c",
-          "label": "They mix it with dry pollen",
-          "correct": false,
-          "rationale": "Pollen isn’t used to dry honey."
-        },
-        {
-          "id": "d",
-          "label": "They beat their wings to help it evaporate",
-          "correct": true
-        }
+      "prompt": "Put the steps of the honey recipe in order.",
+      "items": [
+        "Enzymes break the complex sugars",
+        "Beat their wings",
+        "Seal each cell with wax"
       ],
-      "explanation": "Honeybees beat their wings to promote evaporation, then seal the thickened honey in wax cells.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "First enzymes break the complex sugars in nectar into simpler ones. Then the bees beat their wings to dry it, and last they seal each cell with wax.",
       "difficulty": 0.15
     },
     {

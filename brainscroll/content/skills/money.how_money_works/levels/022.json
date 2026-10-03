@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 22,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How Banks Create Money",
   "objective": "After this level you can explain how bank lending creates most of the money in circulation.",
@@ -95,41 +95,25 @@
   "questions": [
     {
       "id": "question.how_money_works.022.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.banking_loans_create_money"
       ],
       "sourceCardIds": [
-        "card.how_money_works.022.c2"
+        "card.how_money_works.022.c2",
+        "card.how_money_works.022.c4"
       ],
-      "prompt": "A bank approves your loan. Where does the money in your account come from?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It's moved over from other customers' savings",
-          "correct": false,
-          "rationale": "That's the textbook picture; in fact, lending creates a new deposit."
-        },
-        {
-          "id": "b",
-          "label": "The bank creates a new deposit for you",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The central bank prints fresh banknotes",
-          "correct": false,
-          "rationale": "No banknotes are involved: the bank credits your account."
-        },
-        {
-          "id": "d",
-          "label": "It's taken from the bank's gold reserves",
-          "correct": false,
-          "rationale": "No gold moves: the loan creates a new deposit."
-        }
+      "prompt": "Follow one loan's money from start to finish. Put these in order.",
+      "items": [
+        "Take out a mortgage",
+        "Credits your account with a new deposit",
+        "Repaying a bank loan",
+        "Destroys the deposit"
       ],
-      "explanation": "Making a loan credits the borrower's account with a matching new deposit, which is new money.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "You take out a mortgage, the bank credits your account with a new deposit, and new money exists. Repaying the loan later destroys that deposit.",
       "difficulty": 0.25
     },
     {

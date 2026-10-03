@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 45,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Underworld",
   "objective": "After this level you can describe Hades and the Greek underworld.",
@@ -98,41 +98,37 @@
   "questions": [
     {
       "id": "question.ancient_greece.045.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_greece.greek_underworld"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.045.c3"
+        "card.ancient_greece.045.c3",
+        "card.ancient_greece.045.c2",
+        "card.ancient_greece.045.c4",
+        "card.ancient_greece.045.c5"
       ],
-      "prompt": "What paid a dead person’s fare on Charon’s ferry?",
-      "options": [
+      "prompt": "Match each figure of the underworld with what the level says about them.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A lock of the dead person’s hair",
-          "correct": false,
-          "rationale": "The fare was a coin."
+          "left": "Hades",
+          "right": "Also called Pluto"
         },
         {
-          "id": "b",
-          "label": "A prayer said to Zeus at the grave",
-          "correct": false,
-          "rationale": "Charon was paid in coin."
+          "left": "Charon",
+          "right": "Ferried the dead"
         },
         {
-          "id": "c",
-          "label": "A coin placed in the corpse’s mouth",
-          "correct": true
+          "left": "Cerberus",
+          "right": "The monstrous watchdog"
         },
         {
-          "id": "d",
-          "label": "Nothing; the ferry was free to all",
-          "correct": false,
-          "rationale": "It needed a coin and a burial."
+          "left": "Persephone",
+          "right": "Daughter of Demeter"
         }
       ],
-      "explanation": "Charon ferried the buried dead across the Styx and Acheron, paid with the coin placed in the corpse’s mouth.",
+      "explanation": "Hades was also called Pluto, Charon ferried the dead, Cerberus was the monstrous watchdog, and Persephone was the daughter of Demeter.",
       "difficulty": 0.15
     },
     {

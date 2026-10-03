@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 96,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Floods: Turn Around, Don't Drown",
   "objective": "After this level you can explain how flash floods form and why driving into floodwater is so dangerous.",
@@ -97,41 +97,31 @@
   "questions": [
     {
       "id": "question.earth_climate.096.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.earth_climate.hazard_flood_driving"
       ],
       "sourceCardIds": [
-        "card.earth_climate.096.c4"
+        "card.earth_climate.096.c4",
+        "card.earth_climate.096.c1"
       ],
-      "prompt": "Water about a foot deep is rushing across the road ahead. According to the NWS, what can that depth do?",
-      "options": [
+      "prompt": "Match each depth of moving water with what it can do.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Carry away most cars",
-          "correct": true
+          "left": "Six inches of fast water",
+          "right": "Knock you off your feet"
         },
         {
-          "id": "b",
-          "label": "Nothing, as long as it's below the doors",
-          "correct": false,
-          "rationale": "Just 12 inches of rushing water can float most cars."
+          "left": "12 inches of rushing water",
+          "right": "Carry away most cars"
         },
         {
-          "id": "c",
-          "label": "Only slow a car down a little",
-          "correct": false,
-          "rationale": "It can carry most cars away."
-        },
-        {
-          "id": "d",
-          "label": "Move trucks, but never ordinary cars",
-          "correct": false,
-          "rationale": "Cars go first; trucks and SUVs take about 2 feet."
+          "left": "Two feet",
+          "right": "Carries off SUVs and trucks"
         }
       ],
-      "explanation": "The NWS says 12 inches of rushing water can carry away most cars, and 2 feet can carry away SUVs and trucks.",
+      "explanation": "Six inches of fast water can knock you off your feet, 12 inches of rushing water can carry away most cars, and two feet carries off SUVs and trucks.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 48,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Manifest Destiny",
   "objective": "After this level you can explain how Texas, Oregon and the Mexican War added the West, and what that meant for the Mexicans and Native peoples already living there.",
@@ -99,41 +99,25 @@
   "questions": [
     {
       "id": "question.us_history.048.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.manifest_texas_oregon_war"
       ],
       "sourceCardIds": [
-        "card.us_history.048.c4"
+        "card.us_history.048.c4",
+        "card.us_history.048.c3"
       ],
-      "prompt": "What did Mexico give up in the Treaty of Guadalupe Hidalgo (1848)?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Only the city of Santa Fe and its trade routes",
-          "correct": false,
-          "rationale": "It ceded far more than one city."
-        },
-        {
-          "id": "b",
-          "label": "About 55 percent of its territory, including California",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Its claim to the Oregon Country north of California",
-          "correct": false,
-          "rationale": "Oregon was settled with Britain."
-        },
-        {
-          "id": "d",
-          "label": "Nothing; the war ended in a draw at the Rio Grande",
-          "correct": false,
-          "rationale": "Mexico ceded a vast area."
-        }
+      "prompt": "Put these events of Texas and the war with Mexico in order, from earliest to latest.",
+      "items": [
+        "Texas won independence from Mexico",
+        "Congress declared war",
+        "Abraham Lincoln challenged Polk",
+        "The Treaty of Guadalupe Hidalgo"
       ],
-      "explanation": "Mexico ceded about 55 percent of its territory, including California, for $15 million.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Texas won independence in 1836, Congress declared war in 1846, Lincoln challenged Polk in 1847, and the Treaty of Guadalupe Hidalgo ended the war in 1848.",
       "difficulty": 0.2
     },
     {

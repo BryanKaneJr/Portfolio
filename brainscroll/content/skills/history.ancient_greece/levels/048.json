@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 48,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Theseus and the Minotaur",
   "objective": "After this level you can retell the myth of the Labyrinth.",
@@ -92,41 +92,26 @@
   "questions": [
     {
       "id": "question.ancient_greece.048.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_greece.theseus_minotaur"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.048.c2"
+        "card.ancient_greece.048.c2",
+        "card.ancient_greece.048.c3",
+        "card.ancient_greece.048.c5"
       ],
-      "prompt": "What did King Minos force Athens to send to Crete?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A ship full of gold every year",
-          "correct": false,
-          "rationale": "The tribute was people."
-        },
-        {
-          "id": "b",
-          "label": "Seven youths and seven maidens for the Minotaur",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Its best builders to extend the Labyrinth",
-          "correct": false,
-          "rationale": "Daedalus built the Labyrinth."
-        },
-        {
-          "id": "d",
-          "label": "Prince Theseus as a royal hostage",
-          "correct": false,
-          "rationale": "Theseus volunteered to go."
-        }
+      "prompt": "Put the story of Theseus in order, from first to last.",
+      "items": [
+        "Seven youths and seven maidens",
+        "Theseus volunteered to go",
+        "Killing the Minotaur",
+        "Seeing the black sail"
       ],
-      "explanation": "To avenge his son Androgeos, Minos made Athens send seven youths and seven maidens to be devoured by the Minotaur.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Athens had to send seven youths and seven maidens. Theseus volunteered to go, escaped after killing the Minotaur, and forgot the white sail, so Aegeus, seeing the black sail, killed himself.",
       "difficulty": 0.15
     },
     {

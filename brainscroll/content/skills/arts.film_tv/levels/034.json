@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 34,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Shot, Reverse Shot",
   "objective": "After this level you can explain how shot, reverse shot and eyeline matches build a conversation out of separate shots.",
@@ -126,41 +126,32 @@
     },
     {
       "id": "question.film_tv.034.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.cutting_eyeline_match"
       ],
       "sourceCardIds": [
-        "card.film_tv.034.c3"
+        "card.film_tv.034.c3",
+        "card.film_tv.034.c2",
+        "card.film_tv.034.c4"
       ],
-      "prompt": "How does an eyeline match show you where a character is looking?",
-      "options": [
+      "prompt": "Match each term with what it does in a film conversation.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A caption names what the character sees",
-          "correct": false,
-          "rationale": "Eyeline matches work without words."
+          "left": "Shot/reverse shot",
+          "right": "Alternate between characters"
         },
         {
-          "id": "b",
-          "label": "The character points at the other person",
-          "correct": false,
-          "rationale": "The look itself does the work, not a gesture."
+          "left": "Eyeline match",
+          "right": "The next shows what they see"
         },
         {
-          "id": "c",
-          "label": "One shot shows her looking off-screen, the next shows what she sees",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Both characters are always kept in one wide shot",
-          "correct": false,
-          "rationale": "The whole point is joining separate shots."
+          "left": "Editors",
+          "right": "Trim the ends of shots"
         }
       ],
-      "explanation": "An eyeline match pairs a shot of someone looking off-screen with a shot of what they see.",
+      "explanation": "Shot/reverse shot alternates between characters, an eyeline match shows a look and then what the person sees, and editors trim the ends of shots to shape the acting.",
       "difficulty": 0.25
     },
     {

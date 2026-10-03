@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 12,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Big Cats",
   "objective": "After this level you can describe lions, tigers and the other big cats.",
@@ -150,41 +150,31 @@
     },
     {
       "id": "question.animals.012.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.bigcat_lion_tiger_lives"
       ],
       "sourceCardIds": [
-        "card.animals.012.c3"
+        "card.animals.012.c3",
+        "card.animals.012.c2"
       ],
-      "prompt": "Lions and tigers are both big cats. What is the biggest difference in how they live?",
-      "options": [
+      "prompt": "Match each cat with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Lions live in prides; tigers live alone",
-          "correct": true
+          "left": "Lion",
+          "right": "The most social cat"
         },
         {
-          "id": "b",
-          "label": "Tigers live in prides; lions live alone",
-          "correct": false,
-          "rationale": "It's the other way around."
+          "left": "Tiger",
+          "right": "Lives alone"
         },
         {
-          "id": "c",
-          "label": "Only tigers hunt",
-          "correct": false,
-          "rationale": "Lionesses are skilled hunters too."
-        },
-        {
-          "id": "d",
-          "label": "Only lions are carnivores",
-          "correct": false,
-          "rationale": "Every cat must eat meat."
+          "left": "Smaller cats",
+          "right": "Cannot roar"
         }
       ],
-      "explanation": "Lions are the most social cats, living in prides; tigers are solitary except when mating or raising young.",
+      "explanation": "The lion is the most social cat, the tiger lives alone, and smaller cats cannot roar.",
       "difficulty": 0.15
     },
     {

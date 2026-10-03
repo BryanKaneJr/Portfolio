@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 48,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Months Named for Emperors",
   "objective": "After this level you can explain the Julian calendar and how July and August got their names.",
@@ -165,7 +165,7 @@
     },
     {
       "id": "question.ancient_rome.048.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_rome.julian_calendar",
@@ -173,35 +173,26 @@
       ],
       "sourceCardIds": [
         "card.ancient_rome.048.c2",
-        "card.ancient_rome.040.c3"
+        "card.ancient_rome.040.c3",
+        "card.ancient_rome.048.c3",
+        "card.ancient_rome.048.c4"
       ],
-      "prompt": "From Level 40: Caesar didn’t live long with his new calendar. When was he killed?",
-      "options": [
+      "prompt": "Match each name with what it became.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "27 BCE",
-          "correct": false,
-          "rationale": "That’s when Octavian became Augustus."
+          "left": "Quintilis",
+          "right": "Our July"
         },
         {
-          "id": "b",
-          "label": "44 BCE",
-          "correct": true
+          "left": "Sextilis",
+          "right": "Our August"
         },
         {
-          "id": "c",
-          "label": "31 BCE",
-          "correct": false,
-          "rationale": "That’s the Battle of Actium."
-        },
-        {
-          "id": "d",
-          "label": "49 BCE",
-          "correct": false,
-          "rationale": "That’s the Rubicon crossing."
+          "left": "Pope Gregory XIII",
+          "right": "The Gregorian calendar"
         }
       ],
-      "explanation": "Caesar was killed on the Ides of March, 15 March 44 BCE, two years after his calendar began.",
+      "explanation": "Quintilis was renamed Julius, our July, and Sextilis was renamed Augustus, our August. Pope Gregory XIII replaced the Julian calendar with the Gregorian calendar.",
       "difficulty": 0.25
     }
   ],

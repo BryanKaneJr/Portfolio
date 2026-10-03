@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 11,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Nickelodeon Boom",
   "objective": "After this level you can explain how five-cent storefront theaters made movies a cheap, everyday entertainment.",
@@ -126,41 +126,24 @@
     },
     {
       "id": "question.film_tv.011.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.silent_film_exchanges"
       ],
       "sourceCardIds": [
-        "card.film_tv.011.c4"
+        "card.film_tv.011.c4",
+        "card.film_tv.011.c1"
       ],
-      "prompt": "How did film exchanges make it easier for theaters to keep showing new films?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They filmed new movies for each theater",
-          "correct": false,
-          "rationale": "Exchanges didn't make films; they bought and leased prints."
-        },
-        {
-          "id": "b",
-          "label": "They leased prints for a quarter of the purchase price",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "They gave films away to fill the new theaters",
-          "correct": false,
-          "rationale": "Theaters paid to lease the prints."
-        },
-        {
-          "id": "d",
-          "label": "They sold prints outright at a discount",
-          "correct": false,
-          "rationale": "Selling outright was the older system the exchanges replaced."
-        }
+      "prompt": "Put these in order, from earliest to latest.",
+      "items": [
+        "Producers sold prints outright",
+        "Opened a film exchange in San Francisco",
+        "Harry Davis opened a nickelodeon"
       ],
-      "explanation": "An exchange bought prints from producers and leased them to theaters for 25 percent of the purchase price, far cheaper than buying.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "From about 1897 producers sold prints outright. Around 1903 the Miles brothers opened a film exchange in San Francisco, and in 1905 Harry Davis opened a nickelodeon in Pittsburgh.",
       "difficulty": 0.25
     },
     {

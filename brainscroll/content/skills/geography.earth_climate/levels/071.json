@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 71,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why the Hottest Days Come Late",
   "objective": "After this level you can explain why the warmest weeks arrive well after the longest day of the year (seasonal lag).",
@@ -90,41 +90,37 @@
   "questions": [
     {
       "id": "question.earth_climate.071.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.earth_climate.climates_seasonal_lag"
       ],
       "sourceCardIds": [
-        "card.earth_climate.071.c1"
+        "card.earth_climate.071.c1",
+        "card.earth_climate.071.c2",
+        "card.earth_climate.071.c3",
+        "card.earth_climate.071.c4"
       ],
-      "prompt": "On average, when do most places in the contiguous US have their hottest day of the year?",
-      "options": [
+      "prompt": "Match each with when it usually comes.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Right around the June solstice",
-          "correct": false,
-          "rationale": "Sunlight peaks then, but temperatures keep rising for weeks."
+          "left": "The summer solstice",
+          "right": "Around June 21"
         },
         {
-          "id": "b",
-          "label": "Between July 15 and 31",
-          "correct": true
+          "left": "The hottest day of the year",
+          "right": "Between July 15 and 31"
         },
         {
-          "id": "c",
-          "label": "In late May, before the solstice",
-          "correct": false,
-          "rationale": "That comes before sunlight even peaks."
+          "left": "San Francisco",
+          "right": "October 2"
         },
         {
-          "id": "d",
-          "label": "In the first week of September",
-          "correct": false,
-          "rationale": "That's late even for most places; foggy coasts are the exception."
+          "left": "In the UK, the coldest weather",
+          "right": "January or February"
         }
       ],
-      "explanation": "Most places in the contiguous US hit their hottest day, on average, between July 15 and 31, weeks after the solstice.",
+      "explanation": "The summer solstice is around June 21. The US hottest day averages July 15 to 31, San Francisco's highs peak October 2, and the UK's coldest weather comes in January or February.",
       "difficulty": 0.15
     },
     {

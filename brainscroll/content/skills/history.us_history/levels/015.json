@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 15,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Middle Passage",
   "objective": "After this level you can describe the Atlantic crossing enslaved Africans were forced to endure, and how many were carried to the Americas.",
@@ -176,43 +176,37 @@
     },
     {
       "id": "question.us_history.015.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.us_history.middle_passage_scale",
         "concept.us_history.slavery_law_first_africans"
       ],
       "sourceCardIds": [
+        "card.us_history.015.c2",
         "card.us_history.015.c5",
         "card.us_history.014.c2"
       ],
-      "prompt": "Level 14’s “20 and odd” Africans were among the first in English Virginia. About how many Africans in all were landed directly in mainland North America?",
-      "options": [
+      "prompt": "Match each part of the Middle Passage with its estimated number.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "About 388,000",
-          "correct": true
+          "left": "Forced aboard ships",
+          "right": "about 12.5 million"
         },
         {
-          "id": "b",
-          "label": "About 10.7 million",
-          "correct": false,
-          "rationale": "That’s the total for all the Americas."
+          "left": "Survived the crossing",
+          "right": "about 10.7 million"
         },
         {
-          "id": "c",
-          "label": "About 20,000",
-          "correct": false,
-          "rationale": "Far too low."
+          "left": "Died on the way",
+          "right": "roughly 1.8 million"
         },
         {
-          "id": "d",
-          "label": "About 5 million",
-          "correct": false,
-          "rationale": "Far too high; most went to the Caribbean and South America."
+          "left": "Mainland North America",
+          "right": "About 388,000"
         }
       ],
-      "explanation": "About 388,000, a small share of the roughly 10.7 million who survived.",
+      "explanation": "About 12.5 million Africans were forced aboard ships and about 10.7 million survived, so roughly 1.8 million died on the way. About 388,000 were landed in mainland North America.",
       "difficulty": 0.35
     }
   ],

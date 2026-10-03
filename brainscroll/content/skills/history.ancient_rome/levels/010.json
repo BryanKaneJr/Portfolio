@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 10,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: How Rome Began",
   "objective": "After this level you can connect Rome’s geography, neighbors, legends and kings into one founding story.",
@@ -129,7 +129,7 @@
   "questions": [
     {
       "id": "question.ancient_rome.010.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_rome.rome_eras",
@@ -137,35 +137,19 @@
       ],
       "sourceCardIds": [
         "card.ancient_rome.001.c2",
-        "card.ancient_rome.009.c3"
+        "card.ancient_rome.009.c3",
+        "card.ancient_rome.010.c2",
+        "card.ancient_rome.010.c3"
       ],
-      "prompt": "Which order is right?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Kings expelled, Rome founded, first emperor",
-          "correct": false,
-          "rationale": "The founding came first."
-        },
-        {
-          "id": "b",
-          "label": "Rome founded, kings expelled, first emperor",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "First emperor, Rome founded, kings expelled",
-          "correct": false,
-          "rationale": "The emperors came last."
-        },
-        {
-          "id": "d",
-          "label": "Rome founded, first emperor, kings expelled",
-          "correct": false,
-          "rationale": "Kings were expelled before any emperor."
-        }
+      "prompt": "Put these events from Rome’s early story in order, from earliest to latest.",
+      "items": [
+        "Romulus founded Rome",
+        "Rome drove out its seventh king",
+        "Augustus took sole power"
       ],
-      "explanation": "By tradition: founded in 753 BCE, kings expelled in 509 BCE, the Empire from 27 BCE.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "By tradition Romulus founded Rome in 753 BCE, Rome drove out its seventh king in 509 BCE, and Augustus took sole power in 27 BCE.",
       "difficulty": 0.25
     },
     {

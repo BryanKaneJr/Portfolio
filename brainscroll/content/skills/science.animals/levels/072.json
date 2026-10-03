@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 72,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Animal Communication",
   "objective": "After this level you can explain how animals send signals to each other.",
@@ -131,7 +131,7 @@
     },
     {
       "id": "question.animals.072.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.behavior_vervet_alarm_calls"
@@ -139,33 +139,22 @@
       "sourceCardIds": [
         "card.animals.072.c3"
       ],
-      "prompt": "Why did it matter that the vervet alarm calls were played back with no predator present?",
-      "options": [
+      "prompt": "Match each vervet alarm call with what the monkeys did.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It showed the calls themselves carried the meaning",
-          "correct": true
+          "left": "Leopard alarm",
+          "right": "Ran into trees"
         },
         {
-          "id": "b",
-          "label": "It proved the monkeys were deaf to real predators",
-          "correct": false,
-          "rationale": "They responded to the recorded calls, so they weren't deaf."
+          "left": "Eagle alarm",
+          "right": "Looked up"
         },
         {
-          "id": "c",
-          "label": "It showed all three calls meant the same thing",
-          "correct": false,
-          "rationale": "Each call drew a different response."
-        },
-        {
-          "id": "d",
-          "label": "It tested whether predators could hear the calls",
-          "correct": false,
-          "rationale": "The listeners in the test were the monkeys."
+          "left": "Snake alarm",
+          "right": "Looked down"
         }
       ],
-      "explanation": "With no predator to see, the right escape could only come from the call itself.",
+      "explanation": "At a leopard alarm the monkeys ran into trees, at an eagle alarm they looked up, and at a snake alarm they looked down.",
       "difficulty": 0.25
     },
     {

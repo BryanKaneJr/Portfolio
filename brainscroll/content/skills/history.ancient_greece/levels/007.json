@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 7,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Greek Dark Age",
   "objective": "After this level you can explain what happened after the Bronze Age palaces fell.",
@@ -87,41 +87,36 @@
   "questions": [
     {
       "id": "question.ancient_greece.007.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_greece.greek_dark_age"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.007.c4"
+        "card.ancient_greece.007.c4",
+        "card.ancient_greece.007.c2",
+        "card.ancient_greece.007.c3"
       ],
-      "prompt": "What did the rich grave at Lefkandi reveal about Greece’s Dark Age?",
-      "options": [
+      "prompt": "Match each Dark Age clue with what the level says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Wealth and overseas trade carried on",
-          "correct": true
+          "left": "Sea Peoples",
+          "right": "Raiders"
         },
         {
-          "id": "b",
-          "label": "Greeks had stopped burying their dead",
-          "correct": false,
-          "rationale": "The grave itself says otherwise."
+          "left": "Lefkandi",
+          "right": "On the island of Euboea"
         },
         {
-          "id": "c",
-          "label": "The palaces were quickly rebuilt",
-          "correct": false,
-          "rationale": "The palaces stayed gone."
+          "left": "Bronze",
+          "right": "Needed long-distance trade"
         },
         {
-          "id": "d",
-          "label": "Only Cyprus had any wealth then",
-          "correct": false,
-          "rationale": "The gold was buried in Greece."
+          "left": "Iron",
+          "right": "Could be mined in Greece"
         }
       ],
-      "explanation": "A grave of about 1000 BCE held gold and a bronze vessel from Cyprus: culture and trade carried on.",
+      "explanation": "The Sea Peoples were raiders, and Lefkandi is on the island of Euboea. Bronze needed long-distance trade, but iron could be mined in Greece.",
       "difficulty": 0.25
     },
     {

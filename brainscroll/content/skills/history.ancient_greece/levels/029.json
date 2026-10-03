@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 29,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Who Was Left Out",
   "objective": "After this level you can explain why women, slaves and foreigners could not vote.",
@@ -86,41 +86,32 @@
   "questions": [
     {
       "id": "question.ancient_greece.029.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_greece.athens_democracy_exclusions"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.029.c3"
+        "card.ancient_greece.029.c3",
+        "card.ancient_greece.029.c2",
+        "card.ancient_greece.029.c4"
       ],
-      "prompt": "What was a metic in classical Athens?",
-      "options": [
+      "prompt": "Match each group left out of Athenian democracy with what the level says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A citizen in Solon’s top wealth class",
-          "correct": false,
-          "rationale": "That class was measured in harvests."
+          "left": "Women",
+          "right": "Could be citizens"
         },
         {
-          "id": "b",
-          "label": "A free foreigner living in Athens",
-          "correct": true
+          "left": "Metics",
+          "right": "Free foreigners living in Athens"
         },
         {
-          "id": "c",
-          "label": "A juror chosen by lot",
-          "correct": false,
-          "rationale": "Jurors were citizens."
-        },
-        {
-          "id": "d",
-          "label": "A priestess of Athena",
-          "correct": false,
-          "rationale": "Metics were resident foreigners."
+          "left": "Enslaved people",
+          "right": "Owned as property"
         }
       ],
-      "explanation": "Metics were free foreigners, including freed slaves, who lived in Athens without citizenship or a vote.",
+      "explanation": "Athenian women could be citizens but not vote. Metics were free foreigners living in Athens, and enslaved people were owned as property.",
       "difficulty": 0.2
     },
     {

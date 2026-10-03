@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 34,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Patrons and the Medici",
   "objective": "After this level you can explain how rich patrons like the Medici paid for Renaissance art.",
@@ -125,41 +125,36 @@
     },
     {
       "id": "question.art_history.034.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.ren_patron_contracts"
       ],
       "sourceCardIds": [
-        "card.art_history.034.c2"
+        "card.art_history.034.c2",
+        "card.art_history.034.c1",
+        "card.art_history.034.c3"
       ],
-      "prompt": "Why did Ghirlandaio's contract set the price of the blue?",
-      "options": [
+      "prompt": "Match each word or painter with what this level links it to.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Blue was the painter's favorite color",
-          "correct": false,
-          "rationale": "The contract protected the patron, not the painter's taste."
+          "left": "Patron",
+          "right": "The person paying for the work"
         },
         {
-          "id": "b",
-          "label": "Painters mixed blue from red and yellow",
-          "correct": false,
-          "rationale": "Blue is a primary; it can't be mixed from those."
+          "left": "Ultramarine",
+          "right": "Ground from lapis lazuli"
         },
         {
-          "id": "c",
-          "label": "Blue paint was free in Florence",
-          "correct": false,
-          "rationale": "Ultramarine was ground from stone mined in Afghanistan."
+          "left": "Domenico Ghirlandaio",
+          "right": "Adoration of the Magi"
         },
         {
-          "id": "d",
-          "label": "Ultramarine was the priciest blue",
-          "correct": true
+          "left": "Benozzo Gozzoli",
+          "right": "Procession of the Magi"
         }
       ],
-      "explanation": "Ultramarine was the most expensive blue, so the patron named the grade he was paying for: 4 florins an ounce.",
+      "explanation": "A patron is the person paying for the work, and ultramarine is ground from lapis lazuli. Ghirlandaio's contract was for an Adoration of the Magi; Gozzoli painted the Procession of the Magi.",
       "difficulty": 0.25
     },
     {

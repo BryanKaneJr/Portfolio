@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 68,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Dada",
   "objective": "After this level you can explain Dada's protest against art and Duchamp's ready-mades.",
@@ -129,41 +129,27 @@
     },
     {
       "id": "question.art_history.068.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.dada_fountain"
       ],
       "sourceCardIds": [
-        "card.art_history.068.c3"
+        "card.art_history.068.c3",
+        "card.art_history.068.c1",
+        "card.art_history.068.c2",
+        "card.art_history.068.c4"
       ],
-      "prompt": "According to its defenders, what made Fountain a work of art?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The artist chose it and gave it a new meaning",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Duchamp carved it by hand from porcelain",
-          "correct": false,
-          "rationale": "It was a manufactured object, not handmade."
-        },
-        {
-          "id": "c",
-          "label": "It was painted with great skill",
-          "correct": false,
-          "rationale": "Nothing was painted; the point was the choice."
-        },
-        {
-          "id": "d",
-          "label": "The society proudly put it on show",
-          "correct": false,
-          "rationale": "The society refused it."
-        }
+      "prompt": "Put these moments in order, from earliest to latest.",
+      "items": [
+        "Bicycle Wheel",
+        "Hugo Ball's Cabaret Voltaire",
+        "A white porcelain urinal arrived",
+        "500 art experts voted"
       ],
-      "explanation": "\"He CHOSE it\": Duchamp took an ordinary object and placed it so its useful meaning vanished under a new title.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Duchamp made Bicycle Wheel in 1913, Dada began at Hugo Ball's Cabaret Voltaire in 1916, Fountain arrived at the show in 1917, and 500 experts voted it most influential in 2004.",
       "difficulty": 0.35
     },
     {

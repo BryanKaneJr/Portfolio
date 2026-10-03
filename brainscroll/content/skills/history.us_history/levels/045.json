@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 45,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Resisting Slavery",
   "objective": "After this level you can explain the ways enslaved people resisted, from slowing work and escaping to Nat Turner's revolt and the Underground Railroad.",
@@ -94,41 +94,36 @@
   "questions": [
     {
       "id": "question.us_history.045.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.resistance_underground_railroad"
       ],
       "sourceCardIds": [
-        "card.us_history.045.c4"
+        "card.us_history.045.c4",
+        "card.us_history.045.c3",
+        "card.us_history.045.c5"
       ],
-      "prompt": "On the Underground Railroad, what were stations?",
-      "options": [
+      "prompt": "Match each word or person with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Safe houses where freedom seekers could rest",
-          "correct": true
+          "left": "Stations",
+          "right": "safe houses"
         },
         {
-          "id": "b",
-          "label": "Army posts on the Canadian border",
-          "correct": false,
-          "rationale": "It was a secret civilian network."
+          "left": "Conductors",
+          "right": "guides"
         },
         {
-          "id": "c",
-          "label": "Real train depots in the South",
-          "correct": false,
-          "rationale": "It wasn’t a real railroad."
+          "left": "Nat Turner",
+          "right": "Southampton County"
         },
         {
-          "id": "d",
-          "label": "Plantations that freed their workers",
-          "correct": false,
-          "rationale": "Stations were safe houses along escape routes."
+          "left": "Harriet Tubman",
+          "right": "escaped slavery in Maryland"
         }
       ],
-      "explanation": "The network borrowed railway words: safe houses were stations and guides were conductors.",
+      "explanation": "On the Underground Railroad, stations were safe houses and conductors were guides. Nat Turner’s revolt was in Southampton County, Virginia, and Harriet Tubman escaped slavery in Maryland.",
       "difficulty": 0.15
     },
     {

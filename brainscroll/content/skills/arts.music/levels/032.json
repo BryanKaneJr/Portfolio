@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 32,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Bach",
   "objective": "After this level you can describe Bach's music and why musicians revere it.",
@@ -91,7 +91,7 @@
   "questions": [
     {
       "id": "question.music.032.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.bach_fugue"
@@ -99,33 +99,15 @@
       "sourceCardIds": [
         "card.music.032.c2"
       ],
-      "prompt": "In one of Bach's fugues, what is the subject?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The words the choir sings",
-          "correct": false,
-          "rationale": "A fugue's subject is a musical theme, not a text."
-        },
-        {
-          "id": "b",
-          "label": "The main theme each voice takes up in turn",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The final chord that ends the piece",
-          "correct": false,
-          "rationale": "The subject opens the fugue and keeps returning."
-        },
-        {
-          "id": "d",
-          "label": "The bass line the harpsichord improvises on",
-          "correct": false,
-          "rationale": "That describes Level 31's continuo."
-        }
+      "prompt": "Put the steps of a fugue in order.",
+      "items": [
+        "One voice states a main theme",
+        "A second voice enters",
+        "Several lines weave together"
       ],
-      "explanation": "A fugue's subject is its main theme, stated by one voice and then imitated by each of the others.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "One voice states a main theme, the subject. A second voice enters with it, then a third, until several lines weave together.",
       "difficulty": 0.25
     },
     {

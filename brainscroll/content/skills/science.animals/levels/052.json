@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 52,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Ants",
   "objective": "After this level you can explain how ant colonies work.",
@@ -127,41 +127,31 @@
     },
     {
       "id": "question.animals.052.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.ant_colony_roles"
       ],
       "sourceCardIds": [
-        "card.animals.052.c3"
+        "card.animals.052.c3",
+        "card.animals.052.c2"
       ],
-      "prompt": "Why do ants heading to a crumb often walk in a line?",
-      "options": [
+      "prompt": "Match each member of an ant colony with its role.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They follow the queen’s footsteps",
-          "correct": false,
-          "rationale": "The queen stays home laying eggs."
+          "left": "Queen",
+          "right": "Lays the eggs"
         },
         {
-          "id": "b",
-          "label": "They can see the crumb from far away",
-          "correct": false,
-          "rationale": "The line forms around a chemical trail."
+          "left": "Workers",
+          "right": "Build, repair and defend the nest"
         },
         {
-          "id": "c",
-          "label": "They follow a scent trail of pheromones",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "They hold on to the ant in front",
-          "correct": false,
-          "rationale": "Each ant follows a smell, not a neighbor."
+          "left": "Males",
+          "right": "Turn up only to mate"
         }
       ],
-      "explanation": "Some ants lay pheromone trails, and their nestmates follow the scent to the food.",
+      "explanation": "The queen lays the eggs. The workers build, repair and defend the nest, and males turn up only to mate.",
       "difficulty": 0.2
     },
     {

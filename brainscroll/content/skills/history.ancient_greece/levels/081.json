@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 81,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Philip of Macedon",
   "objective": "After this level you can explain how Philip conquered the Greek cities.",
@@ -131,41 +131,27 @@
     },
     {
       "id": "question.ancient_greece.081.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_greece.philip_macedon_rise"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.081.c2"
+        "card.ancient_greece.081.c2",
+        "card.ancient_greece.081.c4",
+        "card.ancient_greece.081.c5"
       ],
-      "prompt": "What did young Philip gain from his years as a hostage in Thebes?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The throne of Thebes",
-          "correct": false,
-          "rationale": "He became king of Macedonia, not Thebes."
-        },
-        {
-          "id": "b",
-          "label": "A marriage alliance with Athens",
-          "correct": false,
-          "rationale": "The card says nothing of a marriage."
-        },
-        {
-          "id": "c",
-          "label": "Lessons from the Theban general Epaminondas",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Nothing, since he was locked in a cell",
-          "correct": false,
-          "rationale": "He studied while he was there."
-        }
+      "prompt": "Put these moments in Philip’s life in order, from earliest to latest.",
+      "items": [
+        "Sent to Thebes as a hostage",
+        "Became king of Macedonia",
+        "Chaeronea",
+        "League of Corinth",
+        "Stabbed him to death"
       ],
-      "explanation": "In Thebes, Philip studied under the great general Epaminondas, then came home to build a new army.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Philip was sent to Thebes as a hostage around 367 BCE and became king of Macedonia in 359. He won at Chaeronea in 338, formed the League of Corinth in 337, and in 336 his bodyguard stabbed him to death.",
       "difficulty": 0.3
     },
     {

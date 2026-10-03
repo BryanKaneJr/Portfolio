@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 6,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Seven Kings",
   "objective": "After this level you can outline Rome’s age of kings and how kingship worked there.",
@@ -86,41 +86,25 @@
   "questions": [
     {
       "id": "question.ancient_rome.006.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_rome.roman_kings"
       ],
       "sourceCardIds": [
-        "card.ancient_rome.006.c3"
+        "card.ancient_rome.006.c3",
+        "card.ancient_rome.006.c2"
       ],
-      "prompt": "Which king was remembered as the founder of Rome’s religious institutions?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Romulus",
-          "correct": false,
-          "rationale": "Romulus was the founder of the city."
-        },
-        {
-          "id": "b",
-          "label": "Tarquin the Proud",
-          "correct": false,
-          "rationale": "He was the last, tyrannical king."
-        },
-        {
-          "id": "c",
-          "label": "Numa Pompilius",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Servius Tullius",
-          "correct": false,
-          "rationale": "He was credited with the census."
-        }
+      "prompt": "Put these kings of Rome in order, from first to last.",
+      "items": [
+        "Romulus",
+        "Numa Pompilius",
+        "Servius Tullius",
+        "Tarquin the Proud"
       ],
-      "explanation": "Numa, the second king, was remembered for founding Rome’s religion and calendar.",
+      "first": "First king",
+      "last": "Last king",
+      "explanation": "Romulus was the first king, Numa Pompilius the second, Servius Tullius the sixth, and Tarquin the Proud the seventh and last.",
       "difficulty": 0.2
     },
     {

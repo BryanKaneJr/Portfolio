@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 24,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Who Does What on a Film Set",
   "objective": "After this level you can explain the jobs of the director, producer, cinematographer, gaffer, grip and script supervisor.",
@@ -131,41 +131,36 @@
     },
     {
       "id": "question.film_tv.024.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.shoot_script_supervisor"
       ],
       "sourceCardIds": [
-        "card.film_tv.024.c4"
+        "card.film_tv.024.c4",
+        "card.film_tv.024.c2",
+        "card.film_tv.024.c3"
       ],
-      "prompt": "How does the script supervisor help separate takes fit together in the edit?",
-      "options": [
+      "prompt": "Match each crew member with their job.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "By recording details of each take, from lenses to props",
-          "correct": true
+          "left": "Producer",
+          "right": "Create the budget"
         },
         {
-          "id": "b",
-          "label": "By directing how the actors deliver their lines",
-          "correct": false,
-          "rationale": "Guiding the actors is the director's job."
+          "left": "Director",
+          "right": "The film's artistic vision"
         },
         {
-          "id": "c",
-          "label": "By editing the footage together on set",
-          "correct": false,
-          "rationale": "Editing happens in post-production."
+          "left": "Gaffer",
+          "right": "The chief electrician"
         },
         {
-          "id": "d",
-          "label": "By choosing the camera and the lenses",
-          "correct": false,
-          "rationale": "That's the cinematographer's choice."
+          "left": "Script supervisor",
+          "right": "Keeper of continuity"
         }
       ],
-      "explanation": "Detailed notes on slate numbers, takes, lenses, action, props, makeup and costume let the pieces cut together seamlessly.",
+      "explanation": "The producer creates the budget, the director develops the film's artistic vision, the gaffer is the chief electrician, and the script supervisor is the keeper of continuity.",
       "difficulty": 0.3
     },
     {

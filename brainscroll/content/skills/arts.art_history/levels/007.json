@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 7,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The First Sculptures",
   "objective": "After this level you can describe early carved figures and what they may have meant.",
@@ -86,42 +86,32 @@
   "questions": [
     {
       "id": "question.art_history.007.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.lion_man"
       ],
       "sourceCardIds": [
         "card.art_history.007.c1",
-        "card.art_history.007.c2"
+        "card.art_history.007.c2",
+        "card.art_history.007.c3"
       ],
-      "prompt": "What is the Lion-Man?",
-      "options": [
+      "prompt": "Match each Ice Age figure with what makes it stand out.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "An ivory lion-headed figure with a human body",
-          "correct": true
+          "left": "The Lion-Man",
+          "right": "The head of a cave lion"
         },
         {
-          "id": "b",
-          "label": "A cave painting of a lion attacking a man",
-          "correct": false,
-          "rationale": "It's a carving, not a painting."
+          "left": "The Venus of Hohle Fels",
+          "right": "A small pierced loop"
         },
         {
-          "id": "c",
-          "label": "A limestone lion carved near Lake Garda",
-          "correct": false,
-          "rationale": "Lake Garda is where Willendorf's stone likely came from."
-        },
-        {
-          "id": "d",
-          "label": "A cave lion's skull buried in a German cave",
-          "correct": false,
-          "rationale": "It's a sculpture carved from mammoth ivory."
+          "left": "The Venus of Willendorf",
+          "right": "Limestone, tinted with red ochre"
         }
       ],
-      "explanation": "About 40,000 years old, it's carved from mammoth ivory and mixes a cave lion's head with a human body.",
+      "explanation": "The Lion-Man has the head of a cave lion, the Venus of Hohle Fels has a small pierced loop instead of a head, and the Venus of Willendorf is limestone, tinted with red ochre.",
       "difficulty": 0.15
     },
     {

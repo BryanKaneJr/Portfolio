@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 2,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Gift of the Nile",
   "objective": "After this level you can explain why Egypt depended on the Nile's yearly flood.",
@@ -165,42 +165,25 @@
     },
     {
       "id": "question.ancient_egypt.002.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_egypt.nile_flood"
       ],
       "sourceCardIds": [
         "card.ancient_egypt.002.c4",
-        "card.ancient_egypt.002.c2"
+        "card.ancient_egypt.002.c2",
+        "card.ancient_egypt.002.c3"
       ],
-      "prompt": "Egyptians blamed a bad Nile flood on an angry river or a careless king. What really made the flood rise?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Melting snow in the Sahara",
-          "correct": false,
-          "rationale": "The Sahara has no snowpack to melt."
-        },
-        {
-          "id": "b",
-          "label": "Summer monsoon rains in the Ethiopian highlands",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Winter storms on Egypt’s Mediterranean coast",
-          "correct": false,
-          "rationale": "Egypt’s own rain is tiny."
-        },
-        {
-          "id": "d",
-          "label": "Tides pushing in from the Red Sea",
-          "correct": false,
-          "rationale": "The flood came downriver from the south."
-        }
+      "prompt": "Put the steps of the Nile flood in order, from first to last.",
+      "items": [
+        "Summer monsoon rains",
+        "The Nile rose",
+        "The water drained away"
       ],
-      "explanation": "Heavy summer rains in Ethiopia swelled the Blue Nile, which carried the flood north to Egypt.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Summer monsoon rains fell on the Ethiopian highlands, the Nile rose over Egypt’s fields, and then the water drained away, leaving dark, fertile silt.",
       "difficulty": 0.3
     }
   ],

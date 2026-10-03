@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 96,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Studying Egypt Today",
   "objective": "After this level you can describe modern tools like scans and satellite images.",
@@ -82,41 +82,32 @@
   "questions": [
     {
       "id": "question.ancient_egypt.096.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_egypt.modern_egyptology_tools"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.096.c2"
+        "card.ancient_egypt.096.c2",
+        "card.ancient_egypt.096.c3",
+        "card.ancient_egypt.096.c4"
       ],
-      "prompt": "What did muon scans reveal inside the Great Pyramid in 2017?",
-      "options": [
+      "prompt": "Match each team or researcher with the tool or find the cards link them to.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A second burial chamber full of gold",
-          "correct": false,
-          "rationale": "They found empty space, not treasure."
+          "left": "ScanPyramids",
+          "right": "A big void"
         },
         {
-          "id": "b",
-          "label": "A big hidden void above the Grand Gallery",
-          "correct": true
+          "left": "Sahar Saleem",
+          "right": "CT scans"
         },
         {
-          "id": "c",
-          "label": "A tunnel leading under the Sphinx",
-          "correct": false,
-          "rationale": "The void is inside the pyramid itself."
-        },
-        {
-          "id": "d",
-          "label": "Cracks that mean the pyramid is sinking",
-          "correct": false,
-          "rationale": "The scans mapped a void, not damage."
+          "left": "Sarah Parcak",
+          "right": "Satellite images"
         }
       ],
-      "explanation": "The ScanPyramids team found a void at least 30 metres long above the Grand Gallery.",
+      "explanation": "The ScanPyramids team reported a big void inside the Great Pyramid. Sahar Saleem unwrapped Amenhotep I digitally with CT scans. Sarah Parcak processes satellite images.",
       "difficulty": 0.25
     },
     {

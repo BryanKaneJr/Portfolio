@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 99,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Myths About American History",
   "objective": "After this level you can debunk popular myths, like Washington's cherry tree, and explain how such myths get started and why they last.",
@@ -94,41 +94,32 @@
   "questions": [
     {
       "id": "question.us_history.099.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.historians_american_myths"
       ],
       "sourceCardIds": [
-        "card.us_history.099.c2"
+        "card.us_history.099.c2",
+        "card.us_history.099.c3",
+        "card.us_history.099.c4"
       ],
-      "prompt": "Who invented the story of young Washington and the cherry tree?",
-      "options": [
+      "prompt": "Match each story with the person who spread it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Henry Wadsworth Longfellow",
-          "correct": false,
-          "rationale": "Longfellow wrote the 1860 poem about Paul Revere."
+          "left": "The cherry tree story",
+          "right": "Parson Weems"
         },
         {
-          "id": "b",
-          "label": "Mason Locke Weems",
-          "correct": true
+          "left": "Paul Revere’s Ride",
+          "right": "Henry Wadsworth Longfellow"
         },
         {
-          "id": "c",
-          "label": "William Canby",
-          "correct": false,
-          "rationale": "Canby told the Betsy Ross story in 1870."
-        },
-        {
-          "id": "d",
-          "label": "John Adams",
-          "correct": false,
-          "rationale": "Adams had nothing to do with the story."
+          "left": "Betsy Ross",
+          "right": "William Canby"
         }
       ],
-      "explanation": "Parson Weems added the cherry tree story to the fifth edition of his Washington biography in 1806.",
+      "explanation": "Parson Weems added the cherry tree story to his Washington biography, Henry Wadsworth Longfellow wrote “Paul Revere’s Ride,” and William Canby, Betsy Ross’s grandson, made her flag story public.",
       "difficulty": 0.2
     },
     {

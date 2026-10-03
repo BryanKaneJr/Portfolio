@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 79,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Mummy's Curse",
   "objective": "After this level you can explain where the legend of the mummy's curse came from.",
@@ -131,41 +131,37 @@
     },
     {
       "id": "question.ancient_egypt.079.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.mummy_curse_myth"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.079.c4"
+        "card.ancient_egypt.079.c4",
+        "card.ancient_egypt.079.c1",
+        "card.ancient_egypt.079.c2",
+        "card.ancient_egypt.079.c3"
       ],
-      "prompt": "A 2002 BMJ study tested the mummy’s curse. What did it find?",
-      "options": [
+      "prompt": "Match each name from the curse story with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Exposed people died years younger",
-          "correct": false,
-          "rationale": "There was no significant difference."
+          "left": "Howard Carter",
+          "right": "Led the excavation"
         },
         {
-          "id": "b",
-          "label": "No evidence that exposure shortened lives",
-          "correct": true
+          "left": "Lord Carnarvon",
+          "right": "Carter’s patron"
         },
         {
-          "id": "c",
-          "label": "Mould in the tomb caused several deaths",
-          "correct": false,
-          "rationale": "The study found no link at all."
+          "left": "Louisa May Alcott",
+          "right": "Lost in a Pyramid"
         },
         {
-          "id": "d",
-          "label": "Only Carnarvon was affected",
-          "correct": false,
-          "rationale": "It compared many people and found no effect."
+          "left": "The BMJ",
+          "right": "A medical journal"
         }
       ],
-      "explanation": "People exposed to the “curse” died at an average age of 70, with no significant difference from the others.",
+      "explanation": "Howard Carter led the excavation, and Lord Carnarvon was his patron. Louisa May Alcott wrote “Lost in a Pyramid” in 1869. The BMJ, a medical journal, tested the curse in 2002.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 98,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Digital Art",
   "objective": "After this level you can explain how computers and screens have changed the way art is made.",
@@ -130,41 +130,27 @@
     },
     {
       "id": "question.art_history.098.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.digiart_aaron"
       ],
       "sourceCardIds": [
-        "card.art_history.098.c3"
+        "card.art_history.098.c3",
+        "card.art_history.098.c1",
+        "card.art_history.098.c2",
+        "card.art_history.098.c4"
       ],
-      "prompt": "What made Harold Cohen's AARON different from a drawing tool?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It made drawings on its own, following Cohen's rules",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "It copied Cohen's paintings exactly",
-          "correct": false,
-          "rationale": "It made new drawings from rules."
-        },
-        {
-          "id": "c",
-          "label": "It was a paintbrush with a motor",
-          "correct": false,
-          "rationale": "It was a program."
-        },
-        {
-          "id": "d",
-          "label": "It could color from the very start",
-          "correct": false,
-          "rationale": "It only learned to color in 1995."
-        }
+      "prompt": "Put these moments in digital art in order, from earliest to latest.",
+      "items": [
+        "A gallery in Stuttgart",
+        "Schotter",
+        "Harold Cohen started AARON",
+        "Christie's sold it as an NFT"
       ],
-      "explanation": "AARON made drawings by itself, following rules Cohen wrote; a robot turtle first put them on paper.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Stuttgart show came in 1965, Nees printed Schotter between 1968 and 1970, Harold Cohen started AARON in 1973, and Christie's sold Beeple's collage as an NFT in 2021.",
       "difficulty": 0.3
     },
     {

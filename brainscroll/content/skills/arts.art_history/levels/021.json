@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 21,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Byzantine Art",
   "objective": "After this level you can describe Byzantine icons and gold-backed mosaics.",
@@ -98,41 +98,32 @@
   "questions": [
     {
       "id": "question.art_history.021.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.byzantine_icons"
       ],
       "sourceCardIds": [
-        "card.art_history.021.c4"
+        "card.art_history.021.c4",
+        "card.art_history.021.c2",
+        "card.art_history.021.c5"
       ],
-      "prompt": "In art history, what is a Byzantine icon usually taken to mean?",
-      "options": [
+      "prompt": "Match each holy or royal figure with what they hold.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A holy figure painted on a wooden panel",
-          "correct": true
+          "left": "Justinian",
+          "right": "A golden paten"
         },
         {
-          "id": "b",
-          "label": "A floor mosaic of an emperor",
-          "correct": false,
-          "rationale": "Justinian's mosaic is on a wall, and it isn't an icon in this sense."
+          "left": "Theodora",
+          "right": "A chalice"
         },
         {
-          "id": "c",
-          "label": "A stone carving over a church door",
-          "correct": false,
-          "rationale": "Icons are painted images, usually on wood."
-        },
-        {
-          "id": "d",
-          "label": "A glass window showing a saint",
-          "correct": false,
-          "rationale": "Glass windows come later in this chapter."
+          "left": "The Sinai Christ",
+          "right": "A jeweled Gospel book"
         }
       ],
-      "explanation": "An icon is an image of a holy figure (Christ, Mary or a saint), usually painted on a wooden panel.",
+      "explanation": "At San Vitale, Justinian holds a golden paten and Theodora holds a chalice. In the Sinai icon, Christ holds a jeweled Gospel book.",
       "difficulty": 0.2
     },
     {

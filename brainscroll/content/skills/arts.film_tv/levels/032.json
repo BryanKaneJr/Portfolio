@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 32,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Invisible Editing",
   "objective": "After this level you can explain continuity editing and the match on action, which hide cuts so a scene feels unbroken.",
@@ -126,7 +126,7 @@
     },
     {
       "id": "question.film_tv.032.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.cutting_match_on_action"
@@ -134,33 +134,15 @@
       "sourceCardIds": [
         "card.film_tv.032.c3"
       ],
-      "prompt": "How does a match on action keep a cut from being noticed?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It fades slowly to black between the shots",
-          "correct": false,
-          "rationale": "A fade marks a break; a match on action hides one."
-        },
-        {
-          "id": "b",
-          "label": "It keeps the camera rolling with no cut at all",
-          "correct": false,
-          "rationale": "There is a cut; the movement hides it."
-        },
-        {
-          "id": "c",
-          "label": "It cuts during a movement, and the next shot continues it",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It plays loud music over the join",
-          "correct": false,
-          "rationale": "The trick is visual: the movement carries across."
-        }
+      "prompt": "Put the steps of this match on action in order, from first to last.",
+      "items": [
+        "A hand reaches for a cup",
+        "Cut",
+        "A closer shot finishes the reach"
       ],
-      "explanation": "A movement begun in one shot is picked up in the next, so you read one continuous gesture instead of a join.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "A hand reaches for a cup, the film cuts, and a closer shot finishes the reach, so you read one continuous gesture.",
       "difficulty": 0.25
     },
     {

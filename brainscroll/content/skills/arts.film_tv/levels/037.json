@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 37,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Kuleshov Effect",
   "objective": "After this level you can explain how the Kuleshov experiment showed that viewers read an actor's face from the shots around it.",
@@ -126,41 +126,31 @@
     },
     {
       "id": "question.film_tv.037.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.cutting_kuleshov_effect"
       ],
       "sourceCardIds": [
-        "card.film_tv.037.c2"
+        "card.film_tv.037.c2",
+        "card.film_tv.037.c3"
       ],
-      "prompt": "How did the experiment make one neutral face seem to show different feelings?",
-      "options": [
+      "prompt": "Match each term with what this level says it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The actor changed his expression slightly each time",
-          "correct": false,
-          "rationale": "The same shot of the face was used each time."
+          "left": "Montage",
+          "right": "The cutting and joining of shots"
         },
         {
-          "id": "b",
-          "label": "Captions told viewers what he was feeling",
-          "correct": false,
-          "rationale": "No captions: the cuts did the work."
+          "left": "Glance shot",
+          "right": "The face"
         },
         {
-          "id": "c",
-          "label": "Viewers read the face through the shot placed next to it",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Slow motion exaggerated tiny movements",
-          "correct": false,
-          "rationale": "The effect comes from editing, not camera speed."
+          "left": "Object shot",
+          "right": "The thing seen"
         }
       ],
-      "explanation": "A shot gains a second value next to another shot: soup made the same face read as hungry.",
+      "explanation": "Montage is the cutting and joining of shots. In the Kuleshov sequence, the glance shot is the face and the object shot is the thing seen.",
       "difficulty": 0.25
     },
     {

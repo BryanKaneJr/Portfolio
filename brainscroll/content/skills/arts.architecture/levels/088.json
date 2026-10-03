@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 88,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Housing for Everyone",
   "objective": "After this level you can explain informal settlements and public housing.",
@@ -101,41 +101,32 @@
   "questions": [
     {
       "id": "question.architecture.088.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.cities_informal_settlements"
       ],
       "sourceCardIds": [
-        "card.architecture.088.c2"
+        "card.architecture.088.c2",
+        "card.architecture.088.c3",
+        "card.architecture.088.c4"
       ],
-      "prompt": "Which of these is one of UN-Habitat's five tests for a slum household?",
-      "options": [
+      "prompt": "Match each housing word or project with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A private garden of any size",
-          "correct": false,
-          "rationale": "Gardens aren't on the list."
+          "left": "Secure tenure",
+          "right": "The right to stay"
         },
         {
-          "id": "b",
-          "label": "Secure tenure, the right to stay",
-          "correct": true
+          "left": "Karl-Marx-Hof",
+          "right": "About 1,100 meters long"
         },
         {
-          "id": "c",
-          "label": "A view of a park or the sea",
-          "correct": false,
-          "rationale": "The list is about safety, space and services."
-        },
-        {
-          "id": "d",
-          "label": "A parking space for a car",
-          "correct": false,
-          "rationale": "Not on the list."
+          "left": "ELEMENTAL",
+          "right": "Half of a good house"
         }
       ],
-      "explanation": "UN-Habitat's five: durable housing, enough living space, improved water, improved sanitation and secure tenure.",
+      "explanation": "Secure tenure means the right to stay. Vienna's Karl-Marx-Hof is about 1,100 meters long. ELEMENTAL designs social housing it calls \"half of a good house\".",
       "difficulty": 0.2
     },
     {

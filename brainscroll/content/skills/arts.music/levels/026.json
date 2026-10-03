@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 26,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Troubadours",
   "objective": "After this level you can describe the traveling poet-musicians of medieval Europe.",
@@ -165,7 +165,7 @@
     },
     {
       "id": "question.music.026.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.music.troubadours",
@@ -173,35 +173,30 @@
       ],
       "sourceCardIds": [
         "card.music.026.c2",
-        "card.music.024.c3"
+        "card.music.024.c3",
+        "card.music.026.c3",
+        "card.music.026.c4"
       ],
-      "prompt": "Gregorian chant served the Mass and prayer services. Where were troubadours favored?",
-      "options": [
+      "prompt": "Match each name with what it means in the troubadour story.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "In monasteries, singing the hours",
-          "correct": false,
-          "rationale": "That's chant's world."
+          "left": "Trouvères",
+          "right": "Northern France"
         },
         {
-          "id": "b",
-          "label": "In the theaters of Athens",
-          "correct": false,
-          "rationale": "That's Level 22's tragic chorus."
+          "left": "Minnesingers",
+          "right": "Germany"
         },
         {
-          "id": "c",
-          "label": "At Notre-Dame, writing organum",
-          "correct": false,
-          "rationale": "Organum is church polyphony, coming up next."
+          "left": "Trobairitz",
+          "right": "Women troubadours"
         },
         {
-          "id": "d",
-          "label": "At noble courts, singing poems of love",
-          "correct": true
+          "left": "Chansonniers",
+          "right": "Songbooks"
         }
       ],
-      "explanation": "Chant belonged to church services; troubadours were favored at courts, where their love poems were sung.",
+      "explanation": "Trouvères wrote in northern France and Minnesingers in Germany. Trobairitz were the women troubadours, and chansonniers were the songbooks the songs were copied into.",
       "difficulty": 0.25
     }
   ],

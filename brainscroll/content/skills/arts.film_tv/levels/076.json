@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 76,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Ads and Ratings",
   "objective": "After this level you can explain how advertising paid for broadcast TV and how ratings measured audiences to set its price.",
@@ -131,41 +131,31 @@
     },
     {
       "id": "question.film_tv.076.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.tv_nielsen_ratings"
       ],
       "sourceCardIds": [
-        "card.film_tv.076.c4"
+        "card.film_tv.076.c4",
+        "card.film_tv.076.c3"
       ],
-      "prompt": "A program earns a 30 share. What does that number measure?",
-      "options": [
+      "prompt": "Match each audience measure with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "30 percent of all US TV households tuned in",
-          "correct": false,
-          "rationale": "That would be a rating of 30."
+          "left": "Rating",
+          "right": "Percent of all US TV households"
         },
         {
-          "id": "b",
-          "label": "30 sponsors bought time on the show",
-          "correct": false,
-          "rationale": "Shares count viewers, not sponsors."
+          "left": "Share",
+          "right": "Percent of the people watching TV"
         },
         {
-          "id": "c",
-          "label": "The show ran for 30 minutes",
-          "correct": false,
-          "rationale": "Share has nothing to do with length."
-        },
-        {
-          "id": "d",
-          "label": "30 percent of the people watching TV at that time watched it",
-          "correct": true
+          "left": "Audimeter",
+          "right": "A small box"
         }
       ],
-      "explanation": "A share counts only people watching TV at that moment; a rating counts all TV households.",
+      "explanation": "A rating is the percent of all US TV households tuned in, a share is the percent of the people watching TV at that moment, and the Audimeter was a small box attached to the set.",
       "difficulty": 0.35
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 100,
   "type": "mastery",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Mastery Challenge: Art History",
   "objective": "After this level you can demonstrate command of Art History Levels 1–99 across the whole tree.",
@@ -195,7 +195,7 @@
     },
     {
       "id": "question.art_history.100.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.art_eras"
@@ -203,33 +203,16 @@
       "sourceCardIds": [
         "card.art_history.001.c3"
       ],
-      "prompt": "Which list puts four big eras of art in the right order?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Renaissance, Middle Ages, Baroque, modern",
-          "correct": false,
-          "rationale": "The Middle Ages came before the Renaissance."
-        },
-        {
-          "id": "b",
-          "label": "Middle Ages, Baroque, Renaissance, modern",
-          "correct": false,
-          "rationale": "The Baroque followed the Renaissance."
-        },
-        {
-          "id": "c",
-          "label": "Middle Ages, Renaissance, Baroque, modern",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Baroque, Middle Ages, modern, Renaissance",
-          "correct": false,
-          "rationale": "Modern comes last."
-        }
+      "prompt": "Put these four big eras of art in order, from earliest to latest.",
+      "items": [
+        "Middle Ages",
+        "Renaissance",
+        "Baroque",
+        "Modern"
       ],
-      "explanation": "Stone Age, ancient, Middle Ages, Renaissance, Baroque, then modern from the mid-1800s.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Middle Ages came first, then the Renaissance, then the Baroque of the 1600s, then Modern art from the mid-1800s.",
       "difficulty": 0.4
     },
     {

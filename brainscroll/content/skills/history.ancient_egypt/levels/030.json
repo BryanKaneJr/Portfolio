@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 30,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: The Pyramids",
   "objective": "After this level you can explain how and why Egyptians built pyramids.",
@@ -156,7 +156,7 @@
   "questions": [
     {
       "id": "question.ancient_egypt.030.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_egypt.mastaba_tombs",
@@ -164,35 +164,20 @@
       ],
       "sourceCardIds": [
         "card.ancient_egypt.030.c2",
-        "card.ancient_egypt.021.c2"
+        "card.ancient_egypt.021.c2",
+        "card.ancient_egypt.023.c4"
       ],
-      "prompt": "Pyramid age recap: which kind of royal tomb came first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The true pyramid",
-          "correct": false,
-          "rationale": "Sneferu’s builders came later."
-        },
-        {
-          "id": "b",
-          "label": "The step pyramid",
-          "correct": false,
-          "rationale": "Djoser’s began as something older."
-        },
-        {
-          "id": "c",
-          "label": "The flat-topped mastaba",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The hidden valley tomb",
-          "correct": false,
-          "rationale": "That came last, in the New Kingdom."
-        }
+      "prompt": "Put these royal tombs in order, from earliest to latest.",
+      "items": [
+        "Flat-topped mastaba tombs",
+        "Djoser’s Step Pyramid",
+        "Sneferu’s Bent Pyramid",
+        "Khufu’s Great Pyramid",
+        "Rulers buried in hidden tombs"
       ],
-      "explanation": "Mastabas came from the first dynasties; Djoser’s Step Pyramid began as one.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "First came flat-topped mastaba tombs, then Djoser’s Step Pyramid, Sneferu’s Bent Pyramid and his son Khufu’s Great Pyramid. In the New Kingdom, rulers were buried in hidden tombs instead.",
       "difficulty": 0.2
     },
     {

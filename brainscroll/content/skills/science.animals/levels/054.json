@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 54,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Butterflies",
   "objective": "After this level you can explain how a caterpillar becomes a butterfly.",
@@ -146,42 +146,26 @@
     },
     {
       "id": "question.animals.054.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.butterfly_pupa_rebuild"
       ],
       "sourceCardIds": [
         "card.animals.054.c3",
-        "card.animals.054.c1"
+        "card.animals.054.c1",
+        "card.animals.054.c2"
       ],
-      "prompt": "If a caterpillar dissolves inside its chrysalis, how does the butterfly get built?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Imaginal discs survive and grow into adult parts",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The caterpillar’s legs stretch into wings",
-          "correct": false,
-          "rationale": "Wings come from their own discs, not from legs."
-        },
-        {
-          "id": "c",
-          "label": "The chrysalis shell turns into the butterfly",
-          "correct": false,
-          "rationale": "The chrysalis is a casing the adult leaves behind."
-        },
-        {
-          "id": "d",
-          "label": "The soup hardens into a new body at random",
-          "correct": false,
-          "rationale": "The rebuild follows the discs’ plan."
-        }
+      "prompt": "Put a butterfly's four stages in order.",
+      "items": [
+        "Egg",
+        "Larva",
+        "Pupa",
+        "Adult"
       ],
-      "explanation": "Groups of cells called imaginal discs, grown before the caterpillar hatched, survive and use the soup to build the adult.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "A butterfly goes from egg to larva (the caterpillar) to pupa (the chrysalis) to adult.",
       "difficulty": 0.25
     },
     {

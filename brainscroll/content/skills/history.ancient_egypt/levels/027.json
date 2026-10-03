@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 27,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Great Sphinx",
   "objective": "After this level you can describe the Sphinx and what we know about it.",
@@ -121,41 +121,32 @@
     },
     {
       "id": "question.ancient_egypt.027.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.great_sphinx_giza"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.027.c2"
+        "card.ancient_egypt.027.c2",
+        "card.ancient_egypt.027.c3",
+        "card.ancient_egypt.027.c4"
       ],
-      "prompt": "Why is it more accurate to say the Great Sphinx was carved than built?",
-      "options": [
+      "prompt": "Match each name with its link to the Great Sphinx.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It was cut from a block of rock left standing in a quarry",
-          "correct": true
+          "left": "Thutmose IV",
+          "right": "The Dream Stela"
         },
         {
-          "id": "b",
-          "label": "It was cast in bronze and then painted",
-          "correct": false,
-          "rationale": "It is limestone."
+          "left": "Mark Lehner",
+          "right": "Mapped it"
         },
         {
-          "id": "c",
-          "label": "It was assembled from blocks shipped from Tura",
-          "correct": false,
-          "rationale": "Nobody moved it; it was carved in place."
-        },
-        {
-          "id": "d",
-          "label": "It is a natural rock that was never worked",
-          "correct": false,
-          "rationale": "Workers shaped it."
+          "left": "Khafre",
+          "right": "Built his own pyramid at Giza"
         }
       ],
-      "explanation": "Quarry workers left a large limestone block standing in the Giza bedrock and carved the Sphinx from it.",
+      "explanation": "Thutmose IV set up the Dream Stela at the Sphinx. Mark Lehner mapped it stone by stone. Khafre, whose face it probably shows, built his own pyramid at Giza.",
       "difficulty": 0.3
     },
     {

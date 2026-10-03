@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 86,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Photography as Art",
   "objective": "After this level you can describe how photographers like Ansel Adams made photography a fine art.",
@@ -86,41 +86,27 @@
   "questions": [
     {
       "id": "question.art_history.086.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.photo_pictorialism_to_straight"
       ],
       "sourceCardIds": [
-        "card.art_history.086.c2"
+        "card.art_history.086.c2",
+        "card.art_history.086.c1",
+        "card.art_history.086.c3",
+        "card.art_history.086.c4"
       ],
-      "prompt": "How did Pictorialist photographers try to make photos count as art?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They made prints look like paintings and etchings",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "They used the sharpest focus they could",
-          "correct": false,
-          "rationale": "That was Group f/64's answer, later."
-        },
-        {
-          "id": "c",
-          "label": "They photographed only famous paintings",
-          "correct": false,
-          "rationale": "They worked on their own prints and negatives."
-        },
-        {
-          "id": "d",
-          "label": "They refused to show photos in galleries",
-          "correct": false,
-          "rationale": "They wanted photos accepted as art."
-        }
+      "prompt": "Put these in order, from earliest to latest.",
+      "items": [
+        "The Photo-Secession",
+        "Group f/64",
+        "A department of photography",
+        "Moonrise, Hernandez"
       ],
-      "explanation": "Pictorialists worked on negatives and prints so they looked like drawings, etchings and oil paintings.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Photo-Secession was founded in 1902 and Group f/64 in 1932. MoMA's department of photography came in 1940, and Adams made Moonrise, Hernandez in 1941.",
       "difficulty": 0.2
     },
     {

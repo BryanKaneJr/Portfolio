@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 77,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Tool Use",
   "objective": "After this level you can describe animals that use tools, from chimpanzees to crows.",
@@ -92,41 +92,32 @@
   "questions": [
     {
       "id": "question.animals.077.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.animals.behavior_tool_use_def"
       ],
       "sourceCardIds": [
-        "card.animals.077.c2"
+        "card.animals.077.c2",
+        "card.animals.077.c3",
+        "card.animals.077.c4"
       ],
-      "prompt": "What did Jane Goodall see David Greybeard do in 1960?",
-      "options": [
+      "prompt": "Match each tool user with its tool.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Crack nuts with a stone",
-          "correct": false,
-          "rationale": "That wasn't Goodall's 1960 observation."
+          "left": "David Greybeard",
+          "right": "A stem of grass"
         },
         {
-          "id": "b",
-          "label": "Fish for termites with a grass stem",
-          "correct": true
+          "left": "Southern sea otters",
+          "right": "Rocks, shells and even trash"
         },
         {
-          "id": "c",
-          "label": "Build a nest of leaves",
-          "correct": false,
-          "rationale": "Her discovery was about tools."
-        },
-        {
-          "id": "d",
-          "label": "Throw rocks at a rival",
-          "correct": false,
-          "rationale": "He was feeding at a termite mound."
+          "left": "Veined octopuses",
+          "right": "Coconut shell halves"
         }
       ],
-      "explanation": "He poked grass into a termite mound and raised it to his mouth; later chimps stripped twigs to make tools.",
+      "explanation": "David Greybeard fished for termites with a stem of grass. Southern sea otters use rocks, shells and even trash, and veined octopuses carry coconut shell halves.",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 95,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Religions Around the World",
   "objective": "After this level you can describe the world's major religions and where they are practiced.",
@@ -135,7 +135,7 @@
     },
     {
       "id": "question.world_geography.095.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.major_religions"
@@ -143,33 +143,17 @@
       "sourceCardIds": [
         "card.world_geography.095.c2"
       ],
-      "prompt": "People with no religion are about 24% of the world. Where does that put them among the largest groups?",
-      "options": [
-        {
-          "id": "a",
-          "label": "First, ahead of Christians",
-          "correct": false,
-          "rationale": "Christians, at about 29%, are larger."
-        },
-        {
-          "id": "b",
-          "label": "Third, behind Christians and Muslims",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Fifth, behind Buddhists",
-          "correct": false,
-          "rationale": "Buddhists are only about 4%."
-        },
-        {
-          "id": "d",
-          "label": "Second, ahead of Muslims",
-          "correct": false,
-          "rationale": "Muslims, at about 26%, are slightly larger."
-        }
+      "prompt": "Put these groups in order, from largest to smallest share of the world.",
+      "items": [
+        "Christians",
+        "Muslims",
+        "No religion",
+        "Hindus",
+        "Buddhists"
       ],
-      "explanation": "Christians (about 29%) and Muslims (about 26%) are larger; the unaffiliated come third at about 24%, ahead of Hindus and Buddhists.",
+      "first": "Largest",
+      "last": "Smallest",
+      "explanation": "Christians are about 29% of the world, Muslims about 26%, people with no religion about 24%, Hindus about 15% and Buddhists about 4%.",
       "difficulty": 0.35
     },
     {

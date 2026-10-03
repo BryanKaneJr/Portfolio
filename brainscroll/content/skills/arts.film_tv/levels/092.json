@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 92,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Color and Mood",
   "objective": "After this level you can explain how a film's color palette and grading steer mood, and spot it in a scene.",
@@ -126,41 +126,36 @@
     },
     {
       "id": "question.film_tv.092.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.critical_color_meaning"
       ],
       "sourceCardIds": [
-        "card.film_tv.092.c3"
+        "card.film_tv.092.c3",
+        "card.film_tv.092.c2",
+        "card.film_tv.092.c4"
       ],
-      "prompt": "A friend says red always means love in movies. Using Ju Dou and Cries and Whispers, what's the best reply?",
-      "options": [
+      "prompt": "Match each film with what this level says about its color.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Right: red has meant love in every film since Technicolor",
-          "correct": false,
-          "rationale": "Cries and Whispers ties red to stagnation, not love."
+          "left": "Juliet of the Spirits",
+          "right": "Fellini's first color feature"
         },
         {
-          "id": "b",
-          "label": "Red has no effect on mood at all",
-          "correct": false,
-          "rationale": "Color does establish emotion; it just isn't fixed."
+          "left": "Ju Dou",
+          "right": "Unrestrained passion"
         },
         {
-          "id": "c",
-          "label": "Red can mean passion in one film and decay in another, so read it in context",
-          "correct": true
+          "left": "Cries and Whispers",
+          "right": "Stagnation and tainted blood"
         },
         {
-          "id": "d",
-          "label": "Only black and white films can carry meaning",
-          "correct": false,
-          "rationale": "Color is used to establish character and emotion."
+          "left": "O Brother, Where Art Thou?",
+          "right": "A sepia, old-timey look"
         }
       ],
-      "explanation": "Ju Dou uses red for passion, Cries and Whispers for stagnation and tainted blood: color has no fixed meaning.",
+      "explanation": "Juliet of the Spirits was Fellini's first color feature. Red means unrestrained passion in Ju Dou but stagnation and tainted blood in Cries and Whispers. O Brother, Where Art Thou? was graded to a sepia, old-timey look.",
       "difficulty": 0.4
     },
     {

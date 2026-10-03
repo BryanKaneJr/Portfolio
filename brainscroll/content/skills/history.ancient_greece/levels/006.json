@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 6,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Homer",
   "objective": "After this level you can describe Homer's Iliad and Odyssey and why Greeks learned them by heart.",
@@ -94,41 +94,31 @@
   "questions": [
     {
       "id": "question.ancient_greece.006.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_greece.homer_epics"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.006.c2"
+        "card.ancient_greece.006.c2",
+        "card.ancient_greece.006.c5"
       ],
-      "prompt": "What is Homer’s Odyssey about?",
-      "options": [
+      "prompt": "Match each name with what the level says about Homer’s world.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The anger of Achilles at Troy",
-          "correct": false,
-          "rationale": "That’s the Iliad."
+          "left": "The Iliad",
+          "right": "The anger of Achilles"
         },
         {
-          "id": "b",
-          "label": "Odysseus’s ten-year struggle to get home",
-          "correct": true
+          "left": "The Odyssey",
+          "right": "Odysseus, king of Ithaca"
         },
         {
-          "id": "c",
-          "label": "The founding of a Greek colony",
-          "correct": false,
-          "rationale": "It follows one man’s voyage home."
-        },
-        {
-          "id": "d",
-          "label": "The building of the wooden horse",
-          "correct": false,
-          "rationale": "The Odyssey only mentions it."
+          "left": "Milman Parry",
+          "right": "Recorded singers"
         }
       ],
-      "explanation": "The Odyssey follows Odysseus, king of Ithaca, who spends 10 years trying to get home after the Trojan War.",
+      "explanation": "The Iliad centers on the anger of Achilles, the Odyssey follows Odysseus, king of Ithaca, and Milman Parry recorded singers who composed epics without writing.",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 32,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Summer of 1787",
   "objective": "After this level you can explain how the Great Compromise settled the fight between large and small states at the Constitutional Convention.",
@@ -87,41 +87,31 @@
   "questions": [
     {
       "id": "question.us_history.032.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.republic_convention_plans"
       ],
       "sourceCardIds": [
-        "card.us_history.032.c3"
+        "card.us_history.032.c3",
+        "card.us_history.032.c2"
       ],
-      "prompt": "At the Constitutional Convention, what did the New Jersey Plan propose?",
-      "options": [
+      "prompt": "Match each plan or person with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Seats based on population or wealth",
-          "correct": false,
-          "rationale": "That was the Virginia Plan."
+          "left": "Virginia’s plan",
+          "right": "population or wealth"
         },
         {
-          "id": "b",
-          "label": "Equal representation for every state",
-          "correct": true
+          "left": "New Jersey Plan",
+          "right": "equal representation for every state"
         },
         {
-          "id": "c",
-          "label": "Keeping the Articles with no changes",
-          "correct": false,
-          "rationale": "It proposed a new Congress with equal representation."
-        },
-        {
-          "id": "d",
-          "label": "A Congress chosen by Rhode Island’s rules",
-          "correct": false,
-          "rationale": "Rhode Island sent no one."
+          "left": "George Washington",
+          "right": "to preside"
         }
       ],
-      "explanation": "William Paterson’s New Jersey Plan gave every state equal representation.",
+      "explanation": "Virginia’s plan represented each state by population or wealth, the New Jersey Plan gave equal representation to every state, and the delegates elected George Washington to preside.",
       "difficulty": 0.25
     },
     {

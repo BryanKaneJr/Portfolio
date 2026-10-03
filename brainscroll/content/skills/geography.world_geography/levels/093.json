@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 93,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Countries and Borders",
   "objective": "After this level you can explain how borders are drawn and why the count of countries varies.",
@@ -173,7 +173,7 @@
     },
     {
       "id": "question.world_geography.093.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.world_geography.border_types",
@@ -181,35 +181,25 @@
       ],
       "sourceCardIds": [
         "card.world_geography.093.c4",
-        "card.world_geography.003.c2"
+        "card.world_geography.003.c2",
+        "card.world_geography.093.c3"
       ],
-      "prompt": "Much of the Canada-US border follows the 49th parallel. Using Level 3, what does that line mark?",
-      "options": [
+      "prompt": "Match each border with what it follows.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A place 49° north of the Equator",
-          "correct": true
+          "left": "France and Spain",
+          "right": "The Pyrenees"
         },
         {
-          "id": "b",
-          "label": "A place 49° east of Greenwich",
-          "correct": false,
-          "rationale": "That would be a meridian, measuring longitude."
+          "left": "US-Mexico border",
+          "right": "The Rio Grande"
         },
         {
-          "id": "c",
-          "label": "A mountain ridge 49 km long",
-          "correct": false,
-          "rationale": "It ignores the landscape completely."
-        },
-        {
-          "id": "d",
-          "label": "The 49th time zone",
-          "correct": false,
-          "rationale": "There are only 24 standard zones."
+          "left": "Canada-US border",
+          "right": "The 49th parallel"
         }
       ],
-      "explanation": "Parallels measure latitude, distance north or south of the Equator. The 49th parallel sits 49° north, and the border simply follows it.",
+      "explanation": "The border between France and Spain follows the Pyrenees. Part of the US-Mexico border follows the Rio Grande, and much of the Canada-US border follows the 49th parallel.",
       "difficulty": 0.3
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 1,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Ancient Egypt: The Big Picture",
   "objective": "After this level you can describe the Old, Middle and New Kingdoms and roughly when each flourished.",
@@ -104,7 +104,7 @@
   "questions": [
     {
       "id": "question.ancient_egypt.001.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_egypt.egypt_eras"
@@ -112,33 +112,17 @@
       "sourceCardIds": [
         "card.ancient_egypt.001.c2"
       ],
-      "prompt": "Which list puts ancient Egypt’s three great kingdoms in order, earliest first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Old, New, Middle",
-          "correct": false,
-          "rationale": "The Middle Kingdom came second."
-        },
-        {
-          "id": "b",
-          "label": "Middle, Old, New",
-          "correct": false,
-          "rationale": "The Old Kingdom came first."
-        },
-        {
-          "id": "c",
-          "label": "New, Middle, Old",
-          "correct": false,
-          "rationale": "That runs backwards."
-        },
-        {
-          "id": "d",
-          "label": "Old, Middle, New",
-          "correct": true
-        }
+      "prompt": "Put these big moments of ancient Egypt in order, from earliest to latest.",
+      "items": [
+        "Upper and Lower Egypt become one kingdom",
+        "Old Kingdom",
+        "Middle Kingdom",
+        "New Kingdom",
+        "Egypt becomes a province of Rome"
       ],
-      "explanation": "Old Kingdom from about 2686 BCE, Middle Kingdom from about 2055 BCE, New Kingdom from about 1550 BCE.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "First, Upper and Lower Egypt became one kingdom. Then came the Old Kingdom, the Middle Kingdom and the New Kingdom, and in 30 BCE Egypt became a province of Rome.",
       "difficulty": 0.15
     },
     {

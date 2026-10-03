@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 93,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Endangered Species",
   "objective": "After this level you can explain why species become endangered.",
@@ -91,7 +91,7 @@
   "questions": [
     {
       "id": "question.animals.093.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.animals.redlist_categories"
@@ -99,33 +99,18 @@
       "sourceCardIds": [
         "card.animals.093.c2"
       ],
-      "prompt": "Which three IUCN Red List categories together count as 'threatened'?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Near Threatened, Vulnerable, Endangered",
-          "correct": false,
-          "rationale": "Near Threatened sits just outside the threatened group."
-        },
-        {
-          "id": "b",
-          "label": "Endangered, Critically Endangered, Extinct in the Wild",
-          "correct": false,
-          "rationale": "Extinct in the Wild is past threatened."
-        },
-        {
-          "id": "c",
-          "label": "Data Deficient, Near Threatened, Least Concern",
-          "correct": false,
-          "rationale": "These are all outside the threatened group."
-        },
-        {
-          "id": "d",
-          "label": "Vulnerable, Endangered, Critically Endangered",
-          "correct": true
-        }
+      "prompt": "Put these Red List rungs in order, from safest to closest to gone.",
+      "items": [
+        "Least Concern",
+        "Near Threatened",
+        "Vulnerable",
+        "Endangered",
+        "Critically Endangered",
+        "Extinct in the Wild"
       ],
-      "explanation": "Vulnerable, Endangered and Critically Endangered are the three threatened categories.",
+      "first": "Safest",
+      "last": "Closest to gone",
+      "explanation": "The ladder runs Least Concern, Near Threatened, Vulnerable, Endangered, Critically Endangered, Extinct in the Wild, then Extinct.",
       "difficulty": 0.2
     },
     {

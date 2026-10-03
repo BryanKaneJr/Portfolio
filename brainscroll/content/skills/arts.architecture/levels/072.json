@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 72,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Frank Lloyd Wright",
   "objective": "After this level you can explain Fallingwater and buildings that fit their landscape.",
@@ -100,42 +100,32 @@
   "questions": [
     {
       "id": "question.architecture.072.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.masters_wright_fallingwater"
       ],
       "sourceCardIds": [
         "card.architecture.072.c1",
-        "card.architecture.072.c2"
+        "card.architecture.072.c2",
+        "card.architecture.072.c3"
       ],
-      "prompt": "Where did Frank Lloyd Wright place Fallingwater in relation to the falls on Bear Run?",
-      "options": [
+      "prompt": "Match each Fallingwater word with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Across the stream, facing the falls",
-          "correct": false,
-          "rationale": "That's what the Kaufmanns expected."
+          "left": "Cantilever",
+          "right": "A beam supported at only one end"
         },
         {
-          "id": "b",
-          "label": "Directly over the falls, on cantilevers",
-          "correct": true
+          "left": "Organic architecture",
+          "right": "In harmony with its site"
         },
         {
-          "id": "c",
-          "label": "Downstream, out of sight of the falls",
-          "correct": false,
-          "rationale": "Wright built right over the water."
-        },
-        {
-          "id": "d",
-          "label": "On the hilltop above the valley",
-          "correct": false,
-          "rationale": "He put the house over the falls themselves."
+          "left": "Central chimney",
+          "right": "Local sandstone"
         }
       ],
-      "explanation": "The Kaufmanns expected a house facing the falls; Wright cantilevered Fallingwater directly over them.",
+      "explanation": "A cantilever is a beam supported at only one end. Wright's organic architecture means a building in harmony with its site. Fallingwater's concrete trays are anchored to a central chimney of local sandstone.",
       "difficulty": 0.15
     },
     {

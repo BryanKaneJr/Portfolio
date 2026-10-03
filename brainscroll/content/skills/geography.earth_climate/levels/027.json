@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 27,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How Landslides Happen",
   "objective": "After this level you can explain how slope, water and gravity combine to send rock and soil sliding downhill.",
@@ -165,7 +165,7 @@
     },
     {
       "id": "question.earth_climate.027.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.earth_climate.land_slope_failure",
@@ -173,35 +173,25 @@
       ],
       "sourceCardIds": [
         "card.earth_climate.027.c3",
-        "card.earth_climate.023.c3"
+        "card.earth_climate.023.c3",
+        "card.earth_climate.027.c4"
       ],
-      "prompt": "Level 23's mountain stream keeps eroding downward along its bed. Using Level 27, how can that set off landslides on the valley walls?",
-      "options": [
+      "prompt": "Match each landslide trigger with how it works.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It oversteepens the foot of the slopes",
-          "correct": true
+          "left": "Stream cutting into the foot",
+          "right": "Oversteepens it"
         },
         {
-          "id": "b",
-          "label": "It freezes the walls solid",
-          "correct": false,
-          "rationale": "Streams don't freeze valley walls."
+          "left": "Earthquakes",
+          "right": "Shake a slope loose"
         },
         {
-          "id": "c",
-          "label": "It fills the valley with sand until it overflows",
-          "correct": false,
-          "rationale": "Erosion removes material; it doesn't fill the valley."
-        },
-        {
-          "id": "d",
-          "label": "It turns the walls into limestone",
-          "correct": false,
-          "rationale": "Erosion doesn't change one rock into another."
+          "left": "Wildfire",
+          "right": "Burned ground soaks up less rain"
         }
       ],
-      "explanation": "Cutting into the base of a slope oversteepens it, building the stresses that make slopes fail.",
+      "explanation": "A stream cutting into the foot of a slope oversteepens it, earthquakes shake a slope loose, and after wildfire, burned ground soaks up less rain.",
       "difficulty": 0.3
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 21,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Oldest Instruments",
   "objective": "After this level you can describe the ancient bone flutes found in caves.",
@@ -126,41 +126,33 @@
     },
     {
       "id": "question.music.021.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.divje_babe_debate"
       ],
       "sourceCardIds": [
-        "card.music.021.c4"
+        "card.music.021.c4",
+        "card.music.021.c1",
+        "card.music.021.c2",
+        "card.music.021.c3"
       ],
-      "prompt": "Why isn't the holed Divje Babe bone from Slovenia accepted as the oldest flute?",
-      "options": [
+      "prompt": "Match each cave with what its find was made from.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It turned out to be a modern fake",
-          "correct": false,
-          "rationale": "Nobody doubts its age; the argument is about the holes."
+          "left": "Hohle Fels",
+          "right": "A griffon vulture"
         },
         {
-          "id": "b",
-          "label": "It has no holes at all",
-          "correct": false,
-          "rationale": "It has round holes; the question is what made them."
+          "left": "Geissenklösterle",
+          "right": "Mammoth ivory"
         },
         {
-          "id": "c",
-          "label": "It is younger than the Hohle Fels flute",
-          "correct": false,
-          "rationale": "It's more than 40,000 years old; age isn't the problem."
-        },
-        {
-          "id": "d",
-          "label": "Its holes may be hyena bite marks",
-          "correct": true
+          "left": "Divje Babe",
+          "right": "A young cave bear's thigh bone"
         }
       ],
-      "explanation": "Hyena tooth marks were found at the holes, and most paleoanthropologists accept it as a chewed bone.",
+      "explanation": "The Hohle Fels flute is a wing bone of a griffon vulture, Geissenklösterle Cave held flutes of bird bone and mammoth ivory, and Divje Babe gave up a young cave bear's thigh bone.",
       "difficulty": 0.3
     },
     {

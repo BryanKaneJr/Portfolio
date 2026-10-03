@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 27,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Pagodas",
   "objective": "After this level you can explain how tall wooden pagodas survive earthquakes.",
@@ -86,41 +86,32 @@
   "questions": [
     {
       "id": "question.architecture.027.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.pagoda_central_pillar"
       ],
       "sourceCardIds": [
-        "card.architecture.027.c4"
+        "card.architecture.027.c4",
+        "card.architecture.027.c2",
+        "card.architecture.027.c3"
       ],
-      "prompt": "At the Hōryū-ji pagoda, what does the central pillar, the shinbashira, hold up?",
-      "options": [
+      "prompt": "Match each pagoda word with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Every floor of the pagoda",
-          "correct": false,
-          "rationale": "The stories rest on each other, not on the pillar."
+          "left": "Stupa",
+          "right": "A domed monument"
         },
         {
-          "id": "b",
-          "label": "Only the ornamental spire on top",
-          "correct": true
+          "left": "Shinbashira",
+          "right": "Supports only the ornamental spire"
         },
         {
-          "id": "c",
-          "label": "The foundation stones",
-          "correct": false,
-          "rationale": "It stands on a base stone; it doesn't hold it up."
-        },
-        {
-          "id": "d",
-          "label": "The deep eaves of the first story",
-          "correct": false,
-          "rationale": "The eaves belong to the stories, not the pillar."
+          "left": "Deep eaves",
+          "right": "Work like a balancing toy"
         }
       ],
-      "explanation": "At Hōryū-ji the shinbashira supports only the spire on top, independently of the main structure.",
+      "explanation": "A stupa is a domed monument built to house relics. At Hōryū-ji the shinbashira supports only the ornamental spire, and the deep eaves work like a balancing toy.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 14,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Greek Vases",
   "objective": "After this level you can explain black-figure and red-figure vase painting.",
@@ -129,41 +129,37 @@
     },
     {
       "id": "question.art_history.014.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.greek_red_figure"
       ],
       "sourceCardIds": [
-        "card.art_history.014.c4"
+        "card.art_history.014.c4",
+        "card.art_history.014.c1",
+        "card.art_history.014.c2",
+        "card.art_history.014.c3"
       ],
-      "prompt": "Why did red-figure let painters show bodies and faces more freely?",
-      "options": [
+      "prompt": "Match each part of Greek vase painting with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The clay was a brighter red",
-          "correct": false,
-          "rationale": "The color swap wasn't the point; the brush was."
+          "left": "Black-figure",
+          "right": "Scratched fine details"
         },
         {
-          "id": "b",
-          "label": "Figures were carved in raised relief",
-          "correct": false,
-          "rationale": "They are painted on the surface."
+          "left": "Red-figure",
+          "right": "Details went on with a brush"
         },
         {
-          "id": "c",
-          "label": "The vases were fired only once",
-          "correct": false,
-          "rationale": "The firing still had three stages."
+          "left": "Slip",
+          "right": "A fine liquid clay"
         },
         {
-          "id": "d",
-          "label": "Details were painted with a brush, not scratched",
-          "correct": true
+          "left": "Exekias",
+          "right": "Both potter and painter"
         }
       ],
-      "explanation": "Painting details with a brush gave more freedom for anatomy, movement and expression than incising them.",
+      "explanation": "Black-figure painters scratched fine details through the black, red-figure details went on with a brush, slip is a fine liquid clay, and Exekias signed as both potter and painter.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 6,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Why Money Has Value",
   "objective": "After this level you can explain why money is valuable because people trust it and accept it.",
@@ -139,42 +139,23 @@
     },
     {
       "id": "question.how_money_works.006.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.money_trust"
       ],
       "sourceCardIds": [
-        "card.how_money_works.006.c1",
         "card.how_money_works.006.c3"
       ],
-      "prompt": "Why does a $100 bill buy far more than it costs to print?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Its ink contains real gold",
-          "correct": false,
-          "rationale": "Printing costs about 11 cents, gold or no gold."
-        },
-        {
-          "id": "b",
-          "label": "People trust that others will accept it",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Shops are paid extra to take it",
-          "correct": false,
-          "rationale": "Nobody pays shops; they accept it because others will."
-        },
-        {
-          "id": "d",
-          "label": "Its special paper is very rare",
-          "correct": false,
-          "rationale": "The paper is cheap. The trust is what's valuable."
-        }
+      "prompt": "Your $100 bill passes along the chain of confidence. Put the people in order, from the first to take it to the last.",
+      "items": [
+        "Baker",
+        "Flour supplier",
+        "Landlord"
       ],
-      "explanation": "Its value comes from confidence: everyone accepts it because everyone else does.",
+      "first": "Takes it first",
+      "last": "Takes it last",
+      "explanation": "The baker takes your bill because her flour supplier will take it from her, and he takes it because his landlord will.",
       "difficulty": 0.2
     },
     {

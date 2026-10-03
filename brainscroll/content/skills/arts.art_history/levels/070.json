@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 70,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Breaking the Rules",
   "objective": "After this level you can explain how modern artists moved from Post-Impressionism to abstraction and Surrealism.",
@@ -234,7 +234,7 @@
     },
     {
       "id": "question.art_history.070.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.art_history.expr_scream",
@@ -245,33 +245,18 @@
       "sourceCardIds": [
         "card.art_history.070.c2"
       ],
-      "prompt": "Chapter recap: which of these came last?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Munch paints The Scream",
-          "correct": false,
-          "rationale": "That was 1893."
-        },
-        {
-          "id": "b",
-          "label": "Picasso and Braque start Cubism",
-          "correct": false,
-          "rationale": "That began in 1907."
-        },
-        {
-          "id": "c",
-          "label": "Dada begins in Zurich",
-          "correct": false,
-          "rationale": "That was 1916."
-        },
-        {
-          "id": "d",
-          "label": "Breton's Surrealist manifesto",
-          "correct": true
-        }
+      "prompt": "Put the chapter's moments in order, from earliest to latest.",
+      "items": [
+        "Gauguin paints a vision on a red field",
+        "Van Gogh's The Starry Night",
+        "Munch's The Scream",
+        "Picasso and Braque build Cubism",
+        "Dada in Zurich",
+        "Breton's Surrealist manifesto"
       ],
-      "explanation": "Breton published the Manifesto of Surrealism in 1924, the latest of these.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Gauguin's vision (1888), The Starry Night (1889), The Scream (1893), Cubism (1907-1914), Dada in Zurich (1916-1917), then Breton's Surrealist manifesto (1924).",
       "difficulty": 0.35
     },
     {

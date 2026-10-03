@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 67,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Hong Kong Action",
   "objective": "After this level you can explain how Hong Kong studios turned martial arts and stunt choreography into a style copied around the world.",
@@ -87,41 +87,27 @@
   "questions": [
     {
       "id": "question.film_tv.067.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.world_hong_kong_kung_fu"
       ],
       "sourceCardIds": [
-        "card.film_tv.067.c2"
+        "card.film_tv.067.c2",
+        "card.film_tv.067.c1",
+        "card.film_tv.067.c4"
       ],
-      "prompt": "What was Enter the Dragon (1973) the first of?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The first kung fu film shot in color and released worldwide",
-          "correct": false,
-          "rationale": "The level names a business first, not a color first."
-        },
-        {
-          "id": "b",
-          "label": "The first film that Bruce Lee wrote, directed and choreographed",
-          "correct": false,
-          "rationale": "The level describes it as a joint venture."
-        },
-        {
-          "id": "c",
-          "label": "The first joint venture between Hong Kong and U.S. production companies",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The first Hollywood film to use Hong Kong wirework for fights",
-          "correct": false,
-          "rationale": "Wirework is Yuen Woo-ping's story, later."
-        }
+      "prompt": "Put these films in order, from earliest to latest.",
+      "items": [
+        "The Big Boss",
+        "Fist of Fury",
+        "Enter the Dragon",
+        "Drunken Master",
+        "The Matrix"
       ],
-      "explanation": "Enter the Dragon joined Hong Kong and U.S. production companies and became a worldwide hit.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Big Boss came in 1971, Fist of Fury in 1972, Enter the Dragon in 1973, Drunken Master in 1978 and The Matrix in 1999.",
       "difficulty": 0.25
     },
     {

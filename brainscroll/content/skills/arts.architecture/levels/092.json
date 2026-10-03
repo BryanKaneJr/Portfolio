@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 92,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Living Walls",
   "objective": "After this level you can explain green roofs and planted walls.",
@@ -130,41 +130,36 @@
     },
     {
       "id": "question.architecture.092.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.future_green_roof"
       ],
       "sourceCardIds": [
-        "card.architecture.092.c2"
+        "card.architecture.092.c2",
+        "card.architecture.092.c1",
+        "card.architecture.092.c3"
       ],
-      "prompt": "Why does an intensive green roof need more structural support than an extensive one?",
-      "options": [
+      "prompt": "Match each green roof, wall or designer with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It is heavier: it can hold a park with trees",
-          "correct": true
+          "left": "Extensive roof",
+          "right": "2 to 4 inches of growing medium"
         },
         {
-          "id": "b",
-          "label": "Its plants need extra sunlight",
-          "correct": false,
-          "rationale": "Sunlight adds no weight."
+          "left": "Intensive roof",
+          "right": "A whole park with trees"
         },
         {
-          "id": "c",
-          "label": "It sheds more rainwater onto the walls",
-          "correct": false,
-          "rationale": "Green roofs reduce runoff."
+          "left": "Patrick Blanc",
+          "right": "Without any soil"
         },
         {
-          "id": "d",
-          "label": "It uses only 2 to 4 inches of growing medium",
-          "correct": false,
-          "rationale": "That thin layer is the light, extensive kind."
+          "left": "Stefano Boeri",
+          "right": "Vertical Forest"
         }
       ],
-      "explanation": "Intensive roofs can be whole parks with trees; they are heavier, so the building needs more support.",
+      "explanation": "An extensive roof uses just 2 to 4 inches of growing medium, while an intensive roof can be a whole park with trees. Patrick Blanc grows living walls without any soil, and Stefano Boeri designed Milan's Vertical Forest.",
       "difficulty": 0.2
     },
     {

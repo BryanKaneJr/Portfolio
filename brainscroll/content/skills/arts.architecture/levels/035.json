@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 35,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Alhambra",
   "objective": "After this level you can describe the Alhambra's courtyards and carvings.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "question.architecture.035.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.alhambra_carved_stucco",
@@ -138,35 +138,30 @@
       ],
       "sourceCardIds": [
         "card.architecture.035.c4",
-        "card.architecture.035.c1"
+        "card.architecture.035.c1",
+        "card.architecture.035.c2",
+        "card.architecture.035.c3"
       ],
-      "prompt": "Behind the Alhambra's plain fortress walls, what covers its walls above the tiles?",
-      "options": [
+      "prompt": "Match each part of the Alhambra with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Bare reddish rammed earth, left unpainted",
-          "correct": false,
-          "rationale": "That's the outside walls."
+          "left": "Court of the Myrtles",
+          "right": "A large reflecting pool"
         },
         {
-          "id": "b",
-          "label": "Mirrors on arches facing tall windows",
-          "correct": false,
-          "rationale": "That's Versailles, later in this chapter."
+          "left": "The Royal Canal",
+          "right": "Water from the Darro river"
         },
         {
-          "id": "c",
-          "label": "Carved stucco: patterns and calligraphy",
-          "correct": true
+          "left": "Lower walls",
+          "right": "Geometric tiles"
         },
         {
-          "id": "d",
-          "label": "Semiprecious stones inlaid in marble",
-          "correct": false,
-          "rationale": "The Alhambra carved plaster."
+          "left": "The Comares facade",
+          "right": "Painted in brilliant colours"
         }
       ],
-      "explanation": "Inside, geometric tiles cover the lower walls and carved stucco, in bands of curving patterns and calligraphy, covers the surfaces above.",
+      "explanation": "The Court of the Myrtles has a large reflecting pool. The Royal Canal took water from the Darro river. Geometric tiles cover the lower walls, and the Comares facade's stucco was once painted in brilliant colours.",
       "difficulty": 0.2
     },
     {

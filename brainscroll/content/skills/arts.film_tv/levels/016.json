@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 16,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "A Night at the Silent Movies",
   "objective": "After this level you can describe how silent films were shown, with intertitles, live music and grand movie palaces.",
@@ -131,41 +131,36 @@
     },
     {
       "id": "question.film_tv.016.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.silent_live_music"
       ],
       "sourceCardIds": [
-        "card.film_tv.016.c3"
+        "card.film_tv.016.c3",
+        "card.film_tv.016.c2",
+        "card.film_tv.016.c4"
       ],
-      "prompt": "How could a theater's pianist or organist know what to play for a new film?",
-      "options": [
+      "prompt": "Match each part of a night at the silent movies with what this level says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They listened to a recording sent with the film",
-          "correct": false,
-          "rationale": "The music was live; nothing in the level mentions recordings."
+          "left": "Intertitle",
+          "right": "A printed card"
         },
         {
-          "id": "b",
-          "label": "Published cue sheets sent out with films suggested the music",
-          "correct": true
+          "left": "Cue sheets",
+          "right": "A plan for each film"
         },
         {
-          "id": "c",
-          "label": "The intertitles printed the notes on screen",
-          "correct": false,
-          "rationale": "Intertitles carried dialogue or explanation."
+          "left": "Strand Theatre",
+          "right": "Seated around 3,000 people"
         },
         {
-          "id": "d",
-          "label": "The law required the same song for every film",
-          "correct": false,
-          "rationale": "Nothing in the level says so."
+          "left": "The Last Laugh",
+          "right": "Almost entirely without intertitles"
         }
       ],
-      "explanation": "Films were eventually distributed with published cue sheets suggesting what the pianist or organist should play.",
+      "explanation": "An intertitle is a printed card, cue sheets gave accompanists a plan for each film, the Strand Theatre seated around 3,000 people, and The Last Laugh told its story almost entirely without intertitles.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 99,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Egypt's Legacy",
   "objective": "After this level you can name what the modern world still owes to ancient Egypt.",
@@ -97,41 +97,36 @@
   "questions": [
     {
       "id": "question.ancient_egypt.099.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_egypt.egypt_legacy_today"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.099.c4"
+        "card.ancient_egypt.099.c4",
+        "card.ancient_egypt.099.c2",
+        "card.ancient_egypt.099.c3"
       ],
-      "prompt": "Where does the English word “paper” come from?",
-      "options": [
+      "prompt": "Match each piece of Egypt’s legacy with what the cards link it to.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Papyrus, the Egyptian writing material",
-          "correct": true
+          "left": "Paper",
+          "right": "Papyrus"
         },
         {
-          "id": "b",
-          "label": "Ptolemy, the name of Egypt’s Greek kings",
-          "correct": false,
-          "rationale": "It comes from a writing material, not a king."
+          "left": "Sosigenes",
+          "right": "An astronomer from Alexandria"
         },
         {
-          "id": "c",
-          "label": "A Latin word for tree bark",
-          "correct": false,
-          "rationale": "It traces back to papyrus."
+          "left": "Pope Gregory XIII",
+          "right": "1582"
         },
         {
-          "id": "d",
-          "label": "Paris, where paper was first made",
-          "correct": false,
-          "rationale": "It comes from papyrus."
+          "left": "Aleph",
+          "right": "Ox"
         }
       ],
-      "explanation": "Paper takes its name from papyrus, which the Greeks and Romans adopted from Egypt.",
+      "explanation": "The word paper comes from papyrus. Sosigenes, an astronomer from Alexandria, advised Caesar on the calendar, and Pope Gregory XIII fine-tuned it in 1582. Aleph, the ancestor of our A, meant “ox.”",
       "difficulty": 0.15
     },
     {

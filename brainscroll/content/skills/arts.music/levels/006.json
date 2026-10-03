@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 6,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Harmony and Chords",
   "objective": "After this level you can explain how notes combine into chords.",
@@ -125,41 +125,31 @@
     },
     {
       "id": "question.music.006.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.consonance_dissonance"
       ],
       "sourceCardIds": [
-        "card.music.006.c3"
+        "card.music.006.c3",
+        "card.music.006.c2"
       ],
-      "prompt": "A song holds a clashing chord, then lands on a calm one. What is it doing?",
-      "options": [
+      "prompt": "Match each word with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Building tension, then resolving it",
-          "correct": true
+          "left": "Consonance",
+          "right": "Stable and restful"
         },
         {
-          "id": "b",
-          "label": "Speeding up the tempo for the ending",
-          "correct": false,
-          "rationale": "This is about how notes sound together, not speed."
+          "left": "Dissonance",
+          "right": "Clash and create tension"
         },
         {
-          "id": "c",
-          "label": "Changing the melody's contour",
-          "correct": false,
-          "rationale": "Contour is a single line's shape."
-        },
-        {
-          "id": "d",
-          "label": "Making a mistake the band fixes",
-          "correct": false,
-          "rationale": "Tension and release is deliberate."
+          "left": "Triad",
+          "right": "A three-note chord"
         }
       ],
-      "explanation": "Dissonance creates tension; consonance sounds stable. Music uses both to build and release tension.",
+      "explanation": "Consonance sounds stable and restful, dissonance means notes clash and create tension, and a triad is a three-note chord.",
       "difficulty": 0.25
     },
     {

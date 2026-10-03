@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 2,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "How Many Species?",
   "objective": "After this level you can explain how many animal species are known and how many may exist.",
@@ -163,7 +163,7 @@
     },
     {
       "id": "question.animals.002.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.species_described_count",
@@ -171,35 +171,30 @@
       ],
       "sourceCardIds": [
         "card.animals.002.c2",
-        "card.animals.001.c4"
+        "card.animals.001.c4",
+        "card.animals.002.c3",
+        "card.animals.002.c4"
       ],
-      "prompt": "Level 1 put insects in the crowd without backbones. About how many of the described animal species are insects?",
-      "options": [
+      "prompt": "Match each count with its number.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "About 10,000",
-          "correct": false,
-          "rationale": "Far too few."
+          "left": "Named so far",
+          "right": "About 1.5 million"
         },
         {
-          "id": "b",
-          "label": "About 100,000",
-          "correct": false,
-          "rationale": "Ten times too few."
+          "left": "Insects",
+          "right": "About 1 million"
         },
         {
-          "id": "c",
-          "label": "About 1 million",
-          "correct": true
+          "left": "Mora's estimate",
+          "right": "About 7.8 million"
         },
         {
-          "id": "d",
-          "label": "About 7.8 million",
-          "correct": false,
-          "rationale": "That's the estimate for all animals, named or not."
+          "left": "Naming them all",
+          "right": "Up to 1,200 years"
         }
       ],
-      "explanation": "About 1 million of IUCN's roughly 1.5 million described animal species are insects.",
+      "explanation": "About 1.5 million animal species are named so far, about 1 million of them insects. Mora's estimate is about 7.8 million animal species, and naming them all could take up to 1,200 years.",
       "difficulty": 0.25
     }
   ],

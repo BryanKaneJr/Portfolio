@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 14,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Taxes Paid in Grain",
   "objective": "After this level you can explain how Egypt collected taxes without coins.",
@@ -132,41 +132,32 @@
     },
     {
       "id": "question.ancient_egypt.014.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.grain_taxes"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.014.c3"
+        "card.ancient_egypt.014.c3",
+        "card.ancient_egypt.014.c2",
+        "card.ancient_egypt.014.c4"
       ],
-      "prompt": "Why did Egyptian tax officials care how high the Nile rose?",
-      "options": [
+      "prompt": "Match each part of Egypt’s tax system with what it did.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A high flood meant the king was angry",
-          "correct": false,
-          "rationale": "The link was practical: harvests."
+          "left": "Nilometers",
+          "right": "Measured how high the flood rose"
         },
         {
-          "id": "b",
-          "label": "The flood height predicted the harvest, and so the tax",
-          "correct": true
+          "left": "State granaries",
+          "right": "Held massive reserves"
         },
         {
-          "id": "c",
-          "label": "Taxes were paid in river water",
-          "correct": false,
-          "rationale": "Taxes came from harvests and goods."
-        },
-        {
-          "id": "d",
-          "label": "Boats could only reach tax offices at high water",
-          "correct": false,
-          "rationale": "The nilometer measured harvest prospects."
+          "left": "Following of Horus",
+          "right": "The king himself toured the country"
         }
       ],
-      "explanation": "A flood level that promised a strong harvest meant higher taxes.",
+      "explanation": "Nilometers measured how high the flood rose, state granaries held massive reserves, and in the Following of Horus the king himself toured the country.",
       "difficulty": 0.3
     },
     {

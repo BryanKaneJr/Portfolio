@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 43,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why the Air Thins as You Climb",
   "objective": "After this level you can explain what air pressure is and why it drops the higher you go.",
@@ -165,7 +165,7 @@
     },
     {
       "id": "question.earth_climate.043.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.earth_climate.air_pressure_altitude",
@@ -173,35 +173,26 @@
       ],
       "sourceCardIds": [
         "card.earth_climate.043.c3",
-        "card.earth_climate.042.c2"
+        "card.earth_climate.042.c2",
+        "card.earth_climate.043.c2",
+        "card.earth_climate.043.c4"
       ],
-      "prompt": "Half of all the air lies within about 5.6 km of the surface. Which of Level 42's layers holds that half?",
-      "options": [
+      "prompt": "Match each with its number from this level.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The stratosphere",
-          "correct": false,
-          "rationale": "It starts above about 10 km."
+          "left": "Sea level",
+          "right": "About 1,013 millibars"
         },
         {
-          "id": "b",
-          "label": "The mesosphere",
-          "correct": false,
-          "rationale": "That's far higher and very thin."
+          "left": "Half of all the air",
+          "right": "Within about 5.6 km"
         },
         {
-          "id": "c",
-          "label": "The thermosphere",
-          "correct": false,
-          "rationale": "That's the thinnest air of all."
-        },
-        {
-          "id": "d",
-          "label": "The troposphere",
-          "correct": true
+          "left": "Mount Everest's summit",
+          "right": "About 9 km up"
         }
       ],
-      "explanation": "The troposphere reaches about 10 km, so the lowest 5.6 km, with half the air, is inside it.",
+      "explanation": "Air pressure at sea level is about 1,013 millibars, half of all the air lies within about 5.6 km of the surface, and Everest's summit is about 9 km up.",
       "difficulty": 0.3
     }
   ],

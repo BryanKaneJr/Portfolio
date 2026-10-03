@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 17,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why the Same Quake Shakes Unevenly",
   "objective": "After this level you can explain how distance, depth and soft ground, including liquefaction, change how hard a place shakes.",
@@ -130,42 +130,32 @@
     },
     {
       "id": "question.earth_climate.017.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.quake_liquefaction"
       ],
       "sourceCardIds": [
         "card.earth_climate.017.c1",
-        "card.earth_climate.017.c4"
+        "card.earth_climate.017.c4",
+        "card.earth_climate.017.c3"
       ],
-      "prompt": "Why did San Francisco's Marina district suffer so badly in 1989?",
-      "options": [
+      "prompt": "Match each earthquake with the city it struck near.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It sat right on top of the epicenter",
-          "correct": false,
-          "rationale": "The quake was centered south of the city."
+          "left": "Loma Prieta",
+          "right": "San Francisco"
         },
         {
-          "id": "b",
-          "label": "Its loose, sandy fill lost strength and liquefied",
-          "correct": true
+          "left": "Northridge",
+          "right": "Los Angeles"
         },
         {
-          "id": "c",
-          "label": "It was built directly on solid bedrock",
-          "correct": false,
-          "rationale": "The Marina stood on loose fill, not bedrock."
-        },
-        {
-          "id": "d",
-          "label": "The quake had a higher magnitude there",
-          "correct": false,
-          "rationale": "A quake has only one magnitude."
+          "left": "Nisqually",
+          "right": "Seattle"
         }
       ],
-      "explanation": "The Marina stood on filled land of loose, sandy soil, and in strong shaking that soil liquefied.",
+      "explanation": "The Loma Prieta quake struck south of San Francisco, Northridge near Los Angeles and Nisqually near Seattle.",
       "difficulty": 0.3
     },
     {

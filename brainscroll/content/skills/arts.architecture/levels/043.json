@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 43,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Yurts and Tents",
   "objective": "After this level you can explain the portable homes of nomads.",
@@ -134,41 +134,31 @@
     },
     {
       "id": "question.architecture.043.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.home_ger_forces"
       ],
       "sourceCardIds": [
-        "card.architecture.043.c3"
+        "card.architecture.043.c3",
+        "card.architecture.043.c2"
       ],
-      "prompt": "In a yurt, what job does the band around the top of the wall do?",
-      "options": [
+      "prompt": "Match each part of a ger, or yurt, with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It holds the roof poles in tension against their outward push",
-          "correct": true
+          "left": "Center ring",
+          "right": "Holds them in compression"
         },
         {
-          "id": "b",
-          "label": "It squeezes the center ring shut",
-          "correct": false,
-          "rationale": "The center ring is in compression; the band works at the wall."
+          "left": "Band of rope",
+          "right": "Holds them in tension"
         },
         {
-          "id": "c",
-          "label": "It keeps the felt from blowing away",
-          "correct": false,
-          "rationale": "Its structural job is resisting the poles' outward thrust."
-        },
-        {
-          "id": "d",
-          "label": "It carries the roof's weight down a central post",
-          "correct": false,
-          "rationale": "The band lets the roof span without inside posts."
+          "left": "Ger",
+          "right": "Dwelling"
         }
       ],
-      "explanation": "Where the roof poles meet the wall they push outward; the tension band holds them against this push, while the center ring holds them in compression.",
+      "explanation": "The center ring holds the roof poles in compression, and the band of rope around the top of the wall holds them in tension. Ger simply means \"dwelling\".",
       "difficulty": 0.25
     },
     {

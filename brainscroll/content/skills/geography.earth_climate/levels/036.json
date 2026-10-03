@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 36,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Geologic Time Scale",
   "objective": "After this level you can explain how eons, eras and periods divide Earth's history and where humans appear on it.",
@@ -134,42 +134,27 @@
     },
     {
       "id": "question.earth_climate.036.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.deeptime_time_scale_units",
         "concept.earth_climate.deeptime_index_fossils"
       ],
       "sourceCardIds": [
-        "card.earth_climate.036.c3"
+        "card.earth_climate.036.c3",
+        "card.earth_climate.036.c2"
       ],
-      "prompt": "How are most boundaries on the geologic time scale drawn?",
-      "options": [
-        {
-          "id": "a",
-          "label": "At every round hundred million years",
-          "correct": false,
-          "rationale": "The boundaries aren't round numbers."
-        },
-        {
-          "id": "b",
-          "label": "By where rock changes color in the Grand Canyon",
-          "correct": false,
-          "rationale": "The boundaries are set worldwide, mostly by fossils."
-        },
-        {
-          "id": "c",
-          "label": "By counting yearly layers from the start of Earth",
-          "correct": false,
-          "rationale": "Most rock layers can't be counted year by year."
-        },
-        {
-          "id": "d",
-          "label": "By where widespread fossil species appear or vanish",
-          "correct": true
-        }
+      "prompt": "Put the units of the geologic time scale in order, from longest to shortest.",
+      "items": [
+        "Eons",
+        "Eras",
+        "Periods",
+        "Epochs",
+        "Ages"
       ],
-      "explanation": "The appearance and disappearance of widespread species in the rock record mark the beginnings and ends of time units.",
+      "first": "Longest",
+      "last": "Shortest",
+      "explanation": "From longest to shortest: eons, eras, periods, epochs and ages.",
       "difficulty": 0.3
     },
     {

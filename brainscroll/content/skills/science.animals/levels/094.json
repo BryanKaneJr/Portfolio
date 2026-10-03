@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 94,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Gone in Our Time",
   "objective": "After this level you can describe animals lost in recent centuries, like the dodo.",
@@ -114,42 +114,27 @@
   "questions": [
     {
       "id": "question.animals.094.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.animals.extinct_dodo_pigeon"
       ],
       "sourceCardIds": [
         "card.animals.094.c1",
-        "card.animals.094.c3"
+        "card.animals.094.c3",
+        "card.animals.094.c2",
+        "card.animals.094.c4",
+        "card.animals.094.c5"
       ],
-      "prompt": "Who was Martha, who died at the Cincinnati Zoo in 1914?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The last known dodo",
-          "correct": false,
-          "rationale": "The dodo was gone by the late 1600s."
-        },
-        {
-          "id": "b",
-          "label": "The last known passenger pigeon",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The last known thylacine",
-          "correct": false,
-          "rationale": "The last thylacine died at Hobart Zoo in 1936."
-        },
-        {
-          "id": "d",
-          "label": "The zoo's founder",
-          "correct": false,
-          "rationale": "Martha was a bird: the last of her species."
-        }
+      "prompt": "Put these lost animals in order, from first to disappear to last.",
+      "items": [
+        "Dodo",
+        "Passenger pigeon",
+        "Thylacine"
       ],
-      "explanation": "Martha was the last known passenger pigeon; she died on September 1, 1914.",
+      "first": "First gone",
+      "last": "Last gone",
+      "explanation": "The dodo was gone by the late 1600s, the last passenger pigeon died in 1914, and the last known thylacine died in 1936.",
       "difficulty": 0.15
     },
     {

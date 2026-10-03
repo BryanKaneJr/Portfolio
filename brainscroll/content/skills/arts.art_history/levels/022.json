@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 22,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Islamic Art and Pattern",
   "objective": "After this level you can explain why Islamic art so often uses geometry, pattern and calligraphy.",
@@ -173,7 +173,7 @@
     },
     {
       "id": "question.art_history.022.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.art_history.islamic_geometric_pattern",
@@ -183,33 +183,16 @@
         "card.art_history.022.c4",
         "card.art_history.003.c2"
       ],
-      "prompt": "Level 3 called line and shape building blocks. Which Islamic ornament is built from just circles and straight lines?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Portraits of rulers",
-          "correct": false,
-          "rationale": "Portraits aren't built from compass and ruler, and mosques avoid them."
-        },
-        {
-          "id": "b",
-          "label": "Arabic calligraphy",
-          "correct": false,
-          "rationale": "Calligraphy is writing, drawn with a pen, not a compass."
-        },
-        {
-          "id": "c",
-          "label": "Geometric star patterns",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Painted landscapes",
-          "correct": false,
-          "rationale": "Landscapes aren't built from compass-drawn units."
-        }
+      "prompt": "Put the steps of drawing an Islamic star pattern in order, from first to last.",
+      "items": [
+        "Start with a circle",
+        "Divide it",
+        "Join the points with straight lines",
+        "Repeat that one unit"
       ],
-      "explanation": "Geometric patterns start from a circle (a shape) and straight lines, drawn with compass and ruler, then repeat.",
+      "first": "First step",
+      "last": "Last step",
+      "explanation": "Start with a circle, divide it, join the points with straight lines so a star appears, then repeat that one unit side by side.",
       "difficulty": 0.3
     }
   ],

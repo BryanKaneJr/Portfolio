@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 88,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Studio Tricks",
   "objective": "After this level you can explain what studio effects like Auto-Tune do.",
@@ -126,41 +126,36 @@
     },
     {
       "id": "question.music.088.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.studio_reverb"
       ],
       "sourceCardIds": [
-        "card.music.088.c4"
+        "card.music.088.c4",
+        "card.music.088.c1",
+        "card.music.088.c2"
       ],
-      "prompt": "An engineer wants a vocal to sound closer to the listener. What should they do with reverb?",
-      "options": [
+      "prompt": "Match each studio name or tool with what this level says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Add much more reverb",
-          "correct": false,
-          "rationale": "More reverb makes it seem farther away."
+          "left": "Auto-Tune",
+          "right": "The nearest semitone"
         },
         {
-          "id": "b",
-          "label": "Push Auto-Tune to its fastest setting",
-          "correct": false,
-          "rationale": "That changes pitch behavior, not distance."
+          "left": "Reverberation",
+          "right": "Sound that lingers"
         },
         {
-          "id": "c",
-          "label": "Use less reverb, keeping the sound drier",
-          "correct": true
+          "left": "Andy Hildebrand",
+          "right": "Seismic data"
         },
         {
-          "id": "d",
-          "label": "Record it in the biggest room available",
-          "correct": false,
-          "rationale": "A big room adds more reflections."
+          "left": "Cher",
+          "right": "Believe"
         }
       ],
-      "explanation": "The stronger the dry sound compared with the reverb, the closer the voice seems.",
+      "explanation": "Auto-Tune moves each note to the nearest semitone, reverberation is sound that lingers, Andy Hildebrand once interpreted seismic data, and Cher sang \"Believe\".",
       "difficulty": 0.3
     },
     {

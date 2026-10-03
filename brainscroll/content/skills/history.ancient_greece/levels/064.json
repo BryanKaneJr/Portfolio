@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 64,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Greek Astronomy",
   "objective": "After this level you can explain Greek models of the heavens.",
@@ -137,41 +137,27 @@
     },
     {
       "id": "question.ancient_greece.064.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_greece.greek_astronomy_models"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.064.c4"
+        "card.ancient_greece.064.c4",
+        "card.ancient_greece.064.c2",
+        "card.ancient_greece.064.c3",
+        "card.ancient_greece.064.c5"
       ],
-      "prompt": "Why did Aristarchus’s Sun-centered idea win little support among Greek astronomers?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Archimedes proved it false",
-          "correct": false,
-          "rationale": "Archimedes described it."
-        },
-        {
-          "id": "b",
-          "label": "It needed more spheres than Eudoxus used",
-          "correct": false,
-          "rationale": "Spheres weren’t the objection."
-        },
-        {
-          "id": "c",
-          "label": "Aristarchus never wrote it down",
-          "correct": false,
-          "rationale": "It survives through the Sand-Reckoner."
-        },
-        {
-          "id": "d",
-          "label": "No one could see the stars shift as Earth moved",
-          "correct": true
-        }
+      "prompt": "Put these astronomers in order, from earliest to latest.",
+      "items": [
+        "Aristarchus",
+        "Hipparchus",
+        "Ptolemy",
+        "Kepler"
       ],
-      "explanation": "A moving Earth should make the stars seem to shift; no one could see it, and the only answer, that the stars were immensely far away, couldn’t be tested.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Aristarchus lived about 310 to 230 BCE, Hipparchus worked in the 2nd century BCE, Ptolemy wrote the Almagest around 150 CE, and Kepler came in the 1600s.",
       "difficulty": 0.35
     },
     {

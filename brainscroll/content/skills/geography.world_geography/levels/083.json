@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 83,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Great Barrier Reef",
   "objective": "After this level you can describe the Great Barrier Reef and the threats it faces.",
@@ -90,41 +90,25 @@
   "questions": [
     {
       "id": "question.world_geography.083.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.great_barrier_reef"
       ],
       "sourceCardIds": [
-        "card.world_geography.083.c2"
+        "card.world_geography.083.c2",
+        "card.world_geography.083.c3"
       ],
-      "prompt": "What builds a coral reef?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Layers of cooled lava",
-          "correct": false,
-          "rationale": "Reefs are built by living animals."
-        },
-        {
-          "id": "b",
-          "label": "Sand piled up by waves",
-          "correct": false,
-          "rationale": "Waves shape reefs; they don't build them."
-        },
-        {
-          "id": "c",
-          "label": "Colonies of tiny animals called polyps",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Seaweed that hardens over time",
-          "correct": false,
-          "rationale": "Corals are animals, not plants."
-        }
+      "prompt": "Put these in order, from smallest to largest.",
+      "items": [
+        "Polyp",
+        "Colony",
+        "Individual reefs",
+        "The Great Barrier Reef"
       ],
-      "explanation": "Coral polyps build calcium carbonate skeletons, and their colonies cement together into reefs.",
+      "first": "Smallest",
+      "last": "Largest",
+      "explanation": "Polyps build colonies, colonies build reefs, and nearly 3,000 individual reefs make up the Great Barrier Reef.",
       "difficulty": 0.15
     },
     {

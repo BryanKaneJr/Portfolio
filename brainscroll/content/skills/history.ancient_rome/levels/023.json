@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 23,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Hannibal Crosses the Alps",
   "objective": "After this level you can retell Hannibal’s march over the Alps with his army and elephants.",
@@ -76,7 +76,7 @@
   "questions": [
     {
       "id": "question.ancient_rome.023.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_rome.hannibal_alps"
@@ -84,33 +84,15 @@
       "sourceCardIds": [
         "card.ancient_rome.023.c3"
       ],
-      "prompt": "Which route did Hannibal take to invade Italy?",
-      "options": [
-        {
-          "id": "a",
-          "label": "From Spain over the Alps",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "By sea from Carthage to Ostia",
-          "correct": false,
-          "rationale": "He came overland."
-        },
-        {
-          "id": "c",
-          "label": "From Sicily across the strait",
-          "correct": false,
-          "rationale": "He came overland."
-        },
-        {
-          "id": "d",
-          "label": "Through Greece and across the Adriatic",
-          "correct": false,
-          "rationale": "He came from Spain."
-        }
+      "prompt": "Put Hannibal’s route in order, from start to finish.",
+      "items": [
+        "Spain",
+        "The Alps",
+        "Italy"
       ],
-      "explanation": "Hannibal marched from Spain over the Alps into Italy in 218 BCE.",
+      "first": "Start",
+      "last": "Finish",
+      "explanation": "In 218 BCE Hannibal marched from Spain, over the Alps, into Italy.",
       "difficulty": 0.15
     },
     {

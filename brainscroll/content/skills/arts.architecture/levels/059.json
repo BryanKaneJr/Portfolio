@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 59,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Earthquake-Proof Buildings",
   "objective": "After this level you can explain how buildings are designed to survive earthquakes.",
@@ -140,41 +140,32 @@
     },
     {
       "id": "question.architecture.059.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.marvel_quake_retrofit"
       ],
       "sourceCardIds": [
-        "card.architecture.059.c3"
+        "card.architecture.059.c3",
+        "card.architecture.059.c2",
+        "card.architecture.059.c4"
       ],
-      "prompt": "Why do earthquake retrofits strengthen the connection between an old brick building's roof and walls?",
-      "options": [
+      "prompt": "Match each earthquake word with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "So walls and roof support each other instead of falling separately",
-          "correct": true
+          "left": "Unreinforced masonry",
+          "right": "Little or no steel inside"
         },
         {
-          "id": "b",
-          "label": "To make the roof lighter so there is less weight to fall",
-          "correct": false,
-          "rationale": "The retrofit connects parts; it doesn't lighten them."
+          "left": "Retrofits",
+          "right": "Brace chimneys"
         },
         {
-          "id": "c",
-          "label": "To let the walls sway freely",
-          "correct": false,
-          "rationale": "Loose walls are the danger."
-        },
-        {
-          "id": "d",
-          "label": "To keep rain out",
-          "correct": false,
-          "rationale": "The goal is keeping the building standing in a quake."
+          "left": "Base isolators",
+          "right": "Rubber and steel around a lead core"
         }
       ],
-      "explanation": "Tying roof and walls together lets them support each other, keeping the building intact so people can exit.",
+      "explanation": "Unreinforced masonry is brick walls with little or no steel inside. Retrofits tie the roof to the walls and brace chimneys. Base isolators are layers of rubber and steel around a lead core.",
       "difficulty": 0.2
     },
     {

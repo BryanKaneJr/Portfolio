@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 37,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Book of the Dead",
   "objective": "After this level you can explain what the Book of the Dead was for.",
@@ -142,7 +142,7 @@
     },
     {
       "id": "question.ancient_egypt.037.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.book_of_dead_spells"
@@ -151,33 +151,15 @@
         "card.ancient_egypt.037.c3",
         "card.ancient_egypt.037.c4"
       ],
-      "prompt": "Why could far more Egyptians own afterlife spells once they were written on papyrus?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Papyrus rolls could be bought, unlike pyramid walls",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The government handed them out free",
-          "correct": false,
-          "rationale": "Copies were sold, and fine ones were expensive."
-        },
-        {
-          "id": "c",
-          "label": "The spells became shorter and easier to memorize",
-          "correct": false,
-          "rationale": "About 200 spells were known."
-        },
-        {
-          "id": "d",
-          "label": "Only kings were allowed to die",
-          "correct": false,
-          "rationale": "Everyone died; the question was who had spells."
-        }
+      "prompt": "Put these collections of spells for the dead in order, from earliest to latest.",
+      "items": [
+        "Pyramid Texts",
+        "Coffin Texts",
+        "The Book of the Dead"
       ],
-      "explanation": "Pyramid Texts were for kings and Coffin Texts for officials and nobles; papyrus copies were sold to anyone who could pay.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Pyramid Texts came first, in the Old Kingdom. The Coffin Texts followed in the Middle Kingdom, and the Book of the Dead was probably compiled in the 16th century BCE.",
       "difficulty": 0.35
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 84,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Conquering Persia",
   "objective": "After this level you can trace Alexander's campaign against Persia.",
@@ -141,41 +141,28 @@
     },
     {
       "id": "question.ancient_greece.084.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_greece.alexander_persia_campaign"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.084.c4"
+        "card.ancient_greece.084.c4",
+        "card.ancient_greece.084.c2",
+        "card.ancient_greece.084.c3"
       ],
-      "prompt": "Why did Alexander burn the palace of Xerxes at Persepolis?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It caught fire by accident in a storm",
-          "correct": false,
-          "rationale": "It was a deliberate act."
-        },
-        {
-          "id": "b",
-          "label": "Darius was hiding inside it",
-          "correct": false,
-          "rationale": "Darius was killed by his own men."
-        },
-        {
-          "id": "c",
-          "label": "To stop a plague spreading in his army",
-          "correct": false,
-          "rationale": "It was a symbol, not a cure."
-        },
-        {
-          "id": "d",
-          "label": "To show the Greek war of revenge was over",
-          "correct": true
-        }
+      "prompt": "Put Alexander’s road through Persia in order, from first to last.",
+      "items": [
+        "Troy",
+        "Granicus River",
+        "Issus",
+        "Tyre",
+        "Gaugamela",
+        "Xerxes’ palace"
       ],
-      "explanation": "Burning Xerxes’ palace signaled that the Greek war of revenge on Persia was finished.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Alexander visited Troy, then won at the Granicus River in 334 BCE and at Issus in 333. He stormed Tyre in 332, won at Gaugamela in 331, and burned Xerxes’ palace in 330.",
       "difficulty": 0.3
     },
     {

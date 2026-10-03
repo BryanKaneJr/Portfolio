@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 63,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Ragtime",
   "objective": "After this level you can describe ragtime and Scott Joplin.",
@@ -120,41 +120,26 @@
     },
     {
       "id": "question.music.063.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.ragtime_syncopation"
       ],
       "sourceCardIds": [
-        "card.music.063.c2"
+        "card.music.063.c2",
+        "card.music.063.c3",
+        "card.music.063.c4"
       ],
-      "prompt": "In ragtime piano, what does each hand do?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Both hands play the same melody an octave apart",
-          "correct": false,
-          "rationale": "The hands have different jobs."
-        },
-        {
-          "id": "b",
-          "label": "The right hand keeps the beat; the left improvises",
-          "correct": false,
-          "rationale": "It's the other way around."
-        },
-        {
-          "id": "c",
-          "label": "Both hands play only off the beat",
-          "correct": false,
-          "rationale": "One hand must hold the steady beat."
-        },
-        {
-          "id": "d",
-          "label": "Left: steady beat. Right: syncopated melody",
-          "correct": true
-        }
+      "prompt": "Put these moments in Scott Joplin's story in order, from earliest to latest.",
+      "items": [
+        "Maple Leaf Rag",
+        "Treemonisha",
+        "Joplin died",
+        "Pulitzer Prize"
       ],
-      "explanation": "The left hand holds a regularly accented beat, and the right hand accents notes off it.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "\"Maple Leaf Rag\" came out in 1899, Treemonisha in 1911, Joplin died in 1917, and he won a special Pulitzer Prize in 1976.",
       "difficulty": 0.2
     },
     {

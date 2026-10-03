@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 99,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why Greece Still Matters",
   "objective": "After this level you can explain why Greek ideas still shape the modern world.",
@@ -117,41 +117,25 @@
   "questions": [
     {
       "id": "question.ancient_greece.099.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_greece.legacy_why_greece_matters"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.099.c2"
+        "card.ancient_greece.099.c2",
+        "card.ancient_greece.099.c1"
       ],
-      "prompt": "Shelley’s line “We are all Greeks” comes from a poem inspired by which event?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The first modern Olympics",
-          "correct": false,
-          "rationale": "Hellas came out in 1822."
-        },
-        {
-          "id": "b",
-          "label": "The fall of Constantinople",
-          "correct": false,
-          "rationale": "That was in 1453."
-        },
-        {
-          "id": "c",
-          "label": "The Greek War of Independence",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The building of the Lincoln Memorial",
-          "correct": false,
-          "rationale": "That was a century later."
-        }
+      "prompt": "Put these moments in Greece’s modern story in order, from earliest to latest.",
+      "items": [
+        "Greek War of Independence",
+        "We are all Greeks",
+        "Died of fever at Missolonghi",
+        "Greece became an independent state"
       ],
-      "explanation": "Shelley wrote Hellas, inspired by the Greek War of Independence that began in 1821.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Greek War of Independence began in 1821. Shelley wrote “We are all Greeks” in 1822, Byron died of fever at Missolonghi in 1824, and Greece became an independent state in 1830.",
       "difficulty": 0.2
     },
     {

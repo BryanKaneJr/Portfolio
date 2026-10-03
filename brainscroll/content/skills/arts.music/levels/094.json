@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 94,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Film Music",
   "objective": "After this level you can explain how film scores shape what we feel.",
@@ -135,7 +135,7 @@
     },
     {
       "id": "question.music.094.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.film_music_interpretation"
@@ -143,33 +143,22 @@
       "sourceCardIds": [
         "card.music.094.c4"
       ],
-      "prompt": "Viewers watch an ambiguous scene with gloomy music. Based on the 2001 soundtrack study, what will they likely do?",
-      "options": [
+      "prompt": "In the 2001 study, match each soundtrack with how viewers read the scenes.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Read the scene as more positive",
-          "correct": false,
-          "rationale": "That happened with upbeat music."
+          "left": "Upbeat music",
+          "right": "More positively"
         },
         {
-          "id": "b",
-          "label": "Read the scene as more negative",
-          "correct": true
+          "left": "Gloomy music",
+          "right": "More negatively"
         },
         {
-          "id": "c",
-          "label": "Read it exactly as without music",
-          "correct": false,
-          "rationale": "Without music, readings were fairly neutral."
-        },
-        {
-          "id": "d",
-          "label": "Forget the scene within a day",
-          "correct": false,
-          "rationale": "A week later, memories leaned the music's way."
+          "left": "No music",
+          "right": "Fairly neutrally"
         }
       ],
-      "explanation": "Gloomy music led viewers to interpret ambiguous clips more negatively, and even to remember them that way.",
+      "explanation": "With upbeat music, viewers read the scenes more positively; with gloomy music, more negatively; and with no music, fairly neutrally.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 46,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Vermeer",
   "objective": "After this level you can describe Vermeer's quiet interiors and how he painted light.",
@@ -125,41 +125,32 @@
     },
     {
       "id": "question.art_history.046.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.vermeer_camera_obscura"
       ],
       "sourceCardIds": [
-        "card.art_history.046.c4"
+        "card.art_history.046.c4",
+        "card.art_history.046.c1",
+        "card.art_history.046.c2"
       ],
-      "prompt": "Why is it still debated whether Vermeer used a camera obscura?",
-      "options": [
+      "prompt": "Match each name with what it's linked to in Vermeer's story.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "His paintings look lens-like, but no document proves he used one",
-          "correct": true
+          "left": "Théophile Thoré",
+          "right": "International fame"
         },
         {
-          "id": "b",
-          "label": "Camera obscuras were invented after he died",
-          "correct": false,
-          "rationale": "The debate is about proof, not invention dates."
+          "left": "Camera obscura",
+          "right": "Projects an image through a lens"
         },
         {
-          "id": "c",
-          "label": "He wrote that he hated optical devices",
-          "correct": false,
-          "rationale": "No document mentions one either way."
-        },
-        {
-          "id": "d",
-          "label": "His paintings show no light effects at all",
-          "correct": false,
-          "rationale": "The light spots are exactly why people suspect it."
+          "left": "The Milkmaid",
+          "right": "Pours milk from a jug"
         }
       ],
-      "explanation": "The blurred light spots look like camera obscura effects, but nothing written shows he owned or used one.",
+      "explanation": "The critic Théophile Thoré brought Vermeer international fame, a camera obscura projects an image through a lens, and in The Milkmaid a maid pours milk from a jug.",
       "difficulty": 0.3
     },
     {

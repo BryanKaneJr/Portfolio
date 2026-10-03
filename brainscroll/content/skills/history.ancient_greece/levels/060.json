@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 60,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Thinkers",
   "objective": "After this level you can compare the ideas of Socrates, Plato and Aristotle.",
@@ -293,7 +293,7 @@
     },
     {
       "id": "question.ancient_greece.060.q4",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_greece.philosophy_teacher_chain"
@@ -301,32 +301,14 @@
       "sourceCardIds": [
         "card.ancient_greece.060.c1"
       ],
-      "prompt": "In the Thinkers chapter’s chain of teachers, which order runs from teacher to student?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Plato, Socrates, Aristotle",
-          "correct": false,
-          "rationale": "Socrates came first."
-        },
-        {
-          "id": "b",
-          "label": "Aristotle, Plato, Socrates",
-          "correct": false,
-          "rationale": "That’s backwards."
-        },
-        {
-          "id": "c",
-          "label": "Socrates, Aristotle, Plato",
-          "correct": false,
-          "rationale": "Plato came between them."
-        },
-        {
-          "id": "d",
-          "label": "Socrates, Plato, Aristotle",
-          "correct": true
-        }
+      "prompt": "Put these thinkers in order, from teacher to student.",
+      "items": [
+        "Socrates",
+        "Plato",
+        "Aristotle"
       ],
+      "first": "Teacher",
+      "last": "Student",
       "explanation": "Socrates taught Plato, and Plato taught Aristotle.",
       "difficulty": 0.2
     },

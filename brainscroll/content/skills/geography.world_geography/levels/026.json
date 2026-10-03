@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 26,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Lakes and Inland Seas",
   "objective": "After this level you can explain how lakes form and why some, like the Dead Sea, are salty.",
@@ -126,42 +126,32 @@
     },
     {
       "id": "question.world_geography.026.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.salt_lakes"
       ],
       "sourceCardIds": [
         "card.world_geography.026.c3",
-        "card.world_geography.026.c4"
+        "card.world_geography.026.c4",
+        "card.world_geography.026.c2"
       ],
-      "prompt": "Why is the Dead Sea so much saltier than most lakes?",
-      "options": [
+      "prompt": "Match each lake with its fact.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Seawater leaks into it",
-          "correct": false,
-          "rationale": "It is fed by the Jordan River, not the sea."
+          "left": "Lake Baikal",
+          "right": "Deepest and oldest lake on Earth"
         },
         {
-          "id": "b",
-          "label": "It has no outlet, so evaporation leaves the salt behind",
-          "correct": true
+          "left": "The Dead Sea",
+          "right": "Nearly ten times saltier than the ocean"
         },
         {
-          "id": "c",
-          "label": "It is the deepest lake on Earth",
-          "correct": false,
-          "rationale": "That is Lake Baikal, which is fresh."
-        },
-        {
-          "id": "d",
-          "label": "Its fish produce salt",
-          "correct": false,
-          "rationale": "Apart from bacteria, nothing lives in it."
+          "left": "Great Lakes",
+          "right": "A retreating ice sheet"
         }
       ],
-      "explanation": "With no outlet, water leaves the Dead Sea only by evaporation. The salt stays, so the lake keeps getting saltier.",
+      "explanation": "Lake Baikal is the deepest and oldest lake on Earth. The Dead Sea is nearly ten times saltier than the ocean. A retreating ice sheet shaped the Great Lakes.",
       "difficulty": 0.3
     },
     {

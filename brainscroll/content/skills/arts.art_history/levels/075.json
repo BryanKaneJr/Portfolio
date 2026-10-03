@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 75,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "African Art and Modernism",
   "objective": "After this level you can explain how African sculpture influenced Picasso and other modern artists.",
@@ -100,41 +100,25 @@
   "questions": [
     {
       "id": "question.art_history.075.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.africa_modernism_influence"
       ],
       "sourceCardIds": [
-        "card.art_history.075.c2"
+        "card.art_history.075.c2",
+        "card.art_history.075.c1",
+        "card.art_history.075.c4"
       ],
-      "prompt": "Where did Picasso study African masks and figures in 1907?",
-      "options": [
-        {
-          "id": "a",
-          "label": "In Benin City's royal palace",
-          "correct": false,
-          "rationale": "He never went to Benin; he studied in Paris."
-        },
-        {
-          "id": "b",
-          "label": "At the British Museum in London",
-          "correct": false,
-          "rationale": "His museum was in Paris."
-        },
-        {
-          "id": "c",
-          "label": "At the Trocadéro ethnographic museum in Paris",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "In Matisse's studio in Nice",
-          "correct": false,
-          "rationale": "Matisse showed him a figure in 1906, but his 1907 study was at a museum."
-        }
+      "prompt": "Put these moments in order, from earliest to latest.",
+      "items": [
+        "Matisse walked into a Paris shop",
+        "Picasso was studying African masks",
+        "The British Empire Exhibition"
       ],
-      "explanation": "In 1907 Picasso studied African masks and figures at the Trocadéro, then repainted faces in Les Demoiselles d'Avignon.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Matisse bought an African figure in a Paris shop in 1906, Picasso studied African masks at the Trocadéro in 1907, and Olowe of Ise's door was shown at the British Empire Exhibition in 1924.",
       "difficulty": 0.2
     },
     {

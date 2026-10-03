@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 54,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Growing Up in Egypt",
   "objective": "After this level you can describe childhood and schooling in ancient Egypt.",
@@ -82,41 +82,31 @@
   "questions": [
     {
       "id": "question.ancient_egypt.054.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_egypt.daily_childhood"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.054.c2"
+        "card.ancient_egypt.054.c2",
+        "card.ancient_egypt.054.c3"
       ],
-      "prompt": "In Egyptian art, which hairstyle marks a figure as a child?",
-      "options": [
+      "prompt": "Match each part of an Egyptian childhood with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A shaved head under a heavy wig",
-          "correct": false,
-          "rationale": "Children wore a single side plait."
+          "left": "The sidelock of youth",
+          "right": "The Horus lock"
         },
         {
-          "id": "b",
-          "label": "The sidelock of youth, a single plait at the side",
-          "correct": true
+          "left": "Elite and royal families",
+          "right": "Some schooling"
         },
         {
-          "id": "c",
-          "label": "Two long braids down the back",
-          "correct": false,
-          "rationale": "It was one plait, at the side of the head."
-        },
-        {
-          "id": "d",
-          "label": "A tall cone of hair on top",
-          "correct": false,
-          "rationale": "Children are shown with the sidelock of youth."
+          "left": "Everyone else",
+          "right": "Apprenticeship"
         }
       ],
-      "explanation": "The sidelock of youth, or Horus lock, was a single plait at the side of a child’s head.",
+      "explanation": "The sidelock of youth was also called the Horus lock. Only children from elite and royal families had some schooling; everyone else learned by apprenticeship.",
       "difficulty": 0.2
     },
     {

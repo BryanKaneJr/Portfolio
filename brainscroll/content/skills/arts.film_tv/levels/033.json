@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 33,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The 180-Degree Rule",
   "objective": "After this level you can explain how the 180-degree rule keeps characters on the same sides of the screen so viewers stay oriented.",
@@ -130,41 +130,31 @@
     },
     {
       "id": "question.film_tv.033.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.cutting_180_degree_rule"
       ],
       "sourceCardIds": [
-        "card.film_tv.033.c2"
+        "card.film_tv.033.c2",
+        "card.film_tv.033.c3"
       ],
-      "prompt": "How does the 180-degree rule keep viewers oriented during a conversation?",
-      "options": [
+      "prompt": "Match each term with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Each shot lasts exactly 180 frames",
-          "correct": false,
-          "rationale": "The 180 is degrees, a half circle of camera positions."
+          "left": "Axis of action",
+          "right": "Line running between the two characters"
         },
         {
-          "id": "b",
-          "label": "The camera circles the actors in one long take",
-          "correct": false,
-          "rationale": "The rule is about which side the camera stays on across cuts."
+          "left": "180-degree rule",
+          "right": "Keeps the camera on one side"
         },
         {
-          "id": "c",
-          "label": "The actors always face the camera directly",
-          "correct": false,
-          "rationale": "Characters look at each other; the camera stays on one side."
-        },
-        {
-          "id": "d",
-          "label": "The camera stays on one side of the line, so left stays left",
-          "correct": true
+          "left": "Establishing shot",
+          "right": "Usually a distant framing"
         }
       ],
-      "explanation": "Keeping the camera on one side of the axis of action keeps each character in the same area of the frame.",
+      "explanation": "The axis of action is a line running between the two characters, the 180-degree rule keeps the camera on one side of it, and an establishing shot is usually a distant framing that shows the layout.",
       "difficulty": 0.25
     },
     {

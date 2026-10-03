@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 93,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Modern Olympics",
   "objective": "After this level you can explain how the Olympics were revived in 1896.",
@@ -124,41 +124,24 @@
     },
     {
       "id": "question.ancient_greece.093.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_greece.legacy_modern_olympics"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.093.c4"
+        "card.ancient_greece.093.c4",
+        "card.ancient_greece.093.c2"
       ],
-      "prompt": "A TV host calls the Olympic torch relay an ancient Greek ritual. What’s the best correction?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It was first run for the 1936 Berlin Games",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "It was first run at Marathon in 490 BCE",
-          "correct": false,
-          "rationale": "No ancient runners carried a flame from Olympia."
-        },
-        {
-          "id": "c",
-          "label": "Coubertin invented it for Athens in 1896",
-          "correct": false,
-          "rationale": "It began 40 years later."
-        },
-        {
-          "id": "d",
-          "label": "The Romans started it at Olympia",
-          "correct": false,
-          "rationale": "It began in 1936."
-        }
+      "prompt": "Put these steps in the Olympic revival in order, from earliest to latest.",
+      "items": [
+        "A congress at the Sorbonne",
+        "The first modern Games",
+        "The Olympic torch relay"
       ],
-      "explanation": "The relay was created for the 1936 Berlin Games; ancient Greeks never carried a flame from Olympia to open the Games.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "A congress at the Sorbonne agreed to revive the Games in 1894, the first modern Games opened in Athens in 1896, and the Olympic torch relay began in 1936.",
       "difficulty": 0.3
     },
     {

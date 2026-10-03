@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 18,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Shield, Cone and Stratovolcano",
   "objective": "After this level you can tell the three main kinds of volcano apart and link each one to runny or sticky magma.",
@@ -182,7 +182,7 @@
     },
     {
       "id": "question.earth_climate.018.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.earth_climate.volcano_viscosity",
@@ -194,27 +194,22 @@
         "card.earth_climate.018.c2",
         "card.earth_climate.018.c3"
       ],
-      "prompt": "Level 5's basalt is the dark, fine-grained rock of the ocean floor. What kind of volcano does runny basalt lava usually build?",
-      "options": [
+      "prompt": "Match each volcano shape with its example.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A steep stratovolcano like Mount Fuji",
-          "correct": false,
-          "rationale": "Those form from stickier magma."
+          "left": "Shield",
+          "right": "Mauna Loa"
         },
         {
-          "id": "b",
-          "label": "A tall cone of cinders",
-          "correct": false,
-          "rationale": "Cinder cones are built of cinders, not long flows."
+          "left": "Cinder cone",
+          "right": "Paricutin"
         },
         {
-          "id": "c",
-          "label": "A broad shield volcano like Mauna Loa",
-          "correct": true
+          "left": "Stratovolcano",
+          "right": "Mount Fuji"
         }
       ],
-      "explanation": "Low-silica basalt is runny, and thousands of its fluid flows stack into broad shield volcanoes.",
+      "explanation": "Mauna Loa is a shield, Paricutin is a cinder cone, and Mount Fuji is a stratovolcano.",
       "difficulty": 0.3
     }
   ],

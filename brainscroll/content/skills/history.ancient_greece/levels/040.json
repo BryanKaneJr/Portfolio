@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 40,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Sparta and War",
   "objective": "After this level you can explain how the Greeks beat Persia and then fought each other.",
@@ -315,7 +315,7 @@
     },
     {
       "id": "question.ancient_greece.040.q5",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_greece.greek_allies_to_rivals",
@@ -327,33 +327,17 @@
         "card.ancient_greece.038.c2",
         "card.ancient_greece.039.c2"
       ],
-      "prompt": "Sparta and War recap: which order of events is right?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Delian League founded, Plataea, Peloponnesian War",
-          "correct": false,
-          "rationale": "Plataea came first, in 479 BCE."
-        },
-        {
-          "id": "b",
-          "label": "Plataea, Delian League founded, Peloponnesian War",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Peloponnesian War, Plataea, Delian League founded",
-          "correct": false,
-          "rationale": "The war came last."
-        },
-        {
-          "id": "d",
-          "label": "Plataea, Peloponnesian War, Delian League founded",
-          "correct": false,
-          "rationale": "The league came before the war."
-        }
+      "prompt": "Put these events in order, from earliest to latest.",
+      "items": [
+        "Marathon",
+        "Salamis",
+        "Victory at Plataea",
+        "Delian League",
+        "Athens and Sparta fight"
       ],
-      "explanation": "Plataea ended the invasion in 479 BCE, the Delian League formed in 478 BCE, and the Peloponnesian War ran from 431 to 404 BCE.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Marathon came in 490 BCE, Salamis in 480, victory at Plataea in 479, the Delian League in 478, and then Athens and Sparta fought from 431 to 404.",
       "difficulty": 0.3
     }
   ],

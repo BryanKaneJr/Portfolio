@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 90,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Blockbusters to Pixels",
   "objective": "After this level you can reason about how business and technology together changed what films got made after 1967.",
@@ -225,41 +225,27 @@
     },
     {
       "id": "question.film_tv.090.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.indie_sundance"
       ],
       "sourceCardIds": [
-        "card.film_tv.084.c4"
+        "card.film_tv.084.c4",
+        "card.film_tv.090.c2"
       ],
-      "prompt": "From Level 84: what was Robert Redford's Sundance Institute founded to do?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Rate films for violence and sexuality",
-          "correct": false,
-          "rationale": "That's the rating system."
-        },
-        {
-          "id": "b",
-          "label": "Train film editors on digital systems",
-          "correct": false,
-          "rationale": "The level names a different mission."
-        },
-        {
-          "id": "c",
-          "label": "Nurture independent filmmakers",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Restore damaged silent films",
-          "correct": false,
-          "rationale": "The level says nothing about restoration."
-        }
+      "prompt": "Put these moments from Chapter 9 in order, from earliest to latest.",
+      "items": [
+        "Bonnie and Clyde",
+        "Night of the Living Dead",
+        "Jaws opens",
+        "Heaven's Gate",
+        "The Betamax ruling",
+        "Toy Story"
       ],
-      "explanation": "The Sundance Institute was founded to nurture independent filmmakers, and its festival launched careers.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Bonnie and Clyde came in 1967, Night of the Living Dead in 1968, Jaws in 1975, Heaven's Gate in 1980, the Betamax ruling in 1984 and Toy Story in 1995.",
       "difficulty": 0.25
     },
     {

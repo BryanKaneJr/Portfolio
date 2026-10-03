@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 42,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The First Crusade",
   "objective": "After this level you can describe the First Crusade and the capture of Jerusalem.",
@@ -172,43 +172,28 @@
     },
     {
       "id": "question.middle_ages.042.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.crusade_first_crusade",
         "concept.middle_ages.crusade_urban_call"
       ],
       "sourceCardIds": [
+        "card.middle_ages.042.c2",
+        "card.middle_ages.042.c3",
         "card.middle_ages.042.c4",
-        "card.middle_ages.041.c2"
+        "card.middle_ages.042.c5"
       ],
-      "prompt": "Alexius asked the West for help against the Seljuk Turks. Who actually held Jerusalem when the crusaders arrived in 1099?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Seljuk Turks",
-          "correct": false,
-          "rationale": "The Seljuks had lost it in 1098."
-        },
-        {
-          "id": "b",
-          "label": "The Byzantine emperor",
-          "correct": false,
-          "rationale": "Byzantium had lost it long before."
-        },
-        {
-          "id": "c",
-          "label": "The Fatimids of Egypt",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The Umayyad caliphs",
-          "correct": false,
-          "rationale": "Their dynasty had ended centuries earlier."
-        }
+      "prompt": "Put these events of the First Crusade in order, from earliest to latest.",
+      "items": [
+        "Crusader bands attacked",
+        "Captured the great city of Antioch",
+        "The Fatimids had even taken Jerusalem",
+        "The crusaders stormed Jerusalem"
       ],
-      "explanation": "The Fatimids of Egypt had taken Jerusalem in August 1098, so the crusaders’ final drive was against them, not the Turks.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Crusader bands attacked the Rhineland’s Jews in May 1096. The crusaders captured Antioch in June 1098, the Fatimids took Jerusalem in August 1098, and the crusaders stormed Jerusalem on 15 July 1099.",
       "difficulty": 0.35
     }
   ],

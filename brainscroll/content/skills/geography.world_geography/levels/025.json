@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 25,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Great Rivers",
   "objective": "After this level you can compare the Nile, the Amazon and other great rivers by length and flow.",
@@ -147,41 +147,35 @@
     },
     {
       "id": "question.world_geography.025.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.river_length"
       ],
       "sourceCardIds": [
-        "card.world_geography.025.c3"
+        "card.world_geography.025.c3",
+        "card.world_geography.025.c2"
       ],
-      "prompt": "Why do experts still argue over whether the Nile or the Amazon is longer?",
-      "options": [
+      "prompt": "Match each fact with its river.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Both rivers change length every year",
-          "correct": false,
-          "rationale": "The rivers are not the issue; the endpoints are."
+          "left": "About 6,650 km long",
+          "right": "Nile"
         },
         {
-          "id": "b",
-          "label": "Nobody has ever measured them",
-          "correct": false,
-          "rationale": "Both have been measured many times."
+          "left": "Flows north into the Mediterranean",
+          "right": "Nile"
         },
         {
-          "id": "c",
-          "label": "They disagree about where each river starts and ends",
-          "correct": true
+          "left": "At least 6,400 km long",
+          "right": "Amazon"
         },
         {
-          "id": "d",
-          "label": "The Amazon is too wide to measure",
-          "correct": false,
-          "rationale": "Width does not decide length."
+          "left": "Largest river system",
+          "right": "Amazon"
         }
       ],
-      "explanation": "Choosing a river's start and end points is a judgment call, and different choices give different lengths.",
+      "explanation": "The Nile is about 6,650 km long and flows north into the Mediterranean. The Amazon is at least 6,400 km long and is the largest river system.",
       "difficulty": 0.3
     },
     {

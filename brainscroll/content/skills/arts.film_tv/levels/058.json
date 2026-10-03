@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 58,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Suspense and Surprise",
   "objective": "After this level you can explain Alfred Hitchcock's difference between surprise and suspense, and why giving the audience information builds tension.",
@@ -91,42 +91,32 @@
   "questions": [
     {
       "id": "question.film_tv.058.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.genre_hitchcock_bomb"
       ],
       "sourceCardIds": [
         "card.film_tv.058.c2",
-        "card.film_tv.058.c3"
+        "card.film_tv.058.c3",
+        "card.film_tv.058.c4"
       ],
-      "prompt": "In Hitchcock's bomb example, how does the suspense version compare with the surprise version?",
-      "options": [
+      "prompt": "Match each item with what Hitchcock's logic gives it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "15 seconds of suspense instead of 15 minutes of surprise",
-          "correct": false,
-          "rationale": "It's the other way round."
+          "left": "Surprise",
+          "right": "15 seconds"
         },
         {
-          "id": "b",
-          "label": "15 minutes of suspense instead of 15 seconds of surprise",
-          "correct": true
+          "left": "Suspense",
+          "right": "15 minutes"
         },
         {
-          "id": "c",
-          "label": "The same amount of tension either way",
-          "correct": false,
-          "rationale": "Hitchcock's point is that they differ enormously."
-        },
-        {
-          "id": "d",
-          "label": "Surprise lasts longer if the bomb is bigger",
-          "correct": false,
-          "rationale": "The length depends on what the audience knows."
+          "left": "Double Indemnity",
+          "right": "A character-driven drama"
         }
       ],
-      "explanation": "Hiding the bomb gives 15 seconds of surprise; showing it gives 15 minutes of suspense.",
+      "explanation": "Hitchcock said the hidden bomb gives 15 seconds of surprise, while showing it gives 15 minutes of suspense. Telling you whodunit makes Double Indemnity a character-driven drama.",
       "difficulty": 0.2
     },
     {

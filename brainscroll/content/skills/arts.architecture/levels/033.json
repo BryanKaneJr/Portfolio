@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 33,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Palaces",
   "objective": "After this level you can explain what palaces were for.",
@@ -150,41 +150,31 @@
     },
     {
       "id": "question.architecture.033.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.palace_plans"
       ],
       "sourceCardIds": [
-        "card.architecture.033.c4"
+        "card.architecture.033.c4",
+        "card.architecture.033.c1"
       ],
-      "prompt": "How does an East Asian palace like Beijing's differ in plan from a Western European palace after the Middle Ages?",
-      "options": [
+      "prompt": "Match each place with what the cards say about its palaces.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It is one tall tower instead of one wide hall",
-          "correct": false,
-          "rationale": "It is many low buildings."
+          "left": "Palatine Hill",
+          "right": "Rome's emperors built their homes"
         },
         {
-          "id": "b",
-          "label": "It stands in open parkland, with no walls around",
-          "correct": false,
-          "rationale": "Its gardens are walled."
+          "left": "Western Europe",
+          "right": "One great building"
         },
         {
-          "id": "c",
-          "label": "It is dug into a hillside, mostly underground",
-          "correct": false,
-          "rationale": "Its pavilions stand in gardens."
-        },
-        {
-          "id": "d",
-          "label": "Many low wooden pavilions in walled gardens",
-          "correct": true
+          "left": "East Asia",
+          "right": "Many buildings"
         }
       ],
-      "explanation": "Western palaces after the Middle Ages tended to be single buildings; East Asian palaces are many low, decorated wooden pavilions within vast walled gardens.",
+      "explanation": "The word palace comes from the Palatine Hill, where Rome's emperors built their homes. A Western European palace after the Middle Ages is typically one great building; an East Asian palace is many buildings.",
       "difficulty": 0.2
     },
     {

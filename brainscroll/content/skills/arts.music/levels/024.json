@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 24,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Gregorian Chant",
   "objective": "After this level you can describe medieval plainchant and where it was sung.",
@@ -125,41 +125,24 @@
     },
     {
       "id": "question.music.024.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.gregorian_origins"
       ],
       "sourceCardIds": [
-        "card.music.024.c4"
+        "card.music.024.c4",
+        "card.music.024.c1"
       ],
-      "prompt": "Why is the name 'Gregorian' only part of the chant's story?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Its lasting form took shape later, in Charlemagne's kingdom",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Pope Gregory I banned chant",
-          "correct": false,
-          "rationale": "Tradition says chant was collected during his papacy."
-        },
-        {
-          "id": "c",
-          "label": "It was named after a Spanish monk",
-          "correct": false,
-          "rationale": "It's named after Pope Gregory I."
-        },
-        {
-          "id": "d",
-          "label": "It came from ancient Greece",
-          "correct": false,
-          "rationale": "Its story runs from Rome to the Frankish kingdom."
-        }
+      "prompt": "Put these figures from the story of chant in order, from earliest to latest.",
+      "items": [
+        "Pope Gregory I",
+        "Charlemagne, king of the Franks",
+        "Monks of Santo Domingo de Silos"
       ],
-      "explanation": "The name honors Gregory I, but the chant merged with Gallican chant in the Frankish lands in the 8th and 9th centuries.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Pope Gregory I reigned from 590 to 604, Charlemagne, king of the Franks, from 768 to 814, and the monks of Santo Domingo de Silos had a hit album in 1994.",
       "difficulty": 0.3
     },
     {

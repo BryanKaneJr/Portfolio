@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 34,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How Radioactive Clocks Date Rocks",
   "objective": "After this level you can explain how uranium-lead dating gives a rock's age in years and why carbon dating cannot.",
@@ -129,41 +129,31 @@
     },
     {
       "id": "question.earth_climate.034.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.deeptime_uranium_lead_zircon"
       ],
       "sourceCardIds": [
-        "card.earth_climate.034.c3"
+        "card.earth_climate.034.c3",
+        "card.earth_climate.034.c2"
       ],
-      "prompt": "How does zircon make uranium-lead dating reliable?",
-      "options": [
+      "prompt": "Match each part of the uranium-lead clock with its role.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It soaks up lead from the rocks around it over time",
-          "correct": false,
-          "rationale": "Zircon rejects lead, which is the point."
+          "left": "Uranium-238",
+          "right": "Parent atom"
         },
         {
-          "id": "b",
-          "label": "It shields its uranium so the atoms stop decaying",
-          "correct": false,
-          "rationale": "Uranium keeps decaying at a steady rate."
+          "left": "Lead-206",
+          "right": "Daughter atom"
         },
         {
-          "id": "c",
-          "label": "It takes in uranium but rejects lead as it grows",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It slowly makes fresh uranium as the crystal ages",
-          "correct": false,
-          "rationale": "Uranium is taken in when the crystal grows."
+          "left": "Zircon crystals",
+          "right": "Reject lead"
         }
       ],
-      "explanation": "A new zircon starts with uranium and almost no lead, so its lead measures how long uranium has been decaying.",
+      "explanation": "Uranium-238 is the parent atom, lead-206 is the daughter atom, and zircon crystals take in uranium but reject lead as they grow, so the clock starts at zero.",
       "difficulty": 0.3
     },
     {

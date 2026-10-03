@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 29,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Chinese Landscape Painting",
   "objective": "After this level you can explain how Chinese painters used ink to capture mountains and mist.",
@@ -125,7 +125,7 @@
     },
     {
       "id": "question.art_history.029.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.shanshui_landscape"
@@ -133,33 +133,22 @@
       "sourceCardIds": [
         "card.art_history.029.c3"
       ],
-      "prompt": "What do Guo Xi's \"three distances\" let a landscape painting do?",
-      "options": [
+      "prompt": "Match each of Guo Xi's three distances with how you look.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Show a scene exactly as a camera would",
-          "correct": false,
-          "rationale": "A camera has one viewpoint; this combines three."
+          "left": "High",
+          "right": "Looking up at a peak"
         },
         {
-          "id": "b",
-          "label": "Measure mountains to the correct scale",
-          "correct": false,
-          "rationale": "The idea is about viewpoints, not measurement."
+          "left": "Deep",
+          "right": "Peering into the valleys behind"
         },
         {
-          "id": "c",
-          "label": "Combine several viewpoints in one picture",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Paint only what is far away",
-          "correct": false,
-          "rationale": "It includes high, deep and level views together."
+          "left": "Level",
+          "right": "Gazing across to far hills"
         }
       ],
-      "explanation": "Guo Xi's high, deep and level distances combine in one picture, so your eye moves instead of standing at one fixed point.",
+      "explanation": "High distance is looking up at a peak, deep is peering into the valleys behind, and level is gazing across to far hills.",
       "difficulty": 0.35
     },
     {

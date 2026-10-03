@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 36,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Michelangelo",
   "objective": "After this level you can describe the David and the Sistine Chapel ceiling.",
@@ -125,41 +125,26 @@
     },
     {
       "id": "question.art_history.036.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.ren_sistine_ceiling"
       ],
       "sourceCardIds": [
-        "card.art_history.036.c3"
+        "card.art_history.036.c3",
+        "card.art_history.036.c1",
+        "card.art_history.036.c2"
       ],
-      "prompt": "Why was the Sistine ceiling an unlikely job for Michelangelo?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He had never been to Rome",
-          "correct": false,
-          "rationale": "The card's reason is about his craft, not travel."
-        },
-        {
-          "id": "b",
-          "label": "He could only work lying down",
-          "correct": false,
-          "rationale": "He painted standing up, on scaffolding he designed."
-        },
-        {
-          "id": "c",
-          "label": "He saw himself as a sculptor",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "He had already painted it once",
-          "correct": false,
-          "rationale": "He painted it from 1508 to 1512, just once."
-        }
+      "prompt": "Put these moments in order, from earliest to latest.",
+      "items": [
+        "The job went to a 26-year-old",
+        "The block had become a marble nude",
+        "The ceiling of the Sistine Chapel",
+        "A 1965 film"
       ],
-      "explanation": "Michelangelo thought of himself as a sculptor and had never painted a fresco. He did it anyway.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "In 1501 the marble block went to the 26-year-old Michelangelo, by 1504 it was David, from 1508 to 1512 he painted the Sistine ceiling, and the lying-on-his-back myth probably comes from a 1965 film.",
       "difficulty": 0.25
     },
     {

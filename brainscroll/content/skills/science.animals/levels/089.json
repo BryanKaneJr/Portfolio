@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 89,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Peppered Moths",
   "objective": "After this level you can explain the peppered moth as evolution people could watch.",
@@ -131,42 +131,26 @@
     },
     {
       "id": "question.animals.089.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.peppered_moth_majerus"
       ],
       "sourceCardIds": [
         "card.animals.089.c4",
-        "card.animals.089.c3"
+        "card.animals.089.c3",
+        "card.animals.089.c1"
       ],
-      "prompt": "What did Majerus's experiment, published in 2012, show about peppered moths?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Birds ignore moths resting on bark",
-          "correct": false,
-          "rationale": "Birds took many moths."
-        },
-        {
-          "id": "b",
-          "label": "Birds ate dark moths more often",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Pollution itself killed the dark moths",
-          "correct": false,
-          "rationale": "The pressure came from birds."
-        },
-        {
-          "id": "d",
-          "label": "Moths change color to match bark",
-          "correct": false,
-          "rationale": "The forms are fixed; birds select them."
-        }
+      "prompt": "Put the peppered moth story in order, from earliest to latest.",
+      "items": [
+        "A black peppered moth turned up",
+        "Dark moths there outnumbered light ones",
+        "Rapidly become rarer",
+        "Published it in 2012"
       ],
-      "explanation": "Birds preyed on dark moths more than pale ones, enough to explain the dark form's decline.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "A black peppered moth turned up in 1848, and by 1898 dark moths outnumbered light ones. Since about 1970 dark moths have rapidly become rarer, and Majerus's colleagues published his data in 2012.",
       "difficulty": 0.25
     },
     {

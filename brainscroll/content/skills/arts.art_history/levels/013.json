@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 13,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Art for the Afterlife",
   "objective": "After this level you can explain why Egyptians filled their tombs with art.",
@@ -86,41 +86,32 @@
   "questions": [
     {
       "id": "question.art_history.013.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.egypt_ka_afterlife"
       ],
       "sourceCardIds": [
-        "card.art_history.013.c2"
+        "card.art_history.013.c2",
+        "card.art_history.013.c1",
+        "card.art_history.013.c4"
       ],
-      "prompt": "In Egyptian belief, what was the ka?",
-      "options": [
+      "prompt": "Match each name from Egyptian tombs with what it was.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The painted lid of a coffin",
-          "correct": false,
-          "rationale": "The ka was part of the person, not an object."
+          "left": "Ka",
+          "right": "A life force"
         },
         {
-          "id": "b",
-          "label": "A small figure that did chores in the afterlife",
-          "correct": false,
-          "rationale": "That's a shabti."
+          "left": "Shabtis",
+          "right": "Substitute workers"
         },
         {
-          "id": "c",
-          "label": "A life force that still needed food after death",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "A hidden chamber inside a tomb",
-          "correct": false,
-          "rationale": "The whole tomb was the ka house; the ka itself was a life force."
+          "left": "Meketre",
+          "right": "An Egyptian official"
         }
       ],
-      "explanation": "The ka was a person's life force. It still needed food and drink after death, so tombs provided it in pictures and models.",
+      "explanation": "The ka was a life force that still needed food after death, shabtis were figures of substitute workers, and Meketre was an Egyptian official buried with model servants.",
       "difficulty": 0.15
     },
     {

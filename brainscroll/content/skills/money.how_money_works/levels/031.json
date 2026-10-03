@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 31,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why Save?",
   "objective": "After this level you can explain emergency funds and saving for goals.",
@@ -96,41 +96,35 @@
   "questions": [
     {
       "id": "question.how_money_works.031.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.save_emergency_fund"
       ],
       "sourceCardIds": [
-        "card.how_money_works.031.c2"
+        "card.how_money_works.031.c2",
+        "card.how_money_works.031.c3"
       ],
-      "prompt": "What is an emergency fund for?",
-      "options": [
+      "prompt": "Match each cost with the kind of saving meant for it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A planned purchase, like next summer's trip",
-          "correct": false,
-          "rationale": "That's goal saving: a cost you can see coming."
+          "left": "A car repair",
+          "right": "Emergency fund"
         },
         {
-          "id": "b",
-          "label": "Unplanned costs, like a car repair or lost pay",
-          "correct": true
+          "left": "A lost paycheck",
+          "right": "Emergency fund"
         },
         {
-          "id": "c",
-          "label": "Buying shares when prices look cheap",
-          "correct": false,
-          "rationale": "It's cash kept ready for surprises, not for investing."
+          "left": "A laptop",
+          "right": "Goal saving"
         },
         {
-          "id": "d",
-          "label": "Paying for regular treats each week",
-          "correct": false,
-          "rationale": "Spending it on non-emergencies defeats the point."
+          "left": "A trip",
+          "right": "Goal saving"
         }
       ],
-      "explanation": "An emergency fund is cash set aside for unplanned expenses: repairs, medical bills, a lost income.",
+      "explanation": "An emergency fund covers bills nobody plans, like a car repair or a lost paycheck. Goal saving has a target on it, like a laptop or a trip.",
       "difficulty": 0.1
     },
     {

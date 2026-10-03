@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 48,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Row Houses and Apartments",
   "objective": "After this level you can explain how cities stacked homes to save space.",
@@ -86,41 +86,32 @@
   "questions": [
     {
       "id": "question.architecture.048.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.home_row_house"
       ],
       "sourceCardIds": [
-        "card.architecture.048.c2"
+        "card.architecture.048.c2",
+        "card.architecture.048.c1",
+        "card.architecture.048.c3"
       ],
-      "prompt": "What makes a group of houses a row of row houses?",
-      "options": [
+      "prompt": "Match each kind of city home or building with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Shared side walls joining them into one continuous group",
-          "correct": true
+          "left": "Row house",
+          "right": "Shared side walls"
         },
         {
-          "id": "b",
-          "label": "A single shared roof over all of them",
-          "correct": false,
-          "rationale": "The defining feature is the shared side walls."
+          "left": "Royal Crescent",
+          "right": "John Wood the Younger"
         },
         {
-          "id": "c",
-          "label": "Identical backs built by one architect",
-          "correct": false,
-          "rationale": "At the Royal Crescent, the backs don't match."
-        },
-        {
-          "id": "d",
-          "label": "Apartments stacked one above another",
-          "correct": false,
-          "rationale": "That's an apartment house."
+          "left": "Apartment house",
+          "right": "Build up instead"
         }
       ],
-      "explanation": "A row house is one of a series of houses connected by shared side walls, forming a continuous group.",
+      "explanation": "A row house is joined to its neighbors by shared side walls. John Wood the Younger designed Bath's Royal Crescent. When land gets crowded, cities build up instead, with the apartment house.",
       "difficulty": 0.1
     },
     {

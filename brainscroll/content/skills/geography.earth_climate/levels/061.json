@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 61,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Inside a Thunderstorm",
   "objective": "After this level you can explain the growing, mature and dying stages of a thunderstorm and what drives each one.",
@@ -87,41 +87,25 @@
   "questions": [
     {
       "id": "question.earth_climate.061.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.earth_climate.storm_thunderstorm_stages"
       ],
       "sourceCardIds": [
-        "card.earth_climate.061.c3"
+        "card.earth_climate.061.c3",
+        "card.earth_climate.061.c2",
+        "card.earth_climate.061.c4"
       ],
-      "prompt": "In which stage of a thunderstorm are hail, frequent lightning and tornadoes most likely?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The developing stage",
-          "correct": false,
-          "rationale": "There is little to no rain yet; the cloud is still building."
-        },
-        {
-          "id": "b",
-          "label": "The dissipating stage",
-          "correct": false,
-          "rationale": "By then only light rain and weak winds remain."
-        },
-        {
-          "id": "c",
-          "label": "The mature stage",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Before any cloud has formed",
-          "correct": false,
-          "rationale": "No cloud means no storm hazards yet."
-        }
+      "prompt": "Put the three stages of a thunderstorm cell in order.",
+      "items": [
+        "The tower grows",
+        "Up and down at once",
+        "Choked by its own rain"
       ],
-      "explanation": "In the mature stage the updraft and downdraft run side by side, and hail, heavy rain, frequent lightning, strong winds and tornadoes are most likely.",
+      "first": "First stage",
+      "last": "Last stage",
+      "explanation": "First the tower grows on its updraft, then updraft and downdraft run at once in the mature stage, and finally the storm is choked by its own rain.",
       "difficulty": 0.2
     },
     {

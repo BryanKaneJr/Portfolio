@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 82,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Natural Selection",
   "objective": "After this level you can explain how natural selection works.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "question.animals.082.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.grant_finch_drought",
@@ -140,33 +140,16 @@
         "card.animals.082.c3",
         "card.animals.082.c4"
       ],
-      "prompt": "Why were Daphne Major's medium ground finches born with bigger beaks after the 1977 drought?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Parents stretched their beaks cracking seeds",
-          "correct": false,
-          "rationale": "Beaks weren't stretched; big-beaked birds survived."
-        },
-        {
-          "id": "b",
-          "label": "New finches arrived with bigger beaks",
-          "correct": false,
-          "rationale": "The change came from the island's survivors."
-        },
-        {
-          "id": "c",
-          "label": "Rain made the seeds softer that year",
-          "correct": false,
-          "rationale": "The drought left only big, hard seeds."
-        },
-        {
-          "id": "d",
-          "label": "Larger-beaked birds survived and passed it on",
-          "correct": true
-        }
+      "prompt": "Put the Daphne Major finch story in order, from first to last.",
+      "items": [
+        "The small seeds ran out",
+        "Most of the island's finches died",
+        "Measurably larger beaks",
+        "The average beak slid back down"
       ],
-      "explanation": "Larger-beaked birds could crack the remaining big seeds, survived, and passed their inherited beak size to their young.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "In the 1977 drought the small seeds ran out and most of the island's finches died. The survivors' young had measurably larger beaks, then after the 1982-83 rains the average beak slid back down.",
       "difficulty": 0.25
     },
     {

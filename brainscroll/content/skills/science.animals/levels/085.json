@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 85,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Birds Are Dinosaurs",
   "objective": "After this level you can explain the evidence that birds descend from dinosaurs.",
@@ -131,41 +131,32 @@
     },
     {
       "id": "question.animals.085.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.birds_theropod_descent"
       ],
       "sourceCardIds": [
-        "card.animals.085.c3"
+        "card.animals.085.c3",
+        "card.animals.085.c2",
+        "card.animals.085.c4"
       ],
-      "prompt": "Why was Sinosauropteryx important to the birds-are-dinosaurs story?",
-      "options": [
+      "prompt": "Match each with where or when the cards place it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It was a feathered dinosaur outside the bird line",
-          "correct": true
+          "left": "Archaeopteryx",
+          "right": "Germany"
         },
         {
-          "id": "b",
-          "label": "It was the first bird that could fly",
-          "correct": false,
-          "rationale": "It wasn't a bird."
+          "left": "Sinosauropteryx",
+          "right": "China"
         },
         {
-          "id": "c",
-          "label": "It had a beak and no teeth at all",
-          "correct": false,
-          "rationale": "It was a small meat-eating theropod."
-        },
-        {
-          "id": "d",
-          "label": "It lived after the end-Cretaceous asteroid",
-          "correct": false,
-          "rationale": "It lived long before."
+          "left": "End-Cretaceous extinction",
+          "right": "66 million years ago"
         }
       ],
-      "explanation": "A dinosaur not directly related to birds had feathers, so feathers existed among dinosaurs before birds.",
+      "explanation": "Archaeopteryx fossils turned up in Germany, Sinosauropteryx was found in China, and the end-Cretaceous extinction struck 66 million years ago.",
       "difficulty": 0.25
     },
     {

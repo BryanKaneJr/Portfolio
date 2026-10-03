@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 26,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Angkor Wat",
   "objective": "After this level you can describe the temple city of Angkor.",
@@ -86,41 +86,31 @@
   "questions": [
     {
       "id": "question.architecture.026.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.angkor_temple_mountain"
       ],
       "sourceCardIds": [
-        "card.architecture.026.c2"
+        "card.architecture.026.c2",
+        "card.architecture.026.c4"
       ],
-      "prompt": "What do Angkor Wat's five central towers stand for?",
-      "options": [
+      "prompt": "Match each part of Angkor Wat with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The five Khmer kings who built it",
-          "correct": false,
-          "rationale": "One king, Suryavarman II, built it; the towers are Meru's peaks."
+          "left": "Five central towers",
+          "right": "The peaks of Mount Meru"
         },
         {
-          "id": "b",
-          "label": "The peaks of Mount Meru",
-          "correct": true
+          "left": "The moat",
+          "right": "The oceans at the edge of the world"
         },
         {
-          "id": "c",
-          "label": "The five oceans of the world",
-          "correct": false,
-          "rationale": "The moat stands for the oceans; the towers are mountain peaks."
-        },
-        {
-          "id": "d",
-          "label": "The quarries in the Kulen Hills",
-          "correct": false,
-          "rationale": "That's where the sandstone came from."
+          "left": "Sandstone",
+          "right": "Quarried in the Kulen Hills"
         }
       ],
-      "explanation": "The five central towers symbolize the peaks of Mount Meru, the sacred mountain of Hindu cosmology.",
+      "explanation": "The five central towers stand for the peaks of Mount Meru, the moat suggests the oceans at the edge of the world, and the sandstone was quarried in the Kulen Hills.",
       "difficulty": 0.15
     },
     {

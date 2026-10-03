@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 91,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Music and the Brain",
   "objective": "After this level you can explain what happens in the brain when we hear music.",
@@ -191,7 +191,7 @@
     },
     {
       "id": "question.music.091.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.music.brain_hearing_pathway",
@@ -201,33 +201,15 @@
         "card.music.091.c2",
         "card.music.010.c3"
       ],
-      "prompt": "Following music from ear to brain, what carries the signal onward from the cochlea's hair cells?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The eardrum",
-          "correct": false,
-          "rationale": "The eardrum comes earlier, before the cochlea."
-        },
-        {
-          "id": "b",
-          "label": "Air in the ear canal",
-          "correct": false,
-          "rationale": "Past the cochlea the signal is electrical."
-        },
-        {
-          "id": "c",
-          "label": "The basal ganglia",
-          "correct": false,
-          "rationale": "That's a movement area deep in the brain."
-        },
-        {
-          "id": "d",
-          "label": "The auditory nerve",
-          "correct": true
-        }
+      "prompt": "Put these in order, following music from your ear to your brain.",
+      "items": [
+        "Hair cells",
+        "The auditory nerve",
+        "Top of each temporal lobe"
       ],
-      "explanation": "Hair cells turn vibration into an electrical signal, and the auditory nerve carries it to the brain.",
+      "first": "In the ear",
+      "last": "In the brain",
+      "explanation": "Hair cells in the cochlea turn the vibration into an electrical signal, the auditory nerve carries it, and it arrives at an area at the top of each temporal lobe.",
       "difficulty": 0.3
     }
   ],

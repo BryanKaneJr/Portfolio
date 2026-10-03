@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 17,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "German Expressionism",
   "objective": "After this level you can explain how films like The Cabinet of Dr. Caligari used twisted sets and deep shadows to show inner terror.",
@@ -165,7 +165,7 @@
     },
     {
       "id": "question.film_tv.017.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.film_tv.silent_expressionism_movement",
@@ -173,35 +173,25 @@
       ],
       "sourceCardIds": [
         "card.film_tv.017.c4",
-        "card.film_tv.016.c2"
+        "card.film_tv.016.c2",
+        "card.film_tv.017.c1"
       ],
-      "prompt": "F. W. Murnau directed Nosferatu. Which of his films, from Level 16, told its story almost without intertitles?",
-      "options": [
+      "prompt": "Match each film with what this level says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The Cabinet of Dr. Caligari",
-          "correct": false,
-          "rationale": "Robert Wiene directed Caligari."
+          "left": "The Cabinet of Dr. Caligari",
+          "right": "Robert Wiene"
         },
         {
-          "id": "b",
-          "label": "Battleship Potemkin",
-          "correct": false,
-          "rationale": "That is Eisenstein's film."
+          "left": "Nosferatu",
+          "right": "Bram Stoker's Dracula"
         },
         {
-          "id": "c",
-          "label": "The Last Laugh",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Kid Auto Races at Venice",
-          "correct": false,
-          "rationale": "That is Chaplin's first Tramp film."
+          "left": "The Last Laugh",
+          "right": "Barely needed intertitles"
         }
       ],
-      "explanation": "Murnau's The Last Laugh (1924) told its story almost entirely without intertitles.",
+      "explanation": "Robert Wiene directed The Cabinet of Dr. Caligari, Murnau's Nosferatu was an unauthorized adaptation of Bram Stoker's Dracula, and his The Last Laugh barely needed intertitles.",
       "difficulty": 0.25
     }
   ],

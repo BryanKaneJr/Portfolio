@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 79,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Streaming and the Binge",
   "objective": "After this level you can explain how streaming changed when, where and how people watch, and how series were written for binge viewing.",
@@ -87,41 +87,24 @@
   "questions": [
     {
       "id": "question.film_tv.079.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.tv_streaming_on_demand"
       ],
       "sourceCardIds": [
-        "card.film_tv.079.c2"
+        "card.film_tv.079.c2",
+        "card.film_tv.079.c1"
       ],
-      "prompt": "How did Netflix begin in 1997?",
-      "options": [
-        {
-          "id": "a",
-          "label": "As a cable channel showing uncut movies",
-          "correct": false,
-          "rationale": "That describes HBO in 1972."
-        },
-        {
-          "id": "b",
-          "label": "As a streaming service for TV series",
-          "correct": false,
-          "rationale": "Streaming came in 2007."
-        },
-        {
-          "id": "c",
-          "label": "As a DVD-rental service ordered online and delivered by mail",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "As a TV network selling commercials",
-          "correct": false,
-          "rationale": "Netflix rented discs to subscribers."
-        }
+      "prompt": "Put these steps in Netflix's story in order, from earliest to latest.",
+      "items": [
+        "A DVD-rental service",
+        "Introduced streaming",
+        "House of Cards"
       ],
-      "explanation": "Netflix started in 1997 renting DVDs ordered online and delivered by mail; streaming followed in 2007.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Netflix began in 1997 as a DVD-rental service, introduced streaming in 2007, and released all of House of Cards' first season at once in 2013.",
       "difficulty": 0.2
     },
     {

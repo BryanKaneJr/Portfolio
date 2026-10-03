@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 23,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Bent Pyramid",
   "objective": "After this level you can explain what builders learned from Sneferu's pyramids.",
@@ -87,41 +87,25 @@
   "questions": [
     {
       "id": "question.ancient_egypt.023.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_egypt.sneferu_true_pyramid"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.023.c3"
+        "card.ancient_egypt.023.c3",
+        "card.ancient_egypt.023.c2",
+        "card.ancient_egypt.023.c4"
       ],
-      "prompt": "What did Sneferu’s builders change partway up the Bent Pyramid at Dahshur?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They switched from stone to mud brick",
-          "correct": false,
-          "rationale": "It was the angle that changed."
-        },
-        {
-          "id": "b",
-          "label": "They added a seventh step",
-          "correct": false,
-          "rationale": "The Bent Pyramid has smooth sides, not steps."
-        },
-        {
-          "id": "c",
-          "label": "They cut its angle from 54 to 43 degrees",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "They made it steeper to reach higher",
-          "correct": false,
-          "rationale": "They made it less steep."
-        }
+      "prompt": "Put these pyramids in order, from earliest to latest.",
+      "items": [
+        "Djoser’s pyramid",
+        "The Bent Pyramid",
+        "The Red Pyramid"
       ],
-      "explanation": "The lower part rises at 54 degrees; the upper part at 43 degrees.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Djoser’s step pyramid came first. Sneferu’s builders then made the Bent Pyramid, and tried again just to the north with the Red Pyramid.",
       "difficulty": 0.2
     },
     {

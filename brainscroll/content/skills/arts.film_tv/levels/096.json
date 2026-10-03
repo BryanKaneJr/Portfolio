@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 96,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Is a Documentary True?",
   "objective": "After this level you can weigh how choices of framing, editing and reenactment can shape a documentary's truth without inventing facts.",
@@ -86,41 +86,25 @@
   "questions": [
     {
       "id": "question.film_tv.096.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.critical_documentary_truth"
       ],
       "sourceCardIds": [
-        "card.film_tv.096.c2"
+        "card.film_tv.096.c2",
+        "card.film_tv.096.c1",
+        "card.film_tv.096.c3"
       ],
-      "prompt": "How did John Grierson describe documentary?",
-      "options": [
-        {
-          "id": "a",
-          "label": "As the creative treatment of actuality",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "As a camera left running with no choices made",
-          "correct": false,
-          "rationale": "Grierson stressed the creative choices."
-        },
-        {
-          "id": "c",
-          "label": "As fiction with real actors",
-          "correct": false,
-          "rationale": "Documentary treats actuality, real events."
-        },
-        {
-          "id": "d",
-          "label": "As newsreel footage without editing",
-          "correct": false,
-          "rationale": "Editing is part of the creative treatment."
-        }
+      "prompt": "Put these in order, from earliest to latest.",
+      "items": [
+        "Night Mail",
+        "The Thin Blue Line",
+        "Adams's release"
       ],
-      "explanation": "Grierson called documentary the creative treatment of actuality: real events, shaped by choices.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Night Mail came out in 1936, The Thin Blue Line in 1988, and Randall Dale Adams was released in 1989.",
       "difficulty": 0.25
     },
     {

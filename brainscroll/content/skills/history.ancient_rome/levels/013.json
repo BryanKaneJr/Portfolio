@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 13,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Senate",
   "objective": "After this level you can describe who sat in the Senate and how it steered the Republic.",
@@ -91,41 +91,32 @@
   "questions": [
     {
       "id": "question.ancient_rome.013.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_rome.senate_republic"
       ],
       "sourceCardIds": [
-        "card.ancient_rome.013.c2"
+        "card.ancient_rome.013.c2",
+        "card.ancient_rome.013.c3",
+        "card.ancient_rome.013.c4"
       ],
-      "prompt": "Who sat in the Senate of the Republic?",
-      "options": [
+      "prompt": "Match each part of the Republic with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Every adult male citizen",
-          "correct": false,
-          "rationale": "Citizens met in assemblies, not the Senate."
+          "left": "Senate",
+          "right": "Former magistrates"
         },
         {
-          "id": "b",
-          "label": "Priests chosen by lot",
-          "correct": false,
-          "rationale": "Senators weren’t chosen by lot."
+          "left": "Curia",
+          "right": "A building in the Roman Forum"
         },
         {
-          "id": "c",
-          "label": "Former magistrates, usually for life",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The families of the consuls",
-          "correct": false,
-          "rationale": "Membership came from holding office."
+          "left": "A consul",
+          "right": "One year"
         }
       ],
-      "explanation": "The Senate was made up of former magistrates, who usually kept their seats for life.",
+      "explanation": "The Senate was made up of former magistrates, usually for life. It met in the Curia, a building in the Roman Forum. A consul had only one year.",
       "difficulty": 0.2
     },
     {

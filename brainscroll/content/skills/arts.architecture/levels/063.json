@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 63,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Empire State Building",
   "objective": "After this level you can explain how it went up in about a year.",
@@ -135,41 +135,32 @@
     },
     {
       "id": "question.architecture.063.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.sky_esb_methods"
       ],
       "sourceCardIds": [
-        "card.architecture.063.c3"
+        "card.architecture.063.c3",
+        "card.architecture.063.c2",
+        "card.architecture.063.c4"
       ],
-      "prompt": "Which choice helped the Empire State Building go up in about a year?",
-      "options": [
+      "prompt": "Match each part of the Empire State Building's story with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Waiting until every drawing was finished",
-          "correct": false,
-          "rationale": "They started before the design was complete."
+          "left": "The architects",
+          "right": "Shreve, Lamb & Harmon"
         },
         {
-          "id": "b",
-          "label": "Starting construction before the design was finished",
-          "correct": true
+          "left": "The builders",
+          "right": "Starrett Bros. & Eken"
         },
         {
-          "id": "c",
-          "label": "Storing a year of materials on site first",
-          "correct": false,
-          "rationale": "Deliveries came just in time, so little was stored."
-        },
-        {
-          "id": "d",
-          "label": "Clearing the old hotel before digging began",
-          "correct": false,
-          "rationale": "Digging went on while the old hotel was still coming down."
+          "left": "Its spire",
+          "right": "A mooring station for airships"
         }
       ],
-      "explanation": "Construction overlapped with design, digging overlapped with demolition, and deliveries came just in time.",
+      "explanation": "The architects were Shreve, Lamb & Harmon and the builders were Starrett Bros. & Eken. Its spire was meant to be a mooring station for airships.",
       "difficulty": 0.25
     },
     {

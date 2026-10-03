@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 26,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Penguins",
   "objective": "After this level you can explain how penguins survive the cold and swim.",
@@ -90,41 +90,31 @@
   "questions": [
     {
       "id": "question.animals.026.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.animals.penguin_swimming"
       ],
       "sourceCardIds": [
-        "card.animals.026.c2"
+        "card.animals.026.c2",
+        "card.animals.026.c3"
       ],
-      "prompt": "How do penguin limb bones differ from most birds' bones?",
-      "options": [
+      "prompt": "Match each part of a penguin with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They're dense, with almost no air inside",
-          "correct": true
+          "left": "Feathers",
+          "right": "Short, stiff, waterproof"
         },
         {
-          "id": "b",
-          "label": "They're hollow, with extra struts",
-          "correct": false,
-          "rationale": "That's the flying-bird design from Level 21."
+          "left": "Legs and feet",
+          "right": "Countercurrent heat-exchange system"
         },
         {
-          "id": "c",
-          "label": "They're made of cartilage, not bone",
-          "correct": false,
-          "rationale": "They're bone, just unusually dense."
-        },
-        {
-          "id": "d",
-          "label": "They're missing from the wings",
-          "correct": false,
-          "rationale": "The wings became flippers, bones and all."
+          "left": "Limb bones",
+          "right": "Almost no air inside"
         }
       ],
-      "explanation": "Penguin limb bones are denser than nearly all other birds' and almost entirely lack air spaces.",
+      "explanation": "Penguin feathers are short, stiff and waterproof. The legs and feet carry a countercurrent heat-exchange system, and the limb bones have almost no air inside.",
       "difficulty": 0.15
     },
     {

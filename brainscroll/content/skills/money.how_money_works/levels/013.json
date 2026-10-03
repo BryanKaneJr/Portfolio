@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 13,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Budgets",
   "objective": "After this level you can build a simple budget that separates needs, wants and saving.",
@@ -126,41 +126,24 @@
     },
     {
       "id": "question.how_money_works.013.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.budget_plan"
       ],
       "sourceCardIds": [
-        "card.how_money_works.013.c2"
+        "card.how_money_works.013.c2",
+        "card.how_money_works.013.c4"
       ],
-      "prompt": "Your monthly income minus your expenses comes out below zero. What does that tell you?",
-      "options": [
-        {
-          "id": "a",
-          "label": "You're spending more than you make",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Your budget is on track",
-          "correct": false,
-          "rationale": "On track means the result is above zero."
-        },
-        {
-          "id": "c",
-          "label": "You've saved more than planned",
-          "correct": false,
-          "rationale": "Saving shows up as money left over, not a shortfall."
-        },
-        {
-          "id": "d",
-          "label": "Your taxes were refunded",
-          "correct": false,
-          "rationale": "A below-zero result is about spending, not taxes."
-        }
+      "prompt": "A budget runs as a monthly loop. Put its steps in order.",
+      "items": [
+        "Make the plan at the start",
+        "Write down what you spend each day",
+        "Check at the end of the month"
       ],
-      "explanation": "Below zero means expenses are bigger than income, so something in the plan has to change.",
+      "first": "Start of the month",
+      "last": "End of the month",
+      "explanation": "Make the plan at the start of the month, write down what you spend each day, and check at the end of the month whether you spent what you planned.",
       "difficulty": 0.2
     },
     {

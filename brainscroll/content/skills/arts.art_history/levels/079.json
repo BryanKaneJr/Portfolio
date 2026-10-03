@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 79,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Frida Kahlo",
   "objective": "After this level you can describe Kahlo's self-portraits and the symbols in them.",
@@ -131,41 +131,25 @@
     },
     {
       "id": "question.art_history.079.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.kahlo_symbols"
       ],
       "sourceCardIds": [
-        "card.art_history.079.c3"
+        "card.art_history.079.c3",
+        "card.art_history.079.c2",
+        "card.art_history.079.c4"
       ],
-      "prompt": "In The Two Fridas, what are the two dresses often read as showing?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Her European and Mexican heritage",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Summer and winter fashions",
-          "correct": false,
-          "rationale": "The contrast is European versus Tehuana dress."
-        },
-        {
-          "id": "c",
-          "label": "Her two sisters",
-          "correct": false,
-          "rationale": "Both figures are Kahlo herself."
-        },
-        {
-          "id": "d",
-          "label": "Rich and poor Mexicans",
-          "correct": false,
-          "rationale": "The contrast is between European and Tehuana dress."
-        }
+      "prompt": "Put these in Kahlo's life in order, from earliest to latest.",
+      "items": [
+        "A bus accident",
+        "The Two Fridas",
+        "Self-Portrait with Thorn Necklace"
       ],
-      "explanation": "One Frida wears a white European-style dress, the other Tehuana dress; many read them as her two heritages.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Kahlo was injured in a bus accident in 1925, painted The Two Fridas in 1939, and Self-Portrait with Thorn Necklace and Hummingbird in 1940.",
       "difficulty": 0.3
     },
     {

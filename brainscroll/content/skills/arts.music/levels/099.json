@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 99,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How to Really Listen",
   "objective": "After this level you can use a simple method to listen closely to any piece of music.",
@@ -112,7 +112,7 @@
   "questions": [
     {
       "id": "question.music.099.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.listening_copland_planes"
@@ -120,33 +120,22 @@
       "sourceCardIds": [
         "card.music.099.c2"
       ],
-      "prompt": "In Copland's three planes of listening, what does the sheerly musical plane focus on?",
-      "options": [
+      "prompt": "Match each of Copland's planes of listening with what it is about.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The notes themselves: melody, rhythm, harmony",
-          "correct": true
+          "left": "Sensuous",
+          "right": "The pleasure of the sound itself"
         },
         {
-          "id": "b",
-          "label": "The pleasure of the sound alone",
-          "correct": false,
-          "rationale": "That's the sensuous plane."
+          "left": "Expressive",
+          "right": "What the music makes you feel"
         },
         {
-          "id": "c",
-          "label": "The feelings the music gives you",
-          "correct": false,
-          "rationale": "That's the expressive plane."
-        },
-        {
-          "id": "d",
-          "label": "The lyrics and their story",
-          "correct": false,
-          "rationale": "Copland's planes aren't about lyrics."
+          "left": "Sheerly musical",
+          "right": "The notes themselves"
         }
       ],
-      "explanation": "The sheerly musical plane is the notes themselves and what happens to them: melody, rhythm, harmony and tone color.",
+      "explanation": "The sensuous plane is the pleasure of the sound itself, the expressive plane is what the music makes you feel, and the sheerly musical plane is the notes themselves.",
       "difficulty": 0.25
     },
     {

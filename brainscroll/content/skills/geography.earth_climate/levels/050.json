@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 50,
   "type": "milestone",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Milestone: A Planet Always Changing",
   "objective": "After this level you can connect rocks, moving plates, erosion, deep time and the air into one picture of a planet that never sits still.",
@@ -194,7 +194,7 @@
     },
     {
       "id": "question.earth_climate.050.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.earth_climate.quartz_sand"
@@ -203,33 +203,16 @@
         "card.earth_climate.010.c3",
         "card.earth_climate.050.c2"
       ],
-      "prompt": "Milestone: why does granite's quartz end up as beach sand while its other minerals don't?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Quartz is tough and outlasts the others",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Quartz melts and re-forms on beaches",
-          "correct": false,
-          "rationale": "Sand comes from breakdown, not melting."
-        },
-        {
-          "id": "c",
-          "label": "The other minerals turn into quartz",
-          "correct": false,
-          "rationale": "They break down; they do not become quartz."
-        },
-        {
-          "id": "d",
-          "label": "Waves make new quartz from seawater",
-          "correct": false,
-          "rationale": "The quartz comes from the rock."
-        }
+      "prompt": "Milestone: put the quartz grain's path through the rock families in order.",
+      "items": [
+        "Granite",
+        "Sand",
+        "Sandstone",
+        "Quartzite"
       ],
-      "explanation": "As granite breaks down, its tough quartz outlasts the other minerals and becomes sand.",
+      "first": "Start",
+      "last": "End",
+      "explanation": "The quartz grain goes from granite to sand to sandstone to quartzite.",
       "difficulty": 0.3
     },
     {

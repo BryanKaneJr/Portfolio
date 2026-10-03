@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 25,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Romanesque Churches",
   "objective": "After this level you can describe thick-walled Romanesque churches and their round arches.",
@@ -90,41 +90,36 @@
   "questions": [
     {
       "id": "question.art_history.025.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.romanesque_style"
       ],
       "sourceCardIds": [
-        "card.art_history.025.c2"
+        "card.art_history.025.c2",
+        "card.art_history.025.c3",
+        "card.art_history.025.c4"
       ],
-      "prompt": "Which kind of arch gave Romanesque its \"Roman-like\" name?",
-      "options": [
+      "prompt": "Match each Romanesque term with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The round arch",
-          "correct": true
+          "left": "Romanesque",
+          "right": "Roman-like"
         },
         {
-          "id": "b",
-          "label": "The pointed arch",
-          "correct": false,
-          "rationale": "Pointed arches are a Gothic hallmark."
+          "left": "Barrel vault",
+          "right": "Half a tunnel"
         },
         {
-          "id": "c",
-          "label": "The horseshoe arch",
-          "correct": false,
-          "rationale": "That's the lower arch at Córdoba."
+          "left": "Tympanum",
+          "right": "The half-moon panel over the door"
         },
         {
-          "id": "d",
-          "label": "The flat stone lintel",
-          "correct": false,
-          "rationale": "A lintel isn't an arch at all."
+          "left": "Archangel Michael",
+          "right": "Weighs souls"
         }
       ],
-      "explanation": "Romanesque borrowed the round arch from ancient Rome, hence \"Roman-like\".",
+      "explanation": "Romanesque means Roman-like, a barrel vault is a stone ceiling shaped like half a tunnel, a tympanum is the half-moon panel over the door, and at Conques the archangel Michael weighs souls.",
       "difficulty": 0.2
     },
     {

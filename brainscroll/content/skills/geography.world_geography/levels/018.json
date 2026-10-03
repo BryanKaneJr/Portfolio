@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 18,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Rock Cycle",
   "objective": "After this level you can name the three kinds of rock and explain how one turns into another.",
@@ -93,41 +93,36 @@
   "questions": [
     {
       "id": "question.world_geography.018.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.rock_types"
       ],
       "sourceCardIds": [
-        "card.world_geography.018.c2"
+        "card.world_geography.018.c2",
+        "card.world_geography.018.c3",
+        "card.world_geography.018.c4"
       ],
-      "prompt": "Which kind of rock forms when magma or lava cools and hardens?",
-      "options": [
+      "prompt": "Match each rock with its type.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Sedimentary",
-          "correct": false,
-          "rationale": "That's built from layers of pieces."
+          "left": "Basalt",
+          "right": "Igneous"
         },
         {
-          "id": "b",
-          "label": "Metamorphic",
-          "correct": false,
-          "rationale": "That's changed by heat and pressure without melting."
+          "left": "Limestone",
+          "right": "Sedimentary"
         },
         {
-          "id": "c",
-          "label": "Igneous",
-          "correct": true
+          "left": "Marble",
+          "right": "Metamorphic"
         },
         {
-          "id": "d",
-          "label": "Limestone",
-          "correct": false,
-          "rationale": "Limestone is sedimentary."
+          "left": "Gneiss",
+          "right": "Metamorphic"
         }
       ],
-      "explanation": "Igneous rock forms from cooled molten rock: granite underground, basalt from fast-cooling lava.",
+      "explanation": "Basalt is igneous, cooled from lava. Limestone is sedimentary. Marble and gneiss are both metamorphic, changed by heat and pressure.",
       "difficulty": 0.15
     },
     {

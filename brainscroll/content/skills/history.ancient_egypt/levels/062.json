@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 62,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "An Egyptian Empire",
   "objective": "After this level you can explain how Egypt built an empire in the New Kingdom.",
@@ -93,41 +93,25 @@
   "questions": [
     {
       "id": "question.ancient_egypt.062.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_egypt.newkingdom_empire"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.062.c4"
+        "card.ancient_egypt.062.c4",
+        "card.ancient_egypt.062.c2",
+        "card.ancient_egypt.018.c5"
       ],
-      "prompt": "How far north did Thutmose I’s campaigns reach?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Only to the edge of the Sinai desert",
-          "correct": false,
-          "rationale": "He went much farther, through Syria."
-        },
-        {
-          "id": "b",
-          "label": "The Euphrates River in Syria",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The shores of the Black Sea",
-          "correct": false,
-          "rationale": "His campaigns stopped at a river, not a sea."
-        },
-        {
-          "id": "d",
-          "label": "The Mediterranean island of Crete",
-          "correct": false,
-          "rationale": "His armies marched overland through Syria."
-        }
+      "prompt": "Put these empire-building kings in order, from earliest to latest.",
+      "items": [
+        "Ahmose",
+        "Thutmose I",
+        "Thutmose III"
       ],
-      "explanation": "Thutmose I campaigned through Syria as far as the Euphrates.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Ahmose pushed Egypt’s borders out after the Hyksos. Then came Thutmose I, who reached the Euphrates, and later Thutmose III, who grew the buffers into an empire.",
       "difficulty": 0.2
     },
     {

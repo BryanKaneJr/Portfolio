@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 13,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Elephants",
   "objective": "After this level you can describe elephants' trunks, memory and family life.",
@@ -165,7 +165,7 @@
     },
     {
       "id": "question.animals.013.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.elephant_trunk",
@@ -173,35 +173,25 @@
       ],
       "sourceCardIds": [
         "card.animals.013.c2",
-        "card.animals.006.c2"
+        "card.animals.006.c2",
+        "card.animals.013.c3"
       ],
-      "prompt": "Level 6's herbivores run 'from aphids to elephants.' So what does an elephant's trunk mostly grab to eat?",
-      "options": [
+      "prompt": "Match each part of elephant life with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Meat from other animals",
-          "correct": false,
-          "rationale": "That's a carnivore's diet."
+          "left": "Trunk",
+          "right": "A nose and upper lip fused into one"
         },
         {
-          "id": "b",
-          "label": "Plants",
-          "correct": true
+          "left": "Matriarch",
+          "right": "The biggest and oldest female"
         },
         {
-          "id": "c",
-          "label": "Insects only",
-          "correct": false,
-          "rationale": "Elephants are herbivores, not insect eaters."
-        },
-        {
-          "id": "d",
-          "label": "Plankton filtered from water",
-          "correct": false,
-          "rationale": "That's how baleen whales feed."
+          "left": "Adult males",
+          "right": "Roam alone"
         }
       ],
-      "explanation": "Elephants are herbivores, and the trunk is the tool that grabs their plant food.",
+      "explanation": "The trunk is a nose and upper lip fused into one. The matriarch is usually the biggest and oldest female, and adult males tend to roam alone.",
       "difficulty": 0.15
     }
   ],

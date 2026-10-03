@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 36,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Weighing of the Heart",
   "objective": "After this level you can explain how Egyptians believed the dead were judged.",
@@ -131,41 +131,36 @@
     },
     {
       "id": "question.ancient_egypt.036.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.weighing_heart_judgment"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.036.c3"
+        "card.ancient_egypt.036.c3",
+        "card.ancient_egypt.036.c2",
+        "card.ancient_egypt.036.c4"
       ],
-      "prompt": "What did Egyptians believe happened if a heart failed the weighing?",
-      "options": [
+      "prompt": "Match each figure at the judgment with their role.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The person got a second try the next day",
-          "correct": false,
-          "rationale": "There was no retake."
+          "left": "Anubis",
+          "right": "Supervises the scales"
         },
         {
-          "id": "b",
-          "label": "Ammit ate the heart, and the afterlife was lost",
-          "correct": true
+          "left": "Thoth",
+          "right": "Records the verdict"
         },
         {
-          "id": "c",
-          "label": "The person became a god",
-          "correct": false,
-          "rationale": "That’s far too generous."
+          "left": "Ammit",
+          "right": "The Devourer"
         },
         {
-          "id": "d",
-          "label": "The heart was returned to the body",
-          "correct": false,
-          "rationale": "A failed heart met Ammit."
+          "left": "Osiris",
+          "right": "Judge of the dead"
         }
       ],
-      "explanation": "Ammit, the Devourer, ate a heart that failed, denying the dead person the afterlife.",
+      "explanation": "Anubis supervises the scales, Thoth records the verdict, Ammit the Devourer waits to eat a failed heart, and Osiris is judge of the dead.",
       "difficulty": 0.25
     },
     {

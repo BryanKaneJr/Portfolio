@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 62,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Blues",
   "objective": "After this level you can explain the blues form and where it came from.",
@@ -145,42 +145,25 @@
     },
     {
       "id": "question.music.062.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.blues_blue_notes",
         "concept.music.major_minor_triads"
       ],
       "sourceCardIds": [
-        "card.music.062.c4"
+        "card.music.062.c4",
+        "card.music.062.c3"
       ],
-      "prompt": "Why can't a piano play a true blue third?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It's too high for the keyboard",
-          "correct": false,
-          "rationale": "It sits right between two neighboring keys, not off the end."
-        },
-        {
-          "id": "b",
-          "label": "It lies between two neighboring keys",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It needs two notes at once",
-          "correct": false,
-          "rationale": "A blue note is a single bent pitch."
-        },
-        {
-          "id": "d",
-          "label": "It only exists on drums",
-          "correct": false,
-          "rationale": "Singers and guitarists make blue notes all the time."
-        }
+      "prompt": "Put the three lines of a blues stanza in order.",
+      "items": [
+        "State your trouble",
+        "State it again",
+        "Deliver the punchline"
       ],
-      "explanation": "A blue note lowers the third by less than a semitone, the smallest keyboard step, so it lands between major and minor.",
+      "first": "First line",
+      "last": "Third line",
+      "explanation": "In a blues stanza you state your trouble, state it again in the second line, then deliver the punchline in a new, rhyming third line.",
       "difficulty": 0.3
     },
     {

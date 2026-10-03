@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 34,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Temples",
   "objective": "After this level you can explain what happened inside Egyptian temples.",
@@ -122,7 +122,7 @@
     },
     {
       "id": "question.ancient_egypt.034.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.temple_god_house"
@@ -130,33 +130,16 @@
       "sourceCardIds": [
         "card.ancient_egypt.034.c3"
       ],
-      "prompt": "What happened to the food a temple’s god was offered each morning?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It was burned so the smoke reached the sky",
-          "correct": false,
-          "rationale": "The food was put to practical use."
-        },
-        {
-          "id": "b",
-          "label": "It was thrown into the Nile",
-          "correct": false,
-          "rationale": "None of it went to waste."
-        },
-        {
-          "id": "c",
-          "label": "It was sealed in the god’s shrine forever",
-          "correct": false,
-          "rationale": "It came back out."
-        },
-        {
-          "id": "d",
-          "label": "The leftovers were divided among the priests as wages",
-          "correct": true
-        }
+      "prompt": "Put the high priest’s morning ritual in order, from first to last.",
+      "items": [
+        "Opened the shrine",
+        "Greeted the statue with hymns",
+        "Dressed it in fine cloth",
+        "Presented it with food"
       ],
-      "explanation": "After the god was served, the leftover offerings went to the priests as part of their pay.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Each morning the high priest opened the shrine, greeted the statue with hymns, dressed it in fine cloth and jewelry, and presented it with food.",
       "difficulty": 0.3
     },
     {

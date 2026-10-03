@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 98,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Who Is the Author of a Film?",
   "objective": "After this level you can weigh the auteur theory, which credits the director, against the view of film as a team effort.",
@@ -135,7 +135,7 @@
     },
     {
       "id": "question.film_tv.098.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.critical_film_as_team",
@@ -143,35 +143,19 @@
       ],
       "sourceCardIds": [
         "card.film_tv.098.c4",
-        "card.film_tv.098.c3"
+        "card.film_tv.098.c3",
+        "card.film_tv.098.c2"
       ],
-      "prompt": "Which piece of evidence best supports the view that Citizen Kane was a team effort?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Welles appears in the film",
-          "correct": false,
-          "rationale": "Acting in it doesn't show others shaped it."
-        },
-        {
-          "id": "b",
-          "label": "Cahiers du cinéma was founded in 1951",
-          "correct": false,
-          "rationale": "That's about the theory's origin, not Kane's making."
-        },
-        {
-          "id": "c",
-          "label": "Welles admitted Toland advised him on lighting and camera placement",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Sarris named the auteur theory in 1962",
-          "correct": false,
-          "rationale": "That supports the idea's history, not the team view."
-        }
+      "prompt": "Put these moments in the auteur debate in order, from earliest to latest.",
+      "items": [
+        "The idea grew in France",
+        "Cahiers du cinéma",
+        "Andrew Sarris named it",
+        "Raising Kane"
       ],
-      "explanation": "Toland's advice on lighting and camera placement shows key choices came from a collaborator.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The auteur idea grew in France in the late 1940s, Cahiers du cinéma was founded in 1951, Andrew Sarris named it the auteur theory in 1962, and Kael's \"Raising Kane\" came in 1971.",
       "difficulty": 0.45
     },
     {

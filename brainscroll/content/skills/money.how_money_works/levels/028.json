@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 28,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Loans for Big Goals",
   "objective": "After this level you can compare loans for school, cars and businesses.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "question.how_money_works.028.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.loan_secured_unsecured"
@@ -139,33 +139,26 @@
         "card.how_money_works.028.c2",
         "card.how_money_works.028.c3"
       ],
-      "prompt": "Why do unsecured loans often carry higher interest rates than secured ones?",
-      "options": [
+      "prompt": "Match each loan with its type.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They are always for smaller amounts",
-          "correct": false,
-          "rationale": "Size isn't the reason; risk is."
+          "left": "A car loan",
+          "right": "Secured"
         },
         {
-          "id": "b",
-          "label": "They are taxed by the government",
-          "correct": false,
-          "rationale": "No special tax: the difference is risk."
+          "left": "Level 27's mortgage",
+          "right": "Secured"
         },
         {
-          "id": "c",
-          "label": "With no collateral, lenders face more risk",
-          "correct": true
+          "left": "Student loans",
+          "right": "Unsecured"
         },
         {
-          "id": "d",
-          "label": "Only banks offer secured loans",
-          "correct": false,
-          "rationale": "The rate gap comes from risk, not who lends."
+          "left": "Credit cards",
+          "right": "Unsecured"
         }
       ],
-      "explanation": "Without collateral to take, a lender stands to lose more if the loan goes unpaid, so it may charge a higher rate.",
+      "explanation": "A car loan and a mortgage are secured: the car or the home is collateral. Student loans and credit cards are typically unsecured, with no property to claim.",
       "difficulty": 0.25
     },
     {

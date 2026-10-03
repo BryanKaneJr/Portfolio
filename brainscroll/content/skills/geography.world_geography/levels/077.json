@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 77,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Caribbean",
   "objective": "After this level you can describe the Caribbean islands and explain their hurricane season.",
@@ -127,7 +127,7 @@
     },
     {
       "id": "question.world_geography.077.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.hurricane_season"
@@ -135,33 +135,15 @@
       "sourceCardIds": [
         "card.world_geography.077.c4"
       ],
-      "prompt": "Why does the Atlantic hurricane season peak around September, not June?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Hurricanes need cold water to start",
-          "correct": false,
-          "rationale": "Warm water is their fuel."
-        },
-        {
-          "id": "b",
-          "label": "The Sun is strongest in September",
-          "correct": false,
-          "rationale": "The Sun peaks in late June."
-        },
-        {
-          "id": "c",
-          "label": "The ocean takes weeks to reach its warmest",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The official dates make storms wait",
-          "correct": false,
-          "rationale": "The dates describe the season; they don't cause it."
-        }
+      "prompt": "Put these hurricane season dates in order, from earliest to latest.",
+      "items": [
+        "June 1",
+        "Around September 10",
+        "November 30"
       ],
-      "explanation": "Oceans warm slowly, reaching their warmest weeks after the Sun's late-June peak, and warm water is hurricane fuel.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Atlantic season starts on June 1, peaks around September 10 and ends on November 30.",
       "difficulty": 0.35
     },
     {

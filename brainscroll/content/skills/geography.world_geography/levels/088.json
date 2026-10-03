@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 88,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Antarctica",
   "objective": "After this level you can explain why Antarctica is the coldest, driest and windiest continent.",
@@ -90,41 +90,36 @@
   "questions": [
     {
       "id": "question.world_geography.088.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.antarctic_ice_sheet"
       ],
       "sourceCardIds": [
-        "card.world_geography.088.c2"
+        "card.world_geography.088.c2",
+        "card.world_geography.088.c3",
+        "card.world_geography.088.c4"
       ],
-      "prompt": "About how much of the world's ice is in Antarctica's ice sheet?",
-      "options": [
+      "prompt": "Match each Antarctic record with its number.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "About 10%",
-          "correct": false,
-          "rationale": "Far too little: it's the great majority."
+          "left": "Ice sheet",
+          "right": "Up to 4.8 km thick"
         },
         {
-          "id": "b",
-          "label": "About 50%",
-          "correct": false,
-          "rationale": "More than that."
+          "left": "The highest continent",
+          "right": "About 2,200 m above sea level"
         },
         {
-          "id": "c",
-          "label": "About 90%",
-          "correct": true
+          "left": "The coldest temperature ever measured",
+          "right": "−89.2 °C"
         },
         {
-          "id": "d",
-          "label": "All of it",
-          "correct": false,
-          "rationale": "Greenland and the world's glaciers hold some, too."
+          "left": "Snowfall",
+          "right": "About 150 mm of rain a year"
         }
       ],
-      "explanation": "Antarctica's ice sheet holds about 90% of all the ice on Earth.",
+      "explanation": "Antarctica's ice sheet is up to 4.8 km thick, its surface averages about 2,200 m above sea level, the coldest temperature ever measured there is −89.2 °C, and its snowfall equals about 150 mm of rain a year.",
       "difficulty": 0.2
     },
     {

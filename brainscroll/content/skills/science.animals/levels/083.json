@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 83,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Fossils",
   "objective": "After this level you can explain how fossils form and what they show.",
@@ -171,7 +171,7 @@
     },
     {
       "id": "question.animals.083.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.fossil_formation",
@@ -181,33 +181,15 @@
         "card.animals.083.c2",
         "card.animals.003.c2"
       ],
-      "prompt": "A fish dies and sinks into mud. Which part of it is most likely to become a fossil?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Its muscles",
-          "correct": false,
-          "rationale": "Soft parts usually rot first."
-        },
-        {
-          "id": "b",
-          "label": "Its skin",
-          "correct": false,
-          "rationale": "Skin rots unless conditions are rare."
-        },
-        {
-          "id": "c",
-          "label": "Its eyes",
-          "correct": false,
-          "rationale": "Soft tissue rarely survives."
-        },
-        {
-          "id": "d",
-          "label": "Its backbone and other bones",
-          "correct": true
-        }
+      "prompt": "Put the steps of petrification in order.",
+      "items": [
+        "Its soft parts rot",
+        "Mud, sand or silt buries them",
+        "Become sedimentary rock"
       ],
-      "explanation": "Soft parts rot, often leaving only bones and teeth, like the vertebrae of a fish's backbone, to be buried and petrified.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "After an animal dies, its soft parts rot. Mud, sand or silt buries the bones, and more layers press down until they become sedimentary rock.",
       "difficulty": 0.2
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 2,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why Every Map Is Wrong",
   "objective": "After this level you can explain why every flat map distorts the round Earth and compare two common projections.",
@@ -179,7 +179,7 @@
     },
     {
       "id": "question.world_geography.002.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.world_geography.equal_area_projection",
@@ -187,35 +187,29 @@
       ],
       "sourceCardIds": [
         "card.world_geography.002.c4",
-        "card.world_geography.001.c2"
+        "card.world_geography.001.c2",
+        "card.world_geography.002.c3"
       ],
-      "prompt": "You want to compare the true sizes of two continents from Level 1. Which kind of map should you use?",
-      "options": [
+      "prompt": "Match each feature with the kind of map that has it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A Mercator map",
-          "correct": false,
-          "rationale": "It inflates places far from the Equator."
+          "left": "Built for navigation",
+          "right": "Mercator map"
         },
         {
-          "id": "b",
-          "label": "A navigation chart",
-          "correct": false,
-          "rationale": "Charts are built for bearings, not true sizes."
+          "left": "Sizes: not so much",
+          "right": "Mercator map"
         },
         {
-          "id": "c",
-          "label": "An equal-area map",
-          "correct": true
+          "left": "True relative size",
+          "right": "Equal-area map"
         },
         {
-          "id": "d",
-          "label": "Any map, since all show size correctly",
-          "correct": false,
-          "rationale": "Every flat map distorts something."
+          "left": "Shapes come out stretched",
+          "right": "Equal-area map"
         }
       ],
-      "explanation": "Equal-area maps show the true relative sizes of places, even though they distort shapes.",
+      "explanation": "Mercator's map was built for navigation but gets sizes wrong. An equal-area map shows true relative size, but shapes come out stretched.",
       "difficulty": 0.25
     }
   ],

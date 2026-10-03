@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 19,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Nanook and the First Documentaries",
   "objective": "After this level you can explain what Nanook of the North set out to show and why some of its scenes were staged.",
@@ -98,41 +98,32 @@
   "questions": [
     {
       "id": "question.film_tv.019.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.silent_documentary_beginnings"
       ],
       "sourceCardIds": [
-        "card.film_tv.019.c5"
+        "card.film_tv.019.c5",
+        "card.film_tv.019.c1",
+        "card.film_tv.019.c2"
       ],
-      "prompt": "Who first used the term documentary, and about which film?",
-      "options": [
+      "prompt": "Match each person with their part in the documentary story.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Robert Flaherty, about Nanook of the North",
-          "correct": false,
-          "rationale": "Flaherty made the films; Grierson coined the word."
+          "left": "Allakariallak",
+          "right": "The best hunter in the district"
         },
         {
-          "id": "b",
-          "label": "The Lumière brothers, about their train film",
-          "correct": false,
-          "rationale": "The word came decades later."
+          "left": "Robert Flaherty",
+          "right": "Father of the documentary film"
         },
         {
-          "id": "c",
-          "label": "John Grierson, about Flaherty's Moana",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Sergei Eisenstein, about Battleship Potemkin",
-          "correct": false,
-          "rationale": "Eisenstein made dramatized films, and the word came from Grierson."
+          "left": "John Grierson",
+          "right": "First used the term documentary"
         }
       ],
-      "explanation": "John Grierson first used the term documentary about Flaherty's Moana (1926).",
+      "explanation": "Allakariallak, the best hunter in the district, played Nanook. Robert Flaherty is often called the father of the documentary film, and John Grierson first used the term documentary.",
       "difficulty": 0.2
     },
     {

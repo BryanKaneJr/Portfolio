@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 21,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "What Makes a Bird",
   "objective": "After this level you can explain feathers, beaks and hollow bones.",
@@ -134,41 +134,36 @@
     },
     {
       "id": "question.animals.021.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.bird_light_skeleton"
       ],
       "sourceCardIds": [
-        "card.animals.021.c4"
+        "card.animals.021.c4",
+        "card.animals.021.c3",
+        "card.animals.021.c1"
       ],
-      "prompt": "Why do the big wing bones of large flying birds have struts inside them?",
-      "options": [
+      "prompt": "Match each part of a bird with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "To keep the hollow bones from buckling",
-          "correct": true
+          "left": "Beak",
+          "right": "Jaws wrapped in a horny sheath"
         },
         {
-          "id": "b",
-          "label": "To store fat for long flights",
-          "correct": false,
-          "rationale": "The spaces hold air; the struts add strength."
+          "left": "Eggs",
+          "right": "Hard-shelled"
         },
         {
-          "id": "c",
-          "label": "To make the bones heavy for diving",
-          "correct": false,
-          "rationale": "That would work against flying."
+          "left": "Big wing bones",
+          "right": "Struts inside"
         },
         {
-          "id": "d",
-          "label": "To anchor the bird's feathers",
-          "correct": false,
-          "rationale": "The struts are about strength, not feathers."
+          "left": "Frigatebird",
+          "right": "Seven-foot wingspan"
         }
       ],
-      "explanation": "Partly hollow bones save weight, and internal struts keep their walls from buckling.",
+      "explanation": "A bird's beak is its jaws wrapped in a horny sheath, and its eggs are hard-shelled. Big wing bones carry struts inside, and the frigatebird has a seven-foot wingspan.",
       "difficulty": 0.2
     },
     {

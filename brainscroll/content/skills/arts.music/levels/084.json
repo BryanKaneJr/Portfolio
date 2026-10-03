@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 84,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Synthesizers",
   "objective": "After this level you can explain how a synthesizer makes sound.",
@@ -149,41 +149,25 @@
     },
     {
       "id": "question.music.084.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.synth_signal_chain"
       ],
       "sourceCardIds": [
-        "card.music.084.c3"
+        "card.music.084.c3",
+        "card.music.084.c4"
       ],
-      "prompt": "A synth player wants the same note to sound less buzzy without changing its pitch. Which part should they adjust?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The oscillator's frequency",
-          "correct": false,
-          "rationale": "That would change the pitch."
-        },
-        {
-          "id": "b",
-          "label": "The envelope's release",
-          "correct": false,
-          "rationale": "Release only changes how the note fades out."
-        },
-        {
-          "id": "c",
-          "label": "The keyboard",
-          "correct": false,
-          "rationale": "A different key means a different pitch."
-        },
-        {
-          "id": "d",
-          "label": "The filter",
-          "correct": true
-        }
+      "prompt": "Put the four stages of a synth envelope in order.",
+      "items": [
+        "Attack",
+        "Decay",
+        "Sustain",
+        "Release"
       ],
-      "explanation": "The filter removes harmonics to change the timbre, while the oscillator keeps the pitch.",
+      "first": "Press the key",
+      "last": "After you let go",
+      "explanation": "Attack is the rise when you press the key, decay the fall to a steady level, sustain that level held, and release the fade after you let go.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 74,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Trial by Ordeal",
   "objective": "After this level you can explain trial by ordeal and trial by combat.",
@@ -103,41 +103,23 @@
   "questions": [
     {
       "id": "question.middle_ages.074.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.trial_by_ordeal"
       ],
       "sourceCardIds": [
-        "card.middle_ages.074.c3"
+        "card.middle_ages.074.c2"
       ],
-      "prompt": "In the medieval ordeal of cold water, what did sinking mean?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The accused was guilty",
-          "correct": false,
-          "rationale": "Floating meant guilty."
-        },
-        {
-          "id": "b",
-          "label": "The test had to be repeated",
-          "correct": false,
-          "rationale": "Sinking gave a verdict."
-        },
-        {
-          "id": "c",
-          "label": "The accused was innocent",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The accused must fight a champion",
-          "correct": false,
-          "rationale": "That’s trial by combat, a different test."
-        }
+      "prompt": "Put the steps of the ordeal of hot iron in order.",
+      "items": [
+        "The accused held a red-hot iron",
+        "The hand was bandaged",
+        "Checked three days later"
       ],
-      "explanation": "Sinking meant the water had accepted you, so you were innocent; floating meant guilt.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "In the ordeal of hot iron, the accused held a red-hot iron, the hand was bandaged, and it was checked three days later: a clean, healing wound meant innocent.",
       "difficulty": 0.2
     },
     {

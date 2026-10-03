@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 2,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "What Sound Is",
   "objective": "After this level you can explain sound as vibrations traveling through the air.",
@@ -120,41 +120,25 @@
     },
     {
       "id": "question.music.002.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.sound_vibration"
       ],
       "sourceCardIds": [
-        "card.music.002.c2"
+        "card.music.002.c2",
+        "card.music.002.c4"
       ],
-      "prompt": "A speaker plays across a room. What do the air molecules between you and it do?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Fly from the speaker into your ear",
-          "correct": false,
-          "rationale": "The push travels; the air mostly stays put."
-        },
-        {
-          "id": "b",
-          "label": "Stay perfectly still while the sound passes",
-          "correct": false,
-          "rationale": "They move, just not across the room."
-        },
-        {
-          "id": "c",
-          "label": "Jiggle back and forth, passing the push along",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Spin in small circles around the speaker",
-          "correct": false,
-          "rationale": "They move back and forth along the wave's direction."
-        }
+      "prompt": "Put these steps in order, from the guitar string to your ear.",
+      "items": [
+        "A plucked string swings back and forth",
+        "Squeezes travel outward",
+        "Eardrum vibrates",
+        "Three tiny bones in your middle ear"
       ],
-      "explanation": "Molecules oscillate in place, forming compressions and rarefactions that travel outward as a pressure wave.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "A plucked string swings back and forth, the squeezes travel outward through the air, your eardrum vibrates, and it passes the motion to three tiny bones in your middle ear.",
       "difficulty": 0.25
     },
     {

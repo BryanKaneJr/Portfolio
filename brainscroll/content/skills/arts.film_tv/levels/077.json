@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 77,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Public and Children's TV",
   "objective": "After this level you can explain why public broadcasting was created in 1967 and how shows like Sesame Street set out to teach.",
@@ -130,41 +130,25 @@
     },
     {
       "id": "question.film_tv.077.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.tv_sesame_street"
       ],
       "sourceCardIds": [
-        "card.film_tv.077.c3"
+        "card.film_tv.077.c3",
+        "card.film_tv.077.c1",
+        "card.film_tv.077.c2"
       ],
-      "prompt": "How did Joan Ganz Cooney plan what Sesame Street would teach?",
-      "options": [
-        {
-          "id": "a",
-          "label": "She copied the lessons of a public school textbook",
-          "correct": false,
-          "rationale": "The level credits educators and researchers, not a textbook."
-        },
-        {
-          "id": "b",
-          "label": "She worked with dozens of educators and child development researchers",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "She let Nielsen ratings choose each segment",
-          "correct": false,
-          "rationale": "Ratings don't appear in how the show was planned."
-        },
-        {
-          "id": "d",
-          "label": "She asked advertisers which letters to feature",
-          "correct": false,
-          "rationale": "The 'sponsors' were a joke; no company paid."
-        }
+      "prompt": "Put these in order, from earliest to latest.",
+      "items": [
+        "The Public Broadcasting Act",
+        "The Children's Television Workshop",
+        "The first episode of Sesame Street"
       ],
-      "explanation": "Cooney consulted dozens of educators and set up a collaboration with child development researchers to plan the show.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Johnson signed the Public Broadcasting Act in 1967, Cooney founded the Children's Television Workshop in 1968, and the first episode of Sesame Street aired in 1969.",
       "difficulty": 0.3
     },
     {

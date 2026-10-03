@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 20,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Ancient Worlds",
   "objective": "After this level you can compare the art of Egypt, Greece, Rome and early Asia.",
@@ -277,7 +277,7 @@
     },
     {
       "id": "question.art_history.020.q4",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.art_history.greek_contrapposto",
@@ -285,35 +285,21 @@
       ],
       "sourceCardIds": [
         "card.art_history.015.c2",
-        "card.art_history.015.c3"
+        "card.art_history.015.c3",
+        "card.art_history.020.c2"
       ],
-      "prompt": "From Level 15: what did the Kritios Boy do that the stiff kouros did not?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He faced straight ahead",
-          "correct": false,
-          "rationale": "The kouros already did that."
-        },
-        {
-          "id": "b",
-          "label": "He stepped his left foot forward",
-          "correct": false,
-          "rationale": "Kouroi already had the left foot forward."
-        },
-        {
-          "id": "c",
-          "label": "He rested his weight on one leg",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "He clenched both fists",
-          "correct": false,
-          "rationale": "That's the Archaic kouros."
-        }
+      "prompt": "Put the chapter's works in order, from oldest to newest.",
+      "items": [
+        "Ur's ziggurat rises for the moon god",
+        "Exekias paints heroes at a dice game",
+        "The Kritios Boy shifts his weight",
+        "The Parthenon goes up for Athena",
+        "The Alexander Mosaic is laid in Pompeii",
+        "Hadrian rebuilds the Pantheon"
       ],
-      "explanation": "Just after 480 BCE, the Kritios Boy put his weight on his left leg with the right knee bent: contrapposto.",
+      "first": "Oldest",
+      "last": "Newest",
+      "explanation": "Oldest first: Ur's ziggurat (about 2100 BCE), Exekias's dice game (540 to 530 BCE), the Kritios Boy (after 480 BCE), the Parthenon (447 to 432 BCE), the Alexander Mosaic (about 100 BCE), then the Pantheon (118 to 128 CE).",
       "difficulty": 0.25
     },
     {

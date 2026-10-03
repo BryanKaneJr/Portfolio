@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 20,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: City-States",
   "objective": "After this level you can explain how Greek city-states were organized and connected.",
@@ -270,7 +270,7 @@
     },
     {
       "id": "question.ancient_greece.020.q4",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_greece.citystate_olympic_games",
@@ -278,35 +278,31 @@
       ],
       "sourceCardIds": [
         "card.ancient_greece.018.c2",
-        "card.ancient_greece.019.c2"
+        "card.ancient_greece.019.c2",
+        "card.ancient_greece.020.c2",
+        "card.ancient_greece.015.c3",
+        "card.ancient_greece.017.c2"
       ],
-      "prompt": "City-States recap: which pairing of sanctuary and god is right?",
-      "options": [
+      "prompt": "Match each place with what it’s known for.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Olympia for Apollo, Delphi for Zeus",
-          "correct": false,
-          "rationale": "It’s the other way around."
+          "left": "Olympia",
+          "right": "A sanctuary of Zeus"
         },
         {
-          "id": "b",
-          "label": "Olympia for Zeus, Delphi for Apollo",
-          "correct": true
+          "left": "Delphi",
+          "right": "Apollo’s oracle"
         },
         {
-          "id": "c",
-          "label": "Olympia and Delphi both for Zeus",
-          "correct": false,
-          "rationale": "Delphi’s oracle spoke for Apollo."
+          "left": "Laurium",
+          "right": "Silver mines"
         },
         {
-          "id": "d",
-          "label": "Olympia and Delphi both for Apollo",
-          "correct": false,
-          "rationale": "Olympia was Zeus’s sanctuary."
+          "left": "Lydia",
+          "right": "The first coins"
         }
       ],
-      "explanation": "The Games honored Zeus at Olympia; the Pythia spoke for Apollo at Delphi.",
+      "explanation": "Olympia was a sanctuary of Zeus, Delphi held Apollo’s oracle, Laurium had silver mines, and the first coins were made in Lydia.",
       "difficulty": 0.3
     },
     {

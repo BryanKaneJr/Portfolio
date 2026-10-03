@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 100,
   "type": "mastery",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Mastery Challenge: US History",
   "objective": "After this level you can demonstrate command of US History Levels 1 to 99 across the whole tree.",
@@ -467,7 +467,7 @@
     },
     {
       "id": "question.us_history.100.q9",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.us_history.brown_naacp_campaign",
@@ -475,35 +475,22 @@
       ],
       "sourceCardIds": [
         "card.us_history.083.c2",
-        "card.us_history.067.c3"
+        "card.us_history.067.c3",
+        "card.us_history.067.c2",
+        "card.us_history.083.c3",
+        "card.us_history.083.c4"
       ],
-      "prompt": "Plessy v. Ferguson (1896) allowed segregation if facilities were “equal.” Why did NAACP lawyers first challenge it in graduate and law schools?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Court had already overturned Plessy for colleges",
-          "correct": false,
-          "rationale": "Plessy stood until Brown in 1954."
-        },
-        {
-          "id": "b",
-          "label": "Graduate schools were federal, so states had no say",
-          "correct": false,
-          "rationale": "They were state schools, like the Texas law school in Sweatt v. Painter."
-        },
-        {
-          "id": "c",
-          "label": "Southern states had already agreed to integrate them",
-          "correct": false,
-          "rationale": "States fought these cases in court."
-        },
-        {
-          "id": "d",
-          "label": "States rarely had any separate Black school there at all",
-          "correct": true
-        }
+      "prompt": "Put these steps in the legal fight over segregation in order, from earliest to latest.",
+      "items": [
+        "Separate Car Act",
+        "Plessy v. Ferguson",
+        "Sweatt v. Painter",
+        "Brown v. Board of Education",
+        "Brown II"
       ],
-      "explanation": "Where no separate Black school existed, “separate but equal” was plainly false. Thurgood Marshall’s lawyers won there first, case by case, before Brown.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Louisiana’s Separate Car Act came in 1890 and Plessy v. Ferguson in 1896. Sweatt v. Painter followed in 1950, Brown v. Board of Education in 1954, and Brown II in 1955.",
       "difficulty": 0.4
     },
     {

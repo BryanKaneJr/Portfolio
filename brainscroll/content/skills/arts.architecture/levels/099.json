@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 99,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How to Look at a Building",
   "objective": "After this level you can use a simple method to read any building.",
@@ -96,41 +96,26 @@
   "questions": [
     {
       "id": "question.architecture.099.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.future_reading_buildings"
       ],
       "sourceCardIds": [
-        "card.architecture.099.c2"
+        "card.architecture.099.c2",
+        "card.architecture.099.c3",
+        "card.architecture.099.c4"
       ],
-      "prompt": "Historic England's guide says an investigation of a building should start with what?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Lifting floorboards to inspect the joists",
-          "correct": false,
-          "rationale": "Start with an overview, not invasive work."
-        },
-        {
-          "id": "b",
-          "label": "A quick overview of its functions and main phases",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Measuring every window to the millimeter",
-          "correct": false,
-          "rationale": "Detail comes after the overview."
-        },
-        {
-          "id": "d",
-          "label": "Picking out its prettiest detail",
-          "correct": false,
-          "rationale": "Delight comes last in this method."
-        }
+      "prompt": "Put the steps for reading a building in order, from first to last.",
+      "items": [
+        "Stand back",
+        "Find how it stands",
+        "Read the changes",
+        "Ask what delights you"
       ],
-      "explanation": "Start with a quick overview, identifying functions and main phases, so you see the building as a working whole.",
+      "first": "Start here",
+      "last": "Finish here",
+      "explanation": "Step 1: stand back for a quick overview. Step 2: find how it stands. Step 3: read the changes. Finally, ask what delights you.",
       "difficulty": 0.15
     },
     {

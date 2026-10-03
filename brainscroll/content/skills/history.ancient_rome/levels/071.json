@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 71,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "All Roads Lead to Rome",
   "objective": "After this level you can explain how Roman roads were built and why they mattered.",
@@ -121,41 +121,24 @@
     },
     {
       "id": "question.ancient_rome.071.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_rome.roman_roads"
       ],
       "sourceCardIds": [
-        "card.ancient_rome.071.c3"
+        "card.ancient_rome.071.c3",
+        "card.ancient_rome.071.c2"
       ],
-      "prompt": "Who were Roman roads built for first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Merchants carrying grain to Rome",
-          "correct": false,
-          "rationale": "They came to use them too."
-        },
-        {
-          "id": "b",
-          "label": "Pilgrims visiting distant temples",
-          "correct": false,
-          "rationale": "They weren’t the main reason."
-        },
-        {
-          "id": "c",
-          "label": "Tourists visiting Rome",
-          "correct": false,
-          "rationale": "They weren’t the main reason."
-        },
-        {
-          "id": "d",
-          "label": "The army, to move legions quickly",
-          "correct": true
-        }
+      "prompt": "Put the layers of a major Roman road in order, from bottom to top.",
+      "items": [
+        "A foundation of large stones",
+        "Gravel or rubble",
+        "Paving stones"
       ],
-      "explanation": "Roads let legions march quickly, and trade and officials followed.",
+      "first": "Bottom",
+      "last": "Top",
+      "explanation": "A major Roman road started with a foundation of large stones, then gravel or rubble, then paving stones on top.",
       "difficulty": 0.3
     },
     {

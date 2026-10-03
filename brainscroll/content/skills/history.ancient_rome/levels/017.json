@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 17,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Cincinnatus and the Citizen Ideal",
   "objective": "After this level you can retell the story of Cincinnatus and explain the Roman idea of civic duty.",
@@ -159,7 +159,7 @@
     },
     {
       "id": "question.ancient_rome.017.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_rome.civic_virtue",
@@ -167,35 +167,19 @@
       ],
       "sourceCardIds": [
         "card.ancient_rome.017.c3",
-        "card.ancient_rome.012.c4"
+        "card.ancient_rome.012.c4",
+        "card.ancient_rome.017.c2"
       ],
-      "prompt": "From Level 12: Cincinnatus held which emergency office, limited to six months?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Dictator",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Consul",
-          "correct": false,
-          "rationale": "Consuls served a year."
-        },
-        {
-          "id": "c",
-          "label": "Tribune",
-          "correct": false,
-          "rationale": "Tribunes protected plebeians."
-        },
-        {
-          "id": "d",
-          "label": "King",
-          "correct": false,
-          "rationale": "Rome had sworn off kings."
-        }
+      "prompt": "Put the story of Cincinnatus in order, from first to last.",
+      "items": [
+        "A Roman army was trapped",
+        "Made Cincinnatus dictator",
+        "Cincinnatus won the war",
+        "Resigned as dictator"
       ],
-      "explanation": "The dictatorship gave supreme power for at most six months; Cincinnatus gave it up after about 16 days.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "A Roman army was trapped, so the Senate made Cincinnatus dictator. He won the war, then resigned as dictator after about 16 days.",
       "difficulty": 0.3
     }
   ],

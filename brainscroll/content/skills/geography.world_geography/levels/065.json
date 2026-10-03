@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 65,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Asia: The Big Picture",
   "objective": "After this level you can describe Asia's regions and why most people on Earth live there.",
@@ -169,7 +169,7 @@
     },
     {
       "id": "question.world_geography.065.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.world_geography.continent_sizes",
@@ -178,35 +178,25 @@
       "sourceCardIds": [
         "card.world_geography.008.c2",
         "card.world_geography.065.c1",
-        "card.world_geography.065.c2"
+        "card.world_geography.065.c2",
+        "card.world_geography.065.c4"
       ],
-      "prompt": "Asia has almost a third of the world's land (Level 8) but about three-fifths of its people. What follows?",
-      "options": [
+      "prompt": "Match each one with Asia's share of it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Asia is more crowded than the world average",
-          "correct": true
+          "left": "People on Earth",
+          "right": "About three in every five"
         },
         {
-          "id": "b",
-          "label": "Asia is less crowded than the world average",
-          "correct": false,
-          "rationale": "It has a bigger share of people than of land."
+          "left": "The world's land",
+          "right": "Almost a third"
         },
         {
-          "id": "c",
-          "label": "Asia's share of land and people is equal",
-          "correct": false,
-          "rationale": "A third isn't three-fifths."
-        },
-        {
-          "id": "d",
-          "label": "Asia's land is mostly water",
-          "correct": false,
-          "rationale": "Asia is the largest continent by land."
+          "left": "The world's rice",
+          "right": "About 90%"
         }
       ],
-      "explanation": "A bigger share of people (three-fifths) than of land (almost a third) means Asia is, on average, more crowded than the rest of the world.",
+      "explanation": "Asia is home to about three in every five people on Earth, holds almost a third of the world's land, and grows and eats about 90% of the world's rice.",
       "difficulty": 0.3
     }
   ],

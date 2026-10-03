@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 14,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Brass",
   "objective": "After this level you can explain how brass players change notes with their lips and valves.",
@@ -135,42 +135,32 @@
     },
     {
       "id": "question.music.014.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.instruments_brass_harmonics"
       ],
       "sourceCardIds": [
         "card.music.014.c3",
-        "card.music.014.c1"
+        "card.music.014.c1",
+        "card.music.014.c4"
       ],
-      "prompt": "A bugle has no valves or slide. How does a bugler play different notes?",
-      "options": [
+      "prompt": "Match each brass idea with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "By covering holes along the tube",
-          "correct": false,
-          "rationale": "A bugle has no holes."
+          "left": "Fundamental",
+          "right": "Its lowest note"
         },
         {
-          "id": "b",
-          "label": "By pulling out a hidden slide",
-          "correct": false,
-          "rationale": "It has no slide."
+          "left": "Valves",
+          "right": "Extra tubing"
         },
         {
-          "id": "c",
-          "label": "By using lips and breath to pick notes of the harmonic series",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "By blowing harder on one single note",
-          "correct": false,
-          "rationale": "Blowing harder alone doesn't explain the different notes."
+          "left": "Trombone",
+          "right": "Uses a slide"
         }
       ],
-      "explanation": "Without valves, a brass tube plays only its harmonic series, and the player chooses among those notes with lips and breath.",
+      "explanation": "The fundamental is a tube's lowest note, valves send the air through extra tubing, and the trombone skips valves and uses a slide.",
       "difficulty": 0.2
     },
     {

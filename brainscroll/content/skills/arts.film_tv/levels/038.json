@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 38,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Sound in the Story, Sound for Us",
   "objective": "After this level you can tell diegetic sound, which the characters can hear, from non-diegetic sound, which only the audience hears.",
@@ -125,42 +125,36 @@
     },
     {
       "id": "question.film_tv.038.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.cutting_diegetic_sound"
       ],
       "sourceCardIds": [
         "card.film_tv.038.c2",
-        "card.film_tv.038.c3"
+        "card.film_tv.038.c3",
+        "card.film_tv.038.c4"
       ],
-      "prompt": "How can you tell whether a song playing in a scene is diegetic?",
-      "options": [
+      "prompt": "Match each kind of film sound with an example or meaning from this level.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Check whether the song has lyrics",
-          "correct": false,
-          "rationale": "Songs with or without words can be either."
+          "left": "Diegesis",
+          "right": "The world of the story"
         },
         {
-          "id": "b",
-          "label": "Check whether it is louder than the dialogue",
-          "correct": false,
-          "rationale": "Volume does not decide it."
+          "left": "Diegetic sound",
+          "right": "A band playing at a party"
         },
         {
-          "id": "c",
-          "label": "Ask whether its source is inside the story world",
-          "correct": true
+          "left": "Non-diegetic sound",
+          "right": "Most background music"
         },
         {
-          "id": "d",
-          "label": "Check whether it was recorded live on set",
-          "correct": false,
-          "rationale": "Diegesis is about the story world, not the recording."
+          "left": "Internal diegetic sound",
+          "right": "Their thoughts"
         }
       ],
-      "explanation": "Diegetic sound is presented as coming from a source inside the film's world, so characters could hear it.",
+      "explanation": "Diegesis is the world of the story. A band playing at a party is diegetic sound, most background music is non-diegetic, and a character's thoughts are internal diegetic sound.",
       "difficulty": 0.25
     },
     {

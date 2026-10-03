@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 55,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Dams",
   "objective": "After this level you can explain how dams hold back so much water.",
@@ -108,42 +108,32 @@
   "questions": [
     {
       "id": "question.architecture.055.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.marvel_hoover_dam"
       ],
       "sourceCardIds": [
         "card.architecture.055.c1",
-        "card.architecture.055.c4"
+        "card.architecture.055.c4",
+        "card.architecture.055.c3"
       ],
-      "prompt": "Why was Hoover Dam built as separate columns threaded with cooling pipes?",
-      "options": [
+      "prompt": "Match each kind of dam with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "To let the river keep flowing between the columns",
-          "correct": false,
-          "rationale": "The columns were joined into one dam."
+          "left": "Gravity dam",
+          "right": "Entirely by its own weight"
         },
         {
-          "id": "b",
-          "label": "One pour would have taken 125 years to cool, and cracked",
-          "correct": true
+          "left": "Arch dam",
+          "right": "Built in a narrow gorge"
         },
         {
-          "id": "c",
-          "label": "Concrete could only be delivered in small trucks",
-          "correct": false,
-          "rationale": "Delivery wasn't the problem; heat was."
-        },
-        {
-          "id": "d",
-          "label": "To make the dam lighter so it could float",
-          "correct": false,
-          "rationale": "A dam relies on weight, not floating."
+          "left": "Embankment dam",
+          "right": "A huge mound of earth or rock fill"
         }
       ],
-      "explanation": "Setting concrete makes heat; one pour would have taken 125 years to cool and cracked, so it rose in columns cooled by pipes.",
+      "explanation": "A gravity dam holds back water entirely by its own weight. An arch dam is built in a narrow gorge and passes the push into the valley sides. An embankment dam is a huge mound of earth or rock fill.",
       "difficulty": 0.2
     },
     {

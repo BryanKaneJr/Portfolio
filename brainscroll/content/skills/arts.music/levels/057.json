@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 57,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Flamenco",
   "objective": "After this level you can describe flamenco's guitar, song and dance.",
@@ -91,41 +91,35 @@
   "questions": [
     {
       "id": "question.music.057.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.flamenco_elements"
       ],
       "sourceCardIds": [
-        "card.music.057.c1"
+        "card.music.057.c1",
+        "card.music.057.c4"
       ],
-      "prompt": "UNESCO describes flamenco as a fusion of which three arts?",
-      "options": [
+      "prompt": "Match each flamenco word with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Painting, poetry and street theater",
-          "correct": false,
-          "rationale": "Flamenco is performed music and movement."
+          "left": "Cante",
+          "right": "Song"
         },
         {
-          "id": "b",
-          "label": "Opera, ballet and orchestral music from Madrid",
-          "correct": false,
-          "rationale": "Those are European concert arts."
+          "left": "Baile",
+          "right": "Dance"
         },
         {
-          "id": "c",
-          "label": "Drums, brass horns and a large choir of backing singers",
-          "correct": false,
-          "rationale": "Flamenco uses a solo singer, guitar and handclaps."
+          "left": "Toque",
+          "right": "Musicianship"
         },
         {
-          "id": "d",
-          "label": "Song, dance and musicianship (cante, baile, toque)",
-          "correct": true
+          "left": "Compas",
+          "right": "A 12-beat cycle"
         }
       ],
-      "explanation": "Flamenco fuses cante (song), baile (dance) and toque (musicianship, above all guitar).",
+      "explanation": "Cante is song, baile is dance, toque is musicianship, and the compas is a 12-beat cycle.",
       "difficulty": 0.15
     },
     {

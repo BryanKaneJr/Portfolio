@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 92,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Composition",
   "objective": "After this level you can explain how artists guide your eye with balance, lines and a focal point.",
@@ -96,7 +96,7 @@
   "questions": [
     {
       "id": "question.art_history.092.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.composition_balance"
@@ -104,33 +104,22 @@
       "sourceCardIds": [
         "card.art_history.092.c2"
       ],
-      "prompt": "The two halves of a painting are different, yet it still looks balanced. What kind of balance is that?",
-      "options": [
+      "prompt": "Match each kind of balance with how it works.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Radial balance",
-          "correct": false,
-          "rationale": "Radial means arranged around a central point."
+          "left": "Symmetrical balance",
+          "right": "The two sides are alike"
         },
         {
-          "id": "b",
-          "label": "Symmetrical balance",
-          "correct": false,
-          "rationale": "Symmetrical means the two sides are alike."
+          "left": "Asymmetrical balance",
+          "right": "Different but still look balanced"
         },
         {
-          "id": "c",
-          "label": "Asymmetrical balance",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "No balance at all",
-          "correct": false,
-          "rationale": "It still looks balanced, so it has balance."
+          "left": "Radial balance",
+          "right": "Around a central point"
         }
       ],
-      "explanation": "In asymmetrical balance the sides are different but still look balanced.",
+      "explanation": "In symmetrical balance the two sides are alike, in asymmetrical balance they're different but still look balanced, and in radial balance things are arranged around a central point.",
       "difficulty": 0.2
     },
     {

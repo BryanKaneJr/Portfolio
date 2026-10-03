@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 88,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Street Art",
   "objective": "After this level you can explain how graffiti and street art moved from walls into galleries.",
@@ -95,41 +95,32 @@
   "questions": [
     {
       "id": "question.art_history.088.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.street_art_to_gallery"
       ],
       "sourceCardIds": [
-        "card.art_history.088.c2"
+        "card.art_history.088.c2",
+        "card.art_history.088.c3",
+        "card.art_history.088.c4"
       ],
-      "prompt": "Where did Keith Haring make his subway drawings?",
-      "options": [
+      "prompt": "Match each street artist with what they worked in.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "On the outsides of subway trains",
-          "correct": false,
-          "rationale": "He drew in stations, on paper panels."
+          "left": "Keith Haring",
+          "right": "White chalk"
         },
         {
-          "id": "b",
-          "label": "On black paper over empty ad panels",
-          "correct": true
+          "left": "Jean-Michel Basquiat",
+          "right": "SAMO"
         },
         {
-          "id": "c",
-          "label": "On canvases sold at station kiosks",
-          "correct": false,
-          "rationale": "They were illegal drawings, not stock for sale."
-        },
-        {
-          "id": "d",
-          "label": "Inside a gallery built like a station",
-          "correct": false,
-          "rationale": "They were in the real subway."
+          "left": "Banksy",
+          "right": "Stencils"
         }
       ],
-      "explanation": "Haring drew in white chalk on the black paper covering unrented advertising panels.",
+      "explanation": "Keith Haring drew in white chalk in the subway, Jean-Michel Basquiat spray-painted sayings signed SAMO, and Banksy works in stencils.",
       "difficulty": 0.15
     },
     {

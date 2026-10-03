@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 97,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Why Wildfires Spread",
   "objective": "After this level you can explain how heat, drought, wind and fuel combine to drive a wildfire and a longer fire season.",
@@ -126,41 +126,36 @@
     },
     {
       "id": "question.earth_climate.097.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.hazard_fire_season"
       ],
       "sourceCardIds": [
-        "card.earth_climate.097.c4"
+        "card.earth_climate.097.c4",
+        "card.earth_climate.097.c2",
+        "card.earth_climate.097.c3"
       ],
-      "prompt": "One person blames bigger western fires only on forest management; another blames only climate. What does NASA's account suggest?",
-      "options": [
+      "prompt": "Match each wildfire idea with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Only fuel buildup; climate plays no part",
-          "correct": false,
-          "rationale": "NASA also lists hotter weather, earlier snowmelt and less summer rain."
+          "left": "Fire triangle",
+          "right": "Heat, oxygen and fuel"
         },
         {
-          "id": "b",
-          "label": "Both: built-up fuel plus warmer, drier conditions",
-          "correct": true
+          "left": "Fire behavior triangle",
+          "right": "Fuels, weather and topography"
         },
         {
-          "id": "c",
-          "label": "Only climate; the amount of fuel doesn't matter",
-          "correct": false,
-          "rationale": "Decades of suppression let fuel pile up in some forests."
+          "left": "Wind",
+          "right": "Feeds the flames fresh oxygen"
         },
         {
-          "id": "d",
-          "label": "Neither, since fire seasons haven't changed",
-          "correct": false,
-          "rationale": "Parts of the West now have seasons more than a month longer."
+          "left": "Low humidity",
+          "right": "Dries fuel out"
         }
       ],
-      "explanation": "NASA says a warming climate and fuel built up by decades of fire suppression work together to raise the potential for extreme fires.",
+      "explanation": "The fire triangle is heat, oxygen and fuel, the fire behavior triangle is fuels, weather and topography, wind feeds the flames fresh oxygen, and low humidity dries fuel out.",
       "difficulty": 0.45
     },
     {

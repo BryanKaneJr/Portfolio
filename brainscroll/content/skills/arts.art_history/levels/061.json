@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 61,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Post-Impressionism",
   "objective": "After this level you can explain how Cézanne, Gauguin and Seurat pushed past Impressionism.",
@@ -91,41 +91,33 @@
   "questions": [
     {
       "id": "question.art_history.061.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.postimp_name"
       ],
       "sourceCardIds": [
-        "card.art_history.061.c1"
+        "card.art_history.061.c1",
+        "card.art_history.061.c2",
+        "card.art_history.061.c3",
+        "card.art_history.061.c4"
       ],
-      "prompt": "Where does the name Post-Impressionism come from?",
-      "options": [
+      "prompt": "Match each Post-Impressionist with the road he took.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A manifesto the painters signed together",
-          "correct": false,
-          "rationale": "They never agreed on a program; a critic named them."
+          "left": "Cézanne",
+          "right": "The cylinder, the sphere and the cone"
         },
         {
-          "id": "b",
-          "label": "Roger Fry's 1910 London exhibition",
-          "correct": true
+          "left": "Gauguin",
+          "right": "Pure, flat color and heavy outlines"
         },
         {
-          "id": "c",
-          "label": "A newspaper insult about their paint",
-          "correct": false,
-          "rationale": "This name came from the show's own organizer."
-        },
-        {
-          "id": "d",
-          "label": "The name of a Paris café they met in",
-          "correct": false,
-          "rationale": "No café: \"post\" just means \"after\" Impressionism."
+          "left": "Seurat",
+          "right": "Tiny dots of color"
         }
       ],
-      "explanation": "Roger Fry used the term for his 1910 show, Manet and the Post-Impressionists. \"Post\" simply means \"after\".",
+      "explanation": "Cézanne looked for structure: the cylinder, the sphere and the cone. Gauguin used pure, flat color and heavy outlines for imagination. Seurat used tiny dots of color, on a scientific basis.",
       "difficulty": 0.3
     },
     {

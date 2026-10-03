@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 60,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Africa and the Middle East",
   "objective": "After this level you can describe the main landscapes, rivers and resources of Africa and the Middle East.",
@@ -180,7 +180,7 @@
     },
     {
       "id": "question.world_geography.060.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.world_geography.suez_canal",
@@ -188,35 +188,18 @@
       ],
       "sourceCardIds": [
         "card.world_geography.060.c3",
-        "card.world_geography.053.c3"
+        "card.world_geography.053.c3",
+        "card.world_geography.060.c2"
       ],
-      "prompt": "The Suez Canal divides Africa from Asia. Which side is the Nile Delta on?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The African side, just west of the canal",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The Asian side, in the Sinai",
-          "correct": false,
-          "rationale": "The Sinai lies east of the canal."
-        },
-        {
-          "id": "c",
-          "label": "Both sides equally",
-          "correct": false,
-          "rationale": "The delta is west of the canal."
-        },
-        {
-          "id": "d",
-          "label": "Neither: it lies far south, in Sudan",
-          "correct": false,
-          "rationale": "The delta is at the mouth, in northern Egypt."
-        }
+      "prompt": "Put these in order, from west to east.",
+      "items": [
+        "Nile Delta",
+        "Suez Canal",
+        "Sinai Peninsula"
       ],
-      "explanation": "The Nile Delta lies just west of the canal, in Africa; the Sinai Peninsula to the east is in Asia.",
+      "first": "West",
+      "last": "East",
+      "explanation": "The Nile Delta spreads just west of the Suez Canal, and Egypt's Sinai Peninsula lies east of it, in Asia.",
       "difficulty": 0.3
     },
     {

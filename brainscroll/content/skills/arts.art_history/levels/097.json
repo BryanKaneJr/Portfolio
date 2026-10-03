@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 97,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Stolen Art",
   "objective": "After this level you can describe famous art thefts, including the Mona Lisa in 1911.",
@@ -130,41 +130,26 @@
     },
     {
       "id": "question.art_history.097.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.theft_mona_lisa"
       ],
       "sourceCardIds": [
-        "card.art_history.097.c3"
+        "card.art_history.097.c3",
+        "card.art_history.097.c1",
+        "card.art_history.097.c4"
       ],
-      "prompt": "How did the 1911 theft change the Mona Lisa's place in the world?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It made the painting world-famous",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "It damaged the painting beyond repair",
-          "correct": false,
-          "rationale": "It was found intact in a trunk."
-        },
-        {
-          "id": "c",
-          "label": "It moved the painting permanently to Florence",
-          "correct": false,
-          "rationale": "It went back to Paris."
-        },
-        {
-          "id": "d",
-          "label": "It made people forget the painting",
-          "correct": false,
-          "rationale": "Crowds came even to see the empty wall."
-        }
+      "prompt": "Put these moments in order, from earliest to latest.",
+      "items": [
+        "Leonardo da Vinci began her",
+        "The Mona Lisa vanished",
+        "Peruggia tried to sell the painting",
+        "Two men dressed as police officers"
       ],
-      "explanation": "The papers made the theft a sensation; the painting came back world-famous.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Leonardo began the Mona Lisa about 1503. She vanished in 1911, Peruggia tried to sell her in 1913, and two men dressed as police officers robbed the Gardner Museum in 1990.",
       "difficulty": 0.2
     },
     {

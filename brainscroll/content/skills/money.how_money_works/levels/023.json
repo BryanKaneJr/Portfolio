@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 23,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Interest",
   "objective": "After this level you can explain interest as the price of borrowing money.",
@@ -170,7 +170,7 @@
     },
     {
       "id": "question.how_money_works.023.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.how_money_works.interest_ancient_rates",
@@ -178,35 +178,17 @@
       ],
       "sourceCardIds": [
         "card.how_money_works.023.c1",
-        "card.how_money_works.004.c1"
+        "card.how_money_works.005.c3"
       ],
-      "prompt": "Which came first: laws setting interest rates, or the Lydian coins from Level 4?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The coins, by about a century",
-          "correct": false,
-          "rationale": "Hammurabi's laws came first, by over a thousand years."
-        },
-        {
-          "id": "b",
-          "label": "Both appeared in the same century",
-          "correct": false,
-          "rationale": "They were more than a thousand years apart."
-        },
-        {
-          "id": "c",
-          "label": "Interest laws only began with medieval banks",
-          "correct": false,
-          "rationale": "Hammurabi's code set rates in the 18th century BCE."
-        },
-        {
-          "id": "d",
-          "label": "Interest laws, by more than 1,000 years",
-          "correct": true
-        }
+      "prompt": "Put these in order, from earliest to latest.",
+      "items": [
+        "Hammurabi's code",
+        "Lydia's first coins",
+        "Jiaozi"
       ],
-      "explanation": "Hammurabi's code (18th century BCE) set interest rates more than 1,000 years before Lydia's coins (around 650 BCE).",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Hammurabi's code was setting interest rates in the 18th century BCE, Lydia's first coins came around 650 BCE, and China's jiaozi notes around 1023.",
       "difficulty": 0.3
     }
   ],

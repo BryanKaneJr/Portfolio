@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 25,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Walls of Light",
   "objective": "After this level you can explain how Gothic builders filled churches with light.",
@@ -135,41 +135,31 @@
     },
     {
       "id": "question.architecture.025.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.gothic_tracery"
       ],
       "sourceCardIds": [
-        "card.architecture.025.c3"
+        "card.architecture.025.c3",
+        "card.architecture.025.c2"
       ],
-      "prompt": "Why could Gothic windows with bar tracery hold more glass than those with plate tracery?",
-      "options": [
+      "prompt": "Match each Gothic window word with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Bar tracery used colored stone instead of glass",
-          "correct": false,
-          "rationale": "Bar tracery holds glass; it isn't made of it."
+          "left": "Plate tracery",
+          "right": "Openings cut through a solid slab"
         },
         {
-          "id": "b",
-          "label": "Thin stone bars replaced openings cut in a solid slab",
-          "correct": true
+          "left": "Bar tracery",
+          "right": "Thin upright stone bars"
         },
         {
-          "id": "c",
-          "label": "Bar tracery was made of iron, not stone",
-          "correct": false,
-          "rationale": "It is thin stone bars."
-        },
-        {
-          "id": "d",
-          "label": "Plate tracery windows had no stone at all",
-          "correct": false,
-          "rationale": "Plate tracery is a slab of stone with openings cut in."
+          "left": "Clerestory",
+          "right": "Windowed wall"
         }
       ],
-      "explanation": "Plate tracery cut openings through a stone slab; bar tracery divides the window with thin stone bars, so more of it is glass.",
+      "explanation": "Plate tracery is openings cut through a solid slab of stone, bar tracery is thin upright stone bars dividing the glass, and the clerestory is the windowed wall rising above the aisle roofs.",
       "difficulty": 0.3
     },
     {

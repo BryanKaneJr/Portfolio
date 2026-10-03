@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 16,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Greek Temples",
   "objective": "After this level you can name the three Greek column styles and describe the Parthenon.",
@@ -140,41 +140,31 @@
     },
     {
       "id": "question.art_history.016.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.parthenon"
       ],
       "sourceCardIds": [
-        "card.art_history.016.c4"
+        "card.art_history.016.c4",
+        "card.art_history.016.c2"
       ],
-      "prompt": "What do scholars still disagree about in the Parthenon's curves?",
-      "options": [
+      "prompt": "Match each Greek column style with its capital.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Whether the curves exist",
-          "correct": false,
-          "rationale": "They're measured: the base rises about 5 cm in the middle."
+          "left": "Doric",
+          "right": "A plain, cushion-like capital"
         },
         {
-          "id": "b",
-          "label": "Why the builders made them",
-          "correct": true
+          "left": "Ionic",
+          "right": "Scrolls curl at the capital"
         },
         {
-          "id": "c",
-          "label": "Which goddess the temple honored",
-          "correct": false,
-          "rationale": "It was Athena."
-        },
-        {
-          "id": "d",
-          "label": "Which order its columns follow",
-          "correct": false,
-          "rationale": "It is the high point of the Doric order."
+          "left": "Corinthian",
+          "right": "Carved with acanthus leaves"
         }
       ],
-      "explanation": "Vitruvius said the curves correct optical illusions; a 2026 study argues there's no evidence they do. The reason is debated.",
+      "explanation": "A Doric column has a plain, cushion-like capital, an Ionic capital has curling scrolls, and a Corinthian capital is carved with acanthus leaves.",
       "difficulty": 0.25
     },
     {

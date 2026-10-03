@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 28,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How Arches and Hoodoos Form",
   "objective": "After this level you can explain how uneven erosion of hard and soft rock leaves arches, hoodoos and mesas.",
@@ -135,7 +135,7 @@
     },
     {
       "id": "question.earth_climate.028.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.land_hoodoos"
@@ -143,33 +143,15 @@
       "sourceCardIds": [
         "card.earth_climate.028.c3"
       ],
-      "prompt": "How does a rock fin at Bryce Canyon become a row of hoodoos?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Wind sandblasts spires out of a single boulder",
-          "correct": false,
-          "rationale": "At Bryce, ice and water do the work."
-        },
-        {
-          "id": "b",
-          "label": "Ice opens windows, then the caprock above collapses",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Lava cools into tall, thin columns",
-          "correct": false,
-          "rationale": "Hoodoos are carved from sedimentary rock, not cooled lava."
-        },
-        {
-          "id": "d",
-          "label": "A river carves them from below",
-          "correct": false,
-          "rationale": "Hoodoos form as fins break apart."
-        }
+      "prompt": "Put the steps from fin to hoodoo in order, as at Bryce Canyon.",
+      "items": [
+        "Fins",
+        "Windows",
+        "Hoodoos"
       ],
-      "explanation": "Freezing water widens cracks in fins into windows; as the windows grow, the caprock collapses, leaving hoodoos.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Caprock protects thin rock walls called fins, ice widens their cracks into windows, and when the caprock above collapses, hoodoos are left.",
       "difficulty": 0.3
     },
     {

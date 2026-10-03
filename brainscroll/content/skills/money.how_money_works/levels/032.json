@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 32,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Risk and Return",
   "objective": "After this level you can explain why higher possible returns come with higher risk.",
@@ -86,41 +86,32 @@
   "questions": [
     {
       "id": "question.how_money_works.032.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.risk_return_tradeoff"
       ],
       "sourceCardIds": [
-        "card.how_money_works.032.c3"
+        "card.how_money_works.032.c2",
+        "card.how_money_works.032.c3",
+        "card.how_money_works.032.c4"
       ],
-      "prompt": "What is the risk-return tradeoff?",
-      "options": [
+      "prompt": "Match each investing idea with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Safer investments always pay more in the end",
-          "correct": false,
-          "rationale": "It's the other way round: more reward comes with more risk."
+          "left": "Risk",
+          "right": "Uncertainty"
         },
         {
-          "id": "b",
-          "label": "A chance of higher returns comes with more risk",
-          "correct": true
+          "left": "Risk-return tradeoff",
+          "right": "Investors seek higher returns"
         },
         {
-          "id": "c",
-          "label": "Every investment returns the same over time",
-          "correct": false,
-          "rationale": "Stocks and bills ended 1928 to 2025 very far apart."
-        },
-        {
-          "id": "d",
-          "label": "Risky investments are guaranteed to lose money",
-          "correct": false,
-          "rationale": "Risk means uncertainty, not certain loss."
+          "left": "Past performance",
+          "right": "Cannot predict future performance"
         }
       ],
-      "explanation": "As risks rise, investors seek higher returns to compensate: possible reward and possible loss come together.",
+      "explanation": "In finance, risk is uncertainty. In the risk-return tradeoff, investors seek higher returns for taking more risk. And past performance cannot predict future performance.",
       "difficulty": 0.15
     },
     {

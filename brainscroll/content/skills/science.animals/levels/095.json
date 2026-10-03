@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 95,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Saving Species",
   "objective": "After this level you can describe conservation successes, like the bald eagle.",
@@ -127,41 +127,31 @@
     },
     {
       "id": "question.animals.095.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.bald_eagle_recovery"
       ],
       "sourceCardIds": [
-        "card.animals.095.c2"
+        "card.animals.095.c2",
+        "card.animals.095.c4"
       ],
-      "prompt": "How did DDT push bald eagles toward extinction?",
-      "options": [
+      "prompt": "Match each animal with the threat the cards name for it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It killed the fish they ate",
-          "correct": false,
-          "rationale": "The fish carried the DDT to the eagles."
+          "left": "Bald eagles",
+          "right": "DDT"
         },
         {
-          "id": "b",
-          "label": "It thinned their eggshells, so eggs broke",
-          "correct": true
+          "left": "Condors",
+          "right": "Lead"
         },
         {
-          "id": "c",
-          "label": "It destroyed their nesting trees",
-          "correct": false,
-          "rationale": "The harm was chemical, to their eggs."
-        },
-        {
-          "id": "d",
-          "label": "It left them unable to fly",
-          "correct": false,
-          "rationale": "The adults could fly; their eggs failed."
+          "left": "Humpback whales",
+          "right": "Whaling"
         }
       ],
-      "explanation": "DDT made eggshells so thin that they often broke during incubation, so few chicks hatched.",
+      "explanation": "DDT thinned bald eagles' eggshells, lead is the condors' top known killer, and whaling cut humpback whales by more than 95 percent.",
       "difficulty": 0.25
     },
     {

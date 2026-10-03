@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 57,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Monet",
   "objective": "After this level you can describe Monet's series paintings and his water lilies.",
@@ -125,41 +125,27 @@
     },
     {
       "id": "question.art_history.057.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.monet_water_lilies"
       ],
       "sourceCardIds": [
-        "card.art_history.057.c4"
+        "card.art_history.057.c4",
+        "card.art_history.057.c1",
+        "card.art_history.057.c3"
       ],
-      "prompt": "What effect did Monet want from his water lilies in the Orangerie's oval rooms?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A single framed view, like a window",
-          "correct": false,
-          "rationale": "He wanted no edges at all."
-        },
-        {
-          "id": "b",
-          "label": "A realistic map of his garden",
-          "correct": false,
-          "rationale": "Mapping was not the aim."
-        },
-        {
-          "id": "c",
-          "label": "A history painting of the Armistice",
-          "correct": false,
-          "rationale": "He offered the panels then; they are not about it."
-        },
-        {
-          "id": "d",
-          "label": "An endless whole, with no horizon and no shore",
-          "correct": true
-        }
+      "prompt": "Put these moments in Monet's later life in order, from earliest to latest.",
+      "items": [
+        "Monet moved to Giverny",
+        "The same few grainstacks",
+        "Rouen Cathedral",
+        "Offered panels to France",
+        "Hung in two oval rooms"
       ],
-      "explanation": "Monet wanted \"the illusion of an endless whole, of a wave with no horizon and no shore.\"",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Monet moved to Giverny in 1883, painted the grainstacks in 1890-91 and Rouen Cathedral in 1892-93, offered panels to France in 1918, and they were hung in two oval rooms in 1927.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 87,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Ice Sheets in Retreat",
   "objective": "After this level you can explain how Greenland and Antarctica are losing ice and why their slow response matters for centuries.",
@@ -92,41 +92,31 @@
   "questions": [
     {
       "id": "question.earth_climate.087.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.earth_climate.warming_ice_sheet_loss"
       ],
       "sourceCardIds": [
-        "card.earth_climate.087.c2"
+        "card.earth_climate.087.c2",
+        "card.earth_climate.087.c1"
       ],
-      "prompt": "According to satellite measurements since 2002, which ice sheet has lost more ice each year?",
-      "options": [
+      "prompt": "Match each with its fact from the satellite record.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Antarctica",
-          "correct": false,
-          "rationale": "Antarctica loses roughly 135 billion tons a year."
+          "left": "Greenland",
+          "right": "Roughly 260 billion tons"
         },
         {
-          "id": "b",
-          "label": "Greenland",
-          "correct": true
+          "left": "Antarctica",
+          "right": "Roughly 135 billion"
         },
         {
-          "id": "c",
-          "label": "Neither: both are growing",
-          "correct": false,
-          "rationale": "Both are losing mass."
-        },
-        {
-          "id": "d",
-          "label": "They lose exactly the same amount",
-          "correct": false,
-          "rationale": "Greenland loses roughly twice as much."
+          "left": "GRACE",
+          "right": "Gravity Recovery and Climate Experiment"
         }
       ],
-      "explanation": "Greenland has lost roughly 260 billion tons a year since 2002, Antarctica roughly 135 billion.",
+      "explanation": "Since 2002, Greenland has lost roughly 260 billion tons of ice a year and Antarctica roughly 135 billion, as tracked by GRACE, the Gravity Recovery and Climate Experiment.",
       "difficulty": 0.35
     },
     {

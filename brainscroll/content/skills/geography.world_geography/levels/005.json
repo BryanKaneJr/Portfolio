@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 5,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Time Zones",
   "objective": "After this level you can explain why the world has time zones and where the calendar date changes.",
@@ -131,41 +131,36 @@
     },
     {
       "id": "question.world_geography.005.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.date_line"
       ],
       "sourceCardIds": [
-        "card.world_geography.005.c4"
+        "card.world_geography.005.c4",
+        "card.world_geography.005.c3",
+        "card.world_geography.005.c2"
       ],
-      "prompt": "You fly west across the International Date Line. What happens to your calendar?",
-      "options": [
+      "prompt": "Match each clue with what it means for clocks and calendars.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It jumps one day ahead",
-          "correct": true
+          "left": "Heading west",
+          "right": "Calendar jumps a day ahead"
         },
         {
-          "id": "b",
-          "label": "It goes back one day",
-          "correct": false,
-          "rationale": "That's what happens heading east."
+          "left": "Head east",
+          "right": "Get yesterday back"
         },
         {
-          "id": "c",
-          "label": "It stays the same",
-          "correct": false,
-          "rationale": "Crossing the line always changes the date."
+          "left": "15° of longitude",
+          "right": "1 hour"
         },
         {
-          "id": "d",
-          "label": "It moves one hour ahead",
-          "correct": false,
-          "rationale": "That's a time zone; the date line changes the day."
+          "left": "360°",
+          "right": "About 24 hours"
         }
       ],
-      "explanation": "West of the date line is one calendar day ahead, so heading west you skip forward a day.",
+      "explanation": "Cross the date line heading west and your calendar jumps a day ahead; head east and you get yesterday back. 15° of longitude is 1 hour, and a full 360° turn takes about 24 hours.",
       "difficulty": 0.3
     },
     {

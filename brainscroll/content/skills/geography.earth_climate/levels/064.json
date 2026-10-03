@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 64,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Supercells: Storms That Rotate",
   "objective": "After this level you can explain how changing winds with height set a supercell spinning and why it spawns the strongest tornadoes.",
@@ -125,7 +125,7 @@
     },
     {
       "id": "question.earth_climate.064.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.storm_wind_shear_spin",
@@ -135,33 +135,15 @@
         "card.earth_climate.064.c2",
         "card.earth_climate.064.c3"
       ],
-      "prompt": "How does wind shear set a supercell's updraft spinning?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It sets air rolling sideways, and the updraft draws that spin in and rotates",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Earth's spin twists each thunderstorm as it grows",
-          "correct": false,
-          "rationale": "The spin here comes from winds changing with height."
-        },
-        {
-          "id": "c",
-          "label": "Falling hail stirs the updraft into a spin",
-          "correct": false,
-          "rationale": "The spin comes from the wind shear, not the hail."
-        },
-        {
-          "id": "d",
-          "label": "Lightning bolts push the cloud around in circles",
-          "correct": false,
-          "rationale": "Lightning does not rotate storms."
-        }
+      "prompt": "Put the steps that set a supercell spinning in order.",
+      "items": [
+        "Wind shear",
+        "Air in between rolling sideways",
+        "The updraft itself starts to rotate"
       ],
-      "explanation": "Winds that change with height make horizontal spin; the updraft pulls it in and starts to rotate.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Wind shear sets the air in between rolling sideways, then a strong updraft draws in that rolling air and the updraft itself starts to rotate.",
       "difficulty": 0.35
     },
     {

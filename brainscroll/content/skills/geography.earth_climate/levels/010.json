@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 10,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Rocks and Minerals",
   "objective": "After this level you can sort any common rock into igneous, sedimentary or metamorphic and explain the minerals inside it.",
@@ -169,7 +169,7 @@
     },
     {
       "id": "question.earth_climate.010.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.quartzite",
@@ -178,33 +178,16 @@
       "sourceCardIds": [
         "card.earth_climate.010.c3"
       ],
-      "prompt": "Rocks and Minerals recap: in what order does the quartz grain travel through the rock families?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Sandstone, then granite, then sand, then quartzite",
-          "correct": false,
-          "rationale": "The grain starts in granite."
-        },
-        {
-          "id": "b",
-          "label": "Quartzite, then sand, then granite, then sandstone",
-          "correct": false,
-          "rationale": "Quartzite is the last stop."
-        },
-        {
-          "id": "c",
-          "label": "Sand, then quartzite, then granite, then sandstone",
-          "correct": false,
-          "rationale": "Sand must be cemented into sandstone first."
-        },
-        {
-          "id": "d",
-          "label": "Granite, then sand, then sandstone, then quartzite",
-          "correct": true
-        }
+      "prompt": "Put the quartz grain's trip in order, from start to finish.",
+      "items": [
+        "Granite",
+        "Sand",
+        "Sandstone",
+        "Quartzite"
       ],
-      "explanation": "Granite breaks down, its quartz becomes sand, the sand is cemented into sandstone, and heat and pressure make quartzite.",
+      "first": "Start",
+      "last": "Finish",
+      "explanation": "The grain starts in granite, becomes sand, is cemented into sandstone, then heat and pressure turn it into quartzite.",
       "difficulty": 0.25
     },
     {

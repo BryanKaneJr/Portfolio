@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 91,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Forgetting Hieroglyphs",
   "objective": "After this level you can explain how knowledge of hieroglyphs was lost.",
@@ -126,41 +126,25 @@
     },
     {
       "id": "question.ancient_egypt.091.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.hieroglyphs_forgotten"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.091.c4"
+        "card.ancient_egypt.091.c4",
+        "card.ancient_egypt.091.c2"
       ],
-      "prompt": "Why did Horapollo’s Hieroglyphica keep later scholars from reading hieroglyphs?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It was written in a language nobody knew",
-          "correct": false,
-          "rationale": "It was read and admired in the Renaissance."
-        },
-        {
-          "id": "b",
-          "label": "It read the signs as symbols, not sounds",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It was lost until the twentieth century",
-          "correct": false,
-          "rationale": "Renaissance scholars knew it well."
-        },
-        {
-          "id": "d",
-          "label": "It explained only the names of kings",
-          "correct": false,
-          "rationale": "It explained the signs in general."
-        }
+      "prompt": "Put these steps in the forgetting of hieroglyphs in order, from earliest to latest.",
+      "items": [
+        "Egypt became a Roman province",
+        "The last known hieroglyphic inscription",
+        "Horapollo wrote the Hieroglyphica",
+        "Renaissance scholars loved his book"
       ],
-      "explanation": "Horapollo couldn’t read hieroglyphs and explained them as symbols, an idea that misled readers for centuries.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Egypt became a Roman province in 30 BCE. The last known hieroglyphic inscription was carved in 394 CE, Horapollo wrote the Hieroglyphica in the 5th century CE, and later Renaissance scholars loved his book.",
       "difficulty": 0.3
     },
     {

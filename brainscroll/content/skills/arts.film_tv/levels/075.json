@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 75,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "TV News",
   "objective": "After this level you can explain how television news grew from short bulletins into the evening news and brought events like the Vietnam War into homes.",
@@ -127,41 +127,24 @@
     },
     {
       "id": "question.film_tv.075.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.tv_vietnam_television_war"
       ],
       "sourceCardIds": [
-        "card.film_tv.075.c4"
+        "card.film_tv.075.c4",
+        "card.film_tv.075.c2"
       ],
-      "prompt": "What did Walter Cronkite conclude after reporting from Vietnam in 1968?",
-      "options": [
-        {
-          "id": "a",
-          "label": "That the war was nearly won",
-          "correct": false,
-          "rationale": "He concluded the opposite of a coming victory."
-        },
-        {
-          "id": "b",
-          "label": "That TV should stop covering the war",
-          "correct": false,
-          "rationale": "He reported on it himself."
-        },
-        {
-          "id": "c",
-          "label": "That the war could end only in a stalemate",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "That the Tet Offensive had never happened",
-          "correct": false,
-          "rationale": "He went because of the Tet Offensive."
-        }
+      "prompt": "Put these moments in TV news in order, from earliest to latest.",
+      "items": [
+        "Walter Cronkite became anchor",
+        "The first half-hour nightly news show",
+        "Report from Vietnam himself"
       ],
-      "explanation": "After the Tet Offensive, Cronkite reported from Vietnam and declared that the war could end only in a stalemate.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Cronkite became anchor of the CBS evening news in 1962, it became the first half-hour nightly news show in 1963, and in 1968 he left the desk to report from Vietnam himself.",
       "difficulty": 0.3
     },
     {

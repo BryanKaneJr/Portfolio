@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 91,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How a Forecast Is Made",
   "objective": "After this level you can explain how weather balloons, radar, satellites and computer models turn observations into a forecast.",
@@ -93,41 +93,37 @@
   "questions": [
     {
       "id": "question.earth_climate.091.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.earth_climate.forecast_observations"
       ],
       "sourceCardIds": [
-        "card.earth_climate.091.c3"
+        "card.earth_climate.091.c3",
+        "card.earth_climate.091.c2",
+        "card.earth_climate.091.c4",
+        "card.earth_climate.091.c5"
       ],
-      "prompt": "A radar tracks a band of storms. What does the Doppler shift of its echoes reveal?",
-      "options": [
+      "prompt": "Match each forecasting tool with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The storms' temperature",
-          "correct": false,
-          "rationale": "Radar doesn't take temperatures; radiosondes do."
+          "left": "Radiosonde",
+          "right": "A small box of instruments"
         },
         {
-          "id": "b",
-          "label": "Whether the rain is moving toward or away",
-          "correct": true
+          "left": "Weather radar",
+          "right": "About 7 seconds an hour"
         },
         {
-          "id": "c",
-          "label": "How salty the raindrops are",
-          "correct": false,
-          "rationale": "Radar reads echoes, not chemistry."
+          "left": "GOES weather satellites",
+          "right": "22,236 miles above the Equator"
         },
         {
-          "id": "d",
-          "label": "The air pressure inside the storm",
-          "correct": false,
-          "rationale": "Pressure readings come from radiosondes."
+          "left": "Weather model",
+          "right": "Solves the equations of physics"
         }
       ],
-      "explanation": "The Doppler shift of a returning pulse shows whether the target is moving toward or away from the radar.",
+      "explanation": "A radiosonde is a small box of instruments, a weather radar transmits only about 7 seconds an hour, GOES satellites orbit 22,236 miles above the Equator, and a weather model solves the equations of physics.",
       "difficulty": 0.3
     },
     {

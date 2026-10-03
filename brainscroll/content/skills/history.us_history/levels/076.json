@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 76,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The New Deal",
   "objective": "After this level you can name the New Deal's main programs, including Social Security in 1935, and explain who they helped and who they left out.",
@@ -92,41 +92,35 @@
   "questions": [
     {
       "id": "question.us_history.076.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.newdeal_critics"
       ],
       "sourceCardIds": [
-        "card.us_history.076.c4"
+        "card.us_history.076.c4",
+        "card.us_history.076.c2"
       ],
-      "prompt": "Which critic pushed a Share Our Wealth plan, saying the New Deal should spread wealth more widely?",
-      "options": [
+      "prompt": "Match each New Deal law or critic with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The American Liberty League",
-          "correct": false,
-          "rationale": "It attacked the New Deal as unconstitutional."
+          "left": "Huey Long",
+          "right": "Share Our Wealth"
         },
         {
-          "id": "b",
-          "label": "Senator Huey Long",
-          "correct": true
+          "left": "American Liberty League",
+          "right": "unconstitutional"
         },
         {
-          "id": "c",
-          "label": "Charles Hamilton Houston",
-          "correct": false,
-          "rationale": "He warned about Social Security's exclusions."
+          "left": "Social Security Act",
+          "right": "old-age benefits"
         },
         {
-          "id": "d",
-          "label": "Larry DeWitt",
-          "correct": false,
-          "rationale": "He is a historian of Social Security."
+          "left": "Indian Reorganization Act",
+          "right": "ended allotment"
         }
       ],
-      "explanation": "Senator Huey Long pushed his Share Our Wealth plan; by 1935 its societies claimed more than seven million members.",
+      "explanation": "Huey Long pushed Share Our Wealth, and the American Liberty League attacked the New Deal as unconstitutional. The Social Security Act created old-age benefits, and the Indian Reorganization Act ended allotment.",
       "difficulty": 0.25
     },
     {

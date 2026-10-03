@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 92,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Reading a Primary Source",
   "objective": "After this level you can question a primary source by asking who made it, when, for whom and why, using Frederick Douglass's Fourth of July speech of 1852.",
@@ -138,41 +138,31 @@
     },
     {
       "id": "question.us_history.092.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.us_history.historians_primary_secondary_sources"
       ],
       "sourceCardIds": [
-        "card.us_history.092.c2"
+        "card.us_history.092.c2",
+        "card.us_history.092.c3"
       ],
-      "prompt": "A modern historian writes a book analyzing Douglass’s 1852 speech. What kind of source is that book?",
-      "options": [
+      "prompt": "Match each kind of source or place with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A primary source, because it quotes Douglass",
-          "correct": false,
-          "rationale": "Quoting a primary source doesn’t make a book one."
+          "left": "Primary source",
+          "right": "the witness"
         },
         {
-          "id": "b",
-          "label": "A secondary source, because it interprets a primary one later",
-          "correct": true
+          "left": "Secondary source",
+          "right": "the lawyer"
         },
         {
-          "id": "c",
-          "label": "A primary source, because it is about the 1850s",
-          "correct": false,
-          "rationale": "Being about the past isn’t enough; it wasn’t made then."
-        },
-        {
-          "id": "d",
-          "label": "Neither, because books aren’t sources",
-          "correct": false,
-          "rationale": "History books are secondary sources."
+          "left": "Corinthian Hall",
+          "right": "Rochester"
         }
       ],
-      "explanation": "A book written later that analyzes and interprets the speech is a secondary source; the speech itself is the primary source.",
+      "explanation": "A primary source is like the witness and a secondary source is like the lawyer explaining the case. Douglass gave his speech at Corinthian Hall in Rochester.",
       "difficulty": 0.3
     },
     {

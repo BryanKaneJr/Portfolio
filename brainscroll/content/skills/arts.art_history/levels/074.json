@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 74,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Art of Africa",
   "objective": "After this level you can describe the Benin Bronzes and masks and the roles they played.",
@@ -98,41 +98,25 @@
   "questions": [
     {
       "id": "question.art_history.074.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.benin_bronzes"
       ],
       "sourceCardIds": [
-        "card.art_history.074.c3"
+        "card.art_history.074.c3",
+        "card.art_history.074.c2"
       ],
-      "prompt": "What were Benin's brass relief plaques made for?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Nailing onto the pillars of the oba's palace",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Selling to European traders",
-          "correct": false,
-          "rationale": "They were made for the palace, recording the court."
-        },
-        {
-          "id": "c",
-          "label": "Wearing as masks in dances",
-          "correct": false,
-          "rationale": "Plaques were fixed to pillars; they weren't worn."
-        },
-        {
-          "id": "d",
-          "label": "Burying with dead kings",
-          "correct": false,
-          "rationale": "Heads stood on ancestral altars; plaques went on palace pillars."
-        }
+      "prompt": "Put the steps of lost-wax casting in order, from first to last.",
+      "items": [
+        "Shape the piece in wax over a clay core",
+        "Coat it in clay",
+        "Heat it so the wax runs out",
+        "Pour molten metal into the gap"
       ],
-      "explanation": "The plaques, arranged to tell the court's story, were nailed onto the pillars of the oba's palace.",
+      "first": "First step",
+      "last": "Last step",
+      "explanation": "Shape the piece in wax over a clay core, coat it in clay, heat it so the wax runs out, then pour molten metal into the gap.",
       "difficulty": 0.2
     },
     {

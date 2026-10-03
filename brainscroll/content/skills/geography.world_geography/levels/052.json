@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 52,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Sahara",
   "objective": "After this level you can describe the Sahara and how it has changed over thousands of years.",
@@ -173,7 +173,7 @@
     },
     {
       "id": "question.world_geography.052.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.world_geography.sahara_desert",
@@ -181,35 +181,25 @@
       ],
       "sourceCardIds": [
         "card.world_geography.052.c2",
-        "card.world_geography.001.c2"
+        "card.world_geography.001.c2",
+        "card.world_geography.052.c3"
       ],
-      "prompt": "Which continent from Level 1 holds the largest desert on Earth?",
-      "options": [
+      "prompt": "Match each one with its fact about deserts.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Africa",
-          "correct": false,
-          "rationale": "The Sahara is the largest hot desert, not the largest overall."
+          "left": "Antarctica",
+          "right": "The largest desert on Earth"
         },
         {
-          "id": "b",
-          "label": "Asia",
-          "correct": false,
-          "rationale": "Its deserts are smaller."
+          "left": "The Sahara",
+          "right": "The largest hot desert"
         },
         {
-          "id": "c",
-          "label": "Australia",
-          "correct": false,
-          "rationale": "Dry, but not the biggest desert."
-        },
-        {
-          "id": "d",
-          "label": "Antarctica",
-          "correct": true
+          "left": "Sand dunes",
+          "right": "Cover only a minority"
         }
       ],
-      "explanation": "Deserts are defined by low precipitation, not heat. Icy Antarctica, the continent with no permanent residents, is the largest desert.",
+      "explanation": "Antarctica is the largest desert on Earth and the Sahara the largest hot desert. Sand dunes cover only a minority of the Sahara.",
       "difficulty": 0.25
     }
   ],

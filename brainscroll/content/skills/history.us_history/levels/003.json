@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 3,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "A Continent of Nations",
   "objective": "After this level you can describe the variety of Native nations, languages and ways of life in North America before 1492.",
@@ -108,7 +108,7 @@
   "questions": [
     {
       "id": "question.us_history.003.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.native_ways_of_life"
@@ -117,33 +117,22 @@
         "card.us_history.003.c5",
         "card.us_history.003.c4"
       ],
-      "prompt": "Which three crops did the Iroquois and the Cherokee call the three sisters?",
-      "options": [
+      "prompt": "Match each of the three sisters with its job in the field.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Wheat, barley and rye",
-          "correct": false,
-          "rationale": "Those grains came later, from across the Atlantic."
+          "left": "Corn",
+          "right": "support the climbing beans"
         },
         {
-          "id": "b",
-          "label": "Potatoes, tomatoes and peppers",
-          "correct": false,
-          "rationale": "Not these three."
+          "left": "Beans",
+          "right": "add nitrogen to the soil"
         },
         {
-          "id": "c",
-          "label": "Rice, cotton and tobacco",
-          "correct": false,
-          "rationale": "None of these were the sisters."
-        },
-        {
-          "id": "d",
-          "label": "Corn, beans and squash",
-          "correct": true
+          "left": "Squash",
+          "right": "shade out weeds"
         }
       ],
-      "explanation": "Corn, beans and squash were planted together as the three sisters.",
+      "explanation": "Corn stalks support the climbing beans, the beans add nitrogen to the soil, and the broad squash leaves shade out weeds.",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 23,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Lexington and Concord",
   "objective": "After this level you can explain how the shooting war began in April 1775 and why the militia were ready for it.",
@@ -98,41 +98,27 @@
   "questions": [
     {
       "id": "question.us_history.023.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.revolution_lexington_concord"
       ],
       "sourceCardIds": [
-        "card.us_history.023.c4"
+        "card.us_history.023.c4",
+        "card.us_history.023.c3",
+        "card.us_history.023.c5"
       ],
-      "prompt": "What happened at Concord’s North Bridge on April 19, 1775?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The British captured the colonists’ supplies",
-          "correct": false,
-          "rationale": "The militia pushed the British back."
-        },
-        {
-          "id": "b",
-          "label": "Militia fired and forced a British party back",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Paul Revere was arrested by a patrol",
-          "correct": false,
-          "rationale": "Revere’s ride was the night before, on the road."
-        },
-        {
-          "id": "d",
-          "label": "The First Continental Congress met there",
-          "correct": false,
-          "rationale": "Congress met in Philadelphia."
-        }
+      "prompt": "Put these steps toward war in order, from first to last.",
+      "items": [
+        "Gage ordered British troops",
+        "Riders set off to spread the alarm",
+        "Lexington’s green",
+        "Concord’s North Bridge",
+        "The march back to Boston"
       ],
-      "explanation": "At the North Bridge, the militia fired on a British party and forced it to pull back.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Gage ordered his troops to Concord and riders spread the alarm. The regulars met militia on Lexington’s green at dawn, then were pushed back at Concord’s North Bridge, and the march back to Boston followed.",
       "difficulty": 0.25
     },
     {

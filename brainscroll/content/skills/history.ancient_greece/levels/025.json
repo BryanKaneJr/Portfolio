@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 25,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Ostracism",
   "objective": "After this level you can explain how Athenians voted to send a citizen away.",
@@ -128,41 +128,25 @@
     },
     {
       "id": "question.ancient_greece.025.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_greece.athens_ostracism"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.025.c3"
+        "card.ancient_greece.025.c3",
+        "card.ancient_greece.025.c2"
       ],
-      "prompt": "What danger was ostracism meant to guard Athens against?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Pirates raiding the coast",
-          "correct": false,
-          "rationale": "It targeted citizens, not raiders."
-        },
-        {
-          "id": "b",
-          "label": "Debtors fleeing abroad",
-          "correct": false,
-          "rationale": "Solon dealt with debt."
-        },
-        {
-          "id": "c",
-          "label": "A leading citizen seizing power as a tyrant",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Too many metics settling in Athens",
-          "correct": false,
-          "rationale": "It targeted citizens."
-        }
+      "prompt": "Put the steps of an ostracism in order, from first to last.",
+      "items": [
+        "Whether to hold an ostracism",
+        "Scratched a name on an ostrakon",
+        "Leave Attica within 10 days",
+        "Stay away 10 years"
       ],
-      "explanation": "Ostracism aimed at a leading citizen who might threaten the state, as Peisistratus had done by making himself tyrant.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "First Athenians voted on whether to hold an ostracism. Then each scratched a name on an ostrakon, and the loser had to leave Attica within 10 days and stay away 10 years.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 80,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: The Americas",
   "objective": "After this level you can describe the main mountains, rivers and regions of North and South America.",
@@ -131,41 +131,31 @@
   "questions": [
     {
       "id": "question.world_geography.080.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.pan_american_highway"
       ],
       "sourceCardIds": [
-        "card.world_geography.080.c3"
+        "card.world_geography.080.c3",
+        "card.world_geography.080.c4"
       ],
-      "prompt": "Where is the only break in the Pan-American Highway?",
-      "options": [
+      "prompt": "Match each one with its fact about the Americas.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "In the Canadian Rockies",
-          "correct": false,
-          "rationale": "The road runs through Canada without a break."
+          "left": "Darién Gap",
+          "right": "Between Panama and Colombia"
         },
         {
-          "id": "b",
-          "label": "Across the Great Plains",
-          "correct": false,
-          "rationale": "The plains are easy driving."
+          "left": "The Mississippi",
+          "right": "Runs south to the Gulf of Mexico"
         },
         {
-          "id": "c",
-          "label": "The Darién Gap",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "At the Mississippi delta",
-          "correct": false,
-          "rationale": "The highway's gap is in Central America's rainforest."
+          "left": "The Amazon",
+          "right": "Flows east from the Andes"
         }
       ],
-      "explanation": "The Darién Gap, about 100 km of roadless rainforest between Panama and Colombia, is the highway's only break.",
+      "explanation": "The Darién Gap lies between Panama and Colombia. The Mississippi runs south to the Gulf of Mexico, and the Amazon flows east from the Andes to the Atlantic.",
       "difficulty": 0.2
     },
     {

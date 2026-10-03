@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 78,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Punk and Metal",
   "objective": "After this level you can describe punk and heavy metal.",
@@ -130,41 +130,25 @@
     },
     {
       "id": "question.music.078.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.punk_rock"
       ],
       "sourceCardIds": [
-        "card.music.078.c4"
+        "card.music.078.c4",
+        "card.music.078.c3"
       ],
-      "prompt": "Punk's songs were short, fast and minimal. What were they rejecting?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The electric guitar",
-          "correct": false,
-          "rationale": "Punk kept the guitar and played it hard."
-        },
-        {
-          "id": "b",
-          "label": "Radio's ban on loud music",
-          "correct": false,
-          "rationale": "No such ban drove punk."
-        },
-        {
-          "id": "c",
-          "label": "The polished production of earlier rock",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Songs with lyrics",
-          "correct": false,
-          "rationale": "Punk had plenty of lyrics, often political."
-        }
+      "prompt": "Put these heavy metal and punk milestones in order, from earliest to latest.",
+      "items": [
+        "Cream and the Yardbirds",
+        "Steppenwolf",
+        "The Ramones",
+        "The Sex Pistols"
       ],
-      "explanation": "Punk rejected rock's polished production in favor of raw, stripped-down songs.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Cream and the Yardbirds pushed rock heavier in the mid-1960s, a Steppenwolf song used \"heavy metal\" in 1968, the Ramones' debut came in 1976, and the Sex Pistols had their hits in 1977.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 99,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Myths About Weather and Climate",
   "objective": "After this level you can spot and correct common mix-ups, from the ozone hole causing warming to a cold snap disproving it.",
@@ -134,41 +134,33 @@
     },
     {
       "id": "question.earth_climate.099.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.myth_cold_snap"
       ],
       "sourceCardIds": [
-        "card.earth_climate.099.c3"
+        "card.earth_climate.099.c3",
+        "card.earth_climate.099.c1",
+        "card.earth_climate.099.c2",
+        "card.earth_climate.099.c4"
       ],
-      "prompt": "A friend says last week's record cold proves global warming has stopped. What's the best correction?",
-      "options": [
+      "prompt": "Match each myth with the fact that fixes it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "You're right: warming means it can never get cold",
-          "correct": false,
-          "rationale": "Cold snaps still happen in a warming world."
+          "left": "The ozone hole is warming the planet",
+          "right": "Role in global warming is small"
         },
         {
-          "id": "b",
-          "label": "Record cold only happens in unusually warm years",
-          "correct": false,
-          "rationale": "Cold records can happen any year; they're weather."
+          "left": "A cold snap disproves warming",
+          "right": "One cold week proves nothing"
         },
         {
-          "id": "c",
-          "label": "One cold week is weather; warming is a long-term trend",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Cold snaps stopped happening decades ago",
-          "correct": false,
-          "rationale": "Blizzards and freezes still happen each winter."
+          "left": "It's really the volcanoes",
+          "right": "People emit 60 or more times as much"
         }
       ],
-      "explanation": "Climate is a long-term average and weather changes by the hour, so one cold week says nothing about a decades-long warming trend.",
+      "explanation": "The ozone hole's role in global warming is small, one cold week proves nothing about the trend, and people emit 60 or more times as much carbon dioxide as volcanoes.",
       "difficulty": 0.4
     },
     {

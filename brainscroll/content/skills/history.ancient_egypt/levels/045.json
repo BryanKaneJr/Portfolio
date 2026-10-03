@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 45,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Calendar",
   "objective": "After this level you can explain Egypt’s 365-day calendar and the rising of Sirius.",
@@ -102,41 +102,25 @@
   "questions": [
     {
       "id": "question.ancient_egypt.045.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_egypt.calendar_365"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.045.c2"
+        "card.ancient_egypt.045.c2",
+        "card.ancient_egypt.045.c3"
       ],
-      "prompt": "How were the 365 days of the Egyptian civil calendar made up?",
-      "options": [
-        {
-          "id": "a",
-          "label": "12 months of 29 or 30 days, following the Moon",
-          "correct": false,
-          "rationale": "The civil calendar used fixed 30-day months."
-        },
-        {
-          "id": "b",
-          "label": "10 months of 36 days, plus 5 extra days",
-          "correct": false,
-          "rationale": "Egyptian months had 30 days, not 36."
-        },
-        {
-          "id": "c",
-          "label": "12 months of 30 days, plus 5 extra days",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "13 months of 28 days, plus 1 extra day",
-          "correct": false,
-          "rationale": "The calendar had 12 months, not 13."
-        }
+      "prompt": "Put the parts of the Egyptian calendar year in order, from the start of the year to the end.",
+      "items": [
+        "Akhet",
+        "Peret",
+        "Shemu",
+        "5 extra days"
       ],
-      "explanation": "Twelve 30-day months made 360 days; five extra days at the end of the year made 365.",
+      "first": "Start of the year",
+      "last": "End of the year",
+      "explanation": "The year began with Akhet, the flood, then Peret and Shemu, four months of 30 days each. The 5 extra days were added at the end of the year.",
       "difficulty": 0.25
     },
     {

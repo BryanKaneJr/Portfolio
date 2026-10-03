@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 18,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Gauls Sack Rome",
   "objective": "After this level you can describe the Gallic sack of Rome and how it changed Roman defense.",
@@ -120,41 +120,24 @@
     },
     {
       "id": "question.ancient_rome.018.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_rome.gallic_sack"
       ],
       "sourceCardIds": [
-        "card.ancient_rome.018.c4"
+        "card.ancient_rome.018.c4",
+        "card.ancient_rome.018.c2"
       ],
-      "prompt": "How did Rome respond to the Gallic sack?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It moved the capital to Veii",
-          "correct": false,
-          "rationale": "Rome stayed where it was."
-        },
-        {
-          "id": "b",
-          "label": "It paid the Gauls to guard the city",
-          "correct": false,
-          "rationale": "It defended itself."
-        },
-        {
-          "id": "c",
-          "label": "It abandoned the Capitoline Hill",
-          "correct": false,
-          "rationale": "The Capitoline held out."
-        },
-        {
-          "id": "d",
-          "label": "It built a strong stone wall around the city",
-          "correct": true
-        }
+      "prompt": "Put these events of the Gallic sack in order, from first to last.",
+      "items": [
+        "Disaster at the Allia",
+        "The Gauls marched into Rome",
+        "A strong stone wall"
       ],
-      "explanation": "After the sack, Rome built the stone wall later called the Servian Wall.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The Gauls crushed the Romans at the Allia River, then marched into Rome and sacked it. After the sack, Rome built a strong stone wall.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 64,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Hibernation",
   "objective": "After this level you can explain how animals survive winter by hibernating.",
@@ -130,41 +130,32 @@
     },
     {
       "id": "question.animals.064.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.hibernation_bear_debate"
       ],
       "sourceCardIds": [
-        "card.animals.064.c4"
+        "card.animals.064.c4",
+        "card.animals.064.c1",
+        "card.animals.064.c3"
       ],
-      "prompt": "Why do some experts say bears aren't true hibernators?",
-      "options": [
+      "prompt": "Match each with what the cards say about its winter slowdown.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Bears eat all winter long",
-          "correct": false,
-          "rationale": "They go months without eating."
+          "left": "Arctic ground squirrel",
+          "right": "As low as −2.9 °C"
         },
         {
-          "id": "b",
-          "label": "Bears sleep outside, not in dens",
-          "correct": false,
-          "rationale": "They den; the issue is temperature."
+          "left": "Black bear",
+          "right": "About 5 to 6 °C"
         },
         {
-          "id": "c",
-          "label": "Bears don't slow their metabolism at all",
-          "correct": false,
-          "rationale": "They cut it to about 25 percent."
-        },
-        {
-          "id": "d",
-          "label": "Bears' body temperature drops only a little",
-          "correct": true
+          "left": "Daily torpor",
+          "right": "Just a few hours"
         }
       ],
-      "explanation": "A bear cools only a few degrees and wakes fairly easily, unlike true hibernators that chill to near 0 °C.",
+      "explanation": "A hibernating Arctic ground squirrel's core can fall as low as −2.9 °C. A black bear cools by only about 5 to 6 °C, and daily torpor lasts just a few hours.",
       "difficulty": 0.3
     },
     {

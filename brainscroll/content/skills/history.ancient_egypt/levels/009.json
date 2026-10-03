@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 9,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Counting Egyptian Time",
   "objective": "After this level you can explain dynasties and the Old, Middle and New Kingdoms.",
@@ -90,41 +90,32 @@
   "questions": [
     {
       "id": "question.ancient_egypt.009.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_egypt.egypt_dynasties"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.009.c3"
+        "card.ancient_egypt.009.c3",
+        "card.ancient_egypt.002.c4",
+        "card.ancient_egypt.008.c2"
       ],
-      "prompt": "Who first sorted Egypt’s kings into the 30 dynasties historians still use?",
-      "options": [
+      "prompt": "Match each name with what he is known for.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Herodotus, a Greek historian",
-          "correct": false,
-          "rationale": "He wrote about the Nile, not the dynasty system."
+          "left": "Manetho",
+          "right": "30 dynasties"
         },
         {
-          "id": "b",
-          "label": "Menes, the legendary first king",
-          "correct": false,
-          "rationale": "He is a figure in the lists, not their author."
+          "left": "Herodotus",
+          "right": "The gift of the river"
         },
         {
-          "id": "c",
-          "label": "Narmer, on his palette",
-          "correct": false,
-          "rationale": "The palette shows a king, not a list."
-        },
-        {
-          "id": "d",
-          "label": "Manetho, an Egyptian priest",
-          "correct": true
+          "left": "Menes",
+          "right": "Founded Memphis"
         }
       ],
-      "explanation": "Around 300 BCE the priest Manetho wrote a history in Greek that divided the rulers into 30 dynasties.",
+      "explanation": "Manetho sorted Egypt’s rulers into 30 dynasties. Herodotus wrote that Egypt was “the gift of the river.” Legend says Menes founded Memphis.",
       "difficulty": 0.2
     },
     {

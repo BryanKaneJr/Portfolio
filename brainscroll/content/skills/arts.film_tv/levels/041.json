@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 41,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Talkies Arrive",
   "objective": "After this level you can explain why The Jazz Singer's synchronized sound in 1927 upended Hollywood so quickly, and what it cost silent stars and cameras.",
@@ -87,42 +87,25 @@
   "questions": [
     {
       "id": "question.film_tv.041.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.studio_jazz_singer_talkies"
       ],
       "sourceCardIds": [
         "card.film_tv.041.c1",
-        "card.film_tv.041.c2"
+        "card.film_tv.041.c2",
+        "card.film_tv.041.c3"
       ],
-      "prompt": "How much of The Jazz Singer (1927) had synchronized recorded sound?",
-      "options": [
-        {
-          "id": "a",
-          "label": "None: it played silent, with live music",
-          "correct": false,
-          "rationale": "It had recorded songs and some spoken scenes."
-        },
-        {
-          "id": "b",
-          "label": "Its songs and some conversations, about a quarter",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Every scene, with dialogue from start to finish",
-          "correct": false,
-          "rationale": "Most of the film had no recorded dialogue."
-        },
-        {
-          "id": "d",
-          "label": "Only the opening title",
-          "correct": false,
-          "rationale": "The sound came in its songs and a few conversations."
-        }
+      "prompt": "Put these in order, from earliest to latest.",
+      "items": [
+        "Don Juan",
+        "The Jazz Singer",
+        "Camera housings called blimps"
       ],
-      "explanation": "Only the musical numbers and some conversations, about a quarter of the film, had recorded sound. It was still enough to change Hollywood.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Warner Brothers debuted Vitaphone with Don Juan in 1926, The Jazz Singer followed in 1927, and by 1931 studios had switched to soundproof camera housings called blimps.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 100,
   "type": "mastery",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Mastery Challenge: Earth, Weather & Climate",
   "objective": "After this level you can demonstrate command of Earth, Weather & Climate Levels 1 to 99 across the whole tree.",
@@ -161,41 +161,31 @@
   "questions": [
     {
       "id": "question.earth_climate.100.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.igneous_cooling"
       ],
       "sourceCardIds": [
-        "card.earth_climate.005.c3"
+        "card.earth_climate.005.c3",
+        "card.earth_climate.005.c4"
       ],
-      "prompt": "Rocks and Minerals: obsidian is glassy, with no crystals at all. What does that say about how it formed?",
-      "options": [
+      "prompt": "Rocks and Minerals: match each igneous rock with how it formed.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Its lava chilled too fast for crystals to grow",
-          "correct": true
+          "left": "Granite",
+          "right": "Cools slowly, deep underground"
         },
         {
-          "id": "b",
-          "label": "It cooled very slowly, deep underground",
-          "correct": false,
-          "rationale": "Slow cooling grows big crystals."
+          "left": "Basalt",
+          "right": "Erupts and cools fast at the surface"
         },
         {
-          "id": "c",
-          "label": "It was squeezed flat by heat and pressure",
-          "correct": false,
-          "rationale": "That's how metamorphic foliation forms."
-        },
-        {
-          "id": "d",
-          "label": "It was cemented together from loose sand",
-          "correct": false,
-          "rationale": "That's how sandstone forms."
+          "left": "Obsidian",
+          "right": "Natural volcanic glass"
         }
       ],
-      "explanation": "Obsidian is volcanic glass: lava cooled so fast that no crystals had time to form.",
+      "explanation": "Granite cools slowly, deep underground, basalt erupts and cools fast at the surface, and obsidian is lava chilled so fast it becomes natural volcanic glass.",
       "difficulty": 0.45
     },
     {

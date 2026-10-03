@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 69,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Greek Inventions",
   "objective": "After this level you can name Greek inventions, from the water mill to the steam toy.",
@@ -87,41 +87,36 @@
   "questions": [
     {
       "id": "question.ancient_greece.069.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_greece.greek_inventions_machines"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.069.c3"
+        "card.ancient_greece.069.c3",
+        "card.ancient_greece.069.c2",
+        "card.ancient_greece.069.c4"
       ],
-      "prompt": "What made Hero’s aeolipile spin?",
-      "options": [
+      "prompt": "Match each Greek machine or inventor with what the level says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Falling water on a wheel",
-          "correct": false,
-          "rationale": "That’s a water mill."
+          "left": "Ctesibius",
+          "right": "Improved the water clock"
         },
         {
-          "id": "b",
-          "label": "Steam rushing out of two bent nozzles",
-          "correct": true
+          "left": "Water organ",
+          "right": "Forced air through the pipes"
         },
         {
-          "id": "c",
-          "label": "A hand crank and gears",
-          "correct": false,
-          "rationale": "That’s the Antikythera mechanism."
+          "left": "Aeolipile",
+          "right": "Steam rushing out of the nozzles"
         },
         {
-          "id": "d",
-          "label": "Wind in a small sail",
-          "correct": false,
-          "rationale": "It ran on steam."
+          "left": "Water mill",
+          "right": "Freed the young women"
         }
       ],
-      "explanation": "Steam escaping from two bent nozzles spun the sphere.",
+      "explanation": "Ctesibius improved the water clock, and in his water organ water forced air through the pipes. Hero’s aeolipile spun from steam rushing out of the nozzles, and the water mill freed the young women from grinding grain.",
       "difficulty": 0.2
     },
     {

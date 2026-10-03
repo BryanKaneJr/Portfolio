@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 93,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Champollion Cracks the Code",
   "objective": "After this level you can explain how Champollion deciphered hieroglyphs.",
@@ -136,41 +136,36 @@
     },
     {
       "id": "question.ancient_egypt.093.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.champollion_decipherment"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.093.c3"
+        "card.ancient_egypt.093.c3",
+        "card.ancient_egypt.093.c2",
+        "card.ancient_egypt.093.c4"
       ],
-      "prompt": "Why did 1,419 hieroglyphic signs against 486 Greek words matter to Champollion?",
-      "options": [
+      "prompt": "Match each one with what the cards link it to in the decipherment story.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It proved the stone was a modern forgery",
-          "correct": false,
-          "rationale": "The stone is genuine."
+          "left": "Thomas Young",
+          "right": "Ptolemy"
         },
         {
-          "id": "b",
-          "label": "It meant the Greek text was missing lines",
-          "correct": false,
-          "rationale": "The difference comes from how hieroglyphs work."
+          "left": "Champollion",
+          "right": "Ramesses"
         },
         {
-          "id": "c",
-          "label": "Too many signs for whole words, so many were sounds",
-          "correct": true
+          "left": "The hieroglyphic text",
+          "right": "1,419 signs"
         },
         {
-          "id": "d",
-          "label": "It showed the hieroglyphs said something different",
-          "correct": false,
-          "rationale": "It’s the same decree."
+          "left": "The Greek version",
+          "right": "486 words"
         }
       ],
-      "explanation": "So many signs couldn’t each be an idea; the script had to mix sound signs with idea signs.",
+      "explanation": "Thomas Young showed that some signs spelled the name Ptolemy, and Champollion read the name of Ramesses. On the Rosetta Stone the hieroglyphic text uses 1,419 signs, while the Greek version has only 486 words.",
       "difficulty": 0.35
     },
     {

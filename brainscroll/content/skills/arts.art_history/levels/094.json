@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 94,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Museums",
   "objective": "After this level you can explain how museums began and what they do today.",
@@ -106,41 +106,25 @@
   "questions": [
     {
       "id": "question.art_history.094.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.museum_history"
       ],
       "sourceCardIds": [
-        "card.art_history.094.c1"
+        "card.art_history.094.c1",
+        "card.art_history.094.c3"
       ],
-      "prompt": "What did France's revolutionary government do with the Louvre in 1793?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Opened it to the public as an art museum",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Began building it as a royal palace",
-          "correct": false,
-          "rationale": "Work on the royal residence began in 1546."
-        },
-        {
-          "id": "c",
-          "label": "Closed it to protect the paintings",
-          "correct": false,
-          "rationale": "It did the opposite."
-        },
-        {
-          "id": "d",
-          "label": "Sold its paintings to pay for the war",
-          "correct": false,
-          "rationale": "The paintings went on public view."
-        }
+      "prompt": "Put these museum milestones in order, from earliest to latest.",
+      "items": [
+        "The Tradescants' Ark",
+        "The Ashmolean",
+        "British Museum founded",
+        "The Louvre opens to the public"
       ],
-      "explanation": "In 1793 the revolutionary government opened the Grande Galerie to the public as a museum.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Tradescants' Ark opened in 1634, the Ashmolean in 1683, the British Museum was founded in 1753, and the Louvre opened to the public in 1793.",
       "difficulty": 0.15
     },
     {

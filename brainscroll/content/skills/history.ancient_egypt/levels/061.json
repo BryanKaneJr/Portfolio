@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 61,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Hyksos",
   "objective": "After this level you can explain who the Hyksos were and what they brought to Egypt.",
@@ -126,41 +126,24 @@
     },
     {
       "id": "question.ancient_egypt.061.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.newkingdom_hyksos"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.061.c2"
+        "card.ancient_egypt.061.c2",
+        "card.ancient_egypt.061.c4"
       ],
-      "prompt": "How do many historians now think the Hyksos came to rule northern Egypt?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Settlers in the Delta rose to power as the pharaohs’ grip weakened",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "A single lightning invasion from the sea",
-          "correct": false,
-          "rationale": "The evidence points to a slower rise from within."
-        },
-        {
-          "id": "c",
-          "label": "Egypt’s kings invited them to take the throne",
-          "correct": false,
-          "rationale": "They took power as royal authority declined."
-        },
-        {
-          "id": "d",
-          "label": "They conquered Thebes first, then the Delta",
-          "correct": false,
-          "rationale": "Thebes was where the fightback began."
-        }
+      "prompt": "Put these steps in the story of the Hyksos in order, from first to last.",
+      "items": [
+        "Settling in the eastern Delta",
+        "Kamose campaigned against the Hyksos",
+        "Ahmose captured Avaris"
       ],
-      "explanation": "People from Southwest Asia had settled in the eastern Delta for generations; their leaders at Avaris gained power as central authority faded.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "People from Southwest Asia were settling in the eastern Delta for generations. Later Kamose campaigned against the Hyksos, and his successor Ahmose captured Avaris and drove them out.",
       "difficulty": 0.35
     },
     {

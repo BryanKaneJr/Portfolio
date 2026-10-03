@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 55,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Music of the Middle East",
   "objective": "After this level you can describe the oud and the maqam system of scales.",
@@ -131,42 +131,33 @@
     },
     {
       "id": "question.music.055.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.mideast_oud"
       ],
       "sourceCardIds": [
         "card.music.055.c2",
-        "card.music.055.c3"
+        "card.music.055.c3",
+        "card.music.055.c1",
+        "card.music.055.c4"
       ],
-      "prompt": "Why does a fretless fingerboard suit an oud player performing maqam?",
-      "options": [
+      "prompt": "Match each word with what it means in Middle Eastern music.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Frets would make the oud too heavy to hold for long",
-          "correct": false,
-          "rationale": "Weight isn't the reason."
+          "left": "Oud",
+          "right": "The parent of the European lute"
         },
         {
-          "id": "b",
-          "label": "Strings on a fretless neck stay in tune much longer",
-          "correct": false,
-          "rationale": "Tuning stability isn't the point."
+          "left": "Maqam",
+          "right": "A mode with a map"
         },
         {
-          "id": "c",
-          "label": "A fretless neck makes every note much louder",
-          "correct": false,
-          "rationale": "Frets don't set the volume."
-        },
-        {
-          "id": "d",
-          "label": "Fingers aren't locked to semitones, so finer steps are reachable",
-          "correct": true
+          "left": "Taqsim",
+          "right": "An improvisation"
         }
       ],
-      "explanation": "With no frets, the player can place notes between semitones, where maqam's three-quarter tones live.",
+      "explanation": "The oud is the parent of the European lute, a maqam is a mode with a map, and a taqsim is an improvisation.",
       "difficulty": 0.3
     },
     {

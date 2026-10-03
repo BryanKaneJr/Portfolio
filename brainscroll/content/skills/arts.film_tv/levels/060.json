@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 60,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Genres and Why They Work",
   "objective": "After this level you can explain why genres work and how filmmakers keep familiar formulas fresh.",
@@ -295,41 +295,27 @@
     },
     {
       "id": "question.film_tv.060.q4",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.genre_hitchcock_bomb"
       ],
       "sourceCardIds": [
-        "card.film_tv.058.c3"
+        "card.film_tv.058.c3",
+        "card.film_tv.060.c3"
       ],
-      "prompt": "From Level 58: in Hitchcock's bomb scene, what turns surprise into suspense?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A louder explosion",
-          "correct": false,
-          "rationale": "The explosion is the surprise, not the suspense."
-        },
-        {
-          "id": "b",
-          "label": "Letting the audience know about the bomb and the time",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Hiding the bomb from the audience until it explodes",
-          "correct": false,
-          "rationale": "That's the surprise version."
-        },
-        {
-          "id": "d",
-          "label": "Cutting the chat as short as possible",
-          "correct": false,
-          "rationale": "The suspense version lasts longer, not shorter."
-        }
+      "prompt": "Put these moments from Chapter 6 in order, from earliest to latest.",
+      "items": [
+        "The Great Train Robbery",
+        "It Happened One Night",
+        "The Maltese Falcon",
+        "Cat People",
+        "Them!",
+        "Mel Brooks spoofs the Western"
       ],
-      "explanation": "Show the bomb and a clock at a quarter to one, and the audience participates: 15 minutes of suspense instead of 15 seconds of surprise.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Great Train Robbery came in 1903, It Happened One Night in 1934, The Maltese Falcon in 1941, Cat People in 1942, Them! in 1954 and Mel Brooks's spoofs in 1974.",
       "difficulty": 0.25
     },
     {

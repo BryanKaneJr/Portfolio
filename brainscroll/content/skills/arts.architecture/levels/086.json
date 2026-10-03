@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 86,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Subways",
   "objective": "After this level you can explain how subways changed cities.",
@@ -129,41 +129,26 @@
     },
     {
       "id": "question.architecture.086.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.cities_metroland"
       ],
       "sourceCardIds": [
-        "card.architecture.086.c4"
+        "card.architecture.086.c4",
+        "card.architecture.086.c1",
+        "card.architecture.086.c3"
       ],
-      "prompt": "Why did the Metropolitan Railway market 'Metro-land' and build housing estates along its line?",
-      "options": [
-        {
-          "id": "a",
-          "label": "To create commuters who would ride its trains",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "To stop Londoners moving out of the city center",
-          "correct": false,
-          "rationale": "It did the opposite: it encouraged a move outward."
-        },
-        {
-          "id": "c",
-          "label": "To grow food for London's markets on spare land",
-          "correct": false,
-          "rationale": "It was selling homes for commuters."
-        },
-        {
-          "id": "d",
-          "label": "Because the law forced railways to build houses",
-          "correct": false,
-          "rationale": "It was the railway's own marketing idea."
-        }
+      "prompt": "Put these steps in London's underground story in order, from earliest to latest.",
+      "items": [
+        "Steam trains under the streets",
+        "The first electric underground railway",
+        "Metro-land",
+        "Housing estates"
       ],
-      "explanation": "Metro-land sold the countryside along the line as a place for commuters, and from 1919 the railway's company built estates on its spare land.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Steam trains ran under the streets from 1863. The first electric underground railway opened in 1890. The Metropolitan began selling \"Metro-land\" in 1915, and from 1919 it built housing estates.",
       "difficulty": 0.25
     },
     {

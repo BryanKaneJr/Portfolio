@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 27,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Stained Glass",
   "objective": "After this level you can explain how stained glass windows were made and what they taught.",
@@ -168,7 +168,7 @@
     },
     {
       "id": "question.art_history.027.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.art_history.stained_glass_making",
@@ -176,35 +176,19 @@
       ],
       "sourceCardIds": [
         "card.art_history.027.c1",
-        "card.art_history.026.c3"
+        "card.art_history.026.c3",
+        "card.art_history.027.c2"
       ],
-      "prompt": "Why did Level 26's flying buttresses matter so much for stained glass?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They were decorated with glass panels",
-          "correct": false,
-          "rationale": "The buttresses are stone; the windows are between them."
-        },
-        {
-          "id": "b",
-          "label": "They reflected sunlight into the church",
-          "correct": false,
-          "rationale": "Their job was structural, not optical."
-        },
-        {
-          "id": "c",
-          "label": "They made colored glass cheaper to melt",
-          "correct": false,
-          "rationale": "Glassmaking didn't change; the walls did."
-        },
-        {
-          "id": "d",
-          "label": "They freed walls to become large windows",
-          "correct": true
-        }
+      "prompt": "Put the steps of making a medieval stained-glass window in order, from first to last.",
+      "items": [
+        "Adding metal oxides",
+        "Cut the colored sheets into pieces",
+        "Painted faces and folds of cloth",
+        "Fired them in a kiln"
       ],
-      "explanation": "Flying buttresses took the vault's outward push, so walls could be thin and filled with glass.",
+      "first": "First step",
+      "last": "Last step",
+      "explanation": "Glass was colored by adding metal oxides while molten. The glazier cut the colored sheets into pieces, painted faces and folds of cloth, then fired them in a kiln.",
       "difficulty": 0.3
     }
   ],

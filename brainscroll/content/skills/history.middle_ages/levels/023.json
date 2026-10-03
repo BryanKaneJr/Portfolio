@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 23,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Castles",
   "objective": "After this level you can explain how castles were built and why.",
@@ -92,41 +92,31 @@
   "questions": [
     {
       "id": "question.middle_ages.023.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.motte_and_bailey"
       ],
       "sourceCardIds": [
-        "card.middle_ages.023.c3"
+        "card.middle_ages.023.c3",
+        "card.middle_ages.023.c4"
       ],
-      "prompt": "In a motte-and-bailey castle, what was the motte?",
-      "options": [
+      "prompt": "Match each part of a castle with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A fenced yard for houses and animals",
-          "correct": false,
-          "rationale": "That’s the bailey."
+          "left": "Motte",
+          "right": "An artificial mound of earth and stone"
         },
         {
-          "id": "b",
-          "label": "An earth mound topped by a timber tower",
-          "correct": true
+          "left": "Bailey",
+          "right": "A fenced yard"
         },
         {
-          "id": "c",
-          "label": "A stone tower with six-metre walls",
-          "correct": false,
-          "rationale": "That’s a later stone keep."
-        },
-        {
-          "id": "d",
-          "label": "A water-filled ditch around the walls",
-          "correct": false,
-          "rationale": "That’s a moat."
+          "left": "Keep",
+          "right": "The strongest part of the castle"
         }
       ],
-      "explanation": "The motte was an artificial mound of earth and stone, topped by a timber tower.",
+      "explanation": "The motte was an artificial mound of earth and stone, the bailey a fenced yard beside it, and the keep the strongest part of the castle.",
       "difficulty": 0.2
     },
     {

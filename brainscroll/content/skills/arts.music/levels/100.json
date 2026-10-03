@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 100,
   "type": "mastery",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Mastery Challenge: Music",
   "objective": "After this level you can demonstrate command of Music Levels 1–99 across the whole tree.",
@@ -292,7 +292,7 @@
     },
     {
       "id": "question.music.100.q5",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.staff_clefs"
@@ -300,33 +300,16 @@
       "sourceCardIds": [
         "card.music.009.c3"
       ],
-      "prompt": "On a treble staff, which letters do the four spaces spell, from bottom to top?",
-      "options": [
-        {
-          "id": "a",
-          "label": "E, G, B, D",
-          "correct": false,
-          "rationale": "Those are the lines, not the spaces."
-        },
-        {
-          "id": "b",
-          "label": "F, A, C, E",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "G, B, D, F",
-          "correct": false,
-          "rationale": "That skips the treble clef's pattern."
-        },
-        {
-          "id": "d",
-          "label": "A, C, E, G",
-          "correct": false,
-          "rationale": "Not the treble clef's spaces."
-        }
+      "prompt": "Put the notes of the treble staff's four spaces in order, from bottom to top.",
+      "items": [
+        "F",
+        "A",
+        "C",
+        "E"
       ],
-      "explanation": "With the treble clef, the spaces spell F, A, C, E, and the lines read E, G, B, D, F.",
+      "first": "Bottom space",
+      "last": "Top space",
+      "explanation": "From bottom to top, the treble staff's spaces spell F, A, C, E.",
       "difficulty": 0.3
     },
     {

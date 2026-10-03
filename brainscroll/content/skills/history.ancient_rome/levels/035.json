@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 35,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Pompey the Great",
   "objective": "After this level you can describe Pompey’s rise and his conquests in the East.",
@@ -164,7 +164,7 @@
     },
     {
       "id": "question.ancient_rome.035.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_rome.pompey",
@@ -172,35 +172,26 @@
       ],
       "sourceCardIds": [
         "card.ancient_rome.035.c2",
-        "card.ancient_rome.033.c2"
+        "card.ancient_rome.033.c2",
+        "card.ancient_rome.035.c3",
+        "card.ancient_rome.035.c4"
       ],
-      "prompt": "From Level 33: under which general did Pompey first make his name?",
-      "options": [
+      "prompt": "Match each name from Pompey’s career with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Marius",
-          "correct": false,
-          "rationale": "He fought on the other side."
+          "left": "Magnus",
+          "right": "The Great"
         },
         {
-          "id": "b",
-          "label": "Sulla",
-          "correct": true
+          "left": "Jerusalem",
+          "right": "63 BCE"
         },
         {
-          "id": "c",
-          "label": "Scipio",
-          "correct": false,
-          "rationale": "Scipio lived long before."
-        },
-        {
-          "id": "d",
-          "label": "Crassus",
-          "correct": false,
-          "rationale": "They were later rivals and partners."
+          "left": "The pirates",
+          "right": "About three months"
         }
       ],
-      "explanation": "Pompey rose as a young commander fighting for Sulla.",
+      "explanation": "Magnus means “the Great.” Pompey captured Jerusalem in 63 BCE, and he swept the pirates from the Mediterranean in about three months.",
       "difficulty": 0.3
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 40,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Faith and the Church",
   "objective": "After this level you can explain how the Church shaped power, learning and daily life.",
@@ -144,7 +144,7 @@
   "questions": [
     {
       "id": "question.middle_ages.040.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.canossa_1077",
@@ -156,33 +156,17 @@
         "card.middle_ages.032.c4",
         "card.middle_ages.031.c4"
       ],
-      "prompt": "Faith and the Church: which order of events is right?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Canossa, the 1054 excommunications, Lateran IV",
-          "correct": false,
-          "rationale": "The excommunications (1054) came before Canossa (1077)."
-        },
-        {
-          "id": "b",
-          "label": "The 1054 excommunications, Canossa, Lateran IV",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Lateran IV, Canossa, the 1054 excommunications",
-          "correct": false,
-          "rationale": "Lateran IV (1215) came last."
-        },
-        {
-          "id": "d",
-          "label": "The 1054 excommunications, Lateran IV, Canossa",
-          "correct": false,
-          "rationale": "Canossa (1077) came before 1215."
-        }
+      "prompt": "Put these events in order, from earliest to latest.",
+      "items": [
+        "East and West exchange excommunications",
+        "Henry IV waits three days at Canossa",
+        "The Concordat of Worms",
+        "Thomas Becket is murdered at Canterbury",
+        "Lateran IV orders yearly confession"
       ],
-      "explanation": "1054, then 1077, then 1215.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "East and West exchanged excommunications in 1054, Henry IV waited at Canossa in 1077, the Concordat of Worms came in 1122, Becket was murdered in 1170, and Lateran IV ordered yearly confession in 1215.",
       "difficulty": 0.3
     },
     {

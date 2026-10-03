@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 54,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Black Soldiers, Self-Emancipation",
   "objective": "After this level you can explain how Black soldiers and enslaved people escaping to Union lines helped turn the war into a war against slavery.",
@@ -177,7 +177,7 @@
     },
     {
       "id": "question.us_history.054.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.us_history.black_soldiers_usct",
@@ -185,35 +185,20 @@
       ],
       "sourceCardIds": [
         "card.us_history.053.c4",
-        "card.us_history.054.c3"
+        "card.us_history.054.c3",
+        "card.us_history.054.c2",
+        "card.us_history.054.c4"
       ],
-      "prompt": "The Emancipation Proclamation opened a door for Black men. What did about 179,000 of them do next?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Moved to the border states",
-          "correct": false,
-          "rationale": "The Proclamation didn’t free people there."
-        },
-        {
-          "id": "b",
-          "label": "Served in the Union Army",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Joined the Confederate army",
-          "correct": false,
-          "rationale": "They served the Union."
-        },
-        {
-          "id": "d",
-          "label": "Were elected to Congress",
-          "correct": false,
-          "rationale": "That came during Reconstruction, and for far fewer."
-        }
+      "prompt": "Put these events of Black freedom and service in the war in order, from earliest to latest.",
+      "items": [
+        "Rowed to Fort Monroe",
+        "A Union raid up the Combahee River",
+        "An assault on Fort Wagner",
+        "Congress granted equal pay"
       ],
-      "explanation": "The Proclamation accepted Black men into the Union forces; about 179,000 served in the Army.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Three men rowed to Fort Monroe in May 1861. The Combahee River raid came on June 2, 1863, the assault on Fort Wagner that July, and Congress granted equal pay in June 1864.",
       "difficulty": 0.25
     }
   ],

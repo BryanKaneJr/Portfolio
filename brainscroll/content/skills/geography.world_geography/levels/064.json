@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 64,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Russia, the Biggest Country",
   "objective": "After this level you can describe Russia's size, Siberia and its eleven time zones.",
@@ -93,41 +93,31 @@
   "questions": [
     {
       "id": "question.world_geography.064.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.russia_time_zones"
       ],
       "sourceCardIds": [
-        "card.world_geography.064.c4"
+        "card.world_geography.064.c4",
+        "card.world_geography.064.c3"
       ],
-      "prompt": "How many time zones does Russia span?",
-      "options": [
+      "prompt": "Match each Russian place with its fact.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "4",
-          "correct": false,
-          "rationale": "Far more than that."
+          "left": "Kaliningrad",
+          "right": "Baltic Sea"
         },
         {
-          "id": "b",
-          "label": "8",
-          "correct": false,
-          "rationale": "That's how many the Trans-Siberian trip spans."
+          "left": "Kamchatka",
+          "right": "Pacific"
         },
         {
-          "id": "c",
-          "label": "11",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "24",
-          "correct": false,
-          "rationale": "That's the whole world's standard set."
+          "left": "Sakha region",
+          "right": "As low as −68 °C"
         }
       ],
-      "explanation": "Russia spans 11 time zones, from Kaliningrad on the Baltic Sea to Kamchatka on the Pacific.",
+      "explanation": "Kaliningrad is on the Baltic Sea and Kamchatka on the Pacific. In the Sakha region, temperatures as low as −68 °C have been recorded.",
       "difficulty": 0.15
     },
     {

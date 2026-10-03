@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 40,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: The Renaissance",
   "objective": "After this level you can explain what changed in art during the Renaissance and who led the change.",
@@ -224,7 +224,7 @@
     },
     {
       "id": "question.art_history.040.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.art_history.ren_florence_origins",
@@ -235,33 +235,17 @@
       "sourceCardIds": [
         "card.art_history.040.c2"
       ],
-      "prompt": "Renaissance recap: which of these came first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The contest for the Baptistery doors",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The start of Brunelleschi's dome",
-          "correct": false,
-          "rationale": "Begun in 1420."
-        },
-        {
-          "id": "c",
-          "label": "Van Eyck's Arnolfini Portrait",
-          "correct": false,
-          "rationale": "Dated 1434."
-        },
-        {
-          "id": "d",
-          "label": "The Sistine Chapel ceiling",
-          "correct": false,
-          "rationale": "Painted 1508-1512."
-        }
+      "prompt": "Put the chapter's moments in order, from earliest to latest.",
+      "items": [
+        "Florence's contest for bronze doors",
+        "Brunelleschi's peephole",
+        "Jan van Eyck was here",
+        "Michelangelo carves the David",
+        "The Sistine Chapel ceiling"
       ],
-      "explanation": "The Baptistery doors contest was held in 1401, before all the others.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The contest came in 1401, Brunelleschi's peephole about 1415, Van Eyck's \"was here\" in 1434, the David in 1501-1504, and the Sistine ceiling in 1508-1512.",
       "difficulty": 0.25
     },
     {

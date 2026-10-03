@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 57,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Games and Music",
   "objective": "After this level you can describe board games like senet and Egyptian music.",
@@ -82,41 +82,32 @@
   "questions": [
     {
       "id": "question.ancient_egypt.057.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_egypt.daily_games_music"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.057.c2"
+        "card.ancient_egypt.057.c2",
+        "card.ancient_egypt.057.c3",
+        "card.ancient_egypt.057.c4"
       ],
-      "prompt": "How many squares were on a senet board?",
-      "options": [
+      "prompt": "Match each game or instrument with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "20",
-          "correct": false,
-          "rationale": "Senet had 30 squares."
+          "left": "Senet",
+          "right": "30 squares"
         },
         {
-          "id": "b",
-          "label": "30",
-          "correct": true
+          "left": "Mehen",
+          "right": "A spiral board"
         },
         {
-          "id": "c",
-          "label": "64",
-          "correct": false,
-          "rationale": "That’s a chessboard; senet had 30."
-        },
-        {
-          "id": "d",
-          "label": "100",
-          "correct": false,
-          "rationale": "Senet had three rows of ten."
+          "left": "Sistrum",
+          "right": "A rattle with loose crossbars"
         }
       ],
-      "explanation": "Senet boards had 30 squares, in three rows of ten.",
+      "explanation": "Senet was played on a board of 30 squares. Mehen used a spiral board shaped like a coiled snake. The sistrum was a rattle with loose crossbars.",
       "difficulty": 0.2
     },
     {

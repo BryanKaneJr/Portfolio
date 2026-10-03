@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 64,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Gilded Age Giants",
   "objective": "After this level you can explain how Carnegie and Rockefeller built giant companies, and why Americans called such men both robber barons and captains of industry.",
@@ -108,7 +108,7 @@
   "questions": [
     {
       "id": "question.us_history.064.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.gilded_robber_baron_debate",
@@ -116,35 +116,30 @@
       ],
       "sourceCardIds": [
         "card.us_history.064.c5",
-        "card.us_history.064.c2"
+        "card.us_history.064.c2",
+        "card.us_history.064.c3",
+        "card.us_history.064.c4"
       ],
-      "prompt": "Twain and Warner named the Gilded Age in 1873. Whose 1934 book cast its industrialists as unscrupulous pirates?",
-      "options": [
+      "prompt": "Match each Gilded Age name with what it is tied to.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Allan Nevins",
-          "correct": false,
-          "rationale": "Nevins answered with a kinder view in 1940."
+          "left": "Mark Twain",
+          "right": "The Gilded Age"
         },
         {
-          "id": "b",
-          "label": "Mark Twain",
-          "correct": false,
-          "rationale": "Twain’s 1873 novel named the era."
+          "left": "Andrew Carnegie",
+          "right": "the Gospel of Wealth"
         },
         {
-          "id": "c",
-          "label": "Andrew Carnegie",
-          "correct": false,
-          "rationale": "Carnegie wrote the Gospel of Wealth."
+          "left": "John D. Rockefeller",
+          "right": "Standard Oil"
         },
         {
-          "id": "d",
-          "label": "Matthew Josephson",
-          "correct": true
+          "left": "Matthew Josephson",
+          "right": "The Robber Barons"
         }
       ],
-      "explanation": "Matthew Josephson’s 1934 book The Robber Barons cast them as unscrupulous pirates.",
+      "explanation": "Mark Twain co-wrote The Gilded Age, Andrew Carnegie wrote the Gospel of Wealth, John D. Rockefeller built Standard Oil, and Matthew Josephson wrote The Robber Barons.",
       "difficulty": 0.25
     },
     {

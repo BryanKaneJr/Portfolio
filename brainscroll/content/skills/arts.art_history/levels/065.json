@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 65,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Expressionism",
   "objective": "After this level you can explain how Expressionists bent color and form to show feeling.",
@@ -96,7 +96,7 @@
   "questions": [
     {
       "id": "question.art_history.065.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.expr_scream"
@@ -104,33 +104,16 @@
       "sourceCardIds": [
         "card.art_history.065.c2"
       ],
-      "prompt": "What did Munch write that he sensed at sunset?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A storm about to break over the fjord",
-          "correct": false,
-          "rationale": "He wrote of a scream, not a storm."
-        },
-        {
-          "id": "b",
-          "label": "An infinite scream passing through nature",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "A friend calling his name from the city",
-          "correct": false,
-          "rationale": "The sound he described came from nature."
-        },
-        {
-          "id": "d",
-          "label": "Music drifting across the water",
-          "correct": false,
-          "rationale": "He described anxiety and a scream, not music."
-        }
+      "prompt": "Put the moments of Munch's account in order, from first to last.",
+      "items": [
+        "Out walking",
+        "The sky suddenly turned blood red",
+        "Trembling with anxiety",
+        "An infinite scream"
       ],
-      "explanation": "Munch wrote that the sky turned blood red and he sensed an infinite scream passing through nature.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Munch was out walking at sunset when the sky suddenly turned blood red. He stood trembling with anxiety, and sensed an infinite scream passing through nature.",
       "difficulty": 0.3
     },
     {

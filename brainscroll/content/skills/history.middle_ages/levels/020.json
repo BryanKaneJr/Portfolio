@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 20,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Charlemagne and the Vikings",
   "objective": "After this level you can explain how Charlemagne, the Vikings and the Normans reshaped Europe.",
@@ -144,7 +144,7 @@
   "questions": [
     {
       "id": "question.middle_ages.020.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.viking_descendants_rule",
@@ -158,33 +158,17 @@
         "card.middle_ages.017.c2",
         "card.middle_ages.018.c4"
       ],
-      "prompt": "Charlemagne and the Vikings: which order of these events is right?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Rollo receives Normandy, Lindisfarne raid, Battle of Hastings",
-          "correct": false,
-          "rationale": "Lindisfarne came first, in 793."
-        },
-        {
-          "id": "b",
-          "label": "Lindisfarne raid, Battle of Hastings, Rollo receives Normandy",
-          "correct": false,
-          "rationale": "Rollo’s treaty (911) came before 1066."
-        },
-        {
-          "id": "c",
-          "label": "Lindisfarne raid, Rollo receives Normandy, Battle of Hastings",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Battle of Hastings, Lindisfarne raid, Rollo receives Normandy",
-          "correct": false,
-          "rationale": "Hastings came last, in 1066."
-        }
+      "prompt": "Put these events in order, from earliest to latest.",
+      "items": [
+        "Vikings raid Lindisfarne",
+        "Leo III crowns Charlemagne emperor",
+        "Alfred beats the Danes at Edington",
+        "Rollo receives the land around Rouen",
+        "William wins at Hastings"
       ],
-      "explanation": "793, then 911, then 1066.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Vikings raided Lindisfarne in 793, Leo III crowned Charlemagne in 800, Alfred beat the Danes at Edington in 878, Rollo received the land around Rouen in 911, and William won at Hastings in 1066.",
       "difficulty": 0.3
     },
     {

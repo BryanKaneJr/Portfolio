@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 15,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Bats",
   "objective": "After this level you can explain how bats fly and find food with echolocation.",
@@ -131,7 +131,7 @@
     },
     {
       "id": "question.animals.015.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.bat_echolocation"
@@ -140,33 +140,15 @@
         "card.animals.015.c3",
         "card.animals.015.c4"
       ],
-      "prompt": "How does echolocation tell a bat where things are?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It sees heat given off by prey",
-          "correct": false,
-          "rationale": "Echolocation uses sound, not heat."
-        },
-        {
-          "id": "b",
-          "label": "It smells the air currents",
-          "correct": false,
-          "rationale": "It's about sound and echoes."
-        },
-        {
-          "id": "c",
-          "label": "It feels vibrations through its feet",
-          "correct": false,
-          "rationale": "The bat is listening, not feeling."
-        },
-        {
-          "id": "d",
-          "label": "Its calls bounce back as echoes",
-          "correct": true
-        }
+      "prompt": "Put the steps of echolocation in order.",
+      "items": [
+        "Sends out calls",
+        "Bounce off objects",
+        "Come back to its ears"
       ],
-      "explanation": "Bats send out calls, mostly ultrasound, and listen to the echoes that return from objects and prey.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The bat sends out calls, the calls bounce off objects, and the echoes come back to its ears.",
       "difficulty": 0.15
     },
     {

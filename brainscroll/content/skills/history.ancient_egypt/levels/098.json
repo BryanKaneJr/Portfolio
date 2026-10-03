@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 98,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Myths About Egypt",
   "objective": "After this level you can debunk common myths, like aliens building the pyramids.",
@@ -91,41 +91,32 @@
   "questions": [
     {
       "id": "question.ancient_egypt.098.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_egypt.egypt_myths_debunked"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.098.c2"
+        "card.ancient_egypt.098.c2",
+        "card.ancient_egypt.098.c1",
+        "card.ancient_egypt.098.c4"
       ],
-      "prompt": "What evidence near the Giza pyramids suggests the builders were not slaves?",
-      "options": [
+      "prompt": "Match each myth with the evidence the cards use to answer it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A carved order forbidding slaves on the site",
-          "correct": false,
-          "rationale": "No such order is part of the evidence."
+          "left": "Slaves built the pyramids",
+          "right": "Workers’ districts with bakeries"
         },
         {
-          "id": "b",
-          "label": "Workers’ tombs near the pyramids, and bakeries",
-          "correct": true
+          "left": "We know Cleopatra’s face",
+          "right": "Her coins and portrait busts"
         },
         {
-          "id": "c",
-          "label": "Herodotus’s description of the building work",
-          "correct": false,
-          "rationale": "He’s one source of the myth."
-        },
-        {
-          "id": "d",
-          "label": "Hollywood films shot on location at Giza",
-          "correct": false,
-          "rationale": "Films helped spread the myth."
+          "left": "The famous curse",
+          "right": "Lived until 1939"
         }
       ],
-      "explanation": "Workers’ districts with bakeries and workshops, and honored tombs near the pyramids, point to paid laborers.",
+      "explanation": "Workers’ districts with bakeries near Giza answer the slave myth. Her coins and portrait busts don’t all agree, so we don’t know Cleopatra’s face. And the famous curse? Howard Carter, who opened the tomb, lived until 1939.",
       "difficulty": 0.25
     },
     {

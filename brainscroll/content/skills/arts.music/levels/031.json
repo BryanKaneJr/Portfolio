@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 31,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Baroque Music",
   "objective": "After this level you can describe the Baroque style and its instruments.",
@@ -131,7 +131,7 @@
     },
     {
       "id": "question.music.031.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.baroque_basso_continuo"
@@ -139,33 +139,22 @@
       "sourceCardIds": [
         "card.music.031.c3"
       ],
-      "prompt": "A Baroque harpsichordist is handed only a bass line with small numbers under it. What is expected?",
-      "options": [
+      "prompt": "Match each part of a basso continuo with its job.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Play the bass line alone, exactly as written",
-          "correct": false,
-          "rationale": "The numbers call for chords above the bass."
+          "left": "A low instrument",
+          "right": "The bass line"
         },
         {
-          "id": "b",
-          "label": "Treat the numbers as beats per minute",
-          "correct": false,
-          "rationale": "They are chord shorthand, not tempo."
+          "left": "A harpsichordist or organist",
+          "right": "The chords above it"
         },
         {
-          "id": "c",
-          "label": "Improvise fitting chords above the bass",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Play the melody an octave higher",
-          "correct": false,
-          "rationale": "The keyboard filled in harmony, not the tune."
+          "left": "Figures",
+          "right": "Small numbers"
         }
       ],
-      "explanation": "In basso continuo the figures hint at chords, and the keyboard player improvises them over the bass.",
+      "explanation": "A low instrument played the bass line, a harpsichordist or organist supplied the chords above it, and figures were small numbers hinting at the chords.",
       "difficulty": 0.3
     },
     {

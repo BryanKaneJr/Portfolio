@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 80,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Modern Masters",
   "objective": "After this level you can compare the great modern architects and their ideas.",
@@ -277,7 +277,7 @@
     },
     {
       "id": "question.architecture.080.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.architecture.masters_bauhaus_school",
@@ -286,33 +286,18 @@
       "sourceCardIds": [
         "card.architecture.080.c4"
       ],
-      "prompt": "On the Modern Masters timeline, what came between the founding of the Bauhaus and the finishing of Fallingwater?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Gaudí takes over the Sagrada Família",
-          "correct": false,
-          "rationale": "That was 1883, before the Bauhaus."
-        },
-        {
-          "id": "b",
-          "label": "Mies's Barcelona Pavilion",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The Sydney Opera House is completed",
-          "correct": false,
-          "rationale": "That was 1973, after Fallingwater."
-        },
-        {
-          "id": "d",
-          "label": "The Guggenheim Bilbao opens",
-          "correct": false,
-          "rationale": "That was 1997."
-        }
+      "prompt": "Modern Masters recap: put these six dates in order, from earliest to latest.",
+      "items": [
+        "Gaudí takes over the Sagrada Família",
+        "Gropius founds the Bauhaus in Weimar",
+        "Mies's Barcelona Pavilion",
+        "Fallingwater is finished",
+        "The Sydney Opera House is completed",
+        "The Guggenheim Bilbao opens"
       ],
-      "explanation": "The Bauhaus was founded in 1919, the Barcelona Pavilion was built for 1929, and Fallingwater was finished in 1937.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Gaudí took over the Sagrada Família in 1883, Gropius founded the Bauhaus in 1919, Mies's Barcelona Pavilion came in 1929, Fallingwater was finished in 1937, the Sydney Opera House in 1973, and the Guggenheim Bilbao opened in 1997.",
       "difficulty": 0.2
     },
     {

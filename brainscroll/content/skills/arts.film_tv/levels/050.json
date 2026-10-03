@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 50,
   "type": "milestone",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Milestone: How Hollywood Made Movies",
   "objective": "After this level you can connect the invention of film, the craft of shooting and cutting, and the studio system into one picture of how a classic Hollywood film was made.",
@@ -213,42 +213,28 @@
   "questions": [
     {
       "id": "question.film_tv.050.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.studio_assembly_line",
         "concept.film_tv.studio_vertical_integration"
       ],
       "sourceCardIds": [
-        "card.film_tv.050.c2"
+        "card.film_tv.050.c2",
+        "card.film_tv.050.c3"
       ],
-      "prompt": "In the studio era, how much of a feature film's life did a major studio control?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Only the shooting; others handled the rest",
-          "correct": false,
-          "rationale": "The majors also distributed films and owned theaters."
-        },
-        {
-          "id": "b",
-          "label": "Only the script, which it sold to theaters",
-          "correct": false,
-          "rationale": "The studio kept the film through every stage."
-        },
-        {
-          "id": "c",
-          "label": "Every stage, from first idea to theater screen",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "None; the government ran production",
-          "correct": false,
-          "rationale": "Hollywood even wrote its own censorship code."
-        }
+      "prompt": "Put these moments from the studio era in order, from earliest to latest.",
+      "items": [
+        "The Jazz Singer's success",
+        "The Production Code Administration",
+        "Citizen Kane's deep focus",
+        "HUAC's hearings",
+        "The Paramount ruling",
+        "CinemaScope arrives with The Robe"
       ],
-      "explanation": "From about 1930 to 1945, the studio system carefully controlled every stage of a feature, from conception through exhibition.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Jazz Singer came in 1927, the Production Code Administration began in 1934, Citizen Kane in 1941, HUAC's hearings in 1947, the Paramount ruling in 1948 and CinemaScope with The Robe in 1953.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 35,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How Old Is the Earth?",
   "objective": "After this level you can explain how meteorites and ancient zircon crystals pin Earth's age at about 4.5 billion years.",
@@ -91,41 +91,32 @@
   "questions": [
     {
       "id": "question.earth_climate.035.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.earth_climate.deeptime_oldest_zircons"
       ],
       "sourceCardIds": [
-        "card.earth_climate.035.c2"
+        "card.earth_climate.035.c2",
+        "card.earth_climate.035.c3",
+        "card.earth_climate.035.c4"
       ],
-      "prompt": "What is the oldest known material formed on Earth?",
-      "options": [
+      "prompt": "Match each with its age.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Zircon crystals from Western Australia's Jack Hills",
-          "correct": true
+          "left": "Earth",
+          "right": "About 4.54 billion years"
         },
         {
-          "id": "b",
-          "label": "The red sandstone layers at Siccar Point in Scotland",
-          "correct": false,
-          "rationale": "Those layers are far younger."
+          "left": "Zircon crystals from the Jack Hills",
+          "right": "About 4.4 billion years"
         },
         {
-          "id": "c",
-          "label": "An iron meteorite that crashed into Arizona",
-          "correct": false,
-          "rationale": "Meteorites formed in space, not on Earth."
-        },
-        {
-          "id": "d",
-          "label": "Moon rocks brought back by the Apollo astronauts",
-          "correct": false,
-          "rationale": "Those formed on the Moon."
+          "left": "Meteorites",
+          "right": "Between 4.53 and 4.58 billion years"
         }
       ],
-      "explanation": "Jack Hills zircons crystallized about 4.4 billion years ago, the oldest known Earth material.",
+      "explanation": "Earth is about 4.54 billion years old, the Jack Hills zircons about 4.4 billion, and the dated meteorites formed between 4.53 and 4.58 billion years ago.",
       "difficulty": 0.2
     },
     {
