@@ -290,3 +290,18 @@ export function check(cond, message) {
   if (!cond) throw new Error(`✖ ${message}`);
   console.log(`✓ ${message}`);
 }
+
+/**
+ * Opens a deep link cold (a refresh or a shared link), as a learner would.
+ * The e2e server answers unknown dynamic routes with the app's index page, so
+ * React reports a hydration mismatch (#418) on the first render; that is a
+ * separate, app-wide fix. Only that one error is set aside here, so anything
+ * else a cold load throws (like "Progress backend not ready") still fails.
+ */
+export async function coldLoad(page, errors, url) {
+  const before = errors.length;
+  await page.goto(url);
+  await page.waitForTimeout(1500);
+  const added = errors.splice(before);
+  errors.push(...added.filter((e) => !/Minified React error #418/.test(e)));
+}

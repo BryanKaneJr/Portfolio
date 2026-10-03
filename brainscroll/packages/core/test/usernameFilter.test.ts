@@ -20,6 +20,20 @@ describe('usernameBlocked', () => {
       expect(usernameBlocked(bad), bad).toBe(true);
   });
 
+  it('reads reserved names on the whole name, so splitting or look-alikes can\'t sneak them in (QA 2026-10-03)', () => {
+    for (const bad of ['dr_scroll', 'brain_scroll', 'brainscroii', 'dr_scro11', 'd_r_scroll', 'doctor_scroll', 'drscrolll', 'brainscroll'])
+      expect(usernameBlocked(bad), bad).toBe(true);
+    for (const ok of ['scroll_lover', 'brain_fan', 'dr_who_fan', 'scrolling'])
+      expect(usernameBlocked(ok), ok).toBe(false);
+  });
+
+  it('lets innocent phrases through, and catches more spellings (QA 2026-10-03)', () => {
+    for (const ok of ['rapeseed', 'rapeseed_oil', 'cum_laude', 'cumlaude', 'sex_ed', 'hoe_down', 'tit_for_tat', 'pussycat', 'dick_grayson'])
+      expect(usernameBlocked(ok), ok).toBe(false);
+    for (const bad of ['fvck', 'phuck', 'f0ck', 'phuck_off', 'big_dick', 'cum_shot_99', 'sex_kitten', 'tit_fan'])
+      expect(usernameBlocked(bad), bad).toBe(true);
+  });
+
   it('reads one-letter parts as one word', () => {
     expect(usernameParts('f_u_c_k_off')).toEqual(['fuck', 'off']);
     expect(usernameParts('a_b_cd')).toEqual(['ab', 'cd']);

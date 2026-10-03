@@ -454,6 +454,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         removeFriend: (userId) => backendOrThrow().removeFriend(userId),
         acceptInvite: (code) => backendOrThrow().acceptInvite(code),
         blockUser: (userId) => backendOrThrow().blockUser(userId),
+        blocked: () => backendOrThrow().blockedUsers(),
+        unblockUser: (userId) => backendOrThrow().unblockUser(userId),
         reportUser: (userId, reason, note) => backendOrThrow().reportUser(userId, reason, note),
         react: (ownerId, itemKey, reaction) => backendOrThrow().react(ownerId, itemKey, reaction),
         setNotifications: (on) => backendOrThrow().setSocialNotifications(on),
@@ -602,6 +604,8 @@ export interface SocialApi {
   removeFriend: ProgressBackend['removeFriend'];
   acceptInvite: ProgressBackend['acceptInvite'];
   blockUser: ProgressBackend['blockUser'];
+  blocked: ProgressBackend['blockedUsers'];
+  unblockUser: ProgressBackend['unblockUser'];
   reportUser: ProgressBackend['reportUser'];
   react: ProgressBackend['react'];
   setNotifications: ProgressBackend['setSocialNotifications'];

@@ -15,6 +15,10 @@
  *   your league mates: trophies, chapters finished, streak milestones and
  *   league podiums. The only reaction is a heart; there are no comments or
  *   messages.
+ * - Profiles are for friends and league mates. A pending request (either way)
+ *   shows only the username and avatar (`profileAccess`); a blocked learner
+ *   is a hidden row in the league (`hiddenLeagueMember`). Fixes from QA,
+ *   2026-10-03: migration 20261103000000_social_qa_fixes.sql.
  */
 import { MILESTONE_TROPHIES } from './trophies';
 import type { XpEvent } from './completion';
@@ -224,6 +228,11 @@ export interface FeedItem {
 export type Relation = 'you' | 'friend' | 'requested' | 'asked_you' | 'league';
 export interface SocialProfile extends SocialCard {
   relation: Relation;
+  /**
+   * Not a friend or league mate (a pending request either way): only the
+   * username and avatar are shared, and every number below is empty.
+   */
+  limited: boolean;
   totalXp: number;
   streak: { current: number; longest: number };
   trophies: { trophyId: string; earnedAt: string }[];
@@ -231,7 +240,45 @@ export interface SocialProfile extends SocialCard {
   skills: Record<string, number>;
 }
 
-export type SocialErrorCode = 'AVATAR_LOCKED' | 'AVATAR_NOT_FOUND' | 'USERNAME_INVALID' | 'USERNAME_NOT_ALLOWED' | 'USERNAME_TAKEN' | 'USER_NOT_FOUND' | 'INVITE_NOT_FOUND' | 'TOO_MANY_REQUESTS';
+/**
+ * Who may see a learner's profile, and how much (mirrors SQL get_social_profile):
+ * yourself, friends and current league mates see it all; a pending request
+ * either way shows only the username and avatar; anyone else, or anyone
+ * blocked either way, sees nothing (null: "not found").
+ */
+export function profileAccess(a: { self: boolean; friend: boolean; leagueMate: boolean; requested: boolean; askedYou: boolean; blocked: boolean }): { relation: Relation; limited: boolean } | null {
+  if (a.self) return { relation: 'you', limited: false };
+  if (a.blocked) return null;
+  const open = a.friend || a.leagueMate;
+  const relation: Relation | null = a.friend ? 'friend' : a.requested ? 'requested' : a.askedYou ? 'asked_you' : a.leagueMate ? 'league' : null;
+  return relation ? { relation, limited: !open } : null;
+}
+
+/**
+ * A league row for someone blocked either way (mirrors SQL get_league): their
+ * place and weekly XP still count, but nothing says who they are.
+ */
+export function hiddenLeagueMember(index: number, weeklyXp: number): LeagueView['members'][number] {
+  return { id: `hidden-${index}`, username: '', knowledgeLevel: 0, weeklyXp, you: false, blocked: true };
+}
+
+/** What a learner can report someone for (user_reports.reason), and an optional note of at most this many characters. */
+export const USER_REPORT_REASONS = [
+  { id: 'username', label: 'Their username' },
+  { id: 'cheating', label: 'Cheating' },
+  { id: 'other', label: 'Something else' },
+] as const;
+export type UserReportReason = (typeof USER_REPORT_REASONS)[number]['id'];
+export const USER_REPORT_NOTE_MAX = 500;
+
+/** Someone you've blocked, as Settings lists them to unblock. */
+export interface BlockedLearner {
+  id: string;
+  username: string;
+  avatar?: string;
+}
+
+export type SocialErrorCode = 'AVATAR_LOCKED' | 'AVATAR_NOT_FOUND' | 'USERNAME_INVALID' | 'USERNAME_NOT_ALLOWED' | 'USERNAME_TAKEN' | 'USER_NOT_FOUND' | 'INVITE_NOT_FOUND' | 'TOO_MANY_REQUESTS' | 'MOMENT_NOT_FOUND';
 export class SocialError extends Error {
   constructor(public readonly code: SocialErrorCode) {
     super(code);
@@ -249,6 +296,7 @@ export const SOCIAL_ERROR_TEXT: Record<SocialErrorCode, string> = {
   USER_NOT_FOUND: 'No one by that username.',
   INVITE_NOT_FOUND: 'That invite link didn’t work. Ask for a new one.',
   TOO_MANY_REQUESTS: 'That’s a lot at once. Try again later.',
+  MOMENT_NOT_FOUND: 'That moment isn’t there any more.',
 };
 
 /** The place in a league prize's reason ("league week 2026-10-05: place 1"). */

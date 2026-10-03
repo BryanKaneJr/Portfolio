@@ -1,6 +1,7 @@
 import {
   avatarIdFor,
   avatarUnlocked,
+  hiddenLeagueMember,
   LEGENDARY_AVATARS,
   learningStreak,
   leaguePrize,
@@ -9,11 +10,13 @@ import {
   knowledgeLevel,
   milestoneTrophies,
   placeFromReason,
+  profileAccess,
   SocialError,
   STREAK_FEED_MILESTONES,
   totalCleared,
   usernameBlocked,
   weeklyXp,
+  type BlockedLearner,
   type FeedItem,
   type FeedReaction,
   type LeagueView,
@@ -133,7 +136,10 @@ export function leagueView(userId: string, social: LocalSocialState, state: Prog
   const members = [
     { ...myCard(userId, social, state, now), you: true, blocked: false },
     ...SIMS.map((s) => ({ ...simCard(s, state, now), you: false, blocked: social.blocked.includes(s.id) })),
-  ].sort((a, b) => b.weeklyXp - a.weeklyXp || (a.you ? -1 : b.you ? 1 : a.id.localeCompare(b.id)));
+  ]
+    .sort((a, b) => b.weeklyXp - a.weeklyXp || (a.you ? -1 : b.you ? 1 : a.id.localeCompare(b.id)))
+    // As the server: someone you blocked keeps their place and XP, but nothing says who they are.
+    .map((m, i) => (m.blocked ? hiddenLeagueMember(i, m.weeklyXp) : m));
   const last = state.xpEvents.filter((e) => e.type === 'LEAGUE_FINISH').at(-1);
   const lastWeekStart = leagueWeekStart(new Date(Date.parse(`${weekStart}T00:00:00Z`) - DAY));
   const played = Date.parse(state.createdAt) < Date.parse(`${weekStart}T00:00:00Z`);
@@ -237,6 +243,7 @@ export function profileView(userId: string, targetId: string, social: LocalSocia
     return {
       ...myCard(userId, social, state, now),
       relation: 'you',
+      limited: false,
       totalXp: state.xpEvents.reduce((n, e) => n + e.amount, 0),
       streak: learningStreak(state, now),
       trophies: milestoneTrophies(state, trophyCatalog).map((t) => ({ trophyId: t.trophyId, earnedAt: t.earnedAt })),
@@ -244,13 +251,18 @@ export function profileView(userId: string, targetId: string, social: LocalSocia
     };
   }
   const sim = simById(targetId);
-  if (!sim || social.blocked.includes(sim.id)) throw new SocialError('USER_NOT_FOUND');
+  // Mirrors SQL get_social_profile. Every simulated learner is in your league, so their profiles are open.
+  const access = sim
+    ? profileAccess({ self: false, friend: social.friends.includes(sim.id), leagueMate: true, requested: social.outgoing.includes(sim.id), askedYou: social.incoming.includes(sim.id), blocked: social.blocked.includes(sim.id) })
+    : null;
+  if (!sim || !access) throw new SocialError('USER_NOT_FOUND');
   const h = hash(sim.id);
   const card = simCard(sim, state, now);
+  if (access.limited) return { id: sim.id, username: sim.username, avatar: simAvatar(sim), knowledgeLevel: 0, weeklyXp: 0, ...access, totalXp: 0, streak: { current: 0, longest: 0 }, trophies: [], skills: {} };
   const picked = [0, 1, 2, 3].map((k) => skills[(h >>> (k * 3)) % skills.length]!.id);
   return {
     ...card,
-    relation: social.friends.includes(sim.id) ? 'friend' : social.outgoing.includes(sim.id) ? 'requested' : social.incoming.includes(sim.id) ? 'asked_you' : 'league',
+    ...access,
     totalXp: 2_000 + (h % 20_000),
     streak: { current: 1 + (h % 30), longest: 10 + (h % 60) },
     trophies: SIM_TROPHIES.filter((_, k) => (h >>> k) % 2).map((trophyId, k) => ({ trophyId, earnedAt: new Date(now.getTime() - (k + 1) * 3 * DAY).toISOString() })),
@@ -267,6 +279,14 @@ export function inviteSim(code: string, social: LocalSocialState, state: Progres
   const sim = SIMS.find((s) => s.inviteCode === code.trim().toUpperCase());
   if (!sim || social.blocked.includes(sim.id)) throw new SocialError('INVITE_NOT_FOUND');
   return { social: befriend(social, sim.id), card: simCard(sim, state, now) };
+}
+
+/** The simulated learners you've blocked, for Settings (mirrors SQL get_blocked). */
+export function blockedView(social: LocalSocialState): BlockedLearner[] {
+  return [...social.blocked].reverse().flatMap((id) => {
+    const sim = simById(id);
+    return sim ? [{ id: sim.id, username: sim.username, avatar: simAvatar(sim) }] : [];
+  });
 }
 
 export function befriend(social: LocalSocialState, id: string): LocalSocialState {

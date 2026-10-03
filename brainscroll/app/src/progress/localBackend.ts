@@ -44,7 +44,7 @@ import type { EntitlementView, ProgressBackend, ProgressSnapshot } from './backe
 import { deviceTimeZone } from './backend';
 import { OFFERED_METHODS } from '@/auth/config';
 import { load, newIdempotencyKey, remove, save } from './storage';
-import { befriend, checkAvatar, checkUsername, emptyLocalSocial, ensureIdentity, feedView, findSim, inviteSim, leagueView, payLastWeek, profileView, socialView, type LocalSocialState } from './localSocial';
+import { befriend, blockedView, checkAvatar, checkUsername, emptyLocalSocial, ensureIdentity, feedView, findSim, inviteSim, leagueView, payLastWeek, profileView, socialView, type LocalSocialState } from './localSocial';
 
 /** Per-account progress: `${PROGRESS_KEY}:${userId}`. */
 export const PROGRESS_KEY = 'brainscroll.progress.v2';
@@ -351,14 +351,25 @@ export function createLocalBackend(): ProgressBackend {
     },
     async blockUser(userId) {
       me();
-      commitSocial({ ...social, blocked: [...new Set([...social.blocked, userId])], friends: social.friends.filter((x) => x !== userId), incoming: social.incoming.filter((x) => x !== userId) });
+      commitSocial({ ...social, blocked: [...new Set([...social.blocked, userId])], friends: social.friends.filter((x) => x !== userId), incoming: social.incoming.filter((x) => x !== userId), outgoing: social.outgoing.filter((x) => x !== userId) });
     },
-    async reportUser() {
+    async blockedUsers() {
       me();
+      return blockedView(social);
+    },
+    async unblockUser(userId) {
+      me();
+      commitSocial({ ...social, blocked: social.blocked.filter((x) => x !== userId) });
+    },
+    async reportUser(userId) {
+      // Mirrors SQL report_user: not yourself, and only someone who exists. The harness keeps no reports.
+      if (userId === me() || !userId.startsWith('sim-')) throw new SocialError('USER_NOT_FOUND');
     },
     async react(ownerId, itemKey, reaction) {
       const id = me();
-      if (ownerId === id) throw new SocialError('USER_NOT_FOUND');
+      if (ownerId === id || social.blocked.includes(ownerId)) throw new SocialError('USER_NOT_FOUND');
+      // Mirrors SQL react: a heart only on a moment that's in the feed (the owner's last 14 days).
+      if (reaction && !feedView(id, social, current(), new Date()).some((i) => i.owner.id === ownerId && i.key === itemKey)) throw new SocialError('MOMENT_NOT_FOUND');
       const reactions = { ...social.reactions };
       if (reaction) reactions[`${ownerId}|${itemKey}`] = reaction;
       else delete reactions[`${ownerId}|${itemKey}`];

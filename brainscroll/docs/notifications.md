@@ -15,11 +15,12 @@ Both follow the same line: the app wants people to come back, but never as a jer
 ## Friends and leagues: how it works
 
 1. **Events queue a note.** Database triggers write to `notification_outbox`:
-   - a friend request: the other person hears about it;
+   - a friend request: the other person hears about it, once a week at most per person (asking, being turned down and asking again doesn't ping them again);
    - a new friendship: whoever didn't make it happen hears "you're friends now";
-   - a new heart on a feed moment: the owner hears about it;
+   - a new heart on a feed moment: the owner hears about it, once per person and moment (liking, unliking and liking again doesn't ping twice). Hearts only go on real moments (the owner's last 14 days, as in the feed), so a made-up moment can't queue a note;
    - XP that passes a league mate: they hear about it, at most once a day, and only if they've earned XP that week;
    - a finished league week: everyone who played hears their place and any prize.
+   Notes that stop being true are withdrawn before they go out: a request that's cancelled, declined, accepted or crossed, a heart taken back, and a friendship that ends take their unsent note with them (migration `20261103000000_social_qa_fixes.sql`, `push.test.sql`).
 2. **A cron job calls the `send-push` function** every 5 minutes. It:
    - closes finished league weeks (`finalize_due_leagues`), so results go out on Monday;
    - claims what may go out now;
@@ -34,7 +35,7 @@ Both follow the same line: the app wants people to come back, but never as a jer
    - anything that waited over a day is dropped (two days for a league result).
 4. **The app** registers this device's Expo push token whenever a signed-in learner opens it (`PushSync`). It forgets the token on sign-out, and opens Social, the league or the friend's profile when a note is tapped.
 
-Tokens and queued notes are deleted with the account (`account-deletion.test.sql`).
+Tokens and queued notes are deleted with the account, and so are other learners' notes that name the learner (a request, a new friend, a heart, a pass), sent or not (`account-deletion.test.sql`).
 
 ## Owner setup (once)
 

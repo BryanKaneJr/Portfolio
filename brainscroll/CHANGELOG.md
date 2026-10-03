@@ -2,6 +2,19 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: Social fixes from QA
+
+- **Profiles stay private:** a pending friend request (sent or received) no longer opens someone's profile. It shows their username and avatar with "Waiting for them" or "They want to be friends"; their XP, streak, trophies and subjects open once you're friends or league mates (`get_social_profile`, core `profileAccess`).
+- **Blocked means hidden:** in a shared league a blocked learner (either way) is a "Hidden learner" row with their place and XP, and no id, username, avatar or level, on the server and on the Social banner. Settings has a new **Blocked** list with Unblock (`get_blocked`).
+- **Profile links work when opened cold:** a refreshed or shared `/person/<id>` waits for the account instead of crashing ("Progress backend not ready"), and a link to no one shows a friendly "We can't find that profile."
+- **Account deletion** now also removes other learners' notifications that name the deleted learner (a request, a new friend, a heart, a pass), pending or sent.
+- **Usernames:** names posing as BrainScroll or Dr. Scroll are checked across the whole name (`dr_scroll`, `brain_scroll`, `brainscroii`, `dr_scro11` are refused again); innocent phrases like `cum_laude`, `sex_ed`, `tit_for_tat`, `rapeseed` and `pussycat` pass; `fvck`, `phuck` and `f0ck` don't. Core and SQL stay identical (`username-terms.test.ts` now replays every migration).
+- **Report asks why:** their username, cheating or something else, plus an optional note, sent to the team's queue. You can't report yourself.
+- **Prizes as the server pays them:** the league screen and the banner's podium show a prize only where it would really be paid (XP this week and someone behind you); otherwise the podium shows that learner's XP.
+- **Fewer, truer pushes:** one friend-request note a week per person however often they ask, one heart note per person and moment, and notes that stop being true (a request withdrawn, declined, accepted or crossed, a heart taken back, a friendship ended) are withdrawn before they go out. Hearts only go on real moments. The Settings line now mentions hearts.
+- **Smaller fixes:** Accept and Not now show an error and keep the card if they fail; Share invite on a desktop browser copies the link and says so, and the link is shown; "Waiting for them" updates as soon as a request is sent; your own league podium reads "You finished 1st in your league".
+- Server: migration `20261103000000_social_qa_fixes.sql`; tests in `social.test.sql`, `push.test.sql`, `account-deletion.test.sql`, core `social.test.ts` and `usernameFilter.test.ts`, and both e2e runs.
+
 ## 2026-10-03: Question clean-up across all 26 trees (from a full content audit)
 
 - **Questions stand on their own:** about 2,400 questions, choices, rationales and explanations that said "this level", "the card says", "Level 13's raid", "Chapter 2" or "Cities recap:" now name the topic instead (a tester was confused by them). `validate:content` now refuses these (`APP_STRUCTURE_REF` in core `editorial.ts`).

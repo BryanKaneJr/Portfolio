@@ -17,8 +17,10 @@ import {
   trophyInfo,
   checkClientConfig,
   CompletionError, type CompletionErrorCode, type CompletionOutcome, type CompletionSummary, type Level, type QuestView, type ReviewItem, type StartReason, NO_STREAK, type Streak,
+  hiddenLeagueMember,
   placeFromReason,
   SocialError,
+  type BlockedLearner,
   type FeedItem,
   type FeedKind,
   type LeagueView,
@@ -34,6 +36,7 @@ import { signInWithBrowser } from '@/auth/oauthBrowser';
 import { getLevel, levelIdOfQuestion, trophyCatalog } from '@/content';
 import type { EntitlementView, ProgressBackend, ProgressSnapshot } from './backend';
 import { deviceTimeZone } from './backend';
+import { isUuid } from './storage';
 
 /**
  * Supabase-backed progress. The server owns every award; this module only
@@ -345,7 +348,8 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
         leagueId: String(r.league_id),
         weekStart: r.week_start,
         endsAt: r.ends_at,
-        members: r.members.map((m) => ({ ...card(m), you: m.you, blocked: m.blocked })),
+        // Someone blocked either way comes without an id, name or avatar: just their place and XP.
+        members: r.members.map((m, i) => (m.blocked ? hiddenLeagueMember(i, m.weekly_xp) : { ...card(m), you: m.you, blocked: false })),
         ...(r.last_week ? { lastWeek: { weekStart: r.last_week.week_start, place: placeFromReason(r.last_week.place), xp: r.last_week.xp ?? undefined } } : {}),
       };
     },
@@ -370,17 +374,25 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       }));
     },
     async socialProfile(userId): Promise<SocialProfile> {
-      const r = await rpc<RawCard & { relation: SocialProfile['relation']; total_xp: number; streak: { current: number; longest: number }; trophies: { trophy_id: string; earned_at: string }[]; skills: Record<string, number> }>(
+      // Not an account id at all (a mistyped or made-up link): no one to show.
+      if (!isUuid(userId)) throw new SocialError('USER_NOT_FOUND');
+      const r = await rpc<Partial<RawCard> & { id: string; username: string; relation: SocialProfile['relation']; limited?: boolean; total_xp?: number; streak?: { current: number; longest: number }; trophies?: { trophy_id: string; earned_at: string }[]; skills?: Record<string, number> }>(
         'get_social_profile',
         { p_user: userId },
       );
+      // A pending request either way shares only the username and avatar.
       return {
-        ...card(r),
+        id: r.id,
+        username: r.username,
+        ...(r.avatar ? { avatar: r.avatar } : {}),
+        knowledgeLevel: r.knowledge_level ?? 0,
+        weeklyXp: r.weekly_xp ?? 0,
         relation: r.relation,
-        totalXp: r.total_xp,
+        limited: !!r.limited,
+        totalXp: r.total_xp ?? 0,
         streak: { current: r.streak?.current ?? 0, longest: r.streak?.longest ?? 0 },
-        trophies: r.trophies.map((t) => ({ trophyId: t.trophy_id, earnedAt: t.earned_at })),
-        skills: r.skills,
+        trophies: (r.trophies ?? []).map((t) => ({ trophyId: t.trophy_id, earnedAt: t.earned_at })),
+        skills: r.skills ?? {},
       };
     },
     async setUsername(name) {
@@ -407,7 +419,14 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       await rpc('block_user', { p_user: userId });
     },
     async reportUser(userId, reason, note) {
-      await rpc('report_user', { p_user: userId, p_reason: reason, p_note: note ?? null });
+      await rpc('report_user', { p_user: userId, p_reason: reason, p_note: note?.trim() || null });
+    },
+    async blockedUsers(): Promise<BlockedLearner[]> {
+      const r = await rpc<{ id: string; username: string; avatar: string | null }[]>('get_blocked');
+      return r.map((b) => ({ id: b.id, username: b.username, ...(b.avatar ? { avatar: b.avatar } : {}) }));
+    },
+    async unblockUser(userId) {
+      await rpc('unblock_user', { p_user: userId });
     },
     async react(ownerId, itemKey, reaction) {
       await rpc('react', { p_owner: ownerId, p_item_key: itemKey, p_reaction: reaction });
@@ -645,7 +664,7 @@ interface RawEntitlement {
 }
 const mapEntitlement = (e: RawEntitlement): EntitlementView => ({ active: !!e.active, expiresAt: e.expires_at ?? null, willRenew: e.will_renew ?? null, store: e.store ?? null });
 
-const SOCIAL_ERRORS = new Set<string>(['AVATAR_LOCKED', 'AVATAR_NOT_FOUND', 'USERNAME_INVALID', 'USERNAME_NOT_ALLOWED', 'USERNAME_TAKEN', 'USER_NOT_FOUND', 'INVITE_NOT_FOUND', 'TOO_MANY_REQUESTS'] satisfies SocialErrorCode[]);
+const SOCIAL_ERRORS = new Set<string>(['AVATAR_LOCKED', 'AVATAR_NOT_FOUND', 'USERNAME_INVALID', 'USERNAME_NOT_ALLOWED', 'USERNAME_TAKEN', 'USER_NOT_FOUND', 'INVITE_NOT_FOUND', 'TOO_MANY_REQUESTS', 'MOMENT_NOT_FOUND'] satisfies SocialErrorCode[]);
 
 interface RawCard {
   id: string;
