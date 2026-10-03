@@ -7,7 +7,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { BrainpowerEarned } from '@/components/BrainpowerEarned';
 import { BrainpowerFlight, NO_DAILY } from '@/components/BrainpowerFlight';
 import { LearningCard } from '@/components/cards/LearningCard';
-import { feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
+import { canCheck, feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { Body, Button, Caption, DrScroll, Eyebrow, H1, LessonShell, LessonSkeleton, LevelArt, LoadError, Notice, Numeral, Pop, Reveal, useCountUp } from '@/components/ui';
 import { getCard, getSkill, levelMeta } from '@/content';
 import type { FinalRoundItem } from '@/progress/backend';
@@ -131,7 +131,7 @@ export default function FinalRoundScreen() {
 
   const onCheck = () => {
     const optionId = selected;
-    if (!optionId || resolved || inFlight.current || !id) return;
+    if (!canCheck(itemAttempts, optionId) || resolved || inFlight.current || !id) return;
     inFlight.current = true;
     setAnswering(true);
     setError(null);
@@ -175,7 +175,7 @@ export default function FinalRoundScreen() {
             }}
           />
         ) : (
-          <Button label={answering ? 'Checking' : 'Check'} loading={answering} disabled={!selected} onPress={onCheck} />
+          <Button label={answering ? 'Checking' : 'Check'} loading={answering} disabled={!canCheck(itemAttempts, selected)} onPress={onCheck} />
         )
       }>
       <Caption>

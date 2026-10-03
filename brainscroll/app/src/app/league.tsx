@@ -37,7 +37,7 @@ export default function LeagueScreen() {
       </View>
     </Row>
   );
-  if (failed && !league) return <LoadError layout="screen" onRetry={load} onBack={() => router.back()} />;
+  if (failed && !league) return <LoadError layout="screen" onRetry={load} onBack={() => (router.canGoBack() ? router.back() : router.replace('/'))} />;
   return (
     <Screen header={header}>
       {!league ? (

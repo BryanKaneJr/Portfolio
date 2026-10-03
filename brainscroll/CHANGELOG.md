@@ -2,6 +2,18 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: Core loop fixes from QA, shuffled answer options
+
+- **Shuffled answer options** (owner: the right answer sat in position B far too often). Every multiple-choice question, fill in the blank included, shows its options in one stable order per question, from its id (core `shuffledOptions`, reusing the hash `shuffledLabels` uses for match and order), in lessons, reviews, chapter reviews and the Final Round, local and remote. Letters follow the shown order. When every option is a number or quantity of one kind ("125", "3.3 million years", "82 BCE", "About 200 m"), they show smallest first instead. Display only: answers are still graded by option id and no content changed.
+- **A Weekly Quest goal met at 10 Brainpower keeps its +1.** The server checked quest goals when the level's XP row landed, before the level spent its Brainpower, so at 10 the goal's +1 was lost. Now it checks after the spend (10 → 9 → 10), as local play always did (migration `20261104000000`, `quests.test.sql`).
+- **Quest Complete shows its Brainpower** (the quest's +1 and its trophy's), and **Review Complete shows what a review earned**, such as the streak's +1 when a review is the day's first learning. `complete_quest` and `submit_review` now return the daily status.
+- **Out of Brainpower after spending it elsewhere** (another device): the used-up screen reads the real balance instead of the stale one.
+- **Leaving a level always works:** the close X on a level opened with no history behind it (Level 1 straight after onboarding, "Next: Level n", a deep link) goes to the skill map after Dr. Scroll checks; the review session's way out goes to the Review tab. The browser's Back button on a started level now asks first too.
+- **Deep links load cleanly on the web** (no React hydration error #418): the e2e server serves a dynamic route's own page (`level/[id].html`) instead of the home page's.
+- **Lesson questions:** CHECK is off for an answer already checked (it did nothing before); a miss's marks on match and order stay on the places you haven't changed; with an item picked in a match, tapping a paired partner re-pairs it; order tiles renumber as you drag, don't select text on the web, and land right when rows differ in height; a question first missed before you left and restarted the level says so ("Your first answer from last time still counts").
+- **Accessibility (web):** Space picks a choice and the arrow keys move through choices; answer groups are named by their question; order tiles are buttons with Move up and Move down actions (arrow keys on the web) and say when one is picked to swap; match tiles say "picked"; a fill in the blank reads as one heading, and its hidden measuring chips are hidden from screen readers; focus moves to Continue (or the first choice) instead of falling to the page after CHECK and Continue; the right chip in a fill in the blank says "correct".
+- **Copy:** Review Complete no longer promises +10 XP for each right answer when a quick re-check paid nothing; Dr. Scroll's check before leaving a level adds "Your first answers still count."
+
 ## 2026-10-03: Hearts, gold trophies in the feed, quest Brainpower, livelier Dr. Scroll
 
 - **The feed's only reaction is a heart** (owner: "cleaner, like every other app"): an outline that fills red when you tap it (with a little pop), tap again to take it back, and the count beside it. Your own moments show how many hearts they have. Earlier Dr. Scroll reactions all became hearts, so no likes were lost; the push note now reads "@ana liked your moment in the feed."

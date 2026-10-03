@@ -88,6 +88,8 @@ A multiple-choice question becomes a **fill in the blank** when its prompt is a 
 - **Short options:** 30 characters or fewer each (the validator enforces it), so the chip sits inside the sentence. Drop the words the sentence already says ("The third" becomes "third" after "Earth is the _____ planet").
 - **Only one option can be true in the sentence.** If a wrong option also makes a true statement, it isn't a distractor.
 - Keep the rationales: they still explain a wrong pick ("That's Neptune, the outermost planet.").
+
+**Option order doesn't matter in the files** (owner, 2026-10-03). Every multiple-choice question, fill in the blank included, is shown in one stable shuffled order per question (core `shuffledOptions`), so the right answer can sit anywhere in `options`. When every option is a number or quantity of one kind ("125", "1,000", "3.3 million years", "82 BCE", "About 200 m", "45%"), they show smallest first instead, so keep such options in the same unit where you can. Never write "all of the above" or refer to an option by its letter: letters follow the shown order.
 - Converting a published question bumps the level's `revision`, like any content change.
 
 Vary which option is correct across a skill. The validator warns when one letter holds more than 45% of the correct answers. If the options have a natural order (numbers, dates, sequences), keep that order and let the correct answer land wherever it falls.

@@ -64,6 +64,8 @@ The three questions in a regular level each have a job:
 
 A ten-question assessment is a special milestone experience, never the normal learning loop.
 
+**Answer order** (owner, 2026-10-03): a multiple-choice question (fill in the blank included) shows its options in one stable shuffled order per question, from its id (core `shuffledOptions`), the same in lessons, reviews, chapter reviews and the Final Round, local and remote, because content tended to put the right answer second. When every option is a number or quantity of one kind ("125", "3.3 million years", "82 BCE", "About 200 m"), they show smallest first instead. It is display only: answers are still sent and graded by option id, and the order in the content files doesn't matter.
+
 ## Completing a level: first attempt → reinforcement → resolution → progression
 
 > **Learning is the product. Questions prove and reinforce understanding.** BrainScroll doesn't punish forgetting: it shows the evidence and teaches it again, right away. A level isn't complete until every question has been answered correctly. **First-attempt retention sets the reward; eventual correction sets progression.** Strong knowledge earns more XP. Mistakes earn more teaching.

@@ -6,7 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { BrainpowerEarned } from '@/components/BrainpowerEarned';
 import { BrainpowerFlight, NO_DAILY } from '@/components/BrainpowerFlight';
 import { DrScrollTip } from '@/components/DrScrollTip';
-import { feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
+import { canCheck, feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { Body, Button, Caption, DrScroll, Eyebrow, H2, LessonShell, LessonSkeleton, LoadError, Notice, Numeral, Pop, Reveal, StateBlock, useCountUp } from '@/components/ui';
 import { getCard, getSkill } from '@/content';
 import { TrophyEarned } from '@/components/TrophyEarned';
@@ -58,10 +58,12 @@ export default function ReviewSessionScreen() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [p.ready, attempt]);
 
+  // Opened with no history behind it (a deep link, a refresh): back means the Review tab.
+  const back = () => (router.canGoBack() ? router.back() : router.replace('/review'));
   // Refresh Home/Review counts once the session is over.
   const finish = () => {
     void p.refresh();
-    router.back();
+    back();
   };
 
   if (failed)
@@ -72,7 +74,7 @@ export default function ReviewSessionScreen() {
           setFailed(false);
           setAttempt((a) => a + 1);
         }}
-        onBack={() => router.back()}
+        onBack={back}
       />
     );
   if (queue === null) return <LessonSkeleton label="Loading your review" />;
@@ -84,7 +86,7 @@ export default function ReviewSessionScreen() {
         art="review-clear"
         title="You’re caught up."
         body="Nothing needs review right now. Go learn something new."
-        secondary={{ label: 'Back', onPress: () => router.back() }}
+        secondary={{ label: 'Back', onPress: back }}
       />
     );
   if (index >= queue.length)
@@ -98,7 +100,7 @@ export default function ReviewSessionScreen() {
 
   const onCheck = () => {
     const optionId = selected;
-    if (!optionId || resolved || inFlight.current) return;
+    if (!canCheck(itemAttempts, optionId) || resolved || inFlight.current) return;
     inFlight.current = true;
     setAnswering(true);
     const qid = item.question.id;
@@ -151,7 +153,7 @@ export default function ReviewSessionScreen() {
               }}
             />
           ) : (
-            <Button label={answering ? 'Checking' : 'Check'} loading={answering} disabled={!selected} onPress={onCheck} />
+            <Button label={answering ? 'Checking' : 'Check'} loading={answering} disabled={!canCheck(itemAttempts, selected)} onPress={onCheck} />
           )}
         </>
       }>

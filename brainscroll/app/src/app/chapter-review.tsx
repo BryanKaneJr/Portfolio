@@ -6,7 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
 import { BrainpowerEarned } from '@/components/BrainpowerEarned';
 import { BrainpowerFlight, NO_DAILY } from '@/components/BrainpowerFlight';
-import { feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
+import { canCheck, feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { Body, Button, Caption, DrScroll, Eyebrow, H1, H2, LessonShell, LessonSkeleton, LoadError, Notice, Numeral, Pop, Reveal, useCountUp } from '@/components/ui';
 import { chaptersFor, getCard, getSkill, levelMeta } from '@/content';
 import type { ChapterReviewSession } from '@/progress/backend';
@@ -103,7 +103,7 @@ export default function ChapterReviewScreen() {
 
   const onCheck = () => {
     const optionId = selected;
-    if (!optionId || resolved || inFlight.current) return;
+    if (!canCheck(itemAttempts, optionId) || resolved || inFlight.current) return;
     inFlight.current = true;
     setAnswering(true);
     setError(null);
@@ -146,7 +146,7 @@ export default function ChapterReviewScreen() {
         resolved ? (
           <Button variant="success" label={isLast ? 'Finish review' : 'Continue'} onPress={next} />
         ) : (
-          <Button label={answering ? 'Checking' : 'Check'} loading={answering} disabled={!selected} onPress={onCheck} />
+          <Button label={answering ? 'Checking' : 'Check'} loading={answering} disabled={!canCheck(itemAttempts, selected)} onPress={onCheck} />
         )
       }>
       <Caption>

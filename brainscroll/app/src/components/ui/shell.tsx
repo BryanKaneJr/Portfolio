@@ -1,5 +1,5 @@
-import { useState, type ReactNode, type Ref } from 'react';
-import { ScrollView, StyleSheet, TextInput, useWindowDimensions, View, type TextInputProps } from 'react-native';
+import { useEffect, useRef, useState, type ReactNode, type Ref } from 'react';
+import { Platform, ScrollView, StyleSheet, TextInput, useWindowDimensions, View, type TextInputProps } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { color, depth, layout, radius, space, type } from '@/theme/tokens';
 import { IconButton } from './button';
@@ -59,6 +59,11 @@ export function ScreenHeader({ eyebrow, title, right }: { eyebrow?: string; titl
  * `feedback` (the verdict, an error) sits above the action and scrolls on its
  * own once it passes about 40% of the screen, so at the largest text sizes a
  * long explanation can never push the action off the bottom.
+ *
+ * Keyboard focus (web) never falls out of the lesson: when the focused control
+ * goes away (CHECK becomes Continue, Continue brings the next card), focus
+ * moves to the footer's action, or to the first choice when the action is
+ * waiting for one (useKeepFocus).
  */
 export function LessonShell({
   progress,
@@ -92,6 +97,7 @@ export function LessonShell({
 }) {
   const insets = useSafeAreaInsets();
   const { height } = useWindowDimensions();
+  const { onFocus, contentRef, footerRef } = useKeepFocus();
   const tint =
     footerTone === 'success'
       ? { backgroundColor: color.successTint, borderTopColor: color.successLine }
@@ -99,14 +105,14 @@ export function LessonShell({
         ? { backgroundColor: color.dangerTint, borderTopColor: color.dangerLine }
         : null;
   return (
-    <SafeAreaView style={styles.screen} edges={['top']}>
+    <SafeAreaView style={styles.screen} edges={['top']} {...onFocus}>
       <View style={styles.topBar}>
         <IconButton label={closeLabel} icon="close" onPress={onClose} />
         <ProgressBar value={progress} size="lesson" label="Lesson progress" grow fill={barFill} />
         {right ?? <View style={{ width: layout.minTouch }} />}
       </View>
       <ScrollView ref={scrollRef} key={contentKey} contentContainerStyle={styles.lessonScroll}>
-        <View style={styles.column}>
+        <View style={styles.column} ref={contentRef}>
           <SlideIn style={{ gap: space.lg }}>
             {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
             {children}
@@ -119,10 +125,37 @@ export function LessonShell({
             <View style={[styles.column, { gap: space.md }]}>{feedback}</View>
           </ScrollView>
         ) : null}
-        <View style={[styles.column, { gap: space.md }]}>{footer}</View>
+        <View style={[styles.column, { gap: space.md }]} ref={footerRef}>
+          {footer}
+        </View>
       </View>
     </SafeAreaView>
   );
+}
+
+/** Web: where focus goes when the focused control disappears or is disabled under it (see LessonShell). */
+function useKeepFocus() {
+  const last = useRef<HTMLElement | null>(null);
+  const contentRef = useRef<View>(null);
+  const footerRef = useRef<View>(null);
+  const web = Platform.OS === 'web' && typeof document !== 'undefined';
+  useEffect(() => {
+    if (!web) return;
+    const was = last.current;
+    if (!was || document.activeElement !== document.body) return;
+    const usable = (el: HTMLElement) => el.isConnected && el.getAttribute('aria-disabled') !== 'true' && !el.hasAttribute('disabled');
+    // Still there and usable: the learner moved focus away on purpose.
+    if (usable(was)) return;
+    const first = (root: unknown, selector: string) =>
+      Array.from((root as HTMLElement | null)?.querySelectorAll?.<HTMLElement>(selector) ?? []).find(usable);
+    const target = first(footerRef.current, '[role="button"],button') ?? first(contentRef.current, '[role="radio"],[role="button"],button');
+    if (target) {
+      target.focus();
+      last.current = target;
+    }
+  });
+  const onFocus = web ? ({ onFocus: (e: { target: unknown }) => (last.current = e.target as HTMLElement) } as object) : {};
+  return { onFocus, contentRef, footerRef };
 }
 
 export function Field({ label, ...props }: { label: string } & Pick<TextInputProps, 'value' | 'onChangeText' | 'placeholder' | 'keyboardType' | 'autoComplete' | 'textContentType' | 'maxLength' | 'autoFocus' | 'multiline'>) {

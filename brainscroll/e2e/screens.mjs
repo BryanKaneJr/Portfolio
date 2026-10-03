@@ -7,7 +7,7 @@
 import { mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { chromium } from 'playwright';
-import { URL, bodyText, button, checkButton, exactButton, field, home, onboard, playLevel, playReview, signIn } from './helpers.mjs';
+import { URL, bodyText, button, checkButton, exactButton, field, home, onboard, playLevel, playReview, rightOptionIndex, signIn } from './helpers.mjs';
 
 const setBrainpower = (page, balance) =>
   page.evaluate((b) => {
@@ -72,7 +72,9 @@ try {
         await page.waitForTimeout(400);
         continue;
       }
-      await page.getByRole('radio').nth(missed ? 0 : 3).click();
+      // A miss on the first question (for the "Take another look" shots), then right answers.
+      const right = await rightOptionIndex(page);
+      await page.getByRole('radio').nth(missed ? right : right === 0 ? 1 : 0).click();
       await shot(`level-question-${step}`);
       await checkButton(page).click();
       await page.waitForTimeout(500);

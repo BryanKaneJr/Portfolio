@@ -1,17 +1,18 @@
 import { cardPicturePose, CompletionError, DR_SCROLL_LINES, mascotPictureCard, LEARNING_STRUCTURE, type Level, type StartReason } from '@brainscroll/core';
 import { router, useLocalSearchParams, useNavigation } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
-import { ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
+import { Platform, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
 import { CardRenderer } from '@/components/cards/CardRenderer';
 import { DrScrollTip } from '@/components/DrScrollTip';
-import { feedbackTone, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
+import { canCheck, feedbackTone, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { ReportSheet } from '@/components/ReportSheet';
 import { Button, Caption, Card, DrScroll, DrScrollSays, H1, hasLevelArt, IconButton, LessonShell, LessonSkeleton, LevelArt, LoadError, Notice, Row, StateBlock } from '@/components/ui';
 import { getCard, getSkill, skills } from '@/content';
 import { CARD_ART, CARD_ART_FILL } from '@/content/cardArt';
 import { skillTint } from '@/theme/subjectTheme';
+import { setPopGuard } from '@/navigation/popGuard';
 import { useProgress, type LevelSession } from '@/progress/ProgressProvider';
 import { feedback } from '@/theme/feedback';
 import { color, layout, space } from '@/theme/tokens';
@@ -74,10 +75,34 @@ export default function LevelScreen() {
       }),
     [navigation, started],
   );
+  // The browser's Back button (web) resets the navigation state without a
+  // beforeRemove, so a started level catches it first (popGuard runs before
+  // the router): it steps forward again and asks. Leaving anyway then goes
+  // back for real.
+  const browserBack = useRef(false);
+  useEffect(() => {
+    if (Platform.OS !== 'web' || typeof window === 'undefined' || !started) return;
+    let restoring = false;
+    return setPopGuard(() => {
+      if (leaving.current) return false;
+      // The forward step below fires its own popstate: swallow it too.
+      if (restoring) {
+        restoring = false;
+        return true;
+      }
+      restoring = true;
+      window.history.forward();
+      pendingLeave.current = null;
+      browserBack.current = true;
+      setConfirmLeave(true);
+      return true;
+    });
+  }, [started]);
   const leaveNow = () => {
     leaving.current = true;
     setConfirmLeave(false);
     if (pendingLeave.current) navigation.dispatch(pendingLeave.current);
+    else if (browserBack.current) router.back();
   };
   const sessionCard = session?.cardIndex;
   useEffect(() => {
@@ -146,13 +171,13 @@ export default function LevelScreen() {
   const onCheck = () => {
     const qid = questionId;
     const optionId = selected;
-    if (!qid || !optionId || answerInFlight.current || status.resolved || attempts.some((a) => a.optionId === optionId)) return;
+    if (!qid || !canCheck(attempts, optionId) || answerInFlight.current || status.resolved) return;
     answerInFlight.current = true;
     setAnswering(true);
     setError(null);
     p.answerQuestion(level, qid, optionId)
       .then((r) => {
-        const attempt = { optionId, correct: r.correct, rationale: r.rationale, wrong: r.wrong, explanation: r.explanation };
+        const attempt = { optionId, correct: r.correct, rationale: r.rationale, wrong: r.wrong, explanation: r.explanation, firstAttemptCorrect: r.firstAttemptCorrect };
         setSession((s) => (s ? { ...s, attempts: { ...s.attempts, [qid]: [...(s.attempts[qid] ?? []), attempt] } } : s));
         setSelected(undefined);
         if (r.correct) feedback('correct');
@@ -199,6 +224,11 @@ export default function LevelScreen() {
       });
   };
 
+  // The close X. A level opened with no history behind it (onboarding's Level 1,
+  // "Next: Level n", a deep link) goes to its skill's map instead; either way,
+  // leaving partway still asks first (the beforeRemove check above).
+  const close = () => (router.canGoBack() ? router.back() : router.replace({ pathname: '/skill/[id]', params: { id: level.skillId } }));
+
   const verdict = questionId !== undefined && attempts.length > 0;
   const feedbackArea =
     verdict || error ? (
@@ -210,7 +240,7 @@ export default function LevelScreen() {
   const footer = (
     <>
       {unresolved ? (
-        <Button label={answering ? 'Checking' : 'Check'} loading={answering} disabled={!selected} onPress={onCheck} />
+        <Button label={answering ? 'Checking' : 'Check'} loading={answering} disabled={!canCheck(attempts, selected)} onPress={onCheck} />
       ) : (
         <Button
           variant={questionId ? 'success' : 'primary'}
@@ -228,7 +258,7 @@ export default function LevelScreen() {
       <View style={{ flex: 1 }} aria-hidden={reporting || confirmLeave}>
         <LessonShell
           progress={(cardIndex + (unresolved ? 0 : 1)) / level.cards.length}
-          onClose={() => router.back()}
+          onClose={close}
           closeLabel="Leave level"
           right={<IconButton label="Report a problem" icon="flag" onPress={() => setReporting(true)} />}
           scrollRef={scrollRef}
@@ -277,7 +307,13 @@ export default function LevelScreen() {
           onClose={() => setReporting(false)}
         />
       )}
-      {confirmLeave && <LeaveSheet onStay={() => setConfirmLeave(false)} onLeave={leaveNow} />}
+      {confirmLeave && <LeaveSheet
+          onStay={() => {
+            browserBack.current = false;
+            setConfirmLeave(false);
+          }}
+          onLeave={leaveNow}
+        />}
     </>
   );
 }
