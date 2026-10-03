@@ -91,70 +91,71 @@
   "questions": [
     {
       "id": "question.film_tv.033.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.cutting_establishing_shot"
       ],
       "sourceCardIds": [
-        "card.film_tv.033.c3"
-      ],
-      "prompt": "What does an establishing shot show at the start of a scene?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A close-up of the main character's face",
-          "correct": false,
-          "rationale": "An establishing shot is usually a distant framing."
-        },
-        {
-          "id": "b",
-          "label": "How the people, objects and setting are laid out",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The final moment of the previous scene",
-          "correct": false,
-          "rationale": "It opens the new scene; it does not replay the old one."
-        },
-        {
-          "id": "d",
-          "label": "The film's title and credits",
-          "correct": false,
-          "rationale": "Titles are not establishing shots."
-        }
-      ],
-      "explanation": "An establishing shot, usually distant, shows the spatial relations among the people, objects and setting.",
-      "difficulty": 0.2
-    },
-    {
-      "id": "question.film_tv.033.q2",
-      "kind": "match",
-      "purpose": "understanding",
-      "conceptIds": [
-        "concept.film_tv.cutting_180_degree_rule"
-      ],
-      "sourceCardIds": [
+        "card.film_tv.033.c3",
         "card.film_tv.033.c2",
-        "card.film_tv.033.c3"
+        "card.film_tv.033.c4"
       ],
-      "prompt": "Match each term with what it means.",
+      "prompt": "Match each term from the 180-degree rule with what this level says about it.",
       "pairs": [
         {
           "left": "Axis of action",
           "right": "Line running between the two characters"
         },
         {
-          "left": "180-degree rule",
-          "right": "Keeps the camera on one side"
+          "left": "Establishing shot",
+          "right": "Before the close shots begin"
         },
         {
-          "left": "Establishing shot",
-          "right": "Usually a distant framing"
+          "left": "Reestablishing shot",
+          "right": "Smooths the change"
         }
       ],
-      "explanation": "The axis of action is a line running between the two characters, the 180-degree rule keeps the camera on one side of it, and an establishing shot is usually a distant framing that shows the layout.",
+      "explanation": "The axis of action is a line running between the two characters. An establishing shot opens the scene before the close shots begin, and a reestablishing shot smooths the change when the line is crossed.",
+      "difficulty": 0.2
+    },
+    {
+      "id": "question.film_tv.033.q2",
+      "kind": "mcq",
+      "purpose": "understanding",
+      "conceptIds": [
+        "concept.film_tv.cutting_180_degree_rule"
+      ],
+      "sourceCardIds": [
+        "card.film_tv.033.c2"
+      ],
+      "prompt": "How does the 180-degree rule keep viewers oriented during a conversation?",
+      "options": [
+        {
+          "id": "a",
+          "label": "Each shot lasts exactly 180 frames",
+          "correct": false,
+          "rationale": "The 180 is degrees, a half circle of camera positions."
+        },
+        {
+          "id": "b",
+          "label": "The camera circles the actors in one long take",
+          "correct": false,
+          "rationale": "The rule is about which side the camera stays on across cuts."
+        },
+        {
+          "id": "c",
+          "label": "The actors always face the camera directly",
+          "correct": false,
+          "rationale": "Characters look at each other; the camera stays on one side."
+        },
+        {
+          "id": "d",
+          "label": "The camera stays on one side of the line, so left stays left",
+          "correct": true
+        }
+      ],
+      "explanation": "Keeping the camera on one side of the axis of action keeps each character in the same area of the frame.",
       "difficulty": 0.25
     },
     {
