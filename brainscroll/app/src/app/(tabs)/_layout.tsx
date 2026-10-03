@@ -1,6 +1,7 @@
 import { Tabs } from 'expo-router';
 import { Image, StyleSheet, Text, View, type ImageSourcePropType } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useReduceMotion } from '@/theme/feedback';
 import { color, depth, fw, radius, space } from '@/theme/tokens';
 
 /**
@@ -53,12 +54,15 @@ const tabLabel = { marginTop: space.xs, fontSize: 11, ...fw('700'), textAlign: '
  */
 export default function TabLayout() {
   const insets = useSafeAreaInsets();
+  const reduce = useReduceMotion();
   return (
     <Tabs
       initialRouteName="(home)"
       backBehavior="initialRoute"
       screenOptions={{
         headerShown: false,
+        // Switching tabs slides the new one in a little; Reduce Motion switches instantly.
+        animation: reduce ? 'none' : 'shift',
         tabBarActiveTintColor: color.brandText,
         tabBarInactiveTintColor: color.textMuted,
         tabBarStyle: { backgroundColor: color.bg, borderTopColor: color.border, height: TAB_BAR + insets.bottom, paddingTop: space.sm, borderTopWidth: depth.border },

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Linking, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
-import { Body, Button, Caption, Card, Chip, Display, Eyebrow, Icon, IconButton, LoadError, Loading, Notice, Row, Skeleton } from '@/components/ui';
+import { Body, Button, Caption, Card, Chip, Display, Eyebrow, Gleams, Icon, IconButton, LoadError, Loading, Notice, Row, Skeleton } from '@/components/ui';
 import { useProgress } from '@/progress/ProgressProvider';
 import type { Plan, PlanId } from '@/purchases';
 import { feedback } from '@/theme/feedback';
@@ -92,6 +92,7 @@ export default function UnlimitedScreen() {
           <View style={{ gap: space.sm }}>
             <Eyebrow tone="brand">Unlimited</Eyebrow>
             <Display>{active ? 'Unlimited is on.' : 'Keep leveling today.'}</Display>
+            <Gleams count={3} />
             <Body muted>
               {active
                 ? '∞ Brainpower: as many new levels as you like.'

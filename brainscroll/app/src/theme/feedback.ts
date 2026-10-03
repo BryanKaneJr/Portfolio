@@ -62,6 +62,8 @@ const SOUND: Partial<Record<FeedbackEvent, SoundName>> = {
   unlock: 'unlock',
   chooseTick: 'chooseTick',
   chooseLand: 'chooseLand',
+  // Unlimited: the same bright sound as an unlock.
+  purchase: 'unlock',
 };
 
 // ----- Preferences (device-wide: a phone's sound and vibration taste, not progress) -----

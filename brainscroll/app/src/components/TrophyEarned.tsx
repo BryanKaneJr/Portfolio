@@ -3,7 +3,7 @@ import { router } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { Animated, StyleSheet, View } from 'react-native';
 import { TrophyBadge } from '@/components/TrophyBadge';
-import { Caption, Card, Eyebrow, Icon, Row, Shimmer, spring, Title } from '@/components/ui';
+import { Caption, Card, Eyebrow, Gleams, Icon, Row, Shimmer, spring, Title } from '@/components/ui';
 import { feedback, useReduceMotion } from '@/theme/feedback';
 import { trophyCatalog } from '@/content';
 import { color, iconSize, radius, space } from '@/theme/tokens';
@@ -72,6 +72,7 @@ export function TrophyEarned({ trophies, at = 0 }: { trophies: Trophy[]; at?: nu
           <Icon name="share" tint={gold ? color.mastery : color.brandText} size={iconSize.sm} />
         </View>
       </Row>
+      <Gleams count={4} tint={gold ? color.mastery : color.text} />
     </Card>
   );
 }

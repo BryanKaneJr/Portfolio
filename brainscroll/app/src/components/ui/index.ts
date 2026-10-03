@@ -16,6 +16,7 @@ export * from './art';
 export * from './icon';
 export { GoogleMark } from './googleMark';
 export * from './motion';
+export * from './gleams';
 export * from './skeleton';
 export * from './state';
 export { OutlinedNumber } from './outlined';

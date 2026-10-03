@@ -3,7 +3,7 @@ import { router } from 'expo-router';
 import { Pressable, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { TrophyBadge } from '@/components/TrophyBadge';
-import { Body, Button, Caption, Eyebrow, IconButton, OutlinedNumber, Row, StatTile, Title, UiArt } from '@/components/ui';
+import { Body, Button, Caption, Eyebrow, Gleams, IconButton, OutlinedNumber, Row, StatTile, Title, UiArt } from '@/components/ui';
 import { trophyCatalog } from '@/content';
 import { useProgressView } from '@/progress/ProgressProvider';
 import { color, layout, space } from '@/theme/tokens';
@@ -28,6 +28,8 @@ export default function StreakScreen() {
         {/* The day count sits on the flame, like the streak trophies. */}
         <View style={{ alignItems: 'center', marginBottom: space.xxl }} accessible accessibilityLabel={`${streak.current}-day learning streak`}>
           <UiArt name={streak.today || streak.current === 0 ? 'streak-flame' : 'streak-ember'} size={168} />
+          {/* A lit flame twinkles; an ember waiting for today stays still. */}
+          <Gleams count={4} size={18} tint={color.streak} active={streak.today} />
           <View style={{ position: 'absolute', bottom: -48, left: -80, right: -80, alignItems: 'center' }}>
             <OutlinedNumber value={streak.current.toLocaleString('en-US')} fontSize={80} tone="streak" />
           </View>

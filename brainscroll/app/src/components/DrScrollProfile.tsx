@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react';
 import { Pressable, View } from 'react-native';
 import { Avatar } from '@/components/social';
 import { TrophyBadge } from '@/components/TrophyBadge';
-import { Caption, Card, Chip, DrScrollSays, Emblem, Eyebrow, H1, IconButton, Numeral, Row, Screen, Title } from '@/components/ui';
+import { Caption, Card, Chip, DrScrollSays, Emblem, Eyebrow, Gleams, H1, IconButton, Numeral, Row, Screen, Title } from '@/components/ui';
 import { levelCount, skills, trophyCatalog } from '@/content';
 import { feedback } from '@/theme/feedback';
 import { color, space } from '@/theme/tokens';
@@ -23,7 +23,10 @@ export function DrScrollProfile({ onBack }: { onBack: () => void }) {
   return (
     <Screen header={<IconButton label="Back" icon="back" onPress={onBack} />}>
       <Row gap={space.lg}>
-        <Avatar username="dr-scroll" avatar={DR_SCROLL_FRIEND.avatar} size={88} />
+        <View>
+          <Avatar username="dr-scroll" avatar={DR_SCROLL_FRIEND.avatar} size={88} />
+          <Gleams count={3} size={12} tint={color.mastery} />
+        </View>
         <View style={{ flex: 1, gap: space.xs }}>
           <Eyebrow tone="mastery">Your first friend</Eyebrow>
           <H1 numberOfLines={1}>{DR_SCROLL_FRIEND.name}</H1>

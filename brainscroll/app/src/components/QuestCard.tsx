@@ -1,7 +1,7 @@
 import type { QuestView } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { View } from 'react-native';
-import { Caption, Card, Eyebrow, LevelArt, ProgressBar, Row, Title } from '@/components/ui';
+import { Caption, Card, Eyebrow, Gleams, LevelArt, ProgressBar, Row, Title } from '@/components/ui';
 import { questDef, questStatusLine, questTotals } from '@/progress/useQuests';
 import { space } from '@/theme/tokens';
 
@@ -31,6 +31,7 @@ export function QuestCard({ quest }: { quest: QuestView }) {
           {done} / {required} new levels
         </Caption>
       </View>
+      <Gleams count={3} />
     </Card>
   );
 }

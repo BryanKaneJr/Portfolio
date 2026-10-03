@@ -103,4 +103,4 @@ The app side is complete for launch; what's left needs accounts, keys or a phone
 2. **Sign-in credentials:** the Apple Services ID and key and the Google OAuth clients, then test the native sheets on a device build ([`accounts.md`](accounts.md)). Add `brainscroll://auth-callback` to the Supabase redirect URLs.
 3. **Store setup for Unlimited:** products, RevenueCat keys and the published privacy policy ([`subscriptions.md`](subscriptions.md), [`privacy-policy.md`](privacy-policy.md)).
 4. **The device QA pass** in [`release.md`](release.md), including VoiceOver and TalkBack.
-5. **Owner content:** quest dates once there's a launch week (`content/quests.json`), the 20 trophy images ([`images-trophies.md`](images-trophies.md)), sound files, and an editor setting `verified` where they've checked the sources.
+5. **Owner content:** quest dates once there's a launch week (`content/quests.json`), the 20 trophy images ([`images-trophies.md`](images-trophies.md)), fuller sounds for the big moments (checkpoint, milestone, mastery; the first pack is in `app/assets/sounds/`), and an editor setting `verified` where they've checked the sources.
