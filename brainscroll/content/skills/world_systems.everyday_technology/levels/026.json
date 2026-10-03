@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 26,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Friction and Brakes",
   "objective": "After this level you can explain friction and how brakes stop a moving car.",
@@ -95,41 +95,32 @@
   "questions": [
     {
       "id": "question.everyday_technology.026.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.motion_friction"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.026.c2"
+        "card.everyday_technology.026.c2",
+        "card.everyday_technology.026.c3",
+        "card.everyday_technology.026.c4"
       ],
-      "prompt": "What is friction?",
-      "options": [
+      "prompt": "Match each braking idea with what it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A force that resists surfaces sliding over each other",
-          "correct": true
+          "left": "Friction",
+          "right": "Resists one surface sliding over another"
         },
         {
-          "id": "b",
-          "label": "A kind of energy stored inside rough objects",
-          "correct": false,
-          "rationale": "Friction is a force, not stored energy."
+          "left": "Disc brake",
+          "right": "Pads press against a metal disc"
         },
         {
-          "id": "c",
-          "label": "The pull of gravity on cars as they move along",
-          "correct": false,
-          "rationale": "Gravity pulls down; friction resists sliding."
-        },
-        {
-          "id": "d",
-          "label": "The push that a spark gives to an engine piston",
-          "correct": false,
-          "rationale": "That is combustion (Level 24)."
+          "left": "Regenerative braking",
+          "right": "Saves some of that energy as electricity"
         }
       ],
-      "explanation": "Friction is a force that resists one surface sliding over another, because rough surfaces catch.",
+      "explanation": "Friction resists one surface sliding over another. In a disc brake, pads press against a metal disc, and regenerative braking saves some of the car's energy as electricity.",
       "difficulty": 0.15
     },
     {

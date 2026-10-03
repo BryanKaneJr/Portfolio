@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 39,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Self-Driving Cars",
   "objective": "After this level you can explain how self-driving cars sense the road around them.",
@@ -146,7 +146,7 @@
     },
     {
       "id": "question.everyday_technology.039.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.selfdriving_levels"
@@ -154,33 +154,26 @@
       "sourceCardIds": [
         "card.everyday_technology.039.c3"
       ],
-      "prompt": "A car drives itself on the highway but asks you to take over when it reaches its limits. Which SAE level is that?",
-      "options": [
+      "prompt": "Match each SAE driving level with who does the driving.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Level 2",
-          "correct": false,
-          "rationale": "At Level 2 you're driving the whole time."
+          "left": "Levels 0-2",
+          "right": "You are driving"
         },
         {
-          "id": "b",
-          "label": "Level 3",
-          "correct": true
+          "left": "Level 3",
+          "right": "You must take over when it asks"
         },
         {
-          "id": "c",
-          "label": "Level 4",
-          "correct": false,
-          "rationale": "Level 4 doesn't need you to take over within its limits."
+          "left": "Level 4",
+          "right": "Needs no takeover within its limits"
         },
         {
-          "id": "d",
-          "label": "Level 5",
-          "correct": false,
-          "rationale": "Level 5 would never need a driver."
+          "left": "Level 5",
+          "right": "Would drive anywhere"
         }
       ],
-      "explanation": "Level 3: the system drives in limited conditions, but the human must take over when asked.",
+      "explanation": "At Levels 0-2 you are driving. At Level 3 you must take over when it asks, Level 4 needs no takeover within its limits, and Level 5 would drive anywhere.",
       "difficulty": 0.3
     },
     {

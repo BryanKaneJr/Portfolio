@@ -90,23 +90,36 @@
   "questions": [
     {
       "id": "question.human_body.036.q1",
-      "kind": "order",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.altitude_thin_air"
       ],
       "sourceCardIds": [
         "card.human_body.036.c2",
+        "card.human_body.036.c1",
+        "card.human_body.036.c3",
         "card.human_body.036.c4"
       ],
-      "prompt": "Put these places in order, from the highest air pressure to the lowest.",
-      "items": [
-        "Sea level",
-        "About 2,400 meters",
-        "Everest's summit"
+      "prompt": "Match each high-altitude term with the fact about it.",
+      "pairs": [
+        {
+          "left": "Reinhold Messner and Peter Habeler",
+          "right": "Without bottled oxygen"
+        },
+        {
+          "left": "Acclimatization",
+          "right": "Your body adapts"
+        },
+        {
+          "left": "Altitude sickness",
+          "right": "Above about 2,400 meters"
+        },
+        {
+          "left": "Everest's summit",
+          "right": "About 30 percent"
+        }
       ],
-      "first": "Highest air pressure",
-      "last": "Lowest air pressure",
       "explanation": "Air stays about 21 percent oxygen at every altitude, but the pressure falls, so each breath brings in less oxygen.",
       "difficulty": 0.15
     },

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 25,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Electric Cars",
   "objective": "After this level you can explain how electric cars work and how they differ from gas cars.",
@@ -139,41 +139,25 @@
     },
     {
       "id": "question.everyday_technology.025.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.motion_ev_drivetrain"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.025.c3"
+        "card.everyday_technology.025.c3",
+        "card.everyday_technology.025.c2"
       ],
-      "prompt": "Counting from the plug, why does an electric car get more of its energy to the wheels than a gas car gets from its fuel?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Electricity weighs less than gasoline",
-          "correct": false,
-          "rationale": "Weight is not the reason."
-        },
-        {
-          "id": "b",
-          "label": "Electric cars are always smaller",
-          "correct": false,
-          "rationale": "Size is not the reason."
-        },
-        {
-          "id": "c",
-          "label": "Its battery makes extra energy",
-          "correct": false,
-          "rationale": "Batteries store energy; they cannot create it."
-        },
-        {
-          "id": "d",
-          "label": "Its motor loses far less energy as heat",
-          "correct": true
-        }
+      "prompt": "Put these in order, following the energy through an electric car.",
+      "items": [
+        "Plug",
+        "Battery pack",
+        "Traction motor",
+        "Wheels"
       ],
-      "explanation": "Over 77% versus about 12%-30%: an engine burning fuel loses most of its energy as heat, while a motor loses much less.",
+      "first": "Energy starts at",
+      "last": "Energy ends at",
+      "explanation": "Energy from the plug is stored in the battery pack, and the electric traction motor uses it to drive the wheels.",
       "difficulty": 0.3
     },
     {

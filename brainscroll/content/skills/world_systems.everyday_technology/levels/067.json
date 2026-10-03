@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 67,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Cloud",
   "objective": "After this level you can explain what the cloud really is: computers in data centers.",
@@ -131,41 +131,31 @@
     },
     {
       "id": "question.everyday_technology.067.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.cloud_data_center_energy"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.067.c4"
+        "card.everyday_technology.067.c4",
+        "card.everyday_technology.067.c2"
       ],
-      "prompt": "Why does a data center spend so much of its energy on cooling?",
-      "options": [
+      "prompt": "Match each cloud term with what this level says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Servers only work when kept below freezing point",
-          "correct": false,
-          "rationale": "They just need their heat carried away."
+          "left": "The cloud",
+          "right": "Someone else's computers"
         },
         {
-          "id": "b",
-          "label": "Cooling makes data travel faster through cables",
-          "correct": false,
-          "rationale": "Cooling prevents overheating; it doesn't add speed."
+          "left": "NIST",
+          "right": "The US standards agency"
         },
         {
-          "id": "c",
-          "label": "Cold air is needed to hold stored data in place",
-          "correct": false,
-          "rationale": "Data is stored on the computers, not in the air."
-        },
-        {
-          "id": "d",
-          "label": "Most of its electricity turns into heat to remove",
-          "correct": true
+          "left": "Cooling alone",
+          "right": "Up to 40%"
         }
       ],
-      "explanation": "Energy changes form but isn't destroyed; most of a data center's electricity becomes heat, so cooling can take up to 40%.",
+      "explanation": "The cloud is someone else's computers, NIST is the US standards agency that defined it, and cooling alone can take up to 40% of a data center's energy.",
       "difficulty": 0.3
     },
     {

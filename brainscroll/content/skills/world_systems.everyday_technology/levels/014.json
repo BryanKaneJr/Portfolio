@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 14,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Nuclear Power",
   "objective": "After this level you can explain how splitting atoms heats water in a nuclear power plant.",
@@ -126,41 +126,31 @@
     },
     {
       "id": "question.everyday_technology.014.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.nuclear_tradeoffs"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.014.c4"
+        "card.everyday_technology.014.c4",
+        "card.everyday_technology.014.c2"
       ],
-      "prompt": "Why is nuclear power's spent fuel such a big part of the debate?",
-      "options": [
+      "prompt": "Match each part of nuclear power with what this level says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It releases lots of carbon dioxide",
-          "correct": false,
-          "rationale": "Reactors release no CO2 while running."
+          "left": "Uranium-235",
+          "right": "Atoms split easily"
         },
         {
-          "id": "b",
-          "label": "It stays dangerously radioactive for thousands of years",
-          "correct": true
+          "left": "Control rods",
+          "right": "Pushed in to slow the reaction"
         },
         {
-          "id": "c",
-          "label": "It can be burned again like coal",
-          "correct": false,
-          "rationale": "Spent fuel isn't burned; it has to be stored."
-        },
-        {
-          "id": "d",
-          "label": "It becomes harmless within a week",
-          "correct": false,
-          "rationale": "It stays dangerous for thousands of years."
+          "left": "Spent fuel",
+          "right": "Highly radioactive"
         }
       ],
-      "explanation": "Spent fuel can stay dangerous for thousands of years, and the US has no permanent disposal site for it yet.",
+      "explanation": "Uranium-235's atoms split easily, control rods are pushed in to slow the reaction, and spent fuel is highly radioactive.",
       "difficulty": 0.3
     },
     {

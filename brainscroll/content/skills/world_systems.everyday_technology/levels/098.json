@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 98,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Space Tech on Earth",
   "objective": "After this level you can name everyday technologies that came out of space research.",
@@ -129,41 +129,28 @@
     },
     {
       "id": "question.everyday_technology.098.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.spinoff_myths"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.098.c4"
+        "card.everyday_technology.098.c4",
+        "card.everyday_technology.098.c2",
+        "card.everyday_technology.098.c3"
       ],
-      "prompt": "Why do so many people think NASA invented Velcro?",
-      "options": [
-        {
-          "id": "a",
-          "label": "NASA holds its original patent",
-          "correct": false,
-          "rationale": "A Swiss engineer invented it."
-        },
-        {
-          "id": "b",
-          "label": "Apollo missions used it to anchor equipment",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It was first made aboard a spacecraft",
-          "correct": false,
-          "rationale": "It was invented in the 1940s, on Earth."
-        },
-        {
-          "id": "d",
-          "label": "John Glenn invented it in orbit",
-          "correct": false,
-          "rationale": "Glenn drank Tang in orbit; he didn't invent Velcro."
-        }
+      "prompt": "Put these products from the space-tech story in order, from earliest to latest.",
+      "items": [
+        "DuPont invented Teflon",
+        "A Swiss engineer invented Velcro",
+        "General Foods developed Tang",
+        "John Glenn drank Tang in orbit",
+        "Memory foam",
+        "CMOS image sensors"
       ],
-      "explanation": "Velcro was invented in the 1940s; its heavy use on Apollo missions tied it to NASA in people's minds.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Teflon came in 1938 and Velcro in the 1940s, Tang in 1957, John Glenn drank it in orbit in 1962, memory foam arrived in 1966, and CMOS image sensors in the 1990s.",
       "difficulty": 0.3
     },
     {

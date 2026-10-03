@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 57,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The First Computers",
   "objective": "After this level you can describe Babbage's engines, Ada Lovelace and the first electronic computers.",
@@ -143,42 +143,28 @@
     },
     {
       "id": "question.everyday_technology.057.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.computer_first_computers"
       ],
       "sourceCardIds": [
         "card.everyday_technology.057.c5",
-        "card.everyday_technology.057.c4"
+        "card.everyday_technology.057.c4",
+        "card.everyday_technology.057.c2",
+        "card.everyday_technology.057.c3"
       ],
-      "prompt": "Why is there no single agreed answer to which machine was the first computer?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Nobody kept any records",
-          "correct": false,
-          "rationale": "The machines are well documented."
-        },
-        {
-          "id": "b",
-          "label": "All of them were built in the same year",
-          "correct": false,
-          "rationale": "They span 1939 to 1946, plus Babbage a century earlier."
-        },
-        {
-          "id": "c",
-          "label": "Each early machine was first by a different rule",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "A court banned the question",
-          "correct": false,
-          "rationale": "The 1973 ruling was about a patent."
-        }
+      "prompt": "Put these steps toward the first computers in order, from earliest to latest.",
+      "items": [
+        "Babbage's Analytical Engine",
+        "Ada Lovelace published",
+        "Zuse's Z3",
+        "Colossus",
+        "ENIAC"
       ],
-      "explanation": "Mechanical design, program control, electronics or general purpose: change the rule and the winner changes.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Babbage conceived the Analytical Engine in 1834 and Ada Lovelace published her program in 1843. Then came Zuse's Z3 (1941), Colossus (1944) and ENIAC (1946).",
       "difficulty": 0.3
     },
     {

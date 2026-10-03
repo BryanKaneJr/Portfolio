@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 54,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Memory and Storage",
   "objective": "After this level you can explain the difference between working memory and long-term storage.",
@@ -141,7 +141,7 @@
     },
     {
       "id": "question.everyday_technology.054.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.computer_memory_vs_storage"
@@ -149,35 +149,29 @@
       "sourceCardIds": [
         "card.everyday_technology.054.c3",
         "card.everyday_technology.054.c2",
-        "card.everyday_technology.054.c1"
+        "card.everyday_technology.054.c1",
+        "card.everyday_technology.054.c4"
       ],
-      "prompt": "In a power flicker, why do saved photos survive while an unsaved essay is lost?",
-      "options": [
+      "prompt": "Match each kind of computer memory with how this level pictures it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Photos are smaller files than essays",
-          "correct": false,
-          "rationale": "Size has nothing to do with it."
+          "left": "RAM",
+          "right": "The top of your desk"
         },
         {
-          "id": "b",
-          "label": "The essay was stored on a hard drive",
-          "correct": false,
-          "rationale": "Had it been saved to a drive, it would have survived."
+          "left": "Storage",
+          "right": "The filing cabinet"
         },
         {
-          "id": "c",
-          "label": "The photos were in nonvolatile storage; the essay was only in RAM",
-          "correct": true
+          "left": "Hard drive",
+          "right": "Spinning platters"
         },
         {
-          "id": "d",
-          "label": "Essays are deleted by the operating system",
-          "correct": false,
-          "rationale": "The essay was lost because RAM forgets without power."
+          "left": "Solid-state drive",
+          "right": "Flash memory chips"
         }
       ],
-      "explanation": "Saved files live in nonvolatile storage. Unsaved work exists only in RAM, which forgets when the power goes.",
+      "explanation": "RAM is like the top of your desk and storage like the filing cabinet. A hard drive uses spinning platters, and a solid-state drive uses flash memory chips.",
       "difficulty": 0.3
     },
     {

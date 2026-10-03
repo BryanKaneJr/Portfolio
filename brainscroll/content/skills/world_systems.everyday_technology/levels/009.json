@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 9,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Edison, Tesla and AC",
   "objective": "After this level you can explain alternating current and why it won out over direct current.",
@@ -146,41 +146,25 @@
     },
     {
       "id": "question.everyday_technology.009.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.war_of_currents"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.009.c3"
+        "card.everyday_technology.009.c3",
+        "card.everyday_technology.009.c4"
       ],
-      "prompt": "Why did AC beat DC for sending power over long distances?",
-      "options": [
-        {
-          "id": "a",
-          "label": "DC couldn't light bulbs",
-          "correct": false,
-          "rationale": "Edison's DC lit bulbs just fine."
-        },
-        {
-          "id": "b",
-          "label": "AC has no voltage at all",
-          "correct": false,
-          "rationale": "AC has voltage; it just keeps reversing."
-        },
-        {
-          "id": "c",
-          "label": "Transformers can easily change its voltage",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Edison refused to use copper wires",
-          "correct": false,
-          "rationale": "The problem was changing DC's voltage."
-        }
+      "prompt": "Put these events from the War of the Currents in order, from earliest to latest.",
+      "items": [
+        "Edison's Pearl Street station opens",
+        "Edison claims AC is more dangerous",
+        "Westinghouse wins the bid",
+        "AC from Niagara Falls lights up Buffalo"
       ],
-      "explanation": "Transformers raise AC to high voltage for efficient long-distance lines and lower it again for homes. DC couldn't easily be converted.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Pearl Street opened in 1882, Edison attacked AC in the late 1880s, Westinghouse won the Chicago World's Fair bid in 1893, and Niagara Falls AC lit Buffalo in 1896.",
       "difficulty": 0.3
     },
     {

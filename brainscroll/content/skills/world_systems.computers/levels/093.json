@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 93,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "What AI Can and Can't Do in 2026",
   "objective": "After this level you can judge a claim about AI against what current systems reliably do and where they still fail.",
@@ -87,42 +87,32 @@
   "questions": [
     {
       "id": "question.computers.093.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.techcheck_ai_jagged"
       ],
       "sourceCardIds": [
         "card.computers.093.c2",
-        "card.computers.093.c1"
+        "card.computers.093.c1",
+        "card.computers.093.c4"
       ],
-      "prompt": "What does AI's 'jagged frontier' describe?",
-      "options": [
+      "prompt": "Match each AI test with the result the level reports.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Top results on some hard tasks, yet failures on some easy ones",
-          "correct": true
+          "left": "International Mathematical Olympiad",
+          "right": "Gold-medal scores"
         },
         {
-          "id": "b",
-          "label": "Steady progress at exactly the same rate on every task",
-          "correct": false,
-          "rationale": "Progress is uneven from task to task."
+          "left": "An analog clock",
+          "right": "50.1% of the time"
         },
         {
-          "id": "c",
-          "label": "A legal border that limits where AI systems may be used",
-          "correct": false,
-          "rationale": "It describes abilities, not laws."
-        },
-        {
-          "id": "d",
-          "label": "Small errors that show up only in hard math problems",
-          "correct": false,
-          "rationale": "The failures show up in easy everyday tasks, like clocks."
+          "left": "One leading coding benchmark",
+          "right": "About 60% to near 100%"
         }
       ],
-      "explanation": "The jagged frontier is AI's uneven ability: olympiad gold, yet a coin flip on an analog clock.",
+      "explanation": "AI reached gold-medal scores at the International Mathematical Olympiad, the best model read an analog clock right only 50.1% of the time, and on one leading coding benchmark the top score rose from about 60% to near 100%.",
       "difficulty": 0.25
     },
     {

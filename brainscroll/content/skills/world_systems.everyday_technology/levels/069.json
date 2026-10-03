@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 69,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Passwords and Hacking",
   "objective": "After this level you can explain common attacks on accounts and how to protect yours.",
@@ -134,41 +134,36 @@
     },
     {
       "id": "question.everyday_technology.069.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.account_attacks"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.069.c2"
+        "card.everyday_technology.069.c2",
+        "card.everyday_technology.069.c3",
+        "card.everyday_technology.069.c4"
       ],
-      "prompt": "Why is reusing one password on many sites risky?",
-      "options": [
+      "prompt": "Match each account attack or defense with how it works.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Websites share their passwords with each other",
-          "correct": false,
-          "rationale": "They don't need to: attackers try leaked pairs themselves."
+          "left": "Phishing",
+          "right": "Lures you to a fake page"
         },
         {
-          "id": "b",
-          "label": "A leak at one site lets attackers into the others",
-          "correct": true
+          "left": "Credential stuffing",
+          "right": "Tried on other sites"
         },
         {
-          "id": "c",
-          "label": "Reused passwords expire faster",
-          "correct": false,
-          "rationale": "Passwords don't wear out; change them after a breach."
+          "left": "Multifactor authentication",
+          "right": "Two or more ways to prove it's you"
         },
         {
-          "id": "d",
-          "label": "It switches off multifactor authentication",
-          "correct": false,
-          "rationale": "MFA still helps; the reuse is the problem."
+          "left": "A password manager",
+          "right": "Generates, stores and fills them in"
         }
       ],
-      "explanation": "In credential stuffing, pairs leaked in one breach are tried on other sites, so reuse spreads one leak to every account.",
+      "explanation": "Phishing lures you to a fake page, credential stuffing tries leaked pairs on other sites, multifactor authentication asks for two or more ways to prove it's you, and a password manager generates, stores and fills in passwords.",
       "difficulty": 0.3
     },
     {

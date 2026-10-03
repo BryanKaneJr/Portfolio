@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 41,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Printing Press",
   "objective": "After this level you can explain how Gutenberg's press made books cheap and spread ideas.",
@@ -173,7 +173,7 @@
     },
     {
       "id": "question.everyday_technology.041.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.everyday_technology.print_press_system",
@@ -181,35 +181,21 @@
       ],
       "sourceCardIds": [
         "card.everyday_technology.041.c2",
-        "card.everyday_technology.001.c2"
+        "card.everyday_technology.001.c2",
+        "card.everyday_technology.041.c3",
+        "card.everyday_technology.041.c4",
+        "card.everyday_technology.001.c3"
       ],
-      "prompt": "Level 1 called technology knowledge put to work on a practical job. What job did Gutenberg's press do far better than copying by hand?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Inventing movable type for the first time",
-          "correct": false,
-          "rationale": "China and Korea had movable type first."
-        },
-        {
-          "id": "b",
-          "label": "Writing brand-new books by itself",
-          "correct": false,
-          "rationale": "People still had to write the books."
-        },
-        {
-          "id": "c",
-          "label": "Translating texts into German",
-          "correct": false,
-          "rationale": "People translated; the press printed."
-        },
-        {
-          "id": "d",
-          "label": "Printing the same page again and again",
-          "correct": true
-        }
+      "prompt": "Put these moments in printing history in order, from earliest to latest.",
+      "items": [
+        "Bi Sheng made movable type",
+        "Korea was printing with metal type",
+        "Gutenberg's press",
+        "95 theses"
       ],
-      "explanation": "Once a page was set in reusable metal type, the press could print it over and over, making books far cheaper than hand copies.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Bi Sheng made movable type in 1041-48, Korea printed with metal type in the 14th century, Gutenberg's press came about 1455, and Luther's 95 theses spread by print in 1517.",
       "difficulty": 0.25
     }
   ],

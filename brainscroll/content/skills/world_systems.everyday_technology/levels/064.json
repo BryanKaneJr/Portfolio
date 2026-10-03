@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 64,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Wi-Fi",
   "objective": "After this level you can explain how Wi-Fi uses radio waves to connect devices at home.",
@@ -125,35 +125,36 @@
     },
     {
       "id": "question.everyday_technology.064.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.wifi_bands"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.064.c3"
+        "card.everyday_technology.064.c3",
+        "card.everyday_technology.064.c2",
+        "card.everyday_technology.064.c4"
       ],
-      "prompt": "Your laptop is several rooms and walls away from the router. Which Wi-Fi band is more likely to reach it?",
-      "options": [
+      "prompt": "Match each piece of home Wi-Fi with what this level says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The 2.4 GHz band",
-          "correct": true
+          "left": "The 2.4 GHz band",
+          "right": "Reaches farther"
         },
         {
-          "id": "b",
-          "label": "The 5 GHz band",
-          "correct": false,
-          "rationale": "5 GHz is faster but covers a shorter range."
+          "left": "The 5 GHz band",
+          "right": "Faster but covers a shorter range"
         },
         {
-          "id": "c",
-          "label": "Neither; Wi-Fi can't pass through walls",
-          "correct": false,
-          "rationale": "Both can; 2.4 GHz gets through walls better."
+          "left": "Your router",
+          "right": "Creates the home network"
+        },
+        {
+          "left": "802.11",
+          "right": "A common standard"
         }
       ],
-      "explanation": "The 2.4 GHz band reaches farther and passes through walls better; 5 GHz trades range for speed.",
+      "explanation": "The 2.4 GHz band reaches farther, the 5 GHz band is faster but covers a shorter range, your router creates the home network, and 802.11 is the common standard.",
       "difficulty": 0.3
     },
     {

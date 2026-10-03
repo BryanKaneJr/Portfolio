@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 77,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Seeing Inside the Body",
   "objective": "After this level you can explain how X-rays, CT scans and MRI see inside the body.",
@@ -96,41 +96,37 @@
   "questions": [
     {
       "id": "question.everyday_technology.077.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.imaging_xray_ct"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.077.c2"
+        "card.everyday_technology.077.c2",
+        "card.everyday_technology.077.c1",
+        "card.everyday_technology.077.c3",
+        "card.everyday_technology.077.c4"
       ],
-      "prompt": "Why do bones show up white on an X-ray image?",
-      "options": [
+      "prompt": "Match each way of seeing inside the body with how this level describes it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They reflect light from the machine",
-          "correct": false,
-          "rationale": "X-rays are absorbed, not reflected, by bone."
+          "left": "X-rays",
+          "right": "A shadow picture"
         },
         {
-          "id": "b",
-          "label": "They are full of water",
-          "correct": false,
-          "rationale": "Water is what MRI reads."
+          "left": "CT",
+          "right": "X-rays from every angle"
         },
         {
-          "id": "c",
-          "label": "Their calcium absorbs more of the X-rays",
-          "correct": true
+          "left": "MRI",
+          "right": "A magnet and radio pulses"
         },
         {
-          "id": "d",
-          "label": "They give off X-rays of their own",
-          "correct": false,
-          "rationale": "The X-rays come from the machine."
+          "left": "Wilhelm Rontgen",
+          "right": "Discovered X-rays"
         }
       ],
-      "explanation": "Calcium-rich bone absorbs more X-rays than soft tissue, so it shows up white.",
+      "explanation": "An X-ray is a shadow picture, CT takes X-rays from every angle, MRI uses a magnet and radio pulses, and Wilhelm Rontgen discovered X-rays.",
       "difficulty": 0.15
     },
     {

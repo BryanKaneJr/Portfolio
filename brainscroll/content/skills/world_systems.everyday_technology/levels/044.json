@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 44,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Radio",
   "objective": "After this level you can explain how radio sends sound through the air as waves.",
@@ -130,41 +130,35 @@
     },
     {
       "id": "question.everyday_technology.044.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.radio_waves_broadcast"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.044.c3"
+        "card.everyday_technology.044.c3",
+        "card.everyday_technology.044.c4"
       ],
-      "prompt": "How does an FM station put sound onto its carrier wave?",
-      "options": [
+      "prompt": "Match each radio name or method with what it did.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "By switching the wave on and off in Morse code",
-          "correct": false,
-          "rationale": "That would send dots and dashes, not sound."
+          "left": "AM",
+          "right": "Varies the wave's strength"
         },
         {
-          "id": "b",
-          "label": "By varying the wave's strength to match the sound",
-          "correct": false,
-          "rationale": "That's AM."
+          "left": "FM",
+          "right": "Varies the frequency"
         },
         {
-          "id": "c",
-          "label": "By pumping sound waves up the antenna",
-          "correct": false,
-          "rationale": "Sound itself isn't sent; the carrier is changed."
+          "left": "Heinrich Hertz",
+          "right": "First made radio waves"
         },
         {
-          "id": "d",
-          "label": "By varying the wave's frequency to match the sound",
-          "correct": true
+          "left": "Aleksandr Popov",
+          "right": "Demonstrated a receiver"
         }
       ],
-      "explanation": "FM keeps the carrier's strength steady and varies its frequency; AM varies the strength instead.",
+      "explanation": "AM varies the wave's strength and FM varies its frequency. Heinrich Hertz first made radio waves, and Aleksandr Popov demonstrated a receiver in Russia.",
       "difficulty": 0.3
     },
     {

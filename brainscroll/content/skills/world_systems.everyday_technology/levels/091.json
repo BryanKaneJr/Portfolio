@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 91,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Artificial Intelligence",
   "objective": "After this level you can explain what AI is and how machine learning learns from examples.",
@@ -86,41 +86,37 @@
   "questions": [
     {
       "id": "question.everyday_technology.091.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.ai_definition"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.091.c1"
+        "card.everyday_technology.091.c1",
+        "card.everyday_technology.091.c2",
+        "card.everyday_technology.091.c3",
+        "card.everyday_technology.091.c4"
       ],
-      "prompt": "How did IBM's Deep Blue beat world chess champion Garry Kasparov in 1997?",
-      "options": [
+      "prompt": "Match each AI name or idea with what this level says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "By learning from emails labeled by people",
-          "correct": false,
-          "rationale": "That's how a spam filter learns, not how Deep Blue played."
+          "left": "IBM's Deep Blue",
+          "right": "Brute force"
         },
         {
-          "id": "b",
-          "label": "By brute force, evaluating 200 million positions a second",
-          "correct": true
+          "left": "John McCarthy",
+          "right": "Coined \"artificial intelligence\""
         },
         {
-          "id": "c",
-          "label": "By copying Kasparov's moves from earlier games",
-          "correct": false,
-          "rationale": "It searched positions at high speed; it didn't copy him."
+          "left": "Machine learning",
+          "right": "Rules found, not written"
         },
         {
-          "id": "d",
-          "label": "By asking grandmasters for help during each game",
-          "correct": false,
-          "rationale": "It won on raw computing power."
+          "left": "NIST",
+          "right": "Biases in the data"
         }
       ],
-      "explanation": "Deep Blue won through brute-force computing power, evaluating 200 million chess positions per second.",
+      "explanation": "IBM's Deep Blue won by brute force, John McCarthy coined \"artificial intelligence,\" machine learning finds rules instead of having them written, and NIST warned that biases in the data end up in the AI.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 53,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Microchip",
   "objective": "After this level you can explain how transistors on a chip act as tiny switches.",
@@ -129,41 +129,26 @@
     },
     {
       "id": "question.everyday_technology.053.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.computer_moores_law"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.053.c4"
+        "card.everyday_technology.053.c4",
+        "card.everyday_technology.053.c1",
+        "card.everyday_technology.053.c3"
       ],
-      "prompt": "Why is Moore's law about chip transistor counts called an observation rather than a law of nature?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Moore withdrew it completely in 1975",
-          "correct": false,
-          "rationale": "He revised the pace from one year to two, not withdrew it."
-        },
-        {
-          "id": "b",
-          "label": "It has never matched a real chip",
-          "correct": false,
-          "rationale": "It tracked real chips for decades."
-        },
-        {
-          "id": "c",
-          "label": "It is a trend the industry chased, not something physics forces",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It only ever applied to calculators",
-          "correct": false,
-          "rationale": "It describes chips in general."
-        }
+      "prompt": "Put these microchip milestones in order, from earliest to latest.",
+      "items": [
+        "Jack Kilby at Texas Instruments",
+        "Robert Noyce at Fairchild",
+        "Intel's 4004",
+        "Apple's M1 chip"
       ],
-      "explanation": "Moore described a trend and made a forecast; chipmakers adopted it as a target, which helped keep it true.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Jack Kilby built an integrated circuit in 1958 and Robert Noyce in 1959. Intel's 4004 came in 1971, and Apple's M1 chip in 2020.",
       "difficulty": 0.3
     },
     {

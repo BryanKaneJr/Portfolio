@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 71,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Refrigerators",
   "objective": "After this level you can explain how a fridge moves heat out instead of making cold.",
@@ -129,7 +129,7 @@
     },
     {
       "id": "question.everyday_technology.071.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.fridge_refrigerant_cycle"
@@ -137,33 +137,22 @@
       "sourceCardIds": [
         "card.everyday_technology.071.c3"
       ],
-      "prompt": "Why does a fridge let its refrigerant evaporate in the pipes inside the cold box?",
-      "options": [
+      "prompt": "Match each part of a fridge's cooling loop with what happens there.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Evaporating makes the refrigerant heavier",
-          "correct": false,
-          "rationale": "The point is heat, not weight."
+          "left": "Pipes inside the fridge",
+          "right": "Soaking up heat"
         },
         {
-          "id": "b",
-          "label": "Evaporating lets the refrigerant escape into the food",
-          "correct": false,
-          "rationale": "The refrigerant stays sealed in its loop."
+          "left": "A compressor",
+          "right": "Squeezes the vapor"
         },
         {
-          "id": "c",
-          "label": "Evaporating draws heat from the surroundings",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Evaporating produces cold air from nothing",
-          "correct": false,
-          "rationale": "It cools things by taking heat away."
+          "left": "Coils outside the cold box",
+          "right": "Gives that heat up to the room"
         }
       ],
-      "explanation": "An evaporating liquid draws energy from its surroundings, so the refrigerant soaks up heat inside the fridge.",
+      "explanation": "The refrigerant evaporates in pipes inside the fridge, soaking up heat. A compressor squeezes the vapor, and in coils outside the cold box it condenses and gives that heat up to the room.",
       "difficulty": 0.3
     },
     {

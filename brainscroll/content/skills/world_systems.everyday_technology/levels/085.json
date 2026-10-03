@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 85,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Tunnels",
   "objective": "After this level you can explain how tunnels are dug under cities and seas.",
@@ -130,41 +130,27 @@
     },
     {
       "id": "question.everyday_technology.085.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.build_tunnel_shield"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.085.c2"
+        "card.everyday_technology.085.c2",
+        "card.everyday_technology.085.c1",
+        "card.everyday_technology.085.c4"
       ],
-      "prompt": "Why did Brunel's shield make it possible to tunnel under the Thames?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It drained the river before the digging began",
-          "correct": false,
-          "rationale": "The river kept flowing overhead."
-        },
-        {
-          "id": "b",
-          "label": "Miners dug small patches while the tunnel behind was lined",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It blasted the riverbed away with explosives",
-          "correct": false,
-          "rationale": "Miners dug by hand, a patch at a time."
-        },
-        {
-          "id": "d",
-          "label": "Workers dug down from boats on the river",
-          "correct": false,
-          "rationale": "They worked inside the shield, underground."
-        }
+      "prompt": "Put these moments in tunnel history in order, from earliest to latest.",
+      "items": [
+        "Marc Brunel saw ship's timber",
+        "Brunel patented his tunnelling shield",
+        "The Thames Tunnel",
+        "The Channel Tunnel",
+        "Gotthard Base Tunnel"
       ],
-      "explanation": "Miners in separate cells dug a small patch at a time, and masons lined the tunnel behind the shield before it could collapse.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Brunel saw the shipworm timber around 1812 and patented his shield in 1818. The Thames Tunnel opened in 1843, the Channel Tunnel in 1994 and the Gotthard Base Tunnel in 2016.",
       "difficulty": 0.25
     },
     {

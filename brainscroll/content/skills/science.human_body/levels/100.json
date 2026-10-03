@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 100,
   "type": "mastery",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Mastery Challenge: The Human Body",
   "objective": "After this level you can demonstrate command of The Human Body Levels 1–99 across the whole tree.",
@@ -146,7 +146,7 @@
   "questions": [
     {
       "id": "question.human_body.100.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.organ_systems"
@@ -154,30 +154,23 @@
       "sourceCardIds": [
         "card.human_body.001.c2"
       ],
-      "prompt": "Mastery: which organ system filters waste from your blood and balances your body's water?",
-      "options": [
+      "prompt": "Mastery: match each of Level 1's organ systems with its job.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Lymphatic",
-          "correct": false,
-          "rationale": "It returns fluid and defends against germs."
+          "left": "Integumentary",
+          "right": "Wraps you"
         },
         {
-          "id": "b",
-          "label": "Digestive",
-          "correct": false,
-          "rationale": "It processes food."
+          "left": "Endocrine",
+          "right": "Sends hormones"
         },
         {
-          "id": "c",
-          "label": "Urinary",
-          "correct": true
+          "left": "Lymphatic",
+          "right": "Defends against germs"
         },
         {
-          "id": "d",
-          "label": "Endocrine",
-          "correct": false,
-          "rationale": "It sends hormones."
+          "left": "Urinary",
+          "right": "Filters waste from blood"
         }
       ],
       "explanation": "The urinary system removes waste from the blood and balances water.",

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 35,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Radar and Sonar",
   "objective": "After this level you can explain how radar and sonar find things by bouncing waves off them.",
@@ -81,41 +81,32 @@
   "questions": [
     {
       "id": "question.everyday_technology.035.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.echo_radar"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.035.c2"
+        "card.everyday_technology.035.c2",
+        "card.everyday_technology.035.c3",
+        "card.everyday_technology.035.c4"
       ],
-      "prompt": "How does radar work out how far away an airplane is?",
-      "options": [
+      "prompt": "Match each echo-finding term with what it stands for or reveals.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It measures how bright the plane looks",
-          "correct": false,
-          "rationale": "Radar uses radio echoes, not light."
+          "left": "Radar",
+          "right": "Radio detection and ranging"
         },
         {
-          "id": "b",
-          "label": "It listens for the sound of the engines",
-          "correct": false,
-          "rationale": "That would be sound, and much slower."
+          "left": "Sonar",
+          "right": "Sound navigation and ranging"
         },
         {
-          "id": "c",
-          "label": "It times how long a radio echo takes to return",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It reads the plane's GPS position",
-          "correct": false,
-          "rationale": "Radar finds planes that send nothing."
+          "left": "Doppler principle",
+          "right": "Speed and direction"
         }
       ],
-      "explanation": "Radar times the echo's round trip at the speed of light and halves it to get the distance.",
+      "explanation": "Radar stands for radio detection and ranging, sonar for sound navigation and ranging, and the Doppler principle lets radar read speed and direction.",
       "difficulty": 0.15
     },
     {

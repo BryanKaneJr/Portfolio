@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 43,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Telephone",
   "objective": "After this level you can explain how early telephones turned voices into electric signals.",
@@ -130,42 +130,26 @@
     },
     {
       "id": "question.everyday_technology.043.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.telephone_invention_dispute"
       ],
       "sourceCardIds": [
         "card.everyday_technology.043.c1",
-        "card.everyday_technology.043.c4"
+        "card.everyday_technology.043.c4",
+        "card.everyday_technology.043.c3"
       ],
-      "prompt": "Why is the question \"who invented the telephone?\" still argued today?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Several inventors filed on similar ideas around the same time",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "No one was ever granted a telephone patent",
-          "correct": false,
-          "rationale": "Bell was granted one on March 7, 1876."
-        },
-        {
-          "id": "c",
-          "label": "Bell's first call failed to carry any speech",
-          "correct": false,
-          "rationale": "It carried intelligible speech on March 10, 1876."
-        },
-        {
-          "id": "d",
-          "label": "The first telephone was built in 2002",
-          "correct": false,
-          "rationale": "2002 is when the House honored Meucci."
-        }
+      "prompt": "Put these moments in the telephone story in order, from earliest to latest.",
+      "items": [
+        "Bell applied for a patent",
+        "Bell's patent came through",
+        "Mr. Watson, come here",
+        "A resolution honoring his work"
       ],
-      "explanation": "Gray filed a caveat the same day as Bell's application, and Meucci had filed one earlier, so Bell's patent never settled the credit.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Bell applied on February 14, 1876, his patent came through on March 7, his \"Mr. Watson, come here\" call worked on March 10, and the US House honored Meucci in 2002.",
       "difficulty": 0.3
     },
     {

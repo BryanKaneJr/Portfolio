@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 31,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How Planes Fly",
   "objective": "After this level you can explain lift, thrust, drag and weight.",
@@ -124,41 +124,35 @@
     },
     {
       "id": "question.everyday_technology.031.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.flight_lift"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.031.c3"
+        "card.everyday_technology.031.c3",
+        "card.everyday_technology.031.c2"
       ],
-      "prompt": "According to NASA, what is really going on when a wing makes lift?",
-      "options": [
+      "prompt": "Match each of the four forces on a plane with where it comes from.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Air on top must meet air below at the back",
-          "correct": false,
-          "rationale": "That's the equal transit myth."
+          "left": "Weight",
+          "right": "Pulls it toward the center of the Earth"
         },
         {
-          "id": "b",
-          "label": "It turns air downward, and the air pushes it up",
-          "correct": true
+          "left": "Lift",
+          "right": "From the wings"
         },
         {
-          "id": "c",
-          "label": "The wing is lighter than the air around it",
-          "correct": false,
-          "rationale": "Planes are far heavier than the air they displace; they must push air."
+          "left": "Drag",
+          "right": "The air resisting the plane's motion"
         },
         {
-          "id": "d",
-          "label": "Engines blow air directly under the wing",
-          "correct": false,
-          "rationale": "Engine thrust overcomes drag; the wing makes the lift."
+          "left": "Thrust",
+          "right": "From the engines"
         }
       ],
-      "explanation": "The wing turns the flow down; by Newton's third law the air pushes the wing up. Lower pressure above the wing describes the same force.",
+      "explanation": "Weight pulls the plane toward the center of the Earth, lift comes from the wings, drag is the air resisting the plane's motion, and thrust comes from the engines.",
       "difficulty": 0.3
     },
     {

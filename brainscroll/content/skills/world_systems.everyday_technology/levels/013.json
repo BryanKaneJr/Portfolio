@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 13,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Oil",
   "objective": "After this level you can explain how oil forms, how it is drilled and what refining does.",
@@ -136,41 +136,31 @@
     },
     {
       "id": "question.everyday_technology.013.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.oil_refining"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.013.c4"
+        "card.everyday_technology.013.c4",
+        "card.everyday_technology.013.c3"
       ],
-      "prompt": "In a refinery's distillation tower, why do the parts of crude oil separate?",
-      "options": [
+      "prompt": "Match each part of oil's story with what it did.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Magnets pull the heavy parts down",
-          "correct": false,
-          "rationale": "Distillation uses heat, not magnets."
+          "left": "Edwin Drake",
+          "right": "First productive oil well"
         },
         {
-          "id": "b",
-          "label": "Workers skim them off by hand",
-          "correct": false,
-          "rationale": "The tower sorts them automatically."
+          "left": "Distillation",
+          "right": "Lightest parts rise as vapor"
         },
         {
-          "id": "c",
-          "label": "They boil at different temperatures",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Cracking glues them into one fuel",
-          "correct": false,
-          "rationale": "Cracking breaks molecules apart, after distillation."
+          "left": "Cracking",
+          "right": "Break heavy molecules into lighter ones"
         }
       ],
-      "explanation": "Heated crude separates by boiling point: light parts rise as vapor, and the heaviest settle at the bottom.",
+      "explanation": "Edwin Drake drilled the first productive oil well in the US. In distillation the lightest parts rise as vapor, and cracking breaks heavy molecules into lighter ones.",
       "difficulty": 0.3
     },
     {

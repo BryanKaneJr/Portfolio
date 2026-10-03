@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 17,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Solar Power",
   "objective": "After this level you can explain how solar panels turn sunlight into electricity.",
@@ -135,41 +135,31 @@
     },
     {
       "id": "question.everyday_technology.017.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.solar_inverter_dc"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.017.c3"
+        "card.everyday_technology.017.c3",
+        "card.everyday_technology.017.c4"
       ],
-      "prompt": "Why does a rooftop solar system need an inverter?",
-      "options": [
+      "prompt": "Match each piece of solar power with what it does or did.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "To point the panels at the Sun",
-          "correct": false,
-          "rationale": "An inverter converts current; it doesn't move panels."
+          "left": "Solar cells",
+          "right": "Make direct current"
         },
         {
-          "id": "b",
-          "label": "To store power for the night",
-          "correct": false,
-          "rationale": "Batteries store power; inverters convert it."
+          "left": "An inverter",
+          "right": "Turns it into AC"
         },
         {
-          "id": "c",
-          "label": "To turn the panels' DC into the grid's AC",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "To cool the panels on hot days",
-          "correct": false,
-          "rationale": "Inverters change the kind of current."
+          "left": "Bell Telephone researchers",
+          "right": "The first practical solar cell"
         }
       ],
-      "explanation": "Solar cells make direct current; the grid and homes run on alternating current, so an inverter converts it.",
+      "explanation": "Solar cells make direct current, an inverter turns it into AC for the grid, and Bell Telephone researchers made the first practical solar cell.",
       "difficulty": 0.3
     },
     {

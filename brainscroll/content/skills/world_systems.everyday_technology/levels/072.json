@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 72,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Microwave Ovens",
   "objective": "After this level you can explain how a microwave oven heats food.",
@@ -91,41 +91,31 @@
   "questions": [
     {
       "id": "question.everyday_technology.072.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.microwave_heating"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.072.c2"
+        "card.everyday_technology.072.c2",
+        "card.everyday_technology.072.c3"
       ],
-      "prompt": "In a microwave oven, what do the microwaves do to the water molecules in food?",
-      "options": [
+      "prompt": "Match each material with what microwaves do when they meet it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Twist them back and forth, making heat",
-          "correct": true
+          "left": "Metal",
+          "right": "Bounce off"
         },
         {
-          "id": "b",
-          "label": "Split them into hydrogen and oxygen",
-          "correct": false,
-          "rationale": "They twist the molecules; they don't split them."
+          "left": "Glass, paper and plastic",
+          "right": "Pass through"
         },
         {
-          "id": "c",
-          "label": "Make them radioactive so they glow warm",
-          "correct": false,
-          "rationale": "Microwave energy just becomes heat."
-        },
-        {
-          "id": "d",
-          "label": "Pull them out of the food as steam",
-          "correct": false,
-          "rationale": "They heat the water where it is."
+          "left": "Food",
+          "right": "Absorbed by"
         }
       ],
-      "explanation": "The microwaves' field twists water molecules back and forth, and their jostling against neighbors is heat.",
+      "explanation": "Microwaves bounce off metal, pass through glass, paper and plastic, and are absorbed by food.",
       "difficulty": 0.2
     },
     {

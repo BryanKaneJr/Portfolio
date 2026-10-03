@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 50,
   "type": "milestone",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Milestone: Energy to Information",
   "objective": "After this level you can connect electricity, engines and communication into one story of modern technology.",
@@ -305,41 +305,27 @@
     },
     {
       "id": "question.everyday_technology.050.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.comm_signals"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.050.c3"
+        "card.everyday_technology.050.c3",
+        "card.everyday_technology.050.c2"
       ],
-      "prompt": "Energy to information: in a communication signal, what carries the message?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The total energy the current delivers",
-          "correct": false,
-          "rationale": "A tiny current can carry a big message."
-        },
-        {
-          "id": "b",
-          "label": "How hot the wire gets",
-          "correct": false,
-          "rationale": "Heat is waste, not the message."
-        },
-        {
-          "id": "c",
-          "label": "The color of the wire's insulation",
-          "correct": false,
-          "rationale": "Insulation just keeps the current in."
-        },
-        {
-          "id": "d",
-          "label": "The pattern of the current or wave",
-          "correct": true
-        }
+      "prompt": "Put these steps from power to message in order, from earliest to latest.",
+      "items": [
+        "Volta's pile",
+        "Morse's telegraph",
+        "Bell patents the telephone",
+        "Marconi picks up radio dots",
+        "Baird shows television in public",
+        "First handheld cell phone call"
       ],
-      "explanation": "A signal carries information in its pattern: on-off pulses for the telegraph, a current shaped like sound for the telephone, a varied wave for radio.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Volta's pile (1800) came first, then Morse's telegraph (1844), Bell's telephone patent (1876), Marconi's radio dots (1901), Baird's public television (1926) and the first handheld cell phone call (1973).",
       "difficulty": 0.3
     },
     {

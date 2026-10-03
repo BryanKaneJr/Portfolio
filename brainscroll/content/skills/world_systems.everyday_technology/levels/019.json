@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 19,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Energy and Climate",
   "objective": "After this level you can explain how the ways we make energy affect carbon emissions.",
@@ -140,7 +140,7 @@
     },
     {
       "id": "question.everyday_technology.019.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.climate_emissions_by_source"
@@ -148,33 +148,15 @@
       "sourceCardIds": [
         "card.everyday_technology.019.c3"
       ],
-      "prompt": "Counting a plant's whole life, why do wind and nuclear power still have some emissions?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Their turbines burn a little coal",
-          "correct": false,
-          "rationale": "They burn nothing."
-        },
-        {
-          "id": "b",
-          "label": "Building the plants and their supply chains emits some",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Wind and uranium give off CO2 when used",
-          "correct": false,
-          "rationale": "Neither releases CO2 while running."
-        },
-        {
-          "id": "d",
-          "label": "They don't; their total is exactly zero",
-          "correct": false,
-          "rationale": "Building them has a footprint."
-        }
+      "prompt": "Put these power sources in order by CO2 per kilowatt-hour over a plant's life.",
+      "items": [
+        "Coal",
+        "Gas",
+        "Onshore wind"
       ],
-      "explanation": "Wind, solar and nuclear have zero direct emissions; their small lifecycle totals come mostly from construction and supply chains.",
+      "first": "Most CO2",
+      "last": "Least CO2",
+      "explanation": "In the IPCC's 2014 review, coal was about 820 grams of CO2-equivalent per kilowatt-hour, gas 490, and onshore wind 12 or less.",
       "difficulty": 0.3
     },
     {

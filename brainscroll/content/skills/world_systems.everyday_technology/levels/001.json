@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 1,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Technology: The Big Picture",
   "objective": "After this level you can explain what technology is and how a few big inventions changed daily life.",
@@ -138,41 +138,26 @@
     },
     {
       "id": "question.everyday_technology.001.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.technology_milestones"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.001.c4"
+        "card.everyday_technology.001.c4",
+        "card.everyday_technology.001.c3"
       ],
-      "prompt": "On the one-day clock of tool history, electric light shows up under 4 seconds before midnight. What does that show?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Electric light is very recent in tool history",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Electric light was invented by early humans",
-          "correct": false,
-          "rationale": "It arrives at the very end of the day, in 1879."
-        },
-        {
-          "id": "c",
-          "label": "The wheel came after the light bulb",
-          "correct": false,
-          "rationale": "Wheels arrive minutes earlier, around 3500 BCE."
-        },
-        {
-          "id": "d",
-          "label": "Tools only began with our species",
-          "correct": false,
-          "rationale": "Tools were there hours before our species arrived."
-        }
+      "prompt": "Put these inventions from tool history in order, from earliest to latest.",
+      "items": [
+        "Stone tools",
+        "Wheels",
+        "Gutenberg's press",
+        "Volta's battery",
+        "Edison's carbon-filament light bulb"
       ],
-      "explanation": "Squeezing 3.3 million years into 24 hours, Edison's 1879 bulb lands under 4 seconds before midnight: almost all of tool history came before it.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Stone tools came first, about 3.3 million years ago, then wheels (about 3500 BCE), Gutenberg's press (about 1455), Volta's battery (1800) and Edison's light bulb (1879).",
       "difficulty": 0.2
     },
     {

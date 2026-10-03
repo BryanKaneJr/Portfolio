@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 47,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How a Screen Works",
   "objective": "After this level you can explain pixels and how a screen mixes red, green and blue light.",
@@ -135,42 +135,37 @@
     },
     {
       "id": "question.everyday_technology.047.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.screen_rgb_mixing"
       ],
       "sourceCardIds": [
         "card.everyday_technology.047.c3",
-        "card.everyday_technology.047.c1"
+        "card.everyday_technology.047.c1",
+        "card.everyday_technology.047.c2",
+        "card.everyday_technology.047.c4"
       ],
-      "prompt": "A screen shows a yellow banana with no yellow subpixels at all. How?",
-      "options": [
+      "prompt": "Match each part of how a screen works with its detail.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It shines red and green light together",
-          "correct": true
+          "left": "Red plus green",
+          "right": "Looks yellow"
         },
         {
-          "id": "b",
-          "label": "It mixes blue and orange paint in each pixel",
-          "correct": false,
-          "rationale": "Screens mix light, not paint."
+          "left": "HD screen",
+          "right": "About 2 million"
         },
         {
-          "id": "c",
-          "label": "It switches every pixel off",
-          "correct": false,
-          "rationale": "Pixels switched off look black."
+          "left": "4K screen",
+          "right": "About 8.3 million"
         },
         {
-          "id": "d",
-          "label": "It uses a special yellow backlight",
-          "correct": false,
-          "rationale": "The trick is mixing red and green light."
+          "left": "An LCD",
+          "right": "Makes no light of its own"
         }
       ],
-      "explanation": "Mixing light adds up: red plus green light looks yellow to the eye's three kinds of cones.",
+      "explanation": "Red plus green light looks yellow. An HD screen has about 2 million pixels and a 4K screen about 8.3 million, and an LCD makes no light of its own.",
       "difficulty": 0.3
     },
     {

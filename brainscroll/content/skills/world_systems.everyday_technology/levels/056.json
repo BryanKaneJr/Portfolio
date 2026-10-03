@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 56,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Algorithms",
   "objective": "After this level you can explain algorithms as step-by-step instructions, using sorting as the example.",
@@ -90,41 +90,33 @@
   "questions": [
     {
       "id": "question.everyday_technology.056.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.computer_algorithms"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.056.c2"
+        "card.everyday_technology.056.c2",
+        "card.everyday_technology.056.c1",
+        "card.everyday_technology.056.c3",
+        "card.everyday_technology.056.c4"
       ],
-      "prompt": "Which description fits an algorithm, the idea named after al-Khwarizmi?",
-      "options": [
+      "prompt": "Match each name from the algorithms level with what it did.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A step-by-step procedure that solves a problem in a finite number of steps",
-          "correct": true
+          "left": "Al-Khwarizmi",
+          "right": "A book on arithmetic"
         },
         {
-          "id": "b",
-          "label": "A computer chip that stores numbers",
-          "correct": false,
-          "rationale": "That's memory hardware."
+          "left": "Selection sort",
+          "right": "Rescans nearly everything"
         },
         {
-          "id": "c",
-          "label": "Any very large number",
-          "correct": false,
-          "rationale": "An algorithm is a procedure, not a number."
-        },
-        {
-          "id": "d",
-          "label": "A code that turns letters into bytes",
-          "correct": false,
-          "rationale": "That's an encoding such as ASCII."
+          "left": "Merge sort",
+          "right": "Splits the books into two halves"
         }
       ],
-      "explanation": "Long division, a map route, a sort: each is a set of exact steps that ends with an answer.",
+      "explanation": "Al-Khwarizmi wrote a book on arithmetic. Selection sort rescans nearly everything on every pass, and merge sort splits the books into two halves.",
       "difficulty": 0.15
     },
     {

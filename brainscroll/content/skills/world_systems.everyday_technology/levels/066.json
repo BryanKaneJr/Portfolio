@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 66,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Search Engines",
   "objective": "After this level you can explain how search engines find pages and rank them.",
@@ -91,41 +91,32 @@
   "questions": [
     {
       "id": "question.everyday_technology.066.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.search_crawl_index"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.066.c2"
+        "card.everyday_technology.066.c2",
+        "card.everyday_technology.066.c3",
+        "card.everyday_technology.066.c4"
       ],
-      "prompt": "What do a search engine's crawlers do?",
-      "options": [
+      "prompt": "Match each part of a search engine with what it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Visit public pages and follow their links",
-          "correct": true
+          "left": "Crawlers",
+          "right": "Follow the links"
         },
         {
-          "id": "b",
-          "label": "Decide which pages pay for top spots",
-          "correct": false,
-          "rationale": "Crawlers find pages; they don't sell rankings."
+          "left": "Google's index",
+          "right": "Index at the back of a book"
         },
         {
-          "id": "c",
-          "label": "Write new web pages automatically",
-          "correct": false,
-          "rationale": "They read pages; they don't write them."
-        },
-        {
-          "id": "d",
-          "label": "Delete pages that break the rules",
-          "correct": false,
-          "rationale": "They visit and record pages; that's all."
+          "left": "BackRub",
+          "right": "Counted links"
         }
       ],
-      "explanation": "Crawlers automatically visit public pages, follow the links on them and organize what they find into an index.",
+      "explanation": "Crawlers follow the links from page to page, Google's index works like the index at the back of a book, and BackRub ranked pages by counting links.",
       "difficulty": 0.15
     },
     {

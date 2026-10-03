@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 42,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Telegraph",
   "objective": "After this level you can explain how the telegraph sent messages as electric pulses.",
@@ -95,41 +95,32 @@
   "questions": [
     {
       "id": "question.everyday_technology.042.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.telegraph_pulses"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.042.c2"
+        "card.everyday_technology.042.c2",
+        "card.everyday_technology.042.c3",
+        "card.everyday_technology.042.c4"
       ],
-      "prompt": "In Morse's telegraph, what happened when the operator pressed the sending key?",
-      "options": [
+      "prompt": "Match each piece of telegraph history with its detail.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It closed the circuit, so current flowed down the line",
-          "correct": true
+          "left": "The sender's key",
+          "right": "A switch"
         },
         {
-          "id": "b",
-          "label": "It sent the operator's voice down the wire",
-          "correct": false,
-          "rationale": "Telegraphs sent pulses of current, not sound."
+          "left": "E",
+          "right": "A single dot"
         },
         {
-          "id": "c",
-          "label": "It spun a generator at the far end",
-          "correct": false,
-          "rationale": "The key is a switch; it just opens and closes the loop."
-        },
-        {
-          "id": "d",
-          "label": "It printed a letter on paper at the sender's end",
-          "correct": false,
-          "rationale": "The marks appeared at the receiving end."
+          "left": "Cooke and Wheatstone",
+          "right": "Six wires and five needles"
         }
       ],
-      "explanation": "The key is a switch. Pressing it closes the circuit so current flows; releasing it opens the loop again.",
+      "explanation": "The sender's key is a switch, the letter E gets a single dot in Morse code, and Cooke and Wheatstone's telegraph used six wires and five needles.",
       "difficulty": 0.15
     },
     {

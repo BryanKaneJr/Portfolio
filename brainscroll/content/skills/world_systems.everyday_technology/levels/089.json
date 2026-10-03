@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 89,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "3D Printing",
   "objective": "After this level you can explain how 3D printers build objects layer by layer.",
@@ -154,41 +154,27 @@
     },
     {
       "id": "question.everyday_technology.089.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.build_3d_printing_origins"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.089.c3"
+        "card.everyday_technology.089.c3",
+        "card.everyday_technology.089.c1"
       ],
-      "prompt": "In Chuck Hull's stereolithography, what turns liquid into each solid layer?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A glue gun of melted wax",
-          "correct": false,
-          "rationale": "That was Crump's toy frog."
-        },
-        {
-          "id": "b",
-          "label": "Hot air drying the liquid out",
-          "correct": false,
-          "rationale": "It is hardened by light, not dried."
-        },
-        {
-          "id": "c",
-          "label": "Ultraviolet light hardening a liquid polymer",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "A drill carving a solid block",
-          "correct": false,
-          "rationale": "That would be subtractive."
-        }
+      "prompt": "Put these moments in 3D printing history in order, from earliest to latest.",
+      "items": [
+        "Chuck Hull develops stereolithography",
+        "Hull's patent is issued",
+        "The SLA-1",
+        "A toy frog with a glue gun",
+        "Crump patents fused deposition modeling",
+        "Stratasys starts selling"
       ],
-      "explanation": "Stereolithography uses ultraviolet light to harden liquid photopolymer one layer at a time.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Hull developed stereolithography in 1983 and got his patent in 1986, the SLA-1 came in 1987, Crump's glue-gun frog in 1988, his FDM patent in 1989, and Stratasys began selling in 1992.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 100,
   "type": "mastery",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Mastery Challenge: Everyday Technology",
   "objective": "After this level you can demonstrate command of Everyday Technology Levels 1–99 across the whole tree.",
@@ -468,7 +468,7 @@
     },
     {
       "id": "question.everyday_technology.100.q9",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.everyday_technology.technology_milestones",
@@ -478,35 +478,21 @@
       "sourceCardIds": [
         "card.everyday_technology.001.c3",
         "card.everyday_technology.091.c2",
-        "card.everyday_technology.095.c3"
+        "card.everyday_technology.095.c3",
+        "card.everyday_technology.091.c1"
       ],
-      "prompt": "From Level 1's timeline to Tomorrow's Technology: which list puts these in the order they happened?",
-      "options": [
-        {
-          "id": "a",
-          "label": "\"Artificial intelligence\" coined, Edison's bulb, Casgevy approved",
-          "correct": false,
-          "rationale": "Edison's bulb (1879) came first."
-        },
-        {
-          "id": "b",
-          "label": "Casgevy approved, Edison's bulb, \"artificial intelligence\" coined",
-          "correct": false,
-          "rationale": "Casgevy is the most recent, from 2023."
-        },
-        {
-          "id": "c",
-          "label": "Edison's bulb, \"artificial intelligence\" coined, Casgevy approved",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Edison's bulb, Casgevy approved, \"artificial intelligence\" coined",
-          "correct": false,
-          "rationale": "The term dates from 1955, long before 2023."
-        }
+      "prompt": "Put these moments from across the Everyday Technology tree in order, from earliest to latest.",
+      "items": [
+        "Stone tools",
+        "Gutenberg's press",
+        "Edison's carbon-filament light bulb",
+        "Coined \"artificial intelligence\"",
+        "IBM's Deep Blue",
+        "Authorized Casgevy"
       ],
-      "explanation": "Edison's bulb came in 1879, McCarthy coined \"artificial intelligence\" in 1955, and Casgevy was approved in 2023.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Stone tools came first, then Gutenberg's press (about 1455), Edison's bulb (1879), the term \"artificial intelligence\" (1955), Deep Blue's win (1997) and the first approval of Casgevy (2023).",
       "difficulty": 0.5
     },
     {

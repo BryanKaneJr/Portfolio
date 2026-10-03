@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 34,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why Ships Float",
   "objective": "After this level you can explain buoyancy and how a steel ship floats.",
@@ -160,7 +160,7 @@
     },
     {
       "id": "question.everyday_technology.034.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.everyday_technology.ship_load_line",
@@ -168,35 +168,29 @@
       ],
       "sourceCardIds": [
         "card.everyday_technology.034.c4",
-        "card.everyday_technology.034.c2"
+        "card.everyday_technology.034.c2",
+        "card.everyday_technology.034.c1"
       ],
-      "prompt": "A cargo ship sails from a freshwater river into the sea without changing its load. What happens?",
-      "options": [
+      "prompt": "Match each floating-ship idea with what this level says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It sits deeper, because seawater is saltier",
-          "correct": false,
-          "rationale": "Denser water holds it higher, not lower."
+          "left": "Buoyant force",
+          "right": "An upward push"
         },
         {
-          "id": "b",
-          "label": "It rises a little, because seawater is denser",
-          "correct": true
+          "left": "Steel",
+          "right": "About 7.8 times as dense as water"
         },
         {
-          "id": "c",
-          "label": "Nothing changes, because its weight is the same",
-          "correct": false,
-          "rationale": "The same weight of denser water takes up less room."
+          "left": "Plimsoll line",
+          "right": "A loading mark on hulls"
         },
         {
-          "id": "d",
-          "label": "It sinks, because salt water corrodes the hull",
-          "correct": false,
-          "rationale": "Corrosion is far too slow to matter here."
+          "left": "Fresh water",
+          "right": "Less dense than seawater"
         }
       ],
-      "explanation": "Denser seawater matches the ship's weight with less volume displaced, so the ship rides a little higher.",
+      "explanation": "The buoyant force is an upward push. Steel is about 7.8 times as dense as water, the Plimsoll line is a loading mark on hulls, and fresh water is less dense than seawater.",
       "difficulty": 0.35
     }
   ],

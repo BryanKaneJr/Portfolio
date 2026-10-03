@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 95,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Gene Editing",
   "objective": "After this level you can explain in simple terms what CRISPR gene editing does.",
@@ -95,7 +95,7 @@
   "questions": [
     {
       "id": "question.everyday_technology.095.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.crispr_mechanism"
@@ -103,33 +103,16 @@
       "sourceCardIds": [
         "card.everyday_technology.095.c2"
       ],
-      "prompt": "In CRISPR gene editing, what does the guide RNA do?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It leads Cas9 to the matching spot in the DNA",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "It repairs the DNA after the cut",
-          "correct": false,
-          "rationale": "The cell's own repair machinery does that."
-        },
-        {
-          "id": "c",
-          "label": "It cuts both strands of DNA",
-          "correct": false,
-          "rationale": "Cutting is Cas9's job."
-        },
-        {
-          "id": "d",
-          "label": "It carries the edit to future generations",
-          "correct": false,
-          "rationale": "Only edits to eggs, sperm or embryos could be inherited."
-        }
+      "prompt": "Put the steps of CRISPR gene editing in order.",
+      "items": [
+        "Scientists write a short guide RNA",
+        "The guide leads Cas9 to that exact spot",
+        "Cas9 cuts",
+        "The cell's own repair machinery"
       ],
-      "explanation": "The guide RNA matches the target sequence and leads the Cas9 enzyme there to cut.",
+      "first": "First step",
+      "last": "Last step",
+      "explanation": "Scientists write a short guide RNA, the guide leads Cas9 to the matching spot, Cas9 cuts, and then the cell's own repair machinery takes over.",
       "difficulty": 0.25
     },
     {

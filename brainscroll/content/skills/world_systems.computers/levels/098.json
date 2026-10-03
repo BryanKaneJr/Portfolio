@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 98,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Internet's Energy Bill",
   "objective": "After this level you can weigh estimates of how much electricity data centers use and what is driving the growth.",
@@ -126,7 +126,7 @@
     },
     {
       "id": "question.computers.098.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.techcheck_ai_energy_growth",
@@ -134,35 +134,25 @@
       ],
       "sourceCardIds": [
         "card.computers.098.c4",
-        "card.computers.098.c3"
+        "card.computers.098.c3",
+        "card.computers.098.c2"
       ],
-      "prompt": "One article says US data centers will use about 7% of US electricity by 2028; another says 12%. What best explains the gap?",
-      "options": [
+      "prompt": "Match each data center energy figure with what it describes.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "One of the two articles must simply be a hoax",
-          "correct": false,
-          "rationale": "Both numbers come from the same report."
+          "left": "In 2024",
+          "right": "About 415 terawatt-hours"
         },
         {
-          "id": "b",
-          "label": "Both come from a range of scenarios: forecasts, not measurements",
-          "correct": true
+          "left": "By 2030",
+          "right": "About 945 TWh"
         },
         {
-          "id": "c",
-          "label": "Data centers switch off for about half of every year",
-          "correct": false,
-          "rationale": "The gap comes from different assumptions."
-        },
-        {
-          "id": "d",
-          "label": "The two figures are counting different countries",
-          "correct": false,
-          "rationale": "Both are for the US."
+          "left": "Powers the servers themselves",
+          "right": "About 60%"
         }
       ],
-      "explanation": "The Berkeley Lab report gives scenarios from 6.7% to 12% by 2028, so different articles quote different ends of the range.",
+      "explanation": "Data centers used about 415 terawatt-hours in 2024, the IEA projects about 945 TWh by 2030, and about 60% of a typical center's electricity powers the servers themselves.",
       "difficulty": 0.4
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 62,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Packets",
   "objective": "After this level you can explain how data travels in small packets that each find their own way.",
@@ -130,41 +130,32 @@
     },
     {
       "id": "question.everyday_technology.062.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.internet_packet_switching"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.062.c2"
+        "card.everyday_technology.062.c2",
+        "card.everyday_technology.062.c3",
+        "card.everyday_technology.062.c4"
       ],
-      "prompt": "Why can data from many people share the same lines with packet switching?",
-      "options": [
+      "prompt": "Match each packet pioneer or protocol with its part in the story.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Each user reserves a private line, taking turns",
-          "correct": false,
-          "rationale": "Holding a dedicated line is the old phone-call method."
+          "left": "Paul Baran",
+          "right": "A US Air Force network"
         },
         {
-          "id": "b",
-          "label": "Messages go whole, one after another, in a queue",
-          "correct": false,
-          "rationale": "They're chopped into packets, not sent whole."
+          "left": "Donald Davies",
+          "right": "He named the pieces"
         },
         {
-          "id": "c",
-          "label": "Every packet is copied to every computer online",
-          "correct": false,
-          "rationale": "Each packet carries one destination address."
-        },
-        {
-          "id": "d",
-          "label": "No line is reserved; packets share any free route",
-          "correct": true
+          "left": "TCP",
+          "right": "Numbers the data it sends"
         }
       ],
-      "explanation": "Packets travel independently over any available route, so lines are shared instead of reserved for one conversation.",
+      "explanation": "Paul Baran worked on a US Air Force network that could survive damage, Donald Davies named the pieces \"packets,\" and TCP numbers the data it sends.",
       "difficulty": 0.35
     },
     {

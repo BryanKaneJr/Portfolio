@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 3,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Electricity",
   "objective": "After this level you can explain electric current as moving charges and what voltage means.",
@@ -86,41 +86,36 @@
   "questions": [
     {
       "id": "question.everyday_technology.003.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.electric_current"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.003.c2"
+        "card.everyday_technology.003.c2",
+        "card.everyday_technology.003.c3",
+        "card.everyday_technology.003.c4"
       ],
-      "prompt": "What is an electric current?",
-      "options": [
+      "prompt": "Match each piece of electricity with what this level says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Charge moving through a wire",
-          "correct": true
+          "left": "Protons",
+          "right": "Positive"
         },
         {
-          "id": "b",
-          "label": "Heat traveling along a wire",
-          "correct": false,
-          "rationale": "Wires can get warm, but current is moving charge."
+          "left": "Electrons",
+          "right": "Negative"
         },
         {
-          "id": "c",
-          "label": "Electrons made fresh by the battery",
-          "correct": false,
-          "rationale": "The electrons were in the wire all along."
+          "left": "Current",
+          "right": "Measured in amperes"
         },
         {
-          "id": "d",
-          "label": "Light trapped inside a cable",
-          "correct": false,
-          "rationale": "No light involved: it's charge on the move."
+          "left": "Voltage",
+          "right": "The push"
         }
       ],
-      "explanation": "A current is moving charge; in a metal wire, the wire's own electrons drift the same way.",
+      "explanation": "Protons are positive and electrons are negative. Current is measured in amperes, and voltage is the push each bit of charge gets.",
       "difficulty": 0.15
     },
     {

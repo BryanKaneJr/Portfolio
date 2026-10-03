@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 97,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Open or Closed Software?",
   "objective": "After this level you can weigh the trade-offs between open-source and closed software for security, cost and control.",
@@ -126,42 +126,36 @@
     },
     {
       "id": "question.computers.097.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.techcheck_open_closed_tradeoffs"
       ],
       "sourceCardIds": [
         "card.computers.097.c3",
-        "card.computers.097.c4"
+        "card.computers.097.c4",
+        "card.computers.097.c2"
       ],
-      "prompt": "A small charity is choosing between an open-source tool and a closed one. Which is the fairest summary of the security trade-off?",
-      "options": [
+      "prompt": "Match each piece of the open-or-closed story with its detail.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Open source is always safer because anyone can read it",
-          "correct": false,
-          "rationale": "Log4j shows flaws can hide in widely read code."
+          "left": "Open-source software",
+          "right": "Must come with its source code"
         },
         {
-          "id": "b",
-          "label": "Closed software never stops getting updates",
-          "correct": false,
-          "rationale": "Windows 10's support ended in 2025."
+          "left": "Closed-source software",
+          "right": "Publishes only the finished program"
         },
         {
-          "id": "c",
-          "label": "Open code is inspectable but may rest on volunteers; closed rests on its maker",
-          "correct": true
+          "left": "Log4j",
+          "right": "Volunteer teams"
         },
         {
-          "id": "d",
-          "label": "Neither can ever have a serious flaw",
-          "correct": false,
-          "rationale": "Log4j had a critical one."
+          "left": "Windows 10",
+          "right": "Reached end of support"
         }
       ],
-      "explanation": "Anyone can inspect open code, but volunteers may maintain it; closed software depends on its maker's support decisions.",
+      "explanation": "Open-source software must come with its source code, closed-source software publishes only the finished program, projects like Log4j rely on volunteer teams, and Windows 10 reached end of support in 2025.",
       "difficulty": 0.4
     },
     {

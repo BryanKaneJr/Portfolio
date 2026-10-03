@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 38,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Traffic",
   "objective": "After this level you can explain how traffic lights and road design keep cars moving safely.",
@@ -125,41 +125,25 @@
     },
     {
       "id": "question.everyday_technology.038.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.traffic_roundabouts"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.038.c4"
+        "card.everyday_technology.038.c4",
+        "card.everyday_technology.038.c1",
+        "card.everyday_technology.038.c2"
       ],
-      "prompt": "Why are single-lane roundabouts safer than ordinary four-way intersections?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Fewer conflict points and no right-angle crashes",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "They have more traffic lights",
-          "correct": false,
-          "rationale": "Roundabouts usually have none."
-        },
-        {
-          "id": "c",
-          "label": "Cars can drive through them faster",
-          "correct": false,
-          "rationale": "They slow traffic down."
-        },
-        {
-          "id": "d",
-          "label": "Pedestrians are not allowed near them",
-          "correct": false,
-          "rationale": "People still cross at roundabouts."
-        }
+      "prompt": "Put these moments in traffic light history in order, from earliest to latest.",
+      "items": [
+        "Signal went up outside Parliament",
+        "A gas leak made it explode",
+        "The first electric traffic signal"
       ],
-      "explanation": "Conflict points drop from 32 to 8, and right-angle and head-on crashes disappear, so injury crashes fall sharply.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The London signal went up in December 1868, a gas leak made it explode in January 1869, and the first electric traffic signal arrived in Cleveland in 1914.",
       "difficulty": 0.25
     },
     {

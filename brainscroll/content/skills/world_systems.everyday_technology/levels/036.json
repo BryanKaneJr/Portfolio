@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 36,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Rockets",
   "objective": "After this level you can explain how rockets push themselves forward in the vacuum of space.",
@@ -91,41 +91,25 @@
   "questions": [
     {
       "id": "question.everyday_technology.036.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.rocket_propulsion"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.036.c3"
+        "card.everyday_technology.036.c3",
+        "card.everyday_technology.036.c1",
+        "card.everyday_technology.036.c4"
       ],
-      "prompt": "How can a rocket burn its fuel in space, where there is no air?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It collects oxygen from sunlight",
-          "correct": false,
-          "rationale": "Sunlight holds no oxygen."
-        },
-        {
-          "id": "b",
-          "label": "It carries its own oxidizer",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Its fuel burns without any oxidizer",
-          "correct": false,
-          "rationale": "Burning needs an oxidizer."
-        },
-        {
-          "id": "d",
-          "label": "It scoops gas from space as it flies",
-          "correct": false,
-          "rationale": "There is essentially nothing to scoop."
-        }
+      "prompt": "Put these moments in Robert Goddard's rocket story in order, from earliest to latest.",
+      "items": [
+        "Newspaper said rockets could never work",
+        "The first liquid-fueled rocket",
+        "The paper printed a correction"
       ],
-      "explanation": "A rocket carries its oxidizer on board with its fuel, so it can burn and make thrust in a vacuum.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The New York Times mocked Goddard in 1920, his first liquid-fueled rocket flew in 1926, and the paper printed a correction in 1969.",
       "difficulty": 0.15
     },
     {

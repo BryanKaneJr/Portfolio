@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 52,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Binary",
   "objective": "After this level you can explain how ones and zeros can stand for numbers, letters and pictures.",
@@ -91,42 +91,36 @@
   "questions": [
     {
       "id": "question.everyday_technology.052.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.computer_binary_encoding"
       ],
       "sourceCardIds": [
         "card.everyday_technology.052.c4",
-        "card.everyday_technology.052.c3"
+        "card.everyday_technology.052.c3",
+        "card.everyday_technology.052.c2"
       ],
-      "prompt": "In the ASCII code, how much space does a single letter such as lowercase a take up?",
-      "options": [
+      "prompt": "Match each binary term or number with its partner.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "One bit",
-          "correct": false,
-          "rationale": "One bit is a single 0 or 1: only two patterns."
+          "left": "Bit",
+          "right": "Single 0 or 1"
         },
         {
-          "id": "b",
-          "label": "One byte",
-          "correct": true
+          "left": "Byte",
+          "right": "Eight bits"
         },
         {
-          "id": "c",
-          "label": "One pixel",
-          "correct": false,
-          "rationale": "Pixels are dots in a picture."
+          "left": "5",
+          "right": "101"
         },
         {
-          "id": "d",
-          "label": "256 bytes",
-          "correct": false,
-          "rationale": "256 is how many patterns one byte can make."
+          "left": "Lowercase a",
+          "right": "01100001"
         }
       ],
-      "explanation": "ASCII is an 8-bit code: one byte per letter. Lowercase a is 01100001.",
+      "explanation": "A bit is a single 0 or 1, a byte is eight bits, 5 is written 101 in binary, and lowercase a is 01100001 in ASCII.",
       "difficulty": 0.2
     },
     {
