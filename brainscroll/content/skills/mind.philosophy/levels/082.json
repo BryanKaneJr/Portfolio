@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 82,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Footbridge",
   "objective": "After this level you can explain why many people who would pull the switch refuse to push a man off a footbridge, and how the doctrine of double effect tries to explain the difference.",
@@ -133,7 +133,7 @@
     },
     {
       "id": "question.philosophy.082.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.dilemma_footbridge_double_effect"
@@ -141,33 +141,22 @@
       "sourceCardIds": [
         "card.philosophy.082.c4"
       ],
-      "prompt": "Many would switch the trolley but refuse to push. Which explanation is the one double effect gives, rather than a count of lives?",
-      "options": [
+      "prompt": "Match each item with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Pushing the man would save fewer people than switching would",
-          "correct": false,
-          "rationale": "Both cases trade one for five."
+          "left": "At the switch",
+          "right": "A foreseen side effect"
         },
         {
-          "id": "b",
-          "label": "The man on the bridge chose to stand there, so he accepted the risk",
-          "correct": false,
-          "rationale": "His choice plays no part in double effect."
+          "left": "On the bridge",
+          "right": "The plan itself"
         },
         {
-          "id": "c",
-          "label": "Pushing makes the man’s death the means of saving the five",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The switch is further from the five people than the bridge is",
-          "correct": false,
-          "rationale": "Distance is not the principle’s concern."
+          "left": "Double effect",
+          "right": "Thomas Aquinas"
         }
       ],
-      "explanation": "On double effect, the switch case’s death is a foreseen side effect, but pushing makes the man’s death the means of saving the five.",
+      "explanation": "At the switch, the one death is a foreseen side effect. On the bridge, his body stopping the trolley is the plan itself. The doctrine of double effect is credited to Thomas Aquinas.",
       "difficulty": 0.45
     },
     {

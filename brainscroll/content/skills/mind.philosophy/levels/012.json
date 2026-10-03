@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 12,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Al-Ghazali Versus Ibn Rushd",
   "objective": "After this level you can explain the debate between al-Ghazali's Incoherence of the Philosophers and Ibn Rushd's reply, including their dispute over fire burning cotton.",
@@ -82,41 +82,26 @@
   "questions": [
     {
       "id": "question.philosophy.012.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.philosophy.ghazali_ibn_rushd_causation"
       ],
       "sourceCardIds": [
-        "card.philosophy.012.c3"
+        "card.philosophy.012.c3",
+        "card.philosophy.012.c2",
+        "card.philosophy.012.c4",
+        "card.philosophy.011.c2"
       ],
-      "prompt": "In al-Ghazali’s famous example about causes, what touches what?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Fire touches cotton",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Water touches salt",
-          "correct": false,
-          "rationale": "His example involves burning."
-        },
-        {
-          "id": "c",
-          "label": "A hand touches a stone",
-          "correct": false,
-          "rationale": "His example involves burning."
-        },
-        {
-          "id": "d",
-          "label": "Wind touches a sail",
-          "correct": false,
-          "rationale": "His example involves burning."
-        }
+      "prompt": "Put these thinkers in order, from earliest to latest.",
+      "items": [
+        "Avicenna",
+        "Al-Ghazali",
+        "Ibn Rushd"
       ],
-      "explanation": "Al-Ghazali’s example is fire touching cotton and the cotton burning.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Avicenna died in 1037, al-Ghazali died in 1111, and Ibn Rushd lived from 1126 to 1198.",
       "difficulty": 0.15
     },
     {

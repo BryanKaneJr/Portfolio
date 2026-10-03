@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 56,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Marx on Work and Class",
   "objective": "After this level you can explain why Karl Marx thought workers under capitalism were alienated, and the main objections critics raised.",
@@ -164,7 +164,7 @@
     },
     {
       "id": "question.philosophy.056.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.justice_marx_alienation",
@@ -172,35 +172,21 @@
       ],
       "sourceCardIds": [
         "card.philosophy.056.c4",
-        "card.philosophy.052.c3"
+        "card.philosophy.052.c3",
+        "card.philosophy.056.c2",
+        "card.philosophy.055.c2",
+        "card.philosophy.054.c2"
       ],
-      "prompt": "Critics say Marx’s diagnosis depends on a view of human nature. Which thinkers from Level 52 held that people stay selfish whatever you teach them?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Confucians",
-          "correct": false,
-          "rationale": "Confucians thought virtue and ritual could reform people."
-        },
-        {
-          "id": "b",
-          "label": "The Mohists",
-          "correct": false,
-          "rationale": "They weren’t Level 52’s subject."
-        },
-        {
-          "id": "c",
-          "label": "Plato’s philosopher-kings",
-          "correct": false,
-          "rationale": "Plato is Level 51, and he thought education could shape souls."
-        },
-        {
-          "id": "d",
-          "label": "The Legalists of ancient China",
-          "correct": true
-        }
+      "prompt": "Put these books in order, from earliest to latest.",
+      "items": [
+        "Emile",
+        "Vindication of the Rights of Woman",
+        "Economic and Philosophic Manuscripts",
+        "On Liberty"
       ],
-      "explanation": "The Legalists held that people stay selfish and must be governed by laws, rewards and punishments.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Rousseau’s Emile came out in 1762, Wollstonecraft’s Vindication in 1792, Marx’s Manuscripts date from 1844, and Mill’s On Liberty from 1859.",
       "difficulty": 0.3
     }
   ],

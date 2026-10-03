@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 49,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Hume's Is and Ought",
   "objective": "After this level you can explain Hume's point that no conclusion about what ought to be follows from facts about what is alone.",
@@ -93,41 +93,27 @@
   "questions": [
     {
       "id": "question.philosophy.049.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.philosophy.morals_is_ought"
       ],
       "sourceCardIds": [
-        "card.philosophy.049.c2"
+        "card.philosophy.049.c2",
+        "card.philosophy.049.c5",
+        "card.philosophy.046.c4",
+        "card.philosophy.018.c2"
       ],
-      "prompt": "In the Treatise, what change did Hume notice in books on morality?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They quote scripture more and more",
-          "correct": false,
-          "rationale": "Not what Hume described."
-        },
-        {
-          "id": "b",
-          "label": "They drop all talk of God",
-          "correct": false,
-          "rationale": "Some began with God’s existence."
-        },
-        {
-          "id": "c",
-          "label": "They slide suddenly from is to ought",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "They switch from Latin to English",
-          "correct": false,
-          "rationale": "Hume’s point isn’t about language choice."
-        }
+      "prompt": "Put these books in order, from earliest to latest.",
+      "items": [
+        "Essay Concerning Human Understanding",
+        "A Treatise of Human Nature",
+        "Utilitarianism",
+        "Natural Goodness"
       ],
-      "explanation": "Authors reason with is and is not, then suddenly every claim is connected with ought or ought not.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Locke’s Essay Concerning Human Understanding came out in 1689, Hume’s Treatise in 1739 and 1740, Mill’s Utilitarianism in 1861, and Foot’s Natural Goodness in 2001.",
       "difficulty": 0.2
     },
     {

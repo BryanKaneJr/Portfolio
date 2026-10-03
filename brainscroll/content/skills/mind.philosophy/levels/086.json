@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 86,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Moral Luck",
   "objective": "After this level you can explain Bernard Williams’s and Thomas Nagel’s puzzle of moral luck, using two equally careless drivers with different outcomes.",
@@ -171,7 +171,7 @@
     },
     {
       "id": "question.philosophy.086.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.dilemma_moral_luck",
@@ -179,35 +179,30 @@
       ],
       "sourceCardIds": [
         "card.philosophy.086.c4",
-        "card.philosophy.003.c3"
+        "card.philosophy.003.c3",
+        "card.philosophy.086.c2",
+        "card.philosophy.086.c5"
       ],
-      "prompt": "Galileo’s tied balls in Level 3 showed one view predicting two incompatible results. What clash does the two-drivers case expose?",
-      "options": [
+      "prompt": "Match each thinker with the idea linked to him.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Between the brakes and the condition of the road",
-          "correct": false,
-          "rationale": "The clash is in our judgments."
+          "left": "Bernard Williams",
+          "right": "An oxymoron"
         },
         {
-          "id": "b",
-          "label": "Between the two drivers’ very different intentions",
-          "correct": false,
-          "rationale": "Their intentions were the same."
+          "left": "Thomas Nagel",
+          "right": "Four kinds of moral luck"
         },
         {
-          "id": "c",
-          "label": "Between the drivers’ wealth and their luck",
-          "correct": false,
-          "rationale": "Wealth plays no part."
+          "left": "Kant",
+          "right": "Shine like a jewel"
         },
         {
-          "id": "d",
-          "label": "Between the Control Principle and how we blame",
-          "correct": true
+          "left": "Adam Smith",
+          "right": "The intention of the heart"
         }
       ],
-      "explanation": "We accept the Control Principle, yet we judge the unlucky driver differently: like Galileo’s case, it exposes a contradiction in what we believe.",
+      "explanation": "Williams expected “moral luck” to sound like an oxymoron, Nagel identified four kinds of moral luck, Kant said a good will would shine like a jewel, and Adam Smith tied praise and blame to the intention of the heart.",
       "difficulty": 0.4
     }
   ],

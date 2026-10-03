@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 25,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Can You Trust the Narrator?",
   "objective": "After this level you can spot the clues that a narrator is unreliable.",
@@ -125,41 +125,24 @@
     },
     {
       "id": "question.literature.025.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.storycraft_unreliable_narrator"
       ],
       "sourceCardIds": [
-        "card.literature.025.c3"
+        "card.literature.025.c3",
+        "card.literature.025.c4"
       ],
-      "prompt": "How does the narrator of \"The Tell-Tale Heart\" give himself away in the opening?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He admits he never met the old man",
-          "correct": false,
-          "rationale": "He lived with the old man."
-        },
-        {
-          "id": "b",
-          "label": "He offers hearing \"many things in hell\" as proof he is sane",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "He says the story happened to someone else",
-          "correct": false,
-          "rationale": "He tells it as his own."
-        },
-        {
-          "id": "d",
-          "label": "He refuses to say anything about himself",
-          "correct": false,
-          "rationale": "He talks about himself constantly."
-        }
+      "prompt": "Put these moments of \"The Tell-Tale Heart\" in order, from first to last.",
+      "items": [
+        "He decides to take his life anyway",
+        "He believes he can still hear it",
+        "He hysterically confesses"
       ],
-      "explanation": "He cites hearing things in heaven, earth and hell as proof of sanity, evidence that points the other way.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The narrator decides to take the old man's life anyway. After the murder he believes he can still hear the heartbeat, and then he hysterically confesses.",
       "difficulty": 0.3
     },
     {

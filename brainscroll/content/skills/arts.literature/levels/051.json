@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 51,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Shakespeare's Globe",
   "objective": "After this level you can explain why Shakespeare wrote plays that could hold a whole crowd, from standing groundlings to nobles.",
@@ -127,7 +127,7 @@
     },
     {
       "id": "question.literature.051.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.globe_shakespeare_mixed_appeal",
@@ -135,35 +135,18 @@
       ],
       "sourceCardIds": [
         "card.literature.051.c3",
-        "card.literature.051.c4"
+        "card.literature.051.c4",
+        "card.literature.051.c2"
       ],
-      "prompt": "Why did Shakespeare put clowns in his tragedies and kings in his comedies?",
-      "options": [
-        {
-          "id": "a",
-          "label": "His crowd came from every class, and he wrote for them all",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "A law required a clown in every play",
-          "correct": false,
-          "rationale": "No law is involved; the mix served the audience."
-        },
-        {
-          "id": "c",
-          "label": "Only nobles watched tragedies, so clowns cut costs",
-          "correct": false,
-          "rationale": "Every class watched every kind of play."
-        },
-        {
-          "id": "d",
-          "label": "Clowns filled time while the scenery was changed",
-          "correct": false,
-          "rationale": "The stage had little or no scenery."
-        }
+      "prompt": "Put these places at the Globe in order, from cheapest to most expensive.",
+      "items": [
+        "A standing place",
+        "A bench in the galleries",
+        "The Lords' Rooms"
       ],
-      "explanation": "Porters, apprentices, the wealthy and royalty all came to the Globe, so Shakespeare mixed clowning and grandeur to hold them all.",
+      "first": "Cheapest",
+      "last": "Most expensive",
+      "explanation": "A penny bought a standing place in the yard, another penny bought a bench in the galleries, and the Lords' Rooms cost most.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 28,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Hero's Journey",
   "objective": "After this level you can trace the stages of Joseph Campbell's hero's journey through a familiar story.",
@@ -121,42 +121,23 @@
     },
     {
       "id": "question.literature.028.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.storycraft_heros_journey"
       ],
       "sourceCardIds": [
-        "card.literature.028.c2",
-        "card.literature.028.c3"
+        "card.literature.028.c2"
       ],
-      "prompt": "How does the hero's journey move, in Campbell's three parts?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Initiation, then return, then departure",
-          "correct": false,
-          "rationale": "The hero must leave before being tested."
-        },
-        {
-          "id": "b",
-          "label": "Return, then departure, then initiation",
-          "correct": false,
-          "rationale": "The return comes last."
-        },
-        {
-          "id": "c",
-          "label": "Departure (separation), then initiation, then return",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Departure, then departure again, then the end",
-          "correct": false,
-          "rationale": "The middle part is initiation."
-        }
+      "prompt": "Put the three movements of the hero's journey in order.",
+      "items": [
+        "Separation",
+        "Initiation",
+        "Return"
       ],
-      "explanation": "The hero separates from the everyday world, is tested in initiation, and returns home with a boon.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The hero's journey moves through separation, then initiation, then return: the hero sets out, is tested and comes home.",
       "difficulty": 0.25
     },
     {

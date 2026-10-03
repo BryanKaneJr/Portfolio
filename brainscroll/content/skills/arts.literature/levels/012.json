@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 12,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Ragnarök, the Twilight of the Gods",
   "objective": "After this level you can retell the Norse story of the end of the world and its rebirth.",
@@ -125,41 +125,26 @@
     },
     {
       "id": "question.literature.012.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.ragnarok_rebirth"
       ],
       "sourceCardIds": [
-        "card.literature.012.c4"
+        "card.literature.012.c4",
+        "card.literature.012.c2",
+        "card.literature.012.c3"
       ],
-      "prompt": "How does the Norse story of Ragnarok end?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Nothing survives, and the sea covers all",
-          "correct": false,
-          "rationale": "The earth comes back up."
-        },
-        {
-          "id": "b",
-          "label": "Loki rules the world from his ship",
-          "correct": false,
-          "rationale": "Loki gets no new kingdom."
-        },
-        {
-          "id": "c",
-          "label": "Odin defeats Fenrir and rebuilds Asgard",
-          "correct": false,
-          "rationale": "Fenrir swallows Odin."
-        },
-        {
-          "id": "d",
-          "label": "The earth rises again, and two humans emerge",
-          "correct": true
-        }
+      "prompt": "Put these moments of Ragnarok in order, from first to last.",
+      "items": [
+        "The Fimbulwinter",
+        "Fenrir swallows Odin",
+        "The earth sinks into the sea",
+        "The earth rises again"
       ],
-      "explanation": "After Ragnarok the earth rises from the sea, and Lif and Lifthrasir come out of the world-tree.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Ragnarok begins with the Fimbulwinter. In the last battle Fenrir swallows Odin, then the earth sinks into the sea, and finally the earth rises again.",
       "difficulty": 0.2
     },
     {

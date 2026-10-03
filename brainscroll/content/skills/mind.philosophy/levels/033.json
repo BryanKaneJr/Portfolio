@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 33,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Mind Is the Brain",
   "objective": "After this level you can explain the identity theory, the physicalist view that each mental state simply is a brain state.",
@@ -89,41 +89,37 @@
   "questions": [
     {
       "id": "question.philosophy.033.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.philosophy.mind_identity_theory"
       ],
       "sourceCardIds": [
-        "card.philosophy.033.c2"
+        "card.philosophy.033.c2",
+        "card.philosophy.033.c3",
+        "card.philosophy.033.c4",
+        "card.philosophy.033.c5"
       ],
-      "prompt": "According to the identity theory, what is an experience of pain?",
-      "options": [
+      "prompt": "Match each thinker with the example or reply linked to him.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A signal sent to a non-physical mind",
-          "correct": false,
-          "rationale": "That’s closer to Descartes’s dualism."
+          "left": "U.T. Place",
+          "right": "Lightning"
         },
         {
-          "id": "b",
-          "label": "A brain process, the very same thing",
-          "correct": true
+          "left": "Hilary Putnam",
+          "right": "Octopuses"
         },
         {
-          "id": "c",
-          "label": "A Form that brains share in",
-          "correct": false,
-          "rationale": "That borrows Plato’s idea, not this theory."
+          "left": "David Lewis",
+          "right": "Identities can be local"
         },
         {
-          "id": "d",
-          "label": "A feeling with no connection to the body",
-          "correct": false,
-          "rationale": "The theory ties it to the brain completely."
+          "left": "Aristotle",
+          "right": "Cooling the blood"
         }
       ],
-      "explanation": "Identity theorists hold that experiences just are brain processes, not merely correlated with them.",
+      "explanation": "Place pointed to lightning, Putnam objected with octopuses, Lewis replied that identities can be local, and Aristotle thought the brain was for cooling the blood.",
       "difficulty": 0.2
     },
     {

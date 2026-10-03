@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 90,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Hard Moral Choices",
   "objective": "After this level you can reason through a new moral dilemma with at least two moral theories and say where they agree and split.",
@@ -236,7 +236,7 @@
     },
     {
       "id": "question.philosophy.090.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.dilemma_theories_compared"
@@ -245,33 +245,22 @@
         "card.philosophy.090.c3",
         "card.philosophy.090.c4"
       ],
-      "prompt": "In Hard Moral Choices, why do some consequentialists say the surgeon in Transplant must not operate?",
-      "options": [
+      "prompt": "Match each approach to Transplant with what it says.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They think the five patients matter less",
-          "correct": false,
-          "rationale": "The count of patients doesn’t change."
+          "left": "Classical utilitarianism",
+          "right": "Seems to say operate"
         },
         {
-          "id": "b",
-          "label": "They follow Kant’s rule against lying",
-          "correct": false,
-          "rationale": "That is a different theory and a different duty."
+          "left": "Foot",
+          "right": "Killing one is not letting five die"
         },
         {
-          "id": "c",
-          "label": "They say the visitor gave consent",
-          "correct": false,
-          "rationale": "The case says nothing of consent."
-        },
-        {
-          "id": "d",
-          "label": "They count a killing as worse than a death",
-          "correct": true
+          "left": "Double effect",
+          "right": "Harm as a means is ruled out"
         }
       ],
-      "explanation": "Some consequentialists revise their theory of value so that one killing counts as worse than five deaths that are not killings, which brings them to “don’t operate”.",
+      "explanation": "Classical utilitarianism seems to say operate, Foot says killing one is not letting five die, and double effect rules out harm as a means.",
       "difficulty": 0.45
     },
     {

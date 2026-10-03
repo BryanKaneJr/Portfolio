@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 53,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Romeo and Juliet's Borrowed Plot",
   "objective": "After this level you can explain why Shakespeare borrowed his plots and what he added to them, using Romeo and Juliet.",
@@ -93,7 +93,7 @@
   "questions": [
     {
       "id": "question.literature.053.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.literature.shakespeare_borrowed_plots"
@@ -101,33 +101,16 @@
       "sourceCardIds": [
         "card.literature.053.c2"
       ],
-      "prompt": "What was Shakespeare's main source for Romeo and Juliet?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Court records of a real case in Verona",
-          "correct": false,
-          "rationale": "His source was a poem, not a record."
-        },
-        {
-          "id": "b",
-          "label": "Ovid's Metamorphoses, copied line by line",
-          "correct": false,
-          "rationale": "Ovid's tale was an inspiration; the main source was later."
-        },
-        {
-          "id": "c",
-          "label": "A play by one of his fellow actors",
-          "correct": false,
-          "rationale": "It was a long poem."
-        },
-        {
-          "id": "d",
-          "label": "Arthur Brooke's long poem Romeus and Juliet",
-          "correct": true
-        }
+      "prompt": "Put the versions of the story in order, from oldest to newest.",
+      "items": [
+        "An Italian tale by Matteo Bandello",
+        "A French version",
+        "Arthur Brooke's long poem",
+        "Romeo and Juliet"
       ],
-      "explanation": "Shakespeare's main source was Arthur Brooke's 1562 poem The Tragicall Historye of Romeus and Juliet.",
+      "first": "Oldest",
+      "last": "Newest",
+      "explanation": "Matteo Bandello's Italian tale came first, then a French version of it, then Arthur Brooke's long poem (1562), and finally Shakespeare's Romeo and Juliet.",
       "difficulty": 0.15
     },
     {

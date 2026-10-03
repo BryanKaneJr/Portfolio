@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 43,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Journey to the West",
   "objective": "After this level you can explain why the Monkey King's pilgrimage to India became one of China's best-loved novels.",
@@ -87,7 +87,7 @@
   "questions": [
     {
       "id": "question.literature.043.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.literature.monkey_king"
@@ -95,33 +95,17 @@
       "sourceCardIds": [
         "card.literature.043.c3"
       ],
-      "prompt": "In Journey to the West, what does the Buddha do to the rebellious Monkey?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Makes him ruler of heaven",
-          "correct": false,
-          "rationale": "Monkey challenges the Jade Emperor and loses."
-        },
-        {
-          "id": "b",
-          "label": "Turns him back into a stone egg",
-          "correct": false,
-          "rationale": "He was born from one; he isn't turned back."
-        },
-        {
-          "id": "c",
-          "label": "Imprisons him beneath a mountain",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Banishes him to India alone",
-          "correct": false,
-          "rationale": "India is the pilgrims' goal, reached later together."
-        }
+      "prompt": "Put these events in Monkey's story in order, from first to last.",
+      "items": [
+        "Born from a stone egg",
+        "Challenges the Jade Emperor's authority",
+        "The Buddha subdues him",
+        "He agrees to protect the monk",
+        "He attains Buddhahood"
       ],
-      "explanation": "The Buddha subdues Monkey and imprisons him beneath the Five Elements Mountain until he is freed to protect the monk.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Monkey is born from a stone egg and challenges the Jade Emperor's authority until the Buddha subdues him. Once freed, he agrees to protect the monk, and by the end he attains Buddhahood.",
       "difficulty": 0.15
     },
     {

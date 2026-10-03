@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 16,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Sundiata, the Epic of Mali",
   "objective": "After this level you can retell the epic of Mali's founder and explain how griots have kept it alive by performance.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "question.literature.016.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.griot_performance",
@@ -138,35 +138,19 @@
       ],
       "sourceCardIds": [
         "card.literature.016.c1",
-        "card.literature.016.c4"
+        "card.literature.016.c4",
+        "card.literature.016.c3"
       ],
-      "prompt": "How has Sundiata's story been kept alive for centuries?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Sundiata wrote it down himself",
-          "correct": false,
-          "rationale": "It lived in oral tradition."
-        },
-        {
-          "id": "b",
-          "label": "Monks copied it onto parchment",
-          "correct": false,
-          "rationale": "Griots kept it, by voice."
-        },
-        {
-          "id": "c",
-          "label": "It was carved on stone at Kirina",
-          "correct": false,
-          "rationale": "It's an oral epic."
-        },
-        {
-          "id": "d",
-          "label": "Griots have passed it on by performance",
-          "correct": true
-        }
+      "prompt": "Put these in order, from earliest to latest.",
+      "items": [
+        "Sundiata went into exile",
+        "The Battle of Kirina",
+        "Died in 1255",
+        "Niane published a French retelling"
       ],
-      "explanation": "Sundiata's life is known from oral traditions repeated by griots, hereditary keepers of history.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Sundiata went into exile, came back to win the Battle of Kirina (about 1235) and died in 1255. Niane published a French retelling of his epic in 1960.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 38,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Mary's Room",
   "objective": "After this level you can explain Frank Jackson's Mary, who knows every physical fact about color, and the debate over whether she learns something new on seeing red.",
@@ -171,7 +171,7 @@
     },
     {
       "id": "question.philosophy.038.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.mind_mary_room",
@@ -179,35 +179,22 @@
       ],
       "sourceCardIds": [
         "card.philosophy.038.c3",
-        "card.philosophy.037.c4"
+        "card.philosophy.037.c4",
+        "card.philosophy.038.c1",
+        "card.philosophy.037.c1",
+        "card.philosophy.036.c1",
+        "card.philosophy.035.c1"
       ],
-      "prompt": "How does Mary’s room echo Nagel’s bat from Level 37?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Both are about animals’ senses",
-          "correct": false,
-          "rationale": "Mary is a human scientist."
-        },
-        {
-          "id": "b",
-          "label": "Both prove that dualism is true and physicalism is false",
-          "correct": false,
-          "rationale": "Nagel didn’t claim physicalism is false."
-        },
-        {
-          "id": "c",
-          "label": "Both show science is useless for the mind",
-          "correct": false,
-          "rationale": "Neither dismisses science."
-        },
-        {
-          "id": "d",
-          "label": "Both suggest physical facts may leave out what an experience is like",
-          "correct": true
-        }
+      "prompt": "Put these thinkers’ ideas in order of date, from earliest to latest.",
+      "items": [
+        "Turing",
+        "Thomas Nagel",
+        "John Searle",
+        "Frank Jackson"
       ],
-      "explanation": "Nagel’s bat and Jackson’s Mary both press the worry that objective, physical knowledge may miss what an experience is like.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Turing’s game came in 1950, Nagel’s bat in 1974, Searle’s Chinese room in 1980, and Jackson’s Mary in 1982.",
       "difficulty": 0.3
     }
   ],

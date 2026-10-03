@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 64,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Frankfurt's Hidden Controller",
   "objective": "After this level you can explain Harry Frankfurt's 1969 case of a controller who never has to act, and why it suggests responsibility doesn't need the power to do otherwise.",
@@ -93,41 +93,31 @@
   "questions": [
     {
       "id": "question.philosophy.064.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.philosophy.freedom_frankfurt_cases"
       ],
       "sourceCardIds": [
-        "card.philosophy.064.c3"
+        "card.philosophy.064.c3",
+        "card.philosophy.064.c5"
       ],
-      "prompt": "In Frankfurt’s 1969 case, what does Black actually do while Jones decides?",
-      "options": [
+      "prompt": "Match each name or term from Frankfurt’s case with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "He hypnotizes Jones into it",
-          "correct": false,
-          "rationale": "Only if Jones leaned the other way."
+          "left": "Black",
+          "right": "Never has to lift a finger"
         },
         {
-          "id": "b",
-          "label": "He threatens Jones terribly",
-          "correct": false,
-          "rationale": "Only if Jones leaned the other way."
+          "left": "Jones",
+          "right": "Decides on his own"
         },
         {
-          "id": "c",
-          "label": "Nothing: Jones decides alone",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "He slips Jones a potion",
-          "correct": false,
-          "rationale": "Only if Jones leaned the other way."
+          "left": "Flickers of freedom",
+          "right": "Small alternatives"
         }
       ],
-      "explanation": "Black is ready to intervene but never has to, because Jones decides on his own for his own reasons.",
+      "explanation": "Black is ready to step in but never has to lift a finger, Jones decides on his own, and flickers of freedom are the small alternatives critics point to.",
       "difficulty": 0.2
     },
     {

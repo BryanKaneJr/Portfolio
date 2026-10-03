@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 15,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Wang Yangming: Knowing Is Doing",
   "objective": "After this level you can explain Wang Yangming's claim that knowledge and action are one, and the bamboo he stared at for days trying to find its principle.",
@@ -167,7 +167,7 @@
     },
     {
       "id": "question.philosophy.015.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.wang_yangming_knowing_acting",
@@ -175,35 +175,29 @@
       ],
       "sourceCardIds": [
         "card.philosophy.015.c4",
-        "card.philosophy.006.c4"
+        "card.philosophy.006.c4",
+        "card.philosophy.015.c2",
+        "card.philosophy.006.c2",
+        "card.philosophy.006.c3",
+        "card.philosophy.007.c2",
+        "card.philosophy.007.c3"
       ],
-      "prompt": "Confucius in Level 6 couldn’t bear ritual without reverence. Which claim of Wang Yangming makes a similar point about empty form?",
-      "options": [
+      "prompt": "Match each Chinese thinker with the idea he is known for.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Saying filial words doesn’t mean you know filial piety",
-          "correct": true
+          "left": "Confucius",
+          "right": "Ren"
         },
         {
-          "id": "b",
-          "label": "Principle is found by staring hard at things like bamboo",
-          "correct": false,
-          "rationale": "Wang gave that method up."
+          "left": "Laozi",
+          "right": "Wu wei"
         },
         {
-          "id": "c",
-          "label": "Rituals are empty and should all be abolished",
-          "correct": false,
-          "rationale": "Neither thinker said that."
-        },
-        {
-          "id": "d",
-          "label": "Knowledge comes before action as a separate step",
-          "correct": false,
-          "rationale": "That’s the view Wang rejected."
+          "left": "Wang Yangming",
+          "right": "The unity of knowing and acting"
         }
       ],
-      "explanation": "Both insist the outward form isn’t enough: for Confucius, ritual needs reverence; for Wang, filial words without filial action aren’t knowledge.",
+      "explanation": "Confucius taught ren, or humaneness. The Daodejing, credited to Laozi, taught wu wei. Wang Yangming taught the unity of knowing and acting.",
       "difficulty": 0.35
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 66,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Locke's Prince and Cobbler",
   "objective": "After this level you can explain Locke's memory theory of personal identity, using a prince's memories waking up in a cobbler's body.",
@@ -121,7 +121,7 @@
     },
     {
       "id": "question.philosophy.066.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.selfhood_memory_theory"
@@ -129,33 +129,15 @@
       "sourceCardIds": [
         "card.philosophy.066.c4"
       ],
-      "prompt": "How does Reid’s brave officer turn Locke’s theory against itself?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Memory links make the general the boy, yet his lost memory says he isn’t",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The officer forgets everything, so he is nobody",
-          "correct": false,
-          "rationale": "He keeps some memories."
-        },
-        {
-          "id": "c",
-          "label": "The officer’s body changes, so Locke calls him a new man",
-          "correct": false,
-          "rationale": "Locke’s test is consciousness, not the body."
-        },
-        {
-          "id": "d",
-          "label": "The officer remembers everything, so Locke’s view works perfectly",
-          "correct": false,
-          "rationale": "He forgets the flogging."
-        }
+      "prompt": "Put the stages of Reid’s brave officer’s life in order, from earliest to latest.",
+      "items": [
+        "Flogged for robbing an orchard",
+        "Captures an enemy standard",
+        "An old general"
       ],
-      "explanation": "The general remembers the officer who remembers the boy, but not the flogging itself, so Locke’s view makes him both the boy and not the boy.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "As a boy he is flogged for robbing an orchard, as a young officer he captures an enemy standard, and later he is an old general who has forgotten the flogging.",
       "difficulty": 0.35
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 24,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Who Is Telling the Story?",
   "objective": "After this level you can identify first person, third person limited and omniscient narration and what each lets a reader know.",
@@ -114,41 +114,31 @@
     },
     {
       "id": "question.literature.024.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.storycraft_point_of_view"
       ],
       "sourceCardIds": [
-        "card.literature.024.c3"
+        "card.literature.024.c3",
+        "card.literature.024.c2"
       ],
-      "prompt": "How does third person limited narration control what you know?",
-      "options": [
+      "prompt": "Match each point of view with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It shows you every character's thoughts",
-          "correct": false,
-          "rationale": "That is omniscient narration."
+          "left": "First-person narration",
+          "right": "Usually a character in the story"
         },
         {
-          "id": "b",
-          "label": "It gives you only one character's thoughts and actions",
-          "correct": true
+          "left": "Third person limited",
+          "right": "Not all-knowing"
         },
         {
-          "id": "c",
-          "label": "It hides every character's thoughts",
-          "correct": false,
-          "rationale": "You do get one character's thoughts."
-        },
-        {
-          "id": "d",
-          "label": "It lets the reader choose whose mind to enter",
-          "correct": false,
-          "rationale": "The writer chooses the one character."
+          "left": "Omniscient narration",
+          "right": "A panoramic view"
         }
       ],
-      "explanation": "Third person limited stays with one character who is not all-knowing, so you get only that character's thoughts and actions.",
+      "explanation": "In first-person narration the narrator is usually a character in the story. Third person limited follows one character who is not all-knowing, and omniscient narration gives a panoramic view.",
       "difficulty": 0.3
     },
     {

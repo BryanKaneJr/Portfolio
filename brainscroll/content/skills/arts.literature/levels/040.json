@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 40,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: How Poetry and Drama Work",
   "objective": "After this level you can read a short poem or scene for its meter, sound, imagery and dramatic shape.",
@@ -156,42 +156,34 @@
     },
     {
       "id": "question.literature.040.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.tyger_close_reading",
         "concept.literature.figure_imagery"
       ],
       "sourceCardIds": [
-        "card.literature.040.c3"
+        "card.literature.040.c3",
+        "card.literature.040.c2",
+        "card.literature.040.c4",
+        "card.literature.033.c3"
       ],
-      "prompt": "How does The Tyger picture the making of the tiger?",
-      "options": [
+      "prompt": "Match each tool with where you find it in The Tyger.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "As a seed growing in a forest",
-          "correct": false,
-          "rationale": "The images come from a forge."
+          "left": "Alliteration",
+          "right": "Could frame thy fearful symmetry"
         },
         {
-          "id": "b",
-          "label": "As a painter mixing colors",
-          "correct": false,
-          "rationale": "The tools are hammer and anvil."
+          "left": "Imagery",
+          "right": "The heat of a furnace"
         },
         {
-          "id": "c",
-          "label": "As metalwork with hammer, chain and furnace",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "As a potter shaping clay",
-          "correct": false,
-          "rationale": "The poem names a furnace and a hammer."
+          "left": "The turn",
+          "right": "\"Could frame\" becomes \"Dare frame\""
         }
       ],
-      "explanation": "Blake likens the making of the tiger to forging molten metal: \"What the hammer? what the chain, / In what furnace was thy brain?\"",
+      "explanation": "\"Could frame thy fearful symmetry\" alliterates, the furnace gives imagery you can feel, and the turn comes when \"Could frame\" becomes \"Dare frame\" in the last stanza.",
       "difficulty": 0.25
     },
     {

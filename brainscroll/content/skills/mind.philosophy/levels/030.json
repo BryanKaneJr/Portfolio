@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 30,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: What Can We Know?",
   "objective": "After this level you can explain how philosophers define knowledge, where they think it comes from and how they answer the skeptic.",
@@ -318,7 +318,7 @@
     },
     {
       "id": "question.philosophy.030.q5",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.knowledge_hume_induction",
@@ -326,35 +326,30 @@
       ],
       "sourceCardIds": [
         "card.philosophy.026.c3",
-        "card.philosophy.027.c5"
+        "card.philosophy.027.c5",
+        "card.philosophy.030.c2",
+        "card.philosophy.030.c4"
       ],
-      "prompt": "What Can We Know? recap: what worry do Hume and the Carvaka critics of inference share?",
-      "options": [
+      "prompt": "Match each answer to the doubter with its thinker.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "That the senses are never reliable at all",
-          "correct": false,
-          "rationale": "The Carvakas trusted perception."
+          "left": "Pyrrhonists",
+          "right": "Suspend judgment"
         },
         {
-          "id": "b",
-          "label": "That no argument justifies generalizing past experience",
-          "correct": true
+          "left": "Putnam",
+          "right": "Words need causal links to things"
         },
         {
-          "id": "c",
-          "label": "That testimony is the best source of knowledge",
-          "correct": false,
-          "rationale": "The Carvakas rejected testimony."
+          "left": "Hume",
+          "right": "Custom guides us anyway"
         },
         {
-          "id": "d",
-          "label": "That numbers and sums can never be known",
-          "correct": false,
-          "rationale": "Neither made that claim."
+          "left": "Peirce",
+          "right": "No fake doubt"
         }
       ],
-      "explanation": "Both doubted that an argument can secure generalizations that outrun what has been observed.",
+      "explanation": "The Pyrrhonists suspend judgment, Putnam says words need causal links to things, Hume says custom guides us anyway, and Peirce says no fake doubt.",
       "difficulty": 0.4
     }
   ],

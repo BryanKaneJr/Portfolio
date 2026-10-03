@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 9,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "India's Schools of Philosophy",
   "objective": "After this level you can name several classical Indian schools, including Nyaya, Vedanta, the materialist Carvaka and the Jains, and one idea each is known for.",
@@ -128,41 +128,37 @@
     },
     {
       "id": "question.philosophy.009.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.indian_schools"
       ],
       "sourceCardIds": [
-        "card.philosophy.009.c5"
+        "card.philosophy.009.c5",
+        "card.philosophy.009.c2",
+        "card.philosophy.009.c3",
+        "card.philosophy.009.c4"
       ],
-      "prompt": "What does the Jain story of the blind men and the elephant illustrate?",
-      "options": [
+      "prompt": "Match each Indian school with its big idea.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "That elephants were sacred to the Jains",
-          "correct": false,
-          "rationale": "It’s about knowledge, not animals."
+          "left": "Nyaya",
+          "right": "Four means of knowledge"
         },
         {
-          "id": "b",
-          "label": "That perception is the only reliable source of knowledge",
-          "correct": false,
-          "rationale": "That’s the Carvaka view."
+          "left": "Advaita",
+          "right": "Non-dual"
         },
         {
-          "id": "c",
-          "label": "That only one of the men was right",
-          "correct": false,
-          "rationale": "Each catches part of the truth."
+          "left": "Carvaka",
+          "right": "Perception alone"
         },
         {
-          "id": "d",
-          "label": "That no single viewpoint captures the whole truth",
-          "correct": true
+          "left": "Jain",
+          "right": "Reality is many-sided"
         }
       ],
-      "explanation": "For Jain philosophers reality is many-sided (anekanta): each view catches part of it, none the whole.",
+      "explanation": "Nyaya counted four means of knowledge, Advaita means “non-dual”, the Carvakas trusted perception alone, and the Jains held that reality is many-sided.",
       "difficulty": 0.3
     },
     {

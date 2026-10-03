@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 98,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "What Makes a Life Meaningful?",
   "objective": "After this level you can weigh views of meaning in life that locate it in God's purpose, in what you care about, or in Susan Wolf's mix of caring and real worth.",
@@ -82,41 +82,36 @@
   "questions": [
     {
       "id": "question.philosophy.098.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.philosophy.meaning_life_meaning"
       ],
       "sourceCardIds": [
-        "card.philosophy.098.c4"
+        "card.philosophy.098.c4",
+        "card.philosophy.098.c2",
+        "card.philosophy.098.c3"
       ],
-      "prompt": "Which slogan sums up Susan Wolf’s view of meaning in life?",
-      "options": [
+      "prompt": "Match each philosopher with his or her view of meaning in life.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Meaning is whatever you happen to love",
-          "correct": false,
-          "rationale": "That’s closer to subjectivism."
+          "left": "William Lane Craig",
+          "right": "God’s purpose"
         },
         {
-          "id": "b",
-          "label": "Meaning comes only from fulfilling God’s purpose",
-          "correct": false,
-          "rationale": "That’s supernaturalism."
+          "left": "Harry Frankfurt",
+          "right": "Care about or love something"
         },
         {
-          "id": "c",
-          "label": "Meaning arises when subjective attraction meets objective attractiveness",
-          "correct": true
+          "left": "Susan Wolf",
+          "right": "A hybrid"
         },
         {
-          "id": "d",
-          "label": "Meaning is an illusion that clear thinking should drop",
-          "correct": false,
-          "rationale": "Wolf defends meaning."
+          "left": "Kurt Baier",
+          "right": "A well-made tool"
         }
       ],
-      "explanation": "Wolf’s hybrid needs both: you must care, and what you care about must be truly worthwhile.",
+      "explanation": "Craig argues only God’s purpose could ground meaning, Frankfurt says meaning comes from caring about or loving something, Wolf’s view is a hybrid, and Baier warned we’d be like a well-made tool.",
       "difficulty": 0.25
     },
     {

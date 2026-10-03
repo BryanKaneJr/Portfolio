@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 44,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Tale of Genji",
   "objective": "After this level you can explain why Murasaki Shikibu's Tale of Genji is often called the world's first novel.",
@@ -135,42 +135,32 @@
     },
     {
       "id": "question.literature.044.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.genji_novel"
       ],
       "sourceCardIds": [
         "card.literature.044.c3",
-        "card.literature.044.c1"
+        "card.literature.044.c1",
+        "card.literature.044.c2"
       ],
-      "prompt": "Why is The Tale of Genji often called the world's first novel?",
-      "options": [
+      "prompt": "Match each name with what goes with it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It was the first book ever printed in Japan",
-          "correct": false,
-          "rationale": "The title is about how the story is told, not printing."
+          "left": "Murasaki Shikibu",
+          "right": "A court lady"
         },
         {
-          "id": "b",
-          "label": "It's a long poem about a warrior's heroic deeds",
-          "correct": false,
-          "rationale": "That describes an epic."
+          "left": "Hiragana",
+          "right": "A script for writing Japanese"
         },
         {
-          "id": "c",
-          "label": "It follows one life and its legacy across 54 chapters",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It was written in Chinese for government officials",
-          "correct": false,
-          "rationale": "Hiragana gave court women their chance to write."
+          "left": "The Tale of Genji",
+          "right": "54 chapters"
         }
       ],
-      "explanation": "Genji follows one character and his legacy through 54 chapters, with deep sensitivity to human emotion: what novels do.",
+      "explanation": "Murasaki Shikibu was a court lady at the Japanese court. Hiragana is a script for writing Japanese, and The Tale of Genji follows one life through 54 chapters.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 77,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Watchmaker Argument",
   "objective": "After this level you can explain William Paley's argument from a watch found on a heath and the replies from Hume and from Darwin's theory of evolution.",
@@ -89,41 +89,38 @@
   "questions": [
     {
       "id": "question.philosophy.077.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.philosophy.god_design_argument"
       ],
       "sourceCardIds": [
-        "card.philosophy.077.c2"
+        "card.philosophy.077.c2",
+        "card.philosophy.077.c1",
+        "card.philosophy.077.c3",
+        "card.philosophy.077.c4",
+        "card.philosophy.077.c5"
       ],
-      "prompt": "In Paley’s argument, what makes the watch different from the stone?",
-      "options": [
+      "prompt": "Match each thinker with the idea linked to him.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It is made of metal, not rock",
-          "correct": false,
-          "rationale": "Material isn’t his point."
+          "left": "William Paley",
+          "right": "The watch and the eye"
         },
         {
-          "id": "b",
-          "label": "It was found in a town, not on a heath",
-          "correct": false,
-          "rationale": "Both lie on the heath."
+          "left": "Philo",
+          "right": "Infant deity"
         },
         {
-          "id": "c",
-          "label": "Its parts are put together for a purpose",
-          "correct": true
+          "left": "Charles Darwin",
+          "right": "Natural selection"
         },
         {
-          "id": "d",
-          "label": "It is newer than the stone",
-          "correct": false,
-          "rationale": "Age isn’t his point."
+          "left": "George Schlesinger",
+          "right": "Fine-tuning"
         }
       ],
-      "explanation": "The watch’s parts are framed and put together for a purpose, so Paley infers it must have had a maker.",
+      "explanation": "Paley argued from the watch and the eye, Hume’s Philo joked about some infant deity, Darwin offered natural selection, and Schlesinger argued that design best explains fine-tuning.",
       "difficulty": 0.2
     },
     {

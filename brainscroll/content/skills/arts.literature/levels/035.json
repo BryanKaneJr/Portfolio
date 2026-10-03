@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 35,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Sonnet",
   "objective": "After this level you can explain how a sonnet's 14 lines are built in its Italian and English forms and where its turn comes.",
@@ -146,7 +146,7 @@
     },
     {
       "id": "question.literature.035.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.sonnet_forms",
@@ -156,33 +156,26 @@
         "card.literature.035.c3",
         "card.literature.035.c4"
       ],
-      "prompt": "How is an English (Shakespearean) sonnet built?",
-      "options": [
+      "prompt": "Match each part of a sonnet with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "An octave and a sestet, turning after line 8",
-          "correct": false,
-          "rationale": "That's the Italian form."
+          "left": "Octave",
+          "right": "8 lines, abbaabba"
         },
         {
-          "id": "b",
-          "label": "Three quatrains and a couplet, turning before the couplet",
-          "correct": true
+          "left": "Sestet",
+          "right": "6 lines that answer it"
         },
         {
-          "id": "c",
-          "label": "Seven couplets, all on one rhyme",
-          "correct": false,
-          "rationale": "It uses three quatrains and one couplet."
+          "left": "Three quatrains",
+          "right": "abab cdcd efef"
         },
         {
-          "id": "d",
-          "label": "Any 14 lines with no rhyme at all",
-          "correct": false,
-          "rationale": "It has a set rhyme scheme."
+          "left": "Volta",
+          "right": "Italian for \"turn\""
         }
       ],
-      "explanation": "The English sonnet rhymes abab cdcd efef gg, and its turn usually comes before the final couplet.",
+      "explanation": "The Italian sonnet's octave has 8 lines rhymed abbaabba and its sestet has 6 lines that answer it. The English sonnet's three quatrains rhyme abab cdcd efef. The volta is Italian for \"turn\".",
       "difficulty": 0.3
     },
     {

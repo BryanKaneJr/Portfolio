@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 32,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Ghost in the Machine",
   "objective": "After this level you can explain Descartes's dualism of mind and matter, Princess Elisabeth's question about how they interact, and Ryle's nickname for it.",
@@ -176,7 +176,7 @@
     },
     {
       "id": "question.philosophy.032.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.mind_cartesian_dualism",
@@ -184,35 +184,27 @@
       ],
       "sourceCardIds": [
         "card.philosophy.032.c5",
-        "card.philosophy.008.c4"
+        "card.philosophy.008.c4",
+        "card.philosophy.032.c2",
+        "card.philosophy.032.c3",
+        "card.philosophy.032.c4"
       ],
-      "prompt": "Ryle’s University is just the way its colleges and libraries are organized. Which image from Level 8 makes a similar point about a person?",
-      "options": [
+      "prompt": "Match each thinker with the idea linked to them.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Nagasena’s chariot, a name for parts put together",
-          "correct": true
+          "left": "Descartes",
+          "right": "Mind-body dualism"
         },
         {
-          "id": "b",
-          "label": "Gyges’s ring, which makes its wearer invisible",
-          "correct": false,
-          "rationale": "The ring tests whether people stay just."
+          "left": "Princess Elisabeth",
+          "right": "Contact needs a surface"
         },
         {
-          "id": "c",
-          "label": "Plato’s equal sticks",
-          "correct": false,
-          "rationale": "The sticks point to the Form of Equality."
-        },
-        {
-          "id": "d",
-          "label": "Butcher Ding’s knife",
-          "correct": false,
-          "rationale": "The knife shows wu wei."
+          "left": "Gilbert Ryle",
+          "right": "A category mistake"
         }
       ],
-      "explanation": "Both refuse to add an extra thing: the University is its organized parts, and the chariot is a name for its parts put together.",
+      "explanation": "Descartes held mind-body dualism, Princess Elisabeth objected that contact needs a surface, and Gilbert Ryle diagnosed a category mistake.",
       "difficulty": 0.3
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 64,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Dickens and the Serial Novel",
   "objective": "After this level you can explain how publishing in monthly parts shaped Dickens's cliffhangers, huge casts and fight against poverty.",
@@ -176,7 +176,7 @@
     },
     {
       "id": "question.literature.064.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.literature.dickens_public_readings",
@@ -184,35 +184,20 @@
       ],
       "sourceCardIds": [
         "card.literature.064.c5",
-        "card.literature.006.c4"
+        "card.literature.006.c4",
+        "card.literature.064.c2",
+        "card.literature.064.c4"
       ],
-      "prompt": "In Level 6, a singer who could not read performed a huge epic aloud. How did Dickens bring his own stories back to the voice?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He rewrote them in Homeric stock phrases",
-          "correct": false,
-          "rationale": "He kept his prose."
-        },
-        {
-          "id": "b",
-          "label": "He gave paid public readings of his work",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "He hired actors to memorize every novel",
-          "correct": false,
-          "rationale": "He performed them himself."
-        },
-        {
-          "id": "d",
-          "label": "He published them only as songs",
-          "correct": false,
-          "rationale": "They were novels, read aloud."
-        }
+      "prompt": "Put these in order by when they began, from earliest to latest.",
+      "items": [
+        "Pickwick Papers",
+        "Oliver Twist",
+        "Occasional charity readings",
+        "His paid series began"
       ],
-      "explanation": "From April 1858 Dickens gave paid public readings of his own work, taking his fiction back to live performance.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Pickwick Papers began in monthly parts in 1836, Oliver Twist was serialized from 1837, Dickens gave occasional charity readings from 1853, and his paid series of readings began in 1858.",
       "difficulty": 0.3
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 71,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Plato's Cave, Revisited",
   "objective": "After this level you can explain what Plato's cave argues about appearance, reality and education, and why Aristotle and the empiricists rejected its two worlds.",
@@ -89,41 +89,25 @@
   "questions": [
     {
       "id": "question.philosophy.071.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.philosophy.reality_cave_argument"
       ],
       "sourceCardIds": [
-        "card.philosophy.071.c2"
+        "card.philosophy.071.c2",
+        "card.philosophy.071.c3"
       ],
-      "prompt": "In Plato’s cave, what do the chained prisoners take to be the whole truth?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The shadows on the wall",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The fire behind them",
-          "correct": false,
-          "rationale": "They can’t turn to see it."
-        },
-        {
-          "id": "c",
-          "label": "Reflections of the sun in water",
-          "correct": false,
-          "rationale": "Only the freed prisoner sees those, outside."
-        },
-        {
-          "id": "d",
-          "label": "The people carrying objects past",
-          "correct": false,
-          "rationale": "They never see the carriers."
-        }
+      "prompt": "Once the freed prisoner is up in daylight, put what he sees in order, from first to last.",
+      "items": [
+        "Shadows",
+        "Reflections in water",
+        "The things themselves",
+        "The sun"
       ],
-      "explanation": "Chained to face the wall, the prisoners see only shadows, so to them the truth is nothing but the shadows.",
+      "first": "Seen first",
+      "last": "Seen last",
+      "explanation": "Dazzled in the daylight, he sees shadows first, then reflections in water, then the things themselves, and at last the sun.",
       "difficulty": 0.2
     },
     {

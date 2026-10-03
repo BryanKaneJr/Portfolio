@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 21,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "What Is Knowledge?",
   "objective": "After this level you can explain the classic definition of knowledge as justified true belief and what each of its three parts adds.",
@@ -139,41 +139,32 @@
     },
     {
       "id": "question.philosophy.021.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.knowledge_jtb"
       ],
       "sourceCardIds": [
-        "card.philosophy.021.c5"
+        "card.philosophy.021.c5",
+        "card.philosophy.021.c3",
+        "card.philosophy.021.c4"
       ],
-      "prompt": "How does the justification condition stop a lucky coin call from counting as knowledge?",
-      "options": [
+      "prompt": "Match each leg of the classic definition with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It requires the belief to be written down first",
-          "correct": false,
-          "rationale": "Writing a guess down doesn’t give it support."
+          "left": "Truth",
+          "right": "What is false cannot be known"
         },
         {
-          "id": "b",
-          "label": "It requires good support for the belief, which a guess lacks",
-          "correct": true
+          "left": "Belief",
+          "right": "You can only know what you believe"
         },
         {
-          "id": "c",
-          "label": "It requires several people to share the belief",
-          "correct": false,
-          "rationale": "A shared guess is still a guess."
-        },
-        {
-          "id": "d",
-          "label": "It requires the belief to be about the past",
-          "correct": false,
-          "rationale": "The coin call is about a future toss either way."
+          "left": "Justification",
+          "right": "The leg that keeps luck out"
         }
       ],
-      "explanation": "Justification demands good reasons; a lucky guess, like the jury’s lawyer-made belief, is right without them.",
+      "explanation": "Truth: what is false cannot be known. Belief: you can only know what you believe. Justification is the leg that keeps luck out.",
       "difficulty": 0.3
     },
     {

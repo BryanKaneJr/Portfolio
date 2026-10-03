@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 84,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Can They Suffer?",
   "objective": "After this level you can weigh the arguments of Bentham, Singer and their critics about whether animals’ suffering counts morally as much as ours.",
@@ -89,41 +89,36 @@
   "questions": [
     {
       "id": "question.philosophy.084.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.philosophy.dilemma_animal_suffering"
       ],
       "sourceCardIds": [
-        "card.philosophy.084.c2"
+        "card.philosophy.084.c2",
+        "card.philosophy.084.c3",
+        "card.philosophy.084.c4"
       ],
-      "prompt": "According to Bentham, which question decides whether a being’s interests count?",
-      "options": [
+      "prompt": "Match each thinker with his view on animals.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Can they reason?",
-          "correct": false,
-          "rationale": "Bentham rejected reason as the test."
+          "left": "Bentham",
+          "right": "Can they suffer?"
         },
         {
-          "id": "b",
-          "label": "Can they talk?",
-          "correct": false,
-          "rationale": "Bentham rejected speech as the test."
+          "left": "Peter Singer",
+          "right": "Equal consideration of interests"
         },
         {
-          "id": "c",
-          "label": "Are they human?",
-          "correct": false,
-          "rationale": "That is the line Bentham challenged."
+          "left": "Aristotle",
+          "right": "Serve the needs of human beings"
         },
         {
-          "id": "d",
-          "label": "Can they suffer?",
-          "correct": true
+          "left": "Kant",
+          "right": "Hard also in his dealings with men"
         }
       ],
-      "explanation": "Bentham wrote that the question is not whether they can reason or talk, but whether they can suffer.",
+      "explanation": "Bentham asked “Can they suffer?”, Singer gave equal consideration of interests, Aristotle said animals serve the needs of human beings, and Kant warned that cruelty makes a person hard also in his dealings with men.",
       "difficulty": 0.15
     },
     {

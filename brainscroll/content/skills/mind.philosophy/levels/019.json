@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 19,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Kant's Revolution",
   "objective": "After this level you can explain Kant's claim that the mind shapes experience through space, time and cause, and how it answered both rationalists and empiricists.",
@@ -167,7 +167,7 @@
     },
     {
       "id": "question.philosophy.019.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.kant_copernican_revolution",
@@ -175,35 +175,19 @@
       ],
       "sourceCardIds": [
         "card.philosophy.019.c4",
-        "card.philosophy.018.c2"
+        "card.philosophy.018.c2",
+        "card.philosophy.019.c3",
+        "card.philosophy.016.c2"
       ],
-      "prompt": "Locke in Level 18 called the newborn mind a blank slate. What did Kant say about the mind instead?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It is a blank slate after all",
-          "correct": false,
-          "rationale": "Kant rejected that."
-        },
-        {
-          "id": "b",
-          "label": "It already holds every idea at birth",
-          "correct": false,
-          "rationale": "Kant didn’t say the mind holds all ideas ready-made."
-        },
-        {
-          "id": "c",
-          "label": "It actively structures what the senses deliver",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It is a collection of perceptions only",
-          "correct": false,
-          "rationale": "That’s closer to Hume’s bundle view."
-        }
+      "prompt": "Put these books in order, from earliest to latest.",
+      "items": [
+        "Meditations",
+        "Essay Concerning Human Understanding",
+        "Critique of Pure Reason"
       ],
-      "explanation": "Kant argued the mind is no blank slate: it supplies the forms that structure all experience.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Descartes’s Meditations came out in 1641, Locke’s Essay Concerning Human Understanding in 1689, and Kant’s Critique of Pure Reason in 1781.",
       "difficulty": 0.3
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 63,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Frankenstein, the Modern Prometheus",
   "objective": "After this level you can connect Mary Shelley's Frankenstein to the Prometheus myth and to the birth of science fiction.",
@@ -134,42 +134,37 @@
     },
     {
       "id": "question.literature.063.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.frankenstein_science_fiction"
       ],
       "sourceCardIds": [
         "card.literature.063.c2",
-        "card.literature.063.c4"
+        "card.literature.063.c4",
+        "card.literature.063.c1",
+        "card.literature.063.c3"
       ],
-      "prompt": "Why is Frankenstein often counted as early science fiction rather than only a Gothic tale?",
-      "options": [
+      "prompt": "Match each name with what goes with it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It is set on another planet",
-          "correct": false,
-          "rationale": "It is set on Earth."
+          "left": "Lord Byron",
+          "right": "Challenged his guests"
         },
         {
-          "id": "b",
-          "label": "Its hero makes life by experiment, not magic",
-          "correct": true
+          "left": "Victor Frankenstein",
+          "right": "A practicing scientist"
         },
         {
-          "id": "c",
-          "label": "It has no mystery or terror at all",
-          "correct": false,
-          "rationale": "It is still part Gothic novel."
+          "left": "Prometheus",
+          "right": "Stole fire for humans"
         },
         {
-          "id": "d",
-          "label": "Its creature is a Greek god in disguise",
-          "correct": false,
-          "rationale": "The creature is made by a scientist."
+          "left": "Mary Shelley",
+          "right": "The mother of science fiction"
         }
       ],
-      "explanation": "Shelley made her hero a scientist interested in galvanic electricity, so the story rests on an experiment instead of the occult.",
+      "explanation": "Lord Byron challenged his guests to write ghost stories, and Victor Frankenstein is a practicing scientist. Prometheus stole fire for humans, and Mary Shelley is called the mother of science fiction.",
       "difficulty": 0.35
     },
     {

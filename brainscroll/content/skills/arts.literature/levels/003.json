@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 3,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Gilgamesh, the Oldest Epic",
   "objective": "After this level you can retell the Epic of Gilgamesh and explain its king's failed search for a way to escape death.",
@@ -129,41 +129,27 @@
     },
     {
       "id": "question.literature.003.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.gilgamesh_search_for_immortality"
       ],
       "sourceCardIds": [
-        "card.literature.003.c4"
+        "card.literature.003.c4",
+        "card.literature.003.c2",
+        "card.literature.003.c3"
       ],
-      "prompt": "How does Gilgamesh's search for a way out of death end?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He eats the plant and becomes a god",
-          "correct": false,
-          "rationale": "He never gets to eat it."
-        },
-        {
-          "id": "b",
-          "label": "Utnapishtim refuses to tell him anything at all",
-          "correct": false,
-          "rationale": "Utnapishtim tells him about the plant."
-        },
-        {
-          "id": "c",
-          "label": "A serpent takes the plant and he returns home still mortal",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Enkidu is brought back to life",
-          "correct": false,
-          "rationale": "Enkidu stays dead."
-        }
+      "prompt": "Put these events of the Epic of Gilgamesh in order, from first to last.",
+      "items": [
+        "The gods create Enkidu",
+        "Together they kill Humbaba",
+        "The gods decide Enkidu must die",
+        "A dangerous journey to find Utnapishtim",
+        "Gilgamesh goes home to Uruk still mortal"
       ],
-      "explanation": "Gilgamesh gets the plant that renews youth, a serpent seizes it, and he returns to Uruk still mortal.",
+      "first": "Start of the story",
+      "last": "End of the story",
+      "explanation": "The gods create Enkidu, he and Gilgamesh kill Humbaba, and the gods decide Enkidu must die. Gilgamesh journeys to find Utnapishtim, loses the plant to a serpent and goes home still mortal.",
       "difficulty": 0.2
     },
     {

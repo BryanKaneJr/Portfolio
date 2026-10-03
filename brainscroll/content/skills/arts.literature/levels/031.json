@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 31,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "What Makes a Poem a Poem",
   "objective": "After this level you can explain how line breaks, compression and sound set poetry apart from prose.",
@@ -85,41 +85,35 @@
   "questions": [
     {
       "id": "question.literature.031.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.literature.poem_line"
       ],
       "sourceCardIds": [
-        "card.literature.031.c2"
+        "card.literature.031.c2",
+        "card.literature.031.c1"
       ],
-      "prompt": "What is enjambment?",
-      "options": [
+      "prompt": "Match each term with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A line that ends with punctuation",
-          "correct": false,
-          "rationale": "That's an end-stopped line."
+          "left": "Prose",
+          "right": "Words in their best order"
         },
         {
-          "id": "b",
-          "label": "A rhyme at the end of two lines",
-          "correct": false,
-          "rationale": "Enjambment is about sentences, not rhyme."
+          "left": "Poetry",
+          "right": "The best words in the best order"
         },
         {
-          "id": "c",
-          "label": "A sentence that runs on across a line break",
-          "correct": true
+          "left": "End-stopped",
+          "right": "Stop at punctuation"
         },
         {
-          "id": "d",
-          "label": "A word repeated at the start of each line",
-          "correct": false,
-          "rationale": "That's repetition, not enjambment."
+          "left": "Enjambment",
+          "right": "A sentence strides over the line break"
         }
       ],
-      "explanation": "Enjambment, from the French for \"to stride over,\" is a sentence or clause continuing across a line break.",
+      "explanation": "Coleridge called prose words in their best order and poetry the best words in the best order. An end-stopped line stops at punctuation; in enjambment a sentence strides over the line break.",
       "difficulty": 0.2
     },
     {

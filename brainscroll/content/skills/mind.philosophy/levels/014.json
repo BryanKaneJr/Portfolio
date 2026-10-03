@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 14,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Thomas Aquinas: Faith and Reason",
   "objective": "After this level you can explain how Thomas Aquinas combined Aristotle with Christian theology and why he held that faith and reason cannot truly conflict.",
@@ -174,7 +174,7 @@
     },
     {
       "id": "question.philosophy.014.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.aquinas_faith_reason",
@@ -182,35 +182,20 @@
       ],
       "sourceCardIds": [
         "card.philosophy.014.c5",
-        "card.philosophy.013.c4"
+        "card.philosophy.013.c4",
+        "card.philosophy.014.c2",
+        "card.philosophy.013.c2",
+        "card.philosophy.011.c2"
       ],
-      "prompt": "Maimonides in Level 13 read “God is good” as a denial. What did Aquinas say it means instead?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Only that God is not evil, and nothing more",
-          "correct": false,
-          "rationale": "That’s the reading he rejected."
-        },
-        {
-          "id": "b",
-          "label": "That God is the cause of goodness and nothing more",
-          "correct": false,
-          "rationale": "He rejected that reduction too."
-        },
-        {
-          "id": "c",
-          "label": "Nothing at all, since God can’t be described",
-          "correct": false,
-          "rationale": "He held the words do apply to God."
-        },
-        {
-          "id": "d",
-          "label": "The good in creatures exists in God first, in a higher way",
-          "correct": true
-        }
+      "prompt": "Put these thinkers in order, from earliest to latest.",
+      "items": [
+        "Avicenna",
+        "Maimonides",
+        "Thomas Aquinas"
       ],
-      "explanation": "Aquinas held positive words apply to God: the good in creatures pre-exists in God in a higher way than we grasp.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Avicenna died in 1037, Maimonides lived from 1138 to 1204, and Thomas Aquinas lived from about 1225 to 1274.",
       "difficulty": 0.35
     }
   ],

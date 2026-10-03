@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 45,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Thousand and One Nights",
   "objective": "After this level you can explain why Scheherazade tells her stories and how a frame story holds many tales together.",
@@ -130,41 +130,36 @@
     },
     {
       "id": "question.literature.045.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.nights_frame_story"
       ],
       "sourceCardIds": [
-        "card.literature.045.c2"
+        "card.literature.045.c2",
+        "card.literature.045.c1",
+        "card.literature.045.c4"
       ],
-      "prompt": "Why does King Shahryar keep putting off Scheherazade's execution?",
-      "options": [
+      "prompt": "Match each name with what goes with it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "He wants to hear how each unfinished story ends",
-          "correct": true
+          "left": "King Shahryar",
+          "right": "Marries a new wife each day"
         },
         {
-          "id": "b",
-          "label": "She pays him a ransom every morning",
-          "correct": false,
-          "rationale": "Her only tool is the unfinished story."
+          "left": "Scheherazade",
+          "right": "Leaves it unfinished"
         },
         {
-          "id": "c",
-          "label": "His advisers forbid the execution",
-          "correct": false,
-          "rationale": "Nothing stops him but his curiosity."
+          "left": "Antoine Galland",
+          "right": "French translation"
         },
         {
-          "id": "d",
-          "label": "She promises to leave the city forever",
-          "correct": false,
-          "rationale": "She stays and keeps telling."
+          "left": "A Thousand Tales",
+          "right": "Its Persian source"
         }
       ],
-      "explanation": "Scheherazade leaves each night's story unfinished, so the king postpones her execution to hear the ending, and at last abandons his plan.",
+      "explanation": "King Shahryar marries a new wife each day, and Scheherazade leaves each story unfinished. Antoine Galland made the French translation, and A Thousand Tales was its Persian source.",
       "difficulty": 0.2
     },
     {

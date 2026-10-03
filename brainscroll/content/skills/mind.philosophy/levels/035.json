@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 35,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Can Machines Think?",
   "objective": "After this level you can explain Alan Turing's 1950 imitation game and what passing it would and would not show.",
@@ -167,7 +167,7 @@
     },
     {
       "id": "question.philosophy.035.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.mind_turing_test",
@@ -175,35 +175,26 @@
       ],
       "sourceCardIds": [
         "card.philosophy.035.c5",
-        "card.philosophy.034.c4"
+        "card.philosophy.034.c4",
+        "card.philosophy.035.c2",
+        "card.philosophy.035.c4"
       ],
-      "prompt": "Level 34 compared minds to programs. What does Ned Block’s Blockhead suggest about a program that passes Turing’s test?",
-      "options": [
+      "prompt": "Match each person with the idea linked to them.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It must have experiences just like ours, since it passes",
-          "correct": false,
-          "rationale": "Blockhead is meant to show the opposite."
+          "left": "Turing",
+          "right": "The imitation game"
         },
         {
-          "id": "b",
-          "label": "It could pass by looking up stored replies, without thinking",
-          "correct": true
+          "left": "Professor Jefferson",
+          "right": "A machine must feel its thoughts"
         },
         {
-          "id": "c",
-          "label": "It proves the program runs on neurons",
-          "correct": false,
-          "rationale": "Blockhead isn’t about neurons."
-        },
-        {
-          "id": "d",
-          "label": "It shows the interrogator was a machine",
-          "correct": false,
-          "rationale": "The interrogator isn’t in question."
+          "left": "Ned Block",
+          "right": "Blockhead"
         }
       ],
-      "explanation": "Blockhead gives the right answers from a giant look-up tree, so passing the test may not be enough for intelligence.",
+      "explanation": "Turing proposed the imitation game, Professor Jefferson argued a machine must feel its thoughts, and Ned Block imagined Blockhead.",
       "difficulty": 0.35
     }
   ],

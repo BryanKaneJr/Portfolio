@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 25,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Knowing Without Looking",
   "objective": "After this level you can tell a priori knowledge, known by reason alone, from a posteriori knowledge, known through experience.",
@@ -183,7 +183,7 @@
     },
     {
       "id": "question.philosophy.025.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.knowledge_a_priori",
@@ -191,35 +191,29 @@
       ],
       "sourceCardIds": [
         "card.philosophy.025.c2",
-        "card.philosophy.021.c2"
+        "card.philosophy.021.c2",
+        "card.philosophy.025.c3"
       ],
-      "prompt": "Level 21’s third leg was justification. What makes a justification a priori?",
-      "options": [
+      "prompt": "Match each claim with how it is known.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It is shared by most people",
-          "correct": false,
-          "rationale": "Popularity doesn’t make it a priori."
+          "left": "Cubes have six sides",
+          "right": "A priori"
         },
         {
-          "id": "b",
-          "label": "It comes independently of experience",
-          "correct": true
+          "left": "All bachelors are unmarried",
+          "right": "A priori"
         },
         {
-          "id": "c",
-          "label": "It was written down long ago",
-          "correct": false,
-          "rationale": "Age doesn’t matter."
+          "left": "Water is H2O",
+          "right": "A posteriori"
         },
         {
-          "id": "d",
-          "label": "It makes the belief certain to be popular",
-          "correct": false,
-          "rationale": "Popularity isn’t the point."
+          "left": "Dinosaurs existed",
+          "right": "A posteriori"
         }
       ],
-      "explanation": "A priori knowledge is justified independently of experience, apart from learning the words.",
+      "explanation": "“Cubes have six sides” and “All bachelors are unmarried” are a priori. “Water is H2O” and “Dinosaurs existed” are a posteriori: they are known through experience.",
       "difficulty": 0.3
     }
   ],

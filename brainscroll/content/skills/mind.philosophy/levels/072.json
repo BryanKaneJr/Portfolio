@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 72,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Zeno's Impossible Race",
   "objective": "After this level you can explain Zeno's paradox of Achilles and the tortoise and how the mathematics of infinite series is often said to answer it.",
@@ -171,7 +171,7 @@
     },
     {
       "id": "question.philosophy.072.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.reality_zeno_achilles",
@@ -179,35 +179,20 @@
       ],
       "sourceCardIds": [
         "card.philosophy.072.c3",
-        "card.philosophy.003.c2"
+        "card.philosophy.003.c2",
+        "card.philosophy.072.c2",
+        "card.philosophy.072.c4",
+        "card.philosophy.072.c5"
       ],
-      "prompt": "No one needs a real tortoise to test Zeno. Like the thought experiments of Level 3, what does his paradox do instead?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Measures real runners with a stopwatch",
-          "correct": false,
-          "rationale": "No race is run."
-        },
-        {
-          "id": "b",
-          "label": "Pictures a situation and reasons about what would happen",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Takes a vote among philosophers",
-          "correct": false,
-          "rationale": "It rests on reasoning, not votes."
-        },
-        {
-          "id": "d",
-          "label": "Relies on the word of an oracle",
-          "correct": false,
-          "rationale": "It rests on reasoning alone."
-        }
+      "prompt": "Put these thinkers in order, from earliest to latest.",
+      "items": [
+        "Zeno of Elea",
+        "Cauchy",
+        "James Thomson"
       ],
-      "explanation": "A thought experiment pictures a carefully built situation and reasons about it; Zeno’s race is run only in the mind.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Zeno of Elea was born around 490 BCE, Cauchy gave a rigorous theory of infinite sums in the 19th century, and James Thomson imagined his lamp in 1954.",
       "difficulty": 0.25
     }
   ],
