@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 8,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Processor's Endless Loop",
   "objective": "After this level you can explain the fetch, decode and execute cycle a processor repeats billions of times a second.",
@@ -130,41 +130,24 @@
     },
     {
       "id": "question.computers.008.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.fetch_decode_execute"
       ],
       "sourceCardIds": [
-        "card.computers.008.c3"
+        "card.computers.008.c3",
+        "card.computers.008.c2"
       ],
-      "prompt": "How can a program go back and repeat a step it already ran?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The clock runs backward for a moment",
-          "correct": false,
-          "rationale": "The clock only ticks forward at a fixed rate."
-        },
-        {
-          "id": "b",
-          "label": "The processor fetches the whole program again from storage",
-          "correct": false,
-          "rationale": "It just changes where the next fetch comes from."
-        },
-        {
-          "id": "c",
-          "label": "A jump instruction changes the program counter to an earlier address",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The decode step reads the instruction twice",
-          "correct": false,
-          "rationale": "Decoding splits one instruction into its parts."
-        }
+      "prompt": "Put the steps of the processor's loop in order.",
+      "items": [
+        "Fetch",
+        "Decode",
+        "Execute"
       ],
-      "explanation": "Jumps and branches change the program counter, so the next fetch comes from a different address.",
+      "first": "First step",
+      "last": "Last step",
+      "explanation": "The processor fetches the instruction, decodes it into its parts, then executes it, and the cycle starts over.",
       "difficulty": 0.3
     },
     {

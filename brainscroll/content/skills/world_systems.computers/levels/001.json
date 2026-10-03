@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 1,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Computers & the Internet: The Big Picture",
   "objective": "After this level you can follow a single photo from your phone's switches and software, across the internet, to a friend's screen.",
@@ -79,41 +79,26 @@
   "questions": [
     {
       "id": "question.computers.001.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.photo_journey"
       ],
       "sourceCardIds": [
-        "card.computers.001.c4"
+        "card.computers.001.c4",
+        "card.computers.001.c2",
+        "card.computers.001.c3"
       ],
-      "prompt": "How does your photo travel across the internet to a friend's phone?",
-      "options": [
-        {
-          "id": "a",
-          "label": "As one unbroken file on a line held open just for it",
-          "correct": false,
-          "rationale": "Packet switching needs no dedicated line; the photo is split up."
-        },
-        {
-          "id": "b",
-          "label": "In small packets that travel separately and are reassembled",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "As a picture beamed straight from screen to screen",
-          "correct": false,
-          "rationale": "It travels as numbers, not as a picture."
-        },
-        {
-          "id": "d",
-          "label": "As printed pixels copied by each router",
-          "correct": false,
-          "rationale": "Routers pass along packets of numbers."
-        }
+      "prompt": "Put the stops of your photo's trip in order, from your tap to your friend's screen.",
+      "items": [
+        "Light becomes numbers",
+        "Switches that follow orders",
+        "In pieces across the internet",
+        "Your friend's phone reassembles them"
       ],
-      "explanation": "Packet switching breaks data into small packets that travel independently by any available route and are reassembled at the destination.",
+      "first": "Your tap",
+      "last": "Your friend's screen",
+      "explanation": "First light becomes numbers, then the processor's switches follow the app's orders, then the photo crosses the internet in pieces, and finally your friend's phone reassembles them.",
       "difficulty": 0.15
     },
     {

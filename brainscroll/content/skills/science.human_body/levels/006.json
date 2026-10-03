@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 6,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Genes",
   "objective": "After this level you can explain what a gene does and how genes lead to proteins.",
@@ -141,7 +141,7 @@
     },
     {
       "id": "question.human_body.006.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.gene_to_protein"
@@ -150,32 +150,15 @@
         "card.human_body.006.c4",
         "card.human_body.006.c1"
       ],
-      "prompt": "Why does a cell copy a gene into messenger RNA before building a protein?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The RNA is the cell's fuel",
-          "correct": false,
-          "rationale": "Mitochondria handle energy."
-        },
-        {
-          "id": "b",
-          "label": "The copy carries the message out of the nucleus to a ribosome",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It turns the gene into a new chromosome",
-          "correct": false,
-          "rationale": "Chromosomes stay as they are; the copy is temporary."
-        },
-        {
-          "id": "d",
-          "label": "It destroys genes the cell no longer needs",
-          "correct": false,
-          "rationale": "The original gene stays in place."
-        }
+      "prompt": "Put the steps from gene to protein in order, from first to last.",
+      "items": [
+        "Copies a gene into messenger RNA",
+        "Carries the message out of the nucleus",
+        "Reads that copy three letters at a time",
+        "The ribosome links them in order"
       ],
+      "first": "First step",
+      "last": "Last step",
       "explanation": "Messenger RNA carries the gene's message out of the nucleus to the ribosomes in the cytoplasm, which build the protein.",
       "difficulty": 0.25
     },

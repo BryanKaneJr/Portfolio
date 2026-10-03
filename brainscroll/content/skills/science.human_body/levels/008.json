@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 8,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Microbes on You",
   "objective": "After this level you can explain the trillions of microbes that live on and in the body.",
@@ -169,7 +169,7 @@
     },
     {
       "id": "question.human_body.008.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.microbiome_residents",
@@ -177,32 +177,26 @@
       ],
       "sourceCardIds": [
         "card.human_body.008.c4",
-        "card.human_body.006.c2"
+        "card.human_body.006.c2",
+        "card.human_body.008.c2"
       ],
-      "prompt": "Level 6 counted about 20,000 human protein-coding genes. How does your microbiome's gene count compare?",
-      "options": [
+      "prompt": "Match each number from your microbiome count with what it counts.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "About 200 genes, far fewer",
-          "correct": false,
-          "rationale": "Microbes carry far more genes than that."
+          "left": "About 38 trillion",
+          "right": "Bacteria"
         },
         {
-          "id": "b",
-          "label": "About 20,000, the same as yours",
-          "correct": false,
-          "rationale": "Their total is hundreds of times larger."
+          "left": "About 30 trillion",
+          "right": "Human cells"
         },
         {
-          "id": "c",
-          "label": "About 8 million, hundreds of times more",
-          "correct": true
+          "left": "More than 10,000",
+          "right": "Species"
         },
         {
-          "id": "d",
-          "label": "None, since bacteria have no genes",
-          "correct": false,
-          "rationale": "Bacteria have genes; together they carry millions."
+          "left": "About 8 million",
+          "right": "Genes"
         }
       ],
       "explanation": "The microbiome carries about 8 million unique protein-coding genes, hundreds of times more than the human genome.",

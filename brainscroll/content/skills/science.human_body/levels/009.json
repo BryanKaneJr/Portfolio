@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 9,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "How We Learned About the Body",
   "objective": "After this level you can describe how dissection and microscopes revealed the body's inner workings.",
@@ -103,40 +103,24 @@
   "questions": [
     {
       "id": "question.human_body.009.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.vesalius_dissection"
       ],
       "sourceCardIds": [
-        "card.human_body.009.c2"
+        "card.human_body.009.c2",
+        "card.human_body.009.c3"
       ],
-      "prompt": "What did Andreas Vesalius base his 1543 anatomy book on?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Human dissections he did himself",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Galen's animal dissections",
-          "correct": false,
-          "rationale": "Vesalius used his own human dissections and corrected Galen."
-        },
-        {
-          "id": "c",
-          "label": "Views of cells through a microscope",
-          "correct": false,
-          "rationale": "Microscopes came later."
-        },
-        {
-          "id": "d",
-          "label": "Drawings copied from older books",
-          "correct": false,
-          "rationale": "He worked from bodies he dissected himself."
-        }
+      "prompt": "Put these anatomy and microscope milestones in order, from earliest to latest.",
+      "items": [
+        "Vesalius",
+        "Robert Hooke",
+        "Leeuwenhoek",
+        "Schleiden and Schwann"
       ],
+      "first": "Earliest",
+      "last": "Latest",
       "explanation": "Vesalius built On the Structure of the Human Body on human dissections he did with his own hands.",
       "difficulty": 0.15
     },

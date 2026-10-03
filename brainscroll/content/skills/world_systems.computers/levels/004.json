@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 4,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How Letters Become Numbers",
   "objective": "After this level you can explain how codes like ASCII and Unicode give every letter, symbol and emoji its own number.",
@@ -126,41 +126,32 @@
     },
     {
       "id": "question.computers.004.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.unicode_emoji"
       ],
       "sourceCardIds": [
-        "card.computers.004.c3"
+        "card.computers.004.c3",
+        "card.computers.004.c1",
+        "card.computers.004.c2"
       ],
-      "prompt": "Why was Unicode needed after all the older character codes?",
-      "options": [
+      "prompt": "Match each character code fact with its number.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Older codes could only store numbers, never letters",
-          "correct": false,
-          "rationale": "ASCII already stored letters as numbers."
+          "left": "Uppercase A",
+          "right": "65"
         },
         {
-          "id": "b",
-          "label": "Rival codes clashed, using the same number for different characters",
-          "correct": true
+          "left": "ASCII",
+          "right": "128 characters"
         },
         {
-          "id": "c",
-          "label": "Computers had stopped using binary",
-          "correct": false,
-          "rationale": "Unicode numbers are stored in binary too."
-        },
-        {
-          "id": "d",
-          "label": "ASCII was secret, so nobody could read it",
-          "correct": false,
-          "rationale": "ASCII was a published American standard."
+          "left": "Unicode 18.0",
+          "right": "172,808 characters"
         }
       ],
-      "explanation": "Hundreds of encodings conflicted; Unicode gives every character one unique number everywhere.",
+      "explanation": "Uppercase A is stored as 65, ASCII's 7-bit codes give 128 characters, and Unicode 18.0 holds 172,808 characters.",
       "difficulty": 0.25
     },
     {

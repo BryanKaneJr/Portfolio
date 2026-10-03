@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 2,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Cells",
   "objective": "After this level you can explain what a cell is and name its main parts.",
@@ -87,38 +87,32 @@
   "questions": [
     {
       "id": "question.human_body.002.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.cell_parts"
       ],
       "sourceCardIds": [
-        "card.human_body.002.c4"
+        "card.human_body.002.c4",
+        "card.human_body.002.c3"
       ],
-      "prompt": "Which part of a cell is its command center, telling it when to grow, divide or die?",
-      "options": [
+      "prompt": "Match each part of a cell with its role in the walled town.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Plasma membrane",
-          "correct": false,
-          "rationale": "That's the outer lining that controls what gets in and out."
+          "left": "Plasma membrane",
+          "right": "Decides what gets in and out"
         },
         {
-          "id": "b",
-          "label": "Nucleus",
-          "correct": true
+          "left": "Cytoplasm",
+          "right": "A jelly-like fluid"
         },
         {
-          "id": "c",
-          "label": "Cytoplasm",
-          "correct": false,
-          "rationale": "That's the jelly-like fluid filling the cell."
+          "left": "Nucleus",
+          "right": "The command center"
         },
         {
-          "id": "d",
-          "label": "Mitochondria",
-          "correct": false,
-          "rationale": "They turn energy from food into usable energy."
+          "left": "Mitochondria",
+          "right": "The power stations"
         }
       ],
       "explanation": "The nucleus is the command center, sending directions to grow, mature, divide or die.",
