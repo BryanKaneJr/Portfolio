@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 96,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Changing Your Mind",
   "objective": "After this level you can update a belief in proportion to new evidence, rather than all at once or not at all.",
@@ -127,42 +127,36 @@
     },
     {
       "id": "question.logic.096.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.deciding_proportion_belief"
       ],
       "sourceCardIds": [
         "card.logic.096.c3",
-        "card.logic.096.c2"
+        "card.logic.096.c2",
+        "card.logic.096.c1"
       ],
-      "prompt": "You have always found your bus reliable. One morning it is five minutes late. What does proportioning your belief suggest?",
-      "options": [
+      "prompt": "Match each response to the croissant news with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Trust it slightly less, not give up on it",
-          "correct": true
+          "left": "Throwing out your belief",
+          "right": "Too much"
         },
         {
-          "id": "b",
-          "label": "Decide it is completely unreliable",
-          "correct": false,
-          "rationale": "One late bus is small evidence; that is a flip."
+          "left": "Ignoring your friend",
+          "right": "Too little"
         },
         {
-          "id": "c",
-          "label": "Ignore the delay entirely",
-          "correct": false,
-          "rationale": "Evidence should move the dial at least a little."
+          "left": "One stale croissant",
+          "right": "Nudges the dial"
         },
         {
-          "id": "d",
-          "label": "Refuse to hold any view about the bus",
-          "correct": false,
-          "rationale": "You have plenty of evidence; suspending judgment is for when it is thin."
+          "left": "A dozen friends with stale croissants",
+          "right": "Turn it a long way"
         }
       ],
-      "explanation": "Small evidence, small turn of the dial: a single delay should lower your confidence a little, not overturn it.",
+      "explanation": "Throwing out your belief would be too much, and ignoring your friend too little. One stale croissant nudges the dial; a dozen friends with stale croissants should turn it a long way.",
       "difficulty": 0.45
     },
     {

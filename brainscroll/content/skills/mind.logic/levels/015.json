@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 15,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "If This, Then That",
   "objective": "After this level you can use the two valid if-then forms: affirming the \"if\" part and denying the \"then\" part.",
@@ -121,41 +121,36 @@
     },
     {
       "id": "question.logic.015.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.deduction_if_then"
       ],
       "sourceCardIds": [
-        "card.logic.015.c4"
+        "card.logic.015.c4",
+        "card.logic.015.c2",
+        "card.logic.015.c3"
       ],
-      "prompt": "\"If the oven is on, the kitchen is warm. The kitchen isn't warm.\" What follows?",
-      "options": [
+      "prompt": "Match each term with what it names.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The oven is on",
-          "correct": false,
-          "rationale": "If it were on, the kitchen would be warm."
+          "left": "Antecedent",
+          "right": "The part after \"if\""
         },
         {
-          "id": "b",
-          "label": "The oven isn't on",
-          "correct": true
+          "left": "Consequent",
+          "right": "The part after \"then\""
         },
         {
-          "id": "c",
-          "label": "The kitchen is cold because of the weather",
-          "correct": false,
-          "rationale": "Nothing in the premises mentions weather."
+          "left": "Modus ponens",
+          "right": "The method of affirming"
         },
         {
-          "id": "d",
-          "label": "Nothing follows at all",
-          "correct": false,
-          "rationale": "Denying the then part is a valid move."
+          "left": "Modus tollens",
+          "right": "The method of denying"
         }
       ],
-      "explanation": "Deny the then part and the if part falls with it: modus tollens. The oven isn't on.",
+      "explanation": "The antecedent is the part after \"if\" and the consequent the part after \"then\". Modus ponens is the method of affirming; modus tollens is the method of denying.",
       "difficulty": 0.25
     },
     {

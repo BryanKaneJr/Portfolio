@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 57,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Patterns in Noise",
   "objective": "After this level you can spot the Texas sharpshooter fallacy: drawing the target around the bullet holes after the fact.",
@@ -91,42 +91,33 @@
   "questions": [
     {
       "id": "question.logic.057.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.trap_texas_sharpshooter"
       ],
       "sourceCardIds": [
         "card.logic.057.c1",
-        "card.logic.057.c2"
+        "card.logic.057.c2",
+        "card.logic.057.c3",
+        "card.logic.057.c4"
       ],
-      "prompt": "What does the Texas sharpshooter do that gives the fallacy its name?",
-      "options": [
+      "prompt": "Match each part of the sharpshooter lesson with its partner on the cards.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Hits a distant target with every shot",
-          "correct": false,
-          "rationale": "That would be real skill, not a fallacy."
+          "left": "The Texas sharpshooter",
+          "right": "Paint the bull's-eye around the holes"
         },
         {
-          "id": "b",
-          "label": "Aims only at the biggest barns",
-          "correct": false,
-          "rationale": "The trick is when the target is drawn."
+          "left": "Psychic Sarah",
+          "right": "26 predictions"
         },
         {
-          "id": "c",
-          "label": "Draws the target after the shots are fired",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Refuses to shoot until the wind drops",
-          "correct": false,
-          "rationale": "Nothing about waiting; it's about drawing afterward."
+          "left": "CDC guidance",
+          "right": "Definitions, assumptions and methods"
         }
       ],
-      "explanation": "The shooter fires first, then draws the bull's-eye around the holes, so every shot looks like a hit.",
+      "explanation": "The Texas sharpshooter fires first, then paints the bull's-eye around the holes. Psychic Sarah made 26 predictions. CDC guidance says to set out definitions, assumptions and methods before looking.",
       "difficulty": 0.15
     },
     {

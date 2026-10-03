@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 48,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Necessary or Sufficient?",
   "objective": "After this level you can tell a necessary condition from a sufficient one.",
@@ -125,7 +125,7 @@
     },
     {
       "id": "question.logic.048.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.causal_necessary_sufficient"
@@ -134,33 +134,22 @@
         "card.logic.048.c2",
         "card.logic.048.c3"
       ],
-      "prompt": "Why is practice necessary but not sufficient for becoming a good basketball player?",
-      "options": [
+      "prompt": "Match each condition with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "You need it, but it doesn't guarantee success alone",
-          "correct": true
+          "left": "Having four sides",
+          "right": "Necessary for being a square"
         },
         {
-          "id": "b",
-          "label": "It guarantees success, but you could skip it",
-          "correct": false,
-          "rationale": "That describes sufficient but not necessary: the reverse."
+          "left": "Being a square",
+          "right": "Sufficient for having four sides"
         },
         {
-          "id": "c",
-          "label": "It neither helps nor matters for the result",
-          "correct": false,
-          "rationale": "Practice is needed; it matters."
-        },
-        {
-          "id": "d",
-          "label": "It matters only for players who are tall",
-          "correct": false,
-          "rationale": "Height isn't part of the example."
+          "left": "Oxygen",
+          "right": "Necessary for life"
         }
       ],
-      "explanation": "Like any prerequisite, practice must be there, but on its own it doesn't guarantee the result.",
+      "explanation": "Having four sides is necessary for being a square, and being a square is sufficient for having four sides. Oxygen is necessary for life.",
       "difficulty": 0.25
     },
     {

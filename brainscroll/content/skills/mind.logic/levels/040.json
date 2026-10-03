@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 40,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Weighing Evidence",
   "objective": "After this level you can rank evidence from weak to strong and explain what makes the difference.",
@@ -177,7 +177,7 @@
     },
     {
       "id": "question.logic.040.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.evidence_baloney_kit",
@@ -187,33 +187,22 @@
         "card.logic.040.c3",
         "card.logic.036.c3"
       ],
-      "prompt": "Sagan's kit warns against \"counting the hits and forgetting the misses\". How does that trap mislead?",
-      "options": [
+      "prompt": "Match each trap from Sagan's kit with what it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It uses a sample that's far too large",
-          "correct": false,
-          "rationale": "The problem is which cases, not how many."
+          "left": "Appeal to ignorance",
+          "right": "Not proved false, so true"
         },
         {
-          "id": "b",
-          "label": "It shifts the burden of proof onto the listener",
-          "correct": false,
-          "rationale": "That's a different trap."
+          "left": "Statistics of small numbers",
+          "right": "Too few cases for the conclusion"
         },
         {
-          "id": "c",
-          "label": "It shows only the cases that fit the claim",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It treats a lack of evidence as proof",
-          "correct": false,
-          "rationale": "That's the appeal to ignorance."
+          "left": "Observational selection",
+          "right": "Forgetting the misses"
         }
       ],
-      "explanation": "Keeping the hits and dropping the misses shows only the helpful evidence, the same move as cherry-picking.",
+      "explanation": "The appeal to ignorance says not proved false, so true. Statistics of small numbers uses too few cases for the conclusion. Observational selection counts the hits and forgets the misses.",
       "difficulty": 0.25
     },
     {

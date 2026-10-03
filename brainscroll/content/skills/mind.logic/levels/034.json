@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 34,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "\"It Worked for Me\"",
   "objective": "After this level you can explain why one vivid personal story is weak evidence about what usually happens.",
@@ -82,41 +82,32 @@
   "questions": [
     {
       "id": "question.logic.034.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.evidence_anecdotal"
       ],
       "sourceCardIds": [
-        "card.logic.034.c2"
+        "card.logic.034.c2",
+        "card.logic.034.c3",
+        "card.logic.034.c4"
       ],
-      "prompt": "What is anecdotal evidence?",
-      "options": [
+      "prompt": "Match each kind of evidence or risk with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Evidence gathered by systematic testing",
-          "correct": false,
-          "rationale": "That's what anecdotes get wrongly preferred over."
+          "left": "Anecdotal evidence",
+          "right": "A firsthand story"
         },
         {
-          "id": "b",
-          "label": "A firsthand story offered as evidence about what generally happens",
-          "correct": true
+          "left": "Systematic evidence",
+          "right": "Comes with everyone else"
         },
         {
-          "id": "c",
-          "label": "A claim that no evidence could ever test",
-          "correct": false,
-          "rationale": "Anecdotes are evidence, just weak evidence."
-        },
-        {
-          "id": "d",
-          "label": "A summary of what experts agree on",
-          "correct": false,
-          "rationale": "Expert consensus isn't a personal story."
+          "left": "Increased risk",
+          "right": "Isn't certainty"
         }
       ],
-      "explanation": "Anecdotal evidence is a personal story used to support a claim about what generally happens.",
+      "explanation": "Anecdotal evidence is a firsthand story offered about what generally happens. Systematic evidence comes with everyone else, and increased risk isn't certainty.",
       "difficulty": 0.1
     },
     {

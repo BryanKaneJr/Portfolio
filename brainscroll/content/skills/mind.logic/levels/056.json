@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 56,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Sounding Sure Isn't Evidence",
   "objective": "After this level you can explain why a confident, fluent delivery is not a reason to believe a claim.",
@@ -126,41 +126,32 @@
     },
     {
       "id": "question.logic.056.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.trap_confidence_not_evidence"
       ],
       "sourceCardIds": [
-        "card.logic.056.c2"
+        "card.logic.056.c2",
+        "card.logic.056.c3",
+        "card.logic.056.c4"
       ],
-      "prompt": "Why can confidence mislead, even though confident people are often right?",
-      "options": [
+      "prompt": "Match each idea about confidence and style with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Confident people are usually lying",
-          "correct": false,
-          "rationale": "Often they really do know."
+          "left": "The confidence heuristic",
+          "right": "Their confidence makes them persuasive"
         },
         {
-          "id": "b",
-          "label": "Confidence always means the speaker is wrong",
-          "correct": false,
-          "rationale": "It often goes with knowledge; that's why it persuades."
+          "left": "Style over substance",
+          "right": "Taking the style of an argument"
         },
         {
-          "id": "c",
-          "label": "Anyone can sound sure without the knowledge behind it",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "People never find confidence persuasive",
-          "correct": false,
-          "rationale": "The confidence heuristic says they do."
+          "left": "Confident witnesses",
+          "right": "Judged more credible"
         }
       ],
-      "explanation": "Confidence persuades because it often tracks knowledge, but the signal can be sent without the knowledge.",
+      "explanation": "The confidence heuristic: people's confidence makes them persuasive. Style over substance means taking the style of an argument as adding to its strength. Confident witnesses were judged more credible.",
       "difficulty": 0.35
     },
     {

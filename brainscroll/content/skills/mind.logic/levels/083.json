@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 83,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Straight From the Source",
   "objective": "After this level you can tell a primary source from a secondhand retelling and explain why details drift as a claim is passed on.",
@@ -130,41 +130,32 @@
     },
     {
       "id": "question.logic.083.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.sourcing_primary_secondary"
       ],
       "sourceCardIds": [
-        "card.logic.083.c2"
+        "card.logic.083.c2",
+        "card.logic.083.c3",
+        "card.logic.083.c4"
       ],
-      "prompt": "A post quotes a scientist, citing a blog that cites a magazine interview. What is the most direct check?",
-      "options": [
+      "prompt": "Match each one with what the cards say about the cake line.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Count how many sites repeat the quote",
-          "correct": false,
-          "rationale": "Copies of a retelling add no firsthand evidence."
+          "left": "Rousseau's Confessions",
+          "right": "Written in the 1760s"
         },
         {
-          "id": "b",
-          "label": "Find the interview with the scientist's own words",
-          "correct": true
+          "left": "Les Guepes",
+          "right": "1843"
         },
         {
-          "id": "c",
-          "label": "Trust the most recent version you can find",
-          "correct": false,
-          "rationale": "The newest version is the furthest from the source."
-        },
-        {
-          "id": "d",
-          "label": "Pick the site with the best design",
-          "correct": false,
-          "rationale": "Design says nothing about accuracy."
+          "left": "Brioche",
+          "right": "Became cake"
         }
       ],
-      "explanation": "The interview is the primary source here; the blog and the post are retellings, each a step further away.",
+      "explanation": "Rousseau's Confessions, written in the 1760s, holds one of the earliest versions. Les Guepes first tied the line to the queen in 1843, and along the way brioche became cake.",
       "difficulty": 0.35
     },
     {

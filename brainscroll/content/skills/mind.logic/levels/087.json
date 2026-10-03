@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 87,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "From Study to Headline",
   "objective": "After this level you can explain how a cautious finding in one study can grow into a bold headline, and how to check it.",
@@ -126,7 +126,7 @@
     },
     {
       "id": "question.logic.087.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.sourcing_press_release_exaggeration",
@@ -136,33 +136,22 @@
         "card.logic.087.c3",
         "card.logic.087.c4"
       ],
-      "prompt": "A headline says \"Berry extract reverses memory loss.\" The study gave the extract to mice. Which stretch is this?",
-      "options": [
+      "prompt": "Match each kind of stretch Sumner's team tracked with how it goes too far.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Advice the study never gave",
-          "correct": false,
-          "rationale": "The headline doesn't tell anyone what to do."
+          "left": "Advice",
+          "right": "Stronger than the study gave"
         },
         {
-          "id": "b",
-          "label": "Human conclusions from an animal study",
-          "correct": true
+          "left": "Claims of cause",
+          "right": "Research that only found a link"
         },
         {
-          "id": "c",
-          "label": "A cause claimed from a mere link",
-          "correct": false,
-          "rationale": "The problem here is the species, not cause and link."
-        },
-        {
-          "id": "d",
-          "label": "No stretch at all",
-          "correct": false,
-          "rationale": "Leaving out the mice changes the claim."
+          "left": "Conclusions about people",
+          "right": "Animal studies"
         }
       ],
-      "explanation": "It draws a conclusion about people from research on mice, one of the three stretches Sumner's team tracked.",
+      "explanation": "The three stretches are advice stronger than the study gave, claims of cause drawn from research that only found a link, and conclusions about people drawn from animal studies.",
       "difficulty": 0.4
     },
     {

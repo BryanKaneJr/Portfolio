@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 94,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Imagine It Failed",
   "objective": "After this level you can run a pre-mortem: imagine a plan has already failed, then work out why, to find its weak points in advance.",
@@ -125,7 +125,7 @@
     },
     {
       "id": "question.logic.094.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.deciding_premortem"
@@ -134,33 +134,16 @@
         "card.logic.094.c2",
         "card.logic.094.c3"
       ],
-      "prompt": "Your club is planning a stall at the street fair. Which opening line starts a pre-mortem?",
-      "options": [
-        {
-          "id": "a",
-          "label": "\"It's over, and it flopped. Why?\"",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "\"What might possibly go wrong?\"",
-          "correct": false,
-          "rationale": "That is an ordinary critique; a pre-mortem assumes the failure has happened."
-        },
-        {
-          "id": "c",
-          "label": "\"How should we celebrate success?\"",
-          "correct": false,
-          "rationale": "A pre-mortem imagines failure, not success."
-        },
-        {
-          "id": "d",
-          "label": "\"Who do we blame if it fails?\"",
-          "correct": false,
-          "rationale": "It hunts for weak points in the plan, not for someone to blame."
-        }
+      "prompt": "Put the steps of a pre-mortem in order, from first to last.",
+      "items": [
+        "The leader announces",
+        "Everyone spends a few minutes writing",
+        "People read out one reason each",
+        "The plan is strengthened"
       ],
-      "explanation": "A pre-mortem opens by declaring the project has already failed, then asks everyone why.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The leader announces the project has failed. Everyone spends a few minutes writing down reasons alone, then people read out one reason each, and the plan is strengthened.",
       "difficulty": 0.45
     },
     {

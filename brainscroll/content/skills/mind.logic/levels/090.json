@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 90,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Judging Sources and Claims",
   "objective": "After this level you can decide how much to trust a claim by weighing who says it, what backs it and what else could explain it.",
@@ -105,41 +105,26 @@
   "questions": [
     {
       "id": "question.logic.090.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.sourcing_cottingley_fairies"
       ],
       "sourceCardIds": [
-        "card.logic.090.c2"
+        "card.logic.090.c2",
+        "card.logic.090.c1",
+        "card.logic.090.c3"
       ],
-      "prompt": "What did the two Kodak experts conclude about the Cottingley negatives?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They were obvious fakes",
-          "correct": false,
-          "rationale": "They found no flaw."
-        },
-        {
-          "id": "b",
-          "label": "They proved that fairies exist",
-          "correct": false,
-          "rationale": "They refused to vouch for them at all."
-        },
-        {
-          "id": "c",
-          "label": "They were taken in a studio",
-          "correct": false,
-          "rationale": "No studio work was found."
-        },
-        {
-          "id": "d",
-          "label": "No flaw, but they wouldn't vouch for them",
-          "correct": true
-        }
+      "prompt": "Put the Cottingley fairy story in order, from earliest to latest.",
+      "items": [
+        "Elsie Wright photographed her cousin",
+        "Endorsed the photos",
+        "Doyle printed both",
+        "A letter of confession"
       ],
-      "explanation": "Kodak's experts found no flaw but refused to testify that the photographs were genuine.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Elsie Wright photographed her cousin in 1917. Doyle endorsed the photos in 1920 and printed both expert views in his 1922 book. Elsie's letter of confession came in 1983.",
       "difficulty": 0.35
     },
     {

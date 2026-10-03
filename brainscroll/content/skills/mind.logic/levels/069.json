@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 69,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Spotting Pseudoscience",
   "objective": "After this level you can spot pseudoscience by its untestable claims and its habit of moving the goalposts.",
@@ -96,41 +96,32 @@
   "questions": [
     {
       "id": "question.logic.069.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.science_pseudoscience"
       ],
       "sourceCardIds": [
-        "card.logic.069.c2"
+        "card.logic.069.c2",
+        "card.logic.069.c3",
+        "card.logic.069.c4"
       ],
-      "prompt": "How do many writers describe pseudoscience?",
-      "options": [
+      "prompt": "Match each idea about pseudoscience with its partner on the cards.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Early science that later proved right",
-          "correct": false,
-          "rationale": "That's just science that hasn't finished testing."
+          "left": "Pseudoscience",
+          "right": "Non-science posing as science"
         },
         {
-          "id": "b",
-          "label": "Any science done outside a university",
-          "correct": false,
-          "rationale": "Where it happens is not the issue."
+          "left": "Question one",
+          "right": "Could it fail?"
         },
         {
-          "id": "c",
-          "label": "Non-science posing as science",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Science that uses a lot of mathematics",
-          "correct": false,
-          "rationale": "Mathematics is not the issue."
+          "left": "Question two",
+          "right": "What happens after a miss?"
         }
       ],
-      "explanation": "It isn't scientific, but its major proponents try to create the impression that it is.",
+      "explanation": "Pseudoscience is non-science posing as science. The first question to ask is \"Could it fail?\", and the second is \"What happens after a miss?\"",
       "difficulty": 0.15
     },
     {

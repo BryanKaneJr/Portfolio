@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 73,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Loaded Words",
   "objective": "After this level you can spot how word choice, like \"used\" versus \"pre-owned\", tilts a claim before any argument is made.",
@@ -125,41 +125,31 @@
     },
     {
       "id": "question.logic.073.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.persuasion_loaded_words"
       ],
       "sourceCardIds": [
-        "card.logic.073.c3"
+        "card.logic.073.c3",
+        "card.logic.073.c1"
       ],
-      "prompt": "How can loaded language persuade before any argument is made?",
-      "options": [
+      "prompt": "Complete Bertrand Russell's \"conjugation\": match each subject with its word.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It slips a verdict into what looks like description",
-          "correct": true
+          "left": "I am",
+          "right": "Firm"
         },
         {
-          "id": "b",
-          "label": "It adds a new fact that can be checked",
-          "correct": false,
-          "rationale": "Loaded words add a verdict, not a checkable fact."
+          "left": "You are",
+          "right": "Obstinate"
         },
         {
-          "id": "c",
-          "label": "It lists several reasons in one word",
-          "correct": false,
-          "rationale": "It gives no reasons at all."
-        },
-        {
-          "id": "d",
-          "label": "It makes the sentence harder to follow",
-          "correct": false,
-          "rationale": "Loaded words are usually easy to follow; that's the danger."
+          "left": "He is",
+          "right": "A pig-headed fool"
         }
       ],
-      "explanation": "Emotive wording carries a verdict inside what looks like plain description, so you may adopt it without being given a reason.",
+      "explanation": "Russell's conjugation runs: I am firm, you are obstinate, he is a pig-headed fool. Same stubbornness, three verdicts.",
       "difficulty": 0.3
     },
     {

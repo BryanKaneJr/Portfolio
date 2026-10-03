@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 17,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Induction",
   "objective": "After this level you can explain induction: reasoning from examples to a conclusion that is probable, not certain.",
@@ -126,42 +126,32 @@
     },
     {
       "id": "question.logic.017.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.induction_definition"
       ],
       "sourceCardIds": [
         "card.logic.017.c2",
-        "card.logic.017.c4"
+        "card.logic.017.c4",
+        "card.logic.017.c3"
       ],
-      "prompt": "Why can a new premise overturn a strong inductive argument about Tweets?",
-      "options": [
+      "prompt": "Match each premise with what the cards say it does to the conclusion.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "New premises make every argument invalid",
-          "correct": false,
-          "rationale": "A valid deduction stays valid whatever you add."
+          "left": "Every winter so far",
+          "right": "A strong case"
         },
         {
-          "id": "b",
-          "label": "Strong arguments are secretly weak ones",
-          "correct": false,
-          "rationale": "It really was strong, until the new fact arrived."
+          "left": "It snowed last winter",
+          "right": "A much weaker one"
         },
         {
-          "id": "c",
-          "label": "Its premises never guaranteed the conclusion",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Adding any premise rewords the whole conclusion",
-          "correct": false,
-          "rationale": "The conclusion stays the same; its support changes."
+          "left": "Tweets is 6 feet tall",
+          "right": "The conclusion collapses"
         }
       ],
-      "explanation": "Inductive premises make a conclusion likely, not certain, so a new fact (6 feet tall, 30 miles an hour) can defeat it.",
+      "explanation": "\"Every winter so far\" makes a strong case for snow, and \"it snowed last winter\" a much weaker one. Adding \"Tweets is 6 feet tall\" makes the conclusion collapse.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 41,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "What Makes a Cause",
   "objective": "After this level you can explain a cause as something that makes a difference: without it, the effect would not have happened.",
@@ -87,41 +87,32 @@
   "questions": [
     {
       "id": "question.logic.041.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.cause_but_for_test"
       ],
       "sourceCardIds": [
-        "card.logic.041.c4"
+        "card.logic.041.c4",
+        "card.logic.041.c2",
+        "card.logic.041.c3"
       ],
-      "prompt": "Which question does the law's but-for test ask about a harm?",
-      "options": [
+      "prompt": "Match each source with its idea about causes.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Who could most easily have prevented Y?",
-          "correct": false,
-          "rationale": "That's about blame, not whether X made a difference."
+          "left": "David Hume",
+          "right": "If the first object had not been"
         },
         {
-          "id": "b",
-          "label": "Did X happen shortly before Y?",
-          "correct": false,
-          "rationale": "Timing alone isn't the test."
+          "left": "David Lewis",
+          "right": "A cause makes a difference"
         },
         {
-          "id": "c",
-          "label": "But for X, would Y have occurred?",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Did anyone intend Y to happen?",
-          "correct": false,
-          "rationale": "Intent matters elsewhere; the test asks about difference."
+          "left": "Courts",
+          "right": "The but-for test"
         }
       ],
-      "explanation": "The but-for test asks whether Y would still have occurred without X. If it would, X was not an actual cause.",
+      "explanation": "Hume said a cause is something where, \"if the first object had not been, the second never had existed.\" David Lewis held that a cause makes a difference. Courts apply the but-for test.",
       "difficulty": 0.15
     },
     {

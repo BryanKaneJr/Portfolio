@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 64,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "A Theory Isn't a Guess",
   "objective": "After this level you can explain what scientists mean by a theory, and why \"just a theory\" misunderstands the word.",
@@ -125,41 +125,31 @@
     },
     {
       "id": "question.logic.064.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.science_theory_meaning"
       ],
       "sourceCardIds": [
-        "card.logic.064.c2"
+        "card.logic.064.c2",
+        "card.logic.064.c4"
       ],
-      "prompt": "Why is \"it's just a theory\" a misleading put-down of a scientific theory?",
-      "options": [
+      "prompt": "Match each use of \"theory\" with what the cards say it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It uses the everyday meaning of the word: a hunch",
-          "correct": true
+          "left": "In everyday talk",
+          "right": "A hunch"
         },
         {
-          "id": "b",
-          "label": "Scientific theories have been proven beyond doubt",
-          "correct": false,
-          "rationale": "Science holds even theories open to revision."
+          "left": "In science",
+          "right": "A powerful explanation"
         },
         {
-          "id": "c",
-          "label": "Only laws count as real science",
-          "correct": false,
-          "rationale": "Laws are not higher-ranked than theories."
-        },
-        {
-          "id": "d",
-          "label": "Theories are too complicated to judge",
-          "correct": false,
-          "rationale": "Complexity has nothing to do with it."
+          "left": "Hypotheses, theories and laws",
+          "right": "Differ in breadth"
         }
       ],
-      "explanation": "It swaps the scientific meaning (a well-supported explanation) for the everyday one (a hunch).",
+      "explanation": "In everyday talk a theory is a hunch; in science it's a powerful explanation for a broad set of observations. Hypotheses, theories and laws differ in breadth, not in how well supported they are.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 45,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Which Way Does It Run?",
   "objective": "After this level you can spot reverse causation, where the supposed effect is really the cause.",
@@ -130,41 +130,32 @@
     },
     {
       "id": "question.logic.045.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.causal_reverse"
       ],
       "sourceCardIds": [
-        "card.logic.045.c2"
+        "card.logic.045.c2",
+        "card.logic.045.c1",
+        "card.logic.045.c3"
       ],
-      "prompt": "Why is \"officers own big boats, so buy a boat to get promoted\" backwards?",
-      "options": [
+      "prompt": "Using the cards' arrows running the right way, match each effect with its cause.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Boats are too expensive for most people",
-          "correct": false,
-          "rationale": "Cost isn't the flaw; the direction is."
+          "left": "The umbrellas",
+          "right": "The rain"
         },
         {
-          "id": "b",
-          "label": "Nobody at the company likes sailing",
-          "correct": false,
-          "rationale": "Tastes in hobbies aren't the issue."
+          "left": "The boat",
+          "right": "Being an officer"
         },
         {
-          "id": "c",
-          "label": "The job brings the income that buys the boat",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Officers are chosen completely at random",
-          "correct": false,
-          "rationale": "Nothing suggests that, and it isn't the flaw."
+          "left": "A burst of chocolate eating",
+          "right": "Winning a Nobel Prize"
         }
       ],
-      "explanation": "Being an officer brings the high income that pays for the boat. The boat is an effect of the job, not a route to it.",
+      "explanation": "The rain brings out the umbrellas. Being an officer brings the income that buys the boat. And winning a Nobel Prize might trigger a burst of chocolate eating.",
       "difficulty": 0.25
     },
     {

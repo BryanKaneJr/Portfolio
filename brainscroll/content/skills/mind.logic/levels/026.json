@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 26,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Going in Circles",
   "objective": "After this level you can spot circular reasoning, where the conclusion is quietly assumed in the premises.",
@@ -88,7 +88,7 @@
   "questions": [
     {
       "id": "question.logic.026.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.classic_fallacy_circular_reasoning"
@@ -97,33 +97,22 @@
         "card.logic.026.c5",
         "card.logic.026.c2"
       ],
-      "prompt": "In logic, what does \"begging the question\" mean?",
-      "options": [
+      "prompt": "Match each source or use with what \"beg the question\" means there.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Raising an obvious follow-up question",
-          "correct": false,
-          "rationale": "That's the everyday sense, not the logical one."
+          "left": "Aristotle",
+          "right": "Petitio principii"
         },
         {
-          "id": "b",
-          "label": "Asking the audience for agreement",
-          "correct": false,
-          "rationale": "Not what the phrase means."
+          "left": "Most people",
+          "right": "That raises the question"
         },
         {
-          "id": "c",
-          "label": "Refusing to answer a question",
-          "correct": false,
-          "rationale": "That's evasion, not the logical sense."
-        },
-        {
-          "id": "d",
-          "label": "Assuming the conclusion in the premises",
-          "correct": true
+          "left": "In logic",
+          "right": "The circle"
         }
       ],
-      "explanation": "It comes from Aristotle's petitio principii, better translated as \"assume the conclusion\".",
+      "explanation": "\"Beg the question\" translates Aristotle's petitio principii. Most people today use it to mean \"that raises the question\", but in logic it means the circle.",
       "difficulty": 0.2
     },
     {

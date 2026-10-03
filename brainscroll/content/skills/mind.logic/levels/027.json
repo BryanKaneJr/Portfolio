@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 27,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Red Herring",
   "objective": "After this level you can spot a red herring that changes the subject while seeming to answer it.",
@@ -81,7 +81,7 @@
   "questions": [
     {
       "id": "question.logic.027.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.classic_fallacy_red_herring"
@@ -89,33 +89,22 @@
       "sourceCardIds": [
         "card.logic.027.c2"
       ],
-      "prompt": "What does a red herring do in a discussion?",
-      "options": [
+      "prompt": "Match each part of the red herring story with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Twists the other side's view",
-          "correct": false,
-          "rationale": "That's a straw man."
+          "left": "Smoked herring",
+          "right": "Red, and very smelly"
         },
         {
-          "id": "b",
-          "label": "Hides the conclusion in a premise",
-          "correct": false,
-          "rationale": "That's circular reasoning."
+          "left": "Hunting dogs",
+          "right": "Off the scent"
         },
         {
-          "id": "c",
-          "label": "Leads it away from the real issue",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Limits the choices to just two",
-          "correct": false,
-          "rationale": "That's a false dilemma."
+          "left": "A red herring",
+          "right": "A digression"
         }
       ],
-      "explanation": "A red herring is a digression that leads the reasoner off the track of relevant information.",
+      "explanation": "Smoked herring is red, and very smelly. Dragged across a trail, it threw hunting dogs off the scent. In reasoning, a red herring is a digression off the track of what's relevant.",
       "difficulty": 0.1
     },
     {

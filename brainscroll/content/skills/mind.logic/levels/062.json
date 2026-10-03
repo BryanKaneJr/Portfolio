@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 62,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Could It Be Proved Wrong?",
   "objective": "After this level you can explain Karl Popper's idea that a scientific claim must be falsifiable.",
@@ -125,41 +125,31 @@
     },
     {
       "id": "question.logic.062.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.science_falsifiability"
       ],
       "sourceCardIds": [
-        "card.logic.062.c3"
+        "card.logic.062.c3",
+        "card.logic.062.c4"
       ],
-      "prompt": "How did Einstein's relativity meet Popper's standard?",
-      "options": [
+      "prompt": "Match each theory or test with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It predicted bending light, which could have failed",
-          "correct": true
+          "left": "Einstein's theory of relativity",
+          "right": "Light bends towards massive bodies"
         },
         {
-          "id": "b",
-          "label": "It could explain any measurement at all",
-          "correct": false,
-          "rationale": "Explaining anything is what Popper criticized."
+          "left": "Eddington's observations",
+          "right": "1919"
         },
         {
-          "id": "c",
-          "label": "Famous scientists agreed with it",
-          "correct": false,
-          "rationale": "Agreement is not the test; risk is."
-        },
-        {
-          "id": "d",
-          "label": "It was never tested, so never refuted",
-          "correct": false,
-          "rationale": "It was tested, in 1919, and could have failed."
+          "left": "Psychoanalytic theories",
+          "right": "Any human behaviour at all"
         }
       ],
-      "explanation": "Relativity made a risky prediction, light bending towards massive bodies, that observations could have contradicted.",
+      "explanation": "Einstein's relativity predicted that light bends towards massive bodies, and Eddington's observations bore it out in 1919. The psychoanalytic theories of Popper's day could account for any human behaviour at all.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 22,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Attacking the Person",
   "objective": "After this level you can spot an ad hominem, which attacks the arguer instead of the argument.",
@@ -132,41 +132,32 @@
     },
     {
       "id": "question.logic.022.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.classic_fallacy_ad_hominem_relevance"
       ],
       "sourceCardIds": [
-        "card.logic.022.c4"
+        "card.logic.022.c4",
+        "card.logic.022.c3",
+        "card.logic.022.c5"
       ],
-      "prompt": "How can you tell a fair point about a person from an ad hominem?",
-      "options": [
+      "prompt": "Match each item with what the cards link it to.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Check whether the point is polite",
-          "correct": false,
-          "rationale": "A polite attack can still be irrelevant."
+          "left": "The abusive version",
+          "right": "An unflattering trait"
         },
         {
-          "id": "b",
-          "label": "Check whether the person is famous",
-          "correct": false,
-          "rationale": "Fame has nothing to do with it."
+          "left": "The circumstantial version",
+          "right": "Self-interest"
         },
         {
-          "id": "c",
-          "label": "Ask whether it bears on the claim itself",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Ask whether most people agree with it",
-          "correct": false,
-          "rationale": "A popular jab can still miss the claim."
+          "left": "John Locke",
+          "right": "An Essay Concerning Human Understanding"
         }
       ],
-      "explanation": "The test is relevance: a witness's honesty bears on their testimony, but an arguer's flaws don't touch the reasons in an argument.",
+      "explanation": "The abusive version points to an unflattering trait; the circumstantial version says the view comes from self-interest. John Locke described the ad hominem in An Essay Concerning Human Understanding.",
       "difficulty": 0.3
     },
     {

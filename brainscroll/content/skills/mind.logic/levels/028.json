@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 28,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "\"What About You?\"",
   "objective": "After this level you can explain why pointing out someone's hypocrisy doesn't answer their argument.",
@@ -121,42 +121,32 @@
     },
     {
       "id": "question.logic.028.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.classic_fallacy_tu_quoque"
       ],
       "sourceCardIds": [
         "card.logic.028.c2",
-        "card.logic.028.c4"
+        "card.logic.028.c4",
+        "card.logic.028.c3"
       ],
-      "prompt": "How does a tu quoque reply dodge a criticism?",
-      "options": [
+      "prompt": "Match each idea about \"you too\" replies with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It shows the criticism's reasons are false",
-          "correct": false,
-          "rationale": "It never examines the reasons."
+          "left": "Tu quoque",
+          "right": "A kind of ad hominem"
         },
         {
-          "id": "b",
-          "label": "It turns the charge back on the critic",
-          "correct": true
+          "left": "Hypocrisy",
+          "right": "A fair reason to look harder"
         },
         {
-          "id": "c",
-          "label": "It offers a stronger argument on the topic",
-          "correct": false,
-          "rationale": "It offers no argument on the topic."
-        },
-        {
-          "id": "d",
-          "label": "It narrows the options down to two",
-          "correct": false,
-          "rationale": "That's a false dilemma."
+          "left": "Two wrongs don't make a right",
+          "right": "Excusing a wrong"
         }
       ],
-      "explanation": "Instead of answering, it charges the accuser with the same thing. The original criticism is left standing.",
+      "explanation": "Tu quoque is a kind of ad hominem. Catching hypocrisy is a fair reason to look harder, not a refutation. \"Two wrongs don't make a right\" names excusing a wrong because someone else did one first.",
       "difficulty": 0.25
     },
     {

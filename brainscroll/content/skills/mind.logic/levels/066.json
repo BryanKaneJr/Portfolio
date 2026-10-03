@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 66,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "When You Can't Experiment",
   "objective": "After this level you can explain how scientists showed that smoking causes lung cancer without experimenting on people.",
@@ -126,7 +126,7 @@
     },
     {
       "id": "question.logic.066.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.science_smoking_evidence"
@@ -135,33 +135,15 @@
         "card.logic.066.c3",
         "card.logic.066.c4"
       ],
-      "prompt": "Why did recording doctors' smoking habits before anyone fell ill strengthen the case?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Doctors never misreport their habits",
-          "correct": false,
-          "rationale": "Nothing says that; the point is timing."
-        },
-        {
-          "id": "b",
-          "label": "It showed the smoking came before the disease",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It made the study an experiment",
-          "correct": false,
-          "rationale": "Nobody was made to smoke; it followed people forward."
-        },
-        {
-          "id": "d",
-          "label": "It meant no other studies were needed",
-          "correct": false,
-          "rationale": "It added to earlier studies; it did not replace them."
-        }
+      "prompt": "Put these steps in the smoking story in order, from earliest to latest.",
+      "items": [
+        "Recorded their smoking habits",
+        "Confirmed the extra lung cancer",
+        "Nine viewpoints"
       ],
-      "explanation": "Recording habits first shows the cause came before the effect: temporality, the one Hill viewpoint everyone agrees is essential.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "In 1951 the doctors study recorded their smoking habits. By 1954 it had confirmed the extra lung cancer among smokers, and in 1965 Hill set out his nine viewpoints.",
       "difficulty": 0.3
     },
     {

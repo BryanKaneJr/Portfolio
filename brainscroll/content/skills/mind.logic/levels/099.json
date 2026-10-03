@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 99,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Your Thinking Toolkit",
   "objective": "After this level you can run a new claim through the tree's key checks: the argument, the evidence, the cause, your own biases and the source.",
@@ -138,7 +138,7 @@
     },
     {
       "id": "question.logic.099.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.deciding_dewey_burglary",
@@ -148,33 +148,17 @@
         "card.logic.099.c2",
         "card.logic.099.c3"
       ],
-      "prompt": "Your bike is gone from outside a shop. Following Dewey's man, what's your best next move?",
-      "options": [
-        {
-          "id": "a",
-          "label": "List other explanations, then look for signs that tell them apart",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Report it stolen at once, since theft is the obvious story",
-          "correct": false,
-          "rationale": "That accepts the first idea dogmatically."
-        },
-        {
-          "id": "c",
-          "label": "Assume you parked it somewhere else and walk home",
-          "correct": false,
-          "rationale": "That jumps to a different idea without testing it."
-        },
-        {
-          "id": "d",
-          "label": "Decide it can't be known and stop thinking about it",
-          "correct": false,
-          "rationale": "The point is to test, not give up."
-        }
+      "prompt": "Put the steps of Dewey's man in order, from first to last.",
+      "items": [
+        "First thinks: burglary",
+        "A second explanation occurs to him",
+        "He checks a box",
+        "The silver in the sideboard",
+        "Only now does belief settle on burglary"
       ],
-      "explanation": "Hold rival explanations open (theft, moved, parked elsewhere), then check for what each one predicts, as Dewey's man did with the silver.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Dewey's man first thinks burglary, then a second explanation occurs to him. He checks a box, which isn't decisive, then the silver in the sideboard. Only now does belief settle on burglary.",
       "difficulty": 0.5
     },
     {

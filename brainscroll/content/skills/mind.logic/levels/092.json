@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 92,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Sunk Cost Trap",
   "objective": "After this level you can explain why money or time already spent should not decide what you do next.",
@@ -91,41 +91,31 @@
   "questions": [
     {
       "id": "question.logic.092.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.deciding_sunk_cost"
       ],
       "sourceCardIds": [
-        "card.logic.092.c2"
+        "card.logic.092.c2",
+        "card.logic.092.c4"
       ],
-      "prompt": "What makes a cost a sunk cost?",
-      "options": [
+      "prompt": "Match each idea about sunk costs with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It has already happened and can't be avoided",
-          "correct": true
+          "left": "A sunk cost",
+          "right": "Has already happened"
         },
         {
-          "id": "b",
-          "label": "It will have to be paid next month",
-          "correct": false,
-          "rationale": "A future cost can still be avoided or changed."
+          "left": "The sunk cost effect",
+          "right": "A greater tendency to keep going"
         },
         {
-          "id": "c",
-          "label": "It turned out larger than planned",
-          "correct": false,
-          "rationale": "Size has nothing to do with it."
-        },
-        {
-          "id": "d",
-          "label": "It was paid with borrowed money",
-          "correct": false,
-          "rationale": "How it was paid for does not matter."
+          "left": "The only live question",
+          "right": "In the rain or on the sofa"
         }
       ],
-      "explanation": "A sunk cost has already occurred, so no choice you make now can change it.",
+      "explanation": "A sunk cost is one you can't avoid because it has already happened. The sunk cost effect is a greater tendency to keep going once money, effort or time has gone in. The only live question is whether tonight is better in the rain or on the sofa.",
       "difficulty": 0.35
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 49,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "When the Measure Becomes the Goal",
   "objective": "After this level you can explain Goodhart's law: why a number stops measuring well once people are rewarded for hitting it.",
@@ -121,41 +121,32 @@
     },
     {
       "id": "question.logic.049.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.causal_goodhart_law"
       ],
       "sourceCardIds": [
-        "card.logic.049.c4"
+        "card.logic.049.c4",
+        "card.logic.049.c1",
+        "card.logic.049.c2"
       ],
-      "prompt": "Why does judging scholars by their number of papers backfire?",
-      "options": [
+      "prompt": "Match each part of the measure-and-target story with its partner on the cards.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Papers are too expensive to publish",
-          "correct": false,
-          "rationale": "Cost isn't the problem Goodhart's law describes."
+          "left": "A reading contest",
+          "right": "One sticker per book"
         },
         {
-          "id": "b",
-          "label": "People split one study into many papers",
-          "correct": true
+          "left": "Charles Goodhart",
+          "right": "Monetary policy"
         },
         {
-          "id": "c",
-          "label": "Journals stop accepting new papers",
-          "correct": false,
-          "rationale": "Nothing like that happens in the example."
-        },
-        {
-          "id": "d",
-          "label": "Scholars refuse to write any papers",
-          "correct": false,
-          "rationale": "The opposite: the count goes up."
+          "left": "Salami slicing",
+          "right": "Dividing the findings of one study"
         }
       ],
-      "explanation": "Rewarding the count encourages salami slicing: the number rises without more or better research.",
+      "explanation": "The reading contest gave one sticker per book. Charles Goodhart was writing about monetary policy. Salami slicing means dividing the findings of one study into many papers.",
       "difficulty": 0.25
     },
     {

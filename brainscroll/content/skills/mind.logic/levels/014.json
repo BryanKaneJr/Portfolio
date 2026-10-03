@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 14,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Syllogism",
   "objective": "After this level you can test an \"all\" and \"some\" argument of the kind Aristotle first studied, using overlapping circles.",
@@ -82,41 +82,31 @@
   "questions": [
     {
       "id": "question.logic.014.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.deduction_syllogism"
       ],
       "sourceCardIds": [
-        "card.logic.014.c2"
+        "card.logic.014.c2",
+        "card.logic.014.c3"
       ],
-      "prompt": "What is a categorical syllogism built from?",
-      "options": [
+      "prompt": "Match each name or term with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "One premise followed by two separate conclusions",
-          "correct": false,
-          "rationale": "It's the other way round: two premises, one conclusion."
+          "left": "Aristotle",
+          "right": "The earliest formal study of logic"
         },
         {
-          "id": "b",
-          "label": "Three premises and no conclusion",
-          "correct": false,
-          "rationale": "Every argument needs a conclusion."
+          "left": "John Venn",
+          "right": "Diagrams of overlapping circles"
         },
         {
-          "id": "c",
-          "label": "A single if-then statement",
-          "correct": false,
-          "rationale": "That's a conditional, the next level's topic."
-        },
-        {
-          "id": "d",
-          "label": "Two premises, a conclusion, three terms",
-          "correct": true
+          "left": "The middle term",
+          "right": "Appears in both premises"
         }
       ],
-      "explanation": "Two premises and a conclusion, built from exactly three terms; the middle term appears in both premises.",
+      "explanation": "Aristotle's works hold the earliest formal study of logic we have. John Venn introduced diagrams of overlapping circles, and the middle term of a syllogism appears in both premises.",
       "difficulty": 0.15
     },
     {

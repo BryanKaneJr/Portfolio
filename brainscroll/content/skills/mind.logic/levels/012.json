@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 12,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Valid Doesn't Mean True",
   "objective": "After this level you can explain validity and why a valid argument can still reach a false conclusion.",
@@ -122,42 +122,33 @@
     },
     {
       "id": "question.logic.012.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.deduction_validity"
       ],
       "sourceCardIds": [
         "card.logic.012.c2",
-        "card.logic.012.c3"
+        "card.logic.012.c3",
+        "card.logic.012.c1",
+        "card.logic.012.c4"
       ],
-      "prompt": "Why is the oranges argument valid even though its conclusion is false?",
-      "options": [
+      "prompt": "Match each argument's conclusion with its verdict from the cards.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A famous logic textbook has declared it valid",
-          "correct": false,
-          "rationale": "The textbook reports it; it doesn't make it so."
+          "left": "So oranges are musical instruments",
+          "right": "Valid"
         },
         {
-          "id": "b",
-          "label": "True premises would force its conclusion",
-          "correct": true
+          "left": "So all toasters are time-travel devices",
+          "right": "Valid"
         },
         {
-          "id": "c",
-          "label": "Oranges turn out to be instruments",
-          "correct": false,
-          "rationale": "They don't: a premise is false."
-        },
-        {
-          "id": "d",
-          "label": "Its conclusion appears at the very end",
-          "correct": false,
-          "rationale": "Where the conclusion sits has nothing to do with validity."
+          "left": "So Paris is in France",
+          "right": "Invalid"
         }
       ],
-      "explanation": "Validity asks only what would follow if the premises were true, and here the conclusion would have to follow.",
+      "explanation": "The oranges and toasters arguments are both valid, despite silly premises. The Paris argument is invalid, even though every sentence in it is true.",
       "difficulty": 0.25
     },
     {

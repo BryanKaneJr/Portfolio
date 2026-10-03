@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 79,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Persuasion or Manipulation?",
   "objective": "After this level you can tell persuasion that gives you good reasons from manipulation that works around them.",
@@ -86,41 +86,31 @@
   "questions": [
     {
       "id": "question.logic.079.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.persuasion_manipulation"
       ],
       "sourceCardIds": [
-        "card.logic.079.c2"
+        "card.logic.079.c2",
+        "card.logic.079.c3"
       ],
-      "prompt": "Philosophers usually distinguish manipulation from which two other kinds of influence?",
-      "options": [
+      "prompt": "Match each kind of influence with what the cards say it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Advertising and propaganda",
-          "correct": false,
-          "rationale": "Those can use any method; the card's contrast is different."
+          "left": "Rational persuasion",
+          "right": "Gives you reasons"
         },
         {
-          "id": "b",
-          "label": "Flattery and bribery",
-          "correct": false,
-          "rationale": "Those are tactics, not the contrasting kinds."
+          "left": "Coercion",
+          "right": "Forces you"
         },
         {
-          "id": "c",
-          "label": "Rational persuasion and coercion",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Teaching and storytelling",
-          "correct": false,
-          "rationale": "Not the contrast the card draws."
+          "left": "Manipulation",
+          "right": "Goes around it"
         }
       ],
-      "explanation": "Manipulation is typically set apart from rational persuasion (reasons) and coercion (force).",
+      "explanation": "Rational persuasion gives you reasons, and coercion forces you. Manipulation goes around your judgment instead of through it.",
       "difficulty": 0.2
     },
     {

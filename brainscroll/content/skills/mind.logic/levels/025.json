@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 25,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Slippery Slope",
   "objective": "After this level you can judge a slippery slope argument by checking how likely each step really is.",
@@ -165,7 +165,7 @@
     },
     {
       "id": "question.logic.025.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.logic.classic_fallacy_slippery_slope",
@@ -173,35 +173,19 @@
       ],
       "sourceCardIds": [
         "card.logic.025.c3",
-        "card.logic.009.c4"
+        "card.logic.009.c4",
+        "card.logic.025.c1"
       ],
-      "prompt": "Like Level 9's lost keys, a slippery slope is a chain of steps. What does that mean for its final claim?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It is certain if the first step is true",
-          "correct": false,
-          "rationale": "Each later step can still fail."
-        },
-        {
-          "id": "b",
-          "label": "It can only be as secure as every link before it",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It needs no support from the earlier steps",
-          "correct": false,
-          "rationale": "The whole chain leans on those steps."
-        },
-        {
-          "id": "d",
-          "label": "It is false whenever any step is doubtful",
-          "correct": false,
-          "rationale": "A doubtful step weakens it; it doesn't prove it false."
-        }
+      "prompt": "Put Sam's slippery slope in order, from the first step to the bottom.",
+      "items": [
+        "Sam stays up late tonight",
+        "Midnight every night",
+        "Asleep in class",
+        "His grades collapse"
       ],
-      "explanation": "In a chain, the final claim leans on every step before it. If one link is weak, the ending loses its footing.",
+      "first": "First step",
+      "last": "Bottom of the slope",
+      "explanation": "Sam stays up late tonight, then it's midnight every night, then he's asleep in class, and finally his grades collapse.",
       "difficulty": 0.35
     }
   ],

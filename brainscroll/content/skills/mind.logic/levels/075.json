@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 75,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Weasel Words",
   "objective": "After this level you can spot vague words like \"up to\" and \"helps\" that make a claim sound bigger than it is.",
@@ -86,41 +86,31 @@
   "questions": [
     {
       "id": "question.logic.075.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.persuasion_weasel_words"
       ],
       "sourceCardIds": [
-        "card.logic.075.c2"
+        "card.logic.075.c2",
+        "card.logic.075.c3"
       ],
-      "prompt": "Where does the name \"weasel word\" come from?",
-      "options": [
+      "prompt": "Match each piece of the weasel word lesson with its partner on the cards.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A weasel's knack for slipping out of traps",
-          "correct": false,
-          "rationale": "The name comes from eggs, not traps."
+          "left": "Weasel word",
+          "right": "Used to evade a direct statement"
         },
         {
-          "id": "b",
-          "label": "Old lore of weasels emptying eggs but leaving the shell",
-          "correct": true
+          "left": "A weasel",
+          "right": "Could suck out an egg"
         },
         {
-          "id": "c",
-          "label": "A cartoon weasel who sold soap in 1900",
-          "correct": false,
-          "rationale": "No cartoon is involved."
-        },
-        {
-          "id": "d",
-          "label": "The squeak weasels make when cornered",
-          "correct": false,
-          "rationale": "The name has nothing to do with sounds."
+          "left": "Up to 47%",
+          "right": "Federal Trade Commission"
         }
       ],
-      "explanation": "The lore said a weasel sucks out an egg and leaves the shell intact: it looks full but is empty.",
+      "explanation": "A weasel word is one used to evade a direct statement. Old lore said a weasel could suck out an egg and leave the shell. The Federal Trade Commission studied ads promising \"up to 47%\" savings.",
       "difficulty": 0.2
     },
     {

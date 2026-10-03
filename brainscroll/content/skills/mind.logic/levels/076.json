@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 76,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Loaded Question",
   "objective": "After this level you can spot a loaded question that smuggles in an assumption you never agreed to.",
@@ -125,41 +125,31 @@
     },
     {
       "id": "question.logic.076.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.persuasion_loaded_question"
       ],
       "sourceCardIds": [
-        "card.logic.076.c2"
+        "card.logic.076.c2",
+        "card.logic.076.c1"
       ],
-      "prompt": "How does \"Have you stopped cheating at Monopoly?\" trap whoever answers it?",
-      "options": [
+      "prompt": "Match each answer or question with what it gives away.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It forces a long talk about the rules",
-          "correct": false,
-          "rationale": "Length isn't the trap."
+          "left": "Say yes",
+          "right": "You used to cheat"
         },
         {
-          "id": "b",
-          "label": "Either yes or no admits past cheating",
-          "correct": true
+          "left": "Say no",
+          "right": "You still do"
         },
         {
-          "id": "c",
-          "label": "It can only be answered with a lie",
-          "correct": false,
-          "rationale": "An honest \"I never cheated\" is possible, just not as yes or no."
-        },
-        {
-          "id": "d",
-          "label": "It has no possible answer",
-          "correct": false,
-          "rationale": "It has answers; the direct ones admit cheating."
+          "left": "Will that be cash or card?",
+          "right": "Whether to buy anything at all"
         }
       ],
-      "explanation": "Yes means you used to cheat; no means you still do. Both accept the hidden claim.",
+      "explanation": "To \"Have you stopped cheating at Monopoly?\", saying yes means you used to cheat and saying no means you still do. \"Will that be cash or card?\" has already settled whether to buy anything at all.",
       "difficulty": 0.25
     },
     {

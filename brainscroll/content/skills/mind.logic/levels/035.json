@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 35,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Jumping to Conclusions",
   "objective": "After this level you can spot a hasty generalization drawn from too few or unusual cases.",
@@ -82,41 +82,32 @@
   "questions": [
     {
       "id": "question.logic.035.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.evidence_hasty_generalization"
       ],
       "sourceCardIds": [
-        "card.logic.035.c2"
+        "card.logic.035.c2",
+        "card.logic.035.c3",
+        "card.logic.035.c4"
       ],
-      "prompt": "What is a hasty generalization?",
-      "options": [
+      "prompt": "Match each idea about generalizing with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A conclusion drawn from insufficient or biased evidence",
-          "correct": true
+          "left": "Too few cases",
+          "right": "A large enough sample"
         },
         {
-          "id": "b",
-          "label": "Any conclusion drawn from examples",
-          "correct": false,
-          "rationale": "Reasoning from examples is fine when there are enough typical ones."
+          "left": "Unusual cases",
+          "right": "A sample that isn't typical"
         },
         {
-          "id": "c",
-          "label": "A conclusion that is stated too quickly",
-          "correct": false,
-          "rationale": "Speed of speech isn't the problem; the evidence is."
-        },
-        {
-          "id": "d",
-          "label": "A general claim that turns out to be true",
-          "correct": false,
-          "rationale": "It's about weak support, whatever the truth."
+          "left": "\"All\"",
+          "right": "Leaves no room for error"
         }
       ],
-      "explanation": "A hasty generalization rushes to a conclusion on insufficient or biased evidence.",
+      "explanation": "The fix for too few cases is a large enough sample. Unusual cases are a sample that isn't typical. And \"all\" leaves no room for error, so it needs the most evidence.",
       "difficulty": 0.1
     },
     {

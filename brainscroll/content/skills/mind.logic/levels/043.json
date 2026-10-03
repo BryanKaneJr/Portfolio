@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 43,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "After This, So Because of This?",
   "objective": "After this level you can spot the post hoc fallacy, which treats \"came first\" as \"caused it\".",
@@ -82,41 +82,31 @@
   "questions": [
     {
       "id": "question.logic.043.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.causal_post_hoc"
       ],
       "sourceCardIds": [
-        "card.logic.043.c2"
+        "card.logic.043.c2",
+        "card.logic.043.c4"
       ],
-      "prompt": "What does the Latin \"post hoc, ergo propter hoc\" mean?",
-      "options": [
+      "prompt": "Match each part of the post hoc lesson with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "With this, therefore by this",
-          "correct": false,
-          "rationale": "Close, but the fallacy is about order in time: after."
+          "left": "Post hoc, ergo propter hoc",
+          "right": "After this, therefore because of this"
         },
         {
-          "id": "b",
-          "label": "After this, therefore because of this",
-          "correct": true
+          "left": "The rooster",
+          "right": "The textbook case"
         },
         {
-          "id": "c",
-          "label": "Before this, therefore after this",
-          "correct": false,
-          "rationale": "It's about what caused what, not before and after."
-        },
-        {
-          "id": "d",
-          "label": "Because of this, therefore after this",
-          "correct": false,
-          "rationale": "The order is reversed: after, then because."
+          "left": "The lucky seat",
+          "right": "An accidental pattern"
         }
       ],
-      "explanation": "Post hoc: after this. Propter hoc: because of this. The fallacy turns sequence into cause.",
+      "explanation": "Post hoc, ergo propter hoc means \"after this, therefore because of this\". The rooster is the textbook case, and the fan's lucky seat is an accidental pattern.",
       "difficulty": 0.1
     },
     {

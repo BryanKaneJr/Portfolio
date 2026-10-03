@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 32,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Who Has to Prove It?",
   "objective": "After this level you can explain the burden of proof and why it falls on the person making the claim.",
@@ -121,41 +121,31 @@
     },
     {
       "id": "question.logic.032.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.evidence_burden_of_proof"
       ],
       "sourceCardIds": [
-        "card.logic.032.c3"
+        "card.logic.032.c3",
+        "card.logic.032.c4"
       ],
-      "prompt": "How does a U.S. criminal trial end if the prosecution fails to prove guilt and the defense offers no evidence?",
-      "options": [
+      "prompt": "Match each item with what the cards say about the burden of proof.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The defendant is found not guilty",
-          "correct": true
+          "left": "The prosecution",
+          "right": "Beyond a reasonable doubt"
         },
         {
-          "id": "b",
-          "label": "The defense must then prove innocence",
-          "correct": false,
-          "rationale": "The burden never passes to the defendant."
+          "left": "The defendant",
+          "right": "Presumed innocent"
         },
         {
-          "id": "c",
-          "label": "The defendant is found guilty by default",
-          "correct": false,
-          "rationale": "Guilt must be proved; it is never the default."
-        },
-        {
-          "id": "d",
-          "label": "The two sides swap roles and start again",
-          "correct": false,
-          "rationale": "No such rule; the burden stays with the prosecution."
+          "left": "Roman law",
+          "right": "Proof lies on the one who asserts"
         }
       ],
-      "explanation": "The defendant is presumed innocent and the prosecution carries the burden, so an unproved case ends in not guilty even if the defense proved nothing.",
+      "explanation": "The prosecution must prove guilt beyond a reasonable doubt, and the defendant is presumed innocent. Roman law put it in one line: proof lies on the one who asserts.",
       "difficulty": 0.25
     },
     {

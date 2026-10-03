@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 81,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "When to Trust an Expert",
   "objective": "After this level you can tell real expertise from a false appeal to authority, such as an expert speaking outside their field.",
@@ -90,41 +90,26 @@
   "questions": [
     {
       "id": "question.logic.081.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.sourcing_appeal_to_authority"
       ],
       "sourceCardIds": [
-        "card.logic.081.c2"
+        "card.logic.081.c2",
+        "card.logic.081.c1",
+        "card.logic.081.c4"
       ],
-      "prompt": "According to the Internet Encyclopedia of Philosophy, are most appeals to authority fallacious?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Yes, relying on anyone else is lazy",
-          "correct": false,
-          "rationale": "It says the opposite: much knowledge properly comes from authorities."
-        },
-        {
-          "id": "b",
-          "label": "Only when the expert is not famous",
-          "correct": false,
-          "rationale": "Fame isn't the test; relevant expertise is."
-        },
-        {
-          "id": "c",
-          "label": "No, most are good reasons to believe",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Yes, unless you check every claim",
-          "correct": false,
-          "rationale": "It says trusting authorities is usually fine."
-        }
+      "prompt": "Put these in order, from earliest to latest, in Pauling's story.",
+      "items": [
+        "Chemistry prize",
+        "Peace Prize",
+        "Concluded that vitamin C would prevent",
+        "Cochrane review"
       ],
-      "explanation": "Most appeals to authority are not fallacious: much of what we know properly comes from listening to authorities.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Pauling won the Chemistry prize in 1954 and the Peace Prize in 1962. In the 1970s he concluded that vitamin C would prevent colds, and a 2013 Cochrane review found no effect on how often they strike.",
       "difficulty": 0.3
     },
     {

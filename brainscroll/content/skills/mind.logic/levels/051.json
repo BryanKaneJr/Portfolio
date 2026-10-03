@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 51,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Looking Only for Yes",
   "objective": "After this level you can explain confirmation bias and counter it by looking for evidence that could prove you wrong.",
@@ -168,7 +168,7 @@
     },
     {
       "id": "question.logic.051.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.logic.trap_seeking_disconfirmation",
@@ -176,35 +176,25 @@
       ],
       "sourceCardIds": [
         "card.logic.051.c3",
-        "card.logic.051.c4"
+        "card.logic.051.c4",
+        "card.logic.051.c1"
       ],
-      "prompt": "You're sure the café on your corner is always packed. Which check best counters confirmation bias?",
-      "options": [
+      "prompt": "Match each one with what the cards say about who gets noticed.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Note the times you pass by and find it empty",
-          "correct": true
+          "left": "Those who escaped shipwreck",
+          "right": "Hung up paintings"
         },
         {
-          "id": "b",
-          "label": "Count every queue you see outside it",
-          "correct": false,
-          "rationale": "That only collects the yeses."
+          "left": "Every late arrival",
+          "right": "Sticks in your mind"
         },
         {
-          "id": "c",
-          "label": "Ask friends who love the café",
-          "correct": false,
-          "rationale": "They're likely to confirm what you already think."
-        },
-        {
-          "id": "d",
-          "label": "Read its five-star reviews",
-          "correct": false,
-          "rationale": "Another search for support, not for a no."
+          "left": "The on-time days",
+          "right": "Never get counted"
         }
       ],
-      "explanation": "Bacon's negative instance: go looking for the evidence that would prove you wrong, like the quiet days.",
+      "explanation": "Those who escaped shipwreck hung up paintings. If you think Sam is always late, every late arrival sticks in your mind, and the on-time days never get counted.",
       "difficulty": 0.3
     }
   ],

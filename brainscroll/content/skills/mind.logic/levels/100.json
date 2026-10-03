@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 100,
   "type": "mastery",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Mastery Challenge: Logic & Critical Thinking",
   "objective": "After this level you can demonstrate command of Logic & Critical Thinking Levels 1 to 99 across the whole tree.",
@@ -242,42 +242,36 @@
     },
     {
       "id": "question.logic.100.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.classic_fallacy_ad_hominem"
       ],
       "sourceCardIds": [
         "card.logic.022.c2",
-        "card.logic.022.c4"
+        "card.logic.022.c4",
+        "card.logic.030.c2"
       ],
-      "prompt": "\"Don't take Omar's advice on fixing the bike. He failed science at school.\" Why is this a weak reply?",
-      "options": [
+      "prompt": "Match each fallacy with what it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It restates Omar's advice as something sillier",
-          "correct": false,
-          "rationale": "That would be a straw man; his advice isn't restated at all."
+          "left": "Ad hominem",
+          "right": "Aims at the arguer"
         },
         {
-          "id": "b",
-          "label": "It assumes its own conclusion",
-          "correct": false,
-          "rationale": "Nothing circular here; it rests on his grades."
+          "left": "Straw man",
+          "right": "Fights a weaker fake view"
         },
         {
-          "id": "c",
-          "label": "It offers only two choices",
-          "correct": false,
-          "rationale": "No either/or is offered."
+          "left": "Circular",
+          "right": "A premise restates the conclusion"
         },
         {
-          "id": "d",
-          "label": "It aims at Omar, not at his reasons",
-          "correct": true
+          "left": "Slippery slope",
+          "right": "Exaggerates where steps lead"
         }
       ],
-      "explanation": "That's an ad hominem. Omar's advice can be checked on its own reasons; his old grades don't bear on it.",
+      "explanation": "An ad hominem aims at the arguer. A straw man fights a weaker fake view. Circular reasoning has a premise that restates the conclusion, and a slippery slope exaggerates where steps lead.",
       "difficulty": 0.45
     },
     {

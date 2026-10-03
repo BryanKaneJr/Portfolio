@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 2,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "What Counts as an Argument",
   "objective": "After this level you can tell an argument, a set of reasons offered for a claim, from a quarrel, a story or a bare opinion.",
@@ -87,41 +87,32 @@
   "questions": [
     {
       "id": "question.logic.002.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.argument_definition"
       ],
       "sourceCardIds": [
-        "card.logic.002.c3"
+        "card.logic.002.c3",
+        "card.logic.002.c2",
+        "card.logic.002.c4"
       ],
-      "prompt": "In logic, what is an argument?",
-      "options": [
+      "prompt": "Match each kind of thing with what it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A heated exchange between two people",
-          "correct": false,
-          "rationale": "That's a quarrel; logic calls it a disagreement."
+          "left": "An argument",
+          "right": "Reasons offered for a claim"
         },
         {
-          "id": "b",
-          "label": "Any opinion held very strongly",
-          "correct": false,
-          "rationale": "Strength of feeling doesn't make reasons."
+          "left": "A bare opinion",
+          "right": "States a view with no reason attached"
         },
         {
-          "id": "c",
-          "label": "A series of events told in order",
-          "correct": false,
-          "rationale": "That's a story; it doesn't try to prove anything."
-        },
-        {
-          "id": "d",
-          "label": "Statements offered as reasons for another",
-          "correct": true
+          "left": "A story",
+          "right": "Reports events"
         }
       ],
-      "explanation": "An argument is a set of statements, some of which are offered as reasons for thinking another is true.",
+      "explanation": "An argument is reasons offered for a claim. A bare opinion states a view with no reason attached, and a story reports events without trying to prove anything.",
       "difficulty": 0.1
     },
     {

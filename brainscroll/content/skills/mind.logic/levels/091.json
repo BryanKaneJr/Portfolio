@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 91,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Good Decision, Bad Outcome",
   "objective": "After this level you can explain why a decision should be judged by what was known at the time, not only by how it turned out.",
@@ -91,41 +91,31 @@
   "questions": [
     {
       "id": "question.logic.091.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.deciding_outcome_bias"
       ],
       "sourceCardIds": [
-        "card.logic.091.c2"
+        "card.logic.091.c2",
+        "card.logic.091.c4"
       ],
-      "prompt": "What is outcome bias?",
-      "options": [
+      "prompt": "Match each idea or name with what the cards say about judging decisions.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Refusing to decide until the result is certain",
-          "correct": false,
-          "rationale": "That's indecision, not judging by results."
+          "left": "Outcome bias",
+          "right": "Judged by the ending"
         },
         {
-          "id": "b",
-          "label": "Rating a choice better because it turned out well",
-          "correct": true
+          "left": "Baron and Hershey",
+          "right": "1988"
         },
         {
-          "id": "c",
-          "label": "Choosing whatever pays off fastest",
-          "correct": false,
-          "rationale": "It's about judging decisions, not making quick ones."
-        },
-        {
-          "id": "d",
-          "label": "Predicting outcomes more exactly than you can",
-          "correct": false,
-          "rationale": "That's overconfidence about the future."
+          "left": "David Hume",
+          "right": "June and December"
         }
       ],
-      "explanation": "Outcome bias rates the same decision better after a good outcome than after a bad one.",
+      "explanation": "Outcome bias means a decision is judged by the ending. Baron and Hershey described it in 1988. David Hume made the point with June and December weather.",
       "difficulty": 0.35
     },
     {
