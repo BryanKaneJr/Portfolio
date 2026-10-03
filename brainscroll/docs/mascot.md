@@ -221,6 +221,16 @@ Each fixed place in the app is a **spot** with a stable ID. Screens ask for a sp
 
 Writer-placed card asides (`mascot` on a learning card) aren't spots; their pose comes from the content, and they're labeled `mascot:pose:<pose>`.
 
+## Animations
+
+A spot can play a short animation instead of its still pose: `DrScrollSays animation="wave-point"` (or `DrScroll animation=…`). It plays once and holds its last frame; with reduce motion it shows only the last frame. Use them sparingly, where he greets or points, never inside a lesson.
+
+| Animation | Where | What it does |
+|---|---|---|
+| `wave-point` | `social.empty` (Social, no friends yet) | Waves hello, then points to his right at his speech bubble. 57 frames, about 4 s |
+
+**Making one:** export the animation from the generator as a **PNG ZIP with Transparent background ticked** (the MP4 export keeps the green screen). Frames are packed into one sprite sheet, `app/assets/images/mascot/anim/<name>.webp`: square frames cropped to the union of the figure across all frames, 240 px each, 8 across, WebP quality 75 (about 0.5 MB). Register it in `app/src/components/ui/mascotAnim.ts` with its frame count and speed. If an export ever still has the green screen, key it out (remove the green by its excess over red and blue, and take each edge pixel's colour from the solid figure just inside it, never from the green).
+
 ## In the app (later)
 
 **Built so far:**

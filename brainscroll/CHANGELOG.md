@@ -2,6 +2,11 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: Dr. Scroll's first animation
+
+- **On Social, before you have friends,** Dr. Scroll now waves hello and then points at his speech bubble ("Learning is better with company…"), ending on the point (owner). With reduce motion he simply points.
+- **How animations work:** frames exported with a transparent background are packed into one sprite sheet and played once by `DrScroll`'s new `animation` prop, holding the last frame. No new library or app build needed. The steps for adding more are in `docs/mascot.md`, "Animations".
+
 ## 2026-10-03: Every tree uses every kind of question
 
 - **Match and order are now in all 26 trees** (owner: "make sure our multiple types of answering exist everywhere"). Each tree has one match or put-in-order question in 92 to 100 of its levels: 2,474 new across the 25 trees that didn't have them (1,667 match and 901 order in total, Astronomy's included). With fill in the blank in about half of all levels, a typical lesson now mixes three ways of answering.
