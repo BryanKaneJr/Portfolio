@@ -87,14 +87,16 @@ try {
   await page.waitForTimeout(500);
 
   // Publish a correction to Level 2 while the app is running.
+  // One past whatever revision Level 2 is on now.
+  const rev2 = Number(sql(`select current_revision from public.levels where id = 'level.science.astronomy.002'`));
   sql(`select public.import_content(jsonb_build_object('levels', jsonb_build_array(
-         jsonb_set(jsonb_set(bundle, '{title}', '"The Sun, Up Close (revised)"'), '{revision}', '2') || '{"status":"published"}')))
-       from public.level_revisions where level_id = 'level.science.astronomy.002' and revision = 1`);
+         jsonb_set(jsonb_set(bundle, '{title}', '"The Sun, Up Close (revised)"'), '{revision}', '${rev2 + 1}') || '{"status":"published"}')))
+       from public.level_revisions where level_id = 'level.science.astronomy.002' and revision = ${rev2}`);
   await button(page, /(Start|Resume) Level 2/).click();
   await page.waitForTimeout(800);
   check((await bodyText(page)).includes('The Sun, Up Close (revised)'), 'a published correction reaches the app without a new build');
   await playLevel(page);
-  check(sql(`select completed_revision from public.user_level_progress where level_id = 'level.science.astronomy.002'`) === '2',
+  check(sql(`select completed_revision from public.user_level_progress where level_id = 'level.science.astronomy.002'`) === String(rev2 + 1),
     'completion records the revision that was played');
 
   // Brainpower, from the server: 3 left (and no lucky drops, so the count is exact). Each new level spends 1.
