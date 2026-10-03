@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { EM_DASH } from '../src/editorial';
-import { SPOT_POSE_VARIANTS, spotPose, cardPicturePose, mascotPictureCard, CARD_PICTURE_POSES, SKILL_ACTION_POSES, DR_SCROLL_SAYINGS, drScrollSaying, MIN_SAYINGS_PER_MOMENT, DR_SCROLL_LINES, DR_SCROLL_TIPS, MASCOT_LINE_MAX, MASCOT_POSES, MASCOT_SPOTS, QUIET_MASCOT_POSES, SKILL_GUIDE_POSE } from '../src/mascot';
+import { EVERYDAY_POSES, mapGuidePose, mapRestPose, SPOT_POSE_VARIANTS, spotPose, cardPicturePose, mascotPictureCard, CARD_PICTURE_POSES, SKILL_ACTION_POSES, DR_SCROLL_SAYINGS, drScrollSaying, MIN_SAYINGS_PER_MOMENT, DR_SCROLL_LINES, DR_SCROLL_TIPS, MASCOT_LINE_MAX, MASCOT_POSES, MASCOT_SPOTS, QUIET_MASCOT_POSES, SKILL_GUIDE_POSE } from '../src/mascot';
 
 describe('Dr. Scroll', () => {
   it('has unique poses', () => {
@@ -110,9 +110,25 @@ describe('spot pose variants', () => {
   });
   it('places every everyday pose except the few kept for later', () => {
     const placed = new Set([...Object.values(SPOT_POSE_VARIANTS).flat(), ...Object.values(MASCOT_SPOTS).map((s) => s.pose)]);
-    const later = ['bee-chase', 'hiccups', 'sneeze', 'trick-candle'];
-    for (const p of ['bee-hello', 'book-tower', 'coffee-jitter', 'cupcake-sneak', 'giant-sandwich', 'paddling-pool', 'pigeon-head', 'sandwich', 'spaghetti', 'storm-umbrella', 'stuck-jar', 'sun-reflector', 'tape-measure', 'tea-pinky', 'tiny-hat', 'yoga-wobble'])
-      expect(placed.has(p as never), p).toBe(true);
-    for (const p of later) expect(placed.has(p as never), p).toBe(false);
+    const map = new Set(Array.from({ length: 20 }, (_, c) => mapRestPose('skill.science.astronomy', c)));
+    for (const p of EVERYDAY_POSES) expect(placed.has(p) || map.has(p), p).toBe(true);
+  });
+});
+
+describe('Dr. Scroll on the skill map', () => {
+  it('goofs off in a different everyday pose in each finished chapter, no repeats within 20', () => {
+    for (const skill of ['skill.science.astronomy', 'skill.history.ancient_rome']) {
+      const poses = Array.from({ length: 20 }, (_, c) => mapRestPose(skill, c));
+      expect(new Set(poses).size, skill).toBe(20);
+      for (const p of poses) expect(MASCOT_POSES).toContain(p);
+    }
+    expect(new Set(EVERYDAY_POSES).size).toBe(20);
+  });
+  it('wears the skill costume in the current chapter, taking turns among its actions', () => {
+    expect(mapGuidePose('skill.science.astronomy', 0)).toBe(SKILL_GUIDE_POSE['skill.science.astronomy']);
+    const days = new Set(Array.from({ length: 6 }, (_, d) => mapGuidePose('skill.science.astronomy', d)));
+    expect([...days].every((p) => [SKILL_GUIDE_POSE['skill.science.astronomy'], ...SKILL_ACTION_POSES['skill.science.astronomy']!].includes(p))).toBe(true);
+    expect(days.size).toBeGreaterThan(1);
+    for (const p of days) expect(QUIET_MASCOT_POSES as readonly string[]).not.toContain(p);
   });
 });

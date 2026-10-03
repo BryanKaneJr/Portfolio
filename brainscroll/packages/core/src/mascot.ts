@@ -388,7 +388,8 @@ export const MASCOT_SPOTS = {
   'error.load': { pose: 'tangled', where: 'A level or screen that could not load (never about account or payment data)' },
   'level.locked': { pose: 'thinking', where: 'Opening a level that is not unlocked yet' },
   'home.start': { pose: 'pointing', where: 'Home, before any level is started: points to a first subject or Choose for me' },
-  'home.path': { pose: 'reading', where: 'Home: beside the level path, reading along' },
+  'home.path': { pose: 'reading', where: 'Home: beside the level path in the chapter you are in, in the skill\'s costume (a different action of the skill each day, mapGuidePose)' },
+  'map.rest': { pose: 'tea-pinky', where: 'Skill map: in each chapter you have finished, Dr. Scroll stayed behind goofing off, a different everyday pose per chapter (mapRestPose)' },
   'review.ready': { pose: 'review', where: 'Review tab when concepts are due' },
   'not-found': { pose: 'tangled', where: 'A link to something that does not exist' },
   'social.reaction': { pose: 'clapping', where: 'Social feed: each reaction button is Dr. Scroll in a pose (core FEED_REACTIONS)' },
@@ -423,4 +424,34 @@ export function spotPose(spot: MascotSpot, day: number): MascotPose {
   let h = 0;
   for (const ch of spot) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
   return turns[(((day + h) % turns.length) + turns.length) % turns.length]!;
+}
+
+/** Dr. Scroll off duty (owner, 2026-10-02): the everyday poses, for light moments outside lessons. */
+export const EVERYDAY_POSES = [
+  'tea-pinky', 'bee-hello', 'book-tower', 'coffee-jitter', 'cupcake-sneak', 'giant-sandwich', 'hiccups', 'paddling-pool', 'pigeon-head', 'sandwich',
+  'sneeze', 'spaghetti', 'storm-umbrella', 'stuck-jar', 'sun-reflector', 'tape-measure', 'tiny-hat', 'trick-candle', 'yoga-wobble', 'bee-chase',
+] as const satisfies readonly MascotPose[];
+
+const hashOf = (text: string) => {
+  let h = 0;
+  for (const ch of text) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+  return h;
+};
+
+/**
+ * On a skill map, each chapter you've finished has Dr. Scroll goofing off by
+ * the road (owner, 2026-10-03: "fit as many as we can on the map"). Stable
+ * per chapter, and stepping 7 through the 20 poses means no pose repeats
+ * within 20 chapters of one skill.
+ */
+export function mapRestPose(skillId: string, chapterIndex: number): MascotPose {
+  return EVERYDAY_POSES[(hashOf(skillId) + chapterIndex * 7) % EVERYDAY_POSES.length]!;
+}
+
+/** In the chapter you're in, he's in the skill's costume, taking turns among its actions one a day (the costume itself first). */
+export function mapGuidePose(skillId: string, day: number): MascotPose {
+  const costume = SKILL_GUIDE_POSE[skillId];
+  const turns = [...new Set([costume, ...(SKILL_ACTION_POSES[skillId] ?? [])].filter((p): p is MascotPose => !!p))];
+  if (!turns.length) return MASCOT_SPOTS['home.path'].pose;
+  return turns[((day % turns.length) + turns.length) % turns.length]!;
 }

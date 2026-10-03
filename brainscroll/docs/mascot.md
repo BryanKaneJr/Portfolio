@@ -213,9 +213,10 @@ Each fixed place in the app is a **spot** with a stable ID. Screens ask for a sp
 | `home.start` | `pointing` | Home, before any level is started: points to a first subject or Choose for me |
 | `home.path` | `reading` | Home: beside the level path. On a skill's map he wears that skill's costume (`SKILL_GUIDE_POSE` in core: a telescope on Astronomy, a toga on Rome, a map on World Geography, a piggy bank on How Money Works, an easel on Art History, a laptop on Everyday Technology); `reading` is the fallback |
 | `review.ready` | `review` | Review tab when concepts are due |
+| `map.rest` | (per chapter) | Skill map: every chapter you've finished has Dr. Scroll goofing off by the road in its right-hand pocket, a different everyday pose per chapter with no repeats within 20 chapters (`mapRestPose`). In the chapter you're in he wears the skill's costume and takes turns, one a day, among the skill's actions (`mapGuidePose`) |
 | `not-found` | `tangled` | A link to something that does not exist. Takes turns with pigeon-head and tiny-hat |
 
-**Taking turns** (`SPOT_POSE_VARIANTS` / `spotPose` in core): a few light spots outside lessons show a different everyday pose each day (the same one all day, and spots don't change in lockstep). Lesson spots never vary. Kept for later: bee-chase, hiccups, sneeze and trick-candle (a birthday or anniversary moment, if one is added).
+**Taking turns** (`SPOT_POSE_VARIANTS` / `spotPose` in core): a few light spots outside lessons show a different everyday pose each day (the same one all day, and spots don't change in lockstep). Lesson spots never vary. All twenty everyday poses also appear on the skill maps (`map.rest`).
 
 Writer-placed card asides (`mascot` on a learning card) aren't spots; their pose comes from the content, and they're labeled `mascot:pose:<pose>`.
 

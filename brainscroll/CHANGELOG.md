@@ -6,7 +6,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 - **A few light spots take turns, one pose a day** (`SPOT_POSE_VARIANTS` in core): out of Brainpower he's off duty (paddling pool, sun reflector, tea, yoga, a friendly bee, a giant sandwich, or going outside); loading shows coffee jitters, a book tower or spaghetti; a screen that didn't load shows a stuck jar, a tangled tape measure or an inside-out umbrella; a dead link gets a pigeon on his head or a tiny hat; an empty review tab, tea or a sandwich. Lessons never change: they stay quiet.
 - **A lucky Brainpower drop** on Level Complete gets its own moment: Dr. Scroll sneaking off with a cupcake.
-- Kept for later: bee-chase, hiccups, sneeze and trick-candle.
+- **The skill maps are full of him:** every chapter you've finished has Dr. Scroll goofing off by the road, a different one of all 20 everyday poses per chapter (no repeats within 20 chapters). In the chapter you're in he wears the skill's costume and takes turns among its actions, one a day (telescope, space helmet or juggling planets on Astronomy).
 
 ## 2026-10-03: A free trial where people run out
 
