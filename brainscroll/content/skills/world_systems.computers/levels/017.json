@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 17,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Chips and Moore's Law",
   "objective": "After this level you can explain the integrated circuit and Gordon Moore's 1965 prediction that the parts on a chip would keep doubling.",
@@ -90,41 +90,25 @@
   "questions": [
     {
       "id": "question.computers.017.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.history_moore_prediction"
       ],
       "sourceCardIds": [
-        "card.computers.017.c3"
+        "card.computers.017.c3",
+        "card.computers.017.c2"
       ],
-      "prompt": "In 1975, how did Moore revise his forecast?",
-      "options": [
-        {
-          "id": "a",
-          "label": "To a doubling every ten years",
-          "correct": false,
-          "rationale": "He revised it to two years."
-        },
-        {
-          "id": "b",
-          "label": "To a doubling every two years",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "He said doubling had stopped",
-          "correct": false,
-          "rationale": "He revised the pace; he didn't end it."
-        },
-        {
-          "id": "d",
-          "label": "To a doubling every month",
-          "correct": false,
-          "rationale": "That's far faster than he ever forecast."
-        }
+      "prompt": "Put these milestones of the chip in order, from earliest to latest.",
+      "items": [
+        "Jack Kilby at Texas Instruments",
+        "Robert Noyce at Fairchild Semiconductor",
+        "Moore predicted chips would double",
+        "A doubling every two years"
       ],
-      "explanation": "Moore's 1965 forecast was a doubling every year; in 1975 he changed it to every two years.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Jack Kilby developed the chip at Texas Instruments in 1958, Robert Noyce at Fairchild Semiconductor in 1959, Moore predicted yearly doubling in 1965, and in 1975 revised it to a doubling every two years.",
       "difficulty": 0.2
     },
     {

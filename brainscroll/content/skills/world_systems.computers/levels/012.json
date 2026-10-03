@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 12,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Ada Lovelace's Big Idea",
   "objective": "After this level you can explain Lovelace's 1843 insight that Babbage's Analytical Engine could work with symbols, not just numbers.",
@@ -130,41 +130,25 @@
     },
     {
       "id": "question.computers.012.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.history_lovelace_symbols"
       ],
       "sourceCardIds": [
-        "card.computers.012.c4"
+        "card.computers.012.c4",
+        "card.computers.011.c2",
+        "card.computers.012.c3"
       ],
-      "prompt": "What was Lovelace's big idea about the Analytical Engine?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It could be built from cheaper parts",
-          "correct": false,
-          "rationale": "Her notes were about what it could do, not its cost."
-        },
-        {
-          "id": "b",
-          "label": "It could act on things besides numbers, such as music",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It would be faster than any human clerk",
-          "correct": false,
-          "rationale": "Speed wasn't her key insight."
-        },
-        {
-          "id": "d",
-          "label": "It would never work without Jacquard's help",
-          "correct": false,
-          "rationale": "She compared it to the loom; she didn't depend on it."
-        }
+      "prompt": "Put these steps toward programmable machines in order, from earliest to latest.",
+      "items": [
+        "Jacquard patented a loom",
+        "Babbage conceived the Analytical Engine",
+        "Lovelace published notes"
       ],
-      "explanation": "She wrote that it might act upon other things besides number, and might even compose music.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Jacquard patented his card-steered loom in 1804, Babbage conceived the Analytical Engine in the 1830s, and Lovelace published her notes on it in 1843.",
       "difficulty": 0.3
     },
     {

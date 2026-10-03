@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 13,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Turing's Imaginary Machine",
   "objective": "After this level you can explain Alan Turing's 1936 idea of a simple machine reading a tape, and why it can compute anything computable.",
@@ -90,7 +90,7 @@
   "questions": [
     {
       "id": "question.computers.013.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.history_turing_machine"
@@ -98,33 +98,22 @@
       "sourceCardIds": [
         "card.computers.013.c2"
       ],
-      "prompt": "In Turing's 1936 machine, what can the head do?",
-      "options": [
+      "prompt": "Match each part of Turing's machine with what the level says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Read the whole tape at once, from end to end",
-          "correct": false,
-          "rationale": "It works on one square at a time."
+          "left": "A tape",
+          "right": "divided into squares"
         },
         {
-          "id": "b",
-          "label": "Read, write or erase one square, then move one square",
-          "correct": true
+          "left": "A head",
+          "right": "sits over one square at a time"
         },
         {
-          "id": "c",
-          "label": "Add two numbers together in one single step",
-          "correct": false,
-          "rationale": "It only reads, writes and moves."
-        },
-        {
-          "id": "d",
-          "label": "Rewrite its own table of instructions as it goes",
-          "correct": false,
-          "rationale": "The table is fixed; the tape changes."
+          "left": "A finite table of instructions",
+          "right": "says what to do next"
         }
       ],
-      "explanation": "The head reads, writes or erases the symbol on one square and moves one square left or right.",
+      "explanation": "The tape is divided into squares, the head sits over one square at a time, and a finite table of instructions says what to do next.",
       "difficulty": 0.2
     },
     {
