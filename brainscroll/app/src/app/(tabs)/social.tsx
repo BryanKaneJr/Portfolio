@@ -1,9 +1,11 @@
-import { DR_SCROLL_FRIEND, LEAGUE, ordinal, type FeedReaction } from '@brainscroll/core';
+import { DR_SCROLL_FRIEND, drScrollPosts, LEAGUE, ordinal, type FeedReaction } from '@brainscroll/core';
 import { router } from 'expo-router';
+import { useEffect, useMemo, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
-import { Avatar, LeagueBanner, MomentCard } from '@/components/social';
+import { Avatar, DrScrollPostCard, LeagueBanner, MomentCard } from '@/components/social';
 import { Body, Button, Caption, Card, DrScrollSays, Icon, IconButton, LoadError, OfflineState, Row, Screen, ScreenHeader, SkeletonCard, Title } from '@/components/ui';
 import { useProgress } from '@/progress/ProgressProvider';
+import { load, save } from '@/progress/storage';
 import { useSocial } from '@/progress/useSocial';
 import { color, iconSize, space } from '@/theme/tokens';
 
@@ -15,6 +17,14 @@ import { color, iconSize, space } from '@/theme/tokens';
 export default function SocialScreen() {
   const p = useProgress();
   const { view, league, feed, failed, reload, setFeed } = useSocial();
+  const userId = p.account?.status === 'signed_in' ? p.account.userId : undefined;
+  const [met, meet] = useMetDrScroll(userId);
+  // His daily moments, slotted into the feed by time.
+  const moments = useMemo(() => {
+    const posts = drScrollPosts(new Date()).map((post) => ({ at: post.at, post }));
+    const items = (feed ?? []).map((item) => ({ at: item.at, item }));
+    return [...items, ...posts].sort((a, b) => Date.parse(b.at) - Date.parse(a.at));
+  }, [feed]);
   if (p.offline) return <OfflineState onRetry={() => void p.reconnect()} retrying={p.reconnecting} />;
 
   const openPerson = (id: string) => router.push({ pathname: '/person/[id]', params: { id } });
@@ -99,20 +109,26 @@ export default function SocialScreen() {
             </View>
           )}
 
-          {/* Everyone's first friend: always here, never in the weekly race (owner, 2026-10-03). */}
-          <Card
-            variant="mastery"
-            onPress={() => openPerson(DR_SCROLL_FRIEND.id)}
-            accessibilityLabel="Dr. Scroll, your first friend. Open his profile">
-            <Row gap={space.md}>
-              <Avatar username="dr-scroll" avatar={DR_SCROLL_FRIEND.avatar} size={48} />
-              <View style={{ flex: 1 }}>
-                <Body>{DR_SCROLL_FRIEND.name}</Body>
-                <Caption style={{ color: color.mastery }}>Your first friend · Official</Caption>
-              </View>
-              <Icon name="forward" tint={color.mastery} size={iconSize.sm} />
-            </Row>
-          </Card>
+          {/* Everyone's first friend (owner, 2026-10-03): pinned until it's been
+              tapped once; after that he turns up in the feed instead. */}
+          {met === false && (
+            <Card
+              variant="mastery"
+              onPress={() => {
+                meet();
+                openPerson(DR_SCROLL_FRIEND.id);
+              }}
+              accessibilityLabel="Dr. Scroll, your first friend. Open his profile">
+              <Row gap={space.md}>
+                <Avatar username="dr-scroll" avatar={DR_SCROLL_FRIEND.avatar} size={48} />
+                <View style={{ flex: 1 }}>
+                  <Body>{DR_SCROLL_FRIEND.name}</Body>
+                  <Caption style={{ color: color.mastery }}>Your first friend · Official</Caption>
+                </View>
+                <Icon name="forward" tint={color.mastery} size={iconSize.sm} />
+              </Row>
+            </Card>
+          )}
 
           {view.friends.length === 0 ? (
             <Card variant="plain" style={{ gap: space.md }}>
@@ -147,10 +163,13 @@ export default function SocialScreen() {
 
           <View style={{ gap: space.sm }}>
             <Title>Feed</Title>
-            {feed.length === 0 ? (
-              <Caption>Nothing yet. Trophies, finished chapters and streaks from you, your friends and your league show up here.</Caption>
-            ) : (
-              feed.map((item) => <MomentCard key={`${item.owner.id}|${item.key}`} item={item} onOpen={() => openPerson(item.owner.id)} onReact={(r) => react(item.owner.id, item.key, r)} />)
+            {feed.length === 0 && <Caption>Trophies, finished chapters and streaks from you, your friends and your league show up here.</Caption>}
+            {moments.map((m) =>
+              'post' in m ? (
+                <DrScrollPostCard key={m.post.key} post={m.post} onOpen={() => openPerson(DR_SCROLL_FRIEND.id)} />
+              ) : (
+                <MomentCard key={`${m.item.owner.id}|${m.item.key}`} item={m.item} onOpen={() => openPerson(m.item.owner.id)} onReact={(r) => react(m.item.owner.id, m.item.key, r)} />
+              ),
             )}
           </View>
         </>
@@ -158,6 +177,32 @@ export default function SocialScreen() {
     </Screen>
   );
 }
+
+/**
+ * Whether this account has opened Dr. Scroll's pinned card yet (kept on the
+ * device, per account). Undefined while it loads, so the card never flashes.
+ */
+function useMetDrScroll(userId: string | undefined): [boolean | undefined, () => void] {
+  const [met, setMet] = useState<boolean | undefined>(undefined);
+  const key = userId ? `${MET_KEY}:${userId}` : undefined;
+  useEffect(() => {
+    if (!key) return;
+    let live = true;
+    load<boolean>(key).then(
+      (v) => live && setMet(!!v),
+      () => live && setMet(false),
+    );
+    return () => {
+      live = false;
+    };
+  }, [key]);
+  const meet = () => {
+    setMet(true);
+    if (key) void save(key, true);
+  };
+  return [met, meet];
+}
+const MET_KEY = 'bs.drscroll.met';
 
 const styles = StyleSheet.create({
   row: { flexDirection: 'row', alignItems: 'center', gap: space.md, paddingVertical: space.sm, paddingHorizontal: space.lg },

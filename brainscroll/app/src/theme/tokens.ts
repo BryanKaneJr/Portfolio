@@ -184,4 +184,5 @@ export const glow = {
 } satisfies Record<string, ViewStyle>;
 
 /** Normal feedback 150–250 ms; reward moments may breathe longer. Respect reduce-motion. */
-export const motion = { press: 90, fast: 150, normal: 220, slow: 420, celebrate: 900 } as const;
+// A hair slower than first set (owner, 2026-10-03); `press` stays quick so taps feel instant.
+export const motion = { press: 90, fast: 180, normal: 280, slow: 520, celebrate: 1100 } as const;

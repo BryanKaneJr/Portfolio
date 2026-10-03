@@ -2,6 +2,11 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: Calmer motion; Dr. Scroll moves into the feed
+
+- **Every animation is a hair slower** (owner: "just a hair too fast"): softer springs on pops, arrivals and big numbers, longer fades and reveals, a slower bob on the Start callout, a slower shine on gold trophies and Brainpower sparks, and gleams that twinkle more gently with longer rests between them. Taps still respond instantly.
+- **Dr. Scroll's pinned "Your first friend" card goes away once it's been opened.** After that he turns up in the feed instead: one off-duty moment a day (a tea break, a pigeon on his head, a candle that won't go out), each with its own everyday pose, slotted in by time among your friends' moments. Tapping one opens his profile. 20 moments, each seen before any repeats (core `DR_SCROLL_POSTS`, spot `social.dr-scroll-post`). They're never a nudge to study and never a fact.
+
 ## 2026-10-03: Profile's colour reaches the top of the phone
 
 - **Profile's violet header now runs all the way up** behind the time and the island, and fills what a pull-down reveals, instead of stopping short of the top. `Screen` takes a `topColor` for any screen that opens on a band of colour.

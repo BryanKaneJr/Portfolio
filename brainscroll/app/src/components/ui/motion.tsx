@@ -20,13 +20,15 @@ export const ease = {
   sway: Easing.inOut(Easing.quad),
 };
 
+// Softened a touch (owner, 2026-10-03: "just a hair too fast"): the same
+// bounce, landing a little more slowly.
 export const spring = {
   /** A quick, lively pop: a picked answer, a cleared node. */
-  pop: { friction: 4, tension: 160 },
+  pop: { friction: 5, tension: 95 },
   /** Dr. Scroll arriving. */
-  arrive: { friction: 5, tension: 140 },
+  arrive: { friction: 6, tension: 80 },
   /** A weighty settle: the big number on a reward screen. */
-  settle: { friction: 5, tension: 120 },
+  settle: { friction: 6, tension: 75 },
 } as const;
 
 /**

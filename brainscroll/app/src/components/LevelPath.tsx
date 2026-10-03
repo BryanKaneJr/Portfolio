@@ -374,7 +374,7 @@ function Floating({ art, fogged, phase, style }: { art: string; fogged: boolean;
 
 /** The bouncing "Start" callout above the next level, with its title. */
 function StartBubble({ label, title, x, bottom, width, tint }: { label: string; title: string; x: number; bottom: number; width: number; tint: SubjectTint }) {
-  const bob = useLoop(700, { easing: ease.sway });
+  const bob = useLoop(950, { easing: ease.sway });
   const w = 210;
   const left = Math.min(Math.max(x - w / 2, 0), width - w);
   return (

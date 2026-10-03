@@ -1,4 +1,4 @@
-import { FEED_REACTIONS, leagueName, LEAGUE, ordinal, trophyInfo, type FeedItem, type FeedReaction, type LeagueView } from '@brainscroll/core';
+import { DR_SCROLL_FRIEND, FEED_REACTIONS, leagueName, LEAGUE, ordinal, trophyInfo, type FeedItem, type DrScrollPost, type FeedReaction, type LeagueView } from '@brainscroll/core';
 import { useState } from 'react';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { TrophyBadge } from '@/components/TrophyBadge';
@@ -123,6 +123,32 @@ function timeAgo(at: string, now = Date.now()): string {
  * Scroll poses with counts); and, on other people's moments, React, which
  * opens the five poses large enough to tell apart, each with its name.
  */
+/**
+ * Dr. Scroll's own moment in the feed (core DR_SCROLL_POSTS): his gold
+ * avatar, what he's up to, and the pose to match. No reactions (he isn't an
+ * account); tapping it opens his profile, which is how learners find him
+ * once his pinned card has gone.
+ */
+export function DrScrollPostCard({ post, onOpen }: { post: DrScrollPost; onOpen: () => void }) {
+  return (
+    <Card variant="plain" onPress={onOpen} accessibilityLabel={`${DR_SCROLL_FRIEND.name} ${post.line} ${timeAgo(post.at)} ago. Open his profile`}>
+      <Row gap={space.md} style={{ alignItems: 'flex-start' }}>
+        <Avatar username="dr-scroll" avatar={DR_SCROLL_FRIEND.avatar} />
+        <View style={{ flex: 1, gap: space.xxs }}>
+          <Text style={[type.body, { color: color.text }]}>
+            <Text style={{ fontWeight: '800' }}>{DR_SCROLL_FRIEND.name}</Text> {post.line}
+          </Text>
+          <Caption>
+            {`${timeAgo(post.at)} ago · `}
+            <Caption style={{ color: color.mastery }}>Official</Caption>
+          </Caption>
+        </View>
+        <DrScroll spot="social.dr-scroll-post" pose={post.pose} size={64} />
+      </Row>
+    </Card>
+  );
+}
+
 export function MomentCard({ item, onOpen, onReact }: { item: FeedItem; onOpen: () => void; onReact: (reaction: FeedReaction | null) => void }) {
   const [picking, setPicking] = useState(false);
   const who = item.owner.you ? 'You' : `@${item.owner.username}`;
