@@ -1,9 +1,10 @@
 import { router } from 'expo-router';
 import { Pressable } from 'react-native';
 import { BrainpowerIcon } from '@/components/BrainpowerIcon';
+import { STAT_CHIP_ICON, statChip, statChipNumber } from '@/components/statChip';
 import { Numeral } from '@/components/ui';
 import { useProgressView } from '@/progress/ProgressProvider';
-import { color, depth, iconSize, radius, space } from '@/theme/tokens';
+import { color, space } from '@/theme/tokens';
 
 /**
  * Brainpower on the World Map header, beside the streak flame and built the
@@ -22,7 +23,7 @@ export function BrainpowerBadge() {
       onPress={() => router.push('/brainpower')}
       hitSlop={space.sm}
       style={({ pressed }) => [
-        { flexDirection: 'row', alignItems: 'center', gap: space.xxs, paddingLeft: space.xs, paddingRight: space.md, paddingVertical: space.xxs, borderRadius: radius.pill, borderWidth: depth.border },
+        statChip,
         unlimited
           ? { backgroundColor: color.surface, borderColor: color.mastery }
           : lit
@@ -30,8 +31,8 @@ export function BrainpowerBadge() {
             : { backgroundColor: color.surface, borderColor: color.border },
         pressed && { opacity: 0.7 },
       ]}>
-      <BrainpowerIcon size={iconSize.xl} state={unlimited ? 'unlimited' : n > 0 ? 'lit' : 'empty'} />
-      <Numeral style={{ color: unlimited ? color.mastery : lit ? color.brandText : color.textFaint }}>{unlimited ? '∞' : n}</Numeral>
+      <BrainpowerIcon size={STAT_CHIP_ICON} state={unlimited ? 'unlimited' : n > 0 ? 'lit' : 'empty'} />
+      <Numeral style={{ ...statChipNumber, color: unlimited ? color.mastery : lit ? color.brandText : color.textFaint }}>{unlimited ? '∞' : n}</Numeral>
     </Pressable>
   );
 }

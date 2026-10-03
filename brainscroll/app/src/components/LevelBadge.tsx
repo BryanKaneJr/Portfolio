@@ -1,10 +1,11 @@
 import { router } from 'expo-router';
 import { Pressable, View } from 'react-native';
 import Svg, { Circle, Defs, LinearGradient, Path, Stop } from 'react-native-svg';
+import { STAT_CHIP_ICON, statChip, statChipNumber } from '@/components/statChip';
 import { Numeral } from '@/components/ui';
 import { useProgressView } from '@/progress/ProgressProvider';
 import { lift } from '@/theme/subjectTheme';
-import { color, depth, iconSize, radius, space } from '@/theme/tokens';
+import { color, space } from '@/theme/tokens';
 
 /**
  * The Knowledge Level on the World Map header, built like the Brainpower and
@@ -21,12 +22,12 @@ export function LevelBadge() {
       onPress={() => router.navigate('/profile')}
       hitSlop={space.sm}
       style={({ pressed }) => [
-        { flexDirection: 'row', alignItems: 'center', gap: space.xxs, paddingLeft: space.xs, paddingRight: space.md, paddingVertical: space.xxs, borderRadius: radius.pill, borderWidth: depth.border },
+        statChip,
         { backgroundColor: color.surface, borderColor: color.brandLine },
         pressed && { opacity: 0.7 },
       ]}>
-      <LevelIcon size={iconSize.xl} />
-      <Numeral style={{ color: color.brandText }}>{knowledgeLevel}</Numeral>
+      <LevelIcon size={STAT_CHIP_ICON} />
+      <Numeral style={{ ...statChipNumber, color: color.brandText }}>{knowledgeLevel}</Numeral>
     </Pressable>
   );
 }

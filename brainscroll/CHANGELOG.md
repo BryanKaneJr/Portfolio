@@ -4,7 +4,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-10-03: The level is a chip on the World Map
 
-- The World Map header drops "Knowledge Lv. N" and its block (owner: redundant). The Knowledge Level is now a chip like Brainpower and the streak: a glossy violet graduation cap and the number, top left. Tapping it opens Profile (`LevelBadge.tsx`).
+- The World Map header drops "Knowledge Lv. N" and its block (owner: redundant). The Knowledge Level is now a chip like Brainpower and the streak: a glossy violet graduation cap and the number, top left. Tapping it opens Profile (`LevelBadge.tsx`). All three header chips share one size, 15% smaller than before (`statChip.ts`).
 
 ## 2026-10-03: Privacy policy reviewed, support contact on the site
 

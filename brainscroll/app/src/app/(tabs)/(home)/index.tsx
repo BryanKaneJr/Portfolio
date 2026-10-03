@@ -103,7 +103,7 @@ function HomeSkeleton() {
     <Loading label="Loading your subjects">
       <Row gap={space.sm}>
         {/* The level chip's footprint. */}
-        <Skeleton width={72} height={44} r={radius.pill} />
+        <Skeleton width={62} height={36} r={radius.pill} />
       </Row>
       <SkeletonCard art={64} lines={1} action />
       <Row gap={space.sm} style={{ flexWrap: 'wrap' }}>
