@@ -2,6 +2,11 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: Sign-in buttons can't vanish for a whole session
+
+- **If the app couldn't read the project's sign-in settings once at launch, it hid Apple and Google until the app was restarted**, offering only the code-based methods. It now asks again next time, and meanwhile offers every method the build lists (the server still refuses a provider that's off).
+- **Development builds say why a method is hidden** in the Metro terminal (`[sign-in] offering …; hidden: …`). `docs/supabase-setup.md` has a "A sign-in button is missing" section.
+
 ## 2026-10-03: Dr. Scroll's everyday poses, placed
 
 - **A few light spots take turns, one pose a day** (`SPOT_POSE_VARIANTS` in core): out of Brainpower he's off duty (paddling pool, sun reflector, tea, yoga, a friendly bee, a giant sandwich, or going outside); loading shows coffee jitters, a book tower or spaghetti; a screen that didn't load shows a stuck jar, a tangled tape measure or an inside-out umbrella; a dead link gets a pigeon on his head or a tiny hat; an empty review tab, tea or a sandwich. Lessons never change: they stay quiet.
