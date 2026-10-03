@@ -1,4 +1,5 @@
-import { QUESTION_PURPOSES } from './constants';
+import { QUESTION_PURPOSES, TEXT_BUDGET } from './constants';
+import { blankCount } from './blank';
 import { MILESTONE_TROPHIES } from './trophies';
 import { Asset, Concept, Level, Quest, Skill, SkillApproval, Source, Subject, Syllabus, VerificationRecord, type Fact } from './content-schema';
 import { levelId, levelScope, parseLevelId } from './ids';
@@ -233,6 +234,14 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
           err(q.id, `source card ${cid} must be a learning or hook card, not a ${owner.card.type} card`);
       }
       if (q.kind !== 'mcq' && q.shuffled) err(q.id, '`shuffled` is set by the server for phones; content never sets it');
+      const gaps = blankCount(q.prompt);
+      if (gaps > 1) err(q.id, `a fill-in-the-blank has one gap; this prompt has ${gaps}`);
+      else if (gaps === 1 && q.kind !== 'mcq') err(q.id, 'only multiple choice can be a fill-in-the-blank');
+      else if (gaps === 1 && q.kind === 'mcq') {
+        if (/\?\s*$/.test(q.prompt)) err(q.id, 'a fill-in-the-blank is a statement with a gap, not a question; drop the "?"');
+        for (const o of q.options)
+          if (o.label.length > TEXT_BUDGET.blankLabel) err(q.id, `option "${o.label}" is too long to drop into the gap (${o.label.length}/${TEXT_BUDGET.blankLabel})`);
+      }
       if (q.kind === 'mcq') {
         const correct = q.options.filter((o) => o.correct).length;
         if (correct !== 1) err(q.id, `must have exactly one correct option; has ${correct}`);

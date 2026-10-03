@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 82,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Training and Testing",
   "objective": "After this level you can judge a model by how it does on data it never saw, and spot overfitting when it only memorized its training set.",
@@ -103,28 +103,28 @@
       "sourceCardIds": [
         "card.computers.082.c2"
       ],
-      "prompt": "Which pile of examples is held back to judge a finished model?",
+      "prompt": "The pile of examples held back to judge a finished model is _____.",
       "options": [
         {
           "id": "a",
-          "label": "The training set",
+          "label": "the training set",
           "correct": false,
           "rationale": "That's what the model learns from."
         },
         {
           "id": "b",
-          "label": "The validation set",
+          "label": "the validation set",
           "correct": false,
           "rationale": "That checks progress during training."
         },
         {
           "id": "c",
-          "label": "The test set",
+          "label": "the test set",
           "correct": true
         },
         {
           "id": "d",
-          "label": "Any examples that repeat the training set",
+          "label": "repeats of the training set",
           "correct": false,
           "rationale": "Those should be deleted from the test, not used for it."
         }
