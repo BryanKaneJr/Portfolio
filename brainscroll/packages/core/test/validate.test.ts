@@ -112,6 +112,41 @@ describe('validateContent', () => {
     expect(issues(bundle([l]), 'error')).toContain('must have exactly one correct option; has 2');
   });
 
+  it('accepts match and order questions, and checks they can be told apart', () => {
+    const asOrder = (items: string[], first = 'Smallest', last = 'Largest') => {
+      const l = makeLevel(1);
+      const q = (l.questions as Record<string, unknown>[])[0]!;
+      delete q.options;
+      Object.assign(q, { kind: 'order', items, first, last });
+      return l;
+    };
+    const asMatch = (pairs: { left: string; right: string }[]) => {
+      const l = makeLevel(1);
+      const q = (l.questions as Record<string, unknown>[])[0]!;
+      delete q.options;
+      Object.assign(q, { kind: 'match', pairs });
+      return l;
+    };
+    const errors = (l: Record<string, unknown>) => issues(bundle([l]), 'error');
+    expect(errors(asOrder(['Earth', 'The solar system', 'The Milky Way']))).toEqual([]);
+    // Two Mars are fine (interchangeable); spellings that differ only in case are not.
+    expect(errors(asOrder(['Mercury', 'Mars', 'Mars', 'Jupiter']))).toEqual([]);
+    expect(errors(asOrder(['Mars', 'mars', 'Earth'])).some((m) => m.includes('differ only in case'))).toBe(true);
+    expect(errors(asOrder(['Earth', 'Mars', 'Venus'], 'Ends', 'ends')).some((m) => m.includes('different names'))).toBe(true);
+    expect(errors(asOrder(['Earth', 'Mars'])).length).toBeGreaterThan(0); // at least 3
+    const pairs = [
+      { left: 'Paris', right: 'France' },
+      { left: 'Rome', right: 'Italy' },
+      { left: 'Lyon', right: 'France' },
+    ];
+    expect(errors(asMatch(pairs))).toEqual([]);
+    expect(errors(asMatch([...pairs.slice(0, 2), { left: 'Paris', right: 'Spain' }])).some((m) => m.includes('duplicate left-hand'))).toBe(true);
+    // The server sets `shuffled` for phones; content never does.
+    const shuffled = asMatch(pairs);
+    (shuffled.questions as Record<string, unknown>[])[0]!.shuffled = true;
+    expect(errors(shuffled).some((m) => m.includes('`shuffled`'))).toBe(true);
+  });
+
   it('rejects a card pointing at a missing question', () => {
     const l = makeLevel(1);
     (l.cards as Card[])[4]!.questionId = 'question.astronomy.001.q9';

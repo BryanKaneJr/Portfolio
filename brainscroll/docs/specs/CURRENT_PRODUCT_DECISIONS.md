@@ -15,7 +15,7 @@ Typical normal level:
 - 2–5 focused learning/reading cards, each one short paragraph (about 50–90 words).
 - Roughly 150–320 words total, depending on topic.
 - Optional image, map, timeline, diagram, comparison, or connection card.
-- 3 questions.
+- 3 questions. Besides multiple choice, about one a level is a match or an order question (owner, 2026-10-03): concrete pairs or a sequence with one right answer, graded by label (identical labels interchangeable), dragged or tapped into place. Same first-attempt rules: only the first Check counts, a miss marks the wrong positions and shows the source cards, and the answer is never revealed.
 - Roughly 3–6 minutes total.
 
 The normal three questions should generally cover:

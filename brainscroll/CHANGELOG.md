@@ -2,6 +2,12 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: Match and order questions
+
+- **Two new kinds of question** (owner): **match** ("match each planet with what it's known for": tap one on each side to pair them) and **put in order** ("from smallest to largest": drag a tile by its handle, or tap two tiles to swap them; screen readers swipe up or down). Only concrete answers: one-to-one pairs and sequences with one right order, every label taught on the cards shown after a miss.
+- **Graded by label, on the server:** two identical items are interchangeable (two Mars, either one in either spot). Only the first Check counts, like multiple choice; a miss marks the wrong positions, never what belongs there, and shows the source cards until it's right. `grade_answer` (SQL) and `gradeAnswer` (core) are the one grader for lessons, review, chapter reviews and the Final Round; the phone gets the items already jumbled and never the answer (`learner_question`), and multiple-choice replies are unchanged.
+- **Astronomy goes first:** Level 1's "which list goes from smallest to largest?" is now a real ordering question (Earth, the solar system, the Milky Way). The Content Admin edits and previews both kinds; the validator checks them (distinct left items, one spelling per label, two different ends).
+
 ## 2026-10-03: Skill-map waypoints with character
 
 - **Each subject's waypoints wear its own silhouette** (owner): a book for History, a beaker for Science, a mountain for Geography, a paint splatter for Arts & Culture (drawn, as no icon set has one), gears for How the World Works and a brain for Mind & Reasoning. Checkpoints, Level 50 and mastery levels keep their shield, flag and star.

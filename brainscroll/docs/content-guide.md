@@ -62,11 +62,21 @@ The source of truth is `LEARNING_STRUCTURE` in `packages/core/src/constants.ts` 
 | `fact` | short memorable `fact` + optional `context` |
 | `timeline` | `headline`, 2–6 `events` `{when, label}` |
 | `comparison` | `headline`, 2–3 `items` `{label, points[]}` |
-| `mcq` | `questionId` |
+| `mcq` | `questionId` (any question kind: multiple choice, match or order) |
 | `recall` | `questionId`, which must test a concept taught in an earlier level |
 | `checkpoint` | `headline`, 1–5 `learned` bullet points. On a chapter's last level these lines are the proof shown on Level Complete ("10 levels ago, could you have explained this?") and the first one is the chapter's line on the skill map, so write them as what the learner can now explain (`docs/writing/chapter-brief.md`) |
 
 ### Answer positions
+
+### Match and order questions
+
+Besides multiple choice (`"kind": "mcq"`), a question can be a **match** or an **order** (owner, 2026-10-03: about one per level). Both are graded by label, so two identical labels are interchangeable ("two Mars": either one in either spot is right).
+
+- **Order** (`"kind": "order"`): `items` (3–6, each 40 characters or fewer) listed in the right order, and `first` / `last` naming the two ends ("Closest to the Sun", "Farthest"). The app jumbles them. Only sequences with exactly one right order that the cards state outright: distance, size, date, the steps of a process. Never "rank by importance", and no two items that could tie.
+- **Match** (`"kind": "match"`): `pairs` (3–4) of `{ "left", "right" }`, each side 40 characters or fewer. The left items must all differ. Only true one-to-one pairs stated on the cards (a thing and its defining feature, a term and its definition), where no other right-hand item could arguably fit.
+- Every label must appear on the question's `sourceCardIds` cards (the quality check warns otherwise): after a miss those cards must settle the whole answer. Use the cards' own wording.
+- The `explanation` states the whole right answer. There are no per-option rationales: a miss marks the wrong positions instead.
+- Converting a published question bumps the level's `revision`, like any content change.
 
 Vary which option is correct across a skill. The validator warns when one letter holds more than 45% of the correct answers. If the options have a natural order (numbers, dates, sequences), keep that order and let the correct answer land wherever it falls.
 
