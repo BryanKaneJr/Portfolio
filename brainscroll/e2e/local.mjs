@@ -193,7 +193,9 @@ try {
       check(/∞ Brainpower/.test(paywall), 'Unlimited is ∞ Brainpower');
       check(/Sandbox: no money changes hands/.test(paywall), 'the development harness buys from a sandbox store');
       check(paywall.includes('All knowledge can be unlocked free over time.'), 'it says plainly that all knowledge is free over time');
-      await exactButton(page, 'Start Unlimited').click();
+      check(/Try Unlimited free/.test(out) && /Start free trial/.test(out), 'running out offers the free trial first');
+      check(paywall.includes('7 days free') && /7 days free, then \$39\.99 per year\. Cancel anytime before the trial ends/.test(paywall), 'the paywall states the trial and what it costs after');
+      await exactButton(page, 'Start free trial').click();
       await page.waitForTimeout(1000);
       check(/Unlimited is on\./.test(await bodyText(page)), 'buying turns Unlimited on (after the server re-reads the store)');
       await exactButton(page, 'Keep learning').click();

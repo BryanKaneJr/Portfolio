@@ -14,7 +14,25 @@ export interface Plan {
   period: string;
   /** A second line, e.g. "Just $3.33 a month". */
   note?: string;
+  /**
+   * A free trial this learner can start on this plan ("7 days free"), from the
+   * store's introductory offer. Only when the store says they're eligible
+   * (one trial per Apple ID / Google account); otherwise absent, and the
+   * screens show the plain price.
+   */
+  trial?: { label: string };
 }
+
+/** "7 days free" from a store period: DAY / WEEK / MONTH / YEAR × count. */
+export function trialLabel(unit: string, count: number): string {
+  const days = unit === 'DAY' ? count : unit === 'WEEK' ? count * 7 : null;
+  if (days !== null) return `${days} ${days === 1 ? 'day' : 'days'} free`;
+  const word = unit === 'MONTH' ? 'month' : 'year';
+  return `${count} ${count === 1 ? word : `${word}s`} free`;
+}
+
+/** The trial on offer, if any plan has one (the out-of-Brainpower card leads with it). */
+export const offeredTrial = (plans: readonly Plan[] | null | undefined) => plans?.find((p) => p.trial)?.trial;
 
 export type PurchaseOutcome = 'purchased' | 'cancelled' | 'pending';
 

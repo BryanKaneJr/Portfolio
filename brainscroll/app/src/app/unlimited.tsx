@@ -80,6 +80,7 @@ export default function UnlimitedScreen() {
 
   const close = () => (router.canGoBack() ? router.back() : router.replace('/'));
   const canBuy = p.purchases.kind !== 'unavailable' && !!plans?.length;
+  const chosenPlan = plans?.find((pl) => pl.id === chosen);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: color.bgDeep }} edges={['top']}>
@@ -149,6 +150,13 @@ export default function UnlimitedScreen() {
             </>
           )}
 
+          {!active && chosenPlan?.trial && (
+            // The store's own terms, said plainly before the button (App Store rule 3.1.2).
+            <Body>
+              {chosenPlan.trial.label.replace(' free', '')} free, then {chosenPlan.price} {chosenPlan.period}. Cancel anytime before the trial ends and you won’t be charged.
+            </Body>
+          )}
+
           {message && <Notice key={message.text} tone={message.tone}>{message.text}</Notice>}
 
           <Caption>{VOICE.fairness}</Caption>
@@ -180,7 +188,7 @@ export default function UnlimitedScreen() {
           </>
         ) : (
           <>
-            <Button label={busy === 'buy' ? 'Opening the store' : 'Start Unlimited'} loading={busy === 'buy'} disabled={!canBuy || !!busy} onPress={() => void buy()} />
+            <Button label={busy === 'buy' ? 'Opening the store' : chosenPlan?.trial ? 'Start free trial' : 'Start Unlimited'} loading={busy === 'buy'} disabled={!canBuy || !!busy} onPress={() => void buy()} />
             {p.purchases.kind !== 'unavailable' && (
               <Button variant="ghost" label={busy === 'restore' ? 'Restoring' : 'Restore purchases'} loading={busy === 'restore'} disabled={!!busy} onPress={() => void restore()} />
             )}
@@ -199,7 +207,7 @@ function PlanOption({ plan, selected, onPress }: { plan: Plan; selected: boolean
     <Card
       role="radio"
       state={selected ? 'selected' : undefined}
-      accessibilityLabel={`${plan.id === 'annual' ? 'Yearly' : 'Monthly'}, ${plan.price} ${plan.period}`}
+      accessibilityLabel={`${plan.id === 'annual' ? 'Yearly' : 'Monthly'}, ${plan.trial ? `${plan.trial.label}, then ` : ''}${plan.price} ${plan.period}`}
       onPress={() => {
         feedback('select');
         onPress();
@@ -208,6 +216,7 @@ function PlanOption({ plan, selected, onPress }: { plan: Plan; selected: boolean
       <View style={[styles.radio, selected && styles.radioOn]}>{selected && <View style={styles.radioDot} />}</View>
       <View style={{ flex: 1, gap: space.xxs }}>
         <Text style={styles.planName}>{plan.id === 'annual' ? 'Yearly' : 'Monthly'}</Text>
+        {plan.trial && <Caption tone="brand">{plan.trial.label}</Caption>}
         {plan.note && <Caption>{plan.note}</Caption>}
       </View>
       <View style={{ alignItems: 'flex-end' }}>

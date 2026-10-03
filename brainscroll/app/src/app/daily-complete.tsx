@@ -1,6 +1,6 @@
 import { dayNumber, drScrollSaying, PRICING } from '@brainscroll/core';
 import { router } from 'expo-router';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
@@ -8,7 +8,8 @@ import { BrainpowerIcon } from '@/components/BrainpowerIcon';
 import { BrainpowerWays } from '@/components/BrainpowerWays';
 import { Body, Button, Caption, Card, Display, DrScrollSays, Eyebrow, Icon, Numeral, Pop, ProgressBar, Reveal, Row, Title } from '@/components/ui';
 import { featuredQuest, questDef, questTotals, useQuests } from '@/progress/useQuests';
-import { useProgressView } from '@/progress/ProgressProvider';
+import { useProgress, useProgressView } from '@/progress/ProgressProvider';
+import { offeredTrial, type Plan } from '@/purchases';
 import { color, depth, iconSize, layout, radius, space, type } from '@/theme/tokens';
 
 /**
@@ -22,6 +23,17 @@ export default function DailyCompleteScreen() {
   const { today, xpToday } = useProgressView();
   const insets = useSafeAreaInsets();
   const quest = featuredQuest(useQuests().data);
+  // A free trial the store would give this learner leads the Unlimited card; otherwise the price.
+  const { purchases } = useProgress();
+  const [plans, setPlans] = useState<Plan[] | null>(null);
+  useEffect(() => {
+    let alive = true;
+    if (purchases.kind !== 'unavailable') purchases.plans().then((p) => alive && setPlans(p), () => {});
+    return () => {
+      alive = false;
+    };
+  }, [purchases]);
+  const trial = offeredTrial(plans);
   // Product health: how often learners run out (not how long they stay).
   useEffect(() => track('daily_complete_seen', { used: today.used, cap: today.cap ?? today.used }), [today.used, today.cap]);
 
@@ -56,12 +68,16 @@ export default function DailyCompleteScreen() {
                 <BrainpowerIcon size={56} state="unlimited" />
                 <View style={{ flex: 1, gap: space.xxs }}>
                   <Eyebrow tone="brand">Unlimited</Eyebrow>
-                  <Title>Keep learning today</Title>
-                  <Caption>∞ Brainpower for new levels · ${PRICING.monthlyUsd}/mo or ${PRICING.annualUsd}/yr</Caption>
+                  <Title>{trial ? 'Try Unlimited free' : 'Keep learning today'}</Title>
+                  <Caption>
+                    {trial
+                      ? `∞ Brainpower, ${trial.label.replace(' free', '')} free. Then $${PRICING.monthlyUsd}/mo or $${PRICING.annualUsd}/yr, cancel anytime.`
+                      : `∞ Brainpower for new levels · $${PRICING.monthlyUsd}/mo or $${PRICING.annualUsd}/yr`}
+                  </Caption>
                 </View>
               </Row>
               <View style={styles.cta}>
-                <Text style={styles.ctaText}>See Unlimited</Text>
+                <Text style={styles.ctaText}>{trial ? 'Start free trial' : 'See Unlimited'}</Text>
                 <Icon name="forward" tint={color.text} size={iconSize.sm} />
               </View>
             </Card>

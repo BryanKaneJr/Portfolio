@@ -2,6 +2,11 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: A free trial where people run out
+
+- **Running out of Brainpower now offers "Try Unlimited free"** when the store would give the learner a trial: the card says "7 days free. Then $4.99/mo or $39.99/yr, cancel anytime" and its button "Start free trial". The paywall marks the trial on each plan, states the terms above the button, and the button becomes "Start free trial". The owner chose this over starting new accounts at 10 Brainpower ("leave them wanting more").
+- The trial is the stores' own introductory offer, shown only to eligible accounts; without one, the plain price shows as before. Setup steps are in `docs/subscriptions.md`.
+
 ## 2026-10-03: Unlimited leads when Brainpower runs out
 
 - **The out-of-Brainpower screen offers Unlimited first** (owner: "unlimited needs to appear more"): a highlighted card with the gold brain, the price and a See Unlimited button, right after Dr. Scroll. Still only after a day's learning, never mid-lesson.

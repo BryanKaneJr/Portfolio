@@ -60,6 +60,21 @@ These need your accounts; none of it can be done from the repo.
 6. **RevenueCat webhook**: Project → Integrations → Webhooks. URL `https://<project-ref>.supabase.co/functions/v1/revenuecat-webhook`, Authorization header `Bearer <REVENUECAT_WEBHOOK_SECRET>`. Send a test event: it's acknowledged and ignored.
 7. **Test in sandbox** (a development build on a real phone, with a Sandbox Apple ID / Play license tester): buy each plan, restore on a second device, cancel, let it expire (sandbox renewals are minutes long), and change device. Check `public.entitlements` follows along.
 
+## Free trial (owner, 2026-10-03)
+
+Running out of Brainpower offers **"Try Unlimited free"** when the store would give this learner a trial. The trial is the store's own **introductory offer**: nothing on our server changes, because a trial is just an active subscription to RevenueCat and the webhook.
+
+- **App Store Connect:** for each subscription (`unlimited_monthly`, `unlimited_annual`), open Subscription Prices → Introductory Offers → Create. Pick **Free**, **1 week**, all countries, no end date. Apple gives each Apple ID one trial per subscription group.
+- **Google Play (later):** for each base plan, add an offer with a **free trial** phase of 7 days, eligibility "New customer acquisition". Google only offers it to accounts that never had one.
+- **RevenueCat** reads the offer from the stores automatically; nothing to set there.
+
+In the app (`purchases/revenuecat.ts`), a plan carries `trial: { label: "7 days free" }` only when its product has a free intro offer **and** (on iOS) `checkTrialOrIntroductoryPriceEligibility` says this Apple ID is eligible; unknown counts as not eligible, as RevenueCat advises. Then:
+
+- the out-of-Brainpower card says "Try Unlimited free", "7 days free. Then $4.99/mo or $39.99/yr, cancel anytime" and "Start free trial";
+- the paywall marks the plan "7 days free", states "7 days free, then $39.99 per year. Cancel anytime before the trial ends and you won't be charged." above the button (App Store rule 3.1.2), and the button reads "Start free trial".
+
+Without an offer, or for someone who already used theirs, everything shows the plain price, as before. The development sandbox offers a 7-day trial until the account's first sandbox purchase.
+
 ## Tests
 
 - `backend/tests/subscriptions.test.sql` (in `npm run test:db`): permissions, purchase, cancel, stale events, expiry, lapsed expiry, sync, transfer, ignored events, no XP.
