@@ -2,6 +2,12 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: Levels save on iPhone; card pictures are back
+
+- **Finishing a level failed on iPhone ("Couldn't save your progress")**: the one-time key sent with a finished level fell back to a non-UUID string on Hermes (no `crypto.randomUUID`), and the server's key column is a uuid. Keys now come from `expo-crypto`, and a level started before the fix gets a fresh key when it's finished (it never saved, so that's safe). Chapter reviews were unaffected: their ids come from the server.
+- **The level screen logs the real error** in development builds (`[level] couldn't complete …` in the Metro terminal) instead of only the plain message.
+- **Card pictures went missing** after lessons got bigger text: a card showed its illustration only with at least 120 pt of empty screen left. A card's own illustration now always shows (96 to 200 pt, the card scrolls if it must); Dr. Scroll as a guest picture still waits for room.
+
 ## 2026-10-03: Sign-in buttons can't vanish for a whole session
 
 - **If the app couldn't read the project's sign-in settings once at launch, it hid Apple and Google until the app was restarted**, offering only the code-based methods. It now asks again next time, and meanwhile offers every method the build lists (the server still refuses a provider that's off).
