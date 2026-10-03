@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 43,
   "type": "regular",
-  "revision": 2,
+  "revision": 1,
   "status": "published",
   "title": "The Crusader States",
   "objective": "After this level you can describe the kingdoms the crusaders set up in the Levant.",
@@ -94,7 +94,6 @@
   "questions": [
     {
       "id": "question.middle_ages.043.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.crusader_states"
@@ -103,6 +102,9 @@
         "card.middle_ages.043.c2"
       ],
       "prompt": "What name did Europeans give the crusader states, and what did it mean?",
+      "explanation": "Europeans called the four crusader states Outremer, French for “overseas”.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -127,13 +129,10 @@
           "label": "Outremer, meaning “overseas”",
           "correct": true
         }
-      ],
-      "explanation": "Europeans called the four crusader states Outremer, French for “overseas”.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.043.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.crusader_states"
@@ -142,6 +141,9 @@
         "card.middle_ages.043.c3"
       ],
       "prompt": "Why did Bohemond keeping Antioch sour relations with the Byzantine emperor?",
+      "explanation": "Alexius made each leader swear to restore land that had been his empire’s before the Turkish invasions; Bohemond ignored the oath and kept Antioch.",
+      "difficulty": 0.35,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -166,32 +168,48 @@
           "correct": false,
           "rationale": "The promise was made to Alexius, not by the pope."
         }
-      ],
-      "explanation": "Alexius made each leader swear to restore land that had been his empire’s before the Turkish invasions; Bohemond ignored the oath and kept Antioch.",
-      "difficulty": 0.35
+      ]
     },
     {
       "id": "question.middle_ages.043.q3",
-      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.crusader_states",
         "concept.middle_ages.crusade_urban_call"
       ],
       "sourceCardIds": [
-        "card.middle_ages.043.c2",
-        "card.middle_ages.043.c5"
+        "card.middle_ages.043.c5",
+        "card.middle_ages.041.c3"
       ],
-      "prompt": "Put these events in Outremer in order, from earliest to latest.",
-      "items": [
-        "Took the title of king of Jerusalem",
-        "Zengi captured Edessa",
-        "It failed outside Damascus"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "Baldwin took the title of king of Jerusalem in 1100. Zengi captured Edessa in 1144, and the Second Crusade failed outside Damascus in 1148.",
-      "difficulty": 0.3
+      "prompt": "Urban II’s call of 1095 launched the First Crusade. What set off the Second Crusade?",
+      "explanation": "Zengi took Edessa in 1144, and its loss set off the Second Crusade, which failed at Damascus in 1148.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "Saladin’s capture of Jerusalem",
+          "correct": false,
+          "rationale": "That led to the Third Crusade."
+        },
+        {
+          "id": "b",
+          "label": "Zengi’s capture of Edessa in 1144",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Bohemond’s seizure of Antioch",
+          "correct": false,
+          "rationale": "That caused a quarrel with Byzantium."
+        },
+        {
+          "id": "d",
+          "label": "A new request from Alexius",
+          "correct": false,
+          "rationale": "He had died long before."
+        }
+      ]
     }
   ],
   "sourceIds": [

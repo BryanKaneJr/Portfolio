@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 44,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "Saladin",
   "objective": "After this level you can explain how Saladin united Muslim forces and retook Jerusalem.",
@@ -94,7 +94,6 @@
   "questions": [
     {
       "id": "question.middle_ages.044.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.crusade_saladin"
@@ -103,6 +102,9 @@
         "card.middle_ages.044.c3"
       ],
       "prompt": "In July 1187, Saladin destroyed the crusader army at _____.",
+      "explanation": "On 4 July 1187, at Hattin in northern Palestine, Saladin trapped and destroyed an exhausted crusader army.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -127,13 +129,10 @@
           "correct": false,
           "rationale": "The Second Crusade failed there in 1148."
         }
-      ],
-      "explanation": "On 4 July 1187, at Hattin in northern Palestine, Saladin trapped and destroyed an exhausted crusader army.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.044.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.crusade_saladin"
@@ -142,6 +141,9 @@
         "card.middle_ages.044.c4"
       ],
       "prompt": "How did Saladin’s taking of Jerusalem in 1187 differ from the crusaders’ capture in 1099?",
+      "explanation": "Saladin had planned revenge for 1099 but let the inhabitants buy their freedom; several thousand who were not ransomed were probably enslaved.",
+      "difficulty": 0.35,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -166,13 +168,10 @@
           "label": "Inhabitants could ransom themselves instead of being slaughtered",
           "correct": true
         }
-      ],
-      "explanation": "Saladin had planned revenge for 1099 but let the inhabitants buy their freedom; several thousand who were not ransomed were probably enslaved.",
-      "difficulty": 0.35
+      ]
     },
     {
       "id": "question.middle_ages.044.q3",
-      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.crusade_saladin",
@@ -180,21 +179,37 @@
       ],
       "sourceCardIds": [
         "card.middle_ages.044.c2",
-        "card.middle_ages.044.c4",
-        "card.middle_ages.044.c5"
+        "card.middle_ages.008.c3"
       ],
-      "prompt": "Put these events in Saladin’s life in order, from earliest to latest.",
-      "items": [
-        "Saladin was born",
-        "He became vizier of Egypt",
-        "Abolished the Shi‘i Fatimid caliphate",
-        "Jerusalem surrendered",
-        "He died in Damascus"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "Saladin was born in 1137 or 1138, became vizier of Egypt in 1169, abolished the Fatimid caliphate in 1171, took Jerusalem’s surrender in 1187, and died in Damascus in 1193.",
-      "difficulty": 0.35
+      "prompt": "Saladin united Egypt and Syria. Which empire had the first caliphs taken those two lands from in Level 8?",
+      "explanation": "Under the first caliphs, Arab Muslim armies took Syria and Egypt from the Byzantines; Saladin later united them under his rule.",
+      "difficulty": 0.35,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Byzantine Empire",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The Persian Empire",
+          "correct": false,
+          "rationale": "Persia’s armies were defeated, but Syria and Egypt were Byzantine."
+        },
+        {
+          "id": "c",
+          "label": "The Frankish kingdom",
+          "correct": false,
+          "rationale": "The Franks ruled Gaul."
+        },
+        {
+          "id": "d",
+          "label": "The Visigothic kingdom",
+          "correct": false,
+          "rationale": "That was in Spain."
+        }
+      ]
     }
   ],
   "sourceIds": [

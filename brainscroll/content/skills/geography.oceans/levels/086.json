@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 86,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Scuba",
   "objective": "After this level you can explain how scuba gear works.",
@@ -135,7 +135,7 @@
     },
     {
       "id": "question.oceans.086.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.scuba_pressure_risks"
@@ -143,33 +143,15 @@
       "sourceCardIds": [
         "card.oceans.086.c3"
       ],
-      "prompt": "Why must a scuba diver keep breathing out while rising to the surface?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The regulator shuts off during ascent",
-          "correct": false,
-          "rationale": "The regulator still works; the danger is in the lungs."
-        },
-        {
-          "id": "b",
-          "label": "Air in the lungs expands and can rupture them",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Holding your breath makes you sink",
-          "correct": false,
-          "rationale": "The problem is expanding air, not sinking."
-        },
-        {
-          "id": "d",
-          "label": "Nitrogen freezes if you hold it in",
-          "correct": false,
-          "rationale": "Nothing freezes; the air expands."
-        }
+      "prompt": "A diver at 10 m rises while holding a full breath. Put what happens in order, from first to last.",
+      "items": [
+        "Rise without breathing out",
+        "That air doubles in volume",
+        "Overinflate and rupture your lungs"
       ],
-      "explanation": "Air breathed at depth expands as pressure falls. From 10 m it doubles in volume, enough to overinflate and rupture the lungs.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "If you rise without breathing out, the air in your lungs doubles in volume on the way up from 10 m, enough to overinflate and rupture your lungs.",
       "difficulty": 0.3
     },
     {

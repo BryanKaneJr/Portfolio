@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 31,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "The Medieval Church",
   "objective": "After this level you can explain the Church's power over daily life.",
@@ -87,7 +87,6 @@
   "questions": [
     {
       "id": "question.middle_ages.031.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.church_tithe"
@@ -96,6 +95,9 @@
         "card.middle_ages.031.c3"
       ],
       "prompt": "The tithe took _____ of a medieval believer’s income.",
+      "explanation": "The tithe was a tenth of a person’s income, paid in money or in crops and farm animals.",
+      "difficulty": 0.15,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -120,13 +122,10 @@
           "correct": false,
           "rationale": "More than that."
         }
-      ],
-      "explanation": "The tithe was a tenth of a person’s income, paid in money or in crops and farm animals.",
-      "difficulty": 0.15
+      ]
     },
     {
       "id": "question.middle_ages.031.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.parish_church_life"
@@ -135,6 +134,9 @@
         "card.middle_ages.031.c2"
       ],
       "prompt": "Why was the parish church so central to a medieval villager’s life?",
+      "explanation": "Apart from the last anointing, the parish church was normally the only place to receive the sacraments, and it was where people were buried.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -159,13 +161,10 @@
           "label": "It alone normally gave the sacraments and burial",
           "correct": true
         }
-      ],
-      "explanation": "Apart from the last anointing, the parish church was normally the only place to receive the sacraments, and it was where people were buried.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.031.q3",
-      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.parish_church_life",
@@ -173,20 +172,37 @@
       ],
       "sourceCardIds": [
         "card.middle_ages.031.c2",
-        "card.middle_ages.031.c3",
-        "card.middle_ages.031.c4"
+        "card.middle_ages.006.c3"
       ],
-      "prompt": "Put these church rules and writings in order, from earliest to latest.",
-      "items": [
-        "Church law required it",
-        "Kings’ law enforced it",
-        "Counted seven sacraments",
-        "The Fourth Lateran Council"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "Church law required the tithe from the 6th century, and kings’ law enforced it from the 8th. Peter Lombard counted seven sacraments in the 12th century, and the Fourth Lateran Council met in 1215.",
-      "difficulty": 0.25
+      "prompt": "Level 6’s Clovis was baptized by a bishop at Reims. Where would an ordinary medieval villager normally be baptized?",
+      "explanation": "Baptism is a sacrament, and the parish church was normally the only place parishioners could receive the sacraments.",
+      "difficulty": 0.25,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "At their own parish church",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Only at the nearest cathedral",
+          "correct": false,
+          "rationale": "The parish church gave the sacraments."
+        },
+        {
+          "id": "c",
+          "label": "In a monastery’s scriptorium",
+          "correct": false,
+          "rationale": "That was a writing room."
+        },
+        {
+          "id": "d",
+          "label": "At the royal court",
+          "correct": false,
+          "rationale": "Villagers used their parish church."
+        }
+      ]
     }
   ],
   "sourceIds": [

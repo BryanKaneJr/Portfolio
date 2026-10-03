@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 78,
   "type": "regular",
-  "revision": 2,
+  "revision": 1,
   "status": "published",
   "title": "Robin Hood and King Arthur",
   "objective": "After this level you can explain how medieval legends like Robin Hood and King Arthur grew.",
@@ -98,7 +98,6 @@
   "questions": [
     {
       "id": "question.middle_ages.078.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.robin_hood_legend"
@@ -107,6 +106,9 @@
         "card.middle_ages.078.c2"
       ],
       "prompt": "Where does Robin Hood first appear in writing, around 1377?",
+      "explanation": "A lazy priest in Piers Plowman (about 1377) knows “rhymes of Robin Hood” better than his prayers.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -131,36 +133,49 @@
           "correct": false,
           "rationale": "That’s where Arthur became a king."
         }
-      ],
-      "explanation": "A lazy priest in Piers Plowman (about 1377) knows “rhymes of Robin Hood” better than his prayers.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.078.q2",
-      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.arthur_legend"
       ],
       "sourceCardIds": [
-        "card.middle_ages.078.c4",
-        "card.middle_ages.078.c5"
+        "card.middle_ages.078.c4"
       ],
-      "prompt": "Put these steps in the Arthur legend in order, from earliest to latest.",
-      "items": [
-        "The Historia Brittonum",
-        "History of the Kings of Britain",
-        "Chrétien de Troyes",
-        "Le Morte Darthur"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "The Historia Brittonum (around 800 to 830) first mentions Arthur. Geoffrey’s History of the Kings of Britain followed in 1135 to 1138, Chrétien de Troyes wrote in the late 12th century, and Malory’s Le Morte Darthur in the late 15th.",
-      "difficulty": 0.3
+      "prompt": "How did Geoffrey of Monmouth change the Arthur of the Historia Brittonum?",
+      "explanation": "From a winner of 12 battles against the Saxons, Arthur became a glorious king who defeated a Roman army.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "He made him a glorious king who beat a Roman army",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "He proved that Arthur had never existed at all",
+          "correct": false,
+          "rationale": "He built the legend up."
+        },
+        {
+          "id": "c",
+          "label": "He moved Arthur’s story to Sherwood Forest",
+          "correct": false,
+          "rationale": "That’s Robin Hood’s territory."
+        },
+        {
+          "id": "d",
+          "label": "He removed all twelve of Arthur’s battles",
+          "correct": false,
+          "rationale": "He added a victory over Rome."
+        }
+      ]
     },
     {
       "id": "question.middle_ages.078.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.arthur_legend",
@@ -171,6 +186,9 @@
         "card.middle_ages.009.c2"
       ],
       "prompt": "The Historia Brittonum’s Arthur fought the Saxons. Who were they, according to Level 9?",
+      "explanation": "Angles, Saxons and Jutes were Germanic peoples who built kingdoms in what became England.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -195,9 +213,7 @@
           "label": "Germanic newcomers who built kingdoms in England",
           "correct": true
         }
-      ],
-      "explanation": "Angles, Saxons and Jutes were Germanic peoples who built kingdoms in what became England.",
-      "difficulty": 0.3
+      ]
     }
   ],
   "sourceIds": [

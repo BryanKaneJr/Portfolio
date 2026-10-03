@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 20,
   "type": "checkpoint",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Charlemagne and the Vikings",
   "objective": "After this level you can explain how Charlemagne, the Vikings and the Normans reshaped Europe.",
@@ -144,7 +144,6 @@
   "questions": [
     {
       "id": "question.middle_ages.020.q1",
-      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.viking_descendants_rule",
@@ -158,22 +157,38 @@
         "card.middle_ages.017.c2",
         "card.middle_ages.018.c4"
       ],
-      "prompt": "Put these events in order, from earliest to latest.",
-      "items": [
-        "Vikings raid Lindisfarne",
-        "Leo III crowns Charlemagne emperor",
-        "Alfred beats the Danes at Edington",
-        "Rollo receives the land around Rouen",
-        "William wins at Hastings"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "Vikings raided Lindisfarne in 793, Leo III crowned Charlemagne in 800, Alfred beat the Danes at Edington in 878, Rollo received the land around Rouen in 911, and William won at Hastings in 1066.",
-      "difficulty": 0.3
+      "prompt": "Charlemagne and the Vikings: which order of these events is right?",
+      "explanation": "793, then 911, then 1066.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "Rollo receives Normandy, Lindisfarne raid, Battle of Hastings",
+          "correct": false,
+          "rationale": "Lindisfarne came first, in 793."
+        },
+        {
+          "id": "b",
+          "label": "Lindisfarne raid, Battle of Hastings, Rollo receives Normandy",
+          "correct": false,
+          "rationale": "Rollo’s treaty (911) came before 1066."
+        },
+        {
+          "id": "c",
+          "label": "Lindisfarne raid, Rollo receives Normandy, Battle of Hastings",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Battle of Hastings, Lindisfarne raid, Rollo receives Normandy",
+          "correct": false,
+          "rationale": "Hastings came last, in 1066."
+        }
+      ]
     },
     {
       "id": "question.middle_ages.020.q2",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.charlemagne_coronation"
@@ -182,6 +197,9 @@
         "card.middle_ages.012.c3"
       ],
       "prompt": "Charlemagne’s coronation in 800 took place in which church?",
+      "explanation": "Leo III crowned Charlemagne at Christmas mass in St Peter’s Basilica in Rome.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -206,13 +224,10 @@
           "correct": false,
           "rationale": "That was raided in 793."
         }
-      ],
-      "explanation": "Leo III crowned Charlemagne at Christmas mass in St Peter’s Basilica in Rome.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.020.q3",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.viking_descendants_rule"
@@ -221,6 +236,9 @@
         "card.middle_ages.020.c3"
       ],
       "prompt": "How was William the Conqueror linked to the Viking Age?",
+      "explanation": "William was the great-great-great-grandson of Rollo, the Viking who received Normandy in 911.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -245,13 +263,10 @@
           "correct": false,
           "rationale": "He was duke of Normandy."
         }
-      ],
-      "explanation": "William was the great-great-great-grandson of Rollo, the Viking who received Normandy in 911.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.020.q4",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.viking_voyages"
@@ -260,6 +275,9 @@
         "card.middle_ages.015.c3"
       ],
       "prompt": "The first European settlement on Greenland, about 985, was founded by _____.",
+      "explanation": "Erik the Red, exiled from Iceland, founded the first European settlement on Greenland about 985.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -284,13 +302,10 @@
           "label": "Erik the Red",
           "correct": true
         }
-      ],
-      "explanation": "Erik the Red, exiled from Iceland, founded the first European settlement on Greenland about 985.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.020.q5",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.norman_conquest_1066",
@@ -301,6 +316,9 @@
         "card.middle_ages.009.c2"
       ],
       "prompt": "Level 9’s Anglo-Saxons ruled much of England for centuries. Which event ended their rule?",
+      "explanation": "The Anglo-Saxons ruled much of England until the Norman Conquest of 1066.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -325,9 +343,7 @@
           "correct": false,
           "rationale": "That split Charlemagne’s empire."
         }
-      ],
-      "explanation": "The Anglo-Saxons ruled much of England until the Norman Conquest of 1066.",
-      "difficulty": 0.3
+      ]
     }
   ],
   "sourceIds": [

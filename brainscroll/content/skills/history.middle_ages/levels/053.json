@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 53,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "Guilds",
   "objective": "After this level you can explain how guilds controlled crafts and trained apprentices.",
@@ -88,7 +88,6 @@
   "questions": [
     {
       "id": "question.middle_ages.053.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.guild_apprenticeship"
@@ -97,6 +96,9 @@
         "card.middle_ages.053.c4"
       ],
       "prompt": "From lowest to highest, the ranks in a medieval craft guild were _____.",
+      "explanation": "An apprentice trained for years, became a journeyman paid by the day, and might rise to master with a masterpiece.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -121,13 +123,10 @@
           "label": "apprentice, journeyman, master",
           "correct": true
         }
-      ],
-      "explanation": "An apprentice trained for years, became a journeyman paid by the day, and might rise to master with a masterpiece.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.053.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.guild_control"
@@ -136,6 +135,9 @@
         "card.middle_ages.053.c3"
       ],
       "prompt": "Why could a craft guild control its trade so tightly in a medieval town?",
+      "explanation": "Guilds held a monopoly of trade in their town, and also set quality standards and kept prices stable.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -160,31 +162,48 @@
           "correct": false,
           "rationale": "Guild members rose by skill."
         }
-      ],
-      "explanation": "Guilds held a monopoly of trade in their town, and also set quality standards and kept prices stable.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.053.q3",
-      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.guild_control",
         "concept.middle_ages.town_revival"
       ],
       "sourceCardIds": [
-        "card.middle_ages.053.c4"
+        "card.middle_ages.053.c2",
+        "card.middle_ages.051.c3"
       ],
-      "prompt": "Put the ranks of a medieval craft guild in order.",
-      "items": [
-        "Apprentice",
-        "Journeyman",
-        "Master"
-      ],
-      "first": "Lowest rank",
-      "last": "Top rank",
-      "explanation": "A guild member started as an apprentice, then became a journeyman working for wages, and could rise to master by proving his skill.",
-      "difficulty": 0.3
+      "prompt": "Level 51 showed towns booming after 1000. What in those growing towns gave rise to craft guilds?",
+      "explanation": "Craft guilds arose in expanding towns where an extensive division of labour was emerging.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "Kings ordered every town to form one",
+          "correct": false,
+          "rationale": "Guilds grew up from the trades themselves."
+        },
+        {
+          "id": "b",
+          "label": "Work splitting into many specialised trades",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The collapse of long-distance trade",
+          "correct": false,
+          "rationale": "Trade was reviving."
+        },
+        {
+          "id": "d",
+          "label": "A shortage of workers after the raids",
+          "correct": false,
+          "rationale": "Towns and population were growing."
+        }
+      ]
     }
   ],
   "sourceIds": [

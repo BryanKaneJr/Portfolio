@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 23,
   "type": "regular",
-  "revision": 2,
+  "revision": 1,
   "status": "published",
   "title": "Castles",
   "objective": "After this level you can explain how castles were built and why.",
@@ -92,36 +92,45 @@
   "questions": [
     {
       "id": "question.middle_ages.023.q1",
-      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.motte_and_bailey"
       ],
       "sourceCardIds": [
-        "card.middle_ages.023.c3",
-        "card.middle_ages.023.c4"
+        "card.middle_ages.023.c3"
       ],
-      "prompt": "Match each part of a castle with its description.",
-      "pairs": [
+      "prompt": "In a motte-and-bailey castle, what was the motte?",
+      "explanation": "The motte was an artificial mound of earth and stone, topped by a timber tower.",
+      "difficulty": 0.2,
+      "kind": "mcq",
+      "options": [
         {
-          "left": "Motte",
-          "right": "An artificial mound of earth and stone"
+          "id": "a",
+          "label": "A fenced yard for houses and animals",
+          "correct": false,
+          "rationale": "That’s the bailey."
         },
         {
-          "left": "Bailey",
-          "right": "A fenced yard"
+          "id": "b",
+          "label": "An earth mound topped by a timber tower",
+          "correct": true
         },
         {
-          "left": "Keep",
-          "right": "The strongest part of the castle"
+          "id": "c",
+          "label": "A stone tower with six-metre walls",
+          "correct": false,
+          "rationale": "That’s a later stone keep."
+        },
+        {
+          "id": "d",
+          "label": "A water-filled ditch around the walls",
+          "correct": false,
+          "rationale": "That’s a moat."
         }
-      ],
-      "explanation": "The motte was an artificial mound of earth and stone, the bailey a fenced yard beside it, and the keep the strongest part of the castle.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.023.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.motte_and_bailey"
@@ -130,6 +139,9 @@
         "card.middle_ages.023.c3"
       ],
       "prompt": "Why could motte-and-bailey castles go up so quickly?",
+      "explanation": "Unskilled forced labourers could raise them from basic materials, and towers were often prefabricated.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -154,13 +166,10 @@
           "correct": false,
           "rationale": "They were quick to build."
         }
-      ],
-      "explanation": "Unskilled forced labourers could raise them from basic materials, and towers were often prefabricated.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.023.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.castle_purpose",
@@ -171,6 +180,9 @@
         "card.middle_ages.021.c2"
       ],
       "prompt": "Level 21’s lords held land and owed service. Whose home was a medieval castle, generally?",
+      "explanation": "A castle was generally the residence of the king or lord of the territory it stood in.",
+      "difficulty": 0.25,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -195,9 +207,7 @@
           "label": "The king or lord of the land around it",
           "correct": true
         }
-      ],
-      "explanation": "A castle was generally the residence of the king or lord of the territory it stood in.",
-      "difficulty": 0.25
+      ]
     }
   ],
   "sourceIds": [

@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 29,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "Heraldry",
   "objective": "After this level you can explain coats of arms and what they told people.",
@@ -87,7 +87,6 @@
   "questions": [
     {
       "id": "question.middle_ages.029.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.heraldry_design"
@@ -96,6 +95,9 @@
         "card.middle_ages.029.c3"
       ],
       "prompt": "Where does the phrase “coat of arms” come from?",
+      "explanation": "The term comes from the surcoat, a cloth tunic worn over armour that displayed the bearer’s arms.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -120,13 +122,10 @@
           "correct": false,
           "rationale": "It was worn by the knight, over armour."
         }
-      ],
-      "explanation": "The term comes from the surcoat, a cloth tunic worn over armour that displayed the bearer’s arms.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.029.q2",
-      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.heraldry_design"
@@ -134,31 +133,38 @@
       "sourceCardIds": [
         "card.middle_ages.029.c3"
       ],
-      "prompt": "Match each heraldic name with its colour.",
-      "pairs": [
+      "prompt": "Why did heraldry’s rule of contrast avoid putting colour on colour?",
+      "explanation": "Colour on colour or metal on metal is hard to tell apart; the rule of contrast kept designs visible.",
+      "difficulty": 0.25,
+      "kind": "mcq",
+      "options": [
         {
-          "left": "Argent",
-          "right": "Silver"
+          "id": "a",
+          "label": "So the design stayed visible",
+          "correct": true
         },
         {
-          "left": "Gules",
-          "right": "Red"
+          "id": "b",
+          "label": "Because coloured dyes were banned",
+          "correct": false,
+          "rationale": "Colours were used freely."
         },
         {
-          "left": "Azure",
-          "right": "Blue"
+          "id": "c",
+          "label": "Because only kings could use colours",
+          "correct": false,
+          "rationale": "Colours weren’t reserved for kings."
         },
         {
-          "left": "Sable",
-          "right": "Black"
+          "id": "d",
+          "label": "Because metal paint was cheaper",
+          "correct": false,
+          "rationale": "Cost wasn’t the reason."
         }
-      ],
-      "explanation": "In heraldry, argent is silver, gules is red, azure is blue and sable is black.",
-      "difficulty": 0.25
+      ]
     },
     {
       "id": "question.middle_ages.029.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.heraldry_origins",
@@ -169,6 +175,9 @@
         "card.middle_ages.027.c3"
       ],
       "prompt": "Level 27’s armour came to cover the whole body. Why did that help heraldry spread?",
+      "explanation": "As armour became all-enveloping, a way to tell armoured men apart grew more important.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -193,9 +202,7 @@
           "correct": false,
           "rationale": "Armour wasn’t the identifier; arms were."
         }
-      ],
-      "explanation": "As armour became all-enveloping, a way to tell armoured men apart grew more important.",
-      "difficulty": 0.3
+      ]
     }
   ],
   "sourceIds": [

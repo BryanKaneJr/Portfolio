@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 4,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "The Byzantine Empire",
   "objective": "After this level you can explain how the Eastern Roman Empire lasted another thousand years.",
@@ -90,7 +90,6 @@
   "questions": [
     {
       "id": "question.middle_ages.004.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.byzantine_empire"
@@ -99,6 +98,9 @@
         "card.middle_ages.004.c2"
       ],
       "prompt": "The people of the Byzantine Empire called themselves _____.",
+      "explanation": "They called themselves Romaioi, Romans; “Byzantine” is the name historians use.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -123,13 +125,10 @@
           "correct": false,
           "rationale": "No such name."
         }
-      ],
-      "explanation": "They called themselves Romaioi, Romans; “Byzantine” is the name historians use.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.004.q2",
-      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.byzantine_survival"
@@ -137,20 +136,38 @@
       "sourceCardIds": [
         "card.middle_ages.004.c3"
       ],
-      "prompt": "Put Constantinople’s land defenses in the order an attacker met them.",
-      "items": [
-        "A moat",
-        "An outer wall",
-        "A taller main wall"
-      ],
-      "first": "Met first",
-      "last": "Met last",
-      "explanation": "An attacker faced a moat, then an outer wall, then a taller main wall studded with 96 towers.",
-      "difficulty": 0.3
+      "prompt": "How were Constantinople’s land walls built to stop attackers?",
+      "explanation": "Attackers had to cross a moat, then an outer wall, then a taller main wall with 96 towers.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "One very tall wall with no towers",
+          "correct": false,
+          "rationale": "There were 96 towers."
+        },
+        {
+          "id": "b",
+          "label": "Walls along the sea side only",
+          "correct": false,
+          "rationale": "These were the land walls."
+        },
+        {
+          "id": "c",
+          "label": "Wooden fences rebuilt every year",
+          "correct": false,
+          "rationale": "They were long-lasting walls."
+        },
+        {
+          "id": "d",
+          "label": "A moat, an outer wall and a taller main wall",
+          "correct": true
+        }
+      ]
     },
     {
       "id": "question.middle_ages.004.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.byzantine_empire",
@@ -161,6 +178,9 @@
         "card.middle_ages.003.c2"
       ],
       "prompt": "Level 3 dated the West’s end to 476. When did the Byzantine East finally fall?",
+      "explanation": "The eastern empire lasted until 1453, when Constantinople fell to the Ottoman Turks.",
+      "difficulty": 0.25,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -185,9 +205,7 @@
           "correct": false,
           "rationale": "Too late by almost 40 years."
         }
-      ],
-      "explanation": "The eastern empire lasted until 1453, when Constantinople fell to the Ottoman Turks.",
-      "difficulty": 0.25
+      ]
     }
   ],
   "sourceIds": [

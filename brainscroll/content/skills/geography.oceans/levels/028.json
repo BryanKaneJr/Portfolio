@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 28,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Tidal Power",
   "objective": "After this level you can explain how tides can make electricity.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "question.oceans.028.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.tidal_power_turbines"
@@ -138,33 +138,15 @@
       "sourceCardIds": [
         "card.oceans.028.c3"
       ],
-      "prompt": "Why must a tidal stream turbine be much sturdier than a wind turbine?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Salt water makes the blades spin backward",
-          "correct": false,
-          "rationale": "The blades turn the same way; the force is the issue."
-        },
-        {
-          "id": "b",
-          "label": "Water is about 800 times denser than air",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Tidal currents only flow once a day",
-          "correct": false,
-          "rationale": "Timing is not the reason for sturdiness."
-        },
-        {
-          "id": "d",
-          "label": "It must sit above the waves",
-          "correct": false,
-          "rationale": "It stands in the current itself."
-        }
+      "prompt": "In a tidal stream turbine, put this chain in order, from first push to last.",
+      "items": [
+        "Moving fluid",
+        "The blades",
+        "A rotor"
       ],
-      "explanation": "Water is about 800 times denser than air, so tidal turbines face much bigger forces and must be much sturdier and heavier.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Moving fluid turns the blades, and the blades turn a rotor, just like in a wind turbine.",
       "difficulty": 0.2
     },
     {

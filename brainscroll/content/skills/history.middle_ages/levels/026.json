@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 26,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "Becoming a Knight",
   "objective": "After this level you can explain how a boy trained to become a knight.",
@@ -87,7 +87,6 @@
   "questions": [
     {
       "id": "question.middle_ages.026.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.knight_training"
@@ -96,6 +95,9 @@
         "card.middle_ages.026.c3"
       ],
       "prompt": "During a future knight’s training, a squire looked after _____.",
+      "explanation": "A squire was a young noble apprenticed in chivalry who attended to a knight’s armour and weapons.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -120,37 +122,49 @@
           "correct": false,
           "rationale": "A squire trained in arms."
         }
-      ],
-      "explanation": "A squire was a young noble apprenticed in chivalry who attended to a knight’s armour and weapons.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.026.q2",
-      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.knight_dubbing"
       ],
       "sourceCardIds": [
-        "card.middle_ages.026.c2",
-        "card.middle_ages.026.c3",
         "card.middle_ages.026.c4"
       ],
-      "prompt": "Put the steps to knighthood in order.",
-      "items": [
-        "Page",
-        "Damoiseau",
-        "Squire",
-        "The accolade"
-      ],
-      "first": "First step",
-      "last": "Last step",
-      "explanation": "A boy served as a page from about 7, might be called a damoiseau from around 12, then served as a squire, and finally received the accolade when he was dubbed.",
-      "difficulty": 0.3
+      "prompt": "Why did some squires put off being dubbed a knight?",
+      "explanation": "A new knight had to buy his own equipment, and dubbing was expensive, so some squires waited.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "They preferred to stay pages for life",
+          "correct": false,
+          "rationale": "Pages came before squires."
+        },
+        {
+          "id": "b",
+          "label": "Dubbing only happened once a century",
+          "correct": false,
+          "rationale": "It happened whenever a squire was ready."
+        },
+        {
+          "id": "c",
+          "label": "Dubbing and a knight’s equipment were expensive",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Church had banned the accolade",
+          "correct": false,
+          "rationale": "It hadn’t."
+        }
+      ]
     },
     {
       "id": "question.middle_ages.026.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.knight_dubbing",
@@ -161,6 +175,9 @@
         "card.middle_ages.021.c2"
       ],
       "prompt": "Level 21 described land held in return for service. How did many knights fit that picture?",
+      "explanation": "Many knights were vassals holding lands as fiefs from the lords in whose armies they served.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -185,9 +202,7 @@
           "label": "They were vassals holding fiefs from lords",
           "correct": true
         }
-      ],
-      "explanation": "Many knights were vassals holding lands as fiefs from the lords in whose armies they served.",
-      "difficulty": 0.3
+      ]
     }
   ],
   "sourceIds": [

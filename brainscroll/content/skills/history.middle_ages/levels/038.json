@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 38,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "The Great Schism",
   "objective": "After this level you can explain why the Church split into East and West in 1054.",
@@ -96,30 +96,46 @@
   "questions": [
     {
       "id": "question.middle_ages.038.q1",
-      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.schism_1054_events"
       ],
       "sourceCardIds": [
         "card.middle_ages.038.c2",
-        "card.middle_ages.038.c4"
+        "card.middle_ages.038.c1"
       ],
-      "prompt": "Put these steps in the story of 1054 in order, from earliest to latest.",
-      "items": [
-        "Cardinal Humbert excommunicated",
-        "Cerularius called a synod",
-        "Excommunicated the pope’s envoys",
-        "Ceremonies revoking them"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "Cardinal Humbert excommunicated Patriarch Michael Cerularius. Cerularius called a synod and excommunicated the pope’s envoys right back. In 1965 simultaneous ceremonies revoked the excommunications.",
-      "difficulty": 0.2
+      "prompt": "What did Cardinal Humbert and Patriarch Michael Cerularius do in 1054?",
+      "explanation": "Humbert excommunicated Cerularius and his clergy; Cerularius’s synod excommunicated the pope’s legates in return.",
+      "difficulty": 0.2,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "Signed a treaty uniting their churches",
+          "correct": false,
+          "rationale": "They did the opposite."
+        },
+        {
+          "id": "b",
+          "label": "Crowned a new emperor together",
+          "correct": false,
+          "rationale": "This was about church authority."
+        },
+        {
+          "id": "c",
+          "label": "Agreed on a single date for Easter",
+          "correct": false,
+          "rationale": "No agreement came out of 1054."
+        },
+        {
+          "id": "d",
+          "label": "Excommunicated each other’s side",
+          "correct": true
+        }
+      ]
     },
     {
       "id": "question.middle_ages.038.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.schism_causes"
@@ -128,6 +144,9 @@
         "card.middle_ages.038.c3"
       ],
       "prompt": "Why do historians see the split between East and West as gradual rather than sudden?",
+      "explanation": "Relations had been a growing estrangement from the 5th to the 11th century, over authority, the Creed and customs.",
+      "difficulty": 0.35,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -152,13 +171,10 @@
           "correct": false,
           "rationale": "It stood until 1965."
         }
-      ],
-      "explanation": "Relations had been a growing estrangement from the 5th to the 11th century, over authority, the Creed and customs.",
-      "difficulty": 0.35
+      ]
     },
     {
       "id": "question.middle_ages.038.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.schism_1054_events",
@@ -169,6 +185,9 @@
         "card.middle_ages.005.c1"
       ],
       "prompt": "The 1054 excommunication was delivered in Hagia Sophia, a church built by _____.",
+      "explanation": "Justinian had Hagia Sophia built after the Nika riots; it was completed in 537.",
+      "difficulty": 0.25,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -193,9 +212,7 @@
           "correct": false,
           "rationale": "He was king of the Franks."
         }
-      ],
-      "explanation": "Justinian had Hagia Sophia built after the Nika riots; it was completed in 537.",
-      "difficulty": 0.25
+      ]
     }
   ],
   "sourceIds": [

@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 45,
   "type": "regular",
-  "revision": 2,
+  "revision": 1,
   "status": "published",
   "title": "Richard the Lionheart",
   "objective": "After this level you can describe Richard's role in the Third Crusade.",
@@ -93,32 +93,45 @@
   "questions": [
     {
       "id": "question.middle_ages.045.q1",
-      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.crusade_richard_third"
       ],
       "sourceCardIds": [
-        "card.middle_ages.045.c2",
-        "card.middle_ages.045.c4",
-        "card.middle_ages.045.c5"
+        "card.middle_ages.045.c4"
       ],
-      "prompt": "Put these events of the Third Crusade and after in order, from earliest to latest.",
-      "items": [
-        "Frederick Barbarossa drowned",
-        "The crusaders took Acre",
-        "Richard beat Saladin’s army at Arsuf",
-        "A three-year truce",
-        "He was freed"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "Frederick Barbarossa drowned in 1190. The crusaders took Acre in July 1191, Richard won at Arsuf that September, a three-year truce came in September 1192, and Richard was freed in 1194.",
-      "difficulty": 0.25
+      "prompt": "What did Richard and Saladin’s truce of September 1192 grant Christian pilgrims?",
+      "explanation": "The three-year truce left the coast from Jaffa north in Christian hands and gave pilgrims free access to the holy places.",
+      "difficulty": 0.25,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "A Christian king in Jerusalem",
+          "correct": false,
+          "rationale": "Jerusalem stayed with Saladin."
+        },
+        {
+          "id": "b",
+          "label": "Free access to the holy places",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Ownership of the whole coast to Egypt",
+          "correct": false,
+          "rationale": "Only the coast from Jaffa north stayed Christian."
+        },
+        {
+          "id": "d",
+          "label": "A ransom paid to each pilgrim",
+          "correct": false,
+          "rationale": "No such payment."
+        }
+      ]
     },
     {
       "id": "question.middle_ages.045.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.crusade_richard_third"
@@ -128,6 +141,9 @@
         "card.middle_ages.045.c4"
       ],
       "prompt": "Why is the famous duel between Richard and Saladin partly legend?",
+      "explanation": "Richard and Saladin never actually met; Richard dealt with Saladin and his brother al-Adil through constant contact and envoys.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -152,13 +168,10 @@
           "correct": false,
           "rationale": "They fought a real war."
         }
-      ],
-      "explanation": "Richard and Saladin never actually met; Richard dealt with Saladin and his brother al-Adil through constant contact and envoys.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.045.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.crusade_richard_third",
@@ -169,6 +182,9 @@
         "card.middle_ages.044.c3"
       ],
       "prompt": "Which event from Level 44 set off Richard’s crusade?",
+      "explanation": "Saladin’s destruction of the crusader army at Hattin in 1187 prompted Europe to launch the Third Crusade.",
+      "difficulty": 0.25,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -193,9 +209,7 @@
           "label": "Saladin’s victory at Hattin",
           "correct": true
         }
-      ],
-      "explanation": "Saladin’s destruction of the crusader army at Hattin in 1187 prompted Europe to launch the Third Crusade.",
-      "difficulty": 0.25
+      ]
     }
   ],
   "sourceIds": [

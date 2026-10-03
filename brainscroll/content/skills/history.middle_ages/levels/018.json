@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 18,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "1066",
   "objective": "After this level you can explain the Norman Conquest of England and the Battle of Hastings.",
@@ -103,7 +103,6 @@
   "questions": [
     {
       "id": "question.middle_ages.018.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.norman_conquest_1066"
@@ -112,6 +111,9 @@
         "card.middle_ages.018.c3"
       ],
       "prompt": "On 25 September 1066, Harold defeated the Norwegians at _____.",
+      "explanation": "Harold beat Harald Hardrada and Tostig at Stamford Bridge, near York, on 25 September 1066.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -136,13 +138,10 @@
           "correct": false,
           "rationale": "That’s where William landed."
         }
-      ],
-      "explanation": "Harold beat Harald Hardrada and Tostig at Stamford Bridge, near York, on 25 September 1066.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.018.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.norman_conquest_1066"
@@ -151,6 +150,9 @@
         "card.middle_ages.018.c4"
       ],
       "prompt": "Why do historians doubt the story that Harold was shot in the eye?",
+      "explanation": "The Tapestry’s arrow was added in 19th-century repairs, and the nearest accounts suggest knights cut Harold down.",
+      "difficulty": 0.35,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -175,13 +177,10 @@
           "label": "The Tapestry’s arrow came from later repairs",
           "correct": true
         }
-      ],
-      "explanation": "The Tapestry’s arrow was added in 19th-century repairs, and the nearest accounts suggest knights cut Harold down.",
-      "difficulty": 0.35
+      ]
     },
     {
       "id": "question.middle_ages.018.q3",
-      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.norman_conquest_1066",
@@ -189,22 +188,37 @@
       ],
       "sourceCardIds": [
         "card.middle_ages.018.c2",
-        "card.middle_ages.018.c3",
-        "card.middle_ages.018.c4",
-        "card.middle_ages.018.c5"
+        "card.middle_ages.017.c4"
       ],
-      "prompt": "Put the events of 1066 in order, from earliest to latest.",
-      "items": [
-        "Edward the Confessor died",
-        "Harold beat the Norwegians",
-        "William’s fleet landed at Pevensey",
-        "The armies met near Hastings",
-        "William was crowned king"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "Edward the Confessor died on 5 January. Harold beat the Norwegians on 25 September, William’s fleet landed at Pevensey on 28 September, the armies met near Hastings on 14 October, and William was crowned at Christmas.",
-      "difficulty": 0.2
+      "prompt": "Level 17 traced the Normans to Viking settlers. Who led the Norman claim to England in 1066?",
+      "explanation": "William, duke of Normandy, claimed Edward had promised him the throne and won it at Hastings.",
+      "difficulty": 0.2,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "William, duke of Normandy",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Harald Hardrada",
+          "correct": false,
+          "rationale": "He was king of Norway."
+        },
+        {
+          "id": "c",
+          "label": "Rollo",
+          "correct": false,
+          "rationale": "He received Normandy in 911."
+        },
+        {
+          "id": "d",
+          "label": "Tostig",
+          "correct": false,
+          "rationale": "He fought alongside Hardrada."
+        }
+      ]
     }
   ],
   "sourceIds": [

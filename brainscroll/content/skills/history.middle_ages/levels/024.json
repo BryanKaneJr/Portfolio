@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 24,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "Castle Defenses",
   "objective": "After this level you can explain how moats, walls, towers and gatehouses kept attackers out.",
@@ -91,40 +91,45 @@
   "questions": [
     {
       "id": "question.middle_ages.024.q1",
-      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.castle_gatehouse"
       ],
       "sourceCardIds": [
-        "card.middle_ages.024.c2",
         "card.middle_ages.024.c3"
       ],
-      "prompt": "Match each castle defence with its description.",
-      "pairs": [
+      "prompt": "In a castle gatehouse, what were the murder holes?",
+      "explanation": "Defenders dropped heavy stones, hot sand or boiling water through murder holes onto attackers in the gate passage.",
+      "difficulty": 0.2,
+      "kind": "mcq",
+      "options": [
         {
-          "left": "Drawbridge",
-          "right": "Hinged at one end"
+          "id": "a",
+          "label": "Cells where prisoners were kept",
+          "correct": false,
+          "rationale": "They were openings overhead."
         },
         {
-          "left": "Curtain wall",
-          "right": "Linking the towers together"
+          "id": "b",
+          "label": "Tunnels dug under the castle walls",
+          "correct": false,
+          "rationale": "That’s mining, by attackers."
         },
         {
-          "left": "Arrow loops",
-          "right": "Narrow vertical slits"
+          "id": "c",
+          "label": "Openings for dropping things on attackers below",
+          "correct": true
         },
         {
-          "left": "Portcullis",
-          "right": "A heavy wooden or iron grille"
+          "id": "d",
+          "label": "Slits for shooting arrows outward",
+          "correct": false,
+          "rationale": "Those are arrow loops."
         }
-      ],
-      "explanation": "A drawbridge was hinged at one end so it could be raised. The curtain wall linked the towers together, arrow loops were narrow vertical slits, and a portcullis was a heavy wooden or iron grille.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.024.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.concentric_castle"
@@ -133,6 +138,9 @@
         "card.middle_ages.024.c4"
       ],
       "prompt": "How did a concentric castle make an attack harder?",
+      "explanation": "Attackers faced two rings of mutually supporting towered walls, one inside the other.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -157,13 +165,10 @@
           "correct": false,
           "rationale": "That’s a motte."
         }
-      ],
-      "explanation": "Attackers faced two rings of mutually supporting towered walls, one inside the other.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.024.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.concentric_castle",
@@ -174,6 +179,9 @@
         "card.middle_ages.004.c3"
       ],
       "prompt": "Beaumaris and Level 4’s Constantinople shared which defensive idea?",
+      "explanation": "Constantinople had a moat, an outer wall and a main wall; Beaumaris had four rings of defences.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -198,9 +206,7 @@
           "correct": false,
           "rationale": "Both had a moat."
         }
-      ],
-      "explanation": "Constantinople had a moat, an outer wall and a main wall; Beaumaris had four rings of defences.",
-      "difficulty": 0.3
+      ]
     }
   ],
   "sourceIds": [

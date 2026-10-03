@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 80,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 1,
   "status": "published",
   "title": "Checkpoint: Kings, Parliaments and Law",
   "objective": "After this level you can explain how kings, parliaments and courts shared power by 1450.",
@@ -161,7 +161,6 @@
   "questions": [
     {
       "id": "question.middle_ages.080.q1",
-      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.kings_under_law",
@@ -175,22 +174,38 @@
         "card.middle_ages.071.c2",
         "card.middle_ages.072.c4"
       ],
-      "prompt": "Put these events in order, from earliest to latest.",
-      "items": [
-        "Assize of Clarendon",
-        "King John agrees to Magna Carta",
-        "Montfort’s parliament summons the towns",
-        "The Hundred Years’ War begins",
-        "Joan of Arc is burned at Rouen"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "The Assize of Clarendon came in 1166, Magna Carta in 1215, and Montfort’s parliament in 1265. The Hundred Years’ War began in 1337, and Joan of Arc was burned at Rouen in 1431.",
-      "difficulty": 0.3
+      "prompt": "Kings, parliaments and law in England: which order of events is right?",
+      "explanation": "1166, then 1215, then 1265.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "Assize of Clarendon, Magna Carta, Montfort’s parliament",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Magna Carta, Assize of Clarendon, Montfort’s parliament",
+          "correct": false,
+          "rationale": "The Assize came first, in 1166."
+        },
+        {
+          "id": "c",
+          "label": "Montfort’s parliament, Magna Carta, Assize of Clarendon",
+          "correct": false,
+          "rationale": "Montfort’s parliament came last, in 1265."
+        },
+        {
+          "id": "d",
+          "label": "Assize of Clarendon, Montfort’s parliament, Magna Carta",
+          "correct": false,
+          "rationale": "Magna Carta (1215) came before 1265."
+        }
+      ]
     },
     {
       "id": "question.middle_ages.080.q2",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.joan_of_arc_trial"
@@ -199,6 +214,9 @@
         "card.middle_ages.077.c3"
       ],
       "prompt": "Who presided over the church court that tried Joan of Arc at Rouen?",
+      "explanation": "The church court at Rouen was led by Pierre Cauchon, Bishop of Beauvais.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -223,13 +241,10 @@
           "correct": false,
           "rationale": "He was the king she had helped crown."
         }
-      ],
-      "explanation": "The church court at Rouen was led by Pierre Cauchon, Bishop of Beauvais.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.080.q3",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.kings_under_law"
@@ -238,6 +253,9 @@
         "card.middle_ages.080.c3"
       ],
       "prompt": "Magna Carta was annulled in 1215. What shows it still mattered by the 1400s?",
+      "explanation": "Modern research counts as many as 44 reaffirmations, the last in 1423, and Parliament used them to assert the rule of law.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -262,13 +280,10 @@
           "correct": false,
           "rationale": "It worked alongside common law."
         }
-      ],
-      "explanation": "Modern research counts as many as 44 reaffirmations, the last in 1423, and Parliament used them to assert the rule of law.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.080.q4",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.agincourt_battle"
@@ -277,6 +292,9 @@
         "card.middle_ages.076.c3"
       ],
       "prompt": "What helped Henry V’s archers at Agincourt in 1415?",
+      "explanation": "The English stood on a ploughed field narrowed by woods, behind stakes, while the French struggled through mud.",
+      "difficulty": 0.25,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -301,13 +319,10 @@
           "label": "Sharpened stakes and a narrow, muddy field",
           "correct": true
         }
-      ],
-      "explanation": "The English stood on a ploughed field narrowed by woods, behind stakes, while the French struggled through mud.",
-      "difficulty": 0.25
+      ]
     },
     {
       "id": "question.middle_ages.080.q5",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.trial_by_ordeal",
@@ -318,6 +333,9 @@
         "card.middle_ages.073.c4"
       ],
       "prompt": "Kings and law in 1215: besides Magna Carta, what legal turning point came that year?",
+      "explanation": "The Fourth Lateran Council of 1215 forbade priests to bless ordeals, and England turned to juries.",
+      "difficulty": 0.35,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -342,9 +360,7 @@
           "correct": false,
           "rationale": "Henry II’s juries dated from 1166."
         }
-      ],
-      "explanation": "The Fourth Lateran Council of 1215 forbade priests to bless ordeals, and England turned to juries.",
-      "difficulty": 0.35
+      ]
     }
   ],
   "sourceIds": [

@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 9,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "Anglo-Saxon England",
   "objective": "After this level you can describe the Anglo-Saxon kingdoms and the treasure of Sutton Hoo.",
@@ -91,7 +91,6 @@
   "questions": [
     {
       "id": "question.middle_ages.009.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.anglo_saxon_kingdoms"
@@ -100,6 +99,9 @@
         "card.middle_ages.009.c2"
       ],
       "prompt": "The name England comes from the Anglo-Saxon people called the _____.",
+      "explanation": "England comes from Old English Engla land, “land of the Angles”.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -124,42 +126,49 @@
           "correct": false,
           "rationale": "They lived there before the Anglo-Saxons."
         }
-      ],
-      "explanation": "England comes from Old English Engla land, “land of the Angles”.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.009.q2",
-      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.sutton_hoo"
       ],
       "sourceCardIds": [
-        "card.middle_ages.009.c3",
-        "card.middle_ages.009.c4"
+        "card.middle_ages.009.c3"
       ],
-      "prompt": "Match each person in the Sutton Hoo story with who they were.",
-      "pairs": [
+      "prompt": "How could Basil Brown see the Sutton Hoo ship’s shape when its wood had rotted?",
+      "explanation": "The decayed wood left its iron rivets and outline in the sand, showing a ship some 27 metres long.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
         {
-          "left": "Edith Pretty",
-          "right": "Landowner"
+          "id": "a",
+          "label": "Its iron rivets and outline in the sand traced it",
+          "correct": true
         },
         {
-          "left": "Basil Brown",
-          "right": "Local archaeologist"
+          "id": "b",
+          "label": "A painting of it was found in the burial chamber",
+          "correct": false,
+          "rationale": "The evidence was in the ground itself."
         },
         {
-          "left": "Rædwald",
-          "right": "A king of East Anglia"
+          "id": "c",
+          "label": "The wood had turned to stone over time",
+          "correct": false,
+          "rationale": "The wood had decayed away."
+        },
+        {
+          "id": "d",
+          "label": "Old records described the ship in detail",
+          "correct": false,
+          "rationale": "No record described it."
         }
-      ],
-      "explanation": "Edith Pretty was the landowner, Basil Brown the local archaeologist she hired, and Rædwald the king of East Anglia usually thought to lie in the grave.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.009.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.sutton_hoo",
@@ -170,6 +179,9 @@
         "card.middle_ages.002.c4"
       ],
       "prompt": "Level 2 questioned the “Dark Ages” label. How did Sutton Hoo strengthen that case?",
+      "explanation": "Its gold, garnets and objects from Byzantium showed a sophisticated society, not a “dark” one.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -194,9 +206,7 @@
           "correct": false,
           "rationale": "It held gold, garnets and Byzantine objects."
         }
-      ],
-      "explanation": "Its gold, garnets and objects from Byzantium showed a sophisticated society, not a “dark” one.",
-      "difficulty": 0.3
+      ]
     }
   ],
   "sourceIds": [

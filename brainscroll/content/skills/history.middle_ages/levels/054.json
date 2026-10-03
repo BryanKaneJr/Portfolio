@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 54,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "Food and Feasts",
   "objective": "After this level you can describe what rich and poor people ate.",
@@ -92,7 +92,6 @@
   "questions": [
     {
       "id": "question.middle_ages.054.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.medieval_diet_by_class"
@@ -101,6 +100,9 @@
         "card.middle_ages.054.c2"
       ],
       "prompt": "In a medieval castle kitchen, the rough loaves made from barley, oats or even beans went to _____.",
+      "explanation": "Fine white wheat rolls went to the lady’s table; rough loaves of barley, oats or even peas and beans went to the servants.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -125,13 +127,10 @@
           "correct": false,
           "rationale": "The high table got the finest bread."
         }
-      ],
-      "explanation": "Fine white wheat rolls went to the lady’s table; rough loaves of barley, oats or even peas and beans went to the servants.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.054.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.medieval_spice_status"
@@ -140,6 +139,9 @@
         "card.middle_ages.054.c4"
       ],
       "prompt": "Why do historians reject the idea that medieval cooks used spices to hide rotten meat?",
+      "explanation": "Spices were costly imports, far pricier than fresh meat, and salting and smoking preserved food better.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -164,39 +166,48 @@
           "correct": false,
           "rationale": "They were used in cooking too, to show wealth."
         }
-      ],
-      "explanation": "Spices were costly imports, far pricier than fresh meat, and salting and smoking preserved food better.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.054.q3",
-      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.medieval_spice_status",
         "concept.middle_ages.champagne_fairs"
       ],
       "sourceCardIds": [
-        "card.middle_ages.054.c2",
-        "card.middle_ages.054.c3"
+        "card.middle_ages.054.c4",
+        "card.middle_ages.052.c3"
       ],
-      "prompt": "Match each with what was eaten.",
-      "pairs": [
+      "prompt": "The pepper on a lord’s table was a costly import. At Level 52’s Champagne fairs, where did such spices come from?",
+      "explanation": "At the Champagne fairs, northern cloth was exchanged for spices and dyes from Mediterranean lands.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
         {
-          "left": "The lady’s table",
-          "right": "Fine white wheat rolls"
+          "id": "a",
+          "label": "Mediterranean lands",
+          "correct": true
         },
         {
-          "left": "The servants",
-          "right": "Rough loaves of barley"
+          "id": "b",
+          "label": "English monastery gardens",
+          "correct": false,
+          "rationale": "Spices were foreign imports."
         },
         {
-          "left": "Fridays",
-          "right": "Fish"
+          "id": "c",
+          "label": "The forests around Troyes",
+          "correct": false,
+          "rationale": "Troyes hosted the fair; spices came from farther away."
+        },
+        {
+          "id": "d",
+          "label": "Northern cloth towns",
+          "correct": false,
+          "rationale": "The north supplied cloth, not spices."
         }
-      ],
-      "explanation": "Fine white wheat rolls went to the lady’s table and rough loaves of barley, oats or beans to the servants. On Fridays, fasting banned meat, so fish took its place.",
-      "difficulty": 0.3
+      ]
     }
   ],
   "sourceIds": [

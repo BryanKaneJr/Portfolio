@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 63,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "Astronomy and the Astrolabe",
   "objective": "After this level you can explain how Islamic scholars studied the sky with astrolabes.",
@@ -94,41 +94,45 @@
   "questions": [
     {
       "id": "question.middle_ages.063.q1",
-      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.islamic_astrolabe"
       ],
       "sourceCardIds": [
-        "card.middle_ages.063.c2",
-        "card.middle_ages.063.c3",
-        "card.middle_ages.063.c4"
+        "card.middle_ages.063.c3"
       ],
-      "prompt": "Match each word with its meaning.",
-      "pairs": [
+      "prompt": "In the Islamic world, which religious task did astrolabes help with?",
+      "explanation": "Astrolabes found the qibla, the direction of Mecca, and the five daily prayer times.",
+      "difficulty": 0.2,
+      "kind": "mcq",
+      "options": [
         {
-          "left": "Astrolabe",
-          "right": "Star-taker"
+          "id": "a",
+          "label": "Copying the Qur’an in the right order",
+          "correct": false,
+          "rationale": "It measured stars, not pages."
         },
         {
-          "left": "Rete",
-          "right": "A star map"
+          "id": "b",
+          "label": "Calling people to prayer from minarets",
+          "correct": false,
+          "rationale": "That was a human voice."
         },
         {
-          "left": "Qibla",
-          "right": "The direction of Mecca"
+          "id": "c",
+          "label": "Measuring the walls of Mecca",
+          "correct": false,
+          "rationale": "It measured the sky."
         },
         {
-          "left": "Aldebaran",
-          "right": "The follower"
+          "id": "d",
+          "label": "Finding the qibla and the daily prayer times",
+          "correct": true
         }
-      ],
-      "explanation": "Astrolabe means roughly “star-taker”. The rete is a star map, the qibla is the direction of Mecca, and Aldebaran means “the follower”.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.063.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.islamic_astrolabe"
@@ -138,6 +142,9 @@
         "card.middle_ages.063.c3"
       ],
       "prompt": "Why is it wrong to say the Islamic world invented the astrolabe?",
+      "explanation": "The astrolabe began in the Greek world around Ptolemy’s time; Islamic astronomers refined it, as al-Zarqali did.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -162,13 +169,10 @@
           "correct": false,
           "rationale": "That’s the numerals’ story."
         }
-      ],
-      "explanation": "The astrolabe began in the Greek world around Ptolemy’s time; Islamic astronomers refined it, as al-Zarqali did.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.063.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.arabic_star_names",
@@ -179,6 +183,9 @@
         "card.middle_ages.057.c2"
       ],
       "prompt": "Level 57’s doctors built on Galen’s ancient medicine. Whose ancient star catalogue did Arab astronomers translate and al-Sufi update?",
+      "explanation": "Arab astronomers translated the star descriptions of Ptolemy’s Almagest, and al-Sufi updated it, much as medieval medicine built on Galen.",
+      "difficulty": 0.4,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -203,9 +210,7 @@
           "correct": false,
           "rationale": "Hippocrates championed the humours."
         }
-      ],
-      "explanation": "Arab astronomers translated the star descriptions of Ptolemy’s Almagest, and al-Sufi updated it, much as medieval medicine built on Galen.",
-      "difficulty": 0.4
+      ]
     }
   ],
   "sourceIds": [

@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 84,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "A World Changed by Plague",
   "objective": "After this level you can explain how the Black Death changed wages, work and faith.",
@@ -99,7 +99,6 @@
   "questions": [
     {
       "id": "question.middle_ages.084.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.plague_labour_wages"
@@ -108,6 +107,9 @@
         "card.middle_ages.084.c2"
       ],
       "prompt": "After the Black Death, workers’ wages _____.",
+      "explanation": "The labour shortage pushed up wages, and many survivors lived better than before.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -132,35 +134,49 @@
           "correct": false,
           "rationale": "The labour shortage pushed them up."
         }
-      ],
-      "explanation": "The labour shortage pushed up wages, and many survivors lived better than before.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.084.q2",
-      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.plague_faith_fear"
       ],
       "sourceCardIds": [
-        "card.middle_ages.084.c3",
         "card.middle_ages.084.c5"
       ],
-      "prompt": "Put these events in order, from earliest to latest.",
-      "items": [
-        "About 2,000 Jews were burned",
-        "The plague only reached Strasbourg",
-        "The Statute of Labourers"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "About 2,000 Jews were burned in Strasbourg on 14 February 1349. The plague only reached Strasbourg that summer, and the Statute of Labourers followed in 1351.",
-      "difficulty": 0.35
+      "prompt": "What does the Strasbourg massacre of February 1349 reveal about the accusations against Jews?",
+      "explanation": "About 2,000 Jews were burned in February 1349, but the plague only reached Strasbourg that summer: the accusation was false.",
+      "difficulty": 0.35,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "Jews there had been caught poisoning wells",
+          "correct": false,
+          "rationale": "The accusation was false."
+        },
+        {
+          "id": "b",
+          "label": "Jews were killed before the plague had even reached the city",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "The city’s Jews had all left before the plague",
+          "correct": false,
+          "rationale": "About 2,000 were burned."
+        },
+        {
+          "id": "d",
+          "label": "The pope ordered the killings",
+          "correct": false,
+          "rationale": "Clement VI protected Jews at Avignon."
+        }
+      ]
     },
     {
       "id": "question.middle_ages.084.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.plague_labour_wages",
@@ -171,6 +187,9 @@
         "card.middle_ages.022.c3"
       ],
       "prompt": "After the plague, landowners swapped old labour services for wages or rents. Which Level 22 duty was one of those services?",
+      "explanation": "Week-work, ploughing and reaping the lord’s demesne, was the kind of labour service landowners began replacing with wages or money rents.",
+      "difficulty": 0.4,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -195,9 +214,7 @@
           "correct": false,
           "rationale": "Squires were young nobles in training."
         }
-      ],
-      "explanation": "Week-work, ploughing and reaping the lord’s demesne, was the kind of labour service landowners began replacing with wages or money rents.",
-      "difficulty": 0.4
+      ]
     }
   ],
   "sourceIds": [

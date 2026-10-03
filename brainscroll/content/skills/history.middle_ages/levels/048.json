@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 48,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "The Reconquista",
   "objective": "After this level you can describe the centuries-long Christian conquest of Muslim Spain.",
@@ -118,7 +118,6 @@
   "questions": [
     {
       "id": "question.middle_ages.048.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.crusade_reconquista"
@@ -127,6 +126,9 @@
         "card.middle_ages.048.c5"
       ],
       "prompt": "The last Moorish kingdom in Spain had its seat at _____.",
+      "explanation": "Granada, home of the Alhambra, was the last Moorish kingdom in Spain; it fell to Ferdinand and Isabella in January 1492.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -151,13 +153,10 @@
           "correct": false,
           "rationale": "Ferdinand III took Seville in 1248."
         }
-      ],
-      "explanation": "Granada, home of the Alhambra, was the last Moorish kingdom in Spain; it fell to Ferdinand and Isabella in January 1492.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.048.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.crusade_reconquista"
@@ -166,6 +165,9 @@
         "card.middle_ages.048.c4"
       ],
       "prompt": "Was the Reconquista a religious war from the very start?",
+      "explanation": "It began as political expansion; popes backed it by the 11th century, and it became explicitly religious once Muslim power in Spain was broken.",
+      "difficulty": 0.35,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -190,13 +192,10 @@
           "correct": false,
           "rationale": "Popes backed it by the 11th century."
         }
-      ],
-      "explanation": "It began as political expansion; popes backed it by the 11th century, and it became explicitly religious once Muslim power in Spain was broken.",
-      "difficulty": 0.35
+      ]
     },
     {
       "id": "question.middle_ages.048.q3",
-      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.crusade_reconquista",
@@ -204,20 +203,37 @@
       ],
       "sourceCardIds": [
         "card.middle_ages.048.c2",
-        "card.middle_ages.048.c3"
+        "card.middle_ages.008.c4"
       ],
-      "prompt": "Put these steps of the Reconquista in order, from earliest to latest.",
-      "items": [
-        "The Battle of Covadonga",
-        "Alfonso VI captures Toledo",
-        "Las Navas de Tolosa",
-        "Ferdinand III takes Córdoba",
-        "Granada falls to Ferdinand and Isabella"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "The Battle of Covadonga came around 718, Alfonso VI captured Toledo in 1085, Las Navas de Tolosa was fought in 1212, Ferdinand III took Córdoba in 1236, and Granada fell in 1492.",
-      "difficulty": 0.35
+      "prompt": "How soon after Level 8’s conquest of Spain, from 711, did the Reconquista’s traditional first battle come?",
+      "explanation": "Muslim forces overran Spain from 711; Christians first held them off at Covadonga around 718.",
+      "difficulty": 0.35,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "Within about ten years, at Covadonga",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "About a century later",
+          "correct": false,
+          "rationale": "It came much sooner."
+        },
+        {
+          "id": "c",
+          "label": "Nearly four centuries later, at Toledo",
+          "correct": false,
+          "rationale": "Toledo fell in 1085, but the start was earlier."
+        },
+        {
+          "id": "d",
+          "label": "Not until 1492, at Granada",
+          "correct": false,
+          "rationale": "1492 was the end."
+        }
+      ]
     }
   ],
   "sourceIds": [

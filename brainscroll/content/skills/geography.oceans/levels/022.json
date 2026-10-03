@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 22,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Why Waves Break",
   "objective": "After this level you can explain why waves break near the shore.",
@@ -130,41 +130,25 @@
     },
     {
       "id": "question.oceans.022.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.wave_breaking"
       ],
       "sourceCardIds": [
-        "card.oceans.022.c3"
+        "card.oceans.022.c3",
+        "card.oceans.022.c2"
       ],
-      "prompt": "Near the beach, why does the crest of a wave topple forward?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The wind pushes harder on the top near land",
-          "correct": false,
-          "rationale": "It's the bottom slowing, not the wind."
-        },
-        {
-          "id": "b",
-          "label": "The bottom slows, but the crest keeps going",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Sand in the water makes the crest too heavy",
-          "correct": false,
-          "rationale": "Sand is not the cause."
-        },
-        {
-          "id": "d",
-          "label": "The tide pulls the crest toward shore",
-          "correct": false,
-          "rationale": "Tides are not what makes a wave break."
-        }
+      "prompt": "Put the steps of a breaking wave in order, from first to last.",
+      "items": [
+        "The circles scrape the bottom",
+        "The wave slows",
+        "The front grows steeper",
+        "It topples forward"
       ],
-      "explanation": "Friction slows the lower part of the wave while the crest keeps its speed, so the wave steepens until the unsupported crest topples.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "In shallow water the circles scrape the bottom and the wave slows. Its front grows steeper and steeper until the crest topples forward.",
       "difficulty": 0.25
     },
     {

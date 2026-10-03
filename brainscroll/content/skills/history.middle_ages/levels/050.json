@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 50,
   "type": "milestone",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "Milestone: The High Middle Ages",
   "objective": "After this level you can connect feudalism, the Church and the Crusades into one picture of medieval Europe.",
@@ -169,7 +169,6 @@
   "questions": [
     {
       "id": "question.middle_ages.050.q1",
-      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.crusades_era_overview"
@@ -177,23 +176,38 @@
       "sourceCardIds": [
         "card.middle_ages.050.c2"
       ],
-      "prompt": "Put these crusade events in order, from earliest to latest.",
-      "items": [
-        "Urban II calls for a crusade at Clermont",
-        "Crusaders storm Jerusalem",
-        "Zengi captures Edessa",
-        "Saladin takes Jerusalem",
-        "Crusaders sack Constantinople",
-        "The Mamluks take Acre"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "Urban II called for a crusade in 1095, crusaders stormed Jerusalem in 1099, Zengi captured Edessa in 1144, Saladin took Jerusalem in 1187, crusaders sacked Constantinople in 1204, and the Mamluks took Acre in 1291.",
-      "difficulty": 0.3
+      "prompt": "Crusades milestone: which order of events is right?",
+      "explanation": "1099, then 1187, then 1204.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "Crusaders take Jerusalem, Saladin retakes it, crusaders sack Constantinople",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Saladin takes Jerusalem, crusaders sack Constantinople, crusaders take Jerusalem",
+          "correct": false,
+          "rationale": "The crusaders took Jerusalem first, in 1099."
+        },
+        {
+          "id": "c",
+          "label": "Crusaders sack Constantinople, crusaders take Jerusalem, Saladin retakes it",
+          "correct": false,
+          "rationale": "The sack of 1204 came last."
+        },
+        {
+          "id": "d",
+          "label": "Crusaders take Jerusalem, crusaders sack Constantinople, Saladin retakes it",
+          "correct": false,
+          "rationale": "Saladin (1187) came before 1204."
+        }
+      ]
     },
     {
       "id": "question.middle_ages.050.q2",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.crusade_templars"
@@ -202,6 +216,9 @@
         "card.middle_ages.046.c2"
       ],
       "prompt": "When they were founded around 1120, the Knights Templar vowed to protect _____.",
+      "explanation": "Hugh de Payns and eight or nine French knights vowed to protect pilgrims traveling to the Holy Land.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -226,13 +243,10 @@
           "correct": false,
           "rationale": "They protected pilgrims."
         }
-      ],
-      "explanation": "Hugh de Payns and eight or nine French knights vowed to protect pilgrims traveling to the Holy Land.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.050.q3",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.crusades_era_overview",
@@ -243,6 +257,9 @@
         "card.middle_ages.001.c3"
       ],
       "prompt": "In Level 1’s three slices of the Middle Ages, where do the Crusades of 1095 to 1291 fall?",
+      "explanation": "The Crusades fall between the early period (to about 1000) and the late period (from about 1300): the high Middle Ages.",
+      "difficulty": 0.25,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -267,13 +284,10 @@
           "correct": false,
           "rationale": "They sit well inside it."
         }
-      ],
-      "explanation": "The Crusades fall between the early period (to about 1000) and the late period (from about 1300): the high Middle Ages.",
-      "difficulty": 0.25
+      ]
     },
     {
       "id": "question.middle_ages.050.q4",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.crusades_era_overview",
@@ -286,6 +300,9 @@
         "card.middle_ages.047.c4"
       ],
       "prompt": "Why is “Christians against Muslims” too simple a summary of the Crusades?",
+      "explanation": "Crusaders massacred Rhineland Jewish communities in 1096 and sacked Christian Constantinople in 1204.",
+      "difficulty": 0.35,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -310,13 +327,10 @@
           "label": "Crusaders also attacked Jews and sacked Christian Constantinople",
           "correct": true
         }
-      ],
-      "explanation": "Crusaders massacred Rhineland Jewish communities in 1096 and sacked Christian Constantinople in 1204.",
-      "difficulty": 0.35
+      ]
     },
     {
       "id": "question.middle_ages.050.q5",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.crusade_fourth_1204"
@@ -325,6 +339,9 @@
         "card.middle_ages.047.c3"
       ],
       "prompt": "After Zara, what drew the Fourth Crusade to Constantinople?",
+      "explanation": "An exiled Byzantine prince, Alexius, promised a huge payment, church submission to Rome and help on crusade if they put him on the throne.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -349,13 +366,10 @@
           "correct": false,
           "rationale": "They went there by choice."
         }
-      ],
-      "explanation": "An exiled Byzantine prince, Alexius, promised a huge payment, church submission to Rome and help on crusade if they put him on the throne.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.050.q6",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.crusades_era_overview",
@@ -366,6 +380,9 @@
         "card.middle_ages.010.c3"
       ],
       "prompt": "The Crusades pulled Level 10’s three heirs of Rome into one story. Which three?",
+      "explanation": "Rome’s world passed to western kingdoms, the Byzantine Empire and the caliphate; a Byzantine appeal to the pope against Muslim Turks drew all three in.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -390,13 +407,10 @@
           "correct": false,
           "rationale": "Those are all western kingdoms."
         }
-      ],
-      "explanation": "Rome’s world passed to western kingdoms, the Byzantine Empire and the caliphate; a Byzantine appeal to the pope against Muslim Turks drew all three in.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.050.q7",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.crusade_fourth_1204",
@@ -408,6 +422,9 @@
         "card.middle_ages.005.c4"
       ],
       "prompt": "What happened in 1204 to Hagia Sophia, the church Justinian built in Level 5?",
+      "explanation": "Crusaders looted Hagia Sophia in 1204, and it served as a Roman Catholic cathedral until 1261.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -432,9 +449,7 @@
           "correct": false,
           "rationale": "Venice got the bronze horses."
         }
-      ],
-      "explanation": "Crusaders looted Hagia Sophia in 1204, and it served as a Roman Catholic cathedral until 1261.",
-      "difficulty": 0.3
+      ]
     }
   ],
   "sourceIds": [

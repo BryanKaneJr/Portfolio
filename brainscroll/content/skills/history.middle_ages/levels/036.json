@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 36,
   "type": "regular",
-  "revision": 2,
+  "revision": 1,
   "status": "published",
   "title": "Hildegard of Bingen",
   "objective": "After this level you can describe Hildegard's music, writing and science.",
@@ -94,7 +94,6 @@
   "questions": [
     {
       "id": "question.middle_ages.036.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.hildegard_music"
@@ -104,6 +103,9 @@
         "card.middle_ages.036.c1"
       ],
       "prompt": "In Hildegard’s Ordo virtutum, which character speaks instead of singing?",
+      "explanation": "The Devil speaks, because Hildegard believed he had no divine harmony.",
+      "difficulty": 0.15,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -128,36 +130,50 @@
           "correct": false,
           "rationale": "They sing too."
         }
-      ],
-      "explanation": "The Devil speaks, because Hildegard believed he had no divine harmony.",
-      "difficulty": 0.15
+      ]
     },
     {
       "id": "question.middle_ages.036.q2",
-      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.hildegard_life"
       ],
       "sourceCardIds": [
-        "card.middle_ages.036.c2",
-        "card.middle_ages.036.c5"
+        "card.middle_ages.036.c5",
+        "card.middle_ages.036.c3"
       ],
-      "prompt": "Put these moments in Hildegard’s life in order, from earliest to latest.",
-      "items": [
-        "Hildegard was born",
-        "She succeeded Jutta as prioress",
-        "Found her own convent at Rupertsberg",
-        "Made her a saint"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "Hildegard was born in 1098, succeeded Jutta as prioress in 1136, left to found her own convent at Rupertsberg about 1147, and was made a saint in 2012.",
-      "difficulty": 0.3
+      "prompt": "What shows that Hildegard’s influence reached far beyond her convent?",
+      "explanation": "About 390 of her letters survive, to popes, an emperor and many others, and she preached to large crowds across Germany.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "She led a crusade to Jerusalem",
+          "correct": false,
+          "rationale": "She preached; she didn’t lead armies."
+        },
+        {
+          "id": "b",
+          "label": "She founded the University of Paris",
+          "correct": false,
+          "rationale": "Her work was in convents and letters."
+        },
+        {
+          "id": "c",
+          "label": "She ruled Germany as a regent",
+          "correct": false,
+          "rationale": "She was an abbess, not a ruler."
+        },
+        {
+          "id": "d",
+          "label": "She wrote to popes and preached across Germany",
+          "correct": true
+        }
+      ]
     },
     {
       "id": "question.middle_ages.036.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.hildegard_life",
@@ -169,6 +185,9 @@
         "card.middle_ages.035.c4"
       ],
       "prompt": "Hildegard grew up in a Benedictine cloister and became an abbess. Which idea from Level 35 does her life illustrate?",
+      "explanation": "An abbess led a community of nuns under the Benedictine Rule, just as Hildegard did.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -193,9 +212,7 @@
           "correct": false,
           "rationale": "Abbesses led nuns under his Rule."
         }
-      ],
-      "explanation": "An abbess led a community of nuns under the Benedictine Rule, just as Hildegard did.",
-      "difficulty": 0.3
+      ]
     }
   ],
   "sourceIds": [

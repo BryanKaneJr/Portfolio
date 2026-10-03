@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 30,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 1,
   "status": "published",
   "title": "Checkpoint: Castles and Knights",
   "objective": "After this level you can explain how land, castles and knights held medieval society together.",
@@ -154,7 +154,6 @@
   "questions": [
     {
       "id": "question.middle_ages.030.q1",
-      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.heraldry_origins",
@@ -165,22 +164,38 @@
         "card.middle_ages.029.c1",
         "card.middle_ages.027.c3"
       ],
-      "prompt": "Put these castle and knight milestones in order, from earliest to latest.",
-      "items": [
-        "Castles begin to spread",
-        "Henry I gives Geoffrey of Anjou",
-        "Heralds appear at tournaments",
-        "King John’s miners",
-        "A revolution from mail to plate armour"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "Castles began to spread in the 9th century. Henry I gave Geoffrey of Anjou his lion shield in 1128, heralds appear at tournaments about 1170, King John’s miners struck Rochester in 1215, and the revolution from mail to plate came in 1325 to 1340.",
-      "difficulty": 0.3
+      "prompt": "Castles and knights: which order of events is right?",
+      "explanation": "1128, then 1215, then 1325 to 1340.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "Geoffrey’s lion shield, the siege of Rochester, the plate revolution",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The siege of Rochester, Geoffrey’s lion shield, the plate revolution",
+          "correct": false,
+          "rationale": "Geoffrey’s shield came first, in 1128."
+        },
+        {
+          "id": "c",
+          "label": "The plate revolution, Geoffrey’s lion shield, the siege of Rochester",
+          "correct": false,
+          "rationale": "The plate revolution came last, from 1325."
+        },
+        {
+          "id": "d",
+          "label": "Geoffrey’s lion shield, the plate revolution, the siege of Rochester",
+          "correct": false,
+          "rationale": "Rochester (1215) came before 1325."
+        }
+      ]
     },
     {
       "id": "question.middle_ages.030.q2",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.serfdom"
@@ -189,6 +204,9 @@
         "card.middle_ages.022.c2"
       ],
       "prompt": "Castles and Knights recap: what did a medieval serf need his lord’s permission for?",
+      "explanation": "A serf could not permanently leave, marry or change his occupation without his lord’s permission.",
+      "difficulty": 0.25,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -213,13 +231,10 @@
           "correct": false,
           "rationale": "Not a rule on the manor."
         }
-      ],
-      "explanation": "A serf could not permanently leave, marry or change his occupation without his lord’s permission.",
-      "difficulty": 0.25
+      ]
     },
     {
       "id": "question.middle_ages.030.q3",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.three_orders",
@@ -230,6 +245,9 @@
         "card.middle_ages.021.c4"
       ],
       "prompt": "How did the idea of three orders differ from the feudal pyramid?",
+      "explanation": "Bishops like Adalbero of Laon described three orders; the pyramid is a later simplification.",
+      "difficulty": 0.4,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -254,13 +272,10 @@
           "correct": false,
           "rationale": "It had three orders."
         }
-      ],
-      "explanation": "Bishops like Adalbero of Laon described three orders; the pyramid is a later simplification.",
-      "difficulty": 0.4
+      ]
     },
     {
       "id": "question.middle_ages.030.q4",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.castle_gatehouse"
@@ -269,6 +284,9 @@
         "card.middle_ages.024.c3"
       ],
       "prompt": "Castles and Knights recap: what was a gatehouse portcullis?",
+      "explanation": "A portcullis was a heavy wooden or iron grille that could drop to seal the gate passage.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -293,13 +311,10 @@
           "label": "A heavy grille dropped to seal the gate",
           "correct": true
         }
-      ],
-      "explanation": "A portcullis was a heavy wooden or iron grille that could drop to seal the gate passage.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.030.q5",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.feudal_bond",
@@ -310,6 +325,9 @@
         "card.middle_ages.026.c4"
       ],
       "prompt": "Castles and knights: why did a king grant land for knight service instead of paying wages?",
+      "explanation": "A knight had to buy his own costly equipment; land held for service helped pay for armour and horses.",
+      "difficulty": 0.35,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -334,9 +352,7 @@
           "correct": false,
           "rationale": "The land came from the king."
         }
-      ],
-      "explanation": "A knight had to buy his own costly equipment; land held for service helped pay for armour and horses.",
-      "difficulty": 0.35
+      ]
     }
   ],
   "sourceIds": [

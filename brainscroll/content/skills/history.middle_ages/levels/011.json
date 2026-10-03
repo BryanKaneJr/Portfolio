@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 11,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "Charlemagne",
   "objective": "After this level you can explain how Charlemagne built an empire and revived learning.",
@@ -92,7 +92,6 @@
   "questions": [
     {
       "id": "question.middle_ages.011.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.carolingian_renaissance"
@@ -101,6 +100,9 @@
         "card.middle_ages.011.c3"
       ],
       "prompt": "In 781, Charlemagne invited the English scholar _____ to head his palace school.",
+      "explanation": "In 781 Charlemagne invited Alcuin of York to head the palace school at Aachen.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -125,13 +127,10 @@
           "correct": false,
           "rationale": "He founded Vivarium, back in Level 7."
         }
-      ],
-      "explanation": "In 781 Charlemagne invited Alcuin of York to head the palace school at Aachen.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.011.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.carolingian_renaissance"
@@ -140,6 +139,9 @@
         "card.middle_ages.011.c4"
       ],
       "prompt": "Why does Carolingian minuscule still matter to readers today?",
+      "explanation": "Renaissance scholars revived Carolingian minuscule, and it became the basis of today’s roman type.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -164,13 +166,10 @@
           "correct": false,
           "rationale": "It was built to be easy to read."
         }
-      ],
-      "explanation": "Renaissance scholars revived Carolingian minuscule, and it became the basis of today’s roman type.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.011.q3",
-      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.charlemagne_empire",
@@ -178,26 +177,37 @@
       ],
       "sourceCardIds": [
         "card.middle_ages.011.c2",
-        "card.middle_ages.011.c3",
-        "card.middle_ages.011.c4"
+        "card.middle_ages.006.c4"
       ],
-      "prompt": "Match each person with who they were to Charlemagne.",
-      "pairs": [
+      "prompt": "Level 6’s Merovingian dynasty began with Clovis. How did its rule end?",
+      "explanation": "In 751 Pippin, Charlemagne’s father, took the Frankish throne from the last Merovingian king.",
+      "difficulty": 0.35,
+      "kind": "mcq",
+      "options": [
         {
-          "left": "Pippin",
-          "right": "His father"
+          "id": "a",
+          "label": "Vikings killed the last Merovingian king",
+          "correct": false,
+          "rationale": "A new Frankish family took over."
         },
         {
-          "left": "Alcuin of York",
-          "right": "An English scholar"
+          "id": "b",
+          "label": "The pope gave the crown to Alcuin",
+          "correct": false,
+          "rationale": "Alcuin was a scholar, not a king."
         },
         {
-          "left": "Einhard",
-          "right": "His biographer"
+          "id": "c",
+          "label": "It split among four sons and died out",
+          "correct": false,
+          "rationale": "That split came in 511; the dynasty went on."
+        },
+        {
+          "id": "d",
+          "label": "Pippin, Charlemagne’s father, took the throne",
+          "correct": true
         }
-      ],
-      "explanation": "Pippin was Charlemagne’s father, Alcuin of York was the English scholar who headed his palace school, and Einhard was his biographer.",
-      "difficulty": 0.35
+      ]
     }
   ],
   "sourceIds": [

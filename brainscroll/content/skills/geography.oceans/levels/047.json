@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 47,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Seals and Sea Lions",
   "objective": "After this level you can tell seals from sea lions.",
@@ -104,7 +104,7 @@
   "questions": [
     {
       "id": "question.oceans.047.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.oceans.sunlit_seal_vs_sea_lion"
@@ -112,33 +112,26 @@
       "sourceCardIds": [
         "card.oceans.047.c3"
       ],
-      "prompt": "Which clue tells you you're looking at a sea lion rather than a seal?",
-      "options": [
+      "prompt": "Match each clue with the animal it points to: seal or sea lion.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Small flaps on the outside of its ears",
-          "correct": true
+          "left": "Ear holes, no ear flaps",
+          "right": "Seal"
         },
         {
-          "id": "b",
-          "label": "It wriggles along the beach on its belly",
-          "correct": false,
-          "rationale": "That's a seal."
+          "left": "Wriggles on its belly on land",
+          "right": "Seal"
         },
         {
-          "id": "c",
-          "label": "It swims by sweeping its rear flippers",
-          "correct": false,
-          "rationale": "That's how seals swim."
+          "left": "Small ear flaps",
+          "right": "Sea lion"
         },
         {
-          "id": "d",
-          "label": "It makes only soft grunts and hisses",
-          "correct": false,
-          "rationale": "Seals are the quiet ones; sea lions bark."
+          "left": "A loud bark",
+          "right": "Sea lion"
         }
       ],
-      "explanation": "Sea lions have small external ear flaps (they're called eared seals); true seals have only ear holes.",
+      "explanation": "A seal has ear holes but no ear flaps and wriggles on its belly on land. A sea lion has small ear flaps and a loud bark.",
       "difficulty": 0.15
     },
     {

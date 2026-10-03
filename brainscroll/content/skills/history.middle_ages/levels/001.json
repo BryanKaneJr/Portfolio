@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 1,
   "type": "regular",
-  "revision": 4,
+  "revision": 3,
   "status": "published",
   "title": "The Middle Ages: The Big Picture",
   "objective": "After this level you can describe the thousand years between Rome's fall in the West and the Renaissance.",
@@ -101,7 +101,6 @@
   "questions": [
     {
       "id": "question.middle_ages.001.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.medieval_span"
@@ -110,6 +109,9 @@
         "card.middle_ages.001.c2"
       ],
       "prompt": "Historians date the Middle Ages in Europe to _____.",
+      "explanation": "The Middle Ages run from the collapse of Roman rule in the West, about 500, to the Renaissance, about 1500.",
+      "difficulty": 0.15,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -134,42 +136,49 @@
           "correct": false,
           "rationale": "That’s after the Middle Ages."
         }
-      ],
-      "explanation": "The Middle Ages run from the collapse of Roman rule in the West, about 500, to the Renaissance, about 1500.",
-      "difficulty": 0.15
+      ]
     },
     {
       "id": "question.middle_ages.001.q2",
-      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.medieval_periods"
       ],
       "sourceCardIds": [
-        "card.middle_ages.001.c3",
         "card.middle_ages.001.c4"
       ],
-      "prompt": "Match each period of the Middle Ages with roughly when it begins.",
-      "pairs": [
+      "prompt": "Why do historians split the Middle Ages into early, high and late periods?",
+      "explanation": "A thousand years is too long to be one thing: early medieval Europe, with its warfare and vanishing towns, looked very different from later centuries.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
         {
-          "left": "The early Middle Ages begin",
-          "right": "About 500"
+          "id": "a",
+          "label": "Each period had a different king",
+          "correct": false,
+          "rationale": "Many kings ruled in each period."
         },
         {
-          "left": "The high (or central) Middle Ages begin",
-          "right": "About 1000"
+          "id": "b",
+          "label": "The Church ordered it in the year 1000",
+          "correct": false,
+          "rationale": "Historians made the division much later."
         },
         {
-          "left": "The late Middle Ages begin",
-          "right": "About 1300"
+          "id": "c",
+          "label": "A thousand years held very different ways of life",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Each lasted exactly three centuries",
+          "correct": false,
+          "rationale": "The periods are rough and uneven."
         }
-      ],
-      "explanation": "The early Middle Ages begin about 500, the high (or central) Middle Ages about 1000, and the late Middle Ages about 1300.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.001.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.medieval_span"
@@ -178,6 +187,9 @@
         "card.middle_ages.001.c2"
       ],
       "prompt": "Which event is the usual starting marker for the Middle Ages?",
+      "explanation": "In 476 the last western emperor was deposed, the usual starting marker for the Middle Ages.",
+      "difficulty": 0.25,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -202,9 +214,7 @@
           "label": "The last emperor in the West lost his throne",
           "correct": true
         }
-      ],
-      "explanation": "In 476 the last western emperor was deposed, the usual starting marker for the Middle Ages.",
-      "difficulty": 0.25
+      ]
     }
   ],
   "sourceIds": [

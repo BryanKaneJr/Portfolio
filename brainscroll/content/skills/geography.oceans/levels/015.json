@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 15,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Underwater Volcanoes",
   "objective": "After this level you can explain seamounts and volcanic islands.",
@@ -127,7 +127,7 @@
     },
     {
       "id": "question.oceans.015.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.volcanic_island_birth"
@@ -135,33 +135,16 @@
       "sourceCardIds": [
         "card.oceans.015.c4"
       ],
-      "prompt": "Guyots sit 1,000 to 2,000 m underwater. Why do they have flat tops?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Deep currents slowly scraped them flat",
-          "correct": false,
-          "rationale": "The flattening happened at the surface."
-        },
-        {
-          "id": "b",
-          "label": "They formed flat, like lava pancakes",
-          "correct": false,
-          "rationale": "They began as volcanic islands with peaks."
-        },
-        {
-          "id": "c",
-          "label": "Waves planed them flat when they were islands, then they sank",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Ice sheets once ground them down",
-          "correct": false,
-          "rationale": "Waves, not ice, did the planing."
-        }
+      "prompt": "Put a guyot's life story in order, from first to last.",
+      "items": [
+        "Began as volcanic islands",
+        "Waves planed their summits flat",
+        "The sea floor moved away from the ridge",
+        "Summits now lie 1,000 to 2,000 m deep"
       ],
-      "explanation": "Guyots began as volcanic islands whose tops were planed flat by waves before the sinking sea floor carried them down.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Guyots began as volcanic islands near ridge crests, where waves planed their summits flat. As the sea floor moved away from the ridge it sank, and their summits now lie 1,000 to 2,000 m deep.",
       "difficulty": 0.25
     },
     {

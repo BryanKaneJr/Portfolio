@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 70,
   "type": "checkpoint",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: The Islamic World and the East",
   "objective": "After this level you can explain how learning and trade flowed between the Islamic world, China and Europe.",
@@ -154,7 +154,6 @@
   "questions": [
     {
       "id": "question.middle_ages.070.q1",
-      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.east_west_exchange",
@@ -166,22 +165,38 @@
         "card.middle_ages.061.c2",
         "card.middle_ages.067.c2"
       ],
-      "prompt": "Put these events in order, from earliest to latest.",
-      "items": [
-        "Al-Mansur founds Baghdad",
-        "The Diamond Sutra is printed in China",
-        "Temujin is proclaimed Chinggis Khan",
-        "Hulegu’s Mongols sack Baghdad",
-        "Ibn Battuta sets out from Tangier"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "Al-Mansur founded Baghdad in 762, the Diamond Sutra was printed in 868, Temujin was proclaimed Chinggis Khan in 1206, Hulegu’s Mongols sacked Baghdad in 1258, and Ibn Battuta set out in 1325.",
-      "difficulty": 0.3
+      "prompt": "The Islamic world and the East: which order of events is right?",
+      "explanation": "762, then 868, then 1206.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "Genghis Khan is proclaimed, Baghdad is founded, the Diamond Sutra is printed",
+          "correct": false,
+          "rationale": "Genghis came last, in 1206."
+        },
+        {
+          "id": "b",
+          "label": "The Diamond Sutra is printed, Baghdad is founded, Genghis Khan is proclaimed",
+          "correct": false,
+          "rationale": "Baghdad (762) came before 868."
+        },
+        {
+          "id": "c",
+          "label": "Baghdad is founded, the Diamond Sutra is printed, Genghis Khan is proclaimed",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Baghdad is founded, Genghis Khan is proclaimed, the Diamond Sutra is printed",
+          "correct": false,
+          "rationale": "The Diamond Sutra (868) came before 1206."
+        }
+      ]
     },
     {
       "id": "question.middle_ages.070.q2",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.indian_numerals"
@@ -190,6 +205,9 @@
         "card.middle_ages.062.c3"
       ],
       "prompt": "The digits we use today originated in _____.",
+      "explanation": "The Hindu-Arabic numerals had developed in India by the 6th or 7th century.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -214,13 +232,10 @@
           "correct": false,
           "rationale": "Paper came from China, not the digits."
         }
-      ],
-      "explanation": "The Hindu-Arabic numerals had developed in India by the 6th or 7th century.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.070.q3",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.east_west_exchange"
@@ -229,6 +244,9 @@
         "card.middle_ages.070.c3"
       ],
       "prompt": "Under the Pax Mongolica, which way did knowledge move between China, the Islamic world and Europe?",
+      "explanation": "Chinese inventions spread west while Islamic astronomy, mathematics and medicine spread east.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -253,13 +271,10 @@
           "label": "Both ways: inventions west, Islamic science east",
           "correct": true
         }
-      ],
-      "explanation": "Chinese inventions spread west while Islamic astronomy, mathematics and medicine spread east.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.070.q4",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.ibn_sina_canon"
@@ -268,6 +283,9 @@
         "card.middle_ages.064.c3"
       ],
       "prompt": "Islamic medicine reached Europe: which book was a European medical textbook until the mid-17th century?",
+      "explanation": "Ibn Sina’s Canon served as a medical textbook in Europe until the mid-17th century.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -292,13 +310,10 @@
           "correct": false,
           "rationale": "That is a travel book."
         }
-      ],
-      "explanation": "Ibn Sina’s Canon served as a medical textbook in Europe until the mid-17th century.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.070.q5",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.mongol_conquest_cost",
@@ -309,6 +324,9 @@
         "card.middle_ages.061.c3"
       ],
       "prompt": "The Islamic world and the East: what ended the Abbasid caliphate whose Baghdad had sponsored Greek translations?",
+      "explanation": "In 1258 Hulegu sacked Baghdad and killed the caliph, and the Abbasid dynasty fell.",
+      "difficulty": 0.35,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -333,9 +351,7 @@
           "correct": false,
           "rationale": "The Abbasids had overthrown the Umayyads."
         }
-      ],
-      "explanation": "In 1258 Hulegu sacked Baghdad and killed the caliph, and the Abbasid dynasty fell.",
-      "difficulty": 0.35
+      ]
     }
   ],
   "sourceIds": [

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 96,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Protected Seas",
   "objective": "After this level you can explain marine protected areas.",
@@ -142,41 +142,31 @@
     },
     {
       "id": "question.oceans.096.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.mpa_protection"
       ],
       "sourceCardIds": [
-        "card.oceans.096.c3"
+        "card.oceans.096.c3",
+        "card.oceans.096.c2"
       ],
-      "prompt": "What makes a no-take reserve different from many other marine protected areas?",
-      "options": [
+      "prompt": "Match each part of the sea with what the rules say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It is closed to all boats and swimmers",
-          "correct": false,
-          "rationale": "The rule is about taking, not visiting."
+          "left": "Exclusive economic zone",
+          "right": "Up to 200 nautical miles"
         },
         {
-          "id": "b",
-          "label": "It bans fishing and other extraction",
-          "correct": true
+          "left": "The high seas",
+          "right": "Nearly two-thirds of the ocean"
         },
         {
-          "id": "c",
-          "label": "It can only be on the high seas",
-          "correct": false,
-          "rationale": "Reserves exist inside national waters too."
-        },
-        {
-          "id": "d",
-          "label": "It allows fishing only on weekends",
-          "correct": false,
-          "rationale": "No-take means no fishing at all."
+          "left": "No-take reserves",
+          "right": "Ban fishing and other extraction"
         }
       ],
-      "explanation": "Many MPAs still allow some fishing; no-take reserves, the strictest kind, ban fishing and other extraction.",
+      "explanation": "A country's exclusive economic zone reaches up to 200 nautical miles out. The high seas cover nearly two-thirds of the ocean. No-take reserves ban fishing and other extraction.",
       "difficulty": 0.3
     },
     {

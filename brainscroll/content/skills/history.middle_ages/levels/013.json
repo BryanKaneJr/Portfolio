@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 13,
   "type": "regular",
-  "revision": 2,
+  "revision": 1,
   "status": "published",
   "title": "Who the Vikings Were",
   "objective": "After this level you can describe the Vikings as raiders, traders and settlers.",
@@ -91,37 +91,45 @@
   "questions": [
     {
       "id": "question.middle_ages.013.q1",
-      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.vikings_who"
       ],
       "sourceCardIds": [
-        "card.middle_ages.013.c2",
-        "card.middle_ages.013.c3",
-        "card.middle_ages.013.c4"
+        "card.middle_ages.013.c2"
       ],
-      "prompt": "Match each place with what the cards link to it.",
-      "pairs": [
+      "prompt": "Which event usually marks the start of the Viking Age?",
+      "explanation": "The Viking Age is usually dated from the raid on Lindisfarne on 8 June 793, the first documented Viking attack.",
+      "difficulty": 0.15,
+      "kind": "mcq",
+      "options": [
         {
-          "left": "Lindisfarne",
-          "right": "The first documented Viking attack"
+          "id": "a",
+          "label": "A raid on the monastery at Lindisfarne in 793",
+          "correct": true
         },
         {
-          "left": "Gjermundbu",
-          "right": "The best-preserved Viking Age helmet"
+          "id": "b",
+          "label": "Charlemagne’s crowning as emperor",
+          "correct": false,
+          "rationale": "That came seven years later, in 800."
         },
         {
-          "left": "Muslim Central Asia",
-          "right": "Silver coins"
+          "id": "c",
+          "label": "The ship burial at Sutton Hoo",
+          "correct": false,
+          "rationale": "That was an Anglo-Saxon king’s grave."
+        },
+        {
+          "id": "d",
+          "label": "Alcuin’s move to Aachen",
+          "correct": false,
+          "rationale": "That was in 781, a school matter."
         }
-      ],
-      "explanation": "Lindisfarne saw the first documented Viking attack, in 793. Gjermundbu in Norway gave the best-preserved Viking Age helmet. Silver coins minted in Muslim Central Asia reached Scandinavia.",
-      "difficulty": 0.15
+      ]
     },
     {
       "id": "question.middle_ages.013.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.viking_horned_helmet_myth"
@@ -130,6 +138,9 @@
         "card.middle_ages.013.c4"
       ],
       "prompt": "What is the evidence that Vikings didn’t wear horned helmets?",
+      "explanation": "The best-preserved Viking Age helmet has no horns, and no writer of the time mentions them.",
+      "difficulty": 0.25,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -154,13 +165,10 @@
           "label": "The best-preserved helmet has none",
           "correct": true
         }
-      ],
-      "explanation": "The best-preserved Viking Age helmet has no horns, and no writer of the time mentions them.",
-      "difficulty": 0.25
+      ]
     },
     {
       "id": "question.middle_ages.013.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.vikings_who",
@@ -171,6 +179,9 @@
         "card.middle_ages.007.c3"
       ],
       "prompt": "Level 7’s monasteries were storehouses of books. Why did Viking raiders target them?",
+      "explanation": "Monasteries held church silver and were less well defended than trading towns.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -195,9 +206,7 @@
           "correct": false,
           "rationale": "No such deal is recorded."
         }
-      ],
-      "explanation": "Monasteries held church silver and were less well defended than trading towns.",
-      "difficulty": 0.3
+      ]
     }
   ],
   "sourceIds": [

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 100,
   "type": "mastery",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Mastery Challenge: The Oceans",
   "objective": "After this level you can demonstrate command of The Oceans Levels 1–99 across the whole tree.",
@@ -224,7 +224,7 @@
     },
     {
       "id": "question.oceans.100.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.light_fades_colors",
@@ -235,33 +235,15 @@
         "card.oceans.008.c2",
         "card.oceans.007.c2"
       ],
-      "prompt": "Oceans Mastery: why does a red fish look dark 100 m down?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Deep fish change color to hide",
-          "correct": false,
-          "rationale": "The fish is the same; the light has changed."
-        },
-        {
-          "id": "b",
-          "label": "Pressure squeezes the color out",
-          "correct": false,
-          "rationale": "Pressure doesn't change color."
-        },
-        {
-          "id": "c",
-          "label": "Water absorbs red light first, so none is left to reflect",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Salt stains fish dark",
-          "correct": false,
-          "rationale": "It's about light, not salt."
-        }
+      "prompt": "Diving through clear seawater, put these colors in the order they disappear, from first gone to last.",
+      "items": [
+        "Red and orange",
+        "Yellow and green",
+        "Blue and violet"
       ],
-      "explanation": "Water absorbs red light most strongly, so a few meters down the red is gone; nothing red is left to bounce off the fish.",
+      "first": "Gone first",
+      "last": "Lasts deepest",
+      "explanation": "Red and orange are gone first, a few meters down. Yellow and green fade next, and blue and violet travel deepest, which is why a red fish looks dark 100 m down.",
       "difficulty": 0.45
     },
     {

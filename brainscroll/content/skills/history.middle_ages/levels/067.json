@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 67,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "Genghis Khan and the Mongols",
   "objective": "After this level you can explain how the Mongols built the largest land empire in history.",
@@ -102,7 +102,6 @@
   "questions": [
     {
       "id": "question.middle_ages.067.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.genghis_rise"
@@ -111,6 +110,9 @@
         "card.middle_ages.067.c2"
       ],
       "prompt": "An assembly of Mongol leaders declared Temujin Chinggis Khan in _____.",
+      "explanation": "In 1206 an assembly of Mongol leaders declared Temujin universal ruler, Chinggis Khan.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -135,13 +137,10 @@
           "correct": false,
           "rationale": "That’s the sack of Baghdad."
         }
-      ],
-      "explanation": "In 1206 an assembly of Mongol leaders declared Temujin universal ruler, Chinggis Khan.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.067.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.mongol_conquest_cost"
@@ -150,6 +149,9 @@
         "card.middle_ages.067.c3"
       ],
       "prompt": "Why do estimates of the Mongol conquests’ death toll vary so widely?",
+      "explanation": "No one kept reliable totals and medieval chroniclers exaggerated, so modern estimates are rough.",
+      "difficulty": 0.35,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -174,33 +176,48 @@
           "correct": false,
           "rationale": "Every estimate is enormous."
         }
-      ],
-      "explanation": "No one kept reliable totals and medieval chroniclers exaggerated, so modern estimates are rough.",
-      "difficulty": 0.35
+      ]
     },
     {
       "id": "question.middle_ages.067.q3",
-      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.mongol_conquest_cost",
         "concept.middle_ages.early_caliphate"
       ],
       "sourceCardIds": [
-        "card.middle_ages.067.c2",
-        "card.middle_ages.067.c4"
+        "card.middle_ages.067.c4",
+        "card.middle_ages.008.c3"
       ],
-      "prompt": "Put these events in order, from earliest to latest.",
-      "items": [
-        "Temujin was born",
-        "Declared him universal ruler",
-        "He died",
-        "Hulegu sacked Baghdad"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "Temujin was born around 1162. In 1206 Mongol leaders declared him universal ruler, Chinggis Khan. He died in 1227, and his grandson Hulegu sacked Baghdad in 1258.",
-      "difficulty": 0.4
+      "prompt": "In 1258 Hulegu killed the caliph in Baghdad. From Level 8, what did the title caliph mean?",
+      "explanation": "Caliph comes from khalifah, “successor”: the leaders who followed Muhammad. In 1258 the Mongols killed the Abbasid caliph.",
+      "difficulty": 0.4,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "Prophet",
+          "correct": false,
+          "rationale": "Muhammad was the prophet; the caliphs came after him."
+        },
+        {
+          "id": "b",
+          "label": "Successor",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Sultan",
+          "correct": false,
+          "rationale": "That was Saladin’s title; caliph comes from khalifah."
+        },
+        {
+          "id": "d",
+          "label": "Commander of armies",
+          "correct": false,
+          "rationale": "That isn’t what khalifah means."
+        }
+      ]
     }
   ],
   "sourceIds": [

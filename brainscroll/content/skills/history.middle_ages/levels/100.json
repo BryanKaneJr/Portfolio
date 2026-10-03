@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 100,
   "type": "mastery",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "Mastery Challenge: The Middle Ages",
   "objective": "After this level you can demonstrate command of The Middle Ages Levels 1–99 across the whole tree.",
@@ -166,35 +166,47 @@
   "questions": [
     {
       "id": "question.middle_ages.100.q1",
-      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.fall_of_west_476",
         "concept.middle_ages.medieval_end_dates"
       ],
       "sourceCardIds": [
-        "card.middle_ages.010.c2",
-        "card.middle_ages.020.c2",
-        "card.middle_ages.050.c2",
-        "card.middle_ages.090.c2",
-        "card.middle_ages.098.c2"
+        "card.middle_ages.098.c3",
+        "card.middle_ages.003.c2"
       ],
-      "prompt": "Put these events from across the Middle Ages in order, from earliest to latest.",
-      "items": [
-        "Odoacer deposes the last western emperor",
-        "Vikings raid Lindisfarne",
-        "Urban II calls for a crusade at Clermont",
-        "The Black Death reaches Messina",
-        "The Ottomans take Constantinople"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "Odoacer deposed the last western emperor in 476. Vikings raided Lindisfarne in 793, Urban II called for a crusade in 1095, the Black Death reached Messina in 1347, and the Ottomans took Constantinople in 1453.",
-      "difficulty": 0.4
+      "prompt": "Which pair of dates makes the Middle Ages begin and end with the fall of each half of Rome?",
+      "explanation": "The West fell in 476; the Roman East, Byzantium, fell with Constantinople in 1453.",
+      "difficulty": 0.4,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "410 and 1066",
+          "correct": false,
+          "rationale": "410 is Britain’s Roman exit; 1066 is too early for the end."
+        },
+        {
+          "id": "b",
+          "label": "476 and 1453",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "527 and 1492",
+          "correct": false,
+          "rationale": "527 is when Justinian began to rule."
+        },
+        {
+          "id": "d",
+          "label": "622 and 1517",
+          "correct": false,
+          "rationale": "622 is the hijra."
+        }
+      ]
     },
     {
       "id": "question.middle_ages.100.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.dark_ages_label",
@@ -207,6 +219,9 @@
         "card.middle_ages.002.c4"
       ],
       "prompt": "Renaissance humanists called the Middle Ages dark. What irony did Poggio’s book hunts reveal?",
+      "explanation": "Poggio found Cicero, Quintilian and Lucretius in monastery libraries, copied by medieval monks.",
+      "difficulty": 0.45,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -231,13 +246,10 @@
           "label": "The classics they loved survived in medieval monks’ copies",
           "correct": true
         }
-      ],
-      "explanation": "Poggio found Cicero, Quintilian and Lucretius in monastery libraries, copied by medieval monks.",
-      "difficulty": 0.45
+      ]
     },
     {
       "id": "question.middle_ages.100.q3",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.sutton_hoo"
@@ -247,6 +259,9 @@
         "card.middle_ages.009.c4"
       ],
       "prompt": "What did the 1939 dig at Sutton Hoo in Suffolk uncover?",
+      "explanation": "Basil Brown found a ship burial, probably King Rædwald’s, with 263 finds including a famous helmet.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -271,13 +286,10 @@
           "correct": false,
           "rationale": "It was an Anglo-Saxon ship burial."
         }
-      ],
-      "explanation": "Basil Brown found a ship burial, probably King Rædwald’s, with 263 finds including a famous helmet.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.100.q4",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.print_book_explosion",
@@ -288,6 +300,9 @@
         "card.middle_ages.091.c2"
       ],
       "prompt": "Why did Europe go from thousands of books to more than 9 million by 1500?",
+      "explanation": "Movable type let printers run off editions of hundreds or a thousand copies.",
+      "difficulty": 0.35,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -312,13 +327,10 @@
           "correct": false,
           "rationale": "The change was printing."
         }
-      ],
-      "explanation": "Movable type let printers run off editions of hundreds or a thousand copies.",
-      "difficulty": 0.35
+      ]
     },
     {
       "id": "question.middle_ages.100.q5",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.columbus_round_earth_myth"
@@ -327,6 +339,9 @@
         "card.middle_ages.094.c3"
       ],
       "prompt": "A friend says Columbus proved the Earth was round. What’s the best correction?",
+      "explanation": "Educated Europeans knew Earth was a sphere; Columbus thought it much smaller than it is. The myth comes from Irving’s 1828 book.",
+      "difficulty": 0.4,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -351,13 +366,10 @@
           "correct": false,
           "rationale": "They knew by the early 7th century."
         }
-      ],
-      "explanation": "Educated Europeans knew Earth was a sphere; Columbus thought it much smaller than it is. The myth comes from Irving’s 1828 book.",
-      "difficulty": 0.4
+      ]
     },
     {
       "id": "question.middle_ages.100.q6",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.columbus_taino_consequences"
@@ -366,6 +378,9 @@
         "card.middle_ages.094.c4"
       ],
       "prompt": "What happened to the Taíno people in the decades after 1492?",
+      "explanation": "From perhaps one or two million, the Taíno were reduced to a few thousand by 1520.",
+      "difficulty": 0.35,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -390,13 +405,10 @@
           "label": "Enslavement, starvation and disease cut them to a few thousand",
           "correct": true
         }
-      ],
-      "explanation": "From perhaps one or two million, the Taíno were reduced to a few thousand by 1520.",
-      "difficulty": 0.35
+      ]
     },
     {
       "id": "question.middle_ages.100.q7",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.mansa_musa_hajj_1324"
@@ -405,6 +417,9 @@
         "card.middle_ages.095.c4"
       ],
       "prompt": "Why is “richest person ever” for Mansa Musa best called a popular claim?",
+      "explanation": "Historians say his wealth can’t be measured; there’s no ledger, and gold mines don’t convert neatly to dollars.",
+      "difficulty": 0.4,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -429,13 +444,10 @@
           "correct": false,
           "rationale": "The atlas called him the richest."
         }
-      ],
-      "explanation": "Historians say his wealth can’t be measured; there’s no ledger, and gold mines don’t convert neatly to dollars.",
-      "difficulty": 0.4
+      ]
     },
     {
       "id": "question.middle_ages.100.q8",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.great_zimbabwe_colonial_myth"
@@ -444,6 +456,9 @@
         "card.middle_ages.096.c4"
       ],
       "prompt": "Colonial-era writers credited Great Zimbabwe to the Queen of Sheba or Phoenicians. What did archaeology show?",
+      "explanation": "In 1905 and 1929 excavations showed the ruins were medieval and African, built by ancestors of the Shona.",
+      "difficulty": 0.35,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -468,13 +483,10 @@
           "correct": false,
           "rationale": "It was African."
         }
-      ],
-      "explanation": "In 1905 and 1929 excavations showed the ruins were medieval and African, built by ancestors of the Shona.",
-      "difficulty": 0.35
+      ]
     },
     {
       "id": "question.middle_ages.100.q9",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.americas_cahokia"
@@ -483,6 +495,9 @@
         "card.middle_ages.097.c5"
       ],
       "prompt": "What was Cahokia?",
+      "explanation": "Cahokia, near St. Louis, flourished about 950 to 1350 as the largest city north of Mexico.",
+      "difficulty": 0.35,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -507,13 +522,10 @@
           "correct": false,
           "rationale": "That was Tenochtitlan."
         }
-      ],
-      "explanation": "Cahokia, near St. Louis, flourished about 950 to 1350 as the largest city north of Mexico.",
-      "difficulty": 0.35
+      ]
     },
     {
       "id": "question.middle_ages.100.q10",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.caravel_sailing",
@@ -525,6 +537,9 @@
         "card.middle_ages.094.c2"
       ],
       "prompt": "The type of ship that carried Portugal’s explorers down Africa, and two of Columbus’s three ships in 1492, was _____.",
+      "explanation": "The Portuguese developed the caravel for Africa’s coast; the Niña and Pinta were caravels.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -549,9 +564,7 @@
           "correct": false,
           "rationale": "That came centuries later."
         }
-      ],
-      "explanation": "The Portuguese developed the caravel for Africa’s coast; the Niña and Pinta were caravels.",
-      "difficulty": 0.3
+      ]
     }
   ],
   "sourceIds": [

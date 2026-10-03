@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 77,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "Joan of Arc",
   "objective": "After this level you can explain Joan of Arc's rise, trial and legacy.",
@@ -103,32 +103,45 @@
   "questions": [
     {
       "id": "question.middle_ages.077.q1",
-      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.joan_of_arc_rise"
       ],
       "sourceCardIds": [
-        "card.middle_ages.077.c2",
-        "card.middle_ages.077.c3",
-        "card.middle_ages.077.c5"
+        "card.middle_ages.077.c2"
       ],
-      "prompt": "Put these events in Joan of Arc’s life in order, from earliest to latest.",
-      "items": [
-        "Joan was born",
-        "Lift the English siege of Orléans",
-        "Charles was crowned at Reims",
-        "Captured her at Compiègne",
-        "She was burned at the stake"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "Joan was born about 1412. She helped lift the English siege of Orléans in May 1429, and Charles was crowned at Reims that July. She was captured at Compiègne in 1430 and burned at the stake in 1431.",
-      "difficulty": 0.2
+      "prompt": "What did Joan of Arc help to do at Orléans in May 1429?",
+      "explanation": "In May 1429 Joan helped lift the English siege of Orléans.",
+      "difficulty": 0.2,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "Crown Charles VII",
+          "correct": false,
+          "rationale": "That happened at Reims in July."
+        },
+        {
+          "id": "b",
+          "label": "Sign a peace treaty with England",
+          "correct": false,
+          "rationale": "She fought the English."
+        },
+        {
+          "id": "c",
+          "label": "Lift the English siege of the city",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "Capture the English king",
+          "correct": false,
+          "rationale": "She helped end a siege."
+        }
+      ]
     },
     {
       "id": "question.middle_ages.077.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.joan_of_arc_trial"
@@ -137,6 +150,9 @@
         "card.middle_ages.077.c4"
       ],
       "prompt": "At her 1431 trial, why was asking Joan if she was in God’s grace a trap?",
+      "explanation": "Church teaching held that no one could be sure: yes sounded like heresy, no like admitting guilt.",
+      "difficulty": 0.35,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -161,13 +177,10 @@
           "correct": false,
           "rationale": "The trap was in the doctrine."
         }
-      ],
-      "explanation": "Church teaching held that no one could be sure: yes sounded like heresy, no like admitting guilt.",
-      "difficulty": 0.35
+      ]
     },
     {
       "id": "question.middle_ages.077.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.joan_of_arc_trial",
@@ -178,6 +191,9 @@
         "card.middle_ages.039.c4"
       ],
       "prompt": "Before her burning, Joan’s judges declared her _____.",
+      "explanation": "After recanting, Joan was found in men’s clothes again, declared a relapsed heretic and burned at Rouen.",
+      "difficulty": 0.4,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -202,9 +218,7 @@
           "correct": false,
           "rationale": "She fought against the English."
         }
-      ],
-      "explanation": "After recanting, Joan was found in men’s clothes again, declared a relapsed heretic and burned at Rouen.",
-      "difficulty": 0.4
+      ]
     }
   ],
   "sourceIds": [

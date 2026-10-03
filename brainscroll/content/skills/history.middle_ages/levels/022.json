@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 22,
   "type": "regular",
-  "revision": 2,
+  "revision": 1,
   "status": "published",
   "title": "Serfs and Peasants",
   "objective": "After this level you can describe the life of a medieval peasant.",
@@ -91,7 +91,6 @@
   "questions": [
     {
       "id": "question.middle_ages.022.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.serfdom"
@@ -100,6 +99,9 @@
         "card.middle_ages.022.c2"
       ],
       "prompt": "What made a medieval serf different from a slave?",
+      "explanation": "Slaves were bought and sold without reference to land; a serf was bound to his hereditary plot.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -124,46 +126,49 @@
           "label": "He was bound to his land, not sold apart from it",
           "correct": true
         }
-      ],
-      "explanation": "Slaves were bought and sold without reference to land; a serf was bound to his hereditary plot.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.022.q2",
-      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.manor_obligations"
       ],
       "sourceCardIds": [
-        "card.middle_ages.022.c3",
-        "card.middle_ages.022.c4"
+        "card.middle_ages.022.c3"
       ],
-      "prompt": "Match each manor word with its meaning.",
-      "pairs": [
+      "prompt": "What was week-work on a medieval manor?",
+      "explanation": "Week by week a villein ploughed, harrowed, reaped, threshed and carried on the lord’s demesne.",
+      "difficulty": 0.25,
+      "kind": "mcq",
+      "options": [
         {
-          "left": "Demesne",
-          "right": "The part the lord kept for his own use"
+          "id": "a",
+          "label": "Regular labour on the lord’s demesne",
+          "correct": true
         },
         {
-          "left": "Villein",
-          "right": "An unfree peasant"
+          "id": "b",
+          "label": "A week of rest after the harvest",
+          "correct": false,
+          "rationale": "It was work, not rest."
         },
         {
-          "left": "Merchet",
-          "right": "Marrying off a daughter"
+          "id": "c",
+          "label": "Work on the villein’s own strips",
+          "correct": false,
+          "rationale": "It was done for the lord."
         },
         {
-          "left": "Heriot",
-          "right": "Usually the best beast"
+          "id": "d",
+          "label": "A weekly market held in town",
+          "correct": false,
+          "rationale": "That’s trade, not labour."
         }
-      ],
-      "explanation": "The demesne was the part the lord kept for his own use, and a villein was an unfree peasant. Merchet was the fee for marrying off a daughter, and a heriot, usually the best beast, was owed at death.",
-      "difficulty": 0.25
+      ]
     },
     {
       "id": "question.middle_ages.022.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.manor_obligations",
@@ -174,6 +179,9 @@
         "card.middle_ages.021.c2"
       ],
       "prompt": "Level 21’s vassals held fiefs for military service. How did a villein pay for his holding?",
+      "explanation": "Vassals served with arms; a villein paid in money, labour and produce, plus fees like merchet and heriot.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -198,9 +206,7 @@
           "correct": false,
           "rationale": "His dues went to his lord."
         }
-      ],
-      "explanation": "Vassals served with arms; a villein paid in money, labour and produce, plus fees like merchet and heriot.",
-      "difficulty": 0.3
+      ]
     }
   ],
   "sourceIds": [

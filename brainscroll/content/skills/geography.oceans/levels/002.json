@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 2,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Blue Planet",
   "objective": "After this level you can explain how much of Earth is ocean and how deep it goes.",
@@ -124,41 +124,31 @@
     },
     {
       "id": "question.oceans.002.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.ocean_depth"
       ],
       "sourceCardIds": [
-        "card.oceans.002.c4"
+        "card.oceans.002.c4",
+        "card.oceans.002.c1"
       ],
-      "prompt": "The ocean averages several kilometers deep. Why would it look like a thin film on a globe 30 cm across?",
-      "options": [
+      "prompt": "Match each with its number from the Blue Marble level.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Globes leave most of the water out",
-          "correct": false,
-          "rationale": "The film is to scale; nothing is left out."
+          "left": "The Blue Marble",
+          "right": "1972"
         },
         {
-          "id": "b",
-          "label": "Most of the ocean is frozen solid",
-          "correct": false,
-          "rationale": "Ice has nothing to do with the scale."
+          "left": "Earth's radius",
+          "right": "About 6,371 km"
         },
         {
-          "id": "c",
-          "label": "The sea floor sits far above the rock below",
-          "correct": false,
-          "rationale": "The point is Earth's size, not the floor."
-        },
-        {
-          "id": "d",
-          "label": "Earth's 6,371 km radius dwarfs even 11 km",
-          "correct": true
+          "left": "Challenger Deep",
+          "right": "About 11 km"
         }
       ],
-      "explanation": "Earth's radius is about 6,371 km, so even the ocean's deepest point is a tiny fraction of it.",
+      "explanation": "The Blue Marble photo was taken in 1972. Earth's radius is about 6,371 km, and Challenger Deep, the deepest known spot, is about 11 km deep.",
       "difficulty": 0.2
     },
     {

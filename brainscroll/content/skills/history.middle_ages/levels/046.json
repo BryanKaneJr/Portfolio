@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 46,
   "type": "regular",
-  "revision": 2,
+  "revision": 1,
   "status": "published",
   "title": "The Knights Templar",
   "objective": "After this level you can explain who the Templars were and how they fell.",
@@ -89,7 +89,6 @@
   "questions": [
     {
       "id": "question.middle_ages.046.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.crusade_templars"
@@ -98,6 +97,9 @@
         "card.middle_ages.046.c2"
       ],
       "prompt": "Where did the Knights Templar get their name?",
+      "explanation": "King Baldwin II housed the knights in the area of the former Temple of Solomon in Jerusalem, which gave them their name.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -122,38 +124,49 @@
           "correct": false,
           "rationale": "Their founder was Hugh de Payns."
         }
-      ],
-      "explanation": "King Baldwin II housed the knights in the area of the former Temple of Solomon in Jerusalem, which gave them their name.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.046.q2",
-      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.crusade_templars"
       ],
       "sourceCardIds": [
-        "card.middle_ages.046.c2",
-        "card.middle_ages.046.c4",
-        "card.middle_ages.046.c5"
+        "card.middle_ages.046.c4"
       ],
-      "prompt": "Put these events in the Templars’ story in order, from earliest to latest.",
-      "items": [
-        "Vowed to protect pilgrims",
-        "The Council of Troyes",
-        "Acre fell",
-        "Every Templar in France arrested",
-        "Pope Clement V suppressed the Templars"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "Knights vowed to protect pilgrims in 1119 or 1120, and the Council of Troyes approved the order about ten years later. Acre fell in 1291, Philip IV had every Templar in France arrested in 1307, and Clement V suppressed the order in 1312.",
-      "difficulty": 0.35
+      "prompt": "Why were the Templars an easy target by the early 1300s?",
+      "explanation": "After Acre fell in 1291 the Templars lost much of their reason for being, and their wealth, lands and power bred resentment.",
+      "difficulty": 0.35,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "They had been defeated by the Hospitallers",
+          "correct": false,
+          "rationale": "The Hospitallers later received their property."
+        },
+        {
+          "id": "b",
+          "label": "The pope had already declared them heretics",
+          "correct": false,
+          "rationale": "The charges came from Philip’s arrests."
+        },
+        {
+          "id": "c",
+          "label": "They had given away all their wealth",
+          "correct": false,
+          "rationale": "Their wealth was part of the problem."
+        },
+        {
+          "id": "d",
+          "label": "Acre’s fall left them little purpose while their wealth bred resentment",
+          "correct": true
+        }
+      ]
     },
     {
       "id": "question.middle_ages.046.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.crusade_templars",
@@ -164,6 +177,9 @@
         "card.middle_ages.046.c3"
       ],
       "prompt": "The Templars were fighting knights. What did Saladin order for captured Templars after Hattin?",
+      "explanation": "After Hattin, Saladin spared King Guy and most lords but ordered almost all captured Templars and Hospitallers executed.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -188,9 +204,7 @@
           "correct": false,
           "rationale": "No; he had them killed."
         }
-      ],
-      "explanation": "After Hattin, Saladin spared King Guy and most lords but ordered almost all captured Templars and Hospitallers executed.",
-      "difficulty": 0.3
+      ]
     }
   ],
   "sourceIds": [

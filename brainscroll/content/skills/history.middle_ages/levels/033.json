@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 33,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "Building Cathedrals",
   "objective": "After this level you can explain how medieval builders raised huge cathedrals.",
@@ -91,7 +91,6 @@
   "questions": [
     {
       "id": "question.middle_ages.033.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.gothic_cathedral_engineering"
@@ -100,6 +99,9 @@
         "card.middle_ages.033.c2"
       ],
       "prompt": "In a Gothic church, _____ carried a vault’s outward push across an aisle to an outer pier.",
+      "explanation": "A flying buttress is a half arch carrying the vault’s thrust across an aisle to an outer pier.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -124,46 +126,49 @@
           "correct": false,
           "rationale": "That lifted stones during building."
         }
-      ],
-      "explanation": "A flying buttress is a half arch carrying the vault’s thrust across an aisle to an outer pier.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.033.q2",
-      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.gothic_cathedral_engineering"
       ],
       "sourceCardIds": [
-        "card.middle_ages.033.c2",
-        "card.middle_ages.033.c3"
+        "card.middle_ages.033.c2"
       ],
-      "prompt": "Match each cathedral-building term with what the cards say about it.",
-      "pairs": [
+      "prompt": "Why could Gothic cathedrals have such enormous windows?",
+      "explanation": "With flying buttresses carrying the vault’s outward push, the walls no longer had to, so they could open into large windows.",
+      "difficulty": 0.35,
+      "kind": "mcq",
+      "options": [
         {
-          "left": "Rib vault",
-          "right": "Stone ribs carry the ceiling"
+          "id": "a",
+          "label": "Glass had become cheaper than stone",
+          "correct": false,
+          "rationale": "It was about structure, not price."
         },
         {
-          "left": "Flying buttress",
-          "right": "A half arch"
+          "id": "b",
+          "label": "Their roofs were built of light wood",
+          "correct": false,
+          "rationale": "Their vaults were stone."
         },
         {
-          "left": "Treadwheel",
-          "right": "A hamster wheel"
+          "id": "c",
+          "label": "Buttresses took the vault’s thrust, freeing the walls",
+          "correct": true
         },
         {
-          "left": "Master mason",
-          "right": "Ran the site"
+          "id": "d",
+          "label": "Treadwheel cranes could lift bigger panes",
+          "correct": false,
+          "rationale": "Cranes lifted stone; buttresses freed the walls."
         }
-      ],
-      "explanation": "In a rib vault, stone ribs carry the ceiling. A flying buttress is a half arch. A treadwheel was a “hamster wheel” big enough for two men, and the master mason ran the site.",
-      "difficulty": 0.35
+      ]
     },
     {
       "id": "question.middle_ages.033.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.cathedral_builders",
@@ -174,6 +179,9 @@
         "card.middle_ages.031.c3"
       ],
       "prompt": "How did Level 31’s tithe connect to the great medieval cathedrals?",
+      "explanation": "Tithes paid the clergy and the poor, and they were also a prime source of money for building many cathedrals.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -198,9 +206,7 @@
           "correct": false,
           "rationale": "Tithes paid for cathedrals, not the reverse."
         }
-      ],
-      "explanation": "Tithes paid the clergy and the poor, and they were also a prime source of money for building many cathedrals.",
-      "difficulty": 0.3
+      ]
     }
   ],
   "sourceIds": [

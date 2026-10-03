@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 82,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "The Black Death Arrives",
   "objective": "After this level you can explain how the Black Death reached Europe in 1347.",
@@ -112,7 +112,6 @@
   "questions": [
     {
       "id": "question.middle_ages.082.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.black_death_arrival"
@@ -122,6 +121,9 @@
         "card.middle_ages.082.c3"
       ],
       "prompt": "In October 1347, ships brought the Black Death ashore at _____.",
+      "explanation": "Ships brought the plague to Messina in early October 1347.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -146,13 +148,10 @@
           "label": "Messina, in Sicily",
           "correct": true
         }
-      ],
-      "explanation": "Ships brought the plague to Messina in early October 1347.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.082.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.black_death_toll"
@@ -161,6 +160,9 @@
         "card.middle_ages.082.c4"
       ],
       "prompt": "Why is the Black Death’s toll given as a range, such as 30% to 50% of Europe?",
+      "explanation": "Death tolls are estimates: most land between about 30% and 50%, and Benedictow calculated about 60%.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -185,13 +187,10 @@
           "correct": false,
           "rationale": "It killed people of every age."
         }
-      ],
-      "explanation": "Death tolls are estimates: most land between about 30% and 50%, and Benedictow calculated about 60%.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.082.q3",
-      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.black_death_arrival",
@@ -199,20 +198,37 @@
       ],
       "sourceCardIds": [
         "card.middle_ages.082.c2",
-        "card.middle_ages.082.c3"
+        "card.middle_ages.049.c2"
       ],
-      "prompt": "Put the Black Death’s path in order, from earliest to latest.",
-      "items": [
-        "Plague deaths near Lake Issyk-Kul",
-        "Plague strikes the siege of Caffa",
-        "Ships bring it to Messina",
-        "Italy, Spain and France",
-        "Scandinavia and the Baltic"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "Plague deaths came near Lake Issyk-Kul in 1338 to 1339, at the siege of Caffa in 1346, and at Messina in October 1347. It reached Italy, Spain and France in 1348, and Scandinavia and the Baltic in 1350.",
-      "difficulty": 0.4
+      "prompt": "Caffa, where plague struck in 1346, was an Italian trading port. From Level 49, how had Italian cities profited from the Crusades?",
+      "explanation": "Italian cities set up trading posts abroad, and from the Italian port of Caffa, Genoese ships carried the plague west.",
+      "difficulty": 0.4,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "They ruled the crusader states as kings",
+          "correct": false,
+          "rationale": "Crusader lords ruled Outremer; the Italians traded."
+        },
+        {
+          "id": "b",
+          "label": "They set up trading posts abroad",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "They sold indulgences to pilgrims",
+          "correct": false,
+          "rationale": "Indulgences came from the Church."
+        },
+        {
+          "id": "d",
+          "label": "They took over the Champagne fairs",
+          "correct": false,
+          "rationale": "Those fairs ran under the count’s protection."
+        }
+      ]
     }
   ],
   "sourceIds": [

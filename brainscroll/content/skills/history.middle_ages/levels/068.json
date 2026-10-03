@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 68,
   "type": "regular",
-  "revision": 2,
+  "revision": 1,
   "status": "published",
   "title": "The Silk Road",
   "objective": "After this level you can explain how the Silk Road linked China, Persia and Europe.",
@@ -98,7 +98,6 @@
   "questions": [
     {
       "id": "question.middle_ages.068.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.silk_road_relay"
@@ -107,6 +106,9 @@
         "card.middle_ages.068.c2"
       ],
       "prompt": "How did most goods cross the length of the Silk Road?",
+      "explanation": "Few people travelled the entire route; goods were handled in stages by middlemen.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -131,42 +133,49 @@
           "label": "In stages, handled by middlemen",
           "correct": true
         }
-      ],
-      "explanation": "Few people travelled the entire route; goods were handled in stages by middlemen.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.068.q2",
-      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.mongol_pax"
       ],
       "sourceCardIds": [
-        "card.middle_ages.068.c3",
         "card.middle_ages.068.c4"
       ],
-      "prompt": "Match each with what the cards say about it.",
-      "pairs": [
+      "prompt": "During the Pax Mongolica, what made long journeys across Mongol lands safer?",
+      "explanation": "The Mongols expanded the yam stations, and merchants with paiza passes had imperial protection.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
         {
-          "left": "Yam",
-          "right": "A network of postal and supply stations"
+          "id": "a",
+          "label": "Merchants hired their own armies",
+          "correct": false,
+          "rationale": "Imperial protection did the job."
         },
         {
-          "left": "Pax Mongolica",
-          "right": "A time of relative stability"
+          "id": "b",
+          "label": "Relay stations and passes backed by imperial protection",
+          "correct": true
         },
         {
-          "left": "Buddhism",
-          "right": "From India"
+          "id": "c",
+          "label": "The Mongols closed the roads to traders",
+          "correct": false,
+          "rationale": "They made the roads safer for traders."
+        },
+        {
+          "id": "d",
+          "label": "Travellers went by sea instead",
+          "correct": false,
+          "rationale": "The land routes revived."
         }
-      ],
-      "explanation": "The yam was a network of postal and supply stations. The Pax Mongolica was a time of relative stability, trade and exchange. Buddhism came from India and reached China along the Silk Road.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.068.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.silk_road_relay",
@@ -177,6 +186,9 @@
         "card.middle_ages.013.c3"
       ],
       "prompt": "Level 13’s Vikings brought home silver coins from Muslim Central Asia. Along the Silk Road, which way did silver travel?",
+      "explanation": "On the Silk Road, silk went west while wool, gold and silver went east.",
+      "difficulty": 0.4,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -195,9 +207,7 @@
           "label": "East, toward China",
           "correct": true
         }
-      ],
-      "explanation": "On the Silk Road, silk went west while wool, gold and silver went east.",
-      "difficulty": 0.4
+      ]
     }
   ],
   "sourceIds": [

@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 37,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "The First Universities",
   "objective": "After this level you can explain how the first universities began.",
@@ -91,7 +91,6 @@
   "questions": [
     {
       "id": "question.middle_ages.037.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.first_universities"
@@ -100,6 +99,9 @@
         "card.middle_ages.037.c2"
       ],
       "prompt": "The first true university in the West grew up in _____, late in the 11th century.",
+      "explanation": "Bologna’s university grew up late in the 11th century and led the study of canon and civil law.",
+      "difficulty": 0.15,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -124,43 +126,50 @@
           "correct": false,
           "rationale": "That was Benedict’s monastery."
         }
-      ],
-      "explanation": "Bologna’s university grew up late in the 11th century and led the study of canon and civil law.",
-      "difficulty": 0.15
+      ]
     },
     {
       "id": "question.middle_ages.037.q2",
-      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.first_universities"
       ],
       "sourceCardIds": [
         "card.middle_ages.037.c2",
-        "card.middle_ages.037.c3",
-        "card.middle_ages.037.c4"
+        "card.middle_ages.037.c1"
       ],
-      "prompt": "Match each with what it became known for.",
-      "pairs": [
+      "prompt": "Why did scholars at Bologna form guilds?",
+      "explanation": "Scholars of the same nationality formed guilds to secure protections they could not claim as citizens of Bologna.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
         {
-          "left": "Bologna",
-          "right": "Canon and civil law"
+          "id": "a",
+          "label": "To avoid paying tithes to the Church",
+          "correct": false,
+          "rationale": "The guilds were about protection."
         },
         {
-          "left": "Paris",
-          "right": "Theology"
+          "id": "b",
+          "label": "To elect the next pope",
+          "correct": false,
+          "rationale": "Popes weren’t chosen by students."
         },
         {
-          "left": "Johannes de Sacrobosco",
-          "right": "The Sphere"
+          "id": "c",
+          "label": "To win protections they lacked as non-citizens",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "To raise money for the city’s cathedral",
+          "correct": false,
+          "rationale": "They organized to protect themselves."
         }
-      ],
-      "explanation": "Bologna became the leading school of canon and civil law, Paris became famous for theology, and Johannes de Sacrobosco wrote The Sphere.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.037.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.round_earth_university",
@@ -171,6 +180,9 @@
         "card.middle_ages.007.c3"
       ],
       "prompt": "Before 1476, how did copies of Sacrobosco’s Sphere reach students across Europe?",
+      "explanation": "For 240 years the Sphere spread in handwritten copies, the way Level 7’s scribes copied books in scriptoria.",
+      "difficulty": 0.25,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -195,9 +207,7 @@
           "correct": false,
           "rationale": "Books were written on parchment."
         }
-      ],
-      "explanation": "For 240 years the Sphere spread in handwritten copies, the way Level 7’s scribes copied books in scriptoria.",
-      "difficulty": 0.25
+      ]
     }
   ],
   "sourceIds": [

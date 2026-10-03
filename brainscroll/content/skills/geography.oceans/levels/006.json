@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 6,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Layers of Water",
   "objective": "After this level you can explain how temperature and salt stack seawater in layers.",
@@ -91,7 +91,7 @@
   "questions": [
     {
       "id": "question.oceans.006.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.oceans.thermocline"
@@ -99,33 +99,15 @@
       "sourceCardIds": [
         "card.oceans.006.c4"
       ],
-      "prompt": "What is the ocean's thermocline?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The warm surface layer the wind mixes",
-          "correct": false,
-          "rationale": "That's the mixed layer above it."
-        },
-        {
-          "id": "b",
-          "label": "The coldest water on the sea floor",
-          "correct": false,
-          "rationale": "That's the deep water below it."
-        },
-        {
-          "id": "c",
-          "label": "A layer where salt settles out as crystals",
-          "correct": false,
-          "rationale": "It's about temperature, not salt crystals."
-        },
-        {
-          "id": "d",
-          "label": "A layer where temperature drops fast with depth",
-          "correct": true
-        }
+      "prompt": "Put these layers of the ocean in order, from the top down.",
+      "items": [
+        "Warm, well-mixed surface water",
+        "The thermocline",
+        "Much colder deep water"
       ],
-      "explanation": "The thermocline is the transition layer where temperature drops rapidly between warm surface water and cold deep water.",
+      "first": "Top",
+      "last": "Bottom",
+      "explanation": "Warm, well-mixed surface water sits on top. Below it is the thermocline, where temperature drops fast, and under that is much colder deep water.",
       "difficulty": 0.15
     },
     {

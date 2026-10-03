@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 92,
   "type": "regular",
-  "revision": 2,
+  "revision": 1,
   "status": "published",
   "title": "The Renaissance Begins",
   "objective": "After this level you can explain how Italian cities led a revival of ancient learning.",
@@ -113,7 +113,6 @@
   "questions": [
     {
       "id": "question.middle_ages.092.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.renaissance_italy_revival"
@@ -122,6 +121,9 @@
         "card.middle_ages.092.c2"
       ],
       "prompt": "Where and when did the Renaissance begin?",
+      "explanation": "The Renaissance, French for “rebirth”, began in Italy in the 14th century.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -146,42 +148,49 @@
           "correct": false,
           "rationale": "That’s Justinian’s time; it began in Italy."
         }
-      ],
-      "explanation": "The Renaissance, French for “rebirth”, began in Italy in the 14th century.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.092.q2",
-      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.humanist_manuscript_hunt"
       ],
       "sourceCardIds": [
-        "card.middle_ages.092.c3",
         "card.middle_ages.092.c4"
       ],
-      "prompt": "Match each place with what the cards link to it.",
-      "pairs": [
+      "prompt": "Why did Renaissance humanists like Poggio search monastery libraries?",
+      "explanation": "Medieval monasteries held copies of ancient works: Cicero at Cluny, Quintilian at St. Gall, Lucretius in 1417.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
         {
-          "left": "Cluny",
-          "right": "Two unknown speeches by Cicero"
+          "id": "a",
+          "label": "Monks were hiding forbidden books from the Pope",
+          "correct": false,
+          "rationale": "The books were simply kept and copied there."
         },
         {
-          "left": "St. Gall",
-          "right": "Quintilian’s handbook"
+          "id": "b",
+          "label": "Monks had copied the ancient texts they wanted",
+          "correct": true
         },
         {
-          "left": "Florence",
-          "right": "The Medici"
+          "id": "c",
+          "label": "Monasteries sold books cheaply to collectors",
+          "correct": false,
+          "rationale": "They went for texts, not bargains."
+        },
+        {
+          "id": "d",
+          "label": "The printing press was kept in monasteries",
+          "correct": false,
+          "rationale": "Printing came later, and not from monks."
         }
-      ],
-      "explanation": "At Cluny, Poggio found two unknown speeches by Cicero, and at St. Gall the first complete text of Quintilian’s handbook. In Florence, the Medici paid for palaces, churches and monasteries.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.092.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.humanist_manuscript_hunt",
@@ -192,6 +201,9 @@
         "card.middle_ages.011.c4"
       ],
       "prompt": "Poggio’s handwriting drew on an older medieval script. Which script from Level 11 did Renaissance scholars revive as the basis of roman type?",
+      "explanation": "Carolingian minuscule, the clear hand of Charlemagne’s copyists, was revived in the Renaissance and became the basis of roman type.",
+      "difficulty": 0.4,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -216,9 +228,7 @@
           "correct": false,
           "rationale": "Baghdad translated Greek into Arabic; roman type is Latin."
         }
-      ],
-      "explanation": "Carolingian minuscule, the clear hand of Charlemagne’s copyists, was revived in the Renaissance and became the basis of roman type.",
-      "difficulty": 0.4
+      ]
     }
   ],
   "sourceIds": [

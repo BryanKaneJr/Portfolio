@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 3,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Five Oceans",
   "objective": "After this level you can name and compare the five oceans.",
@@ -188,7 +188,7 @@
     },
     {
       "id": "question.oceans.003.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.five_oceans_ranked",
@@ -198,33 +198,17 @@
         "card.oceans.003.c2",
         "card.oceans.001.c2"
       ],
-      "prompt": "From Level 1: if the Pacific holds more than half of Earth's free water, why isn't it a separate ocean from the Atlantic?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Its water is saltier than the Atlantic's",
-          "correct": false,
-          "rationale": "Saltiness doesn't decide ocean borders."
-        },
-        {
-          "id": "b",
-          "label": "They connect; the border is a line people drew",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Scientists haven't measured it yet",
-          "correct": false,
-          "rationale": "Its size is well known."
-        },
-        {
-          "id": "d",
-          "label": "It is separate, walled off by the Americas",
-          "correct": false,
-          "rationale": "The oceans all connect as one ocean."
-        }
+      "prompt": "Put the five named oceans in order, from largest to smallest.",
+      "items": [
+        "Pacific",
+        "Atlantic",
+        "Indian",
+        "Southern",
+        "Arctic"
       ],
-      "explanation": "All the named oceans are regions of one connected global ocean, divided by lines people drew.",
+      "first": "Largest",
+      "last": "Smallest",
+      "explanation": "The Pacific is by far the largest, then the Atlantic, the Indian and the Southern Ocean. The Arctic is the smallest of all.",
       "difficulty": 0.25
     }
   ],

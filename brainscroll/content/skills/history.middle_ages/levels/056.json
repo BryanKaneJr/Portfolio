@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 56,
   "type": "regular",
-  "revision": 2,
+  "revision": 1,
   "status": "published",
   "title": "Windmills and Watermills",
   "objective": "After this level you can explain how mills changed medieval work.",
@@ -88,7 +88,6 @@
   "questions": [
     {
       "id": "question.middle_ages.056.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.medieval_mill_power"
@@ -97,6 +96,9 @@
         "card.middle_ages.056.c3"
       ],
       "prompt": "What kind of windmill were the earliest ones in England?",
+      "explanation": "The earliest windmills were timber post mills, whose whole body turned on a central post to face the wind.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -121,13 +123,10 @@
           "correct": false,
           "rationale": "Far too modern."
         }
-      ],
-      "explanation": "The earliest windmills were timber post mills, whose whole body turned on a central post to face the wind.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.056.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.mill_lordship"
@@ -136,6 +135,9 @@
         "card.middle_ages.056.c4"
       ],
       "prompt": "Why did Abbot Samson want Herbert the dean’s windmill pulled down?",
+      "explanation": "A lord’s mill earned a toll on every sack; Samson feared the burgesses would take their grain to the dean’s mill.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -160,39 +162,48 @@
           "label": "Townspeople would grind grain there instead of at his mills",
           "correct": true
         }
-      ],
-      "explanation": "A lord’s mill earned a toll on every sack; Samson feared the burgesses would take their grain to the dean’s mill.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.056.q3",
-      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.mill_lordship",
         "concept.middle_ages.guild_control"
       ],
       "sourceCardIds": [
-        "card.middle_ages.056.c3",
-        "card.middle_ages.056.c4"
+        "card.middle_ages.056.c4",
+        "card.middle_ages.053.c3"
       ],
-      "prompt": "Match each milling term with its meaning.",
-      "pairs": [
+      "prompt": "Level 53’s guilds held a monopoly on their trade. What was the milling equivalent a lord could claim?",
+      "explanation": "Soke, or suit of mill, gave the lord’s mill the right to grind all the grain used on his manor.",
+      "difficulty": 0.35,
+      "kind": "mcq",
+      "options": [
         {
-          "left": "Post mills",
-          "right": "Turned on one great post"
+          "id": "a",
+          "label": "Soke: the right to grind all the grain on his manor",
+          "correct": true
         },
         {
-          "left": "Soke",
-          "right": "The right to grind all the grain"
+          "id": "b",
+          "label": "A masterpiece proving the miller’s skill",
+          "correct": false,
+          "rationale": "That was a guild step."
         },
         {
-          "left": "Toll",
-          "right": "A share of each person’s grain"
+          "id": "c",
+          "label": "A weekly market charter",
+          "correct": false,
+          "rationale": "That governed markets."
+        },
+        {
+          "id": "d",
+          "label": "A letter of credit for the flour",
+          "correct": false,
+          "rationale": "That was a fair-trade tool."
         }
-      ],
-      "explanation": "Post mills turned on one great post to face the wind. Soke was a lord’s right to grind all the grain of his manor, and the miller’s toll was a share of each person’s grain.",
-      "difficulty": 0.35
+      ]
     }
   ],
   "sourceIds": [

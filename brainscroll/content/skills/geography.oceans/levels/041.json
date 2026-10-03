@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 41,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Plankton",
   "objective": "After this level you can explain plankton as the base of the ocean food web.",
@@ -136,7 +136,7 @@
     },
     {
       "id": "question.oceans.041.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.sunlit_phytoplankton_base"
@@ -144,33 +144,16 @@
       "sourceCardIds": [
         "card.oceans.041.c3"
       ],
-      "prompt": "Why does NASA call phytoplankton the foundation of the ocean food web?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They clean the water by eating dead animals",
-          "correct": false,
-          "rationale": "That's not what phytoplankton do."
-        },
-        {
-          "id": "b",
-          "label": "They are the largest living things in the sea",
-          "correct": false,
-          "rationale": "Most are microscopic."
-        },
-        {
-          "id": "c",
-          "label": "They hunt the zooplankton that eat fish",
-          "correct": false,
-          "rationale": "It's the other way round: zooplankton eat them."
-        },
-        {
-          "id": "d",
-          "label": "They make food from sunlight that others eat",
-          "correct": true
-        }
+      "prompt": "Put the ocean's food web in order, from where the energy starts to the bigger eaters.",
+      "items": [
+        "Sunlight",
+        "Phytoplankton",
+        "Zooplankton",
+        "Bigger animals"
       ],
-      "explanation": "Phytoplankton photosynthesize, and the food they make passes to zooplankton and on up to the biggest animals.",
+      "first": "Energy starts here",
+      "last": "Bigger eaters",
+      "explanation": "Sunlight feeds phytoplankton, zooplankton mostly eat phytoplankton, and most zooplankton get eaten by bigger animals.",
       "difficulty": 0.2
     },
     {

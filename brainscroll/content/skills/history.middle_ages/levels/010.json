@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 10,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 1,
   "status": "published",
   "title": "Checkpoint: After Rome",
   "objective": "After this level you can explain how Europe and the Mediterranean changed after Rome fell in the West.",
@@ -159,7 +159,6 @@
   "questions": [
     {
       "id": "question.middle_ages.010.q1",
-      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.romes_three_heirs",
@@ -170,22 +169,38 @@
         "card.middle_ages.003.c2",
         "card.middle_ages.005.c1"
       ],
-      "prompt": "Put these events after Rome’s fall in the West in order, from earliest to latest.",
-      "items": [
-        "Odoacer deposes the last western emperor",
-        "Benedict founds Monte Cassino",
-        "Hagia Sophia is completed",
-        "The hijra: Muhammad moves to Medina",
-        "Muslim forces begin overrunning Spain"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "Odoacer deposed the last western emperor in 476, Benedict founded Monte Cassino in 529, Hagia Sophia was completed in 537, the hijra came in 622, and Muslim forces began overrunning Spain in 711.",
-      "difficulty": 0.3
+      "prompt": "After Rome fell in the West, which order of events is right?",
+      "explanation": "476, then 537, then 622.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "Odoacer deposes the emperor, Hagia Sophia is completed, the hijra",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Hagia Sophia is completed, Odoacer deposes the emperor, the hijra",
+          "correct": false,
+          "rationale": "Odoacer came first, in 476."
+        },
+        {
+          "id": "c",
+          "label": "The hijra, Odoacer deposes the emperor, Hagia Sophia is completed",
+          "correct": false,
+          "rationale": "The hijra came last, in 622."
+        },
+        {
+          "id": "d",
+          "label": "Odoacer deposes the emperor, the hijra, Hagia Sophia is completed",
+          "correct": false,
+          "rationale": "Hagia Sophia (537) came before 622."
+        }
+      ]
     },
     {
       "id": "question.middle_ages.010.q2",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.byzantine_empire"
@@ -194,6 +209,9 @@
         "card.middle_ages.004.c2"
       ],
       "prompt": "Of Rome’s three heirs, which one called its people Romans?",
+      "explanation": "The eastern empire’s people called themselves Romaioi, Romans.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -218,13 +236,10 @@
           "correct": false,
           "rationale": "The Visigoths were a Germanic people."
         }
-      ],
-      "explanation": "The eastern empire’s people called themselves Romaioi, Romans.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.010.q3",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.romes_three_heirs",
@@ -235,6 +250,9 @@
         "card.middle_ages.002.c4"
       ],
       "prompt": "Why is “Dark Ages” a poor summary of the centuries after Rome fell in the West?",
+      "explanation": "Kingdoms, monasteries, Byzantium and the caliphate all flourished; historians now rarely use “Dark Ages”.",
+      "difficulty": 0.35,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -259,13 +277,10 @@
           "correct": false,
           "rationale": "It split between three heirs."
         }
-      ],
-      "explanation": "Kingdoms, monasteries, Byzantium and the caliphate all flourished; historians now rarely use “Dark Ages”.",
-      "difficulty": 0.35
+      ]
     },
     {
       "id": "question.middle_ages.010.q4",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.monastic_copying"
@@ -274,6 +289,9 @@
         "card.middle_ages.007.c3"
       ],
       "prompt": "In the early medieval West, where were most books copied?",
+      "explanation": "Monks copied manuscripts by hand in the scriptorium, a writing room set aside in the monastery.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -298,13 +316,10 @@
           "label": "In monastery writing rooms, the scriptoria",
           "correct": true
         }
-      ],
-      "explanation": "Monks copied manuscripts by hand in the scriptorium, a writing room set aside in the monastery.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.010.q5",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.early_caliphate",
@@ -315,6 +330,9 @@
         "card.middle_ages.004.c3"
       ],
       "prompt": "After Rome: the caliphs took Syria and Egypt from Byzantium. Why did Constantinople itself survive?",
+      "explanation": "Constantinople’s moat, outer wall and main wall held against attackers, including Arab ones.",
+      "difficulty": 0.35,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -339,9 +357,7 @@
           "correct": false,
           "rationale": "The walls did the defending."
         }
-      ],
-      "explanation": "Constantinople’s moat, outer wall and main wall held against attackers, including Arab ones.",
-      "difficulty": 0.35
+      ]
     }
   ],
   "sourceIds": [

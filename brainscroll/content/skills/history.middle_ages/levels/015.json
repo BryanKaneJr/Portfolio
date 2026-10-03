@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 15,
   "type": "regular",
-  "revision": 2,
+  "revision": 1,
   "status": "published",
   "title": "Vikings Across the World",
   "objective": "After this level you can trace Viking voyages from Russia to North America.",
@@ -83,36 +83,45 @@
   "questions": [
     {
       "id": "question.middle_ages.015.q1",
-      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.viking_voyages"
       ],
       "sourceCardIds": [
-        "card.middle_ages.015.c2",
-        "card.middle_ages.015.c3"
+        "card.middle_ages.015.c4"
       ],
-      "prompt": "Match each Viking with the place the cards link to them.",
-      "pairs": [
+      "prompt": "Where is the first known evidence of Europeans in the Americas?",
+      "explanation": "A Norse camp at L’Anse aux Meadows, on the northern tip of Newfoundland, is the first known evidence of Europeans in the Americas.",
+      "difficulty": 0.2,
+      "kind": "mcq",
+      "options": [
         {
-          "left": "Oleg",
-          "right": "Kyivan Rus"
+          "id": "a",
+          "label": "Kyiv, on the Dnieper River",
+          "correct": false,
+          "rationale": "That was the Rus capital, far to the east."
         },
         {
-          "left": "Erik the Red",
-          "right": "Greenland"
+          "id": "b",
+          "label": "L’Anse aux Meadows, Newfoundland",
+          "correct": true
         },
         {
-          "left": "Leif Erikson",
-          "right": "Vinland"
+          "id": "c",
+          "label": "Lindisfarne, off England",
+          "correct": false,
+          "rationale": "That was the 793 raid."
+        },
+        {
+          "id": "d",
+          "label": "Iceland’s first farms",
+          "correct": false,
+          "rationale": "Iceland isn’t in the Americas."
         }
-      ],
-      "explanation": "Oleg made Kyiv his capital, founding Kyivan Rus. Erik the Red founded the first European settlement on Greenland. Leif Erikson reached North America and called part of it Vinland.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.015.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.viking_voyages"
@@ -121,6 +130,9 @@
         "card.middle_ages.015.c4"
       ],
       "prompt": "How did scientists date the Newfoundland wood to the year 1021?",
+      "explanation": "A cosmic-ray event in 993 left a spike in that year’s tree ring; counting outward gave 1021.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -145,13 +157,10 @@
           "correct": false,
           "rationale": "Rot can’t give an exact year."
         }
-      ],
-      "explanation": "A cosmic-ray event in 993 left a spike in that year’s tree ring; counting outward gave 1021.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.015.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.viking_voyages",
@@ -162,6 +171,9 @@
         "card.middle_ages.014.c3"
       ],
       "prompt": "Level 14’s crews could drag ships over land. Where did that help Rus merchants?",
+      "explanation": "Rus merchants hauled their ships overland around the Dnieper’s rapids on the way to Constantinople.",
+      "difficulty": 0.35,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -186,9 +198,7 @@
           "correct": false,
           "rationale": "Iceland is across the sea."
         }
-      ],
-      "explanation": "Rus merchants hauled their ships overland around the Dnieper’s rapids on the way to Constantinople.",
-      "difficulty": 0.35
+      ]
     }
   ],
   "sourceIds": [

@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 97,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "The Americas Before 1492",
   "objective": "After this level you can describe the Maya, Aztec and Inca before Europeans arrived.",
@@ -113,7 +113,6 @@
   "questions": [
     {
       "id": "question.middle_ages.097.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.americas_maya"
@@ -122,6 +121,9 @@
         "card.middle_ages.097.c2"
       ],
       "prompt": "The only true writing system of the pre-Columbian Americas was developed by _____.",
+      "explanation": "Maya hieroglyphic writing was the only true writing system developed in the pre-Columbian Americas.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -146,13 +148,10 @@
           "correct": false,
           "rationale": "It was the Maya."
         }
-      ],
-      "explanation": "Maya hieroglyphic writing was the only true writing system developed in the pre-Columbian Americas.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.097.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.americas_aztec_tenochtitlan"
@@ -161,6 +160,9 @@
         "card.middle_ages.097.c3"
       ],
       "prompt": "Why do estimates of Tenochtitlan’s 1519 population range so widely?",
+      "explanation": "Without a census, scholars estimate from the city’s area and likely density, giving from about 50,000 to 400,000.",
+      "difficulty": 0.35,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -185,45 +187,48 @@
           "correct": false,
           "rationale": "The gap comes from missing records."
         }
-      ],
-      "explanation": "Without a census, scholars estimate from the city’s area and likely density, giving from about 50,000 to 400,000.",
-      "difficulty": 0.35
+      ]
     },
     {
       "id": "question.middle_ages.097.q3",
-      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.americas_inca",
         "concept.middle_ages.mongol_pax"
       ],
       "sourceCardIds": [
-        "card.middle_ages.097.c2",
-        "card.middle_ages.097.c3",
         "card.middle_ages.097.c4",
-        "card.middle_ages.097.c5"
+        "card.middle_ages.068.c4"
       ],
-      "prompt": "Match each people or city with what the cards link to it.",
-      "pairs": [
+      "prompt": "Level 68’s Mongols ran the yam, a network of postal stations. How did the Inca carry messages along their roads?",
+      "explanation": "Inca relay runners carried messages as quipu, knotted cords, along roads each about 3,600 km long.",
+      "difficulty": 0.4,
+      "kind": "mcq",
+      "options": [
         {
-          "left": "The Maya",
-          "right": "The only true writing system"
+          "id": "a",
+          "label": "Riders carrying paiza passes",
+          "correct": false,
+          "rationale": "Paiza passes protected merchants in Mongol lands."
         },
         {
-          "left": "The Aztecs",
-          "right": "Tenochtitlan"
+          "id": "b",
+          "label": "Letters sent by ship down the coast",
+          "correct": false,
+          "rationale": "The roads carried runners."
         },
         {
-          "left": "The Inca",
-          "right": "Quipu"
+          "id": "c",
+          "label": "Smoke signals from hill to hill",
+          "correct": false,
+          "rationale": "The card names runners with knotted cords."
         },
         {
-          "left": "Cahokia",
-          "right": "Monks Mound"
+          "id": "d",
+          "label": "Relay runners carrying quipu",
+          "correct": true
         }
-      ],
-      "explanation": "The Maya developed the only true writing system of the pre-Columbian Americas. The Aztecs founded Tenochtitlan, the Inca sent messages as quipu, and Cahokia’s Monks Mound rises 30 meters.",
-      "difficulty": 0.4
+      ]
     }
   ],
   "sourceIds": [

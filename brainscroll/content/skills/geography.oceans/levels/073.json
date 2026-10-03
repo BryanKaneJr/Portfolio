@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 73,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Icebergs",
   "objective": "After this level you can explain why most of an iceberg is underwater.",
@@ -136,41 +136,25 @@
     },
     {
       "id": "question.oceans.073.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.iceberg_origin"
       ],
       "sourceCardIds": [
-        "card.oceans.073.c2"
+        "card.oceans.073.c2",
+        "card.oceans.073.c3"
       ],
-      "prompt": "Icebergs float in the salty sea. Why are they made of fresh water?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They broke off glaciers built from snow",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Rain washes the salt out of them",
-          "correct": false,
-          "rationale": "They were fresh from the start: glacier ice comes from snow."
-        },
-        {
-          "id": "c",
-          "label": "They froze from river water at sea",
-          "correct": false,
-          "rationale": "They formed on land, from snow."
-        },
-        {
-          "id": "d",
-          "label": "The sea's salt sinks away from them",
-          "correct": false,
-          "rationale": "That is sea ice pushing out brine, not how icebergs form."
-        }
+      "prompt": "Put an iceberg's journey in order, from first to last.",
+      "items": [
+        "Snow that piled up",
+        "A glacier",
+        "Calving",
+        "Drift south into the lanes"
       ],
-      "explanation": "Icebergs are pieces of glaciers or ice shelves, which are built from snow, so they are frozen fresh water.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Snow that piled up turns to ice and builds a glacier. A piece breaks off in calving, and the berg takes 1 to 3 years to drift south into the lanes.",
       "difficulty": 0.35
     },
     {

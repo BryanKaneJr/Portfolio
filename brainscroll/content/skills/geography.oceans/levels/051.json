@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 51,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Zones of the Deep",
   "objective": "After this level you can name the ocean's depth zones.",
@@ -169,7 +169,7 @@
     },
     {
       "id": "question.oceans.051.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.deep_zones",
@@ -177,35 +177,21 @@
       ],
       "sourceCardIds": [
         "card.oceans.051.c2",
-        "card.oceans.008.c3"
+        "card.oceans.008.c3",
+        "card.oceans.051.c3",
+        "card.oceans.051.c4"
       ],
-      "prompt": "From Level 8: below about 200 m there's too little light for photosynthesis. In which depth zone can sunlight-powered food makers live?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The twilight zone",
-          "correct": false,
-          "rationale": "Its light is too dim for photosynthesis."
-        },
-        {
-          "id": "b",
-          "label": "The midnight zone",
-          "correct": false,
-          "rationale": "No sunlight reaches it at all."
-        },
-        {
-          "id": "c",
-          "label": "The abyss",
-          "correct": false,
-          "rationale": "It's completely dark."
-        },
-        {
-          "id": "d",
-          "label": "The sunlight zone",
-          "correct": true
-        }
+      "prompt": "Take the elevator down. Put the ocean's zones in order, from the top down.",
+      "items": [
+        "The sunlight zone",
+        "The twilight zone",
+        "The midnight zone",
+        "The abyss",
+        "The hadal zone"
       ],
-      "explanation": "Only the top 200 m, the sunlight zone, gets enough light for photosynthesis.",
+      "first": "Top",
+      "last": "Bottom",
+      "explanation": "From the top: the sunlight zone, the twilight zone, the midnight zone, the abyss, and the hadal zone in the trenches.",
       "difficulty": 0.25
     }
   ],

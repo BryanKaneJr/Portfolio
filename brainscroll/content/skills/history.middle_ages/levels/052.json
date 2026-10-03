@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 52,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "Markets and Fairs",
   "objective": "After this level you can describe medieval markets and trade fairs.",
@@ -88,7 +88,6 @@
   "questions": [
     {
       "id": "question.middle_ages.052.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.market_charters"
@@ -97,6 +96,9 @@
         "card.middle_ages.052.c2"
       ],
       "prompt": "A typical medieval English market met _____.",
+      "explanation": "An English market met once a week, on a set day and in a set place.",
+      "difficulty": 0.15,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -121,13 +123,10 @@
           "correct": false,
           "rationale": "Markets ran on a fixed schedule."
         }
-      ],
-      "explanation": "An English market met once a week, on a set day and in a set place.",
-      "difficulty": 0.15
+      ]
     },
     {
       "id": "question.middle_ages.052.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.champagne_fairs"
@@ -137,6 +136,9 @@
         "card.middle_ages.052.c4"
       ],
       "prompt": "What made the Champagne fairs so important to medieval trade?",
+      "explanation": "Under the count’s protection, merchants from north and south traded cloth for spices and dyes, often on credit.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -161,13 +163,10 @@
           "label": "Northern cloth met Mediterranean spices and dyes there",
           "correct": true
         }
-      ],
-      "explanation": "Under the count’s protection, merchants from north and south traded cloth for spices and dyes, often on credit.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.052.q3",
-      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.market_charters",
@@ -175,26 +174,37 @@
       ],
       "sourceCardIds": [
         "card.middle_ages.052.c2",
-        "card.middle_ages.052.c3",
-        "card.middle_ages.052.c4"
+        "card.middle_ages.051.c4"
       ],
-      "prompt": "Match each with what the cards say about it.",
-      "pairs": [
+      "prompt": "Level 51’s towns won their freedoms in charters. How did an English town or village win the right to hold a weekly market?",
+      "explanation": "Like the communes of Level 51, an English market rested on a charter: a royal grant of the right to hold it.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
         {
-          "left": "Market",
-          "right": "Once a week"
+          "id": "a",
+          "label": "A vote of everyone in the county",
+          "correct": false,
+          "rationale": "Markets were granted from above."
         },
         {
-          "left": "Fair",
-          "right": "Once a year"
+          "id": "b",
+          "label": "A royal charter granting it",
+          "correct": true
         },
         {
-          "left": "Piepowder court",
-          "right": "Dusty feet"
+          "id": "c",
+          "label": "A letter of credit from a merchant",
+          "correct": false,
+          "rationale": "Credit paid for deals, not markets."
+        },
+        {
+          "id": "d",
+          "label": "A ruling from a piepowder court",
+          "correct": false,
+          "rationale": "Those courts settled disputes at markets."
         }
-      ],
-      "explanation": "In England a market met once a week, and a fair came once a year. A piepowder court took its name from the French for “dusty feet”.",
-      "difficulty": 0.3
+      ]
     }
   ],
   "sourceIds": [

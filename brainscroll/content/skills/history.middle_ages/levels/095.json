@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 95,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "Mali and Mansa Musa",
   "objective": "After this level you can describe the empire of Mali and Mansa Musa's famous pilgrimage.",
@@ -98,7 +98,6 @@
   "questions": [
     {
       "id": "question.middle_ages.095.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.mali_empire_gold"
@@ -107,6 +106,9 @@
         "card.middle_ages.095.c2"
       ],
       "prompt": "The empire of Mali grew rich on the trade in _____.",
+      "explanation": "Mali grew rich by controlling the trade in gold and salt.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -131,13 +133,10 @@
           "correct": false,
           "rationale": "Mali’s wealth was gold and salt."
         }
-      ],
-      "explanation": "Mali grew rich by controlling the trade in gold and salt.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.095.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.mansa_musa_hajj_1324"
@@ -146,6 +145,9 @@
         "card.middle_ages.095.c3"
       ],
       "prompt": "According to al-Umari, why did gold lose value in Cairo after 1324?",
+      "explanation": "Al-Umari reported that so much of Musa’s gold was spent in Egypt that its value fell for about twelve years.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -170,34 +172,48 @@
           "correct": false,
           "rationale": "It was real, and plentiful."
         }
-      ],
-      "explanation": "Al-Umari reported that so much of Musa’s gold was spent in Egypt that its value fell for about twelve years.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.095.q3",
-      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.mansa_musa_hajj_1324",
         "concept.middle_ages.islam_origins"
       ],
       "sourceCardIds": [
-        "card.middle_ages.095.c1",
-        "card.middle_ages.095.c2",
-        "card.middle_ages.095.c3"
+        "card.middle_ages.095.c3",
+        "card.middle_ages.008.c2"
       ],
-      "prompt": "Put these events in order, from earliest to latest.",
-      "items": [
-        "Sundiata, built it into an empire",
-        "Musa made the hajj",
-        "Came to Egypt about twelve years later",
-        "A mapmaker in Majorca"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "Sundiata built Mali into an empire in the 1230s. Musa made the hajj in 1324, al-Umari came to Egypt about twelve years later, and a mapmaker in Majorca drew Musa in 1375.",
-      "difficulty": 0.3
+      "prompt": "Mansa Musa’s hajj ended in Mecca. What happened in Mecca, as Chapter 1 told it?",
+      "explanation": "Muhammad was born in Mecca around 570; the hajj is the pilgrimage to Mecca.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "Muhammad was born there, around 570",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "The first caliphs moved their capital there",
+          "correct": false,
+          "rationale": "The Umayyads ruled from Damascus."
+        },
+        {
+          "id": "c",
+          "label": "Justinian built Hagia Sophia there",
+          "correct": false,
+          "rationale": "That was in Constantinople."
+        },
+        {
+          "id": "d",
+          "label": "Benedict founded his first monastery there",
+          "correct": false,
+          "rationale": "That was Monte Cassino, in Italy."
+        }
+      ]
     }
   ],
   "sourceIds": [

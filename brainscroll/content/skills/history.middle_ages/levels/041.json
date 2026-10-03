@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 41,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "Why the Crusades Began",
   "objective": "After this level you can explain Pope Urban II's call in 1095 and why so many answered it.",
@@ -83,7 +83,6 @@
   "questions": [
     {
       "id": "question.middle_ages.041.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.crusade_urban_call"
@@ -92,6 +91,9 @@
         "card.middle_ages.041.c3"
       ],
       "prompt": "In 1095, Pope Urban II called Western knights east at _____.",
+      "explanation": "In November 1095, at the Council of Clermont in France, Urban II urged knights to go east and rescue the Holy Land.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -116,13 +118,10 @@
           "correct": false,
           "rationale": "That was an English synod in the 7th century."
         }
-      ],
-      "explanation": "In November 1095, at the Council of Clermont in France, Urban II urged knights to go east and rescue the Holy Land.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.041.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.crusade_urban_call"
@@ -131,6 +130,9 @@
         "card.middle_ages.041.c4"
       ],
       "prompt": "Why did Urban II’s call attract so many volunteers in 1095?",
+      "explanation": "The council granted a plenary indulgence, the remission of all penance for sin, and crusaders saw holy war as a path to redemption.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -155,13 +157,10 @@
           "correct": false,
           "rationale": "Going was a choice."
         }
-      ],
-      "explanation": "The council granted a plenary indulgence, the remission of all penance for sin, and crusaders saw holy war as a path to redemption.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.041.q3",
-      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.crusade_urban_call",
@@ -169,18 +168,37 @@
       ],
       "sourceCardIds": [
         "card.middle_ages.041.c2",
-        "card.middle_ages.041.c3"
+        "card.middle_ages.004.c2"
       ],
-      "prompt": "Put these steps toward the First Crusade in order.",
-      "items": [
-        "Sent envoys to Pope Urban II",
-        "Urban urged Western knights",
-        "Cries of “God wills it”"
-      ],
-      "first": "First",
-      "last": "Last",
-      "explanation": "Alexius I Comnenus sent envoys to Pope Urban II asking for help. Then, at Clermont in 1095, Urban urged Western knights to go east, and cries of “God wills it” rang out.",
-      "difficulty": 0.3
+      "prompt": "The request that led to the First Crusade came from the ruler of Level 4’s empire. Who was he?",
+      "explanation": "Alexius I Comnenus, emperor of the Byzantine (Eastern Roman) Empire, asked Urban II for help against the Seljuk Turks.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "Alexius I Comnenus, the Byzantine emperor",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Justinian, the Byzantine emperor",
+          "correct": false,
+          "rationale": "He ruled in the 6th century."
+        },
+        {
+          "id": "c",
+          "label": "The Umayyad caliph in Damascus",
+          "correct": false,
+          "rationale": "The request was against the Turks, from a Christian ruler."
+        },
+        {
+          "id": "d",
+          "label": "The king of the Franks",
+          "correct": false,
+          "rationale": "The appeal came from Constantinople."
+        }
+      ]
     }
   ],
   "sourceIds": [

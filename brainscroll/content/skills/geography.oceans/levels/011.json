@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 11,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Mapping the Sea Floor",
   "objective": "After this level you can explain how sonar mapped the ocean floor.",
@@ -137,41 +137,25 @@
     },
     {
       "id": "question.oceans.011.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.seafloor_mapping_sonar"
       ],
       "sourceCardIds": [
-        "card.oceans.011.c3"
+        "card.oceans.011.c3",
+        "card.oceans.011.c2",
+        "card.oceans.011.c4"
       ],
-      "prompt": "How does a ship's sonar work out the depth of the sea floor below it?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It photographs the bottom with bright lamps",
-          "correct": false,
-          "rationale": "Light can't get through that much water."
-        },
-        {
-          "id": "b",
-          "label": "It times how long a sound's echo takes to return",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It lowers a weighted rope until it hits bottom",
-          "correct": false,
-          "rationale": "That's the old lead line that sonar replaced."
-        },
-        {
-          "id": "d",
-          "label": "It measures how salty the deepest water is",
-          "correct": false,
-          "rationale": "Salt has nothing to do with sonar depth."
-        }
+      "prompt": "Put these ways of measuring the sea floor in order, from earliest to latest.",
+      "items": [
+        "Lead line",
+        "Sonar",
+        "Multibeam sonar"
       ],
-      "explanation": "Sonar sends a sound down and times its echo off the bottom: the longer the wait, the deeper the floor.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Sailors used a lead line in the early 1800s. Sonar was developed in the 1920s, and multibeam sonar came in the 1960s.",
       "difficulty": 0.15
     },
     {

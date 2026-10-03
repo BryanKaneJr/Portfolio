@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 64,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Volcanic Islands",
   "objective": "After this level you can explain islands like Hawaii.",
@@ -91,41 +91,27 @@
   "questions": [
     {
       "id": "question.oceans.064.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.oceans.island_hotspot_chain"
       ],
       "sourceCardIds": [
-        "card.oceans.064.c2"
+        "card.oceans.064.c2",
+        "card.oceans.064.c1",
+        "card.oceans.064.c3",
+        "card.oceans.064.c4"
       ],
-      "prompt": "Along the Hawaiian island chain, in which direction do the islands get older?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Toward the northwest",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Toward the southeast",
-          "correct": false,
-          "rationale": "The young end, over the hot spot, is in the southeast."
-        },
-        {
-          "id": "c",
-          "label": "Toward the equator",
-          "correct": false,
-          "rationale": "Ages change along the chain, northwest to southeast."
-        },
-        {
-          "id": "d",
-          "label": "They're all about the same age",
-          "correct": false,
-          "rationale": "They range from under 0.7 to millions of years."
-        }
+      "prompt": "Put these Hawaiian volcanoes in order, from youngest to oldest.",
+      "items": [
+        "Kamaʻehuakanaloa",
+        "Island of Hawaii",
+        "Kauaʻi",
+        "Midway"
       ],
-      "explanation": "The Pacific Plate carries each volcano northwest off the hot spot, so the islands get older toward the northwest.",
+      "first": "Youngest",
+      "last": "Oldest",
+      "explanation": "Kamaʻehuakanaloa is still underwater, the newest stop. The Island of Hawaii's rocks are under 0.7 million years old, Kauaʻi's about 5.5 million, and Midway's about 28 million.",
       "difficulty": 0.3
     },
     {

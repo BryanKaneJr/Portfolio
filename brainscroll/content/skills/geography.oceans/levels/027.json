@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 27,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Life Between the Tides",
   "objective": "After this level you can describe the animals of the zone between high and low tide.",
@@ -166,7 +166,7 @@
     },
     {
       "id": "question.oceans.027.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.intertidal_zones",
@@ -176,33 +176,16 @@
         "card.oceans.027.c3",
         "card.oceans.025.c3"
       ],
-      "prompt": "From Level 25: when does the low intertidal zone finally come out of the water?",
-      "options": [
-        {
-          "id": "a",
-          "label": "At the lowest spring tides",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "At every low tide, twice a day",
-          "correct": false,
-          "rationale": "That's the middle zone's routine."
-        },
-        {
-          "id": "c",
-          "label": "During neap tides at the quarter moons",
-          "correct": false,
-          "rationale": "Neap lows are a little higher, not lower."
-        },
-        {
-          "id": "d",
-          "label": "Only during storms",
-          "correct": false,
-          "rationale": "Storms cover the spray zone; they don't uncover the low zone."
-        }
+      "prompt": "Put the four zones of a rocky shore in order, from the top down.",
+      "items": [
+        "Spray zone",
+        "High zone",
+        "Middle zone",
+        "Low zone"
       ],
-      "explanation": "The low zone is uncovered only during the lowest spring tides, which come when the Sun, Moon and Earth line up at new and full moon.",
+      "first": "Top of the shore",
+      "last": "Bottom of the shore",
+      "explanation": "From the top down: the spray zone, the high zone, the middle zone and the low zone, which is almost always underwater.",
       "difficulty": 0.3
     }
   ],

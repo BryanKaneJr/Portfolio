@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 37,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Ocean and Carbon",
   "objective": "After this level you can explain how the ocean absorbs carbon dioxide.",
@@ -126,41 +126,25 @@
     },
     {
       "id": "question.oceans.037.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.ocean_carbon_acidification"
       ],
       "sourceCardIds": [
-        "card.oceans.037.c4"
+        "card.oceans.037.c4",
+        "card.oceans.037.c2"
       ],
-      "prompt": "Why does ocean acidification make life hard for oysters, clams and corals?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It dissolves the plankton they feed on",
-          "correct": false,
-          "rationale": "The problem is building material, not food."
-        },
-        {
-          "id": "b",
-          "label": "It makes the seawater much too salty",
-          "correct": false,
-          "rationale": "Acidification is about pH, not salt."
-        },
-        {
-          "id": "c",
-          "label": "It blocks the sunlight they need to grow",
-          "correct": false,
-          "rationale": "Light isn't what changes."
-        },
-        {
-          "id": "d",
-          "label": "Fewer carbonate ions are left for shells",
-          "correct": true
-        }
+      "prompt": "Put the steps of ocean acidification in order, from cause to effect.",
+      "items": [
+        "Carbon dioxide dissolves into seawater",
+        "Carbonic acid",
+        "Drop in the ocean's pH",
+        "Fewer carbonate ions"
       ],
-      "explanation": "Acidification leaves fewer carbonate ions, the building blocks of shells and skeletons.",
+      "first": "Cause",
+      "last": "Effect",
+      "explanation": "Carbon dioxide dissolves into seawater and forms carbonic acid. That causes a drop in the ocean's pH, which leaves fewer carbonate ions for shells.",
       "difficulty": 0.2
     },
     {

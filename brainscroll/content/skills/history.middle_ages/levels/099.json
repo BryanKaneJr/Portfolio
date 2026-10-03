@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 99,
   "type": "regular",
-  "revision": 2,
+  "revision": 1,
   "status": "published",
   "title": "What the Middle Ages Left Us",
   "objective": "After this level you can name medieval inventions and institutions we still use.",
@@ -87,7 +87,6 @@
   "questions": [
     {
       "id": "question.middle_ages.099.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.medieval_legacy_inventions"
@@ -96,6 +95,9 @@
         "card.middle_ages.099.c2"
       ],
       "prompt": "Where were eyeglasses first made, around 1290?",
+      "explanation": "Eyeglasses were first made in Italy, most probably Pisa, around 1290.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -120,13 +122,10 @@
           "label": "Italy, probably Pisa",
           "correct": true
         }
-      ],
-      "explanation": "Eyeglasses were first made in Italy, most probably Pisa, around 1290.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.099.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.medieval_legacy_inventions"
@@ -135,6 +134,9 @@
         "card.middle_ages.099.c3"
       ],
       "prompt": "Why does the word “clock” come from a medieval word for bell?",
+      "explanation": "Early mechanical clocks struck the hours on bells, and clock comes from medieval Latin clocca, “bell”.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -159,38 +161,47 @@
           "correct": false,
           "rationale": "It’s about what early clocks did."
         }
-      ],
-      "explanation": "Early mechanical clocks struck the hours on bells, and clock comes from medieval Latin clocca, “bell”.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.099.q3",
-      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.justinian_code"
       ],
       "sourceCardIds": [
-        "card.middle_ages.099.c3",
-        "card.middle_ages.099.c4"
+        "card.middle_ages.099.c4",
+        "card.middle_ages.005.c3"
       ],
-      "prompt": "Match each legacy with where it came from.",
-      "pairs": [
+      "prompt": "Which medieval legacy still shapes the courts of continental Europe and Latin America?",
+      "explanation": "Justinian’s code became the foundation of civil law, used across continental Europe and Latin America.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
         {
-          "left": "Civil law",
-          "right": "Justinian’s code"
+          "id": "a",
+          "label": "Justinian’s code of Roman law",
+          "correct": true
         },
         {
-          "left": "Roman type",
-          "right": "Poggio’s humanist handwriting"
+          "id": "b",
+          "label": "The Rule of St. Benedict",
+          "correct": false,
+          "rationale": "That governs monasteries."
         },
         {
-          "left": "Clock",
-          "right": "Clocca"
+          "id": "c",
+          "label": "Poggio’s humanist handwriting",
+          "correct": false,
+          "rationale": "That shaped printed letters."
+        },
+        {
+          "id": "d",
+          "label": "The 42-line Bible",
+          "correct": false,
+          "rationale": "That was Gutenberg’s showpiece."
         }
-      ],
-      "explanation": "Civil law grew from Justinian’s code. Roman type began as Poggio’s humanist handwriting, and the word clock comes from medieval Latin clocca, “bell”.",
-      "difficulty": 0.3
+      ]
     }
   ],
   "sourceIds": [

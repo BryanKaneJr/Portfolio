@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 62,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "Algebra and Numbers",
   "objective": "After this level you can explain how al-Khwarizmi and others shaped mathematics.",
@@ -97,7 +97,6 @@
   "questions": [
     {
       "id": "question.middle_ages.062.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.khwarizmi_algebra"
@@ -106,6 +105,9 @@
         "card.middle_ages.062.c2"
       ],
       "prompt": "The word “algebra” comes from al-Khwarizmi’s book, whose key term, al-jabr, meant “_____.”",
+      "explanation": "Al-jabr meant “restoring”: moving a subtracted term to the other side of an equation.",
+      "difficulty": 0.25,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -130,13 +132,10 @@
           "correct": false,
           "rationale": "It was about equations, not lengths."
         }
-      ],
-      "explanation": "Al-jabr meant “restoring”: moving a subtracted term to the other side of an equation.",
-      "difficulty": 0.25
+      ]
     },
     {
       "id": "question.middle_ages.062.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.indian_numerals"
@@ -145,6 +144,9 @@
         "card.middle_ages.062.c3"
       ],
       "prompt": "Why are the digits we use called Hindu-Arabic numerals?",
+      "explanation": "The numerals originated in India, and scholars of the Islamic world such as al-Khwarizmi carried them west.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -169,33 +171,48 @@
           "correct": false,
           "rationale": "The name tells their route, not their script."
         }
-      ],
-      "explanation": "The numerals originated in India, and scholars of the Islamic world such as al-Khwarizmi carried them west.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.062.q3",
-      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.indian_numerals",
         "concept.middle_ages.crusade_legacy"
       ],
       "sourceCardIds": [
-        "card.middle_ages.062.c2",
-        "card.middle_ages.062.c3",
-        "card.middle_ages.062.c4"
+        "card.middle_ages.062.c4",
+        "card.middle_ages.049.c5"
       ],
-      "prompt": "Put these steps in the story of our numbers in order, from earliest to latest.",
-      "items": [
-        "Developed in India",
-        "Wrote a book on calculating",
-        "Fibonacci published his Liber abaci"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "The digits had developed in India by the 6th or 7th century. Al-Khwarizmi wrote a book on calculating around 825, and Fibonacci published his Liber abaci in 1202.",
-      "difficulty": 0.4
+      "prompt": "Al-Khwarizmi’s numerals reached Europe through the Islamic world. From Level 49, which route for Arabic science do historians doubt?",
+      "explanation": "Unlike Sicily and Spain, the crusader states do not seem to have carried Arabic science west; the numerals came through mathematicians of the Islamic world.",
+      "difficulty": 0.4,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "Through Sicily",
+          "correct": false,
+          "rationale": "Level 49 names Sicily as a likely route."
+        },
+        {
+          "id": "b",
+          "label": "Through the crusader states",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "Through Spain",
+          "correct": false,
+          "rationale": "Spain, like Sicily, was a likely route."
+        },
+        {
+          "id": "d",
+          "label": "Through Charlemagne’s palace school",
+          "correct": false,
+          "rationale": "Level 11’s school copied Latin texts."
+        }
+      ]
     }
   ],
   "sourceIds": [

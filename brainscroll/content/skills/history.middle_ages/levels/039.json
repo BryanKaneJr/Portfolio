@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 39,
   "type": "regular",
-  "revision": 2,
+  "revision": 1,
   "status": "published",
   "title": "Heresy and the Inquisition",
   "objective": "After this level you can explain how the Church dealt with people who disagreed with it.",
@@ -94,7 +94,6 @@
   "questions": [
     {
       "id": "question.middle_ages.039.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.cathar_heresy"
@@ -103,6 +102,9 @@
         "card.middle_ages.039.c2"
       ],
       "prompt": "What did the Cathars believe about the material world?",
+      "explanation": "The Cathars believed in two principles, one good and one evil, and held that the material world was evil.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -127,37 +129,50 @@
           "correct": false,
           "rationale": "Their belief was about good and evil principles."
         }
-      ],
-      "explanation": "The Cathars believed in two principles, one good and one evil, and held that the material world was evil.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.039.q2",
-      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.medieval_inquisition"
       ],
       "sourceCardIds": [
-        "card.middle_ages.039.c2",
-        "card.middle_ages.039.c3",
-        "card.middle_ages.039.c4"
+        "card.middle_ages.039.c4",
+        "card.middle_ages.039.c5"
       ],
-      "prompt": "Put these events in the story of heresy and the Inquisition in order, from earliest to latest.",
-      "items": [
-        "A crusade against them began",
-        "The first inquisitors",
-        "Allowed stubborn suspects to be tortured",
-        "More than 150 Cathars were burned"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "A crusade against the Cathars began in 1209. Gregory IX appointed the first inquisitors from 1227, Innocent IV allowed stubborn suspects to be tortured from 1252, and more than 150 Cathars were burned at Verona in 1278.",
-      "difficulty": 0.35
+      "prompt": "What do inquisitors’ own records, like Bernard Gui’s, show about burnings for heresy?",
+      "explanation": "Those who refused to recant were burned, but the chief aim was reconciliation: Gui sentenced hundreds and a few dozen were burned.",
+      "difficulty": 0.35,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "Burnings happened, but most of the guilty got other sentences",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "label": "Nearly everyone accused was burned",
+          "correct": false,
+          "rationale": "Most received penances or prison."
+        },
+        {
+          "id": "c",
+          "label": "No one was ever executed for heresy",
+          "correct": false,
+          "rationale": "Unrepentant heretics were burned."
+        },
+        {
+          "id": "d",
+          "label": "Burnings only began after the Middle Ages",
+          "correct": false,
+          "rationale": "Verona saw mass burnings in 1278."
+        }
+      ]
     },
     {
       "id": "question.middle_ages.039.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.medieval_inquisition",
@@ -168,6 +183,9 @@
         "card.middle_ages.034.c2"
       ],
       "prompt": "Level 34’s pilgrims often travelled to do penance. How did medieval inquisitors use pilgrimage?",
+      "explanation": "Penitential pilgrimages were among the punishments inquisitors imposed, along with yellow crosses and prison.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -192,9 +210,7 @@
           "label": "As a penance for people found guilty of heresy",
           "correct": true
         }
-      ],
-      "explanation": "Penitential pilgrimages were among the punishments inquisitors imposed, along with yellow crosses and prison.",
-      "difficulty": 0.3
+      ]
     }
   ],
   "sourceIds": [

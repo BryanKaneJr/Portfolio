@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 35,
   "type": "regular",
-  "revision": 2,
+  "revision": 1,
   "status": "published",
   "title": "Monks and Nuns",
   "objective": "After this level you can describe daily life in a monastery or convent.",
@@ -92,7 +92,6 @@
   "questions": [
     {
       "id": "question.middle_ages.035.q1",
-      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.divine_office"
@@ -100,31 +99,38 @@
       "sourceCardIds": [
         "card.middle_ages.035.c2"
       ],
-      "prompt": "Match each prayer of the Divine Office with its time of day.",
-      "pairs": [
+      "prompt": "In a medieval monastery, what was the Divine Office?",
+      "explanation": "The Divine Office was the daily cycle of psalms, hymns, prayers and readings, from matins in the night to compline.",
+      "difficulty": 0.2,
+      "kind": "mcq",
+      "options": [
         {
-          "left": "Terce",
-          "right": "Mid-morning"
+          "id": "a",
+          "label": "The abbot’s room for running the house",
+          "correct": false,
+          "rationale": "It was a cycle of worship, not a room."
         },
         {
-          "left": "Sext",
-          "right": "Noon"
+          "id": "b",
+          "label": "A tax that monks paid to the bishop",
+          "correct": false,
+          "rationale": "It was worship, not a payment."
         },
         {
-          "left": "None",
-          "right": "Mid-afternoon"
+          "id": "c",
+          "label": "Psalms, hymns and prayers sung at set hours",
+          "correct": true
         },
         {
-          "left": "Compline",
-          "right": "The night prayer"
+          "id": "d",
+          "label": "A yearly pilgrimage made by every monk",
+          "correct": false,
+          "rationale": "It happened every day."
         }
-      ],
-      "explanation": "Terce, sext and none marked mid-morning, noon and mid-afternoon, and compline was the night prayer.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.035.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.monastery_cloister"
@@ -133,6 +139,9 @@
         "card.middle_ages.035.c3"
       ],
       "prompt": "Why was the cloister the heart of a medieval monastery?",
+      "explanation": "The cloister joined the church, refectory, chapter house and dormitory, and it was where members studied, were taught, exercised and were buried.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -157,13 +166,10 @@
           "correct": false,
           "rationale": "It was for study, exercise and burial."
         }
-      ],
-      "explanation": "The cloister joined the church, refectory, chapter house and dormitory, and it was where members studied, were taught, exercised and were buried.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.035.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.nuns_convents",
@@ -174,6 +180,9 @@
         "card.middle_ages.007.c2"
       ],
       "prompt": "Level 7’s Benedict wrote his Rule for monks. How did it shape the lives of medieval nuns?",
+      "explanation": "An abbess was the superior of a community of nuns following the Benedictine Rule, and nuns’ days balanced services, reading and work.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -198,9 +207,7 @@
           "label": "Abbesses led nuns under the same Rule",
           "correct": true
         }
-      ],
-      "explanation": "An abbess was the superior of a community of nuns following the Benedictine Rule, and nuns’ days balanced services, reading and work.",
-      "difficulty": 0.3
+      ]
     }
   ],
   "sourceIds": [

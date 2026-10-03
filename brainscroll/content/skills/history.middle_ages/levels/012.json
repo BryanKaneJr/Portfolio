@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 12,
   "type": "regular",
-  "revision": 4,
+  "revision": 3,
   "status": "published",
   "title": "An Emperor in 800",
   "objective": "After this level you can explain why the Pope crowning Charlemagne emperor mattered.",
@@ -109,7 +109,6 @@
   "questions": [
     {
       "id": "question.middle_ages.012.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.charlemagne_coronation"
@@ -118,6 +117,9 @@
         "card.middle_ages.012.c3"
       ],
       "prompt": "On Christmas Day 800, Charlemagne was crowned emperor of the Romans by _____.",
+      "explanation": "At Christmas mass in St Peter’s Basilica in 800, Pope Leo III crowned Charlemagne emperor.",
+      "difficulty": 0.15,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -142,13 +144,10 @@
           "correct": false,
           "rationale": "Pippin was king before him."
         }
-      ],
-      "explanation": "At Christmas mass in St Peter’s Basilica in 800, Pope Leo III crowned Charlemagne emperor.",
-      "difficulty": 0.15
+      ]
     },
     {
       "id": "question.middle_ages.012.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.charlemagne_coronation"
@@ -157,6 +156,9 @@
         "card.middle_ages.012.c4"
       ],
       "prompt": "Why did the Byzantines object to Charlemagne’s new title?",
+      "explanation": "The Byzantines, who called themselves Romans, regarded Charlemagne as a usurper of their emperor’s Roman title.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -181,34 +183,48 @@
           "correct": false,
           "rationale": "The pope gave it to him."
         }
-      ],
-      "explanation": "The Byzantines, who called themselves Romans, regarded Charlemagne as a usurper of their emperor’s Roman title.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.012.q3",
-      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.charlemagne_coronation",
         "concept.middle_ages.fall_of_west_476"
       ],
       "sourceCardIds": [
-        "card.middle_ages.012.c2",
         "card.middle_ages.012.c3",
-        "card.middle_ages.012.c5"
+        "card.middle_ages.001.c2"
       ],
-      "prompt": "Put these events in order, from earliest to latest.",
-      "items": [
-        "The empire in the West dissolved",
-        "Pope Leo III was attacked",
-        "Leo crowned Charlemagne",
-        "The Treaty of Verdun"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "The empire in the West dissolved in the 5th century. Pope Leo III was attacked in 799, Leo crowned Charlemagne in 800, and the Treaty of Verdun split the empire in 843.",
-      "difficulty": 0.3
+      "prompt": "Level 1 dated Rome’s end in the West to 476. What did Charlemagne’s coronation bring back?",
+      "explanation": "The coronation gave the West an emperor for the first time since the empire there dissolved in the 5th century.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "The old Roman Senate",
+          "correct": false,
+          "rationale": "No senate came back."
+        },
+        {
+          "id": "b",
+          "label": "A western emperor, the first since then",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "One empire over East and West",
+          "correct": false,
+          "rationale": "Byzantium stayed separate."
+        },
+        {
+          "id": "d",
+          "label": "Latin as the language of Gaul",
+          "correct": false,
+          "rationale": "The crown restored a title."
+        }
+      ]
     }
   ],
   "sourceIds": [

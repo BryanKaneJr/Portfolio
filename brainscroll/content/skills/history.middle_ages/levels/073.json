@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 73,
   "type": "regular",
-  "revision": 2,
+  "revision": 1,
   "status": "published",
   "title": "Common Law and Juries",
   "objective": "After this level you can explain how common law and trial by jury developed.",
@@ -87,7 +87,6 @@
   "questions": [
     {
       "id": "question.middle_ages.073.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.jury_origins"
@@ -96,6 +95,9 @@
         "card.middle_ages.073.c3"
       ],
       "prompt": "Under the Assize of Clarendon in 1166, what did Henry II’s juries do?",
+      "explanation": "Juries of 12 men from each hundred reported crimes and named suspects to the travelling judges; they didn’t decide guilt.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -120,42 +122,49 @@
           "label": "Reported crimes and named suspects to the king’s judges",
           "correct": true
         }
-      ],
-      "explanation": "Juries of 12 men from each hundred reported crimes and named suspects to the travelling judges; they didn’t decide guilt.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.073.q2",
-      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.common_law_origins"
       ],
       "sourceCardIds": [
-        "card.middle_ages.073.c2",
-        "card.middle_ages.073.c3"
+        "card.middle_ages.073.c2"
       ],
-      "prompt": "Match each legal term with its meaning.",
-      "pairs": [
+      "prompt": "Why is England’s medieval common law called “common”?",
+      "explanation": "Common law was law common to the whole of England, built from the king’s courts rather than local customs.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
         {
-          "left": "Hundred",
-          "right": "A district of a county"
+          "id": "a",
+          "label": "It was made up by common people, not kings",
+          "correct": false,
+          "rationale": "It grew in the king’s own courts."
         },
         {
-          "left": "Common law",
-          "right": "Law common to all England"
+          "id": "b",
+          "label": "It was law common to all England, not local custom",
+          "correct": true
         },
         {
-          "left": "Precedent",
-          "right": "Earlier decisions"
+          "id": "c",
+          "label": "It covered only common, everyday crimes",
+          "correct": false,
+          "rationale": "It covered the whole realm’s law."
+        },
+        {
+          "id": "d",
+          "label": "It copied the laws of the Roman Empire",
+          "correct": false,
+          "rationale": "That describes civil law, not common law."
         }
-      ],
-      "explanation": "A hundred was a district of a county. Common law was law common to all England, and judges followed earlier decisions as precedent.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.073.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.common_law_origins",
@@ -166,6 +175,9 @@
         "card.middle_ages.005.c3"
       ],
       "prompt": "Level 5’s Justinian code became the root of civil law. What was England’s common law built from instead?",
+      "explanation": "Common law grew from the decisions of the king’s courts, which later judges followed as precedent.",
+      "difficulty": 0.35,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -190,9 +202,7 @@
           "correct": false,
           "rationale": "Common law came from judges’ decisions, not one code."
         }
-      ],
-      "explanation": "Common law grew from the decisions of the king’s courts, which later judges followed as precedent.",
-      "difficulty": 0.35
+      ]
     }
   ],
   "sourceIds": [

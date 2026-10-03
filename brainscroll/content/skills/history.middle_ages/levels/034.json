@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 34,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "Pilgrimage",
   "objective": "After this level you can explain why people went on pilgrimages and where they went.",
@@ -87,7 +87,6 @@
   "questions": [
     {
       "id": "question.middle_ages.034.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.pilgrimage_shrines"
@@ -97,6 +96,9 @@
         "card.middle_ages.034.c1"
       ],
       "prompt": "Pilgrims went to Santiago de Compostela for the shrine of _____.",
+      "explanation": "The apostle James’s body was believed to have been brought to Santiago de Compostela; his emblem was the scallop.",
+      "difficulty": 0.15,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -121,13 +123,10 @@
           "label": "the apostle St James",
           "correct": true
         }
-      ],
-      "explanation": "The apostle James’s body was believed to have been brought to Santiago de Compostela; his emblem was the scallop.",
-      "difficulty": 0.15
+      ]
     },
     {
       "id": "question.middle_ages.034.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.pilgrimage_shrines"
@@ -136,6 +135,9 @@
         "card.middle_ages.034.c2"
       ],
       "prompt": "Why did medieval Christians go on pilgrimage?",
+      "explanation": "Pilgrims sought salvation, fulfilled vows, did penance or hoped for cures, and at Jerusalem and Rome could gain indulgences.",
+      "difficulty": 0.25,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -160,31 +162,48 @@
           "correct": false,
           "rationale": "Pilgrims still owed their tithe."
         }
-      ],
-      "explanation": "Pilgrims sought salvation, fulfilled vows, did penance or hoped for cures, and at Jerusalem and Rome could gain indulgences.",
-      "difficulty": 0.25
+      ]
     },
     {
       "id": "question.middle_ages.034.q3",
-      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.canterbury_becket",
         "concept.middle_ages.cathedral_builders"
       ],
       "sourceCardIds": [
-        "card.middle_ages.034.c4"
+        "card.middle_ages.034.c4",
+        "card.middle_ages.033.c3"
       ],
-      "prompt": "Put these events in order, from earliest to latest.",
-      "items": [
-        "Thomas Becket was murdered",
-        "He was a saint",
-        "The Canterbury Tales"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "Thomas Becket was murdered in 1170, he was a saint by 1173, and Chaucer wrote The Canterbury Tales in 1387 to 1400.",
-      "difficulty": 0.25
+      "prompt": "Level 33’s Canterbury builders shipped their stone from France. What drew crowds of pilgrims to that cathedral after 1170?",
+      "explanation": "Thomas Becket was murdered in Canterbury Cathedral in 1170 and made a saint in 1173; pilgrims flocked to his shrine.",
+      "difficulty": 0.25,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "The tallest Gothic vault in the world",
+          "correct": false,
+          "rationale": "That was at Beauvais."
+        },
+        {
+          "id": "b",
+          "label": "The tomb of the apostle James",
+          "correct": false,
+          "rationale": "That was at Santiago."
+        },
+        {
+          "id": "c",
+          "label": "The shrine of the murdered archbishop Becket",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "A relic brought from Monte Cassino",
+          "correct": false,
+          "rationale": "Becket’s shrine was the draw."
+        }
+      ]
     }
   ],
   "sourceIds": [

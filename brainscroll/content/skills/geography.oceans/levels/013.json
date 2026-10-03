@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 13,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Mid-Ocean Ridges",
   "objective": "After this level you can explain the longest mountain range on Earth.",
@@ -127,7 +127,7 @@
     },
     {
       "id": "question.oceans.013.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.mid_ocean_ridge"
@@ -135,33 +135,15 @@
       "sourceCardIds": [
         "card.oceans.013.c3"
       ],
-      "prompt": "What happens along the mid-ocean ridge that builds new sea floor?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Rivers drop mud that hardens into rock",
-          "correct": false,
-          "rationale": "The ridge is volcanic; mud isn't the builder."
-        },
-        {
-          "id": "b",
-          "label": "Plates push apart and magma rises to fill the gap",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Two plates collide and one dives under",
-          "correct": false,
-          "rationale": "That's what happens at trenches."
-        },
-        {
-          "id": "d",
-          "label": "Coral reefs pile up into mountains",
-          "correct": false,
-          "rationale": "The ridge is made of volcanoes, not coral."
-        }
+      "prompt": "Put these steps at a mid-ocean ridge in order, from first to last.",
+      "items": [
+        "Plates push apart",
+        "Magma rises to fill the gap",
+        "Brand-new sea floor"
       ],
-      "explanation": "Along the ridge, plates push apart and magma rises to fill the gap, building brand-new sea floor.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Along the ridge, plates push apart, magma rises to fill the gap, and that builds brand-new sea floor.",
       "difficulty": 0.2
     },
     {

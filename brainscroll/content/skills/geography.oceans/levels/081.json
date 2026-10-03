@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 81,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Early Sailors",
   "objective": "After this level you can describe the first long ocean voyages.",
@@ -109,41 +109,25 @@
   "questions": [
     {
       "id": "question.oceans.081.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.oceans.voyaging_pacific_settlement"
       ],
       "sourceCardIds": [
-        "card.oceans.081.c3"
+        "card.oceans.081.c3",
+        "card.oceans.081.c2"
       ],
-      "prompt": "How do archaeologists trace the Lapita voyagers' spread across the Pacific?",
-      "options": [
-        {
-          "id": "a",
-          "label": "By their written sailing logs",
-          "correct": false,
-          "rationale": "The trail is pottery, not writing."
-        },
-        {
-          "id": "b",
-          "label": "By their distinctive pottery",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "By shipwrecks of their canoes",
-          "correct": false,
-          "rationale": "The evidence is the pottery they left on land."
-        },
-        {
-          "id": "d",
-          "label": "By giant stone statues",
-          "correct": false,
-          "rationale": "Lapita is named for, and traced by, its pottery."
-        }
+      "prompt": "Put these steps out into the Pacific in order, from earliest to latest.",
+      "items": [
+        "People reach Australia and New Guinea",
+        "Lapita voyagers reach Fiji",
+        "Voyagers reach Hawaiʻi",
+        "European explorers enter the Pacific"
       ],
-      "explanation": "Lapita is named after a site in New Caledonia where its distinctive pottery was found, and that pottery marks its spread.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "People reached Australia and New Guinea by 50,000 years ago, Lapita voyagers reached Fiji by about 3,000 years ago, voyagers reached Hawaiʻi by about 1300 CE, and Europeans entered the Pacific in the 1500s.",
       "difficulty": 0.2
     },
     {

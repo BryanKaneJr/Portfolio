@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 16,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "Alfred the Great",
   "objective": "After this level you can explain how Alfred defended Wessex against the Vikings.",
@@ -87,7 +87,6 @@
   "questions": [
     {
       "id": "question.middle_ages.016.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.alfred_wessex"
@@ -96,6 +95,9 @@
         "card.middle_ages.016.c3"
       ],
       "prompt": "In May 878, Alfred defeated the Danes at _____.",
+      "explanation": "In May 878 Alfred defeated the Danes at Edington, and Guthrum was baptized.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -120,37 +122,49 @@
           "label": "Edington",
           "correct": true
         }
-      ],
-      "explanation": "In May 878 Alfred defeated the Danes at Edington, and Guthrum was baptized.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.016.q2",
-      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.alfred_wessex"
       ],
       "sourceCardIds": [
-        "card.middle_ages.016.c2",
-        "card.middle_ages.016.c3"
+        "card.middle_ages.016.c4"
       ],
-      "prompt": "Put these events in order, from earliest to latest.",
-      "items": [
-        "A great Danish army arrived",
-        "Alfred became king of Wessex",
-        "The Danes seized Chippenham",
-        "Alfred beat the Danes at Edington",
-        "Agreed a frontier"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "A great Danish army arrived in 865. Alfred became king of Wessex in 871. The Danes seized Chippenham in early 878, Alfred beat them at Edington in May 878, and a frontier was agreed in 886.",
-      "difficulty": 0.3
+      "prompt": "Why did Alfred build a network of burhs across Wessex?",
+      "explanation": "The burhs were placed so that no part of Wessex was more than 20 miles from a fortified town.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "To house monks copying books",
+          "correct": false,
+          "rationale": "Burhs were fortified towns."
+        },
+        {
+          "id": "b",
+          "label": "So no part of Wessex was far from a stronghold",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "To mark the border of the Danelaw",
+          "correct": false,
+          "rationale": "The border was Watling Street."
+        },
+        {
+          "id": "d",
+          "label": "To hold Danish prisoners",
+          "correct": false,
+          "rationale": "They were for defence."
+        }
+      ]
     },
     {
       "id": "question.middle_ages.016.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.alfred_wessex",
@@ -161,6 +175,9 @@
         "card.middle_ages.011.c3"
       ],
       "prompt": "Like Charlemagne in Level 11, Alfred championed learning. What did Alfred do?",
+      "explanation": "Alfred had Latin books translated into English and took part in the translating himself.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -185,9 +202,7 @@
           "correct": false,
           "rationale": "That isn’t Alfred’s work."
         }
-      ],
-      "explanation": "Alfred had Latin books translated into English and took part in the translating himself.",
-      "difficulty": 0.3
+      ]
     }
   ],
   "sourceIds": [

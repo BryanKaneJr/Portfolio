@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 10,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: The Blue Planet",
   "objective": "After this level you can describe the size, saltiness and layers of the ocean.",
@@ -216,7 +216,7 @@
     },
     {
       "id": "question.oceans.010.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.light_depth_limits",
@@ -226,33 +226,16 @@
         "card.oceans.010.c3",
         "card.oceans.008.c4"
       ],
-      "prompt": "Blue Planet recap, from Level 8: what's left of the sunlight once you dive below 1,000 m?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Only red light",
-          "correct": false,
-          "rationale": "Red is the first color to vanish."
-        },
-        {
-          "id": "b",
-          "label": "Only green light",
-          "correct": false,
-          "rationale": "Green fades before blue, and all of it is gone by then."
-        },
-        {
-          "id": "c",
-          "label": "Dim light, enough for photosynthesis",
-          "correct": false,
-          "rationale": "Photosynthesis stops at about 200 m."
-        },
-        {
-          "id": "d",
-          "label": "None at all",
-          "correct": true
-        }
+      "prompt": "On the dive from this checkpoint, put these in order, from shallowest to deepest.",
+      "items": [
+        "The red light is gone",
+        "Too little light for photosynthesis",
+        "No sunlight at all",
+        "The average sea floor"
       ],
-      "explanation": "Sunlight does not reach below 1,000 m; the deep ocean is completely dark.",
+      "first": "Shallowest",
+      "last": "Deepest",
+      "explanation": "Red light is gone a few meters down. By about 200 m there's too little light for photosynthesis, past 1,000 m there's no sunlight at all, and the average sea floor is about 3,700 m down.",
       "difficulty": 0.2
     },
     {

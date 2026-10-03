@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 87,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Submarines",
   "objective": "After this level you can explain how submarines dive and surface.",
@@ -129,7 +129,7 @@
     },
     {
       "id": "question.oceans.087.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.submarine_ballast"
@@ -137,33 +137,16 @@
       "sourceCardIds": [
         "card.oceans.087.c2"
       ],
-      "prompt": "A submarine is deep underwater. Why does blowing compressed air into its ballast tanks bring it up?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The air heats the water around the hull",
-          "correct": false,
-          "rationale": "Heat isn't the trick; swapping water for air is."
-        },
-        {
-          "id": "b",
-          "label": "It pushes the water out, so the sub becomes buoyant again",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The air jets push the sub upward like a rocket",
-          "correct": false,
-          "rationale": "The air stays in the tanks, pushing water out."
-        },
-        {
-          "id": "d",
-          "label": "It makes the sub's steel lighter",
-          "correct": false,
-          "rationale": "The steel weighs the same; the tanks lose water."
-        }
+      "prompt": "Put a submarine's dive and return in order, from first to last.",
+      "items": [
+        "Flood the tanks with seawater",
+        "The craft sinks",
+        "Blow the tanks clear",
+        "Float again"
       ],
-      "explanation": "Compressed air blows the water out of the tanks, and the craft becomes buoyant and rises.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "To dive, a sub floods its tanks with seawater until the craft sinks. To come up, it blows the tanks clear with compressed air and floats again.",
       "difficulty": 0.3
     },
     {

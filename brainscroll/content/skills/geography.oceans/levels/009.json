@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 9,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Pressure",
   "objective": "After this level you can explain how water pressure grows with depth.",
@@ -169,7 +169,7 @@
     },
     {
       "id": "question.oceans.009.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.water_pressure_depth",
@@ -177,35 +177,25 @@
       ],
       "sourceCardIds": [
         "card.oceans.009.c2",
-        "card.oceans.002.c3"
+        "card.oceans.002.c3",
+        "card.oceans.009.c3"
       ],
-      "prompt": "From Level 2: the ocean averages about 3,700 m deep. About how many atmospheres does the water add on an average sea floor?",
-      "options": [
+      "prompt": "Match each depth with the pressure the water adds there.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "About 37",
-          "correct": false,
-          "rationale": "That's the pressure at about 370 m."
+          "left": "10 m",
+          "right": "About one atmosphere"
         },
         {
-          "id": "b",
-          "label": "About 370",
-          "correct": true
+          "left": "100 m",
+          "right": "About 10 atmospheres"
         },
         {
-          "id": "c",
-          "label": "About 3,700",
-          "correct": false,
-          "rationale": "That would take about 37 km of water."
-        },
-        {
-          "id": "d",
-          "label": "About 37,000",
-          "correct": false,
-          "rationale": "Far more than anywhere in the ocean."
+          "left": "2,000 m",
+          "right": "About 200"
         }
       ],
-      "explanation": "One atmosphere per 10 m: 3,700 m divided by 10 gives about 370 atmospheres.",
+      "explanation": "Water adds about one atmosphere every 10 m: about one at 10 m, about 10 at 100 m and about 200 at 2,000 m.",
       "difficulty": 0.3
     }
   ],

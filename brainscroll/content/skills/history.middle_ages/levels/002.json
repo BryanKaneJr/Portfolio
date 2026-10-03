@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 2,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "Why \"Middle\" Ages?",
   "objective": "After this level you can explain where the name came from and why historians question the idea of \"Dark Ages\".",
@@ -92,7 +92,6 @@
   "questions": [
     {
       "id": "question.middle_ages.002.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.medieval_name"
@@ -101,6 +100,9 @@
         "card.middle_ages.002.c2"
       ],
       "prompt": "The word medieval comes from _____.",
+      "explanation": "Medieval comes from Latin medium, “the middle”, and aevum, “age”.",
+      "difficulty": 0.15,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -125,13 +127,10 @@
           "correct": false,
           "rationale": "It’s Latin, and it means middle age."
         }
-      ],
-      "explanation": "Medieval comes from Latin medium, “the middle”, and aevum, “age”.",
-      "difficulty": 0.15
+      ]
     },
     {
       "id": "question.middle_ages.002.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.dark_ages_label"
@@ -140,6 +139,9 @@
         "card.middle_ages.002.c4"
       ],
       "prompt": "Why do most historians now avoid the term “Dark Ages”?",
+      "explanation": "The term implies a whole era was ignorant and barbaric, a value judgment historians reject.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -164,13 +166,10 @@
           "correct": false,
           "rationale": "Length isn’t the problem; judgment is."
         }
-      ],
-      "explanation": "The term implies a whole era was ignorant and barbaric, a value judgment historians reject.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.002.q3",
-      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.medieval_name",
@@ -180,16 +179,35 @@
         "card.middle_ages.002.c2",
         "card.middle_ages.001.c2"
       ],
-      "prompt": "Renaissance scholars split history into three parts. Put them in order, from earliest to latest.",
-      "items": [
-        "Ancient Greece and Rome",
-        "A middle period",
-        "The Renaissance"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "First came ancient Greece and Rome, then a middle period, then the Renaissance, which saw itself as a revival of classical learning.",
-      "difficulty": 0.3
+      "prompt": "Renaissance scholars saw the Middle Ages as a gap. Between which two ages?",
+      "explanation": "They admired ancient Greece and Rome and saw their own time as a revival; everything between was the “middle”.",
+      "difficulty": 0.3,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "The Stone Age and ancient Egypt",
+          "correct": false,
+          "rationale": "Far too early."
+        },
+        {
+          "id": "b",
+          "label": "Ancient Greece and ancient Rome",
+          "correct": false,
+          "rationale": "They admired both of those."
+        },
+        {
+          "id": "c",
+          "label": "Classical antiquity and their own revival",
+          "correct": true
+        },
+        {
+          "id": "d",
+          "label": "The Renaissance and the modern age",
+          "correct": false,
+          "rationale": "The gap came before the Renaissance."
+        }
+      ]
     }
   ],
   "sourceIds": [

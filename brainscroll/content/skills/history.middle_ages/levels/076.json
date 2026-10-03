@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 76,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "Crécy and Agincourt",
   "objective": "After this level you can explain how English longbows won at Crécy and Agincourt.",
@@ -113,7 +113,6 @@
   "questions": [
     {
       "id": "question.middle_ages.076.q1",
-      "kind": "mcq",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.crecy_longbows"
@@ -122,6 +121,9 @@
         "card.middle_ages.076.c2"
       ],
       "prompt": "At Crécy in 1346, what gave English longbowmen the edge over the crossbowmen?",
+      "explanation": "English longbows could shoot about three times as fast as crossbows, and the crossbowmen were routed.",
+      "difficulty": 0.2,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -146,13 +148,10 @@
           "correct": false,
           "rationale": "The story here is the longbow."
         }
-      ],
-      "explanation": "English longbows could shoot about three times as fast as crossbows, and the crossbowmen were routed.",
-      "difficulty": 0.2
+      ]
     },
     {
       "id": "question.middle_ages.076.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.agincourt_battle"
@@ -162,6 +161,9 @@
         "card.middle_ages.076.c5"
       ],
       "prompt": "Why do historians give ranges for the size of the armies at Agincourt?",
+      "explanation": "Traditional estimates say about 6,000 against 20,000 to 30,000; Anne Curry’s records suggest about 8,500 against around 12,000.",
+      "difficulty": 0.35,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -186,44 +188,48 @@
           "correct": false,
           "rationale": "It probably lasted under three hours."
         }
-      ],
-      "explanation": "Traditional estimates say about 6,000 against 20,000 to 30,000; Anne Curry’s records suggest about 8,500 against around 12,000.",
-      "difficulty": 0.35
+      ]
     },
     {
       "id": "question.middle_ages.076.q3",
-      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.agincourt_battle",
         "concept.middle_ages.medieval_inquisition"
       ],
       "sourceCardIds": [
-        "card.middle_ages.076.c2",
-        "card.middle_ages.076.c3",
-        "card.middle_ages.076.c5"
+        "card.middle_ages.076.c5",
+        "card.middle_ages.039.c5"
       ],
-      "prompt": "Match each with what the cards link them to.",
-      "pairs": [
+      "prompt": "Bernard Gui’s own records shrank a legend in Level 39. What did Anne Curry use to count the armies at Agincourt?",
+      "explanation": "Like Gui’s records of his sentences, Curry’s muster rolls and financial records gave a smaller count than the legend.",
+      "difficulty": 0.4,
+      "kind": "mcq",
+      "options": [
         {
-          "left": "Edward III",
-          "right": "Crécy"
+          "id": "a",
+          "label": "Chroniclers’ stories written after the battle",
+          "correct": false,
+          "rationale": "Curry went to the paperwork instead."
         },
         {
-          "left": "Henry V",
-          "right": "Agincourt"
+          "id": "b",
+          "label": "Bones dug from the battlefield",
+          "correct": false,
+          "rationale": "The card names written records, not graves."
         },
         {
-          "left": "Anne Curry",
-          "right": "Muster rolls"
+          "id": "c",
+          "label": "The campaign’s payroll and muster rolls",
+          "correct": true
         },
         {
-          "left": "Italian crossbowmen",
-          "right": "Opened the French attack"
+          "id": "d",
+          "label": "Songs and ballads about the victory",
+          "correct": false,
+          "rationale": "Those grew the legend."
         }
-      ],
-      "explanation": "Edward III’s army fought at Crécy and Henry V’s at Agincourt. Anne Curry counted the Agincourt armies from muster rolls, and Italian crossbowmen opened the French attack at Crécy.",
-      "difficulty": 0.4
+      ]
     }
   ],
   "sourceIds": [

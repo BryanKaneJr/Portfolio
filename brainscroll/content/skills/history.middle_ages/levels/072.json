@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 72,
   "type": "regular",
-  "revision": 3,
+  "revision": 2,
   "status": "published",
   "title": "The First Parliaments",
   "objective": "After this level you can explain how parliaments began in England and elsewhere.",
@@ -97,30 +97,45 @@
   "questions": [
     {
       "id": "question.middle_ages.072.q1",
-      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.parliament_origins"
       ],
       "sourceCardIds": [
-        "card.middle_ages.072.c2",
         "card.middle_ages.072.c4"
       ],
-      "prompt": "Put these steps in the rise of parliaments in order, from earliest to latest.",
-      "items": [
-        "León held an assembly",
-        "The word parliament first turns up",
-        "Edward I’s Model Parliament",
-        "Met separately for the first time"
-      ],
-      "first": "Earliest",
-      "last": "Latest",
-      "explanation": "León held an assembly with town representatives in 1188. In England the word parliament first turns up in 1236, Edward I’s Model Parliament met in 1295, and the knights and burgesses met separately for the first time in 1341.",
-      "difficulty": 0.2
+      "prompt": "Who was first to summon representatives of both counties and towns to an English parliament, in 1265?",
+      "explanation": "In 1265 Simon de Montfort, in rebellion against Henry III, summoned representatives of both counties and towns.",
+      "difficulty": 0.2,
+      "kind": "mcq",
+      "options": [
+        {
+          "id": "a",
+          "label": "King Edward I, in his Model Parliament",
+          "correct": false,
+          "rationale": "He made it the pattern in 1295."
+        },
+        {
+          "id": "b",
+          "label": "Simon de Montfort",
+          "correct": true
+        },
+        {
+          "id": "c",
+          "label": "King John, after Runnymede",
+          "correct": false,
+          "rationale": "He had died in 1216."
+        },
+        {
+          "id": "d",
+          "label": "King Henry II, founder of the juries",
+          "correct": false,
+          "rationale": "He reigned a century earlier."
+        }
+      ]
     },
     {
       "id": "question.middle_ages.072.q2",
-      "kind": "mcq",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.parliament_tax_consent"
@@ -129,6 +144,9 @@
         "card.middle_ages.072.c3"
       ],
       "prompt": "Why did medieval English kings keep calling parliaments together?",
+      "explanation": "Wars cost more than kings could pay themselves, so they needed Parliament’s assent to extraordinary taxes.",
+      "difficulty": 0.3,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -153,13 +171,10 @@
           "correct": false,
           "rationale": "The push came from the kings’ own need for money."
         }
-      ],
-      "explanation": "Wars cost more than kings could pay themselves, so they needed Parliament’s assent to extraordinary taxes.",
-      "difficulty": 0.3
+      ]
     },
     {
       "id": "question.middle_ages.072.q3",
-      "kind": "mcq",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.parliament_tax_consent",
@@ -170,6 +185,9 @@
         "card.middle_ages.019.c2"
       ],
       "prompt": "Before raising extra taxes for war, Edward I needed _____.",
+      "explanation": "William surveyed who held what to fix tax problems; Edward I and later kings needed Parliament’s agreement for extra taxes to pay for their wars.",
+      "difficulty": 0.4,
+      "kind": "mcq",
       "options": [
         {
           "id": "a",
@@ -194,9 +212,7 @@
           "correct": false,
           "rationale": "The tithe went to the Church."
         }
-      ],
-      "explanation": "William surveyed who held what to fix tax problems; Edward I and later kings needed Parliament’s agreement for extra taxes to pay for their wars.",
-      "difficulty": 0.4
+      ]
     }
   ],
   "sourceIds": [

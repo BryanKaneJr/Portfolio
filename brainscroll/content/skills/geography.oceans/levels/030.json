@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 30,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Waves and Tides",
   "objective": "After this level you can explain what makes waves and tides.",
@@ -220,41 +220,31 @@
     },
     {
       "id": "question.oceans.030.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.wave_wind_recipe"
       ],
       "sourceCardIds": [
-        "card.oceans.021.c2"
+        "card.oceans.021.c2",
+        "card.oceans.030.c3"
       ],
-      "prompt": "Waves and tides recap, from Level 21: a fierce gust blows over open sea for just a few minutes. Why are there no big waves?",
-      "options": [
+      "prompt": "Match each way the sea rises with what drives it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Gusts move only the air, never the water",
-          "correct": false,
-          "rationale": "Wind does make waves; this one just didn't last."
+          "left": "Wind waves",
+          "right": "Wind speed, time and fetch"
         },
         {
-          "id": "b",
-          "label": "Big waves need only a long fetch",
-          "correct": false,
-          "rationale": "Fetch alone is not enough either."
+          "left": "Tides",
+          "right": "Moon and Sun"
         },
         {
-          "id": "c",
-          "label": "The tide was going out",
-          "correct": false,
-          "rationale": "Tides do not stop wind waves forming."
-        },
-        {
-          "id": "d",
-          "label": "It needs speed, time and fetch together",
-          "correct": true
+          "left": "Storm surge",
+          "right": "A storm's winds push water ashore"
         }
       ],
-      "explanation": "Large waves form only when strong wind blows for a long time over a long fetch; a few minutes of wind is not enough.",
+      "explanation": "Wind speed, time and fetch set the size of wind waves. Tides are driven by the Moon and Sun. In a storm surge, a storm's winds push water ashore.",
       "difficulty": 0.2
     },
     {
