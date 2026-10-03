@@ -2,11 +2,11 @@ import { createAudioPlayer, setAudioModeAsync, type AudioPlayer } from 'expo-aud
 
 /**
  * BrainScroll's small sound family (roadmap §14). Each event that has a sound
- * names a file in `app/assets/sounds/`. Until the owner adds a file, its entry
- * stays commented out and that event is silent, so the app never depends on
- * sound: everything still reads with sound off.
+ * names a file in `app/assets/sounds/` (the owner's pack, 2026-10-03, trimmed
+ * and level-matched). An event without a file stays silent, and the app never
+ * depends on sound: everything still reads with sound off.
  *
- * To add one: drop `<name>.m4a` into `app/assets/sounds/` and uncomment its line.
+ * To change one: replace its file in `app/assets/sounds/` (same name).
  * Keep sounds short (under about a second), warm and tonal; never casino or arcade.
  */
 export type SoundName =
@@ -23,17 +23,18 @@ export type SoundName =
   | 'chooseLand';
 
 const FILES: Partial<Record<SoundName, number>> = {
-  // select: require('../../assets/sounds/select.m4a'),
-  // correct: require('../../assets/sounds/correct.m4a'),
-  // incorrect: require('../../assets/sounds/incorrect.m4a'),
-  // levelComplete: require('../../assets/sounds/level-complete.m4a'),
-  // levelUp: require('../../assets/sounds/level-up.m4a'),
-  // checkpoint: require('../../assets/sounds/checkpoint.m4a'),
-  // milestone: require('../../assets/sounds/milestone.m4a'),
-  // mastery: require('../../assets/sounds/mastery.m4a'),
-  // unlock: require('../../assets/sounds/unlock.m4a'),
-  // chooseTick: require('../../assets/sounds/choose-tick.m4a'),
-  // chooseLand: require('../../assets/sounds/choose-land.m4a'),
+  select: require('../../assets/sounds/select.wav'),
+  correct: require('../../assets/sounds/correct.wav'),
+  incorrect: require('../../assets/sounds/incorrect.wav'),
+  levelComplete: require('../../assets/sounds/level-complete.wav'),
+  levelUp: require('../../assets/sounds/level-up.wav'),
+  // The big moments share the level-up sound until they get their own.
+  checkpoint: require('../../assets/sounds/level-up.wav'),
+  milestone: require('../../assets/sounds/level-up.wav'),
+  mastery: require('../../assets/sounds/level-up.wav'),
+  unlock: require('../../assets/sounds/unlock.wav'),
+  chooseTick: require('../../assets/sounds/choose-tick.wav'),
+  chooseLand: require('../../assets/sounds/choose-land.wav'),
 };
 
 /** Softer sounds for small moments, fuller for big ones; never loud. */

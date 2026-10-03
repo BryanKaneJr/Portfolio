@@ -2,6 +2,11 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: BrainScroll has sound
+
+- **The owner's sound pack is in** (`app/assets/sounds/`): a click when you pick an answer, a chime when it's right, a soft "not quite" when it isn't, and fuller sounds for a level complete, a level up, an unlock and Choose for me. Each file was trimmed so it plays the instant you tap, and the pack was evened out in volume.
+- **The big moments share the level-up sound for now** (checkpoint, milestone, mastery), and buying Unlimited plays the unlock sound. The sound switch in Settings and the phone's silent switch still turn it all off. No new build needed.
+
 ## 2026-10-03: A new launch screen, with no late Dr. Scroll
 
 - **The launch screen is a bold BrainScroll wordmark over crowned Dr. Scroll** on plum (owner: "not minimalist"), one image (`splash-brand.png`) shared by the phone's native splash and the app's own.
