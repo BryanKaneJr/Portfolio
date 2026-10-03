@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 22,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "From Code to Machine Code",
   "objective": "After this level you can explain how compilers and interpreters turn code people can read into instructions a processor runs.",
@@ -126,41 +126,31 @@
     },
     {
       "id": "question.computers.022.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.software_translation"
       ],
       "sourceCardIds": [
-        "card.computers.022.c4"
+        "card.computers.022.c4",
+        "card.computers.022.c3"
       ],
-      "prompt": "How does Python's standard interpreter run a program you've written?",
-      "options": [
+      "prompt": "Match each program or language with how its code gets translated.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It compiles the code into bytecode, which a virtual machine carries out",
-          "correct": true
+          "left": "Firefox's source code",
+          "right": "Compiled into Firefox.exe"
         },
         {
-          "id": "b",
-          "label": "The processor reads the Python text directly, line by line",
-          "correct": false,
-          "rationale": "Only machine code runs on a processor."
+          "left": "Python",
+          "right": "Compiles the code into bytecode"
         },
         {
-          "id": "c",
-          "label": "It builds an .exe file you must install first",
-          "correct": false,
-          "rationale": "Python source files run directly, with no separate executable."
-        },
-        {
-          "id": "d",
-          "label": "It sends the code to a browser to be compiled",
-          "correct": false,
-          "rationale": "Browsers compile JavaScript; Python has its own interpreter."
+          "left": "JavaScript in your browser",
+          "right": "A built-in just-in-time compiler"
         }
       ],
-      "explanation": "The interpreter first compiles Python source into bytecode, an in-between form that its virtual machine runs.",
+      "explanation": "Firefox's source code is compiled into Firefox.exe ahead of time, Python's interpreter compiles the code into bytecode, and JavaScript in your browser runs through a built-in just-in-time compiler.",
       "difficulty": 0.3
     },
     {

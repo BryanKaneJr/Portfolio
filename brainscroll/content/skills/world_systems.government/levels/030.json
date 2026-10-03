@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 30,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Democracy",
   "objective": "After this level you can explain how democracies share power and hold leaders to account.",
@@ -215,7 +215,7 @@
     },
     {
       "id": "question.government.030.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.government.democracy_athens_roots",
@@ -227,35 +227,23 @@
         "card.government.021.c3",
         "card.government.022.c2",
         "card.government.028.c1",
-        "card.government.021.c5"
+        "card.government.021.c5",
+        "card.government.025.c1",
+        "card.government.026.c1",
+        "card.government.030.c1"
       ],
-      "prompt": "Democracy checkpoint: which list puts these in order, oldest first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Cleisthenes' reforms → Magna Carta → Sweden's press law → Gettysburg Address",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Magna Carta → Cleisthenes' reforms → Gettysburg Address → Sweden's press law",
-          "correct": false,
-          "rationale": "Cleisthenes (508–507 BCE) is far older than Magna Carta (1215)."
-        },
-        {
-          "id": "c",
-          "label": "Cleisthenes' reforms → Sweden's press law → Magna Carta → Gettysburg Address",
-          "correct": false,
-          "rationale": "Magna Carta (1215) came before Sweden's law (1766)."
-        },
-        {
-          "id": "d",
-          "label": "Cleisthenes' reforms → Magna Carta → Gettysburg Address → Sweden's press law",
-          "correct": false,
-          "rationale": "Sweden's law (1766) came before Gettysburg (1863)."
-        }
+      "prompt": "Put these moments in democracy's story in order, from oldest to newest.",
+      "items": [
+        "Cleisthenes",
+        "Magna Carta",
+        "The Spirit of Laws",
+        "Federalist No. 51",
+        "Abraham Lincoln",
+        "Winston Churchill"
       ],
-      "explanation": "Cleisthenes (508–507 BCE), Magna Carta (1215), Sweden's press law (1766), the Gettysburg Address (1863).",
+      "first": "Oldest",
+      "last": "Newest",
+      "explanation": "Cleisthenes' reforms (508 to 507 BCE), Magna Carta (1215), The Spirit of Laws (1748), Federalist No. 51 (1788), Lincoln at Gettysburg (1863), then Churchill's remark (1947).",
       "difficulty": 0.35
     },
     {

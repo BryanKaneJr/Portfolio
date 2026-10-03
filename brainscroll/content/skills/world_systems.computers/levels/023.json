@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 23,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why So Many Languages?",
   "objective": "After this level you can explain why languages like Python, JavaScript and C all exist, each suited to different jobs.",
@@ -82,41 +82,32 @@
   "questions": [
     {
       "id": "question.computers.023.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.software_language_tradeoffs"
       ],
       "sourceCardIds": [
-        "card.computers.023.c3"
+        "card.computers.023.c3",
+        "card.computers.023.c2",
+        "card.computers.023.c4"
       ],
-      "prompt": "Where does JavaScript primarily run?",
-      "options": [
+      "prompt": "Match each programming language with the person who created it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Inside the Unix kernel",
-          "correct": false,
-          "rationale": "That was C's first big job."
+          "left": "C",
+          "right": "Dennis Ritchie"
         },
         {
-          "id": "b",
-          "label": "In web browsers",
-          "correct": true
+          "left": "JavaScript",
+          "right": "Brendan Eich"
         },
         {
-          "id": "c",
-          "label": "On the processor with no translation at all",
-          "correct": false,
-          "rationale": "JavaScript is compiled just in time into machine code."
-        },
-        {
-          "id": "d",
-          "label": "Only on Netscape's own servers",
-          "correct": false,
-          "rationale": "Every major browser has a JavaScript engine."
+          "left": "Python",
+          "right": "Guido van Rossum"
         }
       ],
-      "explanation": "JavaScript is primarily used in web browsers, where it changes page content, fetches data and draws graphics.",
+      "explanation": "Dennis Ritchie created C at Bell Labs, Brendan Eich created JavaScript at Netscape, and Guido van Rossum started Python.",
       "difficulty": 0.15
     },
     {

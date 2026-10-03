@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 40,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Breathing",
   "objective": "After this level you can trace a breath of air from your nose to your cells and back out again.",
@@ -193,7 +193,7 @@
     },
     {
       "id": "question.human_body.040.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.lung_airways",
@@ -203,32 +203,17 @@
         "card.human_body.040.c3",
         "card.human_body.032.c2"
       ],
-      "prompt": "Breathing recap: which list follows a breath from the windpipe to where oxygen enters the blood?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Bronchioles, bronchi, windpipe, alveoli",
-          "correct": false,
-          "rationale": "That runs partly backwards."
-        },
-        {
-          "id": "b",
-          "label": "Windpipe, alveoli, bronchi, bronchioles",
-          "correct": false,
-          "rationale": "The air sacs come last."
-        },
-        {
-          "id": "c",
-          "label": "Windpipe, bronchi, bronchioles, alveoli",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Bronchi, windpipe, alveoli, bronchioles",
-          "correct": false,
-          "rationale": "The windpipe comes first."
-        }
+      "prompt": "Follow oxygen from one breath: put these in order, from the windpipe to where it is used.",
+      "items": [
+        "Windpipe",
+        "Bronchial tree",
+        "Bronchioles",
+        "Air sacs",
+        "The blood",
+        "Mitochondria"
       ],
+      "first": "Breath comes in",
+      "last": "Where oxygen is used",
       "explanation": "Air goes down the windpipe, through the bronchial tubes and bronchioles, to the alveoli, where oxygen crosses into the blood.",
       "difficulty": 0.25
     },

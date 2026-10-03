@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 38,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Smoking and the Lungs",
   "objective": "After this level you can explain how smoking damages the lungs.",
@@ -164,7 +164,7 @@
     },
     {
       "id": "question.human_body.038.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.smoking_lung_damage",
@@ -172,32 +172,22 @@
       ],
       "sourceCardIds": [
         "card.human_body.038.c3",
-        "card.human_body.032.c4"
+        "card.human_body.032.c4",
+        "card.human_body.038.c2"
       ],
-      "prompt": "Emphysema damages the walls between air sacs. Why does that matter, given what Level 32 showed?",
-      "options": [
+      "prompt": "Match each part of the lungs with the smoking damage or disease that hits it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Those walls make your voice",
-          "correct": false,
-          "rationale": "Voice comes from the vocal folds."
+          "left": "Cilia",
+          "right": "Paralyzes and damages"
         },
         {
-          "id": "b",
-          "label": "Those walls hold up the ribs",
-          "correct": false,
-          "rationale": "The walls are deep inside the lungs."
+          "left": "Emphysema",
+          "right": "Walls between many air sacs"
         },
         {
-          "id": "c",
-          "label": "Oxygen crosses into the blood there",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Those walls produce the mucus",
-          "correct": false,
-          "rationale": "Their job is gas exchange."
+          "left": "Chronic bronchitis",
+          "right": "The airway lining"
         }
       ],
       "explanation": "The thin walls of the air sacs are where oxygen passes into the blood and carbon dioxide passes out.",

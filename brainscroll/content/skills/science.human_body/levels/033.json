@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 33,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Diaphragm",
   "objective": "After this level you can explain how the diaphragm moves air in and out.",
@@ -169,7 +169,7 @@
     },
     {
       "id": "question.human_body.033.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.organ_systems",
@@ -177,34 +177,19 @@
       ],
       "sourceCardIds": [
         "card.human_body.033.c2",
-        "card.human_body.001.c2"
+        "card.human_body.001.c2",
+        "card.human_body.033.c3"
       ],
-      "prompt": "The diaphragm is a muscle, but its work serves which of Level 1's systems?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Digestive: processing food",
-          "correct": false,
-          "rationale": "It sits above the belly but doesn't process food."
-        },
-        {
-          "id": "b",
-          "label": "Respiratory: oxygen in, carbon dioxide out",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Skeletal: holding you up",
-          "correct": false,
-          "rationale": "It moves air rather than holding you up."
-        },
-        {
-          "id": "d",
-          "label": "Urinary: filtering waste",
-          "correct": false,
-          "rationale": "That system filters waste from the blood."
-        }
+      "prompt": "Put the steps of breathing in order, starting when your diaphragm contracts.",
+      "items": [
+        "Moves down",
+        "Makes your chest cavity bigger",
+        "Your lungs expand",
+        "Air pressure inside them drops",
+        "In it comes"
       ],
+      "first": "Diaphragm contracts",
+      "last": "Air flows in",
       "explanation": "The diaphragm is the main breathing muscle, so its work serves the respiratory system, which brings in oxygen and removes carbon dioxide.",
       "difficulty": 0.25
     }

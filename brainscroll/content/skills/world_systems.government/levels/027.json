@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 27,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Political Parties",
   "objective": "After this level you can explain why political parties form.",
@@ -125,41 +125,31 @@
     },
     {
       "id": "question.government.027.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.party_whig_tory"
       ],
       "sourceCardIds": [
-        "card.government.027.c4"
+        "card.government.027.c4",
+        "card.government.027.c1"
       ],
-      "prompt": "What does the story of the party names \"Whig\" and \"Tory\" show?",
-      "options": [
+      "prompt": "Match each name from the story of political parties with its origin.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Both were chosen by a royal committee",
-          "correct": false,
-          "rationale": "They were insults thrown by opponents, not royal choices."
+          "left": "Tory",
+          "right": "An Irish outlaw or robber"
         },
         {
-          "id": "b",
-          "label": "Both came from ancient Greek words",
-          "correct": false,
-          "rationale": "Tory is Irish in origin and Whig probably Scottish."
+          "left": "Whig",
+          "right": "A horse drover"
         },
         {
-          "id": "c",
-          "label": "Insults thrown at rivals were adopted as party names",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Both parties were founded in the United States",
-          "correct": false,
-          "rationale": "These were Britain's first party names."
+          "left": "George Washington",
+          "right": "Farewell Address"
         }
       ],
-      "explanation": "\"Whig\" and \"Tory\" began as terms of abuse in 1679, and the parties adopted them as their own names.",
+      "explanation": "Tory first meant an Irish outlaw or robber, Whig probably came from a word for a horse drover, and George Washington warned against parties in his Farewell Address.",
       "difficulty": 0.25
     },
     {

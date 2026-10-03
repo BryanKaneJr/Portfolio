@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 34,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Your Voice",
   "objective": "After this level you can explain how the vocal cords make sound.",
@@ -165,7 +165,7 @@
     },
     {
       "id": "question.human_body.034.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.lung_airways",
@@ -173,34 +173,18 @@
       ],
       "sourceCardIds": [
         "card.human_body.034.c2",
-        "card.human_body.032.c2"
+        "card.human_body.032.c2",
+        "card.human_body.034.c4"
       ],
-      "prompt": "Level 32 sent air past the voice box and down the windpipe. What are the vocal folds doing while you simply breathe?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Staying open to let air through",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Snapped shut",
-          "correct": false,
-          "rationale": "Then no air could pass."
-        },
-        {
-          "id": "c",
-          "label": "Vibrating quietly",
-          "correct": false,
-          "rationale": "They vibrate when they snap together to speak."
-        },
-        {
-          "id": "d",
-          "label": "Sweeping mucus upward",
-          "correct": false,
-          "rationale": "That's the cilia's job."
-        }
+      "prompt": "Put the steps of making a spoken word in order, from first to last.",
+      "items": [
+        "Air from your lungs",
+        "Makes them vibrate",
+        "Your throat, nose and mouth",
+        "Your tongue and lips"
       ],
+      "first": "First",
+      "last": "Last",
       "explanation": "The vocal folds stay open for breathing and snap together only to vibrate when you speak.",
       "difficulty": 0.25
     }

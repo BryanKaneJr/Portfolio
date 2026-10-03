@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 37,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Holding Your Breath",
   "objective": "After this level you can explain what controls the urge to breathe.",
@@ -175,7 +175,7 @@
     },
     {
       "id": "question.human_body.037.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.breath_co2_drive",
@@ -183,32 +183,23 @@
       ],
       "sourceCardIds": [
         "card.human_body.037.c3",
-        "card.human_body.031.c3"
+        "card.human_body.031.c3",
+        "card.human_body.037.c2",
+        "card.human_body.037.c4"
       ],
-      "prompt": "Level 31's cells keep giving off carbon dioxide. What happens to it while you hold your breath?",
-      "options": [
+      "prompt": "Match each breathing control term with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It builds up and sets off your breathing alarm",
-          "correct": true
+          "left": "Medulla oblongata",
+          "right": "Part of your brainstem"
         },
         {
-          "id": "b",
-          "label": "It turns back into oxygen",
-          "correct": false,
-          "rationale": "It's exhaust, and it isn't recycled into oxygen."
+          "left": "Rising carbon dioxide",
+          "right": "The main signal to breathe"
         },
         {
-          "id": "c",
-          "label": "It stays locked inside the cells",
-          "correct": false,
-          "rationale": "It passes into the blood, where it builds up."
-        },
-        {
-          "id": "d",
-          "label": "It stops being made",
-          "correct": false,
-          "rationale": "Cells keep working and keep making it."
+          "left": "Hyperventilating",
+          "right": "Overbreathing before going under"
         }
       ],
       "explanation": "With no breath out to remove it, carbon dioxide builds up, and rising carbon dioxide is the main trigger of the urge to breathe.",

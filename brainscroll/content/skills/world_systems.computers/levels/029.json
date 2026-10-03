@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 29,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Bugs",
   "objective": "After this level you can explain how a bug creeps into a program, from the 1947 moth to the 1996 Ariane 5 rocket failure.",
@@ -92,41 +92,24 @@
   "questions": [
     {
       "id": "question.computers.029.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.software_bug_moth"
       ],
       "sourceCardIds": [
-        "card.computers.029.c2"
+        "card.computers.029.c2",
+        "card.computers.029.c3"
       ],
-      "prompt": "Where was the famous 1947 moth found?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Inside an early smartphone",
-          "correct": false,
-          "rationale": "Smartphones came decades later."
-        },
-        {
-          "id": "b",
-          "label": "Between the relay contacts of the Harvard Mark II",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "In Ariane 5's inertial reference system",
-          "correct": false,
-          "rationale": "Ariane 5's bug was in its software, in 1996."
-        },
-        {
-          "id": "d",
-          "label": "In a Bell Labs telephone line",
-          "correct": false,
-          "rationale": "It was in the Harvard Mark II computer."
-        }
+      "prompt": "Put these moments in the story of bugs in order, from earliest to latest.",
+      "items": [
+        "Thomas Edison",
+        "The moth was caught",
+        "The first Ariane 5 rocket"
       ],
-      "explanation": "The moth was caught between relay contacts of the Harvard Mark II and taped into its logbook.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Calling a fault a bug goes back to Thomas Edison in the 1800s, the moth was caught in the Harvard Mark II in 1947, and the first Ariane 5 rocket was lost in 1996.",
       "difficulty": 0.15
     },
     {
