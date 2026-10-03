@@ -2,6 +2,12 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: Skill-map waypoints with character
+
+- **Each subject's waypoints wear its own silhouette** (owner): a book for History, a beaker for Science, a mountain for Geography, a paint splatter for Arts & Culture (drawn, as no icon set has one), gears for How the World Works and a brain for Mind & Reasoning. Checkpoints, Level 50 and mastery levels keep their shield, flag and star.
+- **The sheen varies:** five patterns at the same angle, some with two stripes, picked by level number so neighbouring waypoints never match.
+- **Waypoints are a little wider**, so the hexagons no longer look narrow.
+
 ## 2026-10-03: A picture on every learning card
 
 - **Every learning card now has a picture** (owner: "10% clearly isn't enough"; Ancient Egypt's Level 1 had none). Before, a card only got a picture when an image was clearly named for it, which left whole trees bare (Government 4%, US History 8%, Logic 9%). Now the 1,822 hand-reviewed picks still come first, and the other 6,218 learning cards get a generated picture: the best looser match among the skill's own images, else the level's own image, else one from its chapter. A picture never repeats on the next card, and the first card never repeats the opening image. Matching against every image in the app was tried and dropped: it picked nonsense (a web browser for an animal's "bigger windows").

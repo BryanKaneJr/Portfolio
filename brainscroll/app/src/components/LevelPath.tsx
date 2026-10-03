@@ -86,6 +86,7 @@ export function LevelPath({
   const [width, setWidth] = useState(340);
   // The skill's subject colour (theme/subjectTheme.ts).
   const tint = skillTint(skillId, skills);
+  const subjectId = skills.find((s) => s.id === skillId)?.subjectId;
   const focus = nextNumber ?? Math.max(level, 1);
   const chapter = forced ?? chapterFor(skillId, focus);
   const first = chapter?.levels[0] ?? Math.floor((focus - 1) / 10) * 10 + 1;
@@ -188,6 +189,7 @@ export function LevelPath({
               <View style={{ position: 'absolute', left: x - size / 2, top: y - size / 2 }}>
                 <Waypoint
                   tint={tint}
+                  subject={subjectId}
                   n={n}
                   size={size}
                   state={state}
@@ -269,20 +271,26 @@ function knows(line: string, cleared: boolean, by: number) {
   return phrase ? `By Level ${by}, you'll know ${phrase}` : `By Level ${by}: ${line}`;
 }
 
-/** Pointy-top hexagon corners inside a box of `w` × `h`, starting at the top. */
+/**
+ * Pointy-top hexagon corners inside a box of `w` × `h`, starting at the top.
+ * Stretched a little sideways (owner, 2026-10-03: they looked narrow) so the
+ * face spans the box's full width.
+ */
 function hex(w: number, h: number, dy = 0) {
   const cx = w / 2;
   const r = h / 2;
   return [-90, -30, 30, 90, 150, 210]
     .map((a) => {
       const rad = (a * Math.PI) / 180;
-      return `${cx + r * Math.cos(rad) * 1.08},${r + dy + r * Math.sin(rad)}`;
+      return `${cx + r * Math.cos(rad) * 1.16},${r + dy + r * Math.sin(rad)}`;
     })
     .join(' ');
 }
 
-function Waypoint({ n, size, state, boss, gold, fog, celebrate, wake, label, onPress, tint }: {
+function Waypoint({ n, size, state, boss, gold, fog, celebrate, wake, label, onPress, tint, subject }: {
   n: number;
+  /** The skill's subject: its regular levels wear the subject's silhouette. */
+  subject?: string;
   /** 0 to 1: how deep in the fog of war a locked waypoint sits. */
   fog: number;
   size: number;
@@ -304,11 +312,16 @@ function Waypoint({ n, size, state, boss, gold, fog, celebrate, wake, label, onP
   const edge = locked ? color.border : gold ? color.masteryEdge : done ? tint.clearedEdge : tint.edge;
   const ink = locked ? color.textFaint : gold ? color.onMastery : done ? tint.text : tint.ink;
   const pop = usePop(celebrate, { from: 0.5, delay: 250 });
-  // A flat face with one diagonal sheen stripe, like light across glazed plastic.
+  // A flat face with diagonal sheen stripes, like light across glazed plastic:
+  // the same angle on every waypoint, in one of five patterns (owner, 2026-10-03).
   const clip = `face${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
   const sheen = locked ? 0.05 : done ? 0.1 : 0.24;
-  // What kind of level it is, at a glance (the number is in its label and callout).
-  const glyph: IconName = n % MASTERY_BAND_SIZE === 0 ? 'star' : n % 50 === 0 ? 'flag' : boss ? 'shield' : 'book';
+  const stripes = SHEENS[(n * 3) % SHEENS.length]!;
+  // What kind of level it is, at a glance (the number is in its label and callout);
+  // a regular level wears its subject's silhouette.
+  const special: IconName | undefined = n % MASTERY_BAND_SIZE === 0 ? 'star' : n % 50 === 0 ? 'flag' : boss ? 'shield' : undefined;
+  const glyph: IconName | 'splatter' = special ?? SUBJECT_GLYPH[subject ?? ''] ?? 'book';
+  const glyphSize = boss || state === 'current' ? iconSize.xl : 28;
   const woken = usePop(wake, { from: 0.75, delay: 700 });
   const face = size - EDGE;
   // The top face, pushed down onto its side while pressed.
@@ -327,15 +340,18 @@ function Waypoint({ n, size, state, boss, gold, fog, celebrate, wake, label, onP
               {state === 'current' && <Polygon points={hex(size, size - 2, 1)} fill="none" stroke={tint.line} strokeWidth={4} />}
               <Polygon points={hex(size, face - (state === 'current' ? 16 : 0), EDGE + (state === 'current' ? 8 : 0))} fill={edge} />
               <Polygon points={faceAt(pressed)} fill={fill} />
-              <Polygon
-                clipPath={`url(#${clip})`}
-                points={`${size * 0.3},0 ${size * 0.54},0 ${size * 0.24},${size} ${size * 0},${size}`}
-                fill="#FFFFFF"
-                fillOpacity={sheen}
-              />
+              {stripes.map(([at, w]) => (
+                <Polygon
+                  key={at}
+                  clipPath={`url(#${clip})`}
+                  points={`${size * at},0 ${size * (at + w)},0 ${size * (at + w - SLANT)},${size} ${size * (at - SLANT)},${size}`}
+                  fill="#FFFFFF"
+                  fillOpacity={sheen}
+                />
+              ))}
             </Svg>
             <View style={[StyleSheet.absoluteFill, styles.center, { opacity: 1 - fog, paddingBottom: pressed ? 0 : EDGE, paddingTop: pressed ? EDGE : 0 }]}>
-              <Icon name={glyph} tint={ink} size={boss || state === 'current' ? iconSize.xl : 28} />
+              {glyph === 'splatter' ? <Splatter tint={ink} size={glyphSize} /> : <Icon name={glyph} tint={ink} size={glyphSize} />}
             </View>
             {/* State marks for every waypoint, checkpoints too, so cleared and locked never rest on colour alone. */}
             {state === 'done' && (
@@ -353,6 +369,42 @@ function Waypoint({ n, size, state, boss, gold, fog, celebrate, wake, label, onP
         )}
       </Pressable>
     </Animated.View>
+  );
+}
+
+/** Each subject's waypoint silhouette (owner, 2026-10-03); History keeps the book. */
+const SUBJECT_GLYPH: Record<string, IconName | 'splatter'> = {
+  'subject.history': 'book',
+  'subject.science': 'beaker',
+  'subject.geography': 'mountain',
+  'subject.arts': 'splatter',
+  'subject.world_systems': 'gears',
+  'subject.mind': 'brain',
+};
+
+/**
+ * The sheen patterns: [where a stripe starts along the top edge, its width],
+ * both as fractions of the waypoint. Every stripe leans the same way (SLANT
+ * across the full height); some waypoints get two. Picked by level number,
+ * so neighbours differ.
+ */
+const SLANT = 0.3;
+const SHEENS: readonly (readonly [number, number])[][] = [
+  [[0.3, 0.24]],
+  [[0.5, 0.14], [0.72, 0.07]],
+  [[0.64, 0.2]],
+  [[0.2, 0.1], [0.38, 0.17]],
+  [[0.46, 0.08], [0.82, 0.16]],
+];
+
+/** Arts' waypoint silhouette: a paint splatter (no icon set has one). Decorative. */
+function Splatter({ tint, size }: { tint: string; size: number }) {
+  return (
+    <Svg width={size} height={size} viewBox="0 0 24 24" aria-hidden>
+      {/* Uneven arms and streaks around a round middle, and a few flung drops. */}
+      <Path fill={tint} d="M12.00 2.99 L12.43 1.74 L12.96 0.66 L13.46 0.50 L13.94 0.57 L14.24 1.47 L14.36 2.80 L14.39 4.02 L14.43 4.93 L14.53 5.48 L14.71 5.78 L14.94 5.94 L15.21 6.03 L15.51 6.10 L15.82 6.15 L16.15 6.19 L16.50 6.24 L16.86 6.29 L17.23 6.37 L17.59 6.47 L17.94 6.62 L18.24 6.81 L18.49 7.06 L18.67 7.35 L18.78 7.69 L18.80 8.06 L18.76 8.45 L18.65 8.85 L18.50 9.23 L18.35 9.60 L18.21 9.94 L18.16 10.23 L18.24 10.50 L18.52 10.74 L19.01 10.99 L19.69 11.26 L20.44 11.60 L21.08 12.00 L21.42 12.42 L21.37 12.83 L20.93 13.17 L20.23 13.42 L19.46 13.60 L18.78 13.74 L18.28 13.88 L17.97 14.07 L17.81 14.31 L17.76 14.60 L17.77 14.93 L17.79 15.29 L17.81 15.67 L17.80 16.05 L17.76 16.44 L17.69 16.81 L17.57 17.17 L17.40 17.49 L17.18 17.77 L16.92 18.01 L16.62 18.19 L16.28 18.32 L15.92 18.39 L15.55 18.41 L15.16 18.38 L14.78 18.32 L14.41 18.22 L14.05 18.11 L13.71 17.98 L13.39 17.85 L13.08 17.74 L12.80 17.70 L12.55 17.86 L12.30 18.37 L12.00 19.38 L11.60 20.78 L11.08 22.11 L10.54 22.70 L10.12 22.27 L9.94 20.91 L9.95 19.26 L10.02 17.89 L10.03 17.01 L9.95 16.56 L9.79 16.35 L9.57 16.26 L9.32 16.24 L9.04 16.25 L8.71 16.30 L8.32 16.39 L7.88 16.51 L7.38 16.65 L6.83 16.77 L6.27 16.85 L5.73 16.86 L5.25 16.78 L4.86 16.60 L4.61 16.31 L4.50 15.93 L4.51 15.50 L4.63 15.04 L4.82 14.58 L5.03 14.14 L5.24 13.73 L5.43 13.36 L5.57 13.02 L5.68 12.71 L5.76 12.42 L5.81 12.14 L5.84 11.87 L5.86 11.60 L5.84 11.33 L5.76 11.05 L5.54 10.75 L5.13 10.39 L4.51 9.94 L3.75 9.39 L3.04 8.77 L2.61 8.18 L2.64 7.72 L3.16 7.48 L4.02 7.45 L4.99 7.55 L5.85 7.68 L6.49 7.74 L6.90 7.68 L7.13 7.52 L7.27 7.27 L7.37 6.97 L7.46 6.64 L7.57 6.32 L7.70 6.00 L7.88 5.71 L8.09 5.46 L8.33 5.25 L8.62 5.10 L8.92 5.00 L9.25 4.96 L9.58 4.96 L9.92 4.99 L10.25 5.05 L10.56 5.11 L10.86 5.12 L11.13 5.02 L11.40 4.70 L11.67 4.03Z" />
+      <Path fill={tint} d="M22.12 8.32a1.1 1.1 0 1 1-2.20 0a1.1 1.1 0 1 1 2.20 0Z M21.76 16.80a0.75 0.75 0 1 1-1.50 0a0.75 0.75 0 1 1 1.50 0Z M15.64 19.96a0.6 0.6 0 1 1-1.20 0a0.6 0.6 0 1 1 1.20 0Z M6.42 19.18a1.25 1.25 0 1 1-2.50 0a1.25 1.25 0 1 1 2.50 0Z M3.00 12.96a0.7 0.7 0 1 1-1.40 0a0.7 0.7 0 1 1 1.40 0Z M10.96 1.16a0.8 0.8 0 1 1-1.60 0a0.8 0.8 0 1 1 1.60 0Z" />
+    </Svg>
   );
 }
 

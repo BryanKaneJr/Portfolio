@@ -37,6 +37,11 @@ const ICONS = {
   mind: { ios: 'lightbulb.fill', android: 'lightbulb', web: 'lightbulb' },
   history: { ios: 'building.columns.fill', android: 'account_balance', web: 'account_balance' },
   science: { ios: 'atom', android: 'science', web: 'science' },
+  // Skill-map waypoints, one silhouette per subject (owner, 2026-10-03). Arts' paint splatter is drawn (LevelPath).
+  beaker: { ios: 'flask.fill', android: 'science', web: 'science' },
+  mountain: { ios: 'mountain.2.fill', android: 'landscape', web: 'landscape' },
+  gears: { ios: 'gearshape.2.fill', android: 'settings', web: 'settings' },
+  brain: { ios: 'brain.fill', android: 'neurology', web: 'neurology' },
 } as const satisfies Record<string, SymbolViewProps['name']>;
 export type IconName = keyof typeof ICONS;
 
