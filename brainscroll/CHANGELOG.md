@@ -2,6 +2,12 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: A picture on every learning card
+
+- **Every learning card now has a picture** (owner: "10% clearly isn't enough"; Ancient Egypt's Level 1 had none). Before, a card only got a picture when an image was clearly named for it, which left whole trees bare (Government 4%, US History 8%, Logic 9%). Now the 1,822 hand-reviewed picks still come first, and the other 6,218 learning cards get a generated picture: the best looser match among the skill's own images, else the level's own image, else one from its chapter. A picture never repeats on the next card, and the first card never repeats the opening image. Matching against every image in the app was tried and dropped: it picked nonsense (a web browser for an animal's "bigger windows").
+- **Generated, not hand-kept:** `npm run card-art` writes the fill into `app/src/content/cardArt.ts` (`CARD_ART_FILL`) on every run, so new levels get pictures with no extra step, and `check` keeps it current. A reviewed pick in `content/card-art.json` always wins.
+- **Dr. Scroll's guest picture stays about one card in ten**, standing in for a filled card; when there isn't room for him, that card shows its picture instead of nothing.
+
 ## 2026-10-03: Calmer motion; Dr. Scroll moves into the feed
 
 - **The tape-measure pose is gone** (owner): its image is deleted, and the posts, map and error screen that used it pick from the 19 other everyday poses.
