@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 7,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Rites of Passage",
   "objective": "After this level you can explain the three stages scholars see in rites of passage, from coming-of-age ceremonies to funerals.",
@@ -133,7 +133,7 @@
     },
     {
       "id": "question.religions.007.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.passage_three_stages"
@@ -141,33 +141,15 @@
       "sourceCardIds": [
         "card.religions.007.c3"
       ],
-      "prompt": "What is happening during the liminal stage of a rite of passage?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The person is being chosen for the ceremony",
-          "correct": false,
-          "rationale": "Selection isn't a stage."
-        },
-        {
-          "id": "b",
-          "label": "The person has left the old status but not yet joined the new one",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The community welcomes the person back in a new role",
-          "correct": false,
-          "rationale": "That's incorporation, the final stage."
-        },
-        {
-          "id": "d",
-          "label": "The ceremony is recorded in a written register",
-          "correct": false,
-          "rationale": "Writing isn't one of the stages."
-        }
+      "prompt": "Put van Gennep's three stages of a rite of passage in order.",
+      "items": [
+        "Separation",
+        "Transition",
+        "Incorporation"
       ],
-      "explanation": "Liminal comes from limen, 'threshold': the in-between stage after separation and before incorporation.",
+      "first": "First stage",
+      "last": "Last stage",
+      "explanation": "First comes separation from the old status, then transition, the liminal stage, and finally incorporation into the community with the new status.",
       "difficulty": 0.3
     },
     {

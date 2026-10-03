@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 79,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "A Nation of Many Faiths",
   "objective": "After this level you can explain how immigration since 1965 widened American religion, and what surveys show about Americans' faith today.",
@@ -134,42 +134,25 @@
     },
     {
       "id": "question.religions.079.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.america_immigration_1965"
       ],
       "sourceCardIds": [
         "card.religions.079.c2",
-        "card.religions.079.c3"
+        "card.religions.079.c3",
+        "card.religions.079.c4"
       ],
-      "prompt": "How did the 1965 act widen America's religious life?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It required new immigrants to join a church",
-          "correct": false,
-          "rationale": "The law was about who could immigrate."
-        },
-        {
-          "id": "b",
-          "label": "It opened doors to immigrants of many faiths",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It created several new American religions by law",
-          "correct": false,
-          "rationale": "Laws don't create religions."
-        },
-        {
-          "id": "d",
-          "label": "It ended the arrival of Christian immigrants",
-          "correct": false,
-          "rationale": "Christians stayed the majority."
-        }
+      "prompt": "Put these groups in order of their share of US adults in Pew's 2023 to 2024 study, largest first.",
+      "items": [
+        "Christian",
+        "Religiously unaffiliated",
+        "Other religions"
       ],
-      "explanation": "Ending national-origin limits let Muslims, Hindus, Buddhists, Sikhs and others immigrate and build communities.",
+      "first": "Largest share",
+      "last": "Smallest share",
+      "explanation": "About 62% of US adults identified as Christian, 29% as religiously unaffiliated and 7% with other religions.",
       "difficulty": 0.3
     },
     {

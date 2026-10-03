@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 42,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Vedas and Upanishads",
   "objective": "After this level you can explain what the Vedas are and the Upanishads' teaching that the self (atman) is one with ultimate reality (Brahman).",
@@ -129,41 +129,25 @@
     },
     {
       "id": "question.religions.042.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.upanishads_atman_brahman"
       ],
       "sourceCardIds": [
-        "card.religions.042.c3"
+        "card.religions.042.c3",
+        "card.religions.042.c2"
       ],
-      "prompt": "Why does Uddalaka have his son put salt in water?",
-      "options": [
-        {
-          "id": "a",
-          "label": "To show that the self is unseen yet present throughout",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "To teach how to purify water for a sacrifice",
-          "correct": false,
-          "rationale": "It's a lesson about the self, not a ritual."
-        },
-        {
-          "id": "c",
-          "label": "To prove that salt vanishes completely",
-          "correct": false,
-          "rationale": "The boy still tastes it everywhere."
-        },
-        {
-          "id": "d",
-          "label": "To test whether his son would obey",
-          "correct": false,
-          "rationale": "The point is the lesson: \"you are that\"."
-        }
+      "prompt": "Put the four layers of each Veda in order.",
+      "items": [
+        "Samhitas",
+        "Brahmanas",
+        "Aranyakas",
+        "Upanishads"
       ],
-      "explanation": "Like the salt, the self can't be seen, yet it is present throughout.",
+      "first": "First layer",
+      "last": "Last layer",
+      "explanation": "Each Veda runs from the Samhitas, largely hymns, to the Brahmanas, then the Aranyakas and, last, the Upanishads.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 91,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Three Kinds of Secular State",
   "objective": "After this level you can compare America's separation of church and state, France's laïcité and India's secularism, and weigh what each protects.",
@@ -162,42 +162,32 @@
     },
     {
       "id": "question.religions.091.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.doubt_indian_secularism"
       ],
       "sourceCardIds": [
         "card.religions.091.c4",
-        "card.religions.091.c5"
+        "card.religions.091.c5",
+        "card.religions.091.c3"
       ],
-      "prompt": "A new country pledges equal respect to all faiths and lets each community follow its own family law. Which model is it closest to?",
-      "options": [
+      "prompt": "Match each country with its kind of secularism.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "France's laïcité",
-          "correct": false,
-          "rationale": "Laïcité keeps religion out of public institutions."
+          "left": "United States",
+          "right": "No established church"
         },
         {
-          "id": "b",
-          "label": "India's secularism",
-          "correct": true
+          "left": "France",
+          "right": "Laïcité"
         },
         {
-          "id": "c",
-          "label": "America's separation",
-          "correct": false,
-          "rationale": "The US model bars establishment and protects free exercise."
-        },
-        {
-          "id": "d",
-          "label": "A state church",
-          "correct": false,
-          "rationale": "No single faith is favored here."
+          "left": "India",
+          "right": "Equal respect for all religions"
         }
       ],
-      "explanation": "Equal respect for all religions plus religious personal law in family matters is India's design.",
+      "explanation": "The United States has no established church, France practices laïcité, a neutral public sphere, and India offers equal respect for all religions.",
       "difficulty": 0.4
     },
     {

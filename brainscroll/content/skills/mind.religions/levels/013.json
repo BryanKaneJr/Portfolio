@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 13,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Hebrew Bible",
   "objective": "After this level you can name the three parts of the Tanakh and explain how the Torah is read aloud in the synagogue through the year.",
@@ -90,7 +90,7 @@
   "questions": [
     {
       "id": "question.religions.013.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.religions.judaism_tanakh_parts"
@@ -98,33 +98,22 @@
       "sourceCardIds": [
         "card.religions.013.c2"
       ],
-      "prompt": "What three parts does the name Tanakh stand for?",
-      "options": [
+      "prompt": "Match each part of the Tanakh with its meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Torah, Talmud and Midrash",
-          "correct": false,
-          "rationale": "The Talmud is not part of the Hebrew Bible."
+          "left": "Torah",
+          "right": "Instruction"
         },
         {
-          "id": "b",
-          "label": "Torah, Nevi'im and Ketuvim: Instruction, Prophets, Writings",
-          "correct": true
+          "left": "Nevi'im",
+          "right": "Prophets"
         },
         {
-          "id": "c",
-          "label": "Genesis, Exodus and Deuteronomy",
-          "correct": false,
-          "rationale": "Those are three books of the Torah alone."
-        },
-        {
-          "id": "d",
-          "label": "Psalms, Proverbs and Prophets",
-          "correct": false,
-          "rationale": "Psalms and Proverbs are among the Writings."
+          "left": "Ketuvim",
+          "right": "Writings"
         }
       ],
-      "explanation": "Tanakh is an acronym of Torah, Nevi'im and Ketuvim.",
+      "explanation": "Tanakh is an acronym of Torah (Instruction, or Law), Nevi'im (Prophets) and Ketuvim (Writings).",
       "difficulty": 0.2
     },
     {

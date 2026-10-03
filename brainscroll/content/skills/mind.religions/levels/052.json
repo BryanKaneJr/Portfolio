@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 52,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Four Noble Truths",
   "objective": "After this level you can explain the Buddha's diagnosis of suffering, its cause in craving, and why he taught that it can end.",
@@ -126,41 +126,25 @@
     },
     {
       "id": "question.religions.052.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.buddhist_four_noble_truths"
       ],
       "sourceCardIds": [
-        "card.religions.052.c4"
+        "card.religions.052.c4",
+        "card.religions.052.c3"
       ],
-      "prompt": "Why did the Buddha teach that suffering can come to an end?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It fades by itself over time",
-          "correct": false,
-          "rationale": "It ends when its cause is removed."
-        },
-        {
-          "id": "b",
-          "label": "Its cause, craving, can be removed",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Only the rich and powerful suffer",
-          "correct": false,
-          "rationale": "Dukkha runs through all of samsara."
-        },
-        {
-          "id": "d",
-          "label": "Every new life is better than the last",
-          "correct": false,
-          "rationale": "The answer lies in ending craving."
-        }
+      "prompt": "Put the Four Noble Truths in order.",
+      "items": [
+        "Dukkha",
+        "Craving",
+        "Nirvana",
+        "The Eightfold Path"
       ],
-      "explanation": "Suffering has a cause, craving. Remove the cause and suffering ceases: that cessation is nirvana.",
+      "first": "First truth",
+      "last": "Fourth truth",
+      "explanation": "The first truth is dukkha, suffering. The second names its cause, craving. The third says it can cease, in nirvana. The fourth gives the way: the Eightfold Path.",
       "difficulty": 0.3
     },
     {

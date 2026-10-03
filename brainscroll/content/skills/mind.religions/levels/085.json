@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 85,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Giving as a Duty",
   "objective": "After this level you can compare zakat, tzedakah, Christian charity, Buddhist dana and the Sikh langar, and why each faith asks believers to give.",
@@ -137,41 +137,37 @@
     },
     {
       "id": "question.religions.085.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.giving_tzedakah"
       ],
       "sourceCardIds": [
-        "card.religions.085.c3"
+        "card.religions.085.c3",
+        "card.religions.085.c2",
+        "card.religions.085.c4",
+        "card.religions.085.c5"
       ],
-      "prompt": "By Maimonides' ranking, which of these acts of giving ranks highest?",
-      "options": [
+      "prompt": "Match each form of giving with the reason behind it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A generous gift after being asked",
-          "correct": false,
-          "rationale": "Giving before or without being asked ranks higher."
+          "left": "Zakat",
+          "right": "Purification"
         },
         {
-          "id": "b",
-          "label": "A public donation with your name on it",
-          "correct": false,
-          "rationale": "Anonymous giving ranks above public giving."
+          "left": "Tzedakah",
+          "right": "Justice"
         },
         {
-          "id": "c",
-          "label": "An anonymous gift through a fund",
-          "correct": false,
-          "rationale": "Close, but one level lower."
+          "left": "Dana",
+          "right": "Merit"
         },
         {
-          "id": "d",
-          "label": "A loan that helps a neighbor start a small business",
-          "correct": true
+          "left": "Langar",
+          "right": "Equality"
         }
       ],
-      "explanation": "Maimonides ranked highest the gift, loan or partnership that helps a poor person stand on their own.",
+      "explanation": "Zakat means purification, tzedakah comes from the word for justice, dana builds merit, and the langar embodies equality.",
       "difficulty": 0.35
     },
     {

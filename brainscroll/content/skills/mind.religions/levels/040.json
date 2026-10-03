@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 40,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Islam",
   "objective": "After this level you can explain what Muslims believe, how they worship and how Islam's branches and law took shape.",
@@ -154,7 +154,7 @@
   "questions": [
     {
       "id": "question.religions.040.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.religions.islam_first_revelation",
@@ -165,33 +165,18 @@
         "card.religions.031.c2",
         "card.religions.031.c4"
       ],
-      "prompt": "Which order is right for these events in Muhammad's life?",
-      "options": [
-        {
-          "id": "a",
-          "label": "First revelation, hijra, death in Medina",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Hijra, first revelation, death in Medina",
-          "correct": false,
-          "rationale": "The revelation (610) came before the hijra (622)."
-        },
-        {
-          "id": "c",
-          "label": "First revelation, death in Medina, hijra",
-          "correct": false,
-          "rationale": "The hijra (622) came before his death (632)."
-        },
-        {
-          "id": "d",
-          "label": "Hijra, death in Medina, first revelation",
-          "correct": false,
-          "rationale": "The revelation came first, in 610."
-        }
+      "prompt": "Put these events of Islam's first centuries in order, from earliest to latest.",
+      "items": [
+        "Muhammad born in Mecca",
+        "First revelation on Mount Hira",
+        "The hijra to Medina",
+        "Muhammad dies",
+        "Husayn killed at Karbala",
+        "Death of al-Bukhari"
       ],
-      "explanation": "610, then 622, then 632.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Muhammad was born about 570, the first revelation came in 610, the hijra in 622, his death in 632, Karbala in 680, and al-Bukhari died in 870.",
       "difficulty": 0.3
     },
     {

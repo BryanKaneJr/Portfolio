@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 62,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Confucian Ritual and Family",
   "objective": "After this level you can explain Confucian rites and filial piety, and why scholars disagree over whether Confucianism is a religion.",
@@ -102,41 +102,24 @@
   "questions": [
     {
       "id": "question.religions.062.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.religions.confucian_li"
       ],
       "sourceCardIds": [
-        "card.religions.062.c2"
+        "card.religions.062.c2",
+        "card.religions.062.c4"
       ],
-      "prompt": "What does the Confucian term li cover?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Ritual, etiquette and social convention",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Meditation on the breath",
-          "correct": false,
-          "rationale": "That isn't what li names."
-        },
-        {
-          "id": "c",
-          "label": "The life-force believed to fill mountains, rivers and trees",
-          "correct": false,
-          "rationale": "That's closer to Shinto's kami."
-        },
-        {
-          "id": "d",
-          "label": "A list of forbidden foods",
-          "correct": false,
-          "rationale": "Li is about playing roles properly."
-        }
+      "prompt": "Put the three sections of the Taipei ceremony for Confucius in order.",
+      "items": [
+        "Welcoming Confucius's spirit",
+        "Paying respects",
+        "Escorting the spirit away"
       ],
-      "explanation": "Li is ritual in a broad sense: rites, etiquette and convention, and a willingness to play all your roles properly.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The ceremony opens by welcoming Confucius's spirit, continues with paying respects, and ends by escorting the spirit away.",
       "difficulty": 0.3
     },
     {

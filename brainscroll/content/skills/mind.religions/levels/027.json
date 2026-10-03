@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 27,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Eastern Orthodoxy",
   "objective": "After this level you can explain what sets Orthodox Christianity apart, from its self-governing churches to icons and its own date for Easter.",
@@ -142,41 +142,36 @@
     },
     {
       "id": "question.religions.027.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.christianity_orthodox_icons"
       ],
       "sourceCardIds": [
-        "card.religions.027.c4"
+        "card.religions.027.c4",
+        "card.religions.027.c2",
+        "card.religions.027.c3"
       ],
-      "prompt": "How does Orthodox teaching separate honoring an icon from worship?",
-      "options": [
+      "prompt": "Match each Orthodox term with its meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Veneration goes to the person shown; worship is for God alone",
-          "correct": true
+          "left": "Autocephalous",
+          "right": "Self-governing"
         },
         {
-          "id": "b",
-          "label": "Icons are worshipped only on feast days",
-          "correct": false,
-          "rationale": "Worship is due to God alone, on any day."
+          "left": "Ecumenical Patriarch",
+          "right": "First among equals"
         },
         {
-          "id": "c",
-          "label": "Icons may be kept at home but never in church",
-          "correct": false,
-          "rationale": "They're central in both."
+          "left": "Veneration",
+          "right": "Honor that passes to the person shown"
         },
         {
-          "id": "d",
-          "label": "Only clergy may honor icons",
-          "correct": false,
-          "rationale": "Icons are honored in ordinary homes too."
+          "left": "Worship",
+          "right": "Due to God alone"
         }
       ],
-      "explanation": "Veneration of an icon passes to the person depicted; worship belongs to God alone.",
+      "explanation": "Autocephalous means self-governing; the Ecumenical Patriarch is first among equals; veneration of an icon is honor that passes to the person shown; and worship is due to God alone.",
       "difficulty": 0.35
     },
     {

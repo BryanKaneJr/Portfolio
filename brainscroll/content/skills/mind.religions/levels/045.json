@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 45,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Three Paths in the Gita",
   "objective": "After this level you can explain the paths of action, knowledge and devotion that the Bhagavad Gita teaches.",
@@ -135,41 +135,31 @@
     },
     {
       "id": "question.religions.045.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.gita_three_paths"
       ],
       "sourceCardIds": [
-        "card.religions.045.c3"
+        "card.religions.045.c3",
+        "card.religions.045.c4"
       ],
-      "prompt": "Why does Krishna tell Arjuna to act without desire for the results?",
-      "options": [
+      "prompt": "Match each path in the Gita with its meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "So Arjuna can stop acting altogether",
-          "correct": false,
-          "rationale": "Krishna urges action, not withdrawal."
+          "left": "Karma",
+          "right": "Action"
         },
         {
-          "id": "b",
-          "label": "So Arjuna can do his duty without clinging to the outcome",
-          "correct": true
+          "left": "Jnana",
+          "right": "Knowledge"
         },
         {
-          "id": "c",
-          "label": "So the war will be won more quickly",
-          "correct": false,
-          "rationale": "The teaching is about attachment, not speed."
-        },
-        {
-          "id": "d",
-          "label": "Because results never follow from actions",
-          "correct": false,
-          "rationale": "Karma links actions and results."
+          "left": "Bhakti",
+          "right": "Devotion"
         }
       ],
-      "explanation": "Nishkama karma means doing one's duty while giving up attachment to its results.",
+      "explanation": "Krishna teaches the path of action, karma; the path of knowledge, jnana; and the path of devotion, bhakti.",
       "difficulty": 0.3
     },
     {

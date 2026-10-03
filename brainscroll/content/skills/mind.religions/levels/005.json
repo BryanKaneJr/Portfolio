@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 5,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Oldest Signs of Belief",
   "objective": "After this level you can describe what ancient burials with grave goods and the stone pillars of Göbekli Tepe suggest about religion before writing.",
@@ -166,7 +166,7 @@
     },
     {
       "id": "question.religions.005.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.religions.early_burials",
@@ -177,33 +177,15 @@
         "card.religions.005.c4",
         "card.religions.005.c1"
       ],
-      "prompt": "What do the Qafzeh graves and Göbekli Tepe have in common as evidence?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Both are written records of early prayers",
-          "correct": false,
-          "rationale": "Neither has writing."
-        },
-        {
-          "id": "b",
-          "label": "Both were built by the first farmers",
-          "correct": false,
-          "rationale": "Göbekli Tepe's builders weren't farmers yet."
-        },
-        {
-          "id": "c",
-          "label": "Both come from ancient Egypt",
-          "correct": false,
-          "rationale": "They're in Israel and Turkey."
-        },
-        {
-          "id": "d",
-          "label": "Both point to ritual long before writing",
-          "correct": true
-        }
+      "prompt": "Put these signs of early belief, and the start of writing, in order from earliest to latest.",
+      "items": [
+        "Qafzeh cave",
+        "Göbekli Tepe",
+        "Writing began"
       ],
-      "explanation": "Ochre and antlers at Qafzeh and the carved pillars at Göbekli Tepe both suggest ritual thousands of years before writing began around 3200 BCE.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Qafzeh cave burials are about 100,000 years old. Göbekli Tepe was raised in the 10th to 9th millennium BCE, and writing began around 3200 BCE.",
       "difficulty": 0.3
     }
   ],

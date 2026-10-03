@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 98,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Interfaith Dialogue",
   "objective": "After this level you can describe interfaith milestones from Chicago's 1893 Parliament of the World's Religions onward, and what dialogue does and does not try to do.",
@@ -91,42 +91,32 @@
   "questions": [
     {
       "id": "question.religions.098.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.religions.dialogue_nostra_aetate"
       ],
       "sourceCardIds": [
         "card.religions.098.c3",
-        "card.religions.098.c4"
+        "card.religions.098.c4",
+        "card.religions.098.c2"
       ],
-      "prompt": "What does the Catholic Church's 1965 declaration Nostra Aetate say about other religions?",
-      "options": [
+      "prompt": "Match each name from the history of interfaith dialogue with what this level says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It calls their teachings simply false",
-          "correct": false,
-          "rationale": "It speaks of what is true and holy in them."
+          "left": "Vivekananda",
+          "right": "Help and not fight"
         },
         {
-          "id": "b",
-          "label": "It rejects nothing that is true and holy in them",
-          "correct": true
+          "left": "Nostra Aetate",
+          "right": "Rejects nothing that is true and holy"
         },
         {
-          "id": "c",
-          "label": "It tells Catholics to avoid their followers",
-          "correct": false,
-          "rationale": "It urges dialogue and collaboration."
-        },
-        {
-          "id": "d",
-          "label": "It declares every religion identical",
-          "correct": false,
-          "rationale": "It says the Church must still proclaim Christ."
+          "left": "Leonard Swidler",
+          "right": "Ground rules"
         }
       ],
-      "explanation": "Nostra Aetate says the Church rejects nothing that is true and holy in other religions, and urges dialogue.",
+      "explanation": "Vivekananda said every religion's banner would read \"Help and not fight\". Nostra Aetate says the Church rejects nothing that is true and holy, and Leonard Swidler set out ground rules for dialogue.",
       "difficulty": 0.25
     },
     {

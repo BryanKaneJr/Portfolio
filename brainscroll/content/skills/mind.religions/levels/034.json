@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 34,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Five Pillars",
   "objective": "After this level you can name the Five Pillars of Islam and explain how together they shape a Muslim's day, year and life.",
@@ -134,41 +134,35 @@
     },
     {
       "id": "question.religions.034.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.pillars_life_rhythm"
       ],
       "sourceCardIds": [
-        "card.religions.034.c4"
+        "card.religions.034.c4",
+        "card.religions.034.c2"
       ],
-      "prompt": "How do the Five Pillars spread across a Muslim's time?",
-      "options": [
+      "prompt": "Match each pillar with what it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Prayer weekly, fasting daily, hajj every year",
-          "correct": false,
-          "rationale": "Prayer is five times a day, and the hajj is once in a lifetime."
+          "left": "Salat",
+          "right": "Prayer five times a day"
         },
         {
-          "id": "b",
-          "label": "Prayer daily, zakat and fasting yearly, hajj once",
-          "correct": true
+          "left": "Zakat",
+          "right": "Giving to the poor"
         },
         {
-          "id": "c",
-          "label": "All of them once a year, during Ramadan",
-          "correct": false,
-          "rationale": "Only the fast belongs to Ramadan."
+          "left": "Sawm",
+          "right": "Fasting in the month of Ramadan"
         },
         {
-          "id": "d",
-          "label": "Only the shahada repeats; the rest happen once",
-          "correct": false,
-          "rationale": "Prayer, zakat and fasting all repeat."
+          "left": "Hajj",
+          "right": "The pilgrimage to Mecca"
         }
       ],
-      "explanation": "Salat is daily; zakat and the Ramadan fast come yearly; the hajj is due at least once in a lifetime.",
+      "explanation": "Salat is prayer five times a day, zakat is giving to the poor, sawm is fasting in the month of Ramadan, and hajj is the pilgrimage to Mecca.",
       "difficulty": 0.3
     },
     {

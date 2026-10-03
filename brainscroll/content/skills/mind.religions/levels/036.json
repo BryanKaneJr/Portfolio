@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 36,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Ramadan and the Two Eids",
   "objective": "After this level you can explain why Muslims fast from dawn to sunset in Ramadan and what Eid al-Fitr and Eid al-Adha celebrate.",
@@ -90,41 +90,36 @@
   "questions": [
     {
       "id": "question.religions.036.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.religions.ramadan_two_eids"
       ],
       "sourceCardIds": [
-        "card.religions.036.c4"
+        "card.religions.036.c4",
+        "card.religions.036.c2",
+        "card.religions.036.c3"
       ],
-      "prompt": "What does Eid al-Adha commemorate?",
-      "options": [
+      "prompt": "Match each name with its meaning or time.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The end of the Ramadan fast",
-          "correct": false,
-          "rationale": "That's Eid al-Fitr."
+          "left": "Eid al-Fitr",
+          "right": "Feast of Fast-Breaking"
         },
         {
-          "id": "b",
-          "label": "Abraham's willingness to sacrifice his son",
-          "correct": true
+          "left": "Eid al-Adha",
+          "right": "Festival of Sacrifice"
         },
         {
-          "id": "c",
-          "label": "The first revelation of the Quran",
-          "correct": false,
-          "rationale": "That's remembered on Laylat al-Qadr."
+          "left": "Laylat al-Qadr",
+          "right": "The Night of Power"
         },
         {
-          "id": "d",
-          "label": "Muhammad's migration to Medina",
-          "correct": false,
-          "rationale": "That's the hijra of 622."
+          "left": "Suhur",
+          "right": "Before dawn"
         }
       ],
-      "explanation": "Eid al-Adha, the Festival of Sacrifice, remembers Abraham's willingness to sacrifice Ishmael, who was replaced by a ram.",
+      "explanation": "Eid al-Fitr is the Feast of Fast-Breaking and Eid al-Adha the Festival of Sacrifice. Laylat al-Qadr is the Night of Power, and suhur is the meal before dawn.",
       "difficulty": 0.2
     },
     {

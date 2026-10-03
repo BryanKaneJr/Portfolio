@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 10,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: What Religion Is",
   "objective": "After this level you can explain how scholars define, study and count religions without taking sides.",
@@ -159,7 +159,7 @@
   "questions": [
     {
       "id": "question.religions.010.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.religions.study_of_religion_history",
@@ -171,33 +171,16 @@
         "card.religions.002.c2",
         "card.religions.002.c3"
       ],
-      "prompt": "Tylor's spiritual beings, Durkheim's moral community, van der Leeuw's bracketing: which order did they come in?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Tylor, then Durkheim, then van der Leeuw",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Durkheim, then Tylor, then van der Leeuw",
-          "correct": false,
-          "rationale": "Tylor (1871) came before Durkheim (1912)."
-        },
-        {
-          "id": "c",
-          "label": "Van der Leeuw, then Tylor, then Durkheim",
-          "correct": false,
-          "rationale": "Van der Leeuw (1933) came last."
-        },
-        {
-          "id": "d",
-          "label": "Tylor, then van der Leeuw, then Durkheim",
-          "correct": false,
-          "rationale": "Durkheim (1912) came before van der Leeuw (1933)."
-        }
+      "prompt": "Put these scholars' contributions in order, from earliest to latest.",
+      "items": [
+        "Tylor",
+        "Van Gennep",
+        "Durkheim",
+        "Van der Leeuw"
       ],
-      "explanation": "1871, then 1912, then 1933.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Tylor came first in 1871, then van Gennep in 1909, Durkheim in 1912 and van der Leeuw in 1933.",
       "difficulty": 0.3
     },
     {

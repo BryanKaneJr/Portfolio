@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 23,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Trinity and the Creeds",
   "objective": "After this level you can explain the Christian belief in one God as Father, Son and Holy Spirit, and how the Nicene Creed set it out.",
@@ -91,41 +91,32 @@
   "questions": [
     {
       "id": "question.religions.023.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.religions.christianity_trinity"
       ],
       "sourceCardIds": [
-        "card.religions.023.c2"
+        "card.religions.023.c2",
+        "card.religions.023.c3",
+        "card.religions.023.c4"
       ],
-      "prompt": "How does Christian teaching describe the Trinity?",
-      "options": [
+      "prompt": "Match each term from Christian teaching on the Trinity with its meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Three persons in one God",
-          "correct": true
+          "left": "Trinity",
+          "right": "Three persons in one Godhead"
         },
         {
-          "id": "b",
-          "label": "Three separate gods working together",
-          "correct": false,
-          "rationale": "The teaching insists on one God."
+          "left": "Homoousios",
+          "right": "Of one substance"
         },
         {
-          "id": "c",
-          "label": "One God who created a lesser Son",
-          "correct": false,
-          "rationale": "That was Arius's view, which Nicaea condemned."
-        },
-        {
-          "id": "d",
-          "label": "A doctrine spelled out in the Gospels",
-          "correct": false,
-          "rationale": "Neither the word nor the explicit doctrine is in the New Testament."
+          "left": "Creed",
+          "right": "An authoritative summary"
         }
       ],
-      "explanation": "The Trinity is the unity of Father, Son and Holy Spirit as three persons in one Godhead.",
+      "explanation": "The Trinity is three persons in one Godhead, homoousios means \"of one substance\", and a creed is an authoritative summary of a community's beliefs.",
       "difficulty": 0.25
     },
     {

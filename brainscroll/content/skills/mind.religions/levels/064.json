@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 64,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Buddhism Comes to China",
   "objective": "After this level you can explain how Buddhism changed in China into Chan (Zen) and Pure Land, and how the \"three teachings\" came to share one household.",
@@ -103,41 +103,31 @@
   "questions": [
     {
       "id": "question.religions.064.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.religions.china_chan_and_pure_land"
       ],
       "sourceCardIds": [
-        "card.religions.064.c4"
+        "card.religions.064.c4",
+        "card.religions.064.c1"
       ],
-      "prompt": "What does the Chinese Buddhist name Chan mean?",
-      "options": [
+      "prompt": "In the 6th-century saying, match each teaching with its place in the sky.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Pure Land",
-          "correct": false,
-          "rationale": "That's the other school."
+          "left": "Buddhism",
+          "right": "The sun"
         },
         {
-          "id": "b",
-          "label": "Scripture",
-          "correct": false,
-          "rationale": "Chan points outside the scriptures."
+          "left": "Daoism",
+          "right": "The moon"
         },
         {
-          "id": "c",
-          "label": "Meditation",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Honoring the ancestors",
-          "correct": false,
-          "rationale": "Chan names a practice, not a relative."
+          "left": "Confucianism",
+          "right": "The five planets"
         }
       ],
-      "explanation": "Chan comes from the Sanskrit dhyana, \"meditation\", and is called Zen in Japanese.",
+      "explanation": "\"Buddhism is the sun, Daoism the moon, Confucianism the five planets.\"",
       "difficulty": 0.3
     },
     {

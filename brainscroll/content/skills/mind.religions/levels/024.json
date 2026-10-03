@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 24,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Baptism and Communion",
   "objective": "After this level you can explain how Christians practice baptism and Communion and why churches understand them differently.",
@@ -132,41 +132,31 @@
     },
     {
       "id": "question.religions.024.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.christianity_eucharist"
       ],
       "sourceCardIds": [
-        "card.religions.024.c5"
+        "card.religions.024.c5",
+        "card.religions.024.c3"
       ],
-      "prompt": "How does Catholic teaching describe what happens to the bread and wine at the Eucharist?",
-      "options": [
+      "prompt": "Match each church or reformer with its teaching.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They remain only symbols of a memory",
-          "correct": false,
-          "rationale": "That's close to Zwingli's memorial view."
+          "left": "Catholics",
+          "right": "Transubstantiation"
         },
         {
-          "id": "b",
-          "label": "They become Christ's body and blood but look unchanged",
-          "correct": true
+          "left": "Zwingli",
+          "right": "A memorial"
         },
         {
-          "id": "c",
-          "label": "They are blessed but nothing about them changes",
-          "correct": false,
-          "rationale": "Catholics teach a change: transubstantiation."
-        },
-        {
-          "id": "d",
-          "label": "They are replaced by water",
-          "correct": false,
-          "rationale": "Water belongs to baptism."
+          "left": "Baptists",
+          "right": "Baptize only people old enough"
         }
       ],
-      "explanation": "Transubstantiation: the bread and wine become Christ's body and blood while keeping their appearance.",
+      "explanation": "Catholics teach transubstantiation, Zwingli saw the Eucharist as a memorial, and Baptists baptize only people old enough to profess their own faith.",
       "difficulty": 0.35
     },
     {

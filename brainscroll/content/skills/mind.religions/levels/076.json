@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 76,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Latter-day Saints",
   "objective": "After this level you can explain the origins and core beliefs of the Church of Jesus Christ of Latter-day Saints and its trek to Utah.",
@@ -125,41 +125,27 @@
     },
     {
       "id": "question.religions.076.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.america_lds_beginnings"
       ],
       "sourceCardIds": [
-        "card.religions.076.c3"
+        "card.religions.076.c3",
+        "card.religions.076.c2",
+        "card.religions.076.c4"
       ],
-      "prompt": "How does the Church describe the Book of Mormon's relation to the Bible?",
-      "options": [
-        {
-          "id": "a",
-          "label": "As a replacement for the Bible in worship",
-          "correct": false,
-          "rationale": "The Church says it supports the Bible."
-        },
-        {
-          "id": "b",
-          "label": "As a history book with no religious role at all",
-          "correct": false,
-          "rationale": "Members read it as scripture."
-        },
-        {
-          "id": "c",
-          "label": "As another witness of Christ, supporting the Bible",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "As a summary of the Bible's first five books",
-          "correct": false,
-          "rationale": "It is a separate book of scripture."
-        }
+      "prompt": "Put these moments in the Latter-day Saints' story in order, from earliest to latest.",
+      "items": [
+        "An angel named Moroni",
+        "Published the Book of Mormon",
+        "Organized a church",
+        "In jail at Carthage",
+        "The Salt Lake Valley"
       ],
-      "explanation": "The Church teaches that the Book of Mormon is another witness of Jesus Christ, supporting the Bible.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Smith reported the angel Moroni in 1823, published the Book of Mormon in March 1830 and organized a church that April. He was shot in jail at Carthage in 1844, and the Saints reached the Salt Lake Valley in 1847.",
       "difficulty": 0.3
     },
     {

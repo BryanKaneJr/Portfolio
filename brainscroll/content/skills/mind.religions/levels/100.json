@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 100,
   "type": "mastery",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Mastery Challenge: World Religions",
   "objective": "After this level you can demonstrate command of World Religions Levels 1 to 99 across the whole tree.",
@@ -291,41 +291,36 @@
     },
     {
       "id": "question.religions.100.q4",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.sharia_fiqh_schools"
       ],
       "sourceCardIds": [
-        "card.religions.039.c4"
+        "card.religions.039.c4",
+        "card.religions.023.c3",
+        "card.religions.004.c2"
       ],
-      "prompt": "Neither the Quran nor the hadith settles a new question directly. A jurist finds a case the Quran does settle, and extends its reason. What is this method?",
-      "options": [
+      "prompt": "Match each term from across the course with its meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Ijma, the consensus of scholars",
-          "correct": false,
-          "rationale": "Consensus is scholars' agreement, not reasoning from a similar case."
+          "left": "Qiyas",
+          "right": "Analogy"
         },
         {
-          "id": "b",
-          "label": "Isnad, the chain of narrators",
-          "correct": false,
-          "rationale": "The isnad checks how a hadith was passed down."
+          "left": "Ijma",
+          "right": "Scholars' consensus"
         },
         {
-          "id": "c",
-          "label": "Qiyas, reasoning by analogy",
-          "correct": true
+          "left": "Homoousios",
+          "right": "Of one substance"
         },
         {
-          "id": "d",
-          "label": "Tawhid, asserting God's oneness",
-          "correct": false,
-          "rationale": "Tawhid is a belief about God, not a legal method."
+          "left": "Epoché",
+          "right": "Bracketing"
         }
       ],
-      "explanation": "Qiyas extends a ruling to a new case for the same reason: drugs were ruled forbidden by analogy with the Quran's ban on alcohol, because both intoxicate.",
+      "explanation": "Qiyas means analogy and ijma scholars' consensus. Homoousios means \"of one substance\", and epoché is bracketing, or suspending judgment.",
       "difficulty": 0.45
     },
     {

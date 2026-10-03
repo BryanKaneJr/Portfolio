@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 37,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Hajj",
   "objective": "After this level you can describe the rites of the pilgrimage to Mecca and why every pilgrim wears the same simple white garments.",
@@ -131,41 +131,25 @@
     },
     {
       "id": "question.religions.037.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.hajj_equality"
       ],
       "sourceCardIds": [
-        "card.religions.037.c2"
+        "card.religions.037.c2",
+        "card.religions.037.c4"
       ],
-      "prompt": "How does ihram clothing express the meaning of the hajj?",
-      "options": [
-        {
-          "id": "a",
-          "label": "White marks pilgrims out as religious leaders",
-          "correct": false,
-          "rationale": "Everyone wears it; it marks no rank."
-        },
-        {
-          "id": "b",
-          "label": "Each country's pilgrims wear their own color",
-          "correct": false,
-          "rationale": "The point is sameness, not national colors."
-        },
-        {
-          "id": "c",
-          "label": "Only wealthy pilgrims wear white, to show generosity",
-          "correct": false,
-          "rationale": "Everyone dresses simply, rich and poor alike."
-        },
-        {
-          "id": "d",
-          "label": "Simple dress hides wealth and status, so all stand equal",
-          "correct": true
-        }
+      "prompt": "Put these hajj rites in order, as this level describes them.",
+      "items": [
+        "The plain of Arafat",
+        "The night at Muzdalifah",
+        "Throw stones at pillars",
+        "Sacrifice an animal"
       ],
-      "explanation": "The simple clothing strips away markers of status, wealth and pride: everyone is equal before God.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Pilgrims stand on the plain of Arafat, spend the night at Muzdalifah, then throw stones at pillars at Mina, and sacrifice an animal as Eid al-Adha begins.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 2,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "What Counts as a Religion?",
   "objective": "After this level you can explain why scholars struggle to define religion, comparing a definition by belief in spiritual beings with one by what religion does for a community.",
@@ -96,41 +96,32 @@
   "questions": [
     {
       "id": "question.religions.002.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.religions.tylor_definition"
       ],
       "sourceCardIds": [
-        "card.religions.002.c2"
+        "card.religions.002.c2",
+        "card.religions.002.c3",
+        "card.religions.002.c4"
       ],
-      "prompt": "What was Edward Tylor's minimum definition of religion?",
-      "options": [
+      "prompt": "Match each name with the idea it goes with.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Belief in spiritual beings",
-          "correct": true
+          "left": "Edward Tylor",
+          "right": "Belief in spiritual beings"
         },
         {
-          "id": "b",
-          "label": "A community that shares rituals",
-          "correct": false,
-          "rationale": "That is closer to Durkheim's idea."
+          "left": "Emile Durkheim",
+          "right": "One moral community"
         },
         {
-          "id": "c",
-          "label": "Obedience to a written law code",
-          "correct": false,
-          "rationale": "Tylor didn't mention law."
-        },
-        {
-          "id": "d",
-          "label": "Any strong feeling of awe",
-          "correct": false,
-          "rationale": "Tylor defined it by belief, not feeling."
+          "left": "Chinese zongjiao",
+          "right": "Organized, hierarchical religions"
         }
       ],
-      "explanation": "In 1871 Tylor proposed the minimum definition of religion as 'the belief in spiritual beings'.",
+      "explanation": "Tylor defined religion as belief in spiritual beings. Durkheim said religion unites people into one moral community. Chinese zongjiao often suggests organized, hierarchical religions.",
       "difficulty": 0.2
     },
     {

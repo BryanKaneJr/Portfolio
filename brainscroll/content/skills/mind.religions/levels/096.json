@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 96,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Mystics: One Path or Many?",
   "objective": "After this level you can compare Sufi, Kabbalist, Christian and Zen mystics and weigh whether mystical experience is the same everywhere.",
@@ -91,41 +91,35 @@
   "questions": [
     {
       "id": "question.religions.096.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.religions.dialogue_james_marks"
       ],
       "sourceCardIds": [
-        "card.religions.096.c3"
+        "card.religions.096.c3",
+        "card.religions.096.c2"
       ],
-      "prompt": "Which two of William James's marks did he treat as enough to call a state mystical?",
-      "options": [
+      "prompt": "Match each mystical path with what this level says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Transiency and passivity",
-          "correct": false,
-          "rationale": "James called these less sharply marked."
+          "left": "Sufis",
+          "right": "Divine love and knowledge"
         },
         {
-          "id": "b",
-          "label": "Ritual and community",
-          "correct": false,
-          "rationale": "Those are Smart's dimensions, not James's marks."
+          "left": "Kabbalah",
+          "right": "The Zohar"
         },
         {
-          "id": "c",
-          "label": "Ineffability and a noetic quality",
-          "correct": true
+          "left": "Teresa of Ávila",
+          "right": "The Interior Castle"
         },
         {
-          "id": "d",
-          "label": "Doctrine and ethics",
-          "correct": false,
-          "rationale": "Those aren't marks of experience."
+          "left": "Zen",
+          "right": "Beyond scripture and words"
         }
       ],
-      "explanation": "A mystical state defies words (ineffability) yet feels like knowledge (noetic quality); James said these two suffice.",
+      "explanation": "Sufis seek divine love and knowledge, Kabbalah's great book is the Zohar, Teresa of Ávila wrote The Interior Castle, and Zen seeks awakening beyond scripture and words.",
       "difficulty": 0.3
     },
     {
