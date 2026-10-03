@@ -2,6 +2,10 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: The level is a chip on the World Map
+
+- The World Map header drops "Knowledge Lv. N" and its block (owner: redundant). The Knowledge Level is now a chip like Brainpower and the streak: a glossy violet rank shield and the number, top left. Tapping it opens Profile (`LevelBadge.tsx`).
+
 ## 2026-10-03: Privacy policy reviewed, support contact on the site
 
 - The privacy policy, the website and the delete-account page now say hearts where they said Dr. Scroll reactions. Owner reviewed the policy.
