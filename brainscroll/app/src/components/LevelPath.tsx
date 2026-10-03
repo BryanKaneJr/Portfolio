@@ -2,7 +2,7 @@ import { dayNumber, mapGuidePose, mapRestPose, MASTERY_BAND_SIZE, RECAP_OPENING 
 import { useEffect, useId, useState } from 'react';
 import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { ClipPath, Defs, Path, Polygon } from 'react-native-svg';
-import { Caption, DrScroll, Eyebrow, Icon, type IconName, LevelArt, Title, ease, useLoop, usePop } from '@/components/ui';
+import { Caption, DrScroll, Eyebrow, Gleams, Icon, type IconName, LevelArt, Title, ease, useLoop, usePop } from '@/components/ui';
 import { chapterFor, levelByNumber, skills, type Chapter } from '@/content';
 import { sceneryArt } from '@/content/scenery';
 import { skillTint, type SubjectTint } from '@/theme/subjectTheme';
@@ -391,6 +391,7 @@ function StartBubble({ label, title, x, bottom, width, tint }: { label: string; 
         {title}
       </Text>
       <View style={[styles.bubbleTail, { left: x - left - 7 }]} />
+      <Gleams count={3} size={13} />
     </Animated.View>
   );
 }

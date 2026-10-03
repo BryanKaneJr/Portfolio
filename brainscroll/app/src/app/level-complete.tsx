@@ -13,6 +13,7 @@ import {
   DrScrollSays,
   Emblem,
   Eyebrow,
+  Gleams,
   Icon,
   masteryBadge,
   Numeral,
@@ -185,6 +186,8 @@ export default function LevelCompleteScreen() {
                 </Chip>
               </Pop>
             )}
+            {/* Twinkles around the headline and XP; gold only for a mastery star. */}
+            <Gleams count={5} size={16} tint={mastery ? color.mastery : color.text} />
           </View>
 
           {newTrophies.length > 0 && (

@@ -2,6 +2,11 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: Little gleams, and tabs that slide
+
+- **Small sparkles twinkle in and out** around the things that matter (owner: "little simple super easy animations"): the next level's Start callout on the skill map, this week's quest, a trophy just earned (gold for a gold trophy), the Level Complete headline and XP, a lit streak flame, the Unlimited screen and Dr. Scroll's avatar. Each fades in, turns a little and fades out, then comes back somewhere else along the edge. `Gleams` in the UI kit; off with Reduce Motion and never on lesson screens.
+- **Switching tabs slides the new tab in a little** instead of cutting; Reduce Motion switches instantly.
+
 ## 2026-10-03: BrainScroll has sound
 
 - **The owner's sound pack is in** (`app/assets/sounds/`): a click when you pick an answer, a chime when it's right, a soft "not quite" when it isn't, and fuller sounds for a level complete, a level up, an unlock and Choose for me. Each file was trimmed so it plays the instant you tap, and the pack was evened out in volume.
