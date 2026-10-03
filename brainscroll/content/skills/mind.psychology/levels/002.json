@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 2,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Who Psychologists Are",
   "objective": "After this level you can tell psychologists, psychiatrists and counselors apart and name the main fields psychologists work in.",
@@ -110,7 +110,7 @@
   "questions": [
     {
       "id": "question.psychology.002.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.mental_health_professions"
@@ -118,33 +118,22 @@
       "sourceCardIds": [
         "card.psychology.002.c2"
       ],
-      "prompt": "Which of these professionals must hold a medical degree, an MD or a DO?",
-      "options": [
+      "prompt": "Match each helper with their usual training.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A licensed professional counselor",
-          "correct": false,
-          "rationale": "Counselors usually hold a master's degree."
+          "left": "Psychologist",
+          "right": "Doctoral degree: a PhD or PsyD"
         },
         {
-          "id": "b",
-          "label": "A clinical psychologist",
-          "correct": false,
-          "rationale": "Clinical psychologists hold a PhD or PsyD, not a medical degree."
+          "left": "Psychiatrist",
+          "right": "Medical doctor (MD or DO)"
         },
         {
-          "id": "c",
-          "label": "A psychiatrist",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "A school psychologist",
-          "correct": false,
-          "rationale": "School psychologists train in psychology, not medicine."
+          "left": "Counselor or therapist",
+          "right": "Usually a master's degree"
         }
       ],
-      "explanation": "Psychiatrists are medical doctors (MD or DO) who trained in psychiatry.",
+      "explanation": "A psychologist holds a doctorate (a PhD or PsyD), a psychiatrist is a medical doctor (MD or DO), and a counselor or therapist usually has a master's degree.",
       "difficulty": 0.1
     },
     {

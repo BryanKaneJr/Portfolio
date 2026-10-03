@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 60,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Mental Shortcuts",
   "objective": "After this level you can explain why the mind uses shortcuts and how the research showed where they go wrong.",
@@ -310,43 +310,31 @@
     },
     {
       "id": "question.psychology.060.q5",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.shortcuts_word_priming",
         "concept.psychology.shortcuts_behavior_priming"
       ],
       "sourceCardIds": [
-        "card.psychology.059.c4",
-        "card.psychology.059.c3"
+        "card.psychology.060.c4"
       ],
-      "prompt": "Mental Shortcuts recap, from Level 59: which priming finding holds up well?",
-      "options": [
+      "prompt": "Match each finding with what became of it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Old-age words make people walk slower",
-          "correct": false,
-          "rationale": "That failed with infrared timing."
+          "left": "Anchoring",
+          "right": "Held up"
         },
         {
-          "id": "b",
-          "label": "Flag images shift political views",
-          "correct": false,
-          "rationale": "Flag priming failed in Many Labs."
+          "left": "Slow-walking priming",
+          "right": "Fell or shrank"
         },
         {
-          "id": "c",
-          "label": "Images of money shift beliefs about society",
-          "correct": false,
-          "rationale": "Currency priming failed in Many Labs."
-        },
-        {
-          "id": "d",
-          "label": "Related words are recognized faster",
-          "correct": true
+          "left": "Linda",
+          "right": "Still argued"
         }
       ],
-      "explanation": "Word priming is robust: a word like cat makes a related word like dog quicker to recognize.",
+      "explanation": "Anchoring held up across 36 samples. Slow-walking priming fell, with no effect under infrared timing. The Linda problem is still argued.",
       "difficulty": 0.2
     }
   ],

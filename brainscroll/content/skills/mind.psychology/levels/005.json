@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 5,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Behaviorism: Only What You Can See",
   "objective": "After this level you can explain why behaviorists like John Watson and B. F. Skinner studied only observable behavior.",
@@ -164,43 +164,35 @@
     },
     {
       "id": "question.psychology.005.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.psychology.behaviorism",
         "concept.psychology.introspection"
       ],
       "sourceCardIds": [
+        "card.psychology.005.c1",
         "card.psychology.005.c2",
-        "card.psychology.003.c4"
+        "card.psychology.005.c3",
+        "card.psychology.003.c1",
+        "card.psychology.003.c2"
       ],
-      "prompt": "Which method from Wundt's lab in Level 3 did Watson say forms no essential part of psychology?",
-      "options": [
+      "prompt": "Match each psychologist with what they are known for.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Reaction timing",
-          "correct": false,
-          "rationale": "Timing responses is observable, so it fit behaviorism."
+          "left": "Wilhelm Wundt",
+          "right": "Set up the first psychology laboratory"
         },
         {
-          "id": "b",
-          "label": "Animal experiments",
-          "correct": false,
-          "rationale": "Behaviorists relied heavily on animal experiments."
+          "left": "John B. Watson",
+          "right": "Predict and control behavior"
         },
         {
-          "id": "c",
-          "label": "Introspection",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Surveys of large groups",
-          "correct": false,
-          "rationale": "Surveys weren't part of Wundt's lab or Watson's complaint."
+          "left": "B. F. Skinner",
+          "right": "Reinforcement and punishment"
         }
       ],
-      "explanation": "Watson's 1913 paper said introspection forms no essential part of psychology's methods.",
+      "explanation": "Wundt set up the first psychology laboratory. Watson wanted psychology to predict and control behavior. Skinner saw reinforcement and punishment as major forces driving what we do.",
       "difficulty": 0.2
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 29,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How Habits Form",
   "objective": "After this level you can explain how a cue, a routine and a reward build a habit, and how long habits really take to form.",
@@ -125,7 +125,7 @@
     },
     {
       "id": "question.psychology.029.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.psychology.learning_habit_formation"
@@ -133,33 +133,15 @@
       "sourceCardIds": [
         "card.psychology.029.c2"
       ],
-      "prompt": "How does repeating a behavior in the same setting turn it into a habit?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It makes the reward bigger each time",
-          "correct": false,
-          "rationale": "The reward strengthens the link; it doesn't grow."
-        },
-        {
-          "id": "b",
-          "label": "It makes you think harder before acting",
-          "correct": false,
-          "rationale": "Habits end up running with less thought, not more."
-        },
-        {
-          "id": "c",
-          "label": "It links the setting's cues to the response",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It removes the goal from memory",
-          "correct": false,
-          "rationale": "Habits form while people pursue goals."
-        }
+      "prompt": "Put the parts of a habit loop in order, from first to last.",
+      "items": [
+        "Cue",
+        "Routine",
+        "Reward"
       ],
-      "explanation": "Each repetition strengthens the link between context cues and the response until the cues trigger it automatically.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The cue, like a coffee filter on the counter, sets off the routine, and the reward that follows, like the coffee itself, strengthens the link.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 90,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Modern and Global",
   "objective": "After this level you can weigh what modern writers around the world changed about how stories are told, and why.",
@@ -202,7 +202,7 @@
   "questions": [
     {
       "id": "question.literature.090.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.literature.modern_ulysses_odyssey"
@@ -210,33 +210,18 @@
       "sourceCardIds": [
         "card.literature.090.c2"
       ],
-      "prompt": "Which two landmark modernist works were both published in 1922?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Gitanjali and Die Verwandlung",
-          "correct": false,
-          "rationale": "Those came in 1912 and 1915."
-        },
-        {
-          "id": "b",
-          "label": "The Great Gatsby and Mrs. Dalloway",
-          "correct": false,
-          "rationale": "Those both came in 1925."
-        },
-        {
-          "id": "c",
-          "label": "Ulysses and The Waste Land",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Things Fall Apart and One Hundred Years of Solitude",
-          "correct": false,
-          "rationale": "Those came in 1958 and 1967."
-        }
+      "prompt": "Put these in order, from earliest to latest.",
+      "items": [
+        "Tagore's Gitanjali",
+        "Kafka's Die Verwandlung",
+        "Joyce's Ulysses",
+        "The Great Gatsby",
+        "Achebe's Things Fall Apart",
+        "One Hundred Years of Solitude"
       ],
-      "explanation": "Joyce's Ulysses and Eliot's The Waste Land both appeared in 1922, the landmark year of modernist literature.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Gitanjali came in 1912, Die Verwandlung in 1915, Ulysses in 1922, The Great Gatsby in 1925, Things Fall Apart in 1958 and One Hundred Years of Solitude in 1967.",
       "difficulty": 0.2
     },
     {

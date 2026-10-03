@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 92,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Alice and Books for Children",
   "objective": "After this level you can explain how Lewis Carroll's Alice broke with children's books that preached.",
@@ -103,41 +103,35 @@
   "questions": [
     {
       "id": "question.literature.092.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.literature.alice_origins"
       ],
       "sourceCardIds": [
-        "card.literature.092.c2"
+        "card.literature.092.c2",
+        "card.literature.092.c3"
       ],
-      "prompt": "Who was the man who wrote as Lewis Carroll?",
-      "options": [
+      "prompt": "Match each name with what goes with it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A preacher who wrote moral verse for children",
-          "correct": false,
-          "rationale": "That sounds more like Isaac Watts."
+          "left": "Lewis Carroll",
+          "right": "Charles Lutwidge Dodgson"
         },
         {
-          "id": "b",
-          "label": "The artist who drew Alice's first pictures",
-          "correct": false,
-          "rationale": "That was John Tenniel."
+          "left": "John Tenniel",
+          "right": "Pictures"
         },
         {
-          "id": "c",
-          "label": "Charles Dodgson, an Oxford mathematics lecturer",
-          "correct": true
+          "left": "Alice Liddell",
+          "right": "Asked him to write it down"
         },
         {
-          "id": "d",
-          "label": "The father of the three Liddell children",
-          "correct": false,
-          "rationale": "Dodgson rowed them up the Thames; he wasn't their father."
+          "left": "Isaac Watts",
+          "right": "How doth the little busy bee"
         }
       ],
-      "explanation": "Lewis Carroll was the pen name of Charles Lutwidge Dodgson, who lectured in mathematics at Christ Church, Oxford.",
+      "explanation": "Lewis Carroll was the pen name of Charles Lutwidge Dodgson, and John Tenniel drew the pictures. Alice Liddell asked him to write the story down, and Isaac Watts wrote \"How doth the little busy bee\".",
       "difficulty": 0.15
     },
     {

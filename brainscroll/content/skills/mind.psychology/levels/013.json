@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 13,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Seeing Wholes, Not Parts",
   "objective": "After this level you can explain the Gestalt grouping principles and how they organize what you see.",
@@ -147,42 +147,34 @@
     },
     {
       "id": "question.psychology.013.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.psychology.perception_gestalt_grouping"
       ],
       "sourceCardIds": [
-        "card.psychology.013.c1",
         "card.psychology.013.c3"
       ],
-      "prompt": "Why does moving the spaces in a sentence make it so hard to read?",
-      "options": [
+      "prompt": "Match each Gestalt principle with an example of it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The letters end up in the wrong order",
-          "correct": false,
-          "rationale": "Every letter stays in order; only the spaces move."
+          "left": "Figure and ground",
+          "right": "A vase or two faces"
         },
         {
-          "id": "b",
-          "label": "You group letters by the gaps between them",
-          "correct": true
+          "left": "Proximity",
+          "right": "Things close together form a group"
         },
         {
-          "id": "c",
-          "label": "Similar-looking letters blur into one another",
-          "correct": false,
-          "rationale": "The problem is spacing, not look-alike letters."
+          "left": "Similarity",
+          "right": "Alike things group too"
         },
         {
-          "id": "d",
-          "label": "The brain can't read words without motion",
-          "correct": false,
-          "rationale": "Motion was Wertheimer's phi study, not reading."
+          "left": "Closure",
+          "right": "A broken circle still looks whole"
         }
       ],
-      "explanation": "Proximity groups things that are close together. Spaces tell you which letters belong to one word, so moving them regroups the letters into nonsense.",
+      "explanation": "Figure and ground makes one image a vase or two faces. Proximity groups things close together, similarity groups alike things, and closure makes a broken circle still look whole.",
       "difficulty": 0.2
     },
     {

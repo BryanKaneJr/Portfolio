@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 99,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why a Classic Matters",
   "objective": "After this level you can use the whole tree to place a classic you pick up in its tradition and explain why it matters.",
@@ -116,41 +116,32 @@
   "questions": [
     {
       "id": "question.literature.099.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.literature.classic_definition"
       ],
       "sourceCardIds": [
-        "card.literature.099.c2"
+        "card.literature.099.c2",
+        "card.literature.099.c1",
+        "card.literature.099.c4"
       ],
-      "prompt": "How did Italo Calvino describe a classic?",
-      "options": [
+      "prompt": "Match each name with what goes with it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A book people praise and don't read",
-          "correct": false,
-          "rationale": "That's Twain's joke."
+          "left": "Mark Twain",
+          "right": "Following the Equator"
         },
         {
-          "id": "b",
-          "label": "Any book more than a century old",
-          "correct": false,
-          "rationale": "Calvino says a classic isn't just old."
+          "left": "Italo Calvino",
+          "right": "Why Read the Classics?"
         },
         {
-          "id": "c",
-          "label": "A book that never runs out of things to say",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "A book with a moral stated at the end",
-          "correct": false,
-          "rationale": "That's a fable."
+          "left": "Gilgamesh",
+          "right": "12 clay tablets"
         }
       ],
-      "explanation": "Calvino said a classic never finishes saying what it has to say, and carries traces of earlier readings.",
+      "explanation": "Mark Twain joked about classics in Following the Equator, Italo Calvino wrote \"Why Read the Classics?\", and Gilgamesh's fullest text survives on 12 clay tablets.",
       "difficulty": 0.2
     },
     {

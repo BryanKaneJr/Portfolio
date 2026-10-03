@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 35,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Forgetting Curve",
   "objective": "After this level you can explain how Hermann Ebbinghaus measured forgetting on himself and what shape the curve takes.",
@@ -87,42 +87,31 @@
   "questions": [
     {
       "id": "question.psychology.035.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.memory_forgetting_curve"
       ],
       "sourceCardIds": [
         "card.psychology.035.c2",
-        "card.psychology.035.c1"
+        "card.psychology.035.c3"
       ],
-      "prompt": "What did Ebbinghaus memorize to measure his own forgetting?",
-      "options": [
+      "prompt": "Match each part of Ebbinghaus's work with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Stanzas from Byron's Don Juan",
-          "correct": false,
-          "rationale": "He tried Don Juan first but dropped it because meanings varied too much."
+          "left": "Byron's poem",
+          "right": "Don Juan"
         },
         {
-          "id": "b",
-          "label": "Lists of nonsense syllables",
-          "correct": true
+          "left": "Nonsense syllables",
+          "right": "Dax, bap and rif"
         },
         {
-          "id": "c",
-          "label": "His friends' phone numbers",
-          "correct": false,
-          "rationale": "He used meaningless syllables, not meaningful numbers."
-        },
-        {
-          "id": "d",
-          "label": "Pictures of faces",
-          "correct": false,
-          "rationale": "His material was verbal: nonsense syllables."
+          "left": "Savings",
+          "right": "The effort saved on relearning"
         }
       ],
-      "explanation": "He used nonsense syllables like dax, bap and rif because they were about equally unfamiliar, unlike poetry.",
+      "explanation": "Ebbinghaus first tried Byron's poem Don Juan, then switched to nonsense syllables like dax, bap and rif. Savings, the effort saved on relearning, showed what memory survived.",
       "difficulty": 0.15
     },
     {

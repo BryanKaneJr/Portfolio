@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 34,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Remembering Where You Learned It",
   "objective": "After this level you can explain context-dependent memory and why the famous underwater study gives mixed results today.",
@@ -169,43 +169,32 @@
     },
     {
       "id": "question.psychology.034.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.psychology.memory_divers_replication",
         "concept.psychology.measuring_the_mind"
       ],
       "sourceCardIds": [
-        "card.psychology.034.c4",
-        "card.psychology.001.c3"
+        "card.psychology.034.c3",
+        "card.psychology.034.c4"
       ],
-      "prompt": "Level 1 said psychologists publish results so others can repeat the test. What did Jaap Murre's 2021 repeat of the divers study find?",
-      "options": [
+      "prompt": "Match each part of the divers research with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The same large effect as in 1975",
-          "correct": false,
-          "rationale": "The retest did not reproduce the original effect."
+          "left": "Godden and Baddeley",
+          "right": "Cold open water off Scotland"
         },
         {
-          "id": "b",
-          "label": "No advantage for recalling in the same place",
-          "correct": true
+          "left": "Jaap Murre",
+          "right": "A heated indoor pool"
         },
         {
-          "id": "c",
-          "label": "That recall works only underwater",
-          "correct": false,
-          "rationale": "Nothing showed underwater recall working better in general."
-        },
-        {
-          "id": "d",
-          "label": "That the divers remembered every word",
-          "correct": false,
-          "rationale": "The study measured how many words people recalled, not perfect recall."
+          "left": "Words learned underwater",
+          "right": "Came back best underwater"
         }
       ],
-      "explanation": "With 16 divers in a heated pool, Murre found no same-place advantage, so the famous result needs more replications.",
+      "explanation": "Godden and Baddeley's original used cold open water off Scotland, and words learned underwater came back best underwater. Jaap Murre's 2021 retest used a heated indoor pool and found no same-place advantage.",
       "difficulty": 0.25
     }
   ],

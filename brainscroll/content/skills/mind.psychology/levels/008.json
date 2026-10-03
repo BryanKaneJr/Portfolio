@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 8,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How Psychologists Study People",
   "objective": "After this level you can tell apart case studies, surveys, observation and experiments, and what each can and can't show about the mind.",
@@ -136,41 +136,32 @@
     },
     {
       "id": "question.psychology.008.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.psychology.naturalistic_observation"
       ],
       "sourceCardIds": [
-        "card.psychology.008.c3"
+        "card.psychology.008.c2",
+        "card.psychology.008.c3",
+        "card.psychology.008.c4"
       ],
-      "prompt": "Why do researchers doing naturalistic observation try to go unnoticed?",
-      "options": [
+      "prompt": "Match each research method with how it works.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "People behave less naturally when they know they're watched",
-          "correct": true
+          "left": "Case study",
+          "right": "One person or just a few"
         },
         {
-          "id": "b",
-          "label": "It is the only legal way to study people",
-          "correct": false,
-          "rationale": "Studies of people need consent and review, not secrecy by law."
+          "left": "Naturalistic observation",
+          "right": "Watching behavior in its natural setting"
         },
         {
-          "id": "c",
-          "label": "Hidden observers can control when behavior happens",
-          "correct": false,
-          "rationale": "Observers have no control over when behavior happens."
-        },
-        {
-          "id": "d",
-          "label": "Being noticed makes the data easier to count",
-          "correct": false,
-          "rationale": "Being noticed changes the behavior itself."
+          "left": "Surveys",
+          "right": "Lists of questions"
         }
       ],
-      "explanation": "People who know they're being watched are less likely to behave naturally.",
+      "explanation": "A case study focuses on one person or just a few, naturalistic observation means watching behavior in its natural setting, and surveys are lists of questions.",
       "difficulty": 0.2
     },
     {

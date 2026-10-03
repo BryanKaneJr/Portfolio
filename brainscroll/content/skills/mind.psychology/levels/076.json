@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 76,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Changing Your Mind to Fit Your Actions",
   "objective": "After this level you can explain cognitive dissonance using Leon Festinger's one-dollar experiment.",
@@ -98,41 +98,31 @@
   "questions": [
     {
       "id": "question.psychology.076.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.social_festinger_carlsmith"
       ],
       "sourceCardIds": [
-        "card.psychology.076.c4"
+        "card.psychology.076.c4",
+        "card.psychology.076.c5"
       ],
-      "prompt": "In Festinger and Carlsmith's 1959 study, which students later rated the dull tasks as most enjoyable?",
-      "options": [
+      "prompt": "Match each group of students with what the cards say about them.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Those paid 20 dollars",
-          "correct": false,
-          "rationale": "Their ratings were close to the control group's."
+          "left": "Students paid 1 dollar",
+          "right": "Rated the tasks as more enjoyable"
         },
         {
-          "id": "b",
-          "label": "Those in the control group",
-          "correct": false,
-          "rationale": "They rated the tasks as dull."
+          "left": "Students paid 20 dollars",
+          "right": "Close to a control group"
         },
         {
-          "id": "c",
-          "label": "Those paid 1 dollar",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "All groups rated them the same",
-          "correct": false,
-          "rationale": "The groups differed."
+          "left": "Elliot Aronson and Judson Mills",
+          "right": "A difficult initiation"
         }
       ],
-      "explanation": "Students paid 1 dollar rated the tasks as more enjoyable than those paid 20 dollars or the control group.",
+      "explanation": "Students paid 1 dollar rated the tasks as more enjoyable, while students paid 20 dollars gave ratings close to a control group. Aronson and Mills studied students who went through a difficult initiation.",
       "difficulty": 0.2
     },
     {

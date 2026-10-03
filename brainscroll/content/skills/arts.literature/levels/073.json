@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 73,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Moby-Dick",
   "objective": "After this level you can explain how Melville turned a whaling voyage into an epic of obsession.",
@@ -129,42 +129,36 @@
     },
     {
       "id": "question.literature.073.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.american_moby_dick_making"
       ],
       "sourceCardIds": [
         "card.literature.073.c4",
-        "card.literature.073.c1"
+        "card.literature.073.c1",
+        "card.literature.073.c2"
       ],
-      "prompt": "How did real events feed into Moby-Dick?",
-      "options": [
+      "prompt": "Match each name with what goes with it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Melville interviewed a real Captain Ahab",
-          "correct": false,
-          "rationale": "Ahab is invented."
+          "left": "Ahab",
+          "right": "The Pequod's captain"
         },
         {
-          "id": "b",
-          "label": "It retells a Greek epic line by line",
-          "correct": false,
-          "rationale": "It is an original novel."
+          "left": "Ishmael",
+          "right": "Survives to tell it"
         },
         {
-          "id": "c",
-          "label": "Melville never went to sea and worked from dreams",
-          "correct": false,
-          "rationale": "He sailed on the Acushnet."
+          "left": "The whaleship Acushnet",
+          "right": "January 1841"
         },
         {
-          "id": "d",
-          "label": "Melville sailed on a whaler and heard of the Essex",
-          "correct": true
+          "left": "The whaleship Essex",
+          "right": "1820"
         }
       ],
-      "explanation": "Melville sailed on the Acushnet in 1841 and there heard of the Essex, sunk by a sperm whale in 1820.",
+      "explanation": "Ahab is the Pequod's captain, and Ishmael alone survives to tell it. Melville sailed on the whaleship Acushnet in January 1841, and a sperm whale sank the whaleship Essex in 1820.",
       "difficulty": 0.3
     },
     {

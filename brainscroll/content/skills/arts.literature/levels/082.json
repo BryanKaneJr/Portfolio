@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 82,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Poems from the Trenches",
   "objective": "After this level you can weigh how war poets like Wilfred Owen answered the old idea that dying for your country is sweet.",
@@ -126,42 +126,32 @@
     },
     {
       "id": "question.literature.082.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.modern_war_poets_old_lie"
       ],
       "sourceCardIds": [
         "card.literature.082.c2",
-        "card.literature.082.c3"
+        "card.literature.082.c3",
+        "card.literature.082.c1"
       ],
-      "prompt": "Brooke and Owen both died in the war, yet their poems disagree about dying for your country. Which explanation best fits what Level 82 shows?",
-      "options": [
+      "prompt": "Match each poet with what goes with them.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Brooke saw far more trench fighting than Owen ever did",
-          "correct": false,
-          "rationale": "Owen wrote from a gas attack he lived through."
+          "left": "Horace",
+          "right": "His Odes"
         },
         {
-          "id": "b",
-          "label": "Owen was writing a new Roman ode in Horace's own style",
-          "correct": false,
-          "rationale": "Owen quotes Horace to reject him."
+          "left": "Rupert Brooke",
+          "right": "The Soldier"
         },
         {
-          "id": "c",
-          "label": "Brooke's sonnets were idealistic; Owen wrote from a gas attack he knew",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Both poems praise the same sacrifice in different words",
-          "correct": false,
-          "rationale": "Owen calls the idea a lie."
+          "left": "Wilfred Owen",
+          "right": "Shell shock"
         }
       ],
-      "explanation": "Brooke's 1914 sonnets face death with idealism. Owen, drafting his poem after trench service and shell shock, describes a gas attack like one he lived through.",
+      "explanation": "Horace wrote the line in his Odes. Rupert Brooke wrote \"The Soldier\", and Wilfred Owen drafted his poem while being treated for shell shock.",
       "difficulty": 0.4
     },
     {

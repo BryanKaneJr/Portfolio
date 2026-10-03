@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 40,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Memory",
   "objective": "After this level you can explain how memories are stored, strengthened and rebuilt, and why they can mislead.",
@@ -158,7 +158,7 @@
   "questions": [
     {
       "id": "question.psychology.040.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.memory_encode_store_retrieve"
@@ -166,33 +166,22 @@
       "sourceCardIds": [
         "card.psychology.040.c1"
       ],
-      "prompt": "Memory recap: what are memory's three basic jobs?",
-      "options": [
+      "prompt": "Match each of memory's three jobs with its plain meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Sensory, short-term and long-term",
-          "correct": false,
-          "rationale": "Those are the stages of the Atkinson-Shiffrin model, not the jobs."
+          "left": "Encode",
+          "right": "Getting it in"
         },
         {
-          "id": "b",
-          "label": "Encoding, storage and retrieval",
-          "correct": true
+          "left": "Store",
+          "right": "Keeping it"
         },
         {
-          "id": "c",
-          "label": "Rehearsal, chunking and spacing",
-          "correct": false,
-          "rationale": "Those are strategies that help memory, not its jobs."
-        },
-        {
-          "id": "d",
-          "label": "Seeing, hearing and feeling",
-          "correct": false,
-          "rationale": "Those are senses; memory's jobs come after sensing."
+          "left": "Retrieve",
+          "right": "Getting it back out"
         }
       ],
-      "explanation": "Memory is the set of processes that encode, store and retrieve information.",
+      "explanation": "To encode is getting information in, to store is keeping it, and to retrieve is getting it back out.",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 45,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "What an Emotion Is",
   "objective": "After this level you can compare the James-Lange, Cannon-Bard and two-factor theories of emotion.",
@@ -165,43 +165,33 @@
     },
     {
       "id": "question.psychology.045.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.psychology.emotion_two_factor",
         "concept.psychology.informed_consent"
       ],
       "sourceCardIds": [
-        "card.psychology.045.c4",
-        "card.psychology.009.c4"
+        "card.psychology.045.c2",
+        "card.psychology.045.c3",
+        "card.psychology.045.c4"
       ],
-      "prompt": "Schachter and Singer misled some men about their injection. Under today's rules from Level 9, what must such a study give participants at the end?",
-      "options": [
+      "prompt": "Match each theory of emotion with its short summary.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A payment matching the risk they took",
-          "correct": false,
-          "rationale": "Payment is not the rule for deception."
+          "left": "The James-Lange theory",
+          "right": "Body first"
         },
         {
-          "id": "b",
-          "label": "A second injection to undo the first",
-          "correct": false,
-          "rationale": "Nothing like that is required."
+          "left": "The Cannon-Bard theory",
+          "right": "Both at once"
         },
         {
-          "id": "c",
-          "label": "A full, honest debriefing about the deception",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "A certificate proving they took part",
-          "correct": false,
-          "rationale": "That is not what the rules require."
+          "left": "The two-factor theory",
+          "right": "Arousal plus a label"
         }
       ],
-      "explanation": "When a study uses deception, participants must get a full debriefing explaining its purpose and why deception was needed.",
+      "explanation": "The James-Lange theory says the body comes first. The Cannon-Bard theory says arousal and feeling happen both at once. The two-factor theory says an emotion is arousal plus a label.",
       "difficulty": 0.25
     }
   ],

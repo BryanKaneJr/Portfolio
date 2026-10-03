@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 36,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Study Tricks That Work",
   "objective": "After this level you can explain the spacing and testing effects and why rereading works less well than it feels.",
@@ -91,42 +91,33 @@
   "questions": [
     {
       "id": "question.psychology.036.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.memory_spacing_effect",
         "concept.psychology.memory_testing_effect"
       ],
       "sourceCardIds": [
+        "card.psychology.036.c2",
+        "card.psychology.036.c3",
         "card.psychology.036.c4"
       ],
-      "prompt": "Which two study techniques did the 2013 review of ten techniques rate as high utility?",
-      "options": [
+      "prompt": "Match each study habit or effect with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Rereading and highlighting",
-          "correct": false,
-          "rationale": "Both were rated low utility."
+          "left": "Distributed practice",
+          "right": "Several short sessions spread over time"
         },
         {
-          "id": "b",
-          "label": "Summarizing and highlighting",
-          "correct": false,
-          "rationale": "Highlighting was rated low utility."
+          "left": "Testing effect",
+          "right": "Pulling a memory out"
         },
         {
-          "id": "c",
-          "label": "Practice testing and distributed practice",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Cramming and rereading",
-          "correct": false,
-          "rationale": "Cramming is the opposite of distributed practice, and rereading was rated low."
+          "left": "Rereading and highlighting",
+          "right": "Rated low"
         }
       ],
-      "explanation": "Only practice testing and distributed practice earned high utility; rereading and highlighting were rated low.",
+      "explanation": "Distributed practice means several short sessions spread over time. The testing effect: pulling a memory out makes it easier to pull out again. Rereading and highlighting were rated low.",
       "difficulty": 0.15
     },
     {

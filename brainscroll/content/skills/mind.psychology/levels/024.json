@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 24,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "One Bad Meal",
   "objective": "After this level you can explain conditioned taste aversion and why it can be learned in a single try.",
@@ -87,41 +87,31 @@
   "questions": [
     {
       "id": "question.psychology.024.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.conditioning_biological_constraints"
       ],
       "sourceCardIds": [
+        "card.psychology.024.c2",
         "card.psychology.024.c4"
       ],
-      "prompt": "In Garcia and Koelling's 1966 study, what did rats that were made ill learn to avoid?",
-      "options": [
+      "prompt": "Match each part of taste aversion research with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The lights and sounds, but not the flavor",
-          "correct": false,
-          "rationale": "That's what the shocked rats avoided."
+          "left": "The taste",
+          "right": "The conditioned stimulus"
         },
         {
-          "id": "b",
-          "label": "The flavor, but not the lights and sounds",
-          "correct": true
+          "left": "The sick rats",
+          "right": "Avoided the flavor"
         },
         {
-          "id": "c",
-          "label": "Both the flavor and the lights and sounds",
-          "correct": false,
-          "rationale": "The ill rats treated the two very differently."
-        },
-        {
-          "id": "d",
-          "label": "Neither of them",
-          "correct": false,
-          "rationale": "The ill rats clearly avoided one of them."
+          "left": "The shocked rats",
+          "right": "Avoided the lights and sounds"
         }
       ],
-      "explanation": "Rats made ill avoided the flavored water's taste, while the lights and sounds didn't bother them.",
+      "explanation": "In a taste aversion, the taste is the conditioned stimulus. In Garcia and Koelling's study, the sick rats avoided the flavor, and the shocked rats avoided the lights and sounds.",
       "difficulty": 0.25
     },
     {

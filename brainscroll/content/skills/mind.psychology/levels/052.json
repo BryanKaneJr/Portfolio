@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 52,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "If It Comes to Mind, It Seems Common",
   "objective": "After this level you can explain the availability heuristic and why dramatic risks feel more likely than they are.",
@@ -126,42 +126,31 @@
     },
     {
       "id": "question.psychology.052.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.psychology.shortcuts_availability"
       ],
       "sourceCardIds": [
-        "card.psychology.052.c4",
-        "card.psychology.052.c1"
+        "card.psychology.052.c2",
+        "card.psychology.052.c4"
       ],
-      "prompt": "In the 1978 study, why did people overestimate deaths from tornadoes, floods and botulism?",
-      "options": [
+      "prompt": "Match each group of causes or shortcut with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Those were the most common causes of death",
-          "correct": false,
-          "rationale": "They were rare; asthma alone killed about 20 times more people than tornadoes."
+          "left": "Most overestimated",
+          "right": "Botulism, tornadoes, floods and homicide"
         },
         {
-          "id": "b",
-          "label": "Vivid, widely reported deaths come easily to mind",
-          "correct": true
+          "left": "Underestimated",
+          "right": "Asthma, diabetes and stroke"
         },
         {
-          "id": "c",
-          "label": "Researchers gave them misleading statistics",
-          "correct": false,
-          "rationale": "Nobody misled them; the errors followed what came to mind."
-        },
-        {
-          "id": "d",
-          "label": "Warnings about the bias made them worse",
-          "correct": false,
-          "rationale": "Warnings didn't help, but they didn't cause the error."
+          "left": "Availability",
+          "right": "Ease with which examples come to mind"
         }
       ],
-      "explanation": "Dramatic causes are memorable and often in the news, so examples come to mind easily and they feel more frequent than they are.",
+      "explanation": "The most overestimated causes of death were dramatic ones like botulism, tornadoes, floods and homicide; the underestimated were asthma, diabetes and stroke. Availability judges by the ease with which examples come to mind.",
       "difficulty": 0.3
     },
     {

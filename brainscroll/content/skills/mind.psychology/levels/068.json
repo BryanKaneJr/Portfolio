@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 68,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Erikson's Life Stages",
   "objective": "After this level you can explain Erik Erikson's stages of development from infancy to old age.",
@@ -110,42 +110,25 @@
   "questions": [
     {
       "id": "question.psychology.068.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.lifespan_erikson_stages"
       ],
       "sourceCardIds": [
-        "card.psychology.068.c3",
-        "card.psychology.068.c4"
+        "card.psychology.068.c3"
       ],
-      "prompt": "In Erikson's theory, what is the task of late adulthood?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Trust versus mistrust",
-          "correct": false,
-          "rationale": "That is the task of infancy."
-        },
-        {
-          "id": "b",
-          "label": "Identity versus role confusion",
-          "correct": false,
-          "rationale": "That is the task of adolescence."
-        },
-        {
-          "id": "c",
-          "label": "Integrity versus despair",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Generativity versus stagnation",
-          "correct": false,
-          "rationale": "That is the task of middle adulthood."
-        }
+      "prompt": "Put these five of Erikson's tasks in order, from infancy to late adulthood.",
+      "items": [
+        "Trust vs. mistrust",
+        "Identity vs. role confusion",
+        "Intimacy vs. isolation",
+        "Generativity vs. stagnation",
+        "Integrity vs. despair"
       ],
-      "explanation": "In late adulthood, people look back on their lives with satisfaction or a sense of failure: integrity versus despair.",
+      "first": "Infancy",
+      "last": "Late adulthood",
+      "explanation": "Trust vs. mistrust comes in infancy, identity vs. role confusion in adolescence, intimacy vs. isolation in early adulthood, generativity vs. stagnation in middle adulthood, and integrity vs. despair in late adulthood.",
       "difficulty": 0.25
     },
     {

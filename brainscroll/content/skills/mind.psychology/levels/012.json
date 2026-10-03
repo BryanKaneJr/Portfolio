@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 12,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Smallest Change You Notice",
   "objective": "After this level you can explain the just-noticeable difference and Weber's law.",
@@ -169,7 +169,7 @@
     },
     {
       "id": "question.psychology.012.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.psychology.perception_jnd",
@@ -177,35 +177,25 @@
       ],
       "sourceCardIds": [
         "card.psychology.012.c2",
-        "card.psychology.001.c3"
+        "card.psychology.012.c3",
+        "card.psychology.012.c4"
       ],
-      "prompt": "Level 1 said psychology measures what it can observe. How is a person's difference threshold defined?",
-      "options": [
+      "prompt": "Match each term or name from Weber's work with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "By scanning which brain area lights up",
-          "correct": false,
-          "rationale": "It's defined by what people detect, not a scan."
+          "left": "Just-noticeable difference",
+          "right": "Also called the difference threshold"
         },
         {
-          "id": "b",
-          "label": "By the biggest change they can imagine",
-          "correct": false,
-          "rationale": "It's about the smallest change detected."
+          "left": "Ernst Heinrich Weber",
+          "right": "German physiologist"
         },
         {
-          "id": "c",
-          "label": "By asking what they noticed once the test is over",
-          "correct": false,
-          "rationale": "It's measured during repeated trials, not afterwards."
-        },
-        {
-          "id": "d",
-          "label": "The smallest change detected half the time",
-          "correct": true
+          "left": "Weber's law",
+          "right": "Bigger stimuli need bigger changes"
         }
       ],
-      "explanation": "Because sensitivity varies, the difference threshold is the smallest difference a person detects 50 percent of the time: an observable measure of an inner experience.",
+      "explanation": "The just-noticeable difference is also called the difference threshold. Ernst Heinrich Weber was a German physiologist, and Weber's law says bigger stimuli need bigger changes to be noticed.",
       "difficulty": 0.25
     }
   ],

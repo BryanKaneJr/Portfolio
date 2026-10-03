@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 3,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The First Psychology Lab",
   "objective": "After this level you can explain what Wilhelm Wundt measured in his 1879 Leipzig lab and why it marks psychology's start as a science.",
@@ -127,41 +127,32 @@
     },
     {
       "id": "question.psychology.003.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.psychology.introspection"
       ],
       "sourceCardIds": [
+        "card.psychology.003.c2",
+        "card.psychology.003.c3",
         "card.psychology.003.c4"
       ],
-      "prompt": "Wundt trained observers to report their own conscious experience. Why did this method prove shaky?",
-      "options": [
+      "prompt": "Match each idea from Wundt's lab with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The observers were never trained",
-          "correct": false,
-          "rationale": "They were trained; it still didn't produce agreement."
+          "left": "Physiology",
+          "right": "The science of how the body works"
         },
         {
-          "id": "b",
-          "label": "Wundt kept all the reports secret",
-          "correct": false,
-          "rationale": "Secrecy wasn't the issue; disagreement was."
+          "left": "Reaction time",
+          "right": "To one-thousandth of a second"
         },
         {
-          "id": "c",
-          "label": "It measured reaction time too precisely",
-          "correct": false,
-          "rationale": "Reaction timing was a separate, more reliable method."
-        },
-        {
-          "id": "d",
-          "label": "Reports were subjective, and observers often disagreed",
-          "correct": true
+          "left": "Introspection",
+          "right": "Highly subjective"
         }
       ],
-      "explanation": "Introspection stayed highly subjective, and there was very little agreement between individuals.",
+      "explanation": "Physiology is the science of how the body works. Wundt's apparatus timed reactions to one-thousandth of a second. Introspection stayed highly subjective, so observers disagreed.",
       "difficulty": 0.25
     },
     {

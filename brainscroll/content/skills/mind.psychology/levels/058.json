@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 58,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Overconfidence and Dunning-Kruger",
   "objective": "After this level you can explain overconfidence research and why the Dunning-Kruger effect is debated.",
@@ -165,43 +165,33 @@
     },
     {
       "id": "question.psychology.058.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.psychology.shortcuts_hindsight_causes",
         "concept.psychology.shortcuts_overconfidence"
       ],
       "sourceCardIds": [
-        "card.psychology.057.c4",
-        "card.psychology.058.c2"
+        "card.psychology.058.c2",
+        "card.psychology.058.c3",
+        "card.psychology.058.c4"
       ],
-      "prompt": "Roese and Vohs, in Level 57, list a consequence of hindsight bias that links it to this level. Which is it?",
-      "options": [
+      "prompt": "Match each researcher with what they tested.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Better memory for past forecasts",
-          "correct": false,
-          "rationale": "Hindsight distorts those memories."
+          "left": "Ola Svenson",
+          "right": "Driving skill"
         },
         {
-          "id": "b",
-          "label": "Overconfidence in how certain our judgments are",
-          "correct": true
+          "left": "Justin Kruger and David Dunning",
+          "right": "Humor, grammar and logic"
         },
         {
-          "id": "c",
-          "label": "Fear of making any prediction",
-          "correct": false,
-          "rationale": "Hindsight makes people feel surer, not more fearful."
-        },
-        {
-          "id": "d",
-          "label": "Forgetting outcomes quickly",
-          "correct": false,
-          "rationale": "Knowing the outcome is what drives the bias."
+          "left": "Gilles Gignac and Marcin Zajenkowski",
+          "right": "929 people"
         }
       ],
-      "explanation": "Hindsight bias feeds general overconfidence in the certainty of one's judgments.",
+      "explanation": "Ola Svenson asked students about their driving skill. Kruger and Dunning tested people on humor, grammar and logic. Gignac and Zajenkowski tested 929 people on intelligence.",
       "difficulty": 0.3
     }
   ],

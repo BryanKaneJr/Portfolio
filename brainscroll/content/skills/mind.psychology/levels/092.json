@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 92,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "When Worry Won't Switch Off",
   "objective": "After this level you can explain how everyday anxiety differs from an anxiety disorder such as panic disorder or a phobia.",
@@ -117,42 +117,30 @@
   "questions": [
     {
       "id": "question.psychology.092.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.anxiety_panic"
       ],
       "sourceCardIds": [
-        "card.psychology.092.c3",
-        "card.psychology.092.c4"
+        "card.psychology.092.c3"
       ],
-      "prompt": "What separates panic disorder from having had a single panic attack?",
-      "options": [
+      "prompt": "Match each anxiety term with its defining feature.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "One attack that peaked within minutes",
-          "correct": false,
-          "rationale": "That describes any panic attack, not the disorder."
+          "left": "Panic attack",
+          "right": "Peaks within minutes"
         },
         {
-          "id": "b",
-          "label": "Fear of one specific object, like spiders",
-          "correct": false,
-          "rationale": "That's fear of one thing, not repeated attacks."
+          "left": "Panic disorder",
+          "right": "Frequent, unexpected attacks"
         },
         {
-          "id": "c",
-          "label": "Anxiety before an exam that fades afterward",
-          "correct": false,
-          "rationale": "That's everyday anxiety."
-        },
-        {
-          "id": "d",
-          "label": "Repeated attacks plus worry about more",
-          "correct": true
+          "left": "Specific phobia",
+          "right": "Fear of one object or situation"
         }
       ],
-      "explanation": "Panic disorder means frequent, unexpected attacks plus ongoing worry about future attacks or avoiding places. About 23 percent of Americans have had an isolated attack without it.",
+      "explanation": "A panic attack is intense fear that peaks within minutes. Panic disorder means frequent, unexpected attacks plus worry about the next one. A specific phobia is a persistent fear of one object or situation.",
       "difficulty": 0.3
     },
     {

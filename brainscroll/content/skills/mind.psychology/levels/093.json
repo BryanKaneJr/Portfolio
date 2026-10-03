@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 93,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Understanding Depression",
   "objective": "After this level you can explain how depression differs from sadness and why no single cause, such as a chemical imbalance, explains it.",
@@ -132,42 +132,32 @@
     },
     {
       "id": "question.psychology.093.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.psychology.depression_many_causes"
       ],
       "sourceCardIds": [
         "card.psychology.093.c3",
-        "card.psychology.093.c4"
+        "card.psychology.093.c4",
+        "card.psychology.093.c5"
       ],
-      "prompt": "Which explanation of what causes depression fits the research best?",
-      "options": [
+      "prompt": "Match each depression researcher with what the cards say about their work.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Simply low serotonin, a chemical imbalance",
-          "correct": false,
-          "rationale": "A 2022 review found no consistent evidence for that, and the phrase is too simple."
+          "left": "Joanna Moncrieff",
+          "right": "Low serotonin"
         },
         {
-          "id": "b",
-          "label": "Genes alone decide who develops depression",
-          "correct": false,
-          "rationale": "Heritability is about 37 percent; most variation comes from elsewhere."
+          "left": "Patrick Sullivan and colleagues",
+          "right": "About 37 percent"
         },
         {
-          "id": "c",
-          "label": "Several factors: genes, biology, environment, psychology",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Stressful events alone, with no role for genes",
-          "correct": false,
-          "rationale": "Twin studies show genes play a part."
+          "left": "Andrea Cipriani",
+          "right": "522 trials"
         }
       ],
-      "explanation": "Research points to several factors acting together; no single cause, chemical or otherwise, explains depression.",
+      "explanation": "Moncrieff's review found no consistent evidence that low serotonin causes depression. Sullivan and colleagues put its heritability at about 37 percent. Cipriani's analysis pooled 522 trials of antidepressants.",
       "difficulty": 0.4
     },
     {

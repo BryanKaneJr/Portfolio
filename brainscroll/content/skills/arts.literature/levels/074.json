@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 74,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Douglass's Narrative",
   "objective": "After this level you can explain how Frederick Douglass's 1845 Narrative made reading and writing the road to freedom.",
@@ -86,41 +86,26 @@
   "questions": [
     {
       "id": "question.literature.074.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.literature.american_douglass_narrative_book"
       ],
       "sourceCardIds": [
-        "card.literature.074.c4"
+        "card.literature.074.c4",
+        "card.literature.074.c1",
+        "card.literature.074.c3"
       ],
-      "prompt": "Why did Douglass publish his Narrative in 1845?",
-      "options": [
-        {
-          "id": "a",
-          "label": "To win a prize for new writers",
-          "correct": false,
-          "rationale": "No prize was involved."
-        },
-        {
-          "id": "b",
-          "label": "To answer audiences who doubted he had been enslaved",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "To teach sailors how to write",
-          "correct": false,
-          "rationale": "Sailors were part of his escape, not his audience."
-        },
-        {
-          "id": "d",
-          "label": "To thank the Auld family",
-          "correct": false,
-          "rationale": "The Narrative is no tribute to the Aulds."
-        }
+      "prompt": "Put these moments in Douglass's life in order, from first to last.",
+      "items": [
+        "Helped him spell short words",
+        "He got The Columbian Orator",
+        "Escaped slavery in 1838",
+        "Published his Narrative"
       ],
-      "explanation": "Some audiences suspected he had never been enslaved, so he published the Narrative, with names and places, to lay those doubts to rest.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Sophia Auld taught him the alphabet and helped him spell short words. At twelve he got The Columbian Orator, he escaped slavery in 1838, and he published his Narrative in 1845.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 53,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The First Number Wins",
   "objective": "After this level you can explain anchoring, using the experiment with a rigged wheel of fortune.",
@@ -126,7 +126,7 @@
     },
     {
       "id": "question.psychology.053.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.psychology.shortcuts_anchoring"
@@ -134,33 +134,22 @@
       "sourceCardIds": [
         "card.psychology.053.c3"
       ],
-      "prompt": "According to Tversky and Kahneman, why does an anchor pull estimates toward it?",
-      "options": [
+      "prompt": "Match each multiplication with the estimate or answer the card gives for it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "People assume the anchor is the right answer",
-          "correct": false,
-          "rationale": "The anchors were arbitrary, like a wheel's 10 or 65."
+          "left": "8×7×6×5×4×3×2×1",
+          "right": "A median of 2,250"
         },
         {
-          "id": "b",
-          "label": "Payment for accuracy makes people careless",
-          "correct": false,
-          "rationale": "Payment didn't reduce the effect, but it didn't cause it."
+          "left": "1×2×3×4×5×6×7×8",
+          "right": "512"
         },
         {
-          "id": "c",
-          "label": "People adjust away from it, but not far enough",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Only unfamiliar questions can be anchored",
-          "correct": false,
-          "rationale": "Even a simple multiplication was anchored by its first steps."
+          "left": "The true answer",
+          "right": "40,320"
         }
       ],
-      "explanation": "People start from the anchor and adjust, and the adjustment is typically insufficient.",
+      "explanation": "Students shown 8×7×6×5×4×3×2×1 gave a median of 2,250, and those shown 1×2×3×4×5×6×7×8 gave 512. The true answer is 40,320: both anchors pulled too low.",
       "difficulty": 0.3
     },
     {
