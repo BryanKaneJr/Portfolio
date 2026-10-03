@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 88,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Automation and Jobs",
   "objective": "After this level you can explain how machines have changed work, from looms to robots.",
@@ -102,41 +102,37 @@
   "questions": [
     {
       "id": "question.how_money_works.088.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.automation_luddites"
       ],
       "sourceCardIds": [
-        "card.how_money_works.088.c2"
+        "card.how_money_works.088.c2",
+        "card.how_money_works.088.c3",
+        "card.how_money_works.088.c4",
+        "card.how_money_works.088.c5"
       ],
-      "prompt": "What did the original Luddites object to?",
-      "options": [
+      "prompt": "Match each machine or group with the work it is linked to.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Any kind of machine, however it was used",
-          "correct": false,
-          "rationale": "They were fine with machines; the issue was how owners used them."
+          "left": "Luddites",
+          "right": "Stocking frames"
         },
         {
-          "id": "b",
-          "label": "Owners using machines to get around labor standards",
-          "correct": true
+          "left": "Tractors",
+          "right": "Horses and mules"
         },
         {
-          "id": "c",
-          "label": "New taxes on the cloth they wove at home",
-          "correct": false,
-          "rationale": "Their target was how machines were used."
+          "left": "ATMs",
+          "right": "Bank tellers"
         },
         {
-          "id": "d",
-          "label": "Robots taking over jobs in car factories",
-          "correct": false,
-          "rationale": "Industrial robots came 150 years later."
+          "left": "Unimate",
+          "right": "A robot arm"
         }
       ],
-      "explanation": "The Luddites objected to owners using machines to dodge labor standards and turn out cheaper, lower-quality work.",
+      "explanation": "The Luddites attacked knitting machines called stocking frames. Tractors replaced horses and mules. ATMs changed the work of bank tellers. Unimate was a robot arm at General Motors.",
       "difficulty": 0.25
     },
     {

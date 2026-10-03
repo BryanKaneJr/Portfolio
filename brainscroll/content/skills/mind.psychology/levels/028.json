@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 28,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Learning by Watching",
   "objective": "After this level you can explain observational learning and what Albert Bandura's Bobo doll study showed.",
@@ -174,43 +174,25 @@
     },
     {
       "id": "question.psychology.028.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.psychology.conditioning_operant",
         "concept.psychology.learning_observational"
       ],
       "sourceCardIds": [
-        "card.psychology.028.c1",
-        "card.psychology.025.c3"
+        "card.psychology.028.c3"
       ],
-      "prompt": "Unlike the rats in Level 25's Skinner box, the Bobo doll children learned without what?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Seeing anyone do the behavior",
-          "correct": false,
-          "rationale": "Watching the adult was how they learned."
-        },
-        {
-          "id": "b",
-          "label": "Any toys to play with",
-          "correct": false,
-          "rationale": "The test room was full of toys."
-        },
-        {
-          "id": "c",
-          "label": "Being rewarded for their own actions",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "An adult ever being present",
-          "correct": false,
-          "rationale": "An adult modeled the behavior first."
-        }
+      "prompt": "Put Bandura's four steps of observational learning in order.",
+      "items": [
+        "Attention",
+        "Retention",
+        "Reproduction",
+        "Motivation"
       ],
-      "explanation": "Skinner's rats learned by being rewarded for their own actions; the children learned just by watching.",
+      "first": "First step",
+      "last": "Last step",
+      "explanation": "Bandura's steps are attention (you notice the model), retention (you remember), reproduction (you can do it) and motivation (you want to).",
       "difficulty": 0.2
     }
   ],

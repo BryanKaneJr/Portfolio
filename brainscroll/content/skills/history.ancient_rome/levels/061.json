@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 61,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "A Day in the City",
   "objective": "After this level you can describe daily life in the city of Rome, from apartment blocks to the forum.",
@@ -86,41 +86,36 @@
   "questions": [
     {
       "id": "question.ancient_rome.061.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_rome.city_life"
       ],
       "sourceCardIds": [
-        "card.ancient_rome.061.c2"
+        "card.ancient_rome.061.c2",
+        "card.ancient_rome.061.c3",
+        "card.ancient_rome.061.c4"
       ],
-      "prompt": "Where did most people in the city of Rome live?",
-      "options": [
+      "prompt": "Match each Latin word with what it was.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "In private houses with an atrium",
-          "correct": false,
-          "rationale": "Only the wealthy did."
+          "left": "Insula",
+          "right": "An apartment block"
         },
         {
-          "id": "b",
-          "label": "In apartment blocks called insulae",
-          "correct": true
+          "left": "Domus",
+          "right": "A private house"
         },
         {
-          "id": "c",
-          "label": "In army camps outside the walls",
-          "correct": false,
-          "rationale": "Most were civilians in the city."
+          "left": "Atrium",
+          "right": "An open hall"
         },
         {
-          "id": "d",
-          "label": "In farmhouses beyond the Tiber",
-          "correct": false,
-          "rationale": "Most lived in the city itself."
+          "left": "Vigiles",
+          "right": "Fought fires"
         }
       ],
-      "explanation": "Most Romans rented space in insulae, apartment blocks several stories high.",
+      "explanation": "An insula was an apartment block, a domus was a private house built around an open hall called the atrium, and the vigiles fought fires and patrolled at night.",
       "difficulty": 0.1
     },
     {

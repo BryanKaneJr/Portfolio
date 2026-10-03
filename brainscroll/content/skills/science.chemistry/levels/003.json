@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 3,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Solid, Liquid, Gas",
   "objective": "After this level you can explain the three everyday states of matter.",
@@ -142,7 +142,7 @@
     },
     {
       "id": "question.chemistry.003.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.particle_model"
@@ -151,33 +151,22 @@
         "card.chemistry.003.c3",
         "card.chemistry.003.c4"
       ],
-      "prompt": "Why can a liquid flow when a solid can't?",
-      "options": [
+      "prompt": "Match each state of matter with its crowd analogy.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Its particles are far apart and rarely touch",
-          "correct": false,
-          "rationale": "That describes a gas."
+          "left": "Solid",
+          "right": "A stadium crowd in their seats"
         },
         {
-          "id": "b",
-          "label": "Its particles are locked in fixed places",
-          "correct": false,
-          "rationale": "That describes a solid."
+          "left": "Liquid",
+          "right": "A busy dance floor"
         },
         {
-          "id": "c",
-          "label": "Its particles stay close but slide past each other",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It has no particles at all",
-          "correct": false,
-          "rationale": "All matter is made of particles."
+          "left": "Gas",
+          "right": "A few kids let loose in a huge park"
         }
       ],
-      "explanation": "Liquid particles stay in contact but can move past each other, so the liquid can flow and take any shape.",
+      "explanation": "A solid is like a stadium crowd in their seats, a liquid is like a busy dance floor, and a gas is like a few kids let loose in a huge park.",
       "difficulty": 0.25
     },
     {

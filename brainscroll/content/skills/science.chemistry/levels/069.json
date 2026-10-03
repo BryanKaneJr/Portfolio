@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 69,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Stomach Acid",
   "objective": "After this level you can explain how the stomach uses strong acid safely.",
@@ -136,41 +136,31 @@
     },
     {
       "id": "question.chemistry.069.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.stomach_acid_defenses"
       ],
       "sourceCardIds": [
-        "card.chemistry.069.c3"
+        "card.chemistry.069.c3",
+        "card.chemistry.069.c4"
       ],
-      "prompt": "How does the stomach's mucus layer protect the lining from its own acid?",
-      "options": [
+      "prompt": "Match each of the stomach's defenses with how it works.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It is so acidic that it outcompetes the stomach acid",
-          "correct": false,
-          "rationale": "The mucus carries a base, not more acid."
+          "left": "Mucus",
+          "right": "Rich in bicarbonate"
         },
         {
-          "id": "b",
-          "label": "Its bicarbonate, a base, neutralizes acid near the lining",
-          "correct": true
+          "left": "Tight junctions",
+          "right": "Sealing the seams"
         },
         {
-          "id": "c",
-          "label": "It heats the acid until the acid evaporates",
-          "correct": false,
-          "rationale": "Nothing in the stomach boils acid away."
-        },
-        {
-          "id": "d",
-          "label": "It stores the acid until the next meal arrives",
-          "correct": false,
-          "rationale": "The mucus blocks and neutralizes acid rather than storing it."
+          "left": "The surface lining",
+          "right": "Replaced every 3 to 6 days"
         }
       ],
-      "explanation": "The thick mucus is a barrier, and its bicarbonate neutralizes acid, keeping the lining's surface near neutral.",
+      "explanation": "The mucus is rich in bicarbonate, a base. Tight junctions seal the seams between cells, and the surface lining is replaced every 3 to 6 days.",
       "difficulty": 0.3
     },
     {

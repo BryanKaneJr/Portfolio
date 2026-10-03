@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 11,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Families of Instruments",
   "objective": "After this level you can name the main families of instruments and how each makes sound.",
@@ -137,7 +137,7 @@
     },
     {
       "id": "question.music.011.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.instruments_hornbostel_sachs"
@@ -145,33 +145,26 @@
       "sourceCardIds": [
         "card.music.011.c3"
       ],
-      "prompt": "A bell and a rattle look nothing alike. Why does the Hornbostel-Sachs system put both in the same class?",
-      "options": [
+      "prompt": "Match each class of instrument with what vibrates in it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "In both, the instrument's own body vibrates",
-          "correct": true
+          "left": "Idiophone",
+          "right": "Own body shakes"
         },
         {
-          "id": "b",
-          "label": "Both are made of metal",
-          "correct": false,
-          "rationale": "Material doesn't decide the class, and rattles often aren't metal."
+          "left": "Membranophone",
+          "right": "A stretched skin"
         },
         {
-          "id": "c",
-          "label": "Both have a stretched skin",
-          "correct": false,
-          "rationale": "A stretched skin makes a membranophone, like a drum."
+          "left": "Chordophone",
+          "right": "Stretched strings"
         },
         {
-          "id": "d",
-          "label": "Both are played by blowing",
-          "correct": false,
-          "rationale": "Blown instruments are aerophones."
+          "left": "Aerophone",
+          "right": "Shaking air"
         }
       ],
-      "explanation": "Bells and rattles are idiophones: the instrument's own body is what vibrates.",
+      "explanation": "In an idiophone the instrument's own body shakes, in a membranophone a stretched skin, in a chordophone stretched strings, and in an aerophone shaking air.",
       "difficulty": 0.2
     },
     {

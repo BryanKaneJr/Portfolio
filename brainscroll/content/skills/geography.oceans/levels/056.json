@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 56,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Whale Falls",
   "objective": "After this level you can explain what happens when a whale sinks to the sea floor.",
@@ -91,41 +91,25 @@
   "questions": [
     {
       "id": "question.oceans.056.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.oceans.deep_whale_fall"
       ],
       "sourceCardIds": [
-        "card.oceans.056.c2"
+        "card.oceans.056.c2",
+        "card.oceans.056.c3",
+        "card.oceans.056.c4"
       ],
-      "prompt": "At a new whale fall on the deep sea floor, which animals arrive first and strip away the flesh?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Bone-eating worms with green roots",
-          "correct": false,
-          "rationale": "They move in once the flesh is gone."
-        },
-        {
-          "id": "b",
-          "label": "Corals and sponges from nearby rocks",
-          "correct": false,
-          "rationale": "They don't feed on whale flesh."
-        },
-        {
-          "id": "c",
-          "label": "Scavengers such as sleeper sharks",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Sea turtles diving down from the surface",
-          "correct": false,
-          "rationale": "They aren't part of the deep cleanup crew."
-        }
+      "prompt": "Put the stages of a whale fall in order, from first to last.",
+      "items": [
+        "The cleanup crew",
+        "The bone eaters",
+        "Power from bones"
       ],
-      "explanation": "Within days, scavengers such as sleeper sharks, hagfish, rattails and amphipods arrive and strip the flesh.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "First the cleanup crew of scavengers strips the flesh. Then the bone eaters, like Osedax, move in. Last, bacteria draw power from the bones for decades.",
       "difficulty": 0.15
     },
     {

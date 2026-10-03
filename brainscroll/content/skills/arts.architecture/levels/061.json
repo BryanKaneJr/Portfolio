@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 61,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The First Skyscrapers",
   "objective": "After this level you can explain how Chicago built the first skyscrapers.",
@@ -107,41 +107,25 @@
   "questions": [
     {
       "id": "question.architecture.061.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.sky_sullivan_form"
       ],
       "sourceCardIds": [
-        "card.architecture.061.c4"
+        "card.architecture.061.c4",
+        "card.architecture.061.c5"
       ],
-      "prompt": "In his 1896 essay on the tall office building, what did Louis Sullivan say to do with the windows of the office floors?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Make each floor's windows different, for variety",
-          "correct": false,
-          "rationale": "He said the opposite: alike, because the offices are alike."
-        },
-        {
-          "id": "b",
-          "label": "Make them all alike, because the offices are all alike",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Leave the office floors windowless, for strength",
-          "correct": false,
-          "rationale": "Offices need windows; he made them identical."
-        },
-        {
-          "id": "d",
-          "label": "Make the top floors' windows the biggest",
-          "correct": false,
-          "rationale": "The attic, not the offices, marks the top."
-        }
+      "prompt": "The Wainwright Building reads like a classical column. Put its parts in order, from bottom to top.",
+      "items": [
+        "A two-story stone base",
+        "Seven stories of unbroken brick piers",
+        "A leafy frieze",
+        "An overhanging roof"
       ],
-      "explanation": "Sullivan wrote that the office tiers should look alike \"because they are all alike\": form ever follows function.",
+      "first": "Bottom",
+      "last": "Top",
+      "explanation": "The Wainwright Building has a two-story stone base, then seven stories of unbroken brick piers, then a leafy frieze under an overhanging roof.",
       "difficulty": 0.2
     },
     {

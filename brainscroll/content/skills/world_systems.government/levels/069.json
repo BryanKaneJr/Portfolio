@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 69,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Spotting Misinformation",
   "objective": "After this level you can spot misleading claims about politics.",
@@ -140,41 +140,25 @@
     },
     {
       "id": "question.government.069.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.election_lateral_reading"
       ],
       "sourceCardIds": [
-        "card.government.069.c3"
+        "card.government.069.c3",
+        "card.government.069.c4"
       ],
-      "prompt": "What did the fact checkers do that the historians and students didn't?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Read every page of the site very carefully",
-          "correct": false,
-          "rationale": "That's reading vertically, which fooled the others."
-        },
-        {
-          "id": "b",
-          "label": "Trusted sites with official-looking logos",
-          "correct": false,
-          "rationale": "Logos fooled the historians and students."
-        },
-        {
-          "id": "c",
-          "label": "Left the site to see what others said",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Refused to use search engines at all",
-          "correct": false,
-          "rationale": "They opened new tabs to search."
-        }
+      "prompt": "Put Mike Caulfield's SIFT moves in order, from first to last.",
+      "items": [
+        "Stop",
+        "Investigate the source",
+        "Find better coverage",
+        "Trace claims"
       ],
-      "explanation": "Fact checkers read laterally: after a quick scan they left the site and opened new tabs to check it.",
+      "first": "First move",
+      "last": "Last move",
+      "explanation": "SIFT runs Stop, Investigate the source, Find better coverage, then Trace claims back to their original context.",
       "difficulty": 0.25
     },
     {

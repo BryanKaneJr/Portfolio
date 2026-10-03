@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 32,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Oxygen",
   "objective": "After this level you can explain why oxygen matters for breathing and burning.",
@@ -135,41 +135,24 @@
     },
     {
       "id": "question.chemistry.032.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.oxygen_discovery_name"
       ],
       "sourceCardIds": [
-        "card.chemistry.032.c4"
+        "card.chemistry.032.c4",
+        "card.chemistry.032.c1"
       ],
-      "prompt": "Oxygen's name means \"acid former.\" Why is that name a mistake?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Oxygen is a metal, not a gas",
-          "correct": false,
-          "rationale": "Oxygen is a gas at room temperature."
-        },
-        {
-          "id": "b",
-          "label": "Priestley named it before he understood it",
-          "correct": false,
-          "rationale": "Lavoisier, not Priestley, chose the name."
-        },
-        {
-          "id": "c",
-          "label": "Lavoisier wrongly believed every acid contains oxygen",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Oxygen destroys acids instead of forming them",
-          "correct": false,
-          "rationale": "The mistake was about which acids contain oxygen."
-        }
+      "prompt": "Put these moments in oxygen's discovery in order, from earliest to latest.",
+      "items": [
+        "Carl Scheele discovered oxygen",
+        "A new gas made a candle flare",
+        "A mouse thrived in it"
       ],
-      "explanation": "Lavoisier thought oxygen was in every acid. Acids without oxygen, such as hydrochloric acid, proved him wrong, but the name stuck.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Carl Scheele discovered oxygen about 1772. Priestley's new gas made a candle flare in 1774, and a mouse thrived in it in 1775.",
       "difficulty": 0.3
     },
     {

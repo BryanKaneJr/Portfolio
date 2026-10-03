@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 33,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Trains and High-Speed Rail",
   "objective": "After this level you can explain how modern trains, including high-speed trains, work.",
@@ -135,41 +135,37 @@
     },
     {
       "id": "question.everyday_technology.033.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.rail_maglev"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.033.c4"
+        "card.everyday_technology.033.c4",
+        "card.everyday_technology.033.c1",
+        "card.everyday_technology.033.c2",
+        "card.everyday_technology.033.c3"
       ],
-      "prompt": "Why don't a maglev train's wheels touch the track?",
-      "options": [
+      "prompt": "Match each kind of train with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It rides on a cushion of compressed air",
-          "correct": false,
-          "rationale": "It floats on magnetism, not air."
+          "left": "Tokaido Shinkansen",
+          "right": "Between Tokyo and Osaka"
         },
         {
-          "id": "b",
-          "label": "Its track is coated in ice",
-          "correct": false,
-          "rationale": "No ice involved."
+          "left": "Electric locomotives",
+          "right": "Power converters"
         },
         {
-          "id": "c",
-          "label": "Magnets hold it just above the guideway",
-          "correct": true
+          "left": "Diesel-electric",
+          "right": "A power station on wheels"
         },
         {
-          "id": "d",
-          "label": "It is lighter than the air around it",
-          "correct": false,
-          "rationale": "A train is far heavier than air."
+          "left": "Shanghai's maglev",
+          "right": "Floats about 1.3 cm above its track"
         }
       ],
-      "explanation": "Magnets lift the train about 1.3 cm above the guideway, and changing-polarity coils pull it along.",
+      "explanation": "The Tokaido Shinkansen runs between Tokyo and Osaka. Electric locomotives are power converters, a diesel-electric is a power station on wheels, and Shanghai's maglev floats about 1.3 cm above its track.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 6,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Rocks Made of Layers",
   "objective": "After this level you can recognize sandstone, shale and limestone and say what each one started out as.",
@@ -180,7 +180,7 @@
     },
     {
       "id": "question.earth_climate.006.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.earth_climate.sedimentary_types",
@@ -188,35 +188,25 @@
       ],
       "sourceCardIds": [
         "card.earth_climate.006.c3",
-        "card.earth_climate.004.c4"
+        "card.earth_climate.004.c4",
+        "card.earth_climate.006.c4"
       ],
-      "prompt": "Why is sandstone usually made mostly of quartz grains?",
-      "options": [
+      "prompt": "Match each sedimentary rock with how it started.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Cement turns other minerals into quartz",
-          "correct": false,
-          "rationale": "Cement glues grains; it doesn't change them."
+          "left": "Sandstone",
+          "right": "Started as sand"
         },
         {
-          "id": "b",
-          "label": "Quartz outlasts other minerals as rocks wear down",
-          "correct": true
+          "left": "Shale",
+          "right": "Started as mud"
         },
         {
-          "id": "c",
-          "label": "Only quartz grains can be compacted",
-          "correct": false,
-          "rationale": "Any grains can be compacted."
-        },
-        {
-          "id": "d",
-          "label": "Quartz grows inside the rock after it forms",
-          "correct": false,
-          "rationale": "The quartz grains were already in the sand."
+          "left": "Limestone",
+          "right": "Built by sea life"
         }
       ],
-      "explanation": "Quartz resists wear, water and decay, so it dominates sand, and sandstone is sand turned to rock.",
+      "explanation": "Sandstone started as sand, shale started as mud, and limestone was built by sea life from fossil shells.",
       "difficulty": 0.3
     }
   ],

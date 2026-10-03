@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 53,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Reflexes",
   "objective": "After this level you can explain why some reflexes happen before you can think.",
@@ -129,7 +129,7 @@
     },
     {
       "id": "question.human_body.053.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.reflex_arc"
@@ -138,32 +138,16 @@
         "card.human_body.053.c2",
         "card.human_body.053.c1"
       ],
-      "prompt": "Why can your hand leave a hot stove before you have registered the pain?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Pain signals travel faster than all others",
-          "correct": false,
-          "rationale": "The speed comes from the short route, not the signal."
-        },
-        {
-          "id": "b",
-          "label": "The skin moves the hand by itself",
-          "correct": false,
-          "rationale": "The skin only senses; muscles do the moving."
-        },
-        {
-          "id": "c",
-          "label": "The signal loops through the spinal cord without waiting for the brain",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The brain predicted the burn in advance",
-          "correct": false,
-          "rationale": "The brain is not in the loop for the reflex."
-        }
+      "prompt": "Follow the hot-stove reflex: put its steps in order, from first to last.",
+      "items": [
+        "Sensors in your skin",
+        "A sensory fiber",
+        "Your spinal cord",
+        "A motor neuron",
+        "Your biceps contracts"
       ],
+      "first": "First",
+      "last": "Last",
       "explanation": "In the withdrawal reflex, the sensory signal connects to a motor neuron in the spinal cord, skipping the higher brain centers.",
       "difficulty": 0.25
     },

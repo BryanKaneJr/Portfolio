@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 25,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Writing Music Down",
   "objective": "After this level you can explain how Guido of Arezzo and others developed musical notation.",
@@ -91,7 +91,7 @@
   "questions": [
     {
       "id": "question.music.025.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.guido_notation"
@@ -99,33 +99,18 @@
       "sourceCardIds": [
         "card.music.025.c4"
       ],
-      "prompt": "Where did Guido's note syllables ut, re, mi, fa, sol, la come from?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A hymn whose lines each start one step higher",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The names of six Greek Muses",
-          "correct": false,
-          "rationale": "The syllables come from a Latin hymn."
-        },
-        {
-          "id": "c",
-          "label": "The letters of the treble clef",
-          "correct": false,
-          "rationale": "Clefs use letters; these syllables come from a hymn."
-        },
-        {
-          "id": "d",
-          "label": "Six notes of the Zeng bells",
-          "correct": false,
-          "rationale": "The Zeng bells are Chinese and much older."
-        }
+      "prompt": "Put the hymn's opening syllables in order, from lowest note to highest.",
+      "items": [
+        "Ut",
+        "Re",
+        "Mi",
+        "Fa",
+        "Sol",
+        "La"
       ],
-      "explanation": "Guido took them from the first syllables of the lines of Ut queant laxis, each starting on a higher note.",
+      "first": "Lowest",
+      "last": "Highest",
+      "explanation": "Each line of Ut queant laxis starts on a higher note than the last, so the syllables climb ut, re, mi, fa, sol, la.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 10,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: What Money Is",
   "objective": "After this level you can trace money from barter and coins to digital money, and explain what gives it value.",
@@ -267,7 +267,7 @@
     },
     {
       "id": "question.how_money_works.010.q4",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.how_money_works.lydia_first_coins",
@@ -277,37 +277,21 @@
       ],
       "sourceCardIds": [
         "card.how_money_works.004.c1",
+        "card.how_money_works.004.c3",
         "card.how_money_works.005.c3",
         "card.how_money_works.007.c4",
         "card.how_money_works.009.c2"
       ],
-      "prompt": "Which list is in the right order, oldest first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Song paper notes → Lydian coins → Bitcoin → Nixon's gold decision",
-          "correct": false,
-          "rationale": "Lydia's coins came about 1,700 years before Song paper notes."
-        },
-        {
-          "id": "b",
-          "label": "Lydian coins → Nixon's gold decision → Song paper notes → Bitcoin",
-          "correct": false,
-          "rationale": "Song paper notes (around 1023) came long before 1971."
-        },
-        {
-          "id": "c",
-          "label": "Lydian coins → Song paper notes → Nixon's gold decision → Bitcoin",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Bitcoin → Lydian coins → Song paper notes → Nixon's gold decision",
-          "correct": false,
-          "rationale": "Bitcoin is the newest of all: 2009."
-        }
+      "prompt": "Put these moments in money's story in order, from earliest to latest.",
+      "items": [
+        "Lydia's coins",
+        "Jiaozi",
+        "President Nixon",
+        "Bitcoin"
       ],
-      "explanation": "Lydia around 650 BCE, Song notes around 1023, Nixon in 1971, bitcoin in 2009.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Lydia's coins came around 650 BCE, Song jiaozi notes around 1023, President Nixon cut the dollar's link to gold in 1971, and bitcoin launched in 2009.",
       "difficulty": 0.35
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 30,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Classic Fallacies",
   "objective": "After this level you can name the classic fallacies and explain how each one dodges, distorts or assumes the point.",
@@ -149,41 +149,31 @@
   "questions": [
     {
       "id": "question.logic.030.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.classic_fallacy_families"
       ],
       "sourceCardIds": [
-        "card.logic.030.c3"
+        "card.logic.030.c3",
+        "card.logic.030.c2"
       ],
-      "prompt": "Which pair does the IEP group as fallacies of illegitimate presumption?",
-      "options": [
+      "prompt": "Match each fallacy with its family.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Ad hominem and tu quoque",
-          "correct": false,
-          "rationale": "Those rely on an irrelevant reason: relevance."
+          "left": "Red herring",
+          "right": "Dodges the point"
         },
         {
-          "id": "b",
-          "label": "Begging the question and false dilemma",
-          "correct": true
+          "left": "Straw man",
+          "right": "Distorts the point"
         },
         {
-          "id": "c",
-          "label": "Red herring and straw man",
-          "correct": false,
-          "rationale": "Those dodge or distort the point."
-        },
-        {
-          "id": "d",
-          "label": "Bandwagon and slippery slope",
-          "correct": false,
-          "rationale": "Those overrate popularity or a chain of steps."
+          "left": "Circular",
+          "right": "Assumes the point"
         }
       ],
-      "explanation": "Fallacies of illegitimate presumption assume what they should not: begging the question and the false dilemma are two.",
+      "explanation": "A red herring dodges the point by changing the subject. A straw man distorts the point by fighting a weaker fake view. Circular reasoning assumes the point.",
       "difficulty": 0.25
     },
     {

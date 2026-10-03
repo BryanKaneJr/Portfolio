@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 55,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Trial of Socrates",
   "objective": "After this level you can explain why Athens sentenced Socrates to death.",
@@ -128,41 +128,27 @@
     },
     {
       "id": "question.ancient_greece.055.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_greece.philosophy_socrates_trial"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.055.c3"
+        "card.ancient_greece.055.c3",
+        "card.ancient_greece.055.c4",
+        "card.ancient_greece.055.c5"
       ],
-      "prompt": "Besides the formal charges, why was Socrates viewed with suspicion in 399 BCE?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He had fought for Sparta against Athens",
-          "correct": false,
-          "rationale": "Nothing says so."
-        },
-        {
-          "id": "b",
-          "label": "He had written books attacking democracy",
-          "correct": false,
-          "rationale": "He wrote nothing."
-        },
-        {
-          "id": "c",
-          "label": "Critias, a leader of the Thirty Tyrants, had been his companion",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "He had stolen offerings from the oracle",
-          "correct": false,
-          "rationale": "Nothing says so."
-        }
+      "prompt": "Put the story of Socrates’ end in order, from earliest to latest.",
+      "items": [
+        "The Thirty Tyrants",
+        "Socrates was found guilty",
+        "Propose a penalty",
+        "The jury chose death",
+        "Drinking hemlock"
       ],
-      "explanation": "Critias, who led the Thirty Tyrants in 404–403 BCE, had been a companion of Socrates.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Thirty Tyrants ruled in 404-403 BCE. In 399 Socrates was found guilty, had to propose a penalty, and the jury chose death. He died by drinking hemlock.",
       "difficulty": 0.35
     },
     {

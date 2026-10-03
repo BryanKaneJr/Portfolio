@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 9,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Cryptocurrency",
   "objective": "After this level you can explain what cryptocurrencies are and how they differ from money in a bank.",
@@ -101,41 +101,35 @@
   "questions": [
     {
       "id": "question.how_money_works.009.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.blockchain_ledger"
       ],
       "sourceCardIds": [
+        "card.how_money_works.009.c2",
         "card.how_money_works.009.c3"
       ],
-      "prompt": "What is a blockchain?",
-      "options": [
+      "prompt": "Match each bitcoin word with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A chain of bank branches that share one vault",
-          "correct": false,
-          "rationale": "No banks involved: the network keeps the ledger."
+          "left": "Satoshi Nakamoto",
+          "right": "Proposed bitcoin"
         },
         {
-          "id": "b",
-          "label": "A ledger of transactions shared across a network",
-          "correct": true
+          "left": "Cryptography",
+          "right": "The mathematics of codes"
         },
         {
-          "id": "c",
-          "label": "A type of metal coin used by computers",
-          "correct": false,
-          "rationale": "Bitcoin has no coins or notes."
+          "left": "Blockchain",
+          "right": "A ledger of transactions"
         },
         {
-          "id": "d",
-          "label": "The secret code you sign payments with",
-          "correct": false,
-          "rationale": "That's a private key."
+          "left": "Private key",
+          "right": "Lose it and the coins are gone"
         }
       ],
-      "explanation": "A blockchain is a ledger of transactions shared across a network, with each block linked to the one before.",
+      "explanation": "Satoshi Nakamoto proposed bitcoin. Cryptography is the mathematics of codes. A blockchain is a ledger of transactions shared across a network. Lose your private key and the coins are gone for good.",
       "difficulty": 0.2
     },
     {

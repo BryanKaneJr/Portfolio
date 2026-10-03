@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 94,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Ready for an Earthquake",
   "objective": "After this level you can explain why quakes cannot be predicted and why Drop, Cover and Hold On is the advice.",
@@ -136,7 +136,7 @@
     },
     {
       "id": "question.earth_climate.094.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.hazard_drop_cover_hold"
@@ -145,33 +145,15 @@
         "card.earth_climate.094.c4",
         "card.earth_climate.094.c5"
       ],
-      "prompt": "Shaking starts while you're in the kitchen, a few steps from the back door. What should you do, and why?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Run out the back door before it gets worse",
-          "correct": false,
-          "rationale": "Moving during shaking makes injury more likely."
-        },
-        {
-          "id": "b",
-          "label": "Stand in the kitchen doorway until it stops",
-          "correct": false,
-          "rationale": "Doorways don't protect you from falling objects."
-        },
-        {
-          "id": "c",
-          "label": "Drop, cover under the table: falling objects are the danger",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Lie flat in the open, away from the furniture",
-          "correct": false,
-          "rationale": "Cover your head and neck, ideally under a sturdy table."
-        }
+      "prompt": "Put the three earthquake safety steps in order.",
+      "items": [
+        "Drop",
+        "Cover",
+        "Hold on"
       ],
-      "explanation": "Most injuries come from falling or flying objects, so drop, cover under something sturdy and hold on where you are.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Drop onto your hands and knees, cover your head and neck, and hold on until the shaking stops.",
       "difficulty": 0.35
     },
     {

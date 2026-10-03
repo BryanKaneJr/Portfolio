@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 16,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Radioactivity",
   "objective": "After this level you can explain radioactive decay.",
@@ -203,7 +203,7 @@
     },
     {
       "id": "question.chemistry.016.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.radioactive_decay",
@@ -211,35 +211,25 @@
       ],
       "sourceCardIds": [
         "card.chemistry.016.c3",
-        "card.chemistry.015.c2"
+        "card.chemistry.015.c2",
+        "card.chemistry.016.c4"
       ],
-      "prompt": "Level 15 said an element's isotopes differ in their neutrons. What makes some isotopes radioactive?",
-      "options": [
+      "prompt": "Match each kind of radiation with what it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They have extra electrons",
-          "correct": false,
-          "rationale": "Radioactivity comes from the nucleus."
+          "left": "Alpha",
+          "right": "A helium nucleus"
         },
         {
-          "id": "b",
-          "label": "They have been heated",
-          "correct": false,
-          "rationale": "Decay happens on its own, without heating."
+          "left": "Beta",
+          "right": "Often an electron"
         },
         {
-          "id": "c",
-          "label": "Their nuclei are unstable and break down on their own",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "They are made of a different element",
-          "correct": false,
-          "rationale": "Isotopes belong to the same element."
+          "left": "Gamma",
+          "right": "A packet of energy"
         }
       ],
-      "explanation": "Radioactive isotopes have unstable nuclei, which decay spontaneously and give off radiation.",
+      "explanation": "Alpha radiation is a helium nucleus (2 protons and 2 neutrons), beta is a small, fast particle, often an electron, and gamma is a packet of energy, a photon.",
       "difficulty": 0.3
     }
   ],

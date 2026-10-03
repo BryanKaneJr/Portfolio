@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 66,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Acid Rain",
   "objective": "After this level you can explain what causes acid rain.",
@@ -99,41 +99,25 @@
   "questions": [
     {
       "id": "question.chemistry.066.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.acid_rain_causes"
       ],
       "sourceCardIds": [
-        "card.chemistry.066.c3"
+        "card.chemistry.066.c3",
+        "card.chemistry.066.c1",
+        "card.chemistry.066.c5"
       ],
-      "prompt": "Which two pollutants are the main causes of acid rain?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Carbon monoxide and methane",
-          "correct": false,
-          "rationale": "Neither forms the sulfuric and nitric acids in acid rain."
-        },
-        {
-          "id": "b",
-          "label": "Sulfur dioxide and nitrogen oxides",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Ozone and helium",
-          "correct": false,
-          "rationale": "Helium is unreactive, and neither is the main cause."
-        },
-        {
-          "id": "d",
-          "label": "Chlorine and ammonia",
-          "correct": false,
-          "rationale": "Neither is the main cause of acid rain."
-        }
+      "prompt": "Put these moments in the acid rain story in order, from earliest to latest.",
+      "items": [
+        "Robert Angus Smith studied rainwater",
+        "His book Air and Rain",
+        "The Acid Rain Program"
       ],
-      "explanation": "Sulfur dioxide and nitrogen oxides, mostly from burning fossil fuels, form sulfuric and nitric acids in the air.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Robert Angus Smith found acid rain in 1852, his book Air and Rain came out in 1872, and the US Acid Rain Program began with the 1990 Clean Air Act Amendments.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 93,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Symbols in Art",
   "objective": "After this level you can decode common symbols like skulls, lilies and dogs in older paintings.",
@@ -134,41 +134,32 @@
     },
     {
       "id": "question.art_history.093.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.symbol_memento_mori"
       ],
       "sourceCardIds": [
-        "card.art_history.093.c1"
+        "card.art_history.093.c1",
+        "card.art_history.093.c2",
+        "card.art_history.093.c3"
       ],
-      "prompt": "Why does the skull in Holbein's The Ambassadors look like a smear from the front?",
-      "options": [
+      "prompt": "Match each symbol with what it usually stands for.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It was damaged and badly repaired",
-          "correct": false,
-          "rationale": "It's a deliberate trick."
+          "left": "Skull",
+          "right": "Remember you must die"
         },
         {
-          "id": "b",
-          "label": "Holbein left it unfinished",
-          "correct": false,
-          "rationale": "It's finished; it's built to be seen from an angle."
+          "left": "White lilies",
+          "right": "Purity"
         },
         {
-          "id": "c",
-          "label": "It only appears under ultraviolet light",
-          "correct": false,
-          "rationale": "You just need the right viewing angle."
-        },
-        {
-          "id": "d",
-          "label": "It's painted to be seen from the lower right",
-          "correct": true
+          "left": "Dogs",
+          "right": "Faithfulness"
         }
       ],
-      "explanation": "From the bottom right corner, looking up, the elongated shape becomes a large skull.",
+      "explanation": "A skull is a memento mori: remember you must die. White lilies generally stand for purity, and dogs can stand for faithfulness.",
       "difficulty": 0.3
     },
     {

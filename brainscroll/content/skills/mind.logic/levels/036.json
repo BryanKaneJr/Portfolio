@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 36,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Cherry-Picking",
   "objective": "After this level you can spot cherry-picking, where only the evidence that helps the case is shown.",
@@ -121,41 +121,32 @@
     },
     {
       "id": "question.logic.036.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.evidence_cherry_picking"
       ],
       "sourceCardIds": [
-        "card.logic.036.c3"
+        "card.logic.036.c3",
+        "card.logic.036.c1",
+        "card.logic.036.c2"
       ],
-      "prompt": "How did the Colgate poster's \"80% of dentists\" mislead readers?",
-      "options": [
+      "prompt": "Match each part of the Colgate story with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The survey behind it never took place",
-          "correct": false,
-          "rationale": "The survey was real; its details were left out."
+          "left": "Cherry-picking",
+          "right": "Suppressed evidence"
         },
         {
-          "id": "b",
-          "label": "Dentists could recommend several brands, not just Colgate",
-          "correct": true
+          "left": "Advertising Standards Authority",
+          "right": "Ruled the poster misleading"
         },
         {
-          "id": "c",
-          "label": "Only a handful of dentists were asked",
-          "correct": false,
-          "rationale": "The regulator's point was about the question asked, not the count."
-        },
-        {
-          "id": "d",
-          "label": "The dentists were paid for their answers",
-          "correct": false,
-          "rationale": "That wasn't the issue the regulator raised."
+          "left": "The survey",
+          "right": "Several toothpaste brands"
         }
       ],
-      "explanation": "The survey let dentists recommend several brands, but the poster read as if 80% chose Colgate over all others.",
+      "explanation": "The encyclopedia files cherry-picking under suppressed evidence. The Advertising Standards Authority ruled the poster misleading, because the survey let dentists recommend several toothpaste brands.",
       "difficulty": 0.25
     },
     {

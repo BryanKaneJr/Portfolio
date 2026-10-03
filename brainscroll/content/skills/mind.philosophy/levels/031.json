@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 31,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Mind-Body Problem",
   "objective": "After this level you can explain the mind-body problem: how thoughts and feelings relate to the physical brain and body.",
@@ -160,7 +160,7 @@
     },
     {
       "id": "question.philosophy.031.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.mind_body_problem",
@@ -168,35 +168,25 @@
       ],
       "sourceCardIds": [
         "card.philosophy.031.c3",
-        "card.philosophy.002.c2"
+        "card.philosophy.002.c2",
+        "card.philosophy.031.c4"
       ],
-      "prompt": "The mind-body problem asks what minds and bodies really are. Which branch of philosophy from Level 2 asks what sorts of things exist?",
-      "options": [
+      "prompt": "Match each classic answer to the mind-body problem with its claim.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Ethics",
-          "correct": false,
-          "rationale": "Ethics asks what is right or wrong."
+          "left": "Dualists",
+          "right": "Fundamentally different kinds of thing"
         },
         {
-          "id": "b",
-          "label": "Aesthetics",
-          "correct": false,
-          "rationale": "Aesthetics studies beauty and art."
+          "left": "Materialists",
+          "right": "The mind is fundamentally physical"
         },
         {
-          "id": "c",
-          "label": "Logic",
-          "correct": false,
-          "rationale": "Logic studies reasoning."
-        },
-        {
-          "id": "d",
-          "label": "Metaphysics",
-          "correct": true
+          "left": "Idealists",
+          "right": "Matter is fundamentally mental"
         }
       ],
-      "explanation": "Metaphysics asks what sorts of things exist and what the world is made of, including whether minds are something over and above bodies.",
+      "explanation": "Dualists say mind and body are fundamentally different kinds of thing, materialists say the mind is fundamentally physical, and idealists say matter is fundamentally mental.",
       "difficulty": 0.25
     }
   ],

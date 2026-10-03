@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 11,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Punched Cards",
   "objective": "After this level you can explain how punched cards steered a weaving loom in 1804 and counted the 1890 US census.",
@@ -93,7 +93,7 @@
   "questions": [
     {
       "id": "question.computers.011.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.history_hollerith_census"
@@ -101,33 +101,16 @@
       "sourceCardIds": [
         "card.computers.011.c4"
       ],
-      "prompt": "In Hollerith's census tabulator, what closed the electric circuit that advanced a dial?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A light shining through the hole onto a sensor",
-          "correct": false,
-          "rationale": "His pins made contact with mercury; no light was involved."
-        },
-        {
-          "id": "b",
-          "label": "A metal pin passing through a hole into mercury",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "A clerk pressing a key for each person",
-          "correct": false,
-          "rationale": "The machine read the holes itself."
-        },
-        {
-          "id": "d",
-          "label": "A gear turning once for every card",
-          "correct": false,
-          "rationale": "The count came from circuits closed through holes."
-        }
+      "prompt": "Put the steps of Hollerith's tabulator in order, from pin to dial.",
+      "items": [
+        "Metal pins dropped onto the card",
+        "Dipped into mercury",
+        "Closing an electric circuit",
+        "Nudged a counting dial forward"
       ],
-      "explanation": "Where a pin passed through a hole, it dipped into mercury, completing a circuit that advanced a dial.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Metal pins dropped onto the card, a pin through a hole dipped into mercury, that closed an electric circuit, and the circuit nudged a counting dial forward.",
       "difficulty": 0.2
     },
     {

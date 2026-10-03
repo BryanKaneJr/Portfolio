@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 100,
   "type": "mastery",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Mastery Challenge: Chemistry",
   "objective": "After this level you can demonstrate command of Chemistry Levels 1–99 across the whole tree.",
@@ -355,41 +355,41 @@
     },
     {
       "id": "question.chemistry.100.q6",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.franklin_xray_diffraction"
       ],
       "sourceCardIds": [
-        "card.chemistry.096.c2"
+        "card.chemistry.096.c2",
+        "card.chemistry.092.c1",
+        "card.chemistry.092.c4",
+        "card.chemistry.095.c2",
+        "card.chemistry.095.c4",
+        "card.chemistry.096.c1",
+        "card.chemistry.097.c3",
+        "card.chemistry.097.c4"
       ],
-      "prompt": "Great Chemists mastery: which technique did Rosalind Franklin use to study the structure of DNA?",
-      "options": [
+      "prompt": "Match each chemist with the work this course credits to them.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Distillation",
-          "correct": false,
-          "rationale": "That separates mixtures, Level 7."
+          "left": "Robert Boyle",
+          "right": "The Sceptical Chymist"
         },
         {
-          "id": "b",
-          "label": "X-ray diffraction",
-          "correct": true
+          "left": "Marie Curie",
+          "right": "Polonium"
         },
         {
-          "id": "c",
-          "label": "Carbon dating",
-          "correct": false,
-          "rationale": "That tells age, not structure."
+          "left": "Rosalind Franklin",
+          "right": "Photo 51"
         },
         {
-          "id": "d",
-          "label": "Weighing it on a balance",
-          "correct": false,
-          "rationale": "Mass alone can't show a molecule's shape."
+          "left": "Roy Plunkett",
+          "right": "Teflon"
         }
       ],
-      "explanation": "X-rays scatter off a crystal at angles that reveal how its atoms are arranged, as in Photo 51.",
+      "explanation": "Robert Boyle wrote The Sceptical Chymist, Marie Curie discovered polonium, Rosalind Franklin's team took Photo 51, and Roy Plunkett found Teflon.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 68,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Counting the Votes",
   "objective": "After this level you can explain how votes are counted and checked.",
@@ -87,41 +87,37 @@
   "questions": [
     {
       "id": "question.government.068.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.election_count_transparency"
       ],
       "sourceCardIds": [
-        "card.government.068.c2"
+        "card.government.068.c2",
+        "card.government.068.c1",
+        "card.government.068.c3",
+        "card.government.068.c4"
       ],
-      "prompt": "At a UK election count, who can candidates appoint to watch the verification and counting?",
-      "options": [
+      "prompt": "Match each vote-counting safeguard with its detail.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Counting agents",
-          "correct": true
+          "left": "Exact tie",
+          "right": "Drawing lots"
         },
         {
-          "id": "b",
-          "label": "Opinion pollsters",
-          "correct": false,
-          "rationale": "Pollsters survey voters; they don't watch counts."
+          "left": "Counting agents",
+          "right": "Watch the verification"
         },
         {
-          "id": "c",
-          "label": "The other candidates' families",
-          "correct": false,
-          "rationale": "The role is counting agents."
+          "left": "VVPAT",
+          "right": "Paper slip"
         },
         {
-          "id": "d",
-          "label": "Nobody: counts are held in private",
-          "correct": false,
-          "rationale": "Counts are meant to be transparent."
+          "left": "Risk-limiting audit",
+          "right": "Philip Stark"
         }
       ],
-      "explanation": "Candidates can appoint counting agents to observe the verification and count.",
+      "explanation": "An exact UK tie is settled by drawing lots, counting agents watch the verification and the count, India's VVPAT shows a paper slip, and Philip Stark developed the risk-limiting audit.",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 33,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Great Ocean Conveyor",
   "objective": "After this level you can explain the slow circulation of the deep ocean.",
@@ -131,7 +131,7 @@
     },
     {
       "id": "question.oceans.033.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.conveyor_thermohaline"
@@ -139,33 +139,16 @@
       "sourceCardIds": [
         "card.oceans.033.c2"
       ],
-      "prompt": "Why does sea ice forming in the far North Atlantic help drive the ocean conveyor?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The ice floats south and melts, warming the sea",
-          "correct": false,
-          "rationale": "The key is what happens to the water left behind."
-        },
-        {
-          "id": "b",
-          "label": "Ice blocks the wind, so the water goes still",
-          "correct": false,
-          "rationale": "Sinking comes from density, not blocked wind."
-        },
-        {
-          "id": "c",
-          "label": "Its salt stays behind, so the water gets denser",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Ice makes the nearby water fresher, so it rises",
-          "correct": false,
-          "rationale": "The salt is left behind, so the water gets saltier, not fresher."
-        }
+      "prompt": "How does the far North Atlantic power the conveyor? Put these steps in order, from first to last.",
+      "items": [
+        "Chilled by Arctic air",
+        "Sea ice forms",
+        "It sinks toward the bottom",
+        "Surface water moves in to replace it"
       ],
-      "explanation": "When sea ice forms, its salt is left in the surrounding water. That cold, extra-salty water is dense and sinks, and surface water moves in to replace it.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The water is chilled by Arctic air and sea ice forms, leaving salt behind. The cold, salty water sinks toward the bottom, and surface water moves in to replace it.",
       "difficulty": 0.25
     },
     {

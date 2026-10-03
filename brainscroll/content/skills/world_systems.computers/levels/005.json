@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 5,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Pictures and Sound as Numbers",
   "objective": "After this level you can explain how a photo becomes a grid of pixel numbers and a song becomes thousands of samples a second.",
@@ -125,41 +125,31 @@
     },
     {
       "id": "question.computers.005.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.audio_sampling"
       ],
       "sourceCardIds": [
-        "card.computers.005.c4"
+        "card.computers.005.c4",
+        "card.computers.005.c3"
       ],
-      "prompt": "Why would sampling music only 10,000 times a second lose the high notes?",
-      "options": [
+      "prompt": "Match each part of digital pictures and sound with its number.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Sampling must be more than twice as fast as the highest frequency",
-          "correct": true
+          "left": "Three bytes per pixel",
+          "right": "16,777,216 colors"
         },
         {
-          "id": "b",
-          "label": "Each sample can only hold one note",
-          "correct": false,
-          "rationale": "A sample is one measurement of the wave, not a note."
+          "left": "A CD",
+          "right": "44,100 samples every second"
         },
         {
-          "id": "c",
-          "label": "Sound needs one sample per pixel",
-          "correct": false,
-          "rationale": "Pixels belong to pictures, not sound."
-        },
-        {
-          "id": "d",
-          "label": "Slow sampling makes every sound louder",
-          "correct": false,
-          "rationale": "Sampling rate sets which frequencies survive, not loudness."
+          "left": "Human hearing",
+          "right": "about 20 kHz"
         }
       ],
-      "explanation": "To capture a frequency you must sample more than twice as fast. Hearing reaches about 20 kHz, so you need more than about 40,000 samples a second.",
+      "explanation": "Three bytes per pixel allow 16,777,216 colors, a CD takes 44,100 samples every second, and human hearing reaches about 20 kHz.",
       "difficulty": 0.3
     },
     {

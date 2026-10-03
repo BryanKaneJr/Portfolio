@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 89,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Art and Money",
   "objective": "After this level you can explain why a few artworks sell for hundreds of millions of dollars.",
@@ -130,41 +130,25 @@
     },
     {
       "id": "question.art_history.089.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.art_market_auction"
       ],
       "sourceCardIds": [
-        "card.art_history.089.c3"
+        "card.art_history.089.c3",
+        "card.art_history.089.c1",
+        "card.art_history.089.c2"
       ],
-      "prompt": "What does the Salvator Mundi sale show about auction prices?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Experts fix the price before the sale",
-          "correct": false,
-          "rationale": "The bidding set it."
-        },
-        {
-          "id": "b",
-          "label": "The price equals the cost of restoration",
-          "correct": false,
-          "rationale": "Restoration costs nothing like that."
-        },
-        {
-          "id": "c",
-          "label": "Only living artists can set records",
-          "correct": false,
-          "rationale": "Leonardo died about five centuries ago."
-        },
-        {
-          "id": "d",
-          "label": "They rise only while rivals keep bidding",
-          "correct": true
-        }
+      "prompt": "Put the Salvator Mundi's story in order, from earliest to latest.",
+      "items": [
+        "Two dealers bought a battered painting",
+        "Authenticated as a work by Leonardo",
+        "The winning bid"
       ],
-      "explanation": "The sale came down to two phone bidders over about 19 minutes; the price climbed as long as both kept going.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Two dealers bought the battered painting in 2005, it was authenticated as a work by Leonardo by 2011, and the winning bid at Christie's came in 2017.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 4,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How Color Works",
   "objective": "After this level you can explain primary and complementary colors and how artists use them.",
@@ -170,44 +170,31 @@
     },
     {
       "id": "question.art_history.004.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.art_history.complementary_colors",
         "concept.art_history.elements_of_art"
       ],
       "sourceCardIds": [
-        "card.art_history.004.c3",
-        "card.art_history.004.c4",
-        "card.art_history.003.c3"
+        "card.art_history.004.c3"
       ],
-      "prompt": "Color is one of Level 3's elements of art. A painter wants a red apple to look as vivid as possible. Which background works best?",
-      "options": [
+      "prompt": "Match each color with its complement, the color directly across the wheel.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Orange",
-          "correct": false,
-          "rationale": "Orange sits next to red, so it won't boost it much."
+          "left": "Red",
+          "right": "Green"
         },
         {
-          "id": "b",
-          "label": "Another red",
-          "correct": false,
-          "rationale": "Red on red makes the apple blend in."
+          "left": "Blue",
+          "right": "Orange"
         },
         {
-          "id": "c",
-          "label": "Brown",
-          "correct": false,
-          "rationale": "Brown is what complements make when mixed; it dulls things."
-        },
-        {
-          "id": "d",
-          "label": "Green",
-          "correct": true
+          "left": "Yellow",
+          "right": "Violet"
         }
       ],
-      "explanation": "Green is red's complement. Side by side, complements make each other look more intense.",
+      "explanation": "The complementary pairs are red and green, blue and orange, and yellow and violet.",
       "difficulty": 0.3
     }
   ],

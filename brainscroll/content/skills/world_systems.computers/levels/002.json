@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 2,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "A Bit: The Smallest Fact",
   "objective": "After this level you can explain a bit as one yes-or-no choice and why eight bits make a byte with 256 possible patterns.",
@@ -125,41 +125,31 @@
     },
     {
       "id": "question.computers.002.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.bit_patterns"
       ],
       "sourceCardIds": [
-        "card.computers.002.c3"
+        "card.computers.002.c3",
+        "card.computers.002.c4"
       ],
-      "prompt": "Why does adding one more bit double the number of possible patterns?",
-      "options": [
+      "prompt": "Match each group of bits with how many patterns it gives.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Every old pattern can now end in either a 0 or a 1",
-          "correct": true
+          "left": "One bit",
+          "right": "2 patterns"
         },
         {
-          "id": "b",
-          "label": "Each new bit can hold two digits at once",
-          "correct": false,
-          "rationale": "A bit holds one digit, 0 or 1."
+          "left": "A byte",
+          "right": "256 possible patterns"
         },
         {
-          "id": "c",
-          "label": "The new bit counts in tens instead of twos",
-          "correct": false,
-          "rationale": "Every bit has just two values."
-        },
-        {
-          "id": "d",
-          "label": "Bits pair up and cancel each other out",
-          "correct": false,
-          "rationale": "Bits add options; they never cancel."
+          "left": "Each extra bit",
+          "right": "doubles the count"
         }
       ],
-      "explanation": "Each existing pattern splits in two, one ending in 0 and one ending in 1, so the count doubles.",
+      "explanation": "One bit gives 2 patterns, each extra bit doubles the count, and a byte of eight bits gives 256 possible patterns.",
       "difficulty": 0.25
     },
     {

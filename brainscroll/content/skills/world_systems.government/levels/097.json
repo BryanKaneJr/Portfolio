@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 97,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Local Government Up Close",
   "objective": "After this level you can describe how a city or town council works.",
@@ -145,41 +145,31 @@
     },
     {
       "id": "question.government.097.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.localcouncil_forms"
       ],
       "sourceCardIds": [
-        "card.government.097.c2"
+        "card.government.097.c2",
+        "card.government.097.c3"
       ],
-      "prompt": "In a US city with the council-manager form, who runs day-to-day operations?",
-      "options": [
+      "prompt": "Match each way of running a local council with its feature.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The mayor, elected separately from the council",
-          "correct": false,
-          "rationale": "That's the mayor-council form."
+          "left": "Council-manager",
+          "right": "A professional city manager"
         },
         {
-          "id": "b",
-          "label": "A committee of all residents",
-          "correct": false,
-          "rationale": "Residents elect the council; they don't run operations."
+          "left": "Mayor-council",
+          "right": "Mayor elected separately"
         },
         {
-          "id": "c",
-          "label": "The state governor",
-          "correct": false,
-          "rationale": "City operations are run locally."
-        },
-        {
-          "id": "d",
-          "label": "A professional city manager appointed by the council",
-          "correct": true
+          "left": "Local Government Act 1972",
+          "right": "Open to the public"
         }
       ],
-      "explanation": "The council makes policy and sets the budget, then appoints a professional city manager to run daily operations.",
+      "explanation": "In the council-manager form, a professional city manager runs daily operations. In the mayor-council form, the mayor is elected separately. The Local Government Act 1972 says council meetings are open to the public.",
       "difficulty": 0.25
     },
     {

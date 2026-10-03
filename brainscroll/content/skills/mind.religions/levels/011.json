@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 11,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Abraham and the Covenant",
   "objective": "After this level you can explain the covenant Jews believe God made with Abraham, and why Judaism, Christianity and Islam all honor him.",
@@ -176,7 +176,7 @@
     },
     {
       "id": "question.religions.011.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.religions.judaism_abraham_heirs",
@@ -184,35 +184,30 @@
       ],
       "sourceCardIds": [
         "card.religions.011.c5",
-        "card.religions.008.c2"
+        "card.religions.008.c2",
+        "card.religions.011.c3",
+        "card.religions.011.c4"
       ],
-      "prompt": "Judaism, Christianity and Islam trace different family lines from Abraham. Which pairing is right?",
-      "options": [
+      "prompt": "Match each name from Abraham's story with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Jews through Ishmael; Muslims through Isaac",
-          "correct": false,
-          "rationale": "It is the other way round."
+          "left": "Abraham",
+          "right": "The father of a multitude of nations"
         },
         {
-          "id": "b",
-          "label": "Christians through Ishmael; Muslims through Isaac",
-          "correct": false,
-          "rationale": "Christians trace the line through Isaac."
+          "left": "The Prophet Muhammad",
+          "right": "A descendant of Ishmael"
         },
         {
-          "id": "c",
-          "label": "All three through Moses",
-          "correct": false,
-          "rationale": "Moses comes much later in the story."
+          "left": "Genealogy of Jesus",
+          "right": "Traced to Isaac"
         },
         {
-          "id": "d",
-          "label": "Jews and Christians through Isaac; Muslims through Ishmael",
-          "correct": true
+          "left": "Berit mila",
+          "right": "A baby boy's eighth day"
         }
       ],
-      "explanation": "Jews and Christians trace the story through Isaac; in Islam, Muhammad descends from Ishmael.",
+      "explanation": "Abraham's new name means the father of a multitude of nations. Muhammad is a descendant of Ishmael, the genealogy of Jesus is traced to Isaac, and berit mila is held on a baby boy's eighth day.",
       "difficulty": 0.3
     }
   ],

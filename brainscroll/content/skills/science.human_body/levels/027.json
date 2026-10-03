@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 27,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Harvey and Circulation",
   "objective": "After this level you can explain how William Harvey showed that blood circulates.",
@@ -175,7 +175,7 @@
     },
     {
       "id": "question.human_body.027.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.malpighi_capillaries",
@@ -183,34 +183,17 @@
       ],
       "sourceCardIds": [
         "card.human_body.027.c4",
-        "card.human_body.023.c4"
+        "card.human_body.023.c4",
+        "card.human_body.027.c1"
       ],
-      "prompt": "Harvey couldn't see how blood crossed from arteries into veins. What did Malpighi's microscope reveal in 1661?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Valves inside the veins",
-          "correct": false,
-          "rationale": "Harvey already used those in his banded-arm test."
-        },
-        {
-          "id": "b",
-          "label": "A second heart in the lungs",
-          "correct": false,
-          "rationale": "There is only one heart."
-        },
-        {
-          "id": "c",
-          "label": "Capillaries linking small arteries to small veins",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Pores in the wall between the ventricles",
-          "correct": false,
-          "rationale": "Malpighi found capillaries, not pores."
-        }
+      "prompt": "Put these thinkers on blood in order, from earliest to latest.",
+      "items": [
+        "Galen",
+        "William Harvey",
+        "Marcello Malpighi"
       ],
+      "first": "Earliest",
+      "last": "Latest",
       "explanation": "In 1661 Malpighi described capillaries connecting small arteries with small veins, the link Harvey could not see.",
       "difficulty": 0.25
     }

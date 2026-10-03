@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 11,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Avicenna's Floating Man",
   "objective": "After this level you can explain Avicenna's floating man, a person created in midair with no sensations, and what it was meant to show about self-awareness.",
@@ -164,7 +164,7 @@
     },
     {
       "id": "question.philosophy.011.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.avicenna_floating_man",
@@ -172,35 +172,25 @@
       ],
       "sourceCardIds": [
         "card.philosophy.011.c3",
-        "card.philosophy.008.c2"
+        "card.philosophy.008.c2",
+        "card.philosophy.010.c2"
       ],
-      "prompt": "Nagasena’s Buddhists in Level 8 found no lasting self among a person’s changing parts. How does Avicenna’s view of the self differ?",
-      "options": [
+      "prompt": "Match each view with what it says about the self.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "He agrees that there is no lasting self at all",
-          "correct": false,
-          "rationale": "He argues the self is known with certainty."
+          "left": "Avicenna",
+          "right": "Something other than the body"
         },
         {
-          "id": "b",
-          "label": "He says the self knows itself directly, with no body involved",
-          "correct": true
+          "left": "Buddhists",
+          "right": "No lasting self"
         },
         {
-          "id": "c",
-          "label": "He says the self is nothing but the five aggregates",
-          "correct": false,
-          "rationale": "That’s the Buddhist analysis he doesn’t share."
-        },
-        {
-          "id": "d",
-          "label": "He says the self is located in the heart and brain",
-          "correct": false,
-          "rationale": "The floating man affirms his self without affirming heart or brain."
+          "left": "Advaita",
+          "right": "The self is one with Brahman"
         }
       ],
-      "explanation": "Buddhist philosophers found only impermanent parts; Avicenna argued the self is known directly, with no body or senses involved.",
+      "explanation": "Avicenna said the self you are aware of is something other than the body, Buddhists found no lasting self, and Advaita said the self is one with Brahman.",
       "difficulty": 0.35
     }
   ],

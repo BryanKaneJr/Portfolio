@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 26,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How Wind Shapes Deserts",
   "objective": "After this level you can explain how wind builds dunes, strips away sand and sandblasts rock.",
@@ -87,41 +87,36 @@
   "questions": [
     {
       "id": "question.earth_climate.026.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.earth_climate.land_wind_erosion"
       ],
       "sourceCardIds": [
-        "card.earth_climate.026.c2"
+        "card.earth_climate.026.c2",
+        "card.earth_climate.026.c3",
+        "card.earth_climate.026.c4"
       ],
-      "prompt": "What is desert pavement?",
-      "options": [
+      "prompt": "Match each desert wind term with its meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Rock fragments left after wind removes the fine particles",
-          "correct": true
+          "left": "Deflation",
+          "right": "Picking up loose, fine particles"
         },
         {
-          "id": "b",
-          "label": "A layer of sand buried at the base of a dune",
-          "correct": false,
-          "rationale": "Desert pavement is rock fragments at the surface."
+          "left": "Ventifacts",
+          "right": "Flat, sometimes polished faces"
         },
         {
-          "id": "c",
-          "label": "Rock cut flat and polished by windblown sand",
-          "correct": false,
-          "rationale": "That's a ventifact."
+          "left": "Saltation",
+          "right": "Grains bounce"
         },
         {
-          "id": "d",
-          "label": "A streamlined ridge shaped by desert winds",
-          "correct": false,
-          "rationale": "That's a yardang."
+          "left": "Slipface",
+          "right": "Steep downwind side"
         }
       ],
-      "explanation": "Deflation blows away the fine particles, leaving a sheetlike surface of rock fragments: desert pavement.",
+      "explanation": "Deflation is wind picking up loose, fine particles, ventifacts are rocks cut into flat, sometimes polished faces, saltation is grains bouncing along, and the slipface is a dune's steep downwind side.",
       "difficulty": 0.2
     },
     {

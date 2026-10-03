@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 54,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Realism",
   "objective": "After this level you can explain why Realists painted ordinary workers instead of heroes.",
@@ -86,41 +86,32 @@
   "questions": [
     {
       "id": "question.art_history.054.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.courbet_realism"
       ],
       "sourceCardIds": [
-        "card.art_history.054.c1"
+        "card.art_history.054.c1",
+        "card.art_history.054.c3",
+        "card.art_history.054.c4"
       ],
-      "prompt": "What does Courbet's huge A Burial at Ornans show?",
-      "options": [
+      "prompt": "Match each Realist painting with what it shows.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A king's state funeral in Paris",
-          "correct": false,
-          "rationale": "No royalty: it is his small hometown."
+          "left": "A Burial at Ornans",
+          "right": "A village funeral"
         },
         {
-          "id": "b",
-          "label": "Angels carrying a saint to heaven",
-          "correct": false,
-          "rationale": "Courbet left out heaven entirely."
+          "left": "The Stone Breakers",
+          "right": "Two men breaking stones"
         },
         {
-          "id": "c",
-          "label": "A village funeral with life-size mourners",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "A battle scene from Napoleon's wars",
-          "correct": false,
-          "rationale": "No battle, just a burial."
+          "left": "The Gleaners",
+          "right": "Three peasant women"
         }
       ],
-      "explanation": "More than 40 life-size villagers gather at a funeral in Ornans, with no angels, just a hole in the ground.",
+      "explanation": "Courbet's A Burial at Ornans shows a village funeral and The Stone Breakers shows two men breaking stones. Millet's The Gleaners shows three peasant women.",
       "difficulty": 0.15
     },
     {

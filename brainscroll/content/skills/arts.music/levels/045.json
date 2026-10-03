@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 45,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Virtuosos",
   "objective": "After this level you can explain how Paganini and Liszt became superstars.",
@@ -82,41 +82,26 @@
   "questions": [
     {
       "id": "question.music.045.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.virtuoso_superstars"
       ],
       "sourceCardIds": [
-        "card.music.045.c3"
+        "card.music.045.c3",
+        "card.music.045.c2",
+        "card.music.045.c4"
       ],
-      "prompt": "What did Franz Liszt resolve to do after hearing Paganini?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Give up the piano for the violin",
-          "correct": false,
-          "rationale": "He stayed a pianist and brought the violin's effects to it."
-        },
-        {
-          "id": "b",
-          "label": "Bring Paganini's violin effects to the piano",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Write an opera about Paganini's life",
-          "correct": false,
-          "rationale": "He set out to match Paganini's playing."
-        },
-        {
-          "id": "d",
-          "label": "Stop giving public concerts",
-          "correct": false,
-          "rationale": "He became the most famous concert pianist of his day."
-        }
+      "prompt": "Put these moments from the age of virtuosos in order, from earliest to latest.",
+      "items": [
+        "Born in Genoa",
+        "Appearances in Paris and London",
+        "Liszt's Pianoforte Recitals",
+        "Lisztomania"
       ],
-      "explanation": "Liszt set out to transfer Paganini's violin wizardry to the piano, and became the piano's great virtuoso.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Paganini was born in Genoa in 1782, and his appearances in Paris and London were sensations in 1831. Liszt's Pianoforte Recitals came in 1840, and Heine named Lisztomania in 1844.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 47,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "More Than One Cause",
   "objective": "After this level you can explain why most events have several causes and why blaming only one misleads.",
@@ -121,41 +121,31 @@
     },
     {
       "id": "question.logic.047.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.causal_multiple_causes"
       ],
       "sourceCardIds": [
-        "card.logic.047.c3"
+        "card.logic.047.c3",
+        "card.logic.047.c4"
       ],
-      "prompt": "Why did John Stuart Mill think calling one condition \"the cause\" was misleading?",
-      "options": [
+      "prompt": "Match each one with what it would call the cause of the fire.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The last event before an effect is always the cause",
-          "correct": false,
-          "rationale": "Mill argued against singling out one condition this way."
+          "left": "A fire crew",
+          "right": "The dry season"
         },
         {
-          "id": "b",
-          "label": "The cause is really all the conditions together",
-          "correct": true
+          "left": "An investigator",
+          "right": "A careless camper"
         },
         {
-          "id": "c",
-          "label": "Causes can never be known with certainty",
-          "correct": false,
-          "rationale": "Mill's point is about how many conditions, not certainty."
-        },
-        {
-          "id": "d",
-          "label": "Only scientists should name causes",
-          "correct": false,
-          "rationale": "His point applies to everyone's reasoning."
+          "left": "John Stuart Mill",
+          "right": "The sum total of the conditions"
         }
       ],
-      "explanation": "Mill wrote that, strictly, the cause is the sum total of the conditions, positive and negative, taken together.",
+      "explanation": "A fire crew might point to the dry season and an investigator to a careless camper. Mill said the cause, strictly speaking, is the sum total of the conditions.",
       "difficulty": 0.25
     },
     {

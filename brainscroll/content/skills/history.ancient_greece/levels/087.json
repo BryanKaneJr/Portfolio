@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 87,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Hellenistic Kingdoms",
   "objective": "After this level you can describe the kingdoms of Alexander's generals.",
@@ -185,7 +185,7 @@
     },
     {
       "id": "question.ancient_greece.087.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_greece.hellenistic_kingdoms",
@@ -195,33 +195,15 @@
         "card.ancient_greece.087.c3",
         "card.ancient_greece.001.c2"
       ],
-      "prompt": "Level 1 ends the Hellenistic age in 30 BCE. Which kingdom fell to Rome that year?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Antigonids’ Macedonia",
-          "correct": false,
-          "rationale": "That fell in 168 BCE."
-        },
-        {
-          "id": "b",
-          "label": "The Seleucid kingdom",
-          "correct": false,
-          "rationale": "Rome ended it in 64 BCE."
-        },
-        {
-          "id": "c",
-          "label": "The city-state of Athens",
-          "correct": false,
-          "rationale": "Athens wasn’t a Hellenistic kingdom."
-        },
-        {
-          "id": "d",
-          "label": "The Ptolemies’ Egypt",
-          "correct": true
-        }
+      "prompt": "Put these kingdoms in order of when their rule ended, from earliest to latest.",
+      "items": [
+        "Antigonids",
+        "Seleucids",
+        "Ptolemies"
       ],
-      "explanation": "Ptolemaic Egypt was the last Hellenistic kingdom, taken by Rome in 30 BCE.",
+      "first": "Ended first",
+      "last": "Ended last",
+      "explanation": "The Antigonids held Macedonia until 168 BCE, Rome ended the Seleucids in 64 BCE, and the Ptolemies’ Egypt was the last to fall to Rome, in 30 BCE.",
       "difficulty": 0.3
     }
   ],

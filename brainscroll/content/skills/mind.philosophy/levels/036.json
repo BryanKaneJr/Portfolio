@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 36,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Chinese Room",
   "objective": "After this level you can explain John Searle's Chinese room and his argument that following rules for symbols is not the same as understanding.",
@@ -89,41 +89,32 @@
   "questions": [
     {
       "id": "question.philosophy.036.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.philosophy.mind_chinese_room"
       ],
       "sourceCardIds": [
-        "card.philosophy.036.c2"
+        "card.philosophy.036.c2",
+        "card.philosophy.036.c3",
+        "card.philosophy.036.c5"
       ],
-      "prompt": "In Searle’s Chinese room, what does the man inside use to produce his Chinese replies?",
-      "options": [
+      "prompt": "Match each term from the Chinese room debate with its meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "His own knowledge of Chinese",
-          "correct": false,
-          "rationale": "He understands no Chinese."
+          "left": "Syntax",
+          "right": "Their shapes and rules"
         },
         {
-          "id": "b",
-          "label": "A Chinese speaker hidden with him",
-          "correct": false,
-          "rationale": "He is alone in the room."
+          "left": "Semantics",
+          "right": "Their meaning"
         },
         {
-          "id": "c",
-          "label": "Guesses based on the shapes he likes",
-          "correct": false,
-          "rationale": "He follows the program exactly."
-        },
-        {
-          "id": "d",
-          "label": "A program of instructions written in English",
-          "correct": true
+          "left": "The systems reply",
+          "right": "The whole system"
         }
       ],
-      "explanation": "He follows an English program for matching Chinese characters, without understanding any of them.",
+      "explanation": "Syntax is the symbols’ shapes and rules, semantics is their meaning, and the systems reply says the whole system understands.",
       "difficulty": 0.15
     },
     {

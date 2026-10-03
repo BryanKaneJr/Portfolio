@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 77,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Road to Pearl Harbor",
   "objective": "After this level you can explain how the US moved from neutrality to aiding Britain, and why Japan attacked Pearl Harbor on December 7, 1941.",
@@ -136,41 +136,28 @@
     },
     {
       "id": "question.us_history.077.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.us_history.prewar_neutrality"
       ],
       "sourceCardIds": [
-        "card.us_history.077.c2"
+        "card.us_history.077.c2",
+        "card.us_history.077.c3",
+        "card.us_history.077.c4",
+        "card.us_history.077.c1"
       ],
-      "prompt": "Why did Congress pass Neutrality Acts in the 1930s?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Many blamed bankers and arms makers for pulling the US into World War I",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Japan had already attacked Hawaii",
-          "correct": false,
-          "rationale": "That came in 1941."
-        },
-        {
-          "id": "c",
-          "label": "Britain asked the US to stay out",
-          "correct": false,
-          "rationale": "The level doesn't say that."
-        },
-        {
-          "id": "d",
-          "label": "The US had no navy",
-          "correct": false,
-          "rationale": "The level doesn't say that."
-        }
+      "prompt": "Put these steps toward war in order, from earliest to latest.",
+      "items": [
+        "The first Neutrality Act",
+        "Cash and carry",
+        "FDR won a third term",
+        "Lend-Lease",
+        "The attack on Pearl Harbor"
       ],
-      "explanation": "Senator Nye's report claimed bankers and arms makers had pushed the US into World War I, and Congress moved to keep out of the next war.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The first Neutrality Act passed in 1935 and “cash and carry” came in 1939. FDR won a third term in 1940, Lend-Lease passed in March 1941, and Japan attacked Pearl Harbor on December 7, 1941.",
       "difficulty": 0.35
     },
     {

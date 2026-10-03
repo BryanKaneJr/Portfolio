@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 35,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Freedom of Religion",
   "objective": "After this level you can explain freedom of religion and belief.",
@@ -129,35 +129,31 @@
   "questions": [
     {
       "id": "question.government.035.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.religion_state_models"
       ],
       "sourceCardIds": [
-        "card.government.035.c4"
+        "card.government.035.c4",
+        "card.government.035.c5"
       ],
-      "prompt": "In this level's comparison, which country has an established church with the monarch as its supreme governor?",
-      "options": [
+      "prompt": "Match each country with how it arranges religion and state.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "France",
-          "correct": false,
-          "rationale": "France's 1905 law separated churches and the state."
+          "left": "United States",
+          "right": "No law establishing a religion"
         },
         {
-          "id": "b",
-          "label": "England",
-          "correct": true
+          "left": "France",
+          "right": "Laïcité"
         },
         {
-          "id": "c",
-          "label": "The United States",
-          "correct": false,
-          "rationale": "The First Amendment bars Congress from establishing a religion."
+          "left": "England",
+          "right": "The monarch is its supreme governor"
         }
       ],
-      "explanation": "The Church of England is England's established church, and the British monarch is its supreme governor.",
+      "explanation": "In the United States, Congress may make no law establishing a religion. France applies laïcité, its secularism. In England, the Church of England is established and the monarch is its supreme governor.",
       "difficulty": 0.15
     },
     {

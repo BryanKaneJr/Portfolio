@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 35,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Coughs, Sneezes and Hiccups",
   "objective": "After this level you can explain what causes coughs, sneezes and hiccups.",
@@ -87,38 +87,29 @@
   "questions": [
     {
       "id": "question.human_body.035.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.airway_hiccups"
       ],
       "sourceCardIds": [
-        "card.human_body.035.c4"
+        "card.human_body.035.c4",
+        "card.human_body.035.c2",
+        "card.human_body.035.c3"
       ],
-      "prompt": "What two things happen, in order, in a hiccup?",
-      "options": [
+      "prompt": "Match each breathing reflex with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Vocal cords open, then lungs empty",
-          "correct": false,
-          "rationale": "The cords snap shut and cut the breath off."
+          "left": "Cough",
+          "right": "A pressure cannon"
         },
         {
-          "id": "b",
-          "label": "A cough, then a sneeze",
-          "correct": false,
-          "rationale": "Those are separate reflexes."
+          "left": "Sneeze",
+          "right": "Aimed through your nose"
         },
         {
-          "id": "c",
-          "label": "A nose tickle, then a burst of air",
-          "correct": false,
-          "rationale": "That's a sneeze."
-        },
-        {
-          "id": "d",
-          "label": "A diaphragm spasm, then cords snap shut",
-          "correct": true
+          "left": "Hiccup",
+          "right": "Your diaphragm misfiring"
         }
       ],
       "explanation": "The diaphragm spasms and pulls in a sudden breath, then the vocal cords snap shut, making the 'hic'.",

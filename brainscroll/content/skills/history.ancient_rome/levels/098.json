@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 98,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Integration: How We Know About Rome",
   "objective": "After this level you can explain how historians use texts, inscriptions, coins and archaeology to study Rome.",
@@ -96,41 +96,31 @@
   "questions": [
     {
       "id": "question.ancient_rome.098.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_rome.roman_evidence"
       ],
       "sourceCardIds": [
-        "card.ancient_rome.098.c2"
+        "card.ancient_rome.098.c2",
+        "card.ancient_rome.098.c3"
       ],
-      "prompt": "Which of these was an ancient Roman historian?",
-      "options": [
+      "prompt": "Match each kind of clue with what it gives historians.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Edward Gibbon",
-          "correct": false,
-          "rationale": "He wrote in the 1700s."
+          "left": "Latin inscriptions",
+          "right": "Carved in stone"
         },
         {
-          "id": "b",
-          "label": "Tacitus",
-          "correct": true
+          "left": "Coins",
+          "right": "Help date events"
         },
         {
-          "id": "c",
-          "label": "Vercingetorix",
-          "correct": false,
-          "rationale": "He was a Gallic leader."
-        },
-        {
-          "id": "d",
-          "label": "Justinian",
-          "correct": false,
-          "rationale": "He was an emperor."
+          "left": "Archaeology",
+          "right": "The ordinary lives writers ignored"
         }
       ],
-      "explanation": "Tacitus, like Livy and Suetonius, was an ancient writer of Roman history.",
+      "explanation": "Latin inscriptions were carved in stone, coins help date events, and archaeology reveals the ordinary lives writers ignored.",
       "difficulty": 0.15
     },
     {

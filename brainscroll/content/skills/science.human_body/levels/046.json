@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 46,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Kidneys",
   "objective": "After this level you can explain how the kidneys filter the blood.",
@@ -134,7 +134,7 @@
     },
     {
       "id": "question.human_body.046.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.kidney_filtering",
@@ -144,32 +144,14 @@
         "card.human_body.046.c3",
         "card.human_body.046.c4"
       ],
-      "prompt": "Why does most of the fluid the kidneys filter never become urine?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A tubule returns it to the blood",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "It evaporates through the skin",
-          "correct": false,
-          "rationale": "Filtered fluid is taken back inside the kidney."
-        },
-        {
-          "id": "c",
-          "label": "The glomerulus blocks all water",
-          "correct": false,
-          "rationale": "Water passes through the glomerulus."
-        },
-        {
-          "id": "d",
-          "label": "The liver absorbs it first",
-          "correct": false,
-          "rationale": "The kidneys take it back themselves."
-        }
+      "prompt": "Put the stages of cleaning blood in a nephron in order, from first to last.",
+      "items": [
+        "Glomerulus",
+        "Tubule",
+        "Urine"
       ],
+      "first": "First",
+      "last": "Last",
       "explanation": "After the glomerulus filters the blood, tubules return needed substances and about 99 percent of the fluid to the blood.",
       "difficulty": 0.25
     },

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 64,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Drawing the Map",
   "objective": "After this level you can explain voting districts and gerrymandering.",
@@ -103,41 +103,36 @@
   "questions": [
     {
       "id": "question.government.064.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.election_gerrymandering"
       ],
       "sourceCardIds": [
-        "card.government.064.c3"
+        "card.government.064.c3",
+        "card.government.064.c4",
+        "card.government.064.c5"
       ],
-      "prompt": "Who gave his name to the gerrymander?",
-      "options": [
+      "prompt": "Match each term from drawing the electoral map with its meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A Canadian judge who drew fair districts",
-          "correct": false,
-          "rationale": "Canada's judges chair independent commissions; the name comes from Massachusetts."
+          "left": "Elbridge Gerry",
+          "right": "Massachusetts governor"
         },
         {
-          "id": "b",
-          "label": "A cartoonist for a London newspaper",
-          "correct": false,
-          "rationale": "The cartoon ran in the Boston Gazette."
+          "left": "Packing",
+          "right": "Crowds a group's voters"
         },
         {
-          "id": "c",
-          "label": "A salamander expert",
-          "correct": false,
-          "rationale": "The salamander was only the district's shape."
+          "left": "Cracking",
+          "right": "Spreads them thinly"
         },
         {
-          "id": "d",
-          "label": "Elbridge Gerry, governor of Massachusetts in 1812",
-          "correct": true
+          "left": "Efficiency gap",
+          "right": "Wasted votes"
         }
       ],
-      "explanation": "In 1812 Governor Elbridge Gerry signed a bill creating oddly shaped districts; a cartoon called one the Gerry-mander.",
+      "explanation": "Elbridge Gerry was the Massachusetts governor behind the gerrymander. Packing crowds a group's voters into few districts, cracking spreads them thinly, and the efficiency gap compares wasted votes.",
       "difficulty": 0.15
     },
     {

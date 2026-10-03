@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 12,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Coal and Gas Plants",
   "objective": "After this level you can explain how burning fuel boils water to spin turbines.",
@@ -96,7 +96,7 @@
   "questions": [
     {
       "id": "question.everyday_technology.012.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.thermal_power_plant"
@@ -104,33 +104,16 @@
       "sourceCardIds": [
         "card.everyday_technology.012.c2"
       ],
-      "prompt": "In a coal-fired power plant, what actually pushes the turbine around?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Flames from the coal hitting the blades",
-          "correct": false,
-          "rationale": "The fire heats water; the steam does the pushing."
-        },
-        {
-          "id": "b",
-          "label": "Magnets repelling each other",
-          "correct": false,
-          "rationale": "The magnets are in the generator, which the turbine turns."
-        },
-        {
-          "id": "c",
-          "label": "Steam from water heated by the burning fuel",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Electricity drawn back from the grid",
-          "correct": false,
-          "rationale": "The plant makes electricity; it doesn't run on its own output."
-        }
+      "prompt": "Put these forms of energy in order, following the energy through a coal plant.",
+      "items": [
+        "Chemical energy",
+        "Heat",
+        "Motion",
+        "Electricity"
       ],
-      "explanation": "Burning coal heats water into steam, and the steam spins the turbine that drives the generator.",
+      "first": "Starts as",
+      "last": "Ends as",
+      "explanation": "Chemical energy in the fuel becomes heat, heat becomes motion in the turbine, and motion becomes electricity in the generator.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 61,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Beaches",
   "objective": "After this level you can explain where beach sand comes from.",
@@ -111,41 +111,36 @@
   "questions": [
     {
       "id": "question.oceans.061.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.oceans.beach_sand_local_sources"
       ],
       "sourceCardIds": [
-        "card.oceans.061.c4"
+        "card.oceans.061.c4",
+        "card.oceans.061.c2",
+        "card.oceans.061.c3"
       ],
-      "prompt": "On many Hawaiian beaches, what turns coral into fine white sand?",
-      "options": [
+      "prompt": "Match each beach color with where its sand comes from.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Lava shattering as it meets the sea",
-          "correct": false,
-          "rationale": "That makes black sand, not white."
+          "left": "Tan",
+          "right": "Quartz"
         },
         {
-          "id": "b",
-          "label": "Parrotfish grinding it up and excreting it",
-          "correct": true
+          "left": "Black",
+          "right": "Lava"
         },
         {
-          "id": "c",
-          "label": "Rivers carrying it down from the mountains",
-          "correct": false,
-          "rationale": "River sand is worn rock; the white coral sand is fish-made."
+          "left": "Pink",
+          "right": "Foraminifera"
         },
         {
-          "id": "d",
-          "label": "Glaciers scraping the reef flat",
-          "correct": false,
-          "rationale": "No glaciers involved: it's parrotfish."
+          "left": "White",
+          "right": "Parrotfish"
         }
       ],
-      "explanation": "Parrotfish grind coral in their guts and excrete it as sand; up to 70% of the sand on white beaches in Hawaii and the Caribbean may come from them.",
+      "explanation": "Tan sand is mostly quartz, black sand comes from lava, pink sand from foraminifera shells, and much white sand from parrotfish.",
       "difficulty": 0.25
     },
     {

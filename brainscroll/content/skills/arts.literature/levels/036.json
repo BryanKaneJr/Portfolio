@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 36,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Haiku",
   "objective": "After this level you can explain how a haiku captures a single moment, using Basho's poem of the old pond and the frog.",
@@ -125,42 +125,36 @@
     },
     {
       "id": "question.literature.036.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.haiku_basho_frog",
         "concept.literature.haiku_form"
       ],
       "sourceCardIds": [
-        "card.literature.036.c3"
+        "card.literature.036.c3",
+        "card.literature.036.c2"
       ],
-      "prompt": "How does the word ya work in \"furuike ya\"?",
-      "options": [
+      "prompt": "Match each term with what it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It rhymes with the last line",
-          "correct": false,
-          "rationale": "It isn't a rhyme."
+          "left": "Ya",
+          "right": "A cutting word"
         },
         {
-          "id": "b",
-          "label": "It names the frog",
-          "correct": false,
-          "rationale": "The frog is kawazu."
+          "left": "The frog",
+          "right": "A season word for spring"
         },
         {
-          "id": "c",
-          "label": "It is a cutting word: a pause that splits and joins the poem",
-          "correct": true
+          "left": "Hokku",
+          "right": "The opening stanza of a renga"
         },
         {
-          "id": "d",
-          "label": "It adds two syllables to reach 19",
-          "correct": false,
-          "rationale": "The poem keeps 5, 7, 5."
+          "left": "Renga",
+          "right": "A long linked poem"
         }
       ],
-      "explanation": "Ya is a cutting word: it separates the old pond from the splash and yet joins them.",
+      "explanation": "Ya is a cutting word, and the frog is a season word for spring. The hokku was the opening stanza of a renga, a long linked poem written by several poets taking turns.",
       "difficulty": 0.3
     },
     {

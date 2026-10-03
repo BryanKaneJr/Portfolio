@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 3,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Artist's Toolkit",
   "objective": "After this level you can name the basic elements of art: line, shape, color, texture and space.",
@@ -86,41 +86,36 @@
   "questions": [
     {
       "id": "question.art_history.003.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.elements_of_art"
       ],
       "sourceCardIds": [
-        "card.art_history.003.c2"
+        "card.art_history.003.c2",
+        "card.art_history.003.c3",
+        "card.art_history.003.c4"
       ],
-      "prompt": "In the elements of art, what is a shape?",
-      "options": [
+      "prompt": "Match each element of art with what it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A mark longer than it is wide",
-          "correct": false,
-          "rationale": "That's a line."
+          "left": "Line",
+          "right": "A mark longer than it is wide"
         },
         {
-          "id": "b",
-          "label": "The way a surface feels",
-          "correct": false,
-          "rationale": "That's texture."
+          "left": "Color",
+          "right": "Light reflected off things"
         },
         {
-          "id": "c",
-          "label": "Light reflected off an object",
-          "correct": false,
-          "rationale": "That's color."
+          "left": "Texture",
+          "right": "How a surface feels"
         },
         {
-          "id": "d",
-          "label": "A closed line",
-          "correct": true
+          "left": "Space",
+          "right": "The area around and between things"
         }
       ],
-      "explanation": "Close a line into a loop and you get a flat shape, geometric or organic.",
+      "explanation": "Line is a mark longer than it is wide, color is light reflected off things, texture is how a surface feels, and space is the area around and between things.",
       "difficulty": 0.15
     },
     {

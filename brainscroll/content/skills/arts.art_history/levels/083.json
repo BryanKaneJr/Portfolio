@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 83,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Warhol",
   "objective": "After this level you can describe Warhol's repeated images and his studio, the Factory.",
@@ -134,7 +134,7 @@
     },
     {
       "id": "question.art_history.083.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.warhol_factory",
@@ -142,35 +142,30 @@
       ],
       "sourceCardIds": [
         "card.art_history.083.c2",
-        "card.art_history.083.c4"
+        "card.art_history.083.c4",
+        "card.art_history.083.c1",
+        "card.art_history.083.c3"
       ],
-      "prompt": "Warhol said he wanted to be a machine. Why did silkscreen suit that wish?",
-      "options": [
+      "prompt": "Match each Warhol work or word with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Each print had to be touched up by his own hand",
-          "correct": false,
-          "rationale": "He wanted others to be able to do it."
+          "left": "Campbell's Soup Cans",
+          "right": "32 canvases"
         },
         {
-          "id": "b",
-          "label": "It could print the same photo again and again",
-          "correct": true
+          "left": "Marilyn Diptych",
+          "right": "Repeats one face 50 times"
         },
         {
-          "id": "c",
-          "label": "It turned every photograph into a unique original",
-          "correct": false,
-          "rationale": "It made copies, not one-offs."
+          "left": "The Factory",
+          "right": "Warhol's New York studio"
         },
         {
-          "id": "d",
-          "label": "It needed no image to start from",
-          "correct": false,
-          "rationale": "It starts from a photograph."
+          "left": "Photographic silkscreen",
+          "right": "A stencil printing process"
         }
       ],
-      "explanation": "Photographic silkscreen repeats one image over and over, and Warhol said somebody else should be able to make his paintings.",
+      "explanation": "Campbell's Soup Cans is 32 canvases, Marilyn Diptych repeats one face 50 times, the Factory was Warhol's New York studio, and photographic silkscreen is a stencil printing process.",
       "difficulty": 0.25
     },
     {

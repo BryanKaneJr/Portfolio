@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 99,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How to Disagree Well",
   "objective": "After this level you can argue about politics without falling out.",
@@ -98,7 +98,7 @@
   "questions": [
     {
       "id": "question.government.099.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.disagree_good_faith_methods"
@@ -106,33 +106,16 @@
       "sourceCardIds": [
         "card.government.099.c3"
       ],
-      "prompt": "In Rapoport's rules, as Dennett set them out, what must come before any criticism?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A vote on who is right",
-          "correct": false,
-          "rationale": "No vote; the steps are about understanding."
-        },
-        {
-          "id": "b",
-          "label": "Restating their view fairly, noting agreement and what you learned",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Pointing out the other person's tone",
-          "correct": false,
-          "rationale": "Tone-policing is low on Graham's ladder."
-        },
-        {
-          "id": "d",
-          "label": "Quoting an expert who agrees with you",
-          "correct": false,
-          "rationale": "The rules start with the other person's view."
-        }
+      "prompt": "Put the Rapoport rules for a fair argument in order, from first to last.",
+      "items": [
+        "Restate the other view",
+        "List where you agree",
+        "Mention anything you learned",
+        "Criticize"
       ],
-      "explanation": "Restate their view so well they wish they'd put it that way, list agreements, mention what you learned, and only then criticize.",
+      "first": "First step",
+      "last": "Last step",
+      "explanation": "First restate the other view, then list where you agree, then mention anything you learned, and only then criticize.",
       "difficulty": 0.2
     },
     {

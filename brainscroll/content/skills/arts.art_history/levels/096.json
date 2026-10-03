@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 96,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Forgery",
   "objective": "After this level you can explain how famous forgeries were made and caught.",
@@ -90,42 +90,27 @@
   "questions": [
     {
       "id": "question.art_history.096.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.forgery_van_meegeren"
       ],
       "sourceCardIds": [
         "card.art_history.096.c2",
-        "card.art_history.096.c1"
+        "card.art_history.096.c1",
+        "card.art_history.096.c3",
+        "card.art_history.096.c4"
       ],
-      "prompt": "How did van Meegeren prove his \"Vermeer\" was a fake?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He showed receipts for the paint",
-          "correct": false,
-          "rationale": "He gave a live demonstration."
-        },
-        {
-          "id": "b",
-          "label": "He painted another one while authorities watched",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "He pointed out his hidden signature",
-          "correct": false,
-          "rationale": "He proved it by painting."
-        },
-        {
-          "id": "d",
-          "label": "He had it X-rayed in court",
-          "correct": false,
-          "rationale": "He painted a new one under observation."
-        }
+      "prompt": "Put these moments in the story of forgery in order, from earliest to latest.",
+      "items": [
+        "Bakelite was invented",
+        "Arrested for collaborating",
+        "Convicted of forgery",
+        "Sentenced to six years"
       ],
-      "explanation": "Watched by the authorities, he painted another \"Vermeer\" with the same materials and techniques.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Bakelite was invented in 1907. Van Meegeren was arrested for collaborating in 1945 and convicted of forgery in 1947. Beltracchi was sentenced to six years in 2011.",
       "difficulty": 0.2
     },
     {

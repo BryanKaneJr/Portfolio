@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 20,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Instruments",
   "objective": "After this level you can compare how strings, woodwinds, brass, percussion and voices make sound.",
@@ -288,41 +288,35 @@
     },
     {
       "id": "question.music.020.q5",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.music.instruments_woodwind_starters"
       ],
       "sourceCardIds": [
-        "card.music.013.c3"
+        "card.music.013.c3",
+        "card.music.020.c2"
       ],
-      "prompt": "From Level 13's woodwinds: what starts the air vibrating in an oboe or a bassoon?",
-      "options": [
+      "prompt": "Match each family with what starts its sound.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Air blown against an edge",
-          "correct": false,
-          "rationale": "That's the flute."
+          "left": "Strings",
+          "right": "A plucked, bowed or struck string"
         },
         {
-          "id": "b",
-          "label": "Buzzing lips on a cup mouthpiece",
-          "correct": false,
-          "rationale": "That's brass."
+          "left": "Woodwinds",
+          "right": "An edge or a reed"
         },
         {
-          "id": "c",
-          "label": "A single reed on a mouthpiece",
-          "correct": false,
-          "rationale": "That's the clarinet and saxophone."
+          "left": "Brass",
+          "right": "Buzzing lips"
         },
         {
-          "id": "d",
-          "label": "A double reed",
-          "correct": true
+          "left": "Voice",
+          "right": "Two vocal folds"
         }
       ],
-      "explanation": "Oboes and bassoons use a double reed; clarinets and saxophones a single reed; flutes an edge.",
+      "explanation": "Strings use a plucked, bowed or struck string, woodwinds an edge or a reed, brass buzzing lips, and the voice two vocal folds.",
       "difficulty": 0.2
     }
   ],

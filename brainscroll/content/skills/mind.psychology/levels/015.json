@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 15,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Hearing With Your Eyes",
   "objective": "After this level you can explain the McGurk effect and how the mind merges what you see with what you hear.",
@@ -168,43 +168,33 @@
     },
     {
       "id": "question.psychology.015.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.psychology.perception_multisensory",
         "concept.psychology.perception_definition"
       ],
       "sourceCardIds": [
+        "card.psychology.015.c2",
         "card.psychology.015.c3",
-        "card.psychology.011.c3"
+        "card.psychology.015.c4"
       ],
-      "prompt": "Level 11 said perception organizes and interprets sensations. What does the McGurk effect add to that picture?",
-      "options": [
+      "prompt": "Match each McGurk effect finding with its number.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Each sense is interpreted completely separately",
-          "correct": false,
-          "rationale": "The effect shows sight changing hearing."
+          "left": "Harry McGurk and John MacDonald",
+          "right": "1976"
         },
         {
-          "id": "b",
-          "label": "Perception merges several senses",
-          "correct": true
+          "left": "A 2015 study",
+          "right": "165 adults"
         },
         {
-          "id": "c",
-          "label": "Only sight is ever consciously experienced by people",
-          "correct": false,
-          "rationale": "You consciously hear the fused syllable."
-        },
-        {
-          "id": "d",
-          "label": "Sensation and perception are the same process",
-          "correct": false,
-          "rationale": "Level 11 showed they differ."
+          "left": "How often people heard it",
+          "right": "Ranged from 0 to 100 percent"
         }
       ],
-      "explanation": "The brain integrates sight and sound, so the perception is built from more than one sense at once.",
+      "explanation": "Harry McGurk and John MacDonald reported the effect in 1976. A 2015 study of 165 adults found that how often people heard it ranged from 0 to 100 percent.",
       "difficulty": 0.25
     }
   ],

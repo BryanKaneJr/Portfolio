@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 81,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Abstract Expressionism",
   "objective": "After this level you can explain how Pollock and Rothko made the act of painting the subject.",
@@ -90,41 +90,33 @@
   "questions": [
     {
       "id": "question.art_history.081.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.abex_action_painting"
       ],
       "sourceCardIds": [
-        "card.art_history.081.c2"
+        "card.art_history.081.c2",
+        "card.art_history.081.c1",
+        "card.art_history.081.c3",
+        "card.art_history.081.c4"
       ],
-      "prompt": "How did Jackson Pollock make Autumn Rhythm?",
-      "options": [
+      "prompt": "Match each person with what they made or said.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "On an easel, with small, careful brushes",
-          "correct": false,
-          "rationale": "He worked with no easel at all."
+          "left": "Jackson Pollock",
+          "right": "Autumn Rhythm"
         },
         {
-          "id": "b",
-          "label": "On canvas laid on the floor, pouring paint",
-          "correct": true
+          "left": "Mark Rothko",
+          "right": "Soft-edged rectangles of color"
         },
         {
-          "id": "c",
-          "label": "By blowing pigment around his hands",
-          "correct": false,
-          "rationale": "That's how the first hand stencils were made."
-        },
-        {
-          "id": "d",
-          "label": "By copying a photograph square by square",
-          "correct": false,
-          "rationale": "There's nothing recognizable to copy."
+          "left": "Harold Rosenberg",
+          "right": "Action painters"
         }
       ],
-      "explanation": "Pollock laid unstretched canvas on his studio floor and poured, dripped and flicked paint onto it from all sides.",
+      "explanation": "Jackson Pollock poured Autumn Rhythm on the floor, Mark Rothko painted soft-edged rectangles of color, and the critic Harold Rosenberg called them action painters.",
       "difficulty": 0.15
     },
     {

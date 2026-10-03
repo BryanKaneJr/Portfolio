@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 93,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Speaking to Your Representative",
   "objective": "After this level you can explain how to contact elected officials.",
@@ -125,41 +125,36 @@
     },
     {
       "id": "question.government.093.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.representative_contact"
       ],
       "sourceCardIds": [
-        "card.government.093.c2"
+        "card.government.093.c2",
+        "card.government.093.c3",
+        "card.government.093.c4"
       ],
-      "prompt": "Why is it worth including your address when you write to your UK MP?",
-      "options": [
+      "prompt": "Match each way of reaching your UK MP with its detail.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "MPs answer only letters sent by post",
-          "correct": false,
-          "rationale": "Email works too; the address is about who you are."
+          "left": "Constituents",
+          "right": "The people who live there"
         },
         {
-          "id": "b",
-          "label": "It lets the MP visit you at home",
-          "correct": false,
-          "rationale": "It's about showing you're a constituent."
+          "left": "Surgeries",
+          "right": "Sessions where you can meet them"
         },
         {
-          "id": "c",
-          "label": "MPs normally take up issues only from their own constituents",
-          "correct": true
+          "left": "10,000 signatures",
+          "right": "A government response"
         },
         {
-          "id": "d",
-          "label": "The law requires every letter to carry an address",
-          "correct": false,
-          "rationale": "It's practical, not a legal rule."
+          "left": "100,000 signatures",
+          "right": "Considered for debate"
         }
       ],
-      "explanation": "An MP can normally only deal with issues raised by people living in the constituency, so your address shows you're one of them.",
+      "explanation": "An MP's constituents are the people who live in the constituency, surgeries are sessions where you can meet them, a petition gets a government response at 10,000 signatures and is considered for debate at 100,000.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 76,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Matching Riders and Drivers",
   "objective": "After this level you can explain how ride and delivery apps match each request to a nearby driver and raise prices when demand spikes.",
@@ -87,7 +87,7 @@
   "questions": [
     {
       "id": "question.computers.076.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.ridematch_surge"
@@ -95,33 +95,15 @@
       "sourceCardIds": [
         "card.computers.076.c3"
       ],
-      "prompt": "When does Uber's surge pricing switch on?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Every night after midnight, whatever the demand",
-          "correct": false,
-          "rationale": "It depends on demand, not the clock."
-        },
-        {
-          "id": "b",
-          "label": "Whenever a rider's trip is long",
-          "correct": false,
-          "rationale": "Trip length isn't the trigger."
-        },
-        {
-          "id": "c",
-          "label": "When an area has more ride requests than available drivers",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Only on public holidays",
-          "correct": false,
-          "rationale": "It follows demand in real time, any day."
-        }
+      "prompt": "Put the chain of events behind surge pricing in order.",
+      "items": [
+        "More ride requests",
+        "Surge pricing switches on",
+        "Pull more drivers toward the busy area"
       ],
-      "explanation": "Surge pricing goes into effect when there are more riders in an area than available drivers, as in bad weather or rush hour.",
+      "first": "Cause",
+      "last": "Effect",
+      "explanation": "When more ride requests come in than there are drivers, surge pricing switches on, and the higher price is meant to pull more drivers toward the busy area.",
       "difficulty": 0.2
     },
     {

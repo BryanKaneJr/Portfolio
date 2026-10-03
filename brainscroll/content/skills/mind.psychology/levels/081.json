@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 81,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Big Five",
   "objective": "After this level you can explain the five personality traits psychologists measure and what each one describes.",
@@ -146,43 +146,35 @@
     },
     {
       "id": "question.psychology.081.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.psychology.personality_big_five",
         "concept.psychology.personality_trait_measurement"
       ],
       "sourceCardIds": [
-        "card.psychology.081.c2",
         "card.psychology.081.c3"
       ],
-      "prompt": "Priya is self-disciplined and never misses a deadline, but she is quiet at parties. How would the Big Five describe her?",
-      "options": [
+      "prompt": "Match each Big Five trait with what it describes.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "As a conscientious type, with no extraversion score",
-          "correct": false,
-          "rationale": "Everyone has all five traits, each on a spectrum."
+          "left": "Openness",
+          "right": "Imagination, feelings and ideas"
         },
         {
-          "id": "b",
-          "label": "High on conscientiousness, lower on extraversion",
-          "correct": true
+          "left": "Conscientiousness",
+          "right": "Self-discipline and achievement-striving"
         },
         {
-          "id": "c",
-          "label": "High on neuroticism and openness",
-          "correct": false,
-          "rationale": "Nothing described points to negative emotions or imagination."
+          "left": "Extraversion",
+          "right": "Sociability and assertiveness"
         },
         {
-          "id": "d",
-          "label": "High on agreeableness, high on extraversion",
-          "correct": false,
-          "rationale": "Being quiet at parties suggests lower extraversion."
+          "left": "Agreeableness",
+          "right": "Cooperative and good-natured"
         }
       ],
-      "explanation": "Self-discipline and meeting deadlines mark conscientiousness; quietness at parties suggests a lower setting on the extraversion dial.",
+      "explanation": "Openness covers imagination, feelings and ideas; conscientiousness, self-discipline and achievement-striving; extraversion, sociability and assertiveness; and agreeableness means cooperative and good-natured.",
       "difficulty": 0.35
     },
     {

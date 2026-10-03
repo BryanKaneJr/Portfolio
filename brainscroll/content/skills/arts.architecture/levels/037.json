@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 37,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Versailles",
   "objective": "After this level you can describe Versailles and its Hall of Mirrors.",
@@ -125,42 +125,32 @@
     },
     {
       "id": "question.architecture.037.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.versailles_hall_mirrors"
       ],
       "sourceCardIds": [
         "card.architecture.037.c4",
-        "card.architecture.037.c3"
+        "card.architecture.037.c3",
+        "card.architecture.037.c1"
       ],
-      "prompt": "Why were the 357 mirrors of the Hall of Mirrors a boast when they were installed?",
-      "options": [
+      "prompt": "Match each person with their part in the story of Versailles.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Mirrors were cheap, so using many showed thrift",
-          "correct": false,
-          "rationale": "The opposite: mirrors were a great luxury."
+          "left": "Louis XIII",
+          "right": "Hunting lodge"
         },
         {
-          "id": "b",
-          "label": "They were made in Venice, the best source",
-          "correct": false,
-          "rationale": "They showed French makers could rival Venice."
+          "left": "Jules Hardouin-Mansart",
+          "right": "The Hall of Mirrors"
         },
         {
-          "id": "c",
-          "label": "They were a luxury, and showed French makers could rival Venice",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "They replaced windows the palace could not afford",
-          "correct": false,
-          "rationale": "The hall has 17 windows facing the mirrors."
+          "left": "Charles Le Brun",
+          "right": "30 ceiling paintings"
         }
       ],
-      "explanation": "Mirrors were then a great luxury, and the hall showed that France's new manufacture could rival the Venetian monopoly.",
+      "explanation": "Versailles started as a hunting lodge for Louis XIII. Jules Hardouin-Mansart built the Hall of Mirrors, and Charles Le Brun made its 30 ceiling paintings.",
       "difficulty": 0.2
     },
     {

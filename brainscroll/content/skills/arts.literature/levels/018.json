@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 18,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Popol Vuh",
   "objective": "After this level you can retell the K'iche' Maya story in which the gods try mud and wood before making people from maize.",
@@ -86,41 +86,25 @@
   "questions": [
     {
       "id": "question.literature.018.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.literature.popol_vuh_maize_people"
       ],
       "sourceCardIds": [
-        "card.literature.018.c4"
+        "card.literature.018.c4",
+        "card.literature.018.c1",
+        "card.literature.018.c3"
       ],
-      "prompt": "In the Popol Vuh, what are the first successful humans made from?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Mud",
-          "correct": false,
-          "rationale": "The mud person was dissolved."
-        },
-        {
-          "id": "b",
-          "label": "Wood",
-          "correct": false,
-          "rationale": "The wooden people became monkeys."
-        },
-        {
-          "id": "c",
-          "label": "Maize",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Stone",
-          "correct": false,
-          "rationale": "Stone isn't one of the tries."
-        }
+      "prompt": "Put the gods' tries at making people in order, from first to last.",
+      "items": [
+        "Mud",
+        "Wood",
+        "Maize"
       ],
-      "explanation": "After failing with mud and wood, the gods make humans from maize.",
+      "first": "First try",
+      "last": "Last try",
+      "explanation": "The gods first tried mud, then wood, and finally succeeded with maize.",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 22,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Steam Engine",
   "objective": "After this level you can explain how a steam engine turns heat into motion.",
@@ -125,41 +125,24 @@
     },
     {
       "id": "question.everyday_technology.022.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.motion_watt_steam_engine"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.022.c3"
+        "card.everyday_technology.022.c3",
+        "card.everyday_technology.022.c1"
       ],
-      "prompt": "Why did Watt's separate condenser save fuel?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It burned each puff of steam twice, for double the push",
-          "correct": false,
-          "rationale": "Steam is not burned; it is condensed."
-        },
-        {
-          "id": "b",
-          "label": "The cylinder stayed hot instead of being chilled each stroke",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It swapped the steam for plain air, which costs nothing",
-          "correct": false,
-          "rationale": "It still ran on steam."
-        },
-        {
-          "id": "d",
-          "label": "It let the piston move freely without any cylinder",
-          "correct": false,
-          "rationale": "The piston still ran in a cylinder."
-        }
+      "prompt": "Put these steps in the steam engine's story in order, from earliest to latest.",
+      "items": [
+        "Engine designed by Thomas Newcomen",
+        "Idea of condensing the steam",
+        "Made his engine turn a shaft"
       ],
-      "explanation": "Condensing steam in a separate chamber meant the cylinder no longer had to be reheated every stroke.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Newcomen's engine went to work in 1712. James Watt had the idea of a separate condenser in 1765, and in 1781 he made his engine turn a shaft.",
       "difficulty": 0.3
     },
     {

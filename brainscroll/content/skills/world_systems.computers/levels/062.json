@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 62,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Data Your Phone Gives Off",
   "objective": "After this level you can connect cookies, apps and location settings to the data trail your phone leaves in a normal day.",
@@ -82,41 +82,32 @@
   "questions": [
     {
       "id": "question.computers.062.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.privacy_phone_trail"
       ],
       "sourceCardIds": [
-        "card.computers.062.c2"
+        "card.computers.062.c2",
+        "card.computers.062.c3",
+        "card.computers.062.c4"
       ],
-      "prompt": "Which of these does a phone use to work out where it is?",
-      "options": [
+      "prompt": "Match each moment of your day with the trail it leaves.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The home address stored on its SIM card",
-          "correct": false,
-          "rationale": "The SIM doesn't say where you are right now."
+          "left": "The commute",
+          "right": "A time-stamped record"
         },
         {
-          "id": "b",
-          "label": "The time zone set in its clock app settings",
-          "correct": false,
-          "rationale": "A time zone is far too rough and isn't how location works."
+          "left": "Open an app",
+          "right": "Your phone's unique advertising ID"
         },
         {
-          "id": "c",
-          "label": "The street addresses saved in your contacts",
-          "correct": false,
-          "rationale": "Contacts aren't a location source."
-        },
-        {
-          "id": "d",
-          "label": "GPS, Wi-Fi networks, cell towers and Bluetooth",
-          "correct": true
+          "left": "Browse the web",
+          "right": "Cookies"
         }
       ],
-      "explanation": "Phones combine GPS, Wi-Fi, cellular and Bluetooth signals to find their location.",
+      "explanation": "On the commute, each cell-site connection is logged as a time-stamped record. Open an app and advertisers may use your phone's unique advertising ID. Browse the web and sites can use cookies.",
       "difficulty": 0.2
     },
     {

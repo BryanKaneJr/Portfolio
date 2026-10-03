@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 52,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Virtue or Law?",
   "objective": "After this level you can explain why ancient China's Confucians trusted virtuous rulers while Legalists like Han Feizi trusted strict laws and punishments, and why each side thought so.",
@@ -164,7 +164,7 @@
     },
     {
       "id": "question.philosophy.052.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.justice_virtue_or_law",
@@ -172,35 +172,20 @@
       ],
       "sourceCardIds": [
         "card.philosophy.052.c2",
-        "card.philosophy.006.c4"
+        "card.philosophy.006.c4",
+        "card.philosophy.052.c4",
+        "card.philosophy.044.c2",
+        "card.philosophy.006.c2"
       ],
-      "prompt": "Analects 2.3 prefers guiding people with virtue and ritual. From Level 6, what is li?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Ritual propriety, from rites to etiquette",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Humaneness, the virtue of caring for others",
-          "correct": false,
-          "rationale": "That’s ren."
-        },
-        {
-          "id": "c",
-          "label": "The Way that all things naturally follow",
-          "correct": false,
-          "rationale": "That’s the Dao."
-        },
-        {
-          "id": "d",
-          "label": "A written code of laws and punishments",
-          "correct": false,
-          "rationale": "That’s the Legalist tool."
-        }
+      "prompt": "Put these Chinese thinkers in order, from earliest to latest.",
+      "items": [
+        "Confucius",
+        "Mencius",
+        "Han Fei"
       ],
-      "explanation": "Li is ritual propriety: the rites and etiquette of life, done with real feeling.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Confucius lived from 551 to 479 BCE, Mencius in the fourth century BCE, and Han Fei died in 233 BCE.",
       "difficulty": 0.25
     }
   ],

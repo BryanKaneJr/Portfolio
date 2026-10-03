@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 26,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Alkali Metals",
   "objective": "After this level you can explain why sodium and potassium react so violently with water.",
@@ -132,7 +132,7 @@
     },
     {
       "id": "question.chemistry.026.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.ptable_alkali_water",
@@ -141,33 +141,17 @@
       "sourceCardIds": [
         "card.chemistry.026.c4"
       ],
-      "prompt": "Why does cesium react with water far more violently than lithium?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It has more outer electrons to share",
-          "correct": false,
-          "rationale": "Every alkali metal has just one outer electron."
-        },
-        {
-          "id": "b",
-          "label": "It is lighter than lithium",
-          "correct": false,
-          "rationale": "Cesium is much heavier than lithium."
-        },
-        {
-          "id": "c",
-          "label": "Its outer electron is farther out and easier to lose",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It is a nonmetal, unlike lithium",
-          "correct": false,
-          "rationale": "Both are alkali metals."
-        }
+      "prompt": "Put these alkali metals in order of how fiercely they react with water, mildest first.",
+      "items": [
+        "Lithium",
+        "Sodium",
+        "Potassium",
+        "Rubidium",
+        "Cesium"
       ],
-      "explanation": "Lower in group 1, the single outer electron sits farther from the nucleus, so it's easier to give up.",
+      "first": "Mildest",
+      "last": "Fiercest",
+      "explanation": "Going down group 1 the reaction gets fiercer: lithium fizzes, sodium melts into a ball, potassium lights the hydrogen, rubidium reacts violently and cesium explodes.",
       "difficulty": 0.35
     },
     {

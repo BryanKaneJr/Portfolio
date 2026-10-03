@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 83,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Measuring a Warming World",
   "objective": "After this level you can explain how scientists build the global temperature record and what it shows since the 1800s.",
@@ -125,41 +125,31 @@
     },
     {
       "id": "question.earth_climate.083.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.warming_temperature_record"
       ],
       "sourceCardIds": [
-        "card.earth_climate.083.c3"
+        "card.earth_climate.083.c3",
+        "card.earth_climate.083.c2"
       ],
-      "prompt": "This January, a cold mountain town and a hot desert were both 2 °C above their own long-term averages. How does the global record count them?",
-      "options": [
+      "prompt": "Match each with what it measures in the global temperature record.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The desert counts more, since it is hotter",
-          "correct": false,
-          "rationale": "Anomalies compare each place with itself."
+          "left": "Weather stations",
+          "right": "The air on land"
         },
         {
-          "id": "b",
-          "label": "As the same warm anomaly of 2 °C",
-          "correct": true
+          "left": "Ships and buoys",
+          "right": "Sea surface temperatures"
         },
         {
-          "id": "c",
-          "label": "They cancel out, one hot and one cold",
-          "correct": false,
-          "rationale": "Both were warmer than their own normal."
-        },
-        {
-          "id": "d",
-          "label": "The town is dropped as too cold to use",
-          "correct": false,
-          "rationale": "Every location is compared with its own average."
+          "left": "Anomaly",
+          "right": "How much warmer or colder"
         }
       ],
-      "explanation": "An anomaly is the difference from that place's own long-term average, so both count as +2 °C.",
+      "explanation": "Weather stations measure the air on land, ships and buoys give sea surface temperatures, and an anomaly is how much warmer or colder a reading is than that place's average.",
       "difficulty": 0.5
     },
     {

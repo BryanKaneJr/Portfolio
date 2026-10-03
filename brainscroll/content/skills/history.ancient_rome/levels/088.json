@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 88,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "A Christian Empire",
   "objective": "After this level you can explain how Christianity became the empire's official religion under Theodosius.",
@@ -91,41 +91,25 @@
   "questions": [
     {
       "id": "question.ancient_rome.088.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_rome.christian_empire"
       ],
       "sourceCardIds": [
-        "card.ancient_rome.088.c2"
+        "card.ancient_rome.088.c2",
+        "card.ancient_rome.088.c3",
+        "card.ancient_rome.088.c4"
       ],
-      "prompt": "Under which emperor did Christianity become the official religion?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Constantine",
-          "correct": false,
-          "rationale": "He granted tolerance."
-        },
-        {
-          "id": "b",
-          "label": "Julian",
-          "correct": false,
-          "rationale": "He tried to restore the old gods."
-        },
-        {
-          "id": "c",
-          "label": "Theodosius I",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Diocletian",
-          "correct": false,
-          "rationale": "He persecuted Christians."
-        }
+      "prompt": "Put these events of Theodosius’ reign in order, from earliest to latest.",
+      "items": [
+        "Official religion of the empire",
+        "The ancient Olympics ended",
+        "Divided between his two sons"
       ],
-      "explanation": "In 380 CE, under Theodosius I, Nicene Christianity became the official religion.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Christianity became the official religion in 380 CE, the ancient Olympics ended in 393 CE, and after Theodosius died in 395 CE the empire was divided between his two sons.",
       "difficulty": 0.2
     },
     {

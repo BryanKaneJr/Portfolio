@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 54,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why 1,000 People Are Enough",
   "objective": "After this level you can explain why a random sample of about 1,000 can describe a whole country, whatever its size.",
@@ -140,7 +140,7 @@
     },
     {
       "id": "question.probability.054.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.sample_size_diminishing"
@@ -148,33 +148,22 @@
       "sourceCardIds": [
         "card.probability.054.c3"
       ],
-      "prompt": "Why do national polls usually stop around 1,000 to 2,000 people instead of asking 10,000?",
-      "options": [
+      "prompt": "Match each change in a random sample with what happens to the margin of error.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Samples over 2,000 are always biased",
-          "correct": false,
-          "rationale": "Big random samples aren't biased; they're just costly for little gain."
+          "left": "Grows from 100 to 1,000 people",
+          "right": "Falls steeply"
         },
         {
-          "id": "b",
-          "label": "Past about 1,000, extra people shrink the margin only a little",
-          "correct": true
+          "left": "Doubling from 1,000 to 2,000",
+          "right": "Only about one point"
         },
         {
-          "id": "c",
-          "label": "Rules forbid polls larger than 2,000 people",
-          "correct": false,
-          "rationale": "No rule caps poll size."
-        },
-        {
-          "id": "d",
-          "label": "Only about 2,000 people ever answer polls",
-          "correct": false,
-          "rationale": "Many more could be asked; it just buys little precision."
+          "left": "A random sample of about 1,000",
+          "right": "About plus or minus 3 points"
         }
       ],
-      "explanation": "The margin falls steeply up to about 1,000 people, then crawls: doubling from 1,000 to 2,000 cuts only about one point.",
+      "explanation": "As a sample grows from 100 to 1,000 people, the margin falls steeply. A random sample of about 1,000 gives about plus or minus 3 points, and doubling to 2,000 cuts it by only about one point.",
       "difficulty": 0.35
     },
     {

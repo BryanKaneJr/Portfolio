@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 39,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Amulets and the Scarab",
   "objective": "After this level you can explain lucky charms like the scarab and the Eye of Horus.",
@@ -136,42 +136,33 @@
     },
     {
       "id": "question.ancient_egypt.039.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.afterlife_amulets",
         "concept.ancient_egypt.weighing_heart_judgment"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.039.c3"
+        "card.ancient_egypt.039.c3",
+        "card.ancient_egypt.039.c2",
+        "card.ancient_egypt.039.c4"
       ],
-      "prompt": "What was the spell on a heart scarab meant to do?",
-      "options": [
+      "prompt": "Match each amulet or god with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Make the heart heavier than the feather",
-          "correct": false,
-          "rationale": "A heavy heart was the last thing you wanted."
+          "left": "Khepri",
+          "right": "The scarab god"
         },
         {
-          "id": "b",
-          "label": "Keep the heart beating after death",
-          "correct": false,
-          "rationale": "It was about testimony, not heartbeats."
+          "left": "Wedjat",
+          "right": "The sound one"
         },
         {
-          "id": "c",
-          "label": "Stop the heart from witnessing against its owner",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Turn the heart into a beetle",
-          "correct": false,
-          "rationale": "The scarab was just the shape of the amulet."
+          "left": "Heart scarab",
+          "right": "A Book of the Dead spell"
         }
       ],
-      "explanation": "Its Book of the Dead spell told the heart not to stand up as a witness against its owner at judgment.",
+      "explanation": "Khepri was the scarab god. Wedjat means “the sound one.” A heart scarab carried a Book of the Dead spell telling the heart not to witness against its owner.",
       "difficulty": 0.3
     },
     {

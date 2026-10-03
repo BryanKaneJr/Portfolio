@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 87,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Cancer Clusters and Random Clumps",
   "objective": "After this level you can explain why clusters of cases appear by chance and how investigators check whether one is real.",
@@ -81,41 +81,35 @@
   "questions": [
     {
       "id": "question.probability.087.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.trap_cancer_clusters"
       ],
       "sourceCardIds": [
-        "card.probability.087.c2"
+        "card.probability.087.c2",
+        "card.probability.087.c4"
       ],
-      "prompt": "What is a cancer cluster?",
-      "options": [
+      "prompt": "From the 2012 review of US cancer cluster checks, match each with its number.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Any street with two or more cases",
-          "correct": false,
-          "rationale": "It must be more cases than expected, not just several."
+          "left": "Investigations",
+          "right": "428"
         },
         {
-          "id": "b",
-          "label": "More cases than expected in one area over a set time",
-          "correct": true
+          "left": "Suspected cancer increases checked",
+          "right": "567"
         },
         {
-          "id": "c",
-          "label": "Cancer that spreads from person to person",
-          "correct": false,
-          "rationale": "Clusters are about counts in an area, not spread between people."
+          "left": "Confirmed",
+          "right": "72"
         },
         {
-          "id": "d",
-          "label": "Several tumors in one person's body",
-          "correct": false,
-          "rationale": "A cluster is about many people in a place."
+          "left": "A clear cause",
+          "right": "1"
         }
       ],
-      "explanation": "A cluster is a greater than expected number of cases among people in a defined area over a set period.",
+      "explanation": "The 2012 review covered 428 investigations. Of 567 suspected cancer increases checked, 72 were confirmed and just 1 had a clear cause.",
       "difficulty": 0.3
     },
     {

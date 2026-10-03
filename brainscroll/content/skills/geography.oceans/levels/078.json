@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 78,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Titanic",
   "objective": "After this level you can explain why the Titanic sank.",
@@ -153,41 +153,27 @@
     },
     {
       "id": "question.oceans.078.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.titanic_aftermath"
       ],
       "sourceCardIds": [
-        "card.oceans.078.c4"
+        "card.oceans.078.c4",
+        "card.oceans.078.c1",
+        "card.oceans.078.c2"
       ],
-      "prompt": "Why did so many people die when the Titanic sank?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It sank within ten minutes of the collision",
-          "correct": false,
-          "rationale": "It struck at 11:40 PM and sank at 2:20 AM."
-        },
-        {
-          "id": "b",
-          "label": "Nobody on board knew about icebergs in the area",
-          "correct": false,
-          "rationale": "Warnings arrived all day."
-        },
-        {
-          "id": "c",
-          "label": "Its lifeboats had room for only about half aboard",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The ship was far from any shipping lane",
-          "correct": false,
-          "rationale": "The problem was the lifeboats, not the location."
-        }
+      "prompt": "Put these Titanic events in order, from earliest to latest.",
+      "items": [
+        "It left Southampton",
+        "Iceberg warnings arrive all day",
+        "The Titanic strikes an iceberg",
+        "The stern slips under",
+        "Safety of Life at Sea convention"
       ],
-      "explanation": "The 20 lifeboats held only 1,178 people, but more than 2,200 were aboard; more than 1,500 died.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Titanic left Southampton on April 10, 1912. Iceberg warnings arrived all day on April 14, it struck an iceberg at 11:40 PM, and the stern slipped under at 2:20 AM. The Safety of Life at Sea convention followed in 1914.",
       "difficulty": 0.35
     },
     {

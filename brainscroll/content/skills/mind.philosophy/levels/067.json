@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 67,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Ship of Theseus",
   "objective": "After this level you can explain the Ship of Theseus puzzle and why rebuilding the ship from its old planks makes the question harder.",
@@ -125,41 +125,31 @@
     },
     {
       "id": "question.philosophy.067.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.selfhood_ship_of_theseus"
       ],
       "sourceCardIds": [
-        "card.philosophy.067.c3"
+        "card.philosophy.067.c3",
+        "card.philosophy.067.c4"
       ],
-      "prompt": "How does Hobbes’s rebuilt ship make the Ship of Theseus puzzle harder?",
-      "options": [
+      "prompt": "Match each thinker with his move in the Ship of Theseus debate.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It proves the repaired ship was never Theseus’s",
-          "correct": false,
-          "rationale": "It creates a rival, not a proof."
+          "left": "Thomas Hobbes",
+          "right": "Collects the planks"
         },
         {
-          "id": "b",
-          "label": "It gives two rival ships that each have a claim to be the original",
-          "correct": true
+          "left": "Roderick Chisholm",
+          "right": "A loose and popular sense"
         },
         {
-          "id": "c",
-          "label": "It shows that old planks never really decay",
-          "correct": false,
-          "rationale": "The planks did decay."
-        },
-        {
-          "id": "d",
-          "label": "It settles the debate in favor of the repaired ship",
-          "correct": false,
-          "rationale": "It deepens the debate."
+          "left": "Constitution theorists",
+          "right": "The repaired ship is Theseus’s ship"
         }
       ],
-      "explanation": "The repaired ship has continuity and the rebuilt ship has every original plank; if both are the original, there are two of one ship.",
+      "explanation": "Hobbes collects the old planks to build a second ship, constitution theorists say the repaired ship is Theseus’s ship, and Chisholm says it is the same only in a loose and popular sense.",
       "difficulty": 0.35
     },
     {

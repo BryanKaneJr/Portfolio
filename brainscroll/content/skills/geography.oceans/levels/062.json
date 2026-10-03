@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 62,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Cliffs and Sea Caves",
   "objective": "After this level you can explain how the sea carves cliffs and caves.",
@@ -96,7 +96,7 @@
   "questions": [
     {
       "id": "question.oceans.062.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.oceans.sea_cave_weak_spots"
@@ -104,33 +104,16 @@
       "sourceCardIds": [
         "card.oceans.062.c3"
       ],
-      "prompt": "Along a rocky coast, where do most sea caves begin to form?",
-      "options": [
-        {
-          "id": "a",
-          "label": "In the middle of the hardest, most solid rock",
-          "correct": false,
-          "rationale": "Waves work fastest where the rock is weak."
-        },
-        {
-          "id": "b",
-          "label": "Wherever seabirds nest high on a cliff",
-          "correct": false,
-          "rationale": "Caves come from waves, not birds."
-        },
-        {
-          "id": "c",
-          "label": "High above the reach of any waves",
-          "correct": false,
-          "rationale": "Sea caves are cut by the waves."
-        },
-        {
-          "id": "d",
-          "label": "Along faults, fractures or soft layers in the rock",
-          "correct": true
-        }
+      "prompt": "Put these coastal features in order, from first to form to last.",
+      "items": [
+        "A crack the sea found first",
+        "Sea cave",
+        "Sea arch",
+        "Sea stack"
       ],
-      "explanation": "Most sea caves form along weaknesses such as faults, fractures or layers of softer rock, which waves widen first.",
+      "first": "Forms first",
+      "last": "Forms last",
+      "explanation": "Most sea caves start as a crack the sea found first. A sea cave through a headland can become a sea arch, and when the arch collapses it leaves a sea stack.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 31,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Odds and Probability",
   "objective": "After this level you can turn odds like \"3 to 1 against\" into a probability and back again.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "question.probability.031.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.bet_odds_conversion",
@@ -138,35 +138,29 @@
       ],
       "sourceCardIds": [
         "card.probability.031.c3",
-        "card.probability.031.c4"
+        "card.probability.031.c4",
+        "card.probability.031.c2"
       ],
-      "prompt": "How do you turn odds of 4 to 1 against into a probability?",
-      "options": [
+      "prompt": "Match each set of odds with its chance.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Add 4 and 1 to find the whole: a 1 in 5 chance",
-          "correct": true
+          "left": "3 to 1 against",
+          "right": "1 in 4"
         },
         {
-          "id": "b",
-          "label": "Divide 1 by 4: a 1 in 4 chance",
-          "correct": false,
-          "rationale": "Odds compare wins with losses, so the whole is 4 plus 1."
+          "left": "4 to 1 against",
+          "right": "1 in 5"
         },
         {
-          "id": "c",
-          "label": "Subtract 1 from 4: a 3 in 4 chance",
-          "correct": false,
-          "rationale": "Subtracting mixes up the two piles; add them instead."
+          "left": "4 to 1 in favor",
+          "right": "80%"
         },
         {
-          "id": "d",
-          "label": "Read it as 4%",
-          "correct": false,
-          "rationale": "Odds are not a percent; add the two numbers to get the whole."
+          "left": "1 to 1",
+          "right": "50%"
         }
       ],
-      "explanation": "Odds of 4 to 1 against mean 4 ways to lose and 1 to win. Adding gives the whole, 5, so the chance is 1 in 5.",
+      "explanation": "Add the two numbers to find the whole: 3 to 1 against is 1 in 4, 4 to 1 against is 1 in 5, 4 to 1 in favor is 80%, and 1 to 1 is 50%.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 55,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Photography Arrives",
   "objective": "After this level you can explain how photography changed what painters thought painting was for.",
@@ -90,41 +90,25 @@
   "questions": [
     {
       "id": "question.art_history.055.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.photo_muybridge_gallop"
       ],
       "sourceCardIds": [
-        "card.art_history.055.c4"
+        "card.art_history.055.c4",
+        "card.art_history.055.c2"
       ],
-      "prompt": "What did Muybridge's 1878 photos show about a galloping horse?",
-      "options": [
-        {
-          "id": "a",
-          "label": "One hoof always stays on the ground",
-          "correct": false,
-          "rationale": "At one moment all four are off the ground."
-        },
-        {
-          "id": "b",
-          "label": "All four hooves leave the ground, legs tucked under",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Its legs stretch out front and back in the air",
-          "correct": false,
-          "rationale": "That is the painters' \"flying gallop\", which proved wrong."
-        },
-        {
-          "id": "d",
-          "label": "It gallops too fast for any camera",
-          "correct": false,
-          "rationale": "His row of cameras caught it."
-        }
+      "prompt": "Put these moments in the story of photography and painting in order, from earliest to latest.",
+      "items": [
+        "Géricault's Epsom Derby",
+        "The oldest surviving camera photograph",
+        "The daguerreotype",
+        "Eadweard Muybridge"
       ],
-      "explanation": "The horse is airborne with its legs gathered under its body, not in the stretched \"flying gallop\" painters used.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Géricault painted his Epsom Derby in 1821, Niépce made the oldest surviving camera photograph in 1826 or 1827, the daguerreotype was announced in 1839, and Muybridge photographed the horse in 1878.",
       "difficulty": 0.2
     },
     {

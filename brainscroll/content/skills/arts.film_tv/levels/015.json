@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 15,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Silent Comedy",
   "objective": "After this level you can explain how Charlie Chaplin and Buster Keaton built comedy out of timing, stunts and pure movement.",
@@ -126,41 +126,37 @@
     },
     {
       "id": "question.film_tv.015.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.silent_keaton_stunts"
       ],
       "sourceCardIds": [
-        "card.film_tv.015.c1"
+        "card.film_tv.015.c1",
+        "card.film_tv.015.c2",
+        "card.film_tv.015.c3",
+        "card.film_tv.015.c4"
       ],
-      "prompt": "Why was Keaton's falling-house stunt in Steamboat Bill, Jr. so dangerous?",
-      "options": [
+      "prompt": "Match each silent comedy with its famous moment.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "He had to jump through the window as the wall fell",
-          "correct": false,
-          "rationale": "He had to stay still; the window fell around him."
+          "left": "Steamboat Bill, Jr.",
+          "right": "The front of a house falls"
         },
         {
-          "id": "b",
-          "label": "The house was set on fire",
-          "correct": false,
-          "rationale": "Nothing in the level says so."
+          "left": "The Gold Rush",
+          "right": "The Tramp must eat his shoe"
         },
         {
-          "id": "c",
-          "label": "He had to stand exactly on his marked spot, or the falling wall would crush him",
-          "correct": true
+          "left": "The General",
+          "right": "A Civil War comedy"
         },
         {
-          "id": "d",
-          "label": "He filmed it without a camera operator",
-          "correct": false,
-          "rationale": "The danger was the falling facade."
+          "left": "Kid Auto Races at Venice",
+          "right": "First appeared as the Tramp"
         }
       ],
-      "explanation": "Keaton had to stand on a nail-marked spot so the open window landed around him; had he moved, he would have been crushed.",
+      "explanation": "In Steamboat Bill, Jr. the front of a house falls around Keaton. In The Gold Rush the Tramp eats his shoe. The General is Keaton's Civil War comedy, and Chaplin first appeared as the Tramp in Kid Auto Races at Venice.",
       "difficulty": 0.2
     },
     {

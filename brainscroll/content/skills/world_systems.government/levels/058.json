@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 58,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Police",
   "objective": "After this level you can explain what police do and the limits on their power.",
@@ -125,41 +125,36 @@
     },
     {
       "id": "question.government.058.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.police_consent"
       ],
       "sourceCardIds": [
-        "card.government.058.c2"
+        "card.government.058.c2",
+        "card.government.058.c1",
+        "card.government.058.c3"
       ],
-      "prompt": "What does \"policing by consent\" mean?",
-      "options": [
+      "prompt": "Match each piece of policing history or law with its detail.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Police need a suspect's permission to arrest them",
-          "correct": false,
-          "rationale": "Consent here means the public's, not the suspect's."
+          "left": "Robert Peel",
+          "right": "Metropolitan Police Act"
         },
         {
-          "id": "b",
-          "label": "Police are elected by each street",
-          "correct": false,
-          "rationale": "It's about where police power comes from, not elections."
+          "left": "Blue tailcoats",
+          "right": "Not soldiers"
         },
         {
-          "id": "c",
-          "label": "Police power rests on the public's common consent",
-          "correct": true
+          "left": "Miranda v Arizona",
+          "right": "Right to stay silent"
         },
         {
-          "id": "d",
-          "label": "Police can only act if a court agrees first",
-          "correct": false,
-          "rationale": "It's about public consent, not court approval."
+          "left": "Policing by consent",
+          "right": "The police are the public"
         }
       ],
-      "explanation": "Police power comes from the common consent of the public: the police are the public and the public are the police.",
+      "explanation": "Robert Peel sponsored the Metropolitan Police Act, blue tailcoats showed officers were not soldiers, Miranda v Arizona requires telling suspects of their right to stay silent, and policing by consent means the police are the public.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 75,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Courtship",
   "objective": "After this level you can explain how animals attract mates, from bright feathers to birdsong.",
@@ -171,7 +171,7 @@
     },
     {
       "id": "question.animals.075.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.behavior_courtship_signals",
@@ -179,35 +179,26 @@
       ],
       "sourceCardIds": [
         "card.animals.075.c3",
-        "card.animals.036.c3"
+        "card.animals.036.c3",
+        "card.animals.075.c1",
+        "card.animals.075.c2"
       ],
-      "prompt": "From Level 36: a panther chameleon flashes its brightest colors while courting. Which kind of courtship signal is that?",
-      "options": [
+      "prompt": "Match each courtship player with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A song, carried by sound",
-          "correct": false,
-          "rationale": "Song is heard; color is seen."
+          "left": "Peahens",
+          "right": "The classic choosers"
         },
         {
-          "id": "b",
-          "label": "A display made to be seen",
-          "correct": true
+          "left": "Male satin bowerbird",
+          "right": "Gathers blue things"
         },
         {
-          "id": "c",
-          "label": "A pheromone, carried by smell",
-          "correct": false,
-          "rationale": "Pheromones are chemical signals."
-        },
-        {
-          "id": "d",
-          "label": "A disguise to hide from rivals",
-          "correct": false,
-          "rationale": "Level 36: the colors are a message, not a disguise."
+          "left": "Birdsong",
+          "right": "Which species is singing"
         }
       ],
-      "explanation": "Courtship uses Level 72's channels, and a chameleon's color show is a visual display meant to be seen.",
+      "explanation": "Peahens are the classic choosers. The male satin bowerbird gathers blue things, and birdsong tells listeners which species is singing.",
       "difficulty": 0.4
     }
   ],

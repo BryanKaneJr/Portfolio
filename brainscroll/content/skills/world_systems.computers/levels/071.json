@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 71,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How Maps Find the Fastest Route",
   "objective": "After this level you can explain how a route-finding algorithm explores a road network step by step and uses live traffic to update it.",
@@ -130,41 +130,31 @@
     },
     {
       "id": "question.computers.071.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.routes_dijkstra"
       ],
       "sourceCardIds": [
-        "card.computers.071.c3"
+        "card.computers.071.c3",
+        "card.computers.071.c2"
       ],
-      "prompt": "How does Dijkstra's algorithm choose which place to explore next?",
-      "options": [
+      "prompt": "Match each part of a road map with its name in a weighted graph.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The place nearest the destination as the crow flies",
-          "correct": false,
-          "rationale": "It uses known distances from the start, not straight lines to the goal."
+          "left": "Each intersection",
+          "right": "A node"
         },
         {
-          "id": "b",
-          "label": "A random neighbor of the place it just checked",
-          "correct": false,
-          "rationale": "Nothing is random: it always takes the smallest known distance."
+          "left": "Each road",
+          "right": "An edge"
         },
         {
-          "id": "c",
-          "label": "The unvisited place with the smallest known distance so far",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The intersection with the most roads leading out",
-          "correct": false,
-          "rationale": "Road count doesn't matter; distance does."
+          "left": "The cost of travelling it",
+          "right": "A weight"
         }
       ],
-      "explanation": "It always expands the unvisited place with the smallest known distance, updating neighbors, until the destination is picked.",
+      "explanation": "In a weighted graph, each intersection is a node, each road is an edge, and the cost of travelling it, such as minutes of driving, is a weight.",
       "difficulty": 0.3
     },
     {

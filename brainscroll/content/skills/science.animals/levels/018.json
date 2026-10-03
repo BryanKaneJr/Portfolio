@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 18,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Primates",
   "objective": "After this level you can describe apes and monkeys and what we share with them.",
@@ -175,7 +175,7 @@
     },
     {
       "id": "question.animals.018.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.primate_dna_kinship",
@@ -185,33 +185,22 @@
         "card.animals.018.c4",
         "card.animals.004.c2"
       ],
-      "prompt": "Linnaeus named us Homo sapiens in Level 4. Which living animals are our closest relatives?",
-      "options": [
+      "prompt": "Match each animal with how much its DNA differs from yours, in percent.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Gorillas and orangutans",
-          "correct": false,
-          "rationale": "Close, but chimps and bonobos are closer."
+          "left": "Chimpanzees",
+          "right": "About 1.2 percent"
         },
         {
-          "id": "b",
-          "label": "Rhesus monkeys",
-          "correct": false,
-          "rationale": "About 7 percent different: far more distant."
+          "left": "Gorillas",
+          "right": "About 1.6 percent"
         },
         {
-          "id": "c",
-          "label": "Chimpanzees and bonobos",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Lemurs",
-          "correct": false,
-          "rationale": "Much more distant primates."
+          "left": "Rhesus monkeys",
+          "right": "About 7"
         }
       ],
-      "explanation": "Chimpanzees and bonobos differ from us by about 1.2 percent of DNA, less than any other living species.",
+      "explanation": "Chimpanzees differ from us by about 1.2 percent in DNA, gorillas by about 1.6 percent, and rhesus monkeys by about 7 percent.",
       "difficulty": 0.2
     }
   ],

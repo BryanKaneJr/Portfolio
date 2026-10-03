@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 97,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "New Materials",
   "objective": "After this level you can describe inventions like nylon and nonstick coatings.",
@@ -131,7 +131,7 @@
     },
     {
       "id": "question.chemistry.097.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.materials_teflon",
@@ -139,35 +139,19 @@
       ],
       "sourceCardIds": [
         "card.chemistry.097.c3",
-        "card.chemistry.002.c2"
+        "card.chemistry.002.c2",
+        "card.chemistry.097.c1",
+        "card.chemistry.097.c2"
       ],
-      "prompt": "Plunkett's cylinder released no gas, yet it weighed the same as before. What did that tell him?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The gas had slowly leaked out through the valve",
-          "correct": false,
-          "rationale": "Then the cylinder would weigh less."
-        },
-        {
-          "id": "b",
-          "label": "The scale in the lab must have been broken",
-          "correct": false,
-          "rationale": "The scale was right: the white powder was inside."
-        },
-        {
-          "id": "c",
-          "label": "Gases have no mass, so weighing tells nothing",
-          "correct": false,
-          "rationale": "Level 2 says gases are matter with mass."
-        },
-        {
-          "id": "d",
-          "label": "The matter was still inside in some form",
-          "correct": true
-        }
+      "prompt": "Put these DuPont moments in order, from earliest to latest.",
+      "items": [
+        "Invented nylon",
+        "Opened a gas cylinder",
+        "Nylon went into production"
       ],
-      "explanation": "Same mass means the matter never left; the gas had turned into a white solid inside the cylinder.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "DuPont invented nylon in 1935, Roy Plunkett opened a gas cylinder and found Teflon in 1938, and nylon went into production in 1939.",
       "difficulty": 0.3
     },
     {

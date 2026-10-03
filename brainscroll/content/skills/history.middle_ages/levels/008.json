@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 8,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Rise of Islam",
   "objective": "After this level you can describe how Islam began and spread in its first century.",
@@ -93,41 +93,25 @@
   "questions": [
     {
       "id": "question.middle_ages.008.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.islam_origins"
       ],
       "sourceCardIds": [
-        "card.middle_ages.008.c2"
+        "card.middle_ages.008.c2",
+        "card.middle_ages.008.c3"
       ],
-      "prompt": "What event does the Islamic calendar count its years from?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Muhammad’s birth in Mecca, around 570",
-          "correct": false,
-          "rationale": "The calendar starts later."
-        },
-        {
-          "id": "b",
-          "label": "The first revelation, by tradition in 610",
-          "correct": false,
-          "rationale": "It starts from a journey."
-        },
-        {
-          "id": "c",
-          "label": "Muhammad’s move to Medina in 622",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Muhammad’s death in Medina in 632",
-          "correct": false,
-          "rationale": "It starts ten years before that."
-        }
+      "prompt": "Put these events in Muhammad’s life in order, from earliest to latest.",
+      "items": [
+        "Muhammad was born",
+        "A vision of the angel Gabriel",
+        "Moved from Mecca to Medina",
+        "Muhammad died in Medina"
       ],
-      "explanation": "The hijra, Muhammad’s move from Mecca to Medina in 622, marks the start of the Islamic calendar.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Muhammad was born around 570, had a vision of the angel Gabriel in 610, moved from Mecca to Medina in 622, and died in Medina in 632.",
       "difficulty": 0.2
     },
     {

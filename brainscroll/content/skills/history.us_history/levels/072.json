@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 72,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "World War I",
   "objective": "After this level you can explain why the US stayed out of World War I until 1917, what each side of the argument over joining said, and what American troops changed.",
@@ -99,41 +99,28 @@
   "questions": [
     {
       "id": "question.us_history.072.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.greatwar_road_to_war"
       ],
       "sourceCardIds": [
-        "card.us_history.072.c2"
+        "card.us_history.072.c2",
+        "card.us_history.072.c3",
+        "card.us_history.072.c4"
       ],
-      "prompt": "What did the Zimmermann Telegram propose?",
-      "options": [
-        {
-          "id": "a",
-          "label": "That Britain and the US divide Germany's colonies",
-          "correct": false,
-          "rationale": "It was a German message to Mexico."
-        },
-        {
-          "id": "b",
-          "label": "That Germany stop attacking neutral ships",
-          "correct": false,
-          "rationale": "Germany was restarting those attacks."
-        },
-        {
-          "id": "c",
-          "label": "That Mexico buy American warships",
-          "correct": false,
-          "rationale": "It proposed an alliance against the US."
-        },
-        {
-          "id": "d",
-          "label": "That Mexico ally with Germany and retake Texas, New Mexico and Arizona",
-          "correct": true
-        }
+      "prompt": "Put these World War I events in order, from earliest to latest.",
+      "items": [
+        "War broke out in Europe",
+        "Sank the liner Lusitania",
+        "Resumed unrestricted submarine warfare",
+        "Congress declared war",
+        "The Meuse-Argonne Offensive",
+        "The armistice"
       ],
-      "explanation": "The telegram proposed a German alliance with Mexico to reconquer Texas, New Mexico and Arizona.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "War broke out in 1914 and the Lusitania sank in 1915. Germany resumed unrestricted submarine warfare in February 1917, Congress declared war that April, the Meuse-Argonne Offensive began in September 1918, and the armistice came on November 11, 1918.",
       "difficulty": 0.25
     },
     {

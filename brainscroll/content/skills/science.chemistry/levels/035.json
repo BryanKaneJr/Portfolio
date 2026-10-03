@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 35,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Iron",
   "objective": "After this level you can explain iron's role in steel and in your blood.",
@@ -92,7 +92,7 @@
   "questions": [
     {
       "id": "question.chemistry.035.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.iron_steel_carbon"
@@ -100,33 +100,22 @@
       "sourceCardIds": [
         "card.chemistry.035.c3"
       ],
-      "prompt": "What is steel made of?",
-      "options": [
+      "prompt": "Match each form of iron with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Iron with a little carbon, up to about 2 percent",
-          "correct": true
+          "left": "Pure iron",
+          "right": "Surprisingly soft"
         },
         {
-          "id": "b",
-          "label": "Pure iron with nothing added",
-          "correct": false,
-          "rationale": "Pure iron is soft; steel needs carbon."
+          "left": "Steel",
+          "right": "Far harder"
         },
         {
-          "id": "c",
-          "label": "Iron with about half carbon",
-          "correct": false,
-          "rationale": "Far too much carbon."
-        },
-        {
-          "id": "d",
-          "label": "Copper with a little tin",
-          "correct": false,
-          "rationale": "That's bronze, a different alloy."
+          "left": "Cast iron",
+          "right": "Brittle"
         }
       ],
-      "explanation": "Steel is iron with up to about 2 percent carbon, which makes it far harder than pure iron.",
+      "explanation": "Pure iron is surprisingly soft. Add up to about 2 percent carbon and steel is far harder; at 2 to 4 percent, cast iron is brittle.",
       "difficulty": 0.2
     },
     {

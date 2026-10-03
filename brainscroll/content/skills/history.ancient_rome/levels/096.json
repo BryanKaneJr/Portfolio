@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 96,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Integration: Rome in Our Laws and Governments",
   "objective": "After this level you can connect Roman institutions to modern republics and legal systems.",
@@ -175,7 +175,7 @@
     },
     {
       "id": "question.ancient_rome.096.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_rome.legacy_government",
@@ -183,35 +183,30 @@
       ],
       "sourceCardIds": [
         "card.ancient_rome.096.c2",
-        "card.ancient_rome.007.c3"
+        "card.ancient_rome.007.c3",
+        "card.ancient_rome.096.c1",
+        "card.ancient_rome.096.c3"
       ],
-      "prompt": "From Level 7: the US Capitol is named for the hill of Rome’s greatest temple. Whom did that temple honor?",
-      "options": [
+      "prompt": "Match each piece of modern government with its Roman root.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Jupiter, king of the gods",
-          "correct": true
+          "left": "The US Capitol",
+          "right": "Capitoline Hill"
         },
         {
-          "id": "b",
-          "label": "Mars, the god of war",
-          "correct": false,
-          "rationale": "It honored the king of the gods."
+          "left": "Veto",
+          "right": "I forbid"
         },
         {
-          "id": "c",
-          "label": "Vesta, the goddess of the hearth",
-          "correct": false,
-          "rationale": "Her temple was elsewhere."
+          "left": "Polybius",
+          "right": "The Greek historian"
         },
         {
-          "id": "d",
-          "label": "Janus, the god of doors",
-          "correct": false,
-          "rationale": "It honored the king of the gods."
+          "left": "Justinian’s code",
+          "right": "Civil law systems"
         }
       ],
-      "explanation": "The Capitoline temple was dedicated to Jupiter, with Juno and Minerva.",
+      "explanation": "The US Capitol is named after the Capitoline Hill, veto is Latin for “I forbid,” Polybius was the Greek historian who praised Rome’s mixed government, and Justinian’s code shaped civil law systems.",
       "difficulty": 0.3
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 92,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Atheists, Agnostics, Humanists",
   "objective": "After this level you can tell atheism, agnosticism and secular humanism apart and explain their long history.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "question.religions.092.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.doubt_agnosticism",
@@ -139,35 +139,25 @@
       ],
       "sourceCardIds": [
         "card.religions.092.c3",
-        "card.religions.092.c4"
+        "card.religions.092.c4",
+        "card.religions.092.c2"
       ],
-      "prompt": "Priya says no one can know whether God exists, so she leaves the question open. Which label fits her view best?",
-      "options": [
+      "prompt": "Match each label with its short answer.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Atheist",
-          "correct": false,
-          "rationale": "An atheist denies that God exists."
+          "left": "Atheism",
+          "right": "No God, no spirits"
         },
         {
-          "id": "b",
-          "label": "Agnostic",
-          "correct": true
+          "left": "Agnosticism",
+          "right": "I don't know"
         },
         {
-          "id": "c",
-          "label": "Humanist",
-          "correct": false,
-          "rationale": "Humanism is about how to live; humanists may be atheist or agnostic."
-        },
-        {
-          "id": "d",
-          "label": "Lokayata materialist",
-          "correct": false,
-          "rationale": "That school rejected god outright."
+          "left": "Humanism",
+          "right": "A way to live"
         }
       ],
-      "explanation": "Leaving the question of God open, as unanswered or unanswerable, is agnosticism.",
+      "explanation": "Atheism says no God, no spirits. Agnosticism says I don't know. Humanism answers how to live: it is a way to live.",
       "difficulty": 0.3
     },
     {

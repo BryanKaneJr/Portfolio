@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 11,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Pilgrims and the Wampanoag",
   "objective": "After this level you can explain why the Wampanoag allied with Plymouth, and how the harvest feast of 1621 differs from the later Thanksgiving story.",
@@ -98,41 +98,31 @@
   "questions": [
     {
       "id": "question.us_history.011.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.plymouth_wampanoag_alliance"
       ],
       "sourceCardIds": [
-        "card.us_history.011.c3"
+        "card.us_history.011.c3",
+        "card.us_history.011.c4"
       ],
-      "prompt": "Why did Ousamequin make an alliance with Plymouth in 1621?",
-      "options": [
+      "prompt": "Match each name with its role in the story.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The English had conquered the Wampanoag",
-          "correct": false,
-          "rationale": "The Wampanoag were not conquered; he chose the alliance."
+          "left": "Ousamequin",
+          "right": "The Wampanoag leader"
         },
         {
-          "id": "b",
-          "label": "He wanted English help against the Narragansett",
-          "correct": true
+          "left": "Tisquantum",
+          "right": "Plymouth’s interpreter"
         },
         {
-          "id": "c",
-          "label": "Tisquantum ordered him to do it",
-          "correct": false,
-          "rationale": "Tisquantum was an interpreter, not his ruler."
-        },
-        {
-          "id": "d",
-          "label": "He hoped the colonists would take him to England",
-          "correct": false,
-          "rationale": "His aim was security at home."
+          "left": "Narragansett",
+          "right": "rivals who had escaped it"
         }
       ],
-      "explanation": "The epidemic left the Wampanoag exposed to the Narragansett, and English guns could help.",
+      "explanation": "Ousamequin was the Wampanoag leader, Tisquantum was Plymouth’s interpreter, and the Narragansett were rivals who had escaped the epidemic.",
       "difficulty": 0.25
     },
     {

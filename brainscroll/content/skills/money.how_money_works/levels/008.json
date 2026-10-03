@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 8,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Money as Numbers",
   "objective": "After this level you can explain why most money today exists only as numbers in bank records.",
@@ -129,41 +129,31 @@
     },
     {
       "id": "question.how_money_works.008.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.card_payment_records"
       ],
       "sourceCardIds": [
-        "card.how_money_works.008.c3"
+        "card.how_money_works.008.c3",
+        "card.how_money_works.008.c4"
       ],
-      "prompt": "You pay a café by debit card. What actually happens?",
-      "options": [
+      "prompt": "In each case, nothing was carried anywhere. Match each case with what changed hands.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Cash is carried from your bank to the café",
-          "correct": false,
-          "rationale": "No cash moves; only records change."
+          "left": "Level 3's Yap",
+          "right": "A stone"
         },
         {
-          "id": "b",
-          "label": "The banks lower your balance and raise the café's",
-          "correct": true
+          "left": "The New York Fed",
+          "right": "Gold"
         },
         {
-          "id": "c",
-          "label": "Your card stores coins that move to the café",
-          "correct": false,
-          "rationale": "Cards don't hold coins. Banks update balances."
-        },
-        {
-          "id": "d",
-          "label": "The café writes you an IOU",
-          "correct": false,
-          "rationale": "The bank's records do the work."
+          "left": "Debit card",
+          "right": "Your deposit"
         }
       ],
-      "explanation": "A card payment changes two records: your deposit goes down and the café's goes up.",
+      "explanation": "On Yap a stone changed owners without moving. The New York Fed moved French gold into labeled drawers instead of shipping it. Pay by debit card and your deposit does the paying while no cash travels.",
       "difficulty": 0.2
     },
     {

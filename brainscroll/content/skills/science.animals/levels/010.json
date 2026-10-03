@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 10,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: What Makes an Animal",
   "objective": "After this level you can sort animals by backbone, body temperature and diet.",
@@ -232,7 +232,7 @@
     },
     {
       "id": "question.animals.010.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.vertebrate_backbone",
@@ -244,33 +244,22 @@
         "card.animals.003.c3",
         "card.animals.005.c2"
       ],
-      "prompt": "What Makes an Animal recap: which set of labels fits the ochre sea star?",
-      "options": [
+      "prompt": "Match each animal with its diet.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Invertebrate, ectotherm, carnivore",
-          "correct": true
+          "left": "Blue whale",
+          "right": "Almost only krill"
         },
         {
-          "id": "b",
-          "label": "Vertebrate, ectotherm, herbivore",
-          "correct": false,
-          "rationale": "Sea stars have no backbone, and they eat mussels."
+          "left": "Ochre sea star",
+          "right": "Eats mussels"
         },
         {
-          "id": "c",
-          "label": "Invertebrate, endotherm, carnivore",
-          "correct": false,
-          "rationale": "Invertebrates take their heat from outside."
-        },
-        {
-          "id": "d",
-          "label": "Vertebrate, endotherm, omnivore",
-          "correct": false,
-          "rationale": "Wrong on all three counts."
+          "left": "Giant panda",
+          "right": "Mostly bamboo"
         }
       ],
-      "explanation": "No backbone, heat from its surroundings, and a diet of mussels: invertebrate, ectotherm, carnivore.",
+      "explanation": "The blue whale eats almost only krill, the ochre sea star eats mussels, and the giant panda eats mostly bamboo.",
       "difficulty": 0.3
     },
     {

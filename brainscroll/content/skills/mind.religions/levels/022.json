@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 22,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The New Testament",
   "objective": "After this level you can explain what the Gospels and Paul's letters are and how the New Testament canon took shape over about three centuries.",
@@ -96,41 +96,26 @@
   "questions": [
     {
       "id": "question.religions.022.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.religions.christianity_nt_books"
       ],
       "sourceCardIds": [
-        "card.religions.022.c2"
+        "card.religions.022.c2",
+        "card.religions.022.c3",
+        "card.religions.022.c4"
       ],
-      "prompt": "Which New Testament writings are the oldest?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Gospel of John",
-          "correct": false,
-          "rationale": "It came later than Mark, and Paul wrote before both."
-        },
-        {
-          "id": "b",
-          "label": "Paul's letters to the churches",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The book of Revelation",
-          "correct": false,
-          "rationale": "Paul's letters are the earliest texts."
-        },
-        {
-          "id": "d",
-          "label": "Athanasius's Easter letter",
-          "correct": false,
-          "rationale": "That came in 367 and isn't in the New Testament."
-        }
+      "prompt": "Put these in order, from earliest written to latest.",
+      "items": [
+        "Paul's letters",
+        "Mark",
+        "Matthew and Luke",
+        "Athanasius"
       ],
-      "explanation": "Paul's letters, written to young churches soon after Jesus's death, are considered the earliest New Testament texts.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Paul's letters are the oldest. Mark wrote the first Gospel around 70 CE, Matthew and Luke used Mark as a source, and Athanasius listed the 27 books in 367 CE.",
       "difficulty": 0.3
     },
     {

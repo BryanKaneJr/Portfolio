@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 45,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Sea Turtles",
   "objective": "After this level you can describe sea turtles' long journeys.",
@@ -91,41 +91,25 @@
   "questions": [
     {
       "id": "question.oceans.045.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.oceans.sunlit_turtle_natal_homing"
       ],
       "sourceCardIds": [
-        "card.oceans.045.c3"
+        "card.oceans.045.c3",
+        "card.oceans.045.c2"
       ],
-      "prompt": "Where does a female sea turtle usually go to lay her eggs?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Any quiet beach she passes on her travels",
-          "correct": false,
-          "rationale": "She returns to one special beach."
-        },
-        {
-          "id": "b",
-          "label": "The beach where she herself hatched",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "A floating mat of sargassum at sea",
-          "correct": false,
-          "rationale": "That's where young turtles grow; nests are on beaches."
-        },
-        {
-          "id": "d",
-          "label": "The warmest beach in the ocean basin",
-          "correct": false,
-          "rationale": "Home, not heat, decides."
-        }
+      "prompt": "Put a female sea turtle's life in order, from first to last.",
+      "items": [
+        "Hatchlings burst from the nest",
+        "They find the sea",
+        "Swim out to floating mats of sargassum",
+        "Return to nest"
       ],
-      "explanation": "Females return to nest on the beaches where they themselves hatched, years earlier.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Hatchlings burst from the nest and find the sea. The survivors swim out to floating mats of sargassum, and years later females return to nest on the beaches where they hatched.",
       "difficulty": 0.15
     },
     {

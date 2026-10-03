@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 6,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Lascaux and Chauvet",
   "objective": "After this level you can describe the animal paintings in the caves of Lascaux and Chauvet.",
@@ -125,41 +125,25 @@
     },
     {
       "id": "question.art_history.006.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.lascaux"
       ],
       "sourceCardIds": [
+        "card.art_history.006.c2",
         "card.art_history.006.c3"
       ],
-      "prompt": "Why was Lascaux closed to the public in 1963?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A rockfall blocked the cave's entrance",
-          "correct": false,
-          "rationale": "That happened to Chauvet, long ago."
-        },
-        {
-          "id": "b",
-          "label": "Visitors and lights were damaging the paintings",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The paintings were found to be fakes",
-          "correct": false,
-          "rationale": "They're genuine, about 17,000 years old."
-        },
-        {
-          "id": "d",
-          "label": "Heavy rain flooded the lower chambers",
-          "correct": false,
-          "rationale": "Water wasn't the problem; people were."
-        }
+      "prompt": "Put these moments in Lascaux's story in order, from earliest to latest.",
+      "items": [
+        "Four teenagers found Lascaux",
+        "Opened to visitors",
+        "Closed",
+        "A replica nearby"
       ],
-      "explanation": "Up to 100,000 visitors a year and artificial lighting faded the colors and brought algae, bacteria and crystals.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Four teenagers found Lascaux in 1940. It opened to visitors in 1948, closed in 1963, and since 1983 people have toured a replica nearby instead.",
       "difficulty": 0.2
     },
     {

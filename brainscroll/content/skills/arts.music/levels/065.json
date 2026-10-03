@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 65,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Louis Armstrong",
   "objective": "After this level you can explain how Armstrong made the solo central to jazz.",
@@ -92,41 +92,25 @@
   "questions": [
     {
       "id": "question.music.065.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.armstrong_soloist"
       ],
       "sourceCardIds": [
-        "card.music.065.c3"
+        "card.music.065.c3",
+        "card.music.065.c2"
       ],
-      "prompt": "On which recordings did Louis Armstrong emerge as the first great jazz soloist?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The first jazz record of 1917",
-          "correct": false,
-          "rationale": "That was the Original Dixieland Jazz Band."
-        },
-        {
-          "id": "b",
-          "label": "His Hot Five and Hot Seven records",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Recordings of Buddy Bolden's band",
-          "correct": false,
-          "rationale": "Bolden was never recorded."
-        },
-        {
-          "id": "d",
-          "label": "Big-band records of the 1940s",
-          "correct": false,
-          "rationale": "His breakthrough came in the 1920s."
-        }
+      "prompt": "Put these moments in Louis Armstrong's life in order, from earliest to latest.",
+      "items": [
+        "Born in New Orleans",
+        "Colored Waifs Home",
+        "King Oliver",
+        "Hot Five and Hot Seven"
       ],
-      "explanation": "On the Hot Five and Hot Seven records (1925-28) the soloist became the star.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Armstrong was born in New Orleans in 1901, went to the Colored Waifs Home in 1913, joined King Oliver's band in 1922, and made his Hot Five and Hot Seven records from 1925 to 1928.",
       "difficulty": 0.15
     },
     {

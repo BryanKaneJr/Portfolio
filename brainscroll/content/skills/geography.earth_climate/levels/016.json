@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 16,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The San Andreas Fault",
   "objective": "After this level you can describe the plate boundary running through California and why it builds up large quakes.",
@@ -142,41 +142,24 @@
     },
     {
       "id": "question.earth_climate.016.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.quake_elastic_rebound"
       ],
       "sourceCardIds": [
-        "card.earth_climate.016.c3"
+        "card.earth_climate.016.c3",
+        "card.earth_climate.016.c2"
       ],
-      "prompt": "According to elastic rebound, how does a locked fault make an earthquake?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Magma pushes the two blocks apart",
-          "correct": false,
-          "rationale": "The San Andreas isn't driven by magma."
-        },
-        {
-          "id": "b",
-          "label": "The plates stop moving, then suddenly restart",
-          "correct": false,
-          "rationale": "The plates keep moving the whole time."
-        },
-        {
-          "id": "c",
-          "label": "Bent rock stores strain, then snaps back when the fault slips",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The rock melts until the fault can slide",
-          "correct": false,
-          "rationale": "The rock doesn't melt; it bends."
-        }
+      "prompt": "Put these San Andreas milestones in order, from earliest to latest.",
+      "items": [
+        "Fort Tejon earthquake",
+        "San Francisco earthquake",
+        "Elastic rebound"
       ],
-      "explanation": "The moving plates bend the rock beside a locked fault; when the fault slips, the rock snaps back, and that is the quake.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Fort Tejon earthquake struck in 1857, the San Francisco earthquake in 1906, and after 1906 Reid proposed elastic rebound.",
       "difficulty": 0.3
     },
     {

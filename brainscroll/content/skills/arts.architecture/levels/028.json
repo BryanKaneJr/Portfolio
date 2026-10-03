@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 28,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Hindu Temples",
   "objective": "After this level you can describe the towers of Hindu temples and what they represent.",
@@ -146,41 +146,35 @@
     },
     {
       "id": "question.architecture.028.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.hindu_temple_nagara_dravida"
       ],
       "sourceCardIds": [
-        "card.architecture.028.c4"
+        "card.architecture.028.c4",
+        "card.architecture.028.c2"
       ],
-      "prompt": "How does a southern (Dravida) Hindu temple tower differ from a northern shikhara?",
-      "options": [
+      "prompt": "Match each Hindu temple word with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It is a pyramid of receding stories",
-          "correct": true
+          "left": "Garbhagriha",
+          "right": "Womb house"
         },
         {
-          "id": "b",
-          "label": "It is a dome set on pendentives",
-          "correct": false,
-          "rationale": "That's Hagia Sophia's approach."
+          "left": "Shikhara",
+          "right": "Usually curved in outline"
         },
         {
-          "id": "c",
-          "label": "It stands apart from the sanctuary",
-          "correct": false,
-          "rationale": "Both towers rise over the sanctuary."
+          "left": "Vimana",
+          "right": "A pyramid of receding stories"
         },
         {
-          "id": "d",
-          "label": "It is made of wood, like a pagoda",
-          "correct": false,
-          "rationale": "Brihadishvara's vimana is stone."
+          "left": "Gopuras",
+          "right": "Gateways"
         }
       ],
-      "explanation": "Northern shikharas usually curve; a southern vimana rises as a pyramid of gradually receding stories.",
+      "explanation": "The garbhagriha is the \"womb house\", the inner sanctuary. A northern shikhara is usually curved in outline, a southern vimana is a pyramid of receding stories, and gopuras are gateways.",
       "difficulty": 0.3
     },
     {

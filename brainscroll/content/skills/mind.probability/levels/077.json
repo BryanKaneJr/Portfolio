@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 77,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Log Scales",
   "objective": "After this level you can read a chart where each step up the axis multiplies instead of adds, and explain when that helps.",
@@ -81,41 +81,35 @@
   "questions": [
     {
       "id": "question.probability.077.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.chart_log_scale"
       ],
       "sourceCardIds": [
-        "card.probability.077.c2"
+        "card.probability.077.c2",
+        "card.probability.077.c4"
       ],
-      "prompt": "On a log scale, what happens with each equal step up the axis?",
-      "options": [
+      "prompt": "Match each axis or group with its fact.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The value goes up by the same amount",
-          "correct": false,
-          "rationale": "That's an ordinary axis."
+          "left": "On an ordinary axis",
+          "right": "Each step up adds the same amount"
         },
         {
-          "id": "b",
-          "label": "The value is multiplied by the same amount",
-          "correct": true
+          "left": "On a log scale",
+          "right": "Each step multiplies"
         },
         {
-          "id": "c",
-          "label": "The value is cut in half",
-          "correct": false,
-          "rationale": "Steps up a log axis multiply upward."
+          "left": "Ordinary-chart group",
+          "right": "About 84%"
         },
         {
-          "id": "d",
-          "label": "The value stays the same",
-          "correct": false,
-          "rationale": "Each step is a bigger value."
+          "left": "The log group",
+          "right": "About 41%"
         }
       ],
-      "explanation": "Each step multiplies: 1, 10, 100, 1,000. So 1 to 10 is as far as 100,000 to 1,000,000.",
+      "explanation": "On an ordinary axis each step up adds the same amount; on a log scale each step multiplies. In the 2020 experiment, about 84% of the ordinary-chart group got the question right, against about 41% of the log group.",
       "difficulty": 0.2
     },
     {

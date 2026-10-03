@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 95,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Restoration",
   "objective": "After this level you can explain how conservators clean and repair old art.",
@@ -95,41 +95,25 @@
   "questions": [
     {
       "id": "question.art_history.095.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.restoration_ghent_lamb"
       ],
       "sourceCardIds": [
-        "card.art_history.095.c4"
+        "card.art_history.095.c4",
+        "card.art_history.095.c1"
       ],
-      "prompt": "What did removing 16th-century overpaint from the Ghent Altarpiece reveal?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A hidden signature of Jan van Eyck",
-          "correct": false,
-          "rationale": "The surprise was a face."
-        },
-        {
-          "id": "b",
-          "label": "A lamb with a startlingly human face",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "A second lamb painted underneath",
-          "correct": false,
-          "rationale": "It revealed the original lamb's face."
-        },
-        {
-          "id": "d",
-          "label": "A skull hidden by anamorphosis",
-          "correct": false,
-          "rationale": "That's Holbein's trick, from Level 93."
-        }
+      "prompt": "Put these moments in the story of restoration in order, from earliest to latest.",
+      "items": [
+        "Finished the altarpiece",
+        "Other painters covered its Lamb of God",
+        "Monkey Christ",
+        "Removed that overpaint"
       ],
-      "explanation": "Under the 1550 overpaint was the van Eycks' original Lamb, with forward-gazing, strikingly human eyes.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The van Eycks finished the Ghent Altarpiece by 1432 and other painters covered its lamb around 1550. \"Monkey Christ\" came in 2012, and conservators removed the lamb's overpaint in 2019.",
       "difficulty": 0.2
     },
     {

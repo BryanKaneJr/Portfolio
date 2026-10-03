@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 67,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Seashells",
   "objective": "After this level you can explain how mollusks build their shells.",
@@ -126,41 +126,32 @@
     },
     {
       "id": "question.oceans.067.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.shell_growth_record"
       ],
       "sourceCardIds": [
-        "card.oceans.067.c3"
+        "card.oceans.067.c3",
+        "card.oceans.067.c2",
+        "card.oceans.067.c4"
       ],
-      "prompt": "A mollusk never sheds its shell. How does the shell keep up as the animal grows?",
-      "options": [
+      "prompt": "Match each with what it does in a mollusk's shell.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It splits open and regrows every year",
-          "correct": false,
-          "rationale": "It isn't shed or regrown; it's added to."
+          "left": "Mantle",
+          "right": "Secretes proteins and minerals"
         },
         {
-          "id": "b",
-          "label": "It stretches like skin as the body swells",
-          "correct": false,
-          "rationale": "The hard shell can't stretch."
+          "left": "Nacre",
+          "right": "Mother-of-pearl"
         },
         {
-          "id": "c",
-          "label": "New material is added around its edges",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It dissolves and rebuilds itself larger",
-          "correct": false,
-          "rationale": "It keeps its old shell and adds to the edges."
+          "left": "Ocean quahog",
+          "right": "One band a year"
         }
       ],
-      "explanation": "Shells grow by adding new material at their edges; in ocean quahogs, the additions leave one band a year.",
+      "explanation": "The mantle secretes proteins and minerals to build the shell. Nacre is mother-of-pearl. In the ocean quahog, growth leaves one band a year.",
       "difficulty": 0.35
     },
     {

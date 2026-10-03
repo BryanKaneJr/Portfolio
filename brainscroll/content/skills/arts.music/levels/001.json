@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 1,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Music: The Big Picture",
   "objective": "After this level you can describe what turns sound into music: rhythm, melody and harmony.",
@@ -184,7 +184,7 @@
     },
     {
       "id": "question.music.001.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.music.music_elements"
@@ -193,33 +193,22 @@
         "card.music.001.c4",
         "card.music.001.c3"
       ],
-      "prompt": "Someone hums a tune alone in the shower, with no chords. Which ingredients of music are they using?",
-      "options": [
+      "prompt": "Match each ingredient of music with what it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Rhythm and melody",
-          "correct": true
+          "left": "Rhythm",
+          "right": "When sounds happen"
         },
         {
-          "id": "b",
-          "label": "Harmony only",
-          "correct": false,
-          "rationale": "One voice alone can't sound two notes at once."
+          "left": "Melody",
+          "right": "The line you hum"
         },
         {
-          "id": "c",
-          "label": "None: without harmony it isn't music",
-          "correct": false,
-          "rationale": "Harmony is a layer found in most Western music, not a requirement."
-        },
-        {
-          "id": "d",
-          "label": "Melody and harmony",
-          "correct": false,
-          "rationale": "Harmony needs two or more notes at once."
+          "left": "Harmony",
+          "right": "Two or more notes at the same time"
         }
       ],
-      "explanation": "A hummed tune is a melody riding on a rhythm. Harmony is the optional extra layer.",
+      "explanation": "Rhythm is when sounds happen, melody is the line you hum, and harmony is two or more notes at the same time.",
       "difficulty": 0.2
     }
   ],

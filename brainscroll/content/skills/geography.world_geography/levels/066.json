@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 66,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Himalayas",
   "objective": "After this level you can describe the Himalayas, Mount Everest and the great rivers they feed.",
@@ -135,42 +135,26 @@
     },
     {
       "id": "question.world_geography.066.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.himalaya_formation"
       ],
       "sourceCardIds": [
         "card.world_geography.066.c1",
-        "card.world_geography.066.c2"
+        "card.world_geography.066.c2",
+        "card.world_geography.066.c3"
       ],
-      "prompt": "How did seafloor rock end up near the top of Everest?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Sea levels were once far higher",
-          "correct": false,
-          "rationale": "The sea didn't rise; the rock did."
-        },
-        {
-          "id": "b",
-          "label": "Glaciers carried it up the slopes",
-          "correct": false,
-          "rationale": "Glaciers move rock downhill, not up."
-        },
-        {
-          "id": "c",
-          "label": "India's collision with Asia thrust the seabed up",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Volcanoes erupted it onto the peak",
-          "correct": false,
-          "rationale": "The Himalayas aren't volcanoes; they're fold mountains."
-        }
+      "prompt": "Put Everest's limestone story in order, from earliest to latest.",
+      "items": [
+        "Laid down on the floor of an ancient sea",
+        "Collided with Asia",
+        "Thrust upward",
+        "Still rising"
       ],
-      "explanation": "When India collided with Asia, neither plate could slide under the other, so the crust, old seabed included, was thrust upward into the Himalayas.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The limestone was laid down on the floor of an ancient sea. India collided with Asia, the crust was thrust upward, and the Himalayas are still rising.",
       "difficulty": 0.3
     },
     {

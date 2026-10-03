@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 77,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Moderating Billions of Posts",
   "objective": "After this level you can explain how platforms combine automated filters and human reviewers, and why both make mistakes at scale.",
@@ -87,7 +87,7 @@
   "questions": [
     {
       "id": "question.computers.077.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.moderation_hash_matching"
@@ -95,33 +95,15 @@
       "sourceCardIds": [
         "card.computers.077.c2"
       ],
-      "prompt": "How does PhotoDNA spot a copy of a known illegal image?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A human reviewer compares every single upload by eye",
-          "correct": false,
-          "rationale": "The matching is automatic, by signature."
-        },
-        {
-          "id": "b",
-          "label": "It matches the image's fingerprint to known images' fingerprints",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It reads the caption for banned words",
-          "correct": false,
-          "rationale": "It works from the image itself."
-        },
-        {
-          "id": "d",
-          "label": "It checks who uploaded the image first",
-          "correct": false,
-          "rationale": "It compares image signatures, not uploaders."
-        }
+      "prompt": "Put the steps PhotoDNA uses to catch a known image in order.",
+      "items": [
+        "Computes a digital signature",
+        "Compares it with the signatures",
+        "A match flags a copy"
       ],
-      "explanation": "PhotoDNA computes a signature, or hash, of each image and compares it with the signatures of previously identified illegal images.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "PhotoDNA computes a digital signature from an image, compares it with the signatures of images already identified as illegal, and a match flags a copy.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 88,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Echo Chambers",
   "objective": "After this level you can explain how hearing only agreeing sources makes a view feel more certain than the evidence allows.",
@@ -91,41 +91,31 @@
   "questions": [
     {
       "id": "question.logic.088.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.sourcing_echo_chamber"
       ],
       "sourceCardIds": [
-        "card.logic.088.c3"
+        "card.logic.088.c3",
+        "card.logic.088.c1"
       ],
-      "prompt": "What makes an echo chamber different from an epistemic bubble?",
-      "options": [
+      "prompt": "Match each one with its point about bubbles, chambers and copies.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Its members use social media more",
-          "correct": false,
-          "rationale": "The difference isn't the medium."
+          "left": "A bubble",
+          "right": "Lacks information"
         },
         {
-          "id": "b",
-          "label": "Nobody inside ever disagrees",
-          "correct": false,
-          "rationale": "Members can disagree on other things."
+          "left": "A chamber",
+          "right": "Has a reason ready to reject it"
         },
         {
-          "id": "c",
-          "label": "It contains no evidence whatsoever",
-          "correct": false,
-          "rationale": "It can contain plenty; outsiders are what's discredited."
-        },
-        {
-          "id": "d",
-          "label": "Outside voices are actively discredited",
-          "correct": true
+          "left": "Five copies of today's paper",
+          "right": "Wittgenstein"
         }
       ],
-      "explanation": "A bubble merely leaves other voices out. The difference is that outside voices get actively excluded and discredited.",
+      "explanation": "A bubble lacks information; a chamber has a reason ready to reject it. Nguyen borrows the picture of five copies of today's paper from Wittgenstein.",
       "difficulty": 0.3
     },
     {

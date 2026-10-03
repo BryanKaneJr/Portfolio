@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 18,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Getting Stronger",
   "objective": "After this level you can explain what happens inside muscles when you exercise.",
@@ -170,7 +170,7 @@
     },
     {
       "id": "question.human_body.018.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.training_endurance_disuse",
@@ -178,32 +178,23 @@
       ],
       "sourceCardIds": [
         "card.human_body.018.c3",
-        "card.human_body.002.c4"
+        "card.human_body.002.c4",
+        "card.human_body.018.c2",
+        "card.human_body.018.c4"
       ],
-      "prompt": "Endurance exercise can add more of which cell part from Level 2, the one that turns food energy into a usable form?",
-      "options": [
+      "prompt": "Match each way of using a muscle with what it changes inside.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The nucleus",
-          "correct": false,
-          "rationale": "The nucleus is the command center."
+          "left": "Resistance exercise",
+          "right": "Build more myofibrils"
         },
         {
-          "id": "b",
-          "label": "Mitochondria",
-          "correct": true
+          "left": "Long, steady exercise",
+          "right": "Add more mitochondria"
         },
         {
-          "id": "c",
-          "label": "The cell membrane",
-          "correct": false,
-          "rationale": "The membrane controls what enters and leaves."
-        },
-        {
-          "id": "d",
-          "label": "The cytoplasm",
-          "correct": false,
-          "rationale": "Cytoplasm is the jelly-like fluid filling the cell."
+          "left": "Disuse",
+          "right": "Loses structural proteins"
         }
       ],
       "explanation": "Endurance exercise can increase the number of mitochondria, the cell's power stations.",

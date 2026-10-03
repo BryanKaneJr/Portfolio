@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 56,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Snails and Slugs",
   "objective": "After this level you can describe snails, slugs and their relatives.",
@@ -166,7 +166,7 @@
     },
     {
       "id": "question.animals.056.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.invertebrate_majority",
@@ -174,35 +174,26 @@
       ],
       "sourceCardIds": [
         "card.animals.056.c2",
-        "card.animals.003.c3"
+        "card.animals.003.c3",
+        "card.animals.056.c3",
+        "card.animals.056.c4"
       ],
-      "prompt": "Level 3 said most mollusks wear a hard outer skeleton. Where does a snail’s shell come from?",
-      "options": [
+      "prompt": "Match each part of a snail with what it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It’s borrowed from another animal",
-          "correct": false,
-          "rationale": "Snails make their own shells."
+          "left": "Mantle",
+          "right": "A layer of tissue"
         },
         {
-          "id": "b",
-          "label": "It’s hardened mucus from its trail",
-          "correct": false,
-          "rationale": "Mucus is for gliding, not building."
+          "left": "Radula",
+          "right": "A ribbon of teeth"
         },
         {
-          "id": "c",
-          "label": "It forms from swallowed sand",
-          "correct": false,
-          "rationale": "The shell is made by the body itself."
-        },
-        {
-          "id": "d",
-          "label": "The mantle, a layer of tissue, makes it",
-          "correct": true
+          "left": "Foot",
+          "right": "A single muscular organ"
         }
       ],
-      "explanation": "A mollusk’s shell is secreted by the mantle, a layer of tissue covering the body.",
+      "explanation": "The mantle is a layer of tissue that makes the shell. The radula is a ribbon of teeth, and the foot is a single muscular organ.",
       "difficulty": 0.25
     }
   ],

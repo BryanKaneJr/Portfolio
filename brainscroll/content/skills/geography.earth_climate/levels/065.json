@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 65,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Tornado Alley and the EF Scale",
   "objective": "After this level you can explain why the central US gets so many tornadoes and how damage is used to rate them.",
@@ -129,41 +129,35 @@
     },
     {
       "id": "question.earth_climate.065.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.storm_ef_scale"
       ],
       "sourceCardIds": [
-        "card.earth_climate.065.c4"
+        "card.earth_climate.065.c4",
+        "card.earth_climate.065.c3"
       ],
-      "prompt": "A violent tornado crosses mostly empty farmland. Why might its EF rating come out lower than its true strength?",
-      "options": [
+      "prompt": "Match each part of the EF scale with its number.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Tornadoes always weaken over farmland",
-          "correct": false,
-          "rationale": "The storm isn't weaker; there's just less to judge."
+          "left": "EF0",
+          "right": "65 to 85 mph"
         },
         {
-          "id": "b",
-          "label": "Radar cannot see tornadoes over fields",
-          "correct": false,
-          "rationale": "EF ratings come from damage surveys, not radar."
+          "left": "EF5",
+          "right": "Over 200 mph"
         },
         {
-          "id": "c",
-          "label": "There's little built there for surveyors to judge the damage by",
-          "correct": true
+          "left": "Damage indicators",
+          "right": "28"
         },
         {
-          "id": "d",
-          "label": "Farm buildings are too strong to be damaged",
-          "correct": false,
-          "rationale": "Barns are one of the damage indicators; they can be damaged."
+          "left": "Degrees of damage",
+          "right": "Up to 8"
         }
       ],
-      "explanation": "EF ratings come from surveyed damage to buildings and other indicators; with few structures in the path, surveyors have less to go on.",
+      "explanation": "EF0 means gusts of 65 to 85 mph and EF5 over 200 mph. Surveyors use 28 damage indicators, each with up to 8 degrees of damage.",
       "difficulty": 0.4
     },
     {

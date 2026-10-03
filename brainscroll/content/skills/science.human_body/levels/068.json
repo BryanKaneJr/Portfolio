@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 68,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Touch and Pain",
   "objective": "After this level you can explain how the skin senses touch, heat and pain.",
@@ -126,38 +126,32 @@
     },
     {
       "id": "question.human_body.068.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.senses_skin_receptors"
       ],
       "sourceCardIds": [
-        "card.human_body.068.c2"
+        "card.human_body.068.c2",
+        "card.human_body.068.c3"
       ],
-      "prompt": "Why can your fingertips feel finer detail than the skin of your arm?",
-      "options": [
+      "prompt": "Match each piece of the 2021 Nobel Prize story with its role.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Touch sensors are packed more densely there",
-          "correct": true
+          "left": "Capsaicin",
+          "right": "Makes chilies burn"
         },
         {
-          "id": "b",
-          "label": "Fingertips have no pain sensors to distract them",
-          "correct": false,
-          "rationale": "Fingertips have pain sensors too."
+          "left": "TRPV1",
+          "right": "Painfully hot temperatures"
         },
         {
-          "id": "c",
-          "label": "Arm skin has no touch sensors at all",
-          "correct": false,
-          "rationale": "It has them, just fewer."
+          "left": "Menthol",
+          "right": "A cold sensor"
         },
         {
-          "id": "d",
-          "label": "Fingertips are warmer than arms",
-          "correct": false,
-          "rationale": "Density of sensors, not warmth, is the difference."
+          "left": "Piezo2",
+          "right": "Essential for touch"
         }
       ],
       "explanation": "Touch receptors are denser in hairless skin like the fingertips and lips, and sparser in hairy skin like the arms.",

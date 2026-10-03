@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 95,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Reading the News Well",
   "objective": "After this level you can judge whether a news story is reliable.",
@@ -132,41 +132,32 @@
     },
     {
       "id": "question.government.095.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.newsreading_reliability_signs"
       ],
       "sourceCardIds": [
-        "card.government.095.c5"
+        "card.government.095.c5",
+        "card.government.095.c1",
+        "card.government.095.c2"
       ],
-      "prompt": "Why is a published correction a good sign about a news outlet, according to journalists' codes?",
-      "options": [
+      "prompt": "Match each news-reading clue with its detail.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It proves the outlet has never made a mistake",
-          "correct": false,
-          "rationale": "A correction means it did, and fixed it."
+          "left": "59%",
+          "right": "Never clicked"
         },
         {
-          "id": "b",
-          "label": "The codes ask outlets to fix mistakes promptly and prominently",
-          "correct": true
+          "left": "IPSO",
+          "right": "The press regulator"
         },
         {
-          "id": "c",
-          "label": "Corrections are paid advertisements",
-          "correct": false,
-          "rationale": "Corrections aren't ads."
-        },
-        {
-          "id": "d",
-          "label": "It means the story was only opinion",
-          "correct": false,
-          "rationale": "Corrections fix errors of fact in any story."
+          "left": "Significant inaccuracies",
+          "right": "Due prominence"
         }
       ],
-      "explanation": "Both the SPJ code and the UK Editors' Code expect mistakes to be corrected promptly and prominently, so corrections show an outlet checking itself.",
+      "explanation": "In one study, 59% of shared news links were never clicked. IPSO is the UK press regulator, and its code says significant inaccuracies must be corrected promptly and with due prominence.",
       "difficulty": 0.25
     },
     {

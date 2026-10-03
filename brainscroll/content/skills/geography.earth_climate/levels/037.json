@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 37,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How Life Filled the Air With Oxygen",
   "objective": "After this level you can explain how ancient microbes caused the Great Oxidation Event and how rocks record it.",
@@ -126,7 +126,7 @@
     },
     {
       "id": "question.earth_climate.037.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.deeptime_banded_iron"
@@ -134,33 +134,15 @@
       "sourceCardIds": [
         "card.earth_climate.037.c3"
       ],
-      "prompt": "How did banded iron formations form?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Iron meteorites crashed into the early ocean floor",
-          "correct": false,
-          "rationale": "The iron was already dissolved in seawater."
-        },
-        {
-          "id": "b",
-          "label": "Oxygen met dissolved iron, and iron oxide settled out",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Lava flows cooled into red and black stripes",
-          "correct": false,
-          "rationale": "They are sediments that settled in water, not lava."
-        },
-        {
-          "id": "d",
-          "label": "Rust from old land surfaces washed down into rivers",
-          "correct": false,
-          "rationale": "The iron oxide formed in the sea itself."
-        }
+      "prompt": "Put the steps that filled the air with oxygen in order.",
+      "items": [
+        "Microbes make oxygen",
+        "Iron soaks it up",
+        "The air fills"
       ],
-      "explanation": "Oxygen from microbes combined with iron dissolved in seawater, and the iron oxide sank in layers.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Microbes made oxygen, dissolved iron in the sea soaked it up into banded iron formations, and once the iron was used up the air filled with oxygen.",
       "difficulty": 0.3
     },
     {

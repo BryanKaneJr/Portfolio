@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 29,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Everyone Believes It",
   "objective": "After this level you can explain why a claim's popularity is not, by itself, evidence that it is true.",
@@ -121,41 +121,33 @@
     },
     {
       "id": "question.logic.029.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.classic_fallacy_appeal_to_popularity"
       ],
       "sourceCardIds": [
-        "card.logic.029.c4"
+        "card.logic.029.c4",
+        "card.logic.029.c1",
+        "card.logic.029.c2",
+        "card.logic.029.c3"
       ],
-      "prompt": "How can \"many people believe it\" be a fair clue rather than a fallacy?",
-      "options": [
+      "prompt": "Match each name or example with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "When the crowd is very large indeed",
-          "correct": false,
-          "rationale": "A bigger headcount is still just a headcount."
+          "left": "Argumentum ad populum",
+          "right": "The appeal to the people"
         },
         {
-          "id": "b",
-          "label": "When the belief is new and exciting",
-          "correct": false,
-          "rationale": "That's the bandwagon."
+          "left": "The bandwagon",
+          "right": "More and more people are coming to"
         },
         {
-          "id": "c",
-          "label": "When many studied it and reasoned it out",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "When you happen to agree with them",
-          "correct": false,
-          "rationale": "Your agreement adds no evidence."
+          "left": "Channel 6",
+          "right": "The most watched channel this year"
         }
       ],
-      "explanation": "Pointing out that many people studied a claim and reached a reasoned answer is not fallacious. The fallacy is treating a bare headcount as proof.",
+      "explanation": "Argumentum ad populum is the appeal to the people. The bandwagon says believe it because more and more people are coming to. Channel 6 was pitched as the most watched channel this year.",
       "difficulty": 0.3
     },
     {

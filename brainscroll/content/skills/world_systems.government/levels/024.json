@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 24,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Presidents and Prime Ministers",
   "objective": "After this level you can compare presidential and parliamentary systems.",
@@ -152,41 +152,31 @@
     },
     {
       "id": "question.government.024.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.executive_parliamentary_presidential"
       ],
       "sourceCardIds": [
-        "card.government.024.c3"
+        "card.government.024.c3",
+        "card.government.024.c4"
       ],
-      "prompt": "In a presidential system like the United States, who is head of state?",
-      "options": [
+      "prompt": "Match each way of picking a leader with a country that uses it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A monarch with a ceremonial role",
-          "correct": false,
-          "rationale": "In a presidential system the president holds this role."
+          "left": "Parliamentary",
+          "right": "UK, Germany, India, Japan"
         },
         {
-          "id": "b",
-          "label": "The leader of the largest party in the legislature",
-          "correct": false,
-          "rationale": "That describes a prime minister's route to power."
+          "left": "Presidential",
+          "right": "United States"
         },
         {
-          "id": "c",
-          "label": "The chief judge of the highest court",
-          "correct": false,
-          "rationale": "Judges aren't heads of state here."
-        },
-        {
-          "id": "d",
-          "label": "The president, who is also head of government",
-          "correct": true
+          "left": "Semi-presidential",
+          "right": "France"
         }
       ],
-      "explanation": "In presidential systems one person wears both hats: the president is head of state and head of government.",
+      "explanation": "The UK, Germany, India and Japan are parliamentary, the United States is presidential, and France is semi-presidential.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 75,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Exchange Rates",
   "objective": "After this level you can explain how currencies are traded and why their values change.",
@@ -101,41 +101,31 @@
   "questions": [
     {
       "id": "question.how_money_works.075.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.fx_exchange_rates"
       ],
       "sourceCardIds": [
-        "card.how_money_works.075.c2"
+        "card.how_money_works.075.c2",
+        "card.how_money_works.075.c3"
       ],
-      "prompt": "What is an exchange rate?",
-      "options": [
+      "prompt": "Match each currency word with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The interest a bank pays on savings",
-          "correct": false,
-          "rationale": "That's an interest rate."
+          "left": "Appreciated",
+          "right": "Strengthened"
         },
         {
-          "id": "b",
-          "label": "How much one currency is worth in another",
-          "correct": true
+          "left": "Depreciated",
+          "right": "Weakened"
         },
         {
-          "id": "c",
-          "label": "The fee for changing money at an airport",
-          "correct": false,
-          "rationale": "A fee may apply, but the rate itself is the currency's price."
-        },
-        {
-          "id": "d",
-          "label": "A tax on imported goods",
-          "correct": false,
-          "rationale": "That's a tariff."
+          "left": "Float",
+          "right": "Mainly set by the market"
         }
       ],
-      "explanation": "An exchange rate is the price of one currency in terms of another.",
+      "explanation": "A currency that buys more of another has appreciated, or strengthened; one that buys less has depreciated, or weakened. Currencies that float have rates mainly set by the market.",
       "difficulty": 0.2
     },
     {

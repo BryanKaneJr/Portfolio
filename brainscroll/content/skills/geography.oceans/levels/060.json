@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 60,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: The Deep",
   "objective": "After this level you can describe how animals survive the dark, cold and pressure of the deep.",
@@ -176,42 +176,33 @@
     },
     {
       "id": "question.oceans.060.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.deep_pressure_survival",
         "concept.oceans.pressure_squeezes_air"
       ],
       "sourceCardIds": [
-        "card.oceans.060.c2"
+        "card.oceans.060.c2",
+        "card.oceans.060.c3",
+        "card.oceans.060.c4"
       ],
-      "prompt": "Deep recap: pressure crushes a foam cup's air pockets. Why doesn't it crush most deep-sea animals?",
-      "options": [
+      "prompt": "Match each deep-sea challenge with how animals survive it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Their skin is too thick to squeeze",
-          "correct": false,
-          "rationale": "The key is what their bodies are made of."
+          "left": "Pressure",
+          "right": "Be mostly water"
         },
         {
-          "id": "b",
-          "label": "They are mostly water, with no air spaces to crush",
-          "correct": true
+          "left": "Darkness",
+          "right": "Make light, or vanish"
         },
         {
-          "id": "c",
-          "label": "They swim up whenever pressure gets high",
-          "correct": false,
-          "rationale": "Some live their whole lives deep."
-        },
-        {
-          "id": "d",
-          "label": "Pressure is lower in cold water",
-          "correct": false,
-          "rationale": "Pressure depends on depth."
+          "left": "Cold and hunger",
+          "right": "Go slow, think big"
         }
       ],
-      "explanation": "Water barely compresses, and without lungs or swim bladders, deep animals have little for pressure to crush.",
+      "explanation": "Against pressure, be mostly water. Against darkness, make light or vanish. Against cold and hunger, go slow and think big.",
       "difficulty": 0.25
     },
     {

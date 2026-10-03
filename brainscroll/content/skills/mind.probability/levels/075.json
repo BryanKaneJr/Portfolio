@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 75,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Pies, Pictures and 3D Tricks",
   "objective": "After this level you can spot pie charts that don't add to 100% and pictures that exaggerate by growing in two directions at once.",
@@ -86,41 +86,31 @@
   "questions": [
     {
       "id": "question.probability.075.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.chart_pie_whole"
       ],
       "sourceCardIds": [
-        "card.probability.075.c2"
+        "card.probability.075.c2",
+        "card.probability.075.c3"
       ],
-      "prompt": "A pie chart's slices should add up to what?",
-      "options": [
+      "prompt": "Match each chart with what it really shows or does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Whatever the biggest slice is",
-          "correct": false,
-          "rationale": "The circle stands for the whole, not one slice."
+          "left": "A pie chart's circle",
+          "right": "The whole: 100%"
         },
         {
-          "id": "b",
-          "label": "100%",
-          "correct": true
+          "left": "Tilting a pie into 3D",
+          "right": "The slices nearest you look bigger"
         },
         {
-          "id": "c",
-          "label": "More than 100% if people chose several answers",
-          "correct": false,
-          "rationale": "That's the sign the data don't belong in a pie."
-        },
-        {
-          "id": "d",
-          "label": "It depends on the colors used",
-          "correct": false,
-          "rationale": "Colors never change what the slices must total."
+          "left": "One moneybag twice as tall",
+          "right": "Covers four times the area"
         }
       ],
-      "explanation": "The circle stands for the whole, 100%, so the slices must total 100%.",
+      "explanation": "A pie chart's circle stands for the whole: 100%. Tilting a pie into 3D makes the slices nearest you look bigger, and a moneybag twice as tall is also twice as wide, so it covers four times the area.",
       "difficulty": 0.15
     },
     {

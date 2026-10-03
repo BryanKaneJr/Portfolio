@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 100,
   "type": "mastery",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Mastery Challenge: Film & TV",
   "objective": "After this level you can demonstrate command of Film & TV Levels 1 to 99 across the whole tree.",
@@ -151,41 +151,29 @@
   "questions": [
     {
       "id": "question.film_tv.100.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.frame_rate_standard_24"
       ],
       "sourceCardIds": [
-        "card.film_tv.003.c3"
+        "card.film_tv.003.c3",
+        "card.film_tv.010.c2",
+        "card.film_tv.050.c3",
+        "card.film_tv.080.c3",
+        "card.film_tv.090.c2"
       ],
-      "prompt": "Chapter 1: sound films needed a steady speed. What standard was fixed in 1927?",
-      "options": [
-        {
-          "id": "a",
-          "label": "16 frames per second",
-          "correct": false,
-          "rationale": "That's near the hand-cranked silent average."
-        },
-        {
-          "id": "b",
-          "label": "24 frames per second",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "30 frames per second",
-          "correct": false,
-          "rationale": "Not the film standard set in 1927."
-        },
-        {
-          "id": "d",
-          "label": "48 frames per second",
-          "correct": false,
-          "rationale": "Double the standard."
-        }
+      "prompt": "Put these milestones from across the tree in order, from earliest to latest.",
+      "items": [
+        "The Lumières' paid screening",
+        "The Jazz Singer's success",
+        "I Love Lucy debuts",
+        "Toy Story",
+        "House of Cards"
       ],
-      "explanation": "Sound fixed the standard at 24 frames per second in 1927.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Lumières' paid screening was in 1895, The Jazz Singer came in 1927, I Love Lucy debuted in 1951, Toy Story arrived in 1995 and House of Cards in 2013.",
       "difficulty": 0.3
     },
     {

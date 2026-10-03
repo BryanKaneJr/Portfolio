@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 14,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Rule by the Few",
   "objective": "After this level you can explain oligarchy.",
@@ -170,7 +170,7 @@
     },
     {
       "id": "question.government.014.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.government.oligarchy_definition",
@@ -178,35 +178,25 @@
       ],
       "sourceCardIds": [
         "card.government.014.c2",
-        "card.government.011.c2"
+        "card.government.011.c2",
+        "card.government.014.c4"
       ],
-      "prompt": "Rule by the few: judging by their Greek roots, what separates oligarchy from Level 11's monarchy?",
-      "options": [
+      "prompt": "Match each word or name about rule by the few with its meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Oligarchy is rule by God; monarchy is rule by one",
-          "correct": false,
-          "rationale": "Rule by God is theocracy."
+          "left": "Oligos",
+          "right": "Few"
         },
         {
-          "id": "b",
-          "label": "Monarchy is rule by one; oligarchy is rule by a few",
-          "correct": true
+          "left": "Aristocracy",
+          "right": "Rule by the best"
         },
         {
-          "id": "c",
-          "label": "Monarchy is always elected; oligarchy never is",
-          "correct": false,
-          "rationale": "Most monarchs inherit the throne."
-        },
-        {
-          "id": "d",
-          "label": "They mean the same thing in Greek",
-          "correct": false,
-          "rationale": "Monos means alone; oligos means few."
+          "left": "Robert Michels",
+          "right": "Iron law of oligarchy"
         }
       ],
-      "explanation": "Monarkhia is the ruling of one; oligarchy comes from oligos, few, plus arkhein, to rule.",
+      "explanation": "Oligos is Greek for few, aristocracy is rule by the best, and Robert Michels proposed the iron law of oligarchy.",
       "difficulty": 0.3
     }
   ],

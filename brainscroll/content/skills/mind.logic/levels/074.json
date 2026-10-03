@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 74,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Same Fact, Different Frame",
   "objective": "After this level you can explain framing: why \"90 percent survive\" and \"10 percent die\" feel different but say the same thing.",
@@ -125,42 +125,32 @@
     },
     {
       "id": "question.logic.074.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.persuasion_framing"
       ],
       "sourceCardIds": [
         "card.logic.074.c2",
-        "card.logic.074.c3"
+        "card.logic.074.c3",
+        "card.logic.074.c4"
       ],
-      "prompt": "How can a frame change a decision without changing any facts?",
-      "options": [
+      "prompt": "Match each wording with the same thing in the opposite frame.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "By adding new statistics to the claim",
-          "correct": false,
-          "rationale": "The numbers are the same in both frames."
+          "left": "90 percent survive",
+          "right": "10 percent die"
         },
         {
-          "id": "b",
-          "label": "By making one description false",
-          "correct": false,
-          "rationale": "Both frames are true."
+          "left": "Nine in ten dentists agree",
+          "right": "One in ten doesn't"
         },
         {
-          "id": "c",
-          "label": "By hiding where the numbers came from",
-          "correct": false,
-          "rationale": "The source isn't what changes."
-        },
-        {
-          "id": "d",
-          "label": "By presenting the same data as a gain or a loss",
-          "correct": true
+          "left": "A gain",
+          "right": "A loss"
         }
       ],
-      "explanation": "The information stays the same; describing it as a gain or a loss shifts which part you notice.",
+      "explanation": "\"90 percent survive\" flips to \"10 percent die\", and \"nine in ten dentists agree\" flips to \"one in ten doesn't\". A gain frame flips to a loss frame.",
       "difficulty": 0.3
     },
     {

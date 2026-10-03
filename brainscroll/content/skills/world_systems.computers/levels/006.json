@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 6,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Logic Gates: AND, OR, NOT",
   "objective": "After this level you can explain how AND, OR and NOT gates turn yes-or-no inputs into a yes-or-no output.",
@@ -147,7 +147,7 @@
     },
     {
       "id": "question.computers.006.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.logic_gates"
@@ -155,33 +155,22 @@
       "sourceCardIds": [
         "card.computers.006.c2"
       ],
-      "prompt": "A lamp has two switches wired in parallel. When does it light?",
-      "options": [
+      "prompt": "Match each logic gate with what it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Only when both switches are closed",
-          "correct": false,
-          "rationale": "That is switches in series, an AND."
+          "left": "AND",
+          "right": "Outputs 1 only if every input is 1"
         },
         {
-          "id": "b",
-          "label": "Never, because the switches cancel out",
-          "correct": false,
-          "rationale": "Parallel switches give the current two paths."
+          "left": "OR",
+          "right": "Outputs 1 if any input is 1"
         },
         {
-          "id": "c",
-          "label": "Whenever either switch is closed",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Only when both switches are open",
-          "correct": false,
-          "rationale": "With both open there is no path at all."
+          "left": "NOT",
+          "right": "Also called an inverter"
         }
       ],
-      "explanation": "Switches in parallel behave like OR: either closed switch completes a path.",
+      "explanation": "AND outputs 1 only if every input is 1, OR outputs 1 if any input is 1, and NOT flips its one input, which is why it's also called an inverter.",
       "difficulty": 0.25
     },
     {

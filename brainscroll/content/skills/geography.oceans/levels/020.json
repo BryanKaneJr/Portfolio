@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 20,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: The Ocean Floor",
   "objective": "After this level you can describe the shelves, ridges, trenches and vents of the sea floor.",
@@ -127,41 +127,25 @@
   "questions": [
     {
       "id": "question.oceans.020.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.oceans.drained_ocean_floor"
       ],
       "sourceCardIds": [
-        "card.oceans.020.c2"
+        "card.oceans.020.c2",
+        "card.oceans.020.c3",
+        "card.oceans.020.c4"
       ],
-      "prompt": "Ocean Floor recap: in NASA's drained-ocean animation, which part of the sea floor appears first as the water drops?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The mid-ocean ridges",
-          "correct": false,
-          "rationale": "They appear at 2,000 to 3,000 m."
-        },
-        {
-          "id": "b",
-          "label": "The continental shelves",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The abyssal plains",
-          "correct": false,
-          "rationale": "They lie 3,000 to 6,000 m down."
-        },
-        {
-          "id": "d",
-          "label": "The deep trenches",
-          "correct": false,
-          "rationale": "They're the last to drain."
-        }
+      "prompt": "In NASA's drained-ocean animation, put these in the order they appear as the water drops.",
+      "items": [
+        "Continental shelves",
+        "Mid-ocean ridges",
+        "Abyssal plains"
       ],
-      "explanation": "The continental shelves are mostly exposed by the time sea level drops 140 m.",
+      "first": "Appears first",
+      "last": "Appears last",
+      "explanation": "The continental shelves appear first, by about 140 m. The mid-ocean ridges show up at 2,000 to 3,000 m, and the abyssal plains lie bare by 6,000 m.",
       "difficulty": 0.15
     },
     {

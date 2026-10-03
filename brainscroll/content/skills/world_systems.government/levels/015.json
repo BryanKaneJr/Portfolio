@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 15,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Rule by Religion",
   "objective": "After this level you can explain theocracy.",
@@ -91,41 +91,31 @@
   "questions": [
     {
       "id": "question.government.015.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.theocracy_definition"
       ],
       "sourceCardIds": [
-        "card.government.015.c2"
+        "card.government.015.c2",
+        "card.government.015.c1"
       ],
-      "prompt": "How does Britannica define theocracy?",
-      "options": [
+      "prompt": "Match each sign of rule by religion with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Government by the wealthy few",
-          "correct": false,
-          "rationale": "That's oligarchy, from Level 14."
+          "left": "Theokratia",
+          "right": "Rule of God"
         },
         {
-          "id": "b",
-          "label": "Government by an elected assembly of all citizens",
-          "correct": false,
-          "rationale": "That's closer to direct democracy."
+          "left": "White smoke",
+          "right": "A new pope"
         },
         {
-          "id": "c",
-          "label": "Government by one ruler who inherits the throne",
-          "correct": false,
-          "rationale": "That's hereditary monarchy."
-        },
-        {
-          "id": "d",
-          "label": "Government by divine guidance or divinely guided officials",
-          "correct": true
+          "left": "Black smoke",
+          "right": "No decision yet"
         }
       ],
-      "explanation": "Theocracy is government by divine guidance or by officials regarded as divinely guided.",
+      "explanation": "Theokratia is Greek for rule of God. When cardinals burn their ballots, white smoke means a new pope and black smoke means no decision yet.",
       "difficulty": 0.15
     },
     {

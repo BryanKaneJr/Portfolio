@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 6,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Confucius and the Good Person",
   "objective": "After this level you can explain Confucius's ideal of the junzi, the exemplary person, and his ideas of ren (humaneness) and li (ritual propriety).",
@@ -89,41 +89,32 @@
   "questions": [
     {
       "id": "question.philosophy.006.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.philosophy.confucius_junzi"
       ],
       "sourceCardIds": [
-        "card.philosophy.006.c2"
+        "card.philosophy.006.c2",
+        "card.philosophy.006.c3",
+        "card.philosophy.006.c4"
       ],
-      "prompt": "What did Confucius help turn the word junzi into?",
-      "options": [
+      "prompt": "Match each Confucian term with its English translation.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A title only a prince’s son could hold",
-          "correct": false,
-          "rationale": "That was its original meaning."
+          "left": "Junzi",
+          "right": "Exemplary person"
         },
         {
-          "id": "b",
-          "label": "A title of moral nobility anyone could earn",
-          "correct": true
+          "left": "Ren",
+          "right": "Humaneness"
         },
         {
-          "id": "c",
-          "label": "The name of a court ritual",
-          "correct": false,
-          "rationale": "Rituals are li."
-        },
-        {
-          "id": "d",
-          "label": "A word for a wandering hermit",
-          "correct": false,
-          "rationale": "It names the exemplary person."
+          "left": "Li",
+          "right": "Ritual propriety"
         }
       ],
-      "explanation": "Junzi first meant “prince’s son”; Confucius helped make it a title of moral nobility open to people of any background.",
+      "explanation": "Junzi is translated “exemplary person”, ren is humaneness, and li is ritual propriety.",
       "difficulty": 0.2
     },
     {

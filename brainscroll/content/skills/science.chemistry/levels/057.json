@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 57,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Energy In, Energy Out",
   "objective": "After this level you can explain reactions that give off heat and reactions that take it in.",
@@ -92,41 +92,31 @@
   "questions": [
     {
       "id": "question.chemistry.057.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.reaction_energy_exo_endo"
       ],
       "sourceCardIds": [
-        "card.chemistry.057.c3"
+        "card.chemistry.057.c3",
+        "card.chemistry.057.c2"
       ],
-      "prompt": "What does \"endothermic\" mean for a reaction or process?",
-      "options": [
+      "prompt": "Match each with the kind of change it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It releases heat to its surroundings",
-          "correct": false,
-          "rationale": "That is exothermic."
+          "left": "Hand warmer",
+          "right": "Exothermic"
         },
         {
-          "id": "b",
-          "label": "It absorbs heat from its surroundings",
-          "correct": true
+          "left": "Cold pack",
+          "right": "Endothermic"
         },
         {
-          "id": "c",
-          "label": "It needs no energy at all",
-          "correct": false,
-          "rationale": "Endothermic changes take energy in."
-        },
-        {
-          "id": "d",
-          "label": "It only happens inside flames",
-          "correct": false,
-          "rationale": "A cold pack is endothermic, no flame needed."
+          "left": "Fire",
+          "right": "Exothermic"
         }
       ],
-      "explanation": "Endothermic changes take heat in, which is why a cold pack feels cold.",
+      "explanation": "A hand warmer and every fire release heat, so they are exothermic. An instant cold pack absorbs heat, so it is endothermic.",
       "difficulty": 0.1
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 24,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Remember, Choose, Repeat",
   "objective": "After this level you can explain the three moves nearly every program makes: storing values in variables, choosing with if, and repeating with loops.",
@@ -87,41 +87,32 @@
   "questions": [
     {
       "id": "question.computers.024.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.software_variables"
       ],
       "sourceCardIds": [
-        "card.computers.024.c2"
+        "card.computers.024.c2",
+        "card.computers.024.c3",
+        "card.computers.024.c4"
       ],
-      "prompt": "What is a variable in a program?",
-      "options": [
+      "prompt": "Match each basic move of a program with what it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A step that repeats until a condition is met",
-          "correct": false,
-          "rationale": "That's a loop."
+          "left": "A variable",
+          "right": "A name that refers to a value"
         },
         {
-          "id": "b",
-          "label": "A test that picks one of two paths",
-          "correct": false,
-          "rationale": "That's a conditional."
+          "left": "A conditional",
+          "right": "One test, two possible paths"
         },
         {
-          "id": "c",
-          "label": "A name that refers to a value, which can change",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "A special chip that stores numbers",
-          "correct": false,
-          "rationale": "A variable is a name in the program, not hardware."
+          "left": "A loop",
+          "right": "Repeats a set of instructions"
         }
       ],
-      "explanation": "A variable is a named reference to a value: the name stays fixed while the value it refers to can change.",
+      "explanation": "A variable is a name that refers to a value, a conditional is one test with two possible paths, and a loop repeats a set of instructions until a condition is met.",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 63,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Voting Systems",
   "objective": "After this level you can compare winner-take-all and proportional voting.",
@@ -121,41 +121,36 @@
   "questions": [
     {
       "id": "question.government.063.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.election_fptp"
       ],
       "sourceCardIds": [
-        "card.government.063.c2"
+        "card.government.063.c2",
+        "card.government.063.c3",
+        "card.government.063.c4"
       ],
-      "prompt": "Under first-past-the-post, who wins a district's seat?",
-      "options": [
+      "prompt": "Match each voting system with where it is used.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Only a candidate with over half the votes",
-          "correct": false,
-          "rationale": "FPTP needs the most votes, not a majority."
+          "left": "First past the post",
+          "right": "UK, Canada, India and the United States"
         },
         {
-          "id": "b",
-          "label": "The candidate with the most votes, even without a majority",
-          "correct": true
+          "left": "Proportional representation",
+          "right": "Israel and the Netherlands"
         },
         {
-          "id": "c",
-          "label": "Parties share the seat by vote share",
-          "correct": false,
-          "rationale": "One member per district; no sharing."
+          "left": "Alternative Vote",
+          "right": "Australia's House of Representatives"
         },
         {
-          "id": "d",
-          "label": "Whoever leads after preferences are transferred",
-          "correct": false,
-          "rationale": "That's the Alternative Vote."
+          "left": "Single Transferable Vote",
+          "right": "Ireland"
         }
       ],
-      "explanation": "In first-past-the-post, each district elects the candidate with more votes than any other, majority or not.",
+      "explanation": "First past the post is used in the UK, Canada, India and the United States. Israel and the Netherlands use proportional representation as one national district, Australia's House of Representatives uses the Alternative Vote, and Ireland the Single Transferable Vote.",
       "difficulty": 0.15
     },
     {

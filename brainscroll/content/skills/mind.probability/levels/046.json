@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 46,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Two Ways a Test Can Be Right",
   "objective": "After this level you can explain a test's sensitivity (catching true cases) and specificity (clearing healthy people) in plain words.",
@@ -124,41 +124,35 @@
     },
     {
       "id": "question.probability.046.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.risk_sensitivity_specificity"
       ],
       "sourceCardIds": [
-        "card.probability.046.c4"
+        "card.probability.046.c4",
+        "card.probability.046.c2"
       ],
-      "prompt": "Why does lowering a test's cutoff lead to more false positives?",
-      "options": [
+      "prompt": "Match each test result with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The test stops detecting people who are sick",
-          "correct": false,
-          "rationale": "A lower cutoff catches more sick people, not fewer."
+          "left": "True positive",
+          "right": "Sick, and flagged"
         },
         {
-          "id": "b",
-          "label": "Fewer people agree to take the test",
-          "correct": false,
-          "rationale": "The cutoff doesn't change who takes the test."
+          "left": "True negative",
+          "right": "Healthy, and cleared"
         },
         {
-          "id": "c",
-          "label": "The lab must run every test twice",
-          "correct": false,
-          "rationale": "Nothing about the cutoff requires repeat runs."
+          "left": "False negative",
+          "right": "Sick but missed"
         },
         {
-          "id": "d",
-          "label": "More healthy people cross the line and get flagged",
-          "correct": true
+          "left": "False positive",
+          "right": "Healthy but flagged"
         }
       ],
-      "explanation": "A lower cutoff catches more true cases, but more healthy readings cross it too: sensitivity up, specificity down.",
+      "explanation": "A true positive is sick and flagged, a true negative is healthy and cleared, a false negative is sick but missed, and a false positive is healthy but flagged.",
       "difficulty": 0.4
     },
     {

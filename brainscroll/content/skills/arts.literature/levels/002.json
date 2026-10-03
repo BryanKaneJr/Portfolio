@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 2,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Myth, Legend, Fable and Folk Tale",
   "objective": "After this level you can tell a myth from a legend, a fable (like Aesop's) and a folk tale.",
@@ -149,42 +149,32 @@
     },
     {
       "id": "question.literature.002.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.myth_legend_folktale"
       ],
       "sourceCardIds": [
         "card.literature.002.c4",
-        "card.literature.002.c3"
+        "card.literature.002.c3",
+        "card.literature.002.c2"
       ],
-      "prompt": "There is no evidence William Tell existed. Why is his story still called a legend?",
-      "options": [
+      "prompt": "Match each kind of traditional story with what marks it out.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It stars talking animals and ends with a moral",
-          "correct": false,
-          "rationale": "That's a fable."
+          "left": "Fable",
+          "right": "Teaches a lesson"
         },
         {
-          "id": "b",
-          "label": "It is a sacred story about the gods",
-          "correct": false,
-          "rationale": "That's closer to a myth."
+          "left": "Myth",
+          "right": "Tied to religious belief"
         },
         {
-          "id": "c",
-          "label": "It is a fairy tale meant for small children",
-          "correct": false,
-          "rationale": "Fairy tales are folk tales."
-        },
-        {
-          "id": "d",
-          "label": "It is told as history, about a particular person and place",
-          "correct": true
+          "left": "Legend",
+          "right": "About a particular person or place"
         }
       ],
-      "explanation": "A legend is a traditional story about a particular person or place, told as a matter of history, whether or not it happened.",
+      "explanation": "A fable teaches a lesson, a myth is tied to religious belief, and a legend is about a particular person or place, told as history.",
       "difficulty": 0.25
     },
     {

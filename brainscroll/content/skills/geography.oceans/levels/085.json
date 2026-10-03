@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 85,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Diving Helmets",
   "objective": "After this level you can explain how early divers breathed underwater.",
@@ -91,41 +91,26 @@
   "questions": [
     {
       "id": "question.oceans.085.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.oceans.diving_hard_hat"
       ],
       "sourceCardIds": [
-        "card.oceans.085.c3"
+        "card.oceans.085.c3",
+        "card.oceans.085.c2",
+        "card.oceans.085.c4"
       ],
-      "prompt": "How did a diver in Siebe's copper helmet get air?",
-      "options": [
-        {
-          "id": "a",
-          "label": "From a tank strapped to the back",
-          "correct": false,
-          "rationale": "Tanks came later, with scuba."
-        },
-        {
-          "id": "b",
-          "label": "From barrels lowered from a ship",
-          "correct": false,
-          "rationale": "That was Halley's diving bell."
-        },
-        {
-          "id": "c",
-          "label": "Pumped down a hose from the surface",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "From air trapped in the helmet at the start",
-          "correct": false,
-          "rationale": "It would run out in minutes; the hose kept it coming."
-        }
+      "prompt": "Put these steps in diving gear in order, from earliest to latest.",
+      "items": [
+        "John Smeaton fitted an air pump",
+        "Siebe developed a copper helmet",
+        "Clear the wreck of HMS Royal George",
+        "Mark V hard-hat helmet"
       ],
-      "explanation": "Siebe's helmet was sealed to a waterproof suit, and air was pumped down a hose from the surface.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "John Smeaton fitted an air pump to a bell in the late 18th century. Siebe developed his copper helmet in the 1830s, his suits helped clear the wreck of HMS Royal George in 1840, and the Mark V served from 1916.",
       "difficulty": 0.15
     },
     {

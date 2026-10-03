@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 33,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Changing a Constitution",
   "objective": "After this level you can explain how constitutions are amended.",
@@ -93,41 +93,25 @@
   "questions": [
     {
       "id": "question.government.033.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.amendment_27th_watson"
       ],
       "sourceCardIds": [
-        "card.government.033.c3"
+        "card.government.033.c3",
+        "card.government.033.c1"
       ],
-      "prompt": "What finally happened to the congressional pay amendment that Gregory Watson championed?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Supreme Court struck it down",
-          "correct": false,
-          "rationale": "It was ratified, in 1992."
-        },
-        {
-          "id": "b",
-          "label": "It is still waiting for more states",
-          "correct": false,
-          "rationale": "Ratification was completed on 7 May 1992."
-        },
-        {
-          "id": "c",
-          "label": "It was ratified in 1992 as the 27th Amendment",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It became part of the Bill of Rights in 1791",
-          "correct": false,
-          "rationale": "It was proposed in 1789 but ratified two centuries later."
-        }
+      "prompt": "Put the steps of the 27th Amendment's long story in order, from earliest to latest.",
+      "items": [
+        "Congressional pay amendment proposed",
+        "Got a C on a paper",
+        "27th Amendment",
+        "Changed his grade to an A"
       ],
-      "explanation": "Proposed on 25 September 1789, the pay amendment was ratified on 7 May 1992 as the 27th Amendment.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The pay amendment was proposed in 1789, Gregory Watson got a C on his paper in 1982, it was ratified as the 27th Amendment in 1992, and his university changed his grade to an A in 2017.",
       "difficulty": 0.2
     },
     {

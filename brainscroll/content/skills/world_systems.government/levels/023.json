@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 23,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Parliaments",
   "objective": "After this level you can explain how parliaments work.",
@@ -101,41 +101,37 @@
   "questions": [
     {
       "id": "question.government.023.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.parliament_althing_chambers"
       ],
       "sourceCardIds": [
-        "card.government.023.c2"
+        "card.government.023.c2",
+        "card.government.023.c1",
+        "card.government.023.c3",
+        "card.government.023.c4"
       ],
-      "prompt": "The name \"parliament\" grew from which Old French verb, and what did it mean?",
-      "options": [
+      "prompt": "Match each parliament word or body with its detail.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Parler: to speak",
-          "correct": true
+          "left": "Althing",
+          "right": "Thingvellir"
         },
         {
-          "id": "b",
-          "label": "Parer: to protect",
-          "correct": false,
-          "rationale": "Parliament's root is about speaking, not protecting."
+          "left": "Parler",
+          "right": "To speak"
         },
         {
-          "id": "c",
-          "label": "Partir: to divide",
-          "correct": false,
-          "rationale": "Dividing isn't the root; talking is."
+          "left": "House of Commons",
+          "right": "Sole right to impose taxes"
         },
         {
-          "id": "d",
-          "label": "Payer: to pay",
-          "correct": false,
-          "rationale": "Parliaments do handle money, but the root means to speak."
+          "left": "House of Lords",
+          "right": "Mainly appointed"
         }
       ],
-      "explanation": "Parliament comes from Old French parlement, \"a speaking, talk\", from parler, \"to speak\".",
+      "explanation": "Iceland's Althing met at Thingvellir, parler means to speak, the House of Commons has the sole right to impose taxes, and the House of Lords is mainly appointed.",
       "difficulty": 0.15
     },
     {

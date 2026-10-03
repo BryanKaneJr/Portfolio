@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 14,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Trenches",
   "objective": "After this level you can describe the Mariana Trench and other deep trenches.",
@@ -97,41 +97,32 @@
   "questions": [
     {
       "id": "question.oceans.014.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.oceans.ocean_trenches"
       ],
       "sourceCardIds": [
-        "card.oceans.014.c2"
+        "card.oceans.014.c2",
+        "card.oceans.014.c1",
+        "card.oceans.014.c3"
       ],
-      "prompt": "How do deep ocean trenches form?",
-      "options": [
+      "prompt": "Match each trench feature with its size.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Plates pull apart and magma fills the gap",
-          "correct": false,
-          "rationale": "That builds ridges, not trenches."
+          "left": "Everest",
+          "right": "About 8,849 m tall"
         },
         {
-          "id": "b",
-          "label": "Rivers carve them into the sea floor",
-          "correct": false,
-          "rationale": "Trenches come from plates, not rivers."
+          "left": "Challenger Deep",
+          "right": "About 10,935 m down"
         },
         {
-          "id": "c",
-          "label": "Meteorite impacts blast them open",
-          "correct": false,
-          "rationale": "They form at converging plates."
-        },
-        {
-          "id": "d",
-          "label": "One plate is pushed down beneath another",
-          "correct": true
+          "left": "Mariana Trench",
+          "right": "About 2,550 km long"
         }
       ],
-      "explanation": "Trenches form by subduction: where plates converge, one is pushed down beneath the other.",
+      "explanation": "Everest stands about 8,849 m tall. Challenger Deep lies about 10,935 m down, in the Mariana Trench, which is about 2,550 km long.",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 93,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Sleep and Health",
   "objective": "After this level you can explain why sleep matters for health.",
@@ -110,7 +110,7 @@
   "questions": [
     {
       "id": "question.human_body.093.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.health_sleep_needs"
@@ -118,30 +118,19 @@
       "sourceCardIds": [
         "card.human_body.093.c2"
       ],
-      "prompt": "According to the CDC's sleep recommendations, how much sleep do teens aged 13 to 17 need per 24 hours?",
-      "options": [
+      "prompt": "Match each age group with the CDC's recommended sleep.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "5 to 6 hours",
-          "correct": false,
-          "rationale": "Well below the recommendation."
+          "left": "Ages 6 to 12",
+          "right": "9 to 12 hours"
         },
         {
-          "id": "b",
-          "label": "7 or more hours",
-          "correct": false,
-          "rationale": "That's the adult recommendation."
+          "left": "Teens, 13 to 17",
+          "right": "8 to 10 hours"
         },
         {
-          "id": "c",
-          "label": "8 to 10 hours",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "14 to 17 hours",
-          "correct": false,
-          "rationale": "That's for newborns."
+          "left": "Adults, 18 to 60",
+          "right": "7 or more hours"
         }
       ],
       "explanation": "The CDC, following the American Academy of Sleep Medicine, recommends 8 to 10 hours for teens.",

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 14,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Egyptian Temples",
   "objective": "After this level you can describe Karnak and its forest of columns.",
@@ -126,7 +126,7 @@
     },
     {
       "id": "question.architecture.014.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.wonders_egypt_temple_plan"
@@ -134,33 +134,16 @@
       "sourceCardIds": [
         "card.architecture.014.c4"
       ],
-      "prompt": "Walking from the gateway of an Egyptian temple toward its sanctuary, how did the rooms change?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They grew brighter and more open",
-          "correct": false,
-          "rationale": "The sanctuary was the darkest room."
-        },
-        {
-          "id": "b",
-          "label": "The floor sank below ground level",
-          "correct": false,
-          "rationale": "The sanctuary had the highest floor."
-        },
-        {
-          "id": "c",
-          "label": "They grew darker and more enclosed, with the floor rising",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "They ended in a big open courtyard",
-          "correct": false,
-          "rationale": "The open court came near the start."
-        }
+      "prompt": "Walk into an Egyptian temple. Put these in order, from the way in to the deepest room.",
+      "items": [
+        "Pylon gateway",
+        "Open court",
+        "Hypostyle hall",
+        "Sanctuary"
       ],
-      "explanation": "The sanctuary was the darkest, most enclosed part of the temple, with the highest floor, recreating the mound of creation.",
+      "first": "The way in",
+      "last": "Deepest inside",
+      "explanation": "An Egyptian temple ran in a line: a pylon gateway, an open court, the hypostyle hall, then the sanctuary with the god's statue.",
       "difficulty": 0.25
     },
     {

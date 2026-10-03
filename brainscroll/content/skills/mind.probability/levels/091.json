@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 91,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "What Big Data Can and Can't Do",
   "objective": "After this level you can explain why huge amounts of data still mislead when they are biased, using Google Flu Trends.",
@@ -91,41 +91,26 @@
   "questions": [
     {
       "id": "question.probability.091.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.news_google_flu_trends"
       ],
       "sourceCardIds": [
-        "card.probability.091.c2"
+        "card.probability.091.c2",
+        "card.probability.091.c3",
+        "card.probability.091.c4"
       ],
-      "prompt": "What did Google Flu Trends use to estimate how much flu was going around?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Reports sent straight from doctors' clinics",
-          "correct": false,
-          "rationale": "That was the CDC's route; Google used searches."
-        },
-        {
-          "id": "b",
-          "label": "Patterns in Google search queries",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Sales of flu medicine at pharmacies",
-          "correct": false,
-          "rationale": "Google's tool read searches, not sales."
-        },
-        {
-          "id": "d",
-          "label": "Weather forecasts for each region",
-          "correct": false,
-          "rationale": "Weather was a hidden problem, not its data source."
-        }
+      "prompt": "Put Google Flu Trends' story in order, from earliest to latest.",
+      "items": [
+        "Began in 2008",
+        "Missed the 2009 pandemic",
+        "More than double the CDC's",
+        "Stopped publishing its own flu estimates"
       ],
-      "explanation": "Google Flu Trends estimated flu from which searches rose and fell, matched against CDC records.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Google Flu Trends began in 2008, missed the 2009 pandemic, and by February 2013 was more than double the CDC's estimate. In 2015 Google stopped publishing its own flu estimates.",
       "difficulty": 0.2
     },
     {

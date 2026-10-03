@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 53,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Juries",
   "objective": "After this level you can explain how juries work.",
@@ -101,41 +101,32 @@
   "questions": [
     {
       "id": "question.government.053.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.jury_how_it_works"
       ],
       "sourceCardIds": [
-        "card.government.053.c2"
+        "card.government.053.c2",
+        "card.government.053.c1",
+        "card.government.053.c4"
       ],
-      "prompt": "How are jurors chosen in England and Wales?",
-      "options": [
+      "prompt": "Match each jury system or case with its detail.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They apply and are interviewed",
-          "correct": false,
-          "rationale": "Nobody volunteers; the register picks you."
+          "left": "England and Wales",
+          "right": "12 citizens decide guilt"
         },
         {
-          "id": "b",
-          "label": "The judge picks people they trust",
-          "correct": false,
-          "rationale": "That would undo the point of a jury."
+          "left": "Japan",
+          "right": "3 professional judges"
         },
         {
-          "id": "c",
-          "label": "Each side's lawyer picks six",
-          "correct": false,
-          "rationale": "Jurors come from the register, not the lawyers."
-        },
-        {
-          "id": "d",
-          "label": "At random from the electoral register",
-          "correct": true
+          "left": "William Penn and William Mead",
+          "right": "Two Quakers"
         }
       ],
-      "explanation": "Jurors in England and Wales are chosen randomly from the electoral register.",
+      "explanation": "In England and Wales, 12 citizens decide guilt. In Japan, 6 citizens sit with 3 professional judges. William Penn and William Mead were the two Quakers on trial in 1670.",
       "difficulty": 0.15
     },
     {

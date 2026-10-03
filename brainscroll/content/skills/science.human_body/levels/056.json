@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 56,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Memory",
   "objective": "After this level you can explain how memories are made and why we forget.",
@@ -90,39 +90,33 @@
   "questions": [
     {
       "id": "question.human_body.056.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.memory_hippocampus"
       ],
       "sourceCardIds": [
         "card.human_body.056.c1",
-        "card.human_body.056.c2"
+        "card.human_body.056.c2",
+        "card.human_body.056.c4"
       ],
-      "prompt": "After his 1953 surgery, what could Henry Molaison no longer do?",
-      "options": [
+      "prompt": "Match each name from the science of memory with what it is known for.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Remember his childhood",
-          "correct": false,
-          "rationale": "His older memories stayed."
+          "left": "Hippocampus",
+          "right": "A memory indexer"
         },
         {
-          "id": "b",
-          "label": "Hold a conversation",
-          "correct": false,
-          "rationale": "He could meet people and chat."
+          "left": "Henry Molaison",
+          "right": "Couldn't file new ones"
         },
         {
-          "id": "c",
-          "label": "Learn any new skill at all",
-          "correct": false,
-          "rationale": "He improved at mirror tracing."
+          "left": "Hermann Ebbinghaus",
+          "right": "Forgetting curve"
         },
         {
-          "id": "d",
-          "label": "Form new long-term memories",
-          "correct": true
+          "left": "Spacing study out",
+          "right": "Beats cramming"
         }
       ],
       "explanation": "With much of his hippocampus removed, Molaison kept older memories but could not form new long-term ones.",

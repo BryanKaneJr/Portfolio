@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 64,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Why \"Free\" Apps Show Ads",
   "objective": "After this level you can connect the ad-funded business model to the data that apps and websites collect about you.",
@@ -125,41 +125,31 @@
     },
     {
       "id": "question.computers.064.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.privacy_ad_business"
       ],
       "sourceCardIds": [
-        "card.computers.064.c3"
+        "card.computers.064.c3",
+        "card.computers.064.c4"
       ],
-      "prompt": "Why, according to a 2024 FTC staff report, did many large platforms collect so much user data?",
-      "options": [
+      "prompt": "Match each piece of the free-app business with what it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "US laws required them to keep every record for years",
-          "correct": false,
-          "rationale": "The report pointed to business incentives, not legal duties."
+          "left": "A software development kit",
+          "right": "Ready-made code from another company"
         },
         {
-          "id": "b",
-          "label": "Their business models rewarded data-driven targeted ads",
-          "correct": true
+          "left": "Google Play",
+          "right": "Makes app makers declare data"
         },
         {
-          "id": "c",
-          "label": "Users kept asking them to store more of their data",
-          "correct": false,
-          "rationale": "The report describes the companies' incentives."
-        },
-        {
-          "id": "d",
-          "label": "Extra data made their apps load and run faster",
-          "correct": false,
-          "rationale": "Speed wasn't the reason given."
+          "left": "A 2024 FTC staff report",
+          "right": "Mass collection of user data"
         }
       ],
-      "explanation": "The staff found business models that incentivized mass data collection to monetize, especially through targeted advertising.",
+      "explanation": "A software development kit is ready-made code from another company, Google Play makes app makers declare data their SDKs collect, and a 2024 FTC staff report found business models encouraged mass collection of user data.",
       "difficulty": 0.3
     },
     {

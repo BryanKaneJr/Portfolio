@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 60,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Daily Life",
   "objective": "After this level you can describe home, food, work and fun in ancient Egypt.",
@@ -120,7 +120,7 @@
   "questions": [
     {
       "id": "question.ancient_egypt.060.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.daily_life_evidence",
@@ -128,35 +128,29 @@
       ],
       "sourceCardIds": [
         "card.ancient_egypt.060.c2",
-        "card.ancient_egypt.051.c3"
+        "card.ancient_egypt.051.c3",
+        "card.ancient_egypt.060.c3"
       ],
-      "prompt": "Daily life recap: why have so few ordinary Egyptian homes survived?",
-      "options": [
+      "prompt": "Match each clue with what it tells us about Egyptian life.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Pharaohs ordered all houses torn down",
-          "correct": false,
-          "rationale": "The problem was where towns stood."
+          "left": "Worn-down teeth",
+          "right": "Gritty with sand"
         },
         {
-          "id": "b",
-          "label": "Towns stood in the flooded valley, and houses were mud brick",
-          "correct": true
+          "left": "Fingerprints in clay moulds",
+          "right": "Children as young as ten"
         },
         {
-          "id": "c",
-          "label": "Egyptians lived only in tents",
-          "correct": false,
-          "rationale": "They lived in mud-brick houses."
+          "left": "A limestone flake",
+          "right": "Brewing beer"
         },
         {
-          "id": "d",
-          "label": "Earthquakes destroyed every town",
-          "correct": false,
-          "rationale": "The flood and the soft mud brick were the problem."
+          "left": "A papyrus",
+          "right": "Hungry workmen striking"
         }
       ],
-      "explanation": "Mud-brick towns in the cultivated, flooded valley were lost, while stone temples and tombs above the flood survived.",
+      "explanation": "Worn-down teeth show bread was gritty with sand. Fingerprints in clay moulds show children as young as ten at work. A limestone flake lists a worker absent for brewing beer, and a papyrus records hungry workmen striking.",
       "difficulty": 0.3
     },
     {

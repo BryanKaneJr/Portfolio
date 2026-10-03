@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 28,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Lenses and Focus",
   "objective": "After this level you can explain how a lens's focal length and depth of field decide what looks near, far, sharp or soft.",
@@ -98,7 +98,7 @@
   "questions": [
     {
       "id": "question.film_tv.028.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.shoot_focal_length"
@@ -107,33 +107,15 @@
         "card.film_tv.028.c1",
         "card.film_tv.028.c2"
       ],
-      "prompt": "Which kind of lens exaggerates depth, so a person walking toward the camera seems to approach quickly?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A telephoto lens",
-          "correct": false,
-          "rationale": "A telephoto compresses depth, so the walker seems to barely get closer."
-        },
-        {
-          "id": "b",
-          "label": "A wide-angle lens",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "A normal lens",
-          "correct": false,
-          "rationale": "A normal lens gives perspective close to what the eye sees."
-        },
-        {
-          "id": "d",
-          "label": "A lens two or more times longer than normal",
-          "correct": false,
-          "rationale": "That's a telephoto, which compresses depth."
-        }
+      "prompt": "Put these lenses in order of focal length, from shortest to longest.",
+      "items": [
+        "Wide-angle",
+        "Normal lens",
+        "Telephoto"
       ],
-      "explanation": "A wide-angle lens takes in more space and stretches depth; a telephoto squeezes it.",
+      "first": "Shortest",
+      "last": "Longest",
+      "explanation": "Wide-angle lenses are shorter than a normal lens, and telephoto lenses are two or more times longer than normal.",
       "difficulty": 0.2
     },
     {

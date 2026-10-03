@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 19,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Subliminal Popcorn Hoax",
   "objective": "After this level you can explain what subliminal perception can and cannot do, and why the 1957 movie theater claim was made up.",
@@ -165,43 +165,37 @@
     },
     {
       "id": "question.psychology.019.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.psychology.perception_subliminal",
         "concept.psychology.perception_jnd"
       ],
       "sourceCardIds": [
+        "card.psychology.019.c1",
         "card.psychology.019.c2",
-        "card.psychology.012.c2"
+        "card.psychology.019.c4"
       ],
-      "prompt": "Level 12's difference threshold and the absolute threshold share one rule. Which?",
-      "options": [
+      "prompt": "Match each idea from the popcorn story with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Both are set by the loudest sound you can bear",
-          "correct": false,
-          "rationale": "Neither is about the upper limit."
+          "left": "Absolute threshold",
+          "right": "The minimum amount of stimulus energy"
         },
         {
-          "id": "b",
-          "label": "Both are fixed for life at birth",
-          "correct": false,
-          "rationale": "Sensitivity varies, which is why they're defined statistically."
+          "left": "Subliminal",
+          "right": "You aren't aware of it"
         },
         {
-          "id": "c",
-          "label": "Both only apply to vision and never to hearing",
-          "correct": false,
-          "rationale": "Weber's own research used weights."
+          "left": "James Vicary",
+          "right": "Market researcher"
         },
         {
-          "id": "d",
-          "label": "Both use detection half the time",
-          "correct": true
+          "left": "Lipton Ice",
+          "right": "The drink brand"
         }
       ],
-      "explanation": "The absolute threshold is the minimum stimulus detected 50 percent of the time; the difference threshold is the smallest difference detected 50 percent of the time.",
+      "explanation": "The absolute threshold is the minimum amount of stimulus energy you detect half the time. A subliminal message is one you receive but aren't aware of. James Vicary was a market researcher, and Lipton Ice is a drink brand.",
       "difficulty": 0.25
     }
   ],

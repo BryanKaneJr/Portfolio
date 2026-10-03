@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 7,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Social Contract",
   "objective": "After this level you can explain the ideas of Hobbes, Locke and Rousseau.",
@@ -170,7 +170,7 @@
     },
     {
       "id": "question.government.007.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.government.social_contract_hobbes",
@@ -182,33 +182,22 @@
         "card.government.007.c3",
         "card.government.007.c4"
       ],
-      "prompt": "In this social contract level, which thinker is correctly paired with an idea?",
-      "options": [
+      "prompt": "Match each social contract thinker with his key idea.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Hobbes: the general will",
-          "correct": false,
-          "rationale": "The general will is Rousseau's."
+          "left": "Thomas Hobbes",
+          "right": "An all-powerful sovereign"
         },
         {
-          "id": "b",
-          "label": "Locke: an all-powerful sovereign",
-          "correct": false,
-          "rationale": "The all-powerful sovereign is Hobbes's."
+          "left": "John Locke",
+          "right": "Consent of the governed"
         },
         {
-          "id": "c",
-          "label": "Rousseau: the general will",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Hobbes: a right to resist rulers",
-          "correct": false,
-          "rationale": "The right to resist is Locke's."
+          "left": "Jean-Jacques Rousseau",
+          "right": "The general will"
         }
       ],
-      "explanation": "Hobbes: a sovereign for protection. Locke: consent, natural rights and resistance. Rousseau: the general will.",
+      "explanation": "Hobbes wanted an all-powerful sovereign to escape chaos, Locke rooted legitimacy in the consent of the governed, and Rousseau built on the general will.",
       "difficulty": 0.3
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 23,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How Rivers Carve Valleys",
   "objective": "After this level you can explain how a river erodes, carries and drops sediment, cutting V-shaped valleys and meanders.",
@@ -170,7 +170,7 @@
     },
     {
       "id": "question.earth_climate.023.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.earth_climate.land_river_load",
@@ -180,33 +180,22 @@
         "card.earth_climate.023.c2",
         "card.earth_climate.021.c4"
       ],
-      "prompt": "Where does a river's dissolved load mostly come from? Use Levels 21 and 23.",
-      "options": [
+      "prompt": "Match each part of a river's load with what it carries.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Grains knocked loose by frost wedging",
-          "correct": false,
-          "rationale": "Frost wedging breaks rock into pieces; it doesn't dissolve it."
+          "left": "Bed load",
+          "right": "Big grains"
         },
         {
-          "id": "b",
-          "label": "Minerals dissolved from rock by weakly acidic water",
-          "correct": true
+          "left": "Suspended load",
+          "right": "Smaller particles"
         },
         {
-          "id": "c",
-          "label": "Sand bouncing along the riverbed",
-          "correct": false,
-          "rationale": "That's bed load, not dissolved load."
-        },
-        {
-          "id": "d",
-          "label": "Clay drifting up in the water",
-          "correct": false,
-          "rationale": "Clay particles travel as suspended load."
+          "left": "Dissolved load",
+          "right": "Dissolved minerals"
         }
       ],
-      "explanation": "Carbonic acid in rain and soil water dissolves rock, and those dissolved minerals travel invisibly as the river's dissolved load.",
+      "explanation": "Big grains bounce along the bottom as bed load, smaller particles ride in the water as suspended load, and dissolved minerals travel as the dissolved load.",
       "difficulty": 0.3
     }
   ],

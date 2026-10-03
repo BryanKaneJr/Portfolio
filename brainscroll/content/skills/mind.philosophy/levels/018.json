@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 18,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Locke, Berkeley and Hume",
   "objective": "After this level you can explain the empiricist claim that all ideas come from experience, from Locke's blank slate to Berkeley and Hume.",
@@ -137,41 +137,38 @@
     },
     {
       "id": "question.philosophy.018.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.british_empiricism"
       ],
       "sourceCardIds": [
-        "card.philosophy.018.c4"
+        "card.philosophy.018.c4",
+        "card.philosophy.018.c1",
+        "card.philosophy.018.c2",
+        "card.philosophy.018.c3",
+        "card.philosophy.018.c5"
       ],
-      "prompt": "How did Hume explain your idea of a golden mountain, which you have never seen?",
-      "options": [
+      "prompt": "Match each thinker with his image or slogan about the mind.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It is innate, placed in the mind at birth",
-          "correct": false,
-          "rationale": "Hume denied that."
+          "left": "John Locke",
+          "right": "A blank slate"
         },
         {
-          "id": "b",
-          "label": "It joins two ideas copied from experience, gold and mountain",
-          "correct": true
+          "left": "George Berkeley",
+          "right": "To be is to be perceived"
         },
         {
-          "id": "c",
-          "label": "It is an impression, not an idea",
-          "correct": false,
-          "rationale": "You’ve never had that impression."
+          "left": "David Hume",
+          "right": "Copies of impressions"
         },
         {
-          "id": "d",
-          "label": "It exists only while someone perceives a real one",
-          "correct": false,
-          "rationale": "That mixes in Berkeley."
+          "left": "Leibniz",
+          "right": "A block of marble"
         }
       ],
-      "explanation": "Hume held that ideas copy impressions; a golden mountain combines the ideas of gold and mountain.",
+      "explanation": "Locke called the mind a blank slate, Berkeley said to be is to be perceived, Hume said ideas are copies of impressions, and Leibniz compared the mind to a block of marble.",
       "difficulty": 0.3
     },
     {

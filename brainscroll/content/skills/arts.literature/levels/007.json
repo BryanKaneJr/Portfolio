@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 7,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Ovid's Metamorphoses",
   "objective": "After this level you can explain why Ovid's poem of transformations became the myth book later writers borrowed from.",
@@ -86,41 +86,32 @@
   "questions": [
     {
       "id": "question.literature.007.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.literature.metamorphoses"
       ],
       "sourceCardIds": [
-        "card.literature.007.c2"
+        "card.literature.007.c2",
+        "card.literature.007.c1",
+        "card.literature.007.c3"
       ],
-      "prompt": "What ties together the stories in Ovid's Metamorphoses?",
-      "options": [
+      "prompt": "Match each thing in Ovid's poem with what it turns into.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Each involves a transformation",
-          "correct": true
+          "left": "Daphne",
+          "right": "A laurel tree"
         },
         {
-          "id": "b",
-          "label": "Each is set in Babylon",
-          "correct": false,
-          "rationale": "Only Pyramus and Thisbe is."
+          "left": "Chaos",
+          "right": "Order"
         },
         {
-          "id": "c",
-          "label": "Each ends with a stated moral",
-          "correct": false,
-          "rationale": "That's a fable habit."
-        },
-        {
-          "id": "d",
-          "label": "Each is about Julius Caesar",
-          "correct": false,
-          "rationale": "Caesar only closes the poem."
+          "left": "Snow-white berries",
+          "right": "Dark purple"
         }
       ],
-      "explanation": "Metamorphoses means transformations: every story in it involves a change of form.",
+      "explanation": "Daphne becomes a laurel tree, the poem opens with chaos turned to order, and the mulberry's snow-white berries are dyed dark purple.",
       "difficulty": 0.1
     },
     {

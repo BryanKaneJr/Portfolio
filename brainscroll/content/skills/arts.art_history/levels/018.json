@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 18,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Mosaics",
   "objective": "After this level you can explain how mosaics are made and where they flourished.",
@@ -87,41 +87,32 @@
   "questions": [
     {
       "id": "question.art_history.018.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.mosaic_tesserae"
       ],
       "sourceCardIds": [
-        "card.art_history.018.c2"
+        "card.art_history.018.c2",
+        "card.art_history.018.c1",
+        "card.art_history.018.c3"
       ],
-      "prompt": "What are tesserae?",
-      "options": [
+      "prompt": "Match each mosaic word or picture with what it means or shows.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Small pieces set closely to make a mosaic",
-          "correct": true
+          "left": "Tesserae",
+          "right": "Small, closely set pieces"
         },
         {
-          "id": "b",
-          "label": "Carved stone cylinders for sealing clay",
-          "correct": false,
-          "rationale": "That's a Mesopotamian cylinder seal."
+          "left": "CAVE CANEM",
+          "right": "Beware of the dog"
         },
         {
-          "id": "c",
-          "label": "Column tops carved with scrolls",
-          "correct": false,
-          "rationale": "That's an Ionic capital."
-        },
-        {
-          "id": "d",
-          "label": "Figures of workers buried in tombs",
-          "correct": false,
-          "rationale": "Those are Egyptian shabtis."
+          "left": "The Alexander Mosaic",
+          "right": "The Battle of Issus"
         }
       ],
-      "explanation": "Tesserae (Latin for \"cubes\" or \"dice\") are the small pieces of stone, glass, tile or shell that make a mosaic.",
+      "explanation": "Tesserae are the small, closely set pieces of a mosaic, CAVE CANEM means beware of the dog, and the Alexander Mosaic shows the Battle of Issus.",
       "difficulty": 0.15
     },
     {

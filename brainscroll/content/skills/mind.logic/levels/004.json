@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 4,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Fact, Opinion or Value?",
   "objective": "After this level you can sort a statement into a checkable fact, a personal taste or a value judgment.",
@@ -169,7 +169,7 @@
     },
     {
       "id": "question.logic.004.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.logic.factual_claims",
@@ -179,35 +179,25 @@
       "sourceCardIds": [
         "card.logic.004.c2",
         "card.logic.004.c3",
-        "card.logic.003.c2"
+        "card.logic.003.c2",
+        "card.logic.004.c4"
       ],
-      "prompt": "\"Mice are reptiles\" is false. What kind of statement is it?",
-      "options": [
+      "prompt": "Match each claim about mice with the kind of claim it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "An opinion, because it is wrong",
-          "correct": false,
-          "rationale": "Being wrong doesn't turn a fact claim into an opinion."
+          "left": "Mice are animals",
+          "right": "Factual claim"
         },
         {
-          "id": "b",
-          "label": "A value judgment",
-          "correct": false,
-          "rationale": "It says nothing about what ought to be."
+          "left": "Mice make the best pets",
+          "right": "Opinion"
         },
         {
-          "id": "c",
-          "label": "Not a claim at all",
-          "correct": false,
-          "rationale": "Level 3: a false sentence is still a claim."
-        },
-        {
-          "id": "d",
-          "label": "A factual claim, just a wrong one",
-          "correct": true
+          "left": "You should feed your pet mouse every day",
+          "right": "Value judgment"
         }
       ],
-      "explanation": "It can be checked and found wrong, so it's a factual claim, just an erroneous one.",
+      "explanation": "\"Mice are animals\" is a factual claim, \"Mice make the best pets\" is an opinion, and \"You should feed your pet mouse every day\" is a value judgment.",
       "difficulty": 0.3
     }
   ],

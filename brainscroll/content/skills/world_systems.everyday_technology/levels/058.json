@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 58,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "From Rooms to Pockets",
   "objective": "After this level you can explain how computers shrank from whole rooms to desks to pockets.",
@@ -145,41 +145,27 @@
     },
     {
       "id": "question.everyday_technology.058.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.computer_miniaturization"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.058.c4"
+        "card.everyday_technology.058.c4",
+        "card.everyday_technology.058.c3"
       ],
-      "prompt": "What made the personal computers of 1977 so different from ENIAC?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They used more vacuum tubes",
-          "correct": false,
-          "rationale": "Tubes had been replaced by transistors."
-        },
-        {
-          "id": "b",
-          "label": "They were built for one person at a desk",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "They needed rewiring for each problem",
-          "correct": false,
-          "rationale": "That was ENIAC."
-        },
-        {
-          "id": "d",
-          "label": "They weighed about 30 tons",
-          "correct": false,
-          "rationale": "That's ENIAC's weight."
-        }
+      "prompt": "Put these steps from room-sized computers to pocket ones in order, from earliest to latest.",
+      "items": [
+        "ENIAC",
+        "Transistors largely replace vacuum tubes",
+        "Intel's 4004",
+        "Apple II, TRS-80 and Commodore PET",
+        "IBM's PC",
+        "Smartphones"
       ],
-      "explanation": "A personal computer is built for one person at a time; ENIAC took days of rewiring by a team for each new problem.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "ENIAC came in 1946, transistors replaced tubes by the late 1950s, Intel's 4004 arrived in 1971, desk computers in 1977, IBM's PC in 1981, and smartphones today.",
       "difficulty": 0.25
     },
     {

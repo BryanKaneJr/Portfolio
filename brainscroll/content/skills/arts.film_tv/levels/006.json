@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 6,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Lumières' First Screening",
   "objective": "After this level you can explain why the Lumière brothers' 1895 Paris show, films projected for a paying crowd, counts as cinema's birth.",
@@ -169,7 +169,7 @@
     },
     {
       "id": "question.film_tv.006.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.film_tv.kinetoscope",
@@ -177,35 +177,25 @@
       ],
       "sourceCardIds": [
         "card.film_tv.006.c2",
-        "card.film_tv.005.c1"
+        "card.film_tv.005.c1",
+        "card.film_tv.006.c3"
       ],
-      "prompt": "How did the Lumières' Cinématographe change the way Edison's Kinetoscope (Level 5) was watched?",
-      "options": [
+      "prompt": "Match each machine with who made it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It added a phonograph soundtrack",
-          "correct": false,
-          "rationale": "The Cinématographe was silent."
+          "left": "Cinématographe",
+          "right": "Louis and Auguste Lumière"
         },
         {
-          "id": "b",
-          "label": "It let one film be seen by a whole audience at once",
-          "correct": true
+          "left": "Eidoloscope",
+          "right": "Woodville Latham"
         },
         {
-          "id": "c",
-          "label": "It made the peephole larger",
-          "correct": false,
-          "rationale": "It dropped the peephole and projected onto a screen."
-        },
-        {
-          "id": "d",
-          "label": "It printed films as flipbooks",
-          "correct": false,
-          "rationale": "It printed film copies for projection, not flipbooks."
+          "left": "Kinetoscope",
+          "right": "Edison"
         }
       ],
-      "explanation": "The Kinetoscope served one viewer at a time; the Lumières set out to show moving pictures to an audience.",
+      "explanation": "Louis and Auguste Lumière made the Cinématographe, Woodville Latham made the Eidoloscope projector, and the Kinetoscope was Edison's.",
       "difficulty": 0.25
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 50,
   "type": "milestone",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Milestone: How Power Is Shared",
   "objective": "After this level you can connect kinds of government, rights and lawmaking into one picture.",
@@ -267,7 +267,7 @@
     },
     {
       "id": "question.government.050.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.lawmaking_bill_stages",
@@ -277,33 +277,15 @@
         "card.government.041.c4",
         "card.government.045.c2"
       ],
-      "prompt": "Making Laws milestone: which order is right for a US bill that the President vetoes?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Both chambers pass it → President vetoes → two-thirds of each override",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "President vetoes → both chambers pass it → it becomes law",
-          "correct": false,
-          "rationale": "The President acts only after Congress passes the bill."
-        },
-        {
-          "id": "c",
-          "label": "House passes it → President signs → Senate may veto it",
-          "correct": false,
-          "rationale": "The veto belongs to the President, and both chambers vote first."
-        },
-        {
-          "id": "d",
-          "label": "Both chambers pass it → President vetoes → a simple majority overrides",
-          "correct": false,
-          "rationale": "An override needs two-thirds of each chamber."
-        }
+      "prompt": "Put the steps of a US bill's veto fight in order, from first to last.",
+      "items": [
+        "Pass a bill in identical form",
+        "Return it to Congress with objections",
+        "Two-thirds vote in each chamber"
       ],
-      "explanation": "A bill must pass both chambers in identical form, then goes to the President; Congress overrides a veto only by two-thirds of each chamber.",
+      "first": "First step",
+      "last": "Last step",
+      "explanation": "The House and the Senate pass a bill in identical form, the President returns it to Congress with objections, and Congress overrides with a two-thirds vote in each chamber.",
       "difficulty": 0.35
     },
     {

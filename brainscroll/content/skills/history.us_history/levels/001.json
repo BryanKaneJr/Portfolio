@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 1,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "US History: The Big Picture",
   "objective": "After this level you can sketch the American story from the first peoples to 2000 through its biggest turning points.",
@@ -193,43 +193,28 @@
     },
     {
       "id": "question.us_history.001.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.us_history.us_thirteen_to_fifty",
         "concept.us_history.us_turning_points"
       ],
       "sourceCardIds": [
-        "card.us_history.001.c4",
-        "card.us_history.001.c3"
+        "card.us_history.001.c3",
+        "card.us_history.001.c4"
       ],
-      "prompt": "The Declaration spoke for 13 colonies. In which year did the country reach its 50th state?",
-      "options": [
-        {
-          "id": "a",
-          "label": "1787",
-          "correct": false,
-          "rationale": "That’s the year of the Constitution."
-        },
-        {
-          "id": "b",
-          "label": "1865",
-          "correct": false,
-          "rationale": "That’s the end of the Civil War."
-        },
-        {
-          "id": "c",
-          "label": "1941",
-          "correct": false,
-          "rationale": "That’s Pearl Harbor."
-        },
-        {
-          "id": "d",
-          "label": "1959",
-          "correct": true
-        }
+      "prompt": "Put these turning points in order, from earliest to latest.",
+      "items": [
+        "Declaration of Independence is adopted",
+        "The Constitution is written",
+        "The Civil War begins",
+        "Pearl Harbor",
+        "Hawaii became the 50th state",
+        "Apollo 11 astronauts walk on the Moon"
       ],
-      "explanation": "Hawaii became the 50th state on August 21, 1959.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Declaration came in 1776, the Constitution in 1787, the Civil War began in 1861, Pearl Harbor came in 1941, Hawaii became the 50th state in 1959, and Apollo 11 reached the Moon in 1969.",
       "difficulty": 0.3
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 43,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Bernini",
   "objective": "After this level you can describe Bernini's sculpture and his square at St. Peter's.",
@@ -126,42 +126,33 @@
     },
     {
       "id": "question.art_history.043.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.bernini_sculpture"
       ],
       "sourceCardIds": [
         "card.art_history.043.c2",
-        "card.art_history.043.c3"
+        "card.art_history.043.c3",
+        "card.art_history.043.c1",
+        "card.art_history.043.c4"
       ],
-      "prompt": "What do Bernini's David and his Apollo and Daphne have in common?",
-      "options": [
+      "prompt": "Match each Bernini work with what it's known for.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Both show a calm figure at rest",
-          "correct": false,
-          "rationale": "Both are full of motion."
+          "left": "Bernini's David",
+          "right": "Where the giant would be"
         },
         {
-          "id": "b",
-          "label": "Both freeze a split second in the middle of the action",
-          "correct": true
+          "left": "Apollo and Daphne",
+          "right": "A laurel tree"
         },
         {
-          "id": "c",
-          "label": "Both were carved in bronze",
-          "correct": false,
-          "rationale": "Both are marble."
-        },
-        {
-          "id": "d",
-          "label": "Both show a story after it has ended",
-          "correct": false,
-          "rationale": "He picks the instant during, not after."
+          "left": "St. Peter's Square",
+          "right": "284 columns in four rows"
         }
       ],
-      "explanation": "David is about to throw; Daphne is halfway into a tree. Bernini catches the story while it's happening.",
+      "explanation": "Bernini's David puts you where the giant would be, Apollo and Daphne shows a nymph turning into a laurel tree, and St. Peter's Square has 284 columns in four rows.",
       "difficulty": 0.3
     },
     {

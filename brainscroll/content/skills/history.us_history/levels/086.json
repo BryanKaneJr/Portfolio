@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 86,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Vietnam and a Divided Nation",
   "objective": "After this level you can explain why the US fought in Vietnam and why the war divided Americans at home.",
@@ -103,41 +103,29 @@
   "questions": [
     {
       "id": "question.us_history.086.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.vietnam_why_fought"
       ],
       "sourceCardIds": [
-        "card.us_history.086.c2"
+        "card.us_history.086.c2",
+        "card.us_history.086.c3",
+        "card.us_history.086.c4",
+        "card.us_history.086.c5"
       ],
-      "prompt": "What did the Gulf of Tonkin Resolution of August 1964 do?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It let President Johnson use force in Southeast Asia",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "It ended the military draft for college students",
-          "correct": false,
-          "rationale": "Deferments were a draft rule, not this resolution."
-        },
-        {
-          "id": "c",
-          "label": "It brought US troops home from Vietnam",
-          "correct": false,
-          "rationale": "Troops came home after the 1973 Paris accords."
-        },
-        {
-          "id": "d",
-          "label": "It declared war on the Soviet Union",
-          "correct": false,
-          "rationale": "No such declaration was made."
-        }
+      "prompt": "Put these steps of the Vietnam War in order, from earliest to latest.",
+      "items": [
+        "Fall like dominoes",
+        "The Gulf of Tonkin Resolution",
+        "The Tet Offensive",
+        "Great silent majority",
+        "The Paris Peace Accords",
+        "Fell to North Vietnam"
       ],
-      "explanation": "The resolution let Johnson use force; it passed the House unanimously and the Senate 88 to 2.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Eisenhower warned of falling dominoes in 1954. The Gulf of Tonkin Resolution passed in 1964, Tet came in 1968, Nixon spoke to the “great silent majority” in 1969, the Paris Peace Accords came in 1973, and Saigon fell in 1975.",
       "difficulty": 0.25
     },
     {

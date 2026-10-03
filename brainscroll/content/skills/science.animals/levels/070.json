@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 70,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: How Animals Survive",
   "objective": "After this level you can explain how animals adapt to heat, cold, predators and darkness.",
@@ -233,7 +233,7 @@
     },
     {
       "id": "question.animals.070.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.wood_frog_freezing",
@@ -241,35 +241,29 @@
       ],
       "sourceCardIds": [
         "card.animals.070.c4",
-        "card.animals.064.c1"
+        "card.animals.064.c1",
+        "card.animals.070.c2"
       ],
-      "prompt": "How Animals Survive recap: how does the wood frog's winter differ from the Arctic ground squirrel's?",
-      "options": [
+      "prompt": "Match each animal with its survival tool.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The frog stays awake; the squirrel sleeps",
-          "correct": false,
-          "rationale": "Both shut down for winter."
+          "left": "Fennec fox",
+          "right": "Heat-shedding ears"
         },
         {
-          "id": "b",
-          "label": "The frog migrates south; the squirrel stays",
-          "correct": false,
-          "rationale": "Both stay put."
+          "left": "Kangaroo rat",
+          "right": "Water from seeds"
         },
         {
-          "id": "c",
-          "label": "The squirrel freezes; the frog stays warm",
-          "correct": false,
-          "rationale": "Reversed."
+          "left": "Polar bear",
+          "right": "Fur, fat, furry soles"
         },
         {
-          "id": "d",
-          "label": "Ice forms in the frog; the squirrel never freezes",
-          "correct": true
+          "left": "Penguin",
+          "right": "Legs that swap heat"
         }
       ],
-      "explanation": "The squirrel supercools and never freezes; the frog freezes outside its cells.",
+      "explanation": "The fennec fox has heat-shedding ears, the kangaroo rat gets water from seeds, the polar bear has fur, fat and furry soles, and the penguin has legs that swap heat.",
       "difficulty": 0.35
     },
     {

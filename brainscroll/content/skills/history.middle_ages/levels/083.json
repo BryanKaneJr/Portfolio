@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 83,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How the Plague Spread",
   "objective": "After this level you can explain what caused the plague and how it spread.",
@@ -110,41 +110,31 @@
   "questions": [
     {
       "id": "question.middle_ages.083.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.plague_yersinia"
       ],
       "sourceCardIds": [
-        "card.middle_ages.083.c2"
+        "card.middle_ages.083.c2",
+        "card.middle_ages.083.c3"
       ],
-      "prompt": "How did scientists confirm that Yersinia pestis caused the Black Death?",
-      "options": [
+      "prompt": "Match each plague term with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They found it described in a medieval doctor’s notes",
-          "correct": false,
-          "rationale": "Medieval doctors couldn’t see bacteria."
+          "left": "Bubonic plague",
+          "right": "Swollen, painful lymph nodes"
         },
         {
-          "id": "b",
-          "label": "They sequenced its DNA from victims’ teeth in a London plague pit",
-          "correct": true
+          "left": "Pneumonic plague",
+          "right": "Infects the lungs"
         },
         {
-          "id": "c",
-          "label": "They infected rats with a medieval sample",
-          "correct": false,
-          "rationale": "The evidence came from ancient DNA."
-        },
-        {
-          "id": "d",
-          "label": "They counted buboes on old paintings",
-          "correct": false,
-          "rationale": "Paintings can’t identify a bacterium."
+          "left": "Yersinia pestis",
+          "right": "A bacterium"
         }
       ],
-      "explanation": "In 2011 scientists sequenced the bacterium’s genome from teeth in a plague pit at East Smithfield, London.",
+      "explanation": "Bubonic plague causes swollen, painful lymph nodes called buboes. Pneumonic plague infects the lungs. Yersinia pestis is the bacterium that causes plague.",
       "difficulty": 0.25
     },
     {

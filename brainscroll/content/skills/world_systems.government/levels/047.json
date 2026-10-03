@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 47,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Local Laws",
   "objective": "After this level you can explain city and town rules.",
@@ -126,41 +126,36 @@
     },
     {
       "id": "question.government.047.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.lawmaking_local_granted_powers"
       ],
       "sourceCardIds": [
-        "card.government.047.c4"
+        "card.government.047.c4",
+        "card.government.047.c2",
+        "card.government.047.c3"
       ],
-      "prompt": "Under Dillon's Rule, when may a US city government act?",
-      "options": [
+      "prompt": "Match each kind of local government power with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Whenever its voters approve in a referendum",
-          "correct": false,
-          "rationale": "The test is the state's grant of power."
+          "left": "Byelaw",
+          "right": "A local law made by a local authority"
         },
         {
-          "id": "b",
-          "label": "Whenever no court has objected",
-          "correct": false,
-          "rationale": "The rule looks to the state, not the courts' silence."
+          "left": "Dillon's Rule",
+          "right": "Only where the state has granted"
         },
         {
-          "id": "c",
-          "label": "Only when Congress passes a law for it",
-          "correct": false,
-          "rationale": "Under Dillon's Rule the grant comes from the state."
+          "left": "Home rule",
+          "right": "Delegates broader power"
         },
         {
-          "id": "d",
-          "label": "Only where the state has granted it the power",
-          "correct": true
+          "left": "Municipalities",
+          "right": "Creatures of the provincial legislature"
         }
       ],
-      "explanation": "Dillon's Rule limits local governments to powers the state has granted, expressly or by clear implication.",
+      "explanation": "A byelaw is a local law made by a local authority. Dillon's Rule lets a city act only where the state has granted the power, home rule delegates broader power, and Canada's municipalities are creatures of the provincial legislature.",
       "difficulty": 0.3
     },
     {

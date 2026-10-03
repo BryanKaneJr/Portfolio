@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 37,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Light in Glass: Fiber Optics",
   "objective": "After this level you can explain how fiber optic cables carry data as pulses of light kept inside thin strands of glass.",
@@ -86,41 +86,32 @@
   "questions": [
     {
       "id": "question.computers.037.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.net_fiber_pure_glass"
       ],
       "sourceCardIds": [
-        "card.computers.037.c3"
+        "card.computers.037.c3",
+        "card.computers.037.c1",
+        "card.computers.037.c2"
       ],
-      "prompt": "What did Charles Kao show in 1966 was the main thing stopping light in glass fibers?",
-      "options": [
+      "prompt": "Match each fiber-optic fact with its distance or size.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Impurities in the glass absorbing the light",
-          "correct": true
+          "left": "In the 1960s",
+          "right": "About 20 meters"
         },
         {
-          "id": "b",
-          "label": "Fibers that were much too thick to bend",
-          "correct": false,
-          "rationale": "Thickness was not his finding; purity was."
+          "left": "With the purest glass",
+          "right": "Over 100 kilometers"
         },
         {
-          "id": "c",
-          "label": "Lasers that were too weak to reach very far",
-          "correct": false,
-          "rationale": "The loss came from the glass itself."
-        },
-        {
-          "id": "d",
-          "label": "Light slowing to a crawl inside the glass",
-          "correct": false,
-          "rationale": "Speed was not the problem he identified."
+          "left": "A long-distance core",
+          "right": "About 10 micrometers across"
         }
       ],
-      "explanation": "Kao, working with George Hockham, showed that impurities in the glass, not flaws in the fiber, caused most of the loss.",
+      "explanation": "In the 1960s, light in a fiber faded out after about 20 meters. With the purest glass, Kao calculated signals could go over 100 kilometers. A long-distance core is about 10 micrometers across.",
       "difficulty": 0.2
     },
     {

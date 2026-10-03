@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 12,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Rules of Egyptian Art",
   "objective": "After this level you can explain the rules that kept Egyptian art so consistent for 3,000 years.",
@@ -95,7 +95,7 @@
   "questions": [
     {
       "id": "question.art_history.012.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.egypt_composite_view"
@@ -103,33 +103,22 @@
       "sourceCardIds": [
         "card.art_history.012.c2"
       ],
-      "prompt": "How did Egyptian artists usually draw a standing person's head and eye?",
-      "options": [
+      "prompt": "In an Egyptian painting, match each body part with how it's shown.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Head facing front, eye in profile",
-          "correct": false,
-          "rationale": "It's the other way around."
+          "left": "The head",
+          "right": "In profile"
         },
         {
-          "id": "b",
-          "label": "Head and eye both in profile",
-          "correct": false,
-          "rationale": "The eye was drawn as if seen from the front."
+          "left": "The eye",
+          "right": "Looks straight at you"
         },
         {
-          "id": "c",
-          "label": "Head in profile, eye seen from the front",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Head and eye both facing front",
-          "correct": false,
-          "rationale": "Only the eye and shoulders face front."
+          "left": "The legs",
+          "right": "Walk sideways"
         }
       ],
-      "explanation": "The head is in profile, but the eye is drawn as if seen from the front: each part at its most complete angle.",
+      "explanation": "Egyptian artists drew the head in profile, the eye looking straight at you, and the legs walking sideways, showing each part at its most complete.",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 14,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Broken Bones",
   "objective": "After this level you can explain how a broken bone heals.",
@@ -185,7 +185,7 @@
     },
     {
       "id": "question.human_body.014.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.fracture_healing",
@@ -195,32 +195,15 @@
         "card.human_body.014.c3",
         "card.human_body.012.c3"
       ],
-      "prompt": "Level 12 met spongy and compact bone. In what order do they form as a break heals?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Compact bone first, then spongy bone",
-          "correct": false,
-          "rationale": "It's the other way round."
-        },
-        {
-          "id": "b",
-          "label": "Spongy bone first, then compact bone",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Only compact bone forms",
-          "correct": false,
-          "rationale": "Spongy bone replaces the cartilage callus first."
-        },
-        {
-          "id": "d",
-          "label": "Neither: the gap fills with marrow",
-          "correct": false,
-          "rationale": "Marrow makes blood cells; it doesn't bridge breaks."
-        }
+      "prompt": "Put the stages of healing a broken bone in order, from first to last.",
+      "items": [
+        "Clots around the break",
+        "A callus of cartilage",
+        "Spongy bone",
+        "Compact bone"
       ],
+      "first": "First stage",
+      "last": "Last stage",
       "explanation": "Bone cells first replace the cartilage callus with spongy bone; compact bone forms later, during remodeling.",
       "difficulty": 0.3
     }

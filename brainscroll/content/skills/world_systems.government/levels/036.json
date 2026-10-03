@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 36,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Privacy",
   "objective": "After this level you can explain the right to privacy.",
@@ -138,42 +138,27 @@
     },
     {
       "id": "question.government.036.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.privacy_data_protection"
       ],
       "sourceCardIds": [
         "card.government.036.c5",
-        "card.government.036.c4"
+        "card.government.036.c4",
+        "card.government.036.c1",
+        "card.government.036.c3"
       ],
-      "prompt": "Why isn't the EU's right to be forgotten absolute?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It gives way when data is needed for free expression or legal claims",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "It applies only to people living outside the EU",
-          "correct": false,
-          "rationale": "It's an EU right for people whose data is held."
-        },
-        {
-          "id": "c",
-          "label": "It lapses automatically after 25 May 2018",
-          "correct": false,
-          "rationale": "That's when the GDPR started applying, not when it ended."
-        },
-        {
-          "id": "d",
-          "label": "It covers paper letters but never digital data",
-          "correct": false,
-          "rationale": "It's about personal data, including online."
-        }
+      "prompt": "Put these milestones in the right to privacy in order, from earliest to latest.",
+      "items": [
+        "The right to be let alone",
+        "Zone of privacy",
+        "USA PATRIOT Act",
+        "General Data Protection Regulation"
       ],
-      "explanation": "Erasure doesn't apply where processing is needed for freedom of expression, a legal obligation or legal claims. Privacy is weighed against other rights.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Warren and Brandeis called for the right to be let alone in 1890, the Supreme Court described a zone of privacy in 1965, the USA PATRIOT Act came in 2001, and the GDPR has applied since 2018.",
       "difficulty": 0.3
     },
     {

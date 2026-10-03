@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 95,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Finding Tutankhamun",
   "objective": "After this level you can explain Howard Carter's discovery in 1922.",
@@ -128,41 +128,27 @@
     },
     {
       "id": "question.ancient_egypt.095.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.tutankhamun_tomb_discovery"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.095.c4"
+        "card.ancient_egypt.095.c4",
+        "card.ancient_egypt.095.c1",
+        "card.ancient_egypt.095.c2",
+        "card.ancient_egypt.095.c3"
       ],
-      "prompt": "Why did it take Carter’s team about ten years to empty Tutankhamun’s tomb?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They numbered and recorded all 5,398 objects",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Carnarvon stopped paying after one season",
-          "correct": false,
-          "rationale": "The work carried on for about a decade."
-        },
-        {
-          "id": "c",
-          "label": "The tomb was flooded every summer",
-          "correct": false,
-          "rationale": "Careful recording, not water, took the time."
-        },
-        {
-          "id": "d",
-          "label": "They couldn’t find the entrance again",
-          "correct": false,
-          "rationale": "They reopened it after cabling Carnarvon."
-        }
+      "prompt": "Put these moments in the finding of Tutankhamun’s tomb in order, from first to last.",
+      "items": [
+        "One final season",
+        "A step appeared",
+        "Cabled Carnarvon in England",
+        "Held up a candle"
       ],
-      "explanation": "The tomb was largely intact, and the team recorded 5,398 objects one by one.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Carter talked Carnarvon into one final season. On 4 November a step appeared, and Carter cabled Carnarvon in England. On 26 November he made a hole in the second doorway and held up a candle.",
       "difficulty": 0.3
     },
     {

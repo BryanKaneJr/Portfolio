@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 93,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Epicurus on Fearing Death",
   "objective": "After this level you can explain Epicurus's argument that death is nothing to us, and weigh the reply that death harms us by taking away future goods.",
@@ -121,41 +121,32 @@
     },
     {
       "id": "question.philosophy.093.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.meaning_epicurus_death"
       ],
       "sourceCardIds": [
-        "card.philosophy.093.c4"
+        "card.philosophy.093.c4",
+        "card.philosophy.093.c2",
+        "card.philosophy.093.c3"
       ],
-      "prompt": "Maya is sad that death will stop her seeing the next century of discoveries. Whose view best explains why death could be bad for her?",
-      "options": [
+      "prompt": "Match each thinker with his idea about death.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Epicurus: good and bad need sensation",
-          "correct": false,
-          "rationale": "That view says death can’t harm her."
+          "left": "Epicurus",
+          "right": "Letter to Menoeceus"
         },
         {
-          "id": "b",
-          "label": "Lucretius: the time after death mirrors the time before birth",
-          "correct": false,
-          "rationale": "That view also says there’s nothing to fear."
+          "left": "Lucretius",
+          "right": "Like a mirror"
         },
         {
-          "id": "c",
-          "label": "Nagel: death deprives her of goods more life would bring",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "None: no philosopher thinks death can harm anyone",
-          "correct": false,
-          "rationale": "Nagel argued that it can."
+          "left": "Thomas Nagel",
+          "right": "Deprives you of the goods"
         }
       ],
-      "explanation": "Nagel argued that death can be bad without being felt, because it takes away the goods more life would have held.",
+      "explanation": "Epicurus argued in his Letter to Menoeceus, Lucretius said the time before birth is held up like a mirror, and Nagel argued death deprives you of the goods more life would have held.",
       "difficulty": 0.45
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 40,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Gods and the Afterlife",
   "objective": "After this level you can explain how Egyptians prepared for life after death.",
@@ -215,42 +215,26 @@
     },
     {
       "id": "question.ancient_egypt.040.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.afterlife_preparation",
         "concept.ancient_egypt.mummification_method"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.040.c3"
+        "card.ancient_egypt.040.c3",
+        "card.ancient_egypt.040.c2"
       ],
-      "prompt": "Why did priests perform the Opening of the Mouth ritual on a mummy?",
-      "options": [
-        {
-          "id": "a",
-          "label": "To remove the brain",
-          "correct": false,
-          "rationale": "That was the embalmers’ job, earlier."
-        },
-        {
-          "id": "b",
-          "label": "So the spirit could eat, drink, breathe and see",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "To let the heart speak at the judgment",
-          "correct": false,
-          "rationale": "Egyptians hoped the heart would stay quiet."
-        },
-        {
-          "id": "d",
-          "label": "To feed the temple’s god",
-          "correct": false,
-          "rationale": "This ritual was for the dead person."
-        }
+      "prompt": "Put the steps of the journey after death in order, from first to last.",
+      "items": [
+        "Embalmers make the mummy",
+        "Opening of the Mouth",
+        "The heart is weighed",
+        "The Field of Reeds"
       ],
-      "explanation": "Touching the mouth and eyes with special tools was meant to let the spirit eat, drink, breathe and see.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Embalmers make the mummy, then priests perform the Opening of the Mouth. At the judgment the heart is weighed against the feather of Maat, and the blessed reach the Field of Reeds.",
       "difficulty": 0.3
     },
     {

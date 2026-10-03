@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 48,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Earth's Energy Budget",
   "objective": "After this level you can explain how sunlight in, heat out and reflectiveness (albedo) set Earth's temperature.",
@@ -170,7 +170,7 @@
     },
     {
       "id": "question.earth_climate.048.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.earth_climate.energy_budget_balance",
@@ -178,35 +178,26 @@
       ],
       "sourceCardIds": [
         "card.earth_climate.048.c2",
-        "card.earth_climate.047.c4"
+        "card.earth_climate.047.c4",
+        "card.earth_climate.048.c1",
+        "card.earth_climate.048.c4"
       ],
-      "prompt": "Using Levels 47 and 48, how does adding greenhouse gases change Earth's energy budget?",
-      "options": [
+      "prompt": "Match each with how much sunlight it reflects.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It reflects more sunlight back to space",
-          "correct": false,
-          "rationale": "Greenhouse gases work on outgoing heat."
+          "left": "Earth",
+          "right": "About 29%"
         },
         {
-          "id": "b",
-          "label": "Less heat escapes, so Earth warms toward a new balance",
-          "correct": true
+          "left": "Open ocean",
+          "right": "About 6%"
         },
         {
-          "id": "c",
-          "label": "It lets more infrared escape to space",
-          "correct": false,
-          "rationale": "It's the opposite: less escapes."
-        },
-        {
-          "id": "d",
-          "label": "It has no effect once equilibrium is reached",
-          "correct": false,
-          "rationale": "It shifts where the balance sits."
+          "left": "Snow-covered ice",
+          "right": "Up to 90%"
         }
       ],
-      "explanation": "Greenhouse gases catch outgoing infrared (Level 47), cutting the heat that escapes, so temperature rises until the budget balances again.",
+      "explanation": "Earth as a whole reflects about 29% of the sunlight reaching it, open ocean only about 6%, and snow-covered ice up to 90%.",
       "difficulty": 0.35
     }
   ],

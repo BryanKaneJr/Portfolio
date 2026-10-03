@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 28,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Parthenon",
   "objective": "After this level you can describe how and why the Parthenon was built.",
@@ -121,41 +121,24 @@
     },
     {
       "id": "question.ancient_greece.028.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_greece.parthenon_athens_story"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.028.c4"
+        "card.ancient_greece.028.c4",
+        "card.ancient_greece.028.c2"
       ],
-      "prompt": "Why is the center of the Parthenon destroyed?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Persians burned it while it was new",
-          "correct": false,
-          "rationale": "The sack came before it was built."
-        },
-        {
-          "id": "b",
-          "label": "Athenians took it apart for building stone",
-          "correct": false,
-          "rationale": "That’s not what happened."
-        },
-        {
-          "id": "c",
-          "label": "Gunpowder stored inside exploded in 1687",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It was never finished",
-          "correct": false,
-          "rationale": "It was finished by 438 BCE."
-        }
+      "prompt": "Put these moments in the Parthenon’s life in order, from earliest to latest.",
+      "items": [
+        "Work on the Parthenon began",
+        "The temple was finished",
+        "Gunpowder stored inside exploded"
       ],
-      "explanation": "During fighting between Venice and the Ottomans in 1687, gunpowder stored in the temple exploded.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Work on the Parthenon began in 447 BCE, the temple was finished by 438, and gunpowder stored inside exploded in 1687.",
       "difficulty": 0.3
     },
     {

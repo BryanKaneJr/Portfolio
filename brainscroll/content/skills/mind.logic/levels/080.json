@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 80,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Persuasion and Rhetoric",
   "objective": "After this level you can take apart a persuasive message and separate its reasons from its techniques.",
@@ -182,7 +182,7 @@
     },
     {
       "id": "question.logic.080.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.persuasion_rhetoric_uses"
@@ -191,33 +191,26 @@
         "card.logic.080.c3",
         "card.logic.080.c4"
       ],
-      "prompt": "In Dana's speech, which line is a reason for the Hawks rather than a technique?",
-      "options": [
+      "prompt": "Match each part of Dana's speech with what it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "I've coached in this town for years",
-          "correct": false,
-          "rationale": "That's ethos: her character, not a reason about mascots."
+          "left": "Years of coaching",
+          "right": "Ethos"
         },
         {
-          "id": "b",
-          "label": "Picture our players, heads down",
-          "correct": false,
-          "rationale": "That's pathos: a feeling, not a reason."
+          "left": "Players with heads down",
+          "right": "Pathos"
         },
         {
-          "id": "c",
-          "label": "Most students picked the Hawks in a survey",
-          "correct": true
+          "left": "Up to half",
+          "right": "Weasel words"
         },
         {
-          "id": "d",
-          "label": "Up to half the students wear Hawks shirts",
-          "correct": false,
-          "rationale": "\"Up to\" is a weasel phrase: a ceiling, not a count."
+          "left": "Most students picked the Hawks",
+          "right": "Reason"
         }
       ],
-      "explanation": "The survey is the one claim you could check that bears on the choice; strip the rest and it remains.",
+      "explanation": "Dana's years of coaching are ethos and the players with heads down are pathos. \"Up to half\" is weasel words. Only \"most students picked the Hawks in a survey\" is a reason.",
       "difficulty": 0.3
     },
     {

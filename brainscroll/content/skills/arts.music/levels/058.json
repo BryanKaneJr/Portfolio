@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 58,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Latin American Rhythms",
   "objective": "After this level you can describe samba, tango and salsa.",
@@ -130,41 +130,31 @@
     },
     {
       "id": "question.music.058.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.latin_samba"
       ],
       "sourceCardIds": [
-        "card.music.058.c2"
+        "card.music.058.c2",
+        "card.music.058.c1"
       ],
-      "prompt": "What happened when migrants carried samba de roda from Bahia to Rio de Janeiro?",
-      "options": [
+      "prompt": "Match each dance with where it took shape.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It shaped the urban samba that became a symbol of Brazil",
-          "correct": true
+          "left": "Samba",
+          "right": "Brazil"
         },
         {
-          "id": "b",
-          "label": "It was replaced there by the Argentine tango",
-          "correct": false,
-          "rationale": "Tango grew up on the Rio de la Plata, not in Rio."
+          "left": "Tango",
+          "right": "Buenos Aires and Montevideo"
         },
         {
-          "id": "c",
-          "label": "It lost its circle and became a solo art song",
-          "correct": false,
-          "rationale": "The Rio story is about influence on urban samba."
-        },
-        {
-          "id": "d",
-          "label": "It crossed to New York and turned into salsa",
-          "correct": false,
-          "rationale": "Salsa developed in New York from Afro-Cuban son."
+          "left": "Salsa",
+          "right": "New York City"
         }
       ],
-      "explanation": "In Rio, samba de roda influenced the urban samba that became a symbol of Brazilian national identity.",
+      "explanation": "Samba took shape in Brazil, tango in Buenos Aires and Montevideo, and salsa in New York City.",
       "difficulty": 0.25
     },
     {

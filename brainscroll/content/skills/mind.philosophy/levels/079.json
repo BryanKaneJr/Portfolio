@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 79,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "When Words Make Puzzles",
   "objective": "After this level you can explain the later Wittgenstein's idea that meaning is use and why he thought some philosophical puzzles come from language misfiring.",
@@ -128,41 +128,31 @@
     },
     {
       "id": "question.philosophy.079.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.reality_wittgenstein_meaning_use"
       ],
       "sourceCardIds": [
-        "card.philosophy.079.c4"
+        "card.philosophy.079.c4",
+        "card.philosophy.079.c3"
       ],
-      "prompt": "On Wittgenstein’s view, how can a phrase like “keep it in mind” create a philosophical puzzle?",
-      "options": [
+      "prompt": "Match each topic with Wittgenstein’s image or name for it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It breaks a rule of grammar that philosophers must repair",
-          "correct": false,
-          "rationale": "The grammar is fine."
+          "left": "Games",
+          "right": "Family resemblances"
         },
         {
-          "id": "b",
-          "label": "Its likeness to “keep it in a box” makes the mind seem a container",
-          "correct": true
+          "left": "Words",
+          "right": "Tools in a tool-box"
         },
         {
-          "id": "c",
-          "label": "It has no ordinary use, so it means nothing at all",
-          "correct": false,
-          "rationale": "It’s used all the time."
-        },
-        {
-          "id": "d",
-          "label": "It names a hidden object that science must still find",
-          "correct": false,
-          "rationale": "That’s the illusion, not his view."
+          "left": "Philosophy’s aim",
+          "right": "The way out of the fly-bottle"
         }
       ],
-      "explanation": "The surface likeness between “keep it in mind” and “keep it in this box” tempts us to picture the mind as a mysterious box.",
+      "explanation": "Games share only family resemblances, words are like the tools in a tool-box, and philosophy’s aim is to show the fly the way out of the fly-bottle.",
       "difficulty": 0.35
     },
     {

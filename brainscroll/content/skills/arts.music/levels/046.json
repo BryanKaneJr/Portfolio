@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 46,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Verdi and Italian Opera",
   "objective": "After this level you can describe Verdi's operas.",
@@ -126,41 +126,27 @@
     },
     {
       "id": "question.music.046.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.verdi_opera"
       ],
       "sourceCardIds": [
-        "card.music.046.c3"
+        "card.music.046.c3",
+        "card.music.046.c1",
+        "card.music.046.c4"
       ],
-      "prompt": "What combination made Verdi's operas so powerful, according to Britannica?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Great literary drama paired with memorable melody",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Spoken dialogue with no singing",
-          "correct": false,
-          "rationale": "Opera is sung, and his melodies were the draw."
-        },
-        {
-          "id": "c",
-          "label": "Short pieces for solo piano",
-          "correct": false,
-          "rationale": "That's Chopin."
-        },
-        {
-          "id": "d",
-          "label": "Silent dancing to a small band",
-          "correct": false,
-          "rationale": "That's closer to ballet, and still not Verdi."
-        }
+      "prompt": "Put Verdi's operas in order, from earliest to latest.",
+      "items": [
+        "Nabucco",
+        "Rigoletto",
+        "La traviata",
+        "Aida",
+        "Falstaff"
       ],
-      "explanation": "He drew plots from Shakespeare, Hugo and Schiller and set them to memorable melody.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Nabucco came in 1842, Rigoletto in 1851, La traviata in 1853, Aida in 1871 and Falstaff in 1893.",
       "difficulty": 0.25
     },
     {

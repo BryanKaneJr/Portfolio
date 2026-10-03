@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 62,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How Eyes See",
   "objective": "After this level you can explain how the eye focuses light and the brain builds a picture.",
@@ -169,7 +169,7 @@
     },
     {
       "id": "question.human_body.062.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.senses_retina_to_brain",
@@ -180,32 +180,16 @@
         "card.human_body.062.c2",
         "card.human_body.004.c2"
       ],
-      "prompt": "Level 4 defined a tissue as similar cells working together. What do the special cells in your retina's tissue do?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Bend light as it enters the eye",
-          "correct": false,
-          "rationale": "That's the cornea's job."
-        },
-        {
-          "id": "b",
-          "label": "Set the size of the pupil",
-          "correct": false,
-          "rationale": "That's the iris."
-        },
-        {
-          "id": "c",
-          "label": "Turn light into electrical signals",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Store images until you sleep",
-          "correct": false,
-          "rationale": "Signals go straight on to the brain."
-        }
+      "prompt": "Follow a beam of light into your eye: put these in order, from the front of the eye to the brain.",
+      "items": [
+        "Cornea",
+        "Pupil",
+        "Lens",
+        "Retina",
+        "Optic nerve"
       ],
+      "first": "Front of the eye",
+      "last": "On the way to the brain",
       "explanation": "The retina is a light-sensitive layer of tissue whose photoreceptors turn light into electrical signals for the optic nerve.",
       "difficulty": 0.25
     }

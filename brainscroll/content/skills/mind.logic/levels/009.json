@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 9,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Arguments in Chains",
   "objective": "After this level you can trace how one argument's conclusion becomes the premise of the next.",
@@ -125,41 +125,33 @@
     },
     {
       "id": "question.logic.009.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.chained_arguments"
       ],
       "sourceCardIds": [
-        "card.logic.009.c4"
+        "card.logic.009.c4",
+        "card.logic.009.c1",
+        "card.logic.009.c2",
+        "card.logic.009.c3"
       ],
-      "prompt": "In the lost-keys chain, which claim is the main conclusion?",
-      "options": [
+      "prompt": "Match each claim in the lost-keys chain with its role.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "I searched the kitchen",
-          "correct": false,
-          "rationale": "That's a premise of the first step."
+          "left": "I searched the kitchen",
+          "right": "Premise"
         },
         {
-          "id": "b",
-          "label": "They're in the kitchen or the bedroom",
-          "correct": false,
-          "rationale": "That's a premise of the second step."
+          "left": "The keys aren't in the kitchen",
+          "right": "Intermediate conclusion"
         },
         {
-          "id": "c",
-          "label": "The keys aren't in the kitchen",
-          "correct": false,
-          "rationale": "That's an intermediate conclusion: it supports the next step."
-        },
-        {
-          "id": "d",
-          "label": "The keys are in the bedroom",
-          "correct": true
+          "left": "The keys are in the bedroom",
+          "right": "Main conclusion"
         }
       ],
-      "explanation": "\"The keys are in the bedroom\" depends on the others and supports nothing further.",
+      "explanation": "\"I searched the kitchen\" is a premise. \"The keys aren't in the kitchen\" is an intermediate conclusion, and \"the keys are in the bedroom\" is the main conclusion.",
       "difficulty": 0.2
     },
     {

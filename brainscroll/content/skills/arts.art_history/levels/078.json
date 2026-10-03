@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 78,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Mexican Muralism",
   "objective": "After this level you can explain how Diego Rivera and others painted history on public walls.",
@@ -91,41 +91,36 @@
   "questions": [
     {
       "id": "question.art_history.078.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.mexican_muralism"
       ],
       "sourceCardIds": [
-        "card.art_history.078.c2"
+        "card.art_history.078.c2",
+        "card.art_history.078.c3",
+        "card.art_history.078.c4"
       ],
-      "prompt": "Why did Mexico's government commission murals on public buildings from 1921?",
-      "options": [
+      "prompt": "Match each name or term with who or what it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "To decorate homes of the wealthy",
-          "correct": false,
-          "rationale": "They went on public buildings, for everyone."
+          "left": "Los tres grandes",
+          "right": "The Three Great Ones"
         },
         {
-          "id": "b",
-          "label": "To teach history to a largely illiterate public",
-          "correct": true
+          "left": "José Vasconcelos",
+          "right": "The education minister"
         },
         {
-          "id": "c",
-          "label": "To copy Italian churches exactly",
-          "correct": false,
-          "rationale": "Rivera studied Italian frescoes, but the goal was Mexican history."
+          "left": "Nelson Rockefeller",
+          "right": "Objected"
         },
         {
-          "id": "d",
-          "label": "To advertise products to shoppers",
-          "correct": false,
-          "rationale": "The aim was education, not advertising."
+          "left": "True fresco",
+          "right": "Wet lime plaster"
         }
       ],
-      "explanation": "José Vasconcelos commissioned murals to teach Mexico's history to people who often couldn't read.",
+      "explanation": "Los tres grandes means the Three Great Ones, José Vasconcelos was the education minister, Nelson Rockefeller objected to Lenin's portrait, and true fresco is painted onto wet lime plaster.",
       "difficulty": 0.2
     },
     {

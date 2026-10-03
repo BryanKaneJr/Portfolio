@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 30,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: How Stories Work",
   "objective": "After this level you can take any story apart into its plot, conflict, characters, narrator and theme.",
@@ -186,7 +186,7 @@
     },
     {
       "id": "question.literature.030.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.literature.storycraft_plot_pyramid",
@@ -195,33 +195,16 @@
       "sourceCardIds": [
         "card.literature.030.c2"
       ],
-      "prompt": "Chapter recap: which of these story tools got its name first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Freytag's pyramid",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Flat and round characters",
-          "correct": false,
-          "rationale": "Forster named those in 1927."
-        },
-        {
-          "id": "c",
-          "label": "Campbell's monomyth",
-          "correct": false,
-          "rationale": "That came in 1949."
-        },
-        {
-          "id": "d",
-          "label": "The unreliable narrator",
-          "correct": false,
-          "rationale": "Booth named it in 1961."
-        }
+      "prompt": "Put these in order, from the earliest named to the latest.",
+      "items": [
+        "Freytag draws drama as a pyramid",
+        "Forster sorts characters",
+        "Campbell's monomyth",
+        "Booth names the unreliable narrator"
       ],
-      "explanation": "Freytag drew his pyramid in 1863, long before Forster (1927), Campbell (1949) and Booth (1961).",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Freytag drew his pyramid in 1863, Forster sorted characters in 1927, Campbell's monomyth came in 1949, and Booth named the unreliable narrator in 1961.",
       "difficulty": 0.2
     },
     {

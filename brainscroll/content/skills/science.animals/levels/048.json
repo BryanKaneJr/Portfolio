@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 48,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Tide Pools",
   "objective": "After this level you can describe tide pool animals like starfish and crabs.",
@@ -135,7 +135,7 @@
     },
     {
       "id": "question.animals.048.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.tidepool_sea_star_feeding",
@@ -145,33 +145,16 @@
         "card.animals.048.c4",
         "card.animals.008.c3"
       ],
-      "prompt": "Paine's ochre sea stars in Level 8 kept mussels in check. How does a sea star get into a closed mussel?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It pulls the shell open, then slips its stomach in",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "It crushes the shell with hard teeth",
-          "correct": false,
-          "rationale": "It pulls with its suction feet."
-        },
-        {
-          "id": "c",
-          "label": "It stings the mussel with nematocysts",
-          "correct": false,
-          "rationale": "That's jellyfish and coral."
-        },
-        {
-          "id": "d",
-          "label": "It drills a hole with the tip of an arm",
-          "correct": false,
-          "rationale": "It pulls the shell open instead."
-        }
+      "prompt": "Put the steps of a sea star's mussel dinner in order.",
+      "items": [
+        "Grips a closed mussel",
+        "Pulls on the shell",
+        "Slips its own stomach inside",
+        "Digests the mussel"
       ],
-      "explanation": "The sea star pulls the shell open with its suction feet, then inserts its stomach and digests the mussel inside.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The sea star grips a closed mussel, pulls on the shell until it opens, slips its own stomach inside and digests the mussel right there.",
       "difficulty": 0.2
     },
     {

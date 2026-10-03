@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 30,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Faith and Empire",
   "objective": "After this level you can explain how faith shaped art from Byzantium to Gothic Europe and the Islamic world.",
@@ -240,7 +240,7 @@
     },
     {
       "id": "question.art_history.030.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.art_history.byzantine_gold_mosaics",
@@ -251,33 +251,18 @@
       "sourceCardIds": [
         "card.art_history.030.c2"
       ],
-      "prompt": "Chapter recap: which of these came first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Justinian's mosaic at Ravenna",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The Book of Kells",
-          "correct": false,
-          "rationale": "About 800."
-        },
-        {
-          "id": "c",
-          "label": "The Saint-Denis choir",
-          "correct": false,
-          "rationale": "1144."
-        },
-        {
-          "id": "d",
-          "label": "Giotto's Arena Chapel",
-          "correct": false,
-          "rationale": "About 1305."
-        }
+      "prompt": "Put Chapter 3's works of faith and empire in order, from oldest to newest.",
+      "items": [
+        "Justinian and Theodora",
+        "Córdoba's Great Mosque begun",
+        "The Book of Kells",
+        "Fan Kuan's mountain and mule train",
+        "Gothic begins",
+        "Giotto's Arena Chapel"
       ],
-      "explanation": "Justinian and Theodora at San Vitale date to about 547, the earliest of these.",
+      "first": "Oldest",
+      "last": "Newest",
+      "explanation": "Oldest first: Justinian and Theodora (about 547), Córdoba's mosque (about 785), the Book of Kells (about 800), Fan Kuan (about 1000), Gothic at Saint-Denis (1144), then Giotto's Arena Chapel (about 1305).",
       "difficulty": 0.3
     },
     {

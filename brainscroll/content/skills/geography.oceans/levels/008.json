@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 8,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Light Fades Below",
   "objective": "After this level you can explain how sunlight fades with depth.",
@@ -95,7 +95,7 @@
   "questions": [
     {
       "id": "question.oceans.008.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.oceans.light_fades_colors"
@@ -103,33 +103,15 @@
       "sourceCardIds": [
         "card.oceans.008.c2"
       ],
-      "prompt": "Going down through clear seawater, which colors of sunlight disappear first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Blue and violet",
-          "correct": false,
-          "rationale": "They travel deepest of all."
-        },
-        {
-          "id": "b",
-          "label": "Green and yellow",
-          "correct": false,
-          "rationale": "They fade next, after red and orange."
-        },
-        {
-          "id": "c",
-          "label": "Red and orange",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "All colors fade at the same rate",
-          "correct": false,
-          "rationale": "They fade in order, red first."
-        }
+      "prompt": "Put these colors of sunlight in order, from the first to fade as you go down to the last.",
+      "items": [
+        "Red and orange",
+        "Yellow and green",
+        "Blue and violet"
       ],
-      "explanation": "Water absorbs the longest wavelengths first: red and orange vanish within a few meters, then yellow and green.",
+      "first": "Fades first",
+      "last": "Travels deepest",
+      "explanation": "Red and orange fade first, a few meters down. Yellow and green go next. Blue and violet travel deepest of all.",
       "difficulty": 0.15
     },
     {

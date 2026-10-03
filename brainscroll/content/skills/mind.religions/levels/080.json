@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 80,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Newer Faiths and America",
   "objective": "After this level you can explain how new faiths arise and how America's religious freedom shaped its many churches and communities.",
@@ -154,7 +154,7 @@
   "questions": [
     {
       "id": "question.religions.080.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.religions.america_religious_freedom_laws",
@@ -167,33 +167,17 @@
         "card.religions.076.c2",
         "card.religions.077.c4"
       ],
-      "prompt": "Virginia's religious freedom statute, the Book of Mormon, the Azusa Street revival: which order did they come in?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Book of Mormon, Virginia statute, Azusa Street",
-          "correct": false,
-          "rationale": "Virginia's statute (1786) came first."
-        },
-        {
-          "id": "b",
-          "label": "Virginia statute, Book of Mormon, Azusa Street",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Virginia statute, Azusa Street, Book of Mormon",
-          "correct": false,
-          "rationale": "The Book of Mormon (1830) came before Azusa Street (1906)."
-        },
-        {
-          "id": "d",
-          "label": "Azusa Street, Virginia statute, Book of Mormon",
-          "correct": false,
-          "rationale": "Azusa Street (1906) came last."
-        }
+      "prompt": "Put these moments in the story of newer faiths and America in order, from earliest to latest.",
+      "items": [
+        "Virginia's Statute for Religious Freedom",
+        "Book of Mormon",
+        "The Bab's movement begins in Shiraz",
+        "Azusa Street revival",
+        "Immigration act"
       ],
-      "explanation": "1786, then 1830, then 1906.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Virginia's statute came in 1786, the Book of Mormon in 1830, the Bab's movement in 1844, the Azusa Street revival in 1906, and the immigration act in 1965.",
       "difficulty": 0.3
     },
     {

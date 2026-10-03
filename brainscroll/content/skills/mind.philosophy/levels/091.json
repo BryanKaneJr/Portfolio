@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 91,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Is Beauty in the Eye of the Beholder?",
   "objective": "After this level you can weigh Hume's standard of taste against Kant's claim that a judgment of beauty speaks for everyone.",
@@ -132,41 +132,25 @@
     },
     {
       "id": "question.philosophy.091.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.meaning_taste_hume_kant"
       ],
       "sourceCardIds": [
-        "card.philosophy.091.c4"
+        "card.philosophy.091.c4",
+        "card.philosophy.091.c2",
+        "card.philosophy.019.c3"
       ],
-      "prompt": "A friend says, “This painting is beautiful, but that’s just me.” What would Kant find odd about this?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Only trained experts may call things beautiful",
-          "correct": false,
-          "rationale": "Kant doesn’t limit it to experts."
-        },
-        {
-          "id": "b",
-          "label": "Beauty can be measured with instruments",
-          "correct": false,
-          "rationale": "No rule or proof settles beauty for Kant."
-        },
-        {
-          "id": "c",
-          "label": "Calling it beautiful already claims everyone’s agreement",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Paintings can only ever be pleasant",
-          "correct": false,
-          "rationale": "Kant’s examples of beauty include poems."
-        }
+      "prompt": "Put these works in order, from earliest to latest.",
+      "items": [
+        "Of the Standard of Taste",
+        "Critique of Pure Reason",
+        "Critique of Judgment"
       ],
-      "explanation": "For Kant, “pleasant to me” is private, but “beautiful” speaks with a universal voice, so “just me” takes back the claim.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Hume’s “Of the Standard of Taste” came out in 1757, Kant’s Critique of Pure Reason in 1781, and his Critique of Judgment in 1790.",
       "difficulty": 0.45
     },
     {

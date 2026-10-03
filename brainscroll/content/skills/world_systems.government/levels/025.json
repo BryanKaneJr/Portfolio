@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 25,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Separation of Powers",
   "objective": "After this level you can explain the three branches of government.",
@@ -91,7 +91,7 @@
   "questions": [
     {
       "id": "question.government.025.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.separation_powers_montesquieu"
@@ -99,33 +99,22 @@
       "sourceCardIds": [
         "card.government.025.c2"
       ],
-      "prompt": "Which three functions of government does separation of powers divide?",
-      "options": [
+      "prompt": "Match each branch of government with its job.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Local, regional and national",
-          "correct": false,
-          "rationale": "Those are levels of government, from Level 8."
+          "left": "Legislative",
+          "right": "Making laws"
         },
         {
-          "id": "b",
-          "label": "Military, police and fire",
-          "correct": false,
-          "rationale": "Those are services, not the three powers."
+          "left": "Executive",
+          "right": "Carrying them out"
         },
         {
-          "id": "c",
-          "label": "Taxing, spending and borrowing",
-          "correct": false,
-          "rationale": "Those are money jobs, not the three powers."
-        },
-        {
-          "id": "d",
-          "label": "Legislative, executive and judicial",
-          "correct": true
+          "left": "Judicial",
+          "right": "Judging disputes about them"
         }
       ],
-      "explanation": "Separation of powers divides the legislative, executive and judicial functions among separate, independent bodies.",
+      "explanation": "The legislative branch makes laws, the executive carries them out, and the judicial branch judges disputes about them.",
       "difficulty": 0.15
     },
     {

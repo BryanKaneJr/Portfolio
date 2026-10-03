@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 89,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Body Clock",
   "objective": "After this level you can explain daily body rhythms and why jet lag happens.",
@@ -141,38 +141,33 @@
     },
     {
       "id": "question.human_body.089.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.body_clock_jet_lag"
       ],
       "sourceCardIds": [
-        "card.human_body.089.c4"
+        "card.human_body.089.c4",
+        "card.human_body.089.c2",
+        "card.human_body.089.c3"
       ],
-      "prompt": "Why is flying west usually easier on your body clock than flying east?",
-      "options": [
+      "prompt": "Match each body clock term with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Planes fly faster going west",
-          "correct": false,
-          "rationale": "Flight speed doesn't set the clock."
+          "left": "Circadian rhythms",
+          "right": "Over a 24-hour cycle"
         },
         {
-          "id": "b",
-          "label": "There's more daylight in the west",
-          "correct": false,
-          "rationale": "The reason is the clock's own length."
+          "left": "Suprachiasmatic nucleus",
+          "right": "A master clock in the brain"
         },
         {
-          "id": "c",
-          "label": "Your inner clock runs slightly longer than 24 hours",
-          "correct": true
+          "left": "Melatonin",
+          "right": "You get sleepy"
         },
         {
-          "id": "d",
-          "label": "Melatonin stops in western time zones",
-          "correct": false,
-          "rationale": "Melatonin follows the light, wherever you are."
+          "left": "Jet lag",
+          "right": "A temporary mismatch"
         }
       ],
       "explanation": "Because the inner clock runs slightly longer than 24 hours, delaying it is easier than advancing it.",

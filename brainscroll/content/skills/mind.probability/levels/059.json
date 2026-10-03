@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 59,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Click Polls and Online Reviews",
   "objective": "After this level you can explain why polls where people choose to take part measure who cares most, not what most people think.",
@@ -125,7 +125,7 @@
     },
     {
       "id": "question.probability.059.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.poll_review_j_shape"
@@ -133,33 +133,22 @@
       "sourceCardIds": [
         "card.probability.059.c3"
       ],
-      "prompt": "Why do online product ratings often bunch at 5 stars and 1 star?",
-      "options": [
+      "prompt": "Online product ratings form a J shape. Match each part of the scale with how many ratings it gets.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Most products are either perfect or broken",
-          "correct": false,
-          "rationale": "When everyone rated, the ratings formed a single hump."
+          "left": "5 stars",
+          "right": "Pile up"
         },
         {
-          "id": "b",
-          "label": "Review sites delete middle ratings",
-          "correct": false,
-          "rationale": "Nothing is deleted; fewer middling reviews get written."
+          "left": "1 star",
+          "right": "A smaller heap"
         },
         {
-          "id": "c",
-          "label": "Buyers with extreme opinions are likelier to write reviews",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Middle stars are hard to tap on a phone",
-          "correct": false,
-          "rationale": "The pattern comes from who chooses to review."
+          "left": "In between",
+          "right": "Few"
         }
       ],
-      "explanation": "Buyers who love or hate a product are likelier to review it than those who found it fine, so ratings form a J.",
+      "explanation": "Ratings pile up at 5 stars, with a smaller heap at 1 star and few in between, because buyers with extreme opinions are likelier to write a review.",
       "difficulty": 0.3
     },
     {

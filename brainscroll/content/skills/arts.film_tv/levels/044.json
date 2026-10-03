@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 44,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Production Code",
   "objective": "After this level you can explain why Hollywood censored itself under the Production Code from 1934 and why a ratings system replaced it in 1968.",
@@ -126,41 +126,27 @@
     },
     {
       "id": "question.film_tv.044.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.studio_production_code"
       ],
       "sourceCardIds": [
-        "card.film_tv.044.c2"
+        "card.film_tv.044.c2",
+        "card.film_tv.044.c3",
+        "card.film_tv.044.c4"
       ],
-      "prompt": "Why did Hollywood's studios write a censorship code for themselves?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A 1922 law ordered them to",
-          "correct": false,
-          "rationale": "The code was self-imposed; no law required it."
-        },
-        {
-          "id": "b",
-          "label": "Ticket sales had stopped for every kind of film",
-          "correct": false,
-          "rationale": "The pressure was public outcry, not empty theaters."
-        },
-        {
-          "id": "c",
-          "label": "To answer outcry and head off government censorship",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Theaters refused to show sound films",
-          "correct": false,
-          "rationale": "Sound was a hit; censorship was the worry."
-        }
+      "prompt": "Put these steps in the story of Hollywood's Production Code in order, from earliest to latest.",
+      "items": [
+        "Hired Will H. Hays",
+        "Adopted the Production Code",
+        "Production Code Administration",
+        "Burstyn v. Wilson",
+        "The age-based rating system"
       ],
-      "explanation": "The code was a self-imposed answer to public outcry and the threat of government censorship.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The studios hired Will H. Hays in 1922, adopted the Production Code in 1930, set up the Production Code Administration in 1934, lost the censorship threat in Burstyn v. Wilson in 1952, and switched to the age-based rating system in 1968.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 84,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Concrete",
   "objective": "After this level you can explain what concrete is and why both the Romans and modern builders rely on it.",
@@ -95,42 +95,37 @@
   "questions": [
     {
       "id": "question.everyday_technology.084.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.build_concrete_basics"
       ],
       "sourceCardIds": [
         "card.everyday_technology.084.c1",
-        "card.everyday_technology.084.c2"
+        "card.everyday_technology.084.c2",
+        "card.everyday_technology.084.c3",
+        "card.everyday_technology.084.c4"
       ],
-      "prompt": "What makes fresh concrete harden?",
-      "options": [
+      "prompt": "Match each concrete term with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Cement reacting chemically with water",
-          "correct": true
+          "left": "Aggregate",
+          "right": "Sand and gravel"
         },
         {
-          "id": "b",
-          "label": "Water evaporating as it dries out",
-          "correct": false,
-          "rationale": "It isn't drying: it even sets underwater."
+          "left": "Hydration",
+          "right": "Cement and water react"
         },
         {
-          "id": "c",
-          "label": "Steel bars squeezing it together",
-          "correct": false,
-          "rationale": "Steel adds tensile strength; it doesn't make it set."
+          "left": "Reinforced concrete",
+          "right": "Steel bars cast inside"
         },
         {
-          "id": "d",
-          "label": "Heat from the sun baking it",
-          "correct": false,
-          "rationale": "Hardening is a chemical reaction, hydration."
+          "left": "Lime clasts",
+          "right": "White lumps"
         }
       ],
-      "explanation": "Cement hardens by hydration, a chemical reaction with water, which is why concrete can even set underwater.",
+      "explanation": "Aggregate is sand and gravel, hydration is how cement and water react, reinforced concrete has steel bars cast inside, and lime clasts are white lumps in Roman concrete.",
       "difficulty": 0.15
     },
     {

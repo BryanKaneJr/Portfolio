@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 80,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Theater and the Arts",
   "objective": "After this level you can explain Greek achievements in theater, art and writing.",
@@ -345,7 +345,7 @@
     },
     {
       "id": "question.ancient_greece.080.q5",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_greece.sappho_poet",
@@ -356,33 +356,17 @@
       "sourceCardIds": [
         "card.ancient_greece.080.c4"
       ],
-      "prompt": "On the Theater and the Arts timeline, which came first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Sappho’s songs on Lesbos",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The Oresteia",
-          "correct": false,
-          "rationale": "That was staged in 458 BCE."
-        },
-        {
-          "id": "c",
-          "label": "Aristophanes’s Frogs",
-          "correct": false,
-          "rationale": "That won in 405 BCE."
-        },
-        {
-          "id": "d",
-          "label": "The Monument of Lysicrates",
-          "correct": false,
-          "rationale": "That dates to 334 BCE."
-        }
+      "prompt": "Put the chapter’s timeline in order, from earliest to latest.",
+      "items": [
+        "Sappho",
+        "Red-figure painting",
+        "The Oresteia",
+        "Aristophanes’s Frogs",
+        "First Corinthian columns"
       ],
-      "explanation": "Sappho lived about 610–570 BCE, long before the Oresteia (458), the Frogs (405) and the Monument of Lysicrates (334).",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Sappho sang about 610-570 BCE, red-figure painting began about 530 BCE, the Oresteia was staged in 458 BCE, Aristophanes’s Frogs won in 405 BCE, and the first outside Corinthian columns came in 334 BCE.",
       "difficulty": 0.25
     }
   ],

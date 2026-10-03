@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 97,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Reading in Translation",
   "objective": "After this level you can weigh how two translations of the same passage can give a reader different pictures.",
@@ -86,41 +86,32 @@
   "questions": [
     {
       "id": "question.literature.097.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.literature.translation_prose_verse"
       ],
       "sourceCardIds": [
-        "card.literature.097.c2"
+        "card.literature.097.c2",
+        "card.literature.097.c1",
+        "card.literature.097.c3"
       ],
-      "prompt": "Which form did Samuel Butler choose for his 1900 Odyssey?",
-      "options": [
+      "prompt": "Match each name or word with what goes with it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Rhyming heroic couplets",
-          "correct": false,
-          "rationale": "That was Pope's choice."
+          "left": "Samuel Butler",
+          "right": "Plain English prose"
         },
         {
-          "id": "b",
-          "label": "Plain English prose",
-          "correct": true
+          "left": "Alexander Pope",
+          "right": "Rhyming heroic couplets"
         },
         {
-          "id": "c",
-          "label": "Greek dactylic hexameter",
-          "correct": false,
-          "rationale": "That's Homer's own meter."
-        },
-        {
-          "id": "d",
-          "label": "Short stanzas of free verse",
-          "correct": false,
-          "rationale": "Butler wrote prose."
+          "left": "Polytropos",
+          "right": "Turning many ways"
         }
       ],
-      "explanation": "Butler rendered the Odyssey into English prose, admitting that much that is right in poetry is wrong in prose.",
+      "explanation": "Samuel Butler's Odyssey is in plain English prose, and Alexander Pope's is in rhyming heroic couplets. Polytropos can mean much-travelled or, figuratively, turning many ways.",
       "difficulty": 0.15
     },
     {

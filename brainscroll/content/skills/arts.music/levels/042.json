@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 42,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Composing Without Hearing",
   "objective": "After this level you can explain how Beethoven kept composing after losing his hearing.",
@@ -161,7 +161,7 @@
     },
     {
       "id": "question.music.042.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.beethoven_deafness"
@@ -170,33 +170,17 @@
         "card.music.042.c2",
         "card.music.042.c1"
       ],
-      "prompt": "What do Beethoven's letters and notebooks show about how his deafness came on?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It struck suddenly in 1802, overnight",
-          "correct": false,
-          "rationale": "His 1801 letter already describes years of decline."
-        },
-        {
-          "id": "b",
-          "label": "Gradually, over many years",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "He was born deaf and never heard music",
-          "correct": false,
-          "rationale": "He heard well as a young man in Bonn and Vienna."
-        },
-        {
-          "id": "d",
-          "label": "It began only after the Ninth's premiere",
-          "correct": false,
-          "rationale": "He was profoundly deaf by that premiere."
-        }
+      "prompt": "Put these steps in Beethoven's hearing loss in order, from earliest to latest.",
+      "items": [
+        "Hearing starts to weaken",
+        "Heiligenstadt Testament",
+        "Nearly deaf in his right ear",
+        "Starts conversation books",
+        "Profoundly deaf"
       ],
-      "explanation": "Weakening from about 1798, high notes lost by 1801, conversation books from 1818, profoundly deaf by 1824: a slow progression.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "His hearing started to weaken about 1798. He wrote the Heiligenstadt Testament in 1802, was nearly deaf in his right ear about 1814, started conversation books in 1818, and was profoundly deaf by 1824.",
       "difficulty": 0.25
     },
     {

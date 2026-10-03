@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 23,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Straw Man",
   "objective": "After this level you can spot a straw man, which knocks down a weaker version of someone's view instead of the real one.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "question.logic.023.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.classic_fallacy_straw_man"
@@ -139,33 +139,22 @@
         "card.logic.023.c2",
         "card.logic.023.c3"
       ],
-      "prompt": "How does Leo's reply to Maya work?",
-      "options": [
+      "prompt": "Match each line from the snack argument with who said it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It swaps in \"ban all food\" and knocks that down",
-          "correct": true
+          "left": "Fewer sugary snacks",
+          "right": "Maya"
         },
         {
-          "id": "b",
-          "label": "It questions Maya's honesty about snacks",
-          "correct": false,
-          "rationale": "He never mentions Maya herself."
+          "left": "Ban all food at work",
+          "right": "Leo"
         },
         {
-          "id": "c",
-          "label": "It gives evidence that sugary snacks are fine",
-          "correct": false,
-          "rationale": "He offers no evidence about snacks at all."
-        },
-        {
-          "id": "d",
-          "label": "It agrees with Maya's view but not her tone",
-          "correct": false,
-          "rationale": "He rejects a view, just not hers."
+          "left": "Wait! That's not what I said",
+          "right": "Maya"
         }
       ],
-      "explanation": "Leo replaces \"fewer sugary snacks\" with \"ban all food\", refutes that, and acts as if Maya's real view fell with it.",
+      "explanation": "Maya asked for fewer sugary snacks. Leo swapped in \"ban all food at work\", and Maya's natural reply is \"Wait! That's not what I said.\"",
       "difficulty": 0.25
     },
     {

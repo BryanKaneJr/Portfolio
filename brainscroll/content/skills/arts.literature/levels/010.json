@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 10,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: The First Great Stories",
   "objective": "After this level you can explain what myths are and how the oldest stories were composed, written down and passed on.",
@@ -236,7 +236,7 @@
     },
     {
       "id": "question.literature.010.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.literature.story_forms_path",
@@ -246,33 +246,17 @@
       "sourceCardIds": [
         "card.literature.010.c2"
       ],
-      "prompt": "Chapter recap: which of these was written down first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Sumerian poems of Gilgamesh",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Ovid's Metamorphoses",
-          "correct": false,
-          "rationale": "That came about 8 CE."
-        },
-        {
-          "id": "c",
-          "label": "Japan's Kojiki",
-          "correct": false,
-          "rationale": "That came in 712 CE."
-        },
-        {
-          "id": "d",
-          "label": "Ashurbanipal's copies at Nineveh",
-          "correct": false,
-          "rationale": "Those copied older texts in the 7th century BCE."
-        }
+      "prompt": "Put the first great stories in order, from earliest to latest.",
+      "items": [
+        "Sumerian poems of Gilgamesh",
+        "Homer's epics take shape among singers",
+        "Ashurbanipal's scribes copy old texts",
+        "Ovid finishes the Metamorphoses",
+        "The Kojiki is written down from memory"
       ],
-      "explanation": "Sumerian poems about Gilgamesh survive on tablets from the early 2nd millennium BCE, long before the others.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Gilgamesh poems come first (early 2nd millennium BCE), then Homer's epics, Ashurbanipal's copies (7th century BCE), Ovid's Metamorphoses (about 8 CE) and the Kojiki (712 CE).",
       "difficulty": 0.2
     },
     {

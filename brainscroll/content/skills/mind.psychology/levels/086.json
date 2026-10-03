@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 86,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Coping That Helps",
   "objective": "After this level you can compare problem-focused and emotion-focused coping and judge which fits a given situation.",
@@ -101,41 +101,31 @@
   "questions": [
     {
       "id": "question.psychology.086.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.coping_two_kinds"
       ],
       "sourceCardIds": [
-        "card.psychology.086.c2"
+        "card.psychology.086.c2",
+        "card.psychology.086.c4"
       ],
-      "prompt": "What does emotion-focused coping try to change?",
-      "options": [
+      "prompt": "Match each coping idea with its example or claim.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The negative emotions that come with the stress",
-          "correct": true
+          "left": "Problem-focused",
+          "right": "Getting tutoring for a hard class"
         },
         {
-          "id": "b",
-          "label": "The problem that is causing the stress",
-          "correct": false,
-          "rationale": "That is problem-focused coping."
+          "left": "Emotion-focused",
+          "right": "Watching a comedy"
         },
         {
-          "id": "c",
-          "label": "Other people's opinions of the problem",
-          "correct": false,
-          "rationale": "Neither kind is defined that way."
-        },
-        {
-          "id": "d",
-          "label": "The deadline or rules of the situation",
-          "correct": false,
-          "rationale": "Changing the situation is problem-focused."
+          "left": "Goodness-of-fit hypothesis",
+          "right": "Coping works best when it matches"
         }
       ],
-      "explanation": "Emotion-focused coping tries to reduce the negative emotions associated with stress.",
+      "explanation": "Getting tutoring for a hard class is problem-focused coping, and watching a comedy is emotion-focused. The goodness-of-fit hypothesis says coping works best when it matches how controllable a stressor is.",
       "difficulty": 0.2
     },
     {

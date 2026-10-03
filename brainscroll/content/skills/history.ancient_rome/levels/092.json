@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 92,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Attila and the Huns",
   "objective": "After this level you can describe the Huns under Attila and their impact on the empire.",
@@ -86,41 +86,26 @@
   "questions": [
     {
       "id": "question.ancient_rome.092.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_rome.attila"
       ],
       "sourceCardIds": [
-        "card.ancient_rome.092.c3"
+        "card.ancient_rome.092.c3",
+        "card.ancient_rome.092.c2",
+        "card.ancient_rome.092.c4"
       ],
-      "prompt": "Who stopped Attila in Gaul in 451 CE?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Aetius, with Visigothic allies",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Alaric and his Visigoths",
-          "correct": false,
-          "rationale": "Alaric died in 410 CE."
-        },
-        {
-          "id": "c",
-          "label": "Pope Leo I in person",
-          "correct": false,
-          "rationale": "He met Attila in Italy."
-        },
-        {
-          "id": "d",
-          "label": "The emperor Valens",
-          "correct": false,
-          "rationale": "He died in 378 CE."
-        }
+      "prompt": "Put Attila’s story in order, from first to last.",
+      "items": [
+        "Sharing power with his brother Bleda",
+        "Attila invaded Gaul",
+        "Attila invaded Italy",
+        "Attila died"
       ],
-      "explanation": "Aetius led a Roman and Visigothic army that stopped Attila at the Catalaunian Plains.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Attila at first ruled sharing power with his brother Bleda. He invaded Gaul in 451 CE and Italy in 452 CE, and he died in 453 CE.",
       "difficulty": 0.25
     },
     {

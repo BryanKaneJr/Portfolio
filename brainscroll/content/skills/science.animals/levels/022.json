@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 22,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How Birds Fly",
   "objective": "After this level you can explain how wings create lift.",
@@ -165,7 +165,7 @@
     },
     {
       "id": "question.animals.022.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.bird_flight_muscles",
@@ -173,35 +173,29 @@
       ],
       "sourceCardIds": [
         "card.animals.022.c4",
-        "card.animals.021.c4"
+        "card.animals.021.c4",
+        "card.animals.022.c3"
       ],
-      "prompt": "Level 21 showed how big fliers keep their bones light. What powers the wingbeat itself?",
-      "options": [
+      "prompt": "Match each part of a flying bird with its job.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Big breast muscles anchored to a keel",
-          "correct": true
+          "left": "Inner part",
+          "right": "Most of the lifting surface"
         },
         {
-          "id": "b",
-          "label": "Air stored in the hollow wing bones",
-          "correct": false,
-          "rationale": "That air saves weight; it doesn't power anything."
+          "left": "Wing tip",
+          "right": "Most of the propelling force"
         },
         {
-          "id": "c",
-          "label": "Strong leg muscles that kick off",
-          "correct": false,
-          "rationale": "The wingbeat comes from the breast muscles."
+          "left": "Keel",
+          "right": "Anchors the flight muscles"
         },
         {
-          "id": "d",
-          "label": "Struts inside the wing bones",
-          "correct": false,
-          "rationale": "Struts add strength, not power."
+          "left": "Pectoralis",
+          "right": "Pulls the wings down"
         }
       ],
-      "explanation": "The pectoralis pulls the wing down and the smaller supracoracoideus lifts it; both anchor on the keel.",
+      "explanation": "The inner part of the wing supplies most of the lifting surface and the wing tip most of the propelling force. The keel anchors the flight muscles, and the pectoralis pulls the wings down.",
       "difficulty": 0.25
     }
   ],

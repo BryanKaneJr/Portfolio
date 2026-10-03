@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 46,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Medicine",
   "objective": "After this level you can describe Egyptian medicine and the medical papyri.",
@@ -121,42 +121,26 @@
     },
     {
       "id": "question.ancient_egypt.046.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.medical_papyri"
       ],
       "sourceCardIds": [
         "card.ancient_egypt.046.c3",
-        "card.ancient_egypt.046.c4"
+        "card.ancient_egypt.046.c4",
+        "card.ancient_egypt.046.c2"
       ],
-      "prompt": "What sets the Edwin Smith Papyrus apart from the Ebers Papyrus?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It is written on clay tablets, not papyrus",
-          "correct": false,
-          "rationale": "Both are written on papyrus."
-        },
-        {
-          "id": "b",
-          "label": "It holds hundreds of magical formulas",
-          "correct": false,
-          "rationale": "That describes the Ebers Papyrus."
-        },
-        {
-          "id": "c",
-          "label": "It was written in Greek for foreign doctors",
-          "correct": false,
-          "rationale": "It is written in Egyptian hieratic."
-        },
-        {
-          "id": "d",
-          "label": "Its injury cases are chiefly practical",
-          "correct": true
-        }
+      "prompt": "Each case in the Edwin Smith Papyrus follows the same pattern. Put its parts in order.",
+      "items": [
+        "The injury",
+        "A diagnosis",
+        "A prognosis",
+        "The treatment"
       ],
-      "explanation": "The Smith cases are chiefly rational; the Ebers Papyrus is packed with magical formulas and folk remedies.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Every case follows the same pattern: the injury, a diagnosis, a prognosis, then the treatment.",
       "difficulty": 0.35
     },
     {

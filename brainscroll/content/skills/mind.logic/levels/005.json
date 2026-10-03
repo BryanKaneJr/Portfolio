@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 5,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Premises and Conclusions",
   "objective": "After this level you can name the premises and the conclusion of a simple argument.",
@@ -127,41 +127,31 @@
     },
     {
       "id": "question.logic.005.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.premise_conclusion"
       ],
       "sourceCardIds": [
-        "card.logic.005.c5"
+        "card.logic.005.c5",
+        "card.logic.005.c2"
       ],
-      "prompt": "\"The gardener did it. After all, the butler didn't.\" Where is the conclusion?",
-      "options": [
+      "prompt": "Match each sentence of the gardener argument with its job.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "In the first sentence",
-          "correct": true
+          "left": "The gardener did it",
+          "right": "Conclusion"
         },
         {
-          "id": "b",
-          "label": "In the second sentence",
-          "correct": false,
-          "rationale": "\"After all\" introduces the reason, so that's a premise."
+          "left": "It was either the butler or the gardener",
+          "right": "Premise"
         },
         {
-          "id": "c",
-          "label": "There is no conclusion",
-          "correct": false,
-          "rationale": "\"The butler didn't\" is offered as a reason for a claim."
-        },
-        {
-          "id": "d",
-          "label": "Split across both sentences",
-          "correct": false,
-          "rationale": "The first sentence is one complete claim."
+          "left": "The butler didn't do it",
+          "right": "Premise"
         }
       ],
-      "explanation": "\"The gardener did it\" is supported by the rest, so it's the conclusion, even though it comes first.",
+      "explanation": "\"The gardener did it\" is the conclusion, even though it comes first. \"It was either the butler or the gardener\" and \"The butler didn't do it\" are the premises.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 44,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Schools of Fish",
   "objective": "After this level you can explain why fish swim in schools.",
@@ -131,7 +131,7 @@
     },
     {
       "id": "question.oceans.044.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.sunlit_fish_schools_how"
@@ -139,33 +139,16 @@
       "sourceCardIds": [
         "card.oceans.044.c4"
       ],
-      "prompt": "A fish school has no single leader. How does each fish keep in formation?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It follows the biggest fish at the front",
-          "correct": false,
-          "rationale": "There is no leader to follow."
-        },
-        {
-          "id": "b",
-          "label": "It swims to a fixed spot in the school",
-          "correct": false,
-          "rationale": "Positions shift; fish follow neighbors."
-        },
-        {
-          "id": "c",
-          "label": "It senses its neighbors by sight and lateral line",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It listens for a call from the school's center",
-          "correct": false,
-          "rationale": "Fish track nearby movements, not a call."
-        }
+      "prompt": "A predator attacks a school. Put what happens in order, from first to last.",
+      "items": [
+        "A predator strikes",
+        "Only a few fish may see it",
+        "The alarm spreads",
+        "Thousands move as one shape"
       ],
-      "explanation": "Each fish uses its eyes and pressure-sensing lateral line to follow its neighbors, timing its tail beats to theirs.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "When a predator strikes, only a few fish may see it, but the alarm spreads, and in less than a second thousands move as one shape.",
       "difficulty": 0.2
     },
     {

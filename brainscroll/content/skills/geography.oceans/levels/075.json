@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 75,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Krill",
   "objective": "After this level you can explain why tiny krill matter so much.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "question.oceans.075.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.krill_keystone"
@@ -138,33 +138,15 @@
       "sourceCardIds": [
         "card.oceans.075.c3"
       ],
-      "prompt": "Why do so many of the Southern Ocean's larger animals depend on krill?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Krill clean the water so other animals can see",
-          "correct": false,
-          "rationale": "Krill matter as food, not as cleaners."
-        },
-        {
-          "id": "b",
-          "label": "Krill keep the ocean from freezing",
-          "correct": false,
-          "rationale": "Krill don't change the water's temperature."
-        },
-        {
-          "id": "c",
-          "label": "Krill build the sea ice that animals rest on",
-          "correct": false,
-          "rationale": "Sea ice is frozen seawater; krill live under it."
-        },
-        {
-          "id": "d",
-          "label": "Krill are their main food, linking them to tiny algae",
-          "correct": true
-        }
+      "prompt": "Put this Southern Ocean food chain in order, from smallest food to biggest eater.",
+      "items": [
+        "Microscopic algae",
+        "Krill",
+        "The blue whale"
       ],
-      "explanation": "Krill eat microscopic algae and are the main food for penguins, whales and fish, linking the smallest life to the largest.",
+      "first": "Smallest food",
+      "last": "Biggest eater",
+      "explanation": "Krill graze on microscopic algae, and the blue whale eats almost nothing but krill, up to 6 tons a day.",
       "difficulty": 0.35
     },
     {

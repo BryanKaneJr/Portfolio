@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 10,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: First Peoples, New Worlds",
   "objective": "After this level you can explain what North America was like before 1600 and how the arrival of Europeans changed it.",
@@ -159,44 +159,26 @@
   "questions": [
     {
       "id": "question.us_history.010.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.encounter_crowded_continent",
         "concept.us_history.cahokia_city"
       ],
       "sourceCardIds": [
-        "card.us_history.010.c2",
-        "card.us_history.004.c2",
-        "card.us_history.008.c2"
+        "card.us_history.010.c2"
       ],
-      "prompt": "First Peoples, New Worlds: which order of events is right?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Cahokia flourishes, St. Augustine is founded, the Pueblo Revolt",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "St. Augustine is founded, Cahokia flourishes, the Pueblo Revolt",
-          "correct": false,
-          "rationale": "Cahokia came centuries before 1565."
-        },
-        {
-          "id": "c",
-          "label": "Cahokia flourishes, the Pueblo Revolt, St. Augustine is founded",
-          "correct": false,
-          "rationale": "St. Augustine (1565) came before 1680."
-        },
-        {
-          "id": "d",
-          "label": "The Pueblo Revolt, Cahokia flourishes, St. Augustine is founded",
-          "correct": false,
-          "rationale": "The revolt came last, in 1680."
-        }
+      "prompt": "Put these events in early North America in order, from earliest to latest.",
+      "items": [
+        "Cahokia flourishes near St. Louis",
+        "Columbus’s voyage",
+        "Spain founds St. Augustine",
+        "The English found Jamestown",
+        "The Pueblo Revolt drives out the Spanish"
       ],
-      "explanation": "Cahokia flourished from about 950 to 1350; St. Augustine was founded in 1565; the Pueblo Revolt came in 1680.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Cahokia flourished from about 950 to 1350, Columbus sailed in 1492, Spain founded St. Augustine in 1565, the English founded Jamestown in 1607, and the Pueblo Revolt came in 1680.",
       "difficulty": 0.25
     },
     {

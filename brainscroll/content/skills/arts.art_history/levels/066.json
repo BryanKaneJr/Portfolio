@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 66,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Picasso and Cubism",
   "objective": "After this level you can explain how Cubism showed objects from many angles at once.",
@@ -134,41 +134,26 @@
     },
     {
       "id": "question.art_history.066.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.cubism_views"
       ],
       "sourceCardIds": [
-        "card.art_history.066.c2"
+        "card.art_history.066.c2",
+        "card.art_history.066.c1",
+        "card.art_history.066.c3",
+        "card.art_history.066.c4"
       ],
-      "prompt": "Why can a Cubist face show one eye from the front and the nose from the side?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The painter got the perspective wrong",
-          "correct": false,
-          "rationale": "Cubists dropped perspective on purpose."
-        },
-        {
-          "id": "b",
-          "label": "Cubists showed several views of a subject at once",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The model kept moving during the sitting",
-          "correct": false,
-          "rationale": "It's a deliberate method, not an accident."
-        },
-        {
-          "id": "d",
-          "label": "It's two photographs glued together",
-          "correct": false,
-          "rationale": "Nothing was glued; it's a way of showing."
-        }
+      "prompt": "Put these moments in Cubism's story in order, from earliest to latest.",
+      "items": [
+        "Braque's houses were just cubes",
+        "Analytic Cubism",
+        "Synthetic Cubism"
       ],
-      "explanation": "Cubism combines several viewpoints in one picture, broken into overlapping planes.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "In 1908 a critic sneered that Braque's houses were just cubes. Analytic Cubism followed, about 1910 to 1912, and Synthetic Cubism, with collage, came after 1912.",
       "difficulty": 0.35
     },
     {

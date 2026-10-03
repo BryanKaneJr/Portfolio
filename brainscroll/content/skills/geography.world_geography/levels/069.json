@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 69,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Islands of Fire",
   "objective": "After this level you can explain why Japan, Indonesia and the Philippines have so many volcanoes and earthquakes.",
@@ -108,41 +108,31 @@
   "questions": [
     {
       "id": "question.world_geography.069.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.ring_of_fire"
       ],
       "sourceCardIds": [
-        "card.world_geography.069.c2"
+        "card.world_geography.069.c2",
+        "card.world_geography.069.c4"
       ],
-      "prompt": "Japan, the Philippines and Indonesia all sit on which belt of volcanoes and earthquakes?",
-      "options": [
+      "prompt": "Match each country with its fact.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The Ring of Fire",
-          "correct": true
+          "left": "Japan",
+          "right": "111 active volcanoes"
         },
         {
-          "id": "b",
-          "label": "The Mid-Atlantic Ridge",
-          "correct": false,
-          "rationale": "That ridge runs down the middle of the Atlantic, far from these islands."
+          "left": "Indonesia",
+          "right": "Some 17,500 islands"
         },
         {
-          "id": "c",
-          "label": "The Great Rift Valley",
-          "correct": false,
-          "rationale": "That rift runs through East Africa."
-        },
-        {
-          "id": "d",
-          "label": "The Tropic of Cancer",
-          "correct": false,
-          "rationale": "That is a line of latitude, not a volcanic belt."
+          "left": "Philippines",
+          "right": "More than 7,000 islands"
         }
       ],
-      "explanation": "The Ring of Fire runs through Japan, the Philippines and Indonesia.",
+      "explanation": "Japan has 111 active volcanoes. Indonesia has some 17,500 islands, and the Philippines more than 7,000.",
       "difficulty": 0.15
     },
     {

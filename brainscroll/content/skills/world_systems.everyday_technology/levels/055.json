@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 55,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Software and Code",
   "objective": "After this level you can explain what code is and how programs tell a computer what to do.",
@@ -121,42 +121,36 @@
     },
     {
       "id": "question.everyday_technology.055.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.computer_software_code"
       ],
       "sourceCardIds": [
         "card.everyday_technology.055.c3",
-        "card.everyday_technology.055.c4"
+        "card.everyday_technology.055.c4",
+        "card.everyday_technology.055.c2"
       ],
-      "prompt": "Why do programmers usually write in a language like Python instead of in machine code?",
-      "options": [
+      "prompt": "Match each software word with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Python runs without any processor",
-          "correct": false,
-          "rationale": "Every program still runs on a processor."
+          "left": "Hardware",
+          "right": "The physical machine"
         },
         {
-          "id": "b",
-          "label": "It is far easier for people, and gets translated to machine code",
-          "correct": true
+          "left": "Software",
+          "right": "The instructions that tell it what to do"
         },
         {
-          "id": "c",
-          "label": "Machine code was banned in 1957",
-          "correct": false,
-          "rationale": "Machine code is still what every processor runs."
+          "left": "A compiler",
+          "right": "Translates a whole program"
         },
         {
-          "id": "d",
-          "label": "Processors understand Python directly",
-          "correct": false,
-          "rationale": "Processors run only machine code."
+          "left": "An interpreter",
+          "right": "One instruction at a time"
         }
       ],
-      "explanation": "High-level languages are much easier for people to read and write; a compiler or interpreter turns them into machine code.",
+      "explanation": "Hardware is the physical machine and software is the instructions that tell it what to do. A compiler translates a whole program, while an interpreter works one instruction at a time.",
       "difficulty": 0.25
     },
     {

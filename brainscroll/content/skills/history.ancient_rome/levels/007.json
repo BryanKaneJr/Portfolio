@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 7,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Gods of the Household and the State",
   "objective": "After this level you can describe early Roman religion, from household spirits to state priests and omens.",
@@ -159,7 +159,7 @@
     },
     {
       "id": "question.ancient_rome.007.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_rome.roman_religion",
@@ -167,35 +167,30 @@
       ],
       "sourceCardIds": [
         "card.ancient_rome.007.c4",
-        "card.ancient_rome.005.c4"
+        "card.ancient_rome.005.c4",
+        "card.ancient_rome.007.c2",
+        "card.ancient_rome.007.c3"
       ],
-      "prompt": "From Level 5: augurs read omens in birds. Which related practice did Romans learn from the Etruscans?",
-      "options": [
+      "prompt": "Match each part of Roman religion with what it was about.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Reading omens in animal organs",
-          "correct": true
+          "left": "Lares and Penates",
+          "right": "Guardian spirits of the home"
         },
         {
-          "id": "b",
-          "label": "Reading omens in the stars",
-          "correct": false,
-          "rationale": "Not the Etruscan practice Rome adopted."
+          "left": "Vestal Virgins",
+          "right": "The sacred fire of Vesta"
         },
         {
-          "id": "c",
-          "label": "Reading omens in dreams",
-          "correct": false,
-          "rationale": "Not this one."
+          "left": "Augurs",
+          "right": "The flight of birds"
         },
         {
-          "id": "d",
-          "label": "Reading omens in tea leaves",
-          "correct": false,
-          "rationale": "Not Roman at all."
+          "left": "Jupiter",
+          "right": "King of the gods"
         }
       ],
-      "explanation": "Haruspicy, reading the organs of sacrificed animals, came to Rome from the Etruscans.",
+      "explanation": "The Lares and Penates were guardian spirits of the home, the Vestal Virgins tended the sacred fire of Vesta, augurs read the flight of birds, and Jupiter was king of the gods.",
       "difficulty": 0.3
     }
   ],

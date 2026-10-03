@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 40,
   "type": "checkpoint",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Checkpoint: Castles and Palaces",
   "objective": "After this level you can compare buildings made to defend with buildings made to impress.",
@@ -223,7 +223,7 @@
     },
     {
       "id": "question.architecture.040.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.architecture.castles_comfort_shift",
@@ -231,35 +231,29 @@
       ],
       "sourceCardIds": [
         "card.architecture.040.c2",
-        "card.architecture.037.c2"
+        "card.architecture.037.c2",
+        "card.architecture.040.c3"
       ],
-      "prompt": "Castles and Palaces recap: Tudor barons left castles for country houses. Which palace pulled nobles in to live under the ruler's eye?",
-      "options": [
+      "prompt": "Castles and Palaces recap: match each building with what the chapter remembers it for.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The Taj Mahal",
-          "correct": false,
-          "rationale": "That is a tomb."
+          "left": "Rochester",
+          "right": "Lost corner, rebuilt round"
         },
         {
-          "id": "b",
-          "label": "The Alhambra",
-          "correct": false,
-          "rationale": "Its story here is courtyards and water."
+          "left": "Versailles",
+          "right": "Nobles under the king's eye"
         },
         {
-          "id": "c",
-          "label": "Versailles",
-          "correct": true
+          "left": "The Taj Mahal",
+          "right": "Perfect symmetry"
         },
         {
-          "id": "d",
-          "label": "Neuschwanstein",
-          "correct": false,
-          "rationale": "Ludwig II built it to withdraw from people."
+          "left": "The Alhambra",
+          "right": "Plain fortress outside"
         }
       ],
-      "explanation": "From 1682 Versailles housed the whole court, and under the king's watchful eye the nobility could no longer plot.",
+      "explanation": "Rochester lost a corner and rebuilt it round, Versailles kept nobles under the king's eye, the Taj Mahal has perfect symmetry, and the Alhambra is a plain fortress outside, ornate inside.",
       "difficulty": 0.2
     },
     {

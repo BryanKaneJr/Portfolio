@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 58,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Crabs and Lobsters",
   "objective": "After this level you can describe crustaceans and their armor.",
@@ -135,7 +135,7 @@
     },
     {
       "id": "question.animals.058.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.crustacean_molting"
@@ -143,33 +143,15 @@
       "sourceCardIds": [
         "card.animals.058.c3"
       ],
-      "prompt": "Why must a crab molt to get bigger?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Its rigid outer skeleton can’t grow",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Its old shell falls apart each winter",
-          "correct": false,
-          "rationale": "Molting is about growth, not the season."
-        },
-        {
-          "id": "c",
-          "label": "It needs to change color for the season",
-          "correct": false,
-          "rationale": "The point of molting is growth."
-        },
-        {
-          "id": "d",
-          "label": "Molting is how it lays eggs",
-          "correct": false,
-          "rationale": "Molting is for growth, not reproduction."
-        }
+      "prompt": "Put the steps of molting in order.",
+      "items": [
+        "Climbs out",
+        "Stretches it by taking in water or air",
+        "Then it hardens"
       ],
-      "explanation": "A rigid exoskeleton limits growth, so the crab sheds it and grows a new, larger one.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The animal climbs out wearing a new, soft skeleton, stretches it by taking in water or air, and then it hardens.",
       "difficulty": 0.2
     },
     {

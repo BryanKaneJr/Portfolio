@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 77,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Cleopatra",
   "objective": "After this level you can explain who Cleopatra was and how she ruled.",
@@ -123,41 +123,26 @@
     },
     {
       "id": "question.ancient_egypt.077.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.cleopatra_vii"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.077.c4"
+        "card.ancient_egypt.077.c4",
+        "card.ancient_egypt.077.c3"
       ],
-      "prompt": "Why can’t we say exactly what Cleopatra looked like?",
-      "options": [
-        {
-          "id": "a",
-          "label": "No images of her were ever made",
-          "correct": false,
-          "rationale": "Coins of her survive."
-        },
-        {
-          "id": "b",
-          "label": "Her coins are political images, and even her mother isn’t certain",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Her mummy shows her face clearly",
-          "correct": false,
-          "rationale": "No mummy settles the question."
-        },
-        {
-          "id": "d",
-          "label": "Plutarch described her face in exact, careful detail",
-          "correct": false,
-          "rationale": "He talked about her conversation instead."
-        }
+      "prompt": "Put these events in Cleopatra’s life in order, from first to last.",
+      "items": [
+        "Forced out by her brother",
+        "Regained power with Julius Caesar’s help",
+        "Allied with Mark Antony",
+        "The Battle of Actium",
+        "Egypt became a Roman province"
       ],
-      "explanation": "Her coin portraits were official images, part of her ancestry is unknown, and ancient writers praised her charm more than her looks.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Cleopatra was forced out by her brother, then regained power with Julius Caesar’s help. Later she allied with Mark Antony, lost the Battle of Actium in 31 BCE, and in 30 BCE Egypt became a Roman province.",
       "difficulty": 0.35
     },
     {

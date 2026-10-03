@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 91,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Citizenship",
   "objective": "After this level you can explain what citizenship means.",
@@ -148,41 +148,31 @@
     },
     {
       "id": "question.government.091.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.citizenship_naturalization"
       ],
       "sourceCardIds": [
-        "card.government.091.c4"
+        "card.government.091.c4",
+        "card.government.091.c3"
       ],
-      "prompt": "An adult born and raised in Japan moves to Canada and wants Canadian citizenship. Which route fits?",
-      "options": [
+      "prompt": "Match each route to citizenship with its example country.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Jus soli, since Canada uses birthplace",
-          "correct": false,
-          "rationale": "They weren't born in Canada, so birthplace doesn't help."
+          "left": "Jus soli",
+          "right": "Western Hemisphere"
         },
         {
-          "id": "b",
-          "label": "Jus sanguinis, through Japanese parents",
-          "correct": false,
-          "rationale": "That passes on Japanese citizenship, not Canadian."
+          "left": "Jus sanguinis",
+          "right": "Japan"
         },
         {
-          "id": "c",
-          "label": "Nothing: citizenship can only come at birth",
-          "correct": false,
-          "rationale": "Adults can become citizens by applying."
-        },
-        {
-          "id": "d",
-          "label": "Naturalization: time in Canada, then a test",
-          "correct": true
+          "left": "Naturalization",
+          "right": "Canada"
         }
       ],
-      "explanation": "Naturalization is citizenship by application. Canada asks for 1,095 days in the country within 5 years, plus a test for ages 18 to 54.",
+      "explanation": "Jus soli is the basis in nearly every country in the Western Hemisphere, Japan follows jus sanguinis, and Canada's naturalization asks for 1,095 days in the country plus a test.",
       "difficulty": 0.3
     },
     {

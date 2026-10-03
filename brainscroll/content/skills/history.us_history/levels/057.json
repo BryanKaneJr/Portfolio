@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 57,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Appomattox and Assassination",
   "objective": "After this level you can describe how the war ended in April 1865 and what Lincoln's assassination changed.",
@@ -130,41 +130,26 @@
     },
     {
       "id": "question.us_history.057.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.us_history.lincoln_assassination_1865"
       ],
       "sourceCardIds": [
-        "card.us_history.057.c4"
+        "card.us_history.057.c4",
+        "card.us_history.057.c2",
+        "card.us_history.057.c3"
       ],
-      "prompt": "Why did Lincoln’s assassination change how the South was brought back?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It restarted the war in Virginia",
-          "correct": false,
-          "rationale": "Lee had already surrendered."
-        },
-        {
-          "id": "b",
-          "label": "It put Andrew Johnson, with lenient terms for the South, in charge",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It gave Booth’s allies control of Congress",
-          "correct": false,
-          "rationale": "Republicans in Congress opposed Johnson’s leniency."
-        },
-        {
-          "id": "d",
-          "label": "It forced Grant to cancel the surrender terms",
-          "correct": false,
-          "rationale": "The Appomattox terms stood."
-        }
+      "prompt": "Put these events of 1865 in order, from first to last.",
+      "items": [
+        "His second inaugural address",
+        "Lee surrendered his army",
+        "Shot Lincoln at Ford’s Theatre",
+        "Lincoln died the next morning"
       ],
-      "explanation": "Johnson pardoned most white Southerners and let their states rebuild with little oversight, angering Congress.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Lincoln gave his second inaugural address on March 4, 1865. Lee surrendered on April 9, Booth shot Lincoln at Ford’s Theatre on April 14, and Lincoln died the next morning.",
       "difficulty": 0.4
     },
     {

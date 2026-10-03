@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 99,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Chemistry Myths",
   "objective": "After this level you can debunk myths, like \"chemical-free\" products.",
@@ -97,41 +97,32 @@
   "questions": [
     {
       "id": "question.chemistry.099.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.myth_chemical_free"
       ],
       "sourceCardIds": [
-        "card.chemistry.099.c3"
+        "card.chemistry.099.c3",
+        "card.chemistry.099.c1",
+        "card.chemistry.099.c4"
       ],
-      "prompt": "In 2014, what did the \"comprehensive overview of chemical-free consumer products\" list?",
-      "options": [
+      "prompt": "Match each chemistry myth-buster with what it showed.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Hundreds of organic foods",
-          "correct": false,
-          "rationale": "No product passed the test."
+          "left": "Royal Society of Chemistry",
+          "right": "A million pounds"
         },
         {
-          "id": "b",
-          "label": "Only bottled water",
-          "correct": false,
-          "rationale": "Water is a chemical too."
+          "left": "Nature Chemistry",
+          "right": "The list was empty"
         },
         {
-          "id": "c",
-          "label": "Nothing: the list was empty",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Every product sold in health food shops",
-          "correct": false,
-          "rationale": "No product passed the test."
+          "left": "Vitamin C",
+          "right": "Chemically identical"
         }
       ],
-      "explanation": "After examining lotions, supplements, cleaners, foods and drinks, the authors found no truly chemical-free products.",
+      "explanation": "The Royal Society of Chemistry offered a million pounds for anything chemical-free, the Nature Chemistry paper's list was empty, and natural and synthetic vitamin C are chemically identical.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 81,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Darwin's Voyage",
   "objective": "After this level you can describe what Darwin saw on the voyage of the Beagle.",
@@ -165,7 +165,7 @@
     },
     {
       "id": "question.animals.081.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.darwin_galapagos_clues",
@@ -173,35 +173,20 @@
       ],
       "sourceCardIds": [
         "card.animals.081.c4",
-        "card.animals.004.c3"
+        "card.animals.004.c3",
+        "card.animals.081.c1",
+        "card.animals.081.c3"
       ],
-      "prompt": "Level 4 starts official animal names in 1758. Which Darwin milestone came about a century after that?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Darwin's birth",
-          "correct": false,
-          "rationale": "That was 1809, about 50 years after."
-        },
-        {
-          "id": "b",
-          "label": "The Beagle setting sail",
-          "correct": false,
-          "rationale": "That was 1831, about 70 years after."
-        },
-        {
-          "id": "c",
-          "label": "Gould's report on the birds",
-          "correct": false,
-          "rationale": "That was 1837."
-        },
-        {
-          "id": "d",
-          "label": "On the Origin of Species",
-          "correct": true
-        }
+      "prompt": "Put these Darwin milestones in order, from earliest to latest.",
+      "items": [
+        "Boarded HMS Beagle",
+        "Reached the Galápagos Islands",
+        "John Gould sorted the specimens",
+        "On the Origin of Species"
       ],
-      "explanation": "Origin was published in 1859, about a century after Linnaeus's 1758 Systema Naturae.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Darwin boarded HMS Beagle in 1831 and reached the Galápagos Islands in 1835. Back in England, John Gould sorted the specimens and reported in 1837, and On the Origin of Species came out in 1859.",
       "difficulty": 0.3
     }
   ],

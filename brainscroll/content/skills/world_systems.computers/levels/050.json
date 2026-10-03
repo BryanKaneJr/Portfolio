@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 50,
   "type": "milestone",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Milestone: One Web Page, Start to Finish",
   "objective": "After this level you can explain every step from typing a web address to seeing the page: bits, software, DNS, packets, servers and your browser.",
@@ -226,7 +226,7 @@
     },
     {
       "id": "question.computers.050.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.web_page_journey",
@@ -236,33 +236,16 @@
         "card.computers.050.c2",
         "card.computers.042.c3"
       ],
-      "prompt": "Why does the browser send several more requests after the first HTML file arrives?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The first request always fails and has to be repeated",
-          "correct": false,
-          "rationale": "The first request usually succeeds; more files are needed."
-        },
-        {
-          "id": "b",
-          "label": "The HTML names style sheets, scripts and images it still needs",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Each request can only carry one word of the page at a time",
-          "correct": false,
-          "rationale": "A response can carry a whole file."
-        },
-        {
-          "id": "d",
-          "label": "The server asks the browser to send its cookies separately",
-          "correct": false,
-          "rationale": "Cookies ride along with each request."
-        }
+      "prompt": "Put the steps of loading a web page in order, from Enter to pixels.",
+      "items": [
+        "DNS lookup",
+        "A TCP handshake",
+        "The browser sends a GET request",
+        "Paint"
       ],
-      "explanation": "The HTML refers to other files (CSS, scripts, images), and the browser requests each one.",
+      "first": "You press Enter",
+      "last": "Pixels on your screen",
+      "explanation": "First a DNS lookup finds the server's IP address, then a TCP handshake opens a connection, the browser sends a GET request, and finally paint turns every box into pixels.",
       "difficulty": 0.25
     },
     {

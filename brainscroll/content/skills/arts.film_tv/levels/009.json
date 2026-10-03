@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 9,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How a Projector Works",
   "objective": "After this level you can explain how a projector's claw and shutter hold each frame still, then hide it while the film moves, so the picture never smears.",
@@ -130,41 +130,31 @@
     },
     {
       "id": "question.film_tv.009.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.projector_shutter"
       ],
       "sourceCardIds": [
-        "card.film_tv.009.c4"
+        "card.film_tv.009.c4",
+        "card.film_tv.009.c2"
       ],
-      "prompt": "Why does a projector's shutter block the light while the film is being pulled down?",
-      "options": [
+      "prompt": "Match each projector part with what it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "To cool the film between frames",
-          "correct": false,
-          "rationale": "Its job is hiding motion, not cooling."
+          "left": "Claw",
+          "right": "Hooks the sprocket holes"
         },
         {
-          "id": "b",
-          "label": "To slow the film to 16 frames per second",
-          "correct": false,
-          "rationale": "The shutter doesn't set the speed."
+          "left": "Maltese cross",
+          "right": "A four-slot wheel"
         },
         {
-          "id": "c",
-          "label": "So the frame's movement is never seen on screen",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "To add color to each frame",
-          "correct": false,
-          "rationale": "The shutter only blocks light."
+          "left": "Spinning shutter",
+          "right": "Blocks the light"
         }
       ],
-      "explanation": "The shutter covers each pull-down, so viewers see only still frames, one after another.",
+      "explanation": "A claw hooks the sprocket holes to pull the film down, a Maltese cross is a four-slot wheel that stops each frame, and a spinning shutter blocks the light while the film moves.",
       "difficulty": 0.25
     },
     {

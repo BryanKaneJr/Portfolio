@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 19,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Branches of Judaism Today",
   "objective": "After this level you can compare Orthodox, Conservative and Reform Judaism, and tell these branches apart from Ashkenazi and Sephardi heritage.",
@@ -136,42 +136,32 @@
     },
     {
       "id": "question.religions.019.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.judaism_branches"
       ],
       "sourceCardIds": [
         "card.religions.019.c2",
-        "card.religions.019.c3"
+        "card.religions.019.c3",
+        "card.religions.019.c5"
       ],
-      "prompt": "What is the main difference between Orthodox and Reform Judaism?",
-      "options": [
+      "prompt": "Match each heritage group with where its ancestors came from.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Whether they read the Torah at all",
-          "correct": false,
-          "rationale": "Both read the Torah."
+          "left": "Ashkenazim",
+          "right": "The Rhineland and France"
         },
         {
-          "id": "b",
-          "label": "Whether they believe in one God",
-          "correct": false,
-          "rationale": "Both hold belief in one God."
+          "left": "Sephardim",
+          "right": "Spain and Portugal"
         },
         {
-          "id": "c",
-          "label": "Which country their members come from",
-          "correct": false,
-          "rationale": "That is heritage, not branch."
-        },
-        {
-          "id": "d",
-          "label": "How binding they hold traditional Jewish law to be",
-          "correct": true
+          "left": "Mizrahim",
+          "right": "North Africa and the Middle East"
         }
       ],
-      "explanation": "Orthodox Judaism holds the Written and Oral Law fixed and binding; Reform questions the binding force of ritual law.",
+      "explanation": "Ashkenazim descend from Jews of the Rhineland and France, Sephardim from the Jews of Spain and Portugal, and Mizrahim are Jews of North Africa and the Middle East.",
       "difficulty": 0.3
     },
     {

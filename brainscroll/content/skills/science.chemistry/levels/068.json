@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 68,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Batteries",
   "objective": "After this level you can explain how chemistry makes electricity in a battery.",
@@ -135,7 +135,7 @@
     },
     {
       "id": "question.chemistry.068.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.battery_split_reaction",
@@ -145,33 +145,22 @@
         "card.chemistry.068.c2",
         "card.chemistry.068.c3"
       ],
-      "prompt": "Inside a battery, why do the electrons end up flowing through your device?",
-      "options": [
+      "prompt": "Match each part of a battery with its job.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The device makes new electrons from nothing",
-          "correct": false,
-          "rationale": "Electrons come from the substance at the anode."
+          "left": "Anode",
+          "right": "Gives up electrons"
         },
         {
-          "id": "b",
-          "label": "The electrolyte stores them until the battery is full",
-          "correct": false,
-          "rationale": "The electrolyte carries ions, not stored electrons."
+          "left": "Cathode",
+          "right": "Accepts them"
         },
         {
-          "id": "c",
-          "label": "Electrons flow from the cathode to the anode through the acid",
-          "correct": false,
-          "rationale": "Ions move through the electrolyte; electrons use the circuit."
-        },
-        {
-          "id": "d",
-          "label": "The outside circuit is their route from anode to cathode",
-          "correct": true
+          "left": "Electrolyte",
+          "right": "A road for ions"
         }
       ],
-      "explanation": "The anode gives up electrons and the cathode takes them; the electrons travel through the outside circuit while ions cross the electrolyte.",
+      "explanation": "At the anode a substance gives up electrons, at the cathode a substance accepts them, and the electrolyte is a road for ions inside the battery.",
       "difficulty": 0.35
     },
     {

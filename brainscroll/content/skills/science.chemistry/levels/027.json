@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 27,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Halogens",
   "objective": "After this level you can describe chlorine and its relatives and how we use them.",
@@ -164,7 +164,7 @@
     },
     {
       "id": "question.chemistry.027.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.ptable_halogen_family",
@@ -174,33 +174,22 @@
         "card.chemistry.027.c3",
         "card.chemistry.010.c2"
       ],
-      "prompt": "Level 10 showed dry ice subliming. Which halogen sublimes when warmed?",
-      "options": [
+      "prompt": "Match each halogen with its state at room temperature.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Iodine",
-          "correct": true
+          "left": "Chlorine",
+          "right": "Gas"
         },
         {
-          "id": "b",
-          "label": "Bromine",
-          "correct": false,
-          "rationale": "Bromine is a liquid at room temperature."
+          "left": "Bromine",
+          "right": "Liquid"
         },
         {
-          "id": "c",
-          "label": "Chlorine",
-          "correct": false,
-          "rationale": "Chlorine is already a gas."
-        },
-        {
-          "id": "d",
-          "label": "Fluorine",
-          "correct": false,
-          "rationale": "Fluorine is already a gas."
+          "left": "Iodine",
+          "right": "Solid"
         }
       ],
-      "explanation": "Gently warmed solid iodine turns mostly straight into a purple vapor, skipping the liquid, much like dry ice.",
+      "explanation": "At room temperature chlorine is a gas, bromine is a deep-red liquid and iodine is a shiny black solid.",
       "difficulty": 0.3
     }
   ],

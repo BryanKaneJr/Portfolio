@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 3,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Kilobytes to Terabytes",
   "objective": "After this level you can compare the sizes of a text message, a photo, a movie and a whole drive in bytes.",
@@ -111,41 +111,25 @@
   "questions": [
     {
       "id": "question.computers.003.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.size_ladder"
       ],
       "sourceCardIds": [
-        "card.computers.003.c3"
+        "card.computers.003.c3",
+        "card.computers.003.c2"
       ],
-      "prompt": "By Netflix's figures, how much data can an hour of HD streaming use?",
-      "options": [
-        {
-          "id": "a",
-          "label": "About 3 KB",
-          "correct": false,
-          "rationale": "That is only about 3,000 typed characters."
-        },
-        {
-          "id": "b",
-          "label": "About 3 MB",
-          "correct": false,
-          "rationale": "That is about one photo saved as JPEG."
-        },
-        {
-          "id": "c",
-          "label": "About 3 TB",
-          "correct": false,
-          "rationale": "That is three whole 1 TB drives."
-        },
-        {
-          "id": "d",
-          "label": "Up to 3 GB",
-          "correct": true
-        }
+      "prompt": "Put these storage prefixes in order, from smallest to largest.",
+      "items": [
+        "kilo",
+        "mega",
+        "giga",
+        "tera"
       ],
-      "explanation": "HD streaming uses up to 3 GB an hour, so a two-hour film is up to 6 GB.",
+      "first": "Smallest",
+      "last": "Largest",
+      "explanation": "Kilo means a thousand, mega a million, giga a billion and tera a trillion, so each step up is 1,000 times the last.",
       "difficulty": 0.15
     },
     {

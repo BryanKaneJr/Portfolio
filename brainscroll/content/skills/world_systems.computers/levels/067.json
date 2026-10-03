@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 67,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Data Breaches",
   "objective": "After this level you can explain what happens in a data breach, using Equifax in 2017, and connect it to the hashing and two-factor defenses.",
@@ -146,41 +146,25 @@
     },
     {
       "id": "question.computers.067.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.privacy_equifax_breach"
       ],
       "sourceCardIds": [
-        "card.computers.067.c3"
+        "card.computers.067.c3",
+        "card.computers.067.c2"
       ],
-      "prompt": "How did the Equifax attackers reach 48 more databases after breaking into one web portal?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They guessed every password one at a time",
-          "correct": false,
-          "rationale": "They didn't need to guess."
-        },
-        {
-          "id": "b",
-          "label": "They found usernames and passwords stored unencrypted",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "An employee emailed them the keys",
-          "correct": false,
-          "rationale": "The access came from stored credentials."
-        },
-        {
-          "id": "d",
-          "label": "The databases had no passwords at all",
-          "correct": false,
-          "rationale": "The databases had passwords; the attackers found them unencrypted."
-        }
+      "prompt": "Put the events of the Equifax breach in order, from earliest to latest.",
+      "items": [
+        "A flaw in Apache Struts web software",
+        "Attackers break in",
+        "The intrusion is discovered",
+        "Equifax announces the breach"
       ],
-      "explanation": "Unencrypted credentials let the attackers move from the portal's 3 databases to 48 others.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "A flaw in Apache Struts was announced in March 2017, attackers broke in that May, the intrusion was discovered in July, and Equifax announced the breach in September.",
       "difficulty": 0.3
     },
     {

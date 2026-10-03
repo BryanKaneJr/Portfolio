@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 76,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Vaccines",
   "objective": "After this level you can explain how vaccines train the immune system.",
@@ -91,41 +91,31 @@
   "questions": [
     {
       "id": "question.everyday_technology.076.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.vaccine_history_safety"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.076.c1"
+        "card.everyday_technology.076.c1",
+        "card.everyday_technology.076.c2"
       ],
-      "prompt": "What did Edward Jenner notice in 1796 that led to the first successful vaccine?",
-      "options": [
+      "prompt": "Match each part of the vaccine story with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Milkmaids who'd had cowpox didn't catch smallpox",
-          "correct": true
+          "left": "Edward Jenner",
+          "right": "The first successful vaccine"
         },
         {
-          "id": "b",
-          "label": "Boiled water stopped cholera",
-          "correct": false,
-          "rationale": "Cholera and water are Level 73's story."
+          "left": "Antibodies",
+          "right": "Proteins that fight disease"
         },
         {
-          "id": "c",
-          "label": "Mold stopped bacteria growing in a dish",
-          "correct": false,
-          "rationale": "That's a later medical story."
-        },
-        {
-          "id": "d",
-          "label": "Smallpox spread through bad air",
-          "correct": false,
-          "rationale": "Bad-air ideas were wrong."
+          "left": "WHO",
+          "right": "Declared smallpox eradicated"
         }
       ],
-      "explanation": "Jenner saw that milkmaids who had caught cowpox were protected from smallpox, and built the first successful vaccine on it.",
+      "explanation": "Edward Jenner made the first successful vaccine, antibodies are proteins that fight disease, and WHO declared smallpox eradicated in 1980.",
       "difficulty": 0.15
     },
     {

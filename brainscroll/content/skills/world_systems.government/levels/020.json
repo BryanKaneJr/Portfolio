@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 20,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Kinds of Government",
   "objective": "After this level you can compare the main kinds of government.",
@@ -251,7 +251,7 @@
     },
     {
       "id": "question.government.020.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.government.republic_definition",
@@ -263,35 +263,21 @@
         "card.government.017.c1",
         "card.government.014.c1",
         "card.government.011.c4",
-        "card.government.012.c1"
+        "card.government.012.c1",
+        "card.government.017.c3",
+        "card.government.012.c3"
       ],
-      "prompt": "Kinds of Government checkpoint: which list puts these in order, oldest first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Rome's republic → Venice's closing → Louis XIV → Sweden's 1974 text",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Venice's closing → Rome's republic → Louis XIV → Sweden's 1974 text",
-          "correct": false,
-          "rationale": "The Roman Republic (509 BCE) is far older than 1297."
-        },
-        {
-          "id": "c",
-          "label": "Rome's republic → Louis XIV → Venice's closing → Sweden's 1974 text",
-          "correct": false,
-          "rationale": "Venice's closing began in 1297, before Louis XIV (1643)."
-        },
-        {
-          "id": "d",
-          "label": "Louis XIV → Rome's republic → Sweden's 1974 text → Venice's closing",
-          "correct": false,
-          "rationale": "Rome's republic is the oldest by far."
-        }
+      "prompt": "Put these moments from Chapter 2 in order, from oldest to newest.",
+      "items": [
+        "Roman Republic",
+        "Louis XIV",
+        "Federalist No. 10",
+        "Sweden abolished royal absolutism",
+        "Instrument of Government"
       ],
-      "explanation": "Roman Republic (509 BCE), Venice's Great Council begins closing (1297), Louis XIV's reign begins (1643), Sweden's Instrument of Government (1974).",
+      "first": "Oldest",
+      "last": "Newest",
+      "explanation": "The Roman Republic began in 509 BCE, Louis XIV reigned from 1643 to 1715, Federalist No. 10 came in 1787, Sweden abolished royal absolutism in 1809, and the Instrument of Government in 1974.",
       "difficulty": 0.35
     },
     {

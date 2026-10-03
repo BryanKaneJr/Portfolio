@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 81,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Rules or Examples?",
   "objective": "After this level you can decide whether a task is better solved by writing rules or by learning from examples, and say why.",
@@ -82,41 +82,32 @@
   "questions": [
     {
       "id": "question.computers.081.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.ml_rules_vs_examples"
       ],
       "sourceCardIds": [
-        "card.computers.081.c1"
+        "card.computers.081.c1",
+        "card.computers.081.c3",
+        "card.computers.081.c4"
       ],
-      "prompt": "What did Arthur Samuel's checkers program keep track of so it improved with each game?",
-      "options": [
+      "prompt": "Match each name from the rules-or-examples story with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The exact moves Samuel told it to make",
-          "correct": false,
-          "rationale": "Samuel didn't script its moves; it learned from its own games."
+          "left": "Arthur Samuel",
+          "right": "A checkers program"
         },
         {
-          "id": "b",
-          "label": "Each position it saw and whether it led to a win or a loss",
-          "correct": true
+          "left": "Rule-based systems",
+          "right": "Become brittle"
         },
         {
-          "id": "c",
-          "label": "A list of every rule of good play, written in advance",
-          "correct": false,
-          "rationale": "That is the rules approach; this program learned from results."
-        },
-        {
-          "id": "d",
-          "label": "The scores of human champions' games",
-          "correct": false,
-          "rationale": "It recorded the positions from its own play."
+          "left": "Google's own machine learning guides",
+          "right": "Check for a non-ML solution first"
         }
       ],
-      "explanation": "The program recorded each position and whether it led to a win or a loss, so it got better the more games it played.",
+      "explanation": "Arthur Samuel wrote a checkers program that learned, rule-based systems become brittle as tasks get complex, and Google's own machine learning guides say to check for a non-ML solution first.",
       "difficulty": 0.25
     },
     {

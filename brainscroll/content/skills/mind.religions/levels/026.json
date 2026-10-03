@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 26,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Catholic Church",
   "objective": "After this level you can explain how the Catholic Church is organized under the pope and bishops, and what its seven sacraments are.",
@@ -137,41 +137,36 @@
     },
     {
       "id": "question.religions.026.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.christianity_catholic_structure"
       ],
       "sourceCardIds": [
-        "card.religions.026.c4"
+        "card.religions.026.c4",
+        "card.religions.026.c2",
+        "card.religions.026.c3"
       ],
-      "prompt": "How is a new pope chosen?",
-      "options": [
+      "prompt": "Match each part of the Catholic Church with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The outgoing pope names his successor",
-          "correct": false,
-          "rationale": "Cardinals elect the pope."
+          "left": "Pope",
+          "right": "The bishop of Rome"
         },
         {
-          "id": "b",
-          "label": "All the world's bishops vote by mail",
-          "correct": false,
-          "rationale": "Only cardinals under 80 vote, in a conclave."
+          "left": "Diocese",
+          "right": "An area run by a bishop"
         },
         {
-          "id": "c",
-          "label": "The bishops of Rome's parishes elect him",
-          "correct": false,
-          "rationale": "The electors are cardinals."
+          "left": "Parishes",
+          "right": "The local churches"
         },
         {
-          "id": "d",
-          "label": "Cardinals under 80 vote until one gets two-thirds",
-          "correct": true
+          "left": "Black smoke",
+          "right": "No decision yet"
         }
       ],
-      "explanation": "In a conclave in the Sistine Chapel, cardinals under 80 vote until a candidate has two-thirds; white smoke announces him.",
+      "explanation": "The pope is the bishop of Rome, a diocese is an area run by a bishop, parishes are the local churches, and black smoke from a conclave means no decision yet.",
       "difficulty": 0.3
     },
     {

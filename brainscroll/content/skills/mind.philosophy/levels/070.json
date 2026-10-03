@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 70,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Freedom and the Self",
   "objective": "After this level you can connect the debates over free will and personal identity to earlier views of the mind and the self.",
@@ -236,7 +236,7 @@
     },
     {
       "id": "question.philosophy.070.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.selfhood_freedom_self_compared",
@@ -244,35 +244,29 @@
         "concept.philosophy.freedom_compatibilism"
       ],
       "sourceCardIds": [
-        "card.philosophy.070.c2"
+        "card.philosophy.070.c2",
+        "card.philosophy.070.c4"
       ],
-      "prompt": "Freedom and the Self recap: where exactly do libertarians and compatibilists split?",
-      "options": [
+      "prompt": "Match each view with its claim from the chapter.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Whether people really have desires",
-          "correct": false,
-          "rationale": "Both agree they do."
+          "left": "Libertarians",
+          "right": "Blame seems unfair without alternatives"
         },
         {
-          "id": "b",
-          "label": "Whether anyone should ever be blamed",
-          "correct": false,
-          "rationale": "Both allow blame."
+          "left": "Compatibilists",
+          "right": "Doing what you will, unimpeded"
         },
         {
-          "id": "c",
-          "label": "Whether free choices can be fixed by prior causes",
-          "correct": true
+          "left": "Sartre",
+          "right": "Existence precedes essence"
         },
         {
-          "id": "d",
-          "label": "Whether Laplace’s intellect could ever exist",
-          "correct": false,
-          "rationale": "That isn’t where they split."
+          "left": "Locke",
+          "right": "A forensic term"
         }
       ],
-      "explanation": "Libertarians say a free choice must not be causally determined; compatibilists say freedom is doing what you will unimpeded, caused or not.",
+      "explanation": "Libertarians say blame seems unfair without alternatives, compatibilists define freedom as doing what you will, unimpeded, Sartre says existence precedes essence, and Locke called “person” a forensic term.",
       "difficulty": 0.35
     },
     {

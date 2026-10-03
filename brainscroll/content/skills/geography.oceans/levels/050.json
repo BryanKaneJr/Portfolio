@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 50,
   "type": "milestone",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Milestone: The Living Ocean",
   "objective": "After this level you can connect the ocean's water, floor and life into one picture.",
@@ -399,7 +399,7 @@
     },
     {
       "id": "question.oceans.050.q7",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.sunlit_leatherback_crossing",
@@ -407,35 +407,19 @@
       ],
       "sourceCardIds": [
         "card.oceans.045.c4",
-        "card.oceans.041.c3"
+        "card.oceans.041.c3",
+        "card.oceans.050.c3"
       ],
-      "prompt": "Living Ocean milestone: a leatherback crosses the Pacific on a diet of jellyfish. How does that meal trace back to phytoplankton?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Jellyfish are phytoplankton, so it eats sunlight directly",
-          "correct": false,
-          "rationale": "Jellyfish are animals: zooplankton."
-        },
-        {
-          "id": "b",
-          "label": "It doesn't; jellyfish make their own food",
-          "correct": false,
-          "rationale": "Jellyfish are animals, not photosynthesizers."
-        },
-        {
-          "id": "c",
-          "label": "Leatherbacks also graze on kelp forests",
-          "correct": false,
-          "rationale": "Their diet is soft open-ocean prey like jellyfish."
-        },
-        {
-          "id": "d",
-          "label": "Jellyfish are zooplankton, which mostly eat phytoplankton",
-          "correct": true
-        }
+      "prompt": "Put this food chain in order, from where the energy starts to the leatherback.",
+      "items": [
+        "Sunlight",
+        "Phytoplankton",
+        "Jellyfish",
+        "Leatherbacks"
       ],
-      "explanation": "Jellyfish are zooplankton; most zooplankton eat phytoplankton, the sunlight-powered foundation of the food web.",
+      "first": "Energy starts here",
+      "last": "Top of this chain",
+      "explanation": "Phytoplankton catch sunlight, jellyfish are zooplankton that mostly eat phytoplankton, and leatherbacks eat jellyfish.",
       "difficulty": 0.35
     }
   ],

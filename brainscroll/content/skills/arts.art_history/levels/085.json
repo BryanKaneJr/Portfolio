@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 85,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Conceptual Art",
   "objective": "After this level you can explain art where the idea matters more than the object.",
@@ -83,41 +83,31 @@
   "questions": [
     {
       "id": "question.art_history.085.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.conceptual_lewitt_instructions"
       ],
       "sourceCardIds": [
-        "card.art_history.085.c2"
+        "card.art_history.085.c2",
+        "card.art_history.085.c3"
       ],
-      "prompt": "Who usually draws a Sol LeWitt wall drawing onto the wall?",
-      "options": [
+      "prompt": "In One and Three Chairs, match each part with the kind of chair it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "LeWitt himself, freehand and alone",
-          "correct": false,
-          "rationale": "His drawings are carried out by others."
+          "left": "A real wooden folding chair",
+          "right": "A thing you can sit on"
         },
         {
-          "id": "b",
-          "label": "Assistants following his instructions",
-          "correct": true
+          "left": "A photograph of a chair",
+          "right": "A picture of one"
         },
         {
-          "id": "c",
-          "label": "A machine tracing a photograph",
-          "correct": false,
-          "rationale": "People follow written instructions."
-        },
-        {
-          "id": "d",
-          "label": "Visitors adding their own designs",
-          "correct": false,
-          "rationale": "The instructions set the design."
+          "left": "An enlarged dictionary definition",
+          "right": "A set of words"
         }
       ],
-      "explanation": "LeWitt's wall drawings are instructions, often with a diagram, that assistants carry out on the wall.",
+      "explanation": "The real wooden folding chair is a thing you can sit on, the photograph is a picture of one, and the enlarged dictionary definition is a set of words.",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 39,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The String Quartet",
   "objective": "After this level you can explain what a string quartet is and why composers loved writing for it.",
@@ -92,41 +92,35 @@
   "questions": [
     {
       "id": "question.music.039.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.quartet_haydn_mozart"
       ],
       "sourceCardIds": [
-        "card.music.039.c4"
+        "card.music.039.c4",
+        "card.music.039.c2"
       ],
-      "prompt": "In 1785, Mozart dedicated six string quartets to whom?",
-      "options": [
+      "prompt": "Match each person with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "His father, Leopold",
-          "correct": false,
-          "rationale": "Leopold heard Haydn's praise; the dedication went to Haydn."
+          "left": "Haydn",
+          "right": "On violin"
         },
         {
-          "id": "b",
-          "label": "Antonio Salieri",
-          "correct": false,
-          "rationale": "Level 38's alleged villain got no dedication here."
+          "left": "Mozart",
+          "right": "On viola"
         },
         {
-          "id": "c",
-          "label": "The Esterházy prince",
-          "correct": false,
-          "rationale": "Dedications usually went to patrons, which made this one unusual."
+          "left": "Leopold",
+          "right": "Mozart's father"
         },
         {
-          "id": "d",
-          "label": "Joseph Haydn",
-          "correct": true
+          "left": "Goethe",
+          "right": "Four rational people conversing"
         }
       ],
-      "explanation": "Mozart dedicated six quartets to Haydn, who then praised him to Leopold as the greatest composer he knew.",
+      "explanation": "When they played quartets, Haydn was on violin and Mozart on viola. Leopold was Mozart's father, and Goethe called a quartet four rational people conversing.",
       "difficulty": 0.2
     },
     {

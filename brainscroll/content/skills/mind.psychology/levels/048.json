@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 48,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Sleep-Deprived Mind",
   "objective": "After this level you can explain how losing sleep affects mood, attention and judgment.",
@@ -87,41 +87,32 @@
   "questions": [
     {
       "id": "question.psychology.048.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.sleeploss_mood"
       ],
       "sourceCardIds": [
+        "card.psychology.048.c2",
+        "card.psychology.048.c3",
         "card.psychology.048.c4"
       ],
-      "prompt": "In the 2007 study, how did the emotional brain respond to disturbing images after about 35 hours awake?",
-      "options": [
+      "prompt": "Match each sleep study with how much sleep people lost.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Over 60 percent more reactive than in rested people",
-          "correct": true
+          "left": "A 2000 study",
+          "right": "17 to 19 hours without sleep"
         },
         {
-          "id": "b",
-          "label": "About the same as in rested people",
-          "correct": false,
-          "rationale": "The sleep-deprived brain overreacted."
+          "left": "Hans Van Dongen",
+          "right": "6 hours or less in bed"
         },
         {
-          "id": "c",
-          "label": "Far calmer, as if numbed by tiredness",
-          "correct": false,
-          "rationale": "It was more reactive, not less."
-        },
-        {
-          "id": "d",
-          "label": "Only reactive to pleasant images",
-          "correct": false,
-          "rationale": "The images were disturbing ones."
+          "left": "Matthew Walker",
+          "right": "Awake about 35 hours"
         }
       ],
-      "explanation": "After about 35 hours awake, emotional brain centers were over 60 percent more reactive to disturbing images than in rested people.",
+      "explanation": "The 2000 study tested people after 17 to 19 hours without sleep. Van Dongen's volunteers had 6 hours or less in bed a night for 14 days. Walker's team kept people awake about 35 hours.",
       "difficulty": 0.2
     },
     {

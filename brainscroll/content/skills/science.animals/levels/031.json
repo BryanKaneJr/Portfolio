@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 31,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "What Makes a Reptile",
   "objective": "After this level you can explain scales, eggs and cold blood in reptiles.",
@@ -135,41 +135,31 @@
     },
     {
       "id": "question.animals.031.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.reptile_amniotic_egg"
       ],
       "sourceCardIds": [
-        "card.animals.031.c3"
+        "card.animals.031.c3",
+        "card.animals.031.c2"
       ],
-      "prompt": "What let the first reptiles breed on dry land, when most amphibians need water for their eggs?",
-      "options": [
+      "prompt": "Match each part of a reptile with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Their eggs hatched within a day",
-          "correct": false,
-          "rationale": "Speed wasn't the trick; the shell and amnion were."
+          "left": "Amnion",
+          "right": "A fluid-filled sac"
         },
         {
-          "id": "b",
-          "label": "Their young could breathe underwater",
-          "correct": false,
-          "rationale": "The embryo needs no pond at all."
+          "left": "Scales",
+          "right": "Keratin"
         },
         {
-          "id": "c",
-          "label": "Their eggs carried water inside a shell",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Their eggs needed no warmth at all",
-          "correct": false,
-          "rationale": "Warmth isn't the point; water is."
+          "left": "Shell",
+          "right": "Leathery or hard, calcium-based"
         }
       ],
-      "explanation": "The amnion and a leathery or hard shell keep the embryo in its own water, so the egg can be laid on dry land.",
+      "explanation": "The amnion is a fluid-filled sac around the embryo. Scales are made mainly of keratin, and the egg's shell is leathery or hard, calcium-based.",
       "difficulty": 0.2
     },
     {

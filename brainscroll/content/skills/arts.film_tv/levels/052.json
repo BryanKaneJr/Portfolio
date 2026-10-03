@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 52,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Western",
   "objective": "After this level you can explain why the Western became America's defining genre and how its picture of Native Americans changed over time.",
@@ -126,41 +126,27 @@
     },
     {
       "id": "question.film_tv.052.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.genre_western_native_portrayal"
       ],
       "sourceCardIds": [
-        "card.film_tv.052.c4"
+        "card.film_tv.052.c4",
+        "card.film_tv.052.c2",
+        "card.film_tv.052.c3"
       ],
-      "prompt": "Why do Westerns like Little Big Man (1970) mark a turning point for the genre?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They were the first Westerns filmed outdoors",
-          "correct": false,
-          "rationale": "Nothing on the level says so; the change was in sympathy."
-        },
-        {
-          "id": "b",
-          "label": "They moved the story to the present day",
-          "correct": false,
-          "rationale": "They stayed on the frontier."
-        },
-        {
-          "id": "c",
-          "label": "They showed Native Americans with more sympathy than earlier Westerns",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "They left out conflict between pioneers and Native Americans",
-          "correct": false,
-          "rationale": "They told that conflict from a new side."
-        }
+      "prompt": "Put these Westerns in order, from earliest to latest.",
+      "items": [
+        "The Great Train Robbery",
+        "Stagecoach",
+        "Cheyenne Autumn",
+        "Little Big Man",
+        "Dances with Wolves"
       ],
-      "explanation": "Earlier Westerns showed Native Americans with remarkably little understanding; later ones, such as Little Big Man, shifted sympathy toward them.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Great Train Robbery came in 1903, Stagecoach in 1939, Cheyenne Autumn in 1964, Little Big Man in 1970 and Dances with Wolves in 1990.",
       "difficulty": 0.3
     },
     {

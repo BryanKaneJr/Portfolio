@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 80,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Home and Health",
   "objective": "After this level you can explain the technology behind clean water, kitchens and modern medicine.",
@@ -152,41 +152,31 @@
   "questions": [
     {
       "id": "question.everyday_technology.080.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.health_germ_theory"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.080.c3"
+        "card.everyday_technology.080.c3",
+        "card.everyday_technology.080.c4"
       ],
-      "prompt": "Home and Health checkpoint: according to germ theory, what causes infectious diseases?",
-      "options": [
+      "prompt": "Match each germ-fighting tool with how it fights germs.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Microorganisms multiplying in the body",
-          "correct": true
+          "left": "Chlorine",
+          "right": "Kills germs in your tap water"
         },
         {
-          "id": "b",
-          "label": "Bad air rising from sewage and rot",
-          "correct": false,
-          "rationale": "That was the miasma idea germ theory replaced."
+          "left": "A vaccine",
+          "right": "Trains your immune system"
         },
         {
-          "id": "c",
-          "label": "Cold drafts and damp in the home",
-          "correct": false,
-          "rationale": "Germs, not drafts."
-        },
-        {
-          "id": "d",
-          "label": "Too much heat escaping from the body",
-          "correct": false,
-          "rationale": "Germs, not heat loss."
+          "left": "Penicillin",
+          "right": "Bursts bacteria's cell walls"
         }
       ],
-      "explanation": "Germ theory: infectious diseases are caused by microorganisms, such as bacteria and viruses, that invade the body and multiply.",
+      "explanation": "Chlorine kills germs in your tap water, a vaccine trains your immune system, and penicillin bursts bacteria's cell walls.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 50,
   "type": "milestone",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Milestone: Reasons, Evidence and Causes",
   "objective": "After this level you can connect arguments, evidence and causes into one method for checking a claim.",
@@ -297,7 +297,7 @@
     },
     {
       "id": "question.logic.050.q5",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.causal_snow_broad_street",
@@ -305,35 +305,25 @@
       ],
       "sourceCardIds": [
         "card.logic.050.c3",
-        "card.logic.041.c3"
+        "card.logic.041.c3",
+        "card.logic.050.c1"
       ],
-      "prompt": "Why did the Broad Street brewery workers matter to Snow's case?",
-      "options": [
+      "prompt": "Match each one with what they blamed or had.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They drank other water and escaped serious cholera",
-          "correct": true
+          "left": "Most doctors",
+          "right": "Blamed the air"
         },
         {
-          "id": "b",
-          "label": "They lived far away from Broad Street",
-          "correct": false,
-          "rationale": "The brewery was on Broad Street, near the pump."
+          "left": "John Snow",
+          "right": "Suspected the water"
         },
         {
-          "id": "c",
-          "label": "They helped Snow draw his map of the deaths",
-          "correct": false,
-          "rationale": "The map came from the addresses of the dead."
-        },
-        {
-          "id": "d",
-          "label": "They were the first people to fall ill",
-          "correct": false,
-          "rationale": "None of them had cholera in a severe form."
+          "left": "The brewery",
+          "right": "Its own deep well"
         }
       ],
-      "explanation": "Near the pump but without its water, they stayed almost entirely well. Take away the supposed cause and the effect goes too: Level 41's difference-maker test.",
+      "explanation": "Most doctors blamed the air, while John Snow suspected the water. The Broad Street brewery had its own deep well, and its workmen almost all escaped cholera.",
       "difficulty": 0.35
     },
     {

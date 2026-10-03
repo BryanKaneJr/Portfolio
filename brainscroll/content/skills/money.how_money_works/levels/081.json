@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 81,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "What a Company Is",
   "objective": "After this level you can explain how companies are owned and organized.",
@@ -96,7 +96,7 @@
   "questions": [
     {
       "id": "question.how_money_works.081.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.company_governance"
@@ -104,33 +104,15 @@
       "sourceCardIds": [
         "card.how_money_works.081.c4"
       ],
-      "prompt": "In a corporation, who elects the board of directors?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The chief executive officer",
-          "correct": false,
-          "rationale": "The board hires the CEO, not the other way round."
-        },
-        {
-          "id": "b",
-          "label": "The company's biggest customers",
-          "correct": false,
-          "rationale": "Customers buy from the company; they don't govern it."
-        },
-        {
-          "id": "c",
-          "label": "The shareholders who own it",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The judges of the House of Lords",
-          "correct": false,
-          "rationale": "Judges ruled in Salomon's case; they don't choose boards."
-        }
+      "prompt": "Who picks whom in a corporation? Put these in order, from the owners down to day-to-day running.",
+      "items": [
+        "Shareholders",
+        "Board of directors",
+        "Chief executive officer"
       ],
-      "explanation": "Shareholders own the corporation and elect the board, which sets policy and hires officers such as the CEO.",
+      "first": "The owners",
+      "last": "Runs the firm day to day",
+      "explanation": "The shareholders own the company and elect a board of directors. The board hires officers, like the chief executive officer, to run the firm day to day.",
       "difficulty": 0.15
     },
     {

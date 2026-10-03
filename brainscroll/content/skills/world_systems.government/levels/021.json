@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 21,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Democracy's Roots",
   "objective": "After this level you can trace democracy from Athens to today.",
@@ -132,41 +132,35 @@
     },
     {
       "id": "question.government.021.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.democracy_athens_roots"
       ],
       "sourceCardIds": [
-        "card.government.021.c3"
+        "card.government.021.c3",
+        "card.government.021.c2"
       ],
-      "prompt": "After Cleisthenes' reforms, what did an Athenian's political rights depend on?",
-      "options": [
+      "prompt": "Match each Greek word from democracy's roots with its meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Which noble family they were born into",
-          "correct": false,
-          "rationale": "That's exactly what the reforms moved away from."
+          "left": "Demos",
+          "right": "People"
         },
         {
-          "id": "b",
-          "label": "How much land they owned",
-          "correct": false,
-          "rationale": "Wealth isn't the basis the reforms set."
+          "left": "Kratos",
+          "right": "Rule"
         },
         {
-          "id": "c",
-          "label": "Their rank in the army",
-          "correct": false,
-          "rationale": "Military rank isn't the basis the reforms set."
+          "left": "Deme",
+          "right": "Township"
         },
         {
-          "id": "d",
-          "label": "Membership of their local deme, or township",
-          "correct": true
+          "left": "Cleisthenes",
+          "right": "Founder of democracy"
         }
       ],
-      "explanation": "Cleisthenes based political rights on the deme, a township, instead of family or clan.",
+      "explanation": "Demos means people and kratos means rule. A deme was a township, and Cleisthenes is regarded as the founder of democracy.",
       "difficulty": 0.25
     },
     {

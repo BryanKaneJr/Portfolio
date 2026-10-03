@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 99,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Thinking Like a Philosopher",
   "objective": "After this level you can take a new big question through the tree's toolkit: clarify the terms, test it with a thought experiment, and weigh the rival views.",
@@ -161,7 +161,7 @@
     },
     {
       "id": "question.philosophy.099.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.meaning_immortality_toolkit",
@@ -169,35 +169,19 @@
       ],
       "sourceCardIds": [
         "card.philosophy.099.c3",
-        "card.philosophy.003.c2"
+        "card.philosophy.003.c2",
+        "card.philosophy.099.c2",
+        "card.philosophy.099.c4"
       ],
-      "prompt": "Why does Williams’s Makropulos case count as a thought experiment in Level 3’s sense?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It reasons about an imagined case instead of running a real test",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "It reports a real person who lived for several centuries",
-          "correct": false,
-          "rationale": "Elina Makropulos is a character in a play."
-        },
-        {
-          "id": "c",
-          "label": "It measures boredom in a laboratory",
-          "correct": false,
-          "rationale": "No lab is involved."
-        },
-        {
-          "id": "d",
-          "label": "It collects opinions from many people",
-          "correct": false,
-          "rationale": "It’s one carefully built case."
-        }
+      "prompt": "Put the steps of the philosopher's toolkit in order, from first to last.",
+      "items": [
+        "Pin down the question",
+        "Build a case",
+        "Weigh the rivals"
       ],
-      "explanation": "A thought experiment pictures a carefully built situation and reasons about it, as Williams does with Elina Makropulos.",
+      "first": "First step",
+      "last": "Last step",
+      "explanation": "Step 1 is to pin down the question, step 2 is to build a case, and step 3 is to weigh the rivals.",
       "difficulty": 0.3
     }
   ],

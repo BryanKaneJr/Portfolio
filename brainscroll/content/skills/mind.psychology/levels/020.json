@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 20,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Perception and Attention",
   "objective": "After this level you can explain how perception and attention decide what you notice and what you miss.",
@@ -200,7 +200,7 @@
     },
     {
       "id": "question.psychology.020.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.psychology.perception_webers_law",
@@ -208,35 +208,21 @@
         "concept.psychology.perception_mcgurk_effect"
       ],
       "sourceCardIds": [
-        "card.psychology.020.c3"
+        "card.psychology.020.c3",
+        "card.psychology.020.c4",
+        "card.psychology.012.c4"
       ],
-      "prompt": "Perception and Attention recap: which list puts these findings in the order they were published?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Weber's law, Gestalt psychology, the McGurk effect",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Gestalt psychology, Weber's law, the McGurk effect",
-          "correct": false,
-          "rationale": "Weber (1834) came before Wertheimer (1912)."
-        },
-        {
-          "id": "c",
-          "label": "Weber's law, the McGurk effect, Gestalt psychology",
-          "correct": false,
-          "rationale": "Gestalt (1912) came before McGurk (1976)."
-        },
-        {
-          "id": "d",
-          "label": "The McGurk effect, Gestalt psychology, Weber's law",
-          "correct": false,
-          "rationale": "That's the reverse order."
-        }
+      "prompt": "Put these in the order they were published, from earliest to latest.",
+      "items": [
+        "Weber's law",
+        "Gestalt psychology",
+        "The cocktail-party problem",
+        "The McGurk effect",
+        "The invisible gorilla"
       ],
-      "explanation": "Weber described his law in 1834, Wertheimer launched Gestalt psychology in 1912, and McGurk and MacDonald reported their effect in 1976.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Weber described his law in 1834, Gestalt psychology began in 1912, Cherry named the cocktail-party problem in 1953, the McGurk effect came in 1976, and the invisible gorilla in 1999.",
       "difficulty": 0.25
     },
     {

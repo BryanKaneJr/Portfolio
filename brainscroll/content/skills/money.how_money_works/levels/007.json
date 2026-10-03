@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 7,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Gold Standard",
   "objective": "After this level you can explain what the gold standard was and why countries left it.",
@@ -125,41 +125,24 @@
     },
     {
       "id": "question.how_money_works.007.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.gold_standard_end"
       ],
       "sourceCardIds": [
-        "card.how_money_works.007.c3"
+        "card.how_money_works.007.c3",
+        "card.how_money_works.007.c4"
       ],
-      "prompt": "What was the gold standard's biggest weakness?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Gold slowly rusts away in bank vaults",
-          "correct": false,
-          "rationale": "Gold doesn't rust. The problem was its supply."
-        },
-        {
-          "id": "b",
-          "label": "Gold was too easy to counterfeit",
-          "correct": false,
-          "rationale": "Faking wasn't the issue; supply was."
-        },
-        {
-          "id": "c",
-          "label": "Gold supply didn't keep pace with the economy",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Only gold coins could be spent",
-          "correct": false,
-          "rationale": "Paper notes circulated too; they could be swapped for gold."
-        }
+      "prompt": "Put these steps in the end of gold-backed money in order, from earliest to latest.",
+      "items": [
+        "World War I pushed countries off gold",
+        "The Great Depression finished the job",
+        "President Nixon"
       ],
-      "explanation": "New gold arrives at the pace of mining, not the pace of the economy, so a gold standard ties governments' hands.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "World War I pushed countries off gold, the Great Depression finished the job by 1937, and in 1971 President Nixon cut the dollar's last link to gold.",
       "difficulty": 0.3
     },
     {

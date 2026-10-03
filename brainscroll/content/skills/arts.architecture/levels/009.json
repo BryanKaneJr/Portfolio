@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 9,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Blueprints",
   "objective": "After this level you can explain how plans and drawings guide builders.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "question.architecture.009.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.stand_architectural_drawings"
@@ -138,33 +138,22 @@
       "sourceCardIds": [
         "card.architecture.009.c2"
       ],
-      "prompt": "A builder wants to see how a house's floors stack on top of each other. Which drawing shows that?",
-      "options": [
+      "prompt": "Match each standard drawing with what it shows.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A plan",
-          "correct": false,
-          "rationale": "A plan is a horizontal cut, seen from above."
+          "left": "Plan",
+          "right": "A horizontal cut"
         },
         {
-          "id": "b",
-          "label": "A section",
-          "correct": true
+          "left": "Section",
+          "right": "A vertical cut"
         },
         {
-          "id": "c",
-          "label": "An elevation",
-          "correct": false,
-          "rationale": "An elevation shows the outside face, not the floors inside."
-        },
-        {
-          "id": "d",
-          "label": "A cyanotype of the front door",
-          "correct": false,
-          "rationale": "That's a copying method, not a view."
+          "left": "Elevation",
+          "right": "One vertical face"
         }
       ],
-      "explanation": "A section is a vertical cut through the building, so it shows the floors stacked one above another.",
+      "explanation": "A plan is a horizontal cut seen from above, a section is a vertical cut showing how the floors stack up, and an elevation shows one vertical face straight on.",
       "difficulty": 0.2
     },
     {

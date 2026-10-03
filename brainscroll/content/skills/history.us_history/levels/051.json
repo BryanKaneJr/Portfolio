@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 51,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Dred Scott to Secession",
   "objective": "After this level you can explain how the Dred Scott decision, John Brown's raid and Lincoln's election led Southern states to secede.",
@@ -137,42 +137,27 @@
     },
     {
       "id": "question.us_history.051.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.us_history.secession_road_1860"
       ],
       "sourceCardIds": [
         "card.us_history.051.c4",
-        "card.us_history.051.c5"
+        "card.us_history.051.c2",
+        "card.us_history.051.c3"
       ],
-      "prompt": "Why did Deep South states secede after Lincoln’s election, though he promised not to touch slavery where it existed?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He had ordered John Brown’s raid on Harpers Ferry",
-          "correct": false,
-          "rationale": "Brown acted on his own; Lincoln had nothing to do with it."
-        },
-        {
-          "id": "b",
-          "label": "He had carried most of the slave states",
-          "correct": false,
-          "rationale": "He carried not a single slave state."
-        },
-        {
-          "id": "c",
-          "label": "He opposed slavery’s spread, and they saw slavery’s future at stake",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The Dred Scott decision had declared secession legal",
-          "correct": false,
-          "rationale": "Dred Scott was about citizenship and the territories."
-        }
+      "prompt": "Put these steps toward secession in order, from earliest to latest.",
+      "items": [
+        "Roger Taney ruled against him",
+        "A raid at Harpers Ferry",
+        "Lincoln won the presidency",
+        "South Carolina seceded",
+        "Formed the Confederate States of America"
       ],
-      "explanation": "Lincoln opposed slavery’s spread; the seceding states’ own declarations said defending slavery was their reason.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Taney ruled against Dred Scott in 1857 and John Brown raided Harpers Ferry in 1859. Lincoln won in November 1860, South Carolina seceded in December 1860, and the Confederacy was formed in February 1861.",
       "difficulty": 0.4
     },
     {

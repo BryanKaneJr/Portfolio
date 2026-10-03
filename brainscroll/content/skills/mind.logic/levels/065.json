@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 65,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Saving a Theory at Any Cost",
   "objective": "After this level you can spot an ad hoc rescue: an excuse invented only to protect a claim from evidence against it.",
@@ -130,42 +130,32 @@
     },
     {
       "id": "question.logic.065.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.science_ad_hoc_rescue"
       ],
       "sourceCardIds": [
         "card.logic.065.c3",
-        "card.logic.065.c4"
+        "card.logic.065.c4",
+        "card.logic.065.c2"
       ],
-      "prompt": "How did Le Verrier's explanation of Uranus differ from an ad hoc excuse?",
-      "options": [
+      "prompt": "Match each rescue or person with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It came from a famous mathematician",
-          "correct": false,
-          "rationale": "Fame isn't what made it fair."
+          "left": "Inside out",
+          "right": "Predicts nothing else"
         },
         {
-          "id": "b",
-          "label": "It left the astronomers' expectations untouched",
-          "correct": false,
-          "rationale": "It changed them: a new planet joined the picture."
+          "left": "Urbain Le Verrier",
+          "right": "An unknown planet"
         },
         {
-          "id": "c",
-          "label": "It predicted a planet that could be looked for",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It could never be checked",
-          "correct": false,
-          "rationale": "That's what makes an excuse ad hoc; his could be checked."
+          "left": "Johann Galle",
+          "right": "Found Neptune"
         }
       ],
-      "explanation": "His rescue made a new, risky prediction: a planet in a particular place. Galle looked and found Neptune.",
+      "explanation": "The inside-out excuse explains one lost game and predicts nothing else. Urbain Le Verrier proposed an unknown planet tugging on Uranus, and Johann Galle looked and found Neptune.",
       "difficulty": 0.3
     },
     {

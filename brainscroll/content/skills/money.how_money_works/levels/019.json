@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 19,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Scams and Fraud",
   "objective": "After this level you can recognize common money scams and their warning signs.",
@@ -124,41 +124,25 @@
     },
     {
       "id": "question.how_money_works.019.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.scam_warning_signs"
       ],
       "sourceCardIds": [
+        "card.how_money_works.019.c2",
         "card.how_money_works.019.c3"
       ],
-      "prompt": "Why do scammers push you to act immediately?",
-      "options": [
-        {
-          "id": "a",
-          "label": "So you act before you have time to think",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Because real offers always expire within minutes",
-          "correct": false,
-          "rationale": "Real organizations let you take time to check."
-        },
-        {
-          "id": "c",
-          "label": "Because the law requires fast payment",
-          "correct": false,
-          "rationale": "No law requires you to pay a caller on the spot."
-        },
-        {
-          "id": "d",
-          "label": "So your bank can approve the payment faster",
-          "correct": false,
-          "rationale": "Speed helps the scammer, not your bank."
-        }
+      "prompt": "Put the FTC's four signs of a scam in order, from sign one to sign four.",
+      "items": [
+        "Pretend to be from an organization",
+        "A problem or a prize",
+        "Pressure you to act immediately",
+        "Tell you exactly how to pay"
       ],
-      "explanation": "Pressure is a warning sign: scammers want you to act before you can think or check.",
+      "first": "Sign one",
+      "last": "Sign four",
+      "explanation": "Scammers pretend to be from an organization you know, say there's a problem or a prize, pressure you to act immediately, then tell you exactly how to pay.",
       "difficulty": 0.2
     },
     {

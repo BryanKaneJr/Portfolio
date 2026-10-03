@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 12,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Continental Shelves",
   "objective": "After this level you can describe the shallow shelves around the continents.",
@@ -130,41 +130,25 @@
     },
     {
       "id": "question.oceans.012.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.continental_shelf"
       ],
       "sourceCardIds": [
-        "card.oceans.012.c3"
+        "card.oceans.012.c3",
+        "card.oceans.012.c2"
       ],
-      "prompt": "What happens to the sea floor at a continental shelf's shelf break?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It rises back up into an island",
-          "correct": false,
-          "rationale": "It drops, not rises."
-        },
-        {
-          "id": "b",
-          "label": "It levels off into a flat plain",
-          "correct": false,
-          "rationale": "The flat part is the shelf itself, before the break."
-        },
-        {
-          "id": "c",
-          "label": "It turns from rock into ice",
-          "correct": false,
-          "rationale": "The shelf break is about slope, not ice."
-        },
-        {
-          "id": "d",
-          "label": "The gentle shelf ends and a much steeper slope begins",
-          "correct": true
-        }
+      "prompt": "Put these parts of the sea floor in order, from the shore out to the deep.",
+      "items": [
+        "Continental shelf",
+        "Shelf break",
+        "Continental slope",
+        "Deep ocean floor"
       ],
-      "explanation": "At the shelf break the nearly flat shelf ends, and the much steeper continental slope drops toward the deep floor.",
+      "first": "Nearest the shore",
+      "last": "Deepest",
+      "explanation": "The flat continental shelf runs out to the shelf break. Beyond it, the steeper continental slope drops to the deep ocean floor.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 61,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Acids",
   "objective": "After this level you can explain what acids are, from lemons to stomach acid.",
@@ -129,41 +129,31 @@
     },
     {
       "id": "question.chemistry.061.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.acid_strength"
       ],
       "sourceCardIds": [
-        "card.chemistry.061.c4"
+        "card.chemistry.061.c4",
+        "card.chemistry.061.c2"
       ],
-      "prompt": "Why is the acetic acid in vinegar called a weak acid?",
-      "options": [
+      "prompt": "Match each source with the acid it contains.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Most of its molecules hold on to their hydrogen ions",
-          "correct": true
+          "left": "Lemons",
+          "right": "Citric acid"
         },
         {
-          "id": "b",
-          "label": "It has no hydrogen ions to hand off at all",
-          "correct": false,
-          "rationale": "It does hand some off, just not many."
+          "left": "Vinegar",
+          "right": "Acetic acid"
         },
         {
-          "id": "c",
-          "label": "It ionizes completely, like hydrochloric acid",
-          "correct": false,
-          "rationale": "That is what a strong acid does."
-        },
-        {
-          "id": "d",
-          "label": "Vinegar contains too little water to dissolve it",
-          "correct": false,
-          "rationale": "Vinegar is mostly water."
+          "left": "Your stomach",
+          "right": "Hydrochloric acid"
         }
       ],
-      "explanation": "Weak acids ionize only partly: in one textbook solution only about 1.3 percent of acetic acid molecules let go.",
+      "explanation": "Citric acid gives lemons their pucker, acetic acid gives vinegar its bite, and your stomach makes hydrochloric acid.",
       "difficulty": 0.3
     },
     {

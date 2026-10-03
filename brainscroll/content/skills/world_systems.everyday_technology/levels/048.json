@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 48,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Cell Phones",
   "objective": "After this level you can explain how cell towers pass a call from one area to the next.",
@@ -164,7 +164,7 @@
     },
     {
       "id": "question.everyday_technology.048.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.everyday_technology.cellular_cells",
@@ -173,35 +173,29 @@
       "sourceCardIds": [
         "card.everyday_technology.048.c3",
         "card.everyday_technology.048.c2",
-        "card.everyday_technology.044.c2"
+        "card.everyday_technology.044.c2",
+        "card.everyday_technology.048.c1"
       ],
-      "prompt": "Phones reach towers with radio waves, like Level 44's broadcasts. Why can the same frequencies be reused in different cells?",
-      "options": [
+      "prompt": "Match each part of the cell phone story with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Low-power phone signals don't reach far",
-          "correct": true
+          "left": "Martin Cooper",
+          "right": "Motorola engineer"
         },
         {
-          "id": "b",
-          "label": "Radio waves can only travel one kilometer",
-          "correct": false,
-          "rationale": "Radio waves can cross oceans."
+          "left": "Cells",
+          "right": "Small areas"
         },
         {
-          "id": "c",
-          "label": "Each tower uses a different kind of light",
-          "correct": false,
-          "rationale": "They all use radio waves."
+          "left": "Base station",
+          "right": "The tower your phone talks to"
         },
         {
-          "id": "d",
-          "label": "Phones switch to wires between cells",
-          "correct": false,
-          "rationale": "Phones stay wireless."
+          "left": "Switching office",
+          "right": "Connects it to another cell"
         }
       ],
-      "explanation": "Battery-powered phones transmit at low power, so a frequency used in one cell can be reused in cells farther away.",
+      "explanation": "Martin Cooper was a Motorola engineer. Cells are small areas of the map, the base station is the tower your phone talks to, and the switching office connects your call to another cell or the phone network.",
       "difficulty": 0.3
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 44,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Lobbying",
   "objective": "After this level you can explain lobbying and why it is controversial.",
@@ -174,41 +174,25 @@
     },
     {
       "id": "question.government.044.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.government.lobbying_debate_regulation"
       ],
       "sourceCardIds": [
-        "card.government.044.c4"
+        "card.government.044.c4",
+        "card.government.044.c1"
       ],
-      "prompt": "How do both the US Lobbying Disclosure Act and the EU's transparency register handle lobbying?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They ban all contact between lobbyists and lawmakers",
-          "correct": false,
-          "rationale": "Neither is a ban; both are about visibility."
-        },
-        {
-          "id": "b",
-          "label": "They require lobbyists to register so their activity can be seen",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "They let only charities lobby",
-          "correct": false,
-          "rationale": "Businesses, unions and others can still lobby."
-        },
-        {
-          "id": "d",
-          "label": "They make lawmakers pay lobbyists for advice",
-          "correct": false,
-          "rationale": "Neither rule does anything of the kind."
-        }
+      "prompt": "Put these moments in lobbying's history in order, from earliest to latest.",
+      "items": [
+        "Lobby of England's House of Commons",
+        "Lobbying Disclosure Act",
+        "First international standard",
+        "Transparency register"
       ],
-      "explanation": "Both rely on transparency: the US requires registration and reports; the EU makes registration a condition for activities like meetings.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The word comes from the lobby of England's House of Commons in the 17th century. Then came the US Lobbying Disclosure Act (1995), the OECD's first international standard (2010), and the EU transparency register rule (2021).",
       "difficulty": 0.3
     }
   ],

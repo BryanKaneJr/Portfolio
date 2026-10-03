@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 86,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Stop Motion",
   "objective": "After this level you can explain how stop-motion animators move a model a tiny step for every frame, from King Kong in 1933 onward.",
@@ -126,41 +126,25 @@
     },
     {
       "id": "question.film_tv.086.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.stop_motion_method"
       ],
       "sourceCardIds": [
-        "card.film_tv.086.c2"
+        "card.film_tv.086.c2",
+        "card.film_tv.086.c1",
+        "card.film_tv.086.c4"
       ],
-      "prompt": "An animator moves a model for every frame of a 5-second shot at 24 frames per second. How many poses is that?",
-      "options": [
-        {
-          "id": "a",
-          "label": "24",
-          "correct": false,
-          "rationale": "That covers only one second."
-        },
-        {
-          "id": "b",
-          "label": "120",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "48",
-          "correct": false,
-          "rationale": "That's two seconds' worth."
-        },
-        {
-          "id": "d",
-          "label": "5",
-          "correct": false,
-          "rationale": "That would be one pose per second."
-        }
+      "prompt": "Put these steps in the story of stop motion in order, from earliest to latest.",
+      "items": [
+        "King Kong",
+        "His parents' garage",
+        "Jason and the Argonauts"
       ],
-      "explanation": "At 24 poses per second, 5 seconds takes 5 x 24 = 120 poses.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "King Kong came out in 1933. After seeing it, Ray Harryhausen began making stop-motion films in his parents' garage, and he later made Jason and the Argonauts in 1963.",
       "difficulty": 0.3
     },
     {

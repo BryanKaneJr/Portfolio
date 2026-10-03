@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 28,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Making New Elements",
   "objective": "After this level you can explain how the heaviest elements are made in laboratories.",
@@ -91,41 +91,28 @@
   "questions": [
     {
       "id": "question.chemistry.028.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.ptable_transuranium"
       ],
       "sourceCardIds": [
-        "card.chemistry.028.c2"
+        "card.chemistry.028.c2",
+        "card.chemistry.028.c1",
+        "card.chemistry.028.c3",
+        "card.chemistry.028.c4"
       ],
-      "prompt": "What are transuranium elements?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Elements that glow in the dark",
-          "correct": false,
-          "rationale": "Glowing has nothing to do with the name."
-        },
-        {
-          "id": "b",
-          "label": "The lightest elements, made first",
-          "correct": false,
-          "rationale": "They are the heaviest, not the lightest."
-        },
-        {
-          "id": "c",
-          "label": "Elements beyond uranium, element 92",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Metals that don't react with water",
-          "correct": false,
-          "rationale": "The name is about position, not reactions."
-        }
+      "prompt": "Put these elements in order of atomic number, from smallest to largest.",
+      "items": [
+        "Calcium",
+        "Uranium",
+        "Neptunium",
+        "Californium",
+        "Oganesson"
       ],
-      "explanation": "Trans means beyond: these are the elements past uranium, all radioactive.",
+      "first": "Fewest protons",
+      "last": "Most protons",
+      "explanation": "Calcium has 20 protons, uranium 92, neptunium 93, californium 98 and oganesson 118.",
       "difficulty": 0.15
     },
     {

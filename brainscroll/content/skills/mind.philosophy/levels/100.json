@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 100,
   "type": "mastery",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Mastery Challenge: Philosophy",
   "objective": "After this level you can demonstrate command of Philosophy Levels 1 to 99 across the whole tree.",
@@ -350,7 +350,7 @@
     },
     {
       "id": "question.philosophy.100.q6",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.justice_nozick_chamberlain",
@@ -358,35 +358,30 @@
       ],
       "sourceCardIds": [
         "card.philosophy.059.c4",
-        "card.philosophy.058.c3"
+        "card.philosophy.058.c3",
+        "card.philosophy.058.c4",
+        "card.philosophy.059.c5"
       ],
-      "prompt": "Rawls’s difference principle allows inequality only if it helps the least advantaged. What did Nozick’s Wilt Chamberlain case say about any pattern like it?",
-      "options": [
+      "prompt": "Match each thinker with the idea linked to him in the debate over fair shares.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It is too cautious; pick the highest average instead",
-          "correct": false,
-          "rationale": "That was Harsanyi’s objection."
+          "left": "Rawls",
+          "right": "Difference principle"
         },
         {
-          "id": "b",
-          "label": "Great wealth is power, so a pattern can protect liberty",
-          "correct": false,
-          "rationale": "That was Cohen’s reply to Nozick."
+          "left": "Nozick",
+          "right": "Liberty upsets patterns"
         },
         {
-          "id": "c",
-          "label": "It is just only when everyone chose it freely",
-          "correct": false,
-          "rationale": "Nozick judged holdings by how they came about, not by a pattern."
+          "left": "John Harsanyi",
+          "right": "Highest average well-being"
         },
         {
-          "id": "d",
-          "label": "Free exchanges keep upsetting it, so keeping it restricts liberty",
-          "correct": true
+          "left": "G. A. Cohen",
+          "right": "How Patterns Preserve Liberty"
         }
       ],
-      "explanation": "Nozick’s moral was that liberty upsets patterns: holding any pattern in place means forbidding free exchanges or undoing their results. Cohen replied that patterns can preserve liberty.",
+      "explanation": "Rawls gave the difference principle, Nozick said liberty upsets patterns, Harsanyi would pick the highest average well-being, and Cohen replied in “How Patterns Preserve Liberty”.",
       "difficulty": 0.5
     },
     {

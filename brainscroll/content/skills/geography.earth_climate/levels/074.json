@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 74,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Earth's Slow Thermostat",
   "objective": "After this level you can explain how rock weathering and volcanoes balance carbon dioxide over millions of years.",
@@ -130,42 +130,27 @@
     },
     {
       "id": "question.earth_climate.074.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.climates_carbon_thermostat",
         "concept.earth_climate.climates_slow_carbon_weathering"
       ],
       "sourceCardIds": [
-        "card.earth_climate.074.c4"
+        "card.earth_climate.074.c4",
+        "card.earth_climate.074.c2",
+        "card.earth_climate.074.c3"
       ],
-      "prompt": "Why does a warmer Earth eventually pull more carbon dioxide out of the air?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Warm air simply holds less carbon dioxide",
-          "correct": false,
-          "rationale": "The level credits weathering, not the air itself."
-        },
-        {
-          "id": "b",
-          "label": "Volcanoes erupt less often when it is warm",
-          "correct": false,
-          "rationale": "Volcanoes are the input, not the brake."
-        },
-        {
-          "id": "c",
-          "label": "More rain speeds up the weathering of rock",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Plants stop releasing carbon in the heat",
-          "correct": false,
-          "rationale": "The thermostat works through rock, not plants."
-        }
+      "prompt": "Follow carbon through the slow carbon cycle: put these in order.",
+      "items": [
+        "Carbonic acid",
+        "Chemical weathering",
+        "Limestone",
+        "Volcanoes vent the carbon"
       ],
-      "explanation": "Warmth brings more rain, which dissolves more rock and sends more carbon to the ocean floor, so the warming eases.",
+      "first": "Start",
+      "last": "End",
+      "explanation": "Carbon dioxide in rain makes carbonic acid, chemical weathering dissolves rock, shells lock the carbon into limestone, and volcanoes vent the carbon again.",
       "difficulty": 0.4
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 95,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Experience Machine",
   "objective": "After this level you can use Robert Nozick's experience machine to weigh whether pleasure is all that makes a life go well.",
@@ -125,42 +125,33 @@
     },
     {
       "id": "question.philosophy.095.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.meaning_experience_machine"
       ],
       "sourceCardIds": [
         "card.philosophy.095.c4",
-        "card.philosophy.095.c3"
+        "card.philosophy.095.c3",
+        "card.philosophy.095.c1",
+        "card.philosophy.095.c2"
       ],
-      "prompt": "What does De Brigard’s reversed experience machine suggest about Nozick’s argument?",
-      "options": [
+      "prompt": "Match each name or term with its part in the experience machine debate.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "People’s refusal may reflect a preference for the familiar, not for reality",
-          "correct": true
+          "left": "Robert Nozick",
+          "right": "Anarchy, State, and Utopia"
         },
         {
-          "id": "b",
-          "label": "Almost everyone would happily plug in after all",
-          "correct": false,
-          "rationale": "His point was about staying, not plugging in."
+          "left": "Felipe De Brigard",
+          "right": "Reversed the case"
         },
         {
-          "id": "c",
-          "label": "The machine could never be built",
-          "correct": false,
-          "rationale": "It’s a thought experiment either way."
-        },
-        {
-          "id": "d",
-          "label": "Real life always feels better than life in the machine",
-          "correct": false,
-          "rationale": "The case is built so you can’t tell the difference."
+          "left": "Status quo bias",
+          "right": "A preference for the familiar"
         }
       ],
-      "explanation": "Told they were already in a machine, many chose to stay, so status quo bias may explain the original refusal.",
+      "explanation": "Nozick posed the machine in Anarchy, State, and Utopia, De Brigard reversed the case in 2010, and status quo bias is a preference for the familiar.",
       "difficulty": 0.5
     },
     {

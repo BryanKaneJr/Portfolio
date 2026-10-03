@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 43,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Ring of Gyges",
   "objective": "After this level you can explain why Plato's Glaucon asks whether anyone would stay just while wearing a ring of invisibility, and what the challenge asks of ethics.",
@@ -89,7 +89,7 @@
   "questions": [
     {
       "id": "question.philosophy.043.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.philosophy.morals_glaucon_challenge"
@@ -97,33 +97,22 @@
       "sourceCardIds": [
         "card.philosophy.043.c2"
       ],
-      "prompt": "In which of Glaucon’s three classes of goods does Socrates place justice?",
-      "options": [
+      "prompt": "Match each good with the class Glaucon puts it in.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Goods welcomed only for their own sake",
-          "correct": false,
-          "rationale": "That’s the class of harmless pleasures."
+          "left": "Harmless pleasures",
+          "right": "Welcome for their own sake"
         },
         {
-          "id": "b",
-          "label": "Goods chosen only for their results",
-          "correct": false,
-          "rationale": "That’s where most people put it, says Glaucon."
+          "left": "Knowledge",
+          "right": "Good in themselves and for their results"
         },
         {
-          "id": "c",
-          "label": "Goods that are not truly good at all",
-          "correct": false,
-          "rationale": "Socrates thinks justice is a great good."
-        },
-        {
-          "id": "d",
-          "label": "Goods valued for their own sake and their results",
-          "correct": true
+          "left": "Exercise",
+          "right": "Chores"
         }
       ],
-      "explanation": "Socrates puts justice in the best class: good in itself and for what it brings, like knowledge, sight and health.",
+      "explanation": "Harmless pleasures we welcome for their own sake, knowledge is good in itself and for its results, and exercise is one of the chores.",
       "difficulty": 0.25
     },
     {

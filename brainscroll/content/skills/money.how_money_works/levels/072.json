@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 72,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Comparative Advantage",
   "objective": "After this level you can explain why countries gain by specializing, even when one is better at everything.",
@@ -109,41 +109,31 @@
   "questions": [
     {
       "id": "question.how_money_works.072.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.trade_comparative_advantage"
       ],
       "sourceCardIds": [
-        "card.how_money_works.072.c3"
+        "card.how_money_works.072.c3",
+        "card.how_money_works.072.c4"
       ],
-      "prompt": "What does it mean to have a comparative advantage in a good?",
-      "options": [
+      "prompt": "Match each idea from Ricardo's example with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Making more of it than anyone else",
-          "correct": false,
-          "rationale": "That's absolute advantage."
+          "left": "Absolute advantage",
+          "right": "Make more of each"
         },
         {
-          "id": "b",
-          "label": "Making it at a lower cost in terms of goods given up",
-          "correct": true
+          "left": "Comparative advantage",
+          "right": "Making a good at a lower cost"
         },
         {
-          "id": "c",
-          "label": "Having the most workers in that industry",
-          "correct": false,
-          "rationale": "Worker numbers alone don't settle it; relative cost does."
-        },
-        {
-          "id": "d",
-          "label": "Charging the highest price for it",
-          "correct": false,
-          "rationale": "Price isn't the test; the cost in other goods given up is."
+          "left": "Specialize and swap",
+          "right": "More of both"
         }
       ],
-      "explanation": "Comparative advantage is about relative cost: what you give up to make something.",
+      "explanation": "Portugal's absolute advantage means it can make more of each good. Comparative advantage means making a good at a lower cost in what you give up. Specialize and swap, and both countries end up with more of both.",
       "difficulty": 0.3
     },
     {

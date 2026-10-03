@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 3,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Frames per Second",
   "objective": "After this level you can explain what a frame rate is and why sound films settled on 24 frames every second.",
@@ -125,7 +125,7 @@
     },
     {
       "id": "question.film_tv.003.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.projection_speed_mismatch"
@@ -133,33 +133,22 @@
       "sourceCardIds": [
         "card.film_tv.003.c4"
       ],
-      "prompt": "A scene is filmed at 12 frames per second and projected at 24. What does the audience see?",
-      "options": [
+      "prompt": "Each scene is projected at 24 frames a second. Match how it was shot with how it looks.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The action in slow motion",
-          "correct": false,
-          "rationale": "Slow motion comes from filming faster than you project."
+          "left": "Shoot at 12 frames a second",
+          "right": "Life runs twice as fast"
         },
         {
-          "id": "b",
-          "label": "The action running twice as fast",
-          "correct": true
+          "left": "Hand-cranked at 16",
+          "right": "One and a half times too fast"
         },
         {
-          "id": "c",
-          "label": "The action at its natural speed",
-          "correct": false,
-          "rationale": "That needs the same speed for shooting and showing."
-        },
-        {
-          "id": "d",
-          "label": "A frozen picture",
-          "correct": false,
-          "rationale": "The frames still change; they just change too quickly."
+          "left": "36 frames a second or more",
+          "right": "Slow and dreamy"
         }
       ],
-      "explanation": "Twelve frames of action are used up in half a second at 24 per second, so everything moves twice as fast.",
+      "explanation": "Shown at 24, a scene shot at 12 runs twice as fast, one hand-cranked at 16 moves one and a half times too fast, and one shot at 36 or more plays slow and dreamy.",
       "difficulty": 0.25
     },
     {

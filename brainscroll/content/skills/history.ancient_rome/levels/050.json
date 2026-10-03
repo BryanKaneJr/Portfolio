@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 50,
   "type": "milestone",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Milestone: From Republic to Empire",
   "objective": "After this level you can trace Rome's path from republic to empire and explain what changed and what stayed.",
@@ -413,7 +413,7 @@
     },
     {
       "id": "question.ancient_rome.050.q7",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_rome.republic_to_empire",
@@ -423,33 +423,17 @@
         "card.ancient_rome.050.c3",
         "card.ancient_rome.033.c2"
       ],
-      "prompt": "Which of these came first on the road from Republic to Empire?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Caesar crosses the Rubicon",
-          "correct": false,
-          "rationale": "That came in 49 BCE."
-        },
-        {
-          "id": "b",
-          "label": "Caesar is assassinated",
-          "correct": false,
-          "rationale": "That came in 44 BCE."
-        },
-        {
-          "id": "c",
-          "label": "Octavian wins at Actium",
-          "correct": false,
-          "rationale": "That came in 31 BCE."
-        },
-        {
-          "id": "d",
-          "label": "Sulla marches on Rome",
-          "correct": true
-        }
+      "prompt": "Put these steps on the road to one-man rule in order, from earliest to latest.",
+      "items": [
+        "Sulla marches his army on Rome",
+        "Caesar crosses the Rubicon",
+        "Caesar is assassinated",
+        "Octavian’s fleet wins at Actium",
+        "Octavian becomes Augustus"
       ],
-      "explanation": "Sulla marched on Rome in 88 BCE, decades before Caesar and Octavian followed his example.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Sulla marches on Rome in 88 BCE, Caesar crosses the Rubicon in 49 BCE and is assassinated in 44 BCE, Octavian’s fleet wins at Actium in 31 BCE, and he becomes Augustus in 27 BCE.",
       "difficulty": 0.35
     }
   ],

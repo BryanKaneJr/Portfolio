@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 31,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Muhammad and the Revelation",
   "objective": "After this level you can explain what Muslims believe about Muhammad and the revelation that began in 610, and why the hijra of 622 starts the Islamic calendar.",
@@ -141,41 +141,25 @@
     },
     {
       "id": "question.religions.031.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.islam_hijra_calendar"
       ],
       "sourceCardIds": [
-        "card.religions.031.c4"
+        "card.religions.031.c4",
+        "card.religions.031.c2"
       ],
-      "prompt": "How does the Islamic calendar count its years?",
-      "options": [
-        {
-          "id": "a",
-          "label": "From Muhammad's birth in Mecca",
-          "correct": false,
-          "rationale": "The calendar starts with a journey, not a birth."
-        },
-        {
-          "id": "b",
-          "label": "From the first revelation on Mount Hira",
-          "correct": false,
-          "rationale": "That was 610; the calendar starts in 622."
-        },
-        {
-          "id": "c",
-          "label": "From the hijra, the migration to Medina in 622",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "From Muhammad's death in 632",
-          "correct": false,
-          "rationale": "The calendar starts ten years before his death."
-        }
+      "prompt": "Put these moments in Muhammad's life in order, from earliest to latest.",
+      "items": [
+        "Muhammad was born",
+        "A cave on Mount Hira",
+        "The hijra",
+        "His death"
       ],
-      "explanation": "The hijra mattered so much that the calendar counts its years from it: 622 is Year 1.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Muhammad was born about 570. The revelation in a cave on Mount Hira came in 610, the hijra to Medina in 622, and his death in 632.",
       "difficulty": 0.3
     },
     {

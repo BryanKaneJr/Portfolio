@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 19,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Wolves and Dogs",
   "objective": "After this level you can explain how wolves became dogs.",
@@ -165,7 +165,7 @@
     },
     {
       "id": "question.animals.019.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.dog_wolf_ancestry",
@@ -173,35 +173,26 @@
       ],
       "sourceCardIds": [
         "card.animals.019.c2",
-        "card.animals.018.c4"
+        "card.animals.018.c4",
+        "card.animals.019.c3",
+        "card.animals.019.c4"
       ],
-      "prompt": "Level 18 said humans didn't evolve from living chimps. What's the matching twist for dogs?",
-      "options": [
+      "prompt": "Match each piece of dog history with what it showed.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Dogs came from modern gray wolves",
-          "correct": false,
-          "rationale": "Dogs came from an ancient population."
+          "left": "2014 genome study",
+          "right": "9,000 to 34,000 years ago"
         },
         {
-          "id": "b",
-          "label": "Dogs came from foxes",
-          "correct": false,
-          "rationale": "Dogs came from gray wolves."
+          "left": "2022 study",
+          "right": "72 ancient wolf genomes"
         },
         {
-          "id": "c",
-          "label": "They came from ancient wolves, not today's",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Dogs and wolves aren't related",
-          "correct": false,
-          "rationale": "They share a common ancestor."
+          "left": "Oberkassel puppy",
+          "right": "Buried in Germany"
         }
       ],
-      "explanation": "Like humans and chimps, dogs and today's wolves are cousins: dogs came from an ancient wolf population.",
+      "explanation": "The 2014 genome study put the shared ancestor of dogs and wolves 9,000 to 34,000 years ago. The 2022 study used 72 ancient wolf genomes. The Oberkassel puppy was buried in Germany.",
       "difficulty": 0.25
     }
   ],

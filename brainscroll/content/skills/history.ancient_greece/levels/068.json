@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 68,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Mapping the Known World",
   "objective": "After this level you can describe Greek maps of the world.",
@@ -126,41 +126,27 @@
     },
     {
       "id": "question.ancient_greece.068.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_greece.greek_world_maps"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.068.c4"
+        "card.ancient_greece.068.c4",
+        "card.ancient_greece.068.c2",
+        "card.ancient_greece.068.c3",
+        "card.ancient_greece.063.c2"
       ],
-      "prompt": "Why was Ptolemy’s Geography so useful to later mapmakers?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It had the only surviving painted map",
-          "correct": false,
-          "rationale": "Its value was the numbers."
-        },
-        {
-          "id": "b",
-          "label": "It gave places by latitude and longitude, so maps could be redrawn",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It showed the Americas for the first time",
-          "correct": false,
-          "rationale": "It covered the known world."
-        },
-        {
-          "id": "d",
-          "label": "It proved Earth is shaped like a drum",
-          "correct": false,
-          "rationale": "That was Anaximander’s idea."
-        }
+      "prompt": "Put these mapmakers in order, from earliest to latest.",
+      "items": [
+        "Anaximander",
+        "Eratosthenes",
+        "Ptolemy",
+        "Translated into Latin"
       ],
-      "explanation": "Listing about 8,000 places by latitude and longitude let anyone redraw the map from the numbers.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Anaximander lived about 610 to 546 BCE, Eratosthenes was born around 276 BCE, Ptolemy wrote in the 2nd century CE, and his Geography was translated into Latin in 1406-1409.",
       "difficulty": 0.3
     },
     {

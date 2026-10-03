@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 28,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Fresh Water Is Rare",
   "objective": "After this level you can explain how little of Earth's water is fresh and easy to reach.",
@@ -171,7 +171,7 @@
     },
     {
       "id": "question.world_geography.028.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.world_geography.fresh_water_share",
@@ -181,33 +181,15 @@
         "card.world_geography.028.c3",
         "card.world_geography.027.c4"
       ],
-      "prompt": "From Level 27: where is most of Earth's fresh water?",
-      "options": [
-        {
-          "id": "a",
-          "label": "In lakes and rivers",
-          "correct": false,
-          "rationale": "They hold only a tiny share."
-        },
-        {
-          "id": "b",
-          "label": "Underground in aquifers",
-          "correct": false,
-          "rationale": "That is about 30%, not most."
-        },
-        {
-          "id": "c",
-          "label": "In the clouds",
-          "correct": false,
-          "rationale": "Only a sliver is in the air."
-        },
-        {
-          "id": "d",
-          "label": "Frozen in ice, largely the two ice sheets",
-          "correct": true
-        }
+      "prompt": "Put these homes of Earth's fresh water in order, from biggest share to smallest.",
+      "items": [
+        "Ice and glaciers",
+        "Underground",
+        "At the surface"
       ],
-      "explanation": "Over 68% of Earth's fresh water is locked in ice and glaciers; the Greenland and Antarctic ice sheets alone hold over 68% of it all.",
+      "first": "Biggest share",
+      "last": "Smallest share",
+      "explanation": "Over 68% of fresh water is in ice and glaciers, about 30% is underground, and only a little over 1.2% is at the surface.",
       "difficulty": 0.25
     }
   ],

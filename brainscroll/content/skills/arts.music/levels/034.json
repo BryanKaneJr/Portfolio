@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 34,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Handel and Messiah",
   "objective": "After this level you can describe Handel's oratorios, especially Messiah.",
@@ -87,41 +87,24 @@
   "questions": [
     {
       "id": "question.music.034.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.handel_messiah"
       ],
       "sourceCardIds": [
-        "card.music.034.c4"
+        "card.music.034.c4",
+        "card.music.034.c2"
       ],
-      "prompt": "Where did Handel's Messiah have its premiere in 1742?",
-      "options": [
-        {
-          "id": "a",
-          "label": "London, at Christmas",
-          "correct": false,
-          "rationale": "It premiered at Easter, and not in London."
-        },
-        {
-          "id": "b",
-          "label": "Leipzig, in a church",
-          "correct": false,
-          "rationale": "Leipzig was Bach's city."
-        },
-        {
-          "id": "c",
-          "label": "Dublin, at Easter",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Venice, at the Pietà",
-          "correct": false,
-          "rationale": "The Pietà was Vivaldi's school."
-        }
+      "prompt": "Put these moments in Handel's life in order, from earliest to latest.",
+      "items": [
+        "Born in Halle, Germany",
+        "Became a British subject",
+        "Premiered in Dublin"
       ],
-      "explanation": "Messiah premiered in Dublin on April 13, 1742, at Easter, as a benefit for three charities.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Handel was born in Halle, Germany, in 1685, became a British subject in 1727, and Messiah premiered in Dublin in 1742.",
       "difficulty": 0.2
     },
     {

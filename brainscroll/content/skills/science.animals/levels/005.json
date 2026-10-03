@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 5,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Warm- and Cold-Blooded",
   "objective": "After this level you can explain how different animals control their body temperature.",
@@ -90,41 +90,31 @@
   "questions": [
     {
       "id": "question.animals.005.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.animals.body_heat_source"
       ],
       "sourceCardIds": [
-        "card.animals.005.c2"
+        "card.animals.005.c2",
+        "card.animals.005.c3"
       ],
-      "prompt": "What do the terms endotherm and ectotherm actually describe?",
-      "options": [
+      "prompt": "Match each animal group with its body heat.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "How warm the blood is",
-          "correct": false,
-          "rationale": "Misleading: some lizards run hotter than some mammals."
+          "left": "Mammals",
+          "right": "About 37 °C"
         },
         {
-          "id": "b",
-          "label": "Where most body heat comes from",
-          "correct": true
+          "left": "Birds",
+          "right": "About 40 °C"
         },
         {
-          "id": "c",
-          "label": "Whether it lives on land or water",
-          "correct": false,
-          "rationale": "Both kinds live in both places."
-        },
-        {
-          "id": "d",
-          "label": "How fast the animal moves",
-          "correct": false,
-          "rationale": "The terms are about heat, not speed."
+          "left": "Reptiles",
+          "right": "Heat from their surroundings"
         }
       ],
-      "explanation": "Endotherms make most of their heat inside; ectotherms absorb it from their surroundings.",
+      "explanation": "Mammals hold about 37 °C and birds about 40 °C, making the heat inside. Reptiles are ectotherms that absorb most of their heat from their surroundings.",
       "difficulty": 0.1
     },
     {

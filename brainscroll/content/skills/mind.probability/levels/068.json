@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 68,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Significant Isn't the Same as Big",
   "objective": "After this level you can explain why a result can be statistically significant yet too small to matter, and why effect size counts.",
@@ -90,41 +90,32 @@
   "questions": [
     {
       "id": "question.probability.068.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.significance_effect_size"
       ],
       "sourceCardIds": [
-        "card.probability.068.c2"
+        "card.probability.068.c2",
+        "card.probability.068.c3",
+        "card.probability.068.c4"
       ],
-      "prompt": "The ASA's 2016 statement says statistical significance does not measure what?",
-      "options": [
+      "prompt": "Match each with what it means or does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "How many people took part",
-          "correct": false,
-          "rationale": "Sample size is simply counted; the ASA's point is about effect size."
+          "left": "Statistical significance",
+          "right": "Does not measure the size of an effect"
         },
         {
-          "id": "b",
-          "label": "The size or importance of an effect",
-          "correct": true
+          "left": "The effect size",
+          "right": "The main finding of a study"
         },
         {
-          "id": "c",
-          "label": "Anything at all about the data",
-          "correct": false,
-          "rationale": "A p-value does say something: how poorly the data fit \"nothing going on\"."
-        },
-        {
-          "id": "d",
-          "label": "Which journal published the study",
-          "correct": false,
-          "rationale": "Journals aren't part of it; size and importance are."
+          "left": "Enough people",
+          "right": "Almost any difference turns significant"
         }
       ],
-      "explanation": "In the ASA's words, a p-value or statistical significance does not measure the size of an effect or the importance of a result.",
+      "explanation": "Statistical significance does not measure the size of an effect. The effect size, how big the difference actually is, is the main finding of a study. And with enough people, almost any difference turns significant.",
       "difficulty": 0.25
     },
     {

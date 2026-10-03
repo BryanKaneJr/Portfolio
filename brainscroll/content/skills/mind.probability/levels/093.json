@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 93,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "What \"70% Chance of Rain\" Means",
   "objective": "After this level you can explain what a forecast's percentage means and how a forecaster is checked for being well calibrated.",
@@ -90,7 +90,7 @@
   "questions": [
     {
       "id": "question.probability.093.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.news_rain_chance_meaning"
@@ -99,33 +99,22 @@
         "card.probability.093.c2",
         "card.probability.093.c3"
       ],
-      "prompt": "By the National Weather Service's definition, a 70% chance of rain is the chance of what?",
-      "options": [
+      "prompt": "Match each part of the National Weather Service's rain chance with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "At least 0.01 inch of rain at a given spot",
-          "correct": true
+          "left": "The forecast period",
+          "right": "Usually 12 hours"
         },
         {
-          "id": "b",
-          "label": "Rain falling over 70% of the forecast area",
-          "correct": false,
-          "rationale": "That's a common misreading; it's a chance at a point."
+          "left": "A drizzle",
+          "right": "Counts the same as a downpour"
         },
         {
-          "id": "c",
-          "label": "Rain falling for 70% of the forecast period",
-          "correct": false,
-          "rationale": "It says nothing about how many hours it rains."
-        },
-        {
-          "id": "d",
-          "label": "Heavy rain somewhere in the region",
-          "correct": false,
-          "rationale": "Any measurable amount counts, and it's about your spot."
+          "left": "70%",
+          "right": "About 7 times in 10"
         }
       ],
-      "explanation": "It's the chance of at least 0.01 inch at a given point during the forecast period, usually 12 hours.",
+      "explanation": "The forecast period is usually 12 hours, and a drizzle counts the same as a downpour. A 70% chance means your spot gets some rain about 7 times in 10 on days like this.",
       "difficulty": 0.25
     },
     {

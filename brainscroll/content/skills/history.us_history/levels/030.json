@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 30,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: The American Revolution",
   "objective": "After this level you can explain how a tax dispute became a war for independence, and who gained and lost by it.",
@@ -191,7 +191,7 @@
   "questions": [
     {
       "id": "question.us_history.030.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.revolution_winners_losers",
@@ -200,33 +200,18 @@
       "sourceCardIds": [
         "card.us_history.030.c2"
       ],
-      "prompt": "The American Revolution: which order of events is right?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Tea Party, Stamp Act, Yorktown",
-          "correct": false,
-          "rationale": "The Stamp Act (1765) came before the Tea Party (1773)."
-        },
-        {
-          "id": "b",
-          "label": "Stamp Act, Yorktown, Tea Party",
-          "correct": false,
-          "rationale": "Yorktown (1781) came last."
-        },
-        {
-          "id": "c",
-          "label": "Stamp Act, Tea Party, Yorktown",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Yorktown, Stamp Act, Tea Party",
-          "correct": false,
-          "rationale": "Yorktown came last, in 1781."
-        }
+      "prompt": "Put these events of the Revolution in order, from earliest to latest.",
+      "items": [
+        "The Stamp Act taxes colonial paper",
+        "The Boston Tea Party",
+        "Fighting at Lexington and Concord",
+        "Congress adopts the Declaration",
+        "Cornwallis surrenders at Yorktown",
+        "The Treaty of Paris ends the war"
       ],
-      "explanation": "The Stamp Act came in 1765, the Tea Party in 1773 and Yorktown in 1781.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Stamp Act came in 1765, the Boston Tea Party in 1773, Lexington and Concord in 1775, the Declaration in 1776, Yorktown in 1781, and the Treaty of Paris in 1783.",
       "difficulty": 0.25
     },
     {

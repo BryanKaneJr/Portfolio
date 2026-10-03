@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 75,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Photosynthesis",
   "objective": "After this level you can explain how plants make sugar from light, water and air.",
@@ -130,42 +130,32 @@
     },
     {
       "id": "question.chemistry.075.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.lifechem_plant_mass_from_air"
       ],
       "sourceCardIds": [
         "card.chemistry.075.c2",
-        "card.chemistry.075.c3"
+        "card.chemistry.075.c3",
+        "card.chemistry.075.c4"
       ],
-      "prompt": "Van Helmont's willow gained 164 pounds while its soil lost about 2 ounces. Where did most of the new mass really come from?",
-      "options": [
+      "prompt": "Match each part of photosynthesis with where it comes from.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "From the soil, weighed wrongly",
-          "correct": false,
-          "rationale": "The soil really did lose only about 2 ounces."
+          "left": "The glucose's carbon",
+          "right": "Carbon dioxide"
         },
         {
-          "id": "b",
-          "label": "From the water alone",
-          "correct": false,
-          "rationale": "That was van Helmont's conclusion, and it was only half right."
+          "left": "The oxygen a plant gives off",
+          "right": "Splitting water"
         },
         {
-          "id": "c",
-          "label": "From carbon dioxide in the air, plus water",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "From sunlight turning into wood",
-          "correct": false,
-          "rationale": "Light powers the reaction; it doesn't become the tree's mass."
+          "left": "Light",
+          "right": "Captured by chlorophyll"
         }
       ],
-      "explanation": "Plants take the carbon for most of their building material from carbon dioxide in the air; water is the other ingredient.",
+      "explanation": "The glucose's carbon comes from carbon dioxide in the air, the oxygen a plant gives off comes from splitting water, and light is captured by chlorophyll.",
       "difficulty": 0.4
     },
     {

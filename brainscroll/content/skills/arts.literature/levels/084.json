@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 84,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Stream of Consciousness",
   "objective": "After this level you can explain how Joyce and Woolf put a character's flowing thoughts on the page.",
@@ -137,42 +137,38 @@
     },
     {
       "id": "question.literature.084.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.modern_stream_of_consciousness"
       ],
       "sourceCardIds": [
         "card.literature.084.c2",
-        "card.literature.084.c3"
+        "card.literature.084.c3",
+        "card.literature.084.c1",
+        "card.literature.084.c4",
+        "card.literature.084.c5"
       ],
-      "prompt": "Which of these passages is written as stream of consciousness?",
-      "options": [
+      "prompt": "Match each name or term from stream-of-consciousness fiction with what goes with it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The war ended in 1918, and over the years the town slowly rebuilt its bridge.",
-          "correct": false,
-          "rationale": "That's a summary of events, not a mind's flow."
+          "left": "William James",
+          "right": "The Principles of Psychology"
         },
         {
-          "id": "b",
-          "label": "He was a tall man of forty, careful with money and proud of his garden.",
-          "correct": false,
-          "rationale": "That's an outside description of a character."
+          "left": "Molly Bloom",
+          "right": "Yes I said yes I will Yes"
         },
         {
-          "id": "c",
-          "label": "Once upon a time, a fox walked into a vineyard and spotted some grapes.",
-          "correct": false,
-          "rationale": "That's a fable's opening."
+          "left": "Septimus Warren Smith",
+          "right": "A World War I veteran"
         },
         {
-          "id": "d",
-          "label": "Cold coffee. Mother warmed the pot, always. Blue kitchen. That letter, unposted.",
-          "correct": true
+          "left": "Interior monologue",
+          "right": "Organized, rational thoughts"
         }
       ],
-      "explanation": "Stream of consciousness follows impressions and associations as they pass through a mind, often in fragments rather than orderly sentences.",
+      "explanation": "William James wrote The Principles of Psychology, and Molly Bloom's monologue ends \"yes I said yes I will Yes.\" Septimus Warren Smith is a World War I veteran, and an interior monologue can be limited to organized, rational thoughts.",
       "difficulty": 0.35
     },
     {

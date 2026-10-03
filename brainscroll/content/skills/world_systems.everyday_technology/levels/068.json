@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 68,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Encryption",
   "objective": "After this level you can explain how encryption keeps messages private.",
@@ -91,41 +91,35 @@
   "questions": [
     {
       "id": "question.everyday_technology.068.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.crypto_encryption_basics"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.068.c2"
+        "card.everyday_technology.068.c2",
+        "card.everyday_technology.068.c3"
       ],
-      "prompt": "In encryption, what does a key turn readable plaintext into?",
-      "options": [
+      "prompt": "Match each encryption name or term with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Packets labeled with an address",
-          "correct": false,
-          "rationale": "That's packet switching (Level 62)."
+          "left": "Plaintext",
+          "right": "Readable"
         },
         {
-          "id": "b",
-          "label": "Ciphertext only the right key can read",
-          "correct": true
+          "left": "Ciphertext",
+          "right": "Scrambled"
         },
         {
-          "id": "c",
-          "label": "Hyperlinks to other pages",
-          "correct": false,
-          "rationale": "Those are the web's links (Level 65)."
+          "left": "Julius Caesar",
+          "right": "Three places down the alphabet"
         },
         {
-          "id": "d",
-          "label": "A shorter file that loads faster",
-          "correct": false,
-          "rationale": "Encryption hides meaning; it isn't about size."
+          "left": "Whitfield Diffie and Martin Hellman",
+          "right": "Communicating over an open channel"
         }
       ],
-      "explanation": "Encryption turns plaintext into ciphertext; only someone with the right key can turn it back.",
+      "explanation": "Plaintext is readable and ciphertext is scrambled. Julius Caesar shifted each letter three places down the alphabet, and Diffie and Hellman published a blueprint for communicating over an open channel.",
       "difficulty": 0.2
     },
     {

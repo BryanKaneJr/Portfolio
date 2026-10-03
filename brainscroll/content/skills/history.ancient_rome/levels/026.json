@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 26,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Scipio and Zama",
   "objective": "After this level you can explain how Scipio Africanus defeated Hannibal at Zama.",
@@ -126,41 +126,25 @@
     },
     {
       "id": "question.ancient_rome.026.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_rome.scipio_zama"
       ],
       "sourceCardIds": [
-        "card.ancient_rome.026.c2"
+        "card.ancient_rome.026.c2",
+        "card.ancient_rome.026.c3"
       ],
-      "prompt": "How did Scipio get Hannibal out of Italy?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He paid him to leave",
-          "correct": false,
-          "rationale": "He forced the issue militarily."
-        },
-        {
-          "id": "b",
-          "label": "He defeated him in the Alps",
-          "correct": false,
-          "rationale": "Hannibal was already in Italy."
-        },
-        {
-          "id": "c",
-          "label": "He invaded Africa and threatened Carthage",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "He cut the Alpine passes",
-          "correct": false,
-          "rationale": "The key move was in Africa."
-        }
+      "prompt": "Put Scipio’s path to victory in order, from first to last.",
+      "items": [
+        "Drove the Carthaginians out of Spain",
+        "Invaded Africa",
+        "Carthage called Hannibal home",
+        "The Battle of Zama"
       ],
-      "explanation": "By taking the war to Africa, Scipio forced Carthage to recall Hannibal to defend the city.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Scipio drove the Carthaginians out of Spain, then invaded Africa. Carthage called Hannibal home, and Scipio beat him at the Battle of Zama in 202 BCE.",
       "difficulty": 0.35
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 26,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Camera Angles",
   "objective": "After this level you can explain how high, low and tilted camera angles change how powerful or uneasy a character seems.",
@@ -130,42 +130,32 @@
     },
     {
       "id": "question.film_tv.026.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.shoot_camera_angles"
       ],
       "sourceCardIds": [
         "card.film_tv.026.c2",
-        "card.film_tv.026.c3"
+        "card.film_tv.026.c3",
+        "card.film_tv.026.c4"
       ],
-      "prompt": "How does a low-angle shot make a character seem powerful?",
-      "options": [
+      "prompt": "Match each camera angle with how it's done.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The camera looks up at them from below eye level",
-          "correct": true
+          "left": "Low-angle shot",
+          "right": "The camera sits well below eye level"
         },
         {
-          "id": "b",
-          "label": "The camera tips the frame so it isn't level",
-          "correct": false,
-          "rationale": "That's a Dutch angle, which suggests unease."
+          "left": "High angle",
+          "right": "The camera is above the character"
         },
         {
-          "id": "c",
-          "label": "The camera looks down on them from above",
-          "correct": false,
-          "rationale": "A high angle tends to make characters look small."
-        },
-        {
-          "id": "d",
-          "label": "The camera frames them from the waist up",
-          "correct": false,
-          "rationale": "That's a shot size, not an angle."
+          "left": "Dutch angle",
+          "right": "The frame isn't level"
         }
       ],
-      "explanation": "Placed well below eye level and looking up, the camera enlarges the character, as with the father in The Color of Paradise.",
+      "explanation": "In a low-angle shot the camera sits well below eye level, looking up. In a high angle it's above the character, angled down. A Dutch angle tips the camera so the frame isn't level.",
       "difficulty": 0.3
     },
     {

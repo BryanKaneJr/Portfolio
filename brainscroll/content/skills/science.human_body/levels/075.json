@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 75,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Vaccines",
   "objective": "After this level you can explain how vaccines train the immune system.",
@@ -98,40 +98,24 @@
   "questions": [
     {
       "id": "question.human_body.075.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.defense_vaccine_training"
       ],
       "sourceCardIds": [
-        "card.human_body.075.c2"
+        "card.human_body.075.c2",
+        "card.human_body.075.c3"
       ],
-      "prompt": "Which of these can a vaccine contain as its antigen?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A live germ at full strength",
-          "correct": false,
-          "rationale": "Vaccines use killed or weakened germs, parts, or instructions."
-        },
-        {
-          "id": "b",
-          "label": "Antibodies taken from another person",
-          "correct": false,
-          "rationale": "Your own immune system makes the antibodies."
-        },
-        {
-          "id": "c",
-          "label": "Genetic instructions to make part of a germ",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Extra white blood cells",
-          "correct": false,
-          "rationale": "The vaccine trains your own white blood cells."
-        }
+      "prompt": "Put the way a vaccine trains your immune system in order, from first to last.",
+      "items": [
+        "Recognizes it",
+        "Makes antibodies",
+        "Remembers how to fight it",
+        "Destroy it quickly"
       ],
+      "first": "Vaccine arrives",
+      "last": "Real germ turns up",
       "explanation": "A vaccine's antigen can be a killed or weakened germ, a part of it, or RNA or DNA instructions to make that part.",
       "difficulty": 0.2
     },

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 57,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "I Knew It All Along",
   "objective": "After this level you can explain hindsight bias and how researchers caught people rewriting their own predictions.",
@@ -87,41 +87,32 @@
   "questions": [
     {
       "id": "question.psychology.057.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.shortcuts_hindsight_bias"
       ],
       "sourceCardIds": [
-        "card.psychology.057.c2"
+        "card.psychology.057.c2",
+        "card.psychology.057.c3",
+        "card.psychology.057.c4"
       ],
-      "prompt": "After Nixon's trips, how did people's memories of their own predictions change?",
-      "options": [
+      "prompt": "Match each person or idea from hindsight research with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They recalled them exactly as they were",
-          "correct": false,
-          "rationale": "Their memories slanted toward the outcomes."
+          "left": "Baruch Fischhoff and Ruth Beyth",
+          "right": "I knew it would happen"
         },
         {
-          "id": "b",
-          "label": "They recalled lower odds for everything",
-          "correct": false,
-          "rationale": "Only events that didn't happen were remembered as less likely."
+          "left": "Neal Roese and Kathleen Vohs",
+          "right": "Three sources"
         },
         {
-          "id": "c",
-          "label": "They recalled higher odds for events that happened",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "They forgot they had made predictions",
-          "correct": false,
-          "rationale": "They could still give estimates, just distorted ones."
+          "left": "One remedy",
+          "right": "Considering other explanations"
         }
       ],
-      "explanation": "People remembered having given higher probabilities to events that occurred and lower ones to events that didn't.",
+      "explanation": "Fischhoff and Beyth titled their 1975 paper \"I knew it would happen.\" Roese and Vohs trace hindsight bias to three sources, and one remedy is deliberately considering other explanations.",
       "difficulty": 0.15
     },
     {

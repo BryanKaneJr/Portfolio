@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 95,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How Talk Therapy Works",
   "objective": "After this level you can explain what cognitive behavioral therapy does and what research says about how well therapy works.",
@@ -91,41 +91,32 @@
   "questions": [
     {
       "id": "question.psychology.095.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.therapy_cbt"
       ],
       "sourceCardIds": [
-        "card.psychology.095.c2"
+        "card.psychology.095.c2",
+        "card.psychology.095.c3",
+        "card.psychology.095.c4"
       ],
-      "prompt": "What did Aaron Beck conclude about psychoanalysis before he developed cognitive therapy?",
-      "options": [
+      "prompt": "Match each part of talk therapy research with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It lacked rigor and evidence that it worked",
-          "correct": true
+          "left": "Aaron Beck",
+          "right": "Cognitive therapy"
         },
         {
-          "id": "b",
-          "label": "It worked well but took too long",
-          "correct": false,
-          "rationale": "His objection was the missing evidence."
+          "left": "CBT",
+          "right": "Between 5 and 15 sessions"
         },
         {
-          "id": "c",
-          "label": "It should only be used with medication",
-          "correct": false,
-          "rationale": "That wasn't his conclusion."
-        },
-        {
-          "id": "d",
-          "label": "It was the only proven therapy",
-          "correct": false,
-          "rationale": "He concluded the opposite."
+          "left": "Mary Lee Smith and Gene Glass",
+          "right": "375 controlled studies"
         }
       ],
-      "explanation": "Beck came to believe psychoanalysis lacked scientific rigor and evidence, and built cognitive therapy around catching automatic negative thoughts.",
+      "explanation": "Aaron Beck developed cognitive therapy in the early 1960s. Most people in CBT have between 5 and 15 sessions. Smith and Glass combined 375 controlled studies.",
       "difficulty": 0.3
     },
     {

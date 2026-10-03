@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 76,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Aboriginal Art",
   "objective": "After this level you can describe Aboriginal rock art and dot painting and the stories they carry.",
@@ -90,41 +90,24 @@
   "questions": [
     {
       "id": "question.art_history.076.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.papunya_dot_painting"
       ],
       "sourceCardIds": [
-        "card.art_history.076.c3"
+        "card.art_history.076.c3",
+        "card.art_history.076.c1"
       ],
-      "prompt": "How did the Western Desert painting movement begin in 1971?",
-      "options": [
-        {
-          "id": "a",
-          "label": "With a rock painting in the Kimberley",
-          "correct": false,
-          "rationale": "That kangaroo is about 17,300 years old."
-        },
-        {
-          "id": "b",
-          "label": "With an exhibition in a Sydney gallery",
-          "correct": false,
-          "rationale": "It began in the desert, at Papunya."
-        },
-        {
-          "id": "c",
-          "label": "With a mural on the Papunya school wall",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "With a government art school in Alice Springs",
-          "correct": false,
-          "rationale": "Men at Papunya painted a mural on their school wall."
-        }
+      "prompt": "Put these moments in Aboriginal art in order, from earliest to latest.",
+      "items": [
+        "Australia's oldest known painting",
+        "A Honey Ant Dreaming mural",
+        "Papunya Tula Artists"
       ],
-      "explanation": "Men led by Kaapa Tjampitjinpa painted a Honey Ant Dreaming mural on the Papunya school wall, then began painting on boards.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Kimberley kangaroo, Australia's oldest known painting, is about 17,300 years old. The Honey Ant Dreaming mural came in 1971, and Papunya Tula Artists formed in 1972.",
       "difficulty": 0.2
     },
     {

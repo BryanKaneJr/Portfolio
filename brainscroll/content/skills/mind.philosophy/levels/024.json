@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 24,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Brain in a Vat",
   "objective": "After this level you can explain the brain-in-a-vat puzzle and how Hilary Putnam argued that you cannot coherently think you are one.",
@@ -171,7 +171,7 @@
     },
     {
       "id": "question.philosophy.024.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.knowledge_brain_in_vat",
@@ -179,35 +179,27 @@
       ],
       "sourceCardIds": [
         "card.philosophy.024.c1",
-        "card.philosophy.003.c2"
+        "card.philosophy.003.c2",
+        "card.philosophy.024.c2",
+        "card.philosophy.024.c3",
+        "card.philosophy.024.c5"
       ],
-      "prompt": "Level 3 described thought experiments. Which feature makes the brain in a vat one of them?",
-      "options": [
+      "prompt": "Match each philosopher with the example linked to him.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It was first tested in a laboratory",
-          "correct": false,
-          "rationale": "No lab test is involved."
+          "left": "Descartes",
+          "right": "Evil demon"
         },
         {
-          "id": "b",
-          "label": "It asks you to imagine a scenario and reason about it",
-          "correct": true
+          "left": "Hilary Putnam",
+          "right": "The ant"
         },
         {
-          "id": "c",
-          "label": "It depends on a survey of brain scientists",
-          "correct": false,
-          "rationale": "No survey is involved."
-        },
-        {
-          "id": "d",
-          "label": "It needs an actual brain and vat",
-          "correct": false,
-          "rationale": "The equipment is imaginary."
+          "left": "Crispin Wright",
+          "right": "Taken out of your skull last night"
         }
       ],
-      "explanation": "Like Galileo’s tied balls, the vat is built in the imagination and then reasoned about.",
+      "explanation": "The evil demon is Descartes’s, the ant tracing Churchill is Putnam’s, and Crispin Wright imagined your brain taken out of your skull last night.",
       "difficulty": 0.25
     }
   ],

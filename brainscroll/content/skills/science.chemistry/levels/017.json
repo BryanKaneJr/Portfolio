@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 17,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Carbon Dating",
   "objective": "After this level you can explain how carbon dating tells the age of old things.",
@@ -96,7 +96,7 @@
   "questions": [
     {
       "id": "question.chemistry.017.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.carbon_dating_method"
@@ -104,33 +104,16 @@
       "sourceCardIds": [
         "card.chemistry.017.c2"
       ],
-      "prompt": "Where does the carbon-14 in living things come from in the first place?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Rocks deep in Earth's crust",
-          "correct": false,
-          "rationale": "It is made high in the atmosphere."
-        },
-        {
-          "id": "b",
-          "label": "Nitrogen in the air, struck by cosmic rays",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Sunlight turning into carbon",
-          "correct": false,
-          "rationale": "Cosmic-ray neutrons make it from nitrogen."
-        },
-        {
-          "id": "d",
-          "label": "The cells of each living thing",
-          "correct": false,
-          "rationale": "Living things take it in; they don't make it."
-        }
+      "prompt": "Put carbon-14's journey in order, from where it forms to where it ends up.",
+      "items": [
+        "High in the atmosphere",
+        "The air's carbon dioxide",
+        "Green plants",
+        "Animals eat the plants"
       ],
-      "explanation": "Neutrons from cosmic rays strike nitrogen high in the atmosphere, making carbon-14 that plants absorb and animals eat.",
+      "first": "Where it forms",
+      "last": "Where it ends up",
+      "explanation": "Carbon-14 forms high in the atmosphere, joins the air's carbon dioxide, is absorbed by green plants, and reaches animals when they eat the plants.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 7,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Water and You",
   "objective": "After this level you can explain how much of the body is water and why that matters.",
@@ -91,7 +91,7 @@
   "questions": [
     {
       "id": "question.human_body.007.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.body_water_share"
@@ -99,32 +99,14 @@
       "sourceCardIds": [
         "card.human_body.007.c2"
       ],
-      "prompt": "Which group has the highest share of water in their bodies?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Newborn babies",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Young adults",
-          "correct": false,
-          "rationale": "Adults are about 50 to 60 percent water."
-        },
-        {
-          "id": "c",
-          "label": "Older adults",
-          "correct": false,
-          "rationale": "The share falls in old age."
-        },
-        {
-          "id": "d",
-          "label": "All ages are the same",
-          "correct": false,
-          "rationale": "The share changes with age."
-        }
+      "prompt": "Put these stages of life in order, from the highest share of body water to the lowest.",
+      "items": [
+        "Newborn",
+        "Adult",
+        "Old age"
       ],
+      "first": "Most water",
+      "last": "Least water",
       "explanation": "Water is about 75 percent of a newborn, compared with 50 to 60 percent of an adult.",
       "difficulty": 0.1
     },

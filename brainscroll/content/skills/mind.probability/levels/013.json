@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 13,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "When Mean and Median Disagree",
   "objective": "After this level you can explain why a few very large values pull the mean far above the median, as with incomes and house prices.",
@@ -130,41 +130,31 @@
     },
     {
       "id": "question.probability.013.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.averages_mean_median_skew"
       ],
       "sourceCardIds": [
-        "card.probability.013.c2"
+        "card.probability.013.c2",
+        "card.probability.013.c1"
       ],
-      "prompt": "Why does one $1,050,000 salary triple the friends' mean but leave their median alone?",
-      "options": [
+      "prompt": "Nine friends earn $50,000 and a tenth earns $1,050,000. Match each with its number.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The median ignores anyone earning over $100,000",
-          "correct": false,
-          "rationale": "It ignores no one; it depends only on the middle position."
+          "left": "Total pay",
+          "right": "$1,500,000"
         },
         {
-          "id": "b",
-          "label": "The big salary was a mistake, so the median skipped it",
-          "correct": false,
-          "rationale": "Nothing was skipped; the salary is real."
+          "left": "The mean",
+          "right": "$150,000"
         },
         {
-          "id": "c",
-          "label": "The mean counts every value; the median only needs the middle",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The mean is only used for salaries",
-          "correct": false,
-          "rationale": "The mean works for any numbers you can add."
+          "left": "The median",
+          "right": "$50,000"
         }
       ],
-      "explanation": "The mean adds the $1,050,000 into the total; the median just looks at the middle two friends, who earn $50,000.",
+      "explanation": "The total pay is $1,500,000, so the mean is $150,000. The two middle friends both earn $50,000, so the median is $50,000.",
       "difficulty": 0.3
     },
     {

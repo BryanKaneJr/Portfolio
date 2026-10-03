@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 5,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Plasma",
   "objective": "After this level you can explain plasma, the state of matter in lightning and the Sun.",
@@ -166,7 +166,7 @@
     },
     {
       "id": "question.chemistry.005.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.plasma_definition",
@@ -176,33 +176,16 @@
         "card.chemistry.005.c4",
         "card.chemistry.004.c2"
       ],
-      "prompt": "Level 4 showed heat freeing particles to melt and boil. What does far more heat do to a gas?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Turns it back into a solid",
-          "correct": false,
-          "rationale": "Adding heat moves matter up the ladder, not down."
-        },
-        {
-          "id": "b",
-          "label": "Tears electrons from its atoms, making plasma",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Makes its particles stop moving",
-          "correct": false,
-          "rationale": "More heat means faster particles."
-        },
-        {
-          "id": "d",
-          "label": "Turns it into a liquid",
-          "correct": false,
-          "rationale": "That happens when a gas is cooled."
-        }
+      "prompt": "Put the states of matter in order, from the least energy to the most.",
+      "items": [
+        "Solid",
+        "Liquid",
+        "Gas",
+        "Plasma"
       ],
-      "explanation": "Solid, liquid, gas, plasma: each step takes more energy. Enough heat knocks electrons off atoms.",
+      "first": "Least energy",
+      "last": "Most energy",
+      "explanation": "Solid, liquid, gas, plasma: each step up takes more energy, and plasma forms when electrons break away from their atoms.",
       "difficulty": 0.3
     }
   ],

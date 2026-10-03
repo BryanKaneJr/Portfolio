@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 72,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "\"Because You Watched\"",
   "objective": "After this level you can explain how recommendation systems suggest things by finding people whose tastes match yours.",
@@ -87,41 +87,32 @@
   "questions": [
     {
       "id": "question.computers.072.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.recs_collaborative_filtering"
       ],
       "sourceCardIds": [
-        "card.computers.072.c2"
+        "card.computers.072.c2",
+        "card.computers.072.c3",
+        "card.computers.072.c4"
       ],
-      "prompt": "What does collaborative filtering use to pick a suggestion for you?",
-      "options": [
+      "prompt": "Match each part of the Netflix recommendation story with its detail.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A summary of each film's plot and genre",
-          "correct": false,
-          "rationale": "It needs no idea what the film is about, only overlapping tastes."
+          "left": "Collaborative filtering",
+          "right": "Compares your ratings and choices"
         },
         {
-          "id": "b",
-          "label": "What people with overlapping taste enjoyed",
-          "correct": true
+          "left": "The cold-start problem",
+          "right": "A brand-new film"
         },
         {
-          "id": "c",
-          "label": "Whatever was added to the catalog most recently",
-          "correct": false,
-          "rationale": "New items are actually its blind spot."
-        },
-        {
-          "id": "d",
-          "label": "The price each studio paid to be listed",
-          "correct": false,
-          "rationale": "It works from users' ratings and choices."
+          "left": "BellKor's Pragmatic Chaos",
+          "right": "Took the million"
         }
       ],
-      "explanation": "Collaborative filtering compares your ratings and choices with others' and suggests what people with overlapping taste liked.",
+      "explanation": "Collaborative filtering compares your ratings and choices with everyone else's, the cold-start problem hits a brand-new film nobody has rated, and BellKor's Pragmatic Chaos took the million.",
       "difficulty": 0.2
     },
     {

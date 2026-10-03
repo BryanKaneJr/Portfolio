@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 13,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Woodwinds",
   "objective": "After this level you can explain how flutes, clarinets and other woodwinds make sound.",
@@ -91,7 +91,7 @@
   "questions": [
     {
       "id": "question.music.013.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.instruments_woodwind_starters"
@@ -99,33 +99,22 @@
       "sourceCardIds": [
         "card.music.013.c3"
       ],
-      "prompt": "How does a flute player set the air inside a flute vibrating?",
-      "options": [
+      "prompt": "Match each woodwind with what sets its air vibrating.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "By buzzing the lips into a cup mouthpiece",
-          "correct": false,
-          "rationale": "That's how brass instruments start."
+          "left": "Flute",
+          "right": "The edge of a hole"
         },
         {
-          "id": "b",
-          "label": "By blowing through a single reed",
-          "correct": false,
-          "rationale": "That's the clarinet and saxophone."
+          "left": "Clarinet",
+          "right": "A single reed"
         },
         {
-          "id": "c",
-          "label": "By blowing a stream of air against an edge",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "By blowing between two reeds",
-          "correct": false,
-          "rationale": "That double reed belongs to the oboe and bassoon."
+          "left": "Oboe",
+          "right": "A double reed"
         }
       ],
-      "explanation": "A flute has no reed: a narrow stream of air against the edge of a hole starts the air vibrating.",
+      "explanation": "A flute player blows against the edge of a hole, a clarinet uses a single reed, and an oboe uses a double reed.",
       "difficulty": 0.15
     },
     {

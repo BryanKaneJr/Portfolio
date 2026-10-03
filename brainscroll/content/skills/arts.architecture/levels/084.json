@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 84,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Parks",
   "objective": "After this level you can explain why cities build parks.",
@@ -126,41 +126,33 @@
     },
     {
       "id": "question.architecture.084.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.cities_central_park"
       ],
       "sourceCardIds": [
-        "card.architecture.084.c4"
+        "card.architecture.084.c4",
+        "card.architecture.084.c1",
+        "card.architecture.084.c2",
+        "card.architecture.084.c3"
       ],
-      "prompt": "Why did Olmsted and Vaux's Greensward plan put Central Park's crosstown roads below the landscape?",
-      "options": [
+      "prompt": "Match each park or person with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "To keep the traffic out of sight of park visitors",
-          "correct": true
+          "left": "Birkenhead Park",
+          "right": "The profit on house plots"
         },
         {
-          "id": "b",
-          "label": "To save money on paving",
-          "correct": false,
-          "rationale": "The aim was the visitors' experience, not savings."
+          "left": "Central Park",
+          "right": "500,000 trees, shrubs and vines"
         },
         {
-          "id": "c",
-          "label": "To let the subway use them",
-          "correct": false,
-          "rationale": "They're roads, hidden to keep traffic out of view."
-        },
-        {
-          "id": "d",
-          "label": "Because the land was too steep for roads",
-          "correct": false,
-          "rationale": "The land was reshaped by hand anyway."
+          "left": "Calvert Vaux",
+          "right": "The architect"
         }
       ],
-      "explanation": "The Greensward plan hid the crosstown roads below the landscape, so traffic stayed out of sight of park visitors.",
+      "explanation": "Birkenhead Park was paid for from the profit on house plots around its edge. Workers planted 500,000 trees, shrubs and vines in Central Park. Calvert Vaux was the architect who designed it with Olmsted.",
       "difficulty": 0.2
     },
     {

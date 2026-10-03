@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 97,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Inequality",
   "objective": "After this level you can explain how income and wealth inequality are measured.",
@@ -135,41 +135,31 @@
     },
     {
       "id": "question.how_money_works.097.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.ideas_gini_coefficient"
       ],
       "sourceCardIds": [
+        "card.how_money_works.097.c2",
         "card.how_money_works.097.c4"
       ],
-      "prompt": "Why can two countries share the same Gini score yet look very different?",
-      "options": [
+      "prompt": "Match each one with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The Gini shows how unequal a distribution is, not why",
-          "correct": true
+          "left": "A Gini of 0",
+          "right": "Perfect equality"
         },
         {
-          "id": "b",
-          "label": "The Gini only counts people over 65",
-          "correct": false,
-          "rationale": "It covers the whole distribution."
+          "left": "A Gini of 1",
+          "right": "One person gets all of it"
         },
         {
-          "id": "c",
-          "label": "The Gini ignores income entirely",
-          "correct": false,
-          "rationale": "It is usually built from income data."
-        },
-        {
-          "id": "d",
-          "label": "Every country has the same Gini",
-          "correct": false,
-          "rationale": "Scores differ; the point is that one number hides detail."
+          "left": "The Lorenz curve",
+          "right": "A chart from 1905"
         }
       ],
-      "explanation": "Different income patterns can produce the same Gini, because it summarizes how unequal, not why.",
+      "explanation": "A Gini of 0 means perfect equality, and a Gini of 1 means one person gets all of the income. The Lorenz curve, tied to the Gini, is a chart from 1905.",
       "difficulty": 0.35
     },
     {

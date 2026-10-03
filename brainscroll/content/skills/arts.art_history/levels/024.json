@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 24,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Illuminated Manuscripts",
   "objective": "After this level you can explain how medieval scribes made illuminated manuscripts.",
@@ -126,41 +126,25 @@
     },
     {
       "id": "question.art_history.024.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.manuscript_illumination"
       ],
       "sourceCardIds": [
-        "card.art_history.024.c3"
+        "card.art_history.024.c3",
+        "card.art_history.024.c2"
       ],
-      "prompt": "Strictly speaking, what makes a manuscript \"illuminated\"?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It was written by candlelight",
-          "correct": false,
-          "rationale": "The word refers to the decoration, not how it was written."
-        },
-        {
-          "id": "b",
-          "label": "It is decorated with gold or silver",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It contains the four Gospels",
-          "correct": false,
-          "rationale": "Plenty of illuminated books aren't Gospels."
-        },
-        {
-          "id": "d",
-          "label": "It was copied in a monastery",
-          "correct": false,
-          "rationale": "Many were, but that's not what the word means."
-        }
+      "prompt": "Put the steps of making an illuminated page in order, from first to last.",
+      "items": [
+        "Ruled faint lines across the page",
+        "Wrote with a sharpened quill",
+        "Laid onto a sticky ground",
+        "Polished to a shine"
       ],
-      "explanation": "In the strict sense, only manuscripts decorated with gold or silver, which catch the light, are illuminated.",
+      "first": "First step",
+      "last": "Last step",
+      "explanation": "The scribe ruled faint lines across the page and wrote with a quill. Then gold leaf was laid onto a sticky ground and polished to a shine.",
       "difficulty": 0.3
     },
     {

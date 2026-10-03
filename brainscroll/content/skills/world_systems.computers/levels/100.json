@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 100,
   "type": "mastery",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Mastery Challenge: Computers & the Internet",
   "objective": "After this level you can demonstrate command of Computers & the Internet Levels 1 to 99 across the whole tree.",
@@ -157,7 +157,7 @@
   "questions": [
     {
       "id": "question.computers.100.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.logic_gates"
@@ -165,33 +165,22 @@
       "sourceCardIds": [
         "card.computers.006.c2"
       ],
-      "prompt": "A porch light should turn on if motion is sensed or the manual switch is on. Which gate does that job?",
-      "options": [
+      "prompt": "Match each of Level 6's gates with the switch picture it fits.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "OR",
-          "correct": true
+          "left": "AND",
+          "right": "Like two switches in series"
         },
         {
-          "id": "b",
-          "label": "AND",
-          "correct": false,
-          "rationale": "AND would need both at once."
+          "left": "OR",
+          "right": "Like two switches in parallel"
         },
         {
-          "id": "c",
-          "label": "NOT",
-          "correct": false,
-          "rationale": "NOT flips one input."
-        },
-        {
-          "id": "d",
-          "label": "No single gate",
-          "correct": false,
-          "rationale": "A single OR gate does it."
+          "left": "NOT",
+          "right": "One input, flipped"
         }
       ],
-      "explanation": "OR outputs 1 when any input is 1, like two switches wired in parallel.",
+      "explanation": "AND is like two switches in series, OR is like two switches in parallel, and NOT takes one input, flipped.",
       "difficulty": 0.35
     },
     {

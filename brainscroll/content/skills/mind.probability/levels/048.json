@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 48,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Changing Your Mind by the Right Amount",
   "objective": "After this level you can explain Bayes' idea in words: start from the base rate and let each new piece of evidence shift it.",
@@ -90,41 +90,25 @@
   "questions": [
     {
       "id": "question.probability.048.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.risk_bayes_updating"
       ],
       "sourceCardIds": [
-        "card.probability.048.c2"
+        "card.probability.048.c2",
+        "card.probability.048.c3",
+        "card.probability.048.c4"
       ],
-      "prompt": "In Bayes' idea, where should your estimate of a chance start?",
-      "options": [
-        {
-          "id": "a",
-          "label": "With the latest test result alone",
-          "correct": false,
-          "rationale": "The result shifts the estimate; it isn't the start."
-        },
-        {
-          "id": "b",
-          "label": "At 50%, since anything could happen",
-          "correct": false,
-          "rationale": "A coin-flip start ignores how common the thing is."
-        },
-        {
-          "id": "c",
-          "label": "At zero until there is proof",
-          "correct": false,
-          "rationale": "Bayes starts from how common it is, not from zero."
-        },
-        {
-          "id": "d",
-          "label": "With the base rate, before the new evidence",
-          "correct": true
-        }
+      "prompt": "Put the chance of having the condition in order, as each test result comes in.",
+      "items": [
+        "1 in 100",
+        "1 in 12",
+        "45%"
       ],
-      "explanation": "Bayes' idea: begin with a starting chance such as the base rate, then let each piece of evidence shift it.",
+      "first": "Before any test",
+      "last": "After two positives",
+      "explanation": "You start from the base rate, 1 in 100. One positive moves it to 1 in 12, and a second positive moves it to 45%.",
       "difficulty": 0.25
     },
     {

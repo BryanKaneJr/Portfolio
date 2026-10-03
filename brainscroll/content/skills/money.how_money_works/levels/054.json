@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 54,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Government Budgets and Debt",
   "objective": "After this level you can explain deficits, surpluses and national debt.",
@@ -106,41 +106,35 @@
   "questions": [
     {
       "id": "question.how_money_works.054.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.govt_deficit_surplus"
       ],
       "sourceCardIds": [
-        "card.how_money_works.054.c2"
+        "card.how_money_works.054.c2",
+        "card.how_money_works.054.c3"
       ],
-      "prompt": "What is a budget deficit?",
-      "options": [
+      "prompt": "Match each budget word with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The total a government owes from all past years",
-          "correct": false,
-          "rationale": "That's the national debt."
+          "left": "Deficit",
+          "right": "Spend more than it collects"
         },
         {
-          "id": "b",
-          "label": "A year when a government collects more than it spends",
-          "correct": false,
-          "rationale": "That's a surplus."
+          "left": "Surplus",
+          "right": "Collect more than it spends"
         },
         {
-          "id": "c",
-          "label": "The interest a government pays on its bonds",
-          "correct": false,
-          "rationale": "Interest is part of the debt, not the definition of a deficit."
+          "left": "Balanced",
+          "right": "The two match"
         },
         {
-          "id": "d",
-          "label": "A year when a government spends more than it collects in taxes",
-          "correct": true
+          "left": "Debt",
+          "right": "The running total"
         }
       ],
-      "explanation": "A deficit is one year's gap: spending above what taxes bring in.",
+      "explanation": "A government runs a deficit when it spends more than it collects and a surplus when it collects more than it spends. If the two match, the budget is balanced. The debt is the running total.",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 100,
   "type": "mastery",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Mastery Challenge: Probability & Statistics",
   "objective": "After this level you can demonstrate command of Probability & Statistics Levels 1 to 99 across the whole tree.",
@@ -316,7 +316,7 @@
     },
     {
       "id": "question.probability.100.q5",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.risk_false_positives",
@@ -326,33 +326,22 @@
         "card.probability.047.c4",
         "card.probability.047.c3"
       ],
-      "prompt": "The same 90% accurate test is used where 1 in 100 people have a condition and where 1 in 10 do. Why is a positive far likelier to be real in the second place?",
-      "options": [
+      "prompt": "Follow Level 47's test, where 100 of 10,000 people have the condition. Match each with its count.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "False alarms from healthy people no longer swamp the true cases",
-          "correct": true
+          "left": "Positives",
+          "right": "1,080"
         },
         {
-          "id": "b",
-          "label": "Its sensitivity rises when a condition is more common",
-          "correct": false,
-          "rationale": "Sensitivity is 90% in both places; the base rate changed."
+          "left": "Real ones",
+          "right": "90"
         },
         {
-          "id": "c",
-          "label": "A common condition is easier for a lab to spot",
-          "correct": false,
-          "rationale": "The test's accuracy is the same in both places."
-        },
-        {
-          "id": "d",
-          "label": "People in the second place are tested twice",
-          "correct": false,
-          "rationale": "Nothing says so; the base rate is what changed."
+          "left": "If 1 in 10 people had it",
+          "right": "1 in 2 would be real"
         }
       ],
-      "explanation": "At 1 in 100, 990 false alarms swamp 90 true cases: 1 in 12 positives is real. At 1 in 10, it's 900 true against 900 false: 1 in 2.",
+      "explanation": "There are 1,080 positives, and only 90 are real ones: 1 in 12. If 1 in 10 people had it, the same test would give 900 true and 900 false positives, so 1 in 2 would be real.",
       "difficulty": 0.55
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 71,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Magna Carta",
   "objective": "After this level you can explain what Magna Carta said in 1215 and why it still matters.",
@@ -131,41 +131,26 @@
     },
     {
       "id": "question.middle_ages.071.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.magna_carta_survival"
       ],
       "sourceCardIds": [
+        "card.middle_ages.071.c2",
+        "card.middle_ages.071.c3",
         "card.middle_ages.071.c4"
       ],
-      "prompt": "Pope Innocent III annulled Magna Carta in 1215. Why didn’t that finish it off?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It was reissued in 1216, 1217 and 1225",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "King John ignored the Pope and obeyed it",
-          "correct": false,
-          "rationale": "John was the one who asked the Pope to annul it."
-        },
-        {
-          "id": "c",
-          "label": "The barons had already carved it in stone",
-          "correct": false,
-          "rationale": "It survived on parchment, by being reissued."
-        },
-        {
-          "id": "d",
-          "label": "The Pope changed his mind a week later",
-          "correct": false,
-          "rationale": "The annulment stood; the charter came back by reissue."
-        }
+      "prompt": "Put these events in Magna Carta’s story in order, from earliest to latest.",
+      "items": [
+        "John agreed to their charter",
+        "Innocent III annulled the charter",
+        "John died",
+        "It came back once more"
       ],
-      "explanation": "After John’s death it was reissued for Henry III in 1216 and 1217, and again in 1225 in exchange for a new tax.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "John agreed to the barons’ charter on 15 June 1215. Innocent III annulled it on 24 August 1215, John died in October 1216, and in 1225 the charter came back once more in exchange for a new tax.",
       "difficulty": 0.3
     },
     {

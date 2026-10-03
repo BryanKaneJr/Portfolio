@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 56,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Chinese and Japanese Traditions",
   "objective": "After this level you can describe instruments like the erhu, the koto and the shakuhachi.",
@@ -170,42 +170,33 @@
     },
     {
       "id": "question.music.056.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.music.eastasia_erhu"
       ],
       "sourceCardIds": [
         "card.music.056.c2",
-        "card.music.052.c4"
+        "card.music.052.c4",
+        "card.music.056.c3",
+        "card.music.056.c4"
       ],
-      "prompt": "Level 52's sitar and the Chinese erhu are both string instruments. What sets the erhu apart?",
-      "options": [
+      "prompt": "Match each instrument with what it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It has about 20 strings, including sympathetic strings",
-          "correct": false,
-          "rationale": "That describes the sitar."
+          "left": "Erhu",
+          "right": "A two-stringed Chinese fiddle"
         },
         {
-          "id": "b",
-          "label": "It is plucked with tsume picks worn on three fingers",
-          "correct": false,
-          "rationale": "That's how the koto is played."
+          "left": "Koto",
+          "right": "A long Japanese board zither"
         },
         {
-          "id": "c",
-          "label": "It is bowed, and the bow's hair passes between its two strings",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It is struck with padded mallets, like a metallophone",
-          "correct": false,
-          "rationale": "Mallets belong to the gamelan."
+          "left": "Shakuhachi",
+          "right": "An end-blown bamboo flute"
         }
       ],
-      "explanation": "The erhu is a bowed two-string fiddle whose bow hair runs between its strings; the sitar is plucked.",
+      "explanation": "The erhu is a two-stringed Chinese fiddle, the koto is a long Japanese board zither, and the shakuhachi is an end-blown bamboo flute.",
       "difficulty": 0.3
     }
   ],

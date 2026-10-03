@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 59,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Jane Austen",
   "objective": "After this level you can explain why Austen's irony and her way of slipping into a character's thoughts still feel fresh.",
@@ -92,41 +92,35 @@
   "questions": [
     {
       "id": "question.literature.059.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.literature.austen_free_indirect"
       ],
       "sourceCardIds": [
-        "card.literature.059.c3"
+        "card.literature.059.c3",
+        "card.literature.059.c2"
       ],
-      "prompt": "What is free indirect discourse?",
-      "options": [
+      "prompt": "Match each Austen title or term with what goes with it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A character speaking alone on stage",
-          "correct": false,
-          "rationale": "That's a soliloquy."
+          "left": "Pride and Prejudice",
+          "right": "Published anonymously in 1813"
         },
         {
-          "id": "b",
-          "label": "A novel told in letters between characters",
-          "correct": false,
-          "rationale": "That's the epistolary form, like Pamela."
+          "left": "Persuasion",
+          "right": "Captain Wentworth"
         },
         {
-          "id": "c",
-          "label": "Third-person narration that takes on a character's own voice",
-          "correct": true
+          "left": "Irony",
+          "right": "The words say one thing"
         },
         {
-          "id": "d",
-          "label": "A narrator who says \"I\" from start to finish",
-          "correct": false,
-          "rationale": "Free indirect discourse is third-person."
+          "left": "Free indirect discourse",
+          "right": "Takes on a character's own voice"
         }
       ],
-      "explanation": "Free indirect discourse is third-person narration that takes on a character's voice and thoughts, with no \"he thought\".",
+      "explanation": "Pride and Prejudice was published anonymously in 1813, and Persuasion slips into Captain Wentworth's view. In irony the words say one thing and you hear another; free indirect discourse takes on a character's own voice.",
       "difficulty": 0.2
     },
     {

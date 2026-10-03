@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 24,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "What Blood Is Made Of",
   "objective": "After this level you can name the parts of blood and what each one does.",
@@ -91,38 +91,33 @@
   "questions": [
     {
       "id": "question.human_body.024.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.blood_components"
       ],
       "sourceCardIds": [
-        "card.human_body.024.c2"
+        "card.human_body.024.c2",
+        "card.human_body.024.c3",
+        "card.human_body.024.c4"
       ],
-      "prompt": "Which part of blood makes up more than half of its volume?",
-      "options": [
+      "prompt": "Match each part of blood with its role or share.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Red blood cells",
-          "correct": false,
-          "rationale": "They are about 45 percent."
+          "left": "Plasma",
+          "right": "Over half your blood"
         },
         {
-          "id": "b",
-          "label": "Plasma",
-          "correct": true
+          "left": "Red blood cells",
+          "right": "Delivering oxygen"
         },
         {
-          "id": "c",
-          "label": "Platelets",
-          "correct": false,
-          "rationale": "With white cells, under 1 percent."
+          "left": "White blood cells",
+          "right": "Fight infection"
         },
         {
-          "id": "d",
-          "label": "White blood cells",
-          "correct": false,
-          "rationale": "With platelets, under 1 percent."
+          "left": "Platelets",
+          "right": "Help blood clot"
         }
       ],
       "explanation": "Plasma, a liquid that is about 92 percent water, makes up over half of blood.",

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 68,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Safety on Site",
   "objective": "After this level you can explain how construction workers are kept safe.",
@@ -131,41 +131,31 @@
     },
     {
       "id": "question.architecture.068.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.sky_safety_falls"
       ],
       "sourceCardIds": [
-        "card.architecture.068.c3"
+        "card.architecture.068.c3",
+        "card.architecture.068.c4"
       ],
-      "prompt": "Why do guardrails, harnesses and nets sit at the center of construction safety?",
-      "options": [
+      "prompt": "Match each piece of building-site safety with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Falls are the leading cause of death in construction",
-          "correct": true
+          "left": "Fall protection",
+          "right": "From six feet up"
         },
         {
-          "id": "b",
-          "label": "They make building sites faster to build",
-          "correct": false,
-          "rationale": "They're there to stop falls, not to save time."
+          "left": "Guardrails and toe-boards",
+          "right": "Around open edges"
         },
         {
-          "id": "c",
-          "label": "They're needed only above the 50th floor",
-          "correct": false,
-          "rationale": "US rules require fall protection from six feet up."
-        },
-        {
-          "id": "d",
-          "label": "They stop tools from being stolen",
-          "correct": false,
-          "rationale": "They protect people from falling."
+          "left": "Edward W. Bullard",
+          "right": "Hard Boiled Hat"
         }
       ],
-      "explanation": "OSHA says falls are the leading cause of construction deaths, so fall protection is required from six feet up.",
+      "explanation": "US rules require fall protection in construction from six feet up. Guardrails and toe-boards go around open edges. Edward W. Bullard made the Hard Boiled Hat, the first hard hat.",
       "difficulty": 0.2
     },
     {

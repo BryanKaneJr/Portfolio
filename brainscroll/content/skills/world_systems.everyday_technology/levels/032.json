@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 32,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Jet Engines",
   "objective": "After this level you can explain how jet engines push planes forward.",
@@ -91,7 +91,7 @@
   "questions": [
     {
       "id": "question.everyday_technology.032.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.jet_engine"
@@ -99,33 +99,16 @@
       "sourceCardIds": [
         "card.everyday_technology.032.c3"
       ],
-      "prompt": "Inside a jet engine, what turns the compressor at the front?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The turbine, through a shaft",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "An electric motor",
-          "correct": false,
-          "rationale": "No motor is needed: the hot gas does it."
-        },
-        {
-          "id": "c",
-          "label": "Air hitting the plane's nose",
-          "correct": false,
-          "rationale": "The compressor is driven from inside the engine."
-        },
-        {
-          "id": "d",
-          "label": "The nozzle at the back",
-          "correct": false,
-          "rationale": "The nozzle speeds the gas out; it doesn't spin."
-        }
+      "prompt": "Put the parts of a jet engine in order, following the air from front to back.",
+      "items": [
+        "Compressor",
+        "Burner",
+        "Turbine",
+        "Nozzle"
       ],
-      "explanation": "Hot gas spins the turbine, and a shaft links the turbine to the compressor.",
+      "first": "Air enters",
+      "last": "Gas shoots out",
+      "explanation": "Air is squeezed by the compressor, burns with fuel in the burner, spins the turbine, and shoots out of the nozzle.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 59,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Phishing: Hacking the Human",
   "objective": "After this level you can explain why phishing works by rushing and tricking people rather than breaking code, and spot its signs.",
@@ -126,7 +126,7 @@
     },
     {
       "id": "question.computers.059.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.security_social_engineering"
@@ -135,33 +135,26 @@
         "card.computers.059.c2",
         "card.computers.059.c3"
       ],
-      "prompt": "Why can phishing succeed even against a company whose systems are well encrypted?",
-      "options": [
+      "prompt": "Match each lever scammers pull with an example of it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It tricks a person into handing over a password, so no code needs breaking",
-          "correct": true
+          "left": "Authority",
+          "right": "Seems to come from your bank"
         },
         {
-          "id": "b",
-          "label": "Phishing emails contain special code that breaks encryption",
-          "correct": false,
-          "rationale": "Phishing tricks people; it does not break the math."
+          "left": "Emotion",
+          "right": "Fear or curiosity"
         },
         {
-          "id": "c",
-          "label": "Encryption switches off whenever email is opened",
-          "correct": false,
-          "rationale": "Encryption keeps working; the person is the target."
+          "left": "Scarcity",
+          "right": "A deal about to vanish"
         },
         {
-          "id": "d",
-          "label": "Phishing only works on companies with no encryption",
-          "correct": false,
-          "rationale": "It targets people, whatever the encryption."
+          "left": "Current events",
+          "right": "Whatever is in the news"
         }
       ],
-      "explanation": "Social engineering tricks a person into revealing information such as a password, going around the technology.",
+      "explanation": "Authority is a message that seems to come from your bank, emotion means fear or curiosity, scarcity is a deal about to vanish, and current events means whatever is in the news.",
       "difficulty": 0.25
     },
     {

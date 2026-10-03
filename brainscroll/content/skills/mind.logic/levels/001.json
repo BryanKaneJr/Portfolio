@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 1,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Logic: The Big Picture",
   "objective": "After this level you can explain what logic and critical thinking do: check whether the reasons for a claim really support it.",
@@ -80,41 +80,32 @@
   "questions": [
     {
       "id": "question.logic.001.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.logic_definition"
       ],
       "sourceCardIds": [
-        "card.logic.001.c2"
+        "card.logic.001.c2",
+        "card.logic.001.c3",
+        "card.logic.001.c4"
       ],
-      "prompt": "According to the textbook forall x, what use of logic does it focus on?",
-      "options": [
+      "prompt": "Match each source with what it says about logic or thinking.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Collecting true facts about the world",
-          "correct": false,
-          "rationale": "Logic checks reasoning; gathering facts is other fields' work."
+          "left": "forall x",
+          "right": "Evaluating arguments"
         },
         {
-          "id": "b",
-          "label": "Sorting good arguments from bad ones",
-          "correct": true
+          "left": "John Dewey",
+          "right": "Suspended judgment"
         },
         {
-          "id": "c",
-          "label": "Helping you win every debate",
-          "correct": false,
-          "rationale": "Logic judges arguments, not who wins."
-        },
-        {
-          "id": "d",
-          "label": "Proving that opinions are wrong",
-          "correct": false,
-          "rationale": "It judges arguments, not opinions as such."
+          "left": "The Greek logos",
+          "right": "Word, reason"
         }
       ],
-      "explanation": "forall x focuses on logic's use in evaluating arguments: sorting the good from the bad.",
+      "explanation": "The textbook forall x focuses on evaluating arguments. John Dewey said the essence of critical thinking is suspended judgment. The Greek logos means word, reason.",
       "difficulty": 0.1
     },
     {

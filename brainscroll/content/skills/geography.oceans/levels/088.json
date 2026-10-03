@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 88,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Deepest Dive",
   "objective": "After this level you can describe the dives to the deepest point in the ocean.",
@@ -114,41 +114,25 @@
   "questions": [
     {
       "id": "question.oceans.088.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.oceans.deepest_dive_return"
       ],
       "sourceCardIds": [
-        "card.oceans.088.c4"
+        "card.oceans.088.c4",
+        "card.oceans.088.c3"
       ],
-      "prompt": "What did Victor Vescovo's Limiting Factor do at Challenger Deep in 2019 that no submersible had done before?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Made the first dive to the bottom",
-          "correct": false,
-          "rationale": "Trieste did that in 1960."
-        },
-        {
-          "id": "b",
-          "label": "Made the first solo dive to the bottom",
-          "correct": false,
-          "rationale": "James Cameron did that in 2012."
-        },
-        {
-          "id": "c",
-          "label": "Measured the depth with a weighted rope",
-          "correct": false,
-          "rationale": "That was HMS Challenger in 1875."
-        },
-        {
-          "id": "d",
-          "label": "Reached the bottom more than once",
-          "correct": true
-        }
+      "prompt": "Put these Challenger Deep milestones in order, from earliest to latest.",
+      "items": [
+        "HMS Challenger's rope",
+        "Piccard and Walsh reach Challenger Deep",
+        "James Cameron dives solo",
+        "Victor Vescovo's Limiting Factor"
       ],
-      "explanation": "Between April 28 and May 5, 2019, Limiting Factor reached the bottom of Challenger Deep four times, a first for any submersible.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "HMS Challenger's rope found 8,184 m there in 1875. Piccard and Walsh reached the bottom in 1960, James Cameron dove solo in 2012, and Victor Vescovo's Limiting Factor reached it four times in 2019.",
       "difficulty": 0.25
     },
     {

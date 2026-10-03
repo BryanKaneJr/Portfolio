@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 100,
   "type": "mastery",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Mastery Challenge: Psychology",
   "objective": "After this level you can demonstrate command of Psychology Levels 1 to 99 across the whole tree.",
@@ -156,41 +156,27 @@
   "questions": [
     {
       "id": "question.psychology.100.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.wundt_lab"
       ],
       "sourceCardIds": [
-        "card.psychology.003.c2"
+        "card.psychology.010.c3",
+        "card.psychology.020.c3",
+        "card.psychology.097.c1"
       ],
-      "prompt": "What made Wundt's 1879 Leipzig lab the start of psychology as a science?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He brought experiments to questions philosophy had only argued over",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "He was the first to treat patients with talk therapy",
-          "correct": false,
-          "rationale": "Talk therapy was Freud's psychoanalysis."
-        },
-        {
-          "id": "c",
-          "label": "He showed the mind works like a computer",
-          "correct": false,
-          "rationale": "That picture came with the cognitive revolution, decades later."
-        },
-        {
-          "id": "d",
-          "label": "He studied only behavior anyone could observe",
-          "correct": false,
-          "rationale": "That was Watson's behaviorism."
-        }
+      "prompt": "Put these moments from across psychology in order, from earliest to latest.",
+      "items": [
+        "Wundt opens the first psychology lab",
+        "Watson launches behaviorism",
+        "Cherry names the cocktail-party problem",
+        "The invisible gorilla",
+        "The Open Science Collaboration"
       ],
-      "explanation": "Wundt set up the first psychology lab in 1879 and insisted on experiments borrowed from the natural sciences.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Wundt opened the first psychology lab in 1879, Watson launched behaviorism in 1913, Cherry named the cocktail-party problem in 1953, the invisible gorilla came in 1999, and the Open Science Collaboration reran 100 studies in 2015.",
       "difficulty": 0.35
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 47,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Hollywood Blacklist",
   "objective": "After this level you can explain why the Hollywood blacklist began in 1947, how blacklisted writers kept working in secret, and how it ended.",
@@ -127,41 +127,26 @@
     },
     {
       "id": "question.film_tv.047.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.studio_blacklist_huac"
       ],
       "sourceCardIds": [
-        "card.film_tv.047.c3"
+        "card.film_tv.047.c3",
+        "card.film_tv.047.c1",
+        "card.film_tv.047.c2",
+        "card.film_tv.047.c4"
       ],
-      "prompt": "Why did the Hollywood Ten say they could refuse the committee's questions?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Their studios had told them to stay silent",
-          "correct": false,
-          "rationale": "Studio heads fired them instead."
-        },
-        {
-          "id": "b",
-          "label": "The questions were only about their salaries",
-          "correct": false,
-          "rationale": "The questions were about communist affiliations."
-        },
-        {
-          "id": "c",
-          "label": "The First Amendment protected their beliefs and ties",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "They had already testified in court",
-          "correct": false,
-          "rationale": "Their stand was constitutional, not about earlier testimony."
-        }
+      "prompt": "Put these moments in the blacklist story in order, from earliest to latest.",
+      "items": [
+        "The committee comes to Hollywood",
+        "The Brave One",
+        "Exodus and Spartacus"
       ],
-      "explanation": "The Ten argued that the First Amendment shielded their beliefs and associations from government inquiry. They were convicted of contempt anyway.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The committee turned to Hollywood in 1947, The Brave One won an Oscar under a false name in 1956, and Trumbo got screen credit for Exodus and Spartacus in 1960.",
       "difficulty": 0.3
     },
     {

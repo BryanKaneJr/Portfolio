@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 60,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Engineering Marvels",
   "objective": "After this level you can explain how engineers span rivers, dig tunnels and hold back water.",
@@ -223,7 +223,7 @@
     },
     {
       "id": "question.architecture.060.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.architecture.marvel_tunnel_ring_arch",
@@ -235,33 +235,26 @@
         "card.architecture.054.c4",
         "card.architecture.055.c3"
       ],
-      "prompt": "Engineering Marvels recap: which Chapter 1 shape do both a tunnel's lining and an arch dam borrow?",
-      "options": [
+      "prompt": "Engineering Marvels recap: match each structure with how it handles its force.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The post and lintel",
-          "correct": false,
-          "rationale": "Lintels bend; tunnels and arch dams stay in compression."
+          "left": "A tunnel",
+          "right": "An arch that goes all the way round"
         },
         {
-          "id": "b",
-          "label": "The cantilever",
-          "correct": false,
-          "rationale": "Cantilevers belong to bridges like the Forth."
+          "left": "Arch dams",
+          "right": "Push the water into the valley sides"
         },
         {
-          "id": "c",
-          "label": "The steel frame",
-          "correct": false,
-          "rationale": "Frames hold up buildings, not dams."
+          "left": "Piles",
+          "right": "Carry loads down to firm ground"
         },
         {
-          "id": "d",
-          "label": "The arch",
-          "correct": true
+          "left": "Base isolators",
+          "right": "Let the ground move beneath"
         }
       ],
-      "explanation": "A tunnel is a continuous arch that goes all the way round, and an arch dam's curve passes the water's push into the valley sides.",
+      "explanation": "A tunnel is an arch that goes all the way round. Arch dams push the water into the valley sides. Piles carry loads down to firm ground, and base isolators let the ground move beneath the building.",
       "difficulty": 0.25
     },
     {

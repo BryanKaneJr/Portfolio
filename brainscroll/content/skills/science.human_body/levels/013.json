@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 13,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Joints",
   "objective": "After this level you can name the main kinds of joint and explain how they let us move.",
@@ -129,7 +129,7 @@
   "questions": [
     {
       "id": "question.human_body.013.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.synovial_joints"
@@ -137,30 +137,19 @@
       "sourceCardIds": [
         "card.human_body.013.c4"
       ],
-      "prompt": "Which two joints are the body's only ball-and-socket joints?",
-      "options": [
+      "prompt": "Match each joint shape with where you find it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The shoulder and the hip",
-          "correct": true
+          "left": "Hinge",
+          "right": "Elbow, knee and ankle"
         },
         {
-          "id": "b",
-          "label": "The elbow and the knee",
-          "correct": false,
-          "rationale": "Those are hinge joints."
+          "left": "Pivot",
+          "right": "Between your top two vertebrae"
         },
         {
-          "id": "c",
-          "label": "The skull sutures",
-          "correct": false,
-          "rationale": "Sutures are immovable joints."
-        },
-        {
-          "id": "d",
-          "label": "The top two vertebrae",
-          "correct": false,
-          "rationale": "That's a pivot joint for turning the head."
+          "left": "Ball-and-socket",
+          "right": "Hip and shoulder"
         }
       ],
       "explanation": "The hip and shoulder are the only ball-and-socket joints, and they have the widest range of motion.",

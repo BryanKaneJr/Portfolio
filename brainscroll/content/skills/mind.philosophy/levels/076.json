@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 76,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The First Cause",
   "objective": "After this level you can explain the cosmological argument in al-Ghazali's and Aquinas's versions and the objection \"what caused the first cause?\".",
@@ -89,41 +89,32 @@
   "questions": [
     {
       "id": "question.philosophy.076.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.philosophy.god_cosmological_argument"
       ],
       "sourceCardIds": [
-        "card.philosophy.076.c2"
+        "card.philosophy.076.c2",
+        "card.philosophy.076.c3",
+        "card.philosophy.076.c4"
       ],
-      "prompt": "According to al-Ghazali’s premise, what needs a cause?",
-      "options": [
+      "prompt": "Match each thinker with his part in the first-cause debate.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Everything that begins to exist",
-          "correct": true
+          "left": "Al-Ghazali",
+          "right": "A world that began"
         },
         {
-          "id": "b",
-          "label": "Everything whatsoever, God included",
-          "correct": false,
-          "rationale": "His premise is only about beginnings."
+          "left": "Aquinas",
+          "right": "A first efficient cause"
         },
         {
-          "id": "c",
-          "label": "Only things that we can see moving",
-          "correct": false,
-          "rationale": "His premise is about beginnings, not motion."
-        },
-        {
-          "id": "d",
-          "label": "Only living things",
-          "correct": false,
-          "rationale": "His premise covers the whole world."
+          "left": "Bertrand Russell",
+          "right": "Who made God?"
         }
       ],
-      "explanation": "Al-Ghazali: everything that begins to exist needs a cause of its beginning, and the world began.",
+      "explanation": "Al-Ghazali argued for a world that began, Aquinas for a first efficient cause, and Russell asked “Who made God?”",
       "difficulty": 0.2
     },
     {

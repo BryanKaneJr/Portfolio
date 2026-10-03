@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 57,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Sleep",
   "objective": "After this level you can explain what happens in the body and brain during sleep.",
@@ -187,7 +187,7 @@
     },
     {
       "id": "question.human_body.057.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.neuro_sleep_purpose",
@@ -195,34 +195,18 @@
       ],
       "sourceCardIds": [
         "card.human_body.057.c4",
-        "card.human_body.056.c2"
+        "card.human_body.056.c2",
+        "card.human_body.057.c2"
       ],
-      "prompt": "Level 56 showed the hippocampus filing new memories. Which sleep does storing memories most likely need?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Only REM sleep",
-          "correct": false,
-          "rationale": "Non-REM sleep matters too."
-        },
-        {
-          "id": "b",
-          "label": "Only stage 1",
-          "correct": false,
-          "rationale": "The short changeover stage is not singled out."
-        },
-        {
-          "id": "c",
-          "label": "Both non-REM and REM sleep",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "No sleep; it all happens awake",
-          "correct": false,
-          "rationale": "Sleep is part of the process."
-        }
+      "prompt": "Put one trip through the stages of sleep in order, from falling asleep onward.",
+      "items": [
+        "A few minutes of changeover",
+        "Light sleep",
+        "Deep sleep",
+        "REM"
       ],
+      "first": "Just fallen asleep",
+      "last": "About 90 minutes in",
       "explanation": "Memory consolidation most likely requires both non-REM and REM sleep.",
       "difficulty": 0.3
     }

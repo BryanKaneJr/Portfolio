@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 9,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Reading Music",
   "objective": "After this level you can explain how notes are written on a staff.",
@@ -87,7 +87,7 @@
   "questions": [
     {
       "id": "question.music.009.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.staff_clefs"
@@ -95,33 +95,22 @@
       "sourceCardIds": [
         "card.music.009.c3"
       ],
-      "prompt": "On a staff with a treble clef, which line is G?",
-      "options": [
+      "prompt": "Match each part of written music with how it looks.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The top line of the staff",
-          "correct": false,
-          "rationale": "The top treble line is F."
+          "left": "Treble clef",
+          "right": "A curly G"
         },
         {
-          "id": "b",
-          "label": "The second line from the bottom",
-          "correct": true
+          "left": "Bass clef",
+          "right": "A stylized F"
         },
         {
-          "id": "c",
-          "label": "The middle line of the staff",
-          "correct": false,
-          "rationale": "The middle treble line is B."
-        },
-        {
-          "id": "d",
-          "label": "The bottom line of the staff",
-          "correct": false,
-          "rationale": "The bottom treble line is E."
+          "left": "Grand staff",
+          "right": "Middle C on a short line between"
         }
       ],
-      "explanation": "The treble clef is a curly G around the second line from the bottom: E, G, B, D, F.",
+      "explanation": "The treble clef is a curly G and the bass clef is a stylized F. Stack them and you get the grand staff, with middle C on a short line between.",
       "difficulty": 0.15
     },
     {

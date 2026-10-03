@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 59,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Folk Music",
   "objective": "After this level you can explain how folk songs pass from person to person.",
@@ -82,41 +82,25 @@
   "questions": [
     {
       "id": "question.music.059.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.folk_barbara_allen"
       ],
       "sourceCardIds": [
-        "card.music.059.c1"
+        "card.music.059.c1",
+        "card.music.059.c3",
+        "card.music.059.c4"
       ],
-      "prompt": "What did Samuel Pepys record in his diary in January 1666?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Hearing Mrs. Knipp sing 'her little Scotch song of Barbary Allen'",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Printing the first songbook of English and Scottish ballads",
-          "correct": false,
-          "rationale": "Pepys wrote about hearing the song."
-        },
-        {
-          "id": "c",
-          "label": "Meeting Cecil Sharp to collect ballads in Appalachia",
-          "correct": false,
-          "rationale": "Sharp's trips came between 1916 and 1918."
-        },
-        {
-          "id": "d",
-          "label": "Composing both the words and tune of 'Barbara Allen'",
-          "correct": false,
-          "rationale": "He heard it sung; he didn't write it."
-        }
+      "prompt": "Put these people and archives in order of their part in the story, from earliest to latest.",
+      "items": [
+        "Samuel Pepys",
+        "Cecil Sharp",
+        "The Library of Congress"
       ],
-      "explanation": "Pepys wrote of the pleasure of hearing Mrs. Knipp sing 'her little Scotch song of Barbary Allen.'",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Samuel Pepys heard Barbary Allen in 1666, Cecil Sharp collected songs in Appalachia between 1916 and 1918, and the Library of Congress released its Barbara Allen LP in 1966.",
       "difficulty": 0.2
     },
     {

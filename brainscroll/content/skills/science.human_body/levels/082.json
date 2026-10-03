@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 82,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Inherited Traits",
   "objective": "After this level you can explain how children inherit traits from both parents.",
@@ -180,7 +180,7 @@
     },
     {
       "id": "question.human_body.082.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.inheritance_polygenic_traits",
@@ -188,32 +188,22 @@
       ],
       "sourceCardIds": [
         "card.human_body.082.c4",
-        "card.human_body.006.c5"
+        "card.human_body.006.c5",
+        "card.human_body.082.c2"
       ],
-      "prompt": "Level 6 said height is shaped by hundreds of gene variants plus nutrition. What kind of trait does that make height?",
-      "options": [
+      "prompt": "Match each inheritance term with its meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A dominant trait",
-          "correct": false,
-          "rationale": "Dominance describes one allele masking another."
+          "left": "Alleles",
+          "right": "Two versions"
         },
         {
-          "id": "b",
-          "label": "A single-gene trait",
-          "correct": false,
-          "rationale": "Hundreds of variants are involved."
+          "left": "Dominant",
+          "right": "A single copy is enough to show"
         },
         {
-          "id": "c",
-          "label": "A polygenic trait",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "A recessive trait",
-          "correct": false,
-          "rationale": "Recessive describes a masked allele."
+          "left": "Polygenic",
+          "right": "Two or more genes shape them"
         }
       ],
       "explanation": "A polygenic trait is influenced by two or more genes, often along with the environment.",

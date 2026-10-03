@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 81,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Simpson's Paradox",
   "objective": "After this level you can explain how a trend in every group can reverse when the groups are combined, using the 1973 Berkeley admissions data.",
@@ -81,41 +81,36 @@
   "questions": [
     {
       "id": "question.probability.081.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.trap_simpsons_paradox"
       ],
       "sourceCardIds": [
-        "card.probability.081.c4"
+        "card.probability.081.c4",
+        "card.probability.081.c2",
+        "card.probability.081.c3"
       ],
-      "prompt": "What is Simpson's paradox?",
-      "options": [
+      "prompt": "Match each group of Berkeley's 1973 applicants with the share admitted. The 825 men and 108 women applied to Department A.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A trend in every group reverses when the groups are combined",
-          "correct": true
+          "left": "8,442 men",
+          "right": "About 44%"
         },
         {
-          "id": "b",
-          "label": "A small group gives extreme results by chance",
-          "correct": false,
-          "rationale": "That's a different trap: small groups swing more."
+          "left": "4,321 women",
+          "right": "About 35%"
         },
         {
-          "id": "c",
-          "label": "Percents that don't add up to 100%",
-          "correct": false,
-          "rationale": "Simpson's paradox is about combining groups, not totals."
+          "left": "825 men",
+          "right": "62%"
         },
         {
-          "id": "d",
-          "label": "A number that looks more exact than its measurement",
-          "correct": false,
-          "rationale": "That's false precision, from Chapter 1."
+          "left": "108 women",
+          "right": "82%"
         }
       ],
-      "explanation": "Simpson's paradox: a trend that holds in each group disappears or reverses once the groups are pooled, as at Berkeley in 1973.",
+      "explanation": "Overall, about 44% of the 8,442 men got in, but only about 35% of the 4,321 women. In Department A it flipped: 82% of the 108 women, against 62% of the 825 men.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 79,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Dose Makes the Poison",
   "objective": "After this level you can explain why almost anything is harmful in a large enough dose.",
@@ -134,41 +134,31 @@
     },
     {
       "id": "question.chemistry.079.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.lifechem_poison_or_medicine"
       ],
       "sourceCardIds": [
-        "card.chemistry.079.c4"
+        "card.chemistry.079.c4",
+        "card.chemistry.079.c2"
       ],
-      "prompt": "How could foxglove be both a poison and a heart medicine?",
-      "options": [
+      "prompt": "Match each with the idea that goes with it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Only its flowers are poisonous",
-          "correct": false,
-          "rationale": "Withering used the leaf; the difference was the dose."
+          "left": "Paracelsus",
+          "right": "The dose makes the poison"
         },
         {
-          "id": "b",
-          "label": "Small doses helped, while larger doses caused poisoning",
-          "correct": true
+          "left": "William Withering",
+          "right": "Foxglove"
         },
         {
-          "id": "c",
-          "label": "It was only poisonous before 1785",
-          "correct": false,
-          "rationale": "It's still toxic in large doses today."
-        },
-        {
-          "id": "d",
-          "label": "Doctors turned it into a different plant",
-          "correct": false,
-          "rationale": "It's the same plant and the same compound, digitalis."
+          "left": "Toxicology",
+          "right": "The science of poisons"
         }
       ],
-      "explanation": "Withering found small, nontoxic doses treated dropsy, and described the poisoning that bigger doses cause.",
+      "explanation": "Paracelsus taught that the dose makes the poison, William Withering studied foxglove as a heart medicine, and toxicology is the science of poisons.",
       "difficulty": 0.3
     },
     {

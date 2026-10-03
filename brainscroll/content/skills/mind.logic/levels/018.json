@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 18,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Black Swan Problem",
   "objective": "After this level you can explain why no number of confirming cases proves a generalization, while one counterexample can sink it.",
@@ -125,41 +125,33 @@
     },
     {
       "id": "question.logic.018.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.induction_black_swan"
       ],
       "sourceCardIds": [
-        "card.logic.018.c4"
+        "card.logic.018.c4",
+        "card.logic.018.c1",
+        "card.logic.018.c2",
+        "card.logic.018.c3"
       ],
-      "prompt": "Why can one black swan do what thousands of white swans cannot?",
-      "options": [
+      "prompt": "Match each person or group with what they said or assumed about swans.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "One counterexample disproves an \"all\" rule",
-          "correct": true
+          "left": "Juvenal",
+          "right": "A rare bird in the earth"
         },
         {
-          "id": "b",
-          "label": "Black swans are rarer, so they count for more",
-          "correct": false,
-          "rationale": "Rarity isn't the point; logic is."
+          "left": "Europeans",
+          "right": "All swans were white"
         },
         {
-          "id": "c",
-          "label": "White swans were never properly observed",
-          "correct": false,
-          "rationale": "They were observed plenty."
-        },
-        {
-          "id": "d",
-          "label": "Deduction only works on birds",
-          "correct": false,
-          "rationale": "Deduction works on anything."
+          "left": "Willem de Vlamingh",
+          "right": "They are quite black"
         }
       ],
-      "explanation": "Confirming cases can never check every swan, but a single counterexample shows \"all swans are white\" is false.",
+      "explanation": "Juvenal called a good wife \"a rare bird in the earth, and very like a black swan\". Europeans assumed all swans were white. Willem de Vlamingh's note said: \"They are quite black.\"",
       "difficulty": 0.25
     },
     {

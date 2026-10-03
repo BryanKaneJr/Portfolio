@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 35,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Warm Seas, Big Storms",
   "objective": "After this level you can explain how warm seas fuel hurricanes.",
@@ -132,7 +132,7 @@
     },
     {
       "id": "question.oceans.035.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.warm_sea_storms_fuel"
@@ -140,33 +140,16 @@
       "sourceCardIds": [
         "card.oceans.035.c3"
       ],
-      "prompt": "Why does a hurricane weaken once it moves over land?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Mountains knock the clouds apart",
-          "correct": false,
-          "rationale": "The main problem is lost fuel, not mountains."
-        },
-        {
-          "id": "b",
-          "label": "It runs out of warm, moist air to fuel it",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The land's gravity slows the winds",
-          "correct": false,
-          "rationale": "Gravity isn't the reason."
-        },
-        {
-          "id": "d",
-          "label": "Land is always colder than the sea at night",
-          "correct": false,
-          "rationale": "It's the loss of warm, moist air, not night."
-        }
+      "prompt": "How does warm water feed a hurricane? Put these steps in order, from first to last.",
+      "items": [
+        "Warm water evaporates",
+        "As it rises it cools",
+        "The vapor condenses into clouds",
+        "Releasing even more heat"
       ],
-      "explanation": "Over land, a hurricane is cut off from the warm, moist air rising off the sea, so its winds weaken.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Warm water evaporates into moist air that rises. As it rises it cools, the vapor condenses into clouds, and that releases even more heat to power the storm.",
       "difficulty": 0.2
     },
     {

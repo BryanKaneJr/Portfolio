@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 100,
   "type": "mastery",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Mastery Challenge: World Geography",
   "objective": "After this level you can demonstrate command of World Geography Levels 1–99 across the whole tree.",
@@ -277,7 +277,7 @@
     },
     {
       "id": "question.world_geography.100.q4",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.elevation_contours"
@@ -285,33 +285,22 @@
       "sourceCardIds": [
         "card.world_geography.007.c3"
       ],
-      "prompt": "On a hiking map, the contour lines are packed tightly together. What should you expect there?",
-      "options": [
+      "prompt": "Match each pattern on a topographic map with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Flat, easy ground",
-          "correct": false,
-          "rationale": "That would be widely spaced lines."
+          "left": "Contour lines",
+          "right": "Points at the same elevation"
         },
         {
-          "id": "b",
-          "label": "A lake",
-          "correct": false,
-          "rationale": "Lines show elevation, not water."
+          "left": "Lines bunched close together",
+          "right": "A steep slope"
         },
         {
-          "id": "c",
-          "label": "A steep slope",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "A time zone border",
-          "correct": false,
-          "rationale": "Contours join points of equal elevation."
+          "left": "Lines spread far apart",
+          "right": "Gentle ground"
         }
       ],
-      "explanation": "Contour lines join points of equal elevation. Close together, they mean the ground rises fast: a steep slope.",
+      "explanation": "Contour lines join points at the same elevation. Lines bunched close together mean a steep slope; lines spread far apart mean gentle ground.",
       "difficulty": 0.3
     },
     {

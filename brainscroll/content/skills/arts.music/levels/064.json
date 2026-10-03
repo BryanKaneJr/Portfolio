@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 64,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "New Orleans and Early Jazz",
   "objective": "After this level you can explain how jazz began in New Orleans.",
@@ -132,41 +132,26 @@
     },
     {
       "id": "question.music.064.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.jazz_new_orleans_roots"
       ],
       "sourceCardIds": [
-        "card.music.064.c3"
+        "card.music.064.c3",
+        "card.music.064.c1",
+        "card.music.064.c2",
+        "card.music.064.c4"
       ],
-      "prompt": "How did 1890s segregation laws shape early jazz in New Orleans?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They banned all music in the city",
-          "correct": false,
-          "rationale": "Music went on; the laws changed who played together."
-        },
-        {
-          "id": "b",
-          "label": "They gave Creole musicians new privileges",
-          "correct": false,
-          "rationale": "They took away Creoles of color's special status."
-        },
-        {
-          "id": "c",
-          "label": "They pushed Creole and Black musicians together",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "They sent musicians to Europe",
-          "correct": false,
-          "rationale": "The change happened inside New Orleans."
-        }
+      "prompt": "Put these steps toward jazz in New Orleans in order, from earliest to latest.",
+      "items": [
+        "Congo Square",
+        "Buddy Bolden",
+        "Original Dixieland Jazz Band"
       ],
-      "explanation": "Stripped of their separate status, Creole musicians ended up alongside Black musicians, and their styles met.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "People gathered at Congo Square by the mid-1700s, Buddy Bolden's band played between 1895 and 1900, and the Original Dixieland Jazz Band made the first commercial jazz record in 1917.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 42,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Debate",
   "objective": "After this level you can explain how lawmakers debate a bill.",
@@ -87,41 +87,31 @@
   "questions": [
     {
       "id": "question.government.042.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.lawmaking_filibuster_cloture"
       ],
       "sourceCardIds": [
-        "card.government.042.c4"
+        "card.government.042.c4",
+        "card.government.042.c2"
       ],
-      "prompt": "Since 1975, how many US senators does it usually take to invoke cloture and end debate?",
-      "options": [
+      "prompt": "Match each debate term with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A simple majority, 51 of 100",
-          "correct": false,
-          "rationale": "Cloture needs more than a simple majority."
+          "left": "Filibuster",
+          "right": "Long speeches to delay a bill"
         },
         {
-          "id": "b",
-          "label": "Three-fifths, usually 60 of 100",
-          "correct": true
+          "left": "Cloture",
+          "right": "A way to end debate"
         },
         {
-          "id": "c",
-          "label": "Two-thirds, about 67 of 100",
-          "correct": false,
-          "rationale": "That was the 1917 rule, lowered in 1975."
-        },
-        {
-          "id": "d",
-          "label": "All 100 senators",
-          "correct": false,
-          "rationale": "No rule requires every senator to agree."
+          "left": "Second reading",
+          "right": "General principles"
         }
       ],
-      "explanation": "In 1975 the Senate lowered the cloture bar from two-thirds to three-fifths of senators, usually 60 of 100.",
+      "explanation": "A filibuster uses long speeches to delay a bill, cloture is a way to end debate, and a second reading debate is about a bill's general principles.",
       "difficulty": 0.25
     },
     {

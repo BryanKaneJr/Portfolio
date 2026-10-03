@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 33,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Not Found Isn't Disproved",
   "objective": "After this level you can explain when a lack of evidence counts against a claim and when it proves nothing.",
@@ -164,7 +164,7 @@
     },
     {
       "id": "question.logic.033.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.logic.evidence_appeal_to_ignorance",
@@ -172,35 +172,25 @@
       ],
       "sourceCardIds": [
         "card.logic.033.c4",
-        "card.logic.009.c1"
+        "card.logic.009.c1",
+        "card.logic.033.c2"
       ],
-      "prompt": "In Level 9's lost-keys chain, what makes \"the keys aren't in the kitchen\" a strong step?",
-      "options": [
+      "prompt": "Match each piece of the appeal-to-ignorance lesson with its partner.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The bedroom being the only other place",
-          "correct": false,
-          "rationale": "That's the premise of the next step, not this one."
+          "left": "A glance at a cluttered counter",
+          "right": "Proves little"
         },
         {
-          "id": "b",
-          "label": "A search thorough enough to have found them",
-          "correct": true
+          "left": "Emptying every drawer",
+          "right": "Proves a lot"
         },
         {
-          "id": "c",
-          "label": "The word \"so\" in the sentence",
-          "correct": false,
-          "rationale": "A signpost marks a conclusion; it doesn't make it strong."
-        },
-        {
-          "id": "d",
-          "label": "Nobody having proved the keys are there",
-          "correct": false,
-          "rationale": "That alone would be an appeal to ignorance."
+          "left": "Argumentum ad ignorantiam",
+          "right": "John Locke"
         }
       ],
-      "explanation": "It's an argument from absence, so it's only as good as the search: a thorough one that would have found the keys.",
+      "explanation": "A glance at a cluttered counter proves little, while emptying every drawer proves a lot. The Latin name argumentum ad ignorantiam comes from John Locke's Essay of 1690.",
       "difficulty": 0.3
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 72,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Sugars and Starches",
   "objective": "After this level you can explain carbohydrates as the body's fuel.",
@@ -131,41 +131,31 @@
     },
     {
       "id": "question.chemistry.072.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.lifechem_starch_cellulose"
       ],
       "sourceCardIds": [
-        "card.chemistry.072.c4"
+        "card.chemistry.072.c4",
+        "card.chemistry.072.c3"
       ],
-      "prompt": "Potato starch and cotton cellulose are both chains of glucose. Why can you digest one but not the other?",
-      "options": [
+      "prompt": "Match each with how it holds glucose.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Cellulose contains no glucose at all",
-          "correct": false,
-          "rationale": "Cellulose is made of glucose units too."
+          "left": "Potato",
+          "right": "A starch warehouse"
         },
         {
-          "id": "b",
-          "label": "Potatoes are cooked and cotton isn't",
-          "correct": false,
-          "rationale": "Cooking isn't the reason; the links between units are."
+          "left": "Cotton",
+          "right": "About 90 percent cellulose"
         },
         {
-          "id": "c",
-          "label": "Your enzymes can't break the way cellulose's glucose is linked",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Cotton is made of protein, not sugar",
-          "correct": false,
-          "rationale": "Cotton is about 90 percent cellulose, a carbohydrate."
+          "left": "Glycogen",
+          "right": "Liver and muscles"
         }
       ],
-      "explanation": "The glucose units in cellulose are linked differently from those in starch, and human digestive enzymes cannot break those links.",
+      "explanation": "A potato is a starch warehouse, cotton is about 90 percent cellulose, and your body keeps glycogen mostly in the liver and muscles.",
       "difficulty": 0.35
     },
     {

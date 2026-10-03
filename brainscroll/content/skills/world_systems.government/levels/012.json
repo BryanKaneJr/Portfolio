@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 12,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Kings Who Reign but Do Not Rule",
   "objective": "After this level you can explain constitutional monarchy.",
@@ -129,41 +129,26 @@
     },
     {
       "id": "question.government.012.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.constitutional_monarchy_sweden_japan"
       ],
       "sourceCardIds": [
-        "card.government.012.c3"
+        "card.government.012.c3",
+        "card.government.012.c2",
+        "card.government.011.c4"
       ],
-      "prompt": "What did Sweden's 1974 Instrument of Government do to the King's role?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It abolished the monarchy entirely",
-          "correct": false,
-          "rationale": "The King is still head of state."
-        },
-        {
-          "id": "b",
-          "label": "It made his role entirely ceremonial",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It restored the power he lost in 1809",
-          "correct": false,
-          "rationale": "The opposite: it removed his remaining political power."
-        },
-        {
-          "id": "d",
-          "label": "It made the King an elected official",
-          "correct": false,
-          "rationale": "Sweden's King isn't elected."
-        }
+      "prompt": "Put these moments in the story of kings and their limits in order, from earliest to latest.",
+      "items": [
+        "Louis XIV",
+        "Sweden abolished royal absolutism",
+        "Louis-Philippe",
+        "Instrument of Government"
       ],
-      "explanation": "The King remained head of state, but with no political power; his role became entirely ceremonial.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Louis XIV reigned from 1643 to 1715, Sweden abolished royal absolutism in 1809, Louis-Philippe took France's throne in 1830, and Sweden's Instrument of Government came in 1974.",
       "difficulty": 0.2
     },
     {

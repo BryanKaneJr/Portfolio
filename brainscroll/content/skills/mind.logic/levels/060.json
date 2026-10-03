@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 60,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Traps in Our Reasoning",
   "objective": "After this level you can name the reasoning traps that catch careful people and a habit that counters each one.",
@@ -216,41 +216,35 @@
     },
     {
       "id": "question.logic.060.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.logic.trap_draw_target_first"
       ],
       "sourceCardIds": [
-        "card.logic.057.c4"
+        "card.logic.057.c4",
+        "card.logic.060.c3"
       ],
-      "prompt": "Traps in Our Reasoning recap: which habit counters the Texas sharpshooter fallacy?",
-      "options": [
+      "prompt": "Match each trap with the habit that counters it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Ask how sure the speaker sounds",
-          "correct": false,
-          "rationale": "That's about confidence, not targets."
+          "left": "Confirmation bias",
+          "right": "Go looking for a no"
         },
         {
-          "id": "b",
-          "label": "Look only at the tightest cluster",
-          "correct": false,
-          "rationale": "That's the fallacy itself."
+          "left": "Texas sharpshooter",
+          "right": "Draw the target first"
         },
         {
-          "id": "c",
-          "label": "Wait until all the results are in, then decide what counts",
-          "correct": false,
-          "rationale": "Deciding afterward is how the target gets drawn."
+          "left": "Double standard",
+          "right": "Switch sides"
         },
         {
-          "id": "d",
-          "label": "Decide what counts as a hit before looking",
-          "correct": true
+          "left": "Blind spot",
+          "right": "Judge yourself by your behavior"
         }
       ],
-      "explanation": "Set your definitions first, as CDC guidance tells cluster investigators, so you can't draw the target afterward.",
+      "explanation": "Counter confirmation bias by going looking for a no, and the Texas sharpshooter by drawing the target first. Counter a double standard by switching sides, and the blind spot by judging yourself by your behavior.",
       "difficulty": 0.3
     },
     {

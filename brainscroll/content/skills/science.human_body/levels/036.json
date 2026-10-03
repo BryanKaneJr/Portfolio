@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 36,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Breathing at Altitude",
   "objective": "After this level you can explain why breathing is harder high up and how bodies adapt.",
@@ -90,38 +90,34 @@
   "questions": [
     {
       "id": "question.human_body.036.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.altitude_thin_air"
       ],
       "sourceCardIds": [
-        "card.human_body.036.c2"
+        "card.human_body.036.c2",
+        "card.human_body.036.c1",
+        "card.human_body.036.c3",
+        "card.human_body.036.c4"
       ],
-      "prompt": "High on a mountain, what happens to the share of oxygen in the air?",
-      "options": [
+      "prompt": "Match each high-altitude term with the fact about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It drops to about half",
-          "correct": false,
-          "rationale": "The share stays about 21 percent."
+          "left": "Reinhold Messner and Peter Habeler",
+          "right": "Without bottled oxygen"
         },
         {
-          "id": "b",
-          "label": "It rises, since the air is cleaner",
-          "correct": false,
-          "rationale": "The share doesn't change with height."
+          "left": "Acclimatization",
+          "right": "Your body adapts"
         },
         {
-          "id": "c",
-          "label": "It stays the same; the pressure drops",
-          "correct": true
+          "left": "Altitude sickness",
+          "right": "Above about 2,400 meters"
         },
         {
-          "id": "d",
-          "label": "It vanishes above the clouds",
-          "correct": false,
-          "rationale": "There is still oxygen at Everest's summit."
+          "left": "Everest's summit",
+          "right": "About 30 percent"
         }
       ],
       "explanation": "Air stays about 21 percent oxygen at every altitude, but the pressure falls, so each breath brings in less oxygen.",

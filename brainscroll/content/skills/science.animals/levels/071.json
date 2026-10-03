@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 71,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Instinct and Learning",
   "objective": "After this level you can tell instinct from learned behavior.",
@@ -91,41 +91,32 @@
   "questions": [
     {
       "id": "question.animals.071.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.animals.behavior_instinct"
       ],
       "sourceCardIds": [
-        "card.animals.071.c2"
+        "card.animals.071.c2",
+        "card.animals.071.c3",
+        "card.animals.071.c4"
       ],
-      "prompt": "Which of these is an instinct, as Level 71 describes it?",
-      "options": [
+      "prompt": "Match each animal with its behavior.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Prairie dogs ignoring hikers' footsteps",
-          "correct": false,
-          "rationale": "That's learned: they tune out a harmless sound."
+          "left": "Herring gull chick",
+          "right": "Pecks at the red spot"
         },
         {
-          "id": "b",
-          "label": "Ducklings following Lorenz",
-          "correct": false,
-          "rationale": "That's imprinting, which is learned."
+          "left": "Prairie dogs",
+          "right": "Ignore human footsteps"
         },
         {
-          "id": "c",
-          "label": "A gull chick pecking the red spot on a parent's bill",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Tex refusing to pair with a crane",
-          "correct": false,
-          "rationale": "That came from imprinting on people."
+          "left": "Duckling",
+          "right": "Follow the first moving object"
         }
       ],
-      "explanation": "A newly hatched herring gull chick pecks at the red spot with no lesson at all: innate behavior.",
+      "explanation": "A herring gull chick pecks at the red spot on its parent's bill. Prairie dogs learn to ignore human footsteps, and a newly hatched duckling learns to follow the first moving object it sees.",
       "difficulty": 0.15
     },
     {

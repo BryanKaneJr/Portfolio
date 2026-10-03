@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 71,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Japanese Woodblock Prints",
   "objective": "After this level you can explain how ukiyo-e prints were made, including Hokusai's Great Wave.",
@@ -125,7 +125,7 @@
     },
     {
       "id": "question.art_history.071.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.ukiyoe_printmaking"
@@ -133,33 +133,15 @@
       "sourceCardIds": [
         "card.art_history.071.c3"
       ],
-      "prompt": "Why do so few of the artists' final drawings for ukiyo-e prints survive?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Printers washed them away with ink",
-          "correct": false,
-          "rationale": "Printers worked from the carved blocks, not the drawings."
-        },
-        {
-          "id": "b",
-          "label": "Artists burned them to guard their designs",
-          "correct": false,
-          "rationale": "Nothing so dramatic: carving itself destroyed them."
-        },
-        {
-          "id": "c",
-          "label": "Publishers sold them as cheap posters",
-          "correct": false,
-          "rationale": "The prints were sold cheaply, not the drawings."
-        },
-        {
-          "id": "d",
-          "label": "Carvers cut through them to make the blocks",
-          "correct": true
-        }
+      "prompt": "Put the steps of making a woodblock print in order, from first to last.",
+      "items": [
+        "An artist drew the design in ink",
+        "A carver pasted that drawing",
+        "A printer inked each block"
       ],
-      "explanation": "The drawing was pasted face down on the cherry-wood block and carved through, which usually destroyed it.",
+      "first": "First step",
+      "last": "Last step",
+      "explanation": "An artist drew the design in ink, a carver pasted that drawing face down on cherry wood and cut through it, and then a printer inked each block and rubbed the paper onto it.",
       "difficulty": 0.3
     },
     {

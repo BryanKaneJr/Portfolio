@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 32,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Holding Things in Mind",
   "objective": "After this level you can explain working memory's small capacity and how chunking stretches it.",
@@ -87,41 +87,32 @@
   "questions": [
     {
       "id": "question.psychology.032.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.memory_working_capacity"
       ],
       "sourceCardIds": [
-        "card.psychology.032.c3"
+        "card.psychology.032.c2",
+        "card.psychology.032.c3",
+        "card.psychology.032.c4"
       ],
-      "prompt": "Which capacity for short-term memory did George Miller's 1956 review make famous?",
-      "options": [
+      "prompt": "Match each working memory idea with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Two items, plus or minus one",
-          "correct": false,
-          "rationale": "Far too low: Miller found people held 5 to 9 items."
+          "left": "George Miller",
+          "right": "The magical number seven"
         },
         {
-          "id": "b",
-          "label": "Four chunks, plus or minus one",
-          "correct": false,
-          "rationale": "That's the later revision by Cowan and others, not Miller's number."
+          "left": "Working memory",
+          "right": "The mind's workbench"
         },
         {
-          "id": "c",
-          "label": "Seven items, plus or minus two",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Twelve items, plus or minus three",
-          "correct": false,
-          "rationale": "Too high: Miller's range topped out at 9 items."
+          "left": "A chunk",
+          "right": "Any group your mind treats as one unit"
         }
       ],
-      "explanation": "Miller found people hold between 5 and 9 items and called it \"the magical number seven, plus or minus two.\" Later research revised it to about four chunks.",
+      "explanation": "George Miller called it \"the magical number seven, plus or minus two.\" Working memory is the mind's workbench, and a chunk is any group your mind treats as one unit.",
       "difficulty": 0.15
     },
     {

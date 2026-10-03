@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 4,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Up 50%, Down 50%",
   "objective": "After this level you can explain why a 50% drop followed by a 50% rise leaves you worse off than where you began.",
@@ -126,42 +126,25 @@
     },
     {
       "id": "question.probability.004.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.up_down_asymmetry"
       ],
       "sourceCardIds": [
         "card.probability.004.c2",
-        "card.probability.004.c3"
+        "card.probability.004.c3",
+        "card.probability.004.c1"
       ],
-      "prompt": "Why doesn't a 50% rise undo a 50% fall?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Percent changes always round down",
-          "correct": false,
-          "rationale": "No rounding is involved; the base changes."
-        },
-        {
-          "id": "b",
-          "label": "A percent rise is always smaller than a percent fall",
-          "correct": false,
-          "rationale": "In dollars, it depends on the base: up 50% from $100 is $50."
-        },
-        {
-          "id": "c",
-          "label": "The rise is taken from the smaller, fallen value",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Prices can only fall by whole dollars",
-          "correct": false,
-          "rationale": "The amounts here are whole anyway; the base is what differs."
-        }
+      "prompt": "Your $100 drops 50%, then rises 50%. Put the amounts in order, from start to finish.",
+      "items": [
+        "$100",
+        "$50",
+        "$75"
       ],
-      "explanation": "Each percent is taken from a different starting value, so the same percent means a different dollar amount.",
+      "first": "Start",
+      "last": "Finish",
+      "explanation": "You start with $100. Losing 50% leaves $50, and a 50% rise on $50 adds only $25, so you finish at $75.",
       "difficulty": 0.3
     },
     {

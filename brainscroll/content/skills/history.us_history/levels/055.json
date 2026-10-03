@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 55,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Gettysburg",
   "objective": "After this level you can explain why the Battle of Gettysburg was a turning point and what Lincoln's address there said the war was for.",
@@ -126,42 +126,26 @@
     },
     {
       "id": "question.us_history.055.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.us_history.gettysburg_turning_point"
       ],
       "sourceCardIds": [
         "card.us_history.055.c2",
-        "card.us_history.055.c3"
+        "card.us_history.055.c3",
+        "card.us_history.055.c4"
       ],
-      "prompt": "Why was Gettysburg a turning point in the war?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It was the first battle of the war",
-          "correct": false,
-          "rationale": "The war began at Fort Sumter in 1861."
-        },
-        {
-          "id": "b",
-          "label": "It ended Lee’s invasion of the North",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It gave the Union control of the Mississippi",
-          "correct": false,
-          "rationale": "That was Vicksburg."
-        },
-        {
-          "id": "d",
-          "label": "Lee surrendered his army there",
-          "correct": false,
-          "rationale": "Lee retreated to Virginia and kept fighting."
-        }
+      "prompt": "Put these events of 1863 in order, from first to last.",
+      "items": [
+        "Lee invaded the North",
+        "Pickett’s Charge",
+        "Vicksburg surrendered",
+        "The dedication of a cemetery"
       ],
-      "explanation": "After Pickett’s Charge failed, Lee retreated to Virginia, and his second invasion of the North was over.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Lee invaded the North that summer. Pickett’s Charge failed on July 3, Vicksburg surrendered the next day, and Lincoln spoke at the dedication of a cemetery at Gettysburg on November 19.",
       "difficulty": 0.3
     },
     {

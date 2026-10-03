@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 39,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Asthma",
   "objective": "After this level you can explain what happens in an asthma attack and how inhalers help.",
@@ -126,7 +126,7 @@
     },
     {
       "id": "question.human_body.039.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.asthma_care"
@@ -134,30 +134,23 @@
       "sourceCardIds": [
         "card.human_body.039.c4"
       ],
-      "prompt": "Why is asthma medicine often given through an inhaler?",
-      "options": [
+      "prompt": "Match each part of asthma care with what it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It replaces seeing a healthcare provider",
-          "correct": false,
-          "rationale": "Asthma is managed with a provider and an action plan."
+          "left": "Quick-relief medicines",
+          "right": "Open narrowed airways"
         },
         {
-          "id": "b",
-          "label": "It cures asthma after one use",
-          "correct": false,
-          "rationale": "There is no cure; asthma is managed."
+          "left": "Daily controller medicines",
+          "right": "Reduce inflammation"
         },
         {
-          "id": "c",
-          "label": "It trains the diaphragm",
-          "correct": false,
-          "rationale": "Inhalers deliver medicine; they don't train muscles."
+          "left": "Inhalers",
+          "right": "Directly to the lungs"
         },
         {
-          "id": "d",
-          "label": "It delivers medicine directly to the lungs",
-          "correct": true
+          "left": "Asthma action plan",
+          "right": "Which medicines to take and when"
         }
       ],
       "explanation": "Inhalers deliver asthma medicine directly to the lungs, where the narrowed airways are.",

@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 83,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How Soap Works",
   "objective": "After this level you can explain how soap lifts away grease.",
@@ -137,41 +137,25 @@
     },
     {
       "id": "question.chemistry.083.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.home_soap_molecule"
       ],
       "sourceCardIds": [
-        "card.chemistry.083.c2"
+        "card.chemistry.083.c2",
+        "card.chemistry.083.c3",
+        "card.chemistry.083.c4"
       ],
-      "prompt": "Why can a single soap molecule hold on to both grease and water?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Its head is attracted to water and its tail to oil",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "It dissolves grease into water molecules",
-          "correct": false,
-          "rationale": "The grease stays grease; soap only holds it."
-        },
-        {
-          "id": "c",
-          "label": "It is heavier than grease",
-          "correct": false,
-          "rationale": "Weight has nothing to do with it."
-        },
-        {
-          "id": "d",
-          "label": "It heats the grease until it melts",
-          "correct": false,
-          "rationale": "Soap works by attraction, not heat."
-        }
+      "prompt": "Put the steps of soap cleaning a greasy pan in order.",
+      "items": [
+        "Tails dig into a grease droplet",
+        "Form tiny clusters called micelles",
+        "The rinse carries them away"
       ],
-      "explanation": "Soap has a water-attracting head and an oil-attracting tail, so one molecule can grip both.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Soap's tails dig into a grease droplet, the molecules form tiny clusters called micelles, and the rinse carries them away, grease and all.",
       "difficulty": 0.3
     },
     {

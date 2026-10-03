@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 90,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: A Changed Empire",
   "objective": "After this level you can explain how the empire of 395 differed from the empire of Augustus.",
@@ -106,41 +106,31 @@
   "questions": [
     {
       "id": "question.ancient_rome.090.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_rome.diocletian"
       ],
       "sourceCardIds": [
-        "card.ancient_rome.082.c2"
+        "card.ancient_rome.082.c2",
+        "card.ancient_rome.090.c3"
       ],
-      "prompt": "Which emperor created the Tetrarchy?",
-      "options": [
+      "prompt": "Match each Latin word with its meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Constantine",
-          "correct": false,
-          "rationale": "He ended it."
+          "left": "Princeps",
+          "right": "First citizen"
         },
         {
-          "id": "b",
-          "label": "Theodosius",
-          "correct": false,
-          "rationale": "He came later."
+          "left": "Dominus",
+          "right": "Lord"
         },
         {
-          "id": "c",
-          "label": "Aurelian",
-          "correct": false,
-          "rationale": "He reunited the empire."
-        },
-        {
-          "id": "d",
-          "label": "Diocletian",
-          "correct": true
+          "left": "Tetrarchy",
+          "right": "Rule of four"
         }
       ],
-      "explanation": "Diocletian created rule by four emperors.",
+      "explanation": "Princeps means “first citizen,” dominus means “lord,” and the Tetrarchy was “rule of four.”",
       "difficulty": 0.15
     },
     {

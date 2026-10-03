@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 85,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Kafka's Metamorphosis",
   "objective": "After this level you can weigh two readings of Kafka's story of a man who wakes up as an insect.",
@@ -130,42 +130,37 @@
     },
     {
       "id": "question.literature.085.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.modern_kafka_readings"
       ],
       "sourceCardIds": [
         "card.literature.085.c4",
-        "card.literature.085.c1"
+        "card.literature.085.c1",
+        "card.literature.085.c2",
+        "card.literature.085.c3"
       ],
-      "prompt": "On waking as an insect, Gregor frets about his train and his boss. Which reading of the story does that clue support most directly?",
-      "options": [
+      "prompt": "Match each name or phrase from Kafka's story with what goes with it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The family reading, built on Kafka's father",
-          "correct": false,
-          "rationale": "That reading leans on the family's rejection and Kafka's letter."
+          "left": "Die Verwandlung",
+          "right": "The transformation"
         },
         {
-          "id": "b",
-          "label": "A zoology reading that names the species",
-          "correct": false,
-          "rationale": "Kafka deliberately kept the creature's kind vague."
+          "left": "Ungeheueren Ungeziefer",
+          "right": "A monstrous vermin"
         },
         {
-          "id": "c",
-          "label": "The work reading, about labor that dehumanizes",
-          "correct": true
+          "left": "Gregor Samsa",
+          "right": "A traveling salesman"
         },
         {
-          "id": "d",
-          "label": "A reading in which it is all only a dream",
-          "correct": false,
-          "rationale": "The story treats the change as real from its first line."
+          "left": "Kafka's own father",
+          "right": "A domineering businessman"
         }
       ],
-      "explanation": "Gregor's first thoughts are of his job, which fits the reading about the dehumanizing effects of labor. The family reading draws on other clues.",
+      "explanation": "Die Verwandlung means the transformation, and ungeheueren Ungeziefer is roughly a monstrous vermin. Gregor Samsa is a traveling salesman, and Kafka's own father was a domineering businessman.",
       "difficulty": 0.45
     },
     {

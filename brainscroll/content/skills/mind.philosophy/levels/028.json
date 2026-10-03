@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 28,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "What Makes a Belief True?",
   "objective": "After this level you can compare the correspondence theory of truth, matching the world, with the coherence theory, fitting with other beliefs.",
@@ -167,7 +167,7 @@
     },
     {
       "id": "question.philosophy.028.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.knowledge_truth_theories",
@@ -175,35 +175,26 @@
       ],
       "sourceCardIds": [
         "card.philosophy.028.c2",
-        "card.philosophy.021.c3"
+        "card.philosophy.021.c3",
+        "card.philosophy.028.c4",
+        "card.philosophy.028.c5"
       ],
-      "prompt": "Level 21 said truth is about how things are. Which theory of truth fits that idea most directly?",
-      "options": [
+      "prompt": "Match each philosopher with what goes with them.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The coherence theory",
-          "correct": false,
-          "rationale": "Coherence looks at other beliefs, not the world directly."
+          "left": "Aristotle",
+          "right": "Metaphysics"
         },
         {
-          "id": "b",
-          "label": "The correspondence theory",
-          "correct": true
+          "left": "F. H. Bradley",
+          "right": "British idealists"
         },
         {
-          "id": "c",
-          "label": "The idea that truth is whatever is popular",
-          "correct": false,
-          "rationale": "Neither theory says that."
-        },
-        {
-          "id": "d",
-          "label": "The idea that truth is whatever is proved",
-          "correct": false,
-          "rationale": "Level 21 said truth isn’t about proof."
+          "left": "Bertrand Russell",
+          "right": "Jane Austen"
         }
       ],
-      "explanation": "Correspondence says a belief is true when it matches the way the world is.",
+      "explanation": "The correspondence theory is traced to Aristotle’s Metaphysics, F. H. Bradley was one of the British idealists, and Bertrand Russell objected to coherence with stories about Jane Austen.",
       "difficulty": 0.3
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 20,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Myths Around the World",
   "objective": "After this level you can compare myths and epics from Scandinavia, India, Africa and the Americas and spot the patterns they share.",
@@ -267,7 +267,7 @@
     },
     {
       "id": "question.literature.020.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.literature.mahabharata_war",
@@ -277,33 +277,17 @@
       "sourceCardIds": [
         "card.literature.020.c2"
       ],
-      "prompt": "Chapter 2 recap: which of these reached its present written form earliest?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Mahabharata",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Snorri's Prose Edda",
-          "correct": false,
-          "rationale": "That came about 1220."
-        },
-        {
-          "id": "c",
-          "label": "The Popol Vuh",
-          "correct": false,
-          "rationale": "That came in 1554 to 1558."
-        },
-        {
-          "id": "d",
-          "label": "Niane's Sundiata",
-          "correct": false,
-          "rationale": "That came in 1960."
-        }
+      "prompt": "Put these myth books in order of when they reached the page, from earliest to latest.",
+      "items": [
+        "The Mahabharata reaches its present form",
+        "The Poetic Edda's poems are composed",
+        "Snorri Sturluson writes the Prose Edda",
+        "The K'iche' Maya write the Popol Vuh",
+        "Niane publishes Sundiata's epic"
       ],
-      "explanation": "The Mahabharata reached its present form about 400 CE, long before the others were written.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Mahabharata reached its present form about 400 CE, the Poetic Edda's poems came 800 to 1100, the Prose Edda about 1220, the Popol Vuh 1554 to 1558, and Niane's Sundiata in 1960.",
       "difficulty": 0.2
     },
     {

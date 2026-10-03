@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 56,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Plato",
   "objective": "After this level you can describe Plato's Academy and his allegory of the cave.",
@@ -132,42 +132,27 @@
     },
     {
       "id": "question.ancient_greece.056.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_greece.philosophy_plato_cave"
       ],
       "sourceCardIds": [
         "card.ancient_greece.056.c3",
-        "card.ancient_greece.056.c4"
+        "card.ancient_greece.056.c4",
+        "card.ancient_greece.056.c5"
       ],
-      "prompt": "In Plato’s cave story, what do the shadows on the wall stand for?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The perfect Forms themselves",
-          "correct": false,
-          "rationale": "The Forms are outside the cave."
-        },
-        {
-          "id": "b",
-          "label": "The gods on Mount Olympus",
-          "correct": false,
-          "rationale": "The story is about knowledge."
-        },
-        {
-          "id": "c",
-          "label": "What our senses show us: imperfect copies",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The dreams we have at night",
-          "correct": false,
-          "rationale": "The story is about knowledge."
-        }
+      "prompt": "Put the freed prisoner’s journey in Plato’s cave in order, from first to last.",
+      "items": [
+        "Chained in a cave",
+        "Dazzled by the fire",
+        "Sees real things",
+        "The sun itself",
+        "Goes back down"
       ],
-      "explanation": "For Plato, the senses show only imperfect copies; the Forms lie outside the cave.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The prisoner starts chained in a cave. Freed, he is dazzled by the fire, then sees real things in sunlight and at last the sun itself. Then he goes back down to tell the others.",
       "difficulty": 0.35
     },
     {

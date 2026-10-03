@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 3,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "How Many Cells?",
   "objective": "After this level you can estimate how many cells make up a body and how many kinds there are.",
@@ -168,7 +168,7 @@
     },
     {
       "id": "question.human_body.003.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.cell_count",
@@ -178,32 +178,14 @@
         "card.human_body.003.c3",
         "card.human_body.002.c1"
       ],
-      "prompt": "Level 2 called cells the body's building blocks. Why does a 10-year-old have about 17 trillion cells but a grown man about 36 trillion?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Children have no red blood cells",
-          "correct": false,
-          "rationale": "Red blood cells are part of everyone's count."
-        },
-        {
-          "id": "b",
-          "label": "Cells only form after age 18",
-          "correct": false,
-          "rationale": "A child is already built from trillions of cells."
-        },
-        {
-          "id": "c",
-          "label": "The study counted only bones",
-          "correct": false,
-          "rationale": "It counted cells across the whole body."
-        },
-        {
-          "id": "d",
-          "label": "A smaller body is built from fewer cells",
-          "correct": true
-        }
+      "prompt": "Put these bodies in order, from the fewest cells to the most.",
+      "items": [
+        "10-year-old child",
+        "Reference woman",
+        "Reference man"
       ],
+      "first": "Fewest cells",
+      "last": "Most cells",
       "explanation": "The 2023 study found cell counts differ with body size: a child's smaller body has fewer building blocks.",
       "difficulty": 0.25
     }

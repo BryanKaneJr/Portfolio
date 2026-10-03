@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 76,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Mexico and Central America",
   "objective": "After this level you can describe the volcanoes, highlands and coasts of Mexico and Central America.",
@@ -101,41 +101,36 @@
   "questions": [
     {
       "id": "question.world_geography.076.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.mexican_plateau"
       ],
       "sourceCardIds": [
-        "card.world_geography.076.c3"
+        "card.world_geography.076.c3",
+        "card.world_geography.076.c1",
+        "card.world_geography.076.c2"
       ],
-      "prompt": "Which region, between the two Sierra Madre ranges, is Mexico's largest and most densely populated?",
-      "options": [
+      "prompt": "Match each Mexican name with its fact.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The Pacific coast",
-          "correct": false,
-          "rationale": "The coast lies outside the two ranges."
+          "left": "Sierra Madre Occidental",
+          "right": "In the west"
         },
         {
-          "id": "b",
-          "label": "The Caribbean coast",
-          "correct": false,
-          "rationale": "The heartland is high ground, not coast."
+          "left": "Sierra Madre Oriental",
+          "right": "In the east"
         },
         {
-          "id": "c",
-          "label": "The Mexican Plateau",
-          "correct": true
+          "left": "Citlaltépetl",
+          "right": "Mexico's highest point"
         },
         {
-          "id": "d",
-          "label": "The Central American isthmus",
-          "correct": false,
-          "rationale": "That's south of Mexico."
+          "left": "Parícutin",
+          "right": "Kept erupting for 9 years"
         }
       ],
-      "explanation": "The Mexican Plateau sits between the Sierra Madre Occidental and Oriental, and it's Mexico's largest and most densely populated region.",
+      "explanation": "The Sierra Madre Occidental is in the west and the Sierra Madre Oriental in the east. Citlaltépetl is Mexico's highest point. Parícutin kept erupting for 9 years.",
       "difficulty": 0.2
     },
     {

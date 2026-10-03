@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 6,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Batteries",
   "objective": "After this level you can explain how a battery stores energy in chemicals.",
@@ -179,7 +179,7 @@
     },
     {
       "id": "question.everyday_technology.006.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.everyday_technology.battery_chemistry",
@@ -189,33 +189,15 @@
         "card.everyday_technology.006.c3",
         "card.everyday_technology.004.c2"
       ],
-      "prompt": "Level 4 said current needs a closed loop. Where do electrons go after leaving a battery's anode?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Around the outside circuit to the cathode",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Straight through the electrolyte to the cathode",
-          "correct": false,
-          "rationale": "Ions move inside; electrons go around the outside."
-        },
-        {
-          "id": "c",
-          "label": "Out into the air around the battery",
-          "correct": false,
-          "rationale": "They stay in the circuit."
-        },
-        {
-          "id": "d",
-          "label": "Nowhere: they stay inside the anode",
-          "correct": false,
-          "rationale": "Then no current would flow."
-        }
+      "prompt": "Put these in order, following an electron's trip out of a battery and back.",
+      "items": [
+        "Anode",
+        "Outside circuit",
+        "Cathode"
       ],
-      "explanation": "Electrons travel from the anode through the outside circuit to the cathode, while ions move through the electrolyte to balance them.",
+      "first": "Start of the trip",
+      "last": "End of the trip",
+      "explanation": "Electrons leave the anode, travel around the outside circuit and arrive at the cathode.",
       "difficulty": 0.3
     }
   ],

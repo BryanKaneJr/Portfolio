@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 55,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Left Brain, Right Brain?",
   "objective": "After this level you can explain what the two halves of the brain do and why \"left-brained\" is a myth.",
@@ -164,7 +164,7 @@
     },
     {
       "id": "question.human_body.055.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.brain_hemispheres",
@@ -172,32 +172,22 @@
       ],
       "sourceCardIds": [
         "card.human_body.055.c2",
-        "card.human_body.054.c2"
+        "card.human_body.054.c2",
+        "card.human_body.055.c3"
       ],
-      "prompt": "Level 54 called the cerebrum the brain's largest part. What links its two hemispheres so they can share information?",
-      "options": [
+      "prompt": "Match each part of the brain's two halves with what it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The cerebellum",
-          "correct": false,
-          "rationale": "It coordinates movement."
+          "left": "Corpus callosum",
+          "right": "A thick bundle of nerve fibers"
         },
         {
-          "id": "b",
-          "label": "The brainstem",
-          "correct": false,
-          "rationale": "It links the brain to the spinal cord."
+          "left": "Left hemisphere",
+          "right": "Words and speech"
         },
         {
-          "id": "c",
-          "label": "The corpus callosum",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The spinal cord",
-          "correct": false,
-          "rationale": "It links the brain to the body, not the halves to each other."
+          "left": "Right hemisphere",
+          "right": "Spatial tasks and attention"
         }
       ],
       "explanation": "The two cerebral hemispheres communicate through the corpus callosum, a thick bundle of nerve fibers.",

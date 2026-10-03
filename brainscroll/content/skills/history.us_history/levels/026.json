@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 26,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How the Colonies Won",
   "objective": "After this level you can explain how Saratoga, the French alliance and Yorktown let an outmatched army win independence.",
@@ -167,7 +167,7 @@
     },
     {
       "id": "question.us_history.026.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.us_history.revolution_saratoga_alliance",
@@ -175,35 +175,21 @@
       ],
       "sourceCardIds": [
         "card.us_history.026.c2",
-        "card.us_history.026.c4"
+        "card.us_history.026.c3",
+        "card.us_history.026.c4",
+        "card.us_history.026.c5"
       ],
-      "prompt": "Saratoga in 1777 and Yorktown in 1781 ended the same way. How?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Americans retreated to Canada",
-          "correct": false,
-          "rationale": "The Americans won both."
-        },
-        {
-          "id": "b",
-          "label": "A whole British army surrendered",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "France switched sides",
-          "correct": false,
-          "rationale": "France stayed an American ally."
-        },
-        {
-          "id": "d",
-          "label": "Both battles were fought at sea",
-          "correct": false,
-          "rationale": "Both ended in surrender on land."
-        }
+      "prompt": "Put these events of the war in order, from earliest to latest.",
+      "items": [
+        "Burgoyne surrendered",
+        "Treaty of Alliance with France",
+        "Spain entered the war",
+        "Cornwallis surrendered",
+        "The Treaty of Paris"
       ],
-      "explanation": "Burgoyne surrendered his whole army at Saratoga, and Cornwallis surrendered his at Yorktown.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Burgoyne surrendered at Saratoga in 1777, the alliance with France was signed in 1778, Spain entered the war in 1779, Cornwallis surrendered in 1781, and the Treaty of Paris came in 1783.",
       "difficulty": 0.3
     }
   ],

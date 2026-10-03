@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 30,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Athens and Democracy",
   "objective": "After this level you can explain how Athenian democracy worked and who it included.",
@@ -277,7 +277,7 @@
     },
     {
       "id": "question.ancient_greece.030.q4",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_greece.athens_lot_vs_vote",
@@ -288,33 +288,17 @@
       "sourceCardIds": [
         "card.ancient_greece.030.c4"
       ],
-      "prompt": "Athens and Democracy recap: which order of events is right?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Cleisthenes’ tribes, Solon’s debt relief, first ostracism",
-          "correct": false,
-          "rationale": "Solon came first."
-        },
-        {
-          "id": "b",
-          "label": "Solon’s debt relief, first ostracism, Cleisthenes’ tribes",
-          "correct": false,
-          "rationale": "The tribes came before the first ostracism."
-        },
-        {
-          "id": "c",
-          "label": "Solon’s debt relief, Cleisthenes’ tribes, first ostracism",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "First ostracism, Solon’s debt relief, Cleisthenes’ tribes",
-          "correct": false,
-          "rationale": "Ostracism came last."
-        }
+      "prompt": "Put these steps in building Athens’ democracy in order, from earliest to latest.",
+      "items": [
+        "Solon",
+        "Cleisthenes",
+        "First ostracism",
+        "Pericles’ law",
+        "Work begins on the Parthenon"
       ],
-      "explanation": "Solon about 594 BCE, Cleisthenes in 508-507 BCE, then the first ostracism in 488-487 BCE.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Solon’s reforms came about 594 BCE, Cleisthenes’ tribes in 508-507, the first ostracism in 488-487, Pericles’ law in 451-450, and work began on the Parthenon in 447.",
       "difficulty": 0.3
     },
     {

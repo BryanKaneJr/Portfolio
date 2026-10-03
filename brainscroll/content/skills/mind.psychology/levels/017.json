@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 17,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Invisible Gorilla",
   "objective": "After this level you can explain inattentional blindness and the basketball study that made it famous.",
@@ -170,43 +170,33 @@
     },
     {
       "id": "question.psychology.017.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.psychology.attention_experts_miss",
         "concept.psychology.perception_sensory_adaptation"
       ],
       "sourceCardIds": [
-        "card.psychology.017.c4",
-        "card.psychology.011.c4"
+        "card.psychology.017.c2",
+        "card.psychology.011.c4",
+        "card.psychology.013.c2"
       ],
-      "prompt": "Most radiologists who missed the gorilla looked right at it. In Level 11's terms, what does that show?",
-      "options": [
+      "prompt": "Match each effect with what causes it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Their receptors had stopped working",
-          "correct": false,
-          "rationale": "Their eyes were fine; they looked right at it."
+          "left": "Inattentional blindness",
+          "right": "Attending to something else"
         },
         {
-          "id": "b",
-          "label": "Sensing doesn't guarantee perceiving",
-          "correct": true
+          "left": "Sensory adaptation",
+          "right": "A stimulus stays constant"
         },
         {
-          "id": "c",
-          "label": "Perception is just a copy of sensation",
-          "correct": false,
-          "rationale": "This case shows the two can come apart."
-        },
-        {
-          "id": "d",
-          "label": "Experts can't be fooled in their own field of work",
-          "correct": false,
-          "rationale": "83 percent missed it."
+          "left": "Phi phenomenon",
+          "right": "Appear to move"
         }
       ],
-      "explanation": "Their eyes landed on the gorilla, but they didn't perceive it. As Level 11 showed, not every sensation becomes a perception.",
+      "explanation": "Inattentional blindness happens when you're attending to something else. Sensory adaptation happens when a stimulus stays constant. In the phi phenomenon, still images shown in quick succession appear to move.",
       "difficulty": 0.25
     }
   ],

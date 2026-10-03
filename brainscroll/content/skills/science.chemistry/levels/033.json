@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 33,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Carbon",
   "objective": "After this level you can explain why carbon is the basis of life.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "question.chemistry.033.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.carbon_compound_count",
@@ -141,33 +141,22 @@
         "card.chemistry.033.c2",
         "card.chemistry.033.c3"
       ],
-      "prompt": "Carbon is scarce in Earth's crust. How can it form more compounds than all the other elements combined?",
-      "options": [
+      "prompt": "In the brick analogy, match each carbon shape with what you'd build.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It is the heaviest element, so it holds more atoms",
-          "correct": false,
-          "rationale": "Carbon is a light element; weight isn't the reason."
+          "left": "Chains",
+          "right": "A line"
         },
         {
-          "id": "b",
-          "label": "It bonds to itself in chains, branches and rings",
-          "correct": true
+          "left": "Branched chains",
+          "right": "A tree"
         },
         {
-          "id": "c",
-          "label": "It only forms compounds inside living things",
-          "correct": false,
-          "rationale": "Carbon compounds include plastics and soaps too."
-        },
-        {
-          "id": "d",
-          "label": "It borrows compounds from other elements",
-          "correct": false,
-          "rationale": "Carbon's own bonding does the work."
+          "left": "Rings",
+          "right": "A loop"
         }
       ],
-      "explanation": "Each carbon can bond to four atoms, including other carbons, so it builds endlessly varied chains and rings.",
+      "explanation": "Carbon builds chains, branched chains and rings, just as four-stud bricks can build a line, a tree and a loop.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 19,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Human Voice",
   "objective": "After this level you can explain voice types from soprano to bass.",
@@ -170,7 +170,7 @@
     },
     {
       "id": "question.music.019.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.music.instruments_voice_types",
@@ -178,35 +178,20 @@
       ],
       "sourceCardIds": [
         "card.music.019.c4",
-        "card.music.008.c2"
+        "card.music.008.c2",
+        "card.music.019.c3"
       ],
-      "prompt": "Men's singing ranges sit about an octave below women's. By Level 8, what does that mean for frequency?",
-      "options": [
-        {
-          "id": "a",
-          "label": "About 12 hertz lower",
-          "correct": false,
-          "rationale": "An octave is a doubling, not a fixed number of hertz."
-        },
-        {
-          "id": "b",
-          "label": "About a quarter of the frequency",
-          "correct": false,
-          "rationale": "A quarter would be two octaves down."
-        },
-        {
-          "id": "c",
-          "label": "About half the frequency",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "About double the frequency",
-          "correct": false,
-          "rationale": "Double would be an octave higher."
-        }
+      "prompt": "Put these voice types in order, from highest to lowest.",
+      "items": [
+        "Soprano",
+        "Alto",
+        "Tenor",
+        "Baritone",
+        "Bass"
       ],
-      "explanation": "An octave down halves the frequency, so a range an octave lower vibrates about half as fast.",
+      "first": "Highest",
+      "last": "Lowest",
+      "explanation": "Soprano is the highest, then alto, then tenor, the higher male voice. Baritone sits between tenor and bass, and bass is the lowest.",
       "difficulty": 0.25
     }
   ],

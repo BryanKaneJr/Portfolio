@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 65,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Burj Khalifa",
   "objective": "After this level you can describe the world's tallest building.",
@@ -131,41 +131,32 @@
     },
     {
       "id": "question.architecture.065.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.sky_burj_form"
       ],
       "sourceCardIds": [
-        "card.architecture.065.c3"
+        "card.architecture.065.c3",
+        "card.architecture.065.c2",
+        "card.architecture.065.c4"
       ],
-      "prompt": "In Burj Khalifa's buttressed core, what braces the six-sided central core?",
-      "options": [
+      "prompt": "Match each name or part of the Burj Khalifa with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Three wings, each with its own core and columns",
-          "correct": true
+          "left": "Adrian Smith",
+          "right": "Architect"
         },
         {
-          "id": "b",
-          "label": "Steel cables anchored in the desert",
-          "correct": false,
-          "rationale": "The bracing comes from the wings, not cables."
+          "left": "William F. Baker",
+          "right": "Structural engineer"
         },
         {
-          "id": "c",
-          "label": "A heavy steel ball near the top",
-          "correct": false,
-          "rationale": "That's Taipei 101's damper."
-        },
-        {
-          "id": "d",
-          "label": "Thick brick walls at the base",
-          "correct": false,
-          "rationale": "That's the old load-bearing way."
+          "left": "Its wings",
+          "right": "Step back in a spiral"
         }
       ],
-      "explanation": "Each of the three wings has its own concrete core and perimeter columns, and together they brace the hexagonal center.",
+      "explanation": "Adrian Smith was the architect and William F. Baker the structural engineer. As the tower rises, its wings step back in a spiral, confusing the wind.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 95,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Heat: The Quiet Killer",
   "objective": "After this level you can explain why extreme heat is so dangerous, why cities run hotter, and who is most at risk.",
@@ -117,41 +117,36 @@
   "questions": [
     {
       "id": "question.earth_climate.095.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.earth_climate.hazard_heat_illness"
       ],
       "sourceCardIds": [
-        "card.earth_climate.095.c3"
+        "card.earth_climate.095.c3",
+        "card.earth_climate.095.c2",
+        "card.earth_climate.095.c4"
       ],
-      "prompt": "A runner has hot, red skin, a fast, strong pulse and seems confused. What do the CDC's warning signs point to?",
-      "options": [
+      "prompt": "Match each heat term with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Heat exhaustion: rest and sip water",
-          "correct": false,
-          "rationale": "Heat exhaustion brings cold, pale, clammy skin and a weak pulse."
+          "left": "Heat exhaustion",
+          "right": "Cold, pale, clammy skin"
         },
         {
-          "id": "b",
-          "label": "Ordinary tiredness after a long run",
-          "correct": false,
-          "rationale": "Confusion and hot, red skin are warning signs."
+          "left": "Heat stroke",
+          "right": "Hot, red, dry or damp skin"
         },
         {
-          "id": "c",
-          "label": "Heat stroke: call 911 right away",
-          "correct": true
+          "left": "Heat index",
+          "right": "What the temperature feels like"
         },
         {
-          "id": "d",
-          "label": "A mild sunburn that needs lotion",
-          "correct": false,
-          "rationale": "These signs point to a medical emergency."
+          "left": "Heat island",
+          "right": "About 1 to 7°F hotter"
         }
       ],
-      "explanation": "Hot, red skin, a fast, strong pulse and confusion are signs of heat stroke, a medical emergency: call 911.",
+      "explanation": "Heat exhaustion brings cold, pale, clammy skin, heat stroke hot, red, dry or damp skin. The heat index is what the temperature feels like, and a city heat island runs about 1 to 7°F hotter by day.",
       "difficulty": 0.3
     },
     {

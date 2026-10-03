@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 82,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The GI Bill and the Suburbs",
   "objective": "After this level you can explain how the GI Bill, federal mortgages and interstate highways built the postwar suburbs, and who was shut out.",
@@ -91,41 +91,36 @@
   "questions": [
     {
       "id": "question.us_history.082.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.suburbs_gi_bill"
       ],
       "sourceCardIds": [
-        "card.us_history.082.c2"
+        "card.us_history.082.c2",
+        "card.us_history.082.c3",
+        "card.us_history.082.c4"
       ],
-      "prompt": "What did the GI Bill of 1944 give World War II veterans?",
-      "options": [
+      "prompt": "Match each law, place or agency with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A free house in any suburb they chose",
-          "correct": false,
-          "rationale": "It helped with loans; it didn’t hand out houses."
+          "left": "GI Bill",
+          "right": "money for college"
         },
         {
-          "id": "b",
-          "label": "A pension paid only to officers",
-          "correct": false,
-          "rationale": "It covered veterans broadly, not just officers."
+          "left": "Levittown",
+          "right": "Long Island"
         },
         {
-          "id": "c",
-          "label": "Money for college, unemployment pay and home-buying help",
-          "correct": true
+          "left": "Federal-Aid Highway Act",
+          "right": "41,000 miles of interstate highways"
         },
         {
-          "id": "d",
-          "label": "A car and a job on the new interstates",
-          "correct": false,
-          "rationale": "The interstates came in 1956, and no cars were given."
+          "left": "Federal Housing Administration",
+          "right": "refused to insure mortgages"
         }
       ],
-      "explanation": "The GI Bill paid for college, unemployment pay and help buying homes.",
+      "explanation": "The GI Bill gave veterans money for college, Levittown was built on Long Island, the Federal-Aid Highway Act funded about 41,000 miles of interstate highways, and the Federal Housing Administration largely refused to insure mortgages in Black neighborhoods.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 89,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Deepfakes and Proving What's Real",
   "objective": "After this level you can weigh the ways to tell a real photo, video or voice from a synthetic one, including provenance labels.",
@@ -125,7 +125,7 @@
     },
     {
       "id": "question.computers.089.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.synthetic_provenance"
@@ -134,33 +134,22 @@
         "card.computers.089.c4",
         "card.computers.089.c3"
       ],
-      "prompt": "A viral photo has no Content Credentials attached. What can you conclude?",
-      "options": [
+      "prompt": "Match each part of the provenance idea with what it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It must be AI-generated, since real photos carry labels",
-          "correct": false,
-          "rationale": "Real photos often lose their metadata when shared."
+          "left": "The C2PA",
+          "right": "An open standard"
         },
         {
-          "id": "b",
-          "label": "It must be a real photo, since fakes are always labeled",
-          "correct": false,
-          "rationale": "A fake can have no label too."
+          "left": "Content Credentials",
+          "right": "A sort of nutrition label for media"
         },
         {
-          "id": "c",
-          "label": "Very little: labels are often stripped when files are shared",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Its pixels have been encrypted to hide the label",
-          "correct": false,
-          "rationale": "A missing label says nothing about encryption."
+          "left": "A digital signature",
+          "right": "Assurance of who signed it"
         }
       ],
-      "explanation": "Metadata is often stripped on social media, so a missing label proves little; a label that checks out is the real evidence.",
+      "explanation": "The C2PA publishes an open standard, Content Credentials are a sort of nutrition label for media, and a digital signature gives assurance of who signed it and that nothing changed.",
       "difficulty": 0.4
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 64,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Placebos and Blinding",
   "objective": "After this level you can explain why trials use placebos and keep people blind to who got what.",
@@ -87,41 +87,32 @@
   "questions": [
     {
       "id": "question.probability.064.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.experiment_placebo"
       ],
       "sourceCardIds": [
-        "card.probability.064.c2"
+        "card.probability.064.c2",
+        "card.probability.064.c1",
+        "card.probability.064.c3"
       ],
-      "prompt": "In a trial, what is a placebo?",
-      "options": [
+      "prompt": "Match each term with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A smaller dose of the real drug",
-          "correct": false,
-          "rationale": "A placebo contains no active drug at all."
+          "left": "Placebo",
+          "right": "An inactive substance"
         },
         {
-          "id": "b",
-          "label": "A second drug given for comparison",
-          "correct": false,
-          "rationale": "It's not another drug; it's inactive."
+          "left": "Placebo effect",
+          "right": "Comes from a person's expectation"
         },
         {
-          "id": "c",
-          "label": "An inactive look-alike of the treatment",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The group that gets the real treatment",
-          "correct": false,
-          "rationale": "That's the treatment group; the placebo goes to the control group."
+          "left": "Double-blind",
+          "right": "Neither patients nor researchers know"
         }
       ],
-      "explanation": "A placebo is an inactive substance that looks like the treatment being tested.",
+      "explanation": "A placebo is an inactive substance that looks like the treatment. The placebo effect comes from a person's expectation. In a double-blind study, neither patients nor researchers know who got the real thing.",
       "difficulty": 0.15
     },
     {

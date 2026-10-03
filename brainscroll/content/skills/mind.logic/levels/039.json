@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 39,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "When Evidence Converges",
   "objective": "After this level you can explain why independent lines of evidence that agree are stronger than any one alone.",
@@ -121,41 +121,31 @@
     },
     {
       "id": "question.logic.039.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.evidence_convergence"
       ],
       "sourceCardIds": [
-        "card.logic.039.c4"
+        "card.logic.039.c4",
+        "card.logic.039.c3"
       ],
-      "prompt": "How can five people agreeing still add up to only one line of evidence?",
-      "options": [
+      "prompt": "Match each idea about converging evidence with its partner.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Five is too small a number to count",
-          "correct": false,
-          "rationale": "The number isn't the issue; the shared source is."
+          "left": "Consilience",
+          "right": "A jumping together"
         },
         {
-          "id": "b",
-          "label": "They're all repeating the same rumor",
-          "correct": true
+          "left": "Five friends repeating the same rumor",
+          "right": "One line of evidence"
         },
         {
-          "id": "c",
-          "label": "People never count as evidence",
-          "correct": false,
-          "rationale": "Witnesses can be evidence; these just aren't independent."
-        },
-        {
-          "id": "d",
-          "label": "They agree too strongly",
-          "correct": false,
-          "rationale": "Agreement is fine if it comes from separate sources."
+          "left": "Newton's gravity",
+          "right": "Fit the moons of Jupiter"
         }
       ],
-      "explanation": "Lines count separately only if each could fail on its own. Five retellings of one rumor share one source, so they're one line.",
+      "explanation": "Consilience literally means a jumping together. Five friends repeating the same rumor are one line of evidence. Newton's gravity was Whewell's model: one law fit the moons of Jupiter, the planets and falling bodies.",
       "difficulty": 0.25
     },
     {

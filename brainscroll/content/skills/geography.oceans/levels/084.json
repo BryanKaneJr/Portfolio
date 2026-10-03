@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 84,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Challenger Expedition",
   "objective": "After this level you can describe the first great scientific voyage around the ocean.",
@@ -130,42 +130,27 @@
     },
     {
       "id": "question.oceans.084.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.challenger_deep_life"
       ],
       "sourceCardIds": [
         "card.oceans.084.c1",
-        "card.oceans.084.c4"
+        "card.oceans.084.c4",
+        "card.oceans.084.c2",
+        "card.oceans.084.c3"
       ],
-      "prompt": "Why did Challenger's haul of more than 4,700 new species matter so much?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Many scientists thought the deep was lifeless",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "It proved the deep sea is warm and full of sunlight",
-          "correct": false,
-          "rationale": "The deep is cold and dark; life lives there anyway."
-        },
-        {
-          "id": "c",
-          "label": "It showed that fish always avoid deep water",
-          "correct": false,
-          "rationale": "It showed the opposite: the deep is alive."
-        },
-        {
-          "id": "d",
-          "label": "It proved the sea floor was covered in thick ice",
-          "correct": false,
-          "rationale": "Its finds were animals, not ice."
-        }
+      "prompt": "Put these moments in the story of the deep in order, from earliest to latest.",
+      "items": [
+        "Edward Forbes argued that life stopped",
+        "It left England in December 1872",
+        "One sounding reached 4,475 fathoms",
+        "Named for a later survey ship"
       ],
-      "explanation": "Scientists like Edward Forbes had argued the deep was lifeless; Challenger's new species proved life exists under pressure and in darkness.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "In the 1840s Edward Forbes argued life stopped a few hundred meters down. Challenger left England in December 1872, a sounding reached 4,475 fathoms in 1875, and Challenger Deep was named for a later survey ship in 1951.",
       "difficulty": 0.3
     },
     {

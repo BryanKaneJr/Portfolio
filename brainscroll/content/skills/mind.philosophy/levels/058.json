@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 58,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Rawls's Veil of Ignorance",
   "objective": "After this level you can explain why John Rawls asks you to choose society's rules without knowing your place in it, and the principles he thought you would pick.",
@@ -125,7 +125,7 @@
     },
     {
       "id": "question.philosophy.058.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.justice_rawls_veil"
@@ -133,33 +133,26 @@
       "sourceCardIds": [
         "card.philosophy.058.c2"
       ],
-      "prompt": "Why does Rawls hide your place in society behind the veil of ignorance?",
-      "options": [
+      "prompt": "Behind Rawls’s veil of ignorance, match each item with whether you know it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "So people forget old grudges between classes",
-          "correct": false,
-          "rationale": "The veil is about fairness in choosing rules."
+          "left": "Your class",
+          "right": "You don’t know"
         },
         {
-          "id": "b",
-          "label": "Because he thought knowledge corrupts people",
-          "correct": false,
-          "rationale": "You still know general facts about society."
+          "left": "Your talents",
+          "right": "You don’t know"
         },
         {
-          "id": "c",
-          "label": "So the choice is left entirely to luck",
-          "correct": false,
-          "rationale": "The choosers reason carefully, not by chance."
+          "left": "Your values",
+          "right": "You don’t know"
         },
         {
-          "id": "d",
-          "label": "So no one can tilt the rules in their own favour",
-          "correct": true
+          "left": "General facts",
+          "right": "You do know"
         }
       ],
-      "explanation": "Not knowing your own class, talents or values, you can’t rig the rules for yourself.",
+      "explanation": "Behind the veil you don’t know your class, your talents or your values, but you do know general facts about how people and economies work.",
       "difficulty": 0.3
     },
     {

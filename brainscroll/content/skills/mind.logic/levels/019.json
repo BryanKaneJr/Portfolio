@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 19,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Reasoning Like a Detective",
   "objective": "After this level you can explain inference to the best explanation: choosing the account that best fits all the clues.",
@@ -125,41 +125,31 @@
     },
     {
       "id": "question.logic.019.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.induction_best_explanation"
       ],
       "sourceCardIds": [
-        "card.logic.019.c3"
+        "card.logic.019.c3",
+        "card.logic.019.c2"
       ],
-      "prompt": "In the breakfast-table example, why does the midnight snack beat the burglar?",
-      "options": [
+      "prompt": "Match each clue Holmes saw with what he inferred from it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Burglars never stop to eat",
-          "correct": false,
-          "rationale": "It's possible, just far less plausible."
+          "left": "A medical type with a military air",
+          "right": "An army doctor"
         },
         {
-          "id": "b",
-          "label": "The clues guarantee a midnight snack",
-          "correct": false,
-          "rationale": "Abduction never guarantees its conclusion."
+          "left": "His wrists were fair",
+          "right": "Somewhere tropical"
         },
         {
-          "id": "c",
-          "label": "It explains the clues without being contrived",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It is the more exciting story",
-          "correct": false,
-          "rationale": "Excitement is no guide; fit with the evidence is."
+          "left": "His injured left arm",
+          "right": "Been wounded"
         }
       ],
-      "explanation": "Both could explain the crumbs and jam, but the snack does it plausibly, while the snacking burglar is contrived.",
+      "explanation": "A medical type with a military air meant an army doctor. A dark face but fair wrists meant somewhere tropical, and the injured left arm meant he had been wounded.",
       "difficulty": 0.25
     },
     {

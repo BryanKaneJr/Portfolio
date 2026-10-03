@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 21,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Spell Out Every Step",
   "objective": "After this level you can explain why a program must spell out every step exactly, because a computer never fills in what you meant.",
@@ -125,7 +125,7 @@
     },
     {
       "id": "question.computers.021.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.software_exact_steps"
@@ -133,33 +133,16 @@
       "sourceCardIds": [
         "card.computers.021.c4"
       ],
-      "prompt": "How did a units mix-up end up sending the orbiter too close to Mars?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The processor spotted the mismatch and switched itself off",
-          "correct": false,
-          "rationale": "Nothing noticed the mismatch; the software just computed."
-        },
-        {
-          "id": "b",
-          "label": "The spacecraft's engines refused metric commands",
-          "correct": false,
-          "rationale": "The problem was in the calculations, not the engines."
-        },
-        {
-          "id": "c",
-          "label": "Numbers in the wrong units threw off the trajectory calculations",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Mars's gravity changed during the trip",
-          "correct": false,
-          "rationale": "The spacecraft's path was miscalculated, not Mars."
-        }
+      "prompt": "Put the chain of events that doomed Mars Climate Orbiter in order.",
+      "items": [
+        "Reported thruster data in English units",
+        "Threw off the trajectory calculations",
+        "Sent the spacecraft too close to Mars",
+        "Burned up in the planet's atmosphere"
       ],
-      "explanation": "The mismatched numbers went into the trajectory calculations, which came out wrong and sent the spacecraft too close to Mars.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Ground software reported thruster data in English units, the mismatch threw off the trajectory calculations, that sent the spacecraft too close to Mars, and it burned up in the planet's atmosphere.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 39,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Hadith and Islamic Law",
   "objective": "After this level you can explain how scholars build sharia from the Quran and the Prophet's example, and why schools of law reach different rulings.",
@@ -98,41 +98,35 @@
   "questions": [
     {
       "id": "question.religions.039.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.religions.hadith_sunna"
       ],
       "sourceCardIds": [
-        "card.religions.039.c2"
+        "card.religions.039.c2",
+        "card.religions.039.c4"
       ],
-      "prompt": "What is the isnad of a hadith?",
-      "options": [
+      "prompt": "Match each term of Islamic law with its meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Its grade: sound, fair or weak",
-          "correct": false,
-          "rationale": "That's the grade scholars gave it."
+          "left": "Isnad",
+          "right": "Chain of narrators"
         },
         {
-          "id": "b",
-          "label": "Its chain of narrators back to Muhammad",
-          "correct": true
+          "left": "Ijma",
+          "right": "Scholars' consensus"
         },
         {
-          "id": "c",
-          "label": "The words of the report itself",
-          "correct": false,
-          "rationale": "That's the text, the matn."
+          "left": "Qiyas",
+          "right": "Analogy"
         },
         {
-          "id": "d",
-          "label": "The sura where it appears",
-          "correct": false,
-          "rationale": "Hadith aren't part of the Quran's suras."
+          "left": "Fiqh",
+          "right": "Understanding"
         }
       ],
-      "explanation": "The isnad is the chain of narrators running back to Muhammad and his Companions.",
+      "explanation": "The isnad is a hadith's chain of narrators, ijma is scholars' consensus, qiyas is analogy, and fiqh means \"understanding\".",
       "difficulty": 0.2
     },
     {

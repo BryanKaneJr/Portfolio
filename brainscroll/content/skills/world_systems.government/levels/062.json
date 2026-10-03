@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 62,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "The Secret Ballot",
   "objective": "After this level you can explain why voting is secret.",
@@ -131,41 +131,28 @@
     },
     {
       "id": "question.government.062.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.election_secret_ballot_origins"
       ],
       "sourceCardIds": [
-        "card.government.062.c3"
+        "card.government.062.c3",
+        "card.government.062.c1",
+        "card.government.062.c2",
+        "card.government.062.c4"
       ],
-      "prompt": "What problem does keeping each vote secret mainly solve?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It makes counting the votes much faster",
-          "correct": false,
-          "rationale": "Speed isn't the point; protection is."
-        },
-        {
-          "id": "b",
-          "label": "It allows more candidates to stand for office",
-          "correct": false,
-          "rationale": "Secrecy protects voters, not candidacies."
-        },
-        {
-          "id": "c",
-          "label": "Nobody can punish voters for their choice",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Voters no longer need to register first",
-          "correct": false,
-          "rationale": "Registration is a separate matter."
-        }
+      "prompt": "Put these moments in the secret ballot's story in order, from earliest to latest.",
+      "items": [
+        "New South Wales elections",
+        "Victoria's secret ballot law",
+        "John Stuart Mill",
+        "Ballot Act",
+        "UDHR"
       ],
-      "explanation": "If nobody can see your vote, nobody can intimidate you or punish you for it.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Open voting at the New South Wales elections (1843), Victoria's secret ballot law (1856), Mill's objection (1861), Britain's Ballot Act (1872), then the UDHR (1948).",
       "difficulty": 0.2
     },
     {

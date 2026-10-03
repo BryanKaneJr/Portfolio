@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 8,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Stonehenge and Great Stones",
   "objective": "After this level you can explain what monuments like Stonehenge show about early societies.",
@@ -130,41 +130,25 @@
     },
     {
       "id": "question.art_history.008.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.stonehenge_gatherings"
       ],
       "sourceCardIds": [
-        "card.art_history.008.c3"
+        "card.art_history.008.c2",
+        "card.art_history.008.c3",
+        "card.art_history.008.c4"
       ],
-      "prompt": "What do the pig bones at Durrington Walls suggest about Stonehenge's world?",
-      "options": [
-        {
-          "id": "a",
-          "label": "People traveled from across Britain to feast at midwinter",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Stonehenge's builders were farmers from Turkey",
-          "correct": false,
-          "rationale": "The pigs were raised around Britain."
-        },
-        {
-          "id": "c",
-          "label": "Pigs were worshipped as gods",
-          "correct": false,
-          "rationale": "The bones show feasting, not worship."
-        },
-        {
-          "id": "d",
-          "label": "Only local people ever came to Stonehenge",
-          "correct": false,
-          "rationale": "The animals came from as far as Scotland."
-        }
+      "prompt": "Put these building moments in order, from earliest to latest.",
+      "items": [
+        "Göbekli Tepe",
+        "A circular ditch and bank",
+        "The stones went up"
       ],
-      "explanation": "Pigs raised in Wales, northern England and Scotland were slaughtered at midwinter: people gathered from far away to feast.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Göbekli Tepe came first, about 11,500 years ago. Stonehenge began as a circular ditch and bank about 3000 BC, and its stones went up about 2500 BC.",
       "difficulty": 0.25
     },
     {

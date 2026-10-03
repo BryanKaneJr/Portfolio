@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 22,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Counting the Outcomes",
   "objective": "After this level you can list the equally likely outcomes of two dice and explain why 7 is the most common total.",
@@ -134,7 +134,7 @@
     },
     {
       "id": "question.probability.022.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.chance_two_dice_outcomes",
@@ -142,35 +142,26 @@
       ],
       "sourceCardIds": [
         "card.probability.022.c3",
-        "card.probability.022.c4"
+        "card.probability.022.c4",
+        "card.probability.022.c1",
+        "card.probability.022.c2"
       ],
-      "prompt": "How does counting the 36 throws show that 7 is the most common total with two dice?",
-      "options": [
+      "prompt": "Match the number of dice with how many ways they can land.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "More of the 36 throws add up to 7 than to any other total",
-          "correct": true
+          "left": "One die",
+          "right": "6 ways"
         },
         {
-          "id": "b",
-          "label": "Dice are made to land on middle numbers more often",
-          "correct": false,
-          "rationale": "Each face of a fair die is equally likely; the throws do the work."
+          "left": "Two dice",
+          "right": "36 throws"
         },
         {
-          "id": "c",
-          "label": "Seven is lucky, so casinos favor it",
-          "correct": false,
-          "rationale": "Luck plays no part; it is a count of throws."
-        },
-        {
-          "id": "d",
-          "label": "Every total is equally likely, but 7 appears twice",
-          "correct": false,
-          "rationale": "Totals are not equally likely: 2 has one throw, 7 has six."
+          "left": "Three dice",
+          "right": "216"
         }
       ],
-      "explanation": "Six of the 36 throws make 7, more than any other total, so its chance is 6 in 36, or 1 in 6.",
+      "explanation": "One die can land 6 ways. Two dice give 6 × 6 = 36 throws, and a third die makes 216.",
       "difficulty": 0.3
     },
     {

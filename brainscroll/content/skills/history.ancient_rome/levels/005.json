@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 5,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Etruscans Next Door",
   "objective": "After this level you can describe who the Etruscans were and what Rome borrowed from them.",
@@ -88,41 +88,31 @@
   "questions": [
     {
       "id": "question.ancient_rome.005.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_rome.etruscans"
       ],
       "sourceCardIds": [
-        "card.ancient_rome.005.c2"
+        "card.ancient_rome.005.c2",
+        "card.ancient_rome.005.c4"
       ],
-      "prompt": "Where did the Etruscans live?",
-      "options": [
+      "prompt": "Match each Etruscan name with what it was.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "South of Rome, near Naples",
-          "correct": false,
-          "rationale": "They lived to the north."
+          "left": "Etruria",
+          "right": "What is now Tuscany"
         },
         {
-          "id": "b",
-          "label": "North of Rome, mostly in modern Tuscany",
-          "correct": true
+          "left": "Fasces",
+          "right": "A bundle of rods around an axe"
         },
         {
-          "id": "c",
-          "label": "On the island of Sicily",
-          "correct": false,
-          "rationale": "They lived on the mainland."
-        },
-        {
-          "id": "d",
-          "label": "Across the sea in North Africa",
-          "correct": false,
-          "rationale": "They lived in Italy."
+          "left": "Haruspicy",
+          "right": "Reading omens"
         }
       ],
-      "explanation": "Etruria, the Etruscan homeland, lay north of Rome in what is now Tuscany.",
+      "explanation": "Etruria was mostly what is now Tuscany. The fasces was a bundle of rods around an axe, and haruspicy meant reading omens in the organs of sacrificed animals.",
       "difficulty": 0.15
     },
     {

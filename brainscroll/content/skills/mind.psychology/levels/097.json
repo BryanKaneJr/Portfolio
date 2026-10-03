@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 97,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Replication Crisis",
   "objective": "After this level you can explain why many psychology findings failed to replicate and what psychologists changed as a result.",
@@ -134,41 +134,32 @@
     },
     {
       "id": "question.psychology.097.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.psychology.replication_causes"
       ],
       "sourceCardIds": [
-        "card.psychology.097.c3"
+        "card.psychology.097.c1",
+        "card.psychology.097.c3",
+        "card.psychology.097.c4"
       ],
-      "prompt": "How did Simmons, Nelson and Simonsohn \"show\" that a Beatles song made listeners younger?",
-      "options": [
+      "prompt": "Match each part of the replication story with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "By inventing their participants' ages",
-          "correct": false,
-          "rationale": "The trick was flexible analysis choices, not invented data."
+          "left": "Open Science Collaboration",
+          "right": "100 studies"
         },
         {
-          "id": "b",
-          "label": "By testing many thousands of people",
-          "correct": false,
-          "rationale": "Their point was about analysis choices, not sample size."
+          "left": "When I'm Sixty-Four",
+          "right": "Nearly a year and a half younger"
         },
         {
-          "id": "c",
-          "label": "By using flexible, unreported analysis choices",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "By repeating the study in dozens of labs",
-          "correct": false,
-          "rationale": "Repeating studies is how such flukes get caught."
+          "left": "Registered Report",
+          "right": "Peer-reviews the plan before any data"
         }
       ],
-      "explanation": "Undisclosed flexibility, like when to stop collecting data or which measures to report, can make an impossible result look significant.",
+      "explanation": "The Open Science Collaboration reran 100 studies. Flexible choices \"showed\" that \"When I'm Sixty-Four\" made people nearly a year and a half younger. In a Registered Report, a journal peer-reviews the plan before any data are collected.",
       "difficulty": 0.4
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 29,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How Mountains Rise and Wear Down",
   "objective": "After this level you can explain why old ranges like the Appalachians are low while young ones like the Himalayas are high.",
@@ -96,41 +96,32 @@
   "questions": [
     {
       "id": "question.earth_climate.029.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.earth_climate.land_uplift_vs_erosion"
       ],
       "sourceCardIds": [
-        "card.earth_climate.029.c2"
+        "card.earth_climate.029.c2",
+        "card.earth_climate.029.c1",
+        "card.earth_climate.025.c4"
       ],
-      "prompt": "Why are the Appalachians so much lower than the Himalayas today?",
-      "options": [
+      "prompt": "Match each place with its height or depth.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They never had high peaks at all",
-          "correct": false,
-          "rationale": "Geologists think they were once far higher."
+          "left": "Everest",
+          "right": "8,849 m"
         },
         {
-          "id": "b",
-          "label": "They formed from lava flows, not colliding continents",
-          "correct": false,
-          "rationale": "Continental collisions raised them."
+          "left": "Mount Mitchell",
+          "right": "2,037 m"
         },
         {
-          "id": "c",
-          "label": "They are far older and have been eroding for 300 million years",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "They are slowly sinking into the ocean",
-          "correct": false,
-          "rationale": "Erosion, not sinking, wore them down."
+          "left": "Sognefjord",
+          "right": "1,308 m deep"
         }
       ],
-      "explanation": "The Appalachians were raised 500 to 300 million years ago and have been eroding ever since; the Himalayas are young and still rising.",
+      "explanation": "Everest stands about 8,849 m, Mount Mitchell, top of the Appalachians, is 2,037 m, and Norway's Sognefjord is 1,308 m deep.",
       "difficulty": 0.2
     },
     {

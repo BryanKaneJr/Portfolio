@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 88,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Computers Make Pictures",
   "objective": "After this level you can explain how computer-generated imagery builds a scene from models, textures and light, leading to Toy Story in 1995.",
@@ -126,41 +126,36 @@
     },
     {
       "id": "question.film_tv.088.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.cgi_pipeline"
       ],
       "sourceCardIds": [
-        "card.film_tv.088.c3"
+        "card.film_tv.088.c3",
+        "card.film_tv.088.c2",
+        "card.film_tv.088.c4"
       ],
-      "prompt": "A studio switches a scene from simple shading to ray tracing. What should it expect, and why?",
-      "options": [
+      "prompt": "Match each computer graphics term with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Faster rendering, because rays skip the textures",
-          "correct": false,
-          "rationale": "Ray tracing is computationally expensive."
+          "left": "Utah Teapot",
+          "right": "Many small polygons"
         },
         {
-          "id": "b",
-          "label": "Cheaper models, because fewer polygons are needed",
-          "correct": false,
-          "rationale": "Shading choices don't change the model."
+          "left": "Phong shading",
+          "right": "Each pixel"
         },
         {
-          "id": "c",
-          "label": "More realistic light, but slower: each ray obeys reflection and refraction",
-          "correct": true
+          "left": "Ray tracing",
+          "right": "Imaginary rays of light"
         },
         {
-          "id": "d",
-          "label": "No change, because light is added after rendering",
-          "correct": false,
-          "rationale": "Light is computed as part of rendering."
+          "left": "Toy Story",
+          "right": "John Lasseter"
         }
       ],
-      "explanation": "Ray tracing follows light rays with the laws of reflection and refraction, which is realistic but costly.",
+      "explanation": "Models like the Utah Teapot are built from many small polygons. Phong shading works out each pixel, ray tracing follows imaginary rays of light, and John Lasseter directed Toy Story.",
       "difficulty": 0.35
     },
     {

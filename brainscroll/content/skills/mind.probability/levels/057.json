@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 57,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Weighting: Fixing a Lopsided Sample",
   "objective": "After this level you can explain how pollsters weight answers so a sample's mix of ages and backgrounds matches the population.",
@@ -90,41 +90,31 @@
   "questions": [
     {
       "id": "question.probability.057.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.poll_weighting"
       ],
       "sourceCardIds": [
-        "card.probability.057.c2"
+        "card.probability.057.c2",
+        "card.probability.057.c3"
       ],
-      "prompt": "Gallup weights its sample so its mix matches what?",
-      "options": [
+      "prompt": "Young adults are underrepresented in your poll. Match each with its number.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Its previous poll's results",
-          "correct": false,
-          "rationale": "Weights come from outside figures, not old polls."
+          "left": "The population",
+          "right": "20%"
         },
         {
-          "id": "b",
-          "label": "The Census Bureau's latest estimates for traits like age and education",
-          "correct": true
+          "left": "Your sample",
+          "right": "10%"
         },
         {
-          "id": "c",
-          "label": "The answers of its most confident respondents",
-          "correct": false,
-          "rationale": "Confidence isn't a weighting trait."
-        },
-        {
-          "id": "d",
-          "label": "The results of the last election",
-          "correct": false,
-          "rationale": "Gallup's weights use Census estimates."
+          "left": "Each young adult's answers",
+          "right": "Count about twice"
         }
       ],
-      "explanation": "Gallup weights each respondent so the sample's gender, race, age, education and region match the Census Bureau's latest estimates.",
+      "explanation": "Young adults are 20% of the population but only 10% of your sample, so each young adult's answers count about twice until the mix matches.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 9,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Too Precise to Be True",
   "objective": "After this level you can explain how a number can look more exact than the measurement behind it, using the 98.6 degree fever line.",
@@ -131,7 +131,7 @@
     },
     {
       "id": "question.probability.009.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.false_precision",
@@ -139,35 +139,19 @@
       ],
       "sourceCardIds": [
         "card.probability.009.c2",
-        "card.probability.009.c3"
+        "card.probability.009.c3",
+        "card.probability.009.c1"
       ],
-      "prompt": "Why does \"98.6°F\" look more precise than the measurement behind it?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Fahrenheit thermometers are always more accurate",
-          "correct": false,
-          "rationale": "The scale doesn't add accuracy; the decimal came from a formula."
-        },
-        {
-          "id": "b",
-          "label": "Its decimal came from converting a round 37°C",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Wunderlich measured to a hundredth of a degree",
-          "correct": false,
-          "rationale": "His average was a round 37°C."
-        },
-        {
-          "id": "d",
-          "label": "The 1992 study added the decimal",
-          "correct": false,
-          "rationale": "The 98.6 came from converting 37°C long before 1992."
-        }
+      "prompt": "Put the steps that turned Wunderlich's number into 98.6°F in order.",
+      "items": [
+        "37°C",
+        "Multiply by 1.8",
+        "Add 32",
+        "98.6°F"
       ],
-      "explanation": "37 × 1.8 + 32 = 98.6. The .6 is arithmetic, and a calculation is never more precise than the measurement it starts from.",
+      "first": "Start",
+      "last": "Result",
+      "explanation": "Start with the round 37°C, multiply by 1.8, then add 32, and you get exactly 98.6°F.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 30,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Master of the Mediterranean",
   "objective": "After this level you can explain how the Punic Wars turned Rome into a Mediterranean power.",
@@ -171,41 +171,25 @@
     },
     {
       "id": "question.ancient_rome.030.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_rome.cannae"
       ],
       "sourceCardIds": [
-        "card.ancient_rome.024.c2"
+        "card.ancient_rome.024.c2",
+        "card.ancient_rome.030.c2"
       ],
-      "prompt": "Where did Hannibal win his most famous victory over Rome?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Zama",
-          "correct": false,
-          "rationale": "He lost at Zama."
-        },
-        {
-          "id": "b",
-          "label": "Corinth",
-          "correct": false,
-          "rationale": "Corinth was destroyed by Rome."
-        },
-        {
-          "id": "c",
-          "label": "The Allia",
-          "correct": false,
-          "rationale": "That was the Gauls."
-        },
-        {
-          "id": "d",
-          "label": "Cannae",
-          "correct": true
-        }
+      "prompt": "Put these events of the Punic Wars in order, from earliest to latest.",
+      "items": [
+        "Rome builds a navy",
+        "Hannibal invades",
+        "Scipio wins at Zama",
+        "Carthage is destroyed"
       ],
-      "explanation": "At Cannae in 216 BCE Hannibal encircled and destroyed a larger Roman army.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "In the First Punic War Rome builds a navy. In the Second, Hannibal invades and Scipio wins at Zama. In the Third, Carthage is destroyed.",
       "difficulty": 0.2
     },
     {

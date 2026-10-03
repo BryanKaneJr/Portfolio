@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 60,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Security Online",
   "objective": "After this level you can explain why attackers target people, passwords and old software, and which defenses stop each kind of attack.",
@@ -153,41 +153,31 @@
   "questions": [
     {
       "id": "question.computers.060.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.security_four_steps"
       ],
       "sourceCardIds": [
-        "card.computers.060.c3"
+        "card.computers.060.c3",
+        "card.computers.060.c2"
       ],
-      "prompt": "Which of these is one of the four steps in CISA's Secure Our World campaign?",
-      "options": [
+      "prompt": "Match each kind of attack with a habit that blocks it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Change every password once a month",
-          "correct": false,
-          "rationale": "Not one of the four: phishing, strong passwords, MFA and updates."
+          "left": "Old software holes",
+          "right": "Install updates as soon as possible"
         },
         {
-          "id": "b",
-          "label": "Turn on multifactor authentication",
-          "correct": true
+          "left": "Stolen or guessed passwords",
+          "right": "A different passphrase for every account"
         },
         {
-          "id": "c",
-          "label": "Browse only in incognito mode",
-          "correct": false,
-          "rationale": "Not on the list; the steps are phishing, passwords, MFA and updates."
-        },
-        {
-          "id": "d",
-          "label": "Avoid websites that use HTTPS",
-          "correct": false,
-          "rationale": "HTTPS protects your connection; avoiding it would not help."
+          "left": "Tricked people",
+          "right": "Verify using contact details"
         }
       ],
-      "explanation": "CISA's four steps: recognize and report phishing, use strong passwords, turn on MFA, update software.",
+      "explanation": "Old software holes call for installing updates as soon as possible, stolen or guessed passwords call for a different passphrase for every account, and tricked people should verify using contact details they already have.",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 11,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Mesopotamia",
   "objective": "After this level you can describe Mesopotamian art, from stepped temples to carved seals.",
@@ -86,41 +86,32 @@
   "questions": [
     {
       "id": "question.art_history.011.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.ziggurat"
       ],
       "sourceCardIds": [
-        "card.art_history.011.c2"
+        "card.art_history.011.c2",
+        "card.art_history.011.c3",
+        "card.art_history.011.c4"
       ],
-      "prompt": "What was a Mesopotamian ziggurat?",
-      "options": [
+      "prompt": "Match each piece of Mesopotamian art and writing with what it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A royal tomb sealed under a mound of sand",
-          "correct": false,
-          "rationale": "It was a temple tower, with a temple on top."
+          "left": "Ziggurat",
+          "right": "A stepped temple tower"
         },
         {
-          "id": "b",
-          "label": "A stepped temple tower with a temple on its top",
-          "correct": true
+          "left": "Cylinder seal",
+          "right": "A small stone cylinder"
         },
         {
-          "id": "c",
-          "label": "A city wall with three gates",
-          "correct": false,
-          "rationale": "The three were staircases, and they led up to a temple."
-        },
-        {
-          "id": "d",
-          "label": "A marketplace for clay tablets",
-          "correct": false,
-          "rationale": "It was religious: a tower for a god."
+          "left": "Cuneiform",
+          "right": "Wedge-shaped marks"
         }
       ],
-      "explanation": "A ziggurat was a stepped tower of mud brick and baked brick. Ur's, built about 2100 BCE for the moon god Nanna, had a temple on top.",
+      "explanation": "A ziggurat is a stepped temple tower, a cylinder seal is a small stone cylinder rolled across clay, and cuneiform is wedge-shaped marks pressed into clay.",
       "difficulty": 0.15
     },
     {

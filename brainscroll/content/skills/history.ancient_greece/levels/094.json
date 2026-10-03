@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 94,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Greek Columns Everywhere",
   "objective": "After this level you can spot Greek columns in modern buildings.",
@@ -87,41 +87,31 @@
   "questions": [
     {
       "id": "question.ancient_greece.094.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_greece.legacy_greek_revival"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.094.c4"
+        "card.ancient_greece.094.c4",
+        "card.ancient_greece.094.c3"
       ],
-      "prompt": "What do the 36 columns of the Lincoln Memorial stand for?",
-      "options": [
+      "prompt": "Match each building or detail with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The years Lincoln lived",
-          "correct": false,
-          "rationale": "They stand for states."
+          "left": "Second Bank of the United States",
+          "right": "William Strickland"
         },
         {
-          "id": "b",
-          "label": "The states in the Union when Lincoln died",
-          "correct": true
+          "left": "Lincoln Memorial",
+          "right": "Henry Bacon"
         },
         {
-          "id": "c",
-          "label": "The columns of the Parthenon",
-          "correct": false,
-          "rationale": "The count is American."
-        },
-        {
-          "id": "d",
-          "label": "The first 36 presidents",
-          "correct": false,
-          "rationale": "They stand for states."
+          "left": "36 columns",
+          "right": "The 36 states"
         }
       ],
-      "explanation": "Each of the 36 columns stands for a state in the Union at the time of Lincoln’s death.",
+      "explanation": "William Strickland designed the Second Bank of the United States, Henry Bacon designed the Lincoln Memorial, and its 36 columns stand for the 36 states in the Union when Lincoln died.",
       "difficulty": 0.2
     },
     {

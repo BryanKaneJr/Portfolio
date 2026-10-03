@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 60,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Courts and Justice",
   "objective": "After this level you can explain how courts, police and punishment fit together.",
@@ -214,7 +214,7 @@
     },
     {
       "id": "question.government.060.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.government.jury_bushels_case",
@@ -227,35 +227,20 @@
         "card.government.053.c3",
         "card.government.052.c3",
         "card.government.054.c1",
-        "card.government.055.c4"
+        "card.government.055.c4",
+        "card.government.058.c1"
       ],
-      "prompt": "Courts and Justice checkpoint: which list puts these court milestones in order, oldest first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Act of Settlement → Bushel's Case → Gideon → Woolmington",
-          "correct": false,
-          "rationale": "Bushel's Case (1670) came before the Act of Settlement (1701)."
-        },
-        {
-          "id": "b",
-          "label": "Bushel's Case → Act of Settlement → Woolmington → Gideon",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Bushel's Case → Woolmington → Act of Settlement → Gideon",
-          "correct": false,
-          "rationale": "The Act of Settlement (1701) came long before Woolmington (1935)."
-        },
-        {
-          "id": "d",
-          "label": "Woolmington → Gideon → Bushel's Case → Act of Settlement",
-          "correct": false,
-          "rationale": "Woolmington (1935) and Gideon (1963) are the most recent."
-        }
+      "prompt": "Put these milestones in courts and policing in order, from oldest to newest.",
+      "items": [
+        "Bushel's Case",
+        "Act of Settlement",
+        "Metropolitan Police Act",
+        "Woolmington",
+        "Gideon"
       ],
-      "explanation": "Bushel's Case (1670), the Act of Settlement (1701), Woolmington v DPP (1935), Gideon v Wainwright (1963).",
+      "first": "Oldest",
+      "last": "Newest",
+      "explanation": "Bushel's Case (1670), the Act of Settlement (1701), the Metropolitan Police Act (1829), Woolmington's appeal (1935), then the Gideon ruling (1963).",
       "difficulty": 0.35
     },
     {

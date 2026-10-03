@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 5,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How the World Began",
   "objective": "After this level you can compare three common shapes of creation story: order out of chaos, the cosmic egg and the earth diver.",
@@ -126,41 +126,32 @@
     },
     {
       "id": "question.literature.005.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.earth_diver"
       ],
       "sourceCardIds": [
-        "card.literature.005.c4"
+        "card.literature.005.c4",
+        "card.literature.005.c2",
+        "card.literature.005.c3"
       ],
-      "prompt": "In an earth-diver story like the Haudenosaunee one, how does land first appear?",
-      "options": [
+      "prompt": "Match each shape of creation myth with its example.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A god cuts a sea monster's body in two halves",
-          "correct": false,
-          "rationale": "That's order out of chaos."
+          "left": "Order out of chaos",
+          "right": "Enuma Elish"
         },
         {
-          "id": "b",
-          "label": "It grows from a giant's dead body",
-          "correct": false,
-          "rationale": "That's one Pan Gu telling."
+          "left": "The cosmic egg",
+          "right": "Pan Gu"
         },
         {
-          "id": "c",
-          "label": "It hatches from a cosmic egg",
-          "correct": false,
-          "rationale": "That's the cosmic egg shape."
-        },
-        {
-          "id": "d",
-          "label": "An animal dives and brings up earth, which grows",
-          "correct": true
+          "left": "The earth diver",
+          "right": "Sky Woman"
         }
       ],
-      "explanation": "The muskrat brings up a little earth, and on the turtle's back it grows into North America.",
+      "explanation": "Babylon's Enuma Elish brings order out of chaos, Pan Gu comes out of a cosmic egg, and Sky Woman's story is an earth-diver myth.",
       "difficulty": 0.2
     },
     {

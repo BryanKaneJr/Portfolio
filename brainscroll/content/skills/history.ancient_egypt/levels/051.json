@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 51,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Homes of Mud Brick",
   "objective": "After this level you can describe Egyptian houses and how they kept cool.",
@@ -126,41 +126,24 @@
     },
     {
       "id": "question.ancient_egypt.051.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.daily_mudbrick_homes"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.051.c3"
+        "card.ancient_egypt.051.c3",
+        "card.ancient_egypt.051.c2"
       ],
-      "prompt": "Why did Egyptians build tombs and temples of stone but houses of mud brick?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Stone was saved for eternal homes: of the dead and of the gods",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Stone was illegal for anyone but the pharaoh to own",
-          "correct": false,
-          "rationale": "The difference was about eternity, not ownership."
-        },
-        {
-          "id": "c",
-          "label": "Mud brick lasted longer than stone",
-          "correct": false,
-          "rationale": "Stone lasted far longer, which was the point."
-        },
-        {
-          "id": "d",
-          "label": "There was no stone anywhere in Egypt",
-          "correct": false,
-          "rationale": "Egyptians quarried plenty of stone for temples and tombs."
-        }
+      "prompt": "Put the steps of making a mud brick in order, from first to last.",
+      "items": [
+        "A mix of clay and sand",
+        "Pressed it into rectangular molds",
+        "Left the bricks to dry in the sun"
       ],
-      "explanation": "Tombs were the eternal homes of the dead and temples the eternal homes of the gods, so they got stone; homes for the living got mud brick.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Workers took Nile mud, a mix of clay and sand, pressed it into rectangular molds, and left the bricks to dry in the sun.",
       "difficulty": 0.3
     },
     {

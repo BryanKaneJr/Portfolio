@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 7,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Méliès and the Trick Film",
   "objective": "After this level you can explain how Georges Méliès used stop tricks and staged scenes to make films of fantasy, like A Trip to the Moon.",
@@ -86,41 +86,32 @@
   "questions": [
     {
       "id": "question.film_tv.007.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.melies_stop_trick"
       ],
       "sourceCardIds": [
-        "card.film_tv.007.c2"
+        "card.film_tv.007.c2",
+        "card.film_tv.007.c1",
+        "card.film_tv.007.c3"
       ],
-      "prompt": "What is the stop trick that Méliès made famous?",
-      "options": [
+      "prompt": "Match each place with its part in Méliès's story.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Stopping the camera, changing the scene, then filming again",
-          "correct": true
+          "left": "Théâtre Robert-Houdin",
+          "right": "A Paris magic theater"
         },
         {
-          "id": "b",
-          "label": "Painting over frames after filming",
-          "correct": false,
-          "rationale": "The trick happens in the camera, by stopping it."
+          "left": "Place de l'Opéra",
+          "right": "His camera jammed"
         },
         {
-          "id": "c",
-          "label": "Running the film backward in the projector",
-          "correct": false,
-          "rationale": "Nothing is reversed; something is swapped."
-        },
-        {
-          "id": "d",
-          "label": "Filming through colored glass",
-          "correct": false,
-          "rationale": "The trick is about stopping, not color."
+          "left": "Montreuil",
+          "right": "A glass-walled film studio"
         }
       ],
-      "explanation": "Stop the camera, change what's in front of it, restart: on screen, one thing seems to turn into another.",
+      "explanation": "Méliès owned the Théâtre Robert-Houdin, a Paris magic theater. His camera jammed while filming in the Place de l'Opéra, and he built a glass-walled film studio at Montreuil.",
       "difficulty": 0.2
     },
     {

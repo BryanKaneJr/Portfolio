@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 24,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Chance of At Least One",
   "objective": "After this level you can work out the chance of \"at least one\" by first finding the chance of none, as with a six in four rolls.",
@@ -130,42 +130,36 @@
     },
     {
       "id": "question.probability.024.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.chance_complement_rule"
       ],
       "sourceCardIds": [
         "card.probability.024.c2",
-        "card.probability.024.c3"
+        "card.probability.024.c3",
+        "card.probability.024.c4"
       ],
-      "prompt": "How does the shortcut find the chance of at least one six in four rolls?",
-      "options": [
+      "prompt": "Match each part of de Méré's bets with its chance.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Add 1/6 four times",
-          "correct": false,
-          "rationale": "Adding overcounts rolls with two or more sixes."
+          "left": "No six on one roll",
+          "right": "5/6"
         },
         {
-          "id": "b",
-          "label": "Find the chance of no six, then take it from 1",
-          "correct": true
+          "left": "No six in four independent rolls",
+          "right": "About 48%"
         },
         {
-          "id": "c",
-          "label": "Multiply 1/6 by itself four times",
-          "correct": false,
-          "rationale": "That is the chance of four sixes, not at least one."
+          "left": "At least one six",
+          "right": "About 52%"
         },
         {
-          "id": "d",
-          "label": "Divide 4 by 6",
-          "correct": false,
-          "rationale": "That treats each roll as adding a sixth, which overcounts."
+          "left": "At least one double 6",
+          "right": "About 49%"
         }
       ],
-      "explanation": "No six in four rolls is one case: 5/6 multiplied four times, about 48%. Take it from 1 and at least one six is about 52%.",
+      "explanation": "No six on one roll is 5/6, and no six in four rolls is about 48%, so at least one six is about 52%. At least one double 6 in 24 rolls is about 49%.",
       "difficulty": 0.3
     },
     {

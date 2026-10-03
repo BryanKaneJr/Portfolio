@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 46,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Just a Coincidence?",
   "objective": "After this level you can explain why, given enough chances, surprising coincidences are bound to happen.",
@@ -82,41 +82,36 @@
   "questions": [
     {
       "id": "question.logic.046.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.causal_coincidence"
       ],
       "sourceCardIds": [
-        "card.logic.046.c2"
+        "card.logic.046.c2",
+        "card.logic.046.c3",
+        "card.logic.046.c4"
       ],
-      "prompt": "What does Diaconis and Mosteller's law of truly large numbers say?",
-      "options": [
+      "prompt": "Match each idea about coincidences with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Big samples always give the right answer",
-          "correct": false,
-          "rationale": "The law is about surprising events turning up, not accuracy."
+          "left": "The law of truly large numbers",
+          "right": "Any outrageous thing is likely to happen"
         },
         {
-          "id": "b",
-          "label": "Rare events never happen to the same person",
-          "correct": false,
-          "rationale": "The opposite: with enough chances, even that turns up."
+          "left": "1 in 17 trillion",
+          "right": "A not-very-relevant question"
         },
         {
-          "id": "c",
-          "label": "With enough chances, outrageous things are likely",
-          "correct": true
+          "left": "Memory",
+          "right": "Notable events stick"
         },
         {
-          "id": "d",
-          "label": "Coincidences always have a hidden cause",
-          "correct": false,
-          "rationale": "Some do, but the law is about sheer numbers of chances."
+          "left": "Near misses",
+          "right": "Matches"
         }
       ],
-      "explanation": "With a large enough sample, any outrageous thing is likely to happen.",
+      "explanation": "The law of truly large numbers: with a large enough sample, any outrageous thing is likely to happen. The 1 in 17 trillion figure answered a not-very-relevant question. In memory, notable events stick, and we count near misses as matches.",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 46,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Heracles",
   "objective": "After this level you can describe the Twelve Labors of Heracles.",
@@ -137,41 +137,27 @@
     },
     {
       "id": "question.ancient_greece.046.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_greece.heracles_labors"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.046.c5"
+        "card.ancient_greece.046.c5",
+        "card.ancient_greece.046.c2",
+        "card.ancient_greece.046.c3",
+        "card.ancient_greece.046.c4"
       ],
-      "prompt": "Why did Heracles end up performing twelve labors instead of ten?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Eurystheus refused to count two of them",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "He failed two tasks and had to try again",
-          "correct": false,
-          "rationale": "He completed them; they were disallowed."
-        },
-        {
-          "id": "c",
-          "label": "Hera added two more out of spite",
-          "correct": false,
-          "rationale": "The two extra came from Eurystheus’s ruling."
-        },
-        {
-          "id": "d",
-          "label": "Zeus asked for two more as a gift",
-          "correct": false,
-          "rationale": "Zeus set no labors."
-        }
+      "prompt": "Put these moments in Heracles’ life in order, from first to last.",
+      "items": [
+        "Two serpents",
+        "Asked the oracle at Delphi",
+        "Nemean lion",
+        "Cerberus"
       ],
-      "explanation": "Eurystheus discounted the Hydra, because Iolaus helped, and the Augean stables, because Heracles did it for hire.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "As a baby he strangled two serpents. Later he asked the oracle at Delphi where to live, then began his labors with the Nemean lion and ended them by fetching Cerberus.",
       "difficulty": 0.3
     },
     {

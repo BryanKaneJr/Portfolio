@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 10,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: How Music Works",
   "objective": "After this level you can connect sound, pitch, rhythm, melody and harmony.",
@@ -231,7 +231,7 @@
     },
     {
       "id": "question.music.010.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.music.sound_vibration"
@@ -240,33 +240,16 @@
         "card.music.010.c2",
         "card.music.002.c2"
       ],
-      "prompt": "On this chapter's page-to-ear trip, what physically carries the A from the string to you?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Air molecules flying from the string to your ear",
-          "correct": false,
-          "rationale": "They jiggle in place and pass the push along."
-        },
-        {
-          "id": "b",
-          "label": "Light from the vibrating string",
-          "correct": false,
-          "rationale": "Light isn't sound; sound needs a medium."
-        },
-        {
-          "id": "c",
-          "label": "Electric signals in the air",
-          "correct": false,
-          "rationale": "Sound is mechanical: pressure, not electricity."
-        },
-        {
-          "id": "d",
-          "label": "Compressions and rarefactions in the air",
-          "correct": true
-        }
+      "prompt": "Put the A's trip in order, from the string to your inner ear.",
+      "items": [
+        "A string vibrates 440 times a second",
+        "Compressions and rarefactions travel",
+        "The eardrum vibrates along with them",
+        "Hair cells in one spot respond"
       ],
-      "explanation": "Sound is a pressure wave: squeezes and thinnings of air, passed along at about 343 m/s.",
+      "first": "At the string",
+      "last": "In the cochlea",
+      "explanation": "A string vibrates 440 times a second, compressions and rarefactions travel through the air, the eardrum vibrates along with them, and hair cells in one spot of the cochlea respond.",
       "difficulty": 0.25
     },
     {

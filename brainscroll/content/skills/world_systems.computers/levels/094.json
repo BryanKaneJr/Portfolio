@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 94,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Will Quantum Break Encryption?",
   "objective": "After this level you can explain which kinds of encryption a large quantum computer could break, and how post-quantum standards prepare for it.",
@@ -91,41 +91,31 @@
   "questions": [
     {
       "id": "question.computers.094.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.techcheck_quantum_public_key_risk"
       ],
       "sourceCardIds": [
-        "card.computers.094.c2"
+        "card.computers.094.c2",
+        "card.computers.094.c3"
       ],
-      "prompt": "Which kind of encryption does the NCSC say a large quantum computer would break?",
-      "options": [
+      "prompt": "Match each part of the quantum encryption story with its detail.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Every kind of encryption that has ever been made",
-          "correct": false,
-          "rationale": "Symmetric encryption like AES holds up."
+          "left": "Peter Shor",
+          "right": "Devised an algorithm"
         },
         {
-          "id": "b",
-          "label": "Only the passwords that sites store as hashes",
-          "correct": false,
-          "rationale": "The threat named is to public-key methods."
+          "left": "Much public-key encryption",
+          "right": "Strangers use to set up a shared secret"
         },
         {
-          "id": "c",
-          "label": "Public-key methods such as RSA and elliptic curves",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Symmetric keys of 128 bits or more",
-          "correct": false,
-          "rationale": "The NCSC says those can still be used."
+          "left": "Symmetric encryption",
+          "right": "Both sides already share one secret key"
         }
       ],
-      "explanation": "Shor's algorithm threatens public-key methods like RSA and elliptic-curve cryptography.",
+      "explanation": "Peter Shor devised an algorithm to factor huge numbers, much public-key encryption is the kind strangers use to set up a shared secret, and in symmetric encryption both sides already share one secret key.",
       "difficulty": 0.25
     },
     {

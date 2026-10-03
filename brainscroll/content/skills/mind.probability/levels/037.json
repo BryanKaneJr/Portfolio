@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 37,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Should You Risk the Parking Ticket?",
   "objective": "After this level you can use expected value to compare two everyday choices, like paying for parking or risking a fine.",
@@ -125,41 +125,31 @@
     },
     {
       "id": "question.probability.037.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.bet_parking_choice"
       ],
       "sourceCardIds": [
-        "card.probability.037.c3"
+        "card.probability.037.c3",
+        "card.probability.037.c2"
       ],
-      "prompt": "How do you find the chance at which paying the meter and skipping it cost the same on average?",
-      "options": [
+      "prompt": "The meter costs $4 and the fine is $50. Match each with its number.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Divide the fine by the meter price",
-          "correct": false,
-          "rationale": "That gives 50 ÷ 4, which is not a chance."
+          "left": "1 time in 5",
+          "right": "$10 on average"
         },
         {
-          "id": "b",
-          "label": "Subtract the meter price from the fine",
-          "correct": false,
-          "rationale": "That gives dollars, not a chance."
+          "left": "1 time in 10",
+          "right": "$5 on average"
         },
         {
-          "id": "c",
-          "label": "Divide the meter price by the fine",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Multiply the fine by the meter price",
-          "correct": false,
-          "rationale": "That gives a meaningless $200."
+          "left": "Break-even chance",
+          "right": "8 in 100"
         }
       ],
-      "explanation": "Break-even is where chance × $50 = $4, so the chance is 4 ÷ 50, or 8 in 100.",
+      "explanation": "A ticket 1 time in 5 costs $10 on average, and 1 time in 10 costs $5 on average. The break-even chance, where $50 times the chance equals $4, is 8 in 100.",
       "difficulty": 0.35
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 9,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Soil: More Than Dirt",
   "objective": "After this level you can describe what soil is made of and name the layers you would see in a soil pit.",
@@ -165,7 +165,7 @@
     },
     {
       "id": "question.earth_climate.009.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.earth_climate.soil_horizons",
@@ -175,33 +175,16 @@
         "card.earth_climate.009.c4",
         "card.earth_climate.005.c4"
       ],
-      "prompt": "A soil pit ends at dark, very fine-grained bedrock that formed from lava. Using Level 5, which rock is its R horizon?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Granite",
-          "correct": false,
-          "rationale": "Granite is coarse and cools underground."
-        },
-        {
-          "id": "b",
-          "label": "Basalt",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Limestone",
-          "correct": false,
-          "rationale": "Limestone comes from shells, not lava."
-        },
-        {
-          "id": "d",
-          "label": "Sandstone",
-          "correct": false,
-          "rationale": "Sandstone is cemented sand."
-        }
+      "prompt": "Put these soil pit layers in order, from the top down.",
+      "items": [
+        "Topsoil",
+        "Subsoil",
+        "Parent material",
+        "Bedrock"
       ],
-      "explanation": "Basalt is the dark, fine-grained rock of fast-cooled lava, and it's one of the bedrocks an R horizon can be.",
+      "first": "Top",
+      "last": "Bottom",
+      "explanation": "From the top: A is topsoil, B is the subsoil, C is the parent material, and R at the bottom is bedrock.",
       "difficulty": 0.3
     }
   ],

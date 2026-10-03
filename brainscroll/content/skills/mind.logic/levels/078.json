@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 78,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "No True Scotsman",
   "objective": "After this level you can spot the move that redefines a group to wave away a counterexample.",
@@ -126,41 +126,32 @@
     },
     {
       "id": "question.logic.078.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.persuasion_no_true_scotsman"
       ],
       "sourceCardIds": [
-        "card.logic.078.c2"
+        "card.logic.078.c2",
+        "card.logic.078.c1",
+        "card.logic.078.c4"
       ],
-      "prompt": "How does the \"No true Scotsman\" move protect a generalization?",
-      "options": [
+      "prompt": "Match each part of the Scotsman story with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It finds new evidence for the claim",
-          "correct": false,
-          "rationale": "No new evidence is offered."
+          "left": "An English town",
+          "right": "A shocking crime"
         },
         {
-          "id": "b",
-          "label": "It redefines the group to shut out the counterexample",
-          "correct": true
+          "left": "Aberdeen",
+          "right": "Something worse"
         },
         {
-          "id": "c",
-          "label": "It attacks the person who raised the counterexample",
-          "correct": false,
-          "rationale": "It changes a definition, not the subject."
-        },
-        {
-          "id": "d",
-          "label": "It admits the generalization was wrong",
-          "correct": false,
-          "rationale": "The whole point is to avoid admitting that."
+          "left": "A standard invented afterward",
+          "right": "Moving the goalposts"
         }
       ],
-      "explanation": "The counterexample is ruled out by redefining the group after the fact.",
+      "explanation": "The Scotsman first read of a shocking crime in an English town, then of something worse done by a man in Aberdeen. A standard invented afterward is just moving the goalposts.",
       "difficulty": 0.3
     },
     {

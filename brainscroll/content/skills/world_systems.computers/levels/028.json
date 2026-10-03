@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 28,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Where Deleted Files Go",
   "objective": "After this level you can explain how a file system tracks where files live, and why a \"deleted\" file can often be recovered.",
@@ -91,41 +91,31 @@
   "questions": [
     {
       "id": "question.computers.028.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.software_file_deletion"
       ],
       "sourceCardIds": [
-        "card.computers.028.c3"
+        "card.computers.028.c3",
+        "card.computers.028.c2"
       ],
-      "prompt": "On a typical hard drive, what happens to a deleted file's data?",
-      "options": [
+      "prompt": "Match each file system record with what it keeps track of.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It is overwritten with zeros right away",
-          "correct": false,
-          "rationale": "Deleting typically doesn't erase anything."
+          "left": "A directory",
+          "right": "A list of entries"
         },
         {
-          "id": "b",
-          "label": "It moves into the processor's cache",
-          "correct": false,
-          "rationale": "Cache holds data in use, not deleted files."
+          "left": "The inode",
+          "right": "Records facts about the file"
         },
         {
-          "id": "c",
-          "label": "It is sent to the cloud for safekeeping",
-          "correct": false,
-          "rationale": "It stays on the same drive."
-        },
-        {
-          "id": "d",
-          "label": "It stays on the drive, in space marked as free",
-          "correct": true
+          "left": "A bitmap",
+          "right": "Tracks free space"
         }
       ],
-      "explanation": "A deleted file is typically not erased: its space is marked free, and the data remains until something overwrites it.",
+      "explanation": "A directory is a list of entries pairing names with inode numbers, the inode records facts about the file such as where its blocks sit, and a bitmap tracks free space, one bit per block.",
       "difficulty": 0.15
     },
     {

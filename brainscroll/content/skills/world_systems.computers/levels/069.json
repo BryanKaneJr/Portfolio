@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 69,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Privacy Laws",
   "objective": "After this level you can explain what laws like the EU's GDPR and California's privacy law let you ask of companies that hold your data.",
@@ -126,7 +126,7 @@
     },
     {
       "id": "question.computers.069.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.privacy_gdpr_rights",
@@ -134,35 +134,25 @@
       ],
       "sourceCardIds": [
         "card.computers.069.c2",
-        "card.computers.069.c4"
+        "card.computers.069.c4",
+        "card.computers.069.c3"
       ],
-      "prompt": "How do the GDPR and California's law differ in the time a company has to answer a request to know or delete?",
-      "options": [
+      "prompt": "Match each privacy law idea with its detail.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Both give 24 hours",
-          "correct": false,
-          "rationale": "Both allow far longer than a day."
+          "left": "The GDPR",
+          "right": "Within one month"
         },
         {
-          "id": "b",
-          "label": "One month in the EU, 45 calendar days in California",
-          "correct": true
+          "left": "California's Consumer Privacy Act",
+          "right": "Within 45 calendar days"
         },
         {
-          "id": "c",
-          "label": "45 days in the EU, one month in California",
-          "correct": false,
-          "rationale": "That's the wrong way round."
-        },
-        {
-          "id": "d",
-          "label": "Neither sets any deadline",
-          "correct": false,
-          "rationale": "Both set deadlines."
+          "left": "CSV",
+          "right": "A standard format for spreadsheet data"
         }
       ],
-      "explanation": "The GDPR requires an answer within one month; California's law allows 45 calendar days for requests to know, delete or correct.",
+      "explanation": "Under the GDPR a company must answer within one month, California's Consumer Privacy Act gives businesses 45 calendar days, and CSV is a standard format for spreadsheet data.",
       "difficulty": 0.3
     },
     {

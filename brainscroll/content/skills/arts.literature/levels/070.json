@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 70,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: The Nineteenth Century",
   "objective": "After this level you can connect the Romantics, the Gothic and the great realists into one century's story of the novel and the stage.",
@@ -360,41 +360,32 @@
     },
     {
       "id": "question.literature.070.q5",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.literature.stage_chekhov"
       ],
       "sourceCardIds": [
-        "card.literature.069.c4"
+        "card.literature.069.c4",
+        "card.literature.070.c2",
+        "card.literature.070.c3"
       ],
-      "prompt": "From Level 69: which play ends with axes heard offstage, cutting down an orchard?",
-      "options": [
+      "prompt": "Match each work with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A Doll's House",
-          "correct": false,
-          "rationale": "That ends with a slammed door."
+          "left": "A Doll's House",
+          "right": "A slammed door"
         },
         {
-          "id": "b",
-          "label": "Wuthering Heights",
-          "correct": false,
-          "rationale": "That's Emily Brontë's novel."
+          "left": "The Cherry Orchard",
+          "right": "Axes heard offstage"
         },
         {
-          "id": "c",
-          "label": "Frankenstein",
-          "correct": false,
-          "rationale": "That's a novel, not a play."
-        },
-        {
-          "id": "d",
-          "label": "The Cherry Orchard",
-          "correct": true
+          "left": "Madame Bovary",
+          "right": "The Revue de Paris"
         }
       ],
-      "explanation": "Chekhov's The Cherry Orchard ends with the sound of axes offstage, cutting down the family's orchard.",
+      "explanation": "A Doll's House ends with a slammed door, The Cherry Orchard ends with axes heard offstage, and Madame Bovary ran in the Revue de Paris.",
       "difficulty": 0.2
     }
   ],

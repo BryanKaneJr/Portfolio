@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 44,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Willpower as a Battery?",
   "objective": "After this level you can explain the ego depletion theory and why large replication attempts failed to confirm it.",
@@ -91,7 +91,7 @@
   "questions": [
     {
       "id": "question.psychology.044.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.willpower_ego_depletion"
@@ -99,33 +99,15 @@
       "sourceCardIds": [
         "card.psychology.044.c2"
       ],
-      "prompt": "In Baumeister's 1998 study, what did the radish eaters do on the unsolvable puzzles?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They solved more puzzles than anyone",
-          "correct": false,
-          "rationale": "The puzzles were unsolvable."
-        },
-        {
-          "id": "b",
-          "label": "They gave up sooner than the other groups",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "They refused to try the puzzles at all",
-          "correct": false,
-          "rationale": "They tried for about 8 minutes."
-        },
-        {
-          "id": "d",
-          "label": "They lasted longer than the chocolate eaters",
-          "correct": false,
-          "rationale": "Chocolate eaters lasted about 19 minutes, radish eaters about 8."
-        }
+      "prompt": "On the unsolvable puzzles, put these groups in order, from who gave up soonest to who kept trying longest.",
+      "items": [
+        "Radish eaters",
+        "Chocolate eaters",
+        "A no-food group"
       ],
-      "explanation": "Radish eaters kept trying for about 8 minutes, versus about 19 for chocolate eaters and about 21 for the no-food group.",
+      "first": "Gave up soonest",
+      "last": "Kept trying longest",
+      "explanation": "Radish eaters kept trying for about 8 minutes, chocolate eaters for about 19, and the no-food group for about 21.",
       "difficulty": 0.15
     },
     {

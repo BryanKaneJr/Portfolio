@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 8,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Continents and Oceans by Size",
   "objective": "After this level you can rank the seven continents and five oceans by size.",
@@ -97,7 +97,7 @@
   "questions": [
     {
       "id": "question.world_geography.008.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.continent_sizes"
@@ -105,33 +105,18 @@
       "sourceCardIds": [
         "card.world_geography.008.c2"
       ],
-      "prompt": "Which is the largest continent?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Africa",
-          "correct": false,
-          "rationale": "Africa is second."
-        },
-        {
-          "id": "b",
-          "label": "North America",
-          "correct": false,
-          "rationale": "North America is third."
-        },
-        {
-          "id": "c",
-          "label": "Antarctica",
-          "correct": false,
-          "rationale": "Antarctica is fifth."
-        },
-        {
-          "id": "d",
-          "label": "Asia",
-          "correct": true
-        }
+      "prompt": "Put these continents in order, from largest to smallest.",
+      "items": [
+        "Asia",
+        "Africa",
+        "North America",
+        "Antarctica",
+        "Europe",
+        "Australia"
       ],
-      "explanation": "Asia is the largest continent, with almost a third of the world's land.",
+      "first": "Largest",
+      "last": "Smallest",
+      "explanation": "By size: Asia, Africa, North America, Antarctica, Europe, and last of all Australia, the smallest continent.",
       "difficulty": 0.1
     },
     {

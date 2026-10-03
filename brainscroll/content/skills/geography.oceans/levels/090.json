@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 90,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Exploring the Ocean",
   "objective": "After this level you can trace how people explored the ocean, from sailing ships to submersibles.",
@@ -234,7 +234,7 @@
     },
     {
       "id": "question.oceans.090.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.challenger_expedition",
@@ -245,33 +245,17 @@
       "sourceCardIds": [
         "card.oceans.090.c2"
       ],
-      "prompt": "Exploring the Ocean recap: which of these came first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "HMS Challenger's rope soundings",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The Aqua-Lung",
-          "correct": false,
-          "rationale": "That came in 1943."
-        },
-        {
-          "id": "c",
-          "label": "Trieste's dive to Challenger Deep",
-          "correct": false,
-          "rationale": "That came in 1960."
-        },
-        {
-          "id": "d",
-          "label": "TOPEX/Poseidon's sea-level measurements",
-          "correct": false,
-          "rationale": "That began in 1992."
-        }
+      "prompt": "Put these steps in exploring the ocean in order, from earliest to latest.",
+      "items": [
+        "Harrison's H4 goes to sea",
+        "HMS Challenger sounds the deep",
+        "Cousteau and Gagnan's Aqua-Lung",
+        "Trieste reaches Challenger Deep",
+        "TOPEX/Poseidon"
       ],
-      "explanation": "Challenger sailed in 1872–1876, long before the Aqua-Lung (1943), Trieste (1960) and TOPEX/Poseidon (1992).",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Harrison's H4 went to sea in 1761, HMS Challenger sounded the deep from 1872, the Aqua-Lung came in 1943, Trieste reached Challenger Deep in 1960, and TOPEX/Poseidon started measuring sea level in 1992.",
       "difficulty": 0.2
     },
     {

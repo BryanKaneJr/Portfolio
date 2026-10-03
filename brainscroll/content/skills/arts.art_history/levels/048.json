@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 48,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Rococo",
   "objective": "After this level you can describe the playful, pastel Rococo style.",
@@ -90,41 +90,36 @@
   "questions": [
     {
       "id": "question.art_history.048.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.rococo_style"
       ],
       "sourceCardIds": [
-        "card.art_history.048.c3"
+        "card.art_history.048.c3",
+        "card.art_history.048.c1",
+        "card.art_history.048.c4"
       ],
-      "prompt": "Where does the name Rococo come from?",
-      "options": [
+      "prompt": "Match each name from the Rococo with who or what it was.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A French word for shell-covered grotto rockwork",
-          "correct": true
+          "left": "Rocaille",
+          "right": "Shell-covered rockwork"
         },
         {
-          "id": "b",
-          "label": "The name of a Paris dance hall",
-          "correct": false,
-          "rationale": "It comes from rocaille, grotto shellwork."
+          "left": "Doyen",
+          "right": "Refused"
         },
         {
-          "id": "c",
-          "label": "A Portuguese word for a lumpy pearl",
-          "correct": false,
-          "rationale": "That's Baroque, from Level 41."
+          "left": "An older man",
+          "right": "Pushes the swing"
         },
         {
-          "id": "d",
-          "label": "The painter who invented the style",
-          "correct": false,
-          "rationale": "It's named after a decoration, not a person."
+          "left": "A young lover",
+          "right": "Gazes up"
         }
       ],
-      "explanation": "Rococo comes from rocaille, the shell-covered rockwork of artificial grottoes.",
+      "explanation": "Rocaille is the shell-covered rockwork behind the name Rococo. Doyen refused the commission for The Swing, where an older man pushes the swing and a young lover gazes up.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 92,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Exercise",
   "objective": "After this level you can explain what exercise does for the heart, the muscles and the brain.",
@@ -140,38 +140,32 @@
     },
     {
       "id": "question.human_body.092.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.health_activity_guidelines"
       ],
       "sourceCardIds": [
-        "card.human_body.092.c3"
+        "card.human_body.092.c3",
+        "card.human_body.092.c2"
       ],
-      "prompt": "You're cycling to school and can chat with a friend, but singing would be impossible. By the CDC's talk test, what intensity is that?",
-      "options": [
+      "prompt": "Match each activity level or age group with the guideline or talk-test sign that fits it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Resting",
-          "correct": false,
-          "rationale": "Resting wouldn't stop you singing."
+          "left": "Moderate activity",
+          "right": "You can talk, but not sing"
         },
         {
-          "id": "b",
-          "label": "Too light to count",
-          "correct": false,
-          "rationale": "WHO says all activity counts."
+          "left": "Vigorous intensity",
+          "right": "Can't say more than a few words"
         },
         {
-          "id": "c",
-          "label": "Vigorous",
-          "correct": false,
-          "rationale": "At vigorous intensity you can only manage a few words."
+          "left": "Ages 5 to 17",
+          "right": "An average of 60 minutes a day"
         },
         {
-          "id": "d",
-          "label": "Moderate",
-          "correct": true
+          "left": "Adults 18 to 64",
+          "right": "150 to 300 minutes a week"
         }
       ],
       "explanation": "Moderate activity lets you talk but not sing; vigorous activity leaves you pausing for breath after a few words.",

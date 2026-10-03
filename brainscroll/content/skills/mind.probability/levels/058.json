@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 58,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Wording Changes the Answer",
   "objective": "After this level you can spot how the wording and order of survey questions can shift the answers people give.",
@@ -86,41 +86,35 @@
   "questions": [
     {
       "id": "question.probability.058.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.poll_wording_effect"
       ],
       "sourceCardIds": [
-        "card.probability.058.c2"
+        "card.probability.058.c2",
+        "card.probability.058.c3"
       ],
-      "prompt": "In the 1941 experiment, which wording led more people to restrict speeches against democracy?",
-      "options": [
+      "prompt": "Match each way of asking with the share it got.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "\"Forbid\" (75%) rather than \"not allow\" (54%)",
-          "correct": false,
-          "rationale": "It was the reverse: 75% \"not allow\", 54% \"forbid\"."
+          "left": "Not allow",
+          "right": "75%"
         },
         {
-          "id": "b",
-          "label": "Both wordings got the same answer",
-          "correct": false,
-          "rationale": "They differed by 21 points."
+          "left": "Forbid",
+          "right": "54%"
         },
         {
-          "id": "c",
-          "label": "\"Not allow\" (75%) rather than \"forbid\" (54%)",
-          "correct": true
+          "left": "Offered the economy as a choice",
+          "right": "58%"
         },
         {
-          "id": "d",
-          "label": "Neither: most people wanted to allow them",
-          "correct": false,
-          "rationale": "Most said \"not allow\" in one version."
+          "left": "Asked with no list",
+          "right": "35%"
         }
       ],
-      "explanation": "Of those who answered, 75% said \"not allow\" but only 54% said \"forbid\": the same idea, different words.",
+      "explanation": "In 1941, 75% said \"not allow\" but only 54% said \"forbid\". Pew found 58% picked the economy when it was offered as a choice, but only 35% named it when asked with no list.",
       "difficulty": 0.25
     },
     {

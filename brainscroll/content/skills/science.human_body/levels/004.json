@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 4,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "From Cells to Organs",
   "objective": "After this level you can explain how cells form tissues, organs and whole systems.",
@@ -140,40 +140,24 @@
     },
     {
       "id": "question.human_body.004.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.organization_levels"
       ],
       "sourceCardIds": [
-        "card.human_body.004.c2"
+        "card.human_body.004.c2",
+        "card.human_body.004.c1"
       ],
-      "prompt": "Put the body's building levels in order. Which list runs from smallest to largest?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Tissue, cell, organ, organ system",
-          "correct": false,
-          "rationale": "Tissues are made of cells, so cells come first."
-        },
-        {
-          "id": "b",
-          "label": "Organ, tissue, cell, organ system",
-          "correct": false,
-          "rationale": "Organs are made of tissues, not the reverse."
-        },
-        {
-          "id": "c",
-          "label": "Cell, organ, tissue, organ system",
-          "correct": false,
-          "rationale": "Tissues come before organs."
-        },
-        {
-          "id": "d",
-          "label": "Cell, tissue, organ, organ system",
-          "correct": true
-        }
+      "prompt": "Put the body's building levels in order, from smallest to largest.",
+      "items": [
+        "Cell",
+        "Tissue",
+        "Organ",
+        "Organ system"
       ],
+      "first": "Smallest",
+      "last": "Largest",
       "explanation": "Cells form tissues, tissues form organs, and organs form organ systems.",
       "difficulty": 0.2
     },

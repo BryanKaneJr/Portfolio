@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 50,
   "type": "milestone",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Milestone: Classical Music",
   "objective": "After this level you can connect the eras of classical music from Bach to the Romantics.",
@@ -198,7 +198,7 @@
     },
     {
       "id": "question.music.050.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.romantic_bach_revival",
@@ -209,33 +209,18 @@
       "sourceCardIds": [
         "card.music.050.c3"
       ],
-      "prompt": "On this chapter's Romantic-century timeline, which of these came first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Mendelssohn revives the St. Matthew Passion",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Berlioz's printed program for the Symphonie fantastique",
-          "correct": false,
-          "rationale": "That was 1830, a year after the revival."
-        },
-        {
-          "id": "c",
-          "label": "Bayreuth opens with the complete Ring",
-          "correct": false,
-          "rationale": "That was 1876."
-        },
-        {
-          "id": "d",
-          "label": "The Nutcracker premieres",
-          "correct": false,
-          "rationale": "That was 1892."
-        }
+      "prompt": "Put these moments from the Romantic century in order, from earliest to latest.",
+      "items": [
+        "Heiligenstadt Testament",
+        "The Ninth brings singers",
+        "Mendelssohn revives",
+        "Berlioz hands out a printed program",
+        "Bayreuth opens",
+        "The Nutcracker premieres"
       ],
-      "explanation": "1829 (Mendelssohn) came before 1830 (Berlioz), 1876 (Bayreuth) and 1892 (The Nutcracker).",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Beethoven wrote the Heiligenstadt Testament in 1802, the Ninth brought singers in 1824, Mendelssohn revived Bach in 1829, Berlioz handed out a program in 1830, Bayreuth opened in 1876, and The Nutcracker premiered in 1892.",
       "difficulty": 0.3
     },
     {

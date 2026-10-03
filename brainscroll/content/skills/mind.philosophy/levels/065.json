@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 65,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Condemned to Be Free",
   "objective": "After this level you can explain Sartre's claim that existence precedes essence and his idea of bad faith, using his café waiter who plays at being a waiter.",
@@ -167,7 +167,7 @@
     },
     {
       "id": "question.philosophy.065.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.freedom_sartre_existentialism",
@@ -176,35 +176,30 @@
       "sourceCardIds": [
         "card.philosophy.005.c3",
         "card.philosophy.065.c2",
-        "card.philosophy.065.c3"
+        "card.philosophy.065.c3",
+        "card.philosophy.065.c4",
+        "card.philosophy.065.c5"
       ],
-      "prompt": "In Level 5, a statue’s final cause is what it’s made for. Why does Sartre say a person, unlike a paper-knife, has no such purpose set in advance?",
-      "options": [
+      "prompt": "Match each item with the idea Sartre or his critic linked to it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A person is designed by an artisan first",
-          "correct": false,
-          "rationale": "That’s the paper-knife."
+          "left": "A paper-knife",
+          "right": "Essence comes before existence"
         },
         {
-          "id": "b",
-          "label": "A person has a final cause but no material cause",
-          "correct": false,
-          "rationale": "Sartre’s point is about essence, not matter."
+          "left": "Humans",
+          "right": "Existence precedes essence"
         },
         {
-          "id": "c",
-          "label": "A person’s shape is poured like bronze",
-          "correct": false,
-          "rationale": "That describes the statue’s formal cause."
+          "left": "Café waiter",
+          "right": "Bad faith"
         },
         {
-          "id": "d",
-          "label": "A person exists first and defines themselves afterwards",
-          "correct": true
+          "left": "Merleau-Ponty",
+          "right": "We choose the world"
         }
       ],
-      "explanation": "The paper-knife’s purpose exists before it does; a person, Sartre says, exists first and only then defines what they are for.",
+      "explanation": "For a paper-knife, essence comes before existence. For humans, existence precedes essence. The café waiter is Sartre’s example of bad faith, and Merleau-Ponty said we choose the world, and the world chooses us.",
       "difficulty": 0.35
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 57,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Africa's Countries and Cities",
   "objective": "After this level you can name Africa's most populous countries and largest cities.",
@@ -174,7 +174,7 @@
     },
     {
       "id": "question.world_geography.057.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.world_geography.african_cities",
@@ -182,35 +182,25 @@
       ],
       "sourceCardIds": [
         "card.world_geography.057.c4",
-        "card.world_geography.056.c3"
+        "card.world_geography.056.c3",
+        "card.world_geography.057.c3"
       ],
-      "prompt": "Which river from Level 56 flows between the capitals Kinshasa and Brazzaville?",
-      "options": [
+      "prompt": "Match each capital with its country.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The Nile",
-          "correct": false,
-          "rationale": "It runs through Cairo, far to the northeast."
+          "left": "Kinshasa",
+          "right": "Democratic Republic of the Congo"
         },
         {
-          "id": "b",
-          "label": "The Tigris",
-          "correct": false,
-          "rationale": "That's in the Middle East."
+          "left": "Brazzaville",
+          "right": "Republic of the Congo"
         },
         {
-          "id": "c",
-          "label": "The Blue Nile",
-          "correct": false,
-          "rationale": "It starts in Ethiopia."
-        },
-        {
-          "id": "d",
-          "label": "The Congo",
-          "correct": true
+          "left": "Abuja",
+          "right": "Nigeria"
         }
       ],
-      "explanation": "Kinshasa and Brazzaville face each other across the Congo River, which has no bridge between them.",
+      "explanation": "Kinshasa is the capital of the Democratic Republic of the Congo, and Brazzaville of the Republic of the Congo. Nigeria's capital is Abuja.",
       "difficulty": 0.2
     }
   ],

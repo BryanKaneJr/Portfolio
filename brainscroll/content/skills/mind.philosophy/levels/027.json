@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 27,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Nyaya's Sources of Knowledge",
   "objective": "After this level you can explain the Nyaya school's four sources of knowledge, including its classic inference from smoke on a hill to fire.",
@@ -137,7 +137,7 @@
     },
     {
       "id": "question.philosophy.027.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.knowledge_nyaya_pramanas"
@@ -145,33 +145,17 @@
       "sourceCardIds": [
         "card.philosophy.027.c4"
       ],
-      "prompt": "How does the pervasion (vyapti) let Nyaya move from smoke on the hill to fire?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It is a direct perception of the fire itself",
-          "correct": false,
-          "rationale": "The fire isn’t seen; that’s why inference is needed."
-        },
-        {
-          "id": "b",
-          "label": "It is a report from someone standing on the hill",
-          "correct": false,
-          "rationale": "That would be testimony."
-        },
-        {
-          "id": "c",
-          "label": "It is a comparison with a cow or water buffalo",
-          "correct": false,
-          "rationale": "That’s the example of comparison."
-        },
-        {
-          "id": "d",
-          "label": "It supplies the rule: wherever smoke, there is fire",
-          "correct": true
-        }
+      "prompt": "Put Nyaya’s five steps of inference in order.",
+      "items": [
+        "There is fire on the hill",
+        "Because there is smoke on the hill",
+        "Wherever there is smoke there is fire",
+        "This hill is likewise smoky",
+        "So there is fire on the hill"
       ],
-      "explanation": "The pervasion is the general rule that links the visible sign, smoke, to what is inferred, fire.",
+      "first": "First step",
+      "last": "Last step",
+      "explanation": "The claim (there is fire on the hill), the reason (smoke), the rule (wherever there is smoke there is fire), the application (this hill is likewise smoky), and the conclusion (so there is fire on the hill).",
       "difficulty": 0.35
     },
     {

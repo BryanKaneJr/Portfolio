@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 33,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Venom",
   "objective": "After this level you can explain how venom works and how antivenom is made.",
@@ -174,7 +174,7 @@
     },
     {
       "id": "question.animals.033.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.venom_toxins",
@@ -182,35 +182,25 @@
       ],
       "sourceCardIds": [
         "card.animals.033.c3",
-        "card.animals.032.c4"
+        "card.animals.032.c4",
+        "card.animals.033.c4"
       ],
-      "prompt": "A cobra's bite leaves a frog unable to move. Which kind of toxin did that, and how does the cobra eat it (Level 32)?",
-      "options": [
+      "prompt": "Match each toxin or person with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A hemotoxin; it chews the frog into pieces",
-          "correct": false,
-          "rationale": "Paralysis is a nerve effect, and snakes swallow whole."
+          "left": "Neurotoxins",
+          "right": "Attack the nervous system"
         },
         {
-          "id": "b",
-          "label": "A neurotoxin; it swallows the frog whole",
-          "correct": true
+          "left": "Hemotoxins",
+          "right": "Attack the blood"
         },
         {
-          "id": "c",
-          "label": "A poison; it swallows the frog whole",
-          "correct": false,
-          "rationale": "It was injected, so it's venom, not poison."
-        },
-        {
-          "id": "d",
-          "label": "A neurotoxin; it tears the frog apart with its claws",
-          "correct": false,
-          "rationale": "Snakes have no limbs, let alone claws."
+          "left": "Albert Calmette",
+          "right": "The first snake antivenom"
         }
       ],
-      "explanation": "Paralysis comes from neurotoxins attacking the nervous system; then the unjoined jaw halves walk the whole frog down.",
+      "explanation": "Neurotoxins attack the nervous system and hemotoxins attack the blood. Albert Calmette made the first snake antivenom.",
       "difficulty": 0.25
     }
   ],

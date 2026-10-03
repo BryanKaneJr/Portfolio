@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 21,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Feudalism",
   "objective": "After this level you can explain how lords, vassals and land were tied together.",
@@ -92,41 +92,31 @@
   "questions": [
     {
       "id": "question.middle_ages.021.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.feudal_bond"
       ],
       "sourceCardIds": [
-        "card.middle_ages.021.c2"
+        "card.middle_ages.021.c2",
+        "card.middle_ages.021.c3"
       ],
-      "prompt": "In the feudal bond between lord and vassal, what was a fief?",
-      "options": [
+      "prompt": "Match each feudal term with its meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A sworn promise to be faithful to a lord",
-          "correct": false,
-          "rationale": "That’s fealty."
+          "left": "Fief",
+          "right": "A piece of property"
         },
         {
-          "id": "b",
-          "label": "A tax that peasants paid to the king",
-          "correct": false,
-          "rationale": "A fief was held by a vassal, not paid."
+          "left": "Homage",
+          "right": "Becoming his man"
         },
         {
-          "id": "c",
-          "label": "Property, usually land, held in return for service",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The horse and armour of a knight",
-          "correct": false,
-          "rationale": "Those were what the land helped pay for."
+          "left": "Fealty",
+          "right": "Swearing to be faithful"
         }
       ],
-      "explanation": "A fief was property, usually land, that a vassal held from a lord in return for service.",
+      "explanation": "A fief was a piece of property, usually land, held for service. Homage meant becoming the lord’s man, and fealty meant swearing to be faithful.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 95,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Floating Buildings",
   "objective": "After this level you can explain how buildings can float on water.",
@@ -113,41 +113,31 @@
   "questions": [
     {
       "id": "question.architecture.095.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.future_amphibious_houses"
       ],
       "sourceCardIds": [
-        "card.architecture.095.c1"
+        "card.architecture.095.c1",
+        "card.architecture.095.c3"
       ],
-      "prompt": "What happened to Maasbommel's amphibious houses when the River Maas rose in 2011?",
-      "options": [
+      "prompt": "Match each kind of house or part with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They floated for the first time, with no problems",
-          "correct": true
+          "left": "Amphibious",
+          "right": "Rests on a concrete foundation"
         },
         {
-          "id": "b",
-          "label": "They were evacuated and dragged ashore",
-          "correct": false,
-          "rationale": "They floated right where they stood."
+          "left": "Floating",
+          "right": "A concrete barge"
         },
         {
-          "id": "c",
-          "label": "Their foundations cracked under the water",
-          "correct": false,
-          "rationale": "No problems were found."
-        },
-        {
-          "id": "d",
-          "label": "They sank up to their rooftops",
-          "correct": false,
-          "rationale": "They rose with the river."
+          "left": "Flexible pipes",
+          "right": "Keep them connected"
         }
       ],
-      "explanation": "In 2011 the river rose high enough for the amphibious houses to float for the first time, and no problems were found.",
+      "explanation": "An amphibious house rests on a concrete foundation and floats when the river rises. A floating house sits on a concrete barge. Flexible pipes keep both kinds connected.",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 43,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Salt and Ionic Bonds",
   "objective": "After this level you can explain ionic bonds using table salt.",
@@ -135,41 +135,31 @@
     },
     {
       "id": "question.chemistry.043.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.ionic_lattice"
       ],
       "sourceCardIds": [
-        "card.chemistry.043.c3"
+        "card.chemistry.043.c3",
+        "card.chemistry.043.c1"
       ],
-      "prompt": "Why is there no single molecule of table salt?",
-      "options": [
+      "prompt": "Match each substance with what it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Salt is just a blend of sodium metal and chlorine gas",
-          "correct": false,
-          "rationale": "The bond makes a new substance, not a blend."
+          "left": "Sodium",
+          "right": "A silvery metal"
         },
         {
-          "id": "b",
-          "label": "Its ions form one grid, each ringed by six opposite ions",
-          "correct": true
+          "left": "Chlorine",
+          "right": "A yellow-green gas"
         },
         {
-          "id": "c",
-          "label": "Its ions always drift freely, like particles of a gas",
-          "correct": false,
-          "rationale": "Solid salt's ions are locked in place in the grid."
-        },
-        {
-          "id": "d",
-          "label": "Each salt grain is really one enormous sodium atom",
-          "correct": false,
-          "rationale": "A grain holds countless ions of two kinds."
+          "left": "Table salt",
+          "right": "A grid of ions"
         }
       ],
-      "explanation": "Salt's ions stack into a continuous grid, each surrounded by six ions of the opposite charge, so no small group stands alone as a molecule.",
+      "explanation": "Sodium is a silvery metal and chlorine is a yellow-green gas. Together they make table salt, a grid of ions rather than a crowd of molecules.",
       "difficulty": 0.35
     },
     {

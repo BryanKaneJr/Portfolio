@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 74,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Battle of Kadesh",
   "objective": "After this level you can explain the battle and the peace treaty that followed.",
@@ -131,41 +131,26 @@
     },
     {
       "id": "question.ancient_egypt.074.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.kadesh_battle_treaty"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.074.c3"
+        "card.ancient_egypt.074.c3",
+        "card.ancient_egypt.074.c2",
+        "card.ancient_egypt.074.c4"
       ],
-      "prompt": "Ramesses’ reliefs show him winning Kadesh single-handed. What do historians conclude?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He won an easy and total victory over them",
-          "correct": false,
-          "rationale": "He was ambushed, and nobody won outright."
-        },
-        {
-          "id": "b",
-          "label": "The battle never took place",
-          "correct": false,
-          "rationale": "It was real, and both sides recorded it."
-        },
-        {
-          "id": "c",
-          "label": "It was a draw; neither side won outright",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The Hittites captured Ramesses",
-          "correct": false,
-          "rationale": "He regrouped and counterattacked."
-        }
+      "prompt": "Put these steps in the story of Kadesh in order, from first to last.",
+      "items": [
+        "Men posing as Hittite deserters",
+        "A surprise Hittite attack",
+        "Ramesses regrouped and counterattacked",
+        "The oldest known peace treaty"
       ],
-      "explanation": "Kadesh ended in an honorable draw: Ramesses survived the ambush but did not take the city, then advertised it as a victory.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Men posing as Hittite deserters fed Ramesses false information, then a surprise Hittite attack scattered his army. Ramesses regrouped and counterattacked, and years later came the oldest known peace treaty.",
       "difficulty": 0.3
     },
     {

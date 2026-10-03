@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 31,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Why We Breathe",
   "objective": "After this level you can explain that cells need oxygen and give off carbon dioxide.",
@@ -173,7 +173,7 @@
     },
     {
       "id": "question.human_body.031.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.cell_parts",
@@ -181,34 +181,18 @@
       ],
       "sourceCardIds": [
         "card.human_body.031.c2",
-        "card.human_body.002.c4"
+        "card.human_body.002.c4",
+        "card.human_body.031.c3"
       ],
-      "prompt": "Level 2 called mitochondria the cell's power stations. What do they need the oxygen you breathe for?",
-      "options": [
-        {
-          "id": "a",
-          "label": "To build the cell's outer lining",
-          "correct": false,
-          "rationale": "That's the plasma membrane, and oxygen isn't its building material."
-        },
-        {
-          "id": "b",
-          "label": "To store it for later",
-          "correct": false,
-          "rationale": "The oxygen is used to release energy, not stockpiled."
-        },
-        {
-          "id": "c",
-          "label": "To pass orders to the nucleus",
-          "correct": false,
-          "rationale": "The nucleus gives the orders; oxygen isn't a message."
-        },
-        {
-          "id": "d",
-          "label": "To release energy from food",
-          "correct": true
-        }
+      "prompt": "Follow carbon dioxide out of your body: put its stops in order, from where it is made to where it leaves.",
+      "items": [
+        "Your cells",
+        "Your blood",
+        "Your lungs",
+        "Your next breath out"
       ],
+      "first": "Where it is made",
+      "last": "Where it leaves",
       "explanation": "Most of cellular respiration, which combines oxygen with food to release energy, happens in the mitochondria.",
       "difficulty": 0.25
     }

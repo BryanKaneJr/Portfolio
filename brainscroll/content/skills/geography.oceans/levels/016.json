@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 16,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Hydrothermal Vents",
   "objective": "After this level you can describe hot springs on the sea floor.",
@@ -96,7 +96,7 @@
   "questions": [
     {
       "id": "question.oceans.016.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.oceans.seafloor_hot_springs"
@@ -104,33 +104,15 @@
       "sourceCardIds": [
         "card.oceans.016.c2"
       ],
-      "prompt": "Where does the heat in a hydrothermal vent's water come from?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Sunlight soaking into the sea floor",
-          "correct": false,
-          "rationale": "No sunlight reaches that deep."
-        },
-        {
-          "id": "b",
-          "label": "Magma beneath the sea floor",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Friction from waves at the surface",
-          "correct": false,
-          "rationale": "Waves don't heat the deep floor."
-        },
-        {
-          "id": "d",
-          "label": "Warm rivers flowing down from land",
-          "correct": false,
-          "rationale": "The heat comes from below, not from rivers."
-        }
+      "prompt": "Put the loop of a hydrothermal vent in order, from first to last.",
+      "items": [
+        "Seawater seeps down through cracks",
+        "Gets heated by magma below",
+        "Rises back out as a hot spring"
       ],
-      "explanation": "Seawater seeps into cracks in the ocean crust and is heated by magma below.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Seawater seeps down through cracks in the crust, gets heated by magma below, and rises back out as a hot spring.",
       "difficulty": 0.15
     },
     {

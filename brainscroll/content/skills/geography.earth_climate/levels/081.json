@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 81,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Keeling Curve",
   "objective": "After this level you can read the record of carbon dioxide since 1958 and explain both its steady rise and its yearly zigzag.",
@@ -126,41 +126,31 @@
     },
     {
       "id": "question.earth_climate.081.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.warming_keeling_seasons"
       ],
       "sourceCardIds": [
-        "card.earth_climate.081.c4"
+        "card.earth_climate.081.c4",
+        "card.earth_climate.081.c2"
       ],
-      "prompt": "A station in Australia records carbon dioxide all year. Compared with Mauna Loa's zigzag, what should its yearly cycle look like?",
-      "options": [
+      "prompt": "Match each time with the carbon dioxide level in the air.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Stronger, with the same timing",
-          "correct": false,
-          "rationale": "The north has more land and plants, so its cycle is bigger."
+          "left": "Before the Industrial Revolution",
+          "right": "280 ppm or less"
         },
         {
-          "id": "b",
-          "label": "Weaker, with the seasons flipped",
-          "correct": true
+          "left": "1958",
+          "right": "About 315 parts per million"
         },
         {
-          "id": "c",
-          "label": "Flat, with no seasonal cycle at all",
-          "correct": false,
-          "rationale": "Southern plants also grow and decay with the seasons."
-        },
-        {
-          "id": "d",
-          "label": "Identical, peaking every May",
-          "correct": false,
-          "rationale": "Southern seasons are opposite to northern ones."
+          "left": "2024",
+          "right": "About 425 ppm"
         }
       ],
-      "explanation": "The Southern Hemisphere has a similar but less intense cycle in opposite seasons, because it has much less land and vegetation.",
+      "explanation": "Before the Industrial Revolution it was 280 ppm or less, the Keeling Curve started in 1958 at about 315 ppm, and in 2024 Mauna Loa averaged about 425 ppm.",
       "difficulty": 0.45
     },
     {

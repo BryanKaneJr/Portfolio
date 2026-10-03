@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 85,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Constantine",
   "objective": "After this level you can explain Constantine's rise and his support for Christianity.",
@@ -130,41 +130,27 @@
     },
     {
       "id": "question.ancient_rome.085.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_rome.constantine"
       ],
       "sourceCardIds": [
-        "card.ancient_rome.085.c3"
+        "card.ancient_rome.085.c3",
+        "card.ancient_rome.085.c2",
+        "card.ancient_rome.085.c4"
       ],
-      "prompt": "Why was the Council of Nicaea important?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It elected Constantine emperor",
-          "correct": false,
-          "rationale": "He already ruled."
-        },
-        {
-          "id": "b",
-          "label": "It ended the Tetrarchy by imperial law",
-          "correct": false,
-          "rationale": "It was a church council."
-        },
-        {
-          "id": "c",
-          "label": "Bishops agreed a shared statement of belief",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It moved the Senate to the eastern capital",
-          "correct": false,
-          "rationale": "It was a church council."
-        }
+      "prompt": "Put these events in Constantine’s reign in order, from earliest to latest.",
+      "items": [
+        "The Milvian Bridge",
+        "The Edict of Milan",
+        "Ruled the whole empire alone",
+        "The Council of Nicaea",
+        "Baptized only on his deathbed"
       ],
-      "explanation": "In 325 CE the bishops at Nicaea agreed a common statement of Christian belief.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Constantine won at the Milvian Bridge in 312 CE, the Edict of Milan came in 313, he ruled alone by 324, called the Council of Nicaea in 325, and was baptized on his deathbed in 337.",
       "difficulty": 0.35
     },
     {

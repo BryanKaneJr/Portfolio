@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 83,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Brown v. Board and Little Rock",
   "objective": "After this level you can explain how the NAACP's legal campaign won Brown in 1954, and why integrating schools like Little Rock's was still so hard.",
@@ -139,7 +139,7 @@
     },
     {
       "id": "question.us_history.083.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.us_history.brown_little_rock_nine",
@@ -147,35 +147,20 @@
       ],
       "sourceCardIds": [
         "card.us_history.083.c3",
-        "card.us_history.083.c4"
+        "card.us_history.083.c4",
+        "card.us_history.083.c2"
       ],
-      "prompt": "Someone claims Brown alone desegregated Southern schools in 1954. What does this level’s evidence suggest?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They’re right: schools integrated within weeks",
-          "correct": false,
-          "rationale": "Little Rock was still fighting it in 1957."
-        },
-        {
-          "id": "b",
-          "label": "They’re right: governors enforced Brown at once",
-          "correct": false,
-          "rationale": "Governor Faubus used troops to block it."
-        },
-        {
-          "id": "c",
-          "label": "The ruling mattered, but delay and resistance slowed it",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The ruling was ignored because it was a 5 to 4 split",
-          "correct": false,
-          "rationale": "The ruling was unanimous."
-        }
+      "prompt": "Put these steps in the fight over school segregation in order, from earliest to latest.",
+      "items": [
+        "Sweatt v. Painter",
+        "Brown v. Board of Education",
+        "Brown II",
+        "Orval Faubus used the National Guard",
+        "The Little Rock Nine entered"
       ],
-      "explanation": "Brown was unanimous, but “all deliberate speed” allowed delay, and Little Rock needed federal troops in 1957.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Sweatt v. Painter came in 1950 and Brown v. Board of Education in 1954. Brown II followed in 1955, Faubus used the National Guard in September 1957, and the Little Rock Nine entered Central High on September 25, 1957.",
       "difficulty": 0.4
     },
     {

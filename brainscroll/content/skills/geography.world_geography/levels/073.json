@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 73,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Mississippi",
   "objective": "After this level you can explain how the Mississippi river system drains the middle of North America.",
@@ -177,7 +177,7 @@
     },
     {
       "id": "question.world_geography.073.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.world_geography.mississippi_watershed",
@@ -186,35 +186,25 @@
       "sourceCardIds": [
         "card.world_geography.073.c3",
         "card.world_geography.073.c2",
-        "card.world_geography.025.c4"
+        "card.world_geography.025.c4",
+        "card.world_geography.073.c1"
       ],
-      "prompt": "From Level 25: water from the Missouri and the Ohio both ends up at the Mississippi's mouth. What do their lands share?",
-      "options": [
+      "prompt": "Match each one with its fact about the Mississippi.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "One aquifer, filled with groundwater",
-          "correct": false,
-          "rationale": "This is rain running off in rivers, not water held underground."
+          "left": "The Ohio",
+          "right": "From the east"
         },
         {
-          "id": "b",
-          "label": "One watershed, draining to one outlet",
-          "correct": true
+          "left": "The Missouri",
+          "right": "From the west"
         },
         {
-          "id": "c",
-          "label": "One delta, built at each river's source",
-          "correct": false,
-          "rationale": "Deltas form at a river's mouth, not its source."
-        },
-        {
-          "id": "d",
-          "label": "Nothing: each river has its own outlet",
-          "correct": false,
-          "rationale": "Both feed the Mississippi, which has one outlet at the Gulf."
+          "left": "Lake Itasca",
+          "right": "Minnesota"
         }
       ],
-      "explanation": "A watershed is all the land that drains to one outlet, so the lands of the Missouri and the Ohio are both part of the Mississippi's watershed.",
+      "explanation": "The Ohio pours into the Mississippi from the east and the Missouri from the west. The Mississippi begins at Lake Itasca in Minnesota.",
       "difficulty": 0.4
     }
   ],

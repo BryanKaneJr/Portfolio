@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 63,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Warning Colors and Mimics",
   "objective": "After this level you can explain bright warning colors and why some animals copy them.",
@@ -112,41 +112,32 @@
   "questions": [
     {
       "id": "question.animals.063.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.animals.mimicry_batesian_mullerian"
       ],
       "sourceCardIds": [
-        "card.animals.063.c4"
+        "card.animals.063.c4",
+        "card.animals.063.c3",
+        "card.animals.063.c2"
       ],
-      "prompt": "What did Ritland and Brower's 1991 bird taste test reveal about viceroy butterflies?",
-      "options": [
+      "prompt": "Match each mimicry term with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They taste about as bad as monarchs",
-          "correct": true
+          "left": "Batesian mimicry",
+          "right": "Harmless species copies a dangerous one"
         },
         {
-          "id": "b",
-          "label": "They are tasty, so they are pure bluffers",
-          "correct": false,
-          "rationale": "That was the old idea the test overturned."
+          "left": "Müllerian mimicry",
+          "right": "Harmful species share one pattern"
         },
         {
-          "id": "c",
-          "label": "They are poisonous to people",
-          "correct": false,
-          "rationale": "The test was about birds and taste."
-        },
-        {
-          "id": "d",
-          "label": "They change color after being tasted",
-          "correct": false,
-          "rationale": "No; the wings were removed for the test."
+          "left": "Monarch caterpillar",
+          "right": "Feeds on milkweed"
         }
       ],
-      "explanation": "Birds judged viceroys about as distasteful as monarchs, making the viceroy a Müllerian mimic.",
+      "explanation": "In Batesian mimicry, a harmless species copies a dangerous one. In Müllerian mimicry, harmful species share one pattern. A monarch caterpillar feeds on milkweed.",
       "difficulty": 0.25
     },
     {

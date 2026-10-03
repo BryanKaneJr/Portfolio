@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 70,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Science and Math",
   "objective": "After this level you can explain how Greek thinkers used reason to study nature.",
@@ -311,7 +311,7 @@
     },
     {
       "id": "question.ancient_greece.070.q5",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_greece.greek_world_maps",
@@ -321,35 +321,19 @@
       "sourceCardIds": [
         "card.ancient_greece.068.c2",
         "card.ancient_greece.061.c2",
-        "card.ancient_greece.069.c3"
+        "card.ancient_greece.069.c3",
+        "card.ancient_greece.064.c5"
       ],
-      "prompt": "Science and Math recap: which order is right, oldest first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Euclid’s Elements, Anaximander’s map, Hero’s aeolipile",
-          "correct": false,
-          "rationale": "Anaximander came first."
-        },
-        {
-          "id": "b",
-          "label": "Hero’s aeolipile, Euclid’s Elements, Anaximander’s map",
-          "correct": false,
-          "rationale": "Hero came last."
-        },
-        {
-          "id": "c",
-          "label": "Anaximander’s map, Hero’s aeolipile, Euclid’s Elements",
-          "correct": false,
-          "rationale": "Euclid came before Hero."
-        },
-        {
-          "id": "d",
-          "label": "Anaximander’s map, Euclid’s Elements, Hero’s aeolipile",
-          "correct": true
-        }
+      "prompt": "Put these Greek thinkers in order, from earliest to latest.",
+      "items": [
+        "Anaximander",
+        "Euclid",
+        "Hipparchus",
+        "Hero of Alexandria"
       ],
-      "explanation": "Anaximander lived about 610 to 546 BCE, Euclid worked around 300 BCE, and Hero described the aeolipile around 62 CE.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Anaximander lived about 610 to 546 BCE, Euclid worked around 300 BCE, Hipparchus in the 2nd century BCE, and Hero of Alexandria around 62 CE.",
       "difficulty": 0.35
     }
   ],

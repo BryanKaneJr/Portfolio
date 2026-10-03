@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 13,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Alice Guy-Blaché",
   "objective": "After this level you can describe the career of Alice Guy-Blaché, one of the first directors to film made-up stories.",
@@ -126,7 +126,7 @@
     },
     {
       "id": "question.film_tv.013.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.silent_alice_guy_career"
@@ -134,33 +134,16 @@
       "sourceCardIds": [
         "card.film_tv.013.c4"
       ],
-      "prompt": "Why is Alice Guy's name less familiar than her achievements deserve?",
-      "options": [
-        {
-          "id": "a",
-          "label": "She made all her films under a man's name",
-          "correct": false,
-          "rationale": "The level says her work was credited to others, not that she used a false name."
-        },
-        {
-          "id": "b",
-          "label": "Many of her accomplishments were forgotten or credited to male colleagues",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "None of her films were shown in America",
-          "correct": false,
-          "rationale": "She founded Solax and built a studio in Fort Lee, New Jersey."
-        },
-        {
-          "id": "d",
-          "label": "She only ever made one film",
-          "correct": false,
-          "rationale": "She directed nearly all Gaumont films until 1905, then ran Solax."
-        }
+      "prompt": "Put these moments in Alice Guy-Blaché's life in order, from earliest to latest.",
+      "items": [
+        "Married cameraman Herbert Blaché",
+        "Founded the Solax Company",
+        "Studio in Fort Lee, New Jersey",
+        "Returned to France"
       ],
-      "explanation": "Many of her accomplishments were forgotten or credited to male colleagues, and she found no film work in France after 1922.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Guy married Herbert Blaché in 1907, founded the Solax Company in 1910, had a new studio in Fort Lee, New Jersey by 1912, and returned to France in 1922.",
       "difficulty": 0.25
     },
     {

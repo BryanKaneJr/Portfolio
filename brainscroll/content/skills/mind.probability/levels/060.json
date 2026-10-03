@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 60,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Samples and Polls",
   "objective": "After this level you can judge whether a poll or survey can be trusted from how its sample was drawn and its questions asked.",
@@ -333,7 +333,7 @@
     },
     {
       "id": "question.probability.060.q5",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.poll_self_selected",
@@ -341,35 +341,29 @@
       ],
       "sourceCardIds": [
         "card.probability.059.c2",
-        "card.probability.059.c4"
+        "card.probability.059.c4",
+        "card.probability.060.c3"
       ],
-      "prompt": "A news site's click poll and a random survey disagree. Which should you trust more?",
-      "options": [
+      "prompt": "Match each poll check with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The click poll, because it usually has more answers",
-          "correct": false,
-          "rationale": "More self-selected answers still measure who cared to click."
+          "left": "Random",
+          "right": "Everyone had the same chance"
         },
         {
-          "id": "b",
-          "label": "The random survey: the click poll measures who chose to click",
-          "correct": true
+          "left": "Opt-in",
+          "right": "People picked themselves"
         },
         {
-          "id": "c",
-          "label": "Neither: every poll is only a guess",
-          "correct": false,
-          "rationale": "Random surveys come with a known margin; click polls don't."
+          "left": "Weighting",
+          "right": "Fixes the mix, not everything"
         },
         {
-          "id": "d",
-          "label": "The click poll, because people chose to answer honestly",
-          "correct": false,
-          "rationale": "Choosing to answer is exactly what skews it."
+          "left": "About 1,000 random people",
+          "right": "About ±3 points"
         }
       ],
-      "explanation": "A random sample gives everyone a known chance and a margin of error. A click poll speaks only for the people who clicked.",
+      "explanation": "In a random sample everyone had the same chance; in an opt-in poll people picked themselves. Weighting fixes the mix, not everything, and about 1,000 random people give about ±3 points.",
       "difficulty": 0.3
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 13,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Soundness",
   "objective": "After this level you can explain why an argument needs both a valid form and true premises to be sound.",
@@ -91,41 +91,31 @@
   "questions": [
     {
       "id": "question.logic.013.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.deduction_soundness"
       ],
       "sourceCardIds": [
-        "card.logic.013.c2"
+        "card.logic.013.c2",
+        "card.logic.013.c3"
       ],
-      "prompt": "What makes an argument sound?",
-      "options": [
+      "prompt": "Match each piece of the soundness lesson with its partner from the cookie jar.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It is valid and all its premises are true",
-          "correct": true
+          "left": "Sound",
+          "right": "Valid plus true"
         },
         {
-          "id": "b",
-          "label": "It has at least one true premise",
-          "correct": false,
-          "rationale": "Every premise has to be true."
+          "left": "A premise isn't true",
+          "right": "Research, science"
         },
         {
-          "id": "c",
-          "label": "Most listeners find it convincing",
-          "correct": false,
-          "rationale": "Soundness isn't a vote."
-        },
-        {
-          "id": "d",
-          "label": "Its conclusion comes after all of its premises",
-          "correct": false,
-          "rationale": "Order has nothing to do with it."
+          "left": "The conclusion doesn't follow",
+          "right": "Logic itself"
         }
       ],
-      "explanation": "A sound argument passes both tests: a valid form and premises that are all actually true.",
+      "explanation": "A sound argument is valid plus true. Showing a premise isn't true is usually a job for tools like research, science or lifting the lid. Showing the conclusion doesn't follow is where logic itself helps.",
       "difficulty": 0.1
     },
     {

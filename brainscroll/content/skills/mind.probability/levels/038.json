@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 38,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Same Average, Different Risk",
   "objective": "After this level you can explain why two choices with the same expected value can differ in how badly things might go.",
@@ -135,42 +135,32 @@
     },
     {
       "id": "question.probability.038.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.bet_same_average_spread"
       ],
       "sourceCardIds": [
         "card.probability.038.c2",
-        "card.probability.038.c3"
+        "card.probability.038.c3",
+        "card.probability.038.c1"
       ],
-      "prompt": "How can two bets with the same expected value differ in risk?",
-      "options": [
+      "prompt": "Match each bet with what can actually happen on one play.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Their outcomes can be close together or far apart",
-          "correct": true
+          "left": "A: $50 for sure",
+          "right": "Pays exactly $50 every time"
         },
         {
-          "id": "b",
-          "label": "One must have a higher average after all",
-          "correct": false,
-          "rationale": "Both averages can be exactly the same."
+          "left": "B: flip a coin for $100 or nothing",
+          "right": "Pays $100 or $0"
         },
         {
-          "id": "c",
-          "label": "Expected value changes each time you play",
-          "correct": false,
-          "rationale": "It stays the same; the actual results vary."
-        },
-        {
-          "id": "d",
-          "label": "Only bets with positive expected value are risky",
-          "correct": false,
-          "rationale": "A $0 expected value bet can still cost $1,000."
+          "left": "Win or lose $1,000",
+          "right": "Can cost you $1,000 on one bad flip"
         }
       ],
-      "explanation": "Expected value squeezes outcomes into one average, so it hides how far apart they are, like $1 against $1,000 stakes.",
+      "explanation": "A pays exactly $50 every time, while B pays $100 or $0, never $50. The win-or-lose $1,000 bet can cost you $1,000 on one bad flip.",
       "difficulty": 0.35
     },
     {

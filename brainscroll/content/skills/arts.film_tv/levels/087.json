@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 87,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Hand-Drawn Animation",
   "objective": "After this level you can explain how cel animation works and why Snow White and the Seven Dwarfs in 1937 was a gamble.",
@@ -87,41 +87,32 @@
   "questions": [
     {
       "id": "question.film_tv.087.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.snow_white_gamble"
       ],
       "sourceCardIds": [
-        "card.film_tv.087.c4"
+        "card.film_tv.087.c4",
+        "card.film_tv.087.c1",
+        "card.film_tv.087.c2"
       ],
-      "prompt": "What was new about Snow White and the Seven Dwarfs (1937)?",
-      "options": [
+      "prompt": "Match each name or term from hand-drawn animation with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It was the first film with synchronized sound",
-          "correct": false,
-          "rationale": "Sound arrived a decade earlier."
+          "left": "Animation cel",
+          "right": "A transparent sheet of cellulose acetate"
         },
         {
-          "id": "b",
-          "label": "It was the first computer-animated feature",
-          "correct": false,
-          "rationale": "That was Toy Story, in 1995."
+          "left": "Earl Hurd",
+          "right": "Applied for a patent"
         },
         {
-          "id": "c",
-          "label": "It was the first stop-motion feature",
-          "correct": false,
-          "rationale": "It was hand-drawn cel animation."
-        },
-        {
-          "id": "d",
-          "label": "It was the first full-length animated feature from an American studio",
-          "correct": true
+          "left": "Disney's Folly",
+          "right": "Snow White and the Seven Dwarfs"
         }
       ],
-      "explanation": "Snow White was the first full-length animated feature film from an American studio.",
+      "explanation": "An animation cel is a transparent sheet of cellulose acetate. Earl Hurd applied for a patent on the idea in 1914, and Snow White and the Seven Dwarfs was nicknamed Disney's Folly.",
       "difficulty": 0.2
     },
     {

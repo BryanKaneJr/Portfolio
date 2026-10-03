@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 27,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Gears",
   "objective": "After this level you can explain how gears trade speed for force.",
@@ -130,42 +130,33 @@
     },
     {
       "id": "question.everyday_technology.027.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.motion_gear_torque_trade"
       ],
       "sourceCardIds": [
         "card.everyday_technology.027.c1",
-        "card.everyday_technology.027.c3"
+        "card.everyday_technology.027.c3",
+        "card.everyday_technology.027.c2",
+        "card.everyday_technology.027.c4"
       ],
-      "prompt": "Why does a bike's lowest gear make a steep hill easier?",
-      "options": [
+      "prompt": "Match each gear idea with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It adds extra energy to every pedal stroke",
-          "correct": false,
-          "rationale": "Gears never add energy."
+          "left": "Gear",
+          "right": "A wheel with teeth"
         },
         {
-          "id": "b",
-          "label": "It trades speed for more turning force",
-          "correct": true
+          "left": "Torque",
+          "right": "Twisting force"
         },
         {
-          "id": "c",
-          "label": "It makes the bike lighter",
-          "correct": false,
-          "rationale": "The bike weighs the same."
-        },
-        {
-          "id": "d",
-          "label": "It takes friction out of the chain",
-          "correct": false,
-          "rationale": "Friction is still there; the gear ratio changed."
+          "left": "Antikythera mechanism",
+          "right": "Predicted eclipses"
         }
       ],
-      "explanation": "A low gear gives more turning force at the wheel for each pedal push, paid for with lower speed.",
+      "explanation": "A gear is a wheel with teeth, torque is twisting force, and the ancient Antikythera mechanism used gears that predicted eclipses.",
       "difficulty": 0.25
     },
     {

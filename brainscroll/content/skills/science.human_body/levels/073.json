@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 73,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Immune System",
   "objective": "After this level you can explain how white blood cells fight infection.",
@@ -96,38 +96,33 @@
   "questions": [
     {
       "id": "question.human_body.073.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.defense_innate_immunity"
       ],
       "sourceCardIds": [
-        "card.human_body.073.c2"
+        "card.human_body.073.c2",
+        "card.human_body.073.c3",
+        "card.human_body.073.c4"
       ],
-      "prompt": "What did Metchnikoff see certain cells do to the splinters in starfish larvae?",
-      "options": [
+      "prompt": "Match each part of your immune defenses with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Push them out through the skin",
-          "correct": false,
-          "rationale": "The cells came to the splinters and engulfed them."
+          "left": "Phagocytes",
+          "right": "Devouring cells"
         },
         {
-          "id": "b",
-          "label": "Surround and engulf them",
-          "correct": true
+          "left": "Innate immunity",
+          "right": "Nonspecific"
         },
         {
-          "id": "c",
-          "label": "Dissolve them with acid",
-          "correct": false,
-          "rationale": "The cells engulfed the splinters; that's what 'phagocyte' means."
+          "left": "B cells",
+          "right": "Become plasma cells"
         },
         {
-          "id": "d",
-          "label": "Make antibodies against them",
-          "correct": false,
-          "rationale": "Antibodies come from B cells, part of acquired immunity."
+          "left": "T cells",
+          "right": "Attack directly"
         }
       ],
       "explanation": "Metchnikoff saw cells surround and engulf the splinters, and named them phagocytes, 'devouring cells'.",

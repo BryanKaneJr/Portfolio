@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 61,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Adaptation",
   "objective": "After this level you can explain how animals are adapted to where they live.",
@@ -169,7 +169,7 @@
     },
     {
       "id": "question.animals.061.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.adaptation_fox_climates",
@@ -177,35 +177,25 @@
       ],
       "sourceCardIds": [
         "card.animals.061.c2",
-        "card.animals.005.c2"
+        "card.animals.005.c2",
+        "card.animals.061.c3"
       ],
-      "prompt": "Level 5 said mammals make their own heat. What does the Arctic fox's small ear size do with that heat?",
-      "options": [
+      "prompt": "Match each fox feature with what it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Sends more of it out to the snow",
-          "correct": false,
-          "rationale": "That's the fennec's desert trick."
+          "left": "Fennec's huge ears",
+          "right": "Release body heat"
         },
         {
-          "id": "b",
-          "label": "Turns it into fat for winter",
-          "correct": false,
-          "rationale": "Ears don't store energy."
+          "left": "Arctic fox's small ears",
+          "right": "Reduce heat loss"
         },
         {
-          "id": "c",
-          "label": "Lets the fox switch to outside heat",
-          "correct": false,
-          "rationale": "Mammals are endotherms; the heat is made inside."
-        },
-        {
-          "id": "d",
-          "label": "Keeps more of it from escaping",
-          "correct": true
+          "left": "Thick fur on its paws",
+          "right": "Protects its feet from hot sand"
         }
       ],
-      "explanation": "Less ear exposed to the cold means less of the fox's own heat escapes.",
+      "explanation": "The fennec's huge ears release body heat, and the thick fur on its paws protects its feet from hot sand. The Arctic fox's small ears reduce heat loss.",
       "difficulty": 0.3
     }
   ],

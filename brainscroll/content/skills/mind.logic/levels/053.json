@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 53,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Double Standard",
   "objective": "After this level you can use the switch-sides test: would you accept this argument if it backed the opposite conclusion?",
@@ -88,41 +88,31 @@
   "questions": [
     {
       "id": "question.logic.053.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.trap_double_standard"
       ],
       "sourceCardIds": [
-        "card.logic.053.c2"
+        "card.logic.053.c2",
+        "card.logic.053.c3"
       ],
-      "prompt": "According to the Internet Encyclopedia of Philosophy, when does reasoning use a double standard?",
-      "options": [
+      "prompt": "Match each one with its wording for a double standard.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "When an argument relies on two or more premises",
-          "correct": false,
-          "rationale": "Most arguments have several premises; that's fine."
+          "left": "Special pleading",
+          "right": "Everywhere except the one case"
         },
         {
-          "id": "b",
-          "label": "When alike cases are judged by different standards",
-          "correct": true
+          "left": "A conclusion you like",
+          "right": "Can I believe this?"
         },
         {
-          "id": "c",
-          "label": "When it changes its mind after new evidence",
-          "correct": false,
-          "rationale": "Updating on evidence isn't a double standard."
-        },
-        {
-          "id": "d",
-          "label": "When two people disagree about the answer",
-          "correct": false,
-          "rationale": "Disagreement alone isn't the fallacy."
+          "left": "One you dislike",
+          "right": "Must I believe this?"
         }
       ],
-      "explanation": "Using different standards for two things that should be judged by the same one is the fallacy of the double standard.",
+      "explanation": "Special pleading applies a principle everywhere except the one case that interests you. A conclusion you like only has to pass \"Can I believe this?\", while one you dislike has to pass \"Must I believe this?\"",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 89,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Changing a Habit",
   "objective": "After this level you can apply cues, rewards and if-then plans to change a real habit.",
@@ -86,41 +86,32 @@
   "questions": [
     {
       "id": "question.psychology.089.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.habit_change_if_then"
       ],
       "sourceCardIds": [
-        "card.psychology.089.c3"
+        "card.psychology.089.c1",
+        "card.psychology.089.c2",
+        "card.psychology.089.c4"
       ],
-      "prompt": "What does an implementation intention, or if-then plan, spell out?",
-      "options": [
+      "prompt": "Match each habit researcher with their work.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "How much you want to reach the goal",
-          "correct": false,
-          "rationale": "Wanting alone doesn't guarantee action."
+          "left": "Wendy Wood",
+          "right": "Diary studies"
         },
         {
-          "id": "b",
-          "label": "When, where and how you will act",
-          "correct": true
+          "left": "Bas Verplanken and Deborah Roy",
+          "right": "Moved house"
         },
         {
-          "id": "c",
-          "label": "Why the old habit started",
-          "correct": false,
-          "rationale": "The plan looks forward, not back."
-        },
-        {
-          "id": "d",
-          "label": "Who should reward you afterward",
-          "correct": false,
-          "rationale": "The plan links a situation to an action."
+          "left": "Peter Gollwitzer and Paschal Sheeran",
+          "right": "94 tests"
         }
       ],
-      "explanation": "An if-then plan specifies when, where and how you'll act: if situation Y happens, then I'll do X.",
+      "explanation": "Wendy Wood led diary studies of daily behavior. Verplanken and Roy found a push worked better on people who had moved house. Gollwitzer and Sheeran pooled 94 tests of if-then plans.",
       "difficulty": 0.2
     },
     {

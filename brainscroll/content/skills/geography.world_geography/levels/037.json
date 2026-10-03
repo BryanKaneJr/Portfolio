@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 37,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Thunderstorms and Tornadoes",
   "objective": "After this level you can explain how thunderstorms, lightning and tornadoes form.",
@@ -91,41 +91,32 @@
   "questions": [
     {
       "id": "question.world_geography.037.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.tornadoes"
       ],
       "sourceCardIds": [
-        "card.world_geography.037.c4"
+        "card.world_geography.037.c4",
+        "card.world_geography.037.c3",
+        "card.world_geography.037.c2"
       ],
-      "prompt": "What is a tornado?",
-      "options": [
+      "prompt": "Match each term with what it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A rotating column of air from a thunderstorm to the ground",
-          "correct": true
+          "left": "Lightning",
+          "right": "A huge electrical discharge"
         },
         {
-          "id": "b",
-          "label": "A tropical storm with winds over 119 km/h",
-          "correct": false,
-          "rationale": "That's a hurricane."
+          "left": "Tornado",
+          "right": "A violently rotating column of air"
         },
         {
-          "id": "c",
-          "label": "A wind that reverses with the seasons",
-          "correct": false,
-          "rationale": "That's a monsoon."
-        },
-        {
-          "id": "d",
-          "label": "A flash of electricity inside a cloud",
-          "correct": false,
-          "rationale": "That's lightning."
+          "left": "Lift",
+          "right": "A nudge that gets the warm air rising"
         }
       ],
-      "explanation": "A tornado is a violently rotating column of air reaching from a thunderstorm to the ground.",
+      "explanation": "Lightning is a huge electrical discharge. A tornado is a violently rotating column of air. Lift is a nudge that gets the warm air rising.",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 27,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Mortgages",
   "objective": "After this level you can explain how a mortgage works and why it lasts for decades.",
@@ -86,7 +86,7 @@
   "questions": [
     {
       "id": "question.how_money_works.027.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.mortgage_collateral"
@@ -94,33 +94,22 @@
       "sourceCardIds": [
         "card.how_money_works.027.c2"
       ],
-      "prompt": "If a mortgage isn't repaid, what does the agreement let the lender do?",
-      "options": [
+      "prompt": "Match each part of the mortgage deal with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Take a share of the borrower's wages forever",
-          "correct": false,
-          "rationale": "The mortgage is pledged on the property."
+          "left": "The pledge",
+          "right": "The property"
         },
         {
-          "id": "b",
-          "label": "Take the property",
-          "correct": true
+          "left": "The debt is paid off",
+          "right": "The lender's claim ends"
         },
         {
-          "id": "c",
-          "label": "Raise the price of the house",
-          "correct": false,
-          "rationale": "The lender doesn't set house prices."
-        },
-        {
-          "id": "d",
-          "label": "Nothing: mortgages carry no pledge",
-          "correct": false,
-          "rationale": "The property is the pledge, hence \"dead pledge\"."
+          "left": "The payments stop",
+          "right": "The borrower loses the home"
         }
       ],
-      "explanation": "A mortgage gives the lender the right to take the property if the loan plus interest is not repaid.",
+      "explanation": "The pledge is the property. If the debt is paid off, the lender's claim ends. If the payments stop, the borrower loses the home.",
       "difficulty": 0.15
     },
     {

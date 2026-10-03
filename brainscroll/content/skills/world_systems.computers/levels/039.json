@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 39,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Last Mile",
   "objective": "After this level you can compare how homes connect to the internet by cable, fiber, cell networks and low-orbit satellites.",
@@ -132,41 +132,36 @@
     },
     {
       "id": "question.computers.039.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.net_satellite_orbits"
       ],
       "sourceCardIds": [
-        "card.computers.039.c5"
+        "card.computers.039.c5",
+        "card.computers.039.c2",
+        "card.computers.039.c3"
       ],
-      "prompt": "How does a low-orbit satellite network keep a home connected when each satellite races across the sky?",
-      "options": [
+      "prompt": "Match each last-mile link with what carries the data.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It uses hundreds to thousands of satellites so another is always in view",
-          "correct": true
+          "left": "DSL",
+          "right": "The copper telephone line"
         },
         {
-          "id": "b",
-          "label": "Each satellite slows down and waits above busy cities",
-          "correct": false,
-          "rationale": "Satellites cannot pause in orbit."
+          "left": "Cable internet",
+          "right": "Coaxial cable"
         },
         {
-          "id": "c",
-          "label": "It parks one satellite permanently above each home",
-          "correct": false,
-          "rationale": "Only far-off geostationary satellites seem to hover."
+          "left": "Fiber to the home",
+          "right": "Glass right to the building"
         },
         {
-          "id": "d",
-          "label": "Each dish follows a single satellite all the way around Earth",
-          "correct": false,
-          "rationale": "Each satellite is only in view for a while."
+          "left": "Fixed wireless",
+          "right": "A local antenna"
         }
       ],
-      "explanation": "Each low-orbit satellite is overhead only briefly, so a large constellation keeps one in view at all times.",
+      "explanation": "DSL uses the copper telephone line, cable internet uses coaxial cable, fiber to the home runs glass right to the building, and fixed wireless sends data from a local antenna.",
       "difficulty": 0.3
     },
     {

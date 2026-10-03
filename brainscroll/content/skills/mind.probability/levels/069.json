@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 69,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Do It Again: Replication",
   "objective": "After this level you can explain why one study is rarely enough and what happened when scientists tried to repeat published results.",
@@ -129,41 +129,31 @@
     },
     {
       "id": "question.probability.069.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.replication_one_study_not_enough"
       ],
       "sourceCardIds": [
-        "card.probability.069.c2"
+        "card.probability.069.c2",
+        "card.probability.069.c3"
       ],
-      "prompt": "Why can't a single significant study settle a question?",
-      "options": [
+      "prompt": "In the 2015 big repeat of 100 studies, match each with what was found.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Journals only print one study per topic",
-          "correct": false,
-          "rationale": "Journals print many studies; the issue is chance."
+          "left": "Of the originals",
+          "right": "97%"
         },
         {
-          "id": "b",
-          "label": "With no real effect, about 5 tests in 100 still come out significant",
-          "correct": true
+          "left": "Of the repeats",
+          "right": "36%"
         },
         {
-          "id": "c",
-          "label": "Significance wears off as a study gets older",
-          "correct": false,
-          "rationale": "Results don't decay; lucky ones just fail to repeat."
-        },
-        {
-          "id": "d",
-          "label": "A single study can't include a control group",
-          "correct": false,
-          "rationale": "Single studies can have control groups; chance is the problem."
+          "left": "The repeat effects",
+          "right": "Half the size of the original ones"
         }
       ],
-      "explanation": "At a 5% line, luck alone makes about 5 in 100 tests significant when nothing is going on. A repeat shows whether a result was one of them.",
+      "explanation": "Of the originals, 97% had significant results; of the repeats, only 36% did. On average the repeat effects were half the size of the original ones.",
       "difficulty": 0.4
     },
     {

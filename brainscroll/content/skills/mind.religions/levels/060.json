@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 60,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Buddhism and Sikhism",
   "objective": "After this level you can explain the core teachings, practices and branches of Buddhism and Sikhism and why each began.",
@@ -192,7 +192,7 @@
   "questions": [
     {
       "id": "question.religions.060.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.religions.sikh_guru_granth_sahib",
@@ -201,35 +201,20 @@
       "sourceCardIds": [
         "card.religions.058.c2",
         "card.religions.059.c2",
-        "card.religions.058.c3"
+        "card.religions.058.c3",
+        "card.religions.060.c2"
       ],
-      "prompt": "Put these Sikh milestones in order: the Adi Granth compiled, the Khalsa founded, the scripture becomes Guru.",
-      "options": [
-        {
-          "id": "a",
-          "label": "Adi Granth, then Khalsa, then scripture as Guru",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Khalsa, then Adi Granth, then scripture as Guru",
-          "correct": false,
-          "rationale": "The Adi Granth (1604) came before the Khalsa (1699)."
-        },
-        {
-          "id": "c",
-          "label": "Scripture as Guru, then Adi Granth, then Khalsa",
-          "correct": false,
-          "rationale": "The scripture became Guru last, in 1708."
-        },
-        {
-          "id": "d",
-          "label": "Adi Granth, then scripture as Guru, then Khalsa",
-          "correct": false,
-          "rationale": "The Khalsa (1699) came before 1708."
-        }
+      "prompt": "Put these moments in Buddhist and Sikh history in order, from earliest to latest.",
+      "items": [
+        "Ashoka's inscription marks Lumbini",
+        "Mahayana arises in India",
+        "Guru Nanak is born",
+        "Guru Gobind Singh founds the Khalsa",
+        "The scripture becomes the Guru"
       ],
-      "explanation": "1604, then 1699, then 1708.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Ashoka's inscription dates from the 3rd century BCE, Mahayana arose around the start of the Common Era, Guru Nanak was born in 1469, the Khalsa was founded in 1699, and the scripture became the Guru in 1708.",
       "difficulty": 0.3
     },
     {

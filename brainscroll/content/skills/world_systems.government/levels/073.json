@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 73,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Public Schools",
   "objective": "After this level you can explain how public schools are run and paid for.",
@@ -125,41 +125,31 @@
     },
     {
       "id": "question.government.073.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.schools_who_pays"
       ],
       "sourceCardIds": [
-        "card.government.073.c3"
+        "card.government.073.c3",
+        "card.government.073.c4"
       ],
-      "prompt": "Luxembourg spends among the most per pupil, yet less than the OECD average share of GDP. How can both be true?",
-      "options": [
+      "prompt": "Match each country with who mainly pays for its upper secondary schools.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It has very few schools",
-          "correct": false,
-          "rationale": "The number of schools doesn't explain the gap."
+          "left": "Spain",
+          "right": "The regions"
         },
         {
-          "id": "b",
-          "label": "Its pupils pay most of the costs",
-          "correct": false,
-          "rationale": "Its schools are publicly funded like most in the OECD."
+          "left": "Switzerland",
+          "right": "The cantons"
         },
         {
-          "id": "c",
-          "label": "It spends nothing on primary schools",
-          "correct": false,
-          "rationale": "It does spend on primary schools, generously per pupil."
-        },
-        {
-          "id": "d",
-          "label": "Its GDP per person is among the highest",
-          "correct": true
+          "left": "Greece, Iceland and New Zealand",
+          "right": "From the centre"
         }
       ],
-      "explanation": "With GDP per person among the highest, even generous spending per pupil is a smaller share of Luxembourg's economy.",
+      "explanation": "In Spain the regions provide most of the money, in Switzerland the cantons do, and Greece, Iceland and New Zealand fund everything from the centre.",
       "difficulty": 0.35
     },
     {

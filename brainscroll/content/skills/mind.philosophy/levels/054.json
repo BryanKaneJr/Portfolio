@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 54,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Mill's Harm Principle",
   "objective": "After this level you can explain why John Stuart Mill argued that society may limit your liberty only to prevent harm to others.",
@@ -89,41 +89,32 @@
   "questions": [
     {
       "id": "question.philosophy.054.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.philosophy.justice_harm_principle"
       ],
       "sourceCardIds": [
-        "card.philosophy.054.c2"
+        "card.philosophy.054.c2",
+        "card.philosophy.054.c1",
+        "card.philosophy.054.c5"
       ],
-      "prompt": "According to Mill’s harm principle, when may power rightfully be used over someone against their will?",
-      "options": [
+      "prompt": "Match each thinker with his book or reply.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "To prevent harm to others",
-          "correct": true
+          "left": "John Stuart Mill",
+          "right": "On Liberty"
         },
         {
-          "id": "b",
-          "label": "To make them healthier or happier",
-          "correct": false,
-          "rationale": "Mill says their own good isn’t enough."
+          "left": "Lord Patrick Devlin",
+          "right": "The Enforcement of Morals"
         },
         {
-          "id": "c",
-          "label": "To enforce the majority’s morals",
-          "correct": false,
-          "rationale": "That was Devlin’s view, not Mill’s."
-        },
-        {
-          "id": "d",
-          "label": "Whenever public opinion demands it",
-          "correct": false,
-          "rationale": "Mill applies the limit to public opinion too."
+          "left": "H. L. A. Hart",
+          "right": "A society whose morality changes"
         }
       ],
-      "explanation": "The only purpose for which power can rightfully be used over anyone against their will is to prevent harm to others.",
+      "explanation": "Mill wrote On Liberty, Devlin challenged it in The Enforcement of Morals, and Hart replied that a society whose morality changes has not thereby been destroyed.",
       "difficulty": 0.25
     },
     {

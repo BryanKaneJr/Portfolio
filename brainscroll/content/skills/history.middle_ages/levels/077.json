@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 77,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Joan of Arc",
   "objective": "After this level you can explain Joan of Arc's rise, trial and legacy.",
@@ -103,41 +103,27 @@
   "questions": [
     {
       "id": "question.middle_ages.077.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.joan_of_arc_rise"
       ],
       "sourceCardIds": [
-        "card.middle_ages.077.c2"
+        "card.middle_ages.077.c2",
+        "card.middle_ages.077.c3",
+        "card.middle_ages.077.c5"
       ],
-      "prompt": "What did Joan of Arc help to do at Orléans in May 1429?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Crown Charles VII",
-          "correct": false,
-          "rationale": "That happened at Reims in July."
-        },
-        {
-          "id": "b",
-          "label": "Sign a peace treaty with England",
-          "correct": false,
-          "rationale": "She fought the English."
-        },
-        {
-          "id": "c",
-          "label": "Lift the English siege of the city",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Capture the English king",
-          "correct": false,
-          "rationale": "She helped end a siege."
-        }
+      "prompt": "Put these events in Joan of Arc’s life in order, from earliest to latest.",
+      "items": [
+        "Joan was born",
+        "Lift the English siege of Orléans",
+        "Charles was crowned at Reims",
+        "Captured her at Compiègne",
+        "She was burned at the stake"
       ],
-      "explanation": "In May 1429 Joan helped lift the English siege of Orléans.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Joan was born about 1412. She helped lift the English siege of Orléans in May 1429, and Charles was crowned at Reims that July. She was captured at Compiègne in 1430 and burned at the stake in 1431.",
       "difficulty": 0.2
     },
     {

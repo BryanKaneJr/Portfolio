@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 18,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Small Costs Add Up",
   "objective": "After this level you can explain how small recurring costs like subscriptions add up over a year.",
@@ -86,41 +86,31 @@
   "questions": [
     {
       "id": "question.how_money_works.018.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.smallcost_subscriptions"
       ],
       "sourceCardIds": [
-        "card.how_money_works.018.c1"
+        "card.how_money_works.018.c1",
+        "card.how_money_works.018.c3"
       ],
-      "prompt": "In the 2022 survey, how did people's guesses about their subscription spending compare with reality?",
-      "options": [
+      "prompt": "Match each part of the 2022 subscription survey with its number.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Their guesses were about right",
-          "correct": false,
-          "rationale": "The gap was $133 a month."
+          "left": "People guessed",
+          "right": "$86 a month"
         },
         {
-          "id": "b",
-          "label": "They guessed too high",
-          "correct": false,
-          "rationale": "Reality came in higher, not lower."
+          "left": "The average came to",
+          "right": "$219"
         },
         {
-          "id": "c",
-          "label": "They guessed far too low",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Most had no subscriptions",
-          "correct": false,
-          "rationale": "They averaged $219 a month in subscriptions."
+          "left": "Over 12 months",
+          "right": "$1,596"
         }
       ],
-      "explanation": "People guessed $86 a month; itemized, the average was $219.",
+      "explanation": "People guessed $86 a month, but their listed subscriptions averaged $219. The $133 monthly gap comes to $1,596 over 12 months.",
       "difficulty": 0.15
     },
     {

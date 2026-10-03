@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 70,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: The New Kingdom",
   "objective": "After this level you can explain how Egypt became an empire and how Akhenaten shook it.",
@@ -145,7 +145,7 @@
   "questions": [
     {
       "id": "question.ancient_egypt.070.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_egypt.newkingdom_story",
@@ -154,33 +154,17 @@
       "sourceCardIds": [
         "card.ancient_egypt.070.c2"
       ],
-      "prompt": "New Kingdom recap: which of these events came first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Thutmose III wins at Megiddo",
-          "correct": false,
-          "rationale": "That came decades after the New Kingdom began."
-        },
-        {
-          "id": "b",
-          "label": "Akhenaten raises the Aten",
-          "correct": false,
-          "rationale": "That came later still, around 1352 BCE."
-        },
-        {
-          "id": "c",
-          "label": "Ahmose drives out the Hyksos",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The New Kingdom ends",
-          "correct": false,
-          "rationale": "That was around 1069 BCE, last of all."
-        }
+      "prompt": "Put these New Kingdom events in order, from earliest to latest.",
+      "items": [
+        "The Hyksos rule the north",
+        "Ahmose drives out the Hyksos",
+        "Thutmose III reigns and wins at Megiddo",
+        "Akhenaten reigns and raises the Aten",
+        "The New Kingdom ends"
       ],
-      "explanation": "Ahmose expelled the Hyksos around 1550 BCE, opening the New Kingdom.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Hyksos ruled the north, then Ahmose drove them out about 1550 BCE. Thutmose III won at Megiddo, Akhenaten raised the Aten about 1352 to 1336 BCE, and the New Kingdom ended about 1069 BCE.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 62,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How Lightning Charges Up",
   "objective": "After this level you can explain how colliding ice builds electric charge in a cloud and why thunder follows the flash.",
@@ -102,41 +102,31 @@
   "questions": [
     {
       "id": "question.earth_climate.062.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.earth_climate.storm_lightning_charging"
       ],
       "sourceCardIds": [
-        "card.earth_climate.062.c2"
+        "card.earth_climate.062.c2",
+        "card.earth_climate.062.c5"
       ],
-      "prompt": "When a rising ice crystal collides with graupel in a thunderstorm, what charge does the graupel usually take?",
-      "options": [
+      "prompt": "Match each storm term with its meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Positive, like the crystal",
-          "correct": false,
-          "rationale": "The crystal turns positive; the graupel takes the opposite charge."
+          "left": "Graupel",
+          "right": "Soft hail"
         },
         {
-          "id": "b",
-          "label": "Negative",
-          "correct": true
+          "left": "Supercooled droplets",
+          "right": "Liquid water below freezing"
         },
         {
-          "id": "c",
-          "label": "None, because it melts on impact",
-          "correct": false,
-          "rationale": "Graupel stays frozen in the cold charging zone."
-        },
-        {
-          "id": "d",
-          "label": "Whatever charge the ground has",
-          "correct": false,
-          "rationale": "The ground responds to the cloud, not the other way round."
+          "left": "Fulgurite",
+          "right": "A tube of glass"
         }
       ],
-      "explanation": "Collisions leave the ice crystals positively charged and the graupel negatively charged.",
+      "explanation": "Graupel is soft hail, supercooled droplets are liquid water below freezing, and a fulgurite is a tube of glass left when lightning strikes sand.",
       "difficulty": 0.25
     },
     {

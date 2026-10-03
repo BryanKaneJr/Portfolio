@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 2,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Why \"Middle\" Ages?",
   "objective": "After this level you can explain where the name came from and why historians question the idea of \"Dark Ages\".",
@@ -170,7 +170,7 @@
     },
     {
       "id": "question.middle_ages.002.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.medieval_name",
@@ -180,33 +180,15 @@
         "card.middle_ages.002.c2",
         "card.middle_ages.001.c2"
       ],
-      "prompt": "Renaissance scholars saw the Middle Ages as a gap. Between which two ages?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Stone Age and ancient Egypt",
-          "correct": false,
-          "rationale": "Far too early."
-        },
-        {
-          "id": "b",
-          "label": "Ancient Greece and ancient Rome",
-          "correct": false,
-          "rationale": "They admired both of those."
-        },
-        {
-          "id": "c",
-          "label": "Classical antiquity and their own revival",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The Renaissance and the modern age",
-          "correct": false,
-          "rationale": "The gap came before the Renaissance."
-        }
+      "prompt": "Renaissance scholars split history into three parts. Put them in order, from earliest to latest.",
+      "items": [
+        "Ancient Greece and Rome",
+        "A middle period",
+        "The Renaissance"
       ],
-      "explanation": "They admired ancient Greece and Rome and saw their own time as a revival; everything between was the “middle”.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "First came ancient Greece and Rome, then a middle period, then the Renaissance, which saw itself as a revival of classical learning.",
       "difficulty": 0.3
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 57,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Earthworms",
   "objective": "After this level you can explain how earthworms help the soil.",
@@ -165,7 +165,7 @@
     },
     {
       "id": "question.animals.057.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.food_chain_levels",
@@ -173,35 +173,25 @@
       ],
       "sourceCardIds": [
         "card.animals.057.c3",
-        "card.animals.007.c2"
+        "card.animals.007.c2",
+        "card.animals.057.c2"
       ],
-      "prompt": "Level 7’s decomposers turn dead plants into nutrient-rich soil. Which earthworm habit does a similar job?",
-      "options": [
+      "prompt": "Match each part of earthworm life with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Coming to the surface after heavy rain",
-          "correct": false,
-          "rationale": "That’s when you see them, not what they do for soil."
+          "left": "Casts",
+          "right": "Richer than the surrounding soil"
         },
         {
-          "id": "b",
-          "label": "Eating decaying plants and leaving rich casts",
-          "correct": true
+          "left": "Burrows",
+          "right": "Open passages for air, water and roots"
         },
         {
-          "id": "c",
-          "label": "Breathing through its skin",
-          "correct": false,
-          "rationale": "That’s how they breathe, not how they feed the soil."
-        },
-        {
-          "id": "d",
-          "label": "Growing up to 150 segments",
-          "correct": false,
-          "rationale": "Segments are body plan, not soil work."
+          "left": "Segments",
+          "right": "As many as 150"
         }
       ],
-      "explanation": "Earthworms eat decaying plants and leave casts richer than the surrounding soil, much like the decomposers of Level 7.",
+      "explanation": "A worm's casts are richer than the surrounding soil, its burrows open passages for air, water and roots, and its body has as many as 150 segments.",
       "difficulty": 0.25
     }
   ],

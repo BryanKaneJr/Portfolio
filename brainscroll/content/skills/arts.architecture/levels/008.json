@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 8,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Steel and Glass",
   "objective": "After this level you can explain how steel frames and glass walls changed building.",
@@ -110,41 +110,32 @@
   "questions": [
     {
       "id": "question.architecture.008.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.stand_crystal_palace"
       ],
       "sourceCardIds": [
-        "card.architecture.008.c3"
+        "card.architecture.008.c3",
+        "card.architecture.008.c1",
+        "card.architecture.008.c4"
       ],
-      "prompt": "Where did Joseph Paxton draw his first sketch of the Crystal Palace?",
-      "options": [
+      "prompt": "Match each name or material with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "On blotting paper during a railway board meeting",
-          "correct": true
+          "left": "Joseph Paxton",
+          "right": "The Crystal Palace"
         },
         {
-          "id": "b",
-          "label": "On a finished blueprint in his office",
-          "correct": false,
-          "rationale": "It began as a quick sketch, not a blueprint."
+          "left": "Chicago's Home Insurance Building",
+          "right": "An iron and steel skeleton"
         },
         {
-          "id": "c",
-          "label": "On the glass wall of his lily house",
-          "correct": false,
-          "rationale": "The lily house inspired it; the sketch was on blotting paper."
-        },
-        {
-          "id": "d",
-          "label": "In a letter to the exhibition judges",
-          "correct": false,
-          "rationale": "He sketched it during a railway board meeting."
+          "left": "Steel",
+          "right": "High tensile strength"
         }
       ],
-      "explanation": "Paxton sketched the Crystal Palace on blotting paper at a Midland Railway board meeting, on the lines of his Chatsworth lily house.",
+      "explanation": "Joseph Paxton designed the Crystal Palace. Chicago's Home Insurance Building rose on an iron and steel skeleton. Steel has high tensile strength, so it takes stretching well.",
       "difficulty": 0.15
     },
     {

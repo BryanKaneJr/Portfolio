@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 70,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Blues and Jazz",
   "objective": "After this level you can trace the path from spirituals and blues to bebop.",
@@ -279,41 +279,27 @@
     },
     {
       "id": "question.music.070.q4",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.armstrong_soloist"
       ],
       "sourceCardIds": [
-        "card.music.065.c3"
+        "card.music.065.c3",
+        "card.music.070.c2"
       ],
-      "prompt": "Blues and jazz recap: what did Louis Armstrong's Hot Five and Hot Seven records make central to jazz?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Collective improvisation by the whole front line",
-          "correct": false,
-          "rationale": "That's what he moved away from."
-        },
-        {
-          "id": "b",
-          "label": "Written arrangements for big bands",
-          "correct": false,
-          "rationale": "That's Henderson and the swing era."
-        },
-        {
-          "id": "c",
-          "label": "Silent, slow ballads",
-          "correct": false,
-          "rationale": "His records were known for virtuoso solos."
-        },
-        {
-          "id": "d",
-          "label": "The individual solo",
-          "correct": true
-        }
+      "prompt": "Put these steps from spirituals to bebop in order, from earliest to latest.",
+      "items": [
+        "Spirituals and work songs",
+        "The blues is a recognizable genre",
+        "Maple Leaf Rag",
+        "Hot Five and Hot Seven",
+        "The swing era's big bands",
+        "Bebop takes shape"
       ],
-      "explanation": "Armstrong left collective improvising behind and made the virtuoso soloist preeminent.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Spirituals and work songs came during slavery, the blues was a genre by the 1890s, \"Maple Leaf Rag\" came in 1899, Hot Five and Hot Seven in 1925 to 1928, the swing era from 1935, and bebop in the early 1940s.",
       "difficulty": 0.2
     },
     {

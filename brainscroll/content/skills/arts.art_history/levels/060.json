@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 60,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Revolutions in Art",
   "objective": "After this level you can trace art from Romanticism through Realism to Impressionism.",
@@ -230,7 +230,7 @@
     },
     {
       "id": "question.art_history.060.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.art_history.goya_third_of_may",
@@ -241,33 +241,18 @@
       "sourceCardIds": [
         "card.art_history.060.c2"
       ],
-      "prompt": "Revolutions recap: which of these came first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Goya paints The Third of May 1808",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The daguerreotype is announced",
-          "correct": false,
-          "rationale": "That was 1839."
-        },
-        {
-          "id": "c",
-          "label": "Courbet paints A Burial at Ornans",
-          "correct": false,
-          "rationale": "That was 1849-50."
-        },
-        {
-          "id": "d",
-          "label": "The first Impressionist exhibition",
-          "correct": false,
-          "rationale": "That was 1874."
-        }
+      "prompt": "Put Chapter 6's revolutions in art in order, from earliest to latest.",
+      "items": [
+        "Goya paints The Third of May 1808",
+        "Friedrich's wanderer faces the fog",
+        "The daguerreotype is announced",
+        "Courbet paints A Burial at Ornans",
+        "The first Impressionist exhibition",
+        "Monet paints 25 grainstacks"
       ],
-      "explanation": "Goya finished The Third of May 1808 in 1814, decades before the others.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Goya's Third of May (1814), Friedrich's wanderer (about 1817), the daguerreotype (1839), Courbet's Burial (1849-50), the first Impressionist exhibition (1874), then Monet's grainstacks (1890-91).",
       "difficulty": 0.25
     },
     {

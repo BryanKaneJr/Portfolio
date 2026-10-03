@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 39,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Let the Computer Roll the Dice",
   "objective": "After this level you can explain how running thousands of pretend trials on a computer estimates a chance too hard to calculate.",
@@ -121,41 +121,33 @@
     },
     {
       "id": "question.probability.039.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.bet_monte_carlo"
       ],
       "sourceCardIds": [
-        "card.probability.039.c2"
+        "card.probability.039.c2",
+        "card.probability.039.c1",
+        "card.probability.039.c3",
+        "card.probability.039.c4"
       ],
-      "prompt": "How does a Monte Carlo simulation estimate a chance?",
-      "options": [
+      "prompt": "Match each mathematician with their part in the Monte Carlo story.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It runs many random trials and counts the share that succeed",
-          "correct": true
+          "left": "Stanislaw Ulam",
+          "right": "Got stuck on solitaire"
         },
         {
-          "id": "b",
-          "label": "It looks up the answer in a table of known probabilities",
-          "correct": false,
-          "rationale": "It is used when no one can work the answer out."
+          "left": "Nick Metropolis",
+          "right": "Named it Monte Carlo"
         },
         {
-          "id": "c",
-          "label": "It plays once and reports what happened",
-          "correct": false,
-          "rationale": "One trial tells you little; it runs many."
-        },
-        {
-          "id": "d",
-          "label": "It averages the best and worst possible outcomes",
-          "correct": false,
-          "rationale": "It counts successes over many random trials."
+          "left": "Paul Erdős",
+          "right": "Doubted Level 36's answer"
         }
       ],
-      "explanation": "Successes divided by tries estimates the chance, and more tries tend to bring it closer.",
+      "explanation": "Stanislaw Ulam got stuck on solitaire and dreamed up the method, Nick Metropolis named it Monte Carlo, and Paul Erdős doubted Level 36's Monty Hall answer until simulations confirmed it.",
       "difficulty": 0.3
     },
     {

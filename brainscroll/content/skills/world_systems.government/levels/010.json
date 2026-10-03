@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 10,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Why Government?",
   "objective": "After this level you can explain what governments are for and how they are paid for.",
@@ -256,7 +256,7 @@
     },
     {
       "id": "question.government.010.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.government.hammurabi_code",
@@ -268,35 +268,21 @@
         "card.government.004.c1",
         "card.government.007.c2",
         "card.government.002.c2",
-        "card.government.002.c4"
+        "card.government.002.c4",
+        "card.government.007.c4",
+        "card.government.004.c3"
       ],
-      "prompt": "Why Government? checkpoint: which list puts these in order, oldest first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Leviathan → Hammurabi's code → FA rules → Dagen H",
-          "correct": false,
-          "rationale": "Hammurabi's code (around 1750 BCE) is far older than Leviathan (1651)."
-        },
-        {
-          "id": "b",
-          "label": "Hammurabi's code → Leviathan → FA rules → Dagen H",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Hammurabi's code → FA rules → Leviathan → Dagen H",
-          "correct": false,
-          "rationale": "Leviathan (1651) came before the FA's rules (1863)."
-        },
-        {
-          "id": "d",
-          "label": "FA rules → Hammurabi's code → Dagen H → Leviathan",
-          "correct": false,
-          "rationale": "Hammurabi's code is the oldest by thousands of years."
-        }
+      "prompt": "Put these milestones from Chapter 1 in order, from oldest to newest.",
+      "items": [
+        "Hammurabi's laws",
+        "Leviathan",
+        "The Social Contract",
+        "Football Association",
+        "Dagen H"
       ],
-      "explanation": "Hammurabi's code (around 1750 BCE), Leviathan (1651), the FA's rules (1863), Dagen H (1967).",
+      "first": "Oldest",
+      "last": "Newest",
+      "explanation": "Hammurabi's laws (around 1750 BCE), Leviathan (1651), The Social Contract (1762), the Football Association (1863), then Dagen H (1967).",
       "difficulty": 0.35
     },
     {

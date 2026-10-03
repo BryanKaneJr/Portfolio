@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 41,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Hieroglyphs",
   "objective": "After this level you can explain how hieroglyphs mix sound signs and picture signs.",
@@ -126,41 +126,31 @@
     },
     {
       "id": "question.ancient_egypt.041.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.hieroglyph_signs"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.041.c3"
+        "card.ancient_egypt.041.c3",
+        "card.ancient_egypt.041.c2"
       ],
-      "prompt": "Why would a scribe add walking legs after the house sign?",
-      "options": [
+      "prompt": "Match each part of hieroglyphic writing with what it did.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "To show that the house itself was moving somewhere",
-          "correct": false,
-          "rationale": "The legs were a meaning sign, not a moving house."
+          "left": "Most signs",
+          "right": "Spell sounds"
         },
         {
-          "id": "b",
-          "label": "To add the vowels that the house sign left out",
-          "correct": false,
-          "rationale": "Vowels weren’t written."
+          "left": "Vowels",
+          "right": "Weren’t written at all"
         },
         {
-          "id": "c",
-          "label": "To show which direction the line should be read",
-          "correct": false,
-          "rationale": "The way the signs face shows the reading direction."
-        },
-        {
-          "id": "d",
-          "label": "To mark the word as “go out,” a word about moving",
-          "correct": true
+          "left": "Determinatives",
+          "right": "Show what kind of word"
         }
       ],
-      "explanation": "The house sign could also spell the sound pr; the walking legs, a determinative, showed the verb “to go out” was meant.",
+      "explanation": "Most signs spell sounds. Vowels weren’t written at all. Determinatives were helpers added to show what kind of word you were reading.",
       "difficulty": 0.35
     },
     {

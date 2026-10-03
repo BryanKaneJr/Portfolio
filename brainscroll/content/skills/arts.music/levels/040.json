@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 40,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Baroque and Classical",
   "objective": "After this level you can compare Baroque and Classical music.",
@@ -298,41 +298,31 @@
     },
     {
       "id": "question.music.040.q5",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.haydn_symphony_form"
       ],
       "sourceCardIds": [
-        "card.music.037.c2"
+        "card.music.037.c2",
+        "card.music.040.c4"
       ],
-      "prompt": "From Level 37: what did the Classical symphony grow out of?",
-      "options": [
+      "prompt": "Match each thing with what happened to it as the Classical era arrived.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The string quartet",
-          "correct": false,
-          "rationale": "The quartet is chamber music; the symphony came from opera."
+          "left": "The continuo",
+          "right": "Abandoned after about 1770"
         },
         {
-          "id": "b",
-          "label": "The Baroque fugue",
-          "correct": false,
-          "rationale": "The fugue is a technique, not the symphony's ancestor."
+          "left": "The orchestra",
+          "right": "Settled into Mannheim's four sections"
         },
         {
-          "id": "c",
-          "label": "The Italian opera overture",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The Mannheim crescendo",
-          "correct": false,
-          "rationale": "That was an orchestral effect, not a form."
+          "left": "The Baroque opera overture",
+          "right": "Grew into the Classical symphony"
         }
       ],
-      "explanation": "The symphony grew from the Italian opera overture, the fast-slow-fast sinfonia.",
+      "explanation": "The continuo was abandoned after about 1770, the orchestra settled into Mannheim's four sections, and the Baroque opera overture grew into the Classical symphony.",
       "difficulty": 0.25
     }
   ],

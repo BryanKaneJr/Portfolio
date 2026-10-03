@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 1,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "The Oceans: The Big Picture",
   "objective": "After this level you can describe the world ocean and why all life depends on it.",
@@ -162,7 +162,7 @@
     },
     {
       "id": "question.oceans.001.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.ocean_sustains_life",
@@ -170,35 +170,25 @@
       ],
       "sourceCardIds": [
         "card.oceans.001.c3",
-        "card.oceans.001.c4"
+        "card.oceans.001.c4",
+        "card.oceans.001.c2"
       ],
-      "prompt": "You live far from any coast. Which two things from the ocean still reach you every day?",
-      "options": [
+      "prompt": "Match each part of Earth with how much of it comes from or is covered by the ocean.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Salt in your tap water and waves in rivers",
-          "correct": false,
-          "rationale": "Neither is how the ocean reaches inland life."
+          "left": "Earth's surface",
+          "right": "More than 70%"
         },
         {
-          "id": "b",
-          "label": "Heat from undersea volcanoes and tides",
-          "correct": false,
-          "rationale": "These aren't the ocean gifts this level describes."
+          "left": "Earth's water",
+          "right": "About 97%"
         },
         {
-          "id": "c",
-          "label": "Oxygen in the air and water in the rain",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Nothing, unless you visit a beach",
-          "correct": false,
-          "rationale": "The ocean makes about half your oxygen and feeds your rain."
+          "left": "Earth's oxygen",
+          "right": "About half"
         }
       ],
-      "explanation": "Ocean plankton make about half of Earth's oxygen, and most evaporated water, the source of rain and snow, rises off the ocean.",
+      "explanation": "The ocean covers more than 70% of Earth's surface, holds about 97% of Earth's water and makes about half of Earth's oxygen.",
       "difficulty": 0.2
     }
   ],

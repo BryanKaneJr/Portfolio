@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 15,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Seismic Waves",
   "objective": "After this level you can tell P waves, S waves and surface waves apart and say which kind does the most damage.",
@@ -163,7 +163,7 @@
     },
     {
       "id": "question.earth_climate.015.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.earth_climate.seismic_wave_types",
@@ -171,29 +171,18 @@
       ],
       "sourceCardIds": [
         "card.earth_climate.015.c2",
-        "card.earth_climate.014.c3"
+        "card.earth_climate.014.c3",
+        "card.earth_climate.015.c3"
       ],
-      "prompt": "A strike-slip fault like the ones in Level 14 suddenly slips. Which of its waves reaches a distant city first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The S waves, because they shake the hardest",
-          "correct": false,
-          "rationale": "Shaking hardest isn't the same as arriving first."
-        },
-        {
-          "id": "b",
-          "label": "The P waves, because they are the fastest",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The surface waves, because they stay near the ground",
-          "correct": false,
-          "rationale": "Surface waves are the slowest."
-        }
+      "prompt": "Put an earthquake's waves in the order they arrive.",
+      "items": [
+        "P waves",
+        "S waves",
+        "Surface waves"
       ],
-      "explanation": "Whatever kind of fault slips, P waves are the fastest seismic waves, so they arrive first.",
+      "first": "Arrives first",
+      "last": "Arrives last",
+      "explanation": "P waves are fastest and arrive first, S waves come next at about 3 km per second, and surface waves come last and slowest.",
       "difficulty": 0.25
     }
   ],

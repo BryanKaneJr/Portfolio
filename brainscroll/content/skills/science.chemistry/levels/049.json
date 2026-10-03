@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 49,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Shapes of Molecules",
   "objective": "After this level you can explain why a molecule's shape matters.",
@@ -132,7 +132,7 @@
     },
     {
       "id": "question.chemistry.049.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.molecule_shape_matters",
@@ -142,33 +142,22 @@
         "card.chemistry.049.c3",
         "card.chemistry.049.c2"
       ],
-      "prompt": "Carbon dioxide's two bonds are each lopsided. Why is the molecule as a whole not polar?",
-      "options": [
+      "prompt": "Match each molecule with its shape.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Its bonds are ionic, not covalent",
-          "correct": false,
-          "rationale": "Its bonds are shared, just unevenly."
+          "left": "Methane",
+          "right": "Tetrahedron"
         },
         {
-          "id": "b",
-          "label": "Its bonds have no electrons in them",
-          "correct": false,
-          "rationale": "Every bond is made of shared electrons."
+          "left": "Carbon dioxide",
+          "right": "Straight"
         },
         {
-          "id": "c",
-          "label": "Its atoms spread into a tetrahedron",
-          "correct": false,
-          "rationale": "That's methane's shape; CO2 is a straight line."
-        },
-        {
-          "id": "d",
-          "label": "It's straight, so the two pulls cancel",
-          "correct": true
+          "left": "Water",
+          "right": "Bent"
         }
       ],
-      "explanation": "CO2 is linear: its two polar bonds point in opposite directions and cancel, so the molecule is nonpolar.",
+      "explanation": "Methane's hydrogens point to the corners of a tetrahedron, carbon dioxide is straight, and water is bent at about 104.5°.",
       "difficulty": 0.35
     },
     {

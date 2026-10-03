@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 17,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Jewish Year",
   "objective": "After this level you can explain the meaning and customs of Rosh Hashanah, Yom Kippur, Passover, Sukkot and Hanukkah.",
@@ -91,41 +91,24 @@
   "questions": [
     {
       "id": "question.religions.017.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.religions.judaism_high_holy_days"
       ],
       "sourceCardIds": [
-        "card.religions.017.c2"
+        "card.religions.017.c2",
+        "card.religions.017.c3"
       ],
-      "prompt": "What is sounded on Rosh Hashanah to call people to spiritual reawakening?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A bell rung from the synagogue roof",
-          "correct": false,
-          "rationale": "The call comes from a horn."
-        },
-        {
-          "id": "b",
-          "label": "A silver trumpet from the Temple",
-          "correct": false,
-          "rationale": "The instrument is a ram's horn."
-        },
-        {
-          "id": "c",
-          "label": "A drum beaten at sunset",
-          "correct": false,
-          "rationale": "The instrument is a ram's horn."
-        },
-        {
-          "id": "d",
-          "label": "The shofar, a ram's horn",
-          "correct": true
-        }
+      "prompt": "Put these holy days in the order they come, starting from the New Year.",
+      "items": [
+        "Rosh Hashanah",
+        "Yom Kippur",
+        "Sukkot"
       ],
-      "explanation": "The shofar, a ram's horn, is sounded on Rosh Hashanah.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Rosh Hashanah opens the Ten Days of Repentance, which end on Yom Kippur. Sukkot comes five days after Yom Kippur.",
       "difficulty": 0.15
     },
     {

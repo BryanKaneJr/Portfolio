@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 8,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Spain Comes North",
   "objective": "After this level you can explain how Spain founded St. Augustine and New Mexico, and why the Pueblo peoples drove the Spanish out in 1680.",
@@ -137,41 +137,27 @@
     },
     {
       "id": "question.us_history.008.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.us_history.pueblo_revolt_1680"
       ],
       "sourceCardIds": [
-        "card.us_history.008.c4"
+        "card.us_history.008.c4",
+        "card.us_history.008.c2",
+        "card.us_history.008.c5"
       ],
-      "prompt": "How did Po’pay get many separate pueblos to rise on the same day?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Spanish priests announced the date",
-          "correct": false,
-          "rationale": "The plan was Po’pay’s, not the priests’."
-        },
-        {
-          "id": "b",
-          "label": "Smoke signals were sent from Santa Fe",
-          "correct": false,
-          "rationale": "The signal was a knotted cord."
-        },
-        {
-          "id": "c",
-          "label": "A letter was printed in Mexico City",
-          "correct": false,
-          "rationale": "Runners carried cords, not letters."
-        },
-        {
-          "id": "d",
-          "label": "Runners carried knotted cords as a countdown",
-          "correct": true
-        }
+      "prompt": "Put these events in New Mexico in order, from earliest to latest.",
+      "items": [
+        "Juan de Oñate led settlers",
+        "Santa Fe became its capital",
+        "The Pueblos struck early",
+        "The Spanish had fled south",
+        "Diego de Vargas retook New Mexico"
       ],
-      "explanation": "One knot was to be untied each day as a countdown; when the Spanish caught two runners, the Pueblos rose early.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Oñate led settlers in 1598 and Santa Fe became the capital in 1610. The Pueblos struck on August 10, 1680, the Spanish fled by August 21, and Diego de Vargas retook New Mexico in 1692.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 32,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "The Lungs",
   "objective": "After this level you can describe the lungs, the airways and the tiny air sacs.",
@@ -164,7 +164,7 @@
     },
     {
       "id": "question.human_body.032.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.lung_alveoli",
@@ -172,34 +172,20 @@
       ],
       "sourceCardIds": [
         "card.human_body.032.c4",
-        "card.human_body.031.c3"
+        "card.human_body.031.c3",
+        "card.human_body.032.c2"
       ],
-      "prompt": "Level 31's cells dump carbon dioxide into your blood. Where in your breathing system does it leave the blood?",
-      "options": [
-        {
-          "id": "a",
-          "label": "In the windpipe",
-          "correct": false,
-          "rationale": "The windpipe only carries air."
-        },
-        {
-          "id": "b",
-          "label": "In the bronchi",
-          "correct": false,
-          "rationale": "These branches lead to the exchange sites."
-        },
-        {
-          "id": "c",
-          "label": "In the nose",
-          "correct": false,
-          "rationale": "The nose is the entrance, not the exchange."
-        },
-        {
-          "id": "d",
-          "label": "In the alveoli",
-          "correct": true
-        }
+      "prompt": "Follow a breath down the bronchial tree: put these in order, from where air enters to where it ends up.",
+      "items": [
+        "Nose or mouth",
+        "Voice box",
+        "Windpipe",
+        "Bronchial tubes",
+        "Bronchioles",
+        "Alveoli"
       ],
+      "first": "Where air enters",
+      "last": "Where the branches end",
       "explanation": "Carbon dioxide crosses the thin walls of the alveoli from the blood into the air, and is breathed out.",
       "difficulty": 0.25
     }

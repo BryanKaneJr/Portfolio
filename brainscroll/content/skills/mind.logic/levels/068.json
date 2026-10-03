@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 68,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How Science Changes Its Mind",
   "objective": "After this level you can explain how new evidence overturned accepted ideas, such as bacteria causing most stomach ulcers.",
@@ -82,41 +82,26 @@
   "questions": [
     {
       "id": "question.logic.068.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.science_changing_mind"
       ],
       "sourceCardIds": [
-        "card.logic.068.c2"
+        "card.logic.068.c2",
+        "card.logic.068.c1",
+        "card.logic.068.c3",
+        "card.logic.068.c4"
       ],
-      "prompt": "In 1982, what were considered the major causes of peptic ulcers?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A stomach bacterium",
-          "correct": false,
-          "rationale": "That was the new idea, not the accepted one."
-        },
-        {
-          "id": "b",
-          "label": "Stress and lifestyle",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Inherited genes alone",
-          "correct": false,
-          "rationale": "The accepted view blamed stress and lifestyle."
-        },
-        {
-          "id": "d",
-          "label": "Viruses caught in childhood",
-          "correct": false,
-          "rationale": "The accepted view blamed stress and lifestyle."
-        }
+      "prompt": "Put these moments in the ulcer story in order, from earliest to latest.",
+      "items": [
+        "Stress and lifestyle were considered",
+        "Marshall infected himself",
+        "Marshall and Warren won the Nobel Prize"
       ],
-      "explanation": "When Marshall and Warren found the bacterium in 1982, stress and lifestyle were considered the major causes.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "In 1982 stress and lifestyle were considered the major causes of ulcers. In 1984 Marshall infected himself, and in 2005 Marshall and Warren won the Nobel Prize.",
       "difficulty": 0.15
     },
     {

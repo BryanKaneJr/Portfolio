@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 48,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Seabirds",
   "objective": "After this level you can describe albatrosses, puffins and other seabirds.",
@@ -96,41 +96,32 @@
   "questions": [
     {
       "id": "question.oceans.048.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.oceans.sunlit_seabird_puffin"
       ],
       "sourceCardIds": [
-        "card.oceans.048.c3"
+        "card.oceans.048.c3",
+        "card.oceans.048.c1",
+        "card.oceans.048.c2"
       ],
-      "prompt": "How does an Atlantic puffin swim underwater?",
-      "options": [
+      "prompt": "Match each seabird with what it's known for.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It kicks with its feet and folds its wings",
-          "correct": false,
-          "rationale": "Its wings do the pushing; feet steer."
+          "left": "Wisdom",
+          "right": "World's oldest known wild bird"
         },
         {
-          "id": "b",
-          "label": "It flaps its wings like paddles and steers with its feet",
-          "correct": true
+          "left": "Wandering albatross",
+          "right": "The largest wingspan"
         },
         {
-          "id": "c",
-          "label": "It floats down and grabs fish from the sea floor",
-          "correct": false,
-          "rationale": "It actively \"flies\" through the water."
-        },
-        {
-          "id": "d",
-          "label": "It can't; it only snatches fish at the surface",
-          "correct": false,
-          "rationale": "Puffins dive to about 200 feet."
+          "left": "Atlantic puffin",
+          "right": "Flies underwater"
         }
       ],
-      "explanation": "Atlantic puffins \"fly\" underwater, using their wings as paddles and their webbed feet to steer.",
+      "explanation": "Wisdom, a Laysan albatross, is the world's oldest known wild bird. The wandering albatross has the largest wingspan of any living bird. The Atlantic puffin flies underwater.",
       "difficulty": 0.15
     },
     {

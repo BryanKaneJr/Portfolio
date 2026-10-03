@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 6,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Franks",
   "objective": "After this level you can explain how Clovis and the Franks built a kingdom in Gaul.",
@@ -160,7 +160,7 @@
     },
     {
       "id": "question.middle_ages.006.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.clovis_franks",
@@ -168,35 +168,18 @@
       ],
       "sourceCardIds": [
         "card.middle_ages.006.c2",
+        "card.middle_ages.006.c4",
         "card.middle_ages.003.c3"
       ],
-      "prompt": "Level 3’s Visigoths ruled Spain. What did Clovis’s victory over them in 507 do?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Made them his allies against Rome",
-          "correct": false,
-          "rationale": "He fought them, not allied with them."
-        },
-        {
-          "id": "b",
-          "label": "Took Aquitaine, their land in Gaul",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Drove them out of Spain entirely",
-          "correct": false,
-          "rationale": "They kept Spain until 711."
-        },
-        {
-          "id": "d",
-          "label": "Forced them to become Catholics",
-          "correct": false,
-          "rationale": "The battle took land, not faith."
-        }
+      "prompt": "Put these events in Clovis’s life in order, from earliest to latest.",
+      "items": [
+        "Clovis became king of the Franks",
+        "Defeated the Visigoths",
+        "Clovis died"
       ],
-      "explanation": "Clovis defeated the Visigoths in 507 and took Aquitaine, leaving them their kingdom in Spain.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Clovis became king of the Franks in 481, defeated the Visigoths in 507, and died in 511.",
       "difficulty": 0.35
     }
   ],

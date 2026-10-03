@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 39,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Property and Other Assets",
   "objective": "After this level you can describe property, commodities and the other things people invest in.",
@@ -177,43 +177,37 @@
     },
     {
       "id": "question.how_money_works.039.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.how_money_works.assets_commodities",
         "concept.how_money_works.stock_share_ownership"
       ],
       "sourceCardIds": [
-        "card.how_money_works.039.c4",
-        "card.how_money_works.033.c3"
+        "card.how_money_works.039.c2",
+        "card.how_money_works.039.c3",
+        "card.how_money_works.039.c4"
       ],
-      "prompt": "Unlike Level 33's shares, which way can gold never pay you?",
-      "options": [
+      "prompt": "Match each asset with the income it can pay along the way.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Through a rise in its price",
-          "correct": false,
-          "rationale": "Gold can rise in price; that's its only way to pay."
+          "left": "Stocks",
+          "right": "Dividends"
         },
         {
-          "id": "b",
-          "label": "By being sold to someone else",
-          "correct": false,
-          "rationale": "Gold can be sold; its return depends on the sale price."
+          "left": "Bonds",
+          "right": "Interest"
         },
         {
-          "id": "c",
-          "label": "Through income such as dividends",
-          "correct": true
+          "left": "Buildings",
+          "right": "Rent"
         },
         {
-          "id": "d",
-          "label": "By being traded through futures",
-          "correct": false,
-          "rationale": "Metals do trade through futures contracts."
+          "left": "Gold",
+          "right": "No income"
         }
       ],
-      "explanation": "Shares can pay dividends and rise in price. Gold pays no dividends or interest, so price is its only source of return.",
+      "explanation": "Stocks may pay dividends, bonds pay interest and buildings can produce rent. Gold pays no income at all, so its return depends on someone paying more later.",
       "difficulty": 0.3
     }
   ],

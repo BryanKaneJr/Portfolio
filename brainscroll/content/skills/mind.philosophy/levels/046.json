@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 46,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Greatest Happiness",
   "objective": "After this level you can explain utilitarianism as Jeremy Bentham and John Stuart Mill set it out, including Mill's higher and lower pleasures.",
@@ -132,42 +132,32 @@
     },
     {
       "id": "question.philosophy.046.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.morals_utilitarianism"
       ],
       "sourceCardIds": [
         "card.philosophy.046.c3",
-        "card.philosophy.046.c4"
+        "card.philosophy.046.c4",
+        "card.philosophy.046.c2"
       ],
-      "prompt": "Why did Mill divide pleasures into higher and lower?",
-      "options": [
+      "prompt": "Match each voice in the utilitarian debate with what it said.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "To answer critics who called utilitarianism a morality for swine",
-          "correct": true
+          "left": "Bentham",
+          "right": "Measured pleasures by quantity"
         },
         {
-          "id": "b",
-          "label": "To prove that pleasure doesn’t matter",
-          "correct": false,
-          "rationale": "He kept pleasure at the center."
+          "left": "Mill",
+          "right": "Higher in kind"
         },
         {
-          "id": "c",
-          "label": "To show that pigs and fools lead happier lives than people",
-          "correct": false,
-          "rationale": "He said the opposite."
-        },
-        {
-          "id": "d",
-          "label": "To replace happiness with duty",
-          "correct": false,
-          "rationale": "That’s Kant’s approach, not Mill’s."
+          "left": "Critics",
+          "right": "A morality fit only for swine"
         }
       ],
-      "explanation": "Critics said a pleasure-based ethics suited swine; Mill replied that pleasures of the intellect are higher in kind.",
+      "explanation": "Bentham measured pleasures by quantity, critics sneered that this was a morality fit only for swine, and Mill answered that some pleasures are higher in kind.",
       "difficulty": 0.35
     },
     {

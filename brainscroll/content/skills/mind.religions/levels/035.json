@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 35,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Five Daily Prayers",
   "objective": "After this level you can explain how Muslims prepare for and perform salah five times a day facing Mecca, and why Friday prayer is special.",
@@ -125,41 +125,26 @@
     },
     {
       "id": "question.religions.035.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.salat_practice"
       ],
       "sourceCardIds": [
-        "card.religions.035.c3"
+        "card.religions.035.c3",
+        "card.religions.035.c2"
       ],
-      "prompt": "How does a Muslim know which way to face for salat in a mosque?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Toward the rising sun, wherever the mosque is",
-          "correct": false,
-          "rationale": "The direction is Mecca, not the sun."
-        },
-        {
-          "id": "b",
-          "label": "Toward the nearest minaret",
-          "correct": false,
-          "rationale": "The minaret is for the call to prayer."
-        },
-        {
-          "id": "c",
-          "label": "Toward the Kaaba in Mecca, shown by the mihrab",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Toward whichever wall the imam chooses",
-          "correct": false,
-          "rationale": "The qibla is fixed by the Kaaba's direction."
-        }
+      "prompt": "Put the five daily prayers in order, from dawn to evening.",
+      "items": [
+        "Fajr",
+        "Zuhr",
+        "Asr",
+        "Maghrib",
+        "Isha"
       ],
-      "explanation": "Worshippers face the qibla, the direction of the Kaaba in Mecca; a niche called the mihrab marks it.",
+      "first": "Dawn",
+      "last": "Evening",
+      "explanation": "Fajr is at dawn, zuhr at midday, asr in the afternoon, maghrib at sunset and isha in the evening.",
       "difficulty": 0.3
     },
     {

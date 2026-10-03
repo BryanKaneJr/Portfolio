@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 51,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Fast Thinking, Slow Thinking",
   "objective": "After this level you can explain the two-systems idea of fast intuition and slow deliberation, and when each takes over.",
@@ -91,41 +91,35 @@
   "questions": [
     {
       "id": "question.psychology.051.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.shortcuts_two_systems"
       ],
       "sourceCardIds": [
-        "card.psychology.051.c2"
+        "card.psychology.051.c2",
+        "card.psychology.051.c3"
       ],
-      "prompt": "In the two-systems idea, which description fits System 1?",
-      "options": [
+      "prompt": "Match each system or puzzle answer with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Slow, effortful and deliberate",
-          "correct": false,
-          "rationale": "That describes System 2."
+          "left": "System 1",
+          "right": "Fast, automatic, effortless"
         },
         {
-          "id": "b",
-          "label": "Fast, automatic and effortless",
-          "correct": true
+          "left": "System 2",
+          "right": "Slower, effortful and deliberate"
         },
         {
-          "id": "c",
-          "label": "Used only for doing arithmetic",
-          "correct": false,
-          "rationale": "System 1 produces most everyday judgments, not just sums."
+          "left": "The answer that pops up",
+          "right": "10 cents"
         },
         {
-          "id": "d",
-          "label": "A brain region seen on scans",
-          "correct": false,
-          "rationale": "The systems describe modes of thinking, not a place in the brain."
+          "left": "The ball costs",
+          "right": "5 cents"
         }
       ],
-      "explanation": "System 1 is fast, automatic, effortless and hard to control. System 2 is the slower, deliberate one.",
+      "explanation": "System 1 is fast, automatic and effortless; System 2 is slower, effortful and deliberate. In the puzzle, the answer that pops up is 10 cents, but the ball costs 5 cents.",
       "difficulty": 0.15
     },
     {

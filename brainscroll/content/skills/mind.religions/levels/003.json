@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 3,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Seven Dimensions of Religion",
   "objective": "After this level you can use Ninian Smart's seven dimensions (ritual, story, doctrine, ethics, community, experience, material) to describe any religion beyond its beliefs.",
@@ -177,42 +177,32 @@
     },
     {
       "id": "question.religions.003.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.religions.seven_dimensions"
       ],
       "sourceCardIds": [
         "card.religions.003.c3",
-        "card.religions.003.c2"
+        "card.religions.003.c2",
+        "card.religions.003.c4"
       ],
-      "prompt": "At Passover, Jews share a meal that retraces the Exodus story. Which two dimensions does that join?",
-      "options": [
+      "prompt": "Match each of Smart's dimensions with what it covers.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Ritual and narrative",
-          "correct": true
+          "left": "Narrative",
+          "right": "The sacred stories"
         },
         {
-          "id": "b",
-          "label": "Doctrine and material",
-          "correct": false,
-          "rationale": "The meal and story are ritual and narrative."
+          "left": "The social side",
+          "right": "The community and its institutions"
         },
         {
-          "id": "c",
-          "label": "Ethics and social institutions",
-          "correct": false,
-          "rationale": "Close, but the pairing Smart named is ritual and story."
-        },
-        {
-          "id": "d",
-          "label": "Experience and doctrine",
-          "correct": false,
-          "rationale": "Smart used Passover for ritual and story."
+          "left": "The material side",
+          "right": "Buildings, art and the natural places"
         }
       ],
-      "explanation": "Sharing the meal is ritual; the Exodus is the narrative. Smart said they are bound together.",
+      "explanation": "Narrative covers the sacred stories, the social side covers the community and its institutions, and the material side covers buildings, art and the natural places held sacred.",
       "difficulty": 0.3
     }
   ],

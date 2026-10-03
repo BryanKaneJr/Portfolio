@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 31,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Gracchi Brothers",
   "objective": "After this level you can explain the land reforms of the Gracchi and why they ended in violence.",
@@ -85,41 +85,25 @@
   "questions": [
     {
       "id": "question.ancient_rome.031.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_rome.gracchi"
       ],
       "sourceCardIds": [
-        "card.ancient_rome.031.c2"
+        "card.ancient_rome.031.c2",
+        "card.ancient_rome.031.c3"
       ],
-      "prompt": "What did Tiberius Gracchus propose in 133 BCE?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Making himself king of Rome for life",
-          "correct": false,
-          "rationale": "He proposed a land reform."
-        },
-        {
-          "id": "b",
-          "label": "Giving public land to poor citizens",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Abolishing the office of tribune",
-          "correct": false,
-          "rationale": "He was a tribune himself."
-        },
-        {
-          "id": "d",
-          "label": "Declaring a new war on Carthage",
-          "correct": false,
-          "rationale": "Carthage was already gone."
-        }
+      "prompt": "Put the story of the Gracchi in order, from first to last.",
+      "items": [
+        "Give public land to poor citizens",
+        "Killed Tiberius",
+        "Gaius picked up the cause",
+        "Gaius was killed too"
       ],
-      "explanation": "He proposed distributing public land to poor citizens who had lost their farms.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "In 133 BCE Tiberius proposed to give public land to poor citizens, and a mob killed him. His brother Gaius picked up the cause, and in 121 BCE Gaius was killed too.",
       "difficulty": 0.2
     },
     {

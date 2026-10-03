@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 96,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Who Gets Paid",
   "objective": "After this level you can explain how songwriters get paid and what copyright protects.",
@@ -160,42 +160,32 @@
     },
     {
       "id": "question.music.096.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.pay_two_copyrights"
       ],
       "sourceCardIds": [
         "card.music.096.c2",
-        "card.music.096.c3"
+        "card.music.096.c3",
+        "card.music.096.c5"
       ],
-      "prompt": "A band records its own version of a song someone else wrote. What does the band's recording create?",
-      "options": [
+      "prompt": "Match each copyright idea with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A new musical work that the band owns",
-          "correct": false,
-          "rationale": "The song itself still belongs to its writers."
+          "left": "The musical work",
+          "right": "Created by songwriters"
         },
         {
-          "id": "b",
-          "label": "Nothing: covers carry no copyright",
-          "correct": false,
-          "rationale": "Every recording is its own sound recording."
+          "left": "The sound recording",
+          "right": "Created by performers and producers"
         },
         {
-          "id": "c",
-          "label": "A new sound recording; the song stays its writers'",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Ownership of both the song and the recording",
-          "correct": false,
-          "rationale": "The musical work stays with the writers."
+          "left": "Mechanical royalty",
+          "right": "13.1 cents"
         }
       ],
-      "explanation": "A recorded song involves two copyrights: the band makes a new sound recording, while the musical work stays with its songwriters.",
+      "explanation": "The musical work is created by songwriters, the sound recording by performers and producers, and in 2026 the mechanical royalty is 13.1 cents per copy.",
       "difficulty": 0.4
     },
     {

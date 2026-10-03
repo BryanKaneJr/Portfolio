@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 76,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Animal Parents",
   "objective": "After this level you can explain how animals care for their young.",
@@ -135,41 +135,37 @@
     },
     {
       "id": "question.animals.076.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.behavior_parental_care_tradeoff"
       ],
       "sourceCardIds": [
-        "card.animals.076.c2"
+        "card.animals.076.c2",
+        "card.animals.076.c1",
+        "card.animals.076.c3",
+        "card.animals.076.c4"
       ],
-      "prompt": "Why can't a parent both have huge numbers of young and give each one lots of care?",
-      "options": [
+      "prompt": "Match each parenting fact with the animal it belongs to.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Care is instinctive and can't be changed",
-          "correct": false,
-          "rationale": "That doesn't explain the limit."
+          "left": "A baby only about every 7 to 9 years",
+          "right": "Orangutan"
         },
         {
-          "id": "b",
-          "label": "Care uses time and energy that could make more young",
-          "correct": true
+          "left": "Nurse until they're 6 or 7 years old",
+          "right": "Orangutan"
         },
         {
-          "id": "c",
-          "label": "Young animals refuse care",
-          "correct": false,
-          "rationale": "Young animals benefit from care."
+          "left": "Brood pouch",
+          "right": "Seahorse"
         },
         {
-          "id": "d",
-          "label": "Only mammals can care for young",
-          "correct": false,
-          "rationale": "Seahorse fathers care too."
+          "left": "Gives them no further care",
+          "right": "Seahorse"
         }
       ],
-      "explanation": "Guarding one clutch comes at the expense of laying another, so care and numbers trade off.",
+      "explanation": "An orangutan mother has a baby only about every 7 to 9 years, and her young can nurse until they're 6 or 7 years old. A seahorse father carries eggs in a brood pouch and gives the young no further care.",
       "difficulty": 0.25
     },
     {

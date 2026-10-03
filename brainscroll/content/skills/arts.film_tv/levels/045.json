@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 45,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Technicolor",
   "objective": "After this level you can explain how three-strip Technicolor recorded color and why black and white stayed common into the 1960s.",
@@ -87,41 +87,25 @@
   "questions": [
     {
       "id": "question.film_tv.045.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.studio_three_strip_technicolor"
       ],
       "sourceCardIds": [
-        "card.film_tv.045.c2"
+        "card.film_tv.045.c2",
+        "card.film_tv.045.c3"
       ],
-      "prompt": "What kind of film ran through a three-strip Technicolor camera?",
-      "options": [
-        {
-          "id": "a",
-          "label": "One color film that caught every color at once",
-          "correct": false,
-          "rationale": "That single-strip approach came later, with Eastmancolor."
-        },
-        {
-          "id": "b",
-          "label": "Film already tinted red, green and blue",
-          "correct": false,
-          "rationale": "The strips were plain black and white."
-        },
-        {
-          "id": "c",
-          "label": "Paper rolls, like early copyright prints",
-          "correct": false,
-          "rationale": "That's Level 10's paper prints, not a camera."
-        },
-        {
-          "id": "d",
-          "label": "Black-and-white film, one strip per color",
-          "correct": true
-        }
+      "prompt": "Put the steps of making a three-strip Technicolor print in order, from first to last.",
+      "items": [
+        "Divided the incoming light three ways",
+        "Developed and printed separately",
+        "Passed through its matching dye",
+        "Laid together into one print"
       ],
-      "explanation": "A beam-splitter sent red, green and blue light to three separate black-and-white strips; the color came back in printing.",
+      "first": "First step",
+      "last": "Last step",
+      "explanation": "A cube divided the incoming light three ways onto three strips. The strips were developed and printed separately, each print passed through its matching dye, and the three were laid together into one print.",
       "difficulty": 0.25
     },
     {

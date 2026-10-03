@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 33,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The 180-Degree Rule",
   "objective": "After this level you can explain how the 180-degree rule keeps characters on the same sides of the screen so viewers stay oriented.",
@@ -91,41 +91,32 @@
   "questions": [
     {
       "id": "question.film_tv.033.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.cutting_establishing_shot"
       ],
       "sourceCardIds": [
-        "card.film_tv.033.c3"
+        "card.film_tv.033.c3",
+        "card.film_tv.033.c2",
+        "card.film_tv.033.c4"
       ],
-      "prompt": "What does an establishing shot show at the start of a scene?",
-      "options": [
+      "prompt": "Match each term from the 180-degree rule with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A close-up of the main character's face",
-          "correct": false,
-          "rationale": "An establishing shot is usually a distant framing."
+          "left": "Axis of action",
+          "right": "Line running between the two characters"
         },
         {
-          "id": "b",
-          "label": "How the people, objects and setting are laid out",
-          "correct": true
+          "left": "Establishing shot",
+          "right": "Before the close shots begin"
         },
         {
-          "id": "c",
-          "label": "The final moment of the previous scene",
-          "correct": false,
-          "rationale": "It opens the new scene; it does not replay the old one."
-        },
-        {
-          "id": "d",
-          "label": "The film's title and credits",
-          "correct": false,
-          "rationale": "Titles are not establishing shots."
+          "left": "Reestablishing shot",
+          "right": "Smooths the change"
         }
       ],
-      "explanation": "An establishing shot, usually distant, shows the spatial relations among the people, objects and setting.",
+      "explanation": "The axis of action is a line running between the two characters. An establishing shot opens the scene before the close shots begin, and a reestablishing shot smooths the change when the line is crossed.",
       "difficulty": 0.2
     },
     {

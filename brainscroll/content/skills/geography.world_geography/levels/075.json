@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 75,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Grand Canyon",
   "objective": "After this level you can explain how the Colorado River carved the Grand Canyon.",
@@ -129,41 +129,35 @@
     },
     {
       "id": "question.world_geography.075.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.grand_canyon_rocks"
       ],
       "sourceCardIds": [
-        "card.world_geography.075.c4"
+        "card.world_geography.075.c4",
+        "card.world_geography.075.c3"
       ],
-      "prompt": "Why are the Grand Canyon's oldest rocks at the bottom?",
-      "options": [
+      "prompt": "Match each part of the Grand Canyon story with its fact.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The river washed old rocks downhill",
-          "correct": false,
-          "rationale": "The rocks formed where they are; layers stacked over time."
+          "left": "The oldest rocks",
+          "right": "Nearly 2 billion years old"
         },
         {
-          "id": "b",
-          "label": "Layers stack, so older ones lie beneath",
-          "correct": true
+          "left": "The layer at the rim",
+          "right": "About 270 million years old"
         },
         {
-          "id": "c",
-          "label": "Old rocks are heavier, so they sank down",
-          "correct": false,
-          "rationale": "It's about the order layers formed, not weight."
+          "left": "The water",
+          "right": "The saw"
         },
         {
-          "id": "d",
-          "label": "Heat at the bottom ages rock faster",
-          "correct": false,
-          "rationale": "Age comes from when a layer formed, not heat."
+          "left": "The sand",
+          "right": "Its teeth"
         }
       ],
-      "explanation": "Layers stack like newspapers: the oldest at the bottom, newer ones on top, so digging down goes back in time.",
+      "explanation": "The oldest rocks at the bottom are nearly 2 billion years old, and the layer at the rim is about 270 million. The water is the saw; the sand is its teeth.",
       "difficulty": 0.3
     },
     {

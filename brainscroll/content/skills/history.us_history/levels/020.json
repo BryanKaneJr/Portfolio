@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 20,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Thirteen Colonies",
   "objective": "After this level you can explain how the thirteen colonies grew, who did their work, and why they were used to running their own affairs by 1763.",
@@ -174,7 +174,7 @@
   "questions": [
     {
       "id": "question.us_history.020.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.colonies_checkpoint_1619",
@@ -183,33 +183,17 @@
       "sourceCardIds": [
         "card.us_history.020.c2"
       ],
-      "prompt": "Thirteen Colonies: which order of events is right?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Plymouth is founded, King Philip’s War, the French and Indian War",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "King Philip’s War, Plymouth is founded, the French and Indian War",
-          "correct": false,
-          "rationale": "Plymouth (1620) came first."
-        },
-        {
-          "id": "c",
-          "label": "Plymouth is founded, the French and Indian War, King Philip’s War",
-          "correct": false,
-          "rationale": "King Philip’s War (1675) came before 1754."
-        },
-        {
-          "id": "d",
-          "label": "The French and Indian War, Plymouth is founded, King Philip’s War",
-          "correct": false,
-          "rationale": "That war came last, from 1754."
-        }
+      "prompt": "Put these colonial events in order, from earliest to latest.",
+      "items": [
+        "Virginia’s first elected assembly",
+        "The Mayflower colonists found Plymouth",
+        "Winthrop’s Puritans",
+        "King Philip’s War begins",
+        "The French and Indian War"
       ],
-      "explanation": "Plymouth was founded in 1620, King Philip’s War began in 1675, and the French and Indian War in 1754.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Virginia’s first elected assembly met in 1619, Plymouth was founded in 1620, Winthrop’s Puritans arrived in 1630, King Philip’s War began in 1675, and the French and Indian War ran from 1754 to 1763.",
       "difficulty": 0.25
     },
     {

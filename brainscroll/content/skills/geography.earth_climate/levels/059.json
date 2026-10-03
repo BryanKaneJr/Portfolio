@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 59,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Jet Stream",
   "objective": "After this level you can explain why a fast river of wind high above steers storms and speeds up flights.",
@@ -164,7 +164,7 @@
     },
     {
       "id": "question.earth_climate.059.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.earth_climate.weather_jet_steering",
@@ -172,35 +172,25 @@
       ],
       "sourceCardIds": [
         "card.earth_climate.059.c3",
-        "card.earth_climate.058.c4"
+        "card.earth_climate.058.c4",
+        "card.earth_climate.059.c4"
       ],
-      "prompt": "Level 58's polar front is where warm and cold air meet. What does the jet stream above it do?",
-      "options": [
+      "prompt": "Match each jet stream situation with its result.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It forms the rainy ITCZ",
-          "correct": false,
-          "rationale": "The ITCZ is near the Equator."
+          "left": "When the jet runs straight",
+          "right": "Systems move through quickly"
         },
         {
-          "id": "b",
-          "label": "It steers low-pressure systems along",
-          "correct": true
+          "left": "When it meanders north and south",
+          "right": "They can stall over one region"
         },
         {
-          "id": "c",
-          "label": "It sinks and builds deserts",
-          "correct": false,
-          "rationale": "Sinking Hadley cell air builds the subtropical deserts."
-        },
-        {
-          "id": "d",
-          "label": "It stops storms from forming at all",
-          "correct": false,
-          "rationale": "Lows form along the polar front, and the jet steers them."
+          "left": "Flying east inside a jet stream",
+          "right": "Saves fuel"
         }
       ],
-      "explanation": "The polar front jet runs along the boundary between warm and cold air and steers low-pressure systems, usually from west to east.",
+      "explanation": "When the jet runs straight, systems move through quickly. When it meanders, they can stall over one region. Flying east inside a jet stream saves fuel.",
       "difficulty": 0.3
     }
   ],

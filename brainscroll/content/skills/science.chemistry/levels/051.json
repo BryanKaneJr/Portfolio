@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 51,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "What a Reaction Is",
   "objective": "After this level you can explain reactants and products.",
@@ -130,42 +130,36 @@
     },
     {
       "id": "question.chemistry.051.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.reaction_atoms_rearranged"
       ],
       "sourceCardIds": [
         "card.chemistry.051.c3",
-        "card.chemistry.051.c4"
+        "card.chemistry.051.c4",
+        "card.chemistry.051.c2"
       ],
-      "prompt": "A reaction turns reactants into completely different products. What happens to their atoms?",
-      "options": [
+      "prompt": "In the campfire reaction, match each substance with its role.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They are rearranged into new combinations",
-          "correct": true
+          "left": "Wood",
+          "right": "Reactant"
         },
         {
-          "id": "b",
-          "label": "They are destroyed and replaced with new atoms",
-          "correct": false,
-          "rationale": "Reactions never destroy or create atoms."
+          "left": "Oxygen",
+          "right": "Reactant"
         },
         {
-          "id": "c",
-          "label": "They turn into atoms of different elements",
-          "correct": false,
-          "rationale": "Every atom keeps its element; only its partners change."
+          "left": "Carbon dioxide",
+          "right": "Product"
         },
         {
-          "id": "d",
-          "label": "They escape as pure energy",
-          "correct": false,
-          "rationale": "The atoms all end up in the products."
+          "left": "Ash",
+          "right": "Product"
         }
       ],
-      "explanation": "Bonds break and the same atoms reassemble into new substances, like bricks rebuilt into a new model.",
+      "explanation": "Wood and oxygen are the campfire's reactants. Carbon dioxide, water vapor and ash are its products.",
       "difficulty": 0.25
     },
     {

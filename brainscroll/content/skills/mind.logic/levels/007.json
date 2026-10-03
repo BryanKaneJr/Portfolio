@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 7,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Unstated Premise",
   "objective": "After this level you can spot the hidden assumption an argument needs but never says out loud.",
@@ -130,41 +130,32 @@
     },
     {
       "id": "question.logic.007.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.unstated_premise"
       ],
       "sourceCardIds": [
-        "card.logic.007.c3"
+        "card.logic.007.c3",
+        "card.logic.007.c1",
+        "card.logic.007.c2"
       ],
-      "prompt": "\"The dog is barking, so someone's at the door.\" What unstated premise does it need?",
-      "options": [
+      "prompt": "\"It's Monday, so the museum is closed.\" Match each part with its role.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Dogs are loyal to their owners",
-          "correct": false,
-          "rationale": "True or not, loyalty doesn't get you to the door."
+          "left": "It's Monday",
+          "right": "Premise"
         },
         {
-          "id": "b",
-          "label": "Barking is annoying to neighbors",
-          "correct": false,
-          "rationale": "Annoyance doesn't link barking to visitors."
+          "left": "The museum is closed",
+          "right": "Conclusion"
         },
         {
-          "id": "c",
-          "label": "The dog barks only when someone comes",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Doors should always be kept locked",
-          "correct": false,
-          "rationale": "A value judgment about locks doesn't help the argument."
+          "left": "The museum closes on Mondays",
+          "right": "Missing premise"
         }
       ],
-      "explanation": "Ask what else must be true for the conclusion to follow: the dog barks only when someone comes to the door.",
+      "explanation": "\"It's Monday\" is the stated premise and \"the museum is closed\" is the conclusion. \"The museum closes on Mondays\" is the missing premise the argument needs but never says.",
       "difficulty": 0.25
     },
     {

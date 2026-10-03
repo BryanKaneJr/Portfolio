@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 51,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Tiberius",
   "objective": "After this level you can describe the reign of Tiberius and the problem of succession.",
@@ -85,41 +85,32 @@
   "questions": [
     {
       "id": "question.ancient_rome.051.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_rome.tiberius"
       ],
       "sourceCardIds": [
-        "card.ancient_rome.051.c2"
+        "card.ancient_rome.051.c2",
+        "card.ancient_rome.051.c3",
+        "card.ancient_rome.051.c4"
       ],
-      "prompt": "How was Tiberius related to Augustus?",
-      "options": [
+      "prompt": "Match each name with who or what it was.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "His younger brother, a fellow consul",
-          "correct": false,
-          "rationale": "He was a generation younger."
+          "left": "Tiberius",
+          "right": "His stepson"
         },
         {
-          "id": "b",
-          "label": "His stepson, adopted as his heir",
-          "correct": true
+          "left": "Sejanus",
+          "right": "Commander of the Praetorian Guard"
         },
         {
-          "id": "c",
-          "label": "His nephew, the son of Octavia",
-          "correct": false,
-          "rationale": "He was his stepson."
-        },
-        {
-          "id": "d",
-          "label": "His son, born after Actium",
-          "correct": false,
-          "rationale": "Augustus had no surviving son."
+          "left": "Praetorian Guard",
+          "right": "The emperor’s bodyguard"
         }
       ],
-      "explanation": "Augustus adopted his stepson Tiberius as heir after other successors died.",
+      "explanation": "Tiberius was Augustus’ stepson, adopted as his heir. The Praetorian Guard was the emperor’s bodyguard, and Sejanus was its commander.",
       "difficulty": 0.15
     },
     {

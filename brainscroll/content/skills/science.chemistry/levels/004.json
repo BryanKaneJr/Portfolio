@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 4,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Melting and Boiling",
   "objective": "After this level you can explain what happens to particles when things melt or boil.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "question.chemistry.004.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.melting_boiling_particles"
@@ -139,33 +139,15 @@
         "card.chemistry.004.c2",
         "card.chemistry.004.c3"
       ],
-      "prompt": "What happens to water's particles as the water boils?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They lock into fixed places",
-          "correct": false,
-          "rationale": "That is freezing."
-        },
-        {
-          "id": "b",
-          "label": "They break away from their neighbors and fly off as a gas",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "They stop moving completely",
-          "correct": false,
-          "rationale": "Boiling needs particles moving faster, not stopping."
-        },
-        {
-          "id": "d",
-          "label": "They turn into a brand-new substance",
-          "correct": false,
-          "rationale": "Steam is still water, just in a different state."
-        }
+      "prompt": "Put these forms of water in order as you keep heating them.",
+      "items": [
+        "Ice",
+        "Liquid water",
+        "Steam"
       ],
-      "explanation": "Enough heat lets particles overcome the pull of their neighbors and escape as a gas.",
+      "first": "Start here",
+      "last": "End here",
+      "explanation": "Heat ice and it melts into liquid water. Keep heating and the liquid boils into steam, the same substance in a different state.",
       "difficulty": 0.25
     },
     {

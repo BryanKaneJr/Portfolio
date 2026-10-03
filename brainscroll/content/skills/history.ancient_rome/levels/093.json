@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 93,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "476: The Last Western Emperor",
   "objective": "After this level you can explain what happened in 476 and why historians debate its importance.",
@@ -95,41 +95,26 @@
   "questions": [
     {
       "id": "question.ancient_rome.093.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_rome.fall_476"
       ],
       "sourceCardIds": [
-        "card.ancient_rome.093.c3"
+        "card.ancient_rome.093.c3",
+        "card.ancient_rome.093.c2",
+        "card.ancient_rome.091.c2"
       ],
-      "prompt": "Who deposed Romulus Augustulus in 476 CE?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Alaric",
-          "correct": false,
-          "rationale": "He died in 410 CE."
-        },
-        {
-          "id": "b",
-          "label": "Attila",
-          "correct": false,
-          "rationale": "He died in 453 CE."
-        },
-        {
-          "id": "c",
-          "label": "Aetius",
-          "correct": false,
-          "rationale": "He was a Roman general."
-        },
-        {
-          "id": "d",
-          "label": "Odoacer",
-          "correct": true
-        }
+      "prompt": "Put the last years of the western empire in order, from first to last.",
+      "items": [
+        "Alaric’s Visigoths sacked Rome",
+        "The Vandals sacked Rome",
+        "Deposed the young western emperor",
+        "Sent the imperial regalia"
       ],
-      "explanation": "The Germanic commander Odoacer deposed the last western emperor.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Alaric’s Goths sacked Rome in 410 CE and the Vandals in 455 CE. In 476 CE Odoacer deposed the young western emperor, then sent the imperial regalia to Constantinople.",
       "difficulty": 0.2
     },
     {

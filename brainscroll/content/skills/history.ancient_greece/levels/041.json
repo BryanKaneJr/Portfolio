@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 41,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Twelve Olympians",
   "objective": "After this level you can name the main Greek gods and what each ruled.",
@@ -109,41 +109,35 @@
   "questions": [
     {
       "id": "question.ancient_greece.041.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_greece.olympian_gods"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.041.c2"
+        "card.ancient_greece.041.c2",
+        "card.ancient_greece.041.c3"
       ],
-      "prompt": "Where did the Greeks say their great gods lived?",
-      "options": [
+      "prompt": "Match each god with what they ruled.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Deep under the Aegean Sea",
-          "correct": false,
-          "rationale": "The sea was Poseidon’s realm, not the gods’ home."
+          "left": "Zeus",
+          "right": "The sky and the weather"
         },
         {
-          "id": "b",
-          "label": "In a palace in the clouds over Athens",
-          "correct": false,
-          "rationale": "They chose a real mountain."
+          "left": "Poseidon",
+          "right": "The sea"
         },
         {
-          "id": "c",
-          "label": "On Mount Olympus, Greece’s highest peak",
-          "correct": true
+          "left": "Demeter",
+          "right": "Grain and farming"
         },
         {
-          "id": "d",
-          "label": "On an island at the edge of the world",
-          "correct": false,
-          "rationale": "Olympus is on the Greek mainland."
+          "left": "Hermes",
+          "right": "Messenger of the gods"
         }
       ],
-      "explanation": "The Greeks regarded Mount Olympus, the highest mountain in Greece, as the home of the gods and the site of Zeus’s throne.",
+      "explanation": "Zeus ruled the sky and the weather, Poseidon the sea, and Demeter grain and farming. Hermes was the messenger of the gods.",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 11,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "What Makes a Mammal",
   "objective": "After this level you can explain the features all mammals share.",
@@ -140,42 +140,37 @@
     },
     {
       "id": "question.animals.011.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.mammal_traits"
       ],
       "sourceCardIds": [
         "card.animals.011.c3",
-        "card.animals.011.c2"
+        "card.animals.011.c2",
+        "card.animals.011.c1",
+        "card.animals.011.c4"
       ],
-      "prompt": "Many whales have hair only before birth. Why do they still pass the mammal checklist?",
-      "options": [
+      "prompt": "Match each mammal fact with its partner.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Whales don't need to pass it",
-          "correct": false,
-          "rationale": "Whales are mammals, so they meet the checklist."
+          "left": "Mamma",
+          "right": "The milk-producing breast"
         },
         {
-          "id": "b",
-          "label": "Their blubber counts as hair",
-          "correct": false,
-          "rationale": "Blubber is fat, not hair."
+          "left": "Three tiny bones",
+          "right": "Carries sound across the middle ear"
         },
         {
-          "id": "c",
-          "label": "Their teeth replace the hair rule",
-          "correct": false,
-          "rationale": "Teeth aren't on this checklist."
+          "left": "Many whales",
+          "right": "Hair only before they're born"
         },
         {
-          "id": "d",
-          "label": "The rule is hair at some point in life",
-          "correct": true
+          "left": "Living mammal species",
+          "right": "About 6,800"
         }
       ],
-      "explanation": "The checklist asks for hair at some point in life, and many whales have it in the fetal stage.",
+      "explanation": "Mamma is Latin for the milk-producing breast. A chain of three tiny bones carries sound across the middle ear. Many whales have hair only before they're born, and there are about 6,800 living mammal species.",
       "difficulty": 0.2
     },
     {

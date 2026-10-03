@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 95,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Kinds of Documentary",
   "objective": "After this level you can tell expository, observational and participatory documentaries apart and say what each one is best at.",
@@ -87,41 +87,32 @@
   "questions": [
     {
       "id": "question.film_tv.095.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.critical_documentary_modes"
       ],
       "sourceCardIds": [
-        "card.film_tv.095.c2"
+        "card.film_tv.095.c2",
+        "card.film_tv.095.c3",
+        "card.film_tv.095.c4"
       ],
-      "prompt": "Which documentary mode argues a point through an authoritative voice-of-God narrator?",
-      "options": [
+      "prompt": "Match each documentary mode with its example film.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Observational",
-          "correct": false,
-          "rationale": "Observational films use no narration."
+          "left": "Expository",
+          "right": "Night Mail"
         },
         {
-          "id": "b",
-          "label": "Participatory",
-          "correct": false,
-          "rationale": "There the filmmaker appears on camera instead."
+          "left": "Observational",
+          "right": "Don't Look Back"
         },
         {
-          "id": "c",
-          "label": "Expository",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Fly in the soup",
-          "correct": false,
-          "rationale": "That's Britannica's image for cinéma vérité."
+          "left": "Participatory",
+          "right": "Roger & Me"
         }
       ],
-      "explanation": "Expository documentaries argue through authoritative narration, using images as evidence.",
+      "explanation": "Night Mail is a classic expository documentary, Don't Look Back is observational, and Michael Moore's Roger & Me is participatory.",
       "difficulty": 0.25
     },
     {

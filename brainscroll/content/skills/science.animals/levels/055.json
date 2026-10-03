@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 55,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Spiders",
   "objective": "After this level you can explain how spiders make silk and spin webs.",
@@ -181,7 +181,7 @@
     },
     {
       "id": "question.animals.055.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.spider_body_plan",
@@ -189,35 +189,25 @@
       ],
       "sourceCardIds": [
         "card.animals.055.c2",
-        "card.animals.051.c2"
+        "card.animals.051.c2",
+        "card.animals.055.c3"
       ],
-      "prompt": "Using Level 51’s insect body plan, what rules a spider out?",
-      "options": [
+      "prompt": "Match each with its legs or its silk job.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Eight legs on a two-part body",
-          "correct": true
+          "left": "Insect",
+          "right": "Six legs"
         },
         {
-          "id": "b",
-          "label": "Its wings are on the wrong part",
-          "correct": false,
-          "rationale": "Spiders have no wings at all."
+          "left": "Spider",
+          "right": "Eight legs"
         },
         {
-          "id": "c",
-          "label": "It has two pairs of antennae",
-          "correct": false,
-          "rationale": "Spiders have no antennae."
-        },
-        {
-          "id": "d",
-          "label": "It has no exoskeleton",
-          "correct": false,
-          "rationale": "That isn’t the test that sorts them."
+          "left": "Spinnerets",
+          "right": "Small silk-making organs"
         }
       ],
-      "explanation": "Insects have three body parts and six legs; a spider has two body parts and eight legs.",
+      "explanation": "An insect has six legs and a spider has eight. Spinnerets are a spider's small silk-making organs.",
       "difficulty": 0.2
     }
   ],

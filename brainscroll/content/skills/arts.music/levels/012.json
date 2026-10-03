@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 12,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Strings",
   "objective": "After this level you can explain how string instruments make sound.",
@@ -132,42 +132,32 @@
     },
     {
       "id": "question.music.012.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.instruments_string_sound"
       ],
       "sourceCardIds": [
         "card.music.012.c5",
-        "card.music.012.c1"
+        "card.music.012.c1",
+        "card.music.012.c4"
       ],
-      "prompt": "Why does a violin need its wooden body to sound loud?",
-      "options": [
+      "prompt": "Match each part of a violin with its job.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The body tunes the strings",
-          "correct": false,
-          "rationale": "Tuning is about tension, not the body."
+          "left": "The bridge",
+          "right": "Passes their vibration into the body"
         },
         {
-          "id": "b",
-          "label": "The body makes the strings vibrate faster",
-          "correct": false,
-          "rationale": "The body passes the vibration on; it doesn't speed it up."
+          "left": "The body",
+          "right": "Big enough to push the air"
         },
         {
-          "id": "c",
-          "label": "The strings are too loud without it",
-          "correct": false,
-          "rationale": "It's the other way round."
-        },
-        {
-          "id": "d",
-          "label": "The strings barely push air, so the body does it",
-          "correct": true
+          "left": "A bow",
+          "right": "Keeps a string going"
         }
       ],
-      "explanation": "Strings are thin and slip through the air; the bridge passes their vibration to the body, which moves the air.",
+      "explanation": "The bridge passes the strings' vibration into the body, the body is big enough to push the air, and a bow keeps a string going.",
       "difficulty": 0.2
     },
     {

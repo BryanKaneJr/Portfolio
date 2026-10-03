@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 43,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Karma, Rebirth and Moksha",
   "objective": "After this level you can explain why belief in karma and rebirth makes release (moksha) the highest goal for many Hindus.",
@@ -126,42 +126,33 @@
     },
     {
       "id": "question.religions.043.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.hindu_moksha_goal",
         "concept.religions.hindu_karma_samsara"
       ],
       "sourceCardIds": [
-        "card.religions.043.c4"
+        "card.religions.043.c4",
+        "card.religions.043.c2",
+        "card.religions.043.c3"
       ],
-      "prompt": "Why do many Hindus see moksha, not a better rebirth, as the highest goal?",
-      "options": [
+      "prompt": "Match each Hindu term with its meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Good karma is impossible to earn",
-          "correct": false,
-          "rationale": "Good actions do bring good results."
+          "left": "Karma",
+          "right": "Action"
         },
         {
-          "id": "b",
-          "label": "Rebirth happens only once, so it doesn't matter",
-          "correct": false,
-          "rationale": "Samsara repeats again and again."
+          "left": "Samsara",
+          "right": "Continuous cycle of rebirth"
         },
         {
-          "id": "c",
-          "label": "Pleasure and success are forbidden goals",
-          "correct": false,
-          "rationale": "They are recognized goals of life."
-        },
-        {
-          "id": "d",
-          "label": "Every rebirth, even in a heavenly realm, stays inside the cycle",
-          "correct": true
+          "left": "Moksha",
+          "right": "Liberation"
         }
       ],
-      "explanation": "Even a stay in a heavenly realm lasts only for a time. Moksha frees the self from the cycle altogether.",
+      "explanation": "Karma literally means \"action\", samsara is the continuous cycle of rebirth, and moksha is liberation from that cycle.",
       "difficulty": 0.35
     },
     {

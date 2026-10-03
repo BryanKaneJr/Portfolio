@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 41,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "What Makes a Home",
   "objective": "After this level you can explain how climate shapes the way people build houses.",
@@ -139,41 +139,31 @@
     },
     {
       "id": "question.architecture.041.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.home_climate_vitruvius"
       ],
       "sourceCardIds": [
-        "card.architecture.041.c2"
+        "card.architecture.041.c2",
+        "card.architecture.041.c3"
       ],
-      "prompt": "What did Vitruvius advise for houses in hot southern countries?",
-      "options": [
+      "prompt": "Match each climate or roof word with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Build more in the open and face north",
-          "correct": true
+          "left": "The cold north",
+          "right": "Roofed over and sheltered"
         },
         {
-          "id": "b",
-          "label": "Roof them over and seal them against the cold",
-          "correct": false,
-          "rationale": "That was his advice for the cold north."
+          "left": "Hot southern countries",
+          "right": "Built more in the open"
         },
         {
-          "id": "c",
-          "label": "Build them only from fired brick",
-          "correct": false,
-          "rationale": "His advice was about openness and orientation, not material."
-        },
-        {
-          "id": "d",
-          "label": "Face them south to catch the sun",
-          "correct": false,
-          "rationale": "In the hot south he wanted them turned away from the sun, toward the north."
+          "left": "Pitch",
+          "right": "So rain could drain off"
         }
       ],
-      "explanation": "Vitruvius said houses in the cold north should be sheltered and face a warm exposure, while those in the hot south should be more open and face north or north-east.",
+      "explanation": "Vitruvius said houses in the cold north should be roofed over and sheltered, and in hot southern countries built more in the open. A roof's pitch, its slope, lets rain drain off.",
       "difficulty": 0.2
     },
     {

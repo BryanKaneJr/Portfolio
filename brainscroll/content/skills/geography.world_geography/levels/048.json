@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 48,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Coral Reefs",
   "objective": "After this level you can explain what coral reefs are and why they are so fragile.",
@@ -95,41 +95,37 @@
   "questions": [
     {
       "id": "question.world_geography.048.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.coral_animals"
       ],
       "sourceCardIds": [
-        "card.world_geography.048.c2"
+        "card.world_geography.048.c2",
+        "card.world_geography.048.c1",
+        "card.world_geography.048.c3",
+        "card.world_geography.048.c4"
       ],
-      "prompt": "What are corals?",
-      "options": [
+      "prompt": "Match each coral word with its fact.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Plants rooted on the seafloor",
-          "correct": false,
-          "rationale": "They're fixed in place like plants, but they're animals."
+          "left": "Coral polyp",
+          "right": "No thicker than a nickel"
         },
         {
-          "id": "b",
-          "label": "Animals that host food-making algae",
-          "correct": true
+          "left": "Zooxanthellae",
+          "right": "Tiny algae"
         },
         {
-          "id": "c",
-          "label": "Rocks shaped by ocean currents",
-          "correct": false,
-          "rationale": "The rock is a skeleton built by living animals."
+          "left": "Coral reefs",
+          "right": "Less than 1% of the ocean"
         },
         {
-          "id": "d",
-          "label": "Algae that build limestone skeletons",
-          "correct": false,
-          "rationale": "The algae live inside; the coral animals build the skeletons."
+          "left": "Coral bleaching",
+          "right": "Turn completely white"
         }
       ],
-      "explanation": "Corals are animals: they can't make their own food, so algae living in their tissue make it for them.",
+      "explanation": "Most coral polyps are no thicker than a nickel. Zooxanthellae are tiny algae living in coral. Coral reefs cover less than 1% of the ocean. In coral bleaching, stressed corals turn completely white.",
       "difficulty": 0.15
     },
     {

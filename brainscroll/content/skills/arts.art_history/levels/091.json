@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 91,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How to Read a Painting",
   "objective": "After this level you can use a simple method to look closely at any painting.",
@@ -137,7 +137,7 @@
     },
     {
       "id": "question.art_history.091.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.look_feldman_method"
@@ -145,33 +145,16 @@
       "sourceCardIds": [
         "card.art_history.091.c3"
       ],
-      "prompt": "In Feldman's method, why do you describe a painting before you judge it?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Judging is the hardest step, so it goes last",
-          "correct": false,
-          "rationale": "The reason is what the other steps rest on."
-        },
-        {
-          "id": "b",
-          "label": "Every later step is built on careful description",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The artist's name should decide your judgment",
-          "correct": false,
-          "rationale": "Names aren't part of the method."
-        },
-        {
-          "id": "d",
-          "label": "Description is optional if you already like it",
-          "correct": false,
-          "rationale": "Description is the base of the method."
-        }
+      "prompt": "Put Feldman's four steps for looking at art in order, from first to last.",
+      "items": [
+        "Describe",
+        "Analyze",
+        "Interpret",
+        "Judge"
       ],
-      "explanation": "Describe, analyze, interpret, judge: opinion waits until the end, because the other steps rest on what you actually saw.",
+      "first": "First step",
+      "last": "Last step",
+      "explanation": "Feldman's method runs describe, analyze, interpret, judge. Careful description comes first because every other step is built on it.",
       "difficulty": 0.25
     },
     {

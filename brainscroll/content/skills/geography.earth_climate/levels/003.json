@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 3,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Testing a Mineral",
   "objective": "After this level you can identify a mineral by its hardness, streak and luster, using the Mohs scale.",
@@ -172,7 +172,7 @@
     },
     {
       "id": "question.earth_climate.003.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.earth_climate.mohs_hardness",
@@ -182,33 +182,17 @@
         "card.earth_climate.003.c2",
         "card.earth_climate.002.c3"
       ],
-      "prompt": "Level 2's quartz, silicon dioxide, rates 7 on the Mohs scale. Which of these can it scratch?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Topaz",
-          "correct": false,
-          "rationale": "Topaz rates 8, harder than quartz."
-        },
-        {
-          "id": "b",
-          "label": "Window glass",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Diamond",
-          "correct": false,
-          "rationale": "Diamond rates 10."
-        },
-        {
-          "id": "d",
-          "label": "Corundum",
-          "correct": false,
-          "rationale": "Corundum rates 9."
-        }
+      "prompt": "Put these minerals in order on the Mohs scale, from softest to hardest.",
+      "items": [
+        "Talc",
+        "Calcite",
+        "Fluorite",
+        "Quartz",
+        "Diamond"
       ],
-      "explanation": "Glass rates about 5.5, so quartz at 7 scratches it. Minerals higher on the scale scratch quartz instead.",
+      "first": "Softest",
+      "last": "Hardest",
+      "explanation": "Talc (1), calcite (3), fluorite (4), quartz (7), diamond (10). A harder mineral scratches a softer one.",
       "difficulty": 0.25
     }
   ],

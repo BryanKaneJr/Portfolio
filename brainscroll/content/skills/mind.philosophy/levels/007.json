@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 7,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Laozi and the Way",
   "objective": "After this level you can explain the Dao of Laozi and Zhuangzi and the idea of wu wei, acting without forcing, using their image of water.",
@@ -89,41 +89,31 @@
   "questions": [
     {
       "id": "question.philosophy.007.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.philosophy.dao_wu_wei"
       ],
       "sourceCardIds": [
-        "card.philosophy.007.c3"
+        "card.philosophy.007.c3",
+        "card.philosophy.007.c2"
       ],
-      "prompt": "What does wu wei mean in the Daodejing?",
-      "options": [
+      "prompt": "Match each Daoist name with its English meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Doing nothing at all",
-          "correct": false,
-          "rationale": "It doesn’t mean total inaction."
+          "left": "Dao",
+          "right": "The way"
         },
         {
-          "id": "b",
-          "label": "Following every rite exactly",
-          "correct": false,
-          "rationale": "That’s closer to Confucian li."
+          "left": "Wu wei",
+          "right": "Non-action"
         },
         {
-          "id": "c",
-          "label": "Acting without forcing or grasping",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Resisting anything strong",
-          "correct": false,
-          "rationale": "Water yields rather than resists."
+          "left": "Laozi",
+          "right": "Old Master"
         }
       ],
-      "explanation": "Wu wei, often translated non-action, means acting without forcing, free of self-serving desire, like water.",
+      "explanation": "Dao means “the way”, wu wei is often translated “non-action”, and Laozi means the “Old Master”.",
       "difficulty": 0.2
     },
     {

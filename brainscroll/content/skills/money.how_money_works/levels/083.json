@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 83,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Revenue, Costs and Profit",
   "objective": "After this level you can explain how a business makes a profit.",
@@ -100,7 +100,7 @@
   "questions": [
     {
       "id": "question.how_money_works.083.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.profit_revenue_cost"
@@ -108,33 +108,22 @@
       "sourceCardIds": [
         "card.how_money_works.083.c2"
       ],
-      "prompt": "How do you work out a business's profit?",
-      "options": [
+      "prompt": "Match each business word with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Total revenue minus total cost",
-          "correct": true
+          "left": "Revenue",
+          "right": "What a business takes in"
         },
         {
-          "id": "b",
-          "label": "Price times quantity sold",
-          "correct": false,
-          "rationale": "That's revenue, before any costs come out."
+          "left": "Profit",
+          "right": "What's left after paying all the costs"
         },
         {
-          "id": "c",
-          "label": "Revenue plus fixed costs",
-          "correct": false,
-          "rationale": "Costs are subtracted, not added."
-        },
-        {
-          "id": "d",
-          "label": "Fixed costs minus variable costs",
-          "correct": false,
-          "rationale": "Profit compares revenue with costs."
+          "left": "A loss",
+          "right": "Costs are bigger than revenue"
         }
       ],
-      "explanation": "Profit is total revenue minus total cost. A negative result is a loss.",
+      "explanation": "Revenue is what a business takes in from selling. Profit is what's left after paying all the costs. If costs are bigger than revenue, the answer is negative: a loss.",
       "difficulty": 0.15
     },
     {

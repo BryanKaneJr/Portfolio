@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 25,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Credit Cards and Debt",
   "objective": "After this level you can explain how credit card interest can turn a small debt into a big one.",
@@ -135,42 +135,25 @@
     },
     {
       "id": "question.how_money_works.025.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.revolving_card_interest",
         "concept.how_money_works.interest_compounding"
       ],
       "sourceCardIds": [
+        "card.how_money_works.025.c2",
         "card.how_money_works.025.c3"
       ],
-      "prompt": "Why can a card balance keep growing even with no new purchases?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Card companies raise the limit each month",
-          "correct": false,
-          "rationale": "A higher limit adds no debt by itself."
-        },
-        {
-          "id": "b",
-          "label": "Unpaid interest is added and then charged interest too",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Prices of past purchases are updated",
-          "correct": false,
-          "rationale": "Past purchases keep their prices."
-        },
-        {
-          "id": "d",
-          "label": "Banks charge a fee for every day of the month",
-          "correct": false,
-          "rationale": "The growth comes from compounding interest."
-        }
+      "prompt": "How does card debt snowball? Put these in order, from cause to effect.",
+      "items": [
+        "Leave part unpaid",
+        "Unpaid interest is added to the balance",
+        "Interest is charged on the lot"
       ],
-      "explanation": "Unpaid interest joins the balance and is itself charged interest: compounding working against the borrower.",
+      "first": "Cause",
+      "last": "Effect",
+      "explanation": "Leave part of the balance unpaid and it's charged interest. Unpaid interest is added to the balance, and then interest is charged on the lot.",
       "difficulty": 0.3
     },
     {

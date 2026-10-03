@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 49,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why Websites Go Down",
   "objective": "After this level you can explain why outages happen and how one small change can spread, using the 2021 Facebook outage.",
@@ -121,41 +121,26 @@
     },
     {
       "id": "question.computers.049.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.outage_cascade"
       ],
       "sourceCardIds": [
-        "card.computers.049.c3"
+        "card.computers.049.c3",
+        "card.computers.049.c2",
+        "card.computers.049.c4"
       ],
-      "prompt": "Why did Facebook's DNS servers become unreachable even though they were still running?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Their hard drives were wiped during maintenance",
-          "correct": false,
-          "rationale": "They were still running; they had withdrawn their routes."
-        },
-        {
-          "id": "b",
-          "label": "Every browser in the world deleted Facebook's address",
-          "correct": false,
-          "rationale": "Browsers couldn't find the servers; nothing was deleted."
-        },
-        {
-          "id": "c",
-          "label": "They withdrew their BGP routes after losing the data centers",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The buildings housing them ran out of electricity",
-          "correct": false,
-          "rationale": "They had power; they stopped announcing their routes."
-        }
+      "prompt": "Put the events of the 2021 Facebook outage in order.",
+      "items": [
+        "Took down every connection",
+        "Withdraw their BGP announcements",
+        "Became unreachable",
+        "Go to the data centers in person"
       ],
-      "explanation": "Built to withdraw their BGP announcements if they couldn't reach the data centers, they did, so no one could find them.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "A command took down every connection in the backbone, the DNS servers then withdrew their BGP announcements and became unreachable, and engineers had to go to the data centers in person.",
       "difficulty": 0.3
     },
     {

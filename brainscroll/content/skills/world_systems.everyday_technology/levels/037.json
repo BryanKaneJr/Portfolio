@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 37,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "GPS",
   "objective": "After this level you can explain how GPS satellites and precise clocks find your position.",
@@ -125,42 +125,32 @@
     },
     {
       "id": "question.everyday_technology.037.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.gps_clocks",
         "concept.everyday_technology.gps_positioning"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.037.c3"
+        "card.everyday_technology.037.c3",
+        "card.everyday_technology.037.c4"
       ],
-      "prompt": "Why does a precise GPS fix use a fourth satellite?",
-      "options": [
+      "prompt": "Match each part of GPS timing with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "To correct the error in the receiver's clock",
-          "correct": true
+          "left": "Weaker gravity",
+          "right": "Speeds the clocks"
         },
         {
-          "id": "b",
-          "label": "To send the answer back to your phone",
-          "correct": false,
-          "rationale": "Satellites never receive from your phone."
+          "left": "Orbital speed",
+          "right": "Slows them"
         },
         {
-          "id": "c",
-          "label": "In case one satellite is switched off",
-          "correct": false,
-          "rationale": "The fourth is needed every time."
-        },
-        {
-          "id": "d",
-          "label": "To measure the height of the satellites",
-          "correct": false,
-          "rationale": "The satellites broadcast their own positions."
+          "left": "Your receiver's clock",
+          "right": "Far cruder"
         }
       ],
-      "explanation": "Three satellites fix the position; the fourth corrects the receiver's much less precise clock.",
+      "explanation": "Weaker gravity up high speeds the satellite clocks, their orbital speed slows them, and your receiver's clock is far cruder than their atomic clocks.",
       "difficulty": 0.3
     },
     {

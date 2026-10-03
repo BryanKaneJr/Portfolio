@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 65,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Comparing Like With Like",
   "objective": "After this level you can explain how a hidden third factor can distort a comparison and how studies adjust for it by comparing similar groups.",
@@ -129,41 +129,32 @@
     },
     {
       "id": "question.probability.065.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.experiment_age_adjustment"
       ],
       "sourceCardIds": [
-        "card.probability.065.c3"
+        "card.probability.065.c3",
+        "card.probability.065.c2",
+        "card.probability.065.c4"
       ],
-      "prompt": "How does an age-adjusted rate make an older county and a younger one fair to compare?",
-      "options": [
+      "prompt": "Match each with the unfair difference it deals with.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It counts only deaths among young people",
-          "correct": false,
-          "rationale": "Everyone counts; the rates are just combined with the same age mix."
+          "left": "Confounder",
+          "right": "Lurking variable"
         },
         {
-          "id": "b",
-          "label": "It combines each age group's rate using the same standard mix of ages",
-          "correct": true
+          "left": "A rate per person",
+          "right": "Stops a big city looking worse"
         },
         {
-          "id": "c",
-          "label": "It divides deaths by the number of older residents",
-          "correct": false,
-          "rationale": "It works age group by age group, then uses one standard mix for every place."
-        },
-        {
-          "id": "d",
-          "label": "It leaves out any county with many retirees",
-          "correct": false,
-          "rationale": "No county is dropped; the adjustment evens out the ages instead."
+          "left": "An age-adjusted rate",
+          "right": "Stops an older county looking worse"
         }
       ],
-      "explanation": "Rates are worked out for each age group, then combined with the same standard age mix, so age can't make one place look worse.",
+      "explanation": "A confounder is also called a lurking variable. A rate per person stops a big city looking worse just for having more people, and an age-adjusted rate stops an older county looking worse.",
       "difficulty": 0.4
     },
     {

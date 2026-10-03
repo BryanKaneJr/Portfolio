@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 46,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Roman Homes",
   "objective": "After this level you can describe Roman houses and apartment blocks.",
@@ -125,41 +125,35 @@
     },
     {
       "id": "question.architecture.046.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.home_roman_insula"
       ],
       "sourceCardIds": [
-        "card.architecture.046.c4"
+        "card.architecture.046.c4",
+        "card.architecture.046.c2"
       ],
-      "prompt": "Why was life harder on an insula's upper floors?",
-      "options": [
+      "prompt": "Match each part of a Roman domus with what it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Piped water reached only the lower apartments",
-          "correct": true
+          "left": "Atrium",
+          "right": "An open central court"
         },
         {
-          "id": "b",
-          "label": "The law banned families above the third floor",
-          "correct": false,
-          "rationale": "The problem was water and safety, not a ban."
+          "left": "Compluvium",
+          "right": "An opening in the roof"
         },
         {
-          "id": "c",
-          "label": "Upper floors had no windows at all",
-          "correct": false,
-          "rationale": "Homes took light from the street and a court."
+          "left": "Impluvium",
+          "right": "A marble basin"
         },
         {
-          "id": "d",
-          "label": "Only shops were allowed upstairs",
-          "correct": false,
-          "rationale": "Shops were at street level."
+          "left": "Peristyle",
+          "right": "A colonnaded court"
         }
       ],
-      "explanation": "Water reached only the lower apartments, so upper residents relied on public facilities, and collapse and fire were constant dangers.",
+      "explanation": "The atrium is an open central court, the compluvium is an opening in the roof above it, the impluvium is a marble basin below it, and the peristyle is a colonnaded court farther in.",
       "difficulty": 0.2
     },
     {

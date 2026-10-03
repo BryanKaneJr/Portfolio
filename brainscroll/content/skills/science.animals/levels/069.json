@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 69,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Senses We Lack",
   "objective": "After this level you can describe animal senses we lack, like sensing electricity.",
@@ -133,41 +133,37 @@
     },
     {
       "id": "question.animals.069.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.senses_beyond_human"
       ],
       "sourceCardIds": [
-        "card.animals.069.c5"
+        "card.animals.069.c5",
+        "card.animals.069.c2",
+        "card.animals.069.c3",
+        "card.animals.069.c4"
       ],
-      "prompt": "Why is a wolf easy for a reindeer to spot on snow?",
-      "options": [
+      "prompt": "Match each animal with the extra sense it uses.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Wolves smell strongly of urine",
-          "correct": false,
-          "rationale": "It's about sight, not smell."
+          "left": "Sharks and rays",
+          "right": "Electric fields"
         },
         {
-          "id": "b",
-          "label": "Its fur absorbs UV and looks dark against the snow",
-          "correct": true
+          "left": "Pit vipers",
+          "right": "Infrared"
         },
         {
-          "id": "c",
-          "label": "Reindeer sense the wolf's electric field",
-          "correct": false,
-          "rationale": "That's the shark's sense."
+          "left": "Sea turtles",
+          "right": "Earth's magnetic field"
         },
         {
-          "id": "d",
-          "label": "Wolves give off infrared the reindeer can see",
-          "correct": false,
-          "rationale": "Reindeer see ultraviolet, not infrared."
+          "left": "Reindeer",
+          "right": "Ultraviolet light"
         }
       ],
-      "explanation": "Reindeer see UV; wolf fur absorbs it, so it looks dark on the snow.",
+      "explanation": "Sharks and rays sense electric fields, pit vipers sense infrared, sea turtles navigate by Earth's magnetic field, and reindeer see ultraviolet light.",
       "difficulty": 0.3
     },
     {

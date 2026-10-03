@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 92,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How Chatbots Work",
   "objective": "After this level you can explain in simple terms how language models predict text.",
@@ -173,7 +173,7 @@
     },
     {
       "id": "question.everyday_technology.092.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.everyday_technology.chatbot_next_token",
@@ -182,35 +182,18 @@
       "sourceCardIds": [
         "card.everyday_technology.092.c2",
         "card.everyday_technology.092.c3",
-        "card.everyday_technology.042.c3"
+        "card.everyday_technology.042.c3",
+        "card.everyday_technology.092.c4"
       ],
-      "prompt": "Level 42's Morse code was built on how often letters appear in English. What does a language model practice on its huge training text?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Giving the commonest letters the shortest codes",
-          "correct": false,
-          "rationale": "That's Morse's design, not a language model's."
-        },
-        {
-          "id": "b",
-          "label": "Checking which statements are true",
-          "correct": false,
-          "rationale": "It predicts text; it doesn't check facts."
-        },
-        {
-          "id": "c",
-          "label": "Predicting what comes next",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Memorizing a fixed script for each question",
-          "correct": false,
-          "rationale": "There's no script inside, only predictions."
-        }
+      "prompt": "Put these moments in the story of chatbots in order, from earliest to latest.",
+      "items": [
+        "The transformer",
+        "OpenAI introduced ChatGPT",
+        "A US federal judge fined two lawyers"
       ],
-      "explanation": "In training, a model works through huge amounts of text practicing predicting the next token.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The transformer design was introduced in 2017, OpenAI introduced ChatGPT in November 2022, and a US federal judge fined two lawyers over made-up cases in June 2023.",
       "difficulty": 0.4
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 32,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Quran",
   "objective": "After this level you can explain how the Quran is organized into suras and why Muslims treat its recitation in Arabic as central.",
@@ -131,41 +131,36 @@
     },
     {
       "id": "question.religions.032.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.quran_structure"
       ],
       "sourceCardIds": [
-        "card.religions.032.c2"
+        "card.religions.032.c2",
+        "card.religions.032.c1",
+        "card.religions.032.c4"
       ],
-      "prompt": "How are the Quran's suras arranged?",
-      "options": [
+      "prompt": "Match each word about the Quran with its meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "In the order Muhammad received them",
-          "correct": false,
-          "rationale": "The order isn't the order of revelation."
+          "left": "Quran",
+          "right": "Recitation"
         },
         {
-          "id": "b",
-          "label": "Alphabetically by their Arabic names",
-          "correct": false,
-          "rationale": "Length, not the alphabet, sets the order."
+          "left": "Sura",
+          "right": "Chapter"
         },
         {
-          "id": "c",
-          "label": "Roughly from longest to shortest, after a short opening",
-          "correct": true
+          "left": "Aya",
+          "right": "Verse"
         },
         {
-          "id": "d",
-          "label": "By the city where each was revealed",
-          "correct": false,
-          "rationale": "Length, not place, sets the order."
+          "left": "Hafiz",
+          "right": "Learns the whole Quran by heart"
         }
       ],
-      "explanation": "After the short opening sura, the suras run roughly from longest to shortest, not in the order of revelation.",
+      "explanation": "Quran means \"recitation\", a sura is a chapter, an aya is a verse, and a hafiz is someone who learns the whole Quran by heart.",
       "difficulty": 0.3
     },
     {

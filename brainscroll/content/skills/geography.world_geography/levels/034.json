@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 34,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Rain Shadows",
   "objective": "After this level you can explain why one side of a mountain range can be wet and the other dry.",
@@ -122,41 +122,25 @@
     },
     {
       "id": "question.world_geography.034.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.rain_shadow"
       ],
       "sourceCardIds": [
-        "card.world_geography.034.c2"
+        "card.world_geography.034.c2",
+        "card.world_geography.034.c3"
       ],
-      "prompt": "Why does air rising over a mountain drop rain?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Mountains attract clouds with gravity",
-          "correct": false,
-          "rationale": "The air is pushed up by the wind, not pulled."
-        },
-        {
-          "id": "b",
-          "label": "Rising air warms and melts the snow",
-          "correct": false,
-          "rationale": "Rising air cools; it doesn't warm."
-        },
-        {
-          "id": "c",
-          "label": "The air speeds up and sheds water",
-          "correct": false,
-          "rationale": "Speed isn't what wrings the water out."
-        },
-        {
-          "id": "d",
-          "label": "It cools, and cool air holds less moisture",
-          "correct": true
-        }
+      "prompt": "Put the air's trip over a mountain in order, from first to last.",
+      "items": [
+        "Expands and cools",
+        "Water vapor condenses into clouds",
+        "Falls as rain or snow",
+        "Sinks down the far side"
       ],
-      "explanation": "As air is forced upward it expands and cools. Cool air holds less moisture, so the vapor condenses into clouds and rain.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Rising air expands and cools, its water vapor condenses into clouds and falls as rain or snow on the windward side. Then the dried air sinks down the far side.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 38,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Mozart",
   "objective": "After this level you can describe Mozart's life and music.",
@@ -137,41 +137,27 @@
     },
     {
       "id": "question.music.038.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.mozart_myths"
       ],
       "sourceCardIds": [
-        "card.music.038.c5"
+        "card.music.038.c5",
+        "card.music.038.c2",
+        "card.music.038.c3"
       ],
-      "prompt": "What did a 2010 analysis of about 40 studies conclude about the \"Mozart effect\"?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Mozart raises IQ for life",
-          "correct": false,
-          "rationale": "No lasting or general IQ boost was found."
-        },
-        {
-          "id": "b",
-          "label": "It works only for babies",
-          "correct": false,
-          "rationale": "The studies found no Mozart-specific effect."
-        },
-        {
-          "id": "c",
-          "label": "It works only with the Requiem",
-          "correct": false,
-          "rationale": "No Mozart piece gave a specific boost."
-        },
-        {
-          "id": "d",
-          "label": "No support for a Mozart-specific boost",
-          "correct": true
-        }
+      "prompt": "Put these moments in Mozart's life in order, from earliest to latest.",
+      "items": [
+        "Born in Salzburg",
+        "Tours of Europe",
+        "The Marriage of Figaro",
+        "Don Giovanni",
+        "The Magic Flute"
       ],
-      "explanation": "Pooling about 40 studies with over 3,000 people, researchers found no support for a Mozart-specific gain.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Mozart was born in Salzburg in 1756 and began his tours of Europe in 1763. Then came The Marriage of Figaro (1786), Don Giovanni (1787) and The Magic Flute (1791).",
       "difficulty": 0.3
     },
     {

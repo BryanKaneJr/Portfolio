@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 84,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "New Zealand",
   "objective": "After this level you can explain how moving plates shaped New Zealand's mountains and hot springs.",
@@ -126,41 +126,32 @@
     },
     {
       "id": "question.world_geography.084.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.nz_plate_boundary"
       ],
       "sourceCardIds": [
-        "card.world_geography.084.c3"
+        "card.world_geography.084.c3",
+        "card.world_geography.084.c2",
+        "card.world_geography.084.c4"
       ],
-      "prompt": "The Southern Alps are still being pushed up. Why aren't they getting much taller?",
-      "options": [
+      "prompt": "Match each New Zealand place with its fact.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The plates have stopped moving",
-          "correct": false,
-          "rationale": "They're still rising about 7 mm a year."
+          "left": "Alpine Fault",
+          "right": "Where the two plates meet"
         },
         {
-          "id": "b",
-          "label": "The mountains are sinking into the sea",
-          "correct": false,
-          "rationale": "They're rising, not sinking."
+          "left": "Aoraki/Mount Cook",
+          "right": "The highest peak"
         },
         {
-          "id": "c",
-          "label": "Erosion wears them down about as fast as they rise",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Volcanoes keep blowing their tops off",
-          "correct": false,
-          "rationale": "The Southern Alps are pushed up by the plates, not built by volcanoes."
+          "left": "Rotorua",
+          "right": "Geysers and hot springs"
         }
       ],
-      "explanation": "The Alps rise about 7 mm a year, but erosion wears them down at a similar rate, like walking up a down escalator.",
+      "explanation": "The Alpine Fault is where the two plates meet. Aoraki/Mount Cook is the highest peak of the Southern Alps. Geysers and hot springs bubble around Rotorua.",
       "difficulty": 0.3
     },
     {

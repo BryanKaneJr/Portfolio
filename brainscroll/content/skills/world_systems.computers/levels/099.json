@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 99,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Your Checklist for Tech Claims",
   "objective": "After this level you can run any claim about a gadget, app or AI through a short set of questions: how it works, who says so, and what it costs you.",
@@ -135,42 +135,33 @@
     },
     {
       "id": "question.computers.099.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.techcheck_claim_checklist"
       ],
       "sourceCardIds": [
         "card.computers.099.c4",
-        "card.computers.099.c1"
+        "card.computers.099.c1",
+        "card.computers.099.c2",
+        "card.computers.099.c3"
       ],
-      "prompt": "A new app offers free, unlimited cloud storage for all your photos. Which checklist question matters most before you upload?",
-      "options": [
+      "prompt": "Match each part of the VPN check with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "What does it cost you: how does it make money, perhaps from your data?",
-          "correct": true
+          "left": "A VPN",
+          "right": "An encrypted tunnel"
         },
         {
-          "id": "b",
-          "label": "How many colors does its logo use, and are they pleasant?",
-          "correct": false,
-          "rationale": "That tells you nothing about the deal."
+          "left": "The Electronic Frontier Foundation",
+          "right": "A digital-rights nonprofit"
         },
         {
-          "id": "c",
-          "label": "Is it faster at uploading than the app you use now?",
-          "correct": false,
-          "rationale": "Speed doesn't reveal the hidden price."
-        },
-        {
-          "id": "d",
-          "label": "Does it have a friendly mascot and a nice design?",
-          "correct": false,
-          "rationale": "Branding says nothing about data use."
+          "left": "Some free VPNs",
+          "right": "Selling users' data"
         }
       ],
-      "explanation": "When a service is free, ask what you hand over instead: money, data or trust.",
+      "explanation": "A VPN routes your traffic through an encrypted tunnel, the Electronic Frontier Foundation is a digital-rights nonprofit, and some free VPNs make their money by selling users' data.",
       "difficulty": 0.35
     },
     {

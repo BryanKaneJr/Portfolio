@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 78,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Antibiotics",
   "objective": "After this level you can explain how antibiotics kill bacteria and why resistance matters.",
@@ -134,41 +134,37 @@
     },
     {
       "id": "question.everyday_technology.078.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.antibiotic_resistance"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.078.c3"
+        "card.everyday_technology.078.c3",
+        "card.everyday_technology.078.c1",
+        "card.everyday_technology.078.c2",
+        "card.everyday_technology.078.c4"
       ],
-      "prompt": "What does antibiotic resistance actually mean?",
-      "options": [
+      "prompt": "Match each part of the antibiotics story with its detail.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The bacteria can defeat the drug",
-          "correct": true
+          "left": "Alexander Fleming",
+          "right": "Penicillium mold"
         },
         {
-          "id": "b",
-          "label": "Your body has become used to the drug",
-          "correct": false,
-          "rationale": "Resistance is in the germs, not your body."
+          "left": "Viruses",
+          "right": "Antibiotics don't work on them"
         },
         {
-          "id": "c",
-          "label": "The drug has passed its expiry date",
-          "correct": false,
-          "rationale": "Resistance is about the bacteria changing."
+          "left": "Antibiotic resistance",
+          "right": "The germs change"
         },
         {
-          "id": "d",
-          "label": "Viruses have learned to eat the drug",
-          "correct": false,
-          "rationale": "Antibiotics don't work on viruses at all."
+          "left": "WHO",
+          "right": "About 1 in 6"
         }
       ],
-      "explanation": "Resistance happens when germs develop the ability to defeat the drugs designed to kill them; it doesn't mean your body is resistant.",
+      "explanation": "Alexander Fleming noticed the Penicillium mold, antibiotics don't work on viruses, antibiotic resistance means the germs change, and WHO found about 1 in 6 infections resisted antibiotics in 2023.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 56,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Don Quixote",
   "objective": "After this level you can explain why Cervantes' tale of a man who reads too many knightly romances is called the first modern novel.",
@@ -88,41 +88,36 @@
   "questions": [
     {
       "id": "question.literature.056.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.literature.quixote_story"
       ],
       "sourceCardIds": [
-        "card.literature.056.c2"
+        "card.literature.056.c2",
+        "card.literature.056.c3",
+        "card.literature.056.c4"
       ],
-      "prompt": "In Don Quixote's most famous scene, what does he charge, believing them to be giants?",
-      "options": [
+      "prompt": "Match each thing in Don Quixote with what goes with it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A flock of sheep",
-          "correct": false,
-          "rationale": "The famous scene is the windmills."
+          "left": "Windmills",
+          "right": "Giants"
         },
         {
-          "id": "b",
-          "label": "A row of windmills",
-          "correct": true
+          "left": "Don Quixote",
+          "right": "Lofty idealism"
         },
         {
-          "id": "c",
-          "label": "A castle wall",
-          "correct": false,
-          "rationale": "Not in this scene."
+          "left": "Sancho Panza",
+          "right": "Common sense"
         },
         {
-          "id": "d",
-          "label": "Sancho Panza's donkey",
-          "correct": false,
-          "rationale": "Sancho is his squire, not his enemy."
+          "left": "Avellaneda",
+          "right": "A spurious sequel"
         }
       ],
-      "explanation": "Don Quixote sees a row of windmills, decides they are giants, and charges them.",
+      "explanation": "Don Quixote decides the windmills are giants. His lofty idealism meets Sancho Panza's common sense, and Avellaneda wrote a spurious sequel.",
       "difficulty": 0.1
     },
     {

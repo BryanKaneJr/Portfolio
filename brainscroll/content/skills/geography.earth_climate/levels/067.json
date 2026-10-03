@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 67,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Why Category Isn't Everything",
   "objective": "After this level you can explain what the Saffir-Simpson scale measures and why water, not wind, causes most hurricane deaths.",
@@ -129,41 +129,31 @@
     },
     {
       "id": "question.earth_climate.067.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.storm_hurricane_water_hazard"
       ],
       "sourceCardIds": [
-        "card.earth_climate.067.c4"
+        "card.earth_climate.067.c4",
+        "card.earth_climate.067.c2"
       ],
-      "prompt": "A large, slow Category 1 hurricane stalls over hilly land. Why can it still cause deadly flooding?",
-      "options": [
+      "prompt": "Match each part of the Saffir-Simpson scale with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Rainfall depends on speed, size and terrain, not category",
-          "correct": true
+          "left": "Category 1",
+          "right": "74 to 95 mph"
         },
         {
-          "id": "b",
-          "label": "Category 1 storms always bring more rain than Category 5",
-          "correct": false,
-          "rationale": "Rain is not tied to category either way."
+          "left": "Category 5",
+          "right": "157 mph or more"
         },
         {
-          "id": "c",
-          "label": "Its winds pile up river water inland",
-          "correct": false,
-          "rationale": "Inland flooding here comes from rain."
-        },
-        {
-          "id": "d",
-          "label": "Stalling raises it to a higher category",
-          "correct": false,
-          "rationale": "Category depends only on sustained wind."
+          "left": "Category 3 and up",
+          "right": "Major hurricanes"
         }
       ],
-      "explanation": "Slower, larger storms produce more rain, and mountains enhance it, whatever the category.",
+      "explanation": "Category 1 runs from 74 to 95 mph, Category 5 means 157 mph or more, and Category 3 and up count as major hurricanes.",
       "difficulty": 0.35
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 18,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Bell Curve",
   "objective": "After this level you can describe the bell curve, where most values bunch near the middle, and name everyday measurements that follow it.",
@@ -90,42 +90,32 @@
   "questions": [
     {
       "id": "question.probability.018.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.spread_bell_curve"
       ],
       "sourceCardIds": [
         "card.probability.018.c2",
-        "card.probability.018.c3"
+        "card.probability.018.c3",
+        "card.probability.018.c4"
       ],
-      "prompt": "On a bell curve, where do most of the values sit?",
-      "options": [
+      "prompt": "On a bell curve, match each distance from the mean with the share of values inside it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Bunched at the low end, with a long tail to the right",
-          "correct": false,
-          "rationale": "That is a skewed shape, like income."
+          "left": "Within one standard deviation",
+          "right": "About 68%"
         },
         {
-          "id": "b",
-          "label": "Near the middle, with fewer toward both edges",
-          "correct": true
+          "left": "Within two",
+          "right": "About 95%"
         },
         {
-          "id": "c",
-          "label": "Spread evenly across the whole range",
-          "correct": false,
-          "rationale": "A bell has a hump in the middle, not a flat top."
-        },
-        {
-          "id": "d",
-          "label": "Mostly out at the two ends",
-          "correct": false,
-          "rationale": "The ends are the thin tails."
+          "left": "Within three",
+          "right": "About 99.7%"
         }
       ],
-      "explanation": "Like Quetelet's chest sizes, most values bunch near the middle and thin out evenly on both sides.",
+      "explanation": "About 68% of values fall within one standard deviation of the mean, about 95% within two, and about 99.7% within three.",
       "difficulty": 0.15
     },
     {

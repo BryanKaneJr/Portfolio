@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 98,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Organ Transplants",
   "objective": "After this level you can explain how organ transplants work and why matching matters.",
@@ -129,39 +129,33 @@
     },
     {
       "id": "question.human_body.098.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.health_transplant_rejection"
       ],
       "sourceCardIds": [
         "card.human_body.098.c4",
-        "card.human_body.098.c2"
+        "card.human_body.098.c2",
+        "card.human_body.098.c3"
       ],
-      "prompt": "Why do most transplant recipients take immunosuppressant medicines for the rest of their lives?",
-      "options": [
+      "prompt": "Match each transplant term with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "To keep the immune system from attacking the new organ",
-          "correct": true
+          "left": "Antigens",
+          "right": "Proteins on their surfaces"
         },
         {
-          "id": "b",
-          "label": "To help the new organ grow bigger",
-          "correct": false,
-          "rationale": "Their job is to calm the immune system."
+          "left": "Rejection",
+          "right": "The immune system can attack it"
         },
         {
-          "id": "c",
-          "label": "To change the recipient's blood type",
-          "correct": false,
-          "rationale": "Blood type is matched beforehand, not changed."
+          "left": "Immunosuppressant medicines",
+          "right": "Hold off the attack"
         },
         {
-          "id": "d",
-          "label": "To fight off the donor's germs",
-          "correct": false,
-          "rationale": "They damp down the immune system, not boost it."
+          "left": "Joseph Murray",
+          "right": "First successful human organ transplant"
         }
       ],
       "explanation": "The immune system can attack the donor organ's foreign antigens; immunosuppressants hold that attack off.",

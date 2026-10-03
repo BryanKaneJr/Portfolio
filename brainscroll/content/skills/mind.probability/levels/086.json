@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 86,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Test Enough Things, Something Wins",
   "objective": "After this level you can explain why testing many ideas at once guarantees some \"significant\" flukes, and how p-hacking exploits that.",
@@ -120,42 +120,32 @@
     },
     {
       "id": "question.probability.086.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.trap_multiple_testing"
       ],
       "sourceCardIds": [
         "card.probability.086.c2",
-        "card.probability.086.c4"
+        "card.probability.086.c4",
+        "card.probability.086.c3"
       ],
-      "prompt": "A study checks 20 foods, finds 1 \"significantly\" linked to headaches at the 5% level, and reports only that one. What's the best reading?",
-      "options": [
+      "prompt": "Match each with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "That food causes headaches",
-          "correct": false,
-          "rationale": "One hit in 20 tries is what luck alone tends to give."
+          "left": "Run 100 tests",
+          "right": "About 5 flukes"
         },
         {
-          "id": "b",
-          "label": "The other 19 foods are proven safe",
-          "correct": false,
-          "rationale": "Not passing a test doesn't prove safety."
+          "left": "A correction",
+          "right": "Raises the bar when you run many tests"
         },
         {
-          "id": "c",
-          "label": "About 1 fluke in 20 was expected, so it may be chance",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The result is 95% certain to be true",
-          "correct": false,
-          "rationale": "A 5% bar isn't a 95% chance the finding is true."
+          "left": "P-hacking",
+          "right": "Reporting only the winners"
         }
       ],
-      "explanation": "At a 5% bar, 20 tests of nothing are expected to give about 1 fluke. Reporting only the winner hides that.",
+      "explanation": "Run 100 tests where nothing is happening and about 5 flukes pass at the 5% bar. A correction raises the bar when you run many tests, and p-hacking means reporting only the winners.",
       "difficulty": 0.5
     },
     {

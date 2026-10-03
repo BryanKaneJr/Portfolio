@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 15,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "From Temple to Rabbis",
   "objective": "After this level you can explain how rabbis, synagogues and the Talmud let Judaism thrive without a Temple, in a worldwide diaspora.",
@@ -144,41 +144,35 @@
     },
     {
       "id": "question.religions.015.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.judaism_synagogue"
       ],
       "sourceCardIds": [
-        "card.religions.015.c3"
+        "card.religions.015.c3",
+        "card.religions.015.c4"
       ],
-      "prompt": "How could synagogue worship go on without the Temple's priests?",
-      "options": [
+      "prompt": "Match each term from rabbinic Judaism with its meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Rabbis took over the sacrifices in each town",
-          "correct": false,
-          "rationale": "Synagogue worship has no sacrifice."
+          "left": "Minyan",
+          "right": "A quorum of ten"
         },
         {
-          "id": "b",
-          "label": "Its worship has no sacrifice, so it needs no priest",
-          "correct": true
+          "left": "Rabbi",
+          "right": "My teacher"
         },
         {
-          "id": "c",
-          "label": "Priests moved into every synagogue in the Diaspora",
-          "correct": false,
-          "rationale": "No priesthood is required for it."
+          "left": "Mishnah",
+          "right": "Jewish oral law"
         },
         {
-          "id": "d",
-          "label": "Worship paused until a new Temple could be built",
-          "correct": false,
-          "rationale": "Worship went on in synagogues."
+          "left": "Gemara",
+          "right": "A commentary"
         }
       ],
-      "explanation": "Synagogue liturgy contains no sacrifice, so no priesthood is required for public worship.",
+      "explanation": "A minyan is a quorum of ten, rabbi means \"my teacher\", the Mishnah is the oldest authoritative collection of Jewish oral law, and the Gemara is a commentary on it.",
       "difficulty": 0.3
     },
     {

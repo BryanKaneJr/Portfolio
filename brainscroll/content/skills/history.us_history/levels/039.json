@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 39,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The War of 1812",
   "objective": "After this level you can explain why the US fought Britain again in 1812 and how the war ended Tecumseh's hope of a Native confederacy.",
@@ -137,41 +137,28 @@
     },
     {
       "id": "question.us_history.039.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.us_history.republic_tecumseh_confederacy"
       ],
       "sourceCardIds": [
-        "card.us_history.039.c3"
+        "card.us_history.039.c3",
+        "card.us_history.039.c2",
+        "card.us_history.039.c4",
+        "card.us_history.039.c5"
       ],
-      "prompt": "How did Tecumseh hope to protect Native lands and cultures?",
-      "options": [
-        {
-          "id": "a",
-          "label": "By uniting many Native nations in one alliance",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "By selling the land before settlers arrived",
-          "correct": false,
-          "rationale": "He urged nations to unite to protect their lands."
-        },
-        {
-          "id": "c",
-          "label": "By joining the US Army",
-          "correct": false,
-          "rationale": "He allied with Britain."
-        },
-        {
-          "id": "d",
-          "label": "By moving all the nations west of the Rockies",
-          "correct": false,
-          "rationale": "He urged them to unite and hold their lands."
-        }
+      "prompt": "Put these events around the War of 1812 in order, from earliest to latest.",
+      "items": [
+        "Founded Prophetstown",
+        "The Battle of Tippecanoe",
+        "Declaration of war against Britain",
+        "The Battle of the Thames",
+        "The Treaty of Ghent"
       ],
-      "explanation": "Tecumseh urged nations from Canada to the Gulf of Mexico to set aside rivalries and unite.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Prophetstown was founded in 1808 and destroyed at Tippecanoe in 1811. Madison declared war in June 1812, Tecumseh was killed at the Thames in 1813, and the Treaty of Ghent was signed in 1814.",
       "difficulty": 0.3
     },
     {

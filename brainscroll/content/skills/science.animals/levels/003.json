@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 3,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Backbone or Not",
   "objective": "After this level you can tell vertebrates, which have backbones, from invertebrates.",
@@ -169,7 +169,7 @@
     },
     {
       "id": "question.animals.003.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.invertebrate_majority",
@@ -179,33 +179,22 @@
         "card.animals.003.c4",
         "card.animals.002.c2"
       ],
-      "prompt": "Level 2 counted about 1.5 million described animal species. Roughly how many of them are vertebrates?",
-      "options": [
+      "prompt": "Match each group with its count in IUCN's 2025 table.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "About 7,600",
-          "correct": false,
-          "rationale": "Ten times too few."
+          "left": "Described animal species",
+          "right": "About 1.55 million"
         },
         {
-          "id": "b",
-          "label": "About 76,000",
-          "correct": true
+          "left": "Vertebrates",
+          "right": "About 76,000"
         },
         {
-          "id": "c",
-          "label": "About 760,000",
-          "correct": false,
-          "rationale": "That would be half; it's closer to 1 in 20."
-        },
-        {
-          "id": "d",
-          "label": "About 1.4 million",
-          "correct": false,
-          "rationale": "That's roughly the invertebrates."
+          "left": "Invertebrates",
+          "right": "About 95 percent"
         }
       ],
-      "explanation": "About 76,000 of IUCN's roughly 1.55 million described animal species are vertebrates, about 1 in 20.",
+      "explanation": "Of about 1.55 million described animal species, only about 76,000 are vertebrates. About 95 percent are invertebrates.",
       "difficulty": 0.25
     }
   ],

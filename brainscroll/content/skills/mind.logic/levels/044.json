@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 44,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Hidden Third Factor",
   "objective": "After this level you can explain how a confounder, like hot weather, can drive two things at once and fake a link between them.",
@@ -126,41 +126,31 @@
     },
     {
       "id": "question.logic.044.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.causal_confounder"
       ],
       "sourceCardIds": [
-        "card.logic.044.c2"
+        "card.logic.044.c2",
+        "card.logic.044.c3"
       ],
-      "prompt": "Why do ice cream and sunscreen sales rise and fall together?",
-      "options": [
+      "prompt": "Match each pair that goes together with the third factor behind it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Buying sunscreen makes people hungry",
-          "correct": false,
-          "rationale": "Neither causes the other."
+          "left": "Ice cream and sunscreen sales",
+          "right": "Hotter weather"
         },
         {
-          "id": "b",
-          "label": "Shops sell them side by side",
-          "correct": false,
-          "rationale": "Shelf placement isn't what the example shows."
+          "left": "A runny nose goes with watery eyes",
+          "right": "A cold"
         },
         {
-          "id": "c",
-          "label": "Ice cream makes skin burn faster",
-          "correct": false,
-          "rationale": "There's no such effect; the weather drives both."
-        },
-        {
-          "id": "d",
-          "label": "Hot weather drives up both",
-          "correct": true
+          "left": "Bigger popcorn harvests",
+          "right": "Storms"
         }
       ],
-      "explanation": "The season is the hidden factor: hotter weather brings more of both, and neither causes the other.",
+      "explanation": "Hotter weather drives ice cream and sunscreen sales. A cold causes both a runny nose and watery eyes. Storms bring both the lightning and the rain behind bigger popcorn harvests.",
       "difficulty": 0.2
     },
     {

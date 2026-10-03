@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 82,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Grid Cities",
   "objective": "After this level you can explain grid street plans from ancient cities to New York.",
@@ -86,41 +86,37 @@
   "questions": [
     {
       "id": "question.architecture.082.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.cities_grid_plan"
       ],
       "sourceCardIds": [
-        "card.architecture.082.c3"
+        "card.architecture.082.c3",
+        "card.architecture.082.c1",
+        "card.architecture.082.c2",
+        "card.architecture.082.c4"
       ],
-      "prompt": "Why did William Penn's 1682 grid for Philadelphia spread west with American pioneers?",
-      "options": [
+      "prompt": "Match each grid-city name with its place or people.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It copied the street layout of ancient Roman towns",
-          "correct": false,
-          "rationale": "Roman towns used grids too, but that's not why it spread."
+          "left": "Mohenjo-daro",
+          "right": "Indus civilization"
         },
         {
-          "id": "b",
-          "label": "It was the only plan American surveyors were taught",
-          "correct": false,
-          "rationale": "Surveyors knew other plans; the grid was simply the easiest."
+          "left": "Hippodamus of Miletus",
+          "right": "Piraeus"
         },
         {
-          "id": "c",
-          "label": "It made every street easier to defend in wartime",
-          "correct": false,
-          "rationale": "Grids weren't chosen for defense here."
+          "left": "William Penn",
+          "right": "Philadelphia"
         },
         {
-          "id": "d",
-          "label": "It was the simplest way to divide surveyed land",
-          "correct": true
+          "left": "The 1811 commissioners",
+          "right": "Manhattan"
         }
       ],
-      "explanation": "Penn's grid traveled west because it was the simplest method of dividing surveyed territory.",
+      "explanation": "Mohenjo-daro was the largest city of the Indus civilization. Hippodamus of Miletus laid out Piraeus, William Penn gave Philadelphia its grid, and the 1811 commissioners drew the grid over Manhattan.",
       "difficulty": 0.2
     },
     {

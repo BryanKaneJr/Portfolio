@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 42,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Sharks",
   "objective": "After this level you can describe sharks and their senses.",
@@ -130,41 +130,31 @@
     },
     {
       "id": "question.animals.042.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.shark_senses"
       ],
       "sourceCardIds": [
-        "card.animals.042.c3"
+        "card.animals.042.c3",
+        "card.animals.042.c2"
       ],
-      "prompt": "How does a shark's lateral line help it sense its surroundings?",
-      "options": [
+      "prompt": "Match each shark feature with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It smells blood from far away",
-          "correct": false,
-          "rationale": "That's the shark's nose."
+          "left": "Skeleton",
+          "right": "Cartilage"
         },
         {
-          "id": "b",
-          "label": "It lets the shark see in color",
-          "correct": false,
-          "rationale": "Seeing is the eyes' job."
+          "left": "Lateral line",
+          "right": "Changes in pressure"
         },
         {
-          "id": "c",
-          "label": "It tastes chemicals in the water",
-          "correct": false,
-          "rationale": "Taste and smell handle chemicals."
-        },
-        {
-          "id": "d",
-          "label": "Its pores let cells detect pressure changes",
-          "correct": true
+          "left": "Shark senses",
+          "right": "Eight"
         }
       ],
-      "explanation": "Water flowing through the lateral line's pores lets sensory cells pick up pressure changes.",
+      "explanation": "A shark's skeleton is cartilage, its lateral line picks up changes in pressure, and NOAA counts eight shark senses.",
       "difficulty": 0.25
     },
     {

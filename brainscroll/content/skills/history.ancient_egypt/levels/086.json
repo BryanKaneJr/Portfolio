@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 86,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Alexandria",
   "objective": "After this level you can describe Alexandria’s lighthouse and library.",
@@ -91,41 +91,36 @@
   "questions": [
     {
       "id": "question.ancient_egypt.086.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_egypt.alexandria_lighthouse_library"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.086.c2"
+        "card.ancient_egypt.086.c2",
+        "card.ancient_egypt.086.c3",
+        "card.ancient_egypt.086.c4"
       ],
-      "prompt": "What made the Pharos of Alexandria stand out in its day?",
-      "options": [
+      "prompt": "Match each name or date with its link to Alexandria’s lighthouse and library.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It was the tomb built for Alexander the Great",
-          "correct": false,
-          "rationale": "It was a lighthouse on Pharos island."
+          "left": "Qaitbay",
+          "right": "Built a fort from its ruins"
         },
         {
-          "id": "b",
-          "label": "It held the library’s scrolls in its tower",
-          "correct": false,
-          "rationale": "The library was a separate institution."
+          "left": "Demetrius of Phaleron",
+          "right": "Found a library"
         },
         {
-          "id": "c",
-          "label": "It was over 110 metres tall, with a fire on top",
-          "correct": true
+          "left": "Mouseion",
+          "right": "A research institute for scholars"
         },
         {
-          "id": "d",
-          "label": "It was the main temple of the god Serapis",
-          "correct": false,
-          "rationale": "It was a lighthouse, not a temple."
+          "left": "48 BCE",
+          "right": "Julius Caesar’s civil war"
         }
       ],
-      "explanation": "The lighthouse rose more than 110 metres, with a fire burning at the top at night; it was one of the Seven Wonders.",
+      "explanation": "The sultan Qaitbay built a fort from the lighthouse’s ruins. Ptolemy I had Demetrius of Phaleron found a library and the Mouseion, a research institute for scholars. In 48 BCE, during Julius Caesar’s civil war, part of the library was damaged.",
       "difficulty": 0.25
     },
     {

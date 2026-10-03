@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 57,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Cold Fronts and Warm Fronts",
   "objective": "After this level you can explain why the weather changes as a cold or warm front passes over you.",
@@ -173,7 +173,7 @@
     },
     {
       "id": "question.earth_climate.057.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.earth_climate.weather_warm_front",
@@ -183,33 +183,15 @@
         "card.earth_climate.057.c3",
         "card.earth_climate.053.c3"
       ],
-      "prompt": "Level 53 said thickening cirrus can mean a warm front is coming. Why do high clouds show up first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The warm air rises over the cold air, so clouds form high above",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Cold air at the ground freezes clouds into cirrus",
-          "correct": false,
-          "rationale": "The clouds form in the rising warm air."
-        },
-        {
-          "id": "c",
-          "label": "Warm fronts only ever make high clouds",
-          "correct": false,
-          "rationale": "The clouds lower as the front gets closer, and rain follows."
-        },
-        {
-          "id": "d",
-          "label": "The jet stream blows cirrus ahead of every storm",
-          "correct": false,
-          "rationale": "The card explains it with warm air sliding up over cold air."
-        }
+      "prompt": "Put the signs of an approaching warm front in order.",
+      "items": [
+        "High cirrus and cirrostratus",
+        "The clouds lower",
+        "Rain becomes likely"
       ],
-      "explanation": "At a warm front, warm air slides up over the cold air ahead of it, so clouds form high in the warm air first and lower as the front nears.",
+      "first": "First sign",
+      "last": "Last",
+      "explanation": "High cirrus and cirrostratus come first, then the clouds lower as the front gets closer, and then rain becomes likely.",
       "difficulty": 0.35
     }
   ],

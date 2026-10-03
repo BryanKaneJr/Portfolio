@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 1,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Probability & Statistics: The Big Picture",
   "objective": "After this level you can explain the two big jobs of this tree: describing many cases with a few numbers, and measuring how likely things are.",
@@ -169,7 +169,7 @@
     },
     {
       "id": "question.probability.001.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.probability.pascal_fermat_letters",
@@ -177,35 +177,25 @@
       ],
       "sourceCardIds": [
         "card.probability.001.c3",
-        "card.probability.001.c4"
+        "card.probability.001.c4",
+        "card.probability.001.c2"
       ],
-      "prompt": "Pascal and Fermat's puzzle about splitting the pot of an unfinished game belongs to which job?",
-      "options": [
+      "prompt": "Match each person with the job their work started.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Describing many cases with a few numbers",
-          "correct": false,
-          "rationale": "That's Graunt's job, statistics."
+          "left": "John Graunt",
+          "right": "Statistics"
         },
         {
-          "id": "b",
-          "label": "Measuring how likely things are",
-          "correct": true
+          "left": "Blaise Pascal",
+          "right": "Probability"
         },
         {
-          "id": "c",
-          "label": "Counting christenings and burials",
-          "correct": false,
-          "rationale": "That's the Bills of Mortality, Graunt's data."
-        },
-        {
-          "id": "d",
-          "label": "Neither: it was only about gambling",
-          "correct": false,
-          "rationale": "Their answer laid the foundation of probability."
+          "left": "Pierre de Fermat",
+          "right": "Probability"
         }
       ],
-      "explanation": "Splitting the pot fairly meant working out how likely each player was to win: the job of probability.",
+      "explanation": "John Graunt summed up London's lists of the dead, which is statistics. Blaise Pascal and Pierre de Fermat worked out how likely things are, which is probability.",
       "difficulty": 0.25
     }
   ],

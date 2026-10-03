@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 31,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Hutton Discovers Deep Time",
   "objective": "After this level you can explain how James Hutton read tilted rock layers to argue that Earth is immensely old.",
@@ -127,7 +127,7 @@
     },
     {
       "id": "question.earth_climate.031.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.deeptime_unconformity",
@@ -136,33 +136,16 @@
       "sourceCardIds": [
         "card.earth_climate.031.c4"
       ],
-      "prompt": "How did Hutton explain the vertical layers at Siccar Point?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They formed standing up, the way they are now",
-          "correct": false,
-          "rationale": "Sediment settles in flat layers, so they must have been tilted."
-        },
-        {
-          "id": "b",
-          "label": "One giant earthquake flipped the cliff overnight",
-          "correct": false,
-          "rationale": "Hutton saw a sequence of slow steps, not one sudden event."
-        },
-        {
-          "id": "c",
-          "label": "Flat layers were tilted, raised, worn down, then buried by new layers",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Red sandstone melted and hardened into vertical layers",
-          "correct": false,
-          "rationale": "Nothing melted: the layers were tilted and eroded."
-        }
+      "prompt": "Put Hutton's story of Siccar Point in order.",
+      "items": [
+        "Laid flat",
+        "Tilted up",
+        "Worn down",
+        "Buried again"
       ],
-      "explanation": "Flat layers were tilted and raised, eroded, then submerged and buried under new horizontal layers, each step slow.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The layers were laid flat under the sea, tilted up, worn down by erosion and then buried again under new flat layers.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 19,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Domesday Book",
   "objective": "After this level you can explain why William the Conqueror surveyed all of England.",
@@ -160,43 +160,28 @@
     },
     {
       "id": "question.middle_ages.019.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.domesday_survey",
         "concept.middle_ages.norman_conquest_1066"
       ],
       "sourceCardIds": [
+        "card.middle_ages.019.c2",
+        "card.middle_ages.019.c4",
+        "card.middle_ages.018.c5",
         "card.middle_ages.019.c3",
         "card.middle_ages.018.c4"
       ],
-      "prompt": "Domesday compared each manor’s worth in 1066 and in 1086. Why start from 1066?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It was the year Alfred died",
-          "correct": false,
-          "rationale": "Alfred died in 899."
-        },
-        {
-          "id": "b",
-          "label": "It was when the survey was ordered",
-          "correct": false,
-          "rationale": "That was Christmas 1085."
-        },
-        {
-          "id": "c",
-          "label": "It was the year of the Norman Conquest",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It was when the Danelaw began",
-          "correct": false,
-          "rationale": "That was 886."
-        }
+      "prompt": "Put these in order, from earliest to latest.",
+      "items": [
+        "William was crowned king",
+        "William ordered a survey of England",
+        "A scarier name: Domesday"
       ],
-      "explanation": "The survey showed how England had changed since William’s conquest at Hastings in 1066.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "William was crowned king at Christmas 1066, ordered a survey of England at Christmas 1085, and by the mid-12th century the record had a scarier name: Domesday.",
       "difficulty": 0.3
     }
   ],

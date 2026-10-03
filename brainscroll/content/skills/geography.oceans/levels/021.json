@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 21,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How Waves Form",
   "objective": "After this level you can explain how wind makes waves.",
@@ -96,41 +96,32 @@
   "questions": [
     {
       "id": "question.oceans.021.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.oceans.wave_wind_recipe"
       ],
       "sourceCardIds": [
-        "card.oceans.021.c2"
+        "card.oceans.021.c2",
+        "card.oceans.021.c1",
+        "card.oceans.021.c4"
       ],
-      "prompt": "Which three things decide how big wind-driven waves can grow?",
-      "options": [
+      "prompt": "Match each wave term or scientist with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Water temperature, saltiness and depth",
-          "correct": false,
-          "rationale": "None of these is in the recipe; wind is."
+          "left": "Fetch",
+          "right": "The distance it travels over water"
         },
         {
-          "id": "b",
-          "label": "Wind speed, how long it blows, and the fetch",
-          "correct": true
+          "left": "Swell",
+          "right": "Waves that leave the wind that made them"
         },
         {
-          "id": "c",
-          "label": "Wind direction, air pressure and the Moon",
-          "correct": false,
-          "rationale": "The Moon makes tides, not wind waves."
-        },
-        {
-          "id": "d",
-          "label": "Wind speed alone",
-          "correct": false,
-          "rationale": "Speed alone isn't enough; time and fetch count too."
+          "left": "Walter Munk",
+          "right": "Followed waves across the entire Pacific"
         }
       ],
-      "explanation": "Wave size depends on wind speed, how long the wind blows, and the fetch; large waves need all three.",
+      "explanation": "Fetch is the distance the wind travels over water. Swell is waves that leave the wind that made them. Walter Munk followed waves across the entire Pacific.",
       "difficulty": 0.15
     },
     {

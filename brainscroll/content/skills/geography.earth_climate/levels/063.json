@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 63,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How Hail Grows",
   "objective": "After this level you can explain how strong updrafts keep hailstones aloft long enough to grow layer by layer.",
@@ -87,41 +87,31 @@
   "questions": [
     {
       "id": "question.earth_climate.063.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.earth_climate.storm_hail_growth"
       ],
       "sourceCardIds": [
-        "card.earth_climate.063.c2"
+        "card.earth_climate.063.c2",
+        "card.earth_climate.063.c4"
       ],
-      "prompt": "What does a hailstone grow by colliding with inside a thunderstorm?",
-      "options": [
+      "prompt": "Match each hail term with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Snowflakes that stick together",
-          "correct": false,
-          "rationale": "Hail grows from freezing water, not stacked snowflakes."
+          "left": "Milky layer",
+          "right": "Dry growth"
         },
         {
-          "id": "b",
-          "label": "Supercooled water that freezes on contact",
-          "correct": true
+          "left": "Clear layer",
+          "right": "Wet growth"
         },
         {
-          "id": "c",
-          "label": "Dust blown up from the ground",
-          "correct": false,
-          "rationale": "Dust can start ice, but the stone grows from supercooled water."
-        },
-        {
-          "id": "d",
-          "label": "Warm raindrops rising from below",
-          "correct": false,
-          "rationale": "The growing water is below freezing, not warm."
+          "left": "Supercooled water",
+          "right": "Freezes the moment it touches ice"
         }
       ],
-      "explanation": "Supercooled water stays liquid below freezing and freezes the moment it touches the hailstone.",
+      "explanation": "A milky layer comes from dry growth, a clear layer from wet growth, and supercooled water freezes the moment it touches ice.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 42,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Maslow's Pyramid",
   "objective": "After this level you can explain Maslow's hierarchy of needs and what later research changed about it.",
@@ -126,41 +126,27 @@
     },
     {
       "id": "question.psychology.042.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.psychology.maslow_evidence"
       ],
       "sourceCardIds": [
-        "card.psychology.042.c3"
+        "card.psychology.042.c1",
+        "card.psychology.042.c2",
+        "card.psychology.042.c3",
+        "card.psychology.042.c4"
       ],
-      "prompt": "Why is the famous pyramid a misleading picture of what Maslow proposed?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Maslow drew it upside down in his 1943 paper",
-          "correct": false,
-          "rationale": "He never drew a pyramid at all."
-        },
-        {
-          "id": "b",
-          "label": "He said the order was not rigid, and never drew it",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "He put self-actualization at the bottom",
-          "correct": false,
-          "rationale": "It was at the top of his list."
-        },
-        {
-          "id": "d",
-          "label": "He listed only two needs, not five",
-          "correct": false,
-          "rationale": "He listed five kinds of need."
-        }
+      "prompt": "Put these people's work on the hierarchy of needs in order, from earliest to latest.",
+      "items": [
+        "Abraham Maslow",
+        "Charles McDermid",
+        "Louis Tay and Ed Diener",
+        "Todd Bridgman"
       ],
-      "explanation": "Maslow never drew a pyramid (Charles McDermid did, in 1960), and he wrote that the order is \"not nearly as rigid\" as it might sound.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Maslow proposed his needs in 1943, Charles McDermid's article with the pyramid came in 1960, Tay and Diener studied 123 countries in 2011, and Bridgman's team traced the pyramid in 2019.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 20,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Judaism",
   "objective": "After this level you can explain how Jewish belief, scripture, law and practice fit together, from Abraham to Jewish life today.",
@@ -171,7 +171,7 @@
   "questions": [
     {
       "id": "question.religions.020.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.religions.judaism_first_temple",
@@ -182,33 +182,17 @@
         "card.religions.014.c2",
         "card.religions.014.c4"
       ],
-      "prompt": "Put these in order: Cyrus lets the exiles return, Rome destroys the Second Temple, Babylon destroys the First Temple.",
-      "options": [
-        {
-          "id": "a",
-          "label": "Rome, then Babylon, then Cyrus",
-          "correct": false,
-          "rationale": "Rome came last, in 70 CE."
-        },
-        {
-          "id": "b",
-          "label": "Cyrus, then Babylon, then Rome",
-          "correct": false,
-          "rationale": "The exile (586 BCE) came before the return (538 BCE)."
-        },
-        {
-          "id": "c",
-          "label": "Babylon, then Cyrus, then Rome",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Babylon, then Rome, then Cyrus",
-          "correct": false,
-          "rationale": "Cyrus (538 BCE) came before Rome (70 CE)."
-        }
+      "prompt": "Put these moments in Jewish history in order, from earliest to latest.",
+      "items": [
+        "Solomon's First Temple completed",
+        "Babylon destroys the First Temple",
+        "Cyrus lets the exiles return",
+        "Rome destroys the Second Temple",
+        "Babylonian Talmud completed"
       ],
-      "explanation": "586 BCE, then 538 BCE, then 70 CE.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The First Temple was completed in 957 BCE and destroyed by Babylon in 586 BCE. Cyrus let the exiles return in 538 BCE, Rome destroyed the Second Temple in 70 CE, and the Babylonian Talmud was completed about 600 CE.",
       "difficulty": 0.3
     },
     {

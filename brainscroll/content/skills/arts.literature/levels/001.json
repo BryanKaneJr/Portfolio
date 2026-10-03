@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 1,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Literature: The Big Picture",
   "objective": "After this level you can explain what literature is and trace its path from spoken myths to the modern novel.",
@@ -183,42 +183,32 @@
     },
     {
       "id": "question.literature.001.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.literature.story_forms_path"
       ],
       "sourceCardIds": [
         "card.literature.001.c4",
-        "card.literature.001.c3"
+        "card.literature.001.c3",
+        "card.literature.001.c1"
       ],
-      "prompt": "The Tale of Genji is a novel; Homer's Iliad is an epic. What sets the novel apart?",
-      "options": [
+      "prompt": "Match each word about literature's forms with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It is a long poem about heroic deeds",
-          "correct": false,
-          "rationale": "That describes the epic."
+          "left": "Littera",
+          "right": "A letter of the alphabet"
         },
         {
-          "id": "b",
-          "label": "It is always a true story",
-          "correct": false,
-          "rationale": "A novel is invented."
+          "left": "Epic",
+          "right": "Long poems about heroic deeds"
         },
         {
-          "id": "c",
-          "label": "It was sung by oral poets",
-          "correct": false,
-          "rationale": "That's how Homer's epics took shape."
-        },
-        {
-          "id": "d",
-          "label": "It is an invented story in prose",
-          "correct": true
+          "left": "Novel",
+          "right": "An invented story in prose"
         }
       ],
-      "explanation": "An epic is a long narrative poem about heroic deeds; a novel is an invented prose story that often shows life as unheroic and imperfect.",
+      "explanation": "Littera is Latin for a letter of the alphabet. An epic is a long poem about heroic deeds, and a novel is an invented story in prose.",
       "difficulty": 0.25
     }
   ],

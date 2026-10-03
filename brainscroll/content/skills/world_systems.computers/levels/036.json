@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 36,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Layers: Envelopes in Envelopes",
   "objective": "After this level you can explain how internet protocols wrap data in layers, each layer doing one job for the one above.",
@@ -91,7 +91,7 @@
   "questions": [
     {
       "id": "question.computers.036.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.net_protocol_layers"
@@ -99,33 +99,16 @@
       "sourceCardIds": [
         "card.computers.036.c2"
       ],
-      "prompt": "In the internet's four-layer model, which layer does IP belong to?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The application layer",
-          "correct": false,
-          "rationale": "That holds the program's own message."
-        },
-        {
-          "id": "b",
-          "label": "The transport layer",
-          "correct": false,
-          "rationale": "That is where TCP and UDP live."
-        },
-        {
-          "id": "c",
-          "label": "The internet layer",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The link layer",
-          "correct": false,
-          "rationale": "That handles the local network being crossed."
-        }
+      "prompt": "Put the internet's four layers in order, from the program's message down to the local network.",
+      "items": [
+        "Application",
+        "Transport",
+        "Internet",
+        "Link"
       ],
-      "explanation": "IP is the internet layer: it moves data from the source computer to the destination computer across networks.",
+      "first": "Top layer",
+      "last": "Bottom layer",
+      "explanation": "From the top: the application layer holds the program's message, transport carries it end to end, internet moves it between computers, and link handles the local network.",
       "difficulty": 0.2
     },
     {

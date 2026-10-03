@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 23,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Little Albert and Learned Fear",
   "objective": "After this level you can explain how Watson conditioned fear in an infant and why the study is criticized today.",
@@ -136,41 +136,27 @@
     },
     {
       "id": "question.psychology.023.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.psychology.conditioning_stimulus_generalization"
       ],
       "sourceCardIds": [
-        "card.psychology.023.c3"
+        "card.psychology.023.c2",
+        "card.psychology.023.c3",
+        "card.psychology.023.c4"
       ],
-      "prompt": "How did Albert come to fear a fur coat that was never paired with the bang?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He was conditioned separately to the coat",
-          "correct": false,
-          "rationale": "None of the furry objects was paired with the bang."
-        },
-        {
-          "id": "b",
-          "label": "His fear went through extinction",
-          "correct": false,
-          "rationale": "Extinction weakens a response; it doesn't spread it."
-        },
-        {
-          "id": "c",
-          "label": "He copied an adult's fear of the coat",
-          "correct": false,
-          "rationale": "No one showed fear of it for him to copy."
-        },
-        {
-          "id": "d",
-          "label": "His fear generalized to similar furry things",
-          "correct": true
-        }
+      "prompt": "Put the Little Albert study in order, from first to last.",
+      "items": [
+        "Albert wasn't afraid of a white rat",
+        "Watson struck the bar",
+        "The rat alone frightened him",
+        "Afraid of other furry things",
+        "Albert left the hospital"
       ],
-      "explanation": "Stimulus generalization spread the conditioned fear from the rat to things that resembled it.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "At first Albert wasn't afraid of the rat. Watson struck the bar each time he touched it, until the rat alone frightened him. Days later he feared other furry things, then left the hospital.",
       "difficulty": 0.2
     },
     {

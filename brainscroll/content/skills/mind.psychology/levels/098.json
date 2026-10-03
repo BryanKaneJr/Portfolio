@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 98,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Power Posing: Rise and Fall",
   "objective": "After this level you can trace how the power posing finding spread and weigh what replications later showed.",
@@ -87,41 +87,24 @@
   "questions": [
     {
       "id": "question.psychology.098.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.powerpose_fall"
       ],
       "sourceCardIds": [
+        "card.psychology.098.c2",
         "card.psychology.098.c3"
       ],
-      "prompt": "What did Eva Ranehill's 2015 replication, with 200 people, find about power posing?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Bigger hormone changes than the original study",
-          "correct": false,
-          "rationale": "No hormone effects appeared."
-        },
-        {
-          "id": "b",
-          "label": "No hormone or risk effects, but people felt more powerful",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "No effects of any kind, even on feelings",
-          "correct": false,
-          "rationale": "People did report feeling more powerful."
-        },
-        {
-          "id": "d",
-          "label": "The same testosterone rise reported in 2010",
-          "correct": false,
-          "rationale": "The hormone effects didn't replicate."
-        }
+      "prompt": "Put the power posing story in order, from earliest to latest.",
+      "items": [
+        "Dana Carney, Amy Cuddy and Andy Yap",
+        "Cuddy's TED talk",
+        "Eva Ranehill and colleagues"
       ],
-      "explanation": "Ranehill's larger test found no hormone or risk-taking effects, only a boost in how powerful people said they felt.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Carney, Cuddy and Yap published the original study in 2010, Cuddy's TED talk came in 2012, and Ranehill's team found no hormone or risk effects in 2015.",
       "difficulty": 0.3
     },
     {

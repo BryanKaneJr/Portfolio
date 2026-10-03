@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 2,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Branches of Philosophy",
   "objective": "After this level you can name the main branches of philosophy (metaphysics, epistemology, ethics, logic, aesthetics and political philosophy) and the question each one asks.",
@@ -188,7 +188,7 @@
     },
     {
       "id": "question.philosophy.002.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.branches",
@@ -196,35 +196,29 @@
       ],
       "sourceCardIds": [
         "card.philosophy.002.c2",
-        "card.philosophy.001.c2"
+        "card.philosophy.001.c2",
+        "card.philosophy.002.c4"
       ],
-      "prompt": "Level 1 said philosophers ask whether a law is fair. Which of these branches asks whether an action is right or wrong?",
-      "options": [
+      "prompt": "Match each branch of philosophy with a question or topic it covers.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Logic",
-          "correct": false,
-          "rationale": "Logic studies reasoning."
+          "left": "Metaphysics",
+          "right": "What sorts of things exist?"
         },
         {
-          "id": "b",
-          "label": "Epistemology",
-          "correct": false,
-          "rationale": "Epistemology studies knowledge."
+          "left": "Epistemology",
+          "right": "What is knowledge?"
         },
         {
-          "id": "c",
-          "label": "Metaphysics",
-          "correct": false,
-          "rationale": "Metaphysics studies what exists."
+          "left": "Ethics",
+          "right": "What makes an action right or wrong?"
         },
         {
-          "id": "d",
-          "label": "Ethics",
-          "correct": true
+          "left": "Aesthetics",
+          "right": "The theory of beauty"
         }
       ],
-      "explanation": "Ethics, or moral philosophy, asks what makes actions right or wrong and what makes a life good.",
+      "explanation": "Metaphysics asks what sorts of things exist, epistemology asks what knowledge is, ethics asks what makes an action right or wrong, and aesthetics is the theory of beauty.",
       "difficulty": 0.2
     }
   ],

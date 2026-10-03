@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 43,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Deep Sea",
   "objective": "After this level you can describe animals that live in the dark deep ocean.",
@@ -129,41 +129,32 @@
     },
     {
       "id": "question.animals.043.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.deep_sea_bioluminescence"
       ],
       "sourceCardIds": [
-        "card.animals.043.c4"
+        "card.animals.043.c4",
+        "card.animals.043.c1",
+        "card.animals.043.c3"
       ],
-      "prompt": "What makes a female anglerfish's lure glow?",
-      "options": [
+      "prompt": "Match each deep-sea term with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Bacteria living inside it",
-          "correct": true
+          "left": "Below 1,000 meters",
+          "right": "The sun never shows up"
         },
         {
-          "id": "b",
-          "label": "Sunlight reflected from above",
-          "correct": false,
-          "rationale": "Sunlight never reaches that deep."
+          "left": "Esca",
+          "right": "Dangling from a fishing rod"
         },
         {
-          "id": "c",
-          "label": "Heat from its warm blood",
-          "correct": false,
-          "rationale": "The light comes from bacteria."
-        },
-        {
-          "id": "d",
-          "label": "Tiny sparks of electricity",
-          "correct": false,
-          "rationale": "The glow is bacterial bioluminescence."
+          "left": "Bioluminescence",
+          "right": "Make their own light"
         }
       ],
-      "explanation": "The esca glows because bioluminescent bacteria live inside it.",
+      "explanation": "Below 1,000 meters the sun never shows up. The anglerfish's esca dangles from a fishing rod above its mouth, and bioluminescence means animals make their own light.",
       "difficulty": 0.2
     },
     {

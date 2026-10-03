@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 46,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Regulations",
   "objective": "After this level you can explain how government agencies write detailed rules.",
@@ -165,7 +165,7 @@
     },
     {
       "id": "question.government.046.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.government.lawmaking_regulations_us_rulemaking",
@@ -175,33 +175,16 @@
         "card.government.046.c3",
         "card.government.003.c3"
       ],
-      "prompt": "Level 3 called authority power that people accept as legitimate. What gives a US agency its authority to issue regulations?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The number of public comments it receives",
-          "correct": false,
-          "rationale": "Comments inform a rule; they don't authorize it."
-        },
-        {
-          "id": "b",
-          "label": "The personal charisma of the agency's head",
-          "correct": false,
-          "rationale": "That would be Weber's charismatic authority, not the source here."
-        },
-        {
-          "id": "c",
-          "label": "A law enacted by Congress",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The Code of Federal Regulations itself",
-          "correct": false,
-          "rationale": "The Code records final rules; it doesn't grant the power."
-        }
+      "prompt": "Put the steps of US federal rulemaking in order, from first to last.",
+      "items": [
+        "A proposed rule",
+        "Public comments",
+        "A final rule",
+        "Code of Federal Regulations"
       ],
-      "explanation": "Agencies get their authority to issue regulations from laws enacted by Congress, and must not go beyond it.",
+      "first": "First step",
+      "last": "Last step",
+      "explanation": "An agency publishes a proposed rule, takes public comments, then publishes a final rule, which goes into the Code of Federal Regulations.",
       "difficulty": 0.3
     }
   ],

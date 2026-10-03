@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 56,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Film Noir",
   "objective": "After this level you can explain why film noir's shadowy crime stories flourished in the 1940s and what gave them their dark look.",
@@ -86,41 +86,31 @@
   "questions": [
     {
       "id": "question.film_tv.056.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.genre_noir_look"
       ],
       "sourceCardIds": [
-        "card.film_tv.056.c1"
+        "card.film_tv.056.c1",
+        "card.film_tv.056.c3"
       ],
-      "prompt": "What does film noir mean, and who first used the term?",
-      "options": [
+      "prompt": "Match each term or film with what goes with it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Crime film; Hollywood studio publicists",
-          "correct": false,
-          "rationale": "The name came from France, not Hollywood."
+          "left": "Film noir",
+          "right": "Dark film"
         },
         {
-          "id": "b",
-          "label": "Dark film; French critics after World War II",
-          "correct": true
+          "left": "The Maltese Falcon",
+          "right": "Dashiell Hammett"
         },
         {
-          "id": "c",
-          "label": "Night film; German Expressionist directors",
-          "correct": false,
-          "rationale": "German Expressionism shaped the look, not the name."
-        },
-        {
-          "id": "d",
-          "label": "Black-and-white film; American newspaper critics",
-          "correct": false,
-          "rationale": "The term is French and means dark film."
+          "left": "Double Indemnity",
+          "right": "James M. Cain"
         }
       ],
-      "explanation": "French critics coined film noir, meaning dark film, after World War II.",
+      "explanation": "Film noir means dark film. The Maltese Falcon adapted Dashiell Hammett's novel, and Double Indemnity came from a novel by James M. Cain.",
       "difficulty": 0.2
     },
     {

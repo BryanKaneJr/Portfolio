@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 12,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Gross and Net Pay",
   "objective": "After this level you can explain why take-home pay is smaller than the salary on a job offer.",
@@ -129,7 +129,7 @@
     },
     {
       "id": "question.how_money_works.012.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.pay_deductions"
@@ -138,33 +138,22 @@
         "card.how_money_works.012.c3",
         "card.how_money_works.012.c4"
       ],
-      "prompt": "Why is your take-home pay smaller than your gross pay?",
-      "options": [
+      "prompt": "Match each payroll tax with the share of your paycheck it takes.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Your bank charges a fee to receive it",
-          "correct": false,
-          "rationale": "Banks don't take a cut of incoming pay."
+          "left": "Social Security",
+          "right": "6.2%"
         },
         {
-          "id": "b",
-          "label": "Your employer withholds taxes and other deductions first",
-          "correct": true
+          "left": "Medicare",
+          "right": "1.45%"
         },
         {
-          "id": "c",
-          "label": "Wages only count hours spent at your desk",
-          "correct": false,
-          "rationale": "Gross pay already covers what you earned."
-        },
-        {
-          "id": "d",
-          "label": "Gross pay includes your employer's share of tax",
-          "correct": false,
-          "rationale": "The employer's share is paid on top, not taken from you."
+          "left": "Payroll taxes",
+          "right": "7.65%"
         }
       ],
-      "explanation": "Employers withhold payroll taxes and income tax, plus any retirement or health deductions, before paying you.",
+      "explanation": "Social Security takes 6.2% and Medicare takes 1.45%, so payroll taxes take 7.65% in all, before income tax and other deductions.",
       "difficulty": 0.2
     },
     {

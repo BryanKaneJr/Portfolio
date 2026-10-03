@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 85,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Stress Lives in the Appraisal",
   "objective": "After this level you can explain how the way you judge a demand and your resources shapes how stressful it feels.",
@@ -91,41 +91,35 @@
   "questions": [
     {
       "id": "question.psychology.085.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.stress_appraisal"
       ],
       "sourceCardIds": [
-        "card.psychology.085.c2"
+        "card.psychology.085.c2",
+        "card.psychology.085.c3"
       ],
-      "prompt": "In Lazarus and Folkman's model, what does the secondary appraisal judge?",
-      "options": [
+      "prompt": "Match each stress term with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Whether the event happened at all",
-          "correct": false,
-          "rationale": "Both appraisals assume the event is real."
+          "left": "Primary appraisal",
+          "right": "How much harm or threat"
         },
         {
-          "id": "b",
-          "label": "How much harm or threat the event holds",
-          "correct": false,
-          "rationale": "That is the primary appraisal."
+          "left": "Secondary appraisal",
+          "right": "What options do I have to cope"
         },
         {
-          "id": "c",
-          "label": "The options for coping and how well they'll work",
-          "correct": true
+          "left": "Eustress",
+          "right": "Good stress that motivates performance"
         },
         {
-          "id": "d",
-          "label": "Whether other people are also stressed",
-          "correct": false,
-          "rationale": "The model focuses on your own judgments."
+          "left": "Distress",
+          "right": "Performance declines"
         }
       ],
-      "explanation": "The secondary appraisal weighs your options for coping and how effective they will be.",
+      "explanation": "A primary appraisal asks how much harm or threat an event holds; a secondary appraisal asks what options you have to cope. Eustress is good stress that motivates performance; with distress, performance declines.",
       "difficulty": 0.25
     },
     {

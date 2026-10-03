@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 62,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Why Elevators Mattered",
   "objective": "After this level you can explain how safe elevators made tall buildings possible.",
@@ -95,41 +95,26 @@
   "questions": [
     {
       "id": "question.architecture.062.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.sky_elevator_safety"
       ],
       "sourceCardIds": [
-        "card.architecture.062.c2"
+        "card.architecture.062.c2",
+        "card.architecture.062.c1",
+        "card.architecture.062.c3"
       ],
-      "prompt": "What did the 1857 passenger elevator in New York's Haughwout store make practical?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Iron and glass exhibition halls",
-          "correct": false,
-          "rationale": "The Crystal Palace was where Otis demonstrated, not what the elevator made practical."
-        },
-        {
-          "id": "b",
-          "label": "Buildings of more than four or five stories",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Houses with deep basements",
-          "correct": false,
-          "rationale": "It was about going up, not down."
-        },
-        {
-          "id": "d",
-          "label": "Brick walls thicker at the bottom",
-          "correct": false,
-          "rationale": "Thick walls were the old way to go tall, not the elevator's gift."
-        }
+      "prompt": "Put these elevator milestones in order, from earliest to latest.",
+      "items": [
+        "New York's Crystal Palace",
+        "The E.V. Haughwout store",
+        "Equitable Life Assurance Building",
+        "The sought-after penthouse"
       ],
-      "explanation": "The first safe passenger elevator (1857) made buildings of more than four or five stories practical.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Otis showed off his brake at New York's Crystal Palace in 1854. The first safe passenger elevator went into the E.V. Haughwout store in 1857, the Equitable Life Assurance Building followed in 1870, and by the 1920s the attic had become the sought-after penthouse.",
       "difficulty": 0.2
     },
     {

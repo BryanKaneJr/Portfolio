@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 47,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Beowulf",
   "objective": "After this level you can explain why Beowulf, which survives in a single manuscript, matters as the great epic of Old English.",
@@ -129,41 +129,24 @@
     },
     {
       "id": "question.literature.047.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.beowulf_story"
       ],
       "sourceCardIds": [
-        "card.literature.047.c4"
+        "card.literature.047.c4",
+        "card.literature.047.c2"
       ],
-      "prompt": "Why does Beowulf hold such a special place in English literature?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It was the first poem written in Latin in England",
-          "correct": false,
-          "rationale": "It's in Old English, a vernacular."
-        },
-        {
-          "id": "b",
-          "label": "It's Old English's highest achievement and Europe's earliest vernacular epic",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It's the only poem about Denmark ever written",
-          "correct": false,
-          "rationale": "Its setting is not what makes it special."
-        },
-        {
-          "id": "d",
-          "label": "It was written by King Hrothgar himself",
-          "correct": false,
-          "rationale": "Hrothgar is a character in the poem."
-        }
+      "prompt": "Put Beowulf's opponents in the order he fights them.",
+      "items": [
+        "Grendel",
+        "Grendel's mother",
+        "A fire-breathing dragon"
       ],
-      "explanation": "Beowulf is the highest achievement of Old English literature and the earliest European vernacular epic.",
+      "first": "First fight",
+      "last": "Last fight",
+      "explanation": "Beowulf fights the monster Grendel, then Grendel's mother, and much later, as an old king, a fire-breathing dragon.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 78,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "World War II",
   "objective": "After this level you can explain how the US fought and won World War II in Europe and the Pacific, from D-Day to Japan's surrender.",
@@ -137,41 +137,28 @@
     },
     {
       "id": "question.us_history.078.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.us_history.worldwar2_atomic_debate"
       ],
       "sourceCardIds": [
-        "card.us_history.078.c5"
+        "card.us_history.078.c5",
+        "card.us_history.078.c2",
+        "card.us_history.078.c3"
       ],
-      "prompt": "What do traditionalist and revisionist historians disagree about?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Whether the bombs were dropped at all",
-          "correct": false,
-          "rationale": "That isn't disputed."
-        },
-        {
-          "id": "b",
-          "label": "Which city was bombed first",
-          "correct": false,
-          "rationale": "Hiroshima, on August 6: not in dispute."
-        },
-        {
-          "id": "c",
-          "label": "Whether the bombs were needed to end the war without an invasion",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Whether Germany surrendered first",
-          "correct": false,
-          "rationale": "It did, in May 1945."
-        }
+      "prompt": "Put these World War II events in order, from earliest to latest.",
+      "items": [
+        "Midway",
+        "D-Day",
+        "Germany surrendered",
+        "Hiroshima",
+        "Nagasaki",
+        "Japan formally surrendered"
       ],
-      "explanation": "Traditionalists say the bombs saved American lives by preventing an invasion; revisionists say Japan was near surrender anyway.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Midway came in June 1942 and D-Day on June 6, 1944. Germany surrendered in May 1945, Hiroshima was bombed on August 6 and Nagasaki on August 9, and Japan formally surrendered on September 2, 1945.",
       "difficulty": 0.4
     },
     {

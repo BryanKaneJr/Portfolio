@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 40,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Getting Around",
   "objective": "After this level you can explain how planes, trains, ships and satellites move people and find the way.",
@@ -191,7 +191,7 @@
     },
     {
       "id": "question.everyday_technology.040.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.transport_propeller",
@@ -201,33 +201,22 @@
         "card.everyday_technology.040.c3",
         "card.everyday_technology.040.c2"
       ],
-      "prompt": "Why is a propeller useless for flying in space?",
-      "options": [
+      "prompt": "Match each engine from Chapter 4 with what it pushes against.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Space is too cold for its blades",
-          "correct": false,
-          "rationale": "Temperature isn't the problem."
+          "left": "Jet engines",
+          "right": "Air"
         },
         {
-          "id": "b",
-          "label": "Its engine has no oxidizer",
-          "correct": false,
-          "rationale": "Even with power, it would have nothing to push."
+          "left": "Ship propellers",
+          "right": "Water"
         },
         {
-          "id": "c",
-          "label": "There is no air for it to throw backward",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Gravity is too strong up there",
-          "correct": false,
-          "rationale": "Gravity isn't what stops a propeller."
+          "left": "Rockets",
+          "right": "Its own exhaust"
         }
       ],
-      "explanation": "A propeller makes thrust by throwing air backward; in space there is no air, so there is nothing to push.",
+      "explanation": "Jet engines throw air backward, ship propellers throw water backward, and rockets push on their own exhaust.",
       "difficulty": 0.3
     },
     {

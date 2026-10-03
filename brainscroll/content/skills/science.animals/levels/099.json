@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 99,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Ideas From Animals",
   "objective": "After this level you can name inventions inspired by animals, like Velcro.",
@@ -91,42 +91,33 @@
   "questions": [
     {
       "id": "question.animals.099.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.animals.biomimicry_def"
       ],
       "sourceCardIds": [
         "card.animals.099.c2",
-        "card.animals.099.c1"
+        "card.animals.099.c1",
+        "card.animals.099.c3",
+        "card.animals.099.c4"
       ],
-      "prompt": "What gave George de Mestral the idea for Velcro?",
-      "options": [
+      "prompt": "Match each invention with the living thing it copied.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Burdock burrs covered in tiny hooks",
-          "correct": true
+          "left": "Velcro",
+          "right": "Burdock burrs"
         },
         {
-          "id": "b",
-          "label": "A gecko's sticky toes",
-          "correct": false,
-          "rationale": "Geckos inspired NASA's grippers."
+          "left": "500 Series",
+          "right": "Kingfisher"
         },
         {
-          "id": "c",
-          "label": "A kingfisher's beak",
-          "correct": false,
-          "rationale": "The kingfisher inspired a train's nose."
-        },
-        {
-          "id": "d",
-          "label": "Spider silk",
-          "correct": false,
-          "rationale": "The inspiration was burrs caught in his dog's fur."
+          "left": "Synthetic hairs",
+          "right": "Gecko"
         }
       ],
-      "explanation": "Burdock burrs stuck to his clothes and dog were covered in tiny hooks, the model for hook-and-loop fasteners.",
+      "explanation": "Velcro copied burdock burrs, the 500 Series Shinkansen's nose copied a kingfisher's beak, and JPL's synthetic hairs copied a gecko's toe pads.",
       "difficulty": 0.15
     },
     {

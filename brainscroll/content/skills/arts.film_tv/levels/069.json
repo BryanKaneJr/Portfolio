@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 69,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Film Festivals",
   "objective": "After this level you can explain what festivals like Venice and Cannes do and how they carry films from one country to the world.",
@@ -141,41 +141,26 @@
     },
     {
       "id": "question.film_tv.069.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.world_festival_marketplace"
       ],
       "sourceCardIds": [
-        "card.film_tv.069.c3"
+        "card.film_tv.069.c3",
+        "card.film_tv.069.c2"
       ],
-      "prompt": "How does a festival like Cannes help a film reach cinemas in other countries?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It pays to dub every winning film into dozens of languages",
-          "correct": false,
-          "rationale": "The level describes a market, not dubbing."
-        },
-        {
-          "id": "b",
-          "label": "It owns a chain of cinemas in countries around the world",
-          "correct": false,
-          "rationale": "Festivals connect films with distributors instead."
-        },
-        {
-          "id": "c",
-          "label": "Distributors watch films there and sign contracts to show them",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It broadcasts the winning films on television worldwide",
-          "correct": false,
-          "rationale": "The level describes contracts made at the market."
-        }
+      "prompt": "Put these festival moments in order, from earliest to latest.",
+      "items": [
+        "The Venice Film Festival",
+        "Germany invaded Poland",
+        "Its first Palme d'Or",
+        "Pather Panchali",
+        "The Marché du Film"
       ],
-      "explanation": "Cannes became a marketplace where producers and distributors view films and sign contracts; its Marché du Film became official in 1959.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Venice Film Festival was founded in 1932. Cannes was due to open in 1939, the day Germany invaded Poland. Cannes gave its first Palme d'Or in 1955, lifted Pather Panchali in 1956, and made the Marché du Film official in 1959.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 94,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Beyond Anxiety and Depression",
   "objective": "After this level you can explain in general terms what ADHD, OCD, PTSD and bipolar disorder are, and why casual labels mislead.",
@@ -113,41 +113,35 @@
   "questions": [
     {
       "id": "question.psychology.094.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.disorder_casual_labels"
       ],
       "sourceCardIds": [
-        "card.psychology.094.c2"
+        "card.psychology.094.c2",
+        "card.psychology.094.c3"
       ],
-      "prompt": "According to NIMH, what do people with OCD get from carrying out their compulsions?",
-      "options": [
+      "prompt": "Match each condition with one of its defining features.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Real enjoyment, like a favorite hobby",
-          "correct": false,
-          "rationale": "People with OCD don't get pleasure from compulsions."
+          "left": "OCD",
+          "right": "Only temporary relief from anxiety"
         },
         {
-          "id": "b",
-          "label": "Permanent freedom from the obsessions",
-          "correct": false,
-          "rationale": "The relief doesn't last."
+          "left": "ADHD",
+          "right": "Hyperactivity and impulsivity"
         },
         {
-          "id": "c",
-          "label": "Only temporary relief from anxiety",
-          "correct": true
+          "left": "Bipolar disorder",
+          "right": "Shifts in mood, energy and activity"
         },
         {
-          "id": "d",
-          "label": "A boost in focus and energy",
-          "correct": false,
-          "rationale": "That isn't what compulsions bring."
+          "left": "PTSD",
+          "right": "After a traumatic event"
         }
       ],
-      "explanation": "Compulsions bring no pleasure, only temporary relief from the anxiety that obsessions cause.",
+      "explanation": "People with OCD get only temporary relief from anxiety from compulsions. ADHD involves inattention, hyperactivity and impulsivity. Bipolar disorder brings clear shifts in mood, energy and activity. PTSD symptoms last after a traumatic event.",
       "difficulty": 0.3
     },
     {

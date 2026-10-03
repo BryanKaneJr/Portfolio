@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 87,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Faith and Nonviolent Protest",
   "objective": "After this level you can trace nonviolent protest from Jain and Hindu ahimsa through Gandhi to Martin Luther King Jr.'s Christian faith.",
@@ -130,41 +130,24 @@
     },
     {
       "id": "question.religions.087.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.nonviolence_king"
       ],
       "sourceCardIds": [
-        "card.religions.087.c4"
+        "card.religions.087.c4",
+        "card.religions.087.c3"
       ],
-      "prompt": "Why is it fair to call King's nonviolence both Christian and Gandhian?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He converted from Christianity to Jainism",
-          "correct": false,
-          "rationale": "King remained a Baptist minister."
-        },
-        {
-          "id": "b",
-          "label": "Gandhi wrote his sermons",
-          "correct": false,
-          "rationale": "King drew on Gandhi's method, not his sermons."
-        },
-        {
-          "id": "c",
-          "label": "Both men lived in Montgomery",
-          "correct": false,
-          "rationale": "Gandhi never lived there."
-        },
-        {
-          "id": "d",
-          "label": "His motive came from Christ, his method from Gandhi",
-          "correct": true
-        }
+      "prompt": "Put these milestones of nonviolent protest in order, from earliest to latest.",
+      "items": [
+        "Satyagraha",
+        "The Salt March",
+        "The Montgomery bus boycott"
       ],
-      "explanation": "King said Christ furnished the spirit and motivation while Gandhi furnished the method.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Gandhi conceived satyagraha in 1906, led the Salt March in 1930, and King put nonviolence to work in the Montgomery bus boycott of 1955 to 1956.",
       "difficulty": 0.3
     },
     {

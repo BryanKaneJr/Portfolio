@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 65,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How Ears Hear",
   "objective": "After this level you can explain how the ear turns sound waves into signals.",
@@ -87,40 +87,26 @@
   "questions": [
     {
       "id": "question.human_body.065.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.senses_hearing_path"
       ],
       "sourceCardIds": [
-        "card.human_body.065.c2"
+        "card.human_body.065.c2",
+        "card.human_body.065.c3"
       ],
-      "prompt": "What are the malleus, the incus and the stapes?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Three parts of the cochlea's membrane",
-          "correct": false,
-          "rationale": "The cochlea is in the inner ear, past the bones."
-        },
-        {
-          "id": "b",
-          "label": "Three tiny bones in the middle ear",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Three nerves leading to the brain",
-          "correct": false,
-          "rationale": "The auditory nerve carries the signal."
-        },
-        {
-          "id": "d",
-          "label": "Three layers of the eardrum",
-          "correct": false,
-          "rationale": "The eardrum passes vibrations to them."
-        }
+      "prompt": "Follow a sound into your ear: put these in order, from the air to the brain.",
+      "items": [
+        "Ear canal",
+        "Eardrum",
+        "Three tiny bones",
+        "Cochlea",
+        "Hair cells",
+        "Auditory nerve"
       ],
+      "first": "Sound arrives",
+      "last": "On the way to the brain",
       "explanation": "The malleus, incus and stapes are the middle ear's three tiny bones; they amplify the eardrum's vibrations and pass them to the cochlea.",
       "difficulty": 0.15
     },

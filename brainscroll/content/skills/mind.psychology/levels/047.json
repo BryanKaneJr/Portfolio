@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 47,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Does Smiling Make You Happier?",
   "objective": "After this level you can explain the facial feedback idea and why its replication record is mixed.",
@@ -130,42 +130,26 @@
     },
     {
       "id": "question.psychology.047.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.psychology.emotion_feedback_replication"
       ],
       "sourceCardIds": [
+        "card.psychology.047.c2",
         "card.psychology.047.c3",
         "card.psychology.047.c4"
       ],
-      "prompt": "Why is the facial feedback record called mixed rather than simply failed?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The pen study was never actually repeated",
-          "correct": false,
-          "rationale": "Seventeen labs repeated it in 2016."
-        },
-        {
-          "id": "b",
-          "label": "The 2016 replication found an even bigger effect",
-          "correct": false,
-          "rationale": "It found almost no effect."
-        },
-        {
-          "id": "c",
-          "label": "Every study since 1988 has found large effects",
-          "correct": false,
-          "rationale": "Effects have been small or missing."
-        },
-        {
-          "id": "d",
-          "label": "The pen study failed, but posed smiles still lifted happiness",
-          "correct": true
-        }
+      "prompt": "Put these facial feedback studies in order, from earliest to latest.",
+      "items": [
+        "Fritz Strack and colleagues",
+        "Eric-Jan Wagenmakers",
+        "Nicholas Coles",
+        "The Many Smiles Collaboration"
       ],
-      "explanation": "The pen effect shrank to almost nothing in 17 labs, yet a 2019 meta-analysis and the 2022 Many Smiles study found small effects of posed smiles.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Strack's pen study came in 1988, the 17-lab replication led by Wagenmakers in 2016, the meta-analysis led by Coles in 2019, and the Many Smiles Collaboration in 2022.",
       "difficulty": 0.3
     },
     {

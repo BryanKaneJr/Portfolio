@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 14,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Earthquakes",
   "objective": "After this level you can explain what causes earthquakes and how their size is measured.",
@@ -91,41 +91,31 @@
   "questions": [
     {
       "id": "question.world_geography.014.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.earthquake_cause"
       ],
       "sourceCardIds": [
-        "card.world_geography.014.c3"
+        "card.world_geography.014.c3",
+        "card.world_geography.014.c4"
       ],
-      "prompt": "What is the epicenter of an earthquake?",
-      "options": [
+      "prompt": "Match each earthquake term with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The point underground where the slip begins",
-          "correct": false,
-          "rationale": "That's the hypocenter."
+          "left": "Hypocenter",
+          "right": "Spot underground where the slip begins"
         },
         {
-          "id": "b",
-          "label": "The point on the surface directly above where it starts",
-          "correct": true
+          "left": "Epicenter",
+          "right": "Point on the surface directly above it"
         },
         {
-          "id": "c",
-          "label": "The place with the worst damage",
-          "correct": false,
-          "rationale": "Damage depends on more than location."
-        },
-        {
-          "id": "d",
-          "label": "The seismograph that records it first",
-          "correct": false,
-          "rationale": "Seismographs record it; they don't define it."
+          "left": "Each step up the magnitude scale",
+          "right": "About 32 times more energy"
         }
       ],
-      "explanation": "The hypocenter is where the slip starts underground; the epicenter is the surface point right above it.",
+      "explanation": "The hypocenter is the spot underground where the slip begins, and the epicenter is the point on the surface directly above it. Each step up the magnitude scale means about 32 times more energy.",
       "difficulty": 0.15
     },
     {

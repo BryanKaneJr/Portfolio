@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 19,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why Myths Rhyme",
   "objective": "After this level you can explain the main theories for why myths from distant places share patterns: shared roots, contact and shared human minds.",
@@ -101,42 +101,33 @@
   "questions": [
     {
       "id": "question.literature.019.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.literature.myth_rhyme_shared_roots"
       ],
       "sourceCardIds": [
         "card.literature.019.c1",
-        "card.literature.019.c2"
+        "card.literature.019.c2",
+        "card.literature.019.c3",
+        "card.literature.019.c4"
       ],
-      "prompt": "Dyaus, Zeus and Jupiter have names from one root. Which explanation does that support?",
-      "options": [
+      "prompt": "Match each explanation for why myths rhyme with its example.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Shared roots: a common origin",
-          "correct": true
+          "left": "Shared roots",
+          "right": "Dyaus, Zeus and Jupiter"
         },
         {
-          "id": "b",
-          "label": "Contact: one people borrowed it",
-          "correct": false,
-          "rationale": "The names grew from one ancestral root."
+          "left": "Contact",
+          "right": "Br'er Rabbit reached the Americas"
         },
         {
-          "id": "c",
-          "label": "Shared minds: elementary ideas",
-          "correct": false,
-          "rationale": "That explains patterns, not shared words."
-        },
-        {
-          "id": "d",
-          "label": "Pure coincidence",
-          "correct": false,
-          "rationale": "Cognate names aren't a coincidence."
+          "left": "Shared minds",
+          "right": "The earth diver"
         }
       ],
-      "explanation": "The three names are cognates from one Proto-Indo-European root: a shared inheritance.",
+      "explanation": "Dyaus, Zeus and Jupiter show shared roots. Br'er Rabbit reaching the Americas shows contact, and the earth diver arising again and again fits shared minds.",
       "difficulty": 0.2
     },
     {

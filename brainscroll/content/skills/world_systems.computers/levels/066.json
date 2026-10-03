@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 66,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Anonymous Data That Isn't",
   "objective": "After this level you can explain how combining a few details, like ZIP code, birth date and sex, can put a name back on \"anonymous\" data.",
@@ -124,7 +124,7 @@
     },
     {
       "id": "question.computers.066.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.privacy_reidentification"
@@ -132,33 +132,16 @@
       "sourceCardIds": [
         "card.computers.066.c2"
       ],
-      "prompt": "How did Sweeney put Governor Weld's name back on his 'anonymous' health record?",
-      "options": [
-        {
-          "id": "a",
-          "label": "She broke into the hospital's computer systems",
-          "correct": false,
-          "rationale": "She used data that was openly available."
-        },
-        {
-          "id": "b",
-          "label": "She asked the governor's office for his records",
-          "correct": false,
-          "rationale": "She needed no one's help: just two datasets."
-        },
-        {
-          "id": "c",
-          "label": "She guessed it from news reports of his illness",
-          "correct": false,
-          "rationale": "The match came from demographics, not news reports."
-        },
-        {
-          "id": "d",
-          "label": "She matched three details against a named voter list",
-          "correct": true
-        }
+      "prompt": "Put the steps of Sweeney's search for the governor in order, from the voter list to one name.",
+      "items": [
+        "Bought the voter list",
+        "Six Cambridge voters",
+        "Only three were men",
+        "Only he lived in his ZIP code"
       ],
-      "explanation": "Only one Cambridge voter had Weld's birth date, sex and ZIP code, so the voter list supplied the name.",
+      "first": "First",
+      "last": "One name left",
+      "explanation": "Sweeney bought the voter list. Six Cambridge voters shared Weld's birth date, only three were men, and only he lived in his ZIP code.",
       "difficulty": 0.3
     },
     {

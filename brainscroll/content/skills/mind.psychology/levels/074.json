@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 74,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why Bystanders Hesitate",
   "objective": "After this level you can explain the bystander effect and why the famous story of 38 silent witnesses was wrong.",
@@ -91,41 +91,27 @@
   "questions": [
     {
       "id": "question.psychology.074.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.social_bystander_effect"
       ],
       "sourceCardIds": [
-        "card.psychology.074.c2"
+        "card.psychology.074.c1",
+        "card.psychology.074.c2",
+        "card.psychology.074.c3",
+        "card.psychology.074.c4"
       ],
-      "prompt": "In Darley and Latane's intercom study, which students were least likely to report the seizure?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Those who thought they alone heard it",
-          "correct": false,
-          "rationale": "They were the most likely to report it."
-        },
-        {
-          "id": "b",
-          "label": "Those who thought one other person heard it",
-          "correct": false,
-          "rationale": "They fell in between."
-        },
-        {
-          "id": "c",
-          "label": "Those who had met the victim before",
-          "correct": false,
-          "rationale": "That wasn't what the study varied."
-        },
-        {
-          "id": "d",
-          "label": "Those who thought four others heard it",
-          "correct": true
-        }
+      "prompt": "Put these events in bystander research in order, from earliest to latest.",
+      "items": [
+        "Kitty Genovese was murdered",
+        "John Darley and Bibb Latane",
+        "Rachel Manning and colleagues",
+        "Peter Fischer"
       ],
-      "explanation": "Only 31 percent of students who thought four others were listening reported the seizure, against 85 percent of those who thought they were alone.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Kitty Genovese was murdered in 1964, Darley and Latane ran their intercom study in 1968, Manning's team checked the records in 2007, and Peter Fischer led a meta-analysis in 2011.",
       "difficulty": 0.2
     },
     {

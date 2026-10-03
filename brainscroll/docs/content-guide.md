@@ -75,6 +75,7 @@ Besides multiple choice (`"kind": "mcq"`), a question can be a **match** or an *
 - **Order** (`"kind": "order"`): `items` (3–6, each 40 characters or fewer) listed in the right order, and `first` / `last` naming the two ends ("Closest to the Sun", "Farthest"). The app jumbles them. Only sequences with exactly one right order that the cards state outright: distance, size, date, the steps of a process. Never "rank by importance", and no two items that could tie.
 - **Match** (`"kind": "match"`): `pairs` (3–4) of `{ "left", "right" }`, each side 40 characters or fewer. The left items must all differ. Only true one-to-one pairs stated on the cards (a thing and its defining feature, a term and its definition), where no other right-hand item could arguably fit.
 - Every label must appear on the question's `sourceCardIds` cards (the quality check warns otherwise): after a miss those cards must settle the whole answer. Use the cards' own wording.
+- Write the prompt to the learner about the topic ("Match each Magna Carta clause with what it did."), never about the app ("what the cards say", "this level"). Prompts must differ within a skill; the validator rejects a repeat.
 - The `explanation` states the whole right answer. There are no per-option rationales: a miss marks the wrong positions instead.
 - Converting a published question bumps the level's `revision`, like any content change.
 

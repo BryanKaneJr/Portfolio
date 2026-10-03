@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 21,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "What Banks Do",
   "objective": "After this level you can explain how banks take deposits and make loans.",
@@ -90,42 +90,23 @@
   "questions": [
     {
       "id": "question.how_money_works.021.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.banking_intermediary"
       ],
       "sourceCardIds": [
-        "card.how_money_works.021.c2",
-        "card.how_money_works.021.c3"
+        "card.how_money_works.021.c2"
       ],
-      "prompt": "At its core, what two things does a bank do?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Prints banknotes and sets shop prices",
-          "correct": false,
-          "rationale": "Banks take deposits and lend; they don't set shop prices."
-        },
-        {
-          "id": "b",
-          "label": "Collects taxes and pays pensions",
-          "correct": false,
-          "rationale": "That's government work, not a bank's core job."
-        },
-        {
-          "id": "c",
-          "label": "Accepts deposits and makes loans",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Buys gold and stores it in vaults",
-          "correct": false,
-          "rationale": "Storing gold isn't the heart of banking; lending deposits is."
-        }
+      "prompt": "Put the steps that turned money changers into bankers in order.",
+      "items": [
+        "Swapping coins for foreign merchants",
+        "Leaving money with them for safekeeping",
+        "Lent those deposits out"
       ],
-      "explanation": "A bank accepts deposits from savers and makes loans to borrowers: it is a financial intermediary.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Lombard money changers started out swapping coins for foreign merchants. Then clients began leaving money with them for safekeeping, and the changers lent those deposits out.",
       "difficulty": 0.1
     },
     {

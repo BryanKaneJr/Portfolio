@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 13,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Maimonides and the Perplexed",
   "objective": "After this level you can explain how Maimonides's Guide for the Perplexed tried to reconcile the Hebrew Bible with Aristotle, and his idea of describing God only by what God is not.",
@@ -171,7 +171,7 @@
     },
     {
       "id": "question.philosophy.013.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.maimonides_negative_theology",
@@ -179,35 +179,26 @@
       ],
       "sourceCardIds": [
         "card.philosophy.013.c3",
-        "card.philosophy.012.c2"
+        "card.philosophy.012.c2",
+        "card.philosophy.013.c2",
+        "card.philosophy.012.c4"
       ],
-      "prompt": "Al-Ghazali in Level 12 denied that the world’s eternity had been proven. What did Maimonides conclude about that question?",
-      "options": [
+      "prompt": "Match each thinker with his book.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Aristotle had already proven that the world is eternal",
-          "correct": false,
-          "rationale": "He found no demonstration either way."
+          "left": "Maimonides",
+          "right": "Guide for the Perplexed"
         },
         {
-          "id": "b",
-          "label": "Neither side is provable; creation is the better belief",
-          "correct": true
+          "left": "Al-Ghazali",
+          "right": "The Incoherence of the Philosophers"
         },
         {
-          "id": "c",
-          "label": "The question is meaningless and should be dropped",
-          "correct": false,
-          "rationale": "He took it seriously and weighed it."
-        },
-        {
-          "id": "d",
-          "label": "Creation had been proven by careful observation",
-          "correct": false,
-          "rationale": "He found no demonstration either way."
+          "left": "Ibn Rushd",
+          "right": "The Incoherence of the Incoherence"
         }
       ],
-      "explanation": "Maimonides judged that neither side can be demonstrated, then preferred creation as the better-supported belief.",
+      "explanation": "Maimonides wrote the Guide for the Perplexed, al-Ghazali wrote The Incoherence of the Philosophers, and Ibn Rushd replied with The Incoherence of the Incoherence.",
       "difficulty": 0.35
     }
   ],

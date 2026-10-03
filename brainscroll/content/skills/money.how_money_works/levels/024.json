@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 24,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Compound Interest",
   "objective": "After this level you can explain how earning interest on interest makes money grow faster over time.",
@@ -139,43 +139,32 @@
     },
     {
       "id": "question.how_money_works.024.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.franklin_bequest",
         "concept.how_money_works.interest_compounding"
       ],
       "sourceCardIds": [
-        "card.how_money_works.024.c3",
-        "card.how_money_works.024.c2"
+        "card.how_money_works.024.c2",
+        "card.how_money_works.024.c3"
       ],
-      "prompt": "Why did Franklin expect his £1,000 to reach £131,000 in a century, rather than £6,000?",
-      "options": [
+      "prompt": "Franklin left £1,000 at 5% for 100 years. Match each with its amount.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "He expected the interest rate to rise every year",
-          "correct": false,
-          "rationale": "The plan used a steady 5%."
+          "left": "Simple interest",
+          "right": "£6,000"
         },
         {
-          "id": "b",
-          "label": "Boston promised to add money every year",
-          "correct": false,
-          "rationale": "No extra money was added: the interest did the work."
+          "left": "Compounding",
+          "right": "£131,000"
         },
         {
-          "id": "c",
-          "label": "Each year's interest would itself earn interest",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "He expected the pound to lose value",
-          "correct": false,
-          "rationale": "Inflation wasn't his calculation; compounding was."
+          "left": "By 1990 Boston's fund",
+          "right": "About $4.5 million"
         }
       ],
-      "explanation": "At 5% simple interest, £1,000 becomes £6,000 in 100 years. Compounding, interest on interest, makes it about £131,000.",
+      "explanation": "Simple interest would have reached just £6,000, while compounding, by Franklin's reckoning, would reach £131,000. In reality, by 1990 Boston's fund had grown to about $4.5 million.",
       "difficulty": 0.3
     },
     {

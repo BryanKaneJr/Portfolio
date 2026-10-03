@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 54,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Two-Factor and Passkeys",
   "objective": "After this level you can explain why a second factor, or a passkey that never leaves your device, stops most stolen-password attacks.",
@@ -87,7 +87,7 @@
   "questions": [
     {
       "id": "question.computers.054.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.security_second_factor"
@@ -95,33 +95,22 @@
       "sourceCardIds": [
         "card.computers.054.c2"
       ],
-      "prompt": "Which three kinds of proof can multifactor authentication combine?",
-      "options": [
+      "prompt": "Match each kind of proof with an example of it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Your name, your address and your birthday",
-          "correct": false,
-          "rationale": "Those are facts others can find; MFA uses know, have and are."
+          "left": "Something you know",
+          "right": "A password"
         },
         {
-          "id": "b",
-          "label": "Three different passwords",
-          "correct": false,
-          "rationale": "Three passwords are all the same kind: something you know."
+          "left": "Something you have",
+          "right": "A phone or a security key"
         },
         {
-          "id": "c",
-          "label": "Something you know, have and are",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "A username, an email and a phone number",
-          "correct": false,
-          "rationale": "Those identify you; they do not prove it."
+          "left": "Something you are",
+          "right": "A fingerprint or face"
         }
       ],
-      "explanation": "MFA mixes kinds of proof: something you know, something you have and something you are.",
+      "explanation": "Something you know is a password, something you have is a phone or a security key, and something you are is a fingerprint or face.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 89,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Satellites Watch the Sea",
   "objective": "After this level you can explain how satellites measure the ocean.",
@@ -97,41 +97,32 @@
   "questions": [
     {
       "id": "question.oceans.089.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.oceans.satellite_altimetry"
       ],
       "sourceCardIds": [
-        "card.oceans.089.c2"
+        "card.oceans.089.c2",
+        "card.oceans.089.c3",
+        "card.oceans.089.c4"
       ],
-      "prompt": "How does a satellite radar altimeter measure the height of the sea?",
-      "options": [
+      "prompt": "Match each ocean-watching tool with what it uses or measures.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It photographs the waves from above",
-          "correct": false,
-          "rationale": "It measures distance, not pictures."
+          "left": "Radar altimeter",
+          "right": "Radio pulses"
         },
         {
-          "id": "b",
-          "label": "It reads the water's temperature",
-          "correct": false,
-          "rationale": "That's a different sensor."
+          "left": "Ocean-color sensors",
+          "right": "Blooms of algae"
         },
         {
-          "id": "c",
-          "label": "It times radio pulses bounced off the sea surface",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It drops floats that report their depth",
-          "correct": false,
-          "rationale": "That's Argo, working below the surface."
+          "left": "The Argo program",
+          "right": "Temperature and salinity"
         }
       ],
-      "explanation": "The altimeter bounces radio pulses off the sea and times their return, which gives the sea's height.",
+      "explanation": "A radar altimeter times radio pulses bounced off the sea. Ocean-color sensors spot blooms of algae. The Argo program's floats measure temperature and salinity.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 5,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Paper Money",
   "objective": "After this level you can explain how paper money began in China and spread around the world.",
@@ -125,41 +125,26 @@
     },
     {
       "id": "question.how_money_works.005.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.china_paper_money"
       ],
       "sourceCardIds": [
-        "card.how_money_works.005.c2"
+        "card.how_money_works.005.c2",
+        "card.how_money_works.005.c3",
+        "card.how_money_works.005.c4"
       ],
-      "prompt": "Why do some historians hesitate to call Tang-era \"flying money\" true paper money?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It was written on silk, not paper",
-          "correct": false,
-          "rationale": "It was paper; the debate is about how it was used."
-        },
-        {
-          "id": "b",
-          "label": "It worked more like a money transfer",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Only the emperor could use it",
-          "correct": false,
-          "rationale": "Merchants used it to move funds."
-        },
-        {
-          "id": "d",
-          "label": "It was printed in Sweden, not China",
-          "correct": false,
-          "rationale": "It was Chinese, centuries before Sweden's notes."
-        }
+      "prompt": "Put these steps in paper money's story in order, from earliest to latest.",
+      "items": [
+        "Flying money",
+        "Jiaozi",
+        "Marco Polo",
+        "Stockholms Banco"
       ],
-      "explanation": "Flying money let merchants send funds without carrying coins, which some historians see as a draft rather than circulating cash.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Tang merchants used flying money (618 to 907), the Song government took over jiaozi around 1023, Marco Polo described China's paper money in the 13th century, and Stockholms Banco issued notes in 1661.",
       "difficulty": 0.3
     },
     {

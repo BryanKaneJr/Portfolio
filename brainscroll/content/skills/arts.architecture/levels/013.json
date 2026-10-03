@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 13,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Pyramids of Giza",
   "objective": "After this level you can explain how the pyramids were engineered.",
@@ -130,41 +130,24 @@
     },
     {
       "id": "question.architecture.013.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.wonders_relieving_chambers"
       ],
       "sourceCardIds": [
-        "card.architecture.013.c3"
+        "card.architecture.013.c3",
+        "card.architecture.013.c4"
       ],
-      "prompt": "What were the five compartments above the King's Chamber probably for?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Storing the king's treasure",
-          "correct": false,
-          "rationale": "They were built to protect the ceiling, not to store things."
-        },
-        {
-          "id": "b",
-          "label": "Shielding the chamber's ceiling from the weight above",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Letting fresh air into the chamber",
-          "correct": false,
-          "rationale": "Their job was structural."
-        },
-        {
-          "id": "d",
-          "label": "Hiding the king's body from robbers",
-          "correct": false,
-          "rationale": "The burial chamber is below them."
-        }
+      "prompt": "Inside the Great Pyramid, put these in order, from lowest to highest.",
+      "items": [
+        "The King's Chamber",
+        "Five low compartments",
+        "Gabled roof"
       ],
-      "explanation": "Separated by massive granite slabs, the compartments probably shielded the King's Chamber ceiling by diverting the thrust of the masonry above.",
+      "first": "Lowest",
+      "last": "Highest",
+      "explanation": "The King's Chamber is lowest. Directly above it sit five low compartments, and the highest of them has a gabled roof of leaning limestone blocks.",
       "difficulty": 0.25
     },
     {

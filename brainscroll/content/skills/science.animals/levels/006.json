@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 6,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "What Animals Eat",
   "objective": "After this level you can explain herbivores, carnivores and omnivores.",
@@ -111,7 +111,7 @@
   "questions": [
     {
       "id": "question.animals.006.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.animals.diet_types"
@@ -119,33 +119,22 @@
       "sourceCardIds": [
         "card.animals.006.c2"
       ],
-      "prompt": "What makes an animal an omnivore?",
-      "options": [
+      "prompt": "Match each kind of eater with its diet.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It eats only plants",
-          "correct": false,
-          "rationale": "That's a herbivore."
+          "left": "Herbivore",
+          "right": "Eats mainly plants"
         },
         {
-          "id": "b",
-          "label": "It eats mostly meat",
-          "correct": false,
-          "rationale": "That's a carnivore."
+          "left": "Carnivore",
+          "right": "Eats mostly meat"
         },
         {
-          "id": "c",
-          "label": "It regularly eats plants and animals",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It eats only at night",
-          "correct": false,
-          "rationale": "Diet labels are about food, not timing."
+          "left": "Omnivore",
+          "right": "Regularly eats plants and animals"
         }
       ],
-      "explanation": "Omnivores, like bears, raccoons and humans, regularly eat both plants and animals.",
+      "explanation": "A herbivore eats mainly plants, a carnivore eats mostly meat, and an omnivore regularly eats plants and animals.",
       "difficulty": 0.1
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 51,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Tasting the Soup: Why We Sample",
   "objective": "After this level you can explain how a small sample can describe a whole population, the way one spoonful tells you about a pot of soup.",
@@ -96,41 +96,35 @@
   "questions": [
     {
       "id": "question.probability.051.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.sample_population"
       ],
       "sourceCardIds": [
-        "card.probability.051.c2"
+        "card.probability.051.c2",
+        "card.probability.051.c3"
       ],
-      "prompt": "In statistics, what is a sample?",
-      "options": [
+      "prompt": "Match each word with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Every member of the group you want to know about",
-          "correct": false,
-          "rationale": "That's the population, the whole group."
+          "left": "Population",
+          "right": "The whole group you want to know about"
         },
         {
-          "id": "b",
-          "label": "A portion of the population that you actually examine",
-          "correct": true
+          "left": "Sample",
+          "right": "The part you actually examine"
         },
         {
-          "id": "c",
-          "label": "The average of all the answers you collect",
-          "correct": false,
-          "rationale": "A number worked out from a sample is a statistic."
+          "left": "Statistic",
+          "right": "Number you work out from the sample"
         },
         {
-          "id": "d",
-          "label": "A guess you make before collecting any data",
-          "correct": false,
-          "rationale": "A sample is real data from part of the population."
+          "left": "Parameter",
+          "right": "Number for the whole population"
         }
       ],
-      "explanation": "The population is the whole group; the sample is the portion you examine to learn about it.",
+      "explanation": "The population is the whole group you want to know about, and the sample is the part you examine. A statistic is a number from the sample; the parameter is the matching number for the whole population.",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 49,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Prosecutor's Fallacy",
   "objective": "After this level you can explain why a tiny chance of the evidence happening by accident is not the chance of innocence, using the Sally Clark case.",
@@ -88,42 +88,32 @@
   "questions": [
     {
       "id": "question.probability.049.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.risk_prosecutors_fallacy"
       ],
       "sourceCardIds": [
         "card.probability.049.c2",
-        "card.probability.049.c3"
+        "card.probability.049.c3",
+        "card.probability.049.c5"
       ],
-      "prompt": "How was the 1 in 73 million figure in the Sally Clark case worked out?",
-      "options": [
+      "prompt": "Match each with its part in the Sally Clark case.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "By counting every cot death in England",
-          "correct": false,
-          "rationale": "It came from a calculation, not a count."
+          "left": "A medical expert witness",
+          "right": "1 in 73 million"
         },
         {
-          "id": "b",
-          "label": "By squaring the chance of a single cot death",
-          "correct": true
+          "left": "The Royal Statistical Society",
+          "right": "No statistical basis"
         },
         {
-          "id": "c",
-          "label": "By asking the jury to estimate the odds",
-          "correct": false,
-          "rationale": "An expert witness gave the figure to the jury."
-        },
-        {
-          "id": "d",
-          "label": "By dividing the population of Britain by 73",
-          "correct": false,
-          "rationale": "It came from squaring a single-death figure."
+          "left": "The Court of Appeal",
+          "right": "Quashed her convictions"
         }
       ],
-      "explanation": "The expert squared the chance of one cot death, which assumes the two deaths were independent.",
+      "explanation": "A medical expert witness gave the jury 1 in 73 million. The Royal Statistical Society said that figure had no statistical basis, and the Court of Appeal quashed her convictions.",
       "difficulty": 0.3
     },
     {

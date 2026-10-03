@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 34,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "El Niño",
   "objective": "After this level you can explain El Niño and its effects on weather.",
@@ -168,41 +168,31 @@
     },
     {
       "id": "question.oceans.034.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.el_nino_effects"
       ],
       "sourceCardIds": [
-        "card.oceans.034.c4"
+        "card.oceans.034.c4",
+        "card.oceans.034.c3"
       ],
-      "prompt": "You live on the US Gulf Coast and NOAA says an El Niño is under way. What does El Niño usually bring there?",
-      "options": [
+      "prompt": "Match each place with what El Niño usually brings it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A drier, warmer winter than usual",
-          "correct": false,
-          "rationale": "That's the northern US and Canada."
+          "left": "The northern US and Canada",
+          "right": "Drier and warmer"
         },
         {
-          "id": "b",
-          "label": "Record snow every year",
-          "correct": false,
-          "rationale": "Not a pattern this level describes."
+          "left": "US Gulf Coast and Southeast",
+          "right": "Wetter, with more flooding"
         },
         {
-          "id": "c",
-          "label": "No change: El Niño only affects the Pacific",
-          "correct": false,
-          "rationale": "El Niño's effects reach far beyond the Pacific."
-        },
-        {
-          "id": "d",
-          "label": "Wetter conditions than usual, with more flooding",
-          "correct": true
+          "left": "Off South America",
+          "right": "Upwelling weakens or stops"
         }
       ],
-      "explanation": "During El Niño the US Gulf Coast and Southeast tend to be wetter than usual, with more flooding.",
+      "explanation": "During El Niño, the northern US and Canada tend to be drier and warmer, the US Gulf Coast and Southeast wetter, with more flooding, and off South America upwelling weakens or stops.",
       "difficulty": 0.25
     }
   ],

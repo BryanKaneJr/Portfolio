@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 20,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Deduction and Induction",
   "objective": "After this level you can compare deduction, induction and best-explanation reasoning and say how much certainty each gives.",
@@ -173,7 +173,7 @@
     },
     {
       "id": "question.logic.020.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.induction_peirce_beans",
@@ -183,33 +183,22 @@
         "card.logic.020.c3",
         "card.logic.011.c2"
       ],
-      "prompt": "Which of Peirce's three bean arguments guarantees its conclusion if its premises are true?",
-      "options": [
+      "prompt": "Match each of Peirce's kinds of reasoning with how it runs.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Induction",
-          "correct": false,
-          "rationale": "Induction is only probable: one black bean would sink it."
+          "left": "Deduction",
+          "right": "From the rule to the result"
         },
         {
-          "id": "b",
-          "label": "Hypothesis",
-          "correct": false,
-          "rationale": "Peirce called it a weak kind of argument."
+          "left": "Induction",
+          "right": "From cases to the rule"
         },
         {
-          "id": "c",
-          "label": "All three equally",
-          "correct": false,
-          "rationale": "Only one of them carries a guarantee."
-        },
-        {
-          "id": "d",
-          "label": "Deduction",
-          "correct": true
+          "left": "Hypothesis",
+          "right": "Guesses the story behind what you see"
         }
       ],
-      "explanation": "Deduction runs from the rule to the result, so true premises guarantee the conclusion.",
+      "explanation": "Deduction runs from the rule to the result. Induction runs from cases to the rule. Hypothesis guesses the story behind what you see.",
       "difficulty": 0.2
     },
     {

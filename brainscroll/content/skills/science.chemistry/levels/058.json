@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 58,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Fireworks",
   "objective": "After this level you can explain how fireworks get their colors.",
@@ -130,41 +130,35 @@
     },
     {
       "id": "question.chemistry.058.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.fireworks_light_emission"
       ],
       "sourceCardIds": [
-        "card.chemistry.058.c3"
+        "card.chemistry.058.c3",
+        "card.chemistry.058.c2"
       ],
-      "prompt": "Why does each metal in a firework glow its own color?",
-      "options": [
+      "prompt": "Match each firework metal with the color it glows.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Its heated electrons drop back, releasing light unique to that element",
-          "correct": true
+          "left": "Strontium",
+          "right": "Red"
         },
         {
-          "id": "b",
-          "label": "Each metal reflects a different color of moonlight",
-          "correct": false,
-          "rationale": "Fireworks make their own light."
+          "left": "Barium",
+          "right": "Green"
         },
         {
-          "id": "c",
-          "label": "The metal pieces are painted before launch",
-          "correct": false,
-          "rationale": "The color comes from the atoms themselves."
+          "left": "Copper",
+          "right": "Blue"
         },
         {
-          "id": "d",
-          "label": "Hotter metals always glow bluer",
-          "correct": false,
-          "rationale": "The color depends on the element, not just the heat."
+          "left": "Sodium",
+          "right": "Yellow"
         }
       ],
-      "explanation": "Heat lifts electrons to higher energy levels; as they fall back they emit light whose color depends on the element.",
+      "explanation": "Strontium glows red, barium green, copper blue and sodium yellow.",
       "difficulty": 0.3
     },
     {

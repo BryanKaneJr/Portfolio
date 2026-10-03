@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 42,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Layers of the Sky",
   "objective": "After this level you can explain why temperature falls, then rises, as you climb through the atmosphere's layers.",
@@ -180,7 +180,7 @@
     },
     {
       "id": "question.earth_climate.042.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.earth_climate.atmosphere_layers",
@@ -190,33 +190,16 @@
         "card.earth_climate.042.c4",
         "card.earth_climate.042.c1"
       ],
-      "prompt": "A weather balloon's thermometer falls, then rises, then falls again. Which layers is it crossing, in order?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Stratosphere, troposphere, thermosphere",
-          "correct": false,
-          "rationale": "The troposphere is the bottom layer."
-        },
-        {
-          "id": "b",
-          "label": "Troposphere, stratosphere, mesosphere",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Mesosphere, stratosphere, troposphere",
-          "correct": false,
-          "rationale": "That's the order coming down."
-        },
-        {
-          "id": "d",
-          "label": "Thermosphere, mesosphere, stratosphere",
-          "correct": false,
-          "rationale": "The balloon starts at the ground."
-        }
+      "prompt": "Put the layers of the atmosphere in order, from the ground up.",
+      "items": [
+        "Troposphere",
+        "Stratosphere",
+        "Mesosphere",
+        "Thermosphere"
       ],
-      "explanation": "Colder through the troposphere, warmer through the stratosphere, colder again in the mesosphere.",
+      "first": "Lowest",
+      "last": "Highest",
+      "explanation": "From the ground up: the troposphere, the stratosphere, the mesosphere and the thermosphere.",
       "difficulty": 0.3
     }
   ],

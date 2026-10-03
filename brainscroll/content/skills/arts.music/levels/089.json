@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 89,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "From Records to Streaming",
   "objective": "After this level you can explain how music moved from records to MP3s to streaming.",
@@ -132,41 +132,26 @@
     },
     {
       "id": "question.music.089.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.digital_mp3_compression"
       ],
       "sourceCardIds": [
-        "card.music.089.c3"
+        "card.music.089.c3",
+        "card.music.089.c2",
+        "card.music.089.c4"
       ],
-      "prompt": "How does MP3 make a song file so much smaller?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It cuts the song's length in half",
-          "correct": false,
-          "rationale": "The whole song is still there."
-        },
-        {
-          "id": "b",
-          "label": "It stores sounds the ear can't perceive with less precision",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It removes the melody and keeps the rhythm",
-          "correct": false,
-          "rationale": "It keeps everything you can hear."
-        },
-        {
-          "id": "d",
-          "label": "It plays the song faster",
-          "correct": false,
-          "rationale": "Tempo and pitch don't change."
-        }
+      "prompt": "Put these steps in music's journey to streaming in order, from earliest to latest.",
+      "items": [
+        "The compact disc",
+        "The name .mp3",
+        "Napster",
+        "Spotify"
       ],
-      "explanation": "MP3 exploits how hearing works, storing inaudible components less precisely, for files up to ten times smaller.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The compact disc came in 1982, the name .mp3 was chosen in 1995, Napster arrived in 1999, and Spotify launched in 2008.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 42,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Euthyphro Dilemma",
   "objective": "After this level you can explain Plato's Euthyphro dilemma: is something good because God commands it, or commanded because it is good?",
@@ -93,41 +93,24 @@
   "questions": [
     {
       "id": "question.philosophy.042.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.philosophy.morals_euthyphro"
       ],
       "sourceCardIds": [
-        "card.philosophy.042.c2"
+        "card.philosophy.042.c2",
+        "card.philosophy.042.c3"
       ],
-      "prompt": "What was Euthyphro doing when Socrates met him?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Prosecuting his own father",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Defending Socrates at his trial",
-          "correct": false,
-          "rationale": "Socrates was on his way to his own case."
-        },
-        {
-          "id": "c",
-          "label": "Offering a sacrifice for the city",
-          "correct": false,
-          "rationale": "He was at the court, not a temple."
-        },
-        {
-          "id": "d",
-          "label": "Teaching young Athenians about the gods",
-          "correct": false,
-          "rationale": "He claimed knowledge of piety, but wasn’t teaching."
-        }
+      "prompt": "Put these moments of the conversation in order, from first to last.",
+      "items": [
+        "Socrates asks what piety is",
+        "Euthyphro offers his own case",
+        "Piety is what all the gods love"
       ],
-      "explanation": "Euthyphro was prosecuting his own father over the death of a laborer, sure that piety demanded it.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Socrates asks what piety is, Euthyphro offers his own case as the answer, then he tries again: piety is what all the gods love.",
       "difficulty": 0.2
     },
     {

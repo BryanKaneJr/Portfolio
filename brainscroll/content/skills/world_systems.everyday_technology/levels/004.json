@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 4,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Circuits",
   "objective": "After this level you can explain how a simple circuit works and what a switch does.",
@@ -130,41 +130,35 @@
     },
     {
       "id": "question.everyday_technology.004.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.circuit_series_parallel"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.004.c4"
+        "card.everyday_technology.004.c4",
+        "card.everyday_technology.004.c3"
       ],
-      "prompt": "Why does switching off your toaster not switch off your fridge?",
-      "options": [
+      "prompt": "Match each circuit word with its example or description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The fridge has its own battery",
-          "correct": false,
-          "rationale": "It runs on the same home wiring."
+          "left": "Conductors",
+          "right": "Metals such as copper"
         },
         {
-          "id": "b",
-          "label": "Kitchens use a different kind of current",
-          "correct": false,
-          "rationale": "Same current; different branches."
+          "left": "Insulators",
+          "right": "Paper and plastic"
         },
         {
-          "id": "c",
-          "label": "Each appliance has its own parallel branch",
-          "correct": true
+          "left": "Series circuit",
+          "right": "Everything sits on one path"
         },
         {
-          "id": "d",
-          "label": "The toaster and fridge share one series path",
-          "correct": false,
-          "rationale": "In series, they would switch off together."
+          "left": "Parallel",
+          "right": "Its own branch"
         }
       ],
-      "explanation": "Homes are wired in parallel, so each appliance has its own branch and works on its own.",
+      "explanation": "Metals such as copper are conductors; paper and plastic are insulators. In a series circuit everything sits on one path, while parallel wiring gives each device its own branch.",
       "difficulty": 0.25
     },
     {

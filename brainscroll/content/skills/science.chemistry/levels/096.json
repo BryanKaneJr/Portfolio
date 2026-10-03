@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 96,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Rosalind Franklin",
   "objective": "After this level you can explain Franklin's X-ray picture of DNA.",
@@ -132,41 +132,26 @@
     },
     {
       "id": "question.chemistry.096.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.franklin_credit"
       ],
       "sourceCardIds": [
-        "card.chemistry.096.c4"
+        "card.chemistry.096.c4",
+        "card.chemistry.096.c1",
+        "card.chemistry.096.c2"
       ],
-      "prompt": "Why couldn't Rosalind Franklin share the 1962 Nobel Prize for DNA's structure?",
-      "options": [
-        {
-          "id": "a",
-          "label": "She had died in 1958, and it isn't awarded after death",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "She had never published any of her DNA work",
-          "correct": false,
-          "rationale": "Her paper ran in the same Nature issue as Watson and Crick's."
-        },
-        {
-          "id": "c",
-          "label": "Chemists weren't allowed to win that Nobel Prize",
-          "correct": false,
-          "rationale": "Many chemists have won Nobel Prizes."
-        },
-        {
-          "id": "d",
-          "label": "She turned the prize down after it was offered",
-          "correct": false,
-          "rationale": "She had died four years earlier."
-        }
+      "prompt": "Put these moments in the DNA story in order, from earliest to latest.",
+      "items": [
+        "Studied DNA with X-ray diffraction",
+        "Photo 51",
+        "Watson and Crick published",
+        "Shared a Nobel Prize"
       ],
-      "explanation": "Franklin died of ovarian cancer in 1958, and the Nobel Prize is never awarded posthumously.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Franklin studied DNA with X-ray diffraction from 1951, took Photo 51 in May 1952, Watson and Crick published in April 1953, and the Nobel Prize was shared in 1962.",
       "difficulty": 0.3
     },
     {

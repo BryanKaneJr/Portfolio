@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 38,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How Supercontinents Come and Go",
   "objective": "After this level you can explain the supercontinent cycle, in which continents gather, split apart and gather again.",
@@ -182,7 +182,7 @@
     },
     {
       "id": "question.earth_climate.038.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.earth_climate.deeptime_supercontinents_named",
@@ -192,33 +192,16 @@
         "card.earth_climate.038.c4",
         "card.earth_climate.036.c3"
       ],
-      "prompt": "Pangaea assembled about 299 to 273 million years ago. Which era of the geologic time scale was that?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Paleozoic",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The Mesozoic",
-          "correct": false,
-          "rationale": "The Mesozoic began about 252 million years ago."
-        },
-        {
-          "id": "c",
-          "label": "The Cenozoic",
-          "correct": false,
-          "rationale": "The Cenozoic began about 66 million years ago."
-        },
-        {
-          "id": "d",
-          "label": "The Hadean",
-          "correct": false,
-          "rationale": "The Hadean is an eon at the very start of Earth's history."
-        }
+      "prompt": "Put these supercontinents in order, from earliest to latest.",
+      "items": [
+        "Columbia",
+        "Rodinia",
+        "Pangaea",
+        "A new supercontinent"
       ],
-      "explanation": "Anything older than about 252 million years but inside the Phanerozoic falls in the Paleozoic Era.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Columbia formed 2.1 to 1.8 billion years ago, then Rodinia, then Pangaea, and a new supercontinent is expected in about 250 million years.",
       "difficulty": 0.35
     }
   ],

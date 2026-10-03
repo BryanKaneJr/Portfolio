@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 85,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Division of Labor",
   "objective": "After this level you can explain Adam Smith's pin factory and why specializing raises output.",
@@ -130,41 +130,24 @@
     },
     {
       "id": "question.how_money_works.085.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.pin_smith_warning"
       ],
       "sourceCardIds": [
+        "card.how_money_works.085.c2",
         "card.how_money_works.085.c4"
       ],
-      "prompt": "What worried Smith about dividing work into tiny tasks?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Pins would become too cheap to sell",
-          "correct": false,
-          "rationale": "His worry was about workers, not pin prices."
-        },
-        {
-          "id": "b",
-          "label": "Factories would need too many managers",
-          "correct": false,
-          "rationale": "That's Level 84's diseconomies of scale, not Smith's warning."
-        },
-        {
-          "id": "c",
-          "label": "Repetition could dull workers' minds",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Workers would earn far too much",
-          "correct": false,
-          "rationale": "His warning was about minds, not pay."
-        }
+      "prompt": "Put the first steps on Smith's pin line in order.",
+      "items": [
+        "Draws out the wire",
+        "Straightens it",
+        "Cuts it"
       ],
-      "explanation": "Smith warned that a lifetime of a few simple operations could leave a worker \"as stupid and ignorant as it is possible\" to become.",
+      "first": "First step",
+      "last": "Third step",
+      "explanation": "One worker draws out the wire, another straightens it, and a third cuts it, and so on down the line of about 18 operations.",
       "difficulty": 0.25
     },
     {

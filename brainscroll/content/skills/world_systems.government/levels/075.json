@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 75,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Pensions",
   "objective": "After this level you can explain how pensions support older people.",
@@ -130,41 +130,36 @@
     },
     {
       "id": "question.government.075.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.pension_ageing_age"
       ],
       "sourceCardIds": [
-        "card.government.075.c3"
+        "card.government.075.c3",
+        "card.government.075.c1",
+        "card.government.075.c2"
       ],
-      "prompt": "Why does a rising number of people aged 65+ per 100 of working age put pressure on pensions?",
-      "options": [
+      "prompt": "Match each country or pair with its pension fact.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Older people stop paying any taxes at all",
-          "correct": false,
-          "rationale": "That isn't the point of the ratio; it counts people."
+          "left": "Germany",
+          "right": "First state pension"
         },
         {
-          "id": "b",
-          "label": "There are more potential pensioners for each potential contributor",
-          "correct": true
+          "left": "Denmark",
+          "right": "Highest in Europe"
         },
         {
-          "id": "c",
-          "label": "Pensions are paid only to people under 65",
-          "correct": false,
-          "rationale": "Pensions go to older people, which is why the ratio matters."
+          "left": "Greece and Italy",
+          "right": "Around 16% of GDP"
         },
         {
-          "id": "d",
-          "label": "Working-age people are paid more",
-          "correct": false,
-          "rationale": "The ratio says nothing about pay."
+          "left": "Iceland and Ireland",
+          "right": "Under 3%"
         }
       ],
-      "explanation": "The OECD uses this ratio as a stand-in for potential pensioners per potential contributor: 22 in 2000, 33 in 2025, 52 projected for 2050.",
+      "explanation": "Germany had the first state pension, Denmark's pension age of 70 will be the highest in Europe, Greece and Italy spend around 16% of GDP on pensions, and Iceland and Ireland under 3%.",
       "difficulty": 0.3
     },
     {

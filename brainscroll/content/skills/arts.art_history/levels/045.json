@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 45,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Dutch Golden Age",
   "objective": "After this level you can explain why Dutch painters sold everyday scenes and still lifes.",
@@ -90,41 +90,32 @@
   "questions": [
     {
       "id": "question.art_history.045.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.dutch_calvinist_churches"
       ],
       "sourceCardIds": [
-        "card.art_history.045.c2"
+        "card.art_history.045.c2",
+        "card.art_history.045.c1",
+        "card.art_history.045.c4"
       ],
-      "prompt": "Why did Dutch painters get so few church commissions?",
-      "options": [
+      "prompt": "Match each name from the Dutch Golden Age with who or what it was.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Dutch churches were too small for paintings",
-          "correct": false,
-          "rationale": "Size wasn't the issue; belief was."
+          "left": "Peter Mundy",
+          "right": "The English traveller"
         },
         {
-          "id": "b",
-          "label": "Calvinist teaching banned images in churches",
-          "correct": true
+          "left": "Willem Claesz. Heda",
+          "right": "A still-life man"
         },
         {
-          "id": "c",
-          "label": "The king kept all painters for his palace",
-          "correct": false,
-          "rationale": "The Dutch Republic had no such royal monopoly."
-        },
-        {
-          "id": "d",
-          "label": "Painters refused to paint religious subjects",
-          "correct": false,
-          "rationale": "The ban came from the church, not the painters."
+          "left": "Calvinist teaching",
+          "right": "Banned images in churches"
         }
       ],
-      "explanation": "Calvinism banned images in churches (though not in homes), so painters turned to the open market.",
+      "explanation": "Peter Mundy was the English traveller who saw paintings in shops, Willem Claesz. Heda was a still-life man, and Calvinist teaching banned images in churches.",
       "difficulty": 0.15
     },
     {

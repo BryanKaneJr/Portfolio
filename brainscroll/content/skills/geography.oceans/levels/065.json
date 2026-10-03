@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 65,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Coral Atolls",
   "objective": "After this level you can explain how ring-shaped atolls form.",
@@ -188,7 +188,7 @@
     },
     {
       "id": "question.oceans.065.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.atoll_formation",
@@ -196,35 +196,18 @@
       ],
       "sourceCardIds": [
         "card.oceans.065.c3",
-        "card.oceans.043.c4"
+        "card.oceans.043.c4",
+        "card.oceans.065.c2"
       ],
-      "prompt": "From Level 43: reef corals need sunlight for their algae. Why does an atoll's reef keep growing upward as its island sinks?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Its coral feeds on heat from the volcano",
-          "correct": false,
-          "rationale": "Reef corals depend on sunlight reaching their algae."
-        },
-        {
-          "id": "b",
-          "label": "It stays near the sunlit surface",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Coral grows fastest in deep, dark water",
-          "correct": false,
-          "rationale": "Light fades with depth, and reef builders need it."
-        },
-        {
-          "id": "d",
-          "label": "The sinking island pushes the reef upward",
-          "correct": false,
-          "rationale": "The reef grows up on its own while the island sinks."
-        }
+      "prompt": "Put the stages of an atoll in order, from first to last.",
+      "items": [
+        "A fringing reef",
+        "A barrier reef",
+        "An atoll"
       ],
-      "explanation": "The reef keeps growing upward while the island sinks, so it stays near the surface, where light reaches the algae that feed reef corals.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "A fringing reef grows out from a volcanic island. As the island sinks it becomes a barrier reef beyond a lagoon, and once the island is gone it's an atoll.",
       "difficulty": 0.4
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 67,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Building a Skyscraper",
   "objective": "After this level you can describe the steps from foundation to top.",
@@ -126,41 +126,25 @@
     },
     {
       "id": "question.architecture.067.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.sky_build_core_first"
       ],
       "sourceCardIds": [
-        "card.architecture.067.c3"
+        "card.architecture.067.c3",
+        "card.architecture.067.c4"
       ],
-      "prompt": "In core-first construction, what is the self-climbing form?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A crane that lifts steel beams to the top",
-          "correct": false,
-          "rationale": "Cranes lift beams; the form shapes the concrete core."
-        },
-        {
-          "id": "b",
-          "label": "A giant mold the concrete core is cast in, climbing as it rises",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "A temporary elevator for the workers",
-          "correct": false,
-          "rationale": "The core will hold elevators; the form is the mold."
-        },
-        {
-          "id": "d",
-          "label": "A glass panel system for the outer wall",
-          "correct": false,
-          "rationale": "That's the curtain wall, added later."
-        }
+      "prompt": "In a core-first skyscraper, put these in the order they go in, from first to last.",
+      "items": [
+        "A concrete core",
+        "The steel framing",
+        "Panels of glass, metal or stone",
+        "Wiring, pipes and elevators"
       ],
-      "explanation": "The core is cast in a self-climbing form, a giant mold, and the steel framing follows once it climbs clear.",
+      "first": "Goes up first",
+      "last": "Comes last",
+      "explanation": "The concrete core goes first, in its self-climbing form. The steel framing follows, then panels of glass, metal or stone are bolted to the frame as the outer wall, and then come wiring, pipes and elevators.",
       "difficulty": 0.3
     },
     {

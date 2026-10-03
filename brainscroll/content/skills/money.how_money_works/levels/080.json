@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 80,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Trade and the Global Economy",
   "objective": "After this level you can explain why countries trade and how tariffs and exchange rates affect it.",
@@ -115,42 +115,31 @@
   "questions": [
     {
       "id": "question.how_money_works.080.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.trade_big_mac_ppp"
       ],
       "sourceCardIds": [
-        "card.how_money_works.080.c1",
-        "card.how_money_works.080.c2"
+        "card.how_money_works.080.c2",
+        "card.how_money_works.080.c3"
       ],
-      "prompt": "Which idea does The Economist's Big Mac index illustrate?",
-      "options": [
+      "prompt": "Follow an imported washing machine home. Match each part of the story with what it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Comparative advantage",
-          "correct": false,
-          "rationale": "That's Ricardo's idea about specializing."
+          "left": "Countries specialize",
+          "right": "Where their costs are relatively lowest"
         },
         {
-          "id": "b",
-          "label": "The double coincidence of wants",
-          "correct": false,
-          "rationale": "That's barter's matching problem."
+          "left": "Containers",
+          "right": "Made shipping it cheap"
         },
         {
-          "id": "c",
-          "label": "Purchasing power parity",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The balance of trade",
-          "correct": false,
-          "rationale": "That's exports minus imports."
+          "left": "A tariff",
+          "right": "Can raise its price"
         }
       ],
-      "explanation": "The index uses burger prices to illustrate purchasing power parity: exchange rates drifting toward equal prices for the same goods.",
+      "explanation": "Countries specialize where their costs are relatively lowest, so the machine may be made abroad. Containers made shipping it cheap, and a tariff can raise its price as importers pass the cost on.",
       "difficulty": 0.3
     },
     {

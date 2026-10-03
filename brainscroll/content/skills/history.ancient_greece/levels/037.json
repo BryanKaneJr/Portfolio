@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 37,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Salamis",
   "objective": "After this level you can explain how the Greek fleet won at Salamis.",
@@ -132,41 +132,26 @@
     },
     {
       "id": "question.ancient_greece.037.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_greece.battle_of_salamis"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.037.c4"
+        "card.ancient_greece.037.c4",
+        "card.ancient_greece.037.c2",
+        "card.ancient_greece.037.c3",
+        "card.ancient_greece.037.c5"
       ],
-      "prompt": "Why did the narrow strait at Salamis help the smaller Greek fleet?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Persian ships ran aground on sandbanks",
-          "correct": false,
-          "rationale": "The problem was crowding."
-        },
-        {
-          "id": "b",
-          "label": "A storm sank the Persians before battle",
-          "correct": false,
-          "rationale": "The fleets fought it out."
-        },
-        {
-          "id": "c",
-          "label": "Spartan soldiers blocked the strait",
-          "correct": false,
-          "rationale": "It was a sea battle between fleets."
-        },
-        {
-          "id": "d",
-          "label": "Packed Persian ships could hardly maneuver",
-          "correct": true
-        }
+      "prompt": "Put these moments of the Persian invasion in order, from earliest to latest.",
+      "items": [
+        "Spend the windfall on the navy",
+        "The Persians sacked Athens",
+        "A Greek victory on land at Plataea"
       ],
-      "explanation": "Crammed into the strait, the larger Persian fleet could hardly maneuver, and Greek triremes rammed it.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "First Athens chose to spend the windfall on the navy. In 480 BCE the Persians sacked Athens, and in 479 BCE a Greek victory on land at Plataea ended the invasion.",
       "difficulty": 0.3
     },
     {

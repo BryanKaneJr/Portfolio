@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 37,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Haydn and the Symphony",
   "objective": "After this level you can explain what a symphony is and why Haydn is called its father.",
@@ -133,7 +133,7 @@
     },
     {
       "id": "question.music.037.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.haydn_symphony_form"
@@ -142,33 +142,16 @@
         "card.music.037.c5",
         "card.music.037.c2"
       ],
-      "prompt": "Why is Haydn called the Father of the Symphony if he didn't invent it?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He wrote the very first symphony",
-          "correct": false,
-          "rationale": "The symphony grew from the Italian opera overture before him."
-        },
-        {
-          "id": "b",
-          "label": "He wrote more than 100 and shaped the form",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "He led the famous Mannheim orchestra",
-          "correct": false,
-          "rationale": "That orchestra was Level 36's story."
-        },
-        {
-          "id": "d",
-          "label": "He wrote the first opera overture",
-          "correct": false,
-          "rationale": "Overtures came from Italian opera long before him."
-        }
+      "prompt": "Put the movements of a typical Classical symphony in order.",
+      "items": [
+        "A fast opening movement",
+        "A slow movement",
+        "A minuet",
+        "A fast finale"
       ],
-      "explanation": "Symphonies existed before Haydn, but his more than 100 symphonies shaped the form.",
+      "first": "First movement",
+      "last": "Last movement",
+      "explanation": "A typical Classical symphony has a fast opening movement, a slow movement, a minuet, and a fast finale.",
       "difficulty": 0.3
     },
     {

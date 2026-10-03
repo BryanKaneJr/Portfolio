@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 60,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Music Around the World",
   "objective": "After this level you can compare musical traditions from India, Indonesia, Africa, the Middle East and the Americas.",
@@ -266,41 +266,31 @@
     },
     {
       "id": "question.music.060.q4",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.gamelan_tuning"
       ],
       "sourceCardIds": [
-        "card.music.053.c3"
+        "card.music.053.c3",
+        "card.music.060.c2"
       ],
-      "prompt": "From Level 53's gamelan: how do the slendro and pelog tunings differ?",
-      "options": [
+      "prompt": "Match each tradition with what marks its cycle.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Slendro: five near-equal steps; pelog: seven pitches, narrow and wide steps",
-          "correct": true
+          "left": "Tala",
+          "right": "Resolves on sam"
         },
         {
-          "id": "b",
-          "label": "Slendro is used only in Bali; pelog only in India",
-          "correct": false,
-          "rationale": "Both are Javanese gamelan tunings."
+          "left": "Gamelan",
+          "right": "The great gong ageng"
         },
         {
-          "id": "c",
-          "label": "Pelog follows the piano's 12 semitones; slendro has 24 steps",
-          "correct": false,
-          "rationale": "Pelog has seven pitches per octave and slendro five."
-        },
-        {
-          "id": "d",
-          "label": "They are one tuning, with different names in each village",
-          "correct": false,
-          "rationale": "Their note counts and step sizes differ."
+          "left": "Ewe Agbadza",
+          "right": "The gankogui bell"
         }
       ],
-      "explanation": "Slendro has five nearly equal notes per octave; pelog has seven with clearly narrow and wide steps.",
+      "explanation": "A tala resolves on sam, the first beat. In gamelan, the great gong ageng marks each end, and in Ewe Agbadza the gankogui bell repeats one phrase.",
       "difficulty": 0.25
     },
     {

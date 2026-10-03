@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 64,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Deflation",
   "objective": "After this level you can explain why falling prices can hurt an economy.",
@@ -144,7 +144,7 @@
     },
     {
       "id": "question.how_money_works.064.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.deflation_harms"
@@ -152,33 +152,15 @@
       "sourceCardIds": [
         "card.how_money_works.064.c3"
       ],
-      "prompt": "Why can falling prices shrink an economy?",
-      "options": [
-        {
-          "id": "a",
-          "label": "People put off buying, expecting lower prices",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Shops run out of goods to sell",
-          "correct": false,
-          "rationale": "Deflation comes with weak spending, not shortages."
-        },
-        {
-          "id": "c",
-          "label": "Workers demand much higher wages",
-          "correct": false,
-          "rationale": "That would push prices up, not down."
-        },
-        {
-          "id": "d",
-          "label": "Governments must print far more money",
-          "correct": false,
-          "rationale": "Printing money is linked to rising prices, not falling ones."
-        }
+      "prompt": "Put this deflation chain in order, from cause to effect.",
+      "items": [
+        "Prices are falling",
+        "People delay purchases",
+        "Less economic activity"
       ],
-      "explanation": "When prices are falling, people delay purchases, so activity, income and growth all drop.",
+      "first": "Cause",
+      "last": "Effect",
+      "explanation": "When prices are falling, people delay purchases if they can. Across a whole country, that means less economic activity and slower growth.",
       "difficulty": 0.3
     },
     {

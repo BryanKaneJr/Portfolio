@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 47,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Kant's Categorical Imperative",
   "objective": "After this level you can apply Kant's categorical imperative, in its universal-law and never-merely-as-a-means forms, to a false promise.",
@@ -89,41 +89,36 @@
   "questions": [
     {
       "id": "question.philosophy.047.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.philosophy.morals_categorical_imperative"
       ],
       "sourceCardIds": [
-        "card.philosophy.047.c4"
+        "card.philosophy.047.c4",
+        "card.philosophy.047.c2",
+        "card.philosophy.047.c3"
       ],
-      "prompt": "What does Kant’s humanity formula require of how you treat people?",
-      "options": [
+      "prompt": "Match each part of Kant’s ethics with what it says.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Always as ends, never merely as means",
-          "correct": true
+          "left": "Hypothetical imperative",
+          "right": "If you want the end, take the means"
         },
         {
-          "id": "b",
-          "label": "Always as means to the greatest happiness",
-          "correct": false,
-          "rationale": "That’s nearer the utilitarian view."
+          "left": "Categorical imperative",
+          "right": "Necessary in itself"
         },
         {
-          "id": "c",
-          "label": "Never ask anyone for help",
-          "correct": false,
-          "rationale": "Kant allows using people as means, just not merely."
+          "left": "Test one",
+          "right": "Could everyone do it?"
         },
         {
-          "id": "d",
-          "label": "Treat family before strangers",
-          "correct": false,
-          "rationale": "Kant’s formula is universal."
+          "left": "Test two",
+          "right": "People aren’t tools"
         }
       ],
-      "explanation": "Treat humanity always as an end and never merely as a means; using a taxi driver is fine, using someone merely as a tool is not.",
+      "explanation": "A hypothetical imperative says if you want the end, take the means. A categorical one declares an action necessary in itself. Test one asks could everyone do it; test two says people aren’t tools.",
       "difficulty": 0.25
     },
     {

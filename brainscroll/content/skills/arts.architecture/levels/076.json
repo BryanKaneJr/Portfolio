@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 76,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Sydney Opera House",
   "objective": "After this level you can describe its sail-like roofs and how they were built.",
@@ -134,7 +134,7 @@
     },
     {
       "id": "question.architecture.076.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.masters_sydney_spherical_solution"
@@ -142,33 +142,15 @@
       "sourceCardIds": [
         "card.architecture.076.c2"
       ],
-      "prompt": "Why did the spherical solution make the Opera House roof buildable?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Spheres are the lightest shape to build",
-          "correct": false,
-          "rationale": "The point was one shared curve, not lightness."
-        },
-        {
-          "id": "b",
-          "label": "It let the roof be split into standard, prefabricated parts",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It removed the need for any engineers",
-          "correct": false,
-          "rationale": "Arup's engineers built it."
-        },
-        {
-          "id": "d",
-          "label": "It let each shell be a different shape",
-          "correct": false,
-          "rationale": "The shells share one geometry."
-        }
+      "prompt": "Utzon's team tried three shapes for the Opera House shells. Put them in the order they were tried.",
+      "items": [
+        "Parabolas",
+        "Ellipses",
+        "A single sphere"
       ],
-      "explanation": "With one shared spherical geometry, the shells could be split into standard parts, prefabricated and assembled on site.",
+      "first": "Tried first",
+      "last": "The answer",
+      "explanation": "Utzon's team tried parabolas, then ellipses, and neither worked. By late 1961 Utzon saw that every shell could be cut from the surface of a single sphere.",
       "difficulty": 0.25
     },
     {

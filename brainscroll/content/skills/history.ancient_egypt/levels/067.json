@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 67,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Nefertiti",
   "objective": "After this level you can describe Nefertiti's role and her famous portrait bust.",
@@ -88,41 +88,31 @@
   "questions": [
     {
       "id": "question.ancient_egypt.067.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_egypt.newkingdom_nefertiti"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.067.c3"
+        "card.ancient_egypt.067.c3",
+        "card.ancient_egypt.067.c2"
       ],
-      "prompt": "Where was Nefertiti’s painted bust found in 1912?",
-      "options": [
+      "prompt": "Match each name from Nefertiti’s story with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "In her tomb in the Valley of the Kings",
-          "correct": false,
-          "rationale": "It wasn’t in a tomb at all."
+          "left": "Nefertiti",
+          "right": "A beautiful woman has come"
         },
         {
-          "id": "b",
-          "label": "Inside Karnak temple at Thebes",
-          "correct": false,
-          "rationale": "It was found at Amarna."
+          "left": "Thutmose",
+          "right": "The sculptor"
         },
         {
-          "id": "c",
-          "label": "In the workshop of the sculptor Thutmose at Amarna",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "In a palace storeroom in Memphis",
-          "correct": false,
-          "rationale": "It came from a sculptor’s workshop at Amarna."
+          "left": "Neues Museum",
+          "right": "Berlin"
         }
       ],
-      "explanation": "A German team found it at Amarna in the workshop of the sculptor Thutmose.",
+      "explanation": "Nefertiti’s name is usually translated “a beautiful woman has come.” Her bust was found in the workshop of the sculptor Thutmose and is now in the Neues Museum in Berlin.",
       "difficulty": 0.2
     },
     {

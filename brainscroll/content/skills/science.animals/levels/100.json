@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 100,
   "type": "mastery",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Mastery Challenge: The Animal Kingdom",
   "objective": "After this level you can demonstrate command of The Animal Kingdom Levels 1–99 across the whole tree.",
@@ -456,7 +456,7 @@
     },
     {
       "id": "question.animals.100.q9",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.space_animals_firsts"
@@ -464,33 +464,16 @@
       "sourceCardIds": [
         "card.animals.098.c4"
       ],
-      "prompt": "Which list puts these space travelers in order, earliest first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Laika, fruit flies, Ham, Belka and Strelka",
-          "correct": false,
-          "rationale": "The fruit flies came first, in 1947."
-        },
-        {
-          "id": "b",
-          "label": "Ham, Laika, fruit flies, Belka and Strelka",
-          "correct": false,
-          "rationale": "Ham flew last of these, in 1961."
-        },
-        {
-          "id": "c",
-          "label": "Fruit flies, Laika, Belka and Strelka, Ham",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Fruit flies, Ham, Laika, Belka and Strelka",
-          "correct": false,
-          "rationale": "Ham flew in 1961, after Laika and Belka and Strelka."
-        }
+      "prompt": "Put these space travelers in order, from the first flight to the last.",
+      "items": [
+        "Fruit flies",
+        "Laika",
+        "Belka and Strelka",
+        "Ham"
       ],
-      "explanation": "Fruit flies (1947), Laika (1957), Belka and Strelka (1960), then Ham (January 1961).",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Fruit flies went up in 1947, Laika in 1957, Belka and Strelka in 1960, and Ham in 1961.",
       "difficulty": 0.45
     },
     {

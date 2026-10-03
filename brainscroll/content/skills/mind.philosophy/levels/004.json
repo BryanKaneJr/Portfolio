@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 4,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Plato's World of Forms",
   "objective": "After this level you can explain Plato's theory that perfect, unchanging Forms, like Circle or Justice, are more real than the things we see.",
@@ -128,41 +128,32 @@
     },
     {
       "id": "question.philosophy.004.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.plato_forms"
       ],
       "sourceCardIds": [
-        "card.philosophy.004.c3"
+        "card.philosophy.004.c3",
+        "card.philosophy.004.c5",
+        "card.philosophy.003.c4"
       ],
-      "prompt": "In the Phaedo, why can’t our knowledge of Equality come from equal sticks?",
-      "options": [
+      "prompt": "Match each of Plato’s dialogues with the idea you met from it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Sticks are too small to measure",
-          "correct": false,
-          "rationale": "Size isn’t the issue."
+          "left": "Phaedo",
+          "right": "The equal sticks"
         },
         {
-          "id": "b",
-          "label": "The sticks sometimes look unequal, but Equality itself never does",
-          "correct": true
+          "left": "Parmenides",
+          "right": "The Third Man argument"
         },
         {
-          "id": "c",
-          "label": "Socrates had never seen a stick",
-          "correct": false,
-          "rationale": "The argument uses ordinary sticks."
-        },
-        {
-          "id": "d",
-          "label": "Equality is just a word people agree on",
-          "correct": false,
-          "rationale": "Plato argues the opposite."
+          "left": "Republic",
+          "right": "The ring of invisibility"
         }
       ],
-      "explanation": "Equal sticks can look unequal, while Equality itself never does, so the sticks fall short of what we know.",
+      "explanation": "The equal sticks come from the Phaedo, the Third Man argument from the Parmenides, and Glaucon’s ring of invisibility from the Republic.",
       "difficulty": 0.35
     },
     {

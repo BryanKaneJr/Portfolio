@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 44,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Chopin and the Piano",
   "objective": "After this level you can describe Chopin's piano music.",
@@ -179,7 +179,7 @@
     },
     {
       "id": "question.music.044.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.music.chopin_piano",
@@ -187,35 +187,20 @@
       ],
       "sourceCardIds": [
         "card.music.044.c3",
-        "card.music.004.c3"
+        "card.music.004.c3",
+        "card.music.044.c1",
+        "card.music.044.c2"
       ],
-      "prompt": "Chopin's mazurkas and Level 4's waltz both move in threes. What sets the mazurka's pulse apart?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It has two beats per measure, not three",
-          "correct": false,
-          "rationale": "It's triple time, like the waltz."
-        },
-        {
-          "id": "b",
-          "label": "It has no regular beat at all",
-          "correct": false,
-          "rationale": "It's a dance: the beat is steady."
-        },
-        {
-          "id": "c",
-          "label": "It is always much slower than a waltz",
-          "correct": false,
-          "rationale": "The difference is the accent, not the speed."
-        },
-        {
-          "id": "d",
-          "label": "A strong accent falls on the second beat",
-          "correct": true
-        }
+      "prompt": "Put these moments in Chopin's life in order, from earliest to latest.",
+      "items": [
+        "Born near Warsaw",
+        "Left Poland",
+        "Settled in Paris",
+        "Died in Paris"
       ],
-      "explanation": "Both are triple time, but the mazurka accents the second beat: one-TWO-three.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Chopin was born near Warsaw in 1810, left Poland in 1830, settled in Paris in 1831, and died in Paris in 1849.",
       "difficulty": 0.3
     }
   ],

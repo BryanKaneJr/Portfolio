@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 66,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Glass Towers",
   "objective": "After this level you can explain the curtain walls of glass towers.",
@@ -96,41 +96,32 @@
   "questions": [
     {
       "id": "question.architecture.066.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.sky_curtain_wall"
       ],
       "sourceCardIds": [
-        "card.architecture.066.c2"
+        "card.architecture.066.c2",
+        "card.architecture.066.c1",
+        "card.architecture.066.c3"
       ],
-      "prompt": "What is the curtain wall of a glass tower?",
-      "options": [
+      "prompt": "Match each glass-tower name with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The inside walls that divide the offices",
-          "correct": false,
-          "rationale": "It's the outer skin."
+          "left": "Curtain wall",
+          "right": "A nonbearing wall"
         },
         {
-          "id": "b",
-          "label": "A thick wall that carries the floors above",
-          "correct": false,
-          "rationale": "That's a load-bearing wall; a curtain wall carries nothing but itself."
+          "left": "Lever House",
+          "right": "Gordon Bunshaft"
         },
         {
-          "id": "c",
-          "label": "A nonbearing outer wall attached to the structural frame",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "A fabric screen hung inside the windows",
-          "correct": false,
-          "rationale": "The name is an analogy; it's glass, metal or masonry."
+          "left": "The Walkie-Talkie",
+          "right": "20 Fenchurch Street"
         }
       ],
-      "explanation": "A curtain wall is a nonbearing wall of glass, metal or masonry attached to the building's exterior structural frame.",
+      "explanation": "A curtain wall is a nonbearing wall attached to the frame. Lever House was designed by Gordon Bunshaft of SOM. The Walkie-Talkie is the nickname of 20 Fenchurch Street.",
       "difficulty": 0.15
     },
     {
