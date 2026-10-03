@@ -2,6 +2,10 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: Profile's colour reaches the top of the phone
+
+- **Profile's violet header now runs all the way up** behind the time and the island, and fills what a pull-down reveals, instead of stopping short of the top. `Screen` takes a `topColor` for any screen that opens on a band of colour.
+
 ## 2026-10-03: Little gleams, and tabs that slide
 
 - **Small sparkles twinkle in and out** around the things that matter (owner: "little simple super easy animations"): the next level's Start callout on the skill map, this week's quest, a trophy just earned (gold for a gold trophy), the Level Complete headline and XP, a lit streak flame, the Unlimited screen and Dr. Scroll's avatar. Each fades in, turns a little and fades out, then comes back somewhere else along the edge. `Gleams` in the UI kit; off with Reduce Motion and never on lesson screens.

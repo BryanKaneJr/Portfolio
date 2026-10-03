@@ -8,21 +8,29 @@ import { ProgressBar } from './progress';
 import { Eyebrow, H1 } from './text';
 
 /** Tab screens: safe area, gutters, generous vertical rhythm, centered on wide screens. */
-export function Screen({ children, tone = 'default', scrollRef, header }: {
+export function Screen({ children, tone = 'default', scrollRef, header, topColor }: {
   children: ReactNode;
   tone?: 'default' | 'reward';
   scrollRef?: Ref<ScrollView>;
   /** Pinned above the scrolling content, so it's always in view. */
   header?: ReactNode;
+  /**
+   * For a screen whose content opens on a band of colour (Profile's header):
+   * the same colour fills the status bar and island area above it, and what
+   * a pull-down reveals, so the band reaches the very top of the phone.
+   */
+  topColor?: string;
 }) {
+  const bg = tone === 'reward' ? color.bgDeep : color.bg;
   return (
-    <SafeAreaView style={[styles.screen, tone === 'reward' && { backgroundColor: color.bgDeep }]} edges={['top']}>
+    <SafeAreaView style={[styles.screen, { backgroundColor: topColor ?? bg }]} edges={['top']}>
       {header && (
         <View style={styles.pinned}>
           <View style={[styles.column, { gap: space.md }]}>{header}</View>
         </View>
       )}
-      <ScrollView ref={scrollRef} contentContainerStyle={styles.scroll}>
+      <ScrollView ref={scrollRef} style={topColor ? { backgroundColor: bg } : undefined} contentContainerStyle={styles.scroll}>
+        {topColor && <View pointerEvents="none" style={[styles.overscroll, { backgroundColor: topColor }]} />}
         <View style={styles.column}>{children}</View>
       </ScrollView>
     </SafeAreaView>
@@ -141,6 +149,8 @@ export function Field({ label, ...props }: { label: string } & Pick<TextInputPro
 
 const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: color.bg },
+  // Above the content, seen only when it's pulled down past the top.
+  overscroll: { position: 'absolute', left: 0, right: 0, top: -1000, height: 1000 },
   scroll: { paddingHorizontal: layout.gutter, paddingTop: space.lg, paddingBottom: space.xxxl },
   column: { width: '100%', maxWidth: layout.readingWidth, alignSelf: 'center', gap: space.lg },
   header: { flexDirection: 'row', alignItems: 'flex-end', gap: space.md, marginBottom: space.xs },
