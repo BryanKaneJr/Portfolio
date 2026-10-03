@@ -155,6 +155,17 @@ try {
   await scrollDown();
   await page.waitForTimeout(1500);
   await shot('checkpoint-complete-proof');
+  // Chapter 1 finished: Dr. Scroll stays behind goofing off by its road.
+  await home(page);
+  await page.getByRole('button', { name: 'Continue', exact: true }).click();
+  await page.waitForTimeout(1000);
+  await page.mouse.move(width / 2, height / 2);
+  for (let i = 0; i < 6; i++) await page.mouse.wheel(0, -500);
+  await page.waitForTimeout(400);
+  await page.mouse.wheel(0, 550);
+  await page.waitForTimeout(600);
+  await shot('skill-map-finished-chapter');
+
   // Then out of Brainpower.
   await setBrainpower(page, 0);
   await page.goto(`${URL}daily-complete`);
