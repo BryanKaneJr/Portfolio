@@ -24,15 +24,17 @@ export default function DailyCompleteScreen() {
   const insets = useSafeAreaInsets();
   const quest = featuredQuest(useQuests().data);
   // A free trial the store would give this learner leads the Unlimited card; otherwise the price.
-  const { purchases } = useProgress();
+  const { purchases, account } = useProgress();
+  const userId = account && 'userId' in account ? account.userId : null;
   const [plans, setPlans] = useState<Plan[] | null>(null);
+  // Asked again once the account is known: trial eligibility belongs to the account.
   useEffect(() => {
     let alive = true;
-    if (purchases.kind !== 'unavailable') purchases.plans().then((p) => alive && setPlans(p), () => {});
+    if (purchases.kind !== 'unavailable' && userId) purchases.plans().then((p) => alive && setPlans(p), () => {});
     return () => {
       alive = false;
     };
-  }, [purchases]);
+  }, [purchases, userId]);
   const trial = offeredTrial(plans);
   // Product health: how often learners run out (not how long they stay).
   useEffect(() => track('daily_complete_seen', { used: today.used, cap: today.cap ?? today.used }), [today.used, today.cap]);
