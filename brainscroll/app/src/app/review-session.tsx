@@ -98,7 +98,7 @@ export default function ReviewSessionScreen() {
     const qid = item.question.id;
     p.submitReview(item, optionId)
       .then((r) => {
-        setAttempts((m) => ({ ...m, [qid]: [...(m[qid] ?? []), { optionId, correct: r.correct, rationale: r.rationale, explanation: r.explanation }] }));
+        setAttempts((m) => ({ ...m, [qid]: [...(m[qid] ?? []), { optionId, correct: r.correct, rationale: r.rationale, wrong: r.wrong, explanation: r.explanation }] }));
         setXp((x) => x + r.xpAwarded);
         setSelected(undefined);
         if (r.correct && r.attemptCount <= 1) setFirstTry((c) => c + 1);

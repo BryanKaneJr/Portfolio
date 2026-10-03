@@ -1,6 +1,7 @@
 export * from './constants';
 export * from './ids';
 export * from './content-schema';
+export * from './answers';
 export * from './validate';
 export * from './progression';
 export * from './daily';

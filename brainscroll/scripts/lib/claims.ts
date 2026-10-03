@@ -1,4 +1,5 @@
 import type { Card, Concept, Fact, Level, Question, Source, ValidatedContent, VerificationRecord } from '@brainscroll/core';
+import { expectedLabels } from '@brainscroll/core';
 
 /**
  * The claim index: every (fact, source) pair with everything a human needs to
@@ -50,7 +51,7 @@ export function claimIndex(content: ValidatedContent): ClaimRow[] {
       const testedBy = content.levels.flatMap((level) =>
         level.questions
           .filter((q) => q.conceptIds.includes(concept.id) && q.sourceCardIds.some((c) => factCards.has(c)))
-          .map((question) => ({ level, question, answer: question.options.find((o) => o.correct)?.label ?? '?' })),
+          .map((question) => ({ level, question, answer: question.kind === 'mcq' ? (question.options.find((o) => o.correct)?.label ?? '?') : expectedLabels(question).join(' → ') })),
       );
       for (const sourceId of fact.sourceIds) {
         rows.push({

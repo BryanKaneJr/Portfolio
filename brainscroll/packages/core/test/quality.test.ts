@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { checkQuality, checkRevisions, jaccard, contentWords, numbersIn, type Concept, type Level } from '../src';
 
 /** A minimal level: hook, one learning card stating a fact, questions, recap. */
-function level(n: number, questions: Partial<Level['questions'][number]>[] = [{}], extra: Partial<Level> = {}): Level {
+function level(n: number, questions: Partial<Extract<Level['questions'][number], { kind: 'mcq' }>>[] = [{}], extra: Partial<Level> = {}): Level {
   const num = String(n).padStart(3, '0');
   return {
     id: `level.science.astronomy.${num}`,

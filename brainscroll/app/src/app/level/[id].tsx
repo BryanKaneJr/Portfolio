@@ -152,7 +152,7 @@ export default function LevelScreen() {
     setError(null);
     p.answerQuestion(level, qid, optionId)
       .then((r) => {
-        const attempt = { optionId, correct: r.correct, rationale: r.rationale, explanation: r.explanation };
+        const attempt = { optionId, correct: r.correct, rationale: r.rationale, wrong: r.wrong, explanation: r.explanation };
         setSession((s) => (s ? { ...s, attempts: { ...s.attempts, [qid]: [...(s.attempts[qid] ?? []), attempt] } } : s));
         setSelected(undefined);
         if (r.correct) feedback('correct');

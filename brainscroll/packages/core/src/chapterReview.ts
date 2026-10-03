@@ -1,3 +1,4 @@
+import { gradeAnswer } from './answers';
 import { grantBrainpower } from './brainpower';
 import { XP } from './constants';
 import type { DailyAllowance } from './daily';
@@ -137,9 +138,9 @@ export function answerChapterReview(
   const { reviewId, question: q, optionId, now } = input;
   const run = runsOf(state)[reviewId];
   if (!run || run.completedAt || !run.questionIds.includes(q.id)) throw new ChapterReviewError('QUESTION_NOT_IN_REVIEW');
-  const option = q.options.find((o) => o.id === optionId);
-  const correct = option?.correct ?? false;
-  const reveal = correct ? { explanation: q.explanation } : { rationale: option?.rationale };
+  const g = gradeAnswer(q, optionId);
+  const correct = g.correct;
+  const reveal = correct ? { explanation: q.explanation } : { rationale: g.rationale, ...(g.wrong ? { wrong: g.wrong } : {}) };
   const prev = run.answers[q.id];
   const at = now.toISOString();
   // Checked outside this review since it started (a replay grades without

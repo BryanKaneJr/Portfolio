@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 1,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Your Cosmic Address",
   "objective": "After this level you can state Earth's address: third planet from the Sun, a star in the Milky Way.",
@@ -184,8 +184,7 @@
     },
     {
       "id": "question.astronomy.001.q3",
-      "kind": "mcq",
-      "purpose": "connection",
+      "kind": "order",
       "conceptIds": [
         "concept.astronomy.earth_third_planet",
         "concept.astronomy.milky_way_home"
@@ -194,34 +193,17 @@
         "card.astronomy.001.c2",
         "card.astronomy.001.c4"
       ],
-      "prompt": "Which list goes from smallest to largest?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Solar system → Earth → Milky Way",
-          "correct": false,
-          "rationale": "Earth is one part of the solar system."
-        },
-        {
-          "id": "b",
-          "label": "Milky Way → solar system → Earth",
-          "correct": false,
-          "rationale": "That's largest to smallest."
-        },
-        {
-          "id": "c",
-          "label": "Earth → solar system → Milky Way",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Earth → Milky Way → solar system",
-          "correct": false,
-          "rationale": "The solar system sits inside the Milky Way."
-        }
+      "prompt": "Put your cosmic address in order, from smallest to largest.",
+      "items": [
+        "Earth",
+        "The solar system",
+        "The Milky Way"
       ],
+      "first": "Smallest",
+      "last": "Largest",
       "explanation": "Earth is one planet in the solar system, and the whole solar system is one tiny part of the Milky Way.",
-      "difficulty": 0.15
+      "difficulty": 0.15,
+      "purpose": "connection"
     }
   ],
   "sourceIds": [

@@ -232,12 +232,32 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
         else if (cardRole(owner.card) === 'question' || cardRole(owner.card) === 'recap')
           err(q.id, `source card ${cid} must be a learning or hook card, not a ${owner.card.type} card`);
       }
-      const correct = q.options.filter((o) => o.correct).length;
-      if (correct !== 1) err(q.id, `must have exactly one correct option; has ${correct}`);
-      const optionIds = q.options.map((o) => o.id);
-      if (new Set(optionIds).size !== optionIds.length) err(q.id, 'duplicate option ids');
-      const labels = q.options.map((o) => o.label.toLowerCase());
-      if (new Set(labels).size !== labels.length) err(q.id, 'duplicate option labels');
+      if (q.kind !== 'mcq' && q.shuffled) err(q.id, '`shuffled` is set by the server for phones; content never sets it');
+      if (q.kind === 'mcq') {
+        const correct = q.options.filter((o) => o.correct).length;
+        if (correct !== 1) err(q.id, `must have exactly one correct option; has ${correct}`);
+        const optionIds = q.options.map((o) => o.id);
+        if (new Set(optionIds).size !== optionIds.length) err(q.id, 'duplicate option ids');
+        const labels = q.options.map((o) => o.label.toLowerCase());
+        if (new Set(labels).size !== labels.length) err(q.id, 'duplicate option labels');
+      } else if (q.kind === 'match') {
+        // One-to-one: two left items with the same label could never be told apart.
+        const lefts = q.pairs.map((p) => p.left.toLowerCase());
+        if (new Set(lefts).size !== lefts.length) err(q.id, 'duplicate left-hand labels: each item to match must be distinct');
+        // Labels that differ only in case would read as interchangeable but grade as different.
+        for (const side of ['left', 'right'] as const) {
+          const by = new Map<string, Set<string>>();
+          for (const p of q.pairs) by.set(p[side].toLowerCase(), (by.get(p[side].toLowerCase()) ?? new Set()).add(p[side]));
+          for (const spellings of by.values()) if (spellings.size > 1) err(q.id, `labels ${[...spellings].map((s) => `"${s}"`).join(' and ')} differ only in case; use one spelling`);
+        }
+        if (q.pairs.some((p) => p.left.toLowerCase() === p.right.toLowerCase())) err(q.id, 'an item is matched with itself');
+      } else {
+        const by = new Map<string, Set<string>>();
+        for (const it of q.items) by.set(it.toLowerCase(), (by.get(it.toLowerCase()) ?? new Set()).add(it));
+        for (const spellings of by.values()) if (spellings.size > 1) err(q.id, `items ${[...spellings].map((s) => `"${s}"`).join(' and ')} differ only in case; use one spelling`);
+        if (new Set(q.items).size < 2) err(q.id, 'needs at least two different items to order');
+        if (q.first.toLowerCase() === q.last.toLowerCase()) err(q.id, 'the two ends need different names');
+      }
       for (const cid of q.conceptIds) {
         if (!conceptIds.has(cid)) err(q.id, `unknown concept ${cid}`);
         else if (!levelConcepts.has(cid)) err(q.id, `tests ${cid}, which is not listed in the level's concepts`);
@@ -303,7 +323,7 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
 
   // Predictable answers undermine learning: warn when one slot dominates a skill.
   for (const [skill, list] of levelsBySkill) {
-    const positions = list.flatMap((l) => l.questions.map((q) => q.options.findIndex((o) => o.correct)));
+    const positions = list.flatMap((l) => l.questions.flatMap((q) => (q.kind === 'mcq' ? [q.options.findIndex((o) => o.correct)] : [])));
     if (positions.length < ANSWER_POSITION_MIN_SAMPLE) continue;
     const counts = new Map<number, number>();
     for (const p of positions) counts.set(p, (counts.get(p) ?? 0) + 1);

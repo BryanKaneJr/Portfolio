@@ -42,6 +42,8 @@ const ICONS = {
   mountain: { ios: 'mountain.2.fill', android: 'landscape', web: 'landscape' },
   gears: { ios: 'gearshape.2.fill', android: 'settings', web: 'settings' },
   brain: { ios: 'brain.fill', android: 'neurology', web: 'neurology' },
+  /** An order question's drag handle. */
+  grip: { ios: 'line.3.horizontal', android: 'drag_handle', web: 'drag_handle' },
 } as const satisfies Record<string, SymbolViewProps['name']>;
 export type IconName = keyof typeof ICONS;
 

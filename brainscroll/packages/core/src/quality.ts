@@ -1,4 +1,5 @@
 import type { Asset, Card, Concept, Level, Question, Source } from './content-schema';
+import { expectedLabels } from './answers';
 import { cardRole } from './structure';
 
 /**
@@ -86,7 +87,8 @@ export function readableText(card: Card): string {
   }
 }
 
-const correctLabel = (q: Question) => q.options.find((o) => o.correct)?.label ?? '';
+/** A question's answer as text: the right option, or for match and order, the labels in order. */
+const correctLabel = (q: Question) => (q.kind === 'mcq' ? (q.options.find((o) => o.correct)?.label ?? '') : expectedLabels(q).join(' '));
 
 export function checkQuality(
   input: { levels: Level[]; concepts: Concept[]; sources: Source[]; assets: Asset[]; levelFiles?: Map<string, string> },
@@ -98,6 +100,7 @@ export function checkQuality(
   const factsOnCard = new Map<string, string[]>();
   for (const c of concepts)
     for (const f of c.facts) for (const cid of f.cardIds) factsOnCard.set(cid, [...(factsOnCard.get(cid) ?? []), f.text]);
+  const cardText = new Map(levels.flatMap((l) => l.cards.map((c) => [c.id, readableText(c)] as const)));
 
   // ── Per level ──────────────────────────────────────────────────────────────
   for (const level of levels) {
@@ -128,15 +131,22 @@ export function checkQuality(
     const ordered = qOrder.map((id) => qById.get(id)).filter((q): q is Question => !!q);
     ordered.forEach((q, i) => {
       const answer = normalizeText(correctLabel(q));
-      if (answer.length >= 4 && containsPhrase(normalizeText(q.prompt), answer)) warn(q.id, `the prompt contains the correct answer "${correctLabel(q)}"`);
+      if (q.kind === 'mcq' && answer.length >= 4 && containsPhrase(normalizeText(q.prompt), answer)) warn(q.id, `the prompt contains the correct answer "${correctLabel(q)}"`);
       // An earlier question's feedback revealing a later answer makes the later one trivial.
       for (const earlier of ordered.slice(0, i)) {
-        const feedback = normalizeText([earlier.explanation, ...earlier.options.map((o) => o.rationale ?? '')].join(' '));
+        const feedback = normalizeText([earlier.explanation, ...(earlier.kind === 'mcq' ? earlier.options.map((o) => o.rationale ?? '') : [])].join(' '));
         if (answer.split(' ').length >= 3 && feedback.includes(answer)) warn(q.id, `its answer "${correctLabel(q)}" is given away by the feedback of ${earlier.id}`);
       }
-      const labels = q.options.map((o) => normalizeText(o.label));
-      if (labels.some((l) => /\b(all|none) of (the|these) (above|options)\b/.test(l))) warn(q.id, 'avoid "all/none of the above": it tests the format, not the idea');
-      if (q.options.length < 3) warn(q.id, `has only ${q.options.length} options; 3–4 make guessing less rewarding`);
+      if (q.kind === 'mcq') {
+        const labels = q.options.map((o) => normalizeText(o.label));
+        if (labels.some((l) => /\b(all|none) of (the|these) (above|options)\b/.test(l))) warn(q.id, 'avoid "all/none of the above": it tests the format, not the idea');
+        if (q.options.length < 3) warn(q.id, `has only ${q.options.length} options; 3–4 make guessing less rewarding`);
+      } else {
+        // Every label must be taught: the "Take another look" cards have to settle the whole answer.
+        const taught = normalizeText(q.sourceCardIds.map((id) => cardText.get(id) ?? '').join(' '));
+        const labels = q.kind === 'match' ? q.pairs.flatMap((p) => [p.left, p.right]) : q.items;
+        for (const l of labels) if (!taught.includes(normalizeText(l))) warn(q.id, `"${l}" isn't mentioned on its source cards; the "Take another look" cards should settle the whole answer`);
+      }
       // Evidence: the source cards should state a claim about what the question tests.
       const conceptFacts = new Set(q.conceptIds.flatMap((cid) => (conceptById.get(cid)?.facts ?? []).flatMap((f) => f.cardIds)));
       if (!q.sourceCardIds.some((c) => conceptFacts.has(c)))
@@ -173,8 +183,8 @@ export function checkQuality(
           warn(b.q.id, `near-duplicate of ${a.q.id} (same answer, very similar prompt); vary it or test a different angle`);
       }
     // A consistently longest right answer teaches learners to pick the longest option.
-    const multi = qs.filter(({ q }) => q.options.length >= 3);
-    const longest = multi.filter(({ q }) => {
+    const multi = qs.flatMap(({ q }) => (q.kind === 'mcq' && q.options.length >= 3 ? [q] : []));
+    const longest = multi.filter((q) => {
       const len = (s: string) => s.length;
       const right = len(correctLabel(q));
       return q.options.every((o) => o.correct || len(o.label) * LONGEST_ANSWER_RATIO <= right);

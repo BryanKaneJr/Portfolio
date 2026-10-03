@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { AnswerOption, Body, EvidenceBlock, Eyebrow, FeedbackPanel, H2, type AnswerState } from '@/components/ui';
 import type { AttemptView } from '@/progress/ProgressProvider';
 import { space } from '@/theme/tokens';
+import { MatchQuestion, OrderQuestion } from './ArrangeQuestions';
 import { LearningCard } from './LearningCard';
 
 /**
@@ -16,7 +17,8 @@ import { LearningCard } from './LearningCard';
  *     and the answer is never simply revealed.
  *
  * Only the first CHECK counts toward XP (recorded server-side when online);
- * selecting without checking records nothing.
+ * selecting without checking records nothing. Match and order questions
+ * (ArrangeQuestions) work the same way: arrange, CHECK, fix what's marked.
  */
 export function QuestionCard({
   question,
@@ -43,8 +45,14 @@ export function QuestionCard({
       <View style={{ gap: space.sm }}>
         <Eyebrow tone={recall ? 'success' : 'brand'}>{recall ? 'Recall · from an earlier level' : PURPOSE[question.purpose]}</Eyebrow>
         <H2>{question.prompt}</H2>
+        {question.kind !== 'mcq' && <Body muted>{question.kind === 'match' ? 'Tap one on each side to pair them.' : 'Drag the handles, or tap two to swap them.'}</Body>}
       </View>
 
+      {question.kind === 'order' ? (
+        <OrderQuestion key={question.id} question={question} attempts={attempts} busy={busy} onSelect={onSelect} />
+      ) : question.kind === 'match' ? (
+        <MatchQuestion key={question.id} question={question} attempts={attempts} busy={busy} onSelect={onSelect} />
+      ) : (
       <View style={{ gap: space.md }} accessibilityRole="radiogroup">
         {question.options.map((o) => {
           const state: AnswerState =
@@ -62,6 +70,7 @@ export function QuestionCard({
           return <AnswerOption key={o.id} letter={o.id} label={o.label} state={state} onPress={() => onSelect(o.id)} />;
         })}
       </View>
+      )}
 
       {/* Under the choices, so a miss never pushes them off screen (UX review C2). */}
       {s.needsAnotherLook && (
@@ -106,10 +115,17 @@ export function QuestionFeedback({ attempts }: { attempts: AttemptView[] }) {
   if (s.lastWrong)
     return (
       <FeedbackPanel key={attempts.length} tone="reinforce" mascot="feedback.wrong" title="Not quite">
-        <Body>{s.lastWrong.rationale ?? 'That one doesn’t fit.'} Take another look, then choose again.</Body>
+        <Body>{wrongLine(s.lastWrong)} Take another look, then {s.lastWrong.wrong ? 'try again' : 'choose again'}.</Body>
       </FeedbackPanel>
     );
   return null;
+}
+
+/** What a miss says: the option's own rationale, or how many places in an arrangement are off. */
+function wrongLine(a: AttemptView): string {
+  if (a.rationale) return a.rationale;
+  if (a.wrong) return a.wrong.length === 1 ? 'One is in the wrong place.' : `${a.wrong.length} are in the wrong place.`;
+  return 'That one doesn’t fit.';
 }
 
 export function feedbackTone(attempts: AttemptView[]): 'success' | 'reinforce' | undefined {
