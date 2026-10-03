@@ -2,6 +2,10 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: Content Admin saves on Windows
+
+- **Fix:** on Windows, saving an edited level in the Content Admin was refused (409) with every question "duplicating" itself. Content paths were read with backslashes but compared with forward slashes, so the edit was added as a second copy instead of replacing the file. Paths are now forward slashes on every OS (`scripts/lib/load-content.ts`).
+
 ## 2026-10-03: Dr. Scroll's first animation
 
 - **On Social, before you have friends,** Dr. Scroll now waves hello and then points at his speech bubble ("Learning is better with company…"), ending on the point (owner). With reduce motion he simply points.

@@ -1,5 +1,5 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
-import { join, relative } from 'node:path';
+import { join, relative, sep } from 'node:path';
 import type { RawContentBundle } from '@brainscroll/core';
 
 /**
@@ -11,7 +11,8 @@ import type { RawContentBundle } from '@brainscroll/core';
  *   content/skills/<subject>.<skill>/levels/NNN.json
  */
 export function loadContent(root: string): RawContentBundle {
-  const rel = (p: string) => relative(root, p);
+  // Forward slashes on every OS: `where` is compared and shown as a path like skills/x/levels/001.json.
+  const rel = (p: string) => relative(root, p).split(sep).join('/');
   const json = (p: string): unknown => {
     try {
       return JSON.parse(readFileSync(p, 'utf8'));
