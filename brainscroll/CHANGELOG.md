@@ -4,7 +4,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-10-02: A quieter, more premium type scale
 
-- **Headlines and big numbers are about 20 to 25% smaller and tighter** ("Knowledge reinforced" fits one line), labels are quieter, and buttons read in sentence case ("Next: Level 2") instead of spaced capitals. Still Nunito; the owner chose this over the old scale and over Plus Jakarta Sans after seeing all three on real screens. `docs/design-system.md` has the new scale.
+- **Headlines and big numbers are about 20 to 25% smaller and tighter** ("Knowledge reinforced" fits one line), labels are quieter, and buttons read in sentence case ("Next: Level 2") instead of spaced capitals. Lessons stay a size up for reading: paragraphs 19 pt, key ideas 19 pt bold, answer choices 17 pt. Still Nunito; the owner chose this over the old scale and over Plus Jakarta Sans after seeing all three on real screens. `docs/design-system.md` has the new scale.
 - **A new trophy's card shares with one tap anywhere on it,** marked by a small round share icon in its corner, instead of a big Share button that made the card tall.
 
 ## 2026-10-02: Brainpower you earn flies to your balance

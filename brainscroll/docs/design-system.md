@@ -21,8 +21,8 @@ If everything glows, nothing feels special. `glow.*`, `Halo`, `Emblem glowing`, 
 - **Bow Tie Plum (`plum`) is Dr. Scroll's colour**, taken from his bow tie. Anything he says wears it: speech-bubble borders, tip actions ("Got it"), and the "Did you know" label on fact cards (fun facts are his territory). It never marks an action or progress: those stay brand violet, and gold stays mastery-only. `plum` text passes contrast on `surface` (4.8:1) but not on its own `plumSoft` tint (4.1:1), so plum words sit on the plain surface; use `plumDeep` for fills.
 - **Type scale** (refined 2026-10-02: the owner wanted it less loud and more premium; smaller, tighter headlines and sentence-case buttons):
   - `hero` 44 / `display` 30 / `h1` 26 / `h2` 21 / `title` 18: progression and structure, with slightly negative letter spacing
-  - **`reading` 17/27:** lesson paragraphs
-  - `lead` 17/24 bold (the key idea, a comparison's label), `choice` 16/23 (answer options, onboarding skills)
+  - **`reading` 19/29:** lesson paragraphs (lesson text stays a size up from the rest of the app, owner 2026-10-02)
+  - `lead` 19/26 bold (the key idea, a comparison's label), `choice` 17/24 (answer options, onboarding skills)
   - `body` 15/22, `bodyStrong`, `caption` 13/18, `meta` 12 (tiny metadata: map-tile levels, answer letters)
   - `label` 11 (uppercase eyebrow, wide tracking), `button` 16 bold in sentence case ("Next: Level 2", never all caps), `number` 24 and `numberSm` 19 (tabular numerals)
 - **Share is a small mark, not a button:** a card that can be shared (a new trophy on Level Complete) is tappable as a whole and carries a 32 pt round share icon in its top-right corner.

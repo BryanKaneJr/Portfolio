@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
   when: { ...type.label, color: color.brandText },
   compareItem: { backgroundColor: color.surface, borderRadius: radius.md, borderWidth: depth.line, borderColor: color.border, padding: space.lg, gap: space.xs },
   compareLabel: { ...type.lead, color: color.text, marginBottom: space.xxs },
-  comparePoint: { ...type.body, color: color.textReading },
+  comparePoint: { ...type.reading, color: color.textReading },
   image: { aspectRatio: 16 / 9, borderRadius: radius.lg, backgroundColor: color.surface, borderWidth: depth.line, borderColor: color.border },
   caption: { ...type.caption, color: color.textMuted },
   learnedRow: { flexDirection: 'row', gap: space.md, alignItems: 'flex-start' },

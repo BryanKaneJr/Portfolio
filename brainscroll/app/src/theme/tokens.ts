@@ -137,7 +137,8 @@ export const fw = (weight: keyof typeof fontFamily): TextStyle => ({ fontFamily:
  * Type scale, in Nunito. Numerals use tabular figures. Refined 2026-10-02 (owner
  * picked "B" over the original and Plus Jakarta Sans): smaller, tighter
  * headlines and numbers, quieter labels, and sentence-case buttons, so the app
- * reads premium rather than loud.
+ * reads premium rather than loud. Lesson text (reading, lead, choice) stays a
+ * size up, for comfortable reading.
  */
 export const type = {
   // Progression / reward
@@ -148,16 +149,16 @@ export const type = {
   h2: { fontSize: 21, ...fw('700'), letterSpacing: -0.3, lineHeight: 27 },
   title: { fontSize: 18, ...fw('700'), letterSpacing: -0.2, lineHeight: 24 },
   // Reading: the lesson's hero. Generous line height for paragraphs.
-  reading: { fontSize: 17, ...fw('400'), lineHeight: 27 },
+  reading: { fontSize: 19, ...fw('400'), lineHeight: 29 },
   body: { fontSize: 15, ...fw('400'), lineHeight: 22 },
   bodyStrong: { fontSize: 15, ...fw('600'), lineHeight: 22 },
   caption: { fontSize: 13, ...fw('400'), lineHeight: 18 },
   // Tiny metadata: levels on map tiles, letters in answer badges.
   meta: { fontSize: 12, ...fw('700'), lineHeight: 16 },
   // Tappable choices (answer options, onboarding skills): a touch larger than body.
-  choice: { fontSize: 16, ...fw('600'), lineHeight: 23 },
+  choice: { fontSize: 17, ...fw('600'), lineHeight: 24 },
   // A highlighted line in a lesson: the key idea, a comparison's label.
-  lead: { fontSize: 17, ...fw('700'), lineHeight: 24 },
+  lead: { fontSize: 19, ...fw('700'), lineHeight: 26 },
   label: { fontSize: 11, ...fw('700'), letterSpacing: 1.4, textTransform: 'uppercase' },
   button: { fontSize: 16, ...fw('700'), letterSpacing: 0, textTransform: 'none' },
   number: { fontSize: 24, ...fw('800'), letterSpacing: -0.4, fontVariant: ['tabular-nums'] },
