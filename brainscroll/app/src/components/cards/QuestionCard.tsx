@@ -1,9 +1,10 @@
-import type { Card, Question } from '@brainscroll/core';
+import { blankParts, type Card, type Question } from '@brainscroll/core';
 import { View } from 'react-native';
 import { AnswerOption, Body, EvidenceBlock, Eyebrow, FeedbackPanel, H2, type AnswerState } from '@/components/ui';
 import type { AttemptView } from '@/progress/ProgressProvider';
 import { space } from '@/theme/tokens';
 import { MatchQuestion, OrderQuestion } from './ArrangeQuestions';
+import { FillBlankQuestion } from './FillBlank';
 import { LearningCard } from './LearningCard';
 
 /**
@@ -19,6 +20,8 @@ import { LearningCard } from './LearningCard';
  * Only the first CHECK counts toward XP (recorded server-side when online);
  * selecting without checking records nothing. Match and order questions
  * (ArrangeQuestions) work the same way: arrange, CHECK, fix what's marked.
+ * A multiple-choice prompt with a gap ("_____") is a fill-in-the-blank
+ * (FillBlank): same grading, but the pick drops into the sentence.
  */
 export function QuestionCard({
   question,
@@ -39,12 +42,25 @@ export function QuestionCard({
 }) {
   const s = questionStatus(attempts);
   const wrong = new Set(attempts.filter((a) => !a.correct).map((a) => a.optionId));
+  const stateOf = (id: string): AnswerState =>
+    id === s.resolvedBy?.optionId
+      ? 'correct'
+      : wrong.has(id)
+        ? 'eliminated'
+        : busy && id === selected
+          ? 'checking'
+          : s.resolved || busy
+            ? 'locked'
+            : id === selected
+              ? 'selected'
+              : 'idle';
+  const blank = question.kind === 'mcq' ? blankParts(question.prompt) : null;
 
   return (
     <View style={{ gap: space.xl }}>
       <View style={{ gap: space.sm }}>
         <Eyebrow tone={recall ? 'success' : 'brand'}>{recall ? 'Recall · from an earlier level' : PURPOSE[question.purpose]}</Eyebrow>
-        <H2>{question.prompt}</H2>
+        {!blank && <H2>{question.prompt}</H2>}
         {question.kind !== 'mcq' && <Body muted>{question.kind === 'match' ? 'Tap one on each side to pair them.' : 'Drag the handles, or tap two to swap them.'}</Body>}
       </View>
 
@@ -52,24 +68,14 @@ export function QuestionCard({
         <OrderQuestion key={question.id} question={question} attempts={attempts} busy={busy} onSelect={onSelect} />
       ) : question.kind === 'match' ? (
         <MatchQuestion key={question.id} question={question} attempts={attempts} busy={busy} onSelect={onSelect} />
+      ) : blank ? (
+        <FillBlankQuestion key={question.id} question={question} before={blank.before} after={blank.after} stateOf={stateOf} onSelect={onSelect} />
       ) : (
-      <View style={{ gap: space.md }} accessibilityRole="radiogroup">
-        {question.options.map((o) => {
-          const state: AnswerState =
-            o.id === s.resolvedBy?.optionId
-              ? 'correct'
-              : wrong.has(o.id)
-                ? 'eliminated'
-                : busy && o.id === selected
-                  ? 'checking'
-                  : s.resolved || busy
-                    ? 'locked'
-                    : o.id === selected
-                      ? 'selected'
-                      : 'idle';
-          return <AnswerOption key={o.id} letter={o.id} label={o.label} state={state} onPress={() => onSelect(o.id)} />;
-        })}
-      </View>
+        <View style={{ gap: space.md }} accessibilityRole="radiogroup">
+          {question.options.map((o) => (
+            <AnswerOption key={o.id} letter={o.id} label={o.label} state={stateOf(o.id)} onPress={() => onSelect(o.id)} />
+          ))}
+        </View>
       )}
 
       {/* Under the choices, so a miss never pushes them off screen (UX review C2). */}

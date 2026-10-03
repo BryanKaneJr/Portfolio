@@ -78,6 +78,17 @@ Besides multiple choice (`"kind": "mcq"`), a question can be a **match** or an *
 - The `explanation` states the whole right answer. There are no per-option rationales: a miss marks the wrong positions instead.
 - Converting a published question bumps the level's `revision`, like any content change.
 
+### Fill-in-the-blank questions
+
+A multiple-choice question becomes a **fill in the blank** when its prompt is a statement with one gap, written as five underscores: `"Counting outward from the Sun, Earth is the _____ planet."` (owner, 2026-10-03: in about half of all levels). The options sit under the sentence as chips; the one picked drops into the gap, and the gap is as wide as the longest option. It is still `"kind": "mcq"`, graded and reviewed exactly the same, so nothing else changes.
+
+- **One gap, and a statement, not a question** (no "?"). The validator rejects two gaps or a trailing "?".
+- **Every option must read correctly in the gap**, grammatically and in tone: same part of speech, and no option that is a giveaway because it alone fits ("an ___" with only one option starting with a vowel). Read the sentence aloud with each option in it.
+- **Short options:** 30 characters or fewer each (the validator enforces it), so the chip sits inside the sentence. Drop the words the sentence already says ("The third" becomes "third" after "Earth is the _____ planet").
+- **Only one option can be true in the sentence.** If a wrong option also makes a true statement, it isn't a distractor.
+- Keep the rationales: they still explain a wrong pick ("That's Neptune, the outermost planet.").
+- Converting a published question bumps the level's `revision`, like any content change.
+
 Vary which option is correct across a skill. The validator warns when one letter holds more than 45% of the correct answers. If the options have a natural order (numbers, dates, sequences), keep that order and let the correct answer land wherever it falls.
 
 ### Text budgets (mobile)

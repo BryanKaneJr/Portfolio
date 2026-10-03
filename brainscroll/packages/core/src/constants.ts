@@ -98,6 +98,8 @@ export const TEXT_BUDGET = {
   answerLabel: 80,
   /** A match side or an item to order: short enough to drag and to sit in a half-width column. */
   arrangeLabel: 40,
+  /** An option that drops into a fill-in-the-blank gap: a few words, so the gap stays in the sentence. */
+  blankLabel: 30,
   explanation: 300,
   factFact: 140,
 } as const;

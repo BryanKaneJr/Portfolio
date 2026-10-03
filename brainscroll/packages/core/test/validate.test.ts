@@ -112,6 +112,21 @@ describe('validateContent', () => {
     expect(issues(bundle([l]), 'error')).toContain('must have exactly one correct option; has 2');
   });
 
+  it('accepts a fill-in-the-blank with one gap and short options', () => {
+    const asBlank = (prompt: string, long = false) => {
+      const l = makeLevel(1);
+      const q = (l.questions as { prompt: string; options: { label: string }[] }[])[0]!;
+      q.prompt = prompt;
+      if (long) q.options[0]!.label = 'A much longer answer than any gap could hold';
+      return l;
+    };
+    const errors = (l: Record<string, unknown>) => issues(bundle([l]), 'error');
+    expect(errors(asBlank('The third planet from the Sun is _____.'))).toEqual([]);
+    expect(errors(asBlank('Two _____ gaps _____.')).some((m) => m.includes('one gap'))).toBe(true);
+    expect(errors(asBlank('Which planet is _____?')).some((m) => m.includes('statement with a gap'))).toBe(true);
+    expect(errors(asBlank('The third planet from the Sun is _____.', true)).some((m) => m.includes('too long to drop into the gap'))).toBe(true);
+  });
+
   it('accepts match and order questions, and checks they can be told apart', () => {
     const asOrder = (items: string[], first = 'Smallest', last = 'Largest') => {
       const l = makeLevel(1);
