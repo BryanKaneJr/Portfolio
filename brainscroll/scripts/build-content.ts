@@ -20,7 +20,7 @@
 import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { validateContent, type Level } from '@brainscroll/core';
+import { shuffledLabels, validateContent, type Level } from '@brainscroll/core';
 import { loadContent } from './lib/load-content';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -74,10 +74,21 @@ const files = new Map<string, string>();
 const json = (v: unknown) => JSON.stringify(v) + '\n';
 files.set('index.json', json(index));
 for (const s of shipped) files.set(`levels/${skillSlug(s.id)}.json`, json(levels.filter((l: Level) => l.skillId === s.id)));
-/** Mirrors SQL learner_bundle(): what a learner's device may know about a question. */
+/**
+ * Mirrors SQL learner_bundle(): what a learner's device may know about a
+ * question. Match and order lose their answer: the right-hand column and the
+ * items arrive jumbled (never already solved) and marked `shuffled`.
+ */
 const stripAnswers = (l: Level): Level => ({
   ...l,
-  questions: l.questions.map((q) => ({ ...q, explanation: '', options: q.options.map(({ rationale: _r, ...o }) => ({ ...o, correct: false })) })),
+  questions: l.questions.map((q): Level['questions'][number] => {
+    if (q.kind === 'match') {
+      const rights = shuffledLabels(q.id, q.pairs.map((p) => p.right));
+      return { ...q, explanation: '', shuffled: true, pairs: q.pairs.map((p, i) => ({ left: p.left, right: rights[i]! })) };
+    }
+    if (q.kind === 'order') return { ...q, explanation: '', shuffled: true, items: shuffledLabels(q.id, q.items) };
+    return { ...q, explanation: '', options: q.options.map(({ rationale: _r, ...o }) => ({ ...o, correct: false })) };
+  }),
 });
 for (const s of shipped) files.set(`learner-levels/${skillSlug(s.id)}.json`, json(levels.filter((l: Level) => l.skillId === s.id).map(stripAnswers)));
 const loaderIndex = (what: string) =>

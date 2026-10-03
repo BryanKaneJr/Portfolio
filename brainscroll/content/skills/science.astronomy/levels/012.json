@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 12,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "A Year Around the Sun",
   "objective": "After this level you can explain what a year is, why leap years exist, and why the night sky changes with the seasons.",
@@ -98,41 +98,31 @@
   "questions": [
     {
       "id": "question.astronomy.012.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.earth_orbit_year"
       ],
       "sourceCardIds": [
-        "card.astronomy.012.c2"
+        "card.astronomy.012.c2",
+        "card.astronomy.012.c3"
       ],
-      "prompt": "About how long does Earth take to orbit the Sun once?",
-      "options": [
+      "prompt": "Match each with what it gives us, or how often it comes.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "24 hours",
-          "correct": false,
-          "rationale": "That’s one spin on its axis: a day."
+          "left": "Orbit",
+          "right": "Year"
         },
         {
-          "id": "b",
-          "label": "29.5 days",
-          "correct": false,
-          "rationale": "That’s the Moon’s cycle of phases."
+          "left": "Spin",
+          "right": "Day"
         },
         {
-          "id": "c",
-          "label": "365.25 days",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "4 years",
-          "correct": false,
-          "rationale": "Leap years come every four years; the orbit takes one."
+          "left": "Leap day",
+          "right": "About every four years"
         }
       ],
-      "explanation": "One orbit of the Sun takes about 365.25 days: one year.",
+      "explanation": "One orbit of the Sun is a year and one spin is a day. A leap day is added about every four years.",
       "difficulty": 0.1
     },
     {

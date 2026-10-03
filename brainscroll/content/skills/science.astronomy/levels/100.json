@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 100,
   "type": "mastery",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Mastery Challenge: Astronomy",
   "objective": "After this level you can demonstrate command of Astronomy Levels 1–99 across the whole tree.",
@@ -487,7 +487,7 @@
     },
     {
       "id": "question.astronomy.100.q9",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.astronomy.galileo_observations",
@@ -499,33 +499,15 @@
         "card.astronomy.088.c3",
         "card.astronomy.092.c4"
       ],
-      "prompt": "Which list puts these discoveries in the order they happened?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Galaxy redshifts → Jupiter’s moons → the CMB",
-          "correct": false,
-          "rationale": "Galileo came first, in 1610."
-        },
-        {
-          "id": "b",
-          "label": "Jupiter’s moons → galaxy redshifts → the CMB",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The CMB → Jupiter’s moons → galaxy redshifts",
-          "correct": false,
-          "rationale": "The CMB was found last, in 1965."
-        },
-        {
-          "id": "d",
-          "label": "Jupiter’s moons → the CMB → galaxy redshifts",
-          "correct": false,
-          "rationale": "Hubble’s law came in 1929, before the CMB."
-        }
+      "prompt": "Put these discoveries in the order they happened, from earliest to latest.",
+      "items": [
+        "Four large moons circling Jupiter",
+        "Hubble’s law",
+        "The CMB"
       ],
-      "explanation": "Galileo saw Jupiter’s moons in 1610, Hubble linked redshift and distance in 1929, and the CMB was found in 1965.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Galileo found four large moons circling Jupiter in 1610. Hubble’s law came in 1929, and the CMB was found by accident in 1965.",
       "difficulty": 0.55
     },
     {

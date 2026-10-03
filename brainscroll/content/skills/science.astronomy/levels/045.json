@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 45,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Asteroid Belt",
   "objective": "After this level you can describe the asteroid belt and why it never formed a planet.",
@@ -86,41 +86,25 @@
   "questions": [
     {
       "id": "question.astronomy.045.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.asteroid_belt"
       ],
       "sourceCardIds": [
-        "card.astronomy.045.c2"
+        "card.astronomy.045.c2",
+        "card.astronomy.004.c1",
+        "card.astronomy.004.c2"
       ],
-      "prompt": "Where is the main asteroid belt?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Between Earth and Mars",
-          "correct": false,
-          "rationale": "It lies farther out."
-        },
-        {
-          "id": "b",
-          "label": "Between Jupiter and Saturn",
-          "correct": false,
-          "rationale": "It lies inside Jupiter’s orbit."
-        },
-        {
-          "id": "c",
-          "label": "Beyond the orbit of Neptune",
-          "correct": false,
-          "rationale": "That’s the Kuiper Belt."
-        },
-        {
-          "id": "d",
-          "label": "Between Mars and Jupiter",
-          "correct": true
-        }
+      "prompt": "Put these in order, from closest to the Sun to farthest.",
+      "items": [
+        "Mars",
+        "Main asteroid belt",
+        "Jupiter"
       ],
-      "explanation": "The main asteroid belt lies between the orbits of Mars and Jupiter.",
+      "first": "Closest to the Sun",
+      "last": "Farthest",
+      "explanation": "The main asteroid belt lies between the orbits of Mars and Jupiter, and Jupiter is the first giant past Mars.",
       "difficulty": 0.15
     },
     {

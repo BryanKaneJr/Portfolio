@@ -160,7 +160,7 @@ export function Shimmer({ children, size, delay = 0, radius: r = radius.lg }: { 
   const [x] = useState(() => new Animated.Value(0));
   useEffect(() => {
     if (reduce) return;
-    const sweep = Animated.timing(x, { toValue: 1, duration: 700, easing: ease.out, useNativeDriver: true });
+    const sweep = Animated.timing(x, { toValue: 1, duration: 950, easing: ease.out, useNativeDriver: true });
     const run = Animated.sequence([sweep, Animated.delay(350), Animated.timing(x, { toValue: 0, duration: 0, useNativeDriver: true }), sweep]);
     const t = setTimeout(() => run.start(), delay);
     return () => {

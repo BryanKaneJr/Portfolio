@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 22,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Eratosthenes Measures the Earth",
   "objective": "After this level you can explain how a shadow and a well let someone estimate Earth’s size over 2,000 years ago.",
@@ -126,41 +126,25 @@
     },
     {
       "id": "question.astronomy.022.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.astronomy.eratosthenes"
       ],
       "sourceCardIds": [
-        "card.astronomy.022.c3"
+        "card.astronomy.022.c3",
+        "card.astronomy.022.c2"
       ],
-      "prompt": "The shadow angle was about one-fiftieth of a circle. What did Eratosthenes do next?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Divided the distance between the cities by 50",
-          "correct": false,
-          "rationale": "That would give a tiny number."
-        },
-        {
-          "id": "b",
-          "label": "Measured the well’s depth",
-          "correct": false,
-          "rationale": "The well only showed the Sun was overhead."
-        },
-        {
-          "id": "c",
-          "label": "Multiplied the distance between the cities by 50",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Timed the Sun for 50 days",
-          "correct": false,
-          "rationale": "The measurement took one noon."
-        }
+      "prompt": "Put Eratosthenes' method in order, from his measurement to his answer.",
+      "items": [
+        "A vertical pole cast a shadow",
+        "About one-fiftieth of a full circle",
+        "Multiply the distance between them by 50",
+        "Earth's whole circumference"
       ],
-      "explanation": "If the cities are one-fiftieth of the way around Earth, then 50 times the distance between them gives the full circumference.",
+      "first": "His measurement",
+      "last": "His answer",
+      "explanation": "A pole's shadow showed an angle of about 7°, about one-fiftieth of a full circle. Multiplying the distance between the cities by 50 gave Earth's whole circumference.",
       "difficulty": 0.35
     },
     {

@@ -109,7 +109,7 @@ export default function ChapterReviewScreen() {
     setError(null);
     p.answerChapterReview(session.reviewId, item.question, optionId)
       .then((r) => {
-        setAttempts((m) => ({ ...m, [qid]: [...(m[qid] ?? []), { optionId, correct: r.correct, rationale: r.rationale, explanation: r.explanation }] }));
+        setAttempts((m) => ({ ...m, [qid]: [...(m[qid] ?? []), { optionId, correct: r.correct, rationale: r.rationale, wrong: r.wrong, explanation: r.explanation }] }));
         setSelected(undefined);
         feedback(r.correct ? 'correct' : 'incorrect');
       })

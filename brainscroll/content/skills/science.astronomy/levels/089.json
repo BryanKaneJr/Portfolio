@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 89,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Redshift",
   "objective": "After this level you can explain what redshift is and how it reveals the expanding universe.",
@@ -171,43 +171,34 @@
     },
     {
       "id": "question.astronomy.089.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.astronomy.redshift",
         "concept.astronomy.spectral_lines"
       ],
       "sourceCardIds": [
+        "card.astronomy.089.c2",
         "card.astronomy.089.c3",
+        "card.astronomy.089.c4",
         "card.astronomy.032.c2"
       ],
-      "prompt": "From Level 32: why are spectral lines so useful for measuring redshift?",
-      "options": [
+      "prompt": "From Level 32: match each idea about light with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Spectral lines appear only in red light",
-          "correct": false,
-          "rationale": "Lines appear across the spectrum."
+          "left": "Red",
+          "right": "Longest wavelength of visible light"
         },
         {
-          "id": "b",
-          "label": "Each element’s lines have known wavelengths",
-          "correct": true
+          "left": "Spectral lines",
+          "right": "Like a barcode"
         },
         {
-          "id": "c",
-          "label": "They make faraway galaxies look brighter",
-          "correct": false,
-          "rationale": "They don’t change brightness."
-        },
-        {
-          "id": "d",
-          "label": "They reveal each galaxy’s exact age",
-          "correct": false,
-          "rationale": "They reveal composition and motion."
+          "left": "Redshift",
+          "right": "A cosmic yardstick"
         }
       ],
-      "explanation": "Because every element’s lines sit at known wavelengths, a shift toward the red is easy to measure.",
+      "explanation": "Red has the longest wavelength of visible light. Spectral lines sit at each element’s known wavelengths, like a barcode. Redshift grows with distance, so it’s a cosmic yardstick.",
       "difficulty": 0.4
     }
   ],

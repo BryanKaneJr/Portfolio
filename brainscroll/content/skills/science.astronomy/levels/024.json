@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 24,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Copernicus Moves the Sun",
   "objective": "After this level you can explain the heliocentric model and why it explained retrograde motion more simply.",
@@ -96,41 +96,26 @@
   "questions": [
     {
       "id": "question.astronomy.024.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.heliocentric_model"
       ],
       "sourceCardIds": [
-        "card.astronomy.024.c2"
+        "card.astronomy.024.c2",
+        "card.astronomy.024.c1",
+        "card.astronomy.024.c4",
+        "card.astronomy.023.c2"
       ],
-      "prompt": "What did Copernicus put at the center of his model?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Earth",
-          "correct": false,
-          "rationale": "That was Ptolemy’s model."
-        },
-        {
-          "id": "b",
-          "label": "The Moon",
-          "correct": false,
-          "rationale": "The Moon orbits Earth in both models."
-        },
-        {
-          "id": "c",
-          "label": "The Sun",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Jupiter",
-          "correct": false,
-          "rationale": "Jupiter is one of the orbiting planets."
-        }
+      "prompt": "Put these thinkers in order, from earliest to latest.",
+      "items": [
+        "Aristarchus of Samos",
+        "Ptolemy",
+        "Copernicus"
       ],
-      "explanation": "Copernicus’s heliocentric model placed the Sun at the center, with Earth orbiting it like the other planets.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Aristarchus of Samos came first, about 1,800 years before Copernicus. Ptolemy wrote around 150 CE, and Copernicus published in 1543.",
       "difficulty": 0.1
     },
     {

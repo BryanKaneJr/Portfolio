@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 54,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Shooting Stars and Meteorites",
   "objective": "After this level you can tell meteoroids, meteors and meteorites apart and explain meteor showers.",
@@ -86,7 +86,7 @@
   "questions": [
     {
       "id": "question.astronomy.054.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.meteors"
@@ -94,33 +94,15 @@
       "sourceCardIds": [
         "card.astronomy.054.c2"
       ],
-      "prompt": "What is a meteorite?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A meteor that is still in space",
-          "correct": false,
-          "rationale": "In space it’s called a meteoroid."
-        },
-        {
-          "id": "b",
-          "label": "The streak of light in the sky",
-          "correct": false,
-          "rationale": "That’s a meteor."
-        },
-        {
-          "id": "c",
-          "label": "A piece that survives to reach the ground",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "A small comet with no tail",
-          "correct": false,
-          "rationale": "Meteorites are rock that reached Earth."
-        }
+      "prompt": "Follow one bit of space debris on its journey. Put its three names in order.",
+      "items": [
+        "Meteoroid",
+        "Meteor",
+        "Meteorite"
       ],
-      "explanation": "A meteoroid in space becomes a meteor in the sky; any piece that reaches the ground is a meteorite.",
+      "first": "Floating in space",
+      "last": "On the ground",
+      "explanation": "In space it's a meteoroid. Burning up in the atmosphere, its streak of light is a meteor. A piece that reaches the ground is a meteorite.",
       "difficulty": 0.2
     },
     {

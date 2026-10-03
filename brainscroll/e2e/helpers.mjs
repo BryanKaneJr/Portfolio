@@ -1,4 +1,7 @@
 import { execSync } from 'node:child_process';
+import { readdirSync, readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
 
 export const URL = process.env.E2E_URL ?? 'http://localhost:8790/';
@@ -68,7 +71,96 @@ export async function onboard(page, { start, skill = 'Astronomy' }) {
  */
 export const checkButton = (page) => page.getByRole('button', { name: 'Check', exact: true });
 
+// ─── Match and order questions ───────────────────────────────────────────────
+// The tests know each arrangement's answer from the content files (by prompt),
+// and solve it by tapping, the way a learner without a mouse would.
+const contentDir = join(dirname(fileURLToPath(import.meta.url)), '..', 'content', 'skills');
+let arrangements;
+function arrangementsByPrompt() {
+  if (arrangements) return arrangements;
+  arrangements = new Map();
+  for (const skill of readdirSync(contentDir))
+    for (const f of (() => { try { return readdirSync(join(contentDir, skill, 'levels')); } catch { return []; } })())
+      for (const q of JSON.parse(readFileSync(join(contentDir, skill, 'levels', f), 'utf8')).questions ?? [])
+        if (q.kind === 'match' || q.kind === 'order') arrangements.set(q.prompt, [...(arrangements.get(q.prompt) ?? []), q]);
+  return arrangements;
+}
+const labelOf = (aria) => aria.replace(/, (\d+ of \d+|matched with .*|not a match|correct|in the wrong place)(,.*)?$/, '');
+const tileLabels = async (page, id) => Promise.all((await page.getByTestId(id).all()).map(async (t) => labelOf((await t.getAttribute('aria-label')) ?? '')));
+
+/** The open arrangement question and its answer, or null for multiple choice. */
+async function openArrangement(page) {
+  const kind = (await page.getByTestId('order-question').count()) ? 'order' : (await page.getByTestId('match-question').count()) ? 'match' : null;
+  if (!kind) return null;
+  const text = await bodyText(page);
+  const shown = kind === 'order' ? await tileLabels(page, 'order-tile') : await tileLabels(page, 'match-left');
+  for (const [prompt, qs] of arrangementsByPrompt())
+    if (text.includes(prompt))
+      for (const q of qs)
+        if (q.kind === kind && (kind === 'order' ? [...q.items].sort().join('|') === [...shown].sort().join('|') : q.pairs.map((p) => p.left).join('|') === shown.join('|')))
+          return { kind, expected: kind === 'order' ? q.items : q.pairs.map((p) => p.right) };
+  throw new Error('arrangement question not found in content');
+}
+
+/** Order by tap-swaps into `target` (labels). */
+async function arrangeOrder(page, target) {
+  for (let t = 0; t < target.length; t++) {
+    const now = await tileLabels(page, 'order-tile');
+    if (now[t] === target[t]) continue;
+    const k = now.findIndex((l, i) => i > t && l === target[t]);
+    await page.getByTestId('order-tile').nth(t).click();
+    await page.getByTestId('order-tile').nth(k).click();
+    await page.waitForTimeout(60);
+  }
+}
+
+/** Pair every left item with the right-hand label in `target`, after undoing any pairs. */
+async function arrangeMatch(page, target) {
+  for (const t of await page.getByTestId('match-left').all()) if (/matched with/.test((await t.getAttribute('aria-label')) ?? '')) await t.click();
+  for (let i = 0; i < target.length; i++) {
+    const rights = await page.getByTestId('match-right').all();
+    for (const r of rights) {
+      const aria = (await r.getAttribute('aria-label')) ?? '';
+      if (labelOf(aria) === target[i] && !/matched with/.test(aria)) {
+        await page.getByTestId('match-left').nth(i).click();
+        await r.click();
+        break;
+      }
+    }
+    await page.waitForTimeout(40);
+  }
+}
+
+/** A wrong arrangement: a rotation of the answer that differs from it, and from `avoid` (what's showing). */
+const wrongOf = (expected, avoid = []) => {
+  const differs = (a, b) => a.length !== b.length || a.some((l, i) => l !== b[i]);
+  for (let k = 1; k < expected.length; k++) {
+    const w = [...expected.slice(k), ...expected.slice(0, k)];
+    if (differs(w, expected) && differs(w, avoid)) return w;
+  }
+  return expected;
+};
+
+async function answerArrangement(page, a, right) {
+  // An order must change before CHECK wakes up, so a wrong one is never the jumble already showing.
+  const showing = a.kind === 'order' ? await tileLabels(page, 'order-tile') : [];
+  const target = right ? a.expected : wrongOf(a.expected, showing);
+  if (a.kind === 'order') await arrangeOrder(page, target);
+  else await arrangeMatch(page, target);
+}
+
 export async function answerStep(page, firstPick, onMiss) {
+  const arrangement = await openArrangement(page);
+  if (arrangement) {
+    // Match and order: a first pick of 0 answers right; anything else misses first.
+    if (await page.getByText('Take another look').count()) {
+      onMiss();
+      await answerArrangement(page, arrangement, true);
+    } else await answerArrangement(page, arrangement, firstPick() === 0);
+    await checkButton(page).click();
+    await page.waitForTimeout(150);
+    return;
+  }
   const missed = await page.getByText('Take another look').count();
   if (missed) {
     if (!(await page.getByText('Take another look').first().isVisible())) throw new Error('evidence not visible');

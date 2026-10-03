@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 32,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Starlight’s Fingerprints",
   "objective": "After this level you can explain how spectra reveal what stars are made of.",
@@ -126,7 +126,7 @@
     },
     {
       "id": "question.astronomy.032.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.astronomy.spectral_lines"
@@ -135,33 +135,16 @@
         "card.astronomy.032.c2",
         "card.astronomy.032.c3"
       ],
-      "prompt": "How can astronomers tell which elements are in a distant star?",
-      "options": [
-        {
-          "id": "a",
-          "label": "By collecting samples with space probes",
-          "correct": false,
-          "rationale": "No probe has ever reached another star."
-        },
-        {
-          "id": "b",
-          "label": "By measuring how bright the star looks",
-          "correct": false,
-          "rationale": "Brightness doesn’t reveal the ingredients."
-        },
-        {
-          "id": "c",
-          "label": "By matching the lines in its spectrum to known elements",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "By timing how long its light takes to arrive",
-          "correct": false,
-          "rationale": "That gives distance, not composition."
-        }
+      "prompt": "Put these steps for reading a star's ingredients in order.",
+      "items": [
+        "Spread starlight into a spectrum",
+        "Find thin dark lines",
+        "Match the lines in a star's spectrum",
+        "Out comes the ingredients list"
       ],
-      "explanation": "Each element leaves its own pattern of spectral lines. Matching those patterns reveals a star’s ingredients.",
+      "first": "First step",
+      "last": "Last step",
+      "explanation": "Spread the starlight into a spectrum, find the thin dark lines, match them to each element's known pattern, and out comes the ingredients list.",
       "difficulty": 0.3
     },
     {

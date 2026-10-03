@@ -167,13 +167,12 @@ Dr. Scroll off duty: light, silly moments for screens outside lessons (never ins
 | `storm-umbrella` | His umbrella blown inside out |
 | `stuck-jar` | Straining to open a pickle jar |
 | `sun-reflector` | Sunglasses on, holding a sun reflector |
-| `tape-measure` | Tangled in a tape measure |
 | `tea-pinky` | Sipping tea, pinky out |
 | `tiny-hat` | Wearing a tiny top hat |
 | `trick-candle` | Blowing at a candle on a cupcake that won't go out |
 | `yoga-wobble` | Wobbling in a tree pose |
 
-That's 29 core poses, 37 topic scenes and 20 everyday moments (headphones was removed, 2026-10-01: his hair was missing in it). Start with the simplified reference and 5 core poses (wave, pointing, thinking, thumbs-up, oops). Check that he stays consistent, then do the rest.
+That's 29 core poses, 37 topic scenes and 19 everyday moments (headphones was removed, 2026-10-01: his hair was missing in it; tape-measure, 2026-10-03). Start with the simplified reference and 5 core poses (wave, pointing, thinking, thumbs-up, oops). Check that he stays consistent, then do the rest.
 
 ## Spots: every place he appears
 
@@ -193,10 +192,11 @@ Each fixed place in the app is a **spot** with a stable ID. Screens ask for a sp
 | `tip.first-miss` | `explaining` | Lesson: tip after the first wrong answer ever (lesson: calm pose) |
 | `tip.first-checkpoint` | `idea` | Lesson: tip on the first checkpoint level (lesson: calm pose) |
 | `tip.first-review` | `thinking` | Review session: tip on the first review (lesson: calm pose) |
-| `lesson.card-picture` | `reading` | Lesson: above at most one learning card a level that has no illustration of its own, in about two levels out of five, when there is room. The card comes from `mascotPictureCard`, the pose from `cardPicturePose` (calm pose, or the skill's costume or prop; see below) |
+| `lesson.card-picture` | `reading` | Lesson: above at most one learning card a level that has no reviewed illustration (it would otherwise show its filled one), in about two levels out of five, when there is room. The card comes from `mascotPictureCard`, the pose from `cardPicturePose` (calm pose, or the skill's costume or prop; see below) |
 | `social.reaction` | `clapping` | Social feed: each reaction is Dr. Scroll in a pose (core `FEED_REACTIONS`) |
 | `social.empty` | `wave` | Social: no friends yet, inviting the learner to add some |
 | `profile.dr-scroll` | `celebrate` | Dr. Scroll's own profile (everyone's first friend, core `drScrollFriend.ts`): a fun line that changes on each tap |
+| `social.dr-scroll-post` | `tea-pinky` | Social feed: his own post, one a day, each in its moment's everyday pose (core `DR_SCROLL_POSTS`); tapping it opens his profile |
 | `lesson.leave` | `explaining` | Lesson: the check before leaving a level partway ("If you leave now, this level starts over from the beginning next time."), with Keep going and Leave level |
 | `checkpoint.intro` | `checkpoint` | Lesson: beside the title of every checkpoint level (lesson: calm pose) |
 | `feedback.correct` | `thumbs-up` | Lesson and review: beside "Correct" (lesson: calm pose) |
@@ -209,7 +209,7 @@ Each fixed place in the app is a **spot** with a stable ID. Screens ask for a sp
 | `daily-complete` | `go-outside` | Brainpower used up: "Go touch grass." Takes turns, one a day, with paddling-pool, sun-reflector, tea-pinky, yoga-wobble, bee-hello and giant-sandwich |
 | `review.empty` | `sleeping` | Review tab when nothing is due. Takes turns with tea-pinky and sandwich |
 | `loading` | `waiting` | Loading a level or the review queue (after a short delay). Takes turns with coffee-jitter, book-tower and spaghetti |
-| `error.load` | `tangled` | A level or screen that could not load (never about account or payment data). Takes turns with stuck-jar, tape-measure and storm-umbrella |
+| `error.load` | `tangled` | A level or screen that could not load (never about account or payment data). Takes turns with stuck-jar and storm-umbrella |
 | `level.locked` | `thinking` | Opening a level that is not unlocked yet |
 | `home.start` | `pointing` | Home, before any level is started: points to a first subject or Choose for me |
 | `home.path` | `reading` | Home: beside the level path. On a skill's map he wears that skill's costume (`SKILL_GUIDE_POSE` in core: a telescope on Astronomy, a toga on Rome, a map on World Geography, a piggy bank on How Money Works, an easel on Art History, a laptop on Everyday Technology); `reading` is the fallback |
@@ -217,7 +217,7 @@ Each fixed place in the app is a **spot** with a stable ID. Screens ask for a sp
 | `map.rest` | (per chapter) | Skill map: every chapter you've finished has Dr. Scroll goofing off by the road in its right-hand pocket, a different everyday pose per chapter with no repeats within 20 chapters (`mapRestPose`). In the chapter you're in he wears the skill's costume and takes turns, one a day, among the skill's actions (`mapGuidePose`) |
 | `not-found` | `tangled` | A link to something that does not exist. Takes turns with pigeon-head and tiny-hat |
 
-**Taking turns** (`SPOT_POSE_VARIANTS` / `spotPose` in core): a few light spots outside lessons show a different everyday pose each day (the same one all day, and spots don't change in lockstep). Lesson spots never vary. All twenty everyday poses also appear on the skill maps (`map.rest`).
+**Taking turns** (`SPOT_POSE_VARIANTS` / `spotPose` in core): a few light spots outside lessons show a different everyday pose each day (the same one all day, and spots don't change in lockstep). Lesson spots never vary. All nineteen everyday poses also appear on the skill maps (`map.rest`).
 
 Writer-placed card asides (`mascot` on a learning card) aren't spots; their pose comes from the content, and they're labeled `mascot:pose:<pose>`.
 
@@ -241,7 +241,7 @@ Writer-placed card asides (`mascot` on a learning card) aren't spots; their pose
 
 - **Voice split:** he speaks at fun, low-stakes moments (onboarding, first-time tips, answer reactions, rewards, empty states). Sign-in, accounts, data errors, payments, deletion and legal text stay in the plain app voice. He never guilt-trips.
 - **Quiet in lessons, loud in progress:** inside a lesson he uses calm poses only (pointing, thinking, idea, explaining, magnifier, reading, whisper, thumbs-up, oops), matching the design rule that learning mode stays quiet. The big poses (celebrate, clapping, mastery) belong on the progress screens.
-- **Card pictures:** on a big screen, Dr. Scroll is an occasional guest picture above a learning card, never the stand-in for every missing picture (owner, 2026-10-02: "include Dr. Scroll in some of them, like 10%... I'd like to not spam Dr. Scroll"). `mascotPictureCard` picks at most one card a level, among the cards with no picture of their own, in about two levels out of five, and never in a level where he already has an aside: about one learning card in ten. Other cards without a picture show none. He's silent there. His pose comes from `cardPicturePose`, which rotates through three things. First, his actions for the skill (`SKILL_ACTION_POSES`: piano, violin, guitar and drums for Music; telescope, space helmet and juggling planets for Astronomy). Second, the subject's prop (a flask for Science, a scroll for History). Third, the calm poses reading, magnifier, idea and explaining. Not thinking: beside a card, his frown reads as sad. The actions and prop are the only non-calm poses a lesson shows, and only here. Which cards have their own picture is in `content/card-art.json` (see `docs/content-guide.md`, "Card pictures").
+- **Card pictures:** on a big screen, Dr. Scroll is an occasional guest picture above a learning card, never the stand-in for every missing picture (owner, 2026-10-02: "include Dr. Scroll in some of them, like 10%... I'd like to not spam Dr. Scroll"). `mascotPictureCard` picks at most one card a level, among the cards with no picture of their own, in about two levels out of five, and never in a level where he already has an aside: about one learning card in ten. Every other card shows its generated picture (`CARD_ART_FILL`), and so does his card when there's no room for him. He's silent there. His pose comes from `cardPicturePose`, which rotates through three things. First, his actions for the skill (`SKILL_ACTION_POSES`: piano, violin, guitar and drums for Music; telescope, space helmet and juggling planets for Astronomy). Second, the subject's prop (a flask for Science, a scroll for History). Third, the calm poses reading, magnifier, idea and explaining. Not thinking: beside a card, his frown reads as sad. The actions and prop are the only non-calm poses a lesson shows, and only here. Which cards have their own picture is in `content/card-art.json` (see `docs/content-guide.md`, "Card pictures").
 
 **Still to build:**
 

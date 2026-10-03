@@ -1,3 +1,4 @@
+import { gradeAnswer } from './answers';
 import type { ChapterReviewRun } from './chapterReview';
 import type { Equipped, QuestRun, Trophy } from './quests';
 import { MASTERY_BAND_SIZE, XP, type CompletionOutcome } from './constants';
@@ -269,6 +270,8 @@ export interface AnswerResult {
   attemptCount: number;
   /** Why the chosen option is wrong (wrong answers only). */
   rationale?: string;
+  /** Match and order: which positions are wrong (wrong answers only; never what belongs there). */
+  wrong?: number[];
   /** Shown once resolved. */
   explanation?: string;
 }
@@ -287,9 +290,9 @@ export function answerQuestion(
   const now = input.now ?? new Date();
   const q = level.questions.find((x) => x.id === questionId);
   if (!q) throw new CompletionError('QUESTION_NOT_IN_LEVEL');
-  const option = q.options.find((o) => o.id === optionId);
-  const correct = option?.correct ?? false;
-  const reveal = correct ? { explanation: q.explanation } : { rationale: option?.rationale };
+  const g = gradeAnswer(q, optionId);
+  const correct = g.correct;
+  const reveal = correct ? { explanation: q.explanation } : { rationale: g.rationale, ...(g.wrong ? { wrong: g.wrong } : {}) };
 
   if (state.levels[level.id]) {
     // Replays are graded, not recorded, except that the check is noted (see ProgressState.checks).
@@ -385,6 +388,8 @@ export interface ReviewResult {
   scheduled: boolean;
   /** Why the chosen option is wrong (wrong answers only). */
   rationale?: string;
+  /** Match and order: which positions are wrong (wrong answers only; never what belongs there). */
+  wrong?: number[];
   /** Shown once resolved. */
   explanation?: string;
 }
@@ -457,9 +462,9 @@ function gradeReview(
   const { conceptId: cid, question: q } = item;
   if (!q.conceptIds.includes(cid) || !state.levels[item.levelId]) throw new CompletionError('QUESTION_NOT_AVAILABLE');
   const at = now.toISOString();
-  const option = q.options.find((o) => o.id === optionId);
-  const correct = option?.correct ?? false;
-  const feedback = correct ? { explanation: q.explanation } : { rationale: option?.rationale };
+  const g = gradeAnswer(q, optionId);
+  const correct = g.correct;
+  const feedback = correct ? { explanation: q.explanation } : { rationale: g.rationale, ...(g.wrong ? { wrong: g.wrong } : {}) };
   const reviews = state.reviewAttempts ?? {};
   const c = state.concepts[cid];
   const prev = reviews[cid];

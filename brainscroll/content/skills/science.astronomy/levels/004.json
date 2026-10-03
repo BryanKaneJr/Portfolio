@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 4,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Giants of the Outer Dark",
   "objective": "After this level you can tell gas giants from ice giants and describe Jupiter's and Saturn's standout features.",
@@ -112,40 +112,33 @@
   "questions": [
     {
       "id": "question.astronomy.004.q1",
-      "kind": "mcq",
+      "kind": "match",
       "conceptIds": [
         "concept.astronomy.giant_planets"
       ],
       "sourceCardIds": [
         "card.astronomy.004.c2"
       ],
-      "prompt": "Which pair are the ice giants?",
-      "options": [
+      "prompt": "Match each planet with the kind of giant it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Jupiter and Saturn",
-          "correct": false,
-          "rationale": "Those are the gas giants."
+          "left": "Jupiter",
+          "right": "Gas giant"
         },
         {
-          "id": "b",
-          "label": "Uranus and Neptune",
-          "correct": true
+          "left": "Saturn",
+          "right": "Gas giant"
         },
         {
-          "id": "c",
-          "label": "Mars and Mercury",
-          "correct": false,
-          "rationale": "Those are rocky planets."
+          "left": "Uranus",
+          "right": "Ice giant"
         },
         {
-          "id": "d",
-          "label": "Saturn and Neptune",
-          "correct": false,
-          "rationale": "Saturn is a gas giant."
+          "left": "Neptune",
+          "right": "Ice giant"
         }
       ],
-      "explanation": "Uranus and Neptune are the ice giants; Jupiter and Saturn are the gas giants.",
+      "explanation": "Jupiter and Saturn are the gas giants. Uranus and Neptune are the ice giants.",
       "difficulty": 0.2,
       "purpose": "recall"
     },

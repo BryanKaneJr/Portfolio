@@ -2,6 +2,34 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: Match and order questions
+
+- **Two new kinds of question** (owner): **match** ("match each planet with what it's known for": tap one on each side to pair them) and **put in order** ("from smallest to largest": drag a tile by its handle, or tap two tiles to swap them; screen readers swipe up or down). Only concrete answers: one-to-one pairs and sequences with one right order, every label taught on the cards shown after a miss.
+- **Graded by label, on the server:** two identical items are interchangeable (two Mars, either one in either spot). Only the first Check counts, like multiple choice; a miss marks the wrong positions, never what belongs there, and shows the source cards until it's right. `grade_answer` (SQL) and `gradeAnswer` (core) are the one grader for lessons, review, chapter reviews and the Final Round; the phone gets the items already jumbled and never the answer (`learner_question`), and multiple-choice replies are unchanged.
+- **Astronomy goes first:** Level 1's "which list goes from smallest to largest?" is now a real ordering question (Earth, the solar system, the Milky Way). The Content Admin edits and previews both kinds; the validator checks them (distinct left items, one spelling per label, two different ends).
+
+## 2026-10-03: Skill-map waypoints with character
+
+- **Each subject's waypoints wear its own silhouette** (owner): a book for History, a beaker for Science, a mountain for Geography, a paint splatter for Arts & Culture (drawn, as no icon set has one), gears for How the World Works and a brain for Mind & Reasoning. Checkpoints, Level 50 and mastery levels keep their shield, flag and star.
+- **The sheen varies:** five patterns at the same angle, some with two stripes, picked by level number so neighbouring waypoints never match.
+- **Waypoints are a little wider**, so the hexagons no longer look narrow.
+
+## 2026-10-03: A picture on every learning card
+
+- **Every learning card now has a picture** (owner: "10% clearly isn't enough"; Ancient Egypt's Level 1 had none). Before, a card only got a picture when an image was clearly named for it, which left whole trees bare (Government 4%, US History 8%, Logic 9%). Now the 1,822 hand-reviewed picks still come first, and the other 6,218 learning cards get a generated picture: the best looser match among the skill's own images, else the level's own image, else one from its chapter. A picture never repeats on the next card, and the first card never repeats the opening image. Matching against every image in the app was tried and dropped: it picked nonsense (a web browser for an animal's "bigger windows").
+- **Generated, not hand-kept:** `npm run card-art` writes the fill into `app/src/content/cardArt.ts` (`CARD_ART_FILL`) on every run, so new levels get pictures with no extra step, and `check` keeps it current. A reviewed pick in `content/card-art.json` always wins.
+- **Dr. Scroll's guest picture stays about one card in ten**, standing in for a filled card; when there isn't room for him, that card shows its picture instead of nothing.
+
+## 2026-10-03: Calmer motion; Dr. Scroll moves into the feed
+
+- **The tape-measure pose is gone** (owner): its image is deleted, and the posts, map and error screen that used it pick from the 19 other everyday poses.
+- **Every animation is a hair slower** (owner: "just a hair too fast"): softer springs on pops, arrivals and big numbers, longer fades and reveals, a slower bob on the Start callout, a slower shine on gold trophies and Brainpower sparks, and gleams that twinkle more gently with longer rests between them. Taps still respond instantly.
+- **Dr. Scroll's pinned "Your first friend" card goes away once it's been opened.** After that he turns up in the feed instead: one off-duty moment a day (a tea break, a pigeon on his head, a candle that won't go out), each with its own everyday pose, slotted in by time among your friends' moments. Tapping one opens his profile. 19 moments, each seen before any repeats (core `DR_SCROLL_POSTS`, spot `social.dr-scroll-post`). They're never a nudge to study and never a fact.
+
+## 2026-10-03: Profile's colour reaches the top of the phone
+
+- **Profile's violet header now runs all the way up** behind the time and the island, and fills what a pull-down reveals, instead of stopping short of the top. `Screen` takes a `topColor` for any screen that opens on a band of colour.
+
 ## 2026-10-03: Little gleams, and tabs that slide
 
 - **Small sparkles twinkle in and out** around the things that matter (owner: "little simple super easy animations"): the next level's Start callout on the skill map, this week's quest, a trophy just earned (gold for a gold trophy), the Level Complete headline and XP, a lit streak flame, the Unlimited screen and Dr. Scroll's avatar. Each fades in, turns a little and fades out, then comes back somewhere else along the edge. `Gleams` in the UI kit; off with Reduce Motion and never on lesson screens.

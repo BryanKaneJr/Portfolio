@@ -33,8 +33,11 @@ begin
   assert (select bool_and(n = case l.level_type when 'regular' then 3 when 'checkpoint' then 5 when 'milestone' then 7 else 10 end)
           from (select q.level_id, count(*) n from public.questions q group by q.level_id) x join public.levels l on l.id = x.level_id),
     'every level has its canonical question count';
-  assert (select count(*) from public.answer_options where correct) = (select count(*) from public.questions),
-    'every question has exactly one correct option';
+  assert (select count(*) from public.answer_options where correct)
+         = (select count(*) from public.questions q where not exists (select 1 from public.question_arrangements a where a.question_id = q.id)),
+    'every multiple-choice question has exactly one correct option';
+  assert not exists (select 1 from public.question_arrangements a join public.answer_options o on o.question_id = a.question_id),
+    'match and order questions have an answer key, not options';
   assert (select count(*) from public.source_links where object_type = 'concept') > 0;
 end $$;
 
@@ -42,6 +45,10 @@ end $$;
 insert into auth.users (id) values ('00000000-0000-0000-0000-0000000000c1');
 create temp table level1_keys as
   select q.id as question_id, o.option_id from public.questions q join public.answer_options o on o.question_id = q.id and o.correct
+  where q.level_id = 'level.science.astronomy.001'
+  union all
+  -- Match and order: the right answer is the key's labels, in order.
+  select a.question_id, a.expected::text from public.question_arrangements a join public.questions q on q.id = a.question_id
   where q.level_id = 'level.science.astronomy.001';
 grant select on pg_temp.level1_keys to authenticated;
 set request.jwt.claim.sub = '00000000-0000-0000-0000-0000000000c1';
@@ -58,7 +65,7 @@ begin
   for answers in select jsonb_build_object('q', question_id, 'o', option_id) from pg_temp.level1_keys loop
     perform public.answer_question('level.science.astronomy.001', answers ->> 'q', answers ->> 'o');
   end loop;
-  r := public.complete_level('level.science.astronomy.001', 1, gen_random_uuid());
+  r := public.complete_level('level.science.astronomy.001', (select current_revision from public.levels where id = 'level.science.astronomy.001'), gen_random_uuid());
   assert (r ->> 'xp_awarded')::int = 100 and r ->> 'outcome' = 'perfect' and (r ->> 'skill_level')::int = 1, format('got %s', r); -- Perfect Recall
   perform pg_temp.expect_error($q$ select public.import_content('{}'::jsonb) $q$, 'permission denied for function import_content');
 
@@ -77,7 +84,8 @@ reset role;
 
 -- 3. Changing published content without a revision bump is refused.
 do $$
-declare b jsonb := (select bundle from public.level_revisions where level_id = 'level.science.astronomy.001' and revision = 1);
+declare b jsonb := (select r.bundle from public.level_revisions r join public.levels l on l.id = r.level_id and r.revision = l.current_revision
+                     where l.id = 'level.science.astronomy.001');
 begin
   perform pg_temp.expect_error(format($q$ select public.import_content(%L::jsonb) $q$,
     jsonb_build_object('levels', jsonb_build_array(jsonb_set(b, '{title}', '"Changed"') || '{"status":"published"}'))), 'REVISION_CONFLICT');
@@ -85,12 +93,14 @@ end $$;
 
 -- 4. Bumping the revision publishes a correction without touching earned progress.
 do $$
-declare b jsonb := (select bundle from public.level_revisions where level_id = 'level.science.astronomy.001' and revision = 1);
+declare
+  v_rev int := (select current_revision from public.levels where id = 'level.science.astronomy.001');
+  b jsonb := (select bundle from public.level_revisions where level_id = 'level.science.astronomy.001' and revision = v_rev);
 begin
   perform public.import_content(jsonb_build_object('levels', jsonb_build_array(
-    jsonb_set(jsonb_set(b, '{title}', '"Your Cosmic Address (revised)"'), '{revision}', '2') || '{"status":"published"}')));
-  assert (select current_revision from public.levels where id = 'level.science.astronomy.001') = 2;
-  assert (select count(*) from public.level_revisions where level_id = 'level.science.astronomy.001') = 2, 'r1 is kept';
+    jsonb_set(jsonb_set(b, '{title}', '"Your Cosmic Address (revised)"'), '{revision}', to_jsonb(v_rev + 1)) || '{"status":"published"}')));
+  assert (select current_revision from public.levels where id = 'level.science.astronomy.001') = v_rev + 1;
+  assert (select count(*) from public.level_revisions where level_id = 'level.science.astronomy.001') = 2, 'the earlier revision is kept';
   assert (select completed_at is not null from public.user_level_progress where level_id = 'level.science.astronomy.001');
   assert (select highest_cleared from public.user_skill_progress) = 1, 'progress survives the revision';
   -- Re-importing the old revision would move content backwards.

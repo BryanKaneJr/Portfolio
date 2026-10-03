@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 8,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Light-Years: Measuring the Unmeasurable",
   "objective": "After this level you can explain what a light-year measures and how far the nearest star is.",
@@ -166,40 +166,31 @@
     },
     {
       "id": "question.astronomy.008.q2",
-      "kind": "mcq",
+      "kind": "match",
       "conceptIds": [
         "concept.astronomy.sunlight_travel_time"
       ],
       "sourceCardIds": [
-        "card.astronomy.001.c3"
+        "card.astronomy.001.c3",
+        "card.astronomy.008.c3",
+        "card.astronomy.008.c4"
       ],
-      "prompt": "From Level 1: about how long does sunlight take to reach Earth?",
-      "options": [
+      "prompt": "Match each object with how far away it is, measured in light.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "8 seconds",
-          "correct": false,
-          "rationale": "Much longer than that."
+          "left": "The Moon",
+          "right": "One light-second"
         },
         {
-          "id": "b",
-          "label": "About 8 minutes",
-          "correct": true
+          "left": "The Sun",
+          "right": "8 light-minutes"
         },
         {
-          "id": "c",
-          "label": "About 8 hours",
-          "correct": false,
-          "rationale": "Much shorter than that."
-        },
-        {
-          "id": "d",
-          "label": "About 4.2 years",
-          "correct": false,
-          "rationale": "That's roughly the distance to Proxima Centauri."
+          "left": "Proxima Centauri",
+          "right": "4.2 light-years"
         }
       ],
-      "explanation": "Sunlight takes about 8 minutes to reach Earth, so the Sun is about 8 light-minutes away.",
+      "explanation": "The Moon is about one light-second away, the Sun about 8 light-minutes, and Proxima Centauri about 4.2 light-years.",
       "difficulty": 0.2,
       "purpose": "connection"
     }

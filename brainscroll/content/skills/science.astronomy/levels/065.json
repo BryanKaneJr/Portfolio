@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 65,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Star Partners: Binary Stars",
   "objective": "After this level you can explain binary stars and how they let astronomers weigh stars.",
@@ -87,41 +87,31 @@
   "questions": [
     {
       "id": "question.astronomy.065.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.binary_stars"
       ],
       "sourceCardIds": [
-        "card.astronomy.065.c2"
+        "card.astronomy.065.c2",
+        "card.astronomy.065.c3"
       ],
-      "prompt": "How many stars are in the Alpha Centauri system?",
-      "options": [
+      "prompt": "Match each star or star pair with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "One",
-          "correct": false,
-          "rationale": "It’s a multiple system."
+          "left": "Alpha Centauri",
+          "right": "A family of three stars"
         },
         {
-          "id": "b",
-          "label": "Two",
-          "correct": false,
-          "rationale": "There’s a third, Proxima."
+          "left": "Sirius B",
+          "right": "A white dwarf"
         },
         {
-          "id": "c",
-          "label": "Three",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Seven",
-          "correct": false,
-          "rationale": "It has three."
+          "left": "Eclipsing binaries",
+          "right": "Light dims like clockwork"
         }
       ],
-      "explanation": "Alpha Centauri has three stars, including Proxima Centauri.",
+      "explanation": "Alpha Centauri is a family of three stars. Sirius B, the faint partner of Sirius, is a white dwarf. Eclipsing binaries pass in front of each other, so their light dims like clockwork.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 11,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why the Sky Turns",
   "objective": "After this level you can explain that day and night, and the stars rising and setting, come from Earth spinning.",
@@ -87,41 +87,31 @@
   "questions": [
     {
       "id": "question.astronomy.011.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.earth_rotation"
       ],
       "sourceCardIds": [
-        "card.astronomy.011.c2"
+        "card.astronomy.011.c2",
+        "card.astronomy.011.c4"
       ],
-      "prompt": "What causes day and night?",
-      "options": [
+      "prompt": "Earth is spinning. Match each part of Earth with what's true there.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The Sun circling Earth",
-          "correct": false,
-          "rationale": "It looks that way, but it’s Earth that turns."
+          "left": "The half facing the Sun",
+          "right": "Day"
         },
         {
-          "id": "b",
-          "label": "Earth spinning on its axis",
-          "correct": true
+          "left": "The half facing away",
+          "right": "Night"
         },
         {
-          "id": "c",
-          "label": "Earth orbiting the Sun",
-          "correct": false,
-          "rationale": "That takes a whole year, not a day."
-        },
-        {
-          "id": "d",
-          "label": "The Moon blocking the Sun",
-          "correct": false,
-          "rationale": "That’s an eclipse, and it’s rare."
+          "left": "At the equator",
+          "right": "About 1,670 km/h"
         }
       ],
-      "explanation": "Earth spins about once every 24 hours; the half facing the Sun has day and the other half has night.",
+      "explanation": "The half facing the Sun has day and the half facing away has night. At the equator, the surface moves at about 1,670 km/h.",
       "difficulty": 0.1
     },
     {

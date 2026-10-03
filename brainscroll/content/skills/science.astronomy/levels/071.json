@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 71,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Neutron Stars",
   "objective": "After this level you can describe neutron stars and how dense they are.",
@@ -81,41 +81,25 @@
   "questions": [
     {
       "id": "question.astronomy.071.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.neutron_stars"
       ],
       "sourceCardIds": [
-        "card.astronomy.071.c2"
+        "card.astronomy.071.c1",
+        "card.astronomy.071.c2",
+        "card.astronomy.068.c2"
       ],
-      "prompt": "About how wide is a neutron star?",
-      "options": [
-        {
-          "id": "a",
-          "label": "About the size of the Sun",
-          "correct": false,
-          "rationale": "Far, far smaller."
-        },
-        {
-          "id": "b",
-          "label": "About the size of Earth",
-          "correct": false,
-          "rationale": "That’s a white dwarf."
-        },
-        {
-          "id": "c",
-          "label": "About 20 km, the size of a city",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "About the size of Jupiter",
-          "correct": false,
-          "rationale": "Much smaller than that."
-        }
+      "prompt": "Put these in order of size, from smallest to largest.",
+      "items": [
+        "Neutron star",
+        "White dwarf",
+        "The Sun"
       ],
-      "explanation": "A neutron star packs more than the Sun’s mass into a ball only about 20 km across.",
+      "first": "Smallest",
+      "last": "Largest",
+      "explanation": "A neutron star is only about 20 km across, the size of a city. A white dwarf is about the size of Earth. The Sun is far bigger than both.",
       "difficulty": 0.25
     },
     {

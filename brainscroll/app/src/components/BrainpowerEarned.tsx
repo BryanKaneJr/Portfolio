@@ -19,7 +19,7 @@ const ART = Object.fromEntries(BRAINPOWER_WAYS.map((w) => [w.kind, w.art])) as R
 
 /** When the first spark leaves after the card arrives, and the gap between sparks (ms). */
 const FIRST_SPARK = 450;
-const SPARK_GAP = 420;
+const SPARK_GAP = 520;
 
 /**
  * The Brainpower an action earned: one line per +1 (streak, trophy, chapter

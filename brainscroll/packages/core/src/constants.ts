@@ -96,6 +96,8 @@ export const TEXT_BUDGET = {
   body: 600,
   questionPrompt: 200,
   answerLabel: 80,
+  /** A match side or an item to order: short enough to drag and to sit in a half-width column. */
+  arrangeLabel: 40,
   explanation: 300,
   factFact: 140,
 } as const;

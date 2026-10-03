@@ -85,6 +85,8 @@ try {
   await page.getByRole('button', { name: 'Back', exact: true }).click();
   await page.waitForTimeout(800);
   social = await bodyText(page);
+  check(!/Your first friend/.test(social), 'once opened, his pinned card is gone');
+  check((await page.getByRole('button', { name: /^Dr\. Scroll .+ ago\. Open his profile$/ }).count()) >= 2, 'and he turns up in the feed instead, one moment a day');
   check(/Friend requests[\s\S]*@priya/.test(social), 'friend requests show at the top');
   await exactButton(page, 'Accept').click();
   await page.waitForTimeout(1000);

@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 60,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: The Sun’s Domain",
   "objective": "After this level you can describe the Sun and everything it influences, from its core to the Oort Cloud.",
@@ -284,7 +284,7 @@
     },
     {
       "id": "question.astronomy.060.q5",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.astronomy.kuiper_belt",
@@ -294,35 +294,18 @@
       "sourceCardIds": [
         "card.astronomy.045.c2",
         "card.astronomy.052.c2",
-        "card.astronomy.055.c2"
+        "card.astronomy.055.c2",
+        "card.astronomy.060.c3"
       ],
-      "prompt": "Chapter 6 recap: which list goes from nearest to farthest from the Sun?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Oort Cloud → Kuiper Belt → asteroid belt",
-          "correct": false,
-          "rationale": "That’s farthest to nearest."
-        },
-        {
-          "id": "b",
-          "label": "Asteroid belt → Kuiper Belt → Oort Cloud",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Kuiper Belt → asteroid belt → Oort Cloud",
-          "correct": false,
-          "rationale": "The asteroid belt is inside Jupiter’s orbit."
-        },
-        {
-          "id": "d",
-          "label": "Asteroid belt → Oort Cloud → Kuiper Belt",
-          "correct": false,
-          "rationale": "The Oort Cloud is the most distant."
-        }
+      "prompt": "Chapter 6 recap: put these in order, from nearest the Sun to farthest.",
+      "items": [
+        "Asteroid belt",
+        "Kuiper Belt",
+        "Oort Cloud"
       ],
-      "explanation": "The asteroid belt lies between Mars and Jupiter, the Kuiper Belt beyond Neptune, and the Oort Cloud far beyond both.",
+      "first": "Nearest the Sun",
+      "last": "Farthest",
+      "explanation": "The asteroid belt lies between Mars and Jupiter, the Kuiper Belt is beyond Neptune, and the Oort Cloud surrounds the whole solar system, farthest of all.",
       "difficulty": 0.35
     }
   ],

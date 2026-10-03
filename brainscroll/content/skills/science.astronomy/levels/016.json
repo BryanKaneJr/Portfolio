@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 16,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Wanderers: How Planets Move Across the Sky",
   "objective": "After this level you can explain why planets drift against the stars and sometimes appear to loop backwards.",
@@ -96,41 +96,31 @@
   "questions": [
     {
       "id": "question.astronomy.016.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.planets_wander"
       ],
       "sourceCardIds": [
-        "card.astronomy.016.c2"
+        "card.astronomy.016.c2",
+        "card.astronomy.016.c3"
       ],
-      "prompt": "What does the word “planet” originally mean?",
-      "options": [
+      "prompt": "Match each word or idea about moving planets with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Round world",
-          "correct": false,
-          "rationale": "The name comes from how planets move, not their shape."
+          "left": "Planet",
+          "right": "Wanderer"
         },
         {
-          "id": "b",
-          "label": "Bright star",
-          "correct": false,
-          "rationale": "Planets were named for moving against the stars."
+          "left": "The stars",
+          "right": "Stay put"
         },
         {
-          "id": "c",
-          "label": "Wanderer",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Child of the Sun",
-          "correct": false,
-          "rationale": "That’s not the word’s origin."
+          "left": "Retrograde",
+          "right": "An overtaking illusion"
         }
       ],
-      "explanation": "Planets drift against the fixed patterns of stars, so the Greeks called them “wanderers.”",
+      "explanation": "\"Planet\" comes from the Greek word for wanderer. The stars stay put against each other, and retrograde motion is an overtaking illusion.",
       "difficulty": 0.15
     },
     {

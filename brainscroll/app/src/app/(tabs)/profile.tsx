@@ -54,7 +54,7 @@ export default function ProfileScreen() {
 
   if (p.offline) return <OfflineState onRetry={() => void p.reconnect()} retrying={p.reconnecting} />;
   return (
-    <Screen>
+    <Screen topColor={color.profileHeader}>
       {/* A full-width coloured header behind the ring (owner, 2026-10-01: big blocks of colour). */}
       <View style={{ marginHorizontal: -layout.gutter, marginTop: -space.lg, paddingHorizontal: layout.gutter, paddingTop: space.lg, overflow: 'hidden' }}>
       <GradientFill from={color.profileHeader} to={color.bg} />

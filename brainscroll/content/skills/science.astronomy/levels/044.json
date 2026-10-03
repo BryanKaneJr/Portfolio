@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 44,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Mars: A Planet That Lost Its Water",
   "objective": "After this level you can describe the evidence that Mars once had liquid water.",
@@ -131,41 +131,32 @@
     },
     {
       "id": "question.astronomy.044.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.astronomy.mars_water_past"
       ],
       "sourceCardIds": [
-        "card.astronomy.044.c3"
+        "card.astronomy.044.c2",
+        "card.astronomy.044.c3",
+        "card.astronomy.044.c4"
       ],
-      "prompt": "What did the Curiosity rover discover at Gale Crater?",
-      "options": [
+      "prompt": "Match each piece of Mars with its partner from the cards.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "That the crater once held a lake",
-          "correct": true
+          "left": "Curiosity rover",
+          "right": "Gale Crater"
         },
         {
-          "id": "b",
-          "label": "That the crater is an active volcano",
-          "correct": false,
-          "rationale": "That’s Olympus Mons, elsewhere on Mars."
+          "left": "Perseverance rover",
+          "right": "Jezero Crater"
         },
         {
-          "id": "c",
-          "label": "That the crater is full of liquid water",
-          "correct": false,
-          "rationale": "Its lake dried up long ago."
-        },
-        {
-          "id": "d",
-          "label": "That the crater was made by Phobos",
-          "correct": false,
-          "rationale": "Its discovery was about water, not its origin."
+          "left": "Mars's atmosphere",
+          "right": "Mostly carbon dioxide"
         }
       ],
-      "explanation": "Curiosity found evidence that Gale Crater once held a lake, part of the case for a wetter ancient Mars.",
+      "explanation": "Curiosity found that Gale Crater once held a lake, Perseverance landed at Jezero Crater, and Mars's atmosphere is thin and mostly carbon dioxide.",
       "difficulty": 0.25
     },
     {

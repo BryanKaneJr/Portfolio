@@ -255,9 +255,8 @@ export const AnswerOption = z.object({
   rationale: text(200).optional(),
 });
 
-export const Question = z.object({
+const questionBase = {
   id: id('question'),
-  kind: z.literal('mcq'),
   /** recall: the core fact · understanding: why/how · connection: link to another idea. */
   purpose: z.enum(QUESTION_PURPOSES),
   conceptIds: z.array(id('concept')).min(1),
@@ -269,10 +268,47 @@ export const Question = z.object({
    */
   sourceCardIds: z.array(id('card')).min(1),
   prompt: text(TEXT_BUDGET.questionPrompt),
-  options: z.array(AnswerOption).min(2).max(4),
   explanation: text(TEXT_BUDGET.explanation),
   difficulty: z.number().min(0).max(1),
+};
+
+/** Pick one answer. */
+export const McqQuestion = z.object({
+  ...questionBase,
+  kind: z.literal('mcq'),
+  options: z.array(AnswerOption).min(2).max(4),
 });
+
+/**
+ * Match each item on the left with its partner on the right (owner,
+ * 2026-10-03): concrete one-to-one pairs only, like a city and its country.
+ * Graded by label, so two identical partners are interchangeable.
+ */
+export const MatchQuestion = z.object({
+  ...questionBase,
+  kind: z.literal('match'),
+  pairs: z.array(z.object({ left: text(TEXT_BUDGET.arrangeLabel), right: text(TEXT_BUDGET.arrangeLabel) })).min(3).max(4),
+  /** Set only on what the server sends a phone: the right-hand labels are already jumbled and no longer paired. */
+  shuffled: z.literal(true).optional(),
+});
+
+/**
+ * Put the items in order, listed here in the right order (owner, 2026-10-03):
+ * sequences with one right answer only, like the planets from the Sun.
+ * Graded by label, so two identical items are interchangeable. `first` and
+ * `last` name the two ends ("Closest to the Sun", "Farthest").
+ */
+export const OrderQuestion = z.object({
+  ...questionBase,
+  kind: z.literal('order'),
+  items: z.array(text(TEXT_BUDGET.arrangeLabel)).min(3).max(6),
+  first: text(30),
+  last: text(30),
+  /** Set only on what the server sends a phone: the items are already jumbled. */
+  shuffled: z.literal(true).optional(),
+});
+
+export const Question = z.discriminatedUnion('kind', [McqQuestion, MatchQuestion, OrderQuestion]);
 export type Question = z.infer<typeof Question>;
 
 /**

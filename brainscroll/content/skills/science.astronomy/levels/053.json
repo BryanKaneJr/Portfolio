@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 53,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Comets: Dirty Snowballs",
   "objective": "After this level you can explain what comets are made of and why their tails point away from the Sun.",
@@ -82,7 +82,7 @@
   "questions": [
     {
       "id": "question.astronomy.053.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.comets"
@@ -90,33 +90,15 @@
       "sourceCardIds": [
         "card.astronomy.053.c2"
       ],
-      "prompt": "What are comets made of?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Hot gas and fire",
-          "correct": false,
-          "rationale": "Comets are cold and icy."
-        },
-        {
-          "id": "b",
-          "label": "Ice, dust and rock",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Solid metal like some asteroids",
-          "correct": false,
-          "rationale": "Comets are icy."
-        },
-        {
-          "id": "d",
-          "label": "Frozen sunlight",
-          "correct": false,
-          "rationale": "Light doesn’t freeze."
-        }
+      "prompt": "A comet falls in toward the Sun. Put these in order, from far away to close in.",
+      "items": [
+        "A dirty snowball",
+        "Ice turns to gas",
+        "Coma and long tails"
       ],
-      "explanation": "Comets are dirty snowballs of ice, dust and rock.",
+      "first": "Far from the Sun",
+      "last": "Close to the Sun",
+      "explanation": "Far out, a comet is just a dirty snowball of ice, dust and rock. Near the Sun its ice turns to gas, forming a glowing coma and long tails.",
       "difficulty": 0.15
     },
     {

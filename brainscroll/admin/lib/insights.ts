@@ -13,7 +13,7 @@ interface Report { id: string; level_id: string | null; object_type: string; obj
 interface UserReport { id: number; reported_id: string; username: string | null; avatar: string | null; reason: string; note: string | null; created_at: string; open_reports: number }
 interface FlaggedUsername { id: string; username: string; avatar: string | null }
 interface RawInsights { pulledAt: string; source: string; health: Record<string, unknown>; questions: QuestionStat[]; levels: LevelFunnel[]; reports: Report[]; userReports?: UserReport[]; flaggedUsernames?: FlaggedUsername[] }
-interface LevelLike { id: string; cards: { id: string }[]; questions: { id: string; options: { id: string; label: string; correct: boolean }[] }[] }
+interface LevelLike { id: string; cards: { id: string }[]; questions: { id: string; kind?: string; options?: { id: string; label: string; correct: boolean }[] }[] }
 
 export function questionFlags(stat: QuestionStat, options: { id: string; label: string; correct: boolean }[]): string[] {
   if (stat.learners < MIN_LEARNERS) return [];
@@ -53,7 +53,8 @@ export function loadInsights(path: string | undefined, levels: LevelLike[]) {
     const funnel = raw.levels.find((f) => f.level_id === level.id);
     const questions = level.questions.map((q) => {
       const stat = raw.questions.find((s) => s.question_id === q.id);
-      return { id: q.id, stat: stat ?? null, flags: stat ? questionFlags(stat, q.options) : [] };
+      // Option-pick flags are for multiple choice; match and order have no options to compare.
+      return { id: q.id, stat: stat ?? null, flags: stat && q.options ? questionFlags(stat, q.options) : [] };
     });
     const reports = raw.reports.filter((r) => r.level_id === level.id);
     if (!funnel && !questions.some((q) => q.stat) && !reports.length) continue;

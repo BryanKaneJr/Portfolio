@@ -10,7 +10,7 @@ import { feedbackTone, QuestionFeedback, questionStatus } from '@/components/car
 import { ReportSheet } from '@/components/ReportSheet';
 import { Button, Caption, Card, DrScroll, DrScrollSays, H1, hasLevelArt, IconButton, LessonShell, LessonSkeleton, LevelArt, LoadError, Notice, Row, StateBlock } from '@/components/ui';
 import { getCard, getSkill, skills } from '@/content';
-import { CARD_ART } from '@/content/cardArt';
+import { CARD_ART, CARD_ART_FILL } from '@/content/cardArt';
 import { skillTint } from '@/theme/subjectTheme';
 import { useProgress, type LevelSession } from '@/progress/ProgressProvider';
 import { feedback } from '@/theme/feedback';
@@ -152,7 +152,7 @@ export default function LevelScreen() {
     setError(null);
     p.answerQuestion(level, qid, optionId)
       .then((r) => {
-        const attempt = { optionId, correct: r.correct, rationale: r.rationale, explanation: r.explanation };
+        const attempt = { optionId, correct: r.correct, rationale: r.rationale, wrong: r.wrong, explanation: r.explanation };
         setSession((s) => (s ? { ...s, attempts: { ...s.attempts, [qid]: [...(s.attempts[qid] ?? []), attempt] } } : s));
         setSelected(undefined);
         if (r.correct) feedback('correct');
@@ -300,22 +300,25 @@ const styles = StyleSheet.create({
  * it has none, taking turns between his skill costume and calm poses. A card
  * with his aside already has him, so it gets no second Dr. Scroll.
  */
-type CardPicture = { art: string } | { pose: ReturnType<typeof cardPicturePose> };
-const ownArt = (card: Level['cards'][number]) => {
-  const art = CARD_ART[card.id];
-  return art && hasLevelArt(art) ? art : undefined;
-};
+type CardPicture = { art: string } | { pose: ReturnType<typeof cardPicturePose>; instead?: string };
+const usable = (art?: string) => (art && hasLevelArt(art) ? art : undefined);
+/** A card's reviewed illustration (content/card-art.json). */
+const ownArt = (card: Level['cards'][number]) => usable(CARD_ART[card.id]);
 /**
- * A learning card's picture: its own illustration (content/card-art.json), or
- * on at most one card a level, Dr. Scroll (core mascotPictureCard: about one
- * learning card in ten). Other cards show no picture.
+ * A learning card's picture (owner, 2026-10-03: every card gets one): its
+ * reviewed illustration; else, on at most one card a level, Dr. Scroll (core
+ * mascotPictureCard: about one learning card in ten); else the generated fill
+ * (a loose match among the skill's images, or the level's or its chapter's).
  */
 function cardPicture(level: Level, card: Level['cards'][number], cardIndex: number): CardPicture | undefined {
   const art = ownArt(card);
   if (art) return { art };
   const hasAside = level.cards.some((c) => 'mascot' in c && !!c.mascot);
   const candidates = level.cards.flatMap((c, i) => (i > 0 && !('questionId' in c) && !ownArt(c) ? [i] : []));
-  return mascotPictureCard(level.skillId, level.number, candidates, hasAside) === cardIndex ? { pose: cardPicturePose(level.skillId, level.number, cardIndex) } : undefined;
+  const filled = usable(CARD_ART_FILL[card.id]);
+  // Dr. Scroll needs room; without it, the card keeps its filled picture.
+  if (mascotPictureCard(level.skillId, level.number, candidates, hasAside) === cardIndex) return { pose: cardPicturePose(level.skillId, level.number, cardIndex), instead: filled };
+  return filled ? { art: filled } : undefined;
 }
 
 /**
@@ -343,9 +346,11 @@ function RoomyArt({ picture, children }: { picture?: CardPicture; children: Reac
       {'art' in picture ? (
         cardHeight !== undefined && <LevelArt art={picture.art} size={Math.max(size, OWN_ART_MIN)} style={{ alignSelf: 'center' }} />
       ) : (
-        size >= ROOMY_ART_MIN && (
+        size >= ROOMY_ART_MIN ? (
           // He stands a little smaller than an illustration, so he reads as company, not content.
           <DrScroll spot="lesson.card-picture" pose={picture.pose} size={Math.round(size * 0.8)} style={{ alignSelf: 'center' }} />
+        ) : (
+          cardHeight !== undefined && picture.instead && <LevelArt art={picture.instead} size={Math.max(size, OWN_ART_MIN)} style={{ alignSelf: 'center' }} />
         )
       )}
       <View onLayout={(e) => setCardHeight(e.nativeEvent.layout.height)}>{children}</View>

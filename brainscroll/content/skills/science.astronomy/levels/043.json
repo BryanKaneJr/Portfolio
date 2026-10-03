@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 43,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Earth: The Planet We Know Best",
   "objective": "After this level you can explain how Earth’s magnetic field and atmosphere protect life.",
@@ -82,41 +82,31 @@
   "questions": [
     {
       "id": "question.astronomy.043.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.earth_protection"
       ],
       "sourceCardIds": [
-        "card.astronomy.043.c3"
+        "card.astronomy.043.c3",
+        "card.astronomy.043.c4"
       ],
-      "prompt": "What is Earth’s atmosphere made of, mostly?",
-      "options": [
+      "prompt": "Match each item with its percentage.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Oxygen, with a little carbon dioxide",
-          "correct": false,
-          "rationale": "Oxygen is only about 21%."
+          "left": "Nitrogen",
+          "right": "78%"
         },
         {
-          "id": "b",
-          "label": "Carbon dioxide, like Venus",
-          "correct": false,
-          "rationale": "That’s Venus and Mars."
+          "left": "Oxygen",
+          "right": "21%"
         },
         {
-          "id": "c",
-          "label": "Hydrogen and helium, like Jupiter",
-          "correct": false,
-          "rationale": "Those are giant-planet gases."
-        },
-        {
-          "id": "d",
-          "label": "Nitrogen, with about a fifth oxygen",
-          "correct": true
+          "left": "Covered by water",
+          "right": "71%"
         }
       ],
-      "explanation": "Earth’s air is about 78% nitrogen and 21% oxygen.",
+      "explanation": "Earth's air is about 78% nitrogen and 21% oxygen, and about 71% of its surface is covered by water.",
       "difficulty": 0.2
     },
     {

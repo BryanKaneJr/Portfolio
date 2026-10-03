@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 30,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: How We Know",
   "objective": "After this level you can trace how observation and reasoning moved humanity from an Earth-centered sky to modern astronomy.",
@@ -297,43 +297,29 @@
     },
     {
       "id": "question.astronomy.030.q5",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.astronomy.newton_gravity",
         "concept.astronomy.kepler_laws"
       ],
       "sourceCardIds": [
+        "card.astronomy.030.c2",
         "card.astronomy.027.c3",
         "card.astronomy.026.c2"
       ],
-      "prompt": "Chapter 3 recap: what put the final piece in place for why the planets move as they do?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Adding more epicycles to Ptolemy’s model",
-          "correct": false,
-          "rationale": "Epicycles described motion inside the wrong model."
-        },
-        {
-          "id": "b",
-          "label": "Copernicus’s perfectly circular orbits",
-          "correct": false,
-          "rationale": "Circles didn’t fit precisely."
-        },
-        {
-          "id": "c",
-          "label": "Eratosthenes’ shadows in a deep well",
-          "correct": false,
-          "rationale": "That measured Earth."
-        },
-        {
-          "id": "d",
-          "label": "Newton’s gravity explaining Kepler’s laws",
-          "correct": true
-        }
+      "prompt": "Put these moments in the story of astronomy in time order, from earliest to latest.",
+      "items": [
+        "Eratosthenes measures Earth",
+        "Ptolemy puts a still Earth at the center",
+        "Copernicus hands the center to the Sun",
+        "Galileo finds moons circling Jupiter",
+        "Newton's gravity",
+        "Bessel measures stellar parallax"
       ],
-      "explanation": "Kepler described how planets move; Newton’s universal gravitation explained why, uniting motion on Earth and in the heavens.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Eratosthenes (~240 BCE), Ptolemy (~150 CE), Copernicus (1543), Galileo (1610), Newton's gravity (1687), then Bessel's stellar parallax (1838).",
       "difficulty": 0.35
     }
   ],

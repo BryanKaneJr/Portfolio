@@ -31,9 +31,9 @@ export function Gleams({ count = 4, tint = color.text, size = 14, active = true 
 }
 
 /** How long one twinkle lasts, and the rest between two (ms). */
-const TWINKLE = 900;
-const REST_MIN = 250;
-const REST_SPREAD = 900;
+const TWINKLE = 1500;
+const REST_MIN = 600;
+const REST_SPREAD = 1400;
 
 function Gleam({ index, tint, size }: { index: number; tint: string; size: number }) {
   const [t] = useState(() => new Animated.Value(0));
@@ -51,7 +51,7 @@ function Gleam({ index, tint, size }: { index: number; tint: string; size: numbe
       });
     };
     // Staggered, so the first ones don't all arrive together.
-    timer = setTimeout(twinkle, index * 380 + Math.random() * 300);
+    timer = setTimeout(twinkle, index * 550 + Math.random() * 400);
     return () => {
       alive = false;
       clearTimeout(timer);

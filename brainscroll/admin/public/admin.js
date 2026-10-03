@@ -351,7 +351,15 @@ function renderEdit() {
   // Questions
   const qBox = h('div', { class: 'box' }, h('h3', {}, `Questions (${l.questions.length}; canonical ${st.questions.standard ?? 'n/a'})`, h('button', { onclick: addQuestion }, '+ question')));
   for (const q of l.questions) {
-    const opts = h('div', {}, ...q.options.map((o, j) => h('div', { class: 'row' },
+    // Match and order: one line per pair ("left = right") or per item, in the right order.
+    const arrangement = q.kind === 'order'
+      ? h('div', {}, grid(['First end', field(q, 'first', { max: 30 })], ['Last end', field(q, 'last', { max: 30 })]),
+          h('div', { class: 'count' }, 'Items, one per line, in the RIGHT order (the app jumbles them). Identical items are interchangeable.'), listField(q, 'items', { sep: '\n', max: B.arrangeLabel }))
+      : q.kind === 'match'
+        ? h('div', {}, h('div', { class: 'count' }, 'Pairs, one per line: left = right. Each left item must be different; shared right items are interchangeable.'),
+            h('textarea', { value: (q.pairs ?? []).map((p) => `${p.left} = ${p.right}`).join('\n'), onchange: (e) => { q.pairs = e.target.value.split('\n').filter((x) => x.includes('=')).map((x) => { const [left, ...right] = x.split('='); return { left: left.trim(), right: right.join('=').trim() }; }); touch(); } }))
+        : null;
+    const opts = arrangement ?? h('div', {}, ...q.options.map((o, j) => h('div', { class: 'row' },
       h('input', { class: 'narrow', type: 'radio', name: `correct-${q.id}`, checked: o.correct, title: 'correct answer', onchange: () => { q.options.forEach((x) => (x.correct = x === o)); touch(); } }),
       h('span', { class: 'narrow muted' }, o.id),
       field(o, 'label', { max: B.answerLabel }),
@@ -362,7 +370,8 @@ function renderEdit() {
       ['Purpose', select(q, 'purpose', state.data.meta.purposes)],
       ['Difficulty', field(q, 'difficulty', { type: 'number' })],
       ['Prompt', field(q, 'prompt', { kind: 'textarea', max: B.questionPrompt })],
-      ['Options', h('div', {}, h('div', { class: 'count' }, 'correct · id · label · rationale (shown after answering)'), opts)],
+      ['Kind', h('span', {}, q.kind === 'order' ? 'Put in order' : q.kind === 'match' ? 'Match the pairs' : 'Multiple choice')],
+      [q.kind === 'order' ? 'Order' : q.kind === 'match' ? 'Pairs' : 'Options', h('div', {}, arrangement ? null : h('div', { class: 'count' }, 'correct · id · label · rationale (shown after answering)'), opts)],
       ['Explanation', field(q, 'explanation', { kind: 'textarea', max: B.explanation })],
       ['Concepts', listField(q, 'conceptIds')],
       ['Source cards', h('div', {}, listField(q, 'sourceCardIds'), h('div', { class: 'count' }, 'Shown as “Take another look” after a wrong first attempt. This level or earlier levels.'))],
@@ -419,6 +428,16 @@ function renderPreview() {
     if (!QUESTION_CARD.has(c.type)) { phone.append(renderCardPreview(c)); continue; }
     const q = qs.get(c.questionId);
     if (!q) { phone.append(h('div', { class: 'pcard' }, `Missing question ${c.questionId}`)); continue; }
+    if (q.kind === 'order' || q.kind === 'match') {
+      phone.append(h('div', { class: 'pcard' },
+        h('div', { class: 'role' }, c.type === 'recall' ? 'Recall' : q.purpose),
+        h('h4', {}, q.prompt),
+        q.kind === 'order'
+          ? h('ol', {}, h('li', { class: 'muted' }, q.first), q.items.map((x) => h('li', {}, x)), h('li', { class: 'muted' }, q.last))
+          : h('ul', {}, q.pairs.map((p) => h('li', {}, `${p.left} ↔ ${p.right}`))),
+        h('div', { class: 'pfeedback' }, `Shown jumbled in the app. ✓ ${q.explanation}`)));
+      continue;
+    }
     const chosen = state.preview[q.id];
     const pick = q.options.find((o) => o.id === chosen);
     phone.append(h('div', { class: 'pcard' },

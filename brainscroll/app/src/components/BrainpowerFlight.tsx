@@ -26,7 +26,7 @@ const FlightContext = createContext<Flight | null>(null);
 export const useBrainpowerFlight = () => useContext(FlightContext);
 
 const SPARK = 30;
-const FLY_MS = 650;
+const FLY_MS = 800;
 
 export function BrainpowerFlight({ daily, children }: { daily: DailyAllowance; children: ReactNode }) {
   const reduce = useReduceMotion();

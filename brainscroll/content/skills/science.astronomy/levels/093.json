@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 93,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The First Stars and Galaxies",
   "objective": "After this level you can describe how the first stars and galaxies lit up the early universe.",
@@ -142,41 +142,26 @@
     },
     {
       "id": "question.astronomy.093.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.astronomy.first_stars"
       ],
       "sourceCardIds": [
+        "card.astronomy.093.c1",
+        "card.astronomy.093.c2",
         "card.astronomy.093.c3"
       ],
-      "prompt": "Why were the first stars important for later planets like Earth?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They gave off the cosmic microwave background",
-          "correct": false,
-          "rationale": "The CMB was released long before them."
-        },
-        {
-          "id": "b",
-          "label": "They became the planets of our solar system",
-          "correct": false,
-          "rationale": "Planets form from gas and dust around stars."
-        },
-        {
-          "id": "c",
-          "label": "They made heavier elements and scattered them",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "They created all the hydrogen in the universe",
-          "correct": false,
-          "rationale": "Hydrogen formed in the Big Bang."
-        }
+      "prompt": "Put these moments of the early universe in order, from earliest to latest.",
+      "items": [
+        "The CMB broke free",
+        "The cosmic dark ages",
+        "The first stars lit up",
+        "The first heavier elements"
       ],
-      "explanation": "Rocky planets need heavier elements. The first stars forged some and scattered them into space when they died.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "After the CMB broke free came the cosmic dark ages. Then the first stars lit up, and when they died they made the first heavier elements.",
       "difficulty": 0.45
     },
     {

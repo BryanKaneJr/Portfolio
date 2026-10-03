@@ -106,7 +106,7 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       return { reason: r.reason, level, revision: r.revision };
     },
     async answerQuestion(level, questionId, optionId) {
-      const r = await rpc<{ correct: boolean; resolved: boolean; first_attempt_correct: boolean; attempt_count: number; rationale: string | null; explanation: string | null }>(
+      const r = await rpc<{ correct: boolean; resolved: boolean; first_attempt_correct: boolean; attempt_count: number; rationale: string | null; wrong?: number[]; explanation: string | null }>(
         'answer_question',
         { p_level_id: level.id, p_question_id: questionId, p_option_id: optionId },
       );
@@ -116,6 +116,7 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
         firstAttemptCorrect: r.first_attempt_correct,
         attemptCount: r.attempt_count,
         rationale: r.rationale ?? undefined,
+        ...(r.wrong ? { wrong: r.wrong } : {}),
         explanation: r.explanation ?? undefined,
       };
     },
@@ -162,12 +163,12 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       return { view, items };
     },
     async answerFinalRound(questId, questionId, optionId) {
-      const r = await rpc<{ correct: boolean; resolved: boolean; rationale: string | null; explanation: string | null }>('answer_final_round', {
+      const r = await rpc<{ correct: boolean; resolved: boolean; rationale: string | null; wrong?: number[]; explanation: string | null }>('answer_final_round', {
         p_quest_id: questId,
         p_question_id: questionId,
         p_option_id: optionId,
       });
-      return { correct: r.correct, resolved: r.resolved, ...(r.rationale ? { rationale: r.rationale } : {}), ...(r.explanation ? { explanation: r.explanation } : {}) };
+      return { correct: r.correct, resolved: r.resolved, ...(r.rationale ? { rationale: r.rationale } : {}), ...(r.wrong ? { wrong: r.wrong } : {}), ...(r.explanation ? { explanation: r.explanation } : {}) };
     },
     async setEquipped(next) {
       const r = await rpc<{ title_quest_id: string | null; emblem_quest_id: string | null }>('set_equipped', { p_title_quest: next.titleQuestId, p_emblem_quest: next.emblemQuestId });
@@ -191,7 +192,7 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       return { reviewId: r.review_id, skillId: r.skill_id, chapter: r.chapter, items, resolved: r.resolved };
     },
     async answerChapterReview(reviewId, question, optionId) {
-      const r = await rpc<{ correct: boolean; resolved: boolean; first_attempt_correct: boolean; attempt_count: number; rationale: string | null; explanation: string | null }>(
+      const r = await rpc<{ correct: boolean; resolved: boolean; first_attempt_correct: boolean; attempt_count: number; rationale: string | null; wrong?: number[]; explanation: string | null }>(
         'answer_chapter_review',
         { p_review_id: reviewId, p_question_id: question.id, p_option_id: optionId },
       );
@@ -201,6 +202,7 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
         firstAttemptCorrect: r.first_attempt_correct,
         attemptCount: r.attempt_count,
         rationale: r.rationale ?? undefined,
+        ...(r.wrong ? { wrong: r.wrong } : {}),
         explanation: r.explanation ?? undefined,
       };
     },
@@ -237,7 +239,7 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
         attempt_count: number;
         xp_awarded: number;
         scheduled: boolean;
-        rationale: string | null;
+        rationale: string | null; wrong?: number[];
         explanation: string | null;
       }>('submit_review', {
         p_concept_id: item.conceptId,
@@ -252,6 +254,7 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
         xpAwarded: r.xp_awarded,
         scheduled: r.scheduled,
         rationale: r.rationale ?? undefined,
+        ...(r.wrong ? { wrong: r.wrong } : {}),
         explanation: r.explanation ?? undefined,
       };
     },
@@ -528,19 +531,27 @@ function mapQuestView(r: RawQuestView): QuestView {
 const COMPLETION_ERRORS = new Set<string>(['LEVEL_LOCKED', 'DAILY_LIMIT_REACHED', 'UNRESOLVED_QUESTIONS', 'QUESTION_NOT_IN_LEVEL', 'IDEMPOTENCY_KEY_REQUIRED']);
 
 /**
- * The server sends learner bundles: no `correct` flags, rationales or
- * explanations (grading happens in answer_question). Fill neutral placeholders
- * so the shared Level type holds. UI code never reads option.correct in
- * remote mode; it renders the server's verdicts.
+ * The server sends learner bundles: no `correct` flags, rationales,
+ * explanations or answer keys (grading happens on the server). Fill neutral
+ * placeholders so the shared Level type holds. UI code never grades in remote
+ * mode; it renders the server's verdicts. Match and order arrive already
+ * jumbled (`shuffled`): match as its two columns, order as its items.
  */
-type LearnerBundle = Omit<Level, 'status' | 'questions'> & {
-  questions: (Omit<Level['questions'][number], 'explanation' | 'options'> & { options: { id: string; label: string }[] })[];
-};
+type LearnerQuestion = Omit<Level['questions'][number], 'explanation' | 'kind'> &
+  ({ kind: 'mcq'; options: { id: string; label: string }[] } | { kind: 'match'; lefts: string[]; rights: string[] } | { kind: 'order'; items: string[]; first: string; last: string });
+type LearnerBundle = Omit<Level, 'status' | 'questions'> & { questions: LearnerQuestion[] };
 function fromLearnerBundle(b: LearnerBundle): Level {
   return {
     ...b,
     status: 'published',
-    questions: b.questions.map((q) => ({ ...q, explanation: '', options: q.options.map((o) => ({ ...o, correct: false })) })),
+    questions: b.questions.map((q) => {
+      if (q.kind === 'match') {
+        const { lefts, rights, ...rest } = q;
+        return { ...rest, explanation: '', shuffled: true, pairs: lefts.map((left, i) => ({ left, right: rights[i] ?? '' })) };
+      }
+      if (q.kind === 'order') return { ...q, explanation: '', shuffled: true };
+      return { ...q, explanation: '', options: q.options.map((o) => ({ ...o, correct: false })) };
+    }),
   } as Level;
 }
 

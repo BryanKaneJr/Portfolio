@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 97,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Integration: How We Know What We Know",
   "objective": "After this level you can connect each major astronomical discovery to the tool or method behind it.",
@@ -140,42 +140,37 @@
   "questions": [
     {
       "id": "question.astronomy.097.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.evidence_methods",
         "concept.astronomy.spectral_lines"
       ],
       "sourceCardIds": [
-        "card.astronomy.097.c2"
+        "card.astronomy.097.c2",
+        "card.astronomy.097.c3",
+        "card.astronomy.097.c4"
       ],
-      "prompt": "Which pairing of method and discovery is correct?",
-      "options": [
+      "prompt": "Match each method or person with what it revealed.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Spectral lines → what stars are made of",
-          "correct": true
+          "left": "Spectral lines",
+          "right": "What stars are made of"
         },
         {
-          "id": "b",
-          "label": "Parallax → what stars are made of",
-          "correct": false,
-          "rationale": "Parallax measures distance."
+          "left": "Transits",
+          "right": "Planets around other stars"
         },
         {
-          "id": "c",
-          "label": "Transits → the distance to stars",
-          "correct": false,
-          "rationale": "Transits reveal planets."
+          "left": "LIGO",
+          "right": "Gravitational waves"
         },
         {
-          "id": "d",
-          "label": "Redshift → what planets are made of",
-          "correct": false,
-          "rationale": "Redshift reveals distance and expansion."
+          "left": "Eratosthenes",
+          "right": "Earth’s size"
         }
       ],
-      "explanation": "Each element leaves its own lines in a spectrum, so spectra reveal what stars are made of.",
+      "explanation": "Spectral lines reveal what stars are made of, and transits reveal planets around other stars. LIGO first detected gravitational waves, and Eratosthenes estimated Earth’s size.",
       "difficulty": 0.35
     },
     {

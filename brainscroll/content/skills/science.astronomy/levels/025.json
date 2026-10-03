@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 25,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Galileo’s Telescope",
   "objective": "After this level you can describe what Galileo saw that challenged the Earth-centered view.",
@@ -97,41 +97,24 @@
   "questions": [
     {
       "id": "question.astronomy.025.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.galileo_observations"
       ],
       "sourceCardIds": [
-        "card.astronomy.025.c3"
+        "card.astronomy.025.c3",
+        "card.astronomy.025.c2"
       ],
-      "prompt": "What did Galileo discover orbiting Jupiter in 1610?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Four large moons",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "A ring system",
-          "correct": false,
-          "rationale": "Jupiter’s faint rings were found much later."
-        },
-        {
-          "id": "c",
-          "label": "A second Sun",
-          "correct": false,
-          "rationale": "Jupiter orbits our only Sun."
-        },
-        {
-          "id": "d",
-          "label": "Comets",
-          "correct": false,
-          "rationale": "He found moons."
-        }
+      "prompt": "Put these telescope milestones in order, from earliest to latest.",
+      "items": [
+        "First appeared in the Netherlands",
+        "He pointed them at the sky",
+        "Galileo found four large moons"
       ],
-      "explanation": "Galileo found Io, Europa, Ganymede and Callisto, now called the Galilean moons.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The telescope first appeared in the Netherlands in 1608. Galileo pointed his at the sky in 1609, and in 1610 he found four large moons around Jupiter.",
       "difficulty": 0.15
     },
     {

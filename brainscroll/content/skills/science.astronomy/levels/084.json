@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 84,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Local Group",
   "objective": "After this level you can describe the small group of galaxies the Milky Way belongs to.",
@@ -97,41 +97,32 @@
   "questions": [
     {
       "id": "question.astronomy.084.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.local_group"
       ],
       "sourceCardIds": [
-        "card.astronomy.084.c2"
+        "card.astronomy.084.c2",
+        "card.astronomy.084.c3",
+        "card.astronomy.084.c4"
       ],
-      "prompt": "Which two galaxies dominate the Local Group?",
-      "options": [
+      "prompt": "Match each member of our galactic neighborhood with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "M87 and the Sombrero",
-          "correct": false,
-          "rationale": "They aren’t Local Group members."
+          "left": "Local Group",
+          "right": "About 100 or more galaxies"
         },
         {
-          "id": "b",
-          "label": "The Milky Way and Andromeda",
-          "correct": true
+          "left": "Andromeda",
+          "right": "The Local Group’s other giant"
         },
         {
-          "id": "c",
-          "label": "The two Magellanic Clouds",
-          "correct": false,
-          "rationale": "They’re small satellites."
-        },
-        {
-          "id": "d",
-          "label": "Andromeda and M87",
-          "correct": false,
-          "rationale": "M87 is far outside the Local Group."
+          "left": "Magellanic Clouds",
+          "right": "Small galaxies orbiting the Milky Way"
         }
       ],
-      "explanation": "The Milky Way and Andromeda are the two big spirals that dominate the Local Group.",
+      "explanation": "The Local Group holds about 100 or more galaxies. Andromeda is its other giant, beside the Milky Way, and the Magellanic Clouds are small galaxies orbiting the Milky Way.",
       "difficulty": 0.2
     },
     {

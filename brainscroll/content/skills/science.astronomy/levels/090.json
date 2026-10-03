@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 90,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: A Universe of Galaxies",
   "objective": "After this level you can describe the universe’s structure from our galaxy up to the cosmic web.",
@@ -161,7 +161,7 @@
     },
     {
       "id": "question.astronomy.090.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.cosmic_web",
@@ -172,33 +172,16 @@
         "card.astronomy.090.c2",
         "card.astronomy.090.c3"
       ],
-      "prompt": "Which list runs from smallest to largest?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Milky Way, Local Group, galaxy cluster, cosmic web",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Local Group, Milky Way, cosmic web, galaxy cluster",
-          "correct": false,
-          "rationale": "The Milky Way is one member of the Local Group."
-        },
-        {
-          "id": "c",
-          "label": "Galaxy cluster, Milky Way, Local Group, cosmic web",
-          "correct": false,
-          "rationale": "A cluster holds hundreds or thousands of galaxies."
-        },
-        {
-          "id": "d",
-          "label": "Cosmic web, galaxy cluster, Local Group, Milky Way",
-          "correct": false,
-          "rationale": "That runs from largest to smallest."
-        }
+      "prompt": "Climb the ladder of scale. Put these in order, from smallest to largest.",
+      "items": [
+        "Milky Way",
+        "Local Group",
+        "Cluster",
+        "Cosmic web"
       ],
-      "explanation": "Our galaxy belongs to the Local Group; bigger clusters hold hundreds or thousands of galaxies; clusters are strung along the cosmic web.",
+      "first": "Smallest",
+      "last": "Largest",
+      "explanation": "The Milky Way is one galaxy in the Local Group. Clusters hold hundreds or thousands of galaxies, and the cosmic web of filaments, sheets and voids is the largest pattern of all.",
       "difficulty": 0.35
     },
     {

@@ -78,6 +78,8 @@ export interface FinalRoundAnswer {
   correct: boolean;
   resolved: boolean;
   rationale?: string;
+  /** Match and order: which positions are wrong (never what belongs there). */
+  wrong?: number[];
   explanation?: string;
 }
 
@@ -224,12 +226,12 @@ export function openFinalRound(
 export function answerFinalRound(
   state: ProgressState,
   def: QuestDefinition,
-  input: { questionId: string; now: Date; grade: () => { correct: boolean; rationale?: string; explanation?: string } },
+  input: { questionId: string; now: Date; grade: () => { correct: boolean; rationale?: string; wrong?: number[]; explanation?: string } },
 ): { state: ProgressState; result: FinalRoundAnswer } {
   const run = runsOf(state)[def.id];
   if (!run?.finalRoundQuestionIds?.includes(input.questionId) || run.completedAt) throw new QuestError('QUESTION_NOT_IN_FINAL_ROUND');
   const g = input.grade();
-  const result: FinalRoundAnswer = { correct: g.correct, resolved: g.correct, ...(g.correct ? { explanation: g.explanation } : { rationale: g.rationale }) };
+  const result: FinalRoundAnswer = { correct: g.correct, resolved: g.correct, ...(g.correct ? { explanation: g.explanation } : { rationale: g.rationale, ...(g.wrong ? { wrong: g.wrong } : {}) }) };
   if (!g.correct || run.resolved?.[input.questionId]) return { state, result };
   const next: QuestRun = { ...run, resolved: { ...run.resolved, [input.questionId]: input.now.toISOString() } };
   return { state: { ...state, quests: { ...runsOf(state), [def.id]: next } }, result };

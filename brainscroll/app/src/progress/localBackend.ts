@@ -35,6 +35,7 @@ import {
   milestoneTrophies,
   trophyBrainpower,
   type DailyAllowance,
+  gradeAnswer,
 } from '@brainscroll/core';
 import { allLevels, getLevel, levelCount, levelIdOfQuestion, quests as questDefs, trophyCatalog } from '@/content';
 import type { EntitlementView, ProgressBackend, ProgressSnapshot } from './backend';
@@ -200,8 +201,9 @@ export function createLocalBackend(): ProgressBackend {
         questionId,
         now,
         grade: () => {
-          const option = found?.question.options.find((o) => o.id === optionId);
-          return { correct: !!option?.correct, rationale: option?.rationale, explanation: found?.question.explanation };
+          if (!found) return { correct: false };
+          const g = gradeAnswer(found.question, optionId);
+          return { ...g, explanation: found.question.explanation };
         },
       });
       commit(withTrophyBrainpower(r.state, now));

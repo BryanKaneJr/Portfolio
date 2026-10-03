@@ -103,7 +103,6 @@ export const POSE_ART: Partial<Record<MascotPose, ImageSourcePropType>> = {
   'storm-umbrella': require('../../../assets/images/mascot/storm-umbrella.webp'),
   'stuck-jar': require('../../../assets/images/mascot/stuck-jar.webp'),
   'sun-reflector': require('../../../assets/images/mascot/sun-reflector.webp'),
-  'tape-measure': require('../../../assets/images/mascot/tape-measure.webp'),
   'tea-pinky': require('../../../assets/images/mascot/tea-pinky.webp'),
   'tiny-hat': require('../../../assets/images/mascot/tiny-hat.webp'),
   'trick-candle': require('../../../assets/images/mascot/trick-candle.webp'),

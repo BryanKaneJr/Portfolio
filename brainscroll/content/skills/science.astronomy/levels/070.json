@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 70,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: The Lives of Stars",
   "objective": "After this level you can trace a star’s life from nebula to its final state based on its mass.",
@@ -290,7 +290,7 @@
     },
     {
       "id": "question.astronomy.070.q5",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.astronomy.stellar_fates",
@@ -299,36 +299,21 @@
       ],
       "sourceCardIds": [
         "card.astronomy.070.c3",
+        "card.astronomy.070.c2",
         "card.astronomy.066.c2",
         "card.astronomy.067.c2"
       ],
-      "prompt": "Chapter 7 recap: which order follows a Sun-like star through its life?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Red giant → nebula → main sequence → white dwarf",
-          "correct": false,
-          "rationale": "The red giant comes after the main sequence."
-        },
-        {
-          "id": "b",
-          "label": "Main sequence → supernova → white dwarf",
-          "correct": false,
-          "rationale": "Sun-like stars don’t explode."
-        },
-        {
-          "id": "c",
-          "label": "Cloud of gas → main sequence → red giant → white dwarf",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "White dwarf → red giant → main sequence",
-          "correct": false,
-          "rationale": "That’s backwards."
-        }
+      "prompt": "Chapter 7 recap: put a Sun-like star's life in order, from birth to the end.",
+      "items": [
+        "Cold, dense cloud of gas and dust",
+        "Main sequence",
+        "Red giant",
+        "Planetary nebula",
+        "White dwarf"
       ],
-      "explanation": "Born from a cloud, a Sun-like star spends billions of years on the main sequence, swells into a red giant, and ends as a white dwarf.",
+      "first": "Birth",
+      "last": "The end",
+      "explanation": "A Sun-like star collapses from a cold, dense cloud of gas and dust, spends billions of years on the main sequence, swells into a red giant, sheds a planetary nebula and ends as a white dwarf.",
       "difficulty": 0.35
     }
   ],

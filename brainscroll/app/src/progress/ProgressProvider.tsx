@@ -34,9 +34,12 @@ const LEGACY_DEVICE_KEYS = ['brainscroll.sessions.v1', 'brainscroll.onboarded.v1
 
 /** One graded attempt, as the server (or local engine) judged it. */
 export interface AttemptView {
+  /** The answer as checked: an option id, or a match/order arrangement (core encodeArrangement). */
   optionId: string;
   correct: boolean;
   rationale?: string;
+  /** Match and order: the positions that were wrong. */
+  wrong?: number[];
   explanation?: string;
 }
 

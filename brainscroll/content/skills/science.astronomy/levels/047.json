@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 47,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Ocean Worlds: Europa and Enceladus",
   "objective": "After this level you can explain why icy moons may hide liquid-water oceans.",
@@ -126,7 +126,7 @@
     },
     {
       "id": "question.astronomy.047.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.astronomy.ocean_worlds"
@@ -134,33 +134,15 @@
       "sourceCardIds": [
         "card.astronomy.047.c3"
       ],
-      "prompt": "Europa is far from the Sun. What keeps its ocean from freezing solid?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Sunlight shining through its thin ice",
-          "correct": false,
-          "rationale": "Its ice shell is thick, and sunlight is weak there."
-        },
-        {
-          "id": "b",
-          "label": "A thick atmosphere trapping heat",
-          "correct": false,
-          "rationale": "Europa has almost no atmosphere."
-        },
-        {
-          "id": "c",
-          "label": "Heat from nearby Io’s volcanoes",
-          "correct": false,
-          "rationale": "Io’s volcanoes don’t heat Europa."
-        },
-        {
-          "id": "d",
-          "label": "Jupiter’s gravity flexing it, heating its interior",
-          "correct": true
-        }
+      "prompt": "Put these in order to show how these moons keep their oceans liquid, from cause to result.",
+      "items": [
+        "Gravity flexes the moon",
+        "Heat",
+        "Liquid ocean"
       ],
-      "explanation": "Tidal flexing by Jupiter’s gravity heats Europa’s interior, keeping its ocean liquid.",
+      "first": "Cause",
+      "last": "Result",
+      "explanation": "The giant planet's gravity flexes the moon, the flexing makes heat, and the heat keeps a liquid ocean under the ice.",
       "difficulty": 0.35
     },
     {

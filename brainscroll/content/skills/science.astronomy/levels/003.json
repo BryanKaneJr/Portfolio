@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 3,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Rocky Four",
   "objective": "After this level you can name the rocky planets and explain why Venus, not Mercury, is the hottest.",
@@ -183,7 +183,7 @@
     },
     {
       "id": "question.astronomy.003.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.astronomy.earth_third_planet",
@@ -191,35 +191,19 @@
       ],
       "sourceCardIds": [
         "card.astronomy.001.c2",
-        "card.astronomy.003.c2"
+        "card.astronomy.003.c2",
+        "card.astronomy.003.c3"
       ],
-      "prompt": "From Level 1: Earth is the third planet from the Sun. Which rocky planet comes next?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Venus",
-          "correct": false,
-          "rationale": "Venus is second, just inside Earth's orbit."
-        },
-        {
-          "id": "b",
-          "label": "Mercury",
-          "correct": false,
-          "rationale": "Mercury is first, closest to the Sun."
-        },
-        {
-          "id": "c",
-          "label": "Jupiter",
-          "correct": false,
-          "rationale": "Jupiter comes after Mars, and it's a gas giant."
-        },
-        {
-          "id": "d",
-          "label": "Mars",
-          "correct": true
-        }
+      "prompt": "Put the rocky planets in order, from closest to the Sun to farthest.",
+      "items": [
+        "Mercury",
+        "Venus",
+        "Earth",
+        "Mars"
       ],
-      "explanation": "Mercury, Venus, Earth, Mars: Mars is fourth, the outermost of the rocky planets.",
+      "first": "Closest to the Sun",
+      "last": "Farthest from the Sun",
+      "explanation": "Mercury is closest to the Sun, then Venus, then Earth (the third planet), then Mars, the outermost of the rocky four.",
       "difficulty": 0.15
     }
   ],

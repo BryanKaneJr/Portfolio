@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 80,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Extreme Objects and Other Worlds",
   "objective": "After this level you can compare the remnants stars leave behind and explain how we find other worlds.",
@@ -305,7 +305,7 @@
     },
     {
       "id": "question.astronomy.080.q5",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.astronomy.remnant_ladder",
@@ -315,33 +315,22 @@
         "card.astronomy.080.c2",
         "card.astronomy.074.c2"
       ],
-      "prompt": "Chapter 8 recap: which stellar remnant has no surface at all?",
-      "options": [
+      "prompt": "Chapter 8 recap: match each stellar remnant with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A white dwarf",
-          "correct": false,
-          "rationale": "It has a surface, about Earth’s size."
+          "left": "White dwarf",
+          "right": "About the size of Earth"
         },
         {
-          "id": "b",
-          "label": "A pulsar",
-          "correct": false,
-          "rationale": "A pulsar is a spinning neutron star, with a surface."
+          "left": "Neutron star",
+          "right": "About the size of a city"
         },
         {
-          "id": "c",
-          "label": "A planetary nebula",
-          "correct": false,
-          "rationale": "That’s an expanding shell of gas, not a remnant core."
-        },
-        {
-          "id": "d",
-          "label": "A black hole",
-          "correct": true
+          "left": "Black hole",
+          "right": "No surface at all"
         }
       ],
-      "explanation": "White dwarfs and neutron stars have surfaces. A black hole has only an event horizon, the point of no return.",
+      "explanation": "A white dwarf is about the size of Earth, a neutron star is about the size of a city, and a black hole has no surface at all, only an event horizon.",
       "difficulty": 0.3
     }
   ],

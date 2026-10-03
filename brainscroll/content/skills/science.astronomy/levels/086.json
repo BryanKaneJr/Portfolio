@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 86,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Galaxy Clusters and Gravitational Lenses",
   "objective": "After this level you can describe galaxy clusters and how their gravity bends light.",
@@ -175,43 +175,33 @@
     },
     {
       "id": "question.astronomy.086.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.astronomy.clusters_lensing",
         "concept.astronomy.newton_gravity"
       ],
       "sourceCardIds": [
+        "card.astronomy.086.c2",
         "card.astronomy.086.c3",
         "card.astronomy.027.c2"
       ],
-      "prompt": "From Level 27: what lets a galaxy cluster bend light strongly enough to act as a lens?",
-      "options": [
+      "prompt": "From Level 27: match each idea with what the cards say about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The glow of its hot gas",
-          "correct": false,
-          "rationale": "Light from gas doesn’t bend other light."
+          "left": "Local Group",
+          "right": "A small town"
         },
         {
-          "id": "b",
-          "label": "Its huge mass",
-          "correct": true
+          "left": "Galaxy cluster",
+          "right": "A city"
         },
         {
-          "id": "c",
-          "label": "Its closeness to Earth",
-          "correct": false,
-          "rationale": "Clusters are very far away."
-        },
-        {
-          "id": "d",
-          "label": "The speed of its spin",
-          "correct": false,
-          "rationale": "Spin isn’t what bends light."
+          "left": "Einstein’s relativity",
+          "right": "Predicts that mass bends light"
         }
       ],
-      "explanation": "Gravity's pull grows with mass, and a cluster piles up enough mass to bend and magnify light from behind it.",
+      "explanation": "If the Local Group is a small town, a galaxy cluster is a city. Einstein’s relativity predicts that mass bends light, so a cluster’s huge mass can act as a lens.",
       "difficulty": 0.4
     }
   ],
