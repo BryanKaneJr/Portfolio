@@ -57,7 +57,7 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
     return data as T;
   }
 
-  let methodsCache: Promise<Set<SignInMethod>> | null = null;
+  let methodsCache: Promise<Set<SignInMethod> | null> | null = null;
 
   async function bundles(levelIds: string[]): Promise<Record<string, Level>> {
     if (levelIds.length === 0) return {};
@@ -263,15 +263,26 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
     // ── Accounts: required before any progress; codes and ID tokens, no guests ──
     account: currentAccount,
     async signInMethods() {
+      // Unknown (the settings couldn't be read): offer what this build offers; the server has the final say.
       const enabled = await projectMethods();
       const offered: SignInMethod[] = [];
+      const hidden: string[] = [];
       for (const m of SIGN_IN_METHODS) {
-        if (!enabled.has(m) || !OFFERED_METHODS.has(m)) continue;
+        if (!OFFERED_METHODS.has(m)) continue;
+        if (enabled && !enabled.has(m)) {
+          hidden.push(`${m}: off in Supabase → Auth → Providers`);
+          continue;
+        }
         // Web signs in to Apple and Google by redirect, and Android to Apple in a browser tab;
         // otherwise native needs the OS sheet to be available.
-        if ((m === 'apple' || m === 'google') && Platform.OS !== 'web' && !appleInBrowser(m) && !(await canUseNativeSheet(m))) continue;
+        if ((m === 'apple' || m === 'google') && Platform.OS !== 'web' && !appleInBrowser(m) && !(await canUseNativeSheet(m))) {
+          hidden.push(m === 'apple' ? 'apple: this device or build has no Sign in with Apple sheet' : 'google: EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID / _IOS_CLIENT_ID unset, or the build has no Google Sign-In module');
+          continue;
+        }
         offered.push(m);
       }
+      // Development builds say in the Metro terminal why a method is missing.
+      if (__DEV__) console.log(`[sign-in] offering ${offered.join(', ') || 'nothing'}${enabled ? '' : ' (Supabase settings unreadable)'}${hidden.length ? `; hidden: ${hidden.join('; ')}` : ''}`);
       return offered;
     },
     async signInWithProvider(provider) {
@@ -447,16 +458,24 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
     return accountFromUser(user);
   }
 
-  /** Which methods the project has switched on (Supabase → Auth → Providers). Cached per launch. */
-  function projectMethods(): Promise<Set<SignInMethod>> {
+  /**
+   * Which methods the project has switched on (Supabase → Auth → Providers), or
+   * null when that can't be read (offline, a slow start, an unexpected reply).
+   * A good answer is cached per launch; a failed one is asked again next time,
+   * so one bad moment at launch can't hide Apple or Google for the session.
+   */
+  function projectMethods(): Promise<Set<SignInMethod> | null> {
     methodsCache ??= (async () => {
       try {
         const r = await fetch(`${url.replace(/\/+$/, '')}/auth/v1/settings`, { headers: { apikey: anonKey } });
-        const external = ((await r.json()) as { external?: Record<string, boolean> }).external ?? {};
+        if (!r.ok) throw new Error(`auth settings ${r.status}`);
+        const external = ((await r.json()) as { external?: Record<string, boolean> }).external;
+        if (!external) throw new Error('auth settings without providers');
         return new Set(SIGN_IN_METHODS.filter((m) => external[m] === true));
-      } catch {
-        // Can't tell (offline): offer the code-based methods; the server has the final say.
-        return new Set<SignInMethod>(['phone', 'email']);
+      } catch (e) {
+        if (__DEV__) console.log(`[sign-in] couldn't read Supabase auth settings: ${(e as Error).message}`);
+        methodsCache = null;
+        return null;
       }
     })();
     return methodsCache;

@@ -88,6 +88,19 @@ The Supabase mode is already covered end to end: `npm run e2e:remote` runs the r
 
 Deploy the two Edge Functions and their secrets, then point RevenueCat's webhook at the first. Steps in [`subscriptions.md`](subscriptions.md).
 
+## A sign-in button is missing
+
+The sign-in screen shows a method only when it is in `EXPO_PUBLIC_SIGN_IN_METHODS`, switched on in Supabase → Auth → Providers, and (for Apple and Google on a phone) the native sheet is available in this build. A development build prints why in the Metro terminal, one line per launch:
+
+```
+[sign-in] offering apple, email; hidden: google: EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID / _IOS_CLIENT_ID unset, or the build has no Google Sign-In module
+```
+
+- **"off in Supabase"**: switch the provider on (Auth → Providers).
+- **"no Sign in with Apple sheet"**: an iPhone build without the Apple module; make a new build (`usesAppleSignIn` is set in `app.config.ts`; EAS adds the Sign In with Apple capability to the App ID when it builds).
+- **"google: … unset"**: Google needs `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID` and, on iPhone, `EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID`, plus a build made after they were set.
+- **"Supabase settings unreadable"**: the app couldn't read the project's settings (offline, or a bad URL or key). It then offers every method the build lists and asks again next launch; the server still refuses any provider that is off.
+
 ## What the app calls
 
 | When | RPC |
