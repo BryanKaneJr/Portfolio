@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 10,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Your Place in the Universe",
   "objective": "After this level you can trace Earth's address from our planet all the way out to the observable universe.",
@@ -280,7 +280,7 @@
     },
     {
       "id": "question.astronomy.010.q5",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.astronomy.andromeda",
@@ -288,35 +288,19 @@
       ],
       "sourceCardIds": [
         "card.astronomy.010.c3",
-        "card.astronomy.008.c4"
+        "card.astronomy.008.c4",
+        "card.astronomy.008.c3"
       ],
-      "prompt": "Chapter 1 recap: which of these is farthest from Earth?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Proxima Centauri",
-          "correct": false,
-          "rationale": "About 4.2 light-years: the nearest star after the Sun."
-        },
-        {
-          "id": "b",
-          "label": "The Andromeda galaxy",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Neptune",
-          "correct": false,
-          "rationale": "The farthest planet, but still inside our solar system."
-        },
-        {
-          "id": "d",
-          "label": "The Sun",
-          "correct": false,
-          "rationale": "About 8 light-minutes away."
-        }
+      "prompt": "Put these in order, from closest to Earth to farthest.",
+      "items": [
+        "The Moon",
+        "The Sun",
+        "Proxima Centauri",
+        "Andromeda"
       ],
-      "explanation": "Andromeda is about 2.5 million light-years away, far beyond every star in our own galaxy.",
+      "first": "Closest to Earth",
+      "last": "Farthest from Earth",
+      "explanation": "The Moon is about a light-second away, the Sun about 8 light-minutes, Proxima Centauri about 4.2 light-years, and Andromeda about 2.5 million light-years.",
       "difficulty": 0.45
     }
   ],

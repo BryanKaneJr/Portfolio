@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 81,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Kinds of Galaxies",
   "objective": "After this level you can tell spiral, elliptical and irregular galaxies apart.",
@@ -92,41 +92,31 @@
   "questions": [
     {
       "id": "question.astronomy.081.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.galaxy_types"
       ],
       "sourceCardIds": [
-        "card.astronomy.081.c2"
+        "card.astronomy.081.c2",
+        "card.astronomy.081.c3"
       ],
-      "prompt": "Which kind of galaxy has a flat, rotating disk with arms winding out from its center?",
-      "options": [
+      "prompt": "Match each kind of galaxy with its shape.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Elliptical",
-          "correct": false,
-          "rationale": "Ellipticals are smooth and rounded."
+          "left": "Spiral",
+          "right": "Flat, rotating disk"
         },
         {
-          "id": "b",
-          "label": "Irregular",
-          "correct": false,
-          "rationale": "Irregulars have no clear shape."
+          "left": "Elliptical",
+          "right": "Smooth, rounded"
         },
         {
-          "id": "c",
-          "label": "Spiral",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Globular",
-          "correct": false,
-          "rationale": "Globular clusters are star clusters, not galaxy types."
+          "left": "Irregular",
+          "right": "No clear shape at all"
         }
       ],
-      "explanation": "Spiral galaxies have flat, rotating disks with spiral arms.",
+      "explanation": "Spiral galaxies are a flat, rotating disk with spiral arms. Elliptical galaxies are smooth and rounded. Irregular galaxies have no clear shape at all.",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 55,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Oort Cloud",
   "objective": "After this level you can describe the distant shell of icy bodies thought to surround the solar system.",
@@ -97,41 +97,24 @@
   "questions": [
     {
       "id": "question.astronomy.055.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.oort_cloud"
       ],
       "sourceCardIds": [
-        "card.astronomy.055.c2"
+        "card.astronomy.055.c2",
+        "card.astronomy.052.c2"
       ],
-      "prompt": "What is the Oort Cloud thought to be?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A dust cloud between the planets",
-          "correct": false,
-          "rationale": "It’s far beyond the planets."
-        },
-        {
-          "id": "b",
-          "label": "A ring of asteroids near Mars",
-          "correct": false,
-          "rationale": "That’s the asteroid belt."
-        },
-        {
-          "id": "c",
-          "label": "A cloud of gas inside the Sun",
-          "correct": false,
-          "rationale": "It surrounds the whole solar system."
-        },
-        {
-          "id": "d",
-          "label": "A giant shell of icy bodies around the solar system",
-          "correct": true
-        }
+      "prompt": "Out past the planets: put these in order, from closest to the Sun to farthest.",
+      "items": [
+        "Neptune",
+        "Kuiper Belt",
+        "Oort Cloud"
       ],
-      "explanation": "The Oort Cloud is thought to be a vast spherical shell of icy bodies surrounding the solar system.",
+      "first": "Closest to the Sun",
+      "last": "Farthest",
+      "explanation": "Neptune orbits at about 30 AU, the Kuiper Belt lies beyond Neptune's orbit, and the Oort Cloud is a giant shell around the whole solar system, out to perhaps 100,000 AU.",
       "difficulty": 0.2
     },
     {

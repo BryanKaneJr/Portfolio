@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 50,
   "type": "milestone",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Milestone: The Solar System",
   "objective": "After this level you can connect the planets, moons and small bodies into one picture of our solar system.",
@@ -150,41 +150,31 @@
   "questions": [
     {
       "id": "question.astronomy.050.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.sun_mass_share"
       ],
       "sourceCardIds": [
+        "card.astronomy.050.c3",
         "card.astronomy.002.c3"
       ],
-      "prompt": "About what share of the solar system’s mass is in the Sun?",
-      "options": [
+      "prompt": "Match each part of the solar system with its share of the mass.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "About half of it",
-          "correct": false,
-          "rationale": "Far more than half."
+          "left": "The Sun",
+          "right": "About 99.8% of all the mass"
         },
         {
-          "id": "b",
-          "label": "About 75 percent of it",
-          "correct": false,
-          "rationale": "Still far too low."
+          "left": "Everything else",
+          "right": "About 0.2%"
         },
         {
-          "id": "c",
-          "label": "About 90 percent of it",
-          "correct": false,
-          "rationale": "Close, but it’s even more."
-        },
-        {
-          "id": "d",
-          "label": "About 99.8 percent of it",
-          "correct": true
+          "left": "Jupiter alone",
+          "right": "Twice all the other planets combined"
         }
       ],
-      "explanation": "The Sun holds about 99.8% of the solar system’s mass; everything else shares the last 0.2%.",
+      "explanation": "The Sun holds about 99.8% of all the mass, everything else about 0.2%, and Jupiter alone has more than twice the mass of all the other planets combined.",
       "difficulty": 0.2
     },
     {

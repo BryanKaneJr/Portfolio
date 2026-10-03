@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 5,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why We Have Seasons",
   "objective": "After this level you can explain that seasons come from Earth's tilt, not its distance from the Sun.",
@@ -91,40 +91,22 @@
   "questions": [
     {
       "id": "question.astronomy.005.q1",
-      "kind": "mcq",
+      "kind": "order",
       "conceptIds": [
         "concept.astronomy.seasons_tilt"
       ],
       "sourceCardIds": [
         "card.astronomy.005.c3"
       ],
-      "prompt": "What mainly causes Earth's seasons?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The tilt of Earth's axis",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Earth's changing distance from the Sun",
-          "correct": false,
-          "rationale": "Earth is closest in January, during northern winter."
-        },
-        {
-          "id": "c",
-          "label": "Changes in the Sun's brightness",
-          "correct": false,
-          "rationale": "The Sun's output is nearly constant."
-        },
-        {
-          "id": "d",
-          "label": "The Moon's position",
-          "correct": false,
-          "rationale": "The Moon affects tides, not seasons."
-        }
+      "prompt": "Put this chain in order, from cause to effect.",
+      "items": [
+        "Tilt",
+        "Angle of sunlight",
+        "Season"
       ],
-      "explanation": "Earth's ~23.5° tilt changes how directly sunlight hits each hemisphere through the year.",
+      "first": "Cause",
+      "last": "Effect",
+      "explanation": "Earth's tilt sets the angle of sunlight, and the angle of sunlight sets the season.",
       "difficulty": 0.3,
       "purpose": "recall"
     },

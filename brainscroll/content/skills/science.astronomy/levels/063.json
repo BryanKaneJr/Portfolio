@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 63,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The H–R Diagram",
   "objective": "After this level you can read the basic pattern of the Hertzsprung–Russell diagram.",
@@ -129,7 +129,7 @@
     },
     {
       "id": "question.astronomy.063.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.astronomy.hr_diagram"
@@ -137,33 +137,22 @@
       "sourceCardIds": [
         "card.astronomy.063.c3"
       ],
-      "prompt": "Where on the H–R diagram are white dwarfs found?",
-      "options": [
+      "prompt": "Match each group of stars with where it sits on the H–R diagram.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Lower left: hot but dim",
-          "correct": true
+          "left": "Red giants",
+          "right": "Upper right"
         },
         {
-          "id": "b",
-          "label": "Upper right: cool but bright",
-          "correct": false,
-          "rationale": "That’s where red giants sit."
+          "left": "White dwarfs",
+          "right": "Lower left"
         },
         {
-          "id": "c",
-          "label": "In the middle of the main sequence",
-          "correct": false,
-          "rationale": "The Sun is there, not white dwarfs."
-        },
-        {
-          "id": "d",
-          "label": "Upper left: hot and very bright",
-          "correct": false,
-          "rationale": "White dwarfs are dim."
+          "left": "Main sequence",
+          "right": "Diagonal band"
         }
       ],
-      "explanation": "White dwarfs are hot but small, so they’re dim: lower left on the diagram.",
+      "explanation": "Red giants sit in the upper right (cool but very luminous), white dwarfs in the lower left (hot but dim), and most stars fall along the diagonal band called the main sequence.",
       "difficulty": 0.35
     },
     {

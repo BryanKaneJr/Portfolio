@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 40,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: The Tools of Astronomy",
   "objective": "After this level you can match each kind of light and instrument to what it lets astronomers study.",
@@ -232,41 +232,31 @@
     },
     {
       "id": "question.astronomy.040.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.astronomy.multiwavelength"
       ],
       "sourceCardIds": [
+        "card.astronomy.040.c3",
         "card.astronomy.040.c2"
       ],
-      "prompt": "An astronomer wants to study the extremely hot gas around a black hole. Which tool fits best?",
-      "options": [
+      "prompt": "Match each kind of light with the job it does best.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A radio telescope in a desert",
-          "correct": false,
-          "rationale": "Radio is better for cooler gas and dust."
+          "left": "Radio",
+          "right": "Huge dishes, linked into arrays"
         },
         {
-          "id": "b",
-          "label": "A small refracting telescope",
-          "correct": false,
-          "rationale": "Visible light won’t show that hot gas well."
+          "left": "Infrared",
+          "right": "Star birth inside dust"
         },
         {
-          "id": "c",
-          "label": "An infrared telescope inside a dust cloud",
-          "correct": false,
-          "rationale": "Infrared suits dust and cool objects."
-        },
-        {
-          "id": "d",
-          "label": "An X-ray telescope in space, like Chandra",
-          "correct": true
+          "left": "X-ray",
+          "right": "Extremely hot gas"
         }
       ],
-      "explanation": "Extremely hot gas glows in X-rays, and only space telescopes can see X-rays.",
+      "explanation": "Radio uses huge dishes linked into arrays, infrared shows star birth inside dust, and X-ray reveals extremely hot gas.",
       "difficulty": 0.3
     },
     {

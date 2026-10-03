@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 14,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The North Star",
   "objective": "After this level you can find north with Polaris and explain why some stars never set.",
@@ -92,41 +92,31 @@
   "questions": [
     {
       "id": "question.astronomy.014.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.polaris_north"
       ],
       "sourceCardIds": [
-        "card.astronomy.014.c2"
+        "card.astronomy.014.c2",
+        "card.astronomy.014.c4"
       ],
-      "prompt": "Why does Polaris barely move across the night sky?",
-      "options": [
+      "prompt": "Match each star or star pattern with what it's known for.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It is the closest star to Earth",
-          "correct": false,
-          "rationale": "The closest star is Proxima Centauri (after the Sun)."
+          "left": "Polaris",
+          "right": "The North Star"
         },
         {
-          "id": "b",
-          "label": "It lies almost directly above Earth’s North Pole",
-          "correct": true
+          "left": "Sirius",
+          "right": "The brightest star in the sky"
         },
         {
-          "id": "c",
-          "label": "It is the brightest star",
-          "correct": false,
-          "rationale": "The brightest night-time star is Sirius."
-        },
-        {
-          "id": "d",
-          "label": "It orbits Earth at the same speed Earth spins",
-          "correct": false,
-          "rationale": "Stars don’t orbit Earth."
+          "left": "The Southern Cross",
+          "right": "Find south"
         }
       ],
-      "explanation": "Polaris sits nearly on the line of Earth’s axis, so as Earth spins, it stays almost fixed while other stars circle it.",
+      "explanation": "Polaris is the North Star, Sirius is the brightest star in the sky, and navigators have used the Southern Cross to find south.",
       "difficulty": 0.15
     },
     {

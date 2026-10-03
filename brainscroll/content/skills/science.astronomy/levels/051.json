@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 51,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Pluto and the Dwarf Planets",
   "objective": "After this level you can explain what a dwarf planet is and why Pluto was reclassified.",
@@ -86,41 +86,32 @@
   "questions": [
     {
       "id": "question.astronomy.051.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.dwarf_planets"
       ],
       "sourceCardIds": [
-        "card.astronomy.051.c2"
+        "card.astronomy.051.c2",
+        "card.astronomy.051.c3",
+        "card.astronomy.051.c4"
       ],
-      "prompt": "Which test for being a planet does Pluto fail?",
-      "options": [
+      "prompt": "Match each name with the year it made Pluto history.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It doesn’t orbit the Sun",
-          "correct": false,
-          "rationale": "Pluto does orbit the Sun."
+          "left": "Clyde Tombaugh",
+          "right": "1930"
         },
         {
-          "id": "b",
-          "label": "It isn’t massive enough to be round",
-          "correct": false,
-          "rationale": "Pluto is round."
+          "left": "International Astronomical Union",
+          "right": "2006"
         },
         {
-          "id": "c",
-          "label": "It hasn’t cleared its orbital neighborhood",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It has no moons of its own",
-          "correct": false,
-          "rationale": "Moons aren’t part of the definition."
+          "left": "New Horizons",
+          "right": "2015"
         }
       ],
-      "explanation": "Pluto orbits the Sun and is round, but it shares its region with many icy bodies, so it hasn’t cleared its orbit.",
+      "explanation": "Clyde Tombaugh discovered Pluto in 1930. The International Astronomical Union wrote the planet rulebook in 2006. New Horizons flew past Pluto in 2015.",
       "difficulty": 0.25
     },
     {

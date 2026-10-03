@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 66,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Stellar Nurseries",
   "objective": "After this level you can describe how stars form inside nebulae.",
@@ -131,7 +131,7 @@
     },
     {
       "id": "question.astronomy.066.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.astronomy.star_formation"
@@ -139,33 +139,15 @@
       "sourceCardIds": [
         "card.astronomy.066.c2"
       ],
-      "prompt": "What turns a shrinking clump of gas into a true star?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Its core becomes hot enough for fusion to begin",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "It collides with another star",
-          "correct": false,
-          "rationale": "Collisions aren’t how stars start."
-        },
-        {
-          "id": "c",
-          "label": "It is struck by a comet",
-          "correct": false,
-          "rationale": "Comets have no effect on this."
-        },
-        {
-          "id": "d",
-          "label": "It cools until it freezes solid",
-          "correct": false,
-          "rationale": "It heats up, not cools."
-        }
+      "prompt": "Put the steps of a star's birth in order.",
+      "items": [
+        "Cold, dense clouds of gas and dust",
+        "A clump shrinks",
+        "Fusion ignites"
       ],
-      "explanation": "As the clump shrinks, its core heats up until hydrogen fusion ignites. Then it’s a star.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Stars start in cold, dense clouds of gas and dust. Gravity pulls a clump together, and as it shrinks its center heats up until fusion ignites and it becomes a star.",
       "difficulty": 0.35
     },
     {

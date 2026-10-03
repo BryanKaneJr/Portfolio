@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 31,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "More Than Meets the Eye: The Spectrum",
   "objective": "After this level you can explain that visible light is one small part of the electromagnetic spectrum.",
@@ -125,41 +125,26 @@
     },
     {
       "id": "question.astronomy.031.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.astronomy.em_spectrum"
       ],
       "sourceCardIds": [
-        "card.astronomy.031.c2"
+        "card.astronomy.031.c2",
+        "card.astronomy.031.c4"
       ],
-      "prompt": "Which list goes from longest wavelength to shortest?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Gamma rays → visible light → radio waves",
-          "correct": false,
-          "rationale": "That’s shortest to longest."
-        },
-        {
-          "id": "b",
-          "label": "Visible light → radio waves → X-rays",
-          "correct": false,
-          "rationale": "Radio waves are longer than visible light."
-        },
-        {
-          "id": "c",
-          "label": "X-rays → radio waves → gamma rays",
-          "correct": false,
-          "rationale": "Radio waves are the longest of all."
-        },
-        {
-          "id": "d",
-          "label": "Radio waves → visible light → X-rays",
-          "correct": true
-        }
+      "prompt": "Put these kinds of light in order, from longest wavelength to shortest.",
+      "items": [
+        "Radio waves",
+        "Infrared",
+        "Visible light",
+        "Ultraviolet",
+        "Gamma rays"
       ],
-      "explanation": "Radio waves are the longest, visible light sits in the middle, and X-rays (then gamma rays) are the shortest.",
+      "first": "Longest wavelength",
+      "last": "Shortest wavelength",
+      "explanation": "Radio waves are the longest, then infrared, visible light and ultraviolet, and gamma rays are the shortest.",
       "difficulty": 0.3
     },
     {

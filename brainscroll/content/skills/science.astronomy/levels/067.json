@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 67,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Red Giants and Planetary Nebulae",
   "objective": "After this level you can explain how Sun-like stars swell and shed their outer layers.",
@@ -130,41 +130,26 @@
     },
     {
       "id": "question.astronomy.067.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.astronomy.red_giants"
       ],
       "sourceCardIds": [
-        "card.astronomy.067.c2"
+        "card.astronomy.067.c1",
+        "card.astronomy.067.c2",
+        "card.astronomy.067.c3"
       ],
-      "prompt": "What happens to a Sun-like star when its core runs low on hydrogen?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It explodes as a supernova",
-          "correct": false,
-          "rationale": "Sun-like stars aren’t massive enough."
-        },
-        {
-          "id": "b",
-          "label": "It shrinks into a black hole",
-          "correct": false,
-          "rationale": "Sun-like stars don’t become black holes."
-        },
-        {
-          "id": "c",
-          "label": "Its core contracts while its outer layers swell into a red giant",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It stops shining immediately",
-          "correct": false,
-          "rationale": "It keeps shining as a red giant."
-        }
+      "prompt": "Put these stages at the end of a Sun-like star's life in order.",
+      "items": [
+        "Core runs low on hydrogen",
+        "Red giant",
+        "Planetary nebula",
+        "Exposed core"
       ],
-      "explanation": "The core contracts and heats up while the outer layers swell, turning the star into a red giant.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "When the core runs low on hydrogen, the star swells into a red giant. Late in life it sheds its outer layers as a planetary nebula, and then only its exposed core remains.",
       "difficulty": 0.35
     },
     {

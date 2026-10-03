@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 77,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Finding Exoplanets",
   "objective": "After this level you can explain the transit and wobble methods for finding planets around other stars.",
@@ -166,43 +166,33 @@
     },
     {
       "id": "question.astronomy.077.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.astronomy.exoplanet_detection",
         "concept.astronomy.spectral_lines"
       ],
       "sourceCardIds": [
+        "card.astronomy.077.c2",
         "card.astronomy.077.c3",
         "card.astronomy.032.c2"
       ],
-      "prompt": "From Level 32: how do spectra help find planets with the wobble method?",
-      "options": [
+      "prompt": "From Level 32: spectral lines are a star’s barcode. Match each term with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They show the planet’s own colors",
-          "correct": false,
-          "rationale": "The planet’s light is swamped by the star’s."
+          "left": "Exoplanet",
+          "right": "A planet outside our solar system"
         },
         {
-          "id": "b",
-          "label": "They reveal the planet’s water",
-          "correct": false,
-          "rationale": "That’s atmosphere study, not detection."
+          "left": "Transit method",
+          "right": "Small, regular dip"
         },
         {
-          "id": "c",
-          "label": "They measure the planet’s shadow",
-          "correct": false,
-          "rationale": "Shadows are the transit method."
-        },
-        {
-          "id": "d",
-          "label": "The star’s spectral lines shift as it wobbles",
-          "correct": true
+          "left": "Wobble method",
+          "right": "Spectral lines shift"
         }
       ],
-      "explanation": "As the planet tugs its star back and forth, the star’s spectral lines shift slightly, revealing the unseen planet.",
+      "explanation": "An exoplanet is a planet outside our solar system. The transit method spots a small, regular dip in starlight, and the wobble method sees the star’s spectral lines shift as a planet tugs it.",
       "difficulty": 0.4
     }
   ],

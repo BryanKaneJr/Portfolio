@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 29,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "New Planets: Uranus and Neptune",
   "objective": "After this level you can explain how Uranus was found by telescope and Neptune was predicted by mathematics.",
@@ -86,41 +86,24 @@
   "questions": [
     {
       "id": "question.astronomy.029.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.neptune_prediction"
       ],
       "sourceCardIds": [
+        "card.astronomy.029.c2",
         "card.astronomy.029.c3"
       ],
-      "prompt": "How was Neptune discovered?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It was spotted by chance during a comet search",
-          "correct": false,
-          "rationale": "Its position was calculated first."
-        },
-        {
-          "id": "b",
-          "label": "A space probe photographed it on a flyby",
-          "correct": false,
-          "rationale": "That was in 1846, long before spacecraft."
-        },
-        {
-          "id": "c",
-          "label": "Its position was predicted by math, then observed",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Ancient astronomers saw it with the naked eye",
-          "correct": false,
-          "rationale": "Neptune is far too faint for that."
-        }
+      "prompt": "Put these steps of the story in order, from first to last.",
+      "items": [
+        "Herschel discovered a new planet: Uranus",
+        "Uranus misbehaved",
+        "Galle looked there and found Neptune"
       ],
-      "explanation": "Le Verrier used gravity to predict Neptune’s position from tugs on Uranus’s orbit; Galle found it there in 1846.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Herschel discovered Uranus in 1781. Then Uranus misbehaved, Le Verrier worked out where the unseen planet should be, and in 1846 Galle looked there and found Neptune.",
       "difficulty": 0.2
     },
     {

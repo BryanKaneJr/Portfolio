@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 96,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Integration: From Atoms to Galaxies",
   "objective": "After this level you can connect nuclear fusion, stellar lives and galaxy formation into one story.",
@@ -168,7 +168,7 @@
     },
     {
       "id": "question.astronomy.096.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.astronomy.cosmic_recycling",
@@ -177,33 +177,16 @@
       "sourceCardIds": [
         "card.astronomy.096.c2"
       ],
-      "prompt": "Which sequence is in the right order?",
-      "options": [
-        {
-          "id": "a",
-          "label": "First stars → hydrogen forms → the Sun forms",
-          "correct": false,
-          "rationale": "Hydrogen came before any stars."
-        },
-        {
-          "id": "b",
-          "label": "The Sun forms → first stars → hydrogen forms",
-          "correct": false,
-          "rationale": "That’s backwards."
-        },
-        {
-          "id": "c",
-          "label": "Hydrogen forms → first stars → the Sun forms",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Hydrogen forms → the Sun forms → first stars",
-          "correct": false,
-          "rationale": "The Sun formed billions of years after the first stars."
-        }
+      "prompt": "Follow the ingredients from the Big Bang to you. Put these in order, from earliest to latest.",
+      "items": [
+        "Hydrogen, helium and a trace of lithium",
+        "The first stars light up",
+        "Stars forge heavier elements",
+        "The Sun and planets form"
       ],
-      "explanation": "The Big Bang made hydrogen; the first stars lit up within a few hundred million years; the Sun formed 4.6 billion years ago.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Hydrogen, helium and a trace of lithium formed in the first few minutes. The first stars lit up a few hundred million years later, stars forged heavier elements over billions of years, and the Sun and planets formed 4.6 billion years ago.",
       "difficulty": 0.4
     },
     {

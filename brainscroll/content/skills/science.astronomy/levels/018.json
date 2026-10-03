@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 18,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Where the Moon Came From",
   "objective": "After this level you can describe the giant-impact explanation for the Moon’s origin and the evidence for it.",
@@ -81,7 +81,7 @@
   "questions": [
     {
       "id": "question.astronomy.018.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.moon_giant_impact"
@@ -89,33 +89,15 @@
       "sourceCardIds": [
         "card.astronomy.018.c2"
       ],
-      "prompt": "What is the leading explanation for how the Moon formed?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Earth’s gravity captured a large passing asteroid",
-          "correct": false,
-          "rationale": "Capture doesn’t explain the Moon’s Earth-like rocks."
-        },
-        {
-          "id": "b",
-          "label": "Debris from a giant collision with the young Earth",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It formed from the Sun’s leftover gas",
-          "correct": false,
-          "rationale": "The Moon is rock, formed from a collision."
-        },
-        {
-          "id": "d",
-          "label": "It broke away from Mars and drifted to Earth",
-          "correct": false,
-          "rationale": "The impactor was Mars-sized; the Moon didn’t come from Mars."
-        }
+      "prompt": "Put the giant impact story in order, from first to last.",
+      "items": [
+        "Slammed into the young Earth",
+        "Flung debris out around Earth",
+        "Gathered to form the Moon"
       ],
-      "explanation": "A Mars-sized body likely hit the young Earth, and the Moon formed from the debris.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Theia slammed into the young Earth, the collision flung debris out around Earth, and that debris gathered to form the Moon.",
       "difficulty": 0.2
     },
     {

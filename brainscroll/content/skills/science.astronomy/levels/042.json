@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 42,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Venus: Earth’s Evil Twin",
   "objective": "After this level you can compare Venus and Earth and describe Venus’s surface and odd rotation.",
@@ -88,41 +88,31 @@
   "questions": [
     {
       "id": "question.astronomy.042.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.venus_twin"
       ],
       "sourceCardIds": [
-        "card.astronomy.042.c2"
+        "card.astronomy.042.c2",
+        "card.astronomy.042.c3"
       ],
-      "prompt": "What are Venus’s clouds made of?",
-      "options": [
+      "prompt": "Match each Venus fact with its detail.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Water vapor like Earth’s clouds",
-          "correct": false,
-          "rationale": "Venus’s clouds are far nastier."
+          "left": "Clouds",
+          "right": "Sulfuric acid"
         },
         {
-          "id": "b",
-          "label": "Sulfuric acid",
-          "correct": true
+          "left": "Air pressure",
+          "right": "About 90 times Earth's"
         },
         {
-          "id": "c",
-          "label": "Frozen carbon dioxide crystals",
-          "correct": false,
-          "rationale": "Its atmosphere is carbon dioxide, but the clouds are acid."
-        },
-        {
-          "id": "d",
-          "label": "Iron oxide dust like Mars",
-          "correct": false,
-          "rationale": "That’s what colors Mars."
+          "left": "One rotation",
+          "right": "243 Earth days"
         }
       ],
-      "explanation": "Venus is covered by thick clouds of sulfuric acid.",
+      "explanation": "Venus's clouds are sulfuric acid, its surface air pressure is about 90 times Earth's, and one rotation takes 243 Earth days.",
       "difficulty": 0.2
     },
     {

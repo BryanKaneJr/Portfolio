@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 33,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How Telescopes Work",
   "objective": "After this level you can tell refracting from reflecting telescopes and explain why bigger mirrors see more.",
@@ -92,7 +92,7 @@
   "questions": [
     {
       "id": "question.astronomy.033.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.telescope_types"
@@ -100,33 +100,22 @@
       "sourceCardIds": [
         "card.astronomy.033.c2"
       ],
-      "prompt": "What does a reflecting telescope use to gather light?",
-      "options": [
+      "prompt": "Match each telescope fact with what the card says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A set of glass lenses",
-          "correct": false,
-          "rationale": "That’s a refracting telescope."
+          "left": "Refracting telescopes",
+          "right": "Lenses"
         },
         {
-          "id": "b",
-          "label": "A curved mirror",
-          "correct": true
+          "left": "Reflecting telescopes",
+          "right": "A curved mirror"
         },
         {
-          "id": "c",
-          "label": "A radio antenna",
-          "correct": false,
-          "rationale": "Radio telescopes are a different kind."
-        },
-        {
-          "id": "d",
-          "label": "A prism that splits light",
-          "correct": false,
-          "rationale": "Prisms spread light into spectra."
+          "left": "Isaac Newton",
+          "right": "Built the first practical reflector"
         }
       ],
-      "explanation": "Reflecting telescopes gather light with curved mirrors; refractors use lenses.",
+      "explanation": "Refracting telescopes gather light with lenses, reflecting telescopes use a curved mirror, and Isaac Newton built the first practical reflector in 1668.",
       "difficulty": 0.15
     },
     {

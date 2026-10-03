@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 92,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Afterglow: Cosmic Microwave Background",
   "objective": "After this level you can explain the cosmic microwave background and why it supports the Big Bang.",
@@ -127,42 +127,27 @@
     },
     {
       "id": "question.astronomy.092.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.astronomy.cmb",
         "concept.astronomy.redshift"
       ],
       "sourceCardIds": [
-        "card.astronomy.092.c3"
+        "card.astronomy.092.c2",
+        "card.astronomy.092.c3",
+        "card.astronomy.092.c4"
       ],
-      "prompt": "Why does the CMB reach us as microwaves rather than visible light?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It was always a faint microwave signal",
-          "correct": false,
-          "rationale": "It began as the glow of hot gas."
-        },
-        {
-          "id": "b",
-          "label": "Earth’s atmosphere converts it to microwaves",
-          "correct": false,
-          "rationale": "The atmosphere doesn’t do that."
-        },
-        {
-          "id": "c",
-          "label": "Dust in the Milky Way absorbs its visible light",
-          "correct": false,
-          "rationale": "Dust isn’t the cause."
-        },
-        {
-          "id": "d",
-          "label": "Expanding space stretched its wavelengths",
-          "correct": true
-        }
+      "prompt": "Follow the CMB’s story. Put these in order, from earliest to latest.",
+      "items": [
+        "Too hot and dense for light to travel",
+        "Cooled enough for atoms to form",
+        "Stretched to microwaves",
+        "Found by accident in 1965"
       ],
-      "explanation": "As space expanded over billions of years, the CMB’s light was stretched to much longer wavelengths.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "At first the universe was too hot and dense for light to travel. It cooled enough for atoms to form, freeing the light, which crossing space stretched to microwaves. It was found by accident in 1965.",
       "difficulty": 0.45
     },
     {

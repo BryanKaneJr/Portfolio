@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 17,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Tides: The Moon’s Pull on the Ocean",
   "objective": "After this level you can explain why most coasts get two high tides a day and what spring and neap tides are.",
@@ -169,7 +169,7 @@
     },
     {
       "id": "question.astronomy.017.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.astronomy.spring_neap_tides",
@@ -179,33 +179,26 @@
         "card.astronomy.017.c3",
         "card.astronomy.006.c2"
       ],
-      "prompt": "From Level 6: spring tides happen at new and full Moon. What do those two phases have in common?",
-      "options": [
+      "prompt": "Match each clue with the kind of tide it goes with.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The Moon is closest to Earth",
-          "correct": false,
-          "rationale": "Phase doesn’t depend on the Moon’s distance."
+          "left": "Around new and full Moon",
+          "right": "Spring tides"
         },
         {
-          "id": "b",
-          "label": "The Moon is half lit",
-          "correct": false,
-          "rationale": "That’s the quarter Moons, when neap tides happen."
+          "left": "Around the quarter Moons",
+          "right": "Neap tides"
         },
         {
-          "id": "c",
-          "label": "The Moon is on the far side of the Sun",
-          "correct": false,
-          "rationale": "At new Moon it’s between Earth and the Sun."
+          "left": "Extra-high highs and extra-low lows",
+          "right": "Spring tides"
         },
         {
-          "id": "d",
-          "label": "The Sun, Earth and Moon are in a line",
-          "correct": true
+          "left": "Sun and Moon pull at right angles",
+          "right": "Neap tides"
         }
       ],
-      "explanation": "At new Moon the Moon is between Earth and the Sun; at full Moon, Earth is between them. Either way they line up, and their pulls add up.",
+      "explanation": "Spring tides come around new and full Moon, with extra-high highs and extra-low lows. Neap tides come around the quarter Moons, when the Sun and Moon pull at right angles.",
       "difficulty": 0.35
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 56,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Inside the Sun",
   "objective": "After this level you can name the Sun’s layers and describe how energy travels from its core to its surface.",
@@ -92,7 +92,7 @@
   "questions": [
     {
       "id": "question.astronomy.056.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.sun_layers"
@@ -100,33 +100,18 @@
       "sourceCardIds": [
         "card.astronomy.056.c2"
       ],
-      "prompt": "Which layer of the Sun is its visible surface?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The core",
-          "correct": false,
-          "rationale": "The core is deep inside, where fusion happens."
-        },
-        {
-          "id": "b",
-          "label": "The corona",
-          "correct": false,
-          "rationale": "That’s the faint outer atmosphere."
-        },
-        {
-          "id": "c",
-          "label": "The photosphere",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The convective zone",
-          "correct": false,
-          "rationale": "That’s below the surface."
-        }
+      "prompt": "Peel the Sun like an onion. Put its layers in order, from the inside out.",
+      "items": [
+        "Core",
+        "Radiative zone",
+        "Convective zone",
+        "Photosphere",
+        "Chromosphere",
+        "Corona"
       ],
-      "explanation": "The photosphere is the Sun’s visible surface, at about 5,500 °C.",
+      "first": "Innermost",
+      "last": "Outermost",
+      "explanation": "From the inside out: the core, the radiative zone, the convective zone, the photosphere (the visible surface), the chromosphere and the corona.",
       "difficulty": 0.2
     },
     {

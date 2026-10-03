@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 7,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Eclipses and a Cosmic Coincidence",
   "objective": "After this level you can tell solar from lunar eclipses and explain why the Moon can exactly cover the Sun.",
@@ -98,40 +98,33 @@
   "questions": [
     {
       "id": "question.astronomy.007.q1",
-      "kind": "mcq",
+      "kind": "match",
       "conceptIds": [
         "concept.astronomy.eclipse_types"
       ],
       "sourceCardIds": [
         "card.astronomy.007.c2"
       ],
-      "prompt": "During a lunar eclipse, what is happening?",
-      "options": [
+      "prompt": "Match each clue with the kind of eclipse it describes.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The Moon blocks the Sun",
-          "correct": false,
-          "rationale": "That's a solar eclipse."
+          "left": "The Moon's shadow falls on Earth",
+          "right": "Solar eclipse"
         },
         {
-          "id": "b",
-          "label": "Earth's shadow falls on the Moon",
-          "correct": true
+          "left": "Earth's shadow falls on the Moon",
+          "right": "Lunar eclipse"
         },
         {
-          "id": "c",
-          "label": "The Moon enters its new phase",
-          "correct": false,
-          "rationale": "Phases aren't eclipses."
+          "left": "Only happens at new Moon",
+          "right": "Solar eclipse"
         },
         {
-          "id": "d",
-          "label": "The Sun goes dark",
-          "correct": false,
-          "rationale": "The Sun keeps shining."
+          "left": "Only happens at full Moon",
+          "right": "Lunar eclipse"
         }
       ],
-      "explanation": "In a lunar eclipse Earth sits between the Sun and the Moon, and its shadow falls on the Moon.",
+      "explanation": "In a solar eclipse the Moon's shadow falls on Earth, at new Moon. In a lunar eclipse Earth's shadow falls on the Moon, at full Moon.",
       "difficulty": 0.3,
       "purpose": "recall"
     },

@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 19,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Craters and Seas on the Moon",
   "objective": "After this level you can explain where lunar craters and the dark “seas” came from and why they last so long.",
@@ -81,41 +81,31 @@
   "questions": [
     {
       "id": "question.astronomy.019.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.lunar_maria"
       ],
       "sourceCardIds": [
-        "card.astronomy.019.c3"
+        "card.astronomy.019.c3",
+        "card.astronomy.019.c2"
       ],
-      "prompt": "What are the dark patches on the Moon, called maria?",
-      "options": [
+      "prompt": "Match each feature of the Moon with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Oceans of water",
-          "correct": false,
-          "rationale": "The name means “seas,” but they’re dry."
+          "left": "Craters",
+          "right": "Blasted out by asteroids and comets"
         },
         {
-          "id": "b",
-          "label": "Shadows of mountains",
-          "correct": false,
-          "rationale": "The patches are dark rock, not shadows."
+          "left": "Maria",
+          "right": "Plains of ancient lava"
         },
         {
-          "id": "c",
-          "label": "Plains of ancient hardened lava",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Areas the Sun never lights",
-          "correct": false,
-          "rationale": "Sunlight reaches them like the rest of the surface."
+          "left": "The near side",
+          "right": "The side that always faces Earth"
         }
       ],
-      "explanation": "The maria are enormous plains of lava that erupted and hardened long ago.",
+      "explanation": "Craters were blasted out by asteroids and comets. Maria are plains of ancient lava. The near side is the side that always faces Earth.",
       "difficulty": 0.2
     },
     {

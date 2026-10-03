@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 87,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Quasars and Active Galaxies",
   "objective": "After this level you can explain how feeding supermassive black holes can outshine whole galaxies.",
@@ -92,7 +92,7 @@
   "questions": [
     {
       "id": "question.astronomy.087.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.quasars"
@@ -100,33 +100,16 @@
       "sourceCardIds": [
         "card.astronomy.087.c2"
       ],
-      "prompt": "What powers a quasar?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Gas heating up as it spirals toward a supermassive black hole",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Millions of supernovae exploding at once",
-          "correct": false,
-          "rationale": "Not what powers a quasar."
-        },
-        {
-          "id": "c",
-          "label": "Two galaxies colliding head-on",
-          "correct": false,
-          "rationale": "Collisions can feed a quasar, but the power comes from the black hole."
-        },
-        {
-          "id": "d",
-          "label": "A giant star at the galaxy’s center",
-          "correct": false,
-          "rationale": "No star is that bright."
-        }
+      "prompt": "A supermassive black hole is feeding. Put what happens to the gas in order.",
+      "items": [
+        "Gas spirals in",
+        "Heats up in a swirling disk",
+        "Glows fiercely",
+        "Crosses the event horizon"
       ],
-      "explanation": "Gas swirling into a supermassive black hole heats up and glows, sometimes outshining the whole galaxy.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The gas spirals in, heats up in a swirling disk and glows fiercely, all before it crosses the event horizon. The light comes from the gas, not the black hole.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 69,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Supernovae and Star Stuff",
   "objective": "After this level you can explain how massive stars explode and scatter the elements we are made of.",
@@ -91,41 +91,24 @@
   "questions": [
     {
       "id": "question.astronomy.069.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.supernovae_elements"
       ],
       "sourceCardIds": [
-        "card.astronomy.069.c2"
+        "card.astronomy.069.c2",
+        "card.astronomy.069.c3"
       ],
-      "prompt": "Which stars end their lives in core-collapse supernovae?",
-      "options": [
-        {
-          "id": "a",
-          "label": "All stars, including the Sun",
-          "correct": false,
-          "rationale": "The Sun will become a white dwarf instead."
-        },
-        {
-          "id": "b",
-          "label": "Only the smallest red dwarfs",
-          "correct": false,
-          "rationale": "Red dwarfs fade slowly."
-        },
-        {
-          "id": "c",
-          "label": "Stars more than about eight times the Sun’s mass",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Only stars that have planets",
-          "correct": false,
-          "rationale": "Planets don’t decide a star’s fate."
-        }
+      "prompt": "A star more than about eight times the Sun's mass dies. Put what happens in order.",
+      "items": [
+        "Core collapse",
+        "Supernova",
+        "New stars, planets and people"
       ],
-      "explanation": "Stars more than about eight times as massive as the Sun end in core-collapse supernovae.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The core collapses, which triggers a supernova. The explosion scatters heavy elements into space, where they become part of new stars, planets and people.",
       "difficulty": 0.3
     },
     {

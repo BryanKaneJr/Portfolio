@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 64,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Main Sequence",
   "objective": "After this level you can explain why a star’s mass decides its temperature and lifetime.",
@@ -127,41 +127,24 @@
     },
     {
       "id": "question.astronomy.064.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.astronomy.main_sequence_mass"
       ],
       "sourceCardIds": [
+        "card.astronomy.064.c2",
         "card.astronomy.064.c3"
       ],
-      "prompt": "How does a star’s mass affect its life?",
-      "options": [
-        {
-          "id": "a",
-          "label": "More mass means a longer life",
-          "correct": false,
-          "rationale": "The most massive stars last only a few million years."
-        },
-        {
-          "id": "b",
-          "label": "Mass makes no difference",
-          "correct": false,
-          "rationale": "Mass sets the pace."
-        },
-        {
-          "id": "c",
-          "label": "More mass means hotter, brighter and shorter-lived",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Only small stars ever run out",
-          "correct": false,
-          "rationale": "Red dwarfs can shine for trillions of years."
-        }
+      "prompt": "Put these stars in order, from shortest life to longest.",
+      "items": [
+        "The most massive stars",
+        "The Sun",
+        "Red dwarfs"
       ],
-      "explanation": "The more massive a star, the hotter, brighter and shorter-lived it is: the most massive last only a few million years.",
+      "first": "Shortest life",
+      "last": "Longest life",
+      "explanation": "More mass means a shorter life. The most massive stars last only a few million years, the Sun gets about 10 billion, and red dwarfs can shine for trillions.",
       "difficulty": 0.4
     },
     {

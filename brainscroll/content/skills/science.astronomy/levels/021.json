@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 21,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The First Sky-Watchers",
   "objective": "After this level you can explain how ancient cultures used the sky to keep calendars and navigate.",
@@ -91,41 +91,31 @@
   "questions": [
     {
       "id": "question.astronomy.021.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.ancient_sky_calendars"
       ],
       "sourceCardIds": [
-        "card.astronomy.021.c2"
+        "card.astronomy.021.c2",
+        "card.astronomy.021.c3"
       ],
-      "prompt": "What is Stonehenge aligned with?",
-      "options": [
+      "prompt": "Match each with what it's known for in this level.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The North Star on the longest night",
-          "correct": false,
-          "rationale": "Its alignment is with the Sun."
+          "left": "Stonehenge",
+          "right": "The midsummer sunrise"
         },
         {
-          "id": "b",
-          "label": "The first dawn rising of Sirius each year",
-          "correct": false,
-          "rationale": "Sirius mattered in ancient Egypt."
+          "left": "Ancient Egypt",
+          "right": "Sirius"
         },
         {
-          "id": "c",
-          "label": "The path of a total solar eclipse",
-          "correct": false,
-          "rationale": "Eclipses don’t repeat at the same place like that."
-        },
-        {
-          "id": "d",
-          "label": "The midsummer sunrise and midwinter sunset",
-          "correct": true
+          "left": "The Babylonians",
+          "right": "Clay tablets"
         }
       ],
-      "explanation": "Stonehenge lines up with the Sun at the solstices: sunrise at midsummer and sunset at midwinter.",
+      "explanation": "Stonehenge lines up with the midsummer sunrise, ancient Egypt watched for Sirius, and the Babylonians recorded the sky on clay tablets.",
       "difficulty": 0.2
     },
     {

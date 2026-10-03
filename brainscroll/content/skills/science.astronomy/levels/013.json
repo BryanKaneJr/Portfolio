@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 13,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Connect the Dots: Constellations",
   "objective": "After this level you can explain what a constellation is and why its stars usually aren’t near each other.",
@@ -96,41 +96,31 @@
   "questions": [
     {
       "id": "question.astronomy.013.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.constellations"
       ],
       "sourceCardIds": [
-        "card.astronomy.013.c2"
+        "card.astronomy.013.c2",
+        "card.astronomy.013.c4"
       ],
-      "prompt": "How many official constellations are there?",
-      "options": [
+      "prompt": "Match each with the right fact about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "12",
-          "correct": false,
-          "rationale": "That’s the number of zodiac signs; the constellations cover the whole sky."
+          "left": "The Big Dipper",
+          "right": "An asterism"
         },
         {
-          "id": "b",
-          "label": "50",
-          "correct": false,
-          "rationale": "The official list is longer."
+          "left": "Ursa Major",
+          "right": "The Great Bear"
         },
         {
-          "id": "c",
-          "label": "88",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "110",
-          "correct": false,
-          "rationale": "The official list is shorter."
+          "left": "Official constellations",
+          "right": "88"
         }
       ],
-      "explanation": "Astronomers officially recognize 88 constellations, which together cover the entire sky.",
+      "explanation": "The Big Dipper is an asterism, part of Ursa Major, the Great Bear. There are 88 official constellations.",
       "difficulty": 0.15
     },
     {

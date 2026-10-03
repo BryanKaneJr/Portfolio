@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 68,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "White Dwarfs",
   "objective": "After this level you can describe white dwarfs and why they slowly cool.",
@@ -96,41 +96,31 @@
   "questions": [
     {
       "id": "question.astronomy.068.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.white_dwarfs"
       ],
       "sourceCardIds": [
-        "card.astronomy.068.c2"
+        "card.astronomy.068.c2",
+        "card.astronomy.068.c3"
       ],
-      "prompt": "How big is a typical white dwarf?",
-      "options": [
+      "prompt": "Match each with what's true of a white dwarf.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "About the size of the Sun",
-          "correct": false,
-          "rationale": "It’s much smaller."
+          "left": "Size",
+          "right": "About the size of Earth"
         },
         {
-          "id": "b",
-          "label": "About the size of Jupiter",
-          "correct": false,
-          "rationale": "Smaller still."
+          "left": "A teaspoonful",
+          "right": "Several tons"
         },
         {
-          "id": "c",
-          "label": "About the size of a city",
-          "correct": false,
-          "rationale": "That’s closer to a neutron star."
-        },
-        {
-          "id": "d",
-          "label": "About the size of Earth",
-          "correct": true
+          "left": "Famous example",
+          "right": "Sirius B"
         }
       ],
-      "explanation": "A white dwarf packs a mass comparable to the Sun’s into a ball about the size of Earth.",
+      "explanation": "A white dwarf is about the size of Earth, a teaspoonful would weigh several tons, and a famous example is Sirius B.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 9,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Life of a Star",
   "objective": "After this level you can read a star's temperature from its color and outline how the Sun will end.",
@@ -118,40 +118,23 @@
   "questions": [
     {
       "id": "question.astronomy.009.q2",
-      "kind": "mcq",
+      "kind": "order",
       "conceptIds": [
         "concept.astronomy.star_life_cycle"
       ],
       "sourceCardIds": [
         "card.astronomy.009.c3"
       ],
-      "prompt": "How will the Sun most likely end its life?",
-      "options": [
-        {
-          "id": "a",
-          "label": "As a red giant, then a white dwarf",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Exploding as a supernova, then a black hole",
-          "correct": false,
-          "rationale": "The Sun isn’t massive enough to explode."
-        },
-        {
-          "id": "c",
-          "label": "Collapsing straight into a black hole",
-          "correct": false,
-          "rationale": "The Sun isn’t massive enough for that."
-        },
-        {
-          "id": "d",
-          "label": "It will keep shining unchanged forever",
-          "correct": false,
-          "rationale": "It will run short of hydrogen in its core."
-        }
+      "prompt": "Put the stops of the Sun's life in order, from first to last.",
+      "items": [
+        "Collapsing cloud of gas and dust",
+        "Middle-aged",
+        "Red giant",
+        "White dwarf"
       ],
-      "explanation": "In about 5 billion years the Sun will swell into a red giant, then shrink into a white dwarf.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The Sun was born from a collapsing cloud of gas and dust. It's middle-aged now, and will swell into a red giant before ending as a white dwarf.",
       "difficulty": 0.4,
       "purpose": "recall"
     },

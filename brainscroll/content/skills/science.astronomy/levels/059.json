@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 59,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How the Solar System Formed",
   "objective": "After this level you can outline how the Sun and planets formed from a collapsing cloud of gas and dust.",
@@ -91,7 +91,7 @@
   "questions": [
     {
       "id": "question.astronomy.059.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.astronomy.solar_system_formation"
@@ -99,33 +99,15 @@
       "sourceCardIds": [
         "card.astronomy.059.c2"
       ],
-      "prompt": "What did the solar system form from?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A piece of an older sun that broke off",
-          "correct": false,
-          "rationale": "The solar system formed from a cloud."
-        },
-        {
-          "id": "b",
-          "label": "A collapsing cloud of gas and dust",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Debris from a giant impact",
-          "correct": false,
-          "rationale": "That’s how the Moon formed."
-        },
-        {
-          "id": "d",
-          "label": "Rocks captured from other stars",
-          "correct": false,
-          "rationale": "It formed from its own cloud."
-        }
+      "prompt": "Put the birth of the solar system in order.",
+      "items": [
+        "A cloud of gas and dust",
+        "Flat, spinning disk",
+        "Sun + planets"
       ],
-      "explanation": "About 4.6 billion years ago, a cloud of gas and dust collapsed under gravity to form the Sun and planets.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "About 4.6 billion years ago a cloud of gas and dust collapsed, spun faster and flattened into a disk. The Sun formed at the center, with the planets in the disk around it.",
       "difficulty": 0.2
     },
     {

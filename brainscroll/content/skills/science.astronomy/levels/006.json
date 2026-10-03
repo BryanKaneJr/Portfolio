@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 6,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Moon's Changing Face",
   "objective": "After this level you can explain Moon phases and why we only ever see one side of the Moon.",
@@ -84,40 +84,22 @@
   "questions": [
     {
       "id": "question.astronomy.006.q1",
-      "kind": "mcq",
+      "kind": "order",
       "conceptIds": [
         "concept.astronomy.moon_phases"
       ],
       "sourceCardIds": [
         "card.astronomy.006.c2"
       ],
-      "prompt": "What causes the Moon's phases?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Earth's shadow covering part of the Moon",
-          "correct": false,
-          "rationale": "That's a lunar eclipse, a different thing entirely."
-        },
-        {
-          "id": "b",
-          "label": "How much of the Moon's sunlit half we can see",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The Moon changing its actual shape",
-          "correct": false,
-          "rationale": "The Moon's shape doesn't change."
-        },
-        {
-          "id": "d",
-          "label": "Clouds on the Moon",
-          "correct": false,
-          "rationale": "The Moon has no clouds."
-        }
+      "prompt": "As the Moon orbits, we see more of its sunlit half. Put these in order, from least lit to most lit.",
+      "items": [
+        "A thin crescent",
+        "A half",
+        "The full face"
       ],
-      "explanation": "The Sun always lights half the Moon; as it orbits, we see more or less of that lit half.",
+      "first": "Least lit",
+      "last": "Most lit",
+      "explanation": "We see a thin crescent first, then a half, then the full face, as more of the Moon's sunlit half turns toward us.",
       "difficulty": 0.3,
       "purpose": "recall"
     },

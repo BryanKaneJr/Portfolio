@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 20,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Reading the Sky",
   "objective": "After this level you can explain the everyday motions of the Sun, Moon, stars and planets and the tides they cause.",
@@ -298,7 +298,7 @@
     },
     {
       "id": "question.astronomy.020.q5",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.astronomy.earth_rotation",
@@ -308,35 +308,25 @@
       "sourceCardIds": [
         "card.astronomy.011.c3",
         "card.astronomy.017.c2",
-        "card.astronomy.019.c2"
+        "card.astronomy.019.c2",
+        "card.astronomy.020.c2"
       ],
-      "prompt": "Chapter 2 recap: which pairing of cause and effect is correct?",
-      "options": [
+      "prompt": "Chapter 2 recap: match each cause with its effect.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Earth’s tilt → tides",
-          "correct": false,
-          "rationale": "Tilt causes seasons; the Moon’s gravity causes tides."
+          "left": "Earth's spin",
+          "right": "Day and night"
         },
         {
-          "id": "b",
-          "label": "The Moon’s gravity → day and night",
-          "correct": false,
-          "rationale": "Earth’s spin causes day and night."
+          "left": "Earth's orbit",
+          "right": "The year"
         },
         {
-          "id": "c",
-          "label": "Earth’s spin → stars rising in the east",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Earth’s orbit → the Moon’s craters",
-          "correct": false,
-          "rationale": "Craters come from impacts."
+          "left": "The Moon's gravity",
+          "right": "Tides"
         }
       ],
-      "explanation": "Earth spins west to east, so every star rises in the east. Tides come from the Moon’s gravity, seasons from tilt, and craters from impacts.",
+      "explanation": "Earth's spin gives day and night, Earth's orbit gives the year, and the Moon's gravity gives the tides.",
       "difficulty": 0.35
     }
   ],

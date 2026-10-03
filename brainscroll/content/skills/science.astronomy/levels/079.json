@@ -3,7 +3,7 @@
   "skillId": "skill.science.astronomy",
   "number": 79,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Search for Life",
   "objective": "After this level you can describe how scientists look for signs of life beyond Earth.",
@@ -135,42 +135,33 @@
     },
     {
       "id": "question.astronomy.079.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.astronomy.search_for_life",
         "concept.astronomy.webb_telescope"
       ],
       "sourceCardIds": [
-        "card.astronomy.079.c3"
+        "card.astronomy.079.c2",
+        "card.astronomy.079.c3",
+        "card.astronomy.079.c4"
       ],
-      "prompt": "How can Webb study an exoplanet’s atmosphere without visiting it?",
-      "options": [
+      "prompt": "Match each part of the search for life with what it studies.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "By sending a probe",
-          "correct": false,
-          "rationale": "Exoplanets are light-years away."
+          "left": "Perseverance rover",
+          "right": "Rock samples"
         },
         {
-          "id": "b",
-          "label": "By analyzing starlight that passes through the atmosphere",
-          "correct": true
+          "left": "James Webb Space Telescope",
+          "right": "Exoplanets’ atmospheres"
         },
         {
-          "id": "c",
-          "label": "By listening to its radio signals",
-          "correct": false,
-          "rationale": "That’s SETI’s approach."
-        },
-        {
-          "id": "d",
-          "label": "By counting its moons",
-          "correct": false,
-          "rationale": "Moons don’t reveal its air."
+          "left": "SETI",
+          "right": "Radio and other signals"
         }
       ],
-      "explanation": "Gases in the atmosphere absorb specific wavelengths of the starlight passing through, leaving fingerprints Webb can read.",
+      "explanation": "The Perseverance rover collects rock samples on Mars, the James Webb Space Telescope reads exoplanets’ atmospheres in starlight, and SETI listens for radio and other signals.",
       "difficulty": 0.35
     },
     {
