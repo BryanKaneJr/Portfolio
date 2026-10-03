@@ -1,11 +1,11 @@
-import { LEAGUE, ordinal, type FeedReaction } from '@brainscroll/core';
+import { DR_SCROLL_FRIEND, LEAGUE, ordinal, type FeedReaction } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { Avatar, LeagueBanner, MomentCard } from '@/components/social';
-import { Body, Button, Caption, Card, DrScrollSays, IconButton, LoadError, OfflineState, Row, Screen, ScreenHeader, SkeletonCard, Title } from '@/components/ui';
+import { Body, Button, Caption, Card, DrScrollSays, Icon, IconButton, LoadError, OfflineState, Row, Screen, ScreenHeader, SkeletonCard, Title } from '@/components/ui';
 import { useProgress } from '@/progress/ProgressProvider';
 import { useSocial } from '@/progress/useSocial';
-import { color, space } from '@/theme/tokens';
+import { color, iconSize, space } from '@/theme/tokens';
 
 /**
  * Social (owner, 2026-10-01): your league as a banner on top (tap for the
@@ -98,6 +98,21 @@ export default function SocialScreen() {
               ))}
             </View>
           )}
+
+          {/* Everyone's first friend: always here, never in the weekly race (owner, 2026-10-03). */}
+          <Card
+            variant="mastery"
+            onPress={() => openPerson(DR_SCROLL_FRIEND.id)}
+            accessibilityLabel="Dr. Scroll, your first friend. Open his profile">
+            <Row gap={space.md}>
+              <Avatar username="dr-scroll" avatar={DR_SCROLL_FRIEND.avatar} size={48} />
+              <View style={{ flex: 1 }}>
+                <Body>{DR_SCROLL_FRIEND.name}</Body>
+                <Caption style={{ color: color.mastery }}>Your first friend · Official</Caption>
+              </View>
+              <Icon name="forward" tint={color.mastery} size={iconSize.sm} />
+            </Row>
+          </Card>
 
           {view.friends.length === 0 ? (
             <Card variant="plain" style={{ gap: space.md }}>

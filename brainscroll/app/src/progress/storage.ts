@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as Crypto from 'expo-crypto';
 
 /** JSON persistence that never throws: storage can be unavailable (private mode, previews). */
 export async function load<T>(key: string): Promise<T | undefined> {
@@ -18,10 +19,19 @@ export async function save(key: string, value: unknown): Promise<void> {
   }
 }
 
+/**
+ * A fresh UUID for a one-time request (finishing a level). The server's key
+ * column is a uuid, so it must be a real one: expo-crypto works on iPhone,
+ * Android and web, where Hermes has no globalThis.crypto.randomUUID (the old
+ * fallback made keys the server refused, so levels couldn't be saved).
+ */
 export function newIdempotencyKey(): string {
-  const c = globalThis.crypto as { randomUUID?: () => string } | undefined;
-  return c?.randomUUID?.() ?? `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+  return Crypto.randomUUID();
 }
+
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+/** Whether a stored key is one the server accepts (sessions saved before the fix hold ones it doesn't). */
+export const isUuid = (key: string) => UUID.test(key);
 
 export async function remove(key: string): Promise<void> {
   try {

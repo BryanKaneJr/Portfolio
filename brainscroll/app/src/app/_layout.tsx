@@ -1,5 +1,6 @@
 import { Nunito_400Regular, Nunito_600SemiBold, Nunito_700Bold, Nunito_800ExtraBold, Nunito_900Black, useFonts } from '@expo-google-fonts/nunito';
 import { DarkTheme, router, Stack, ThemeProvider, usePathname, useSegments } from 'expo-router';
+import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
@@ -13,6 +14,9 @@ import { useReduceMotion } from '@/theme/feedback';
 import { color } from '@/theme/tokens';
 
 export { ErrorBoundary } from 'expo-router';
+
+// Keep the native splash up until BrandSplash has drawn its art (it hides it then).
+void SplashScreen.preventAutoHideAsync().catch(() => {});
 
 export const unstable_settings = {
   initialRouteName: '(tabs)',

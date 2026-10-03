@@ -394,6 +394,7 @@ export const MASCOT_SPOTS = {
   'not-found': { pose: 'tangled', where: 'A link to something that does not exist' },
   'social.reaction': { pose: 'clapping', where: 'Social feed: each reaction button is Dr. Scroll in a pose (core FEED_REACTIONS)' },
   'social.empty': { pose: 'wave', where: 'Social: no friends yet, inviting the learner to add some' },
+  'profile.dr-scroll': { pose: 'celebrate', where: 'Dr. Scroll\'s own profile (everyone\'s first friend): a fun line that changes on each tap' },
 } as const satisfies Record<string, { pose: MascotPose; where: string; lesson?: boolean }>;
 export type MascotSpot = keyof typeof MASCOT_SPOTS;
 

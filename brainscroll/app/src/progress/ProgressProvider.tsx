@@ -8,7 +8,7 @@ import { createPurchases, type PlanId, type PurchaseOutcome, type Purchases } fr
 import { NO_ENTITLEMENT, type ChapterReviewSession, type EntitlementView, type FinalRoundItem, type ProgressBackend, type ProgressSnapshot, type StartResult } from './backend';
 import { createLocalBackend } from './localBackend';
 import { createRemoteBackend } from './remoteBackend';
-import { load, newIdempotencyKey, remove, save, TROPHIES_SEEN_KEY, TROPHIES_VIEWED_KEY } from './storage';
+import { isUuid, load, newIdempotencyKey, remove, save, TROPHIES_SEEN_KEY, TROPHIES_VIEWED_KEY } from './storage';
 
 /**
  * App-wide account and progress. An account comes first: nothing is playable
@@ -410,8 +410,13 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         return result;
       },
       async completeLevel(levelId, level) {
-        const session = sessionsRef.current[levelId];
+        let session = sessionsRef.current[levelId];
         if (!session) throw new Error(`No session for ${levelId}`);
+        // A level started before the key fix holds a key the server refuses. It never saved, so a new one is safe.
+        if (!isUuid(session.idempotencyKey)) {
+          session = { ...session, idempotencyKey: newIdempotencyKey() };
+          commitSessions({ ...sessionsRef.current, [levelId]: session });
+        }
         const countedBefore = snapshotRef.current.streak.today;
         const summary = await backendOrThrow().completeLevel({
           level,

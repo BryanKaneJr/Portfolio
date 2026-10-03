@@ -1,7 +1,8 @@
-import { compareSubjects, rarestTrophies, trophyInfo, type SocialProfile } from '@brainscroll/core';
+import { compareSubjects, isDrScroll, rarestTrophies, trophyInfo, type SocialProfile } from '@brainscroll/core';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
+import { DrScrollProfile } from '@/components/DrScrollProfile';
 import { Avatar } from '@/components/social';
 import { TrophyBadge } from '@/components/TrophyBadge';
 import { Body, Button, GradientFill, Caption, Card, Emblem, Eyebrow, H1, IconButton, Notice, Numeral, Row, Screen, SkeletonCard, StateBlock, Title } from '@/components/ui';
@@ -28,7 +29,8 @@ export default function PersonScreen() {
   const { social, account } = p;
   const myId = account?.status === 'signed_in' ? account.userId : undefined;
   const load = useCallback(() => {
-    if (!id) return;
+    // Dr. Scroll lives in the app, not on the server.
+    if (!id || isDrScroll(id)) return;
     Promise.all([social.profile(id), myId && myId !== id ? social.profile(myId) : Promise.resolve(null)]).then(
       ([t, y]) => {
         setThem(t);
@@ -41,6 +43,7 @@ export default function PersonScreen() {
   useEffect(load, [load]);
 
   const back = () => (router.canGoBack() ? router.back() : router.navigate('/social'));
+  if (isDrScroll(id)) return <DrScrollProfile onBack={back} />;
   if (failed)
     return <StateBlock layout="screen" spot="not-found" title="You can’t see this profile." body="Profiles are for friends and league mates." secondary={{ label: 'Back', onPress: back }} />;
   if (!them)

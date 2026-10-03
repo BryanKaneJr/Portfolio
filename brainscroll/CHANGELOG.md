@@ -2,6 +2,22 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: A new launch screen, with no late Dr. Scroll
+
+- **The launch screen is a bold BrainScroll wordmark over crowned Dr. Scroll** on plum (owner: "not minimalist"), one image (`splash-brand.png`) shared by the phone's native splash and the app's own.
+- **Dr. Scroll no longer arrives a second after the background**: the native splash used to vanish as soon as the app started, leaving plum and the wordmark while his image decoded. It now stays up until the app's splash has drawn the same image, then hands over with nothing to see change. Needs a new build for the native half.
+
+## 2026-10-03: Dr. Scroll is everyone's first friend
+
+- **The Social tab always shows Dr. Scroll**, pinned above your friends in gold: "Your first friend · Official". He lives in the app rather than on the server, so he never joins a league, the weekly XP race or the feed, and can't be blocked, reported or removed.
+- **His profile is like no one else's**: the golden Dr. Scroll avatar, an Official mark, every level cleared, a 1,000+ day streak, all the trophies, and a fun line (15 of them) that changes each time you tap it. Core `drScrollFriend.ts`; spot `profile.dr-scroll`.
+
+## 2026-10-03: Levels save on iPhone; card pictures are back
+
+- **Finishing a level failed on iPhone ("Couldn't save your progress")**: the one-time key sent with a finished level fell back to a non-UUID string on Hermes (no `crypto.randomUUID`), and the server's key column is a uuid. Keys now come from `expo-crypto`, and a level started before the fix gets a fresh key when it's finished (it never saved, so that's safe). Chapter reviews were unaffected: their ids come from the server.
+- **The level screen logs the real error** in development builds (`[level] couldn't complete …` in the Metro terminal) instead of only the plain message.
+- **Card pictures went missing** after lessons got bigger text: a card showed its illustration only with at least 120 pt of empty screen left. A card's own illustration now always shows (96 to 200 pt, the card scrolls if it must); Dr. Scroll as a guest picture still waits for room.
+
 ## 2026-10-03: Sign-in buttons can't vanish for a whole session
 
 - **If the app couldn't read the project's sign-in settings once at launch, it hid Apple and Google until the app was restarted**, offering only the code-based methods. It now asks again next time, and meanwhile offers every method the build lists (the server still refuses a provider that's off).

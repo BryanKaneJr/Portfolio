@@ -184,6 +184,8 @@ export default function LevelScreen() {
       .catch((e) => {
         inFlight.current = false;
         setSubmitting(false);
+        // The learner sees a plain message; development builds say what actually went wrong (Metro terminal).
+        if (__DEV__) console.warn(`[level] couldn't complete ${level.id}:`, e instanceof Error ? e.message : e);
         if (e instanceof CompletionError && e.code === 'DAILY_LIMIT_REACHED') {
           leaving.current = true;
           router.replace('/daily-complete');
@@ -317,11 +319,12 @@ function cardPicture(level: Level, card: Level['cards'][number], cardIndex: numb
 }
 
 /**
- * Large phones leave a short card floating over a lot of empty screen. When a
- * learning card fits with room to spare, its picture sits above it, sized to
- * the room (never on questions: what's under a question would give answers
- * away, and art there would only push the choices down). A card that fills
- * the screen, or a small phone, shows none. The card is hidden until its
+ * A learning card's picture sits above it, sized to the room the card leaves
+ * (never on questions: what's under a question would give answers away, and
+ * art there would only push the choices down). A card's own illustration
+ * always shows, at least OWN_ART_MIN (the card scrolls if it must: owner,
+ * 2026-10-03, the pictures went missing once lessons got bigger text); Dr.
+ * Scroll as a guest picture only shows when there's room for him. The card is hidden until its
  * first measure so the text never jumps, and re-measured if it reflows
  * (rotation, a resized window). The picture sits outside the measured card,
  * so showing it can't change the measure.
@@ -337,18 +340,21 @@ function RoomyArt({ picture, children }: { picture?: CardPicture; children: Reac
   const size = cardHeight === undefined ? 0 : Math.min(ROOMY_ART_MAX, room - cardHeight - space.lg);
   return (
     <View style={{ gap: space.lg, opacity: cardHeight === undefined ? 0 : 1 }}>
-      {size >= ROOMY_ART_MIN &&
-        ('art' in picture ? (
-          <LevelArt art={picture.art} size={size} style={{ alignSelf: 'center' }} />
-        ) : (
+      {'art' in picture ? (
+        cardHeight !== undefined && <LevelArt art={picture.art} size={Math.max(size, OWN_ART_MIN)} style={{ alignSelf: 'center' }} />
+      ) : (
+        size >= ROOMY_ART_MIN && (
           // He stands a little smaller than an illustration, so he reads as company, not content.
           <DrScroll spot="lesson.card-picture" pose={picture.pose} size={Math.round(size * 0.8)} style={{ alignSelf: 'center' }} />
-        ))}
+        )
+      )}
       <View onLayout={(e) => setCardHeight(e.nativeEvent.layout.height)}>{children}</View>
     </View>
   );
 }
 const ROOMY_ART_MIN = 120;
+/** A card's own illustration never shrinks below this, and always shows. */
+const OWN_ART_MIN = 96;
 const ROOMY_ART_MAX = 200;
 
 /**
