@@ -167,13 +167,12 @@ Dr. Scroll off duty: light, silly moments for screens outside lessons (never ins
 | `storm-umbrella` | His umbrella blown inside out |
 | `stuck-jar` | Straining to open a pickle jar |
 | `sun-reflector` | Sunglasses on, holding a sun reflector |
-| `tape-measure` | Tangled in a tape measure |
 | `tea-pinky` | Sipping tea, pinky out |
 | `tiny-hat` | Wearing a tiny top hat |
 | `trick-candle` | Blowing at a candle on a cupcake that won't go out |
 | `yoga-wobble` | Wobbling in a tree pose |
 
-That's 29 core poses, 37 topic scenes and 20 everyday moments (headphones was removed, 2026-10-01: his hair was missing in it). Start with the simplified reference and 5 core poses (wave, pointing, thinking, thumbs-up, oops). Check that he stays consistent, then do the rest.
+That's 29 core poses, 37 topic scenes and 19 everyday moments (headphones was removed, 2026-10-01: his hair was missing in it; tape-measure, 2026-10-03). Start with the simplified reference and 5 core poses (wave, pointing, thinking, thumbs-up, oops). Check that he stays consistent, then do the rest.
 
 ## Spots: every place he appears
 
@@ -210,7 +209,7 @@ Each fixed place in the app is a **spot** with a stable ID. Screens ask for a sp
 | `daily-complete` | `go-outside` | Brainpower used up: "Go touch grass." Takes turns, one a day, with paddling-pool, sun-reflector, tea-pinky, yoga-wobble, bee-hello and giant-sandwich |
 | `review.empty` | `sleeping` | Review tab when nothing is due. Takes turns with tea-pinky and sandwich |
 | `loading` | `waiting` | Loading a level or the review queue (after a short delay). Takes turns with coffee-jitter, book-tower and spaghetti |
-| `error.load` | `tangled` | A level or screen that could not load (never about account or payment data). Takes turns with stuck-jar, tape-measure and storm-umbrella |
+| `error.load` | `tangled` | A level or screen that could not load (never about account or payment data). Takes turns with stuck-jar and storm-umbrella |
 | `level.locked` | `thinking` | Opening a level that is not unlocked yet |
 | `home.start` | `pointing` | Home, before any level is started: points to a first subject or Choose for me |
 | `home.path` | `reading` | Home: beside the level path. On a skill's map he wears that skill's costume (`SKILL_GUIDE_POSE` in core: a telescope on Astronomy, a toga on Rome, a map on World Geography, a piggy bank on How Money Works, an easel on Art History, a laptop on Everyday Technology); `reading` is the fallback |
@@ -218,7 +217,7 @@ Each fixed place in the app is a **spot** with a stable ID. Screens ask for a sp
 | `map.rest` | (per chapter) | Skill map: every chapter you've finished has Dr. Scroll goofing off by the road in its right-hand pocket, a different everyday pose per chapter with no repeats within 20 chapters (`mapRestPose`). In the chapter you're in he wears the skill's costume and takes turns, one a day, among the skill's actions (`mapGuidePose`) |
 | `not-found` | `tangled` | A link to something that does not exist. Takes turns with pigeon-head and tiny-hat |
 
-**Taking turns** (`SPOT_POSE_VARIANTS` / `spotPose` in core): a few light spots outside lessons show a different everyday pose each day (the same one all day, and spots don't change in lockstep). Lesson spots never vary. All twenty everyday poses also appear on the skill maps (`map.rest`).
+**Taking turns** (`SPOT_POSE_VARIANTS` / `spotPose` in core): a few light spots outside lessons show a different everyday pose each day (the same one all day, and spots don't change in lockstep). Lesson spots never vary. All nineteen everyday poses also appear on the skill maps (`map.rest`).
 
 Writer-placed card asides (`mascot` on a learning card) aren't spots; their pose comes from the content, and they're labeled `mascot:pose:<pose>`.
 

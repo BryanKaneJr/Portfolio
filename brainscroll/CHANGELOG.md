@@ -4,8 +4,9 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-10-03: Calmer motion; Dr. Scroll moves into the feed
 
+- **The tape-measure pose is gone** (owner): its image is deleted, and the posts, map and error screen that used it pick from the 19 other everyday poses.
 - **Every animation is a hair slower** (owner: "just a hair too fast"): softer springs on pops, arrivals and big numbers, longer fades and reveals, a slower bob on the Start callout, a slower shine on gold trophies and Brainpower sparks, and gleams that twinkle more gently with longer rests between them. Taps still respond instantly.
-- **Dr. Scroll's pinned "Your first friend" card goes away once it's been opened.** After that he turns up in the feed instead: one off-duty moment a day (a tea break, a pigeon on his head, a candle that won't go out), each with its own everyday pose, slotted in by time among your friends' moments. Tapping one opens his profile. 20 moments, each seen before any repeats (core `DR_SCROLL_POSTS`, spot `social.dr-scroll-post`). They're never a nudge to study and never a fact.
+- **Dr. Scroll's pinned "Your first friend" card goes away once it's been opened.** After that he turns up in the feed instead: one off-duty moment a day (a tea break, a pigeon on his head, a candle that won't go out), each with its own everyday pose, slotted in by time among your friends' moments. Tapping one opens his profile. 19 moments, each seen before any repeats (core `DR_SCROLL_POSTS`, spot `social.dr-scroll-post`). They're never a nudge to study and never a fact.
 
 ## 2026-10-03: Profile's colour reaches the top of the phone
 

@@ -116,13 +116,14 @@ describe('spot pose variants', () => {
 });
 
 describe('Dr. Scroll on the skill map', () => {
-  it('goofs off in a different everyday pose in each finished chapter, no repeats within 20', () => {
+  it('goofs off in a different everyday pose in each finished chapter, no repeats until all have been used', () => {
+    const n = EVERYDAY_POSES.length;
     for (const skill of ['skill.science.astronomy', 'skill.history.ancient_rome']) {
-      const poses = Array.from({ length: 20 }, (_, c) => mapRestPose(skill, c));
-      expect(new Set(poses).size, skill).toBe(20);
+      const poses = Array.from({ length: n }, (_, c) => mapRestPose(skill, c));
+      expect(new Set(poses).size, skill).toBe(n);
       for (const p of poses) expect(MASCOT_POSES).toContain(p);
     }
-    expect(new Set(EVERYDAY_POSES).size).toBe(20);
+    expect(new Set(EVERYDAY_POSES).size).toBe(19);
   });
   it('wears the skill costume in the current chapter, taking turns among its actions', () => {
     expect(mapGuidePose('skill.science.astronomy', 0)).toBe(SKILL_GUIDE_POSE['skill.science.astronomy']);

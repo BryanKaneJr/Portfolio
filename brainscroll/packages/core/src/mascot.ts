@@ -91,7 +91,6 @@ export const MASCOT_POSES = [
   'storm-umbrella',
   'stuck-jar',
   'sun-reflector',
-  'tape-measure',
   'tea-pinky',
   'tiny-hat',
   'trick-candle',
@@ -411,7 +410,7 @@ export const SPOT_POSE_VARIANTS: Partial<Record<MascotSpot, readonly MascotPose[
   // Busy, waiting.
   loading: ['waiting', 'coffee-jitter', 'book-tower', 'spaghetti'],
   // Something didn't work: a small struggle, never alarming.
-  'error.load': ['tangled', 'stuck-jar', 'tape-measure', 'storm-umbrella'],
+  'error.load': ['tangled', 'stuck-jar', 'storm-umbrella'],
   // A link to nowhere: a bit silly, low stakes.
   'not-found': ['tangled', 'pigeon-head', 'tiny-hat'],
   // Nothing due: a break.
@@ -431,7 +430,7 @@ export function spotPose(spot: MascotSpot, day: number): MascotPose {
 /** Dr. Scroll off duty (owner, 2026-10-02): the everyday poses, for light moments outside lessons. */
 export const EVERYDAY_POSES = [
   'tea-pinky', 'bee-hello', 'book-tower', 'coffee-jitter', 'cupcake-sneak', 'giant-sandwich', 'hiccups', 'paddling-pool', 'pigeon-head', 'sandwich',
-  'sneeze', 'spaghetti', 'storm-umbrella', 'stuck-jar', 'sun-reflector', 'tape-measure', 'tiny-hat', 'trick-candle', 'yoga-wobble', 'bee-chase',
+  'sneeze', 'spaghetti', 'storm-umbrella', 'stuck-jar', 'sun-reflector', 'tiny-hat', 'trick-candle', 'yoga-wobble', 'bee-chase',
 ] as const satisfies readonly MascotPose[];
 
 const hashOf = (text: string) => {
@@ -443,8 +442,8 @@ const hashOf = (text: string) => {
 /**
  * On a skill map, each chapter you've finished has Dr. Scroll goofing off by
  * the road (owner, 2026-10-03: "fit as many as we can on the map"). Stable
- * per chapter, and stepping 7 through the 20 poses means no pose repeats
- * within 20 chapters of one skill.
+ * per chapter, and stepping 7 through the 19 poses means no pose repeats
+ * within 19 chapters of one skill.
  */
 export function mapRestPose(skillId: string, chapterIndex: number): MascotPose {
   return EVERYDAY_POSES[(hashOf(skillId) + chapterIndex * 7) % EVERYDAY_POSES.length]!;

@@ -77,7 +77,6 @@ export const DR_SCROLL_POSTS = [
   { pose: 'storm-umbrella', line: 'went for a walk to think. The weather had other plans.' },
   { pose: 'stuck-jar', line: 'has been opening this jar for ten minutes. He calls it practising patience.' },
   { pose: 'sun-reflector', line: 'says rest days count too, and he’s taking his in the sun.' },
-  { pose: 'tape-measure', line: 'measured his bookshelf. It needs to be longer. Again.' },
   { pose: 'tiny-hat', line: 'found a very small hat. He’s wearing it anyway.' },
   { pose: 'trick-candle', line: 'blew out a candle. It came back. Twice.' },
   { pose: 'yoga-wobble', line: 'tried a new stretch between levels. Wobbly, but improving.' },
@@ -108,7 +107,7 @@ export function drScrollPosts(now: Date, days = 3): DrScrollPost[] {
     const n = Math.round(Date.UTC(day.getFullYear(), day.getMonth(), day.getDate()) / 86_400_000);
     const at = new Date(day.getFullYear(), day.getMonth(), day.getDate(), 8 + (n % 3), (n * 17) % 60);
     if (at > now) continue;
-    // Stepping by 7 (coprime with the 20 moments) visits every one before repeating.
+    // Stepping by 7 (coprime with the 19 moments) visits every one before repeating.
     const post = DR_SCROLL_POSTS[(n * 7) % DR_SCROLL_POSTS.length]!;
     out.push({ key: `dr-scroll:${n}`, at: at.toISOString(), pose: post.pose, line: post.line });
   }
