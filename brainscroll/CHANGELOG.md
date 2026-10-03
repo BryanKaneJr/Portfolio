@@ -2,6 +2,11 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: Privacy policy reviewed, support contact on the site
+
+- The privacy policy, the website and the delete-account page now say hearts where they said Dr. Scroll reactions. Owner reviewed the policy.
+- The site's footer shows the contact email (`SITE_CONTACT_EMAIL`), so `https://brainscroll.app` serves as the store listings' Support URL (`docs/release.md`).
+
 ## 2026-10-03: Hearts, gold trophies in the feed, quest Brainpower, livelier Dr. Scroll
 
 - **The feed's only reaction is a heart** (owner: "cleaner, like every other app"): an outline that fills red when you tap it (with a little pop), tap again to take it back, and the count beside it. Your own moments show how many hearts they have. Earlier Dr. Scroll reactions all became hearts, so no likes were lost; the push note now reads "@ana liked your moment in the feed."

@@ -1,6 +1,6 @@
 # BrainScroll Privacy Policy (draft)
 
-> **Draft for the owner.** It describes what the app actually collects as of 2026-10-02 (from the database schema and the analytics catalog), including social. It has not had a legal review; have it reviewed before launch. `npm run site:build` publishes it as `/privacy` on the BrainScroll site, filling the `{{...}}` items from the site's environment (`SITE_OPERATOR`, `SITE_ADDRESS`, `SITE_CONTACT_EMAIL`, `SITE_EFFECTIVE_DATE`), so personal details never go in this repo. This note isn't published. Update the policy whenever the data we collect changes.
+> **Draft for the owner.** It describes what the app actually collects as of 2026-10-03 (from the database schema and the analytics catalog), including social. It has not had a legal review; have it reviewed before launch. `npm run site:build` publishes it as `/privacy` on the BrainScroll site, filling the `{{...}}` items from the site's environment (`SITE_OPERATOR`, `SITE_ADDRESS`, `SITE_CONTACT_EMAIL`, `SITE_EFFECTIVE_DATE`), so personal details never go in this repo. This note isn't published. Update the policy whenever the data we collect changes.
 
 **Effective date:** {{EFFECTIVE_DATE}}
 **Who we are:** BrainScroll is operated by {{OPERATOR}}, {{ADDRESS}}. Contact: {{CONTACT_EMAIL}}.
@@ -19,7 +19,7 @@
 
 **Learning progress.** The levels you've started and finished, your answers to questions (which option you chose, whether it was right the first time), your reviews (scheduled reviews and the chapters you go back over), Weekly Quest progress, trophies, XP and levels, how many new levels you've done each day, and your Brainpower (how much you have and what earned it).
 
-**Your social profile.** Everyone gets a generated username (like `curious_otter_4821`), a random avatar and an invite code; you can change the username and avatar. We also keep your friends, friend requests you've sent or received, people you've blocked, which weekly league you're in, and the Dr. Scroll reactions you give to moments in the feed.
+**Your social profile.** Everyone gets a generated username (like `curious_otter_4821`), a random avatar and an invite code; you can change the username and avatar. We also keep your friends, friend requests you've sent or received, people you've blocked, which weekly league you're in, and the hearts you give to moments in the feed.
 
 **What other learners see.** Only your friends and the people in your current weekly league can see you, and only: your username and avatar, your brain level and your level in each skill, your total XP, this week's XP and league place, your learning streak, the trophies you've earned, and recent moments (a trophy earned, a chapter finished, a streak milestone, a league podium). They never see your email, how you signed in, your answers, or anything else. Someone you've blocked, or who has blocked you, can't see you at all. Anyone who knows your exact username or invite code can find you to send a friend request.
 
@@ -33,7 +33,7 @@
 
 **Crash reports.** If the app crashes, a report of what went wrong in the app's code is sent to Sentry so we can fix it. It carries no name, email, phone number, IP address or account identifier.
 
-**Notifications.** Daily reminders are scheduled on your phone, only if you turn them on; their timing stays on your device. Friend and league notifications (a friend request, a new friend, your league result, someone passing you in your league, reactions to your moments) are sent by us: if you allow notifications, we keep your device's push token (an address for notifications, which says nothing else about you) and the notes waiting to be sent, and Expo delivers them through Apple or Google. You can turn them off in Settings; signing out removes the device.
+**Notifications.** Daily reminders are scheduled on your phone, only if you turn them on; their timing stays on your device. Friend and league notifications (a friend request, a new friend, your league result, someone passing you in your league, hearts on your moments) are sent by us: if you allow notifications, we keep your device's push token (an address for notifications, which says nothing else about you) and the notes waiting to be sent, and Expo delivers them through Apple or Google. You can turn them off in Settings; signing out removes the device.
 
 **Our website.** The BrainScroll website, including the pages invite links open, uses no cookies, analytics or trackers. Our hosting provider keeps routine request logs (such as IP addresses) to run and protect the site.
 
@@ -56,7 +56,7 @@ We don't sell personal data, and we don't share it for cross-context behavioral 
 
 ## How long we keep it
 
-Until you delete your account. Deleting your account permanently removes your account and everything linked to it: progress, answers, reviews, XP, your username, avatar, friends, requests, blocks, league places, reactions, reports, analytics events and subscription status. Friends and league mates simply stop seeing you. Raw analytics events are deleted after 13 months even if you keep your account, and sent notifications after 7 days.
+Until you delete your account. Deleting your account permanently removes your account and everything linked to it: progress, answers, reviews, XP, your username, avatar, friends, requests, blocks, league places, hearts, reports, analytics events and subscription status. Friends and league mates simply stop seeing you. Raw analytics events are deleted after 13 months even if you keep your account, and sent notifications after 7 days.
 
 ## Your choices and rights
 
