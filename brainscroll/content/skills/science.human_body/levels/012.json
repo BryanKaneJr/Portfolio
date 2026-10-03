@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 12,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Inside a Bone",
   "objective": "After this level you can explain what bones are made of and how marrow makes blood.",
@@ -87,38 +87,32 @@
   "questions": [
     {
       "id": "question.human_body.012.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.bone_materials"
       ],
       "sourceCardIds": [
-        "card.human_body.012.c3"
+        "card.human_body.012.c3",
+        "card.human_body.012.c4"
       ],
-      "prompt": "Which kind of bone tissue forms the dense, strong outer layer of a bone?",
-      "options": [
+      "prompt": "Match each part found inside a bone with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Spongy bone",
-          "correct": false,
-          "rationale": "Spongy bone is the lattice inside."
+          "left": "Compact bone",
+          "right": "Dense, strong outer layer"
         },
         {
-          "id": "b",
-          "label": "Compact bone",
-          "correct": true
+          "left": "Spongy bone",
+          "right": "A lattice of thin struts"
         },
         {
-          "id": "c",
-          "label": "Red marrow",
-          "correct": false,
-          "rationale": "Red marrow fills spaces in spongy bone and makes blood cells."
+          "left": "Red marrow",
+          "right": "Makes your blood cells"
         },
         {
-          "id": "d",
-          "label": "Yellow marrow",
-          "correct": false,
-          "rationale": "Yellow marrow is mostly fat."
+          "left": "Yellow marrow",
+          "right": "Mostly fat"
         }
       ],
       "explanation": "Compact bone is the denser, stronger tissue on the outside; spongy bone sits inside.",

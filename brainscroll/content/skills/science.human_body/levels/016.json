@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 16,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How Muscles Pull",
   "objective": "After this level you can explain why muscles can only pull and so work in pairs.",
@@ -91,7 +91,7 @@
   "questions": [
     {
       "id": "question.human_body.016.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.muscle_sliding_filaments"
@@ -99,32 +99,15 @@
       "sourceCardIds": [
         "card.human_body.016.c2"
       ],
-      "prompt": "Inside a muscle fiber, which protein's heads grab the thin actin filaments and pull them?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Collagen",
-          "correct": false,
-          "rationale": "Collagen gives bone its flexible framework."
-        },
-        {
-          "id": "b",
-          "label": "Myosin",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Calcium phosphate",
-          "correct": false,
-          "rationale": "That's the hard mineral in bone."
-        },
-        {
-          "id": "d",
-          "label": "Synovial fluid",
-          "correct": false,
-          "rationale": "That's the lubricant inside joints."
-        }
+      "prompt": "Put one pull of a myosin head in order, from first to last.",
+      "items": [
+        "Myosin heads grab the actin",
+        "Sliding the thin filaments",
+        "Lets go",
+        "Re-cocks using energy from ATP"
       ],
+      "first": "First",
+      "last": "Last, before grabbing again",
       "explanation": "Myosin heads on the thick filaments grab actin, pull, let go and re-cock using ATP.",
       "difficulty": 0.15
     },

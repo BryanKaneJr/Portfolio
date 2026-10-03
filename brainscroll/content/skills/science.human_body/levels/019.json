@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 19,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Babies Have More Bones",
   "objective": "After this level you can explain how bones grow and fuse from birth to adulthood.",
@@ -172,7 +172,7 @@
     },
     {
       "id": "question.human_body.019.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.bone_growth_fusion",
@@ -181,32 +181,27 @@
       "sourceCardIds": [
         "card.human_body.019.c2",
         "card.human_body.019.c5",
-        "card.human_body.011.c2"
+        "card.human_body.011.c2",
+        "card.human_body.019.c3",
+        "card.human_body.019.c4"
       ],
-      "prompt": "A baby starts with more bones than Level 11's adult count of 206. Why does the number fall?",
-      "options": [
+      "prompt": "Match each part of a growing skeleton with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Many separate bones fuse into single bones",
-          "correct": true
+          "left": "Fontanelles",
+          "right": "Soft spots"
         },
         {
-          "id": "b",
-          "label": "Extra bones dissolve into the blood",
-          "correct": false,
-          "rationale": "No bones are lost; they join."
+          "left": "Growth plates",
+          "right": "Where bones get longer"
         },
         {
-          "id": "c",
-          "label": "Bones fall out along with baby teeth",
-          "correct": false,
-          "rationale": "Teeth aren't counted as bones, and nothing falls out."
+          "left": "Sacrum",
+          "right": "Five vertebrae fused into a single bone"
         },
         {
-          "id": "d",
-          "label": "Marrow replaces the smallest bones",
-          "correct": false,
-          "rationale": "Marrow sits inside bones; it doesn't replace them."
+          "left": "Hip bone",
+          "right": "Ilium, ischium and pubis"
         }
       ],
       "explanation": "As the skeleton grows, many separate bones fuse, such as the three bones of each hip bone, leaving 206.",

@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 11,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Skeleton",
   "objective": "After this level you can explain what the skeleton does and how many bones an adult has.",
@@ -164,7 +164,7 @@
     },
     {
       "id": "question.human_body.011.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.skeleton_bone_count",
@@ -172,32 +172,26 @@
       ],
       "sourceCardIds": [
         "card.human_body.011.c3",
-        "card.human_body.001.c2"
+        "card.human_body.001.c2",
+        "card.human_body.011.c2"
       ],
-      "prompt": "Level 1 met the skeletal system as your frame. Which part of it is built mainly to guard the brain, heart and lungs?",
-      "options": [
+      "prompt": "Match each part of the skeleton with its bone count.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The axial skeleton: skull, spine and rib cage",
-          "correct": true
+          "left": "Axial skeleton",
+          "right": "80 bones"
         },
         {
-          "id": "b",
-          "label": "The 106 bones of the hands and feet",
-          "correct": false,
-          "rationale": "Those are appendicular bones, built for grip and walking."
+          "left": "Appendicular skeleton",
+          "right": "126 bones"
         },
         {
-          "id": "c",
-          "label": "The long bones of the arms and legs",
-          "correct": false,
-          "rationale": "Limb bones belong to the appendicular skeleton."
+          "left": "Each hand",
+          "right": "27 bones"
         },
         {
-          "id": "d",
-          "label": "The shoulder and hip bones",
-          "correct": false,
-          "rationale": "Those attach the limbs; they are appendicular."
+          "left": "Each foot",
+          "right": "26 bones"
         }
       ],
       "explanation": "The axial skeleton, the skull, spine and rib cage, surrounds and protects the brain, spinal cord, heart and lungs.",
