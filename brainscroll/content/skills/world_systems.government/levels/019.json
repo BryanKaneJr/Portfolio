@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 19,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "When Government Fails",
   "objective": "After this level you can explain what happens when a state collapses.",
@@ -91,41 +91,32 @@
   "questions": [
     {
       "id": "question.government.019.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.failed_state_somalia"
       ],
       "sourceCardIds": [
-        "card.government.019.c1"
+        "card.government.019.c1",
+        "card.government.019.c3",
+        "card.government.019.c4"
       ],
-      "prompt": "What happened to Somalia's government in 1991?",
-      "options": [
+      "prompt": "Match each name from the failed states level with its detail.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It became a constitutional monarchy",
-          "correct": false,
-          "rationale": "No king was involved: the state collapsed."
+          "left": "Mohamed Siad Barre",
+          "right": "Popular uprising"
         },
         {
-          "id": "b",
-          "label": "Its president was overthrown and the state collapsed",
-          "correct": true
+          "left": "Fragile States Index",
+          "right": "Twelve indicators"
         },
         {
-          "id": "c",
-          "label": "It merged into a federation with its neighbors",
-          "correct": false,
-          "rationale": "Somalia descended into collapse, not union."
-        },
-        {
-          "id": "d",
-          "label": "It held its first open-air assembly",
-          "correct": false,
-          "rationale": "That's Level 16's Switzerland."
+          "left": "Hobbes",
+          "right": "War of all against all"
         }
       ],
-      "explanation": "President Siad Barre was overthrown in a popular uprising, and Somalia descended into state collapse under rival warlords.",
+      "explanation": "Mohamed Siad Barre was overthrown in a popular uprising, the Fragile States Index uses twelve indicators, and Hobbes pictured life without government as a war of all against all.",
       "difficulty": 0.15
     },
     {

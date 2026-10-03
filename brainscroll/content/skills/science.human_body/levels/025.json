@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 25,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Blood Types",
   "objective": "After this level you can explain blood types and why they matter for transfusions.",
@@ -166,7 +166,7 @@
     },
     {
       "id": "question.human_body.025.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.bloodtype_abo",
@@ -176,30 +176,23 @@
         "card.human_body.025.c3",
         "card.human_body.002.c3"
       ],
-      "prompt": "Level 2 called the plasma membrane a cell's outer wall. What on the red cell's membrane sets your ABO type?",
-      "options": [
+      "prompt": "Match each ABO blood type with the antibodies its plasma carries.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The A and B antigens",
-          "correct": true
+          "left": "Type A",
+          "right": "Anti-B"
         },
         {
-          "id": "b",
-          "label": "The nucleus",
-          "correct": false,
-          "rationale": "Mature red cells have no nucleus, and type is set at the surface."
+          "left": "Type B",
+          "right": "Anti-A"
         },
         {
-          "id": "c",
-          "label": "The mitochondria",
-          "correct": false,
-          "rationale": "They supply energy in cells that have them."
+          "left": "Type O",
+          "right": "Both"
         },
         {
-          "id": "d",
-          "label": "The platelets",
-          "correct": false,
-          "rationale": "Platelets are separate cell fragments in blood."
+          "left": "Type AB",
+          "right": "Neither"
         }
       ],
       "explanation": "Your ABO type depends on whether the A and B antigens sit on your red cells' plasma membrane.",

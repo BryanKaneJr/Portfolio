@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 13,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Dictatorship",
   "objective": "After this level you can explain dictatorships and how they keep power.",
@@ -95,41 +95,32 @@
   "questions": [
     {
       "id": "question.government.013.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.dictatorship_definition"
       ],
       "sourceCardIds": [
-        "card.government.013.c1"
+        "card.government.013.c1",
+        "card.government.013.c3",
+        "card.government.013.c4"
       ],
-      "prompt": "In the Roman Republic, how long could a dictator hold office at most?",
-      "options": [
+      "prompt": "Match each kind of dictator or dictatorship with how the level describes it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Six months",
-          "correct": true
+          "left": "Ancient Rome",
+          "right": "A temporary magistrate"
         },
         {
-          "id": "b",
-          "label": "Five years",
-          "correct": false,
-          "rationale": "Far too long: the Roman office was capped at six months."
+          "left": "Modern dictators",
+          "right": "Resemble ancient tyrants"
         },
         {
-          "id": "c",
-          "label": "Until he chose to retire",
-          "correct": false,
-          "rationale": "The office had a fixed limit."
-        },
-        {
-          "id": "d",
-          "label": "For life",
-          "correct": false,
-          "rationale": "Life terms are what the Roman office was designed to avoid."
+          "left": "Totalitarianism",
+          "right": "Permits no individual freedom"
         }
       ],
-      "explanation": "A Roman dictator was a temporary crisis magistrate whose term lasted at most six months.",
+      "explanation": "Ancient Rome's dictator was a temporary magistrate, modern dictators resemble ancient tyrants, and totalitarianism permits no individual freedom.",
       "difficulty": 0.15
     },
     {

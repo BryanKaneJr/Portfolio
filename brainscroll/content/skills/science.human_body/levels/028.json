@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 28,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How a Cut Heals",
   "objective": "After this level you can explain how blood clots and how a cut heals.",
@@ -165,7 +165,7 @@
     },
     {
       "id": "question.human_body.028.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.clotting_steps",
@@ -173,34 +173,19 @@
       ],
       "sourceCardIds": [
         "card.human_body.028.c2",
-        "card.human_body.024.c4"
+        "card.human_body.024.c4",
+        "card.human_body.028.c3",
+        "card.human_body.028.c4"
       ],
-      "prompt": "Level 24 said platelets are a tiny share of blood. What do they do first at a cut?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Carry oxygen to the damaged skin",
-          "correct": false,
-          "rationale": "That's the red blood cells' job."
-        },
-        {
-          "id": "b",
-          "label": "Dissolve into plasma to thin the blood",
-          "correct": false,
-          "rationale": "They do the opposite: they stick."
-        },
-        {
-          "id": "c",
-          "label": "Become the scar tissue itself",
-          "correct": false,
-          "rationale": "New tissue grows later, over weeks."
-        },
-        {
-          "id": "d",
-          "label": "Stick to the damaged wall and form a plug",
-          "correct": true
-        }
+      "prompt": "Put the steps of healing a cut in order, from first to last.",
+      "items": [
+        "The injured blood vessel narrows",
+        "Pile onto one another into a plug",
+        "A tough mesh of fibrin threads",
+        "The clot dries into a scab"
       ],
+      "first": "First",
+      "last": "Last",
       "explanation": "At a damaged vessel, platelets turn sticky, bind to the wall and clump into a plug.",
       "difficulty": 0.2
     }

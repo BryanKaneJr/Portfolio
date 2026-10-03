@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 23,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Blood Vessels",
   "objective": "After this level you can compare arteries, veins and capillaries.",
@@ -113,7 +113,7 @@
   "questions": [
     {
       "id": "question.human_body.023.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.vessel_types"
@@ -121,30 +121,19 @@
       "sourceCardIds": [
         "card.human_body.023.c2"
       ],
-      "prompt": "What makes a blood vessel an artery?",
-      "options": [
+      "prompt": "Match each kind of blood vessel with what defines it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It carries oxygen-rich blood",
-          "correct": false,
-          "rationale": "The pulmonary arteries carry oxygen-poor blood."
+          "left": "Arteries",
+          "right": "Carry blood away from the heart"
         },
         {
-          "id": "b",
-          "label": "It has one-way valves along it",
-          "correct": false,
-          "rationale": "Valves are a feature of many veins."
+          "left": "Veins",
+          "right": "Carry blood back to the heart"
         },
         {
-          "id": "c",
-          "label": "Its wall is one cell layer thick",
-          "correct": false,
-          "rationale": "That describes capillaries."
-        },
-        {
-          "id": "d",
-          "label": "It carries blood away from the heart",
-          "correct": true
+          "left": "Capillaries",
+          "right": "Walls just one thin layer of cells"
         }
       ],
       "explanation": "Arteries are defined by direction: they carry blood away from the heart.",

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 5,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Public Services",
   "objective": "After this level you can name the services governments provide, like clean water and schools.",
@@ -129,41 +129,31 @@
     },
     {
       "id": "question.government.005.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.public_goods_free_riders"
       ],
       "sourceCardIds": [
-        "card.government.005.c3"
+        "card.government.005.c3",
+        "card.government.005.c1"
       ],
-      "prompt": "Why is national defense called a public good?",
-      "options": [
+      "prompt": "Match each public services idea with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It protects only the people who paid for it",
-          "correct": false,
-          "rationale": "It protects everyone, paid or not."
+          "left": "Public goods",
+          "right": "Hard to sell one customer at a time"
         },
         {
-          "id": "b",
-          "label": "It protects everyone, and no one's share runs out",
-          "correct": true
+          "left": "Free riding",
+          "right": "Letting others pay"
         },
         {
-          "id": "c",
-          "label": "It is always run by private security companies",
-          "correct": false,
-          "rationale": "Who runs it isn't what makes it a public good."
-        },
-        {
-          "id": "d",
-          "label": "It is paid for by selling tickets to each family",
-          "correct": false,
-          "rationale": "You can't sell tickets to something you can't keep people out of."
+          "left": "2.1 billion people",
+          "right": "Lacked safely managed drinking water"
         }
       ],
-      "explanation": "Public goods are nonexcludable and nonrival: defense protects everyone at once, whether or not they paid.",
+      "explanation": "Public goods are hard to sell one customer at a time, free riding means letting others pay while you enjoy the benefit, and 2.1 billion people lacked safely managed drinking water in 2024.",
       "difficulty": 0.25
     },
     {

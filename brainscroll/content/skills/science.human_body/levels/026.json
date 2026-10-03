@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 26,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Blood Pressure",
   "objective": "After this level you can explain what blood pressure measures and why doctors check it.",
@@ -105,7 +105,7 @@
   "questions": [
     {
       "id": "question.human_body.026.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.bloodpressure_categories"
@@ -113,32 +113,15 @@
       "sourceCardIds": [
         "card.human_body.026.c3"
       ],
-      "prompt": "Under the 2025 AHA/ACC guideline, which of these readings counts as normal blood pressure?",
-      "options": [
-        {
-          "id": "a",
-          "label": "125/75 mm Hg",
-          "correct": false,
-          "rationale": "A systolic of 120 to 129 with diastolic below 80 is elevated."
-        },
-        {
-          "id": "b",
-          "label": "135/85 mm Hg",
-          "correct": false,
-          "rationale": "That falls in stage 1 hypertension."
-        },
-        {
-          "id": "c",
-          "label": "115/75 mm Hg",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "145/95 mm Hg",
-          "correct": false,
-          "rationale": "That falls in stage 2 hypertension."
-        }
+      "prompt": "Put the 2025 blood pressure categories in order, from lowest readings to highest.",
+      "items": [
+        "Normal",
+        "Elevated",
+        "Stage 1",
+        "Stage 2"
       ],
+      "first": "Lowest readings",
+      "last": "Highest readings",
       "explanation": "Normal is a systolic below 120 and a diastolic below 80, so 115/75 qualifies.",
       "difficulty": 0.2
     },

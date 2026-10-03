@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 8,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Levels of Government",
   "objective": "After this level you can explain national, regional and local government.",
@@ -126,41 +126,31 @@
     },
     {
       "id": "question.government.008.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.levels_canada"
       ],
       "sourceCardIds": [
-        "card.government.008.c3"
+        "card.government.008.c3",
+        "card.government.008.c2"
       ],
-      "prompt": "Your rubbish bins haven't been emptied in Canada. Which level of government handles that?",
-      "options": [
+      "prompt": "Match each layer of Canada's government with one of its jobs.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Federal",
-          "correct": false,
-          "rationale": "The federal level handles country-wide jobs like defence and passports."
+          "left": "Federal government",
+          "right": "National defence"
         },
         {
-          "id": "b",
-          "label": "Provincial or territorial",
-          "correct": false,
-          "rationale": "Provinces run schools and hospitals, not bins."
+          "left": "Provinces and territories",
+          "right": "Hospitals and health care"
         },
         {
-          "id": "c",
-          "label": "Municipal",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "None: it's a private matter",
-          "correct": false,
-          "rationale": "Waste management is on the municipal list."
+          "left": "Municipal governments",
+          "right": "Fire protection"
         }
       ],
-      "explanation": "Waste management is a municipal job in Canada, along with fire protection, water supply and local roads.",
+      "explanation": "Canada's federal government handles national defence, the provinces and territories run hospitals and health care, and municipal governments provide fire protection.",
       "difficulty": 0.2
     },
     {
