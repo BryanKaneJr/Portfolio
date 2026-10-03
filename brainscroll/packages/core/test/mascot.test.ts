@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { EM_DASH } from '../src/editorial';
-import { cardPicturePose, mascotPictureCard, CARD_PICTURE_POSES, SKILL_ACTION_POSES, DR_SCROLL_SAYINGS, drScrollSaying, MIN_SAYINGS_PER_MOMENT, DR_SCROLL_LINES, DR_SCROLL_TIPS, MASCOT_LINE_MAX, MASCOT_POSES, MASCOT_SPOTS, QUIET_MASCOT_POSES, SKILL_GUIDE_POSE } from '../src/mascot';
+import { EVERYDAY_POSES, mapGuidePose, mapRestPose, SPOT_POSE_VARIANTS, spotPose, cardPicturePose, mascotPictureCard, CARD_PICTURE_POSES, SKILL_ACTION_POSES, DR_SCROLL_SAYINGS, drScrollSaying, MIN_SAYINGS_PER_MOMENT, DR_SCROLL_LINES, DR_SCROLL_TIPS, MASCOT_LINE_MAX, MASCOT_POSES, MASCOT_SPOTS, QUIET_MASCOT_POSES, SKILL_GUIDE_POSE } from '../src/mascot';
 
 describe('Dr. Scroll', () => {
   it('has unique poses', () => {
@@ -90,5 +90,45 @@ describe('Dr. Scroll', () => {
   it('never says the same thing on the next level or the next day', () => {
     for (const moment of Object.keys(DR_SCROLL_SAYINGS) as (keyof typeof DR_SCROLL_SAYINGS)[])
       for (let n = 1; n < 30; n++) expect(drScrollSaying(moment, 'skill.science.astronomy', n)).not.toBe(drScrollSaying(moment, 'skill.science.astronomy', n + 1));
+  });
+});
+
+describe('spot pose variants', () => {
+  it('start with the spot\'s own pose, use real poses, and never vary inside a lesson', () => {
+    for (const [spot, poses] of Object.entries(SPOT_POSE_VARIANTS)) {
+      const def = MASCOT_SPOTS[spot as keyof typeof MASCOT_SPOTS];
+      expect(poses![0], spot).toBe(def.pose);
+      for (const p of poses!) expect(MASCOT_POSES, `${spot}: ${p}`).toContain(p);
+      expect('lesson' in def && def.lesson, spot).toBeFalsy();
+    }
+  });
+  it('takes a different pose on different days, and the same one all day', () => {
+    const week = new Set(Array.from({ length: 7 }, (_, d) => spotPose('daily-complete', 20_000 + d)));
+    expect(week.size).toBe(7);
+    expect(spotPose('loading', 20_123)).toBe(spotPose('loading', 20_123));
+    expect(spotPose('level-complete.cleared', 5)).toBe('clapping');
+  });
+  it('places every everyday pose except the few kept for later', () => {
+    const placed = new Set([...Object.values(SPOT_POSE_VARIANTS).flat(), ...Object.values(MASCOT_SPOTS).map((s) => s.pose)]);
+    const map = new Set(Array.from({ length: 20 }, (_, c) => mapRestPose('skill.science.astronomy', c)));
+    for (const p of EVERYDAY_POSES) expect(placed.has(p) || map.has(p), p).toBe(true);
+  });
+});
+
+describe('Dr. Scroll on the skill map', () => {
+  it('goofs off in a different everyday pose in each finished chapter, no repeats within 20', () => {
+    for (const skill of ['skill.science.astronomy', 'skill.history.ancient_rome']) {
+      const poses = Array.from({ length: 20 }, (_, c) => mapRestPose(skill, c));
+      expect(new Set(poses).size, skill).toBe(20);
+      for (const p of poses) expect(MASCOT_POSES).toContain(p);
+    }
+    expect(new Set(EVERYDAY_POSES).size).toBe(20);
+  });
+  it('wears the skill costume in the current chapter, taking turns among its actions', () => {
+    expect(mapGuidePose('skill.science.astronomy', 0)).toBe(SKILL_GUIDE_POSE['skill.science.astronomy']);
+    const days = new Set(Array.from({ length: 6 }, (_, d) => mapGuidePose('skill.science.astronomy', d)));
+    expect([...days].every((p) => [SKILL_GUIDE_POSE['skill.science.astronomy'], ...SKILL_ACTION_POSES['skill.science.astronomy']!].includes(p))).toBe(true);
+    expect(days.size).toBeGreaterThan(1);
+    for (const p of days) expect(QUIET_MASCOT_POSES as readonly string[]).not.toContain(p);
   });
 });

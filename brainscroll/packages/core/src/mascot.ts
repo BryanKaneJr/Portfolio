@@ -378,19 +378,80 @@ export const MASCOT_SPOTS = {
   'level-complete.cleared': { pose: 'clapping', where: 'Level Complete, no level-up (replays)' },
   'level-complete.level-up': { pose: 'celebrate', where: 'Level Complete with a level-up' },
   'level-complete.mastery': { pose: 'mastery', where: 'Level Complete on a mastery star' },
+  'level-complete.lucky-drop': { pose: 'cupcake-sneak', where: 'Level Complete when a perfect level dropped a lucky +1 Brainpower (not on a mastery star)' },
   'review-complete': { pose: 'clapping', where: 'Review Complete screen' },
   'quest.final-round': { pose: 'thinking', where: 'Opening a Weekly Quest\'s Final Round' },
   'quest.complete': { pose: 'celebrate', where: 'Weekly Quest complete (trophy or Archive XP)' },
-  'daily-complete': { pose: 'go-outside', where: 'Daily Knowledge Complete: "Go touch grass."' },
+  'daily-complete': { pose: 'go-outside', where: 'Out of Brainpower: "Go touch grass." (a different off-duty pose each day, SPOT_POSE_VARIANTS)' },
   'review.empty': { pose: 'sleeping', where: 'Review tab when nothing is due' },
   'loading': { pose: 'waiting', where: 'Loading a level or the review queue (after a short delay)' },
   'error.load': { pose: 'tangled', where: 'A level or screen that could not load (never about account or payment data)' },
   'level.locked': { pose: 'thinking', where: 'Opening a level that is not unlocked yet' },
   'home.start': { pose: 'pointing', where: 'Home, before any level is started: points to a first subject or Choose for me' },
-  'home.path': { pose: 'reading', where: 'Home: beside the level path, reading along' },
+  'home.path': { pose: 'reading', where: 'Home: beside the level path in the chapter you are in, in the skill\'s costume (a different action of the skill each day, mapGuidePose)' },
+  'map.rest': { pose: 'tea-pinky', where: 'Skill map: in each chapter you have finished, Dr. Scroll stayed behind goofing off, a different everyday pose per chapter (mapRestPose)' },
   'review.ready': { pose: 'review', where: 'Review tab when concepts are due' },
   'not-found': { pose: 'tangled', where: 'A link to something that does not exist' },
   'social.reaction': { pose: 'clapping', where: 'Social feed: each reaction button is Dr. Scroll in a pose (core FEED_REACTIONS)' },
   'social.empty': { pose: 'wave', where: 'Social: no friends yet, inviting the learner to add some' },
 } as const satisfies Record<string, { pose: MascotPose; where: string; lesson?: boolean }>;
 export type MascotSpot = keyof typeof MASCOT_SPOTS;
+
+/**
+ * Spots where Dr. Scroll takes turns between poses, one a day (owner,
+ * 2026-10-03: the everyday poses, placed "where they fit best"). The first is
+ * the spot's own pose. Light, off-duty moments outside lessons only: a lesson
+ * spot never varies, so learning mode stays quiet.
+ */
+export const SPOT_POSE_VARIANTS: Partial<Record<MascotSpot, readonly MascotPose[]>> = {
+  // Out of Brainpower: him enjoying time away from the app.
+  'daily-complete': ['go-outside', 'paddling-pool', 'sun-reflector', 'tea-pinky', 'yoga-wobble', 'bee-hello', 'giant-sandwich'],
+  // Busy, waiting.
+  loading: ['waiting', 'coffee-jitter', 'book-tower', 'spaghetti'],
+  // Something didn't work: a small struggle, never alarming.
+  'error.load': ['tangled', 'stuck-jar', 'tape-measure', 'storm-umbrella'],
+  // A link to nowhere: a bit silly, low stakes.
+  'not-found': ['tangled', 'pigeon-head', 'tiny-hat'],
+  // Nothing due: a break.
+  'review.empty': ['sleeping', 'tea-pinky', 'sandwich'],
+};
+
+/** The pose a spot shows on a given day (`dayNumber`): its turn among SPOT_POSE_VARIANTS, else its own pose. */
+export function spotPose(spot: MascotSpot, day: number): MascotPose {
+  const turns = SPOT_POSE_VARIANTS[spot];
+  if (!turns?.length) return MASCOT_SPOTS[spot].pose;
+  // Offset by the spot so two spots seen the same day don't move in lockstep.
+  let h = 0;
+  for (const ch of spot) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+  return turns[(((day + h) % turns.length) + turns.length) % turns.length]!;
+}
+
+/** Dr. Scroll off duty (owner, 2026-10-02): the everyday poses, for light moments outside lessons. */
+export const EVERYDAY_POSES = [
+  'tea-pinky', 'bee-hello', 'book-tower', 'coffee-jitter', 'cupcake-sneak', 'giant-sandwich', 'hiccups', 'paddling-pool', 'pigeon-head', 'sandwich',
+  'sneeze', 'spaghetti', 'storm-umbrella', 'stuck-jar', 'sun-reflector', 'tape-measure', 'tiny-hat', 'trick-candle', 'yoga-wobble', 'bee-chase',
+] as const satisfies readonly MascotPose[];
+
+const hashOf = (text: string) => {
+  let h = 0;
+  for (const ch of text) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+  return h;
+};
+
+/**
+ * On a skill map, each chapter you've finished has Dr. Scroll goofing off by
+ * the road (owner, 2026-10-03: "fit as many as we can on the map"). Stable
+ * per chapter, and stepping 7 through the 20 poses means no pose repeats
+ * within 20 chapters of one skill.
+ */
+export function mapRestPose(skillId: string, chapterIndex: number): MascotPose {
+  return EVERYDAY_POSES[(hashOf(skillId) + chapterIndex * 7) % EVERYDAY_POSES.length]!;
+}
+
+/** In the chapter you're in, he's in the skill's costume, taking turns among its actions one a day (the costume itself first). */
+export function mapGuidePose(skillId: string, day: number): MascotPose {
+  const costume = SKILL_GUIDE_POSE[skillId];
+  const turns = [...new Set([costume, ...(SKILL_ACTION_POSES[skillId] ?? [])].filter((p): p is MascotPose => !!p))];
+  if (!turns.length) return MASCOT_SPOTS['home.path'].pose;
+  return turns[((day % turns.length) + turns.length) % turns.length]!;
+}

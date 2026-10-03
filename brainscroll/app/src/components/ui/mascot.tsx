@@ -1,4 +1,4 @@
-import { MASCOT_NAME, MASCOT_SPOTS, type MascotPose, type MascotSpot } from '@brainscroll/core';
+import { dayNumber, MASCOT_NAME, spotPose, type MascotPose, type MascotSpot } from '@brainscroll/core';
 import { useEffect, useState } from 'react';
 import { Animated, Image, Pressable, StyleSheet, Text, View, type ViewStyle } from 'react-native';
 import { useReduceMotion } from '@/theme/feedback';
@@ -14,7 +14,8 @@ export type MascotSize = keyof typeof SIZE;
  * swapped on its own in mascotArt.ts); writer-placed asides pass a `pose`.
  */
 type Placement = { spot: MascotSpot; pose?: MascotPose } | { spot?: undefined; pose: MascotPose };
-const poseOf = (p: Placement): MascotPose => p.pose ?? MASCOT_SPOTS[p.spot!].pose;
+/** A placement's own pose, else the spot's pose today (some spots take turns, one a day: SPOT_POSE_VARIANTS). */
+const poseOf = (p: Placement): MascotPose => p.pose ?? spotPose(p.spot!, dayNumber(new Date(), Intl.DateTimeFormat().resolvedOptions().timeZone));
 /** testID "mascot:<spot>" (or "mascot:pose:<pose>") marks every placement for tests and inspection. */
 const labelOf = (p: Placement) => (p.spot ? `mascot:${p.spot}` : `mascot:pose:${p.pose}`);
 

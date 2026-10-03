@@ -1,4 +1,4 @@
-import { MASTERY_BAND_SIZE, RECAP_OPENING, SKILL_GUIDE_POSE } from '@brainscroll/core';
+import { dayNumber, mapGuidePose, mapRestPose, MASTERY_BAND_SIZE, RECAP_OPENING } from '@brainscroll/core';
 import { useEffect, useId, useState } from 'react';
 import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { ClipPath, Defs, Path, Polygon } from 'react-native-svg';
@@ -40,7 +40,8 @@ const SCENERY = 92;
  * further ahead they lie. Each waypoint shows its level number. The next level
  * is ringed with a bouncing "Start" callout; the chapter's 10th level is the
  * boss: a bigger shield-marked checkpoint (gold on a mastery level). Dr. Scroll
- * reads by the roadside.
+ * stands by the road in the chapter you're in, in the skill's costume, and
+ * every chapter you've finished has him goofing off in an everyday pose.
  *
  * Every state has a shape as well as a colour: cleared waypoints carry a
  * check, locked ones a lock, the next one a ring and its callout. Each
@@ -93,6 +94,8 @@ export function LevelPath({
   const nextChapter = chapterFor(skillId, last + 1);
 
   const stateOf = (n: number): NodeState => (n <= level ? 'done' : n === nextNumber ? 'current' : 'locked');
+  // Finished chapters (not the one you're in) get Dr. Scroll off duty in their right pocket.
+  const restPose = !mascot && stateOf(last) === 'done' ? mapRestPose(skillId, Math.floor((first - 1) / 10)) : undefined;
   const current = numbers.findIndex((n) => stateOf(n) === 'current');
   const room = (i: number) => (current > 0 && i >= current ? CALLOUT : 0);
   const top = current === 0 ? TOP : TOP_PLAIN;
@@ -134,8 +137,8 @@ export function LevelPath({
         </Svg>
 
         {POCKETS.map((pocket) => {
-          // Dr. Scroll has the right pocket in the chapter you're in.
-          if (mascot && pocket.index === 6) return null;
+          // Dr. Scroll has the right pocket in the chapter you're in, and in every chapter you've finished.
+          if ((mascot || restPose) && pocket.index === 6) return null;
           const n = numbers[pocket.index];
           // Chosen so no picture repeats within three chapters (content/scenery.ts).
           const art = n !== undefined ? sceneryArt(skillId, n) : undefined;
@@ -154,7 +157,11 @@ export function LevelPath({
         {aside && points[0] && <View style={{ position: 'absolute', left: 0, top: Math.max(points[0].y - 48, 0) }}>{aside}</View>}
         {mascot && points[6] && (
           // Big beside the road, like a character in the scene (owner, 2026-10-01).
-          <DrScroll spot="home.path" pose={SKILL_GUIDE_POSE[skillId]} size="lg" style={{ position: 'absolute', left: Math.min(width * POCKETS[1].x - 84, width - 168), top: points[6].y - 96 }} />
+          <DrScroll spot="home.path" pose={mapGuidePose(skillId, dayNumber(new Date(), Intl.DateTimeFormat().resolvedOptions().timeZone))} size="lg" style={{ position: 'absolute', left: Math.min(width * POCKETS[1].x - 84, width - 168), top: points[6].y - 96 }} />
+        )}
+        {restPose && points[6] && (
+          // A finished chapter: he stayed behind, goofing off by the road.
+          <DrScroll spot="map.rest" pose={restPose} size="lg" style={{ position: 'absolute', left: Math.min(width * POCKETS[1].x - 84, width - 168), top: points[6].y - 96 }} />
         )}
 
         {numbers.map((n, i) => {

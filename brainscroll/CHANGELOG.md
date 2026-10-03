@@ -2,6 +2,12 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: Dr. Scroll's everyday poses, placed
+
+- **A few light spots take turns, one pose a day** (`SPOT_POSE_VARIANTS` in core): out of Brainpower he's off duty (paddling pool, sun reflector, tea, yoga, a friendly bee, a giant sandwich, or going outside); loading shows coffee jitters, a book tower or spaghetti; a screen that didn't load shows a stuck jar, a tangled tape measure or an inside-out umbrella; a dead link gets a pigeon on his head or a tiny hat; an empty review tab, tea or a sandwich. Lessons never change: they stay quiet.
+- **A lucky Brainpower drop** on Level Complete gets its own moment: Dr. Scroll sneaking off with a cupcake.
+- **The skill maps are full of him:** every chapter you've finished has Dr. Scroll goofing off by the road, a different one of all 20 everyday poses per chapter (no repeats within 20 chapters). In the chapter you're in he wears the skill's costume and takes turns among its actions, one a day (telescope, space helmet or juggling planets on Astronomy).
+
 ## 2026-10-03: A free trial where people run out
 
 - **Running out of Brainpower now offers "Try Unlimited free"** when the store would give the learner a trial: the card says "7 days free. Then $4.99/mo or $39.99/yr, cancel anytime" and its button "Start free trial". The paywall marks the trial on each plan, states the terms above the button, and the button becomes "Start free trial". The owner chose this over starting new accounts at 10 Brainpower ("leave them wanting more").
