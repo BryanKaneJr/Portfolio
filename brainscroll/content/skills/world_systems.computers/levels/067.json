@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 67,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Data Breaches",
   "objective": "After this level you can explain what happens in a data breach, using Equifax in 2017, and connect it to the hashing and two-factor defenses.",
@@ -180,7 +180,7 @@
         "card.computers.004.c2",
         "card.computers.010.c3"
       ],
-      "prompt": "The Equifax passwords were stored unencrypted, as ordinary text codes. Given Level 4's ASCII, why could the attackers read them at once?",
+      "prompt": "The Equifax passwords were stored unencrypted, as ordinary ASCII text codes. Why could the attackers read them at once?",
       "options": [
         {
           "id": "a",
@@ -201,9 +201,9 @@
         },
         {
           "id": "d",
-          "label": "The attackers had stolen Equifax's secret ASCII key",
+          "label": "The attackers had stolen Equifax's own secret ASCII key",
           "correct": false,
-          "rationale": "There is no key: the codebook is standard."
+          "rationale": "There is no key: the ASCII codebook is a public standard."
         }
       ],
       "explanation": "ASCII gives letters standard numbers; any text program reads them back through the same codebook. Encoding hides nothing.",

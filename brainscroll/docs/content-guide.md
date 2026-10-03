@@ -68,6 +68,16 @@ The source of truth is `LEARNING_STRUCTURE` in `packages/core/src/constants.ts` 
 
 ### Answer positions
 
+Multiple-choice options are shown in a stable shuffled order per question, and options that are all numbers in ascending order, so the authored order doesn't matter (owner, 2026-10-03).
+
+### Questions stand on their own
+
+A question also comes back in reviews, mixed with other levels, so it never points at the app's own structure: no "this level", "the card says", "Level 13's raid", "Chapter 2's moments" or "Cities recap:" (owner, 2026-10-03). Name the topic instead: "The Viking raid on Lindisfarne in 793...". This covers everything a question shows: prompt, choices, rationales, explanation, order items and match labels. `validate:content` refuses it.
+
+### Wrong answers as long as the right one
+
+The right answer must not be the giveaway longest choice. When it would be, make one wrong choice at least as long: more specific, still clearly wrong by the cards, same grammatical form (owner, 2026-10-03).
+
 ### Match and order questions
 
 Besides multiple choice (`"kind": "mcq"`), a question can be a **match** or an **order** (owner, 2026-10-03: about one per level). Both are graded by label, so two identical labels are interchangeable ("two Mars": either one in either spot is right).

@@ -2,6 +2,12 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: Question clean-up across all 26 trees (from a full content audit)
+
+- **Questions stand on their own:** about 2,400 questions, choices, rationales and explanations that said "this level", "the card says", "Level 13's raid", "Chapter 2" or "Cities recap:" now name the topic instead (a tester was confused by them). `validate:content` now refuses these (`APP_STRUCTURE_REF` in core `editorial.ts`).
+- **No more "pick the longest answer":** the right answer was the longest choice in 52% of multiple-choice and fill-in-the-blank questions. In 75% of those, one wrong choice was rewritten to be at least as long (still clearly wrong by the cards); the tell is now 13%, below chance.
+- **Audit fixes:** about 40 ambiguous or mismatched questions fixed (George Mason pairing, Marx's manuscripts, Sulla's order, the film projector claw, FHA wording, 1916 gravitational waves, and more); vague match prompts made specific; Human Body's match and order explanations now state the full answer; numeric choices in ascending order; The Wizard of Oz's Kansas scenes are sepia-toned black and white.
+
 ## 2026-10-03: The level is a chip on the World Map
 
 - The World Map header drops "Knowledge Lv. N" and its block (owner: redundant). The Knowledge Level is now a chip like Brainpower and the streak: a glossy violet graduation cap and the number, top left. Tapping it opens Profile (`LevelBadge.tsx`). All three header chips share one size, 15% smaller than before (`statChip.ts`).

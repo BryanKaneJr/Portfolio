@@ -14,7 +14,7 @@ function makeLevel(n: number, overrides: Record<string, unknown> = {}): Record<s
     purpose: PURPOSES[(i - 1) % 3],
     conceptIds: [CONCEPT],
     sourceCardIds: [`card.astronomy.${num}.c2`],
-    prompt: `Question ${i} of level ${n}?`,
+    prompt: `Question ${i} in set ${n}?`,
     options: [
       { id: 'a', label: 'A star', correct: i === 1 },
       { id: 'b', label: 'A planet', correct: i === 2 },
