@@ -71,6 +71,20 @@ try {
   check(/League/i.test(social) && /\d+(st|nd|rd|th) place/.test(social) && /XP this week/.test(social) && /XP to pass @/.test(social) && /\+1,000 XP[\s\S]*\+500 XP[\s\S]*\+250 XP/.test(social),
     'Social opens on the league banner: your place, your XP, how far the next place is, and the podium with its prizes');
   check(/You earned First Level/.test(social), 'your own trophy is in the feed');
+  // Dr. Scroll: everyone's first friend, with a profile like no one else's.
+  check(/Dr\. Scroll[\s\S]*Your first friend/.test(social), 'Dr. Scroll is everyone\'s first friend');
+  await page.getByRole('button', { name: 'Dr. Scroll, your first friend. Open his profile' }).click();
+  await page.waitForTimeout(800);
+  const drProfile = await bodyText(page);
+  check(/Official/.test(drProfile) && /Levels cleared/.test(drProfile) && /All \d+ trophies/.test(drProfile) && !/Block|Report/.test(drProfile), 'his profile: official, every level and trophy, no block or report');
+  const firstLine = await page.getByRole('button', { name: /^Dr\. Scroll says:/ }).getAttribute('aria-label');
+  await page.getByRole('button', { name: /^Dr\. Scroll says:/ }).click();
+  await page.waitForTimeout(300);
+  const secondLine = await page.getByRole('button', { name: /^Dr\. Scroll says:/ }).getAttribute('aria-label');
+  check(secondLine && secondLine !== firstLine, 'tapping his line shows another');
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.waitForTimeout(800);
+  social = await bodyText(page);
   check(/Friend requests[\s\S]*@priya/.test(social), 'friend requests show at the top');
   await exactButton(page, 'Accept').click();
   await page.waitForTimeout(1000);

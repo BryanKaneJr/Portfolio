@@ -2,6 +2,11 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: Dr. Scroll is everyone's first friend
+
+- **The Social tab always shows Dr. Scroll**, pinned above your friends in gold: "Your first friend · Official". He lives in the app rather than on the server, so he never joins a league, the weekly XP race or the feed, and can't be blocked, reported or removed.
+- **His profile is like no one else's**: the golden Dr. Scroll avatar, an Official mark, every level cleared, a 1,000+ day streak, all the trophies, and a fun line (15 of them) that changes each time you tap it. Core `drScrollFriend.ts`; spot `profile.dr-scroll`.
+
 ## 2026-10-03: Levels save on iPhone; card pictures are back
 
 - **Finishing a level failed on iPhone ("Couldn't save your progress")**: the one-time key sent with a finished level fell back to a non-UUID string on Hermes (no `crypto.randomUUID`), and the server's key column is a uuid. Keys now come from `expo-crypto`, and a level started before the fix gets a fresh key when it's finished (it never saved, so that's safe). Chapter reviews were unaffected: their ids come from the server.
