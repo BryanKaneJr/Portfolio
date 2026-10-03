@@ -146,7 +146,34 @@ Dr. Scroll taking part in a topic makes a lesson feel alive. Use one as a level'
 
 Mastery images: you already have Dr. Scroll holding trophies and gold objects (for example, a gold coin with a paw print for The Animal Kingdom). Those can be each tree's `*.mastery` image in [`image-manifest.md`](image-manifest.md), with the same gold-only-for-mastery rule.
 
-That's 29 core poses plus 37 topic scenes (headphones was removed, 2026-10-01: his hair was missing in it). Start with the simplified reference and 5 core poses (wave, pointing, thinking, thumbs-up, oops). Check that he stays consistent, then do the rest.
+### Everyday moments (made by the owner, 2026-10-02)
+
+Dr. Scroll off duty: light, silly moments for screens outside lessons (never inside a lesson, which stays quiet). In the app as `mascot/<name>.webp`; where each one appears is decided separately.
+
+| Pose | What he's doing |
+| --- | --- |
+| `bee-chase` | Running from a bee, arms up |
+| `bee-hello` | Waving happily, a bee beside him |
+| `book-tower` | Carrying a wobbly tower of books |
+| `coffee-jitter` | Hair on end, gripping a big coffee |
+| `cupcake-sneak` | Tiptoeing off with a cupcake |
+| `giant-sandwich` | Mouth wide open for a huge sandwich |
+| `hiccups` | Mid-hiccup, hands up, surprised |
+| `paddling-pool` | Standing in a paddling pool with a rubber ring and flippers |
+| `pigeon-head` | A pigeon sitting on his head |
+| `sandwich` | Taking a big bite of a sandwich |
+| `sneeze` | A huge sneeze, glasses flying off |
+| `spaghetti` | Slurping a long strand of spaghetti |
+| `storm-umbrella` | His umbrella blown inside out |
+| `stuck-jar` | Straining to open a pickle jar |
+| `sun-reflector` | Sunglasses on, holding a sun reflector |
+| `tape-measure` | Tangled in a tape measure |
+| `tea-pinky` | Sipping tea, pinky out |
+| `tiny-hat` | Wearing a tiny top hat |
+| `trick-candle` | Blowing at a candle on a cupcake that won't go out |
+| `yoga-wobble` | Wobbling in a tree pose |
+
+That's 29 core poses, 37 topic scenes and 20 everyday moments (headphones was removed, 2026-10-01: his hair was missing in it). Start with the simplified reference and 5 core poses (wave, pointing, thinking, thumbs-up, oops). Check that he stays consistent, then do the rest.
 
 ## Spots: every place he appears
 

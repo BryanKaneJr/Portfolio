@@ -23,7 +23,7 @@ export function UnlimitedCard() {
         </>
       ) : (
         <>
-          <Body>Free: 🧠 Brainpower refills to {BRAINPOWER.DAILY_REFILL} a day, and review as much as you like.</Body>
+          <Body>Free: Brainpower refills to {BRAINPOWER.DAILY_REFILL} a day, and review as much as you like.</Body>
           <Button variant="secondary" label="See Unlimited" onPress={open} />
         </>
       )}

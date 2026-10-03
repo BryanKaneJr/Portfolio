@@ -23,6 +23,12 @@ export const UI_ART = {
   // The league banner (Social): the trophy in the top 3, the medal otherwise.
   trophy: require('../../../assets/images/ui/trophy.webp'),
   medal: require('../../../assets/images/ui/medal.webp'),
+  // Brainpower: the header chip and its screen (lit, at 0, Unlimited), the +1 spark and the lucky drop.
+  brainpower: require('../../../assets/images/ui/brainpower.webp'),
+  'brainpower-empty': require('../../../assets/images/ui/brainpower-empty.webp'),
+  'brainpower-unlimited': require('../../../assets/images/ui/brainpower-unlimited.webp'),
+  'brainpower-spark': require('../../../assets/images/ui/brainpower-spark.webp'),
+  'lucky-drop': require('../../../assets/images/ui/lucky-drop.webp'),
 } as const satisfies Record<string, ImageSourcePropType>;
 
 export type UiArtName = keyof typeof UI_ART;

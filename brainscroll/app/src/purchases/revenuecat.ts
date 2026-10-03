@@ -1,7 +1,7 @@
 import { ENTITLEMENT_UNLIMITED } from '@brainscroll/core';
 import { Linking, Platform } from 'react-native';
 import RC, { PACKAGE_TYPE, type PurchasesPackage } from 'react-native-purchases';
-import { PRODUCT_IDS, type Plan, type PlanId, type Purchases } from './types';
+import { PRODUCT_IDS, trialLabel, type Plan, type PlanId, type Purchases } from './types';
 
 /**
  * App Store / Google Play through RevenueCat. Public SDK keys only (never a
@@ -54,6 +54,21 @@ export function createStorePurchases(): Purchases | null {
           period: id === 'monthly' ? 'per month' : 'per year',
           note: id === 'annual' && p.product.pricePerMonthString ? `Just ${p.product.pricePerMonthString} a month` : undefined,
         });
+      }
+      // Free trials: the introductory offer in App Store Connect / Google Play. iOS says who is
+      // eligible (one trial per Apple ID; unknown means show the plain price, per RevenueCat);
+      // Google Play only offers a product's trial to accounts that can still use it.
+      const free = [...packages.values()].filter((p) => p.product.introPrice?.price === 0);
+      const eligible =
+        Platform.OS === 'ios' && free.length
+          ? await RC.checkTrialOrIntroductoryPriceEligibility(free.map((p) => p.product.identifier)).catch(() => ({}) as Record<string, { status: number }>)
+          : null;
+      for (const plan of plans) {
+        const pkg = packages.get(plan.id)!;
+        const intro = pkg.product.introPrice;
+        if (!intro || intro.price !== 0) continue;
+        if (eligible && eligible[pkg.product.identifier]?.status !== RC.INTRO_ELIGIBILITY_STATUS.INTRO_ELIGIBILITY_STATUS_ELIGIBLE) continue;
+        plan.trial = { label: trialLabel(intro.periodUnit, intro.periodNumberOfUnits) };
       }
       return plans.sort((a, b) => (a.id === 'annual' ? -1 : b.id === 'annual' ? 1 : 0));
     },

@@ -11,6 +11,7 @@ const ICONS = {
   back: { ios: 'chevron.left', android: 'arrow_back', web: 'arrow_back' },
   forward: { ios: 'chevron.right', android: 'chevron_right', web: 'chevron_right' },
   flag: { ios: 'flag', android: 'flag', web: 'flag' },
+  share: { ios: 'square.and.arrow.up', android: 'share', web: 'ios_share' },
   addFriend: { ios: 'person.badge.plus', android: 'person_add', web: 'person_add' },
   people: { ios: 'person.2.fill', android: 'group', web: 'group' },
   more: { ios: 'ellipsis', android: 'more_horiz', web: 'more_horiz' },

@@ -111,7 +111,7 @@ try {
   check(sql(`select balance from public.user_brainpower where user_id = '${learnerId}'`) === '0', 'the server spent every Brainpower');
   await exactButton(page, 'Continue').click();
   await page.waitForTimeout(600);
-  check((await bodyText(page)).includes('🧠 0 / 10') && /Earn more Brainpower/i.test(await bodyText(page)), 'out of Brainpower, from the server, with the ways to earn more');
+  check((await bodyText(page)).includes('0 / 10') && /Earn more Brainpower/i.test(await bodyText(page)), 'out of Brainpower, from the server, with the ways to earn more');
   await questMap(page);
   await button(page, /Out of Brainpower\. Next: Level/).click();
   await page.waitForTimeout(500);

@@ -171,7 +171,7 @@ export function LevelPath({
             <View key={n}>
               {state === 'current' && lv && (
                 <StartBubble tint={tint}
-                  label={`${dailyComplete ? '🧠 0' : 'Start'} · Level ${n}`}
+                  label={`${dailyComplete ? 'No Brainpower' : 'Start'} · Level ${n}`}
                   title={lv.title}
                   x={x}
                   bottom={y - size / 2 - 14}

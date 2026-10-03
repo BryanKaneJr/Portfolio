@@ -1,10 +1,11 @@
-import { XP, type Card, type ChapterReviewResult } from '@brainscroll/core';
+import { BRAINPOWER, XP, type Card, type ChapterReviewResult, type DailyAllowance } from '@brainscroll/core';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
 import { BrainpowerEarned } from '@/components/BrainpowerEarned';
+import { BrainpowerFlight } from '@/components/BrainpowerFlight';
 import { feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { Body, Button, Caption, DrScroll, Eyebrow, H1, H2, LessonShell, LessonSkeleton, LoadError, Notice, Numeral, Pop, Reveal, useCountUp } from '@/components/ui';
 import { chaptersFor, getCard, getSkill, levelMeta } from '@/content';
@@ -173,6 +174,7 @@ function ChapterReviewComplete({ skillName, chapter, chapterTitle, result, onDon
   const shown = useCountUp(result.xpAwarded, { delay: 200 });
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: color.bgDeep, padding: layout.gutter }}>
+      <BrainpowerFlight daily={result.daily ?? NO_DAILY}>
       <View style={{ flex: 1, justifyContent: 'center', gap: space.lg, alignItems: 'center' }}>
         <DrScroll spot="review-complete" size="md" />
         <Eyebrow tone="success">Chapter review complete</Eyebrow>
@@ -202,11 +204,15 @@ function ChapterReviewComplete({ skillName, chapter, chapterTitle, result, onDon
         </Reveal>
         {result.daily && result.daily.brainpowerEarned.length > 0 && (
           <Reveal delay={600}>
-            <BrainpowerEarned daily={result.daily} />
+            <BrainpowerEarned daily={result.daily} at={600} />
           </Reveal>
         )}
       </View>
       <Button label="Done" onPress={onDone} />
+      </BrainpowerFlight>
     </SafeAreaView>
   );
 }
+
+/** No status came back (an older server): nothing to fly. */
+const NO_DAILY: DailyAllowance = { cap: null, used: 0, remaining: null, dailyComplete: false, brainpower: null, brainpowerMax: BRAINPOWER.MAX, brainpowerRefill: BRAINPOWER.DAILY_REFILL, brainpowerEarned: [] };

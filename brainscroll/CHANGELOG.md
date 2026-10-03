@@ -2,13 +2,34 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: A free trial where people run out
+
+- **Running out of Brainpower now offers "Try Unlimited free"** when the store would give the learner a trial: the card says "7 days free. Then $4.99/mo or $39.99/yr, cancel anytime" and its button "Start free trial". The paywall marks the trial on each plan, states the terms above the button, and the button becomes "Start free trial". The owner chose this over starting new accounts at 10 Brainpower ("leave them wanting more").
+- The trial is the stores' own introductory offer, shown only to eligible accounts; without one, the plain price shows as before. Setup steps are in `docs/subscriptions.md`.
+
+## 2026-10-03: Unlimited leads when Brainpower runs out
+
+- **The out-of-Brainpower screen offers Unlimited first** (owner: "unlimited needs to appear more"): a highlighted card with the gold brain, the price and a See Unlimited button, right after Dr. Scroll. Still only after a day's learning, never mid-lesson.
+- **The ways to earn more shrink to one row of icons** (streak, trophies, chapter reviews, perfect levels) with the refill time; "Review what I learned" becomes a secondary button.
+
+## 2026-10-02: A quieter, more premium type scale
+
+- **Headlines and big numbers are about 20 to 25% smaller and tighter** ("Knowledge reinforced" fits one line), labels are quieter, and buttons read in sentence case ("Next: Level 2") instead of spaced capitals. Lessons stay a size up for reading: paragraphs 19 pt, key ideas 19 pt bold, answer choices 17 pt. Still Nunito; the owner chose this over the old scale and over Plus Jakarta Sans after seeing all three on real screens. `docs/design-system.md` has the new scale.
+- **A new trophy's card shares with one tap anywhere on it,** marked by a small round share icon in its corner, instead of a big Share button that made the card tall.
+
+## 2026-10-02: Brainpower you earn flies to your balance
+
+- **Each +1 now travels:** on Level Complete and after a chapter review, a spark lifts off the line that earned it (a trophy, the streak, the lucky drop, the review), arcs up to a Brainpower chip pinned top right, and the number ticks up with a small pulse and tick. Two awards fly one after the other. At 10 the spark still lands but the number stays and the chip says "Full". With Reduce Motion the number just changes.
+- The chip starts at the balance before the awards and ends on the server's number, so it never shows a count the server didn't return.
+- The spark is a glowing pink and violet dot until the owner's `ui_brainpower-spark` art arrives; the images still to make are listed in `docs/images-brainpower.md`.
+
 ## 2026-10-02: Brainpower replaces the daily cap
 
 - **Free learners now have Brainpower** (owner, 2026-10-02): 🧠 refills to 5 each day (more is kept), holds at most 10, and a new level uses 1 when it's first cleared. Reviews, replays, chapter reviews, social and wrong answers cost nothing. New accounts start at 5 (the first-day bonus of 10 is gone).
 - **Ways to earn +1:** extending the streak (once a day, from day 2), every trophy, a chapter's first completed chapter review, and a 10% truly random drop after a perfect first clear. Anything earned at 10 isn't kept ("Brainpower Full"). Unlimited is ∞ Brainpower.
 - **Server:** migration `20261031000000_brainpower.sql` adds `user_brainpower` and `brainpower_awards` (RPC-only, deleted with the account), spends and grants in triggers, and `daily_status_for` now reports the balance and what an action earned. Existing trophies and chapter reviews are recorded as already paid, so nobody gets a windfall. `brainpower.test.sql` covers refill, cap, spending, every award and Unlimited.
 - **Core:** `brainpower.ts` mirrors it for local play; `BRAINPOWER` replaces `DAILY_FREE_NEW_LEVELS` and `FIRST_DAY_NEW_LEVELS`.
-- **App:** Brainpower sits beside the streak flame on the World Map, built the same way: a brain and the count (∞ on Unlimited) that opens its own screen with the balance, the refill and the ways to earn more. It uses the 🧠 emoji until the owner's art arrives (`docs/images-chrome.md`). Skill maps show "🧠 7 / 10"; Level Complete and chapter reviews show each +1; Daily Knowledge Complete became the out-of-Brainpower screen with the ways to earn more; welcome, Settings and Unlimited copy say Brainpower.
+- **App:** Brainpower sits beside the streak flame on the World Map, built the same way: a brain and the count (∞ on Unlimited) that opens its own screen with the balance, the refill and the ways to earn more. It uses the 🧠 emoji until the owner's art arrives (`docs/images-brainpower.md`). Skill maps show "🧠 7 / 10"; Level Complete and chapter reviews show each +1; Daily Knowledge Complete became the out-of-Brainpower screen with the ways to earn more; welcome, Settings and Unlimited copy say Brainpower.
 - **After merging:** run `supabase db push` on staging.
 
 ## 2026-10-02: Database hardening from Supabase's security advisor

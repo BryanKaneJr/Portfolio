@@ -2,16 +2,11 @@ import { router } from 'expo-router';
 import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { BrainpowerIcon } from '@/components/BrainpowerIcon';
+import { BrainpowerWays } from '@/components/BrainpowerWays';
 import { Body, Button, Caption, Card, Eyebrow, IconButton, OutlinedNumber, Row, StatTile, Title } from '@/components/ui';
 import { useProgressView } from '@/progress/ProgressProvider';
 import { color, layout, space } from '@/theme/tokens';
 
-const EARN = [
-  { emoji: '🔥', text: 'Keep your streak going', note: '+1 each day, from day 2' },
-  { emoji: '🏆', text: 'Win a trophy', note: '+1 for every one' },
-  { emoji: '📚', text: 'Finish a chapter review', note: '+1 the first time per chapter' },
-  { emoji: '✨', text: 'Get a level perfect', note: 'sometimes drops +1' },
-];
 
 /**
  * Brainpower, opened from the brain on the World Map: the balance big on
@@ -32,12 +27,12 @@ export default function BrainpowerScreen() {
         <Eyebrow tone="brand">Brainpower</Eyebrow>
         {/* The balance sits on the brain, like the streak's count on its flame. */}
         <View style={{ alignItems: 'center', marginBottom: space.xxl }} accessible accessibilityLabel={unlimited ? 'Unlimited Brainpower' : `${n} of ${today.brainpowerMax} Brainpower`}>
-          <BrainpowerIcon size={168} />
+          <BrainpowerIcon size={168} state={unlimited ? 'unlimited' : n > 0 ? 'lit' : 'empty'} />
           <View style={{ position: 'absolute', bottom: -48, left: -80, right: -80, alignItems: 'center' }}>
-            <OutlinedNumber value={unlimited ? '∞' : String(n)} fontSize={80} tone="brand" />
+            <OutlinedNumber value={unlimited ? '∞' : String(n)} fontSize={80} tone={unlimited ? 'gold' : 'brand'} />
           </View>
         </View>
-        <Title style={{ color: color.brandText }}>{unlimited ? 'Unlimited' : `of ${today.brainpowerMax} Brainpower`}</Title>
+        <Title style={{ color: unlimited ? color.mastery : color.brandText }}>{unlimited ? 'Unlimited' : `of ${today.brainpowerMax} Brainpower`}</Title>
         <Body muted center>
           {unlimited
             ? 'Learn as many new levels as you like.'
@@ -53,15 +48,7 @@ export default function BrainpowerScreen() {
             </Row>
             <Card variant="quiet" style={{ alignSelf: 'stretch', gap: space.md }}>
               <Eyebrow tone="brand">Earn more</Eyebrow>
-              {EARN.map((e) => (
-                <Row key={e.text} gap={space.sm} style={{ alignItems: 'flex-start' }}>
-                  <Body>{e.emoji}</Body>
-                  <View style={{ flex: 1 }}>
-                    <Body>{e.text}</Body>
-                    <Caption>{e.note}</Caption>
-                  </View>
-                </Row>
-              ))}
+              <BrainpowerWays />
               <Caption>
                 {n >= today.brainpowerMax
                   ? 'Brainpower Full. Spend some to earn more.'

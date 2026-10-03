@@ -44,7 +44,7 @@ try {
   check(l1.total === 3 && l1.xp === CURVE[l1.firstTry], `XP follows the first-attempt curve (${l1.firstTry}/3 → ${l1.xp} XP)`);
   check(/Streak started/.test(l1.text), "the day's first level starts the learning streak");
   check(/Trophy earned[\s\S]*First Level/i.test(l1.text), 'the first level earns a trophy, shown on Level Complete');
-  await exactButton(page, 'Share').click();
+  await page.getByRole('button', { name: /^Trophy earned: First Level\. Share$/ }).click();
   await page.waitForTimeout(800);
   check(/I finished my first level on BrainScroll!/.test(await bodyText(page)), 'Share opens the trophy card with its line');
   await exactButton(page, 'Close').click();
@@ -185,7 +185,7 @@ try {
       await exactButton(page, 'Continue').click();
       await page.waitForTimeout(600);
       const out = await bodyText(page);
-      check(/Brainpower used up/i.test(out) && out.includes('🧠 0 / 10') && /Earn more Brainpower/i.test(out), `running out of Brainpower (before Level ${n}) shows how to earn more`);
+      check(/Brainpower used up/i.test(out) && out.includes('0 / 10') && /Earn more Brainpower/i.test(out), `running out of Brainpower (before Level ${n}) shows how to earn more`);
       await button(page, 'Want more today? See Unlimited').click();
       await page.waitForTimeout(800);
       const paywall = await bodyText(page);
@@ -193,7 +193,9 @@ try {
       check(/∞ Brainpower/.test(paywall), 'Unlimited is ∞ Brainpower');
       check(/Sandbox: no money changes hands/.test(paywall), 'the development harness buys from a sandbox store');
       check(paywall.includes('All knowledge can be unlocked free over time.'), 'it says plainly that all knowledge is free over time');
-      await exactButton(page, 'Start Unlimited').click();
+      check(/Try Unlimited free/.test(out) && /Start free trial/.test(out), 'running out offers the free trial first');
+      check(paywall.includes('7 days free') && /7 days free, then \$39\.99 per year\. Cancel anytime before the trial ends/.test(paywall), 'the paywall states the trial and what it costs after');
+      await exactButton(page, 'Start free trial').click();
       await page.waitForTimeout(1000);
       check(/Unlimited is on\./.test(await bodyText(page)), 'buying turns Unlimited on (after the server re-reads the store)');
       await exactButton(page, 'Keep learning').click();
@@ -271,7 +273,7 @@ try {
   const cxp = ct.match(/\+(\d+) XP[\s\S]*?\d+ \/ \d+ right first time/)?.[1] ?? '0';
   check(/Chapter review complete/i.test(ct) && ctotal === '10' && Number(cxp) === Math.round((CHAPTER_REVIEW_MAX * Number(cright)) / 10),
     `a chapter review pays at most ${CHAPTER_REVIEW_MAX} XP, from first tries (${cright}/10 → +${cxp}, ${chapterCorrected} corrected)`);
-  check(/Chapter review complete\s*\+1/.test(ct) && ct.includes('🧠 1 / 10'), 'a first chapter review earns +1 Brainpower');
+  check(/Chapter review complete\s*\+1/.test(ct) && ct.includes('1 / 10'), 'a first chapter review earns +1 Brainpower');
   await exactButton(page, 'Done').click();
   await page.waitForTimeout(600);
   await home(page);

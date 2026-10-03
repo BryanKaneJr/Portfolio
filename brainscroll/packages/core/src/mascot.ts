@@ -75,6 +75,27 @@ export const MASCOT_POSES = [
   'torch',
   'umbrella',
   'violin',
+  // Everyday moments (owner, 2026-10-02): Dr. Scroll off duty, for light moments outside lessons.
+  'bee-chase',
+  'bee-hello',
+  'book-tower',
+  'coffee-jitter',
+  'cupcake-sneak',
+  'giant-sandwich',
+  'hiccups',
+  'paddling-pool',
+  'pigeon-head',
+  'sandwich',
+  'sneeze',
+  'spaghetti',
+  'storm-umbrella',
+  'stuck-jar',
+  'sun-reflector',
+  'tape-measure',
+  'tea-pinky',
+  'tiny-hat',
+  'trick-candle',
+  'yoga-wobble',
 ] as const;
 export type MascotPose = (typeof MASCOT_POSES)[number];
 

@@ -28,11 +28,12 @@ import {
 } from '@/components/ui';
 import { chapterFor, getConcept, getSkill, levelByNumber, levelMeta } from '@/content';
 import { BrainpowerEarned } from '@/components/BrainpowerEarned';
+import { BrainpowerFlight } from '@/components/BrainpowerFlight';
+import { BrainpowerLabel } from '@/components/BrainpowerLabel';
 import { ReminderPrompt } from '@/components/ReminderSettings';
 import { TrophyEarned } from '@/components/TrophyEarned';
 import { TROPHY_ART as TROPHY_ARTS } from '@/components/ui/trophyArt';
 import { useProgress } from '@/progress/ProgressProvider';
-import { todayLabel } from '@/progress/todayLabel';
 import { useNewTrophies } from '@/progress/useNewTrophies';
 import { completionEvent, feedback } from '@/theme/feedback';
 import { subjectTint } from '@/theme/subjectTheme';
@@ -107,6 +108,7 @@ export default function LevelCompleteScreen() {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: color.bgDeep }} edges={['top']}>
+      <BrainpowerFlight daily={s.daily}>
       <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: layout.gutter, paddingVertical: short ? space.lg : space.xl, justifyContent: 'center' }}>
         <View style={{ width: '100%', maxWidth: layout.readingWidth, alignSelf: 'center', gap: short ? space.lg : space.xl, alignItems: 'center' }}>
           {!s.alreadyCompleted && level.number % 10 === 0 && (
@@ -195,7 +197,7 @@ export default function LevelCompleteScreen() {
           {s.daily.brainpowerEarned.length > 0 && (
             <View style={{ alignSelf: 'stretch' }}>
               <Pop delay={580 + t0}>
-                <BrainpowerEarned daily={s.daily} />
+                <BrainpowerEarned daily={s.daily} at={580 + t0} />
               </Pop>
             </View>
           )}
@@ -255,7 +257,7 @@ export default function LevelCompleteScreen() {
                     <Caption tone="text">Knowledge Lv. {s.knowledgeLevel}</Caption>
                   </Chip>
                   <Chip>
-                    <Caption>{todayLabel(s.daily)}</Caption>
+                    <BrainpowerLabel today={s.daily} />
                   </Chip>
                 </Row>
               </View>
@@ -283,6 +285,7 @@ export default function LevelCompleteScreen() {
         ) : null}
         <Button variant="ghost" label="Back to the map" onPress={() => router.dismissTo({ pathname: '/skill/[id]', params: { id: s.skillId } })} />
       </View>
+      </BrainpowerFlight>
     </SafeAreaView>
   );
 }

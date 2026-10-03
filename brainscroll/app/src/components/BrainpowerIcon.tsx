@@ -1,15 +1,11 @@
-import { Text } from 'react-native';
+import { UiArt } from '@/components/ui';
 
 /**
- * Brainpower's icon. The 🧠 emoji until the owner's art lands: add
- * `app/assets/images/ui/brainpower.webp` to UI_ART and return
- * `<UiArt name="brainpower" size={size} />` here (docs/images-chrome.md).
- * Decorative: whatever shows it also says the number in words.
+ * Brainpower's brain (docs/images-brainpower.md): lit while there's some to
+ * spend, resting grey at 0, and the gold brain on Unlimited, shown with ∞.
+ * The gold brain is the one exception to gold-for-mastery (owner,
+ * 2026-10-02). Decorative: whatever shows it also says the number in words.
  */
-export function BrainpowerIcon({ size }: { size: number }) {
-  return (
-    <Text accessible={false} aria-hidden style={{ fontSize: size * 0.8, lineHeight: size, width: size, textAlign: 'center' }}>
-      🧠
-    </Text>
-  );
+export function BrainpowerIcon({ size, state = 'lit' }: { size: number; state?: 'lit' | 'empty' | 'unlimited' }) {
+  return <UiArt name={state === 'empty' ? 'brainpower-empty' : state === 'unlimited' ? 'brainpower-unlimited' : 'brainpower'} size={size} />;
 }

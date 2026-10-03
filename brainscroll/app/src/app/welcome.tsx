@@ -4,7 +4,8 @@ import { useState } from 'react';
 import { ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
-import { Body, Button, Card, DrScrollSays, Eyebrow, H1, Icon, type IconName, LevelArt, ProgressBar } from '@/components/ui';
+import { BrainpowerIcon } from '@/components/BrainpowerIcon';
+import { Body, Button, Card, DrScrollSays, Eyebrow, H1, Icon, type IconName, LevelArt, ProgressBar, Row } from '@/components/ui';
 import { levelByNumber, skills, subjects } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
 import { color, depth, iconSize, layout, radius, space, type } from '@/theme/tokens';
@@ -83,7 +84,10 @@ export default function WelcomeScreen() {
             {/* The level they just picked, waiting: the button below starts it (not on small phones, where it would push the deal off screen). */}
             {height >= 720 && <LevelArt art={firstLevel?.art} size={144} style={{ alignSelf: 'center', marginBottom: space.sm }} />}
             <Eyebrow>The deal</Eyebrow>
-            <H1>🧠 {BRAINPOWER.DAILY_REFILL} Brainpower a day. Free, forever.</H1>
+            <Row gap={space.sm} style={{ alignItems: 'center' }}>
+              <BrainpowerIcon size={56} />
+              <H1 style={{ flex: 1 }}>{BRAINPOWER.DAILY_REFILL} Brainpower a day. Free, forever.</H1>
+            </Row>
             <Card style={{ gap: space.lg }}>
               <DealRow icon="knowledge" text={`Each new level uses 1. You refill to ${BRAINPOWER.DAILY_REFILL} every day.`} />
               <DealRow icon="trophy" text="Earn more: keep your streak, win trophies, finish chapter reviews." />

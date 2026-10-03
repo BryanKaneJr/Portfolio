@@ -87,6 +87,27 @@ export const POSE_ART: Partial<Record<MascotPose, ImageSourcePropType>> = {
   'torch': require('../../../assets/images/mascot/torch.webp'),
   'umbrella': require('../../../assets/images/mascot/umbrella.webp'),
   'violin': require('../../../assets/images/mascot/violin.webp'),
+  // Everyday moments (off duty).
+  'bee-chase': require('../../../assets/images/mascot/bee-chase.webp'),
+  'bee-hello': require('../../../assets/images/mascot/bee-hello.webp'),
+  'book-tower': require('../../../assets/images/mascot/book-tower.webp'),
+  'coffee-jitter': require('../../../assets/images/mascot/coffee-jitter.webp'),
+  'cupcake-sneak': require('../../../assets/images/mascot/cupcake-sneak.webp'),
+  'giant-sandwich': require('../../../assets/images/mascot/giant-sandwich.webp'),
+  'hiccups': require('../../../assets/images/mascot/hiccups.webp'),
+  'paddling-pool': require('../../../assets/images/mascot/paddling-pool.webp'),
+  'pigeon-head': require('../../../assets/images/mascot/pigeon-head.webp'),
+  'sandwich': require('../../../assets/images/mascot/sandwich.webp'),
+  'sneeze': require('../../../assets/images/mascot/sneeze.webp'),
+  'spaghetti': require('../../../assets/images/mascot/spaghetti.webp'),
+  'storm-umbrella': require('../../../assets/images/mascot/storm-umbrella.webp'),
+  'stuck-jar': require('../../../assets/images/mascot/stuck-jar.webp'),
+  'sun-reflector': require('../../../assets/images/mascot/sun-reflector.webp'),
+  'tape-measure': require('../../../assets/images/mascot/tape-measure.webp'),
+  'tea-pinky': require('../../../assets/images/mascot/tea-pinky.webp'),
+  'tiny-hat': require('../../../assets/images/mascot/tiny-hat.webp'),
+  'trick-candle': require('../../../assets/images/mascot/trick-candle.webp'),
+  'yoga-wobble': require('../../../assets/images/mascot/yoga-wobble.webp'),
 };
 
 export const SPOT_ART: Partial<Record<MascotSpot, ImageSourcePropType>> = {
