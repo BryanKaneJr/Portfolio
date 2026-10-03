@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 69,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Marco Polo and Ibn Battuta",
   "objective": "After this level you can compare two great medieval travelers.",
@@ -115,41 +115,26 @@
   "questions": [
     {
       "id": "question.middle_ages.069.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.marco_polo_travels"
       ],
       "sourceCardIds": [
-        "card.middle_ages.069.c2"
+        "card.middle_ages.069.c2",
+        "card.middle_ages.069.c4"
       ],
-      "prompt": "Who wrote down Marco Polo’s story while they were both prisoners?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Rustichello of Pisa, a romance writer",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Ibn Juzayy, a Moroccan writer",
-          "correct": false,
-          "rationale": "He wrote for Ibn Battuta."
-        },
-        {
-          "id": "c",
-          "label": "Kublai Khan’s court scribe",
-          "correct": false,
-          "rationale": "Polo dictated it in Genoa."
-        },
-        {
-          "id": "d",
-          "label": "Fibonacci of Pisa, a mathematician",
-          "correct": false,
-          "rationale": "Wrong man from Pisa."
-        }
+      "prompt": "Put these moments from the two travellers’ lives in order, from earliest to latest.",
+      "items": [
+        "Set out for Asia",
+        "Reached Kublai Khan’s court",
+        "Ibn Battuta was born in Tangier",
+        "Set out on the hajj",
+        "Made him his envoy to China"
       ],
-      "explanation": "Captured in 1298, Polo dictated his story to Rustichello of Pisa, a writer of romances.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Marco Polo set out for Asia in 1271 and reached Kublai Khan’s court about 1275. Ibn Battuta was born in Tangier in 1304, set out on the hajj in 1325, and was made the sultan’s envoy to China in 1342.",
       "difficulty": 0.2
     },
     {

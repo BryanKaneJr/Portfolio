@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 10,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: After Rome",
   "objective": "After this level you can explain how Europe and the Mediterranean changed after Rome fell in the West.",
@@ -159,7 +159,7 @@
   "questions": [
     {
       "id": "question.middle_ages.010.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.romes_three_heirs",
@@ -170,33 +170,17 @@
         "card.middle_ages.003.c2",
         "card.middle_ages.005.c1"
       ],
-      "prompt": "After Rome fell in the West, which order of events is right?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Odoacer deposes the emperor, Hagia Sophia is completed, the hijra",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Hagia Sophia is completed, Odoacer deposes the emperor, the hijra",
-          "correct": false,
-          "rationale": "Odoacer came first, in 476."
-        },
-        {
-          "id": "c",
-          "label": "The hijra, Odoacer deposes the emperor, Hagia Sophia is completed",
-          "correct": false,
-          "rationale": "The hijra came last, in 622."
-        },
-        {
-          "id": "d",
-          "label": "Odoacer deposes the emperor, the hijra, Hagia Sophia is completed",
-          "correct": false,
-          "rationale": "Hagia Sophia (537) came before 622."
-        }
+      "prompt": "Put these events after Rome’s fall in the West in order, from earliest to latest.",
+      "items": [
+        "Odoacer deposes the last western emperor",
+        "Benedict founds Monte Cassino",
+        "Hagia Sophia is completed",
+        "The hijra: Muhammad moves to Medina",
+        "Muslim forces begin overrunning Spain"
       ],
-      "explanation": "476, then 537, then 622.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Odoacer deposed the last western emperor in 476, Benedict founded Monte Cassino in 529, Hagia Sophia was completed in 537, the hijra came in 622, and Muslim forces began overrunning Spain in 711.",
       "difficulty": 0.3
     },
     {
