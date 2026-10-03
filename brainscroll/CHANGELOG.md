@@ -6,6 +6,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 - **A new way to answer** (owner): some multiple-choice questions are now a sentence with a gap ("Counting outward from the Sun, Earth is the _____ planet."). The options sit underneath as chips; tap one and it leaves the row and pops into the gap, leaving its outline behind. Tap it again to take it back. A wrong pick goes back crossed out; the right one turns mint in the sentence.
 - **The gap fits the longest option**, so every answer fits and the gap's size gives nothing away. Options are 30 characters or fewer; the validator also checks there's exactly one gap and that the prompt is a statement, not a question.
+- **In about half of all lessons:** 1,339 of 2,600 levels (48 to 54 per tree) now have one, rewritten from an existing question only where a gap reads naturally, every option fits it grammatically and only one makes a true sentence. Facts are unchanged; each changed level's revision is bumped.
 - **Nothing changes underneath:** it's still multiple choice (a prompt with `_____`), graded, recorded and reviewed the same way, so the server needed no change. Screen readers hear the whole sentence with "blank" or the chosen answer in the gap.
 
 ## 2026-10-03: Match and order questions
