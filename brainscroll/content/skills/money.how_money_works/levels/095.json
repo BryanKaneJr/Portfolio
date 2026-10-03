@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 95,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Behavioral Economics",
   "objective": "After this level you can explain why real people don't always act rationally with money.",
@@ -93,41 +93,36 @@
   "questions": [
     {
       "id": "question.how_money_works.095.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.ideas_behav_loss_aversion"
       ],
       "sourceCardIds": [
-        "card.how_money_works.095.c3"
+        "card.how_money_works.095.c2",
+        "card.how_money_works.095.c3",
+        "card.how_money_works.095.c5"
       ],
-      "prompt": "What is loss aversion?",
-      "options": [
+      "prompt": "Match each behavioral economics idea or name with what it stands for.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Avoiding all risky investments",
-          "correct": false,
-          "rationale": "It is about how losses feel, not a rule about investing."
+          "left": "Loss aversion",
+          "right": "Losing something feels worse"
         },
         {
-          "id": "b",
-          "label": "Feeling a loss more strongly than an equal gain",
-          "correct": true
+          "left": "Endowment effect",
+          "right": "Because we own them"
         },
         {
-          "id": "c",
-          "label": "Forgetting what you paid for something",
-          "correct": false,
-          "rationale": "It is about the sting of losing, not memory."
+          "left": "Daniel Kahneman",
+          "right": "Prospect Theory"
         },
         {
-          "id": "d",
-          "label": "Refusing ever to sell anything",
-          "correct": false,
-          "rationale": "Owners do sell; they just want more to part with things."
+          "left": "John List",
+          "right": "Market experience"
         }
       ],
-      "explanation": "Loss aversion means a loss stings more than an equally large gain pleases.",
+      "explanation": "Loss aversion: losing something feels worse than gaining the same thing feels good. The endowment effect: we value things more because we own them. Daniel Kahneman co-created Prospect Theory, and John List found market experience shrinks the effect.",
       "difficulty": 0.2
     },
     {

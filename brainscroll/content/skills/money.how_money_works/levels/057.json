@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 57,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Printing Money",
   "objective": "After this level you can explain why creating money too fast makes prices rise.",
@@ -91,7 +91,7 @@
   "questions": [
     {
       "id": "question.how_money_works.057.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.govt_money_growth_prices",
@@ -101,33 +101,15 @@
         "card.how_money_works.057.c1",
         "card.how_money_works.057.c2"
       ],
-      "prompt": "From Level 1: why did prices in Radford's camp soar after a big cigarette delivery?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The guards raised prices as a punishment",
-          "correct": false,
-          "rationale": "Prices moved with the camp's own supply of money."
-        },
-        {
-          "id": "b",
-          "label": "Suddenly much more money was chasing the camp's goods",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Prisoners had stopped smoking, so cigarettes lost value",
-          "correct": false,
-          "rationale": "The flood of cigarettes was the cause, not smoking habits."
-        },
-        {
-          "id": "d",
-          "label": "The Red Cross also doubled the food parcels",
-          "correct": false,
-          "rationale": "The surge was in cigarettes, the camp's money."
-        }
+      "prompt": "Put the story of the camp's cigarette flood in order.",
+      "items": [
+        "Big deliveries",
+        "Prices soared",
+        "Fell as stocks ran out"
       ],
-      "explanation": "Cigarettes were the camp's money. More money chasing the same goods bid prices up.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Big deliveries brought a flood of cigarettes, the camp's money. Prices soared, then fell as stocks ran out.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 67,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "What \"Statistically Significant\" Means",
   "objective": "After this level you can explain honestly what a significant result and a p-value tell you: how surprising the data would be if nothing were going on.",
@@ -130,42 +130,32 @@
     },
     {
       "id": "question.probability.067.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.significance_p_value"
       ],
       "sourceCardIds": [
         "card.probability.067.c3",
-        "card.probability.067.c4"
+        "card.probability.067.c4",
+        "card.probability.067.c2"
       ],
-      "prompt": "What does a small p-value tell you about a study's results?",
-      "options": [
+      "prompt": "Match each part of Fisher's tea test with its number.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The finding is almost certainly true",
-          "correct": false,
-          "rationale": "The ASA warns a p-value isn't the chance the hypothesis is true."
+          "left": "Ways to choose 4 cups from 8",
+          "right": "70"
         },
         {
-          "id": "b",
-          "label": "The effect is large and important",
-          "correct": false,
-          "rationale": "Significance says nothing about size, as the next level shows."
+          "left": "Someone just guessing",
+          "right": "1 time in 70"
         },
         {
-          "id": "c",
-          "label": "The study made no mistakes",
-          "correct": false,
-          "rationale": "A p-value can't check a study for errors."
-        },
-        {
-          "id": "d",
-          "label": "Results this striking would be rare if nothing were going on",
-          "correct": true
+          "left": "Draw the line at",
+          "right": "5 percent"
         }
       ],
-      "explanation": "A p-value asks how surprising the results would be if nothing were going on. Small means luck alone would rarely produce them.",
+      "explanation": "There are 70 ways to choose 4 cups from 8, so someone just guessing gets them all right only 1 time in 70. Fisher would usually draw the line for significance at 5 percent.",
       "difficulty": 0.4
     },
     {

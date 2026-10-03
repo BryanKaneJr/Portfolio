@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 56,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Interest Rates and the Economy",
   "objective": "After this level you can explain how central banks raise or lower interest rates to cool or boost the economy.",
@@ -133,7 +133,7 @@
     },
     {
       "id": "question.how_money_works.056.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.govt_policy_rate_effects"
@@ -142,33 +142,16 @@
         "card.how_money_works.056.c3",
         "card.how_money_works.056.c4"
       ],
-      "prompt": "A central bank cuts rates during a slump. How is that meant to help, and what is the catch?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It boosts spending and hiring, but only after a long, variable lag",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "It makes saving pay more, and it works the next morning",
-          "correct": false,
-          "rationale": "A cut lowers what savings pay, and the effect lags."
-        },
-        {
-          "id": "c",
-          "label": "It cuts taxes directly, with no delay at all",
-          "correct": false,
-          "rationale": "Central banks don't set taxes."
-        },
-        {
-          "id": "d",
-          "label": "It makes prices fall at once, with no side effects",
-          "correct": false,
-          "rationale": "Cheaper borrowing tends to push spending and prices up, not down."
-        }
+      "prompt": "A central bank cuts its rate in a slump. Put what follows in order.",
+      "items": [
+        "Cutting the rate",
+        "Borrowing gets cheaper",
+        "Households and businesses spend more",
+        "Businesses hire more workers"
       ],
-      "explanation": "Cutting the rate is the accelerator, but Friedman found the lag ran from 4 to 29 months.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Cutting the rate makes borrowing cheaper, so households and businesses spend more, and businesses hire more workers to keep up. It all works with a long and variable lag.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 62,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Measuring Inflation",
   "objective": "After this level you can explain how a basket of everyday goods measures the cost of living.",
@@ -92,41 +92,31 @@
   "questions": [
     {
       "id": "question.how_money_works.062.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.cpi_basket"
       ],
       "sourceCardIds": [
-        "card.how_money_works.062.c2"
+        "card.how_money_works.062.c2",
+        "card.how_money_works.062.c3"
       ],
-      "prompt": "What does the consumer price index track over time?",
-      "options": [
+      "prompt": "Match each change to Britain's 2024 inflation basket with the reason given.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The cost of a basket of things households buy",
-          "correct": true
+          "left": "Air fryers",
+          "right": "Prized for their energy savings"
         },
         {
-          "id": "b",
-          "label": "The prices of company shares on the stock market",
-          "correct": false,
-          "rationale": "That's a stock index, not the CPI."
+          "left": "Vinyl records",
+          "right": "After more than thirty years away"
         },
         {
-          "id": "c",
-          "label": "The value of everything a country produces",
-          "correct": false,
-          "rationale": "That's output, not the price of a household basket."
-        },
-        {
-          "id": "d",
-          "label": "The wages paid to government workers",
-          "correct": false,
-          "rationale": "Wages aren't the basket; prices of what households buy are."
+          "left": "Hand sanitiser",
+          "right": "As the pandemic faded"
         }
       ],
-      "explanation": "The CPI follows the cost of a representative, spending-weighted basket of goods and services.",
+      "explanation": "Air fryers went in, prized for their energy savings. Vinyl records returned after more than thirty years away. Hand sanitiser came out as the pandemic faded.",
       "difficulty": 0.15
     },
     {

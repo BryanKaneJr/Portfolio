@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 30,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: How Chance Works",
   "objective": "After this level you can work out simple chances with dice and coins, and explain why luck does not \"even out\" in the short run.",
@@ -173,7 +173,7 @@
   "questions": [
     {
       "id": "question.probability.030.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.chance_three_tools",
@@ -182,33 +182,22 @@
       "sourceCardIds": [
         "card.probability.030.c2"
       ],
-      "prompt": "Which of the three chance tools handles an \"at least one\" question most easily?",
-      "options": [
+      "prompt": "Match each chance tool with when to use it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Count all the outcomes and divide by 2",
-          "correct": false,
-          "rationale": "Dividing by 2 only works for a coin's single flip."
+          "left": "Count",
+          "right": "Outcomes are equally likely"
         },
         {
-          "id": "b",
-          "label": "Add up the chance of each try",
-          "correct": false,
-          "rationale": "Adding overcounts: four rolls would give 4/6, too high."
+          "left": "Multiply",
+          "right": "Independent events"
         },
         {
-          "id": "c",
-          "label": "Find the chance of none, then take it from 1",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Multiply the number of tries by 6",
-          "correct": false,
-          "rationale": "Multiplying tries by 6 gives a count, not a chance."
+          "left": "Flip",
+          "right": "\"At least one\""
         }
       ],
-      "explanation": "At least one hides many cases; none is a single case. Work it out, then take it from 1.",
+      "explanation": "Count when outcomes are equally likely, multiply for independent events, and flip (find the chance of none, take it from 1) for \"at least one\".",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 28,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Law of Large Numbers",
   "objective": "After this level you can explain why results settle close to the true chance over many tries but swing wildly over a few.",
@@ -168,7 +168,7 @@
     },
     {
       "id": "question.probability.028.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.probability.chance_law_large_numbers",
@@ -178,33 +178,22 @@
         "card.probability.028.c2",
         "card.probability.021.c3"
       ],
-      "prompt": "Level 21 defined a probability as a long-run share. Why did testing it take thousands of tosses, not ten?",
-      "options": [
+      "prompt": "Toss a fair coin. Match the number of tosses with the chance of getting 40% to 60% heads.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Coins behave differently when new",
-          "correct": false,
-          "rationale": "A fair coin is the same on every toss."
+          "left": "10",
+          "right": "About a 66% chance"
         },
         {
-          "id": "b",
-          "label": "Ten tosses always give exactly 5 heads",
-          "correct": false,
-          "rationale": "Ten tosses often give 4 or 6 heads, sometimes further off."
+          "left": "100",
+          "right": "96%"
         },
         {
-          "id": "c",
-          "label": "Over a few tosses, the share of heads can swing widely",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Short runs are fairer than long ones",
-          "correct": false,
-          "rationale": "Short runs swing more, which makes them worse for testing."
+          "left": "1,000",
+          "right": "Almost 100%"
         }
       ],
-      "explanation": "With 10 tosses, there is about a 1 in 3 chance of landing outside 40% to 60% heads; over thousands, the share settles near the true chance.",
+      "explanation": "With 10 tosses there's only about a 66% chance of 40% to 60% heads. With 100 it's 96%, and with 1,000 it's almost 100%.",
       "difficulty": 0.3
     }
   ],

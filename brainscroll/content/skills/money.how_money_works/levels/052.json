@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 52,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Who Pays What",
   "objective": "After this level you can compare tax systems where the rate rises with income to systems with one rate.",
@@ -114,7 +114,7 @@
   "questions": [
     {
       "id": "question.how_money_works.052.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.govt_tax_progressivity"
@@ -122,33 +122,22 @@
       "sourceCardIds": [
         "card.how_money_works.052.c2"
       ],
-      "prompt": "In a progressive tax, how does the share of income paid change as income rises?",
-      "options": [
+      "prompt": "Match each kind of tax with how it shares out the bill.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It stays exactly the same",
-          "correct": false,
-          "rationale": "That's a proportional, or flat, tax."
+          "left": "A progressive tax",
+          "right": "A bigger share from the higher incomes"
         },
         {
-          "id": "b",
-          "label": "It gets bigger",
-          "correct": true
+          "left": "Proportional",
+          "right": "The same share from everyone"
         },
         {
-          "id": "c",
-          "label": "It gets smaller",
-          "correct": false,
-          "rationale": "That's a regressive tax."
-        },
-        {
-          "id": "d",
-          "label": "It drops to zero above a set income",
-          "correct": false,
-          "rationale": "No: the share rises with income."
+          "left": "A regressive tax",
+          "right": "A smaller share as income rises"
         }
       ],
-      "explanation": "A progressive tax, like the US federal income tax, takes a bigger share of higher incomes.",
+      "explanation": "A progressive tax takes a bigger share from higher incomes, a proportional (flat) tax takes the same share from everyone, and a regressive tax takes a smaller share as income rises.",
       "difficulty": 0.15
     },
     {

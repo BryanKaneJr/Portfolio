@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 21,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "What a Probability Is",
   "objective": "After this level you can place a chance on the scale from impossible (0) to certain (1) and explain it as a long-run share of outcomes.",
@@ -96,7 +96,7 @@
   "questions": [
     {
       "id": "question.probability.021.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.chance_zero_to_one_scale"
@@ -104,33 +104,22 @@
       "sourceCardIds": [
         "card.probability.021.c2"
       ],
-      "prompt": "On the probability scale, what does a probability of 0 mean?",
-      "options": [
+      "prompt": "Match each probability with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The event is as likely as not",
-          "correct": false,
-          "rationale": "That is 0.5, the middle of the scale."
+          "left": "0",
+          "right": "Never happens"
         },
         {
-          "id": "b",
-          "label": "The event can never happen",
-          "correct": true
+          "left": "1",
+          "right": "Always happens"
         },
         {
-          "id": "c",
-          "label": "The event always happens",
-          "correct": false,
-          "rationale": "That is 1, the top of the scale."
-        },
-        {
-          "id": "d",
-          "label": "Nobody knows the chance yet",
-          "correct": false,
-          "rationale": "A 0 is a known chance: never."
+          "left": "0.5",
+          "right": "As likely to happen as not"
         }
       ],
-      "explanation": "Probabilities run from 0 to 1: 0 means the event never happens, like rolling a 7 on one die.",
+      "explanation": "A probability of 0 means the event never happens, 1 means it always happens, and 0.5 means it's as likely to happen as not.",
       "difficulty": 0.1
     },
     {

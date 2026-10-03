@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 43,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Demand",
   "objective": "After this level you can explain why buyers want less of something when its price rises.",
@@ -100,41 +100,31 @@
   "questions": [
     {
       "id": "question.how_money_works.043.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.demand_law"
       ],
       "sourceCardIds": [
-        "card.how_money_works.043.c2"
+        "card.how_money_works.043.c2",
+        "card.how_money_works.043.c3"
       ],
-      "prompt": "What does the law of demand say?",
-      "options": [
+      "prompt": "Match each demand term with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "When a price rises, sellers offer more",
-          "correct": false,
-          "rationale": "That's the law of supply."
+          "left": "Quantity demanded",
+          "right": "The amount buyers want at that price"
         },
         {
-          "id": "b",
-          "label": "When a price rises, buyers want less of it",
-          "correct": true
+          "left": "Demand curve",
+          "right": "Slopes downward"
         },
         {
-          "id": "c",
-          "label": "Buyers always want the same amount",
-          "correct": false,
-          "rationale": "The amount buyers want changes with the price."
-        },
-        {
-          "id": "d",
-          "label": "Higher prices make people want more",
-          "correct": false,
-          "rationale": "It works the other way for almost all goods."
+          "left": "Income effect",
+          "right": "Shrinks what your money can buy"
         }
       ],
-      "explanation": "A rise in price almost always decreases the quantity demanded; a fall increases it.",
+      "explanation": "Quantity demanded is the amount buyers want at a given price. The demand curve slopes downward. In the income effect, a higher price shrinks what your money can buy.",
       "difficulty": 0.1
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 35,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Is Insurance a Bad Bet?",
   "objective": "After this level you can explain why insurance loses money on average for buyers yet can still be a sensible choice.",
@@ -125,7 +125,7 @@
     },
     {
       "id": "question.probability.035.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.bet_insurance_expected_value"
@@ -133,33 +133,22 @@
       "sourceCardIds": [
         "card.probability.035.c3"
       ],
-      "prompt": "A $1,000 bike has a 1 in 100 yearly chance of being replaced. How does an insurer make money covering it?",
-      "options": [
+      "prompt": "Think of the $1,000 bike with a 1 in 100 yearly chance of being replaced. Match each with its amount.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It charges the $10 expected loss plus a little extra",
-          "correct": true
+          "left": "Expected loss",
+          "right": "$10 a year"
         },
         {
-          "id": "b",
-          "label": "It charges exactly $10 and hopes for a lucky year",
-          "correct": false,
-          "rationale": "At exactly the expected loss, it would only break even on average."
+          "left": "An insurer would charge",
+          "right": "That $10 plus a little extra"
         },
         {
-          "id": "c",
-          "label": "It charges $1,000 up front",
-          "correct": false,
-          "rationale": "No one would buy that; it's the whole bike."
-        },
-        {
-          "id": "d",
-          "label": "It refuses to pay most claims",
-          "correct": false,
-          "rationale": "The profit comes from the extra in the premium."
+          "left": "Most years you pay and get",
+          "right": "Nothing back"
         }
       ],
-      "explanation": "$1,000 × 1/100 is a $10 expected loss. Charging a little more than $10 leaves the insurer ahead on average.",
+      "explanation": "The expected loss is $1,000 × 1/100, or $10 a year. An insurer would charge that $10 plus a little extra, and most years you pay and get nothing back.",
       "difficulty": 0.3
     },
     {

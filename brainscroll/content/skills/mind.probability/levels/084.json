@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 84,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Small Places, Extreme Numbers",
   "objective": "After this level you can explain why the smallest groups show both the highest and the lowest rates, just by chance.",
@@ -121,7 +121,7 @@
     },
     {
       "id": "question.probability.084.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.trap_small_groups_extremes"
@@ -130,33 +130,22 @@
         "card.probability.084.c3",
         "card.probability.084.c4"
       ],
-      "prompt": "A ranking of hospitals by death rate puts several small rural hospitals at both the very top and the very bottom. What's the best first explanation?",
-      "options": [
+      "prompt": "In a county of 100 people, compare no deaths with one death, then a county of millions. Match each with its rate.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Rural doctors are either excellent or poor",
-          "correct": false,
-          "rationale": "A story is possible, but chance explains both ends at once."
+          "left": "No cancer deaths",
+          "right": "A rate of 0"
         },
         {
-          "id": "b",
-          "label": "The ranking mixed up two lists",
-          "correct": false,
-          "rationale": "No error is needed; small groups do this naturally."
+          "left": "One death",
+          "right": "1,000 per 100,000"
         },
         {
-          "id": "c",
-          "label": "Small hospitals' rates swing more by chance",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Big hospitals hide their deaths",
-          "correct": false,
-          "rationale": "Nothing suggests hiding; big places simply vary less."
+          "left": "Millions of people",
+          "right": "Near 5 per 100,000"
         }
       ],
-      "explanation": "With few patients, a death or two moves a small hospital's rate a lot, so small hospitals fill both ends by chance.",
+      "explanation": "In a county of 100 people, no cancer deaths gives a rate of 0, and one death makes it 1,000 per 100,000. Counties with millions of people all sat near 5 per 100,000.",
       "difficulty": 0.45
     },
     {

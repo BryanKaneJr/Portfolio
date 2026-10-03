@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 68,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Bubbles",
   "objective": "After this level you can explain speculative bubbles, from Dutch tulips to dot-com stocks.",
@@ -92,41 +92,26 @@
   "questions": [
     {
       "id": "question.how_money_works.068.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.tulip_mania"
       ],
       "sourceCardIds": [
-        "card.how_money_works.068.c3"
+        "card.how_money_works.068.c1",
+        "card.how_money_works.068.c3",
+        "card.how_money_works.068.c4"
       ],
-      "prompt": "What did historian Anne Goldgar find about tulip mania?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It ruined the whole Dutch economy",
-          "correct": false,
-          "rationale": "That's the legend she tested and rejected."
-        },
-        {
-          "id": "b",
-          "label": "Tulips were never sold for money",
-          "correct": false,
-          "rationale": "They were; the market cracked in 1637."
-        },
-        {
-          "id": "c",
-          "label": "Few took part, and she found no bankruptcies",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "A banking collapse caused the crash",
-          "correct": false,
-          "rationale": "The crash came when buyers couldn't pay agreed prices."
-        }
+      "prompt": "Put these moments in the story of bubbles in order, from earliest to latest.",
+      "items": [
+        "The Dutch market for tulip bulbs",
+        "Charles Mackay",
+        "Nasdaq index peaked",
+        "Robert Shiller"
       ],
-      "explanation": "Goldgar found few people involved, minor damage and nobody she could identify as bankrupt.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Dutch market for tulip bulbs cracked in 1637, Charles Mackay's book came out in 1841, the Nasdaq index peaked in March 2000, and Robert Shiller shared the Nobel in 2013.",
       "difficulty": 0.2
     },
     {

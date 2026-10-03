@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 20,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Averages and Spread",
   "objective": "After this level you can choose the right average for a set of numbers and describe how spread out it is.",
@@ -152,7 +152,7 @@
   "questions": [
     {
       "id": "question.probability.020.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.averages_mode"
@@ -161,33 +161,22 @@
         "card.probability.020.c2",
         "card.probability.014.c3"
       ],
-      "prompt": "Which average can describe a list of favorite pizza toppings?",
-      "options": [
+      "prompt": "Match each average with what it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The mean",
-          "correct": false,
-          "rationale": "You cannot add toppings together."
+          "left": "Mean",
+          "right": "The total shared out equally"
         },
         {
-          "id": "b",
-          "label": "The median",
-          "correct": false,
-          "rationale": "Toppings cannot be lined up from small to large."
+          "left": "Median",
+          "right": "The middle value, in order"
         },
         {
-          "id": "c",
-          "label": "The mode",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The range",
-          "correct": false,
-          "rationale": "The range measures spread, and needs numbers."
+          "left": "Mode",
+          "right": "The most common value"
         }
       ],
-      "explanation": "Toppings are categories, and only the mode works for categories: the most common topping.",
+      "explanation": "The mean is the total shared out equally, the median is the middle value once things are in order, and the mode is the most common value.",
       "difficulty": 0.15
     },
     {

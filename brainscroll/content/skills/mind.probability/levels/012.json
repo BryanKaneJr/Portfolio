@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 12,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Median: The Middle One",
   "objective": "After this level you can find the median by lining values up in order and explain why it is the \"typical\" middle case.",
@@ -159,7 +159,7 @@
     },
     {
       "id": "question.probability.012.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.probability.averages_median_middle",
@@ -167,35 +167,25 @@
       ],
       "sourceCardIds": [
         "card.probability.012.c4",
-        "card.probability.011.c2"
+        "card.probability.011.c2",
+        "card.probability.012.c2"
       ],
-      "prompt": "For 11 retirement ages, the mean is about 56.6 and the median is 57. What is each one doing?",
-      "options": [
+      "prompt": "For the 11 retirement ages, match each with its number.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The mean shares the total out; the median finds the middle",
-          "correct": true
+          "left": "The ages add up to",
+          "right": "623"
         },
         {
-          "id": "b",
-          "label": "Both pick the middle value, just rounded differently",
-          "correct": false,
-          "rationale": "Only the median picks the middle; the mean adds and divides."
+          "left": "The mean",
+          "right": "About 56.6"
         },
         {
-          "id": "c",
-          "label": "The mean is the most common age; the median is the total",
-          "correct": false,
-          "rationale": "The most common value is the mode."
-        },
-        {
-          "id": "d",
-          "label": "The median adds the ages; the mean lines them up",
-          "correct": false,
-          "rationale": "It is the other way round."
+          "left": "The median",
+          "right": "57"
         }
       ],
-      "explanation": "The mean adds the ages and shares them out (623 ÷ 11); the median lines them up and takes the middle one.",
+      "explanation": "The 11 ages add up to 623, so the mean is about 56.6. The median, the sixth age in order, is 57.",
       "difficulty": 0.3
     }
   ],

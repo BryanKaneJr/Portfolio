@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 71,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Reading Any Chart",
   "objective": "After this level you can read a chart by checking its title, axes, units and source before looking at its shape.",
@@ -85,41 +85,36 @@
   "questions": [
     {
       "id": "question.probability.071.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.chart_read_the_words"
       ],
       "sourceCardIds": [
-        "card.probability.071.c2"
+        "card.probability.071.c2",
+        "card.probability.071.c3",
+        "card.probability.071.c4"
       ],
-      "prompt": "According to chart guidance, what should a chart's subtitle tell you?",
-      "options": [
+      "prompt": "Match each part of a chart with what it tells you.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The chart maker's opinion of the data",
-          "correct": false,
-          "rationale": "That belongs in the main title, which states the message."
+          "left": "Main title",
+          "right": "States the chart's message"
         },
         {
-          "id": "b",
-          "label": "What was measured, where, and over what time",
-          "correct": true
+          "left": "Subtitle",
+          "right": "What was measured"
         },
         {
-          "id": "c",
-          "label": "Which colors stand for which lines",
-          "correct": false,
-          "rationale": "Colors are labels; the subtitle describes the data itself."
+          "left": "Axis title",
+          "right": "Unit of measurement"
         },
         {
-          "id": "d",
-          "label": "How big the change was in percent",
-          "correct": false,
-          "rationale": "The subtitle describes the measure, place and time, not the result."
+          "left": "Source",
+          "right": "Where did the numbers come from?"
         }
       ],
-      "explanation": "The subtitle names the measure, the place and the time period, like \"Number of people living in one person households, England, 1991 to 2021\".",
+      "explanation": "The main title states the chart's message, the subtitle says what was measured (where and when), each axis title gives its unit of measurement, and the source says where the numbers came from.",
       "difficulty": 0.2
     },
     {

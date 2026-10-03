@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 51,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Taxes",
   "objective": "After this level you can explain what taxes pay for and name the main kinds of tax.",
@@ -109,42 +109,30 @@
   "questions": [
     {
       "id": "question.how_money_works.051.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.govt_tax_kinds"
       ],
       "sourceCardIds": [
-        "card.how_money_works.051.c4",
-        "card.how_money_works.051.c5"
+        "card.how_money_works.051.c4"
       ],
-      "prompt": "Which of these is a tax on what you buy?",
-      "options": [
+      "prompt": "Match each tax with what it taxes.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Property tax",
-          "correct": false,
-          "rationale": "That taxes what you own."
+          "left": "Income tax",
+          "right": "What you earn"
         },
         {
-          "id": "b",
-          "label": "Income tax",
-          "correct": false,
-          "rationale": "That taxes what you earn."
+          "left": "Sales taxes",
+          "right": "What you buy"
         },
         {
-          "id": "c",
-          "label": "Value-added tax",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Estate tax",
-          "correct": false,
-          "rationale": "That taxes what people leave behind."
+          "left": "Property taxes",
+          "right": "What you own"
         }
       ],
-      "explanation": "A VAT, like a sales tax, falls on spending: it is a tax on what you buy.",
+      "explanation": "Income tax is a tax on what you earn, sales taxes are taxes on what you buy, and property taxes are taxes on what you own.",
       "difficulty": 0.15
     },
     {

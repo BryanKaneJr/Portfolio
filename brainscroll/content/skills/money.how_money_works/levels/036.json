@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 36,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Diversification",
   "objective": "After this level you can explain why spreading money across many investments lowers risk.",
@@ -86,41 +86,32 @@
   "questions": [
     {
       "id": "question.how_money_works.036.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.divers_spreading_risk"
       ],
       "sourceCardIds": [
-        "card.how_money_works.036.c2"
+        "card.how_money_works.036.c1",
+        "card.how_money_works.036.c2",
+        "card.how_money_works.036.c4"
       ],
-      "prompt": "What is diversification?",
-      "options": [
+      "prompt": "Match each one with what this level says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Moving all your money into the best recent performer",
-          "correct": false,
-          "rationale": "That's the opposite: one basket."
+          "left": "Diversification",
+          "right": "Don't put all your eggs in one basket"
         },
         {
-          "id": "b",
-          "label": "Spreading money across many investments to cut risk",
-          "correct": true
+          "left": "Enron",
+          "right": "Went bankrupt"
         },
         {
-          "id": "c",
-          "label": "Keeping all savings in cash under a mattress",
-          "correct": false,
-          "rationale": "That's one basket too, and a squashy one."
-        },
-        {
-          "id": "d",
-          "label": "Buying and selling shares every single day",
-          "correct": false,
-          "rationale": "Diversifying is about how widely you spread, not how often you trade."
+          "left": "A fund focused on a single industry",
+          "right": "Still one basket"
         }
       ],
-      "explanation": "Diversification means spreading money among different investments so one failure can't sink everything.",
+      "explanation": "Diversification is the idea behind \"don't put all your eggs in one basket\". Enron went bankrupt in 2001, taking workers' savings with it. A fund focused on a single industry is still one basket.",
       "difficulty": 0.1
     },
     {

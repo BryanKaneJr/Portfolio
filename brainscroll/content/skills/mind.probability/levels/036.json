@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 36,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Monty Hall Puzzle",
   "objective": "After this level you can explain why switching doors in the Monty Hall puzzle wins two times out of three.",
@@ -124,7 +124,7 @@
     },
     {
       "id": "question.probability.036.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.bet_monty_hall"
@@ -133,33 +133,22 @@
         "card.probability.036.c2",
         "card.probability.036.c3"
       ],
-      "prompt": "How does switching win whenever your first pick was a goat?",
-      "options": [
+      "prompt": "Match each part of the Monty Hall puzzle with what happens.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The host picks his door at random, so he helps half the time",
-          "correct": false,
-          "rationale": "He knows where the car is and always shows a goat."
+          "left": "Your first pick is the car",
+          "right": "Switching loses"
         },
         {
-          "id": "b",
-          "label": "The car moves to the other door after you choose",
-          "correct": false,
-          "rationale": "Nothing moves; the host only opens a door."
+          "left": "Your first pick is a goat",
+          "right": "Switching wins"
         },
         {
-          "id": "c",
-          "label": "Switching gives you a second pick of all three doors",
-          "correct": false,
-          "rationale": "You can't pick the open door; the switch is to the one closed door."
-        },
-        {
-          "id": "d",
-          "label": "The host must open the other goat, leaving the car behind the last door",
-          "correct": true
+          "left": "The host",
+          "right": "Never reveals the car"
         }
       ],
-      "explanation": "With a goat picked, the host has to reveal the other goat, so the remaining closed door must hide the car.",
+      "explanation": "If your first pick is the car, switching loses. If it's a goat, switching wins, because the host never reveals the car and must open the other goat.",
       "difficulty": 0.35
     },
     {

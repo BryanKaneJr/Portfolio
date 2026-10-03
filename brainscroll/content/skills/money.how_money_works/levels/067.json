@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 67,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Unemployment",
   "objective": "After this level you can explain how unemployment is measured and name its main causes.",
@@ -116,41 +116,31 @@
   "questions": [
     {
       "id": "question.how_money_works.067.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.unemployment_measurement"
       ],
       "sourceCardIds": [
-        "card.how_money_works.067.c2"
+        "card.how_money_works.067.c2",
+        "card.how_money_works.067.c4"
       ],
-      "prompt": "Who counts as unemployed in US statistics?",
-      "options": [
+      "prompt": "Match each kind of unemployment with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Anyone without a paid job, retirees included",
-          "correct": false,
-          "rationale": "Retirees are outside the labor force."
+          "left": "Frictional",
+          "right": "Between jobs, or hunting for a first one"
         },
         {
-          "id": "b",
-          "label": "Everyone who files for unemployment benefits",
-          "correct": false,
-          "rationale": "Benefit claims aren't used; many jobless people never claim."
+          "left": "Structural",
+          "right": "Your skills no longer match"
         },
         {
-          "id": "c",
-          "label": "Jobless people who looked for work lately and can start",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Workers who want more hours than they get",
-          "correct": false,
-          "rationale": "They have a job, so they aren't unemployed."
+          "left": "Cyclical",
+          "right": "Rises in recessions"
         }
       ],
-      "explanation": "You count as unemployed if you have no job, looked for work in the prior 4 weeks and are available to start.",
+      "explanation": "Frictional unemployment is being between jobs or hunting for a first one. Structural is when your skills no longer match what employers want. Cyclical rises in recessions and falls in expansions.",
       "difficulty": 0.2
     },
     {

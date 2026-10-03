@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 17,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Spread in One Number",
   "objective": "After this level you can explain the standard deviation in plain words as the typical distance of values from the average.",
@@ -120,7 +120,7 @@
     },
     {
       "id": "question.probability.017.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.spread_standard_deviation"
@@ -128,33 +128,22 @@
       "sourceCardIds": [
         "card.probability.017.c3"
       ],
-      "prompt": "Two sets both have a mean of 6. One has a standard deviation of about 1, the other about 3. What does that tell you?",
-      "options": [
+      "prompt": "Match each set of values with its standard deviation.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The second set has the bigger mean",
-          "correct": false,
-          "rationale": "Both means are 6."
+          "left": "Values run from 4 to 8",
+          "right": "About 1"
         },
         {
-          "id": "b",
-          "label": "The second set's values are more spread out from 6",
-          "correct": true
+          "left": "They run from 1 to 11",
+          "right": "About 3"
         },
         {
-          "id": "c",
-          "label": "The first set has more values in it",
-          "correct": false,
-          "rationale": "The standard deviation measures spread, not how many values."
-        },
-        {
-          "id": "d",
-          "label": "The second set must contain a mistake",
-          "correct": false,
-          "rationale": "A bigger spread is not an error."
+          "left": "If every value were identical",
+          "right": "Zero"
         }
       ],
-      "explanation": "A bigger standard deviation means values sit further from the mean, typically about 3 away instead of about 1.",
+      "explanation": "The set running from 4 to 8 has a standard deviation of about 1, the set running from 1 to 11 about 3, and a set of identical values zero.",
       "difficulty": 0.3
     },
     {

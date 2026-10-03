@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 72,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Chopped-Off Axis",
   "objective": "After this level you can spot a bar chart whose axis doesn't start at zero and explain how it makes small gaps look huge.",
@@ -120,41 +120,24 @@
     },
     {
       "id": "question.probability.072.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.chart_truncated_axis"
       ],
       "sourceCardIds": [
-        "card.probability.072.c3"
+        "card.probability.072.c3",
+        "card.probability.072.c2"
       ],
-      "prompt": "How does starting a bar chart's axis at 48 make bars of 50 and 52 look so different?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It cuts off most of each bar, leaving lengths of 2 and 4",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "It changes the numbers the bars stand for",
-          "correct": false,
-          "rationale": "The values stay 50 and 52; only the drawing changes."
-        },
-        {
-          "id": "c",
-          "label": "It makes both bars look the same size",
-          "correct": false,
-          "rationale": "The opposite: the gap is exaggerated."
-        },
-        {
-          "id": "d",
-          "label": "It adds 48 to each bar",
-          "correct": false,
-          "rationale": "Starting at 48 removes the bottom 48 from each bar."
-        }
+      "prompt": "Put Huff's gee-whiz graph in order, from first to last.",
+      "items": [
+        "It looked like a modest climb",
+        "He chopped off the bottom of the chart",
+        "It climbed halfway up the page"
       ],
-      "explanation": "With the axis at 48, the bars show only 2 and 4 units above it, so one looks twice the other though 52 is only 4% more than 50.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "With a zero line at the bottom, the graph looked like a modest climb. Then Huff chopped off the bottom of the chart, and the same line climbed halfway up the page.",
       "difficulty": 0.35
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 82,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Starting a Business",
   "objective": "After this level you can explain what an entrepreneur does and what it costs to start a business.",
@@ -131,7 +131,7 @@
     },
     {
       "id": "question.how_money_works.082.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.startup_costs_funding"
@@ -139,33 +139,26 @@
       "sourceCardIds": [
         "card.how_money_works.082.c3"
       ],
-      "prompt": "A new bakery buys an oven once and pays rent every month. How do these costs differ?",
-      "options": [
+      "prompt": "Match each start-up cost with its kind.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Both are one-time start-up costs",
-          "correct": false,
-          "rationale": "Rent keeps coming every month."
+          "left": "Equipment",
+          "right": "One-time"
         },
         {
-          "id": "b",
-          "label": "The oven is one-time; the rent is ongoing",
-          "correct": true
+          "left": "Permits",
+          "right": "One-time"
         },
         {
-          "id": "c",
-          "label": "The rent is one-time; the oven is ongoing",
-          "correct": false,
-          "rationale": "It's the other way round."
+          "left": "Rent",
+          "right": "Keep coming"
         },
         {
-          "id": "d",
-          "label": "Neither counts as a business cost",
-          "correct": false,
-          "rationale": "Both are costs of starting and running the bakery."
+          "left": "Salaries",
+          "right": "Keep coming"
         }
       ],
-      "explanation": "Equipment like an oven is a one-time start-up cost; rent is an ongoing cost that keeps coming.",
+      "explanation": "Equipment and permits are one-time costs. Rent and salaries are costs that keep coming.",
       "difficulty": 0.25
     },
     {

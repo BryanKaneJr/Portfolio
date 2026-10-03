@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 11,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Mean: Add Up and Share Out",
   "objective": "After this level you can find the mean of a set of numbers and explain it as the amount each would get if the total were shared equally.",
@@ -124,41 +124,32 @@
     },
     {
       "id": "question.probability.011.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.averages_mean_fair_share"
       ],
       "sourceCardIds": [
-        "card.probability.011.c3"
+        "card.probability.011.c3",
+        "card.probability.011.c2",
+        "card.probability.011.c4"
       ],
-      "prompt": "Four quiz scores of 70, 90, 86 and 94 have a mean of 85. What does the 85 tell you?",
-      "options": [
+      "prompt": "Match each mean with the total that gets shared out.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "At least one of the quizzes scored exactly 85",
-          "correct": false,
-          "rationale": "None did; a mean need not appear in the list."
+          "left": "Five bottles",
+          "right": "10 liters"
         },
         {
-          "id": "b",
-          "label": "The most common score among the four quizzes",
-          "correct": false,
-          "rationale": "No score repeats; the mean is a fair share, not the most common value."
+          "left": "4 quizzes",
+          "right": "340"
         },
         {
-          "id": "c",
-          "label": "The score each quiz would get if the points were shared out equally",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The lowest score you could get on a quiz",
-          "correct": false,
-          "rationale": "The lowest score was 70; the mean sits in between."
+          "left": "Per capita income",
+          "right": "All the income in a place"
         }
       ],
-      "explanation": "The 340 points shared equally over 4 quizzes gives 85 each: the fair share, even though no quiz scored 85.",
+      "explanation": "The five bottles share 10 liters (2 each), the 4 quizzes share 340 points (85 each), and per capita income shares all the income in a place.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 15,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Outliers",
   "objective": "After this level you can spot an outlier and decide whether it is a mistake to fix or a real case worth keeping.",
@@ -125,42 +125,32 @@
     },
     {
       "id": "question.probability.015.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.averages_outliers"
       ],
       "sourceCardIds": [
         "card.probability.015.c3",
-        "card.probability.015.c4"
+        "card.probability.015.c4",
+        "card.probability.015.c1"
       ],
-      "prompt": "Why shouldn't you delete every outlier you find?",
-      "options": [
+      "prompt": "Match each outlier with what to do about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Some are real cases, like Robert Wadlow's height",
-          "correct": true
+          "left": "A child aged 123",
+          "right": "Fix it"
         },
         {
-          "id": "b",
-          "label": "Outliers never change the mean",
-          "correct": false,
-          "rationale": "They can pull the mean a long way."
+          "left": "A number typed wrong",
+          "right": "Fix it"
         },
         {
-          "id": "c",
-          "label": "Deleting data is always against the rules",
-          "correct": false,
-          "rationale": "A proven error can be corrected or removed."
-        },
-        {
-          "id": "d",
-          "label": "Outliers are always typing mistakes",
-          "correct": false,
-          "rationale": "Some are real values."
+          "left": "Robert Wadlow",
+          "right": "Keep it"
         }
       ],
-      "explanation": "Some outliers are errors to fix, but others are real, like Wadlow at 272 cm. Investigate first.",
+      "explanation": "A child aged 123 and a number typed wrong are mistakes, so you fix them. Robert Wadlow really was 272 cm, so you keep him.",
       "difficulty": 0.25
     },
     {

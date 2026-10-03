@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 61,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "What Inflation Is",
   "objective": "After this level you can explain inflation as a general rise in prices over time.",
@@ -95,41 +95,32 @@
   "questions": [
     {
       "id": "question.how_money_works.061.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.inflation_definition"
       ],
       "sourceCardIds": [
-        "card.how_money_works.061.c2"
+        "card.how_money_works.061.c1",
+        "card.how_money_works.061.c2",
+        "card.how_money_works.061.c4"
       ],
-      "prompt": "What does inflation measure?",
-      "options": [
+      "prompt": "Match each one with what this level links it to.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A price jump for one popular product",
-          "correct": false,
-          "rationale": "One item isn't enough: inflation is a broad rise."
+          "left": "Milton Friedman",
+          "right": "A monetary phenomenon"
         },
         {
-          "id": "b",
-          "label": "The number of new banknotes printed",
-          "correct": false,
-          "rationale": "That's about the money supply, not prices themselves."
+          "left": "Keynesians",
+          "right": "Spending and demand"
         },
         {
-          "id": "c",
-          "label": "The overall rise in prices over time",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The growth of everything a country produces",
-          "correct": false,
-          "rationale": "That's output, not prices."
+          "left": "Radford",
+          "right": "Prison camp"
         }
       ],
-      "explanation": "Inflation is the rate at which prices rise across the economy, not the price of a single item.",
+      "explanation": "Milton Friedman called inflation always and everywhere a monetary phenomenon. Keynesians put more weight on spending and demand. Radford watched a small bout of inflation in Level 1's prison camp.",
       "difficulty": 0.15
     },
     {

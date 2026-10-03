@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 34,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Math of the Lottery",
   "objective": "After this level you can compare the odds of winning a big jackpot with everyday chances and explain why a ticket's expected value is below its price.",
@@ -134,7 +134,7 @@
     },
     {
       "id": "question.probability.034.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.bet_lottery_expected_value"
@@ -142,33 +142,22 @@
       "sourceCardIds": [
         "card.probability.034.c4"
       ],
-      "prompt": "How can you tell a $2 Powerball play has an expected value below its price?",
-      "options": [
+      "prompt": "Match each part of a $2 Powerball play with its number.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Most players never win anything",
-          "correct": false,
-          "rationale": "True for most plays, but the expected value comes from how much goes to prizes."
+          "left": "A $2 play",
+          "right": "Returns about $1 in prizes"
         },
         {
-          "id": "b",
-          "label": "About half of each dollar played goes to prizes",
-          "correct": true
+          "left": "Win something",
+          "right": "About 1 in 25"
         },
         {
-          "id": "c",
-          "label": "The jackpot odds are too long to count",
-          "correct": false,
-          "rationale": "Long odds alone do not set the expected value; the prize money does."
-        },
-        {
-          "id": "d",
-          "label": "The smallest prize is only $4",
-          "correct": false,
-          "rationale": "Small prizes are part of it, but the key is that prizes total about half of sales."
+          "left": "The smallest prizes",
+          "right": "$4 and $7"
         }
       ],
-      "explanation": "Prizes total about 50% of sales, so on average a $2 play returns about $1.",
+      "explanation": "On average a $2 play returns about $1 in prizes. About 1 in 25 plays does win something, but the smallest prizes are $4 and $7.",
       "difficulty": 0.35
     },
     {

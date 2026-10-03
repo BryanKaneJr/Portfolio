@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 44,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Where Prices Come From",
   "objective": "After this level you can explain how supply and demand together set a price.",
@@ -139,7 +139,7 @@
     },
     {
       "id": "question.how_money_works.044.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.price_market_pressure"
@@ -147,33 +147,16 @@
       "sourceCardIds": [
         "card.how_money_works.044.c3"
       ],
-      "prompt": "A shop's price is above equilibrium, and unsold stock is piling up. What usually happens next?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Sellers raise the price further",
-          "correct": false,
-          "rationale": "Raising it would make the pile bigger."
-        },
-        {
-          "id": "b",
-          "label": "Buyers start wanting more at that price",
-          "correct": false,
-          "rationale": "Buyers want less at a high price, not more."
-        },
-        {
-          "id": "c",
-          "label": "Nothing: prices never move on their own",
-          "correct": false,
-          "rationale": "Unsold stock gives sellers a reason to move."
-        },
-        {
-          "id": "d",
-          "label": "Sellers cut the price",
-          "correct": true
-        }
+      "prompt": "A price is set too high. Put what happens next in order.",
+      "items": [
+        "Price too high",
+        "A surplus",
+        "Some sellers cut their prices",
+        "Shoved toward the crossing point"
       ],
-      "explanation": "A surplus pushes some sellers to cut prices, since selling cheaper beats not selling at all.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "When the price is too high, sellers bring more than buyers want: a surplus. Some sellers cut their prices, and the price gets shoved toward the crossing point.",
       "difficulty": 0.25
     },
     {

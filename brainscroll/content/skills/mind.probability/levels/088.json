@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 88,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "True for the Group, Not for You",
   "objective": "After this level you can explain why a pattern across groups or places may not hold for the individuals in them.",
@@ -85,41 +85,33 @@
   "questions": [
     {
       "id": "question.probability.088.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.trap_ecological_fallacy"
       ],
       "sourceCardIds": [
-        "card.probability.088.c4"
+        "card.probability.088.c4",
+        "card.probability.088.c1",
+        "card.probability.088.c2",
+        "card.probability.088.c3"
       ],
-      "prompt": "What is the ecological fallacy?",
-      "options": [
+      "prompt": "Match each with what the 1930 census showed. The \"in 100\" figures are people who could not read and write.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Blaming the environment for a person's choices",
-          "correct": false,
-          "rationale": "It's about data, not the natural environment."
+          "left": "States with more immigrants",
+          "right": "More literacy"
         },
         {
-          "id": "b",
-          "label": "Using too small a sample",
-          "correct": false,
-          "rationale": "That's a different trap; here the samples can be huge."
+          "left": "Foreign-born residents",
+          "right": "About 10 in 100"
         },
         {
-          "id": "c",
-          "label": "Assuming a pattern among groups holds for each person",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Studying animals instead of people",
-          "correct": false,
-          "rationale": "'Ecological' here means data about areas or groups."
+          "left": "The native-born",
+          "right": "About 3 in 100"
         }
       ],
-      "explanation": "The ecological fallacy is thinking that relationships observed for groups must hold for individuals.",
+      "explanation": "Across states, more immigrants went with more literacy. But counting people, about 10 in 100 foreign-born residents could not read and write, against about 3 in 100 of the native-born.",
       "difficulty": 0.3
     },
     {

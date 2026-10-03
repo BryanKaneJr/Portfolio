@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 37,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Index Funds",
   "objective": "After this level you can explain what index funds are and why they are popular.",
@@ -86,41 +86,36 @@
   "questions": [
     {
       "id": "question.how_money_works.037.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.index_fund_history"
       ],
       "sourceCardIds": [
-        "card.how_money_works.037.c1"
+        "card.how_money_works.037.c1",
+        "card.how_money_works.037.c2",
+        "card.how_money_works.037.c3"
       ],
-      "prompt": "What was 'Bogle's Folly'?",
-      "options": [
+      "prompt": "Match each one with what it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A 1920s bank that failed overnight",
-          "correct": false,
-          "rationale": "It was a 1976 fund, and it's still running."
+          "left": "Bogle's Folly",
+          "right": "First Index Investment Trust"
         },
         {
-          "id": "b",
-          "label": "A famous bet that stocks would crash in 1976",
-          "correct": false,
-          "rationale": "It was a fund, not a bet on a crash."
+          "left": "The S&P 500",
+          "right": "A market index"
         },
         {
-          "id": "c",
-          "label": "The first index fund for ordinary investors",
-          "correct": true
+          "left": "Index funds",
+          "right": "Usually passive"
         },
         {
-          "id": "d",
-          "label": "A rule banning funds from charging fees",
-          "correct": false,
-          "rationale": "No: it was John Bogle's index fund."
+          "left": "Active funds",
+          "right": "Trying to beat an index"
         }
       ],
-      "explanation": "Critics mocked John Bogle's 1976 First Index Investment Trust, which raised only about $11 million.",
+      "explanation": "Bogle's Folly was the First Index Investment Trust. The S&P 500 is a market index. Index funds are usually passive, while active funds trade more, trying to beat an index.",
       "difficulty": 0.15
     },
     {

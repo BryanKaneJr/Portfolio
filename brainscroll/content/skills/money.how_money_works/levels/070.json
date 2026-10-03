@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 70,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Booms and Busts",
   "objective": "After this level you can connect inflation, bubbles and recessions, using the 2008 financial crisis as the example.",
@@ -132,7 +132,7 @@
   "questions": [
     {
       "id": "question.how_money_works.070.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.gfc_2008"
@@ -140,33 +140,16 @@
       "sourceCardIds": [
         "card.how_money_works.070.c2"
       ],
-      "prompt": "Which asset's price boom and bust set off the 2008 crisis?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Dutch tulip bulbs",
-          "correct": false,
-          "rationale": "That bubble cracked in 1637."
-        },
-        {
-          "id": "b",
-          "label": "US homes",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Internet stocks",
-          "correct": false,
-          "rationale": "The dot-com bubble peaked in 2000."
-        },
-        {
-          "id": "d",
-          "label": "German marks",
-          "correct": false,
-          "rationale": "That was 1923's hyperinflation."
-        }
+      "prompt": "Put the 2008 story in order, from earliest to latest.",
+      "items": [
+        "US home prices more than double",
+        "Home prices start falling",
+        "Lehman Brothers files for bankruptcy",
+        "The recession ends after 18 months"
       ],
-      "explanation": "US home prices more than doubled from 1998 to 2006, then fell by over a fifth.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "US home prices more than doubled from 1998 to 2006, started falling in 2007, Lehman Brothers filed for bankruptcy in September 2008, and the recession ended in June 2009 after 18 months.",
       "difficulty": 0.15
     },
     {

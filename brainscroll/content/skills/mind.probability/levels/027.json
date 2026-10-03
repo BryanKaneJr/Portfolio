@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 27,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Streaks and Clumps",
   "objective": "After this level you can explain why truly random sequences contain more streaks and clusters than people expect.",
@@ -91,7 +91,7 @@
   "questions": [
     {
       "id": "question.probability.027.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.chance_random_streaks"
@@ -99,33 +99,22 @@
       "sourceCardIds": [
         "card.probability.027.c2"
       ],
-      "prompt": "What gave away students' made-up lists of 200 coin tosses?",
-      "options": [
+      "prompt": "Match each with what the coin-toss test found.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Their longest streaks were too short",
-          "correct": true
+          "left": "Real tosses",
+          "right": "Typically about eight"
         },
         {
-          "id": "b",
-          "label": "They had far too many heads",
-          "correct": false,
-          "rationale": "The share of heads was not the clue; the streaks were."
+          "left": "Students inventing tosses",
+          "right": "Rarely write a run longer than five"
         },
         {
-          "id": "c",
-          "label": "Their streaks were too long",
-          "correct": false,
-          "rationale": "The opposite: real sequences have the longer streaks."
-        },
-        {
-          "id": "d",
-          "label": "They started with tails too often",
-          "correct": false,
-          "rationale": "The clue was run length, not how the list began."
+          "left": "Mark Schilling",
+          "right": "Sorted real from fake about 85%"
         }
       ],
-      "explanation": "Real tosses typically hold a run of about eight; invented lists rarely go past five.",
+      "explanation": "In 200 real tosses the longest run is typically about eight. Students inventing tosses rarely write a run longer than five, and Mark Schilling sorted real from fake about 85% of the time.",
       "difficulty": 0.2
     },
     {

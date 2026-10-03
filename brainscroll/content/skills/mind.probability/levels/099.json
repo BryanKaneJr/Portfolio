@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 99,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Your Checklist for Any Statistic",
   "objective": "After this level you can run any number in the news through a short set of questions: of what, compared to what, from whom, and how sure.",
@@ -98,7 +98,7 @@
   "questions": [
     {
       "id": "question.probability.099.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.news_statistic_checklist"
@@ -109,33 +109,26 @@
         "card.probability.099.c4",
         "card.probability.099.c5"
       ],
-      "prompt": "Which four questions make up this level's checklist for any statistic?",
-      "options": [
+      "prompt": "Match each checklist question with what it asks you to check.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Who, what, where and when?",
-          "correct": false,
-          "rationale": "Close, but the checklist asks about counts, comparisons, sources and certainty."
+          "left": "Of what?",
+          "right": "What exactly is being counted"
         },
         {
-          "id": "b",
-          "label": "Is it big, new, popular and shared?",
-          "correct": false,
-          "rationale": "Popularity says nothing about accuracy."
+          "left": "Compared to what?",
+          "right": "Watch for cherry-picking"
         },
         {
-          "id": "c",
-          "label": "Of what, compared to what, from whom, how sure?",
-          "correct": true
+          "left": "From whom?",
+          "right": "Who paid for it"
         },
         {
-          "id": "d",
-          "label": "Is it round, recent, rising and viral?",
-          "correct": false,
-          "rationale": "None of these tests whether a number holds up."
+          "left": "How sure?",
+          "right": "How uncertain is it"
         }
       ],
-      "explanation": "Of what (counts and definitions), compared to what (context), from whom (source), how sure (size and uncertainty).",
+      "explanation": "Of what? asks what exactly is being counted. Compared to what? means watching for cherry-picking. From whom? asks who paid for it, and How sure? asks how uncertain it is.",
       "difficulty": 0.2
     },
     {

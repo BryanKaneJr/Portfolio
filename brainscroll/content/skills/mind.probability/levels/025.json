@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 25,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Coins Have No Memory",
   "objective": "After this level you can explain what makes events independent and why a coin that landed heads five times is still 50/50.",
@@ -134,41 +134,31 @@
     },
     {
       "id": "question.probability.025.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.chance_sequences_equally_likely"
       ],
       "sourceCardIds": [
-        "card.probability.025.c3"
+        "card.probability.025.c3",
+        "card.probability.025.c2"
       ],
-      "prompt": "How can six heads in a row be rare, yet a sixth head after five heads be 50/50?",
-      "options": [
+      "prompt": "Match each coin-flip event with its chance.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The coin gets tired of landing heads",
-          "correct": false,
-          "rationale": "A coin has nothing inside it that tires or keeps score."
+          "left": "Six heads in a row",
+          "right": "1 in 64"
         },
         {
-          "id": "b",
-          "label": "Once five heads have landed, only one 50/50 flip is left",
-          "correct": true
+          "left": "HHHHHT",
+          "right": "1 in 64"
         },
         {
-          "id": "c",
-          "label": "Rare events become likely after a while",
-          "correct": false,
-          "rationale": "Chances of independent events never build up."
-        },
-        {
-          "id": "d",
-          "label": "Six heads in a row is common, not rare",
-          "correct": false,
-          "rationale": "Before you start, six heads is 1 in 64: rare."
+          "left": "The sixth flip",
+          "right": "50/50"
         }
       ],
-      "explanation": "Six heads is 1 in 64 before you start. After five heads, only the last flip remains, and it is 50/50.",
+      "explanation": "Before you start, six heads in a row and HHHHHT are each 1 in 64. But the sixth flip on its own, even after five heads, is 50/50.",
       "difficulty": 0.3
     },
     {

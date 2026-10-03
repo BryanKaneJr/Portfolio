@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 84,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Economies of Scale",
   "objective": "After this level you can explain why making more of something can make each one cheaper.",
@@ -92,41 +92,24 @@
   "questions": [
     {
       "id": "question.how_money_works.084.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.scale_economies"
       ],
       "sourceCardIds": [
+        "card.how_money_works.084.c2",
         "card.how_money_works.084.c3"
       ],
-      "prompt": "What are economies of scale?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Prices rising as a firm grows bigger",
-          "correct": false,
-          "rationale": "It's about cost per unit falling, not prices rising."
-        },
-        {
-          "id": "b",
-          "label": "Selling goods abroad more cheaply",
-          "correct": false,
-          "rationale": "That's about trade, not the cost of making more."
-        },
-        {
-          "id": "c",
-          "label": "Paying workers less as a firm grows",
-          "correct": false,
-          "rationale": "It's about spreading costs, not cutting wages."
-        },
-        {
-          "id": "d",
-          "label": "Cost per unit falling as output rises",
-          "correct": true
-        }
+      "prompt": "How do economies of scale work? Put these in order, from cause to effect.",
+      "items": [
+        "Make more",
+        "The fixed costs are spread thinner",
+        "Each unit's share shrinks"
       ],
-      "explanation": "Economies of scale: as the quantity produced goes up, the cost of each unit goes down.",
+      "first": "Cause",
+      "last": "Effect",
+      "explanation": "Make more, and the fixed costs are spread thinner, so each unit's share shrinks. That falling cost per unit is economies of scale.",
       "difficulty": 0.15
     },
     {

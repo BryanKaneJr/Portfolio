@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 98,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Externalities",
   "objective": "After this level you can explain costs like pollution that fall on people outside a deal.",
@@ -100,41 +100,32 @@
   "questions": [
     {
       "id": "question.how_money_works.098.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.ideas_externality_def"
       ],
       "sourceCardIds": [
-        "card.how_money_works.098.c2"
+        "card.how_money_works.098.c2",
+        "card.how_money_works.098.c3",
+        "card.how_money_works.098.c4"
       ],
-      "prompt": "What is an externality?",
-      "options": [
+      "prompt": "Match each one with what this level says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A deal's effect on someone outside the deal",
-          "correct": true
+          "left": "Externality",
+          "right": "Effect of a deal on a third party"
         },
         {
-          "id": "b",
-          "label": "A tax on goods from abroad",
-          "correct": false,
-          "rationale": "An externality is about third parties, not imports."
+          "left": "Arthur Pigou",
+          "right": "Tax activities that impose costs"
         },
         {
-          "id": "c",
-          "label": "Profit a company earns overseas",
-          "correct": false,
-          "rationale": "It's an effect on outsiders, not foreign profit."
-        },
-        {
-          "id": "d",
-          "label": "Any cost a buyer agrees to pay",
-          "correct": false,
-          "rationale": "Externalities fall on people who never agreed."
+          "left": "Ronald Coase",
+          "right": "Let the neighbors bargain"
         }
       ],
-      "explanation": "An externality is the effect of a market exchange on a third party outside it, like pollution or concert noise.",
+      "explanation": "An externality is the effect of a deal on a third party outside it. Arthur Pigou proposed to tax activities that impose costs on others. Ronald Coase asked: why not let the neighbors bargain?",
       "difficulty": 0.2
     },
     {

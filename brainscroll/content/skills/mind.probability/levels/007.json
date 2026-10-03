@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 7,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "\"1 in 3\" Beats 33%",
   "objective": "After this level you can switch between percentages, fractions and \"1 in N\" counts, and explain why counts of people are easier to picture.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "question.probability.007.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.one_in_n"
@@ -139,33 +139,22 @@
         "card.probability.007.c1",
         "card.probability.007.c2"
       ],
-      "prompt": "Why did many people think a third-pound burger was smaller than a quarter-pounder?",
-      "options": [
+      "prompt": "Match each \"1 in N\" with its percent.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A&W advertised it as the smaller burger",
-          "correct": false,
-          "rationale": "A&W pitched it as more meat for the same price."
+          "left": "1 in 4",
+          "right": "25%"
         },
         {
-          "id": "b",
-          "label": "They compared 3 with 4, but a bigger N means a smaller share",
-          "correct": true
+          "left": "1 in 5",
+          "right": "20%"
         },
         {
-          "id": "c",
-          "label": "A third of a pound really is less than a quarter",
-          "correct": false,
-          "rationale": "1 in 3 is about 33%, more than 1 in 4 (25%)."
-        },
-        {
-          "id": "d",
-          "label": "The burger cost more than a Quarter Pounder",
-          "correct": false,
-          "rationale": "It cost the same, which is why buyers felt cheated."
+          "left": "1 in 3",
+          "right": "About 33%"
         }
       ],
-      "explanation": "In \"1 in N\", a bigger N means a smaller share. A third is about 33% of a pound; a quarter is 25%.",
+      "explanation": "Divide 100 by N: 1 in 4 is 25%, 1 in 5 is 20%, and 1 in 3 is about 33%.",
       "difficulty": 0.25
     },
     {

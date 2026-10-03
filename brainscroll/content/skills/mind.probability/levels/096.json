@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 96,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Reading a Health Headline",
   "objective": "After this level you can check a health headline by asking about absolute risk, the study's design and its size.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "question.probability.096.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.news_health_headline_numbers",
@@ -140,33 +140,22 @@
         "card.probability.096.c2",
         "card.probability.096.c4"
       ],
-      "prompt": "A headline says a popular snack \"raises your risk of a disease by 50%\". Following this level, what should you ask first?",
-      "options": [
+      "prompt": "Match each with its number from the processed meat story.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Whether 50% means half of all snackers will get the disease",
-          "correct": false,
-          "rationale": "A percent rise isn't the share who get sick."
+          "left": "1,000 people who eat the least",
+          "right": "About 56"
         },
         {
-          "id": "b",
-          "label": "How many people per 1,000 get it, with and without the snack",
-          "correct": true
+          "left": "1,000 who eat the most",
+          "right": "About 66"
         },
         {
-          "id": "c",
-          "label": "Which company makes the snack and where it is sold",
-          "correct": false,
-          "rationale": "Worth knowing later, but first get the real numbers."
-        },
-        {
-          "id": "d",
-          "label": "How many people have already bought the snack",
-          "correct": false,
-          "rationale": "Popularity isn't evidence about risk."
+          "left": "Each 50 gram portion",
+          "right": "18%"
         }
       ],
-      "explanation": "A percent rise means little until you see the counts: 18% on processed meat was 56 becoming 66 per 1,000.",
+      "explanation": "Each 50 gram portion eaten daily raises bowel cancer risk by 18%. In real numbers, about 56 of 1,000 people who eat the least get it, against about 66 of 1,000 who eat the most.",
       "difficulty": 0.4
     },
     {

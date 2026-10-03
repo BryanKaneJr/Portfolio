@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 59,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Safety Nets",
   "objective": "After this level you can explain unemployment insurance, pensions and other safety nets.",
@@ -108,41 +108,31 @@
   "questions": [
     {
       "id": "question.how_money_works.059.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.govt_unemployment_insurance"
       ],
       "sourceCardIds": [
-        "card.how_money_works.059.c2"
+        "card.how_money_works.059.c2",
+        "card.how_money_works.059.c3"
       ],
-      "prompt": "Who is unemployment insurance designed for?",
-      "options": [
+      "prompt": "Match each safety-net word with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Anyone who quits to start a business",
-          "correct": false,
-          "rationale": "It covers job loss through no fault of your own."
+          "left": "Temporary",
+          "right": "Because it runs out"
         },
         {
-          "id": "b",
-          "label": "Retirees over age 70",
-          "correct": false,
-          "rationale": "That's an old-age pension."
+          "left": "Partial",
+          "right": "Covers only part of your old pay"
         },
         {
-          "id": "c",
-          "label": "Workers who lose their jobs through no fault of their own",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Only workers who never earned wages",
-          "correct": false,
-          "rationale": "It replaces part of lost wages, so it needs past wages."
+          "left": "Pay-as-you-go",
+          "right": "Fund today's beneficiaries"
         }
       ],
-      "explanation": "Unemployment insurance gives temporary, partial wage replacement to workers who lose jobs through no fault of their own.",
+      "explanation": "Unemployment insurance is temporary because it runs out, and partial because it covers only part of your old pay. In pay-as-you-go Social Security, today's workers' taxes fund today's beneficiaries.",
       "difficulty": 0.15
     },
     {

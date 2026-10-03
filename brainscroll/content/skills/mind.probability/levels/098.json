@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 98,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Back-of-the-Envelope Math",
   "objective": "After this level you can estimate an unknown number by breaking it into simple guesses you can multiply, and use it to sanity-check a claim.",
@@ -92,7 +92,7 @@
   "questions": [
     {
       "id": "question.probability.098.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.news_fermi_trinity"
@@ -100,33 +100,16 @@
       "sourceCardIds": [
         "card.probability.098.c2"
       ],
-      "prompt": "How did Fermi estimate the strength of the Trinity blast?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He read the strength off a special blast meter",
-          "correct": false,
-          "rationale": "He had no such instrument; that's the point."
-        },
-        {
-          "id": "b",
-          "label": "He watched how far falling scraps of paper were pushed",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "He timed how long the bright flash of light lasted",
-          "correct": false,
-          "rationale": "He used the air blast, not the light."
-        },
-        {
-          "id": "d",
-          "label": "He measured the size of the crater the next day",
-          "correct": false,
-          "rationale": "He estimated on the spot, as the wave passed."
-        }
+      "prompt": "Put Fermi's Trinity estimate in order, from first to last.",
+      "items": [
+        "The explosion",
+        "He dropped small pieces of paper",
+        "The wave pushed them about 2.5 meters",
+        "Later measurements"
       ],
-      "explanation": "He dropped paper from about six feet; the blast pushed it about 2.5 meters, which he turned into about ten thousand tons of TNT.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "After the explosion, Fermi dropped small pieces of paper as the blast wave passed. The wave pushed them about 2.5 meters. Later measurements came out more than twice his estimate.",
       "difficulty": 0.2
     },
     {

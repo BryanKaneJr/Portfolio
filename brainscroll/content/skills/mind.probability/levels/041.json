@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 41,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Absolute Risk: The Real Numbers",
   "objective": "After this level you can state a risk as an absolute number, like 2 in 1,000, and explain why that is the number that matters to you.",
@@ -125,7 +125,7 @@
     },
     {
       "id": "question.probability.041.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.risk_absolute_risk"
@@ -133,33 +133,22 @@
       "sourceCardIds": [
         "card.probability.041.c3"
       ],
-      "prompt": "Why is \"a risk of 2 in 1,000\" incomplete without a time period?",
-      "options": [
+      "prompt": "For a risk of \"2 in 1,000 over 10 years\", match each part with its number.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Risks can only be written as percentages",
-          "correct": false,
-          "rationale": "Counts work fine for risks; this one just needs a time period."
+          "left": "How many",
+          "right": "2"
         },
         {
-          "id": "b",
-          "label": "A group of 1,000 people is too small to measure",
-          "correct": false,
-          "rationale": "The size isn't the problem; the missing time period is."
+          "left": "Out of how many",
+          "right": "1,000"
         },
         {
-          "id": "c",
-          "label": "The chance over one year differs from the chance over a lifetime",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Every risk doubles after ten years",
-          "correct": false,
-          "rationale": "Nothing in the definition says risks double."
+          "left": "Over how long",
+          "right": "10 years"
         }
       ],
-      "explanation": "A risk is a chance over some stretch of time. Over one year and over a lifetime, the same thing can have very different chances.",
+      "explanation": "In \"2 in 1,000 over 10 years\", how many is 2, out of how many is 1,000, and over how long is 10 years.",
       "difficulty": 0.3
     },
     {

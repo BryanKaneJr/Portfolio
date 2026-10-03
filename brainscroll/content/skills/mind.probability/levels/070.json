@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 70,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Experiments and Evidence",
   "objective": "After this level you can judge how strong a study's evidence is from its design: control group, randomization, blinding and size.",
@@ -290,7 +290,7 @@
     },
     {
       "id": "question.probability.070.q4",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.experiment_random_assignment",
@@ -301,33 +301,22 @@
         "card.probability.063.c3",
         "card.probability.070.c3"
       ],
-      "prompt": "In a trial, doctors picked which patients got the new drug. Which design step would fix that?",
-      "options": [
+      "prompt": "Match each design feature with what it buys you.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Letting chance, like sealed random numbers, pick the groups",
-          "correct": true
+          "left": "Control group",
+          "right": "Answers \"compared with what?\""
         },
         {
-          "id": "b",
-          "label": "Adding more people to the placebo group",
-          "correct": false,
-          "rationale": "More people doesn't undo biased choosing."
+          "left": "Random assignment",
+          "right": "Balances hidden differences"
         },
         {
-          "id": "c",
-          "label": "Using a stricter significance line",
-          "correct": false,
-          "rationale": "A stricter line can't fix groups that differed from the start."
-        },
-        {
-          "id": "d",
-          "label": "Reporting the correlation between dose and recovery",
-          "correct": false,
-          "rationale": "A correlation describes a link; it doesn't balance the groups."
+          "left": "Blinding",
+          "right": "Keeps expectations out"
         }
       ],
-      "explanation": "Random assignment takes the choice away from people, spreading hidden differences evenly, as the 1948 streptomycin trial did with sealed random numbers.",
+      "explanation": "A control group answers \"compared with what?\", random assignment balances hidden differences, and blinding keeps expectations out.",
       "difficulty": 0.35
     },
     {

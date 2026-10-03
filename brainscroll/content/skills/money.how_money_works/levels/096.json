@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 96,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Game Theory",
   "objective": "After this level you can explain the prisoner's dilemma and why cooperation is hard.",
@@ -135,41 +135,35 @@
     },
     {
       "id": "question.how_money_works.096.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.ideas_repeated_cooperation"
       ],
       "sourceCardIds": [
+        "card.how_money_works.096.c3",
         "card.how_money_works.096.c4"
       ],
-      "prompt": "Why can cooperation survive when the game is played again and again?",
-      "options": [
+      "prompt": "Match each person with their part in the story of the prisoner's dilemma.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Players forget what happened last round",
-          "correct": false,
-          "rationale": "Tit for tat depends on remembering the last move."
+          "left": "Merrill Flood and Melvin Dresher",
+          "right": "Devised the game"
         },
         {
-          "id": "b",
-          "label": "Future rounds let players reward cooperation and answer betrayal",
-          "correct": true
+          "left": "Albert Tucker",
+          "right": "Added the prison story"
         },
         {
-          "id": "c",
-          "label": "The payoffs for betrayal disappear",
-          "correct": false,
-          "rationale": "The payoffs stay the same; the future changes the choice."
+          "left": "Robert Axelrod",
+          "right": "Computer tournaments"
         },
         {
-          "id": "d",
-          "label": "A referee forces everyone to cooperate",
-          "correct": false,
-          "rationale": "No referee: cooperation emerges from the players."
+          "left": "Anatol Rapoport",
+          "right": "Tit for tat"
         }
       ],
-      "explanation": "With no known last round, strategies like tit for tat reward cooperation and answer betrayal, so being nice can pay.",
+      "explanation": "Merrill Flood and Melvin Dresher devised the game in 1950, and Albert Tucker added the prison story. Robert Axelrod ran computer tournaments, where Anatol Rapoport's tit for tat did famously well.",
       "difficulty": 0.35
     },
     {

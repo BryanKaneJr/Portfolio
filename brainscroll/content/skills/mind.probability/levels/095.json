@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 95,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "When Algorithms Get It Wrong",
   "objective": "After this level you can explain the trade-off between false alarms and misses in a prediction algorithm, and why bias in its data carries through.",
@@ -95,7 +95,7 @@
   "questions": [
     {
       "id": "question.probability.095.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.news_false_alarms_misses"
@@ -103,33 +103,22 @@
       "sourceCardIds": [
         "card.probability.095.c2"
       ],
-      "prompt": "A spam filter raises the score an email needs before it counts as spam. What happens?",
-      "options": [
+      "prompt": "Match each with what it means for a spam filter.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Fewer false alarms, but more spam gets through",
-          "correct": true
+          "left": "False positive",
+          "right": "A false alarm"
         },
         {
-          "id": "b",
-          "label": "Fewer false alarms and less spam getting through",
-          "correct": false,
-          "rationale": "You can't shrink both by moving one threshold."
+          "left": "False negative",
+          "right": "A miss"
         },
         {
-          "id": "c",
-          "label": "More false alarms, but less spam getting through",
-          "correct": false,
-          "rationale": "That's what lowering the threshold does."
-        },
-        {
-          "id": "d",
-          "label": "Nothing changes, since the emails are the same",
-          "correct": false,
-          "rationale": "The threshold decides which emails are flagged."
+          "left": "Raise the threshold",
+          "right": "Fewer false alarms but more misses"
         }
       ],
-      "explanation": "A higher threshold flags fewer emails: fewer false positives (false alarms), more false negatives (misses).",
+      "explanation": "A false positive is a false alarm (real mail sent to spam), and a false negative is a miss. Raising the threshold gives fewer false alarms but more misses.",
       "difficulty": 0.3
     },
     {

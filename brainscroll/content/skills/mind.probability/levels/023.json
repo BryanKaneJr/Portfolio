@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 23,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Chances That Multiply",
   "objective": "After this level you can work out the chance of two independent things both happening, like rolling two sixes, by multiplying.",
@@ -164,7 +164,7 @@
     },
     {
       "id": "question.probability.023.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.probability.chance_multiply_independent",
@@ -172,35 +172,30 @@
       ],
       "sourceCardIds": [
         "card.probability.023.c2",
-        "card.probability.022.c3"
+        "card.probability.022.c3",
+        "card.probability.023.c3",
+        "card.probability.023.c4"
       ],
-      "prompt": "Level 22 found double 6 in 1 of the 36 throws of two dice. Which calculation gives the same chance?",
-      "options": [
+      "prompt": "Match each run of independent events with its chance.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "1/6 + 1/6",
-          "correct": false,
-          "rationale": "Adding gives 2/6, far too likely for two sixes at once."
+          "left": "Double 6",
+          "right": "1/36"
         },
         {
-          "id": "b",
-          "label": "1/2 × 1/6",
-          "correct": false,
-          "rationale": "A second die shows 6 one time in 6, not one time in 2."
+          "left": "Two heads in a row",
+          "right": "1/4"
         },
         {
-          "id": "c",
-          "label": "1/6 × 1/6",
-          "correct": true
+          "left": "Three in a row",
+          "right": "1/8"
         },
         {
-          "id": "d",
-          "label": "6 × 6",
-          "correct": false,
-          "rationale": "6 × 6 counts the 36 throws, not the chance of one of them."
+          "left": "A heart, then another heart",
+          "right": "1/16"
         }
       ],
-      "explanation": "Two independent chances of 1/6 multiply to 1/36: one throw in 36.",
+      "explanation": "Multiply the chances: double 6 is 1/6 × 1/6 = 1/36, two heads is 1/4, three heads is 1/8, and a heart then another heart (put back) is 1/16.",
       "difficulty": 0.25
     }
   ],

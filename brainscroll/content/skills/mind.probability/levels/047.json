@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 47,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Why Most Positives Can Be False",
   "objective": "After this level you can show with a count of 10,000 people why a good test for a rare condition can give mostly false alarms.",
@@ -125,41 +125,36 @@
     },
     {
       "id": "question.probability.047.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.risk_false_positives"
       ],
       "sourceCardIds": [
-        "card.probability.047.c4"
+        "card.probability.047.c4",
+        "card.probability.047.c2",
+        "card.probability.047.c3"
       ],
-      "prompt": "Why can most positive results be false when a good test looks for a rare condition?",
-      "options": [
+      "prompt": "Follow 10,000 people through the test. Match each group with its count.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Good tests get less accurate when many people take them",
-          "correct": false,
-          "rationale": "The test's accuracy stayed the same throughout."
+          "left": "Have a condition",
+          "right": "100"
         },
         {
-          "id": "b",
-          "label": "Sick people are less likely to agree to be tested",
-          "correct": false,
-          "rationale": "Everyone in the example was tested."
+          "left": "True catches",
+          "right": "90"
         },
         {
-          "id": "c",
-          "label": "Healthy people far outnumber sick ones, so their false alarms pile up",
-          "correct": true
+          "left": "False alarms",
+          "right": "990"
         },
         {
-          "id": "d",
-          "label": "Labs often mix up samples from different people",
-          "correct": false,
-          "rationale": "The false alarms come from the test's 10% error rate alone."
+          "left": "Positives",
+          "right": "1,080"
         }
       ],
-      "explanation": "9,900 healthy people times a 10% false-alarm rate gives 990 false positives, swamping 90 true ones.",
+      "explanation": "100 people have a condition and the test catches 90 of them. It also gives 990 false alarms, so there are 1,080 positives, and only 90 are real.",
       "difficulty": 0.45
     },
     {

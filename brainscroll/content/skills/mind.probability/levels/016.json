@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 16,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Same Average, Different Spread",
   "objective": "After this level you can explain why two sets with the same average can be very different, and measure the gap with the range.",
@@ -126,42 +126,36 @@
     },
     {
       "id": "question.probability.016.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.spread_range"
       ],
       "sourceCardIds": [
         "card.probability.016.c2",
-        "card.probability.016.c3"
+        "card.probability.016.c3",
+        "card.probability.016.c1"
       ],
-      "prompt": "Class A scored 40, 70 and 100; Class B scored 69, 70 and 71. What is the difference?",
-      "options": [
+      "prompt": "The first class scored 40, 70 and 100. Match each measure with its value.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Class A has the higher mean",
-          "correct": false,
-          "rationale": "Both means are 70."
+          "left": "Smallest value",
+          "right": "40"
         },
         {
-          "id": "b",
-          "label": "Class B has the bigger range",
-          "correct": false,
-          "rationale": "B's range is 2; A's is 60."
+          "left": "Largest value",
+          "right": "100"
         },
         {
-          "id": "c",
-          "label": "Same mean, but Class A is far more spread out",
-          "correct": true
+          "left": "Mean",
+          "right": "70"
         },
         {
-          "id": "d",
-          "label": "There is no difference, since the means match",
-          "correct": false,
-          "rationale": "The spread differs a lot."
+          "left": "Range",
+          "right": "60 points"
         }
       ],
-      "explanation": "Both means are 70, but A's range is 60 points and B's is 2: same center, very different spread.",
+      "explanation": "The smallest score is 40 and the largest is 100, so the range is 100 − 40 = 60 points. The mean is 70.",
       "difficulty": 0.25
     },
     {
