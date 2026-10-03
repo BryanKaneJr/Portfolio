@@ -188,7 +188,12 @@ export default function LevelScreen() {
         if (__DEV__) console.warn(`[level] couldn't complete ${level.id}:`, e instanceof Error ? e.message : e);
         if (e instanceof CompletionError && e.code === 'DAILY_LIMIT_REACHED') {
           leaving.current = true;
-          router.replace('/daily-complete');
+          // Spent elsewhere (another device): read the real balance first, so
+          // the used-up screen doesn't show the stale one from when this level opened.
+          void p
+            .refresh()
+            .catch(() => undefined)
+            .finally(() => router.replace('/daily-complete'));
         }
         else setError("Couldn't save your progress. Your answers are kept, so try again.");
       });

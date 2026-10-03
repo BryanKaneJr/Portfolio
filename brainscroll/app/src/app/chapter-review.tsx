@@ -1,11 +1,11 @@
-import { BRAINPOWER, XP, type Card, type ChapterReviewResult, type DailyAllowance } from '@brainscroll/core';
+import { XP, type Card, type ChapterReviewResult } from '@brainscroll/core';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { track } from '@/analytics/track';
 import { BrainpowerEarned } from '@/components/BrainpowerEarned';
-import { BrainpowerFlight } from '@/components/BrainpowerFlight';
+import { BrainpowerFlight, NO_DAILY } from '@/components/BrainpowerFlight';
 import { feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { Body, Button, Caption, DrScroll, Eyebrow, H1, H2, LessonShell, LessonSkeleton, LoadError, Notice, Numeral, Pop, Reveal, useCountUp } from '@/components/ui';
 import { chaptersFor, getCard, getSkill, levelMeta } from '@/content';
@@ -213,6 +213,3 @@ function ChapterReviewComplete({ skillName, chapter, chapterTitle, result, onDon
     </SafeAreaView>
   );
 }
-
-/** No status came back (an older server): nothing to fly. */
-const NO_DAILY: DailyAllowance = { cap: null, used: 0, remaining: null, dailyComplete: false, brainpower: null, brainpowerMax: BRAINPOWER.MAX, brainpowerRefill: BRAINPOWER.DAILY_REFILL, brainpowerEarned: [] };

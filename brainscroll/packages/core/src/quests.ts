@@ -1,5 +1,6 @@
 import { QUEST } from './constants';
 import type { ProgressState, XpEvent } from './completion';
+import type { DailyAllowance } from './daily';
 import { milestoneTrophies, trophyInfo, type TrophyCatalog } from './trophies';
 
 /**
@@ -88,6 +89,8 @@ export interface QuestCompletion {
   xpAwarded: number;
   liveClear: boolean;
   trophy?: { trophyId: string; name: string };
+  /** Brainpower after it, with what the finish paid in `brainpowerEarned` (its last goal, the quest, its trophy). */
+  daily?: DailyAllowance;
 }
 
 export class QuestError extends Error {

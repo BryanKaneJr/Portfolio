@@ -56,7 +56,7 @@ Core rule:
 
 > First-attempt retention determines reward quality. Correct resolution determines progression.
 
-**Leaving a level partway starts it over** (owner, 2026-10-02: "if you close a level, you start back at the beginning of it when you reopen it"). The app keeps no memory of a level in progress: closing it, going back or quitting the app means it opens on its first card next time. Before a level is left partway, Dr. Scroll checks ("If you leave now, this level starts over from the beginning next time.") with Keep going and Leave anyway. Starting over never changes what the level pays: first attempts are recorded server-side when checked, so answering again only resolves.
+**Leaving a level partway starts it over** (owner, 2026-10-02: "if you close a level, you start back at the beginning of it when you reopen it"). The app keeps no memory of a level in progress: closing it, going back or quitting the app means it opens on its first card next time. Before a level is left partway, Dr. Scroll checks ("If you leave now, this level starts over from the beginning next time. Your first answers still count.") with Keep going and Leave anyway. Starting over never changes what the level pays: first attempts are recorded server-side when checked, so answering again only resolves.
 
 ## 4. Regular-level XP: first attempt only
 

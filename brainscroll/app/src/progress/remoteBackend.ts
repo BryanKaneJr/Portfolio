@@ -175,8 +175,14 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       return { titleQuestId: r.title_quest_id, emblemQuestId: r.emblem_quest_id };
     },
     async completeQuest(questId) {
-      const r = await rpc<{ quest_id: string; xp_awarded: number; live_clear: boolean; trophy: { trophy_id: string; name: string } | null }>('complete_quest', { p_quest_id: questId });
-      return { questId: r.quest_id, xpAwarded: r.xp_awarded, liveClear: r.live_clear, ...(r.trophy ? { trophy: { trophyId: r.trophy.trophy_id, name: r.trophy.name } } : {}) };
+      const r = await rpc<{ quest_id: string; xp_awarded: number; live_clear: boolean; trophy: { trophy_id: string; name: string } | null; daily?: RawDaily }>('complete_quest', { p_quest_id: questId });
+      return {
+        questId: r.quest_id,
+        xpAwarded: r.xp_awarded,
+        liveClear: r.live_clear,
+        ...(r.trophy ? { trophy: { trophyId: r.trophy.trophy_id, name: r.trophy.name } } : {}),
+        ...(r.daily ? { daily: mapDaily(r.daily) } : {}),
+      };
     },
     async startChapterReview(skillId, chapter) {
       const r = await rpc<{ review_id: string; skill_id: string; chapter: number; question_ids: string[]; resolved: string[] }>('start_chapter_review', {
@@ -241,6 +247,7 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
         scheduled: boolean;
         rationale: string | null; wrong?: number[];
         explanation: string | null;
+        daily?: RawDaily;
       }>('submit_review', {
         p_concept_id: item.conceptId,
         p_question_id: item.question.id,
@@ -256,6 +263,7 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
         rationale: r.rationale ?? undefined,
         ...(r.wrong ? { wrong: r.wrong } : {}),
         explanation: r.explanation ?? undefined,
+        ...(r.daily ? { daily: mapDaily(r.daily) } : {}),
       };
     },
     async reset() {

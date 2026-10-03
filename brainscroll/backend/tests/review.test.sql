@@ -51,7 +51,8 @@ do $$
 declare r jsonb;
 begin
   r := pg_temp.review('a');
-  assert r = '{"correct": true, "resolved": true, "first_attempt_correct": true, "attempt_count": 1, "xp_awarded": 10, "scheduled": true, "rationale": null, "explanation": "Because."}'::jsonb, format('got %s', r);
+  assert r - 'daily' = '{"correct": true, "resolved": true, "first_attempt_correct": true, "attempt_count": 1, "xp_awarded": 10, "scheduled": true, "rationale": null, "explanation": "Because."}'::jsonb, format('got %s', r);
+  assert (r -> 'daily' ->> 'brainpower') is not null, format('a recorded first attempt brings the daily status: %s', r);
   assert (select strength from public.user_concept_mastery where concept_id = 'concept.testing.c1') = 1;
   assert (select due_at between now() + interval '23 hours' and now() + interval '25 hours' and priority = 0 from public.review_queue), 'a right review clears priority';
   assert (select count(*) from public.xp_events where type = 'DELAYED_RECALL' and amount = 10) = 1;
@@ -85,7 +86,7 @@ do $$
 declare r jsonb; v_due timestamptz;
 begin
   r := pg_temp.review('b');
-  assert r = '{"correct": false, "resolved": false, "first_attempt_correct": false, "attempt_count": 1, "xp_awarded": 0, "scheduled": true, "rationale": null, "explanation": null}'::jsonb, format('got %s', r);
+  assert r - 'daily' = '{"correct": false, "resolved": false, "first_attempt_correct": false, "attempt_count": 1, "xp_awarded": 0, "scheduled": true, "rationale": null, "explanation": null}'::jsonb, format('got %s', r);
   assert not (r ? 'correct_option_id'), 'the right answer must not be revealed';
   assert (select strength from public.user_concept_mastery where concept_id = 'concept.testing.c1') = 0;
   assert (select priority from public.review_queue where concept_id = 'concept.testing.c1') = 1, 'a missed review raises priority';

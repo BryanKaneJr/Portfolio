@@ -143,7 +143,31 @@ do $$ begin
   assert (select balance from public.user_brainpower where user_id = '00000000-0000-0000-0000-00000000000a') = 0, 'Unlimited spent nothing';
 end $$;
 
--- 11. Learners can't read or write the balance or the awards directly.
+-- 11. A scheduled review answer reports what it paid: when it's the day's
+-- first learning after yesterday's, the streak's +1 (Review Complete shows it).
+set request.jwt.claim.sub = '00000000-0000-0000-0000-00000000000b';
+set role authenticated;
+select pg_temp.clear(1, 'a');
+reset role;
+insert into public.user_learning_days (user_id, day, first_at)
+values ('00000000-0000-0000-0000-00000000000b', public.brainpower_today('00000000-0000-0000-0000-00000000000b') - 1, now() - interval '1 day');
+update public.review_queue set due_at = now() - interval '1 minute' where user_id = '00000000-0000-0000-0000-00000000000b';
+set role authenticated;
+do $$
+declare
+  v_before int := pg_temp.bp();
+  r jsonb := public.submit_review('concept.testing.c1', pg_temp.q(1), 'b');
+begin
+  assert r -> 'daily' -> 'brainpower_earned' @> jsonb_build_array(jsonb_build_object('key', 'streak:' || current_date, 'kind', 'streak', 'granted', 1)),
+    format('the review''s streak +1 comes back with it: %s', r);
+  assert (r -> 'daily' ->> 'brainpower')::int = v_before + 1, format('+1 from %s: %s', v_before, r);
+  r := public.submit_review('concept.testing.c1', pg_temp.q(1), 'a');
+  assert r -> 'daily' is null, format('a correction is not a learning moment: %s', r);
+end $$;
+reset role;
+set request.jwt.claim.sub = '00000000-0000-0000-0000-00000000000a';
+
+-- 12. Learners can't read or write the balance or the awards directly.
 set role authenticated;
 do $$ begin
   assert (select count(*) from public.user_brainpower) = 0 and (select count(*) from public.brainpower_awards) = 0, 'RPC-only';
