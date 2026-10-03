@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 52,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How Sites Store Passwords",
   "objective": "After this level you can explain why a well-run site keeps only a scrambled hash of your password, never the password itself.",
@@ -137,41 +137,31 @@
     },
     {
       "id": "question.computers.052.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.security_salt_slow_hash"
       ],
       "sourceCardIds": [
-        "card.computers.052.c5"
+        "card.computers.052.c5",
+        "card.computers.052.c4"
       ],
-      "prompt": "Why does a site add a unique random salt to each password before hashing it?",
-      "options": [
+      "prompt": "Match each password-safety idea with what the level says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "To make passwords easier for you to remember",
-          "correct": false,
-          "rationale": "You never see the salt; it works behind the scenes."
+          "left": "Encryption",
+          "right": "Two-way"
         },
         {
-          "id": "b",
-          "label": "So the hash can be decrypted if you forget your password",
-          "correct": false,
-          "rationale": "Hashes are one-way; salt does not change that."
+          "left": "Hashing",
+          "right": "One-way"
         },
         {
-          "id": "c",
-          "label": "So identical passwords get different hashes and ready-made tables fail",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "To make the stored hash shorter",
-          "correct": false,
-          "rationale": "A hash has a fixed length anyway."
+          "left": "A salt",
+          "right": "A unique random value"
         }
       ],
-      "explanation": "With a unique salt, two people with the same password get different hashes, and precomputed tables of hashes stop working.",
+      "explanation": "Encryption is two-way, hashing is one-way, and a salt is a unique random value mixed into each password before hashing.",
       "difficulty": 0.3
     },
     {

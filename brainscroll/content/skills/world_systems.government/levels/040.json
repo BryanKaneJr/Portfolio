@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 40,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Constitutions and Rights",
   "objective": "After this level you can explain how constitutions protect rights and how rights grew.",
@@ -229,7 +229,7 @@
     },
     {
       "id": "question.government.040.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.government.constitution_us_document",
@@ -241,35 +241,21 @@
         "card.government.032.c2",
         "card.government.038.c1",
         "card.government.034.c1",
-        "card.government.039.c3"
+        "card.government.039.c3",
+        "card.government.032.c1",
+        "card.government.040.c1"
       ],
-      "prompt": "Constitutions and Rights checkpoint: which list puts these in order, oldest first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "US Constitution signed → NZ women vote → UN Declaration → US Civil Rights Act",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "NZ women vote → US Constitution signed → UN Declaration → US Civil Rights Act",
-          "correct": false,
-          "rationale": "The US Constitution (1787) came long before New Zealand's 1893 vote."
-        },
-        {
-          "id": "c",
-          "label": "US Constitution signed → UN Declaration → NZ women vote → US Civil Rights Act",
-          "correct": false,
-          "rationale": "New Zealand's women voted in 1893, before the 1948 Declaration."
-        },
-        {
-          "id": "d",
-          "label": "US Constitution signed → NZ women vote → US Civil Rights Act → UN Declaration",
-          "correct": false,
-          "rationale": "The Declaration (1948) came before the Civil Rights Act (1964)."
-        }
+      "prompt": "Put these milestones in constitutions and rights in order, from oldest to newest.",
+      "items": [
+        "U.S. Constitution",
+        "New Zealand women were granted the vote",
+        "Universal Declaration of Human Rights",
+        "Civil Rights Act",
+        "South Africa's new constitution"
       ],
-      "explanation": "US Constitution signed (1787), New Zealand women vote (1893), UN Declaration (1948), US Civil Rights Act (1964).",
+      "first": "Oldest",
+      "last": "Newest",
+      "explanation": "The U.S. Constitution (1787), New Zealand women's vote (1893), the Universal Declaration of Human Rights (1948), the Civil Rights Act (1964), then South Africa's new constitution (1996).",
       "difficulty": 0.35
     },
     {

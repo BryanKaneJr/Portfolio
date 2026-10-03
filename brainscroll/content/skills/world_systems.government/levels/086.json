@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 86,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "War and Peace",
   "objective": "After this level you can explain how wars start and how they end.",
@@ -152,41 +152,29 @@
     },
     {
       "id": "question.government.086.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.war_starting_rules"
       ],
       "sourceCardIds": [
-        "card.government.086.c3"
+        "card.government.086.c3",
+        "card.government.086.c1",
+        "card.government.086.c2",
+        "card.government.086.c4"
       ],
-      "prompt": "What was the main weakness of the 1928 Kellogg-Briand Pact?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Only two countries ever signed it",
-          "correct": false,
-          "rationale": "Many countries signed it."
-        },
-        {
-          "id": "b",
-          "label": "There was no way to enforce it",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It required a declaration before every war",
-          "correct": false,
-          "rationale": "That was the 1907 Hague Convention."
-        },
-        {
-          "id": "d",
-          "label": "It banned self-defence against attack",
-          "correct": false,
-          "rationale": "It didn't; and the UN Charter keeps that right."
-        }
+      "prompt": "Put these moments in the rules of war and peace in order, from earliest to latest.",
+      "items": [
+        "On War",
+        "Hague Convention III",
+        "Treaty of Versailles",
+        "Kellogg-Briand Pact",
+        "UN Charter",
+        "Korean War armistice"
       ],
-      "explanation": "The pact renounced war as a tool of national policy, but there was no way to enforce it, and it did not prevent World War II.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "On War appeared in 1832, Hague Convention III in 1907, the Treaty of Versailles in 1919, the Kellogg-Briand Pact in 1928, the UN Charter in 1945, and the Korean War armistice in 1953.",
       "difficulty": 0.3
     },
     {

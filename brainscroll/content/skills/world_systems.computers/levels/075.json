@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 75,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How Spam Filters Learn",
   "objective": "After this level you can explain how a spam filter learns from labeled examples which words and signals predict junk mail.",
@@ -82,7 +82,7 @@
   "questions": [
     {
       "id": "question.computers.075.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.spamfilter_learning"
@@ -90,33 +90,15 @@
       "sourceCardIds": [
         "card.computers.075.c2"
       ],
-      "prompt": "What did Graham's filter count to learn what spam looks like?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The number of recipients on each email",
-          "correct": false,
-          "rationale": "It counted words, not recipients."
-        },
-        {
-          "id": "b",
-          "label": "How often each word appears in spam and in good mail",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "How long each email took to arrive",
-          "correct": false,
-          "rationale": "Delivery time isn't what it counted."
-        },
-        {
-          "id": "d",
-          "label": "How many links each sender had ever posted",
-          "correct": false,
-          "rationale": "It counted words in two piles of mail."
-        }
+      "prompt": "Put the steps of Graham's spam filter method in order.",
+      "items": [
+        "Start with one pile of known spam",
+        "Count how often every word appears",
+        "A new email is scored"
       ],
-      "explanation": "It counted each word in a pile of spam and a pile of good mail, then turned the counts into spam probabilities.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Start with one pile of known spam and one of good mail, count how often every word appears in each, then a new email is scored from its most telling words.",
       "difficulty": 0.2
     },
     {

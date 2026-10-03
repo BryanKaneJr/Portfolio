@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 66,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Polls",
   "objective": "After this level you can explain opinion polls and their margin of error.",
@@ -96,41 +96,32 @@
   "questions": [
     {
       "id": "question.government.066.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.election_poll_sampling"
       ],
       "sourceCardIds": [
-        "card.government.066.c2"
+        "card.government.066.c2",
+        "card.government.066.c1",
+        "card.government.066.c3"
       ],
-      "prompt": "Why did the 1936 Literary Digest poll get the result wrong despite 2.4 million replies?",
-      "options": [
+      "prompt": "Match each piece of polling history with its detail.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Its sample leaned to the well-off; few replied",
-          "correct": true
+          "left": "Literary Digest",
+          "right": "Phone lists, car registrations"
         },
         {
-          "id": "b",
-          "label": "It asked far too few people to be reliable",
-          "correct": false,
-          "rationale": "It had millions of replies; the problem was who they were."
+          "left": "George Gallup",
+          "right": "Scientific sampling"
         },
         {
-          "id": "c",
-          "label": "Roosevelt withdrew from the race early",
-          "correct": false,
-          "rationale": "Roosevelt ran and won easily."
-        },
-        {
-          "id": "d",
-          "label": "Its ballots were miscounted by machines",
-          "correct": false,
-          "rationale": "The problem was the sample, not the counting."
+          "left": "1,067 people",
+          "right": "Plus or minus 3 points"
         }
       ],
-      "explanation": "The Digest's names came from phone lists, car registrations and club memberships, which leaned to the well-off, and only about a quarter replied.",
+      "explanation": "The Literary Digest drew names from phone lists, car registrations and club memberships. George Gallup used scientific sampling, and a random sample of 1,067 people has a margin of about plus or minus 3 points.",
       "difficulty": 0.2
     },
     {

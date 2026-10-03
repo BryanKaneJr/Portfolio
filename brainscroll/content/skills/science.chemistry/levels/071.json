@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 71,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Chemistry of Life",
   "objective": "After this level you can name the elements that living things are mostly made of.",
@@ -90,7 +90,7 @@
   "questions": [
     {
       "id": "question.chemistry.071.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.lifechem_body_elements"
@@ -98,33 +98,16 @@
       "sourceCardIds": [
         "card.chemistry.071.c2"
       ],
-      "prompt": "Which four elements make up about 96 percent of the human body's mass?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Iron, calcium, sodium and potassium",
-          "correct": false,
-          "rationale": "These matter, but together they are only a few percent."
-        },
-        {
-          "id": "b",
-          "label": "Oxygen, carbon, hydrogen and nitrogen",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Helium, neon, argon and krypton",
-          "correct": false,
-          "rationale": "Those noble gases play no part in your body's mass."
-        },
-        {
-          "id": "d",
-          "label": "Carbon, gold, silver and copper",
-          "correct": false,
-          "rationale": "Only carbon belongs on the list."
-        }
+      "prompt": "Put your body's big four elements in order by share of your mass, largest first.",
+      "items": [
+        "Oxygen",
+        "Carbon",
+        "Hydrogen",
+        "Nitrogen"
       ],
-      "explanation": "Oxygen, carbon, hydrogen and nitrogen make up about 96 percent of your mass, and all four are common to every living thing.",
+      "first": "Largest share",
+      "last": "Smallest share",
+      "explanation": "By mass you're about 65 percent oxygen, 18 percent carbon, 10 percent hydrogen and 3 percent nitrogen.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 39,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Silicon",
   "objective": "After this level you can explain why silicon runs our computers.",
@@ -145,7 +145,7 @@
     },
     {
       "id": "question.chemistry.039.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.silicon_chips",
@@ -155,33 +155,15 @@
         "card.chemistry.039.c3",
         "card.chemistry.039.c4"
       ],
-      "prompt": "Why must silicon for computer chips start out extraordinarily pure?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Pure silicon is shinier and looks better",
-          "correct": false,
-          "rationale": "Looks don't matter inside a chip."
-        },
-        {
-          "id": "b",
-          "label": "Impure silicon is radioactive",
-          "correct": false,
-          "rationale": "That isn't the reason."
-        },
-        {
-          "id": "c",
-          "label": "A few stray atoms change how silicon conducts",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Pure silicon never gets hot",
-          "correct": false,
-          "rationale": "Purity is about control of conduction."
-        }
+      "prompt": "Put these in order of how easily electricity flows through them, least first.",
+      "items": [
+        "Insulators",
+        "Silicon",
+        "Copper"
       ],
-      "explanation": "Tiny amounts of other atoms, like 10 boron atoms per million, change silicon's conductivity a thousandfold, so chip-makers need full control.",
+      "first": "Conducts least",
+      "last": "Conducts most",
+      "explanation": "Insulators hardly conduct at all, metals like copper conduct easily, and silicon, a semiconductor, sits in between.",
       "difficulty": 0.35
     },
     {

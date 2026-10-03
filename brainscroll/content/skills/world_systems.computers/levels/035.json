@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 35,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Lost Packets and Second Tries",
   "objective": "After this level you can explain how TCP numbers packets, checks that all of them arrived and asks again for missing ones.",
@@ -132,41 +132,24 @@
     },
     {
       "id": "question.computers.035.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.net_tcp_reliability"
       ],
       "sourceCardIds": [
-        "card.computers.035.c4"
+        "card.computers.035.c4",
+        "card.computers.035.c2"
       ],
-      "prompt": "How does a TCP sender find out that some of its data was lost?",
-      "options": [
-        {
-          "id": "a",
-          "label": "No acknowledgment for it arrives before a timer runs out",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The router that lost it sends the sender a warning message",
-          "correct": false,
-          "rationale": "Routers promise nothing; the ends keep score."
-        },
-        {
-          "id": "c",
-          "label": "The Time to Live counter on the packet climbs back to 255",
-          "correct": false,
-          "rationale": "Time to Live counts down, and it is IP's field, not TCP's."
-        },
-        {
-          "id": "d",
-          "label": "The DNS resolver reports which packet went missing",
-          "correct": false,
-          "rationale": "DNS only looks up names."
-        }
+      "prompt": "Put the three messages of TCP's handshake in order.",
+      "items": [
+        "SYN",
+        "SYN-ACK",
+        "ACK"
       ],
-      "explanation": "Unacknowledged data is resent when the retransmission timer runs out; damaged packets fail their checksum and count as lost.",
+      "first": "First message",
+      "last": "Last message",
+      "explanation": "Your device sends a SYN, the server answers with a SYN-ACK, and your device replies ACK. Then data can flow.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 72,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Where Tax Money Goes",
   "objective": "After this level you can describe what governments spend the most on.",
@@ -135,41 +135,25 @@
     },
     {
       "id": "question.government.072.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.spending_by_function"
       ],
       "sourceCardIds": [
-        "card.government.072.c3"
+        "card.government.072.c3",
+        "card.government.072.c4"
       ],
-      "prompt": "What does government spending on \"social protection\" mainly pay for?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Police, courts and prisons",
-          "correct": false,
-          "rationale": "That's public order and safety, a separate function."
-        },
-        {
-          "id": "b",
-          "label": "School buildings and teachers",
-          "correct": false,
-          "rationale": "That's education, a separate function."
-        },
-        {
-          "id": "c",
-          "label": "Pensions and benefits for sickness, disability and unemployment",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Tanks, ships and soldiers",
-          "correct": false,
-          "rationale": "That's defence, a separate function."
-        }
+      "prompt": "Put these slices of OECD government spending in order, from biggest to smallest share of GDP.",
+      "items": [
+        "Social protection",
+        "Health",
+        "Education",
+        "Environmental protection"
       ],
-      "explanation": "Social protection covers pensions plus benefits for people who are sick, disabled or out of work.",
+      "first": "Biggest share",
+      "last": "Smallest share",
+      "explanation": "In 2023, social protection took 13.4% of GDP, health 8.4%, education 4.9% and environmental protection 0.5%.",
       "difficulty": 0.2
     },
     {

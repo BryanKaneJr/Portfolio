@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 90,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Countries and the World",
   "objective": "After this level you can explain how countries cooperate and settle disputes.",
@@ -236,7 +236,7 @@
     },
     {
       "id": "question.government.090.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.government.treaty_kadesh",
@@ -248,35 +248,22 @@
         "card.government.083.c1",
         "card.government.081.c3",
         "card.government.084.c2",
-        "card.government.090.c1"
+        "card.government.090.c1",
+        "card.government.081.c4",
+        "card.government.089.c4"
       ],
-      "prompt": "Countries and the World checkpoint: which list puts these agreements in order, oldest first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Westphalia → Kadesh → UN Charter → Antarctic Treaty",
-          "correct": false,
-          "rationale": "Kadesh (around 1269 BC) is far older than Westphalia (1648)."
-        },
-        {
-          "id": "b",
-          "label": "Kadesh → UN Charter → Westphalia → Antarctic Treaty",
-          "correct": false,
-          "rationale": "Westphalia (1648) came long before the UN Charter (1945)."
-        },
-        {
-          "id": "c",
-          "label": "Kadesh → Westphalia → UN Charter → Antarctic Treaty",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Kadesh → Westphalia → Antarctic Treaty → UN Charter",
-          "correct": false,
-          "rationale": "The UN Charter (1945) came before the Antarctic Treaty (1959)."
-        }
+      "prompt": "Put these international agreements in order, from oldest to newest.",
+      "items": [
+        "Hattusili III",
+        "Peace of Westphalia",
+        "Montevideo Convention",
+        "UN Charter",
+        "Antarctic Treaty",
+        "Paris Agreement"
       ],
-      "explanation": "Kadesh (around 1269 BC), Westphalia (1648), the UN Charter (1945), the Antarctic Treaty (1959).",
+      "first": "Oldest",
+      "last": "Newest",
+      "explanation": "Hattusili III's peace treaty with Ramesses II (around 1269 BC), the Peace of Westphalia (1648), the Montevideo Convention (1933), the UN Charter (1945), the Antarctic Treaty (1959), then the Paris Agreement (2015).",
       "difficulty": 0.35
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 81,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Kitchen Chemistry",
   "objective": "After this level you can explain cooking as a series of chemical reactions.",
@@ -178,7 +178,7 @@
     },
     {
       "id": "question.chemistry.081.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.home_caramelization",
@@ -186,35 +186,26 @@
       ],
       "sourceCardIds": [
         "card.chemistry.081.c3",
-        "card.chemistry.009.c3"
+        "card.chemistry.009.c3",
+        "card.chemistry.081.c2",
+        "card.chemistry.081.c4"
       ],
-      "prompt": "Using Level 9's test, why is caramelizing sugar a chemical change?",
-      "options": [
+      "prompt": "Match each kitchen browning idea with what the level says.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The sugar only melts, like ice",
-          "correct": false,
-          "rationale": "Melting alone wouldn't make new brown compounds."
+          "left": "Maillard reaction",
+          "right": "Sugars react with the amino acids"
         },
         {
-          "id": "b",
-          "label": "It happens in a kitchen",
-          "correct": false,
-          "rationale": "Where it happens doesn't decide the kind of change."
+          "left": "Caramelization",
+          "right": "Sugar on its own"
         },
         {
-          "id": "c",
-          "label": "Nothing new forms; it's still sugar",
-          "correct": false,
-          "rationale": "Caramelization makes new compounds."
-        },
-        {
-          "id": "d",
-          "label": "Heat breaks the sugar into new brown compounds",
-          "correct": true
+          "left": "Water's boiling point",
+          "right": "100 °C"
         }
       ],
-      "explanation": "Caramelization breaks sugar down into new substances, and a new substance is the mark of a chemical change.",
+      "explanation": "In the Maillard reaction sugars react with the amino acids in food; caramelization is sugar on its own breaking down. A wet surface stays near water's boiling point, 100 °C.",
       "difficulty": 0.35
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 92,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Robert Boyle",
   "objective": "After this level you can explain Boyle's work on gases.",
@@ -143,41 +143,24 @@
     },
     {
       "id": "question.chemistry.092.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.boyle_experimental_chemistry"
       ],
       "sourceCardIds": [
-        "card.chemistry.092.c4"
+        "card.chemistry.092.c4",
+        "card.chemistry.092.c2"
       ],
-      "prompt": "Why was Robert Boyle later called the father of chemistry?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He discovered the first chemical element in his lab",
-          "correct": false,
-          "rationale": "His claim to the title was about method, not a discovery."
-        },
-        {
-          "id": "b",
-          "label": "He gave up alchemy and all its old ideas",
-          "correct": false,
-          "rationale": "He actually practiced alchemy all his life."
-        },
-        {
-          "id": "c",
-          "label": "He drew up the first periodic table of elements",
-          "correct": false,
-          "rationale": "That came much later."
-        },
-        {
-          "id": "d",
-          "label": "He championed experiment over old ideas about matter",
-          "correct": true
-        }
+      "prompt": "Put these moments in Robert Boyle's work in order, from earliest to latest.",
+      "items": [
+        "Finished building an air pump",
+        "The Sceptical Chymist",
+        "Boyle's law"
       ],
-      "explanation": "In works like The Sceptical Chymist he attacked old Aristotelian ideas and argued for chemistry built on experiment and observation.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Boyle and Hooke finished building an air pump in 1659, The Sceptical Chymist came out in 1661, and Boyle published Boyle's law in 1662.",
       "difficulty": 0.3
     },
     {

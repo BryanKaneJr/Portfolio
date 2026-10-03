@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 88,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Leftovers of Evolution",
   "objective": "After this level you can explain body parts like the appendix and goosebumps.",
@@ -93,38 +93,34 @@
   "questions": [
     {
       "id": "question.human_body.088.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.vestigial_traits"
       ],
       "sourceCardIds": [
-        "card.human_body.088.c3"
+        "card.human_body.088.c3",
+        "card.human_body.088.c2",
+        "card.human_body.088.c4",
+        "card.human_body.088.c5"
       ],
-      "prompt": "What makes a hair stand up when you get goosebumps?",
-      "options": [
+      "prompt": "Match each leftover of evolution with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The hair grows suddenly longer",
-          "correct": false,
-          "rationale": "The hair is lifted, not grown."
+          "left": "Vestigial",
+          "right": "Little or no apparent function"
         },
         {
-          "id": "b",
-          "label": "Sweat pushes it up from below",
-          "correct": false,
-          "rationale": "A muscle does the lifting."
+          "left": "Arrector pili",
+          "right": "Can make it stand up"
         },
         {
-          "id": "c",
-          "label": "A small muscle attached to the hair, the arrector pili",
-          "correct": true
+          "left": "Coccyx",
+          "right": "Your tailbone"
         },
         {
-          "id": "d",
-          "label": "The skin shrinks around it",
-          "correct": false,
-          "rationale": "The bump comes from a muscle pulling."
+          "left": "Appendix",
+          "right": "Immune tissue"
         }
       ],
       "explanation": "The arrector pili muscle attached to each hair can make it stand up, which shows as goose bumps.",

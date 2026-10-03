@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 67,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Smell and Taste",
   "objective": "After this level you can explain how smell and taste work together to make flavor.",
@@ -135,39 +135,30 @@
     },
     {
       "id": "question.human_body.067.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.senses_flavor_smell"
       ],
       "sourceCardIds": [
         "card.human_body.067.c4",
-        "card.human_body.067.c1"
+        "card.human_body.067.c1",
+        "card.human_body.067.c2",
+        "card.human_body.067.c3"
       ],
-      "prompt": "Why does food taste bland when a cold blocks your nose?",
-      "options": [
+      "prompt": "Match each piece of the flavor puzzle with the fact about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Aromas can't reach the smell cells in your nose",
-          "correct": true
+          "left": "Umami",
+          "right": "The savory taste of glutamate"
         },
         {
-          "id": "b",
-          "label": "The cold switches off your taste buds",
-          "correct": false,
-          "rationale": "Your tongue still tastes the basic tastes."
+          "left": "Tongue map",
+          "right": "A myth"
         },
         {
-          "id": "c",
-          "label": "Your tongue loses its sweet zone",
-          "correct": false,
-          "rationale": "There are no taste zones; that's the tongue-map myth."
-        },
-        {
-          "id": "d",
-          "label": "Mucus turns every food bitter",
-          "correct": false,
-          "rationale": "The basic tastes still work; aroma is missing."
+          "left": "Smell",
+          "right": "Sensory cells high inside your nose"
         }
       ],
       "explanation": "Much of flavor is smell: aromas from chewing travel up to the nose, and a blocked channel cuts them off.",

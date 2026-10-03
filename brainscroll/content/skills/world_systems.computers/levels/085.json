@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 85,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Tokens and the Next Word",
   "objective": "After this level you can explain how a large language model splits text into tokens and writes by predicting one token after another.",
@@ -125,41 +125,27 @@
     },
     {
       "id": "question.computers.085.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.llm_tokens"
       ],
       "sourceCardIds": [
-        "card.computers.085.c2"
+        "card.computers.085.c2",
+        "card.computers.085.c1",
+        "card.computers.085.c3",
+        "card.computers.085.c4"
       ],
-      "prompt": "A subword tokenizer meets the rare word \"unhelpfully\". What is it most likely to do?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Reject the message as unreadable",
-          "correct": false,
-          "rationale": "Subword tokenizers can cover rare words by splitting them."
-        },
-        {
-          "id": "b",
-          "label": "Split it into smaller, more common pieces",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Swap it for a random common word",
-          "correct": false,
-          "rationale": "The meaning survives in the pieces; nothing is swapped."
-        },
-        {
-          "id": "d",
-          "label": "Keep it whole as one brand-new token",
-          "correct": false,
-          "rationale": "Its vocabulary is a fixed list; rare words get split."
-        }
+      "prompt": "Put the steps from your message to the next token of a reply in order.",
+      "items": [
+        "The text is chopped into pieces",
+        "Every piece is swapped for a number",
+        "Gives a score to every token",
+        "That token is added to the text"
       ],
-      "explanation": "Frequent words stay whole, but rare words are split into more common pieces, like annoyingly into annoying and ly.",
+      "first": "Your message",
+      "last": "The reply grows",
+      "explanation": "The text is chopped into pieces, every piece is swapped for a number, the model gives a score to every token in its vocabulary and one is picked, and that token is added to the text.",
       "difficulty": 0.35
     },
     {

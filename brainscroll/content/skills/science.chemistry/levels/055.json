@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 55,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Fast and Slow Reactions",
   "objective": "After this level you can explain what speeds reactions up or slows them down.",
@@ -179,7 +179,7 @@
     },
     {
       "id": "question.chemistry.055.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.reaction_rate_surface_area",
@@ -189,33 +189,15 @@
         "card.chemistry.055.c4",
         "card.chemistry.053.c4"
       ],
-      "prompt": "Sawdust and a log are the same fuel from the fire triangle. Why does the sawdust burn so much faster?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Sawdust exposes far more surface to oxygen",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Sawdust is a different chemical from wood",
-          "correct": false,
-          "rationale": "It is the same wood in smaller pieces."
-        },
-        {
-          "id": "c",
-          "label": "Logs contain no fuel inside",
-          "correct": false,
-          "rationale": "The whole log is fuel; most of it just isn't exposed."
-        },
-        {
-          "id": "d",
-          "label": "Sawdust needs no heat to start burning",
-          "correct": false,
-          "rationale": "Every fire still needs heat."
-        }
+      "prompt": "Put these in order of how fast they burn, slowest first.",
+      "items": [
+        "A big log",
+        "Small sticks",
+        "Fine sawdust"
       ],
-      "explanation": "Smaller pieces expose more surface, so far more fuel meets oxygen at once.",
+      "first": "Slowest",
+      "last": "Fastest",
+      "explanation": "A big log smolders, small sticks burn quickly and fine sawdust can burn explosively, because smaller pieces expose more surface.",
       "difficulty": 0.3
     }
   ],

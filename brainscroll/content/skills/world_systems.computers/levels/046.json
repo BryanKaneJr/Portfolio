@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 46,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Why Fast Internet Still Lags",
   "objective": "After this level you can explain the difference between bandwidth and latency, and why distance adds a delay no faster plan removes.",
@@ -141,41 +141,31 @@
     },
     {
       "id": "question.computers.046.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.latency_distance"
       ],
       "sourceCardIds": [
-        "card.computers.046.c3"
+        "card.computers.046.c3",
+        "card.computers.046.c2"
       ],
-      "prompt": "Why can't a faster internet plan remove the delay to a server across an ocean?",
-      "options": [
+      "prompt": "Match each part of internet speed with what the level compares it to.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Providers limit ocean traffic on purpose",
-          "correct": false,
-          "rationale": "The delay is physics, not a policy."
+          "left": "Bandwidth",
+          "right": "Like how wide a hose is"
         },
         {
-          "id": "b",
-          "label": "Undersea cables carry only one plan's data at a time",
-          "correct": false,
-          "rationale": "Cables carry huge amounts of traffic at once."
+          "left": "Latency",
+          "right": "Like how long a hose is"
         },
         {
-          "id": "c",
-          "label": "Faster plans only work on Wi-Fi",
-          "correct": false,
-          "rationale": "Any connection faces the same distance."
-        },
-        {
-          "id": "d",
-          "label": "Light in fiber still needs time to cross the distance",
-          "correct": true
+          "left": "New York to London",
+          "right": "About 5,585 km"
         }
       ],
-      "explanation": "Light in fiber needs about 4.9 microseconds per km, so New York to London costs about 28 ms one way. Bandwidth can't change that.",
+      "explanation": "Bandwidth is like how wide a hose is, latency is like how long a hose is, and New York to London is about 5,585 km, a distance light in fiber still has to cross.",
       "difficulty": 0.3
     },
     {

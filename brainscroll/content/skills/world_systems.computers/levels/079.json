@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 79,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Who Checks the Algorithm?",
   "objective": "After this level you can explain how audits, explanations and appeal rights let people test and challenge automated decisions.",
@@ -132,42 +132,25 @@
     },
     {
       "id": "question.computers.079.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.algoaudit_methods"
       ],
       "sourceCardIds": [
         "card.computers.079.c3",
-        "card.computers.079.c2"
+        "card.computers.079.c2",
+        "card.computers.079.c5"
       ],
-      "prompt": "How did the Gender Shades researchers audit commercial face-analysis products?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They sent in chosen faces and compared error rates across groups",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "They read the companies' source code line by line",
-          "correct": false,
-          "rationale": "They tested the products from outside."
-        },
-        {
-          "id": "c",
-          "label": "They surveyed users about how accurate the products felt",
-          "correct": false,
-          "rationale": "They measured errors on a benchmark of faces."
-        },
-        {
-          "id": "d",
-          "label": "They asked the companies to grade themselves",
-          "correct": false,
-          "rationale": "The researchers ran the tests."
-        }
+      "prompt": "Put these milestones in checking algorithms in order, from earliest to latest.",
+      "items": [
+        "Gender Shades",
+        "Local Law 144",
+        "Enforcement began"
       ],
-      "explanation": "They tested three products on 1,270 faces balanced by gender and skin type and compared the error rates between groups.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Gender Shades came out in 2018, New York City passed Local Law 144 in 2021, and enforcement began on July 5, 2023.",
       "difficulty": 0.3
     },
     {

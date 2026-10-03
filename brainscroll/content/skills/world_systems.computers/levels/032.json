@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 32,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "IP Addresses",
   "objective": "After this level you can explain how every device online gets an IP address, and why IPv4's 4.3 billion addresses ran out.",
@@ -130,41 +130,32 @@
     },
     {
       "id": "question.computers.032.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.net_ipv4_exhaustion"
       ],
       "sourceCardIds": [
-        "card.computers.032.c4"
+        "card.computers.032.c4",
+        "card.computers.032.c3",
+        "card.computers.031.c3"
       ],
-      "prompt": "How did blocks of IPv4 addresses get from the global pool toward internet providers?",
-      "options": [
+      "prompt": "Match each kind of network address with its length in bits.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Each device picked a random address for itself",
-          "correct": false,
-          "rationale": "Public addresses are handed out, not picked at random."
+          "left": "A MAC address",
+          "right": "48 bits"
         },
         {
-          "id": "b",
-          "label": "One company sold them straight to every household",
-          "correct": false,
-          "rationale": "No single company runs the pool."
+          "left": "An IPv4 address",
+          "right": "32 bits"
         },
         {
-          "id": "c",
-          "label": "IANA gave blocks to five regional registries to hand on",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Governments printed a new list every year",
-          "correct": false,
-          "rationale": "Registries, not governments, hand addresses on."
+          "left": "IPv6",
+          "right": "128 bits"
         }
       ],
-      "explanation": "IANA manages the global pool and gives large blocks to five regional internet registries; its free pool ran out on February 3, 2011.",
+      "explanation": "A MAC address is 48 bits, an IPv4 address is 32 bits, and IPv6 addresses are 128 bits.",
       "difficulty": 0.3
     },
     {

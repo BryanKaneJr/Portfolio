@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 80,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Money and Government",
   "objective": "After this level you can explain how governments raise and spend money.",
@@ -226,41 +226,29 @@
     },
     {
       "id": "question.government.080.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.government.budget_cycle_stages"
       ],
       "sourceCardIds": [
-        "card.government.071.c3"
+        "card.government.071.c3",
+        "card.government.076.c3",
+        "card.government.077.c3",
+        "card.government.080.c4",
+        "card.government.080.c2",
+        "card.government.076.c2"
       ],
-      "prompt": "Money and Government recap: in Level 71's four-stage budget cycle, what comes right after the legislature approves the plan?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The executive prepares the plan",
-          "correct": false,
-          "rationale": "Preparing comes first, before approval."
-        },
-        {
-          "id": "b",
-          "label": "The government carries it out",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Auditors check the spending",
-          "correct": false,
-          "rationale": "Audit is the last stage, after the money is spent."
-        },
-        {
-          "id": "d",
-          "label": "The plan goes back into the bag",
-          "correct": false,
-          "rationale": "The bag is just the word's history."
-        }
+      "prompt": "Put these money and government milestones in order, from oldest to newest.",
+      "items": [
+        "Highway Trust Fund",
+        "Hong Kong's ICAC",
+        "Lima Declaration",
+        "San Giorgio bridge"
       ],
-      "explanation": "The stages run prepare, approve, carry out, audit, so carrying out comes after approval.",
+      "first": "Oldest",
+      "last": "Newest",
+      "explanation": "The Highway Trust Fund came in 1956, Hong Kong's ICAC in 1974, the Lima Declaration in 1977, and Genoa's San Giorgio bridge in 2020.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 15,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Isotopes",
   "objective": "After this level you can explain isotopes as atoms of one element with different masses.",
@@ -175,7 +175,7 @@
     },
     {
       "id": "question.chemistry.015.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.isotope_definition",
@@ -183,35 +183,18 @@
       ],
       "sourceCardIds": [
         "card.chemistry.015.c2",
-        "card.chemistry.012.c4"
+        "card.chemistry.012.c4",
+        "card.chemistry.015.c3"
       ],
-      "prompt": "Level 12 said protons and neutrons carry nearly all of an atom's mass. Why is a carbon-13 atom heavier than a carbon-12 atom?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It has one extra neutron in its nucleus",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Its electrons are heavier",
-          "correct": false,
-          "rationale": "Electrons are featherweights either way."
-        },
-        {
-          "id": "c",
-          "label": "It has one extra proton",
-          "correct": false,
-          "rationale": "An extra proton would make it nitrogen, not carbon."
-        },
-        {
-          "id": "d",
-          "label": "Its nucleus is packed with air",
-          "correct": false,
-          "rationale": "A nucleus holds only protons and neutrons."
-        }
+      "prompt": "Put hydrogen's three isotopes in order, from fewest neutrons to most.",
+      "items": [
+        "Ordinary hydrogen",
+        "Deuterium",
+        "Tritium"
       ],
-      "explanation": "Carbon-13 has 7 neutrons to carbon-12's 6. One more heavy particle means more mass.",
+      "first": "Fewest neutrons",
+      "last": "Most neutrons",
+      "explanation": "Ordinary hydrogen has no neutron, deuterium has one and tritium has two. All three have 1 proton.",
       "difficulty": 0.3
     }
   ],

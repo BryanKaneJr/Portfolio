@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 82,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Diplomacy",
   "objective": "After this level you can explain how ambassadors and diplomats work.",
@@ -95,41 +95,32 @@
   "questions": [
     {
       "id": "question.government.082.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.diplomacy_immunity"
       ],
       "sourceCardIds": [
-        "card.government.082.c1"
+        "card.government.082.c1",
+        "card.government.082.c2",
+        "card.government.082.c4"
       ],
-      "prompt": "Under the Vienna Convention, when may the host country's officials enter an embassy?",
-      "options": [
+      "prompt": "Match each diplomatic rule with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Whenever a crime has been reported there",
-          "correct": false,
-          "rationale": "A report doesn't open the door; consent does."
+          "left": "Embassy's premises",
+          "right": "Inviolable"
         },
         {
-          "id": "b",
-          "label": "Only once a local court issues a warrant",
-          "correct": false,
-          "rationale": "No warrant is enough; the premises are inviolable."
+          "left": "Persona non grata",
+          "right": "The sending country must recall them"
         },
         {
-          "id": "c",
-          "label": "Only with the consent of the head of the mission",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Never, even if they are invited in",
-          "correct": false,
-          "rationale": "Consent from the head of the mission lets them in."
+          "left": "Diplomatic relations",
+          "right": "Mutual consent"
         }
       ],
-      "explanation": "Embassy premises are inviolable: the host's officials may not enter without the consent of the head of the mission.",
+      "explanation": "An embassy's premises are inviolable, a diplomat declared persona non grata must be recalled by the sending country, and diplomatic relations are set up by mutual consent.",
       "difficulty": 0.2
     },
     {

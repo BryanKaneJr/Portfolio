@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 76,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Respiration",
   "objective": "After this level you can explain how cells release energy from food.",
@@ -135,41 +135,31 @@
     },
     {
       "id": "question.chemistry.076.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.lifechem_atp_small_steps"
       ],
       "sourceCardIds": [
-        "card.chemistry.076.c4"
+        "card.chemistry.076.c4",
+        "card.chemistry.076.c2"
       ],
-      "prompt": "Why do cells break down glucose in many small steps instead of one quick burst?",
-      "options": [
+      "prompt": "Match each part of respiration with the role the level gives it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "To make the glucose last forever",
-          "correct": false,
-          "rationale": "The glucose is still used up; the steps are about the energy."
+          "left": "ATP",
+          "right": "Energy currency"
         },
         {
-          "id": "b",
-          "label": "So they can capture the energy in ATP as it's released",
-          "correct": true
+          "left": "Breathing",
+          "right": "The delivery service"
         },
         {
-          "id": "c",
-          "label": "Because oxygen can only react slowly",
-          "correct": false,
-          "rationale": "The steps exist so the energy can be captured, not because of oxygen."
-        },
-        {
-          "id": "d",
-          "label": "To avoid making any carbon dioxide",
-          "correct": false,
-          "rationale": "Respiration still produces carbon dioxide."
+          "left": "Mitochondria",
+          "right": "Tiny compartments"
         }
       ],
-      "explanation": "Releasing energy in small steps lets cells capture it in ATP, the cell's energy currency, instead of losing it in one destructive burst.",
+      "explanation": "ATP is the cell's energy currency, breathing is the delivery service for oxygen and carbon dioxide, and mitochondria are the tiny compartments where respiration happens.",
       "difficulty": 0.4
     },
     {

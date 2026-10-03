@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 43,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Stomach",
   "objective": "After this level you can explain how the stomach breaks food down with acid.",
@@ -165,7 +165,7 @@
     },
     {
       "id": "question.human_body.043.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.tissue_types",
@@ -173,32 +173,26 @@
       ],
       "sourceCardIds": [
         "card.human_body.004.c4",
-        "card.human_body.043.c3"
+        "card.human_body.043.c3",
+        "card.human_body.043.c4"
       ],
-      "prompt": "Level 4 said the stomach wall has three layers of smooth muscle. What is their job in digestion?",
-      "options": [
+      "prompt": "Match each substance in the stomach with what it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Making hydrochloric acid",
-          "correct": false,
-          "rationale": "Glands in the lining do that."
+          "left": "Hydrochloric acid",
+          "right": "Kill many swallowed bacteria"
         },
         {
-          "id": "b",
-          "label": "Churning food with gastric juice",
-          "correct": true
+          "left": "Pepsin",
+          "right": "Breaks down proteins"
         },
         {
-          "id": "c",
-          "label": "Absorbing most nutrients",
-          "correct": false,
-          "rationale": "That's the small intestine's job."
+          "left": "Bicarbonate",
+          "right": "Neutralizes acid"
         },
         {
-          "id": "d",
-          "label": "Storing bile between meals",
-          "correct": false,
-          "rationale": "The gallbladder does that."
+          "left": "Chyme",
+          "right": "A thick liquid"
         }
       ],
       "explanation": "The smooth muscle layers churn food with gastric juice until it becomes chyme.",

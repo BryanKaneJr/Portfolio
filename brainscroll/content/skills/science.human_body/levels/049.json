@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 49,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Vitamins and Scurvy",
   "objective": "After this level you can explain why vitamins matter, using scurvy as the example.",
@@ -150,40 +150,24 @@
     },
     {
       "id": "question.human_body.049.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.scurvy_lind_trial"
       ],
       "sourceCardIds": [
-        "card.human_body.049.c4"
+        "card.human_body.049.c4",
+        "card.human_body.049.c3"
       ],
-      "prompt": "James Lind saw citrus work in 1747. Why didn't he present it as the cure for scurvy?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The sailors given citrus got worse",
-          "correct": false,
-          "rationale": "They recovered fastest."
-        },
-        {
-          "id": "b",
-          "label": "He saw scurvy mainly as a problem of damp air and digestion",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Citrus was unknown in Europe",
-          "correct": false,
-          "rationale": "Oranges and lemons were already aboard."
-        },
-        {
-          "id": "d",
-          "label": "The Navy banned his results",
-          "correct": false,
-          "rationale": "The Navy adopted lemon juice later, in 1795."
-        }
+      "prompt": "Put the scurvy story in order, from earliest to latest.",
+      "items": [
+        "James Lind gives 12 sailors",
+        "Lind's Treatise of the Scurvy",
+        "Lemon juice standard issue",
+        "Vitamin C is identified"
       ],
+      "first": "Earliest",
+      "last": "Latest",
       "explanation": "Lind blamed scurvy mainly on damp air and a poorly digested diet, not a missing nutrient, and didn't declare citrus the cure.",
       "difficulty": 0.3
     },

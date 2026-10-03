@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 65,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Indicators",
   "objective": "After this level you can explain how red cabbage juice can test for acids.",
@@ -103,7 +103,7 @@
   "questions": [
     {
       "id": "question.chemistry.065.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.indicator_basics"
@@ -111,33 +111,16 @@
       "sourceCardIds": [
         "card.chemistry.065.c3"
       ],
-      "prompt": "Red cabbage pigments are added to an unknown liquid and turn red. What does that signal?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A very acidic solution",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "A neutral solution",
-          "correct": false,
-          "rationale": "Neutral leaves them purplish."
-        },
-        {
-          "id": "c",
-          "label": "A mildly basic solution",
-          "correct": false,
-          "rationale": "Mild bases turn them blue to blue-green."
-        },
-        {
-          "id": "d",
-          "label": "A strongly basic solution",
-          "correct": false,
-          "rationale": "Strong bases turn them greenish-yellow."
-        }
+      "prompt": "Put red cabbage's colors in order, from very acidic to strongly basic.",
+      "items": [
+        "Red",
+        "Purplish",
+        "Blue to blue-green",
+        "Greenish-yellow"
       ],
-      "explanation": "Red cabbage anthocyanins turn red in very acidic solutions.",
+      "first": "Very acidic",
+      "last": "Strongly basic",
+      "explanation": "Red cabbage pigments turn red in very acidic solutions, purplish in neutral ones, blue to blue-green in mildly basic ones and greenish-yellow in strongly basic ones.",
       "difficulty": 0.2
     },
     {

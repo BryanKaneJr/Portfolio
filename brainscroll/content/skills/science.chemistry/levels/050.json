@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 50,
   "type": "milestone",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Milestone: Atoms to Molecules",
   "objective": "After this level you can connect atoms, elements and bonds into one picture of matter.",
@@ -301,7 +301,7 @@
     },
     {
       "id": "question.chemistry.050.q4",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.bond_type_properties",
@@ -309,35 +309,25 @@
       ],
       "sourceCardIds": [
         "card.chemistry.050.c3",
-        "card.chemistry.045.c4"
+        "card.chemistry.045.c4",
+        "card.chemistry.050.c2"
       ],
-      "prompt": "An unknown solid is shiny, bends when hammered and conducts electricity as a solid. What holds it together?",
-      "options": [
+      "prompt": "Match each kind of bond with what happens to the electrons.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Ionic bonds",
-          "correct": false,
-          "rationale": "Ionic solids shatter and conduct only when melted or dissolved."
+          "left": "Ionic",
+          "right": "Electrons handed over"
         },
         {
-          "id": "b",
-          "label": "Hydrogen bonds",
-          "correct": false,
-          "rationale": "Those are weak pulls between molecules."
+          "left": "Covalent",
+          "right": "Electrons shared in pairs"
         },
         {
-          "id": "c",
-          "label": "Metallic bonds",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Covalent bonds in small molecules",
-          "correct": false,
-          "rationale": "Those substances are usually gases, liquids or low-melting solids."
+          "left": "Metallic",
+          "right": "Electrons pooled in a free-moving sea"
         }
       ],
-      "explanation": "Conducting as a solid and bending instead of shattering are the signs of a metal's electron sea.",
+      "explanation": "In ionic bonds electrons are handed over, in covalent bonds they are shared in pairs, and in metallic bonds they are pooled in a free-moving sea.",
       "difficulty": 0.35
     },
     {

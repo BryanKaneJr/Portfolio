@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 68,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "End-to-End Encryption",
   "objective": "After this level you can explain why end-to-end encryption means even the service can't read your messages, and why governments debate it.",
@@ -105,41 +105,31 @@
   "questions": [
     {
       "id": "question.computers.068.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.privacy_end_to_end"
       ],
       "sourceCardIds": [
-        "card.computers.068.c2"
+        "card.computers.068.c2",
+        "card.computers.068.c3"
       ],
-      "prompt": "With end-to-end encryption, who holds the keys to read a message?",
-      "options": [
+      "prompt": "Match each encryption idea with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The messaging service's servers",
-          "correct": false,
-          "rationale": "That's encryption in transit, where the service can read copies."
+          "left": "Encrypted in transit",
+          "right": "The service can see unencrypted copies"
         },
         {
-          "id": "b",
-          "label": "Your internet provider",
-          "correct": false,
-          "rationale": "Providers carry the locked message but can't open it."
+          "left": "End-to-end encrypted",
+          "right": "Only the two ends hold the keys"
         },
         {
-          "id": "c",
-          "label": "Only the sender and the recipient",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "A government key registry",
-          "correct": false,
-          "rationale": "No third party holds the keys."
+          "left": "Each added bit of key",
+          "right": "Doubles the number of possible keys"
         }
       ],
-      "explanation": "End-to-end encryption is locked by the sender and unlocked only by the recipient.",
+      "explanation": "With encryption in transit, the service can see unencrypted copies. With end-to-end encryption, only the two ends hold the keys. Each added bit of key doubles the number of possible keys.",
       "difficulty": 0.2
     },
     {

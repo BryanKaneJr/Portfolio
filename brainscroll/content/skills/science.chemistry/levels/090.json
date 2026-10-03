@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 90,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Chemistry at Home",
   "objective": "After this level you can explain the chemistry behind cooking, cleaning and everyday materials.",
@@ -200,7 +200,7 @@
     },
     {
       "id": "question.chemistry.090.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.home_maillard_reaction"
@@ -209,33 +209,26 @@
         "card.chemistry.090.c4",
         "card.chemistry.081.c2"
       ],
-      "prompt": "Chemistry at Home recap: what reaction browns the toast in the kitchen?",
-      "options": [
+      "prompt": "Match each part of the kitchen with the chemistry behind it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Water freezing on the surface",
-          "correct": false,
-          "rationale": "Browning needs heat, not freezing."
+          "left": "The gas flame",
+          "right": "Hydrocarbons"
         },
         {
-          "id": "b",
-          "label": "Sugars reacting with amino acids from proteins",
-          "correct": true
+          "left": "The toast",
+          "right": "Sugars react with amino acids"
         },
         {
-          "id": "c",
-          "label": "Yeast still fermenting in the toaster",
-          "correct": false,
-          "rationale": "The oven killed the yeast long before."
+          "left": "The window",
+          "right": "Sand, soda and lime"
         },
         {
-          "id": "d",
-          "label": "Salt dissolving into the bread",
-          "correct": false,
-          "rationale": "Dissolving salt is usually a physical change."
+          "left": "Soap",
+          "right": "Wraps grease in micelles"
         }
       ],
-      "explanation": "Toast browns by the Maillard reaction: sugars reacting with the amino acids of proteins.",
+      "explanation": "The gas flame burns hydrocarbons, the toast browns as sugars react with amino acids, the window is sand, soda and lime, and soap wraps grease in micelles.",
       "difficulty": 0.3
     },
     {

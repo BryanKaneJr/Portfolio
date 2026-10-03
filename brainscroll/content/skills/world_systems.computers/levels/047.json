@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 47,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Copies Near You",
   "objective": "After this level you can explain why popular videos and pages are copied to servers close to viewers, and what that saves.",
@@ -126,7 +126,7 @@
     },
     {
       "id": "question.computers.047.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.cdn_copies"
@@ -134,33 +134,15 @@
       "sourceCardIds": [
         "card.computers.047.c3"
       ],
-      "prompt": "Why does Netflix copy most new content onto its servers during off-peak hours?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Its shows are only allowed online at night",
-          "correct": false,
-          "rationale": "Shows stream at any hour."
-        },
-        {
-          "id": "b",
-          "label": "It predicts what people will watch and loads it while networks are quiet",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Servers can only store files that arrive at night",
-          "correct": false,
-          "rationale": "Storage works at any hour; timing is chosen."
-        },
-        {
-          "id": "d",
-          "label": "Internet providers charge nothing for data sent at night",
-          "correct": false,
-          "rationale": "The reason given is predicting viewing, not a free rate."
-        }
+      "prompt": "Put the steps of Netflix getting a new show to you in order.",
+      "items": [
+        "Can predict what people will watch",
+        "Copies most new content",
+        "You press play"
       ],
-      "explanation": "Netflix predicts what members will watch and when, so it fills its servers during off-peak hours, before viewers ask.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Netflix can predict what people will watch, so it copies most new content onto servers inside providers during off-peak hours, before you press play.",
       "difficulty": 0.3
     },
     {

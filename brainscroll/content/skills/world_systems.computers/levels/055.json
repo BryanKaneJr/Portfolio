@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 55,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Public Keys: The Open Padlock",
   "objective": "After this level you can explain how public-key cryptography lets two strangers agree on a secret over a line anyone can hear.",
@@ -98,41 +98,24 @@
   "questions": [
     {
       "id": "question.computers.055.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.security_public_key_pair"
       ],
       "sourceCardIds": [
-        "card.computers.055.c2"
+        "card.computers.055.c2",
+        "card.computers.055.c4"
       ],
-      "prompt": "In the open-padlock picture of public-key cryptography, what is the public key?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The key that opens the padlock",
-          "correct": false,
-          "rationale": "That is the private key, which you keep."
-        },
-        {
-          "id": "b",
-          "label": "The box the note travels in",
-          "correct": false,
-          "rationale": "The box is the message; the padlock is the public key."
-        },
-        {
-          "id": "c",
-          "label": "The open padlock anyone can snap shut",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "A copy of the private key for friends",
-          "correct": false,
-          "rationale": "The private key is never shared."
-        }
+      "prompt": "Put the steps of sharing a session key over an open line in order.",
+      "items": [
+        "Lock a fresh random key",
+        "Send it across a line anyone can hear",
+        "Use that shared session key"
       ],
-      "explanation": "You publish open padlocks (public keys); only your private key opens what they lock.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Your device locks a fresh random key in the other side's padlock, sends it across a line anyone can hear, and from then on both sides use that shared session key.",
       "difficulty": 0.2
     },
     {

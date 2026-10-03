@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 77,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Fleming and Penicillin",
   "objective": "After this level you can explain how Alexander Fleming discovered penicillin.",
@@ -137,41 +137,25 @@
     },
     {
       "id": "question.human_body.077.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.defense_penicillin_development"
       ],
       "sourceCardIds": [
         "card.human_body.077.c3",
-        "card.human_body.077.c4"
+        "card.human_body.077.c4",
+        "card.human_body.077.c2"
       ],
-      "prompt": "Why did penicillin wait until 1941 for its first patient?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Fleming kept the discovery secret",
-          "correct": false,
-          "rationale": "He published it in 1929."
-        },
-        {
-          "id": "b",
-          "label": "Doctors were forbidden to use mold",
-          "correct": false,
-          "rationale": "The problem was making it, not permission."
-        },
-        {
-          "id": "c",
-          "label": "It only ever worked in mice",
-          "correct": false,
-          "rationale": "It went on to treat people too."
-        },
-        {
-          "id": "d",
-          "label": "Nobody could purify and produce it until Florey and Chain's team did",
-          "correct": true
-        }
+      "prompt": "Put the penicillin story in order, from earliest to latest.",
+      "items": [
+        "Bacteria failed to grow near the mold",
+        "Fleming published",
+        "Four infected mice",
+        "A policeman became the first patient"
       ],
+      "first": "Earliest",
+      "last": "Latest",
       "explanation": "Fleming couldn't stabilize or purify penicillin; Florey and Chain's Oxford team made it usable.",
       "difficulty": 0.25
     },

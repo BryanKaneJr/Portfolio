@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 63,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Metadata: The Envelope",
   "objective": "After this level you can explain why who, when and where you communicate can reveal as much as what you said.",
@@ -86,41 +86,32 @@
   "questions": [
     {
       "id": "question.computers.063.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.privacy_metadata"
       ],
       "sourceCardIds": [
-        "card.computers.063.c2"
+        "card.computers.063.c2",
+        "card.computers.063.c3",
+        "card.computers.063.c4"
       ],
-      "prompt": "What is metadata?",
-      "options": [
+      "prompt": "Match each metadata idea with what the level says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The words written inside a message or letter",
-          "correct": false,
-          "rationale": "That's the content, the part metadata leaves out."
+          "left": "Metadata",
+          "right": "Data about data"
         },
         {
-          "id": "b",
-          "label": "A backup copy of a file, kept somewhere else",
-          "correct": false,
-          "rationale": "A backup copies the data itself."
+          "left": "A Stanford study",
+          "right": "823 volunteers"
         },
         {
-          "id": "c",
-          "label": "Data about data, like a call's time and length",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "A password that unlocks a protected file",
-          "correct": false,
-          "rationale": "Passwords protect data; metadata describes it."
+          "left": "Locking the message",
+          "right": "Doesn't hide the envelope"
         }
       ],
-      "explanation": "Metadata describes data: for a call, who, when and how long, but not what was said.",
+      "explanation": "Metadata is data about data, a Stanford study used the call and text logs of 823 volunteers, and locking the message doesn't hide the envelope.",
       "difficulty": 0.2
     },
     {

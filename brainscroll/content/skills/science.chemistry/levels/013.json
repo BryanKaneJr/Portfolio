@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 13,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How Small Is an Atom?",
   "objective": "After this level you can picture just how small an atom is.",
@@ -126,41 +126,26 @@
     },
     {
       "id": "question.chemistry.013.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.atom_empty_space"
       ],
       "sourceCardIds": [
-        "card.chemistry.013.c3"
+        "card.chemistry.013.c3",
+        "card.chemistry.013.c1",
+        "card.chemistry.013.c2"
       ],
-      "prompt": "If an atom were blown up to the width of a football field, about how big would its nucleus be?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A grain of sand",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "About half the field",
-          "correct": false,
-          "rationale": "Far too big: the nucleus is 100,000 times smaller across."
-        },
-        {
-          "id": "c",
-          "label": "About a car",
-          "correct": false,
-          "rationale": "Still too big."
-        },
-        {
-          "id": "d",
-          "label": "As big as the field",
-          "correct": false,
-          "rationale": "The nucleus is a tiny part of the atom."
-        }
+      "prompt": "Put these in order of size, from smallest to largest.",
+      "items": [
+        "The nucleus",
+        "An atom",
+        "A millimeter",
+        "1 centimeter"
       ],
-      "explanation": "The nucleus is about 100,000 times smaller across than the atom: a grain of sand on a football field.",
+      "first": "Smallest",
+      "last": "Largest",
+      "explanation": "The nucleus is about 100,000 times smaller than an atom, a millimeter is ten million atoms wide, and a centimeter is ten millimeters.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 30,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: The Periodic Table",
   "objective": "After this level you can use the periodic table to predict how an element behaves.",
@@ -276,7 +276,7 @@
     },
     {
       "id": "question.chemistry.030.q4",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.ptable_halogen_family",
@@ -284,35 +284,25 @@
       ],
       "sourceCardIds": [
         "card.chemistry.027.c2",
-        "card.chemistry.026.c4"
+        "card.chemistry.026.c4",
+        "card.chemistry.030.c4"
       ],
-      "prompt": "Periodic table recap: going down their columns, how do alkali metals and halogens change in reactivity?",
-      "options": [
+      "prompt": "Match each group with the word the chapter recap uses for it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Both get more reactive",
-          "correct": false,
-          "rationale": "Halogens get less reactive down the group."
+          "left": "Group 1",
+          "right": "Fizzes"
         },
         {
-          "id": "b",
-          "label": "Alkali metals get more reactive; halogens get less",
-          "correct": true
+          "left": "Group 17",
+          "right": "Grabs"
         },
         {
-          "id": "c",
-          "label": "Both get less reactive",
-          "correct": false,
-          "rationale": "Alkali metals get more reactive down the group."
-        },
-        {
-          "id": "d",
-          "label": "Alkali metals get less reactive; halogens get more",
-          "correct": false,
-          "rationale": "That's backwards."
+          "left": "Group 18",
+          "right": "Shrugs"
         }
       ],
-      "explanation": "Cesium is fiercer than lithium, but fluorine is fiercer than iodine: the trends run opposite.",
+      "explanation": "Group 1 fizzes, group 17 grabs and group 18 shrugs: wild alkali metals, electron-grabbing halogens and calm noble gases.",
       "difficulty": 0.35
     },
     {

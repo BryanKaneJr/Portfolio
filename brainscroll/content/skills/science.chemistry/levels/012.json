@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 12,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Inside an Atom",
   "objective": "After this level you can name protons, neutrons and electrons and where each is found.",
@@ -117,7 +117,7 @@
   "questions": [
     {
       "id": "question.chemistry.012.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.atom_subatomic_particles"
@@ -125,33 +125,22 @@
       "sourceCardIds": [
         "card.chemistry.012.c2"
       ],
-      "prompt": "Which of an atom's three particles has no electric charge?",
-      "options": [
+      "prompt": "Match each particle in the atom with its charge.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The proton",
-          "correct": false,
-          "rationale": "Protons carry a positive charge."
+          "left": "Proton",
+          "right": "Positive charge"
         },
         {
-          "id": "b",
-          "label": "The electron",
-          "correct": false,
-          "rationale": "Electrons carry a negative charge."
+          "left": "Neutron",
+          "right": "No charge"
         },
         {
-          "id": "c",
-          "label": "The neutron",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "None of them: all three are charged",
-          "correct": false,
-          "rationale": "One of the three is neutral: its name gives it away."
+          "left": "Electron",
+          "right": "Negative charge"
         }
       ],
-      "explanation": "Neutrons are neutral. Protons are positive and electrons are negative.",
+      "explanation": "Protons carry a positive charge, electrons a negative charge, and neutrons no charge at all.",
       "difficulty": 0.1
     },
     {

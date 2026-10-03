@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 78,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Handwashing",
   "objective": "After this level you can explain why handwashing saves lives, from Semmelweis to today.",
@@ -102,40 +102,24 @@
   "questions": [
     {
       "id": "question.human_body.078.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.defense_semmelweis"
       ],
       "sourceCardIds": [
-        "card.human_body.078.c3"
+        "card.human_body.078.c3",
+        "card.human_body.078.c2"
       ],
-      "prompt": "What did Semmelweis order medical students to do before examining patients?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Hand every examination over to midwives",
-          "correct": false,
-          "rationale": "He kept the students; he changed their hands."
-        },
-        {
-          "id": "b",
-          "label": "Wait a day after any dissection",
-          "correct": false,
-          "rationale": "His rule was washing, before each examination."
-        },
-        {
-          "id": "c",
-          "label": "Wash their hands in chlorinated lime",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Wear gloves made of rubber",
-          "correct": false,
-          "rationale": "His rule was handwashing in chlorinated lime."
-        }
+      "prompt": "Put Semmelweis's handwashing story in order, from first to last.",
+      "items": [
+        "Two or three times higher",
+        "A colleague died",
+        "He ordered them to wash",
+        "Deaths fell"
       ],
+      "first": "First",
+      "last": "Last",
       "explanation": "In 1847 Semmelweis ordered students to wash in chlorinated lime before each examination.",
       "difficulty": 0.15
     },

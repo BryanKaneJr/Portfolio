@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 43,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Committees",
   "objective": "After this level you can explain what committees do.",
@@ -164,7 +164,7 @@
     },
     {
       "id": "question.government.043.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.government.lawmaking_committees_bills",
@@ -172,35 +172,19 @@
       ],
       "sourceCardIds": [
         "card.government.043.c3",
-        "card.government.041.c3"
+        "card.government.041.c3",
+        "card.government.043.c2"
       ],
-      "prompt": "A US committee's mark-up session is most like which stage of a UK bill's journey?",
-      "options": [
-        {
-          "id": "a",
-          "label": "First reading",
-          "correct": false,
-          "rationale": "First reading is a formality with no debate or amendments."
-        },
-        {
-          "id": "b",
-          "label": "Royal Assent",
-          "correct": false,
-          "rationale": "Royal Assent is the final approval, not detailed work."
-        },
-        {
-          "id": "c",
-          "label": "Ping-pong between the Houses",
-          "correct": false,
-          "rationale": "Ping-pong settles disagreements between the Houses."
-        },
-        {
-          "id": "d",
-          "label": "Committee stage, going line by line",
-          "correct": true
-        }
+      "prompt": "Put the steps of a bill's trip through a US committee in order, from first to last.",
+      "items": [
+        "Referred to a committee",
+        "Public hearing",
+        "Mark-up session",
+        "Reports the bill to the full chamber"
       ],
-      "explanation": "Both are where lawmakers go through the text in detail and vote on amendments.",
+      "first": "First step",
+      "last": "Last step",
+      "explanation": "A bill is referred to a committee, which holds a public hearing, then a mark-up session, and finally reports the bill to the full chamber.",
       "difficulty": 0.3
     }
   ],

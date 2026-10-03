@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 11,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Idea of Atoms",
   "objective": "After this level you can explain how the idea of atoms began with the ancient Greeks.",
@@ -172,7 +172,7 @@
     },
     {
       "id": "question.chemistry.011.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.atom_greek_atoms_void",
@@ -180,35 +180,26 @@
       ],
       "sourceCardIds": [
         "card.chemistry.011.c4",
-        "card.chemistry.003.c3"
+        "card.chemistry.003.c3",
+        "card.chemistry.011.c2",
+        "card.chemistry.011.c5"
       ],
-      "prompt": "Level 3 said a gas's particles are far apart. In Democritus's picture, what fills the gaps between atoms?",
-      "options": [
+      "prompt": "Match each ancient Greek idea with what it meant.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Air, the fourth element",
-          "correct": false,
-          "rationale": "That is Aristotle's four-element picture, which rejected atoms."
+          "left": "Atom",
+          "right": "Uncuttable"
         },
         {
-          "id": "b",
-          "label": "Smaller atoms packed in tight",
-          "correct": false,
-          "rationale": "Democritus's atoms were the smallest pieces."
+          "left": "The void",
+          "right": "Empty space"
         },
         {
-          "id": "c",
-          "label": "Water that holds them together",
-          "correct": false,
-          "rationale": "The atomists put nothing between atoms."
-        },
-        {
-          "id": "d",
-          "label": "The void: empty space",
-          "correct": true
+          "left": "Aristotle",
+          "right": "Fire, earth, air and water"
         }
       ],
-      "explanation": "Democritus pictured atoms moving through the void, empty space, which fits the modern picture of gas particles far apart.",
+      "explanation": "Atom comes from the Greek for uncuttable, the void is the empty space atoms move through, and Aristotle held that matter was made of fire, earth, air and water.",
       "difficulty": 0.3
     }
   ],

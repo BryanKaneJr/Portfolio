@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 45,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Liver",
   "objective": "After this level you can name the many jobs the liver does.",
@@ -152,7 +152,7 @@
     },
     {
       "id": "question.human_body.045.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.liver_jobs",
@@ -160,32 +160,26 @@
       ],
       "sourceCardIds": [
         "card.human_body.045.c2",
-        "card.human_body.044.c4"
+        "card.human_body.044.c4",
+        "card.human_body.045.c3"
       ],
-      "prompt": "Why does blood from the intestines pass through the liver before reaching the rest of the body?",
-      "options": [
+      "prompt": "Match each liver-related term with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "So the liver can store and process the nutrients",
-          "correct": true
+          "left": "Liver",
+          "right": "The largest gland in your body"
         },
         {
-          "id": "b",
-          "label": "So the liver can add stomach acid",
-          "correct": false,
-          "rationale": "The stomach makes its own acid."
+          "left": "Bile",
+          "right": "Helps digest fats"
         },
         {
-          "id": "c",
-          "label": "So the liver can chew the food further",
-          "correct": false,
-          "rationale": "Chewing happens in the mouth."
+          "left": "Gallbladder",
+          "right": "Stores bile until you eat"
         },
         {
-          "id": "d",
-          "label": "So the liver can make it into urine",
-          "correct": false,
-          "rationale": "Urine is the kidneys' work."
+          "left": "Glycogen",
+          "right": "A store of energy"
         }
       ],
       "explanation": "Absorbed nutrients reach the liver first, which stores, processes and sends them on when they're needed.",

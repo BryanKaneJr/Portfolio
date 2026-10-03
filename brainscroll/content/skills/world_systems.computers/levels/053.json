@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 53,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Why Long Passwords Win",
   "objective": "After this level you can explain why each extra character multiplies an attacker's guesses, and why one reused password unlocks many accounts.",
@@ -177,7 +177,7 @@
     },
     {
       "id": "question.computers.053.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.computers.security_password_length",
@@ -187,33 +187,22 @@
         "card.computers.053.c2",
         "card.computers.002.c3"
       ],
-      "prompt": "Each extra bit doubles the patterns. What does each extra character, chosen from 52 letters, do to the possible passwords?",
-      "options": [
+      "prompt": "Match each passcode with how many possibilities it has.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Adds 52 more possibilities",
-          "correct": false,
-          "rationale": "Characters multiply the count, as bits do."
+          "left": "A 4-digit passcode",
+          "right": "10,000 possibilities"
         },
         {
-          "id": "b",
-          "label": "Doubles them, just like a bit",
-          "correct": false,
-          "rationale": "A bit has 2 choices; a letter here has 52."
+          "left": "Add a fifth digit",
+          "right": "100,000"
         },
         {
-          "id": "c",
-          "label": "Leaves them the same if it is a letter",
-          "correct": false,
-          "rationale": "Every extra character multiplies the count."
-        },
-        {
-          "id": "d",
-          "label": "Multiplies them by 52",
-          "correct": true
+          "left": "Four letters, upper and lower case",
+          "right": "Over 7 million"
         }
       ],
-      "explanation": "A bit has 2 choices, so each bit doubles; a character from 52 letters has 52 choices, so each one multiplies by 52.",
+      "explanation": "A 4-digit passcode has 10,000 possibilities, adding a fifth digit makes 100,000, and four letters, upper and lower case, give over 7 million.",
       "difficulty": 0.3
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 42,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Teeth",
   "objective": "After this level you can name the kinds of teeth and what each one does.",
@@ -146,38 +146,33 @@
     },
     {
       "id": "question.human_body.042.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.teeth_enamel"
       ],
       "sourceCardIds": [
-        "card.human_body.042.c4"
+        "card.human_body.042.c4",
+        "card.human_body.042.c2",
+        "card.human_body.042.c3"
       ],
-      "prompt": "Enamel is the hardest substance in the body. Why can't it repair itself the way bone can?",
-      "options": [
+      "prompt": "Match each part of your mouth with what it does or is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Once formed, it holds no living cells",
-          "correct": true
+          "left": "Incisors",
+          "right": "Cut into food"
         },
         {
-          "id": "b",
-          "label": "Saliva dissolves any new enamel",
-          "correct": false,
-          "rationale": "Saliva moistens food; it doesn't block repair."
+          "left": "Canines",
+          "right": "Pointed, for tearing"
         },
         {
-          "id": "c",
-          "label": "It is too hard for blood to soften",
-          "correct": false,
-          "rationale": "Hardness isn't the reason."
+          "left": "Enamel",
+          "right": "The hardest substance in your body"
         },
         {
-          "id": "d",
-          "label": "Only children's teeth have enamel",
-          "correct": false,
-          "rationale": "Adult teeth have enamel too."
+          "left": "Saliva",
+          "right": "Moistens it"
         }
       ],
       "explanation": "The cells that make enamel are lost when the tooth comes in, so finished enamel can't remodel or regrow.",

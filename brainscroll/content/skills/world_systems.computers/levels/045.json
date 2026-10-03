@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 45,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Inside a Data Center",
   "objective": "After this level you can explain why data centers need so much electricity and cooling, and why that shapes where they are built.",
@@ -81,7 +81,7 @@
   "questions": [
     {
       "id": "question.computers.045.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.datacenter_heat"
@@ -89,33 +89,22 @@
       "sourceCardIds": [
         "card.computers.045.c3"
       ],
-      "prompt": "What does a data center's PUE compare?",
-      "options": [
+      "prompt": "Match each data center PUE with what it describes.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Its computing speed with its storage space",
-          "correct": false,
-          "rationale": "PUE is about energy, not speed or space."
+          "left": "A perfect 1.0",
+          "right": "Every watt goes to computing"
         },
         {
-          "id": "b",
-          "label": "Its water use with its electricity use",
-          "correct": false,
-          "rationale": "PUE compares two amounts of energy."
+          "left": "An average data center",
+          "right": "About 1.6"
         },
         {
-          "id": "c",
-          "label": "Total facility energy with energy reaching the computers",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Its daytime power use with its night-time power use",
-          "correct": false,
-          "rationale": "PUE compares total energy with IT energy."
+          "left": "Some very efficient ones",
+          "right": "Below 1.1"
         }
       ],
-      "explanation": "PUE is total facility energy divided by IT equipment energy; 1.0 would mean no overhead at all.",
+      "explanation": "A perfect PUE of 1.0 would mean every watt goes to computing. An average data center scores about 1.6, and some very efficient ones are below 1.1.",
       "difficulty": 0.2
     },
     {

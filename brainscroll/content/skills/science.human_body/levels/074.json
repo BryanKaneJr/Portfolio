@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 74,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Fever",
   "objective": "After this level you can explain why the body raises its temperature when it is sick.",
@@ -142,40 +142,25 @@
     },
     {
       "id": "question.human_body.074.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.defense_fever_set_point"
       ],
       "sourceCardIds": [
-        "card.human_body.074.c3"
+        "card.human_body.074.c3",
+        "card.human_body.074.c2"
       ],
-      "prompt": "Why do you feel chilly and shiver while a fever is rising?",
-      "options": [
-        {
-          "id": "a",
-          "label": "You are losing heat faster than normal",
-          "correct": false,
-          "rationale": "Your temperature is climbing, not falling."
-        },
-        {
-          "id": "b",
-          "label": "Your temperature is below the brain's new, higher setting",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The germs are releasing cold chemicals",
-          "correct": false,
-          "rationale": "The chill comes from your own raised setting."
-        },
-        {
-          "id": "d",
-          "label": "Sweat is cooling your skin",
-          "correct": false,
-          "rationale": "Sweating comes later, when the fever breaks."
-        }
+      "prompt": "Put the course of a fever in order, from first to last.",
+      "items": [
+        "Pyrogens travel in the blood",
+        "Push that setting up",
+        "You feel chilly",
+        "The fever breaks",
+        "You sweat"
       ],
+      "first": "Infection begins",
+      "last": "Cooling down",
       "explanation": "The raised setting leaves your actual temperature below target, so you feel cold while your body heats up.",
       "difficulty": 0.25
     },

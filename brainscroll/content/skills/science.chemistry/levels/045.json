@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 45,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Metallic Bonds",
   "objective": "After this level you can explain why metals conduct electricity and bend without breaking.",
@@ -98,7 +98,7 @@
   "questions": [
     {
       "id": "question.chemistry.045.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.metallic_electron_sea"
@@ -106,33 +106,22 @@
       "sourceCardIds": [
         "card.chemistry.045.c2"
       ],
-      "prompt": "In a metallic bond, where are the metal atoms' outer electrons?",
-      "options": [
+      "prompt": "Match each substance with what it does with its electrons.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Shared in a sea that moves through the whole metal",
-          "correct": true
+          "left": "Salt",
+          "right": "Trades electrons"
         },
         {
-          "id": "b",
-          "label": "Paired up between exactly two neighboring atoms",
-          "correct": false,
-          "rationale": "That's a covalent bond; metal electrons roam freely."
+          "left": "Water",
+          "right": "Shares them in pairs"
         },
         {
-          "id": "c",
-          "label": "Handed over for good to form a grid of ions",
-          "correct": false,
-          "rationale": "That's the ionic trade in salt."
-        },
-        {
-          "id": "d",
-          "label": "Stripped off and lost into the surrounding air",
-          "correct": false,
-          "rationale": "They stay in the metal, just not tied to any one atom."
+          "left": "Metals",
+          "right": "Pool them"
         }
       ],
-      "explanation": "In a metal, the outer electrons wander through the whole piece as a sea around positive metal ions.",
+      "explanation": "Salt trades electrons, water shares them in pairs, and metals pool them in a shared sea.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 63,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Seeing Color",
   "objective": "After this level you can explain how we see color and what color blindness is.",
@@ -126,7 +126,7 @@
     },
     {
       "id": "question.human_body.063.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.senses_color_cones"
@@ -134,30 +134,19 @@
       "sourceCardIds": [
         "card.human_body.063.c2"
       ],
-      "prompt": "How does your visual system produce the colors you see?",
-      "options": [
+      "prompt": "Match each part of your color vision with its job.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Rods measure the color of dim light",
-          "correct": false,
-          "rationale": "Rods handle dim light, not color."
+          "left": "Rods",
+          "right": "Handle dim light"
         },
         {
-          "id": "b",
-          "label": "Each cone detects every color by itself",
-          "correct": false,
-          "rationale": "Each type is most sensitive to one range of wavelengths."
+          "left": "Cones",
+          "right": "Give you color"
         },
         {
-          "id": "c",
-          "label": "The iris tints light as it enters",
-          "correct": false,
-          "rationale": "The iris only controls how much light gets in."
-        },
-        {
-          "id": "d",
-          "label": "The brain blends signals from three cone types",
-          "correct": true
+          "left": "Your brain",
+          "right": "Combines the input from all three"
         }
       ],
       "explanation": "Three types of cone each respond best to different wavelengths, and the brain combines their input into color.",

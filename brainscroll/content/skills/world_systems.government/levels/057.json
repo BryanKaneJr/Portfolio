@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 57,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Supreme Courts",
   "objective": "After this level you can explain courts that decide what a constitution means.",
@@ -125,41 +125,36 @@
     },
     {
       "id": "question.government.057.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.constitutional_judicial_review"
       ],
       "sourceCardIds": [
-        "card.government.057.c4"
+        "card.government.057.c4",
+        "card.government.057.c2",
+        "card.government.057.c3"
       ],
-      "prompt": "What happens when a UK court issues a declaration of incompatibility?",
-      "options": [
+      "prompt": "Match each country or judge with how courts check laws there.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The law stays in force; Parliament decides whether to change it",
-          "correct": true
+          "left": "Germany",
+          "right": "A special constitutional court"
         },
         {
-          "id": "b",
-          "label": "The law is immediately struck down",
-          "correct": false,
-          "rationale": "UK courts can't strike down Acts of Parliament."
+          "left": "United States",
+          "right": "Any court can hear"
         },
         {
-          "id": "c",
-          "label": "The case goes to Germany's constitutional court",
-          "correct": false,
-          "rationale": "Each country's courts are separate."
+          "left": "UK",
+          "right": "Declaration of incompatibility"
         },
         {
-          "id": "d",
-          "label": "The judge who issued it must resign",
-          "correct": false,
-          "rationale": "Nothing of the kind; it's a normal power of higher courts."
+          "left": "John Marshall",
+          "right": "Marbury v Madison"
         }
       ],
-      "explanation": "A declaration doesn't change the law or its enforcement; it signals the problem and leaves the fix to Parliament.",
+      "explanation": "Germany uses a special constitutional court, in the United States any court can hear a constitutional claim, UK courts can issue a declaration of incompatibility, and John Marshall claimed judicial review in Marbury v Madison.",
       "difficulty": 0.3
     },
     {

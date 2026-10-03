@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 70,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Your Data and Privacy",
   "objective": "After this level you can trace where your personal data goes, who profits from it, and which laws and tools limit what happens to it.",
@@ -135,41 +135,31 @@
   "questions": [
     {
       "id": "question.computers.070.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.privacy_online_offline_link"
       ],
       "sourceCardIds": [
-        "card.computers.070.c2"
+        "card.computers.070.c2",
+        "card.computers.070.c3"
       ],
-      "prompt": "In this chapter's weather-app story, how do data brokers link what you do offline to the ads you see online?",
-      "options": [
+      "prompt": "Match each privacy brake with what it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "By listening through your phone's microphone",
-          "correct": false,
-          "rationale": "Nothing in the chapter describes that; brokers match records."
+          "left": "Passwords",
+          "right": "Kept only as salted hashes"
         },
         {
-          "id": "b",
-          "label": "By reading your end-to-end encrypted messages",
-          "correct": false,
-          "rationale": "The service can't read those, let alone a broker."
+          "left": "Encryption",
+          "right": "Hides what you say"
         },
         {
-          "id": "c",
-          "label": "Through website sign-ups and cookies",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "By asking your carrier for your photos",
-          "correct": false,
-          "rationale": "Carriers log cell-site records, not photos."
+          "left": "Laws like the GDPR",
+          "right": "Let you see, correct and delete"
         }
       ],
-      "explanation": "The FTC found brokers use websites with registration features and cookies to find people online and target ads based on offline activity.",
+      "explanation": "Passwords should be kept only as salted hashes, encryption hides what you say (though not the metadata), and laws like the GDPR let you see, correct and delete what's held on you.",
       "difficulty": 0.3
     },
     {

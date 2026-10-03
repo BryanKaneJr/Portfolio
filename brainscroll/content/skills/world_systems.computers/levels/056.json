@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 56,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Padlock in Your Browser",
   "objective": "After this level you can explain why HTTPS certificates prove you reached the real site, and what the browser padlock does not promise.",
@@ -126,41 +126,32 @@
     },
     {
       "id": "question.computers.056.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.security_padlock_limits"
       ],
       "sourceCardIds": [
-        "card.computers.056.c4"
+        "card.computers.056.c4",
+        "card.computers.056.c2",
+        "card.computers.056.c3"
       ],
-      "prompt": "Why can a phishing site still show the padlock icon?",
-      "options": [
+      "prompt": "Match each part of the browser padlock story with what it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Browsers show the padlock on every site",
-          "correct": false,
-          "rationale": "The padlock needs HTTPS with a valid certificate."
+          "left": "HTTPS",
+          "right": "Ordinary web traffic secured by TLS"
         },
         {
-          "id": "b",
-          "label": "Phishing sites hack the browser to draw it",
-          "correct": false,
-          "rationale": "No hacking needed; they get real certificates."
+          "left": "A certificate",
+          "right": "A digitally signed copy"
         },
         {
-          "id": "c",
-          "label": "The padlock only proves a private line to whoever controls that address",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Certificate authorities are paid to look the other way on scams",
-          "correct": false,
-          "rationale": "They check domain control, which a scammer can have."
+          "left": "Let's Encrypt",
+          "right": "Issues certificates for free"
         }
       ],
-      "explanation": "A certificate proves control of a domain, not honesty; the FBI warns phishing sites use HTTPS too.",
+      "explanation": "HTTPS is ordinary web traffic secured by TLS, a certificate is a digitally signed copy of a site's public key, and Let's Encrypt issues certificates for free.",
       "difficulty": 0.3
     },
     {

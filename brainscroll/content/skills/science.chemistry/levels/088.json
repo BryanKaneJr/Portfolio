@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 88,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Glass From Sand",
   "objective": "After this level you can explain how glass is made from sand.",
@@ -98,41 +98,31 @@
   "questions": [
     {
       "id": "question.chemistry.088.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.home_glass_soda_lime"
       ],
       "sourceCardIds": [
-        "card.chemistry.088.c2"
+        "card.chemistry.088.c2",
+        "card.chemistry.088.c3"
       ],
-      "prompt": "Why do glassmakers add soda to sand?",
-      "options": [
+      "prompt": "Match each glass ingredient with its chemical name.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "To lower the melting temperature",
-          "correct": true
+          "left": "Sand",
+          "right": "Silicon dioxide"
         },
         {
-          "id": "b",
-          "label": "To color the glass",
-          "correct": false,
-          "rationale": "Soda is a flux, not a coloring."
+          "left": "Soda",
+          "right": "Sodium carbonate"
         },
         {
-          "id": "c",
-          "label": "To make the glass dissolve in water",
-          "correct": false,
-          "rationale": "That's a side effect that lime fixes."
-        },
-        {
-          "id": "d",
-          "label": "To grow crystals in the glass",
-          "correct": false,
-          "rationale": "Glass is cooled so crystals don't form."
+          "left": "Lime",
+          "right": "Calcium oxide"
         }
       ],
-      "explanation": "Soda is a flux: it lowers silica's very high melting temperature dramatically.",
+      "explanation": "Sand is silicon dioxide, soda is sodium carbonate, and lime is calcium oxide.",
       "difficulty": 0.3
     },
     {

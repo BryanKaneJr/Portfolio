@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 77,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Corruption",
   "objective": "After this level you can explain corruption and how countries fight it.",
@@ -151,41 +151,25 @@
     },
     {
       "id": "question.government.077.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.corruption_hong_kong_icac"
       ],
       "sourceCardIds": [
-        "card.government.077.c4"
+        "card.government.077.c4",
+        "card.government.077.c3"
       ],
-      "prompt": "Why was Hong Kong's anti-corruption commission set up apart from any government department?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Corruption was worst in the police, so they couldn't investigate themselves",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The police had too few officers to spare",
-          "correct": false,
-          "rationale": "Staffing wasn't the reason; independence was."
-        },
-        {
-          "id": "c",
-          "label": "Judges wanted to run it themselves",
-          "correct": false,
-          "rationale": "It was an independent commission, not a court."
-        },
-        {
-          "id": "d",
-          "label": "It was cheaper to run separately",
-          "correct": false,
-          "rationale": "Cost wasn't the point; trust was."
-        }
+      "prompt": "Put the steps of Hong Kong's fight against corruption in order, from first to last.",
+      "items": [
+        "Slips out of Hong Kong",
+        "A judge-led inquiry",
+        "ICAC",
+        "Convicted and jailed for four years"
       ],
-      "explanation": "Corruption was particularly serious in the police force, so an independent body was needed to investigate it.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Peter Godber slipped out of Hong Kong in June 1973, a judge-led inquiry followed, the ICAC was set up in February 1974, and Godber was convicted and jailed for four years in 1975.",
       "difficulty": 0.3
     },
     {

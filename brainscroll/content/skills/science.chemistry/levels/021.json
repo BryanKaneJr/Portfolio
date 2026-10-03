@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 21,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Elements",
   "objective": "After this level you can explain what an element is.",
@@ -90,7 +90,7 @@
   "questions": [
     {
       "id": "question.chemistry.021.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.ptable_atomic_number"
@@ -98,33 +98,22 @@
       "sourceCardIds": [
         "card.chemistry.021.c3"
       ],
-      "prompt": "What decides which element an atom belongs to?",
-      "options": [
+      "prompt": "Match each element with its number of protons.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The number of protons in its nucleus",
-          "correct": true
+          "left": "Hydrogen",
+          "right": "1"
         },
         {
-          "id": "b",
-          "label": "Its color",
-          "correct": false,
-          "rationale": "Color depends on many things; it is not the ID card."
+          "left": "Oxygen",
+          "right": "8"
         },
         {
-          "id": "c",
-          "label": "Whether it is a solid or a gas",
-          "correct": false,
-          "rationale": "Many elements can be solid, liquid or gas."
-        },
-        {
-          "id": "d",
-          "label": "How heavy the sample is",
-          "correct": false,
-          "rationale": "A big lump and a tiny speck of gold are both gold."
+          "left": "Gold",
+          "right": "79"
         }
       ],
-      "explanation": "The proton count, called the atomic number, decides the element: 79 protons is always gold.",
+      "explanation": "Every hydrogen atom has 1 proton, every oxygen atom has 8, and every gold atom has 79.",
       "difficulty": 0.15
     },
     {

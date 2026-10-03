@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 82,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Why Bread Rises",
   "objective": "After this level you can explain how yeast and baking soda make dough rise.",
@@ -133,41 +133,32 @@
     },
     {
       "id": "question.chemistry.082.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.home_bread_chemical_leavening"
       ],
       "sourceCardIds": [
-        "card.chemistry.082.c5"
+        "card.chemistry.082.c5",
+        "card.chemistry.082.c2",
+        "card.chemistry.082.c3"
       ],
-      "prompt": "Why can baking powder make a batter rise even when no acidic ingredient is added?",
-      "options": [
+      "prompt": "Match each with its part in making bread rise.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It contains live yeast",
-          "correct": false,
-          "rationale": "Baking powder works by chemistry, not yeast."
+          "left": "Fermentation",
+          "right": "Carbon dioxide gas and alcohol"
         },
         {
-          "id": "b",
-          "label": "It turns straight into steam",
-          "correct": false,
-          "rationale": "The gas it releases is carbon dioxide."
+          "left": "Gluten",
+          "right": "A stretchy network of proteins"
         },
         {
-          "id": "c",
-          "label": "It packs its own acids along with the sodium bicarbonate",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It pulls gas in from the air",
-          "correct": false,
-          "rationale": "It makes its own carbon dioxide."
+          "left": "Baking powder",
+          "right": "Brings its own partner"
         }
       ],
-      "explanation": "Baking powder contains sodium bicarbonate and acids together, which react to make carbon dioxide once the batter is wet and heated.",
+      "explanation": "Fermentation turns sugars into carbon dioxide gas and alcohol, gluten is a stretchy network of proteins that traps the gas, and baking powder brings its own acid partner.",
       "difficulty": 0.35
     },
     {

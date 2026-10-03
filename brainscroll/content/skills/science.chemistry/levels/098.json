@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 98,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Green Chemistry",
   "objective": "After this level you can explain how chemists make processes safer and cleaner.",
@@ -132,41 +132,31 @@
     },
     {
       "id": "question.chemistry.098.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.greenchem_prevention"
       ],
       "sourceCardIds": [
-        "card.chemistry.098.c2"
+        "card.chemistry.098.c2",
+        "card.chemistry.098.c3"
       ],
-      "prompt": "A factory makes a hazardous byproduct, then separates it out and treats it. Why isn't that green chemistry?",
-      "options": [
+      "prompt": "Match each green chemistry term with what the level says.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Green chemistry only applies to plants and farms",
-          "correct": false,
-          "rationale": "It applies to all areas of chemistry."
+          "left": "Cleanup",
+          "right": "Treats waste after it's made"
         },
         {
-          "id": "b",
-          "label": "Treating waste after it's made is always illegal",
-          "correct": false,
-          "rationale": "Cleanup is legal and often necessary; it's just a different approach."
+          "left": "Green chemistry",
+          "right": "Avoids making it"
         },
         {
-          "id": "c",
-          "label": "Green chemistry avoids making the hazard at all",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Separating chemicals from waste is impossible",
-          "correct": false,
-          "rationale": "Separation is a routine part of cleanup."
+          "left": "Paul Anastas and John Warner",
+          "right": "12 Principles of Green Chemistry"
         }
       ],
-      "explanation": "Cleanup deals with hazardous waste after it's made; green chemistry designs the process so it isn't made.",
+      "explanation": "Cleanup treats waste after it's made, green chemistry avoids making it, and Paul Anastas and John Warner set out the 12 Principles of Green Chemistry.",
       "difficulty": 0.3
     },
     {

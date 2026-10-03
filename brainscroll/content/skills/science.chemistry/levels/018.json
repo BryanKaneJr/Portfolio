@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 18,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Seeing Atoms",
   "objective": "After this level you can explain how scientists can image single atoms.",
@@ -166,7 +166,7 @@
     },
     {
       "id": "question.chemistry.018.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.atom_light_microscope_limit",
@@ -174,35 +174,25 @@
       ],
       "sourceCardIds": [
         "card.chemistry.018.c2",
-        "card.chemistry.013.c2"
+        "card.chemistry.013.c2",
+        "card.chemistry.018.c3"
       ],
-      "prompt": "Level 13 put an atom at about 0.1 nanometers across. How does that compare with the finest detail a light microscope can show?",
-      "options": [
+      "prompt": "Match each with the fact the level gives about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "About the same size",
-          "correct": false,
-          "rationale": "The atom is far smaller."
+          "left": "Light microscope limit",
+          "right": "About 200 nm"
         },
         {
-          "id": "b",
-          "label": "About twice as small",
-          "correct": false,
-          "rationale": "Far more than that."
+          "left": "Atom",
+          "right": "About 0.1 nm"
         },
         {
-          "id": "c",
-          "label": "About 2,000 times smaller",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Bigger than the limit",
-          "correct": false,
-          "rationale": "Then light microscopes could see atoms."
+          "left": "Scanning tunneling microscope",
+          "right": "Invented at IBM in 1981"
         }
       ],
-      "explanation": "200 nanometers divided by 0.1 nanometers is 2,000: atoms are far below light's limit.",
+      "explanation": "A light microscope can't show details below about 200 nm, an atom is about 0.1 nm across, and the scanning tunneling microscope was invented at IBM in 1981.",
       "difficulty": 0.35
     }
   ],

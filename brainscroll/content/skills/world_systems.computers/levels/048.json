@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 48,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Squeezing Data: Compression",
   "objective": "After this level you can explain why photos and video can shrink to a fraction of their size, and what lossy compression throws away.",
@@ -90,41 +90,32 @@
   "questions": [
     {
       "id": "question.computers.048.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.compression_video_frames"
       ],
       "sourceCardIds": [
-        "card.computers.048.c4"
+        "card.computers.048.c4",
+        "card.computers.048.c2",
+        "card.computers.048.c3"
       ],
-      "prompt": "How does video compression avoid saving every frame whole?",
-      "options": [
+      "prompt": "Match each compression method with how it saves space.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It saves only every tenth frame and skips the rest",
-          "correct": false,
-          "rationale": "Frames aren't skipped; changes are stored."
+          "left": "Run-length encoding",
+          "right": "A count and one copy"
         },
         {
-          "id": "b",
-          "label": "It stores only the differences between successive frames",
-          "correct": true
+          "left": "JPEG",
+          "right": "Averages out small variations in color"
         },
         {
-          "id": "c",
-          "label": "It turns the video into black and white",
-          "correct": false,
-          "rationale": "Color is kept; repetition between frames is cut."
-        },
-        {
-          "id": "d",
-          "label": "It plays the frames faster",
-          "correct": false,
-          "rationale": "Speed isn't changed; storage is."
+          "left": "MPEG",
+          "right": "Store the slight differences"
         }
       ],
-      "explanation": "Standards such as MPEG store only the slight differences between one frame and the next.",
+      "explanation": "Run-length encoding replaces a run with a count and one copy, JPEG averages out small variations in color, and MPEG video standards store the slight differences between frames.",
       "difficulty": 0.2
     },
     {

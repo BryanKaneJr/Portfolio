@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 89,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Problems Without Borders",
   "objective": "After this level you can explain problems no country can solve alone, like climate change.",
@@ -156,41 +156,31 @@
     },
     {
       "id": "question.government.089.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.borderless_paris_agreement"
       ],
       "sourceCardIds": [
-        "card.government.089.c4"
+        "card.government.089.c4",
+        "card.government.089.c3"
       ],
-      "prompt": "How does the Paris Agreement handle each country's share of climate action?",
-      "options": [
+      "prompt": "Match each global problem or treaty with its detail.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The UN sets one identical target for every country",
-          "correct": false,
-          "rationale": "Targets aren't set centrally; each country sets its own."
+          "left": "Montreal Protocol",
+          "right": "Ozone layer"
         },
         {
-          "id": "b",
-          "label": "Only the largest economies have to act",
-          "correct": false,
-          "rationale": "Every party submits a plan."
+          "left": "Paris Agreement",
+          "right": "Well below 2°C"
         },
         {
-          "id": "c",
-          "label": "Each country sets its own plan, updated every five years",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Countries vote on each other's national plans",
-          "correct": false,
-          "rationale": "There's no such vote; plans are national."
+          "left": "Climate change",
+          "right": "A collective action problem"
         }
       ],
-      "explanation": "Under the Paris Agreement, each country sets out its own nationally determined contribution and submits an updated one every five years.",
+      "explanation": "The Montreal Protocol protects the ozone layer, the Paris Agreement aims for warming well below 2°C, and climate change is a collective action problem.",
       "difficulty": 0.3
     },
     {

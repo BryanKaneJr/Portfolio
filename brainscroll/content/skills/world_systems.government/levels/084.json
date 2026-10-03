@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 84,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The United Nations",
   "objective": "After this level you can explain what the UN does and does not do.",
@@ -142,41 +142,33 @@
     },
     {
       "id": "question.government.084.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.un_founding_charter"
       ],
       "sourceCardIds": [
-        "card.government.084.c5"
+        "card.government.084.c5",
+        "card.government.084.c2",
+        "card.government.084.c3",
+        "card.government.084.c4"
       ],
-      "prompt": "Why is the UN described as not being a world government?",
-      "options": [
+      "prompt": "Match each part of the UN story with its detail.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It has no army or taxes and relies on its members",
-          "correct": true
+          "left": "General Assembly",
+          "right": "One country, one vote"
         },
         {
-          "id": "b",
-          "label": "It has no members from Africa or South America",
-          "correct": false,
-          "rationale": "All 193 member states belong, from every continent."
+          "left": "Security Council",
+          "right": "Fifteen seats, five vetoes"
         },
         {
-          "id": "c",
-          "label": "It only meets once every ten years",
-          "correct": false,
-          "rationale": "The UN works all year; that isn't the reason."
-        },
-        {
-          "id": "d",
-          "label": "Its decisions are secret and never published",
-          "correct": false,
-          "rationale": "Openness isn't the issue; power is."
+          "left": "San Francisco",
+          "right": "Drawing up the UN Charter"
         }
       ],
-      "explanation": "The UN calls itself neither a supra-state nor a government of governments: it has no army, levies no taxes and depends on its members.",
+      "explanation": "The General Assembly works on one country, one vote. The Security Council has fifteen seats and five vetoes. Delegates spent two months in San Francisco drawing up the UN Charter.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 82,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Training and Testing",
   "objective": "After this level you can judge a model by how it does on data it never saw, and spot overfitting when it only memorized its training set.",
@@ -134,41 +134,31 @@
     },
     {
       "id": "question.computers.082.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.ml_train_test"
       ],
       "sourceCardIds": [
-        "card.computers.082.c3"
+        "card.computers.082.c3",
+        "card.computers.082.c2"
       ],
-      "prompt": "A model scores 99% on its training data but only 61% on the test set. Which explanation fits best?",
-      "options": [
+      "prompt": "Match each pile of examples with its job.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It generalizes well",
-          "correct": false,
-          "rationale": "Generalizing means doing well on new data, and it doesn't."
+          "left": "The training set",
+          "right": "What the model learns from"
         },
         {
-          "id": "b",
-          "label": "Its test set leaked into training",
-          "correct": false,
-          "rationale": "Leaked test examples would push the test score up, not down."
+          "left": "A validation set",
+          "right": "Checks progress during training"
         },
         {
-          "id": "c",
-          "label": "It needs a bigger training score",
-          "correct": false,
-          "rationale": "Its training score is already near perfect."
-        },
-        {
-          "id": "d",
-          "label": "It overfit: it memorized its training set",
-          "correct": true
+          "left": "The test set",
+          "right": "Held back to judge the finished model"
         }
       ],
-      "explanation": "Low error on training data and high error on test data is the signal of overfitting.",
+      "explanation": "The training set is what the model learns from, a validation set checks progress during training, and the test set is held back to judge the finished model.",
       "difficulty": 0.4
     },
     {

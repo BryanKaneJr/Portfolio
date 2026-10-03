@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 71,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Government Budgets",
   "objective": "After this level you can explain how a government plans its spending.",
@@ -145,41 +145,25 @@
     },
     {
       "id": "question.government.071.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.budget_cycle_stages"
       ],
       "sourceCardIds": [
-        "card.government.071.c4"
+        "card.government.071.c4",
+        "card.government.071.c3"
       ],
-      "prompt": "While a finance ministry drafts next year's budget, what is usually happening to last year's budget?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Auditors are checking how it was actually spent",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "It is being debated for the first time",
-          "correct": false,
-          "rationale": "Debate happens before a budget is carried out, not after."
-        },
-        {
-          "id": "c",
-          "label": "It is thrown away and forgotten",
-          "correct": false,
-          "rationale": "Last year's budget still has to be audited."
-        },
-        {
-          "id": "d",
-          "label": "It is being spent all over again",
-          "correct": false,
-          "rationale": "Money is spent once, in the year the budget covers."
-        }
+      "prompt": "Put the four stages of the yearly budget cycle in order, from first to last.",
+      "items": [
+        "Prepare",
+        "Approve",
+        "Carry out",
+        "Audit"
       ],
-      "explanation": "Budget cycles overlap: next year's is prepared while this year's is carried out and last year's is audited.",
+      "first": "First stage",
+      "last": "Last stage",
+      "explanation": "The executive prepares the budget, the legislature approves it, the government carries it out, and auditors audit what was actually spent.",
       "difficulty": 0.25
     },
     {

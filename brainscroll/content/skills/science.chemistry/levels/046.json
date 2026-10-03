@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 46,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Crystals",
   "objective": "After this level you can explain how crystals form.",
@@ -91,41 +91,31 @@
   "questions": [
     {
       "id": "question.chemistry.046.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.crystal_definition"
       ],
       "sourceCardIds": [
-        "card.chemistry.046.c2"
+        "card.chemistry.046.c2",
+        "card.chemistry.046.c4"
       ],
-      "prompt": "What makes a solid a crystal?",
-      "options": [
+      "prompt": "Match each crystal with what the level says about its shape or size.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It is clear and sparkly",
-          "correct": false,
-          "rationale": "Looks aren't the test; the inner pattern is."
+          "left": "Salt crystals",
+          "right": "Cubes"
         },
         {
-          "id": "b",
-          "label": "It is made of only one kind of atom",
-          "correct": false,
-          "rationale": "Salt is a crystal of two kinds of ion."
+          "left": "Ice",
+          "right": "A hexagonal pattern"
         },
         {
-          "id": "c",
-          "label": "It formed deep underground",
-          "correct": false,
-          "rationale": "Frost and snowflakes are crystals formed in the air."
-        },
-        {
-          "id": "d",
-          "label": "Its particles repeat a pattern in every direction",
-          "correct": true
+          "left": "Naica's gypsum crystals",
+          "right": "11 meters"
         }
       ],
-      "explanation": "In a crystal, the atoms, ions or molecules sit in a pattern that repeats in all directions.",
+      "explanation": "Salt crystals are cubes, ice lines its molecules up in a hexagonal pattern, and Naica's gypsum crystals grew up to 11 meters long.",
       "difficulty": 0.2
     },
     {

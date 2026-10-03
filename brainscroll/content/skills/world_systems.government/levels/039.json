@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 39,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Civil Rights",
   "objective": "After this level you can explain civil rights movements and what they won.",
@@ -107,41 +107,27 @@
   "questions": [
     {
       "id": "question.government.039.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.civil_rights_us_movement"
       ],
       "sourceCardIds": [
-        "card.government.039.c3"
+        "card.government.039.c3",
+        "card.government.039.c1",
+        "card.government.039.c4",
+        "card.government.039.c5"
       ],
-      "prompt": "The Civil Rights Act of 1964 banned discrimination based on what?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Race and color, but not religion or sex",
-          "correct": false,
-          "rationale": "It also covered religion, sex and national origin."
-        },
-        {
-          "id": "b",
-          "label": "Race, color, religion, sex or national origin",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Property ownership and income level",
-          "correct": false,
-          "rationale": "That was Britain's old voting rule from Level 37."
-        },
-        {
-          "id": "d",
-          "label": "Age, disability and income level",
-          "correct": false,
-          "rationale": "Those aren't the categories the 1964 Act listed."
-        }
+      "prompt": "Put these civil rights milestones in order, from earliest to latest.",
+      "items": [
+        "Rosa Parks was arrested",
+        "Civil Rights Act",
+        "Voting Rights Act",
+        "Apartheid laws were repealed"
       ],
-      "explanation": "The Civil Rights Act, signed on 2 July 1964, banned discrimination based on race, color, religion, sex or national origin.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Rosa Parks was arrested in 1955, the Civil Rights Act was signed in 1964, the Voting Rights Act in 1965, and South Africa's apartheid laws were repealed in the early 1990s.",
       "difficulty": 0.2
     },
     {

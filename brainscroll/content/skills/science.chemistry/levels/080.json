@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 80,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: The Chemistry of Life",
   "objective": "After this level you can explain how chemistry powers living things.",
@@ -239,7 +239,7 @@
     },
     {
       "id": "question.chemistry.080.q4",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.lifechem_photosynthesis_equation"
@@ -248,33 +248,17 @@
         "card.chemistry.080.c3",
         "card.chemistry.075.c3"
       ],
-      "prompt": "Chemistry of life recap: on the carbon atom's round trip, which process moves it from the air into a leaf's glucose?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Photosynthesis",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Cellular respiration",
-          "correct": false,
-          "rationale": "Respiration sends carbon back into the air."
-        },
-        {
-          "id": "c",
-          "label": "Denaturation",
-          "correct": false,
-          "rationale": "That's a protein losing its shape."
-        },
-        {
-          "id": "d",
-          "label": "Digestion by amylase",
-          "correct": false,
-          "rationale": "Amylase works later, in your mouth."
-        }
+      "prompt": "Follow one carbon atom's round trip: put these steps in order.",
+      "items": [
+        "A potato leaf pulls it in",
+        "Stores it in the tuber as starch",
+        "Amylase starts breaking the starch",
+        "Your cells respire the glucose",
+        "Rides out on your breath"
       ],
-      "explanation": "Photosynthesis turns carbon dioxide and water, with light, into glucose and oxygen.",
+      "first": "Starts in the air",
+      "last": "Back to the air",
+      "explanation": "A potato leaf pulls the carbon in and stores it in the tuber as starch. You eat it, amylase starts breaking the starch, your cells respire the glucose, and the carbon rides out on your breath.",
       "difficulty": 0.3
     },
     {

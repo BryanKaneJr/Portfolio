@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 52,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Neurons",
   "objective": "After this level you can explain how a neuron sends a signal.",
@@ -169,7 +169,7 @@
     },
     {
       "id": "question.human_body.052.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.neuron_parts",
@@ -177,34 +177,18 @@
       ],
       "sourceCardIds": [
         "card.human_body.052.c3",
-        "card.human_body.002.c4"
+        "card.human_body.002.c4",
+        "card.human_body.052.c4"
       ],
-      "prompt": "Level 2 called the nucleus a cell's command center. In a neuron, which part holds the nucleus?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The axon",
-          "correct": false,
-          "rationale": "The axon is the long tail that sends messages on."
-        },
-        {
-          "id": "b",
-          "label": "The dendrites",
-          "correct": false,
-          "rationale": "Dendrites are the branches that receive messages."
-        },
-        {
-          "id": "c",
-          "label": "The synapse",
-          "correct": false,
-          "rationale": "The synapse is the gap between cells."
-        },
-        {
-          "id": "d",
-          "label": "The cell body",
-          "correct": true
-        }
+      "prompt": "Follow a message through a neuron: put these in order, from where it arrives to where it leaves.",
+      "items": [
+        "Dendrites",
+        "Cell body",
+        "Axon",
+        "Synapse"
       ],
+      "first": "Message comes in",
+      "last": "Message crosses over",
       "explanation": "A neuron's cell body contains its nucleus; dendrites receive messages and the axon sends them on.",
       "difficulty": 0.2
     }

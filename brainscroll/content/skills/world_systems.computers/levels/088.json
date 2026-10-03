@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 88,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Pictures From Noise",
   "objective": "After this level you can explain how image generators learn to turn random noise, step by step, into a picture that matches a prompt.",
@@ -121,7 +121,7 @@
     },
     {
       "id": "question.computers.088.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.diffusion_images"
@@ -130,33 +130,22 @@
         "card.computers.088.c2",
         "card.computers.088.c3"
       ],
-      "prompt": "A friend says image generators just cut and paste pieces of stored photos. Which description fits how diffusion works?",
-      "options": [
+      "prompt": "Match each part of a diffusion model's work with what happens in it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It picks the stored photo closest to your prompt",
-          "correct": false,
-          "rationale": "Generation starts from random noise, not a stored photo."
+          "left": "Training",
+          "right": "Ruin pictures on purpose"
         },
         {
-          "id": "b",
-          "label": "It removes predicted noise step by step, steered by the prompt",
-          "correct": true
+          "left": "Generating",
+          "right": "From noise to lighthouse"
         },
         {
-          "id": "c",
-          "label": "It blends two random photos from the internet",
-          "correct": false,
-          "rationale": "No photos are blended; noise is removed step by step."
-        },
-        {
-          "id": "d",
-          "label": "It paints strokes one by one like an artist",
-          "correct": false,
-          "rationale": "It changes the whole image a little at each step."
+          "left": "A text prompt",
+          "right": "Steers the result"
         }
       ],
-      "explanation": "The model learned to predict and remove noise; to generate, it denoises fresh random noise step by step, guided by the prompt.",
+      "explanation": "Training ruins pictures on purpose so the model learns to undo it, generating goes from noise to lighthouse, and a text prompt steers the result.",
       "difficulty": 0.45
     },
     {

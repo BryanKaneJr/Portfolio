@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 90,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Machine Learning and AI",
   "objective": "After this level you can explain how machine learning, neural networks and language models learn from data, and where each one fails.",
@@ -181,7 +181,7 @@
     },
     {
       "id": "question.computers.090.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.ml_data_limits"
@@ -190,33 +190,22 @@
         "card.computers.090.c3",
         "card.computers.090.c2"
       ],
-      "prompt": "A face-recognition model was trained almost only on daytime photos. What problem would you predict?",
-      "options": [
+      "prompt": "Match each AI system with how it fails.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It will refuse to run after dark",
-          "correct": false,
-          "rationale": "It will run; it just hasn't learned from night photos."
+          "left": "An overfit model",
+          "right": "Memorized its training set"
         },
         {
-          "id": "b",
-          "label": "It may do poorly on night photos its data didn't represent",
-          "correct": true
+          "left": "A chatbot",
+          "right": "Can state false things confidently"
         },
         {
-          "id": "c",
-          "label": "Nothing, because the amount of data never matters",
-          "correct": false,
-          "rationale": "Data should be abundant and representative."
-        },
-        {
-          "id": "d",
-          "label": "It will turn night photos into daytime ones",
-          "correct": false,
-          "rationale": "Recognizing faces doesn't change the photos."
+          "left": "A deepfake detector",
+          "right": "Newer generators slip past it"
         }
       ],
-      "explanation": "Training data should be representative; a model meeting cases its data didn't cover is likely to do badly on them.",
+      "explanation": "An overfit model memorized its training set, a chatbot can state false things confidently, and newer generators slip past a deepfake detector.",
       "difficulty": 0.45
     },
     {

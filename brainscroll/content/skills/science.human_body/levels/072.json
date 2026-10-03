@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 72,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Germs",
   "objective": "After this level you can compare bacteria, viruses and fungi.",
@@ -160,7 +160,7 @@
     },
     {
       "id": "question.human_body.072.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.defense_virus_hijackers"
@@ -169,30 +169,19 @@
         "card.human_body.072.c2",
         "card.human_body.072.c3"
       ],
-      "prompt": "Why does a virus have to get inside one of your cells?",
-      "options": [
+      "prompt": "Match each kind of germ with what it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "To use the cell to make copies of itself",
-          "correct": true
+          "left": "Bacteria",
+          "right": "Living things made of a single cell"
         },
         {
-          "id": "b",
-          "label": "To eat the food stored in the cell",
-          "correct": false,
-          "rationale": "Viruses don't eat; they copy themselves using the cell."
+          "left": "Viruses",
+          "right": "Genetic material in a protein coat"
         },
         {
-          "id": "c",
-          "label": "To turn itself into a bacterium",
-          "correct": false,
-          "rationale": "Viruses stay viruses; they just hijack the cell."
-        },
-        {
-          "id": "d",
-          "label": "To hide from antibiotics in the blood",
-          "correct": false,
-          "rationale": "Antibiotics don't work on viruses anyway."
+          "left": "Fungi",
+          "right": "Mushrooms, molds, mildew and yeasts"
         }
       ],
       "explanation": "Viruses can multiply only inside living cells, which they invade and use to make copies of themselves.",

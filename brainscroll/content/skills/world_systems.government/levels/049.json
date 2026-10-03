@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 49,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Laws Around the World",
   "objective": "After this level you can compare the main legal traditions of the world.",
@@ -130,42 +130,36 @@
     },
     {
       "id": "question.government.049.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.lawmaking_legal_traditions_civil_common"
       ],
       "sourceCardIds": [
         "card.government.049.c2",
-        "card.government.049.c3"
+        "card.government.049.c3",
+        "card.government.049.c4"
       ],
-      "prompt": "What is the main difference between the civil law and common law traditions?",
-      "options": [
+      "prompt": "Match each legal tradition or country pair with how its law works.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Civil law starts from written codes; common law builds on judges' precedents",
-          "correct": true
+          "left": "Civil law",
+          "right": "Start with the code"
         },
         {
-          "id": "b",
-          "label": "Civil law covers only crimes; common law covers only contracts",
-          "correct": false,
-          "rationale": "Both traditions cover many areas of law."
+          "left": "Common law",
+          "right": "Start with the cases"
         },
         {
-          "id": "c",
-          "label": "Civil law comes from England; common law from Rome",
-          "correct": false,
-          "rationale": "It's the other way round."
+          "left": "Ghana and Kenya",
+          "right": "Blend common and customary law"
         },
         {
-          "id": "d",
-          "label": "Civil law has no judges; common law has no written laws",
-          "correct": false,
-          "rationale": "Both have judges and written laws."
+          "left": "South Africa and Scotland",
+          "right": "Blend civil and common law"
         }
       ],
-      "explanation": "Civil law systems rest on comprehensive written codes; common law relies on judge-made precedent.",
+      "explanation": "Civil law starts with the code and common law starts with the cases. Ghana and Kenya blend common and customary law, while South Africa and Scotland blend civil and common law.",
       "difficulty": 0.3
     },
     {

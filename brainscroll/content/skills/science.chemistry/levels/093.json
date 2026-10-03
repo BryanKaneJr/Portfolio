@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 93,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Lavoisier",
   "objective": "After this level you can explain how Lavoisier founded modern chemistry.",
@@ -126,41 +126,31 @@
     },
     {
       "id": "question.chemistry.093.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.lavoisier_naming_elements"
       ],
       "sourceCardIds": [
-        "card.chemistry.093.c3"
+        "card.chemistry.093.c3",
+        "card.chemistry.093.c4"
       ],
-      "prompt": "Why did Lavoisier rename \"inflammable air\" hydrogen, meaning \"water former\"?",
-      "options": [
+      "prompt": "Match each of Lavoisier's names with what it meant.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It was the lightest gas anyone had weighed",
-          "correct": false,
-          "rationale": "The name is about water, not weight."
+          "left": "Oxygen",
+          "right": "Acid former"
         },
         {
-          "id": "b",
-          "label": "It could put out fires as well as water can",
-          "correct": false,
-          "rationale": "It was called inflammable air for good reason."
+          "left": "Hydrogen",
+          "right": "Water former"
         },
         {
-          "id": "c",
-          "label": "It was found only in rain and river water",
-          "correct": false,
-          "rationale": "The name comes from what it forms, not where it's found."
-        },
-        {
-          "id": "d",
-          "label": "He'd shown water is made of hydrogen and oxygen",
-          "correct": true
+          "left": "Caloric",
+          "right": "Heat"
         }
       ],
-      "explanation": "Lavoisier's new names said something about the substance: hydrogen is one of the two elements that make up water.",
+      "explanation": "Lavoisier's oxygen meant acid former, hydrogen meant water former, and caloric, one of his listed elements, was heat.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 47,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Nutrients",
   "objective": "After this level you can explain carbohydrates, proteins, fats, vitamins and minerals.",
@@ -119,7 +119,7 @@
   "questions": [
     {
       "id": "question.human_body.047.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.nutrients_big_three"
@@ -127,30 +127,19 @@
       "sourceCardIds": [
         "card.human_body.047.c2"
       ],
-      "prompt": "Digestion breaks the proteins in food down into which smaller parts?",
-      "options": [
+      "prompt": "Match each nutrient in food with the parts digestion breaks it into.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Simple sugars",
-          "correct": false,
-          "rationale": "Those come from carbohydrates."
+          "left": "Carbohydrates",
+          "right": "Simple sugars"
         },
         {
-          "id": "b",
-          "label": "Fatty acids",
-          "correct": false,
-          "rationale": "Those come from fats."
+          "left": "Proteins",
+          "right": "Amino acids"
         },
         {
-          "id": "c",
-          "label": "Amino acids",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Vitamins",
-          "correct": false,
-          "rationale": "Vitamins aren't made by breaking down protein."
+          "left": "Fats",
+          "right": "Fatty acids and glycerol"
         }
       ],
       "explanation": "Proteins are chains of amino acids, and digestion breaks them back into amino acids.",

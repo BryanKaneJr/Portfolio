@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 54,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Parts of the Brain",
   "objective": "After this level you can name the main parts of the brain and what each one does.",
@@ -161,7 +161,7 @@
     },
     {
       "id": "question.human_body.054.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.brain_lobes"
@@ -169,30 +169,23 @@
       "sourceCardIds": [
         "card.human_body.054.c3"
       ],
-      "prompt": "Someone's occipital lobes are damaged. Which ability is most at risk?",
-      "options": [
+      "prompt": "Match each lobe of the cerebrum with what it handles.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Hearing",
-          "correct": false,
-          "rationale": "Hearing is handled in the temporal lobes."
+          "left": "Frontal lobes",
+          "right": "Plan and drive voluntary movement"
         },
         {
-          "id": "b",
-          "label": "Seeing",
-          "correct": true
+          "left": "Parietal lobes",
+          "right": "Touch and temperature"
         },
         {
-          "id": "c",
-          "label": "Planning the day",
-          "correct": false,
-          "rationale": "Planning is frontal lobe work."
+          "left": "Temporal lobes",
+          "right": "Hearing"
         },
         {
-          "id": "d",
-          "label": "Sensing temperature",
-          "correct": false,
-          "rationale": "Touch and temperature go to the parietal lobes."
+          "left": "Occipital lobes",
+          "right": "Images from the eyes"
         }
       ],
       "explanation": "The occipital lobes process images from the eyes, and damage to them can cause blindness.",

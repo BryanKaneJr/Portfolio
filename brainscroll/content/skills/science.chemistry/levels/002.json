@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 2,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "What Matter Is",
   "objective": "After this level you can explain matter as anything that has mass and takes up space.",
@@ -168,7 +168,7 @@
     },
     {
       "id": "question.chemistry.002.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.matter_definition",
@@ -176,35 +176,25 @@
       ],
       "sourceCardIds": [
         "card.chemistry.002.c2",
-        "card.chemistry.001.c2"
+        "card.chemistry.001.c2",
+        "card.chemistry.002.c4"
       ],
-      "prompt": "Level 1 said chemistry studies matter. Why does the invisible air in a room count as matter?",
-      "options": [
+      "prompt": "Match each word with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Air counts only when it moves as wind",
-          "correct": false,
-          "rationale": "Still air has mass and takes up space too."
+          "left": "Matter",
+          "right": "Has mass and takes up space"
         },
         {
-          "id": "b",
-          "label": "It doesn't: only solids and liquids are matter",
-          "correct": false,
-          "rationale": "Gases are matter too, as a balloon shows."
+          "left": "Mass",
+          "right": "How much matter something contains"
         },
         {
-          "id": "c",
-          "label": "Air counts only when it is cold",
-          "correct": false,
-          "rationale": "Temperature has nothing to do with it."
-        },
-        {
-          "id": "d",
-          "label": "Air has mass and takes up space",
-          "correct": true
+          "left": "Weight",
+          "right": "The pull of gravity on that matter"
         }
       ],
-      "explanation": "Anything with mass that takes up space is matter, which puts air squarely in chemistry's territory.",
+      "explanation": "Matter is anything that has mass and takes up space. Mass is how much matter something contains, and weight is the pull of gravity on that matter.",
       "difficulty": 0.2
     }
   ],

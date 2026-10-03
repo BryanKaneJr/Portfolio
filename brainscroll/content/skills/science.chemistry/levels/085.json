@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 85,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Dyes and Colors",
   "objective": "After this level you can explain how dyes give cloth its color.",
@@ -138,41 +138,36 @@
     },
     {
       "id": "question.chemistry.085.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.home_dye_color_absorption"
       ],
       "sourceCardIds": [
-        "card.chemistry.085.c3"
+        "card.chemistry.085.c3",
+        "card.chemistry.085.c2",
+        "card.chemistry.085.c5"
       ],
-      "prompt": "A dyed shirt looks red in white light. What is its dye doing with the light?",
-      "options": [
+      "prompt": "Match each dye with where it came from.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Reflecting red light and absorbing the other colors",
-          "correct": true
+          "left": "Indigo",
+          "right": "Plant leaves"
         },
         {
-          "id": "b",
-          "label": "Absorbing only the red light",
-          "correct": false,
-          "rationale": "Then red is exactly what you wouldn't see."
+          "left": "Red",
+          "right": "Roots of the madder plant"
         },
         {
-          "id": "c",
-          "label": "Glowing with its own red light",
-          "correct": false,
-          "rationale": "Dyes reflect light; they don't give off their own."
+          "left": "Tyrian purple",
+          "right": "A sea snail"
         },
         {
-          "id": "d",
-          "label": "Absorbing every color",
-          "correct": false,
-          "rationale": "That would make the shirt look black."
+          "left": "Mauve",
+          "right": "Coal-tar chemicals"
         }
       ],
-      "explanation": "An object's color is the light it reflects. A red dye reflects red and absorbs the rest.",
+      "explanation": "Indigo came from plant leaves, red from the roots of the madder plant, Tyrian purple from a sea snail, and mauve from coal-tar chemicals.",
       "difficulty": 0.3
     },
     {

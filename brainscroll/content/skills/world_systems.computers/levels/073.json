@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 73,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How Your Feed Is Ranked",
   "objective": "After this level you can explain how social feeds score posts by predicted engagement instead of showing them in time order.",
@@ -121,7 +121,7 @@
     },
     {
       "id": "question.computers.073.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.feed_engagement_ranking"
@@ -129,33 +129,16 @@
       "sourceCardIds": [
         "card.computers.073.c2"
       ],
-      "prompt": "How does a ranked feed decide which post goes at the top?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It combines predictions about you into a score and sorts by it",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "It always puts the newest post from anyone at the top",
-          "correct": false,
-          "rationale": "That's time order, which ranking replaced as the default."
-        },
-        {
-          "id": "c",
-          "label": "It shuffles all the posts into a random order each time",
-          "correct": false,
-          "rationale": "The order comes from a relevance score, not chance."
-        },
-        {
-          "id": "d",
-          "label": "It lists posts alphabetically by the name of the poster",
-          "correct": false,
-          "rationale": "Posts are ordered by their relevance score."
-        }
+      "prompt": "Put the steps of Facebook's feed ranking pipeline in order.",
+      "items": [
+        "Gather the inventory",
+        "Check signals",
+        "Make predictions",
+        "Combine them into a relevance score"
       ],
-      "explanation": "Ranking gathers posts, reads signals, predicts your reactions, then calculates a relevance score and orders posts by it.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "First gather the inventory of posts, next check signals, then make predictions about each post, and finally combine them into a relevance score to put posts in order.",
       "difficulty": 0.3
     },
     {

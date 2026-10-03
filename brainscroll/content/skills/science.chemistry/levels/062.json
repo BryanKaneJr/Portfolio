@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 62,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Bases",
   "objective": "After this level you can explain what bases are, from soap to baking soda.",
@@ -92,7 +92,7 @@
   "questions": [
     {
       "id": "question.chemistry.062.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.base_definition"
@@ -100,33 +100,22 @@
       "sourceCardIds": [
         "card.chemistry.062.c2"
       ],
-      "prompt": "Which pair of properties do bases typically share?",
-      "options": [
+      "prompt": "Match each base with where the level says you'll find it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A sour taste and a fizzy feel",
-          "correct": false,
-          "rationale": "Sour is the acid side."
+          "left": "Ammonia",
+          "right": "Household cleaners"
         },
         {
-          "id": "b",
-          "label": "A sweet taste and a sticky feel",
-          "correct": false,
-          "rationale": "Neither is a mark of a base."
+          "left": "Lye",
+          "right": "Drain cleaners"
         },
         {
-          "id": "c",
-          "label": "A salty taste and a gritty feel",
-          "correct": false,
-          "rationale": "Neither is a mark of a base."
-        },
-        {
-          "id": "d",
-          "label": "A bitter taste and a slippery feel",
-          "correct": true
+          "left": "Baking soda",
+          "right": "An antacid"
         }
       ],
-      "explanation": "Bases often taste bitter and feel slippery, like soap (which is why chemists test them instead of tasting).",
+      "explanation": "Ammonia goes into household cleaners, lye (sodium hydroxide) is in drain cleaners, and baking soda is mild enough to use as an antacid.",
       "difficulty": 0.2
     },
     {

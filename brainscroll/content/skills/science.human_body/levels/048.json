@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 48,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Calories",
   "objective": "After this level you can explain what a calorie measures.",
@@ -92,38 +92,33 @@
   "questions": [
     {
       "id": "question.human_body.048.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.calorie_unit"
       ],
       "sourceCardIds": [
-        "card.human_body.048.c2"
+        "card.human_body.048.c2",
+        "card.human_body.048.c3",
+        "card.human_body.048.c4"
       ],
-      "prompt": "What does a calorie measure?",
-      "options": [
+      "prompt": "Match each energy term with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The weight of a food",
-          "correct": false,
-          "rationale": "Weight is measured in grams."
+          "left": "One calorie",
+          "right": "Warm 1 gram of water by 1 °C"
         },
         {
-          "id": "b",
-          "label": "Energy",
-          "correct": true
+          "left": "Kilocalorie",
+          "right": "1,000 small calories"
         },
         {
-          "id": "c",
-          "label": "How much sugar a food holds",
-          "correct": false,
-          "rationale": "Sugar is one nutrient; calories measure energy."
+          "left": "Respiration calorimeter",
+          "right": "A small sealed room"
         },
         {
-          "id": "d",
-          "label": "How healthy a food is",
-          "correct": false,
-          "rationale": "It's a unit of energy, not a rating."
+          "left": "Your brain",
+          "right": "About 20 percent of the body's calories"
         }
       ],
       "explanation": "A calorie is a unit of energy: the heat that warms 1 gram of water by 1 °C.",

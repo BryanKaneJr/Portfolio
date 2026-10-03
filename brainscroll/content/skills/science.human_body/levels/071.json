@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 71,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Skin",
   "objective": "After this level you can explain how skin protects the body.",
@@ -92,40 +92,23 @@
   "questions": [
     {
       "id": "question.human_body.071.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.defense_skin_layers"
       ],
       "sourceCardIds": [
-        "card.human_body.071.c3"
+        "card.human_body.071.c3",
+        "card.human_body.071.c2"
       ],
-      "prompt": "What makes up the very top layer of your skin's epidermis?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Living fat cells",
-          "correct": false,
-          "rationale": "Fat sits in the deepest layer, the hypodermis."
-        },
-        {
-          "id": "b",
-          "label": "Dry, dead cells packed with keratin",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Blood vessels and sweat glands",
-          "correct": false,
-          "rationale": "Those are in the dermis, lower down."
-        },
-        {
-          "id": "d",
-          "label": "A thin sheet of bone",
-          "correct": false,
-          "rationale": "Skin contains no bone; its top layer is dead cells."
-        }
+      "prompt": "Put the three layers of your skin in order, from deepest to the surface.",
+      "items": [
+        "Hypodermis",
+        "Dermis",
+        "Epidermis"
       ],
+      "first": "Deepest",
+      "last": "On top",
       "explanation": "The outermost layer is dry, dead cells filled with keratin, which help keep microbes out and water in.",
       "difficulty": 0.15
     },

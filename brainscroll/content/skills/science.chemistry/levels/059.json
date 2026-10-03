@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 59,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Explosions",
   "objective": "After this level you can explain what makes a reaction explode.",
@@ -136,7 +136,7 @@
     },
     {
       "id": "question.chemistry.059.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.explosion_speed_types",
@@ -144,35 +144,18 @@
       ],
       "sourceCardIds": [
         "card.chemistry.059.c2",
-        "card.chemistry.059.c3"
+        "card.chemistry.059.c3",
+        "card.chemistry.059.c4"
       ],
-      "prompt": "What most separates a deflagration from a detonation?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Only detonations involve a chemical reaction",
-          "correct": false,
-          "rationale": "Both are fast chemical reactions."
-        },
-        {
-          "id": "b",
-          "label": "A detonation races through faster than sound, driven by a shock wave",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "A deflagration needs no fuel at all",
-          "correct": false,
-          "rationale": "Both need something to react."
-        },
-        {
-          "id": "d",
-          "label": "Deflagrations only happen underwater",
-          "correct": false,
-          "rationale": "Speed, not location, is the difference."
-        }
+      "prompt": "Put these in order of how fast they react, slowest first.",
+      "items": [
+        "A log",
+        "Gunpowder",
+        "High explosives"
       ],
-      "explanation": "In a deflagration the reaction moves slower than sound; in a detonation a supersonic shock wave sets off the material.",
+      "first": "Slowest",
+      "last": "Fastest",
+      "explanation": "A log smolders. Gunpowder burns extremely fast but slower than sound, and high explosives detonate, faster than sound.",
       "difficulty": 0.35
     },
     {

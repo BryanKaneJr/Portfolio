@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 78,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Designing Medicines",
   "objective": "After this level you can explain how chemists design new medicines.",
@@ -139,41 +139,27 @@
     },
     {
       "id": "question.chemistry.078.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.lifechem_drug_design"
       ],
       "sourceCardIds": [
-        "card.chemistry.078.c5"
+        "card.chemistry.078.c5",
+        "card.chemistry.078.c1",
+        "card.chemistry.078.c2",
+        "card.chemistry.078.c3"
       ],
-      "prompt": "What is the main job of Phase 1, the first round of testing a new drug in people?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Proving it beats every other drug",
-          "correct": false,
-          "rationale": "Comparisons come later, if at all."
-        },
-        {
-          "id": "b",
-          "label": "Selling it to the public",
-          "correct": false,
-          "rationale": "It isn't approved yet."
-        },
-        {
-          "id": "c",
-          "label": "Designing its molecule",
-          "correct": false,
-          "rationale": "Design happens before any human testing."
-        },
-        {
-          "id": "d",
-          "label": "Studying its safety and dosage",
-          "correct": true
-        }
+      "prompt": "Put these steps on the road to aspirin in order, from earliest to latest.",
+      "items": [
+        "Willow bark as medicine",
+        "Salicin",
+        "Acetylsalicylic acid",
+        "The 1982 Nobel Prize"
       ],
-      "explanation": "Phase 1 trials, with 20 to 100 volunteers, study safety and dosage before larger phases test whether the drug works.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Healers used willow bark as medicine over 2,000 years ago. Salicin was named in 1828, acetylsalicylic acid was made in 1897, and the 1982 Nobel Prize honored how it works.",
       "difficulty": 0.35
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 58,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Ransomware",
   "objective": "After this level you can explain why ransomware attacks hospitals, cities and companies, and why backups are the best defense.",
@@ -142,41 +142,32 @@
     },
     {
       "id": "question.computers.058.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.security_offline_backups"
       ],
       "sourceCardIds": [
-        "card.computers.058.c5"
+        "card.computers.058.c5",
+        "card.computers.058.c2",
+        "card.computers.058.c4"
       ],
-      "prompt": "Why does CISA advise keeping ransomware backups offline rather than plugged in?",
-      "options": [
+      "prompt": "Match each part of the ransomware story with what the level says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Offline drives store your files at a higher quality than online ones",
-          "correct": false,
-          "rationale": "Quality is not the point; reach is."
+          "left": "Ransomware",
+          "right": "Encrypts the files on a device"
         },
         {
-          "id": "b",
-          "label": "Ransomware hunts for any backup it can reach and locks or deletes it",
-          "correct": true
+          "left": "The FBI",
+          "right": "Does not support paying a ransom"
         },
         {
-          "id": "c",
-          "label": "Plugged-in drives wear out faster",
-          "correct": false,
-          "rationale": "The risk is the ransomware reaching the backup."
-        },
-        {
-          "id": "d",
-          "label": "Online backups are illegal",
-          "correct": false,
-          "rationale": "They are legal; they are simply within ransomware's reach."
+          "left": "CISA",
+          "right": "Offline, encrypted and tested regularly"
         }
       ],
-      "explanation": "Ransomware tries to find and delete or encrypt accessible backups, so a backup it cannot reach keeps your files safe.",
+      "explanation": "Ransomware encrypts the files on a device, the FBI does not support paying a ransom, and CISA advises backups that are offline, encrypted and tested regularly.",
       "difficulty": 0.25
     },
     {

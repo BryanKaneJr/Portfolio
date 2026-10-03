@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 83,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Treaties",
   "objective": "After this level you can explain how countries make treaties.",
@@ -100,41 +100,31 @@
   "questions": [
     {
       "id": "question.government.083.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.treaty_kadesh"
       ],
       "sourceCardIds": [
-        "card.government.083.c1"
+        "card.government.083.c1",
+        "card.government.083.c4"
       ],
-      "prompt": "A replica of which agreement hangs near the UN Security Council Chamber?",
-      "options": [
+      "prompt": "Match each name or phrase from the history of treaties with its detail.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The oldest known peace treaty, from Kadesh",
-          "correct": true
+          "left": "Hattusili III",
+          "right": "Hittite king"
         },
         {
-          "id": "b",
-          "label": "The first draft of the UN Charter",
-          "correct": false,
-          "rationale": "The replica is more than 3,000 years older than the UN."
+          "left": "Ramesses II",
+          "right": "Egypt"
         },
         {
-          "id": "c",
-          "label": "The Montevideo Convention on statehood",
-          "correct": false,
-          "rationale": "That's from 1933; the replica is ancient."
-        },
-        {
-          "id": "d",
-          "label": "The Vienna Convention on treaties",
-          "correct": false,
-          "rationale": "That dates from 1969, not the Bronze Age."
+          "left": "Pacta sunt servanda",
+          "right": "Agreements must be kept"
         }
       ],
-      "explanation": "The replica is of the Kadesh treaty between Hattusili III and Ramesses II, the oldest known peace treaty.",
+      "explanation": "Hattusili III was the Hittite king and Ramesses II ruled Egypt when they made the oldest known peace treaty. Pacta sunt servanda means agreements must be kept.",
       "difficulty": 0.2
     },
     {

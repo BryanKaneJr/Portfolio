@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 51,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Courts",
   "objective": "After this level you can explain what courts do.",
@@ -134,41 +134,24 @@
     },
     {
       "id": "question.government.051.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.courts_valencia_water_tribunal"
       ],
       "sourceCardIds": [
-        "card.government.051.c4"
+        "card.government.051.c4",
+        "card.government.051.c3"
       ],
-      "prompt": "Why does the syndic from the disputing farmers' own canal stay out of the Water Tribunal's decision?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He is usually too busy irrigating",
-          "correct": false,
-          "rationale": "It's a rule, not a matter of schedules."
-        },
-        {
-          "id": "b",
-          "label": "Only UNESCO may judge that canal",
-          "correct": false,
-          "rationale": "UNESCO lists the tribunal; it doesn't judge cases."
-        },
-        {
-          "id": "c",
-          "label": "To keep the tribunal impartial",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Because he will hear the appeal later",
-          "correct": false,
-          "rationale": "There is no appeal from the Water Tribunal."
-        }
+      "prompt": "Put the work of a court system in order, from first to last.",
+      "items": [
+        "Works out the facts",
+        "Applies the law",
+        "Appeal courts"
       ],
-      "explanation": "The syndic of the litigants' canal takes no part in the deliberation, so no one judges a case involving their own community.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "A trial court first works out the facts, then applies the law to them. Appeal courts come after, checking whether the law was applied correctly.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 63,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The pH Scale",
   "objective": "After this level you can explain the pH scale.",
@@ -97,7 +97,7 @@
   "questions": [
     {
       "id": "question.chemistry.063.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.ph_scale_basics"
@@ -105,33 +105,16 @@
       "sourceCardIds": [
         "card.chemistry.063.c2"
       ],
-      "prompt": "On the pH scale, what does a pH of exactly 7 mean?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Strongly acidic",
-          "correct": false,
-          "rationale": "Strong acids sit near the bottom of the scale."
-        },
-        {
-          "id": "b",
-          "label": "Neutral, like pure water",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Strongly basic",
-          "correct": false,
-          "rationale": "Strong bases sit near the top of the scale."
-        },
-        {
-          "id": "d",
-          "label": "The highest value possible",
-          "correct": false,
-          "rationale": "The scale usually runs up to 14."
-        }
+      "prompt": "Put these in order on the pH scale, from most acidic to most basic.",
+      "items": [
+        "Lime juice",
+        "Coffee",
+        "Pure water",
+        "Household ammonia"
       ],
-      "explanation": "pH 7 is neutral: pure water. Below 7 is acidic and above 7 is basic.",
+      "first": "Most acidic",
+      "last": "Most basic",
+      "explanation": "Lime juice sits around pH 2, coffee around 5, pure water at a neutral 7, and household ammonia up near 12.",
       "difficulty": 0.15
     },
     {

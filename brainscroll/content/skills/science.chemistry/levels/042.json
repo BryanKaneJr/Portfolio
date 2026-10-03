@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 42,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Water",
   "objective": "After this level you can explain what makes the water molecule so special.",
@@ -109,41 +109,36 @@
   "questions": [
     {
       "id": "question.chemistry.042.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.water_polarity"
       ],
       "sourceCardIds": [
-        "card.chemistry.042.c2"
+        "card.chemistry.042.c2",
+        "card.chemistry.042.c3",
+        "card.chemistry.042.c4"
       ],
-      "prompt": "In a water molecule, which part carries a slight negative charge?",
-      "options": [
+      "prompt": "Match each part of water's story with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The oxygen end",
-          "correct": true
+          "left": "Oxygen end",
+          "right": "Slight negative charge"
         },
         {
-          "id": "b",
-          "label": "The two hydrogen ends",
-          "correct": false,
-          "rationale": "The hydrogen ends are slightly positive."
+          "left": "Hydrogen ends",
+          "right": "Slight positive charges"
         },
         {
-          "id": "c",
-          "label": "No part, because its charge is spread evenly",
-          "correct": false,
-          "rationale": "Oxygen pulls the shared electrons harder, so the charge is uneven."
+          "left": "Hydrogen bond",
+          "right": "Pull between molecules"
         },
         {
-          "id": "d",
-          "label": "Only the gap between the two hydrogens",
-          "correct": false,
-          "rationale": "The negative charge sits at the oxygen end."
+          "left": "Surface tension",
+          "right": "A kind of skin"
         }
       ],
-      "explanation": "Oxygen pulls the shared electrons harder, so the oxygen end is slightly negative and the hydrogen ends slightly positive.",
+      "explanation": "Water's oxygen end carries a slight negative charge and its hydrogen ends slight positive charges. A hydrogen bond is the pull between molecules, and surface tension is a kind of skin.",
       "difficulty": 0.2
     },
     {

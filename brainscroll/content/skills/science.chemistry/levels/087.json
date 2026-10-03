@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 87,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Recycling Plastic",
   "objective": "After this level you can explain what happens to plastic when it is recycled.",
@@ -133,41 +133,25 @@
     },
     {
       "id": "question.chemistry.087.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.home_recycling_process"
       ],
       "sourceCardIds": [
-        "card.chemistry.087.c5"
+        "card.chemistry.087.c5",
+        "card.chemistry.087.c3"
       ],
-      "prompt": "Why does recycled plastic often end up in less-demanding products?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Heat and grinding break some of its long polymer chains",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Recycling turns it into a thermoset",
-          "correct": false,
-          "rationale": "It stays the same kind of plastic."
-        },
-        {
-          "id": "c",
-          "label": "Washing removes its color",
-          "correct": false,
-          "rationale": "Color isn't the reason."
-        },
-        {
-          "id": "d",
-          "label": "It becomes denser than water",
-          "correct": false,
-          "rationale": "Density decides floating, not quality."
-        }
+      "prompt": "Put the steps of mechanical recycling in order.",
+      "items": [
+        "Sorted by type",
+        "Ground into small flakes",
+        "Washed with hot water and detergent",
+        "Formed into pellets"
       ],
-      "explanation": "Recycling breaks some polymer chains, so recycled plastic usually doesn't match new plastic.",
+      "first": "First step",
+      "last": "Last step",
+      "explanation": "Plastic is sorted by type, ground into small flakes, washed with hot water and detergent, then melted and formed into pellets.",
       "difficulty": 0.4
     },
     {

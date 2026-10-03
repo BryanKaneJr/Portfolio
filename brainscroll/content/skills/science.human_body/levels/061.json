@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 61,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "More Than Five Senses",
   "objective": "After this level you can explain why we have more than the classic five senses.",
@@ -90,39 +90,29 @@
   "questions": [
     {
       "id": "question.human_body.061.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.senses_beyond_five"
       ],
       "sourceCardIds": [
         "card.human_body.061.c3",
-        "card.human_body.061.c1"
+        "card.human_body.061.c1",
+        "card.human_body.061.c4"
       ],
-      "prompt": "With your eyes shut, you can still touch your nose. Which sense makes that possible?",
-      "options": [
+      "prompt": "Match each sense missing from Aristotle's list with where it comes from.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Sight, even with eyes shut",
-          "correct": false,
-          "rationale": "Your eyes were closed."
+          "left": "Body position",
+          "right": "Your muscles, tendons and joints"
         },
         {
-          "id": "b",
-          "label": "Hearing your hand move",
-          "correct": false,
-          "rationale": "Sound doesn't tell you where your hand is."
+          "left": "Balance",
+          "right": "Your inner ear"
         },
         {
-          "id": "c",
-          "label": "Sense of body position",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Touch, before contact",
-          "correct": false,
-          "rationale": "Your hand found your nose before it touched it."
+          "left": "Hunger and thirst",
+          "right": "Receptors in your gut"
         }
       ],
       "explanation": "Receptors in your muscles, tendons and joints report where your limbs are and how they move, so you can find your nose without looking.",

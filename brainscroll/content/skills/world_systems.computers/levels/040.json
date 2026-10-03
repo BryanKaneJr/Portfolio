@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 40,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: How the Internet Works",
   "objective": "After this level you can trace a packet from your device through addresses, DNS, routers and cables and explain how it arrives complete.",
@@ -266,7 +266,7 @@
     },
     {
       "id": "question.computers.040.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.computers.net_switch_mac",
@@ -274,35 +274,25 @@
       ],
       "sourceCardIds": [
         "card.computers.031.c4",
-        "card.computers.034.c2"
+        "card.computers.034.c2",
+        "card.computers.040.c3"
       ],
-      "prompt": "Your request passes a switch at home, then routers beyond. Which addresses does each one read?",
-      "options": [
+      "prompt": "Match each stop on your request's trip with the label it reads.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Switch: IP address; router: MAC address",
-          "correct": false,
-          "rationale": "It is the other way round."
+          "left": "The switch at home",
+          "right": "Reads MAC addresses on each frame"
         },
         {
-          "id": "b",
-          "label": "Both read only the domain name",
-          "correct": false,
-          "rationale": "Names are turned into addresses before sending."
+          "left": "Each router on the way",
+          "right": "Reads the destination IP address"
         },
         {
-          "id": "c",
-          "label": "Switch: port number; router: sequence number",
-          "correct": false,
-          "rationale": "Those belong to TCP at the two ends."
-        },
-        {
-          "id": "d",
-          "label": "Switch: MAC address; router: destination IP address",
-          "correct": true
+          "left": "Your device and the server",
+          "right": "Read TCP sequence numbers"
         }
       ],
-      "explanation": "Switches forward frames by MAC address inside one network; routers look up the destination IP address to choose the next hop.",
+      "explanation": "The switch at home reads MAC addresses on each frame, each router on the way reads the destination IP address, and your device and the server read TCP sequence numbers.",
       "difficulty": 0.3
     },
     {

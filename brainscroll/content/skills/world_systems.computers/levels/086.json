@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 86,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "From Predictor to Assistant",
   "objective": "After this level you can explain how pretraining on vast amounts of text, then fine-tuning with human feedback, turns a text predictor into a chatbot.",
@@ -81,41 +81,25 @@
   "questions": [
     {
       "id": "question.computers.086.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.llm_human_feedback"
       ],
       "sourceCardIds": [
-        "card.computers.086.c3"
+        "card.computers.086.c3",
+        "card.computers.086.c2"
       ],
-      "prompt": "In reinforcement learning from human feedback, what do the human labelers mainly do?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Write the model's code line by line",
-          "correct": false,
-          "rationale": "The model's behavior is tuned, not coded."
-        },
-        {
-          "id": "b",
-          "label": "Rank several of the model's answers from best to worst",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Type out every answer the chatbot will ever give",
-          "correct": false,
-          "rationale": "Rankings train a reward model that scores new answers."
-        },
-        {
-          "id": "d",
-          "label": "Count the tokens in each answer",
-          "correct": false,
-          "rationale": "They judge quality, not length."
-        }
+      "prompt": "Put the steps of turning a predictor into an assistant in order.",
+      "items": [
+        "Pretraining",
+        "Fine-tuned on those demonstrations",
+        "Rank several of the model's answers",
+        "The chatbot is then tuned"
       ],
-      "explanation": "Labelers rank model answers; a reward model learns from the rankings and the chatbot is tuned to score higher.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Pretraining gives raw skill, the model is fine-tuned on those demonstrations, labelers rank several of the model's answers to train a reward model, and the chatbot is then tuned to earn higher scores.",
       "difficulty": 0.25
     },
     {
