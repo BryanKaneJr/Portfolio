@@ -1,34 +1,53 @@
+import * as SplashScreen from 'expo-splash-screen';
 import { useEffect, useState } from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
-import { color, fw } from '@/theme/tokens';
+import { Image, StyleSheet, View } from 'react-native';
+import { color } from '@/theme/tokens';
 
 /**
- * The launch screen: crowned Dr. Scroll (the same art as the Android icon) on
- * plum, with the wordmark at the bottom. It matches the
- * native splash (app.json → expo-splash-screen) so the hand-off is seamless.
- *
- * To swap the art, replace assets/images/splash-mark.png (1024 × 1024,
- * transparent). The native splash uses the same file.
+ * The launch screen: the BrainScroll wordmark over crowned Dr. Scroll, on
+ * plum (owner, 2026-10-03). One image (assets/images/splash-brand.png,
+ * 1024 × 1260, transparent) is both the native splash (app.json →
+ * expo-splash-screen, 300 wide) and this screen at the same size, and the
+ * native splash stays up until this one's image has drawn: no moment of plum
+ * without Dr. Scroll. _layout.tsx calls SplashScreen.preventAutoHideAsync().
  */
-const mark = require('../../assets/images/splash-mark.png');
+const art = require('../../assets/images/splash-brand.png');
+const WIDTH = 300;
+const HEIGHT = Math.round((WIDTH * 1260) / 1024);
 
-/** How long the mark stays up once it's drawn, so the launch never flickers past. */
+/** How long the art stays up once it's drawn, so the launch never flickers past. */
 export const SPLASH_MIN_MS = 600;
 /** Longest the splash waits for its art once the app is ready. */
 const SPLASH_MAX_WAIT_MS = 1500;
 
+/** Hands over from the native splash, once (safe to call again). */
+const handOver = () => {
+  try {
+    SplashScreen.hide();
+  } catch {
+    // Already hidden, or no native splash here (web).
+  }
+};
+
 /**
- * Shows the splash until `done` is true AND the mark has been on screen for
+ * Shows the splash until `done` is true AND the art has been on screen for
  * SPLASH_MIN_MS. It never hides before its own art has loaded.
  */
 export function BrandSplash({ done }: { done: boolean }) {
   const [shownAt, setShownAt] = useState<number | null>(null);
   const [held, setHeld] = useState(true);
 
-  // Safety net: never hang on the splash, even if the art fails to load.
+  // Safety nets: never hang on either splash, even if the art fails to load.
+  useEffect(() => {
+    const t = setTimeout(handOver, SPLASH_MAX_WAIT_MS);
+    return () => clearTimeout(t);
+  }, []);
   useEffect(() => {
     if (!done) return;
-    const t = setTimeout(() => setHeld(false), SPLASH_MAX_WAIT_MS);
+    const t = setTimeout(() => {
+      handOver();
+      setHeld(false);
+    }, SPLASH_MAX_WAIT_MS);
     return () => clearTimeout(t);
   }, [done]);
 
@@ -42,22 +61,23 @@ export function BrandSplash({ done }: { done: boolean }) {
   return (
     <View style={styles.screen} accessible accessibilityLabel="BrainScroll is loading" accessibilityRole="progressbar" aria-busy>
       <Image
-        source={mark}
-        style={styles.mark}
+        source={art}
+        style={styles.art}
         resizeMode="contain"
+        fadeDuration={0}
         accessibilityIgnoresInvertColors
-        onLoadEnd={() => setShownAt((t) => t ?? Date.now())}
+        onLoadEnd={() => {
+          setShownAt((t) => t ?? Date.now());
+          // The art is drawn: now the native splash can go, with nothing to see change.
+          requestAnimationFrame(handOver);
+        }}
       />
-      <Text style={styles.wordmark} accessible={false}>
-        brainscroll
-      </Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   screen: { position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, backgroundColor: color.plumDeep, alignItems: 'center', justifyContent: 'center', zIndex: 10 },
-  // Sizes match the native splash (app.json), so the hand-off doesn't jump: not part of the type scale.
-  mark: { width: 220, height: 220 },
-  wordmark: { position: 'absolute', bottom: 64, color: color.onBrand, fontSize: 34, ...fw('800'), letterSpacing: -0.5 },
+  // Matches the native splash (app.json imageWidth 300), so the hand-off doesn't jump.
+  art: { width: WIDTH, height: HEIGHT },
 });

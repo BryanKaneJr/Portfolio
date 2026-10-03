@@ -2,6 +2,11 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: A new launch screen, with no late Dr. Scroll
+
+- **The launch screen is a bold BrainScroll wordmark over crowned Dr. Scroll** on plum (owner: "not minimalist"), one image (`splash-brand.png`) shared by the phone's native splash and the app's own.
+- **Dr. Scroll no longer arrives a second after the background**: the native splash used to vanish as soon as the app started, leaving plum and the wordmark while his image decoded. It now stays up until the app's splash has drawn the same image, then hands over with nothing to see change. Needs a new build for the native half.
+
 ## 2026-10-03: Dr. Scroll is everyone's first friend
 
 - **The Social tab always shows Dr. Scroll**, pinned above your friends in gold: "Your first friend · Official". He lives in the app rather than on the server, so he never joins a league, the weekly XP race or the feed, and can't be blocked, reported or removed.
