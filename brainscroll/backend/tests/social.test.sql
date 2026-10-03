@@ -181,6 +181,8 @@ begin
   assert item -> 'reactions' = '{}'::jsonb and item -> 'mine' = 'null'::jsonb, format('unhearting takes it back, got %s', item);
   perform public.react(pg_temp.uid('2b'), 'trophy:trophy.first_level', 'heart');
   perform pg_temp.expect_error($q$ select public.react(pg_temp.uid('2a'), 'x', 'heart') $q$, 'USER_NOT_FOUND');
+  -- Only real moments (the owner's last 14 days) take a heart, so a made-up key can't queue a push.
+  perform pg_temp.expect_error($q$ select public.react(pg_temp.uid('2b'), 'trophy:does_not_exist', 'heart') $q$, 'MOMENT_NOT_FOUND');
 end $$;
 
 -- 8. Profiles: friends compare brains; strangers can't look.
@@ -192,6 +194,27 @@ begin
   assert r -> 'skills' = '{"skill.science.testing": 1}'::jsonb, format('skill levels, got %s', r -> 'skills');
   assert exists (select 1 from jsonb_array_elements(r -> 'trophies') t where t ->> 'trophy_id' = 'trophy.first_level');
   perform pg_temp.expect_error($q$ select public.get_social_profile(pg_temp.uid('3b')) $q$, 'USER_NOT_FOUND');
+  perform pg_temp.expect_error($q$ select public.get_social_profile('00000000-0000-0000-0000-0000000000ff') $q$, 'USER_NOT_FOUND');
+  -- A pending request doesn't open a profile, either way: just the username and avatar.
+  assert public.send_friend_request(pg_temp.uid('3b')) = 'requested';
+  r := public.get_social_profile(pg_temp.uid('3b'));
+  assert r ->> 'relation' = 'requested' and (r ->> 'limited')::boolean and r ? 'username' and r ? 'avatar', format('limited, got %s', r);
+  assert not (r ?| array['total_xp', 'streak', 'trophies', 'skills', 'knowledge_level', 'weekly_xp']), format('no stats before they accept, got %s', r);
+  assert not (public.get_social_profile(pg_temp.uid('2b')) ->> 'limited')::boolean, 'friends see the whole profile';
+end $$;
+select pg_temp.as_user(pg_temp.uid('3b')::text);
+do $$
+declare r jsonb;
+begin
+  r := public.get_social_profile(pg_temp.uid('2a'));
+  assert r ->> 'relation' = 'asked_you' and (r ->> 'limited')::boolean and not (r ? 'total_xp'), format('asked you: limited too, got %s', r);
+  perform public.respond_friend_request(pg_temp.uid('2a'), false);
+  perform pg_temp.expect_error($q$ select public.get_social_profile(pg_temp.uid('2a')) $q$, 'USER_NOT_FOUND');
+end $$;
+select pg_temp.as_user(pg_temp.uid('2a')::text);
+do $$ begin
+  perform pg_temp.expect_error($q$ select public.report_user(pg_temp.uid('2a'), 'other') $q$, 'USER_NOT_FOUND');
+  perform pg_temp.expect_error($q$ select public.report_user('00000000-0000-0000-0000-0000000000ff', 'other') $q$, 'USER_NOT_FOUND');
 end $$;
 
 -- 9. Blocking ends the friendship and hides both sides from each other.
@@ -212,6 +235,35 @@ begin
   perform pg_temp.expect_error($q$ select public.get_social_profile(pg_temp.uid('2a')) $q$, 'USER_NOT_FOUND');
 end $$;
 
+-- In a shared league a blocked learner keeps their place, but nothing says who they are, either way.
+select public.get_league();
+do $$
+declare r jsonb; m jsonb;
+begin
+  r := public.get_league();
+  select x into m from jsonb_array_elements(r -> 'members') x where (x ->> 'blocked')::boolean;
+  assert m is not null, format('Alice is in Carol''s league, hidden, got %s', r);
+  assert m -> 'id' = 'null'::jsonb and m -> 'username' = 'null'::jsonb and m -> 'avatar' = 'null'::jsonb and m -> 'knowledge_level' = 'null'::jsonb and m ? 'weekly_xp',
+    format('no id, username, avatar or level, got %s', m);
+  assert not (r::text like '%alice_reads%'), 'her username is nowhere in it';
+end $$;
+select pg_temp.as_user(pg_temp.uid('2a')::text);
+do $$
+declare r jsonb;
+begin
+  r := public.get_league();
+  assert (select count(*) from jsonb_array_elements(r -> 'members') x where (x ->> 'blocked')::boolean and x -> 'username' = 'null'::jsonb) = 1, format('Carol is hidden from Alice too, got %s', r);
+  -- Settings lists who you've blocked, and unblocking brings them back.
+  r := public.get_blocked();
+  assert jsonb_array_length(r) = 1 and r -> 0 ->> 'id' = pg_temp.uid('2c')::text and r -> 0 ? 'username' and r -> 0 ? 'avatar', format('blocked list, got %s', r);
+  perform public.unblock_user(pg_temp.uid('2c'));
+  assert public.get_blocked() = '[]'::jsonb, 'unblocked';
+  assert not exists (select 1 from jsonb_array_elements(public.get_league() -> 'members') x where (x ->> 'blocked')::boolean), 'back in the league as herself';
+  assert public.get_social_profile(pg_temp.uid('2c')) ->> 'relation' = 'league', 'and her profile opens again (league mate)';
+  -- Not friends again: unblocking only stops hiding.
+  assert jsonb_array_length(public.get_social() -> 'friends') = 1;
+  perform public.block_user(pg_temp.uid('2c'));
+end $$;
 -- 9b. Avatars: every tree's is open from the start; gold needs the tree mastered.
 select pg_temp.as_user(pg_temp.uid('2b')::text);
 do $$ begin
@@ -256,14 +308,23 @@ begin
     assert not public.username_blocked(v), format('%s should pass', v);
   end loop;
   foreach v in array array['xfuckx', 'fuuuck_you', 'f_u_c_k', 'sh1t_head', 'b00bs', 'big_dick', 'dick69', 'h1tler', 'kkk_member', 'grape_rapist',
-    'n1gga', 'p0rn_star', 'brainscroll_support', 'admin_team'] loop
+    'n1gga', 'p0rn_star', 'brainscroll_support', 'admin_team',
+    -- Reserved names on the whole name, underscores dropped, look-alikes read as letters (QA 2026-10-03).
+    'dr_scroll', 'brain_scroll', 'brainscroii', 'dr_scro11', 'd_r_scroll', 'doctor_scroll', 'the_drscroll', 'brainscroll',
+    'fvck', 'phuck_off', 'f0ck'] loop
     assert public.username_blocked(v), format('%s should be refused', v);
   end loop;
+  -- Innocent phrases whose words would be refused alone.
+  foreach v in array array['rapeseed_oil', 'cum_laude', 'sex_ed', 'hoe_down', 'tit_for_tat', 'pussycat', 'dick_grayson', 'scroll_lover', 'brain_fan'] loop
+    assert not public.username_blocked(v), format('%s should pass', v);
+  end loop;
+  assert public.username_blocked('big_dick') and public.username_blocked('cum_shot_99') and public.username_blocked('sex_kitten'), 'the words alone are still refused';
 end $$;
 set role authenticated;
 select pg_temp.as_user(pg_temp.uid('2d')::text);
 do $$ begin
   perform pg_temp.expect_error($q$ select public.set_username('sh1t_head') $q$, 'USERNAME_NOT_ALLOWED');
+  perform pg_temp.expect_error($q$ select public.set_username('dr_scroll') $q$, 'USERNAME_NOT_ALLOWED');
   assert public.set_username('grapefruit_fan') ->> 'username' = 'grapefruit_fan', 'innocent words that contain a term are fine';
 end $$;
 reset role;

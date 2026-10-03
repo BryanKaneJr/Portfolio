@@ -1,4 +1,4 @@
-import type { FeedItem, FeedReaction, LeagueView, SocialCard, SocialProfile, SocialView, AccountState, AnalyticsEvent, ChapterReviewResult, Equipped, OtpTarget, SignInMethod, AnswerResult, ContentReportInput, CompletionSummary, DailyAllowance, FinalRoundAnswer, Level, Question, QuestCompletion, QuestsView, QuestView, ReviewItem, ReviewResult, StartReason, Streak } from '@brainscroll/core';
+import type { BlockedLearner, UserReportReason, FeedItem, FeedReaction, LeagueView, SocialCard, SocialProfile, SocialView, AccountState, AnalyticsEvent, ChapterReviewResult, Equipped, OtpTarget, SignInMethod, AnswerResult, ContentReportInput, CompletionSummary, DailyAllowance, FinalRoundAnswer, Level, Question, QuestCompletion, QuestsView, QuestView, ReviewItem, ReviewResult, StartReason, Streak } from '@brainscroll/core';
 
 /**
  * Where progress lives. `remote` calls the Supabase RPCs, which are
@@ -157,8 +157,13 @@ export interface ProgressBackend {
   /** Opening someone's invite link: friends at once. */
   acceptInvite(code: string): Promise<SocialCard>;
   blockUser(userId: string): Promise<void>;
-  reportUser(userId: string, reason: 'username' | 'cheating' | 'other', note?: string): Promise<void>;
-  /** A Dr. Scroll reaction on someone's moment; null takes it back. */
+  /** The learners you've blocked (Settings), newest first. */
+  blockedUsers(): Promise<BlockedLearner[]>;
+  /** Stops hiding them; it doesn't make you friends again. */
+  unblockUser(userId: string): Promise<void>;
+  /** A reason and an optional note for the team (docs/moderation.md). You can't report yourself. */
+  reportUser(userId: string, reason: UserReportReason, note?: string): Promise<void>;
+  /** A heart on someone's moment (one of theirs from the last 14 days); null takes it back. */
   react(ownerId: string, itemKey: string, reaction: FeedReaction | null): Promise<void>;
   /** Friend and league push notifications on or off (docs/notifications.md). */
   setSocialNotifications(on: boolean): Promise<boolean>;

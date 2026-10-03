@@ -1,7 +1,7 @@
 import { SOCIAL_ERROR_TEXT, SocialError, type SocialCard, type SocialView } from '@brainscroll/core';
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
-import { Share, View } from 'react-native';
+import { Platform, Share, View } from 'react-native';
 import { Avatar, inviteLink } from '@/components/social';
 import { Body, Button, Caption, Card, Eyebrow, Field, IconButton, Notice, Row, Screen, SkeletonCard, Title } from '@/components/ui';
 import { useProgress } from '@/progress/ProgressProvider';
@@ -11,7 +11,8 @@ import { space } from '@/theme/tokens';
  * Adding friends (owner, 2026-10-01: invite link and username at launch;
  * contacts can come later). Share your invite link anywhere: whoever opens it
  * becomes your friend. Or search an exact username, or enter someone's code.
- * Your own username and avatar live in Edit profile.
+ * Your own username and avatar live in Edit profile. The link is shown too;
+ * where there's no share sheet (a desktop browser), Share copies it instead.
  */
 export default function AddFriendsScreen() {
   const p = useProgress();
@@ -21,15 +22,16 @@ export default function AddFriendsScreen() {
   const [found, setFound] = useState<SocialCard | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [shared, setShared] = useState<string | null>(null);
 
-  useFocusEffect(
-    useCallback(() => {
-      social.view().then(
-        (v) => setView(v),
-        () => setMessage('Couldn’t load your friends. Check your connection.'),
-      );
-    }, [social]),
-  );
+  // Requests you've sent show under "Waiting for them" as soon as they're sent.
+  const refresh = useCallback(() => {
+    social.view().then(
+      (v) => setView(v),
+      () => setMessage('Couldn’t load your friends. Check your connection.'),
+    );
+  }, [social]);
+  useFocusEffect(refresh);
 
   const errorText = (e: unknown) => (e instanceof SocialError ? SOCIAL_ERROR_TEXT[e.code] : 'That didn’t work. Try again.');
 
@@ -62,6 +64,7 @@ export default function AddFriendsScreen() {
       setMessage(r === 'friends' ? `You and @${user.username} are friends now.` : `Request sent to @${user.username}.`);
       setFound(null);
       setQuery('');
+      refresh();
     } catch (e) {
       setMessage(errorText(e));
     } finally {
@@ -69,11 +72,21 @@ export default function AddFriendsScreen() {
     }
   };
 
-  const invite = () => {
+  const invite = async () => {
     if (!view) return;
-    void Share.share({
-      message: `Learn with me on BrainScroll! I'm @${view.me.username}. Tap to be friends: ${inviteLink(view.me.inviteCode)} (or enter my code ${view.me.inviteCode} in Social).`,
-    }).catch(() => {});
+    const link = inviteLink(view.me.inviteCode);
+    setShared(null);
+    // A desktop browser has no share sheet: copy the link instead, and say so.
+    if (Platform.OS === 'web' && typeof navigator !== 'undefined' && !navigator.share) {
+      try {
+        await navigator.clipboard.writeText(link);
+        setShared('Link copied. Paste it anywhere to invite a friend.');
+      } catch {
+        setShared('Copy the link above and send it to a friend.');
+      }
+      return;
+    }
+    await Share.share({ message: `Learn with me on BrainScroll! I'm @${view.me.username}. Tap to be friends: ${link} (or enter my code ${view.me.inviteCode} in Social).` }).catch(() => {});
   };
 
   return (
@@ -99,8 +112,13 @@ export default function AddFriendsScreen() {
                 <Eyebrow>Your code</Eyebrow>
                 <Body>{view.me.inviteCode}</Body>
               </View>
-              <Button compact label="Share invite" onPress={invite} />
+              <Button compact label="Share invite" onPress={() => void invite()} />
             </Row>
+            <View style={{ gap: space.xxs }}>
+              <Eyebrow>Your link</Eyebrow>
+              <Caption>{inviteLink(view.me.inviteCode)}</Caption>
+            </View>
+            {shared && <Notice tone="text">{shared}</Notice>}
           </Card>
 
           <Card variant="plain" style={{ gap: space.md }}>
@@ -126,7 +144,7 @@ export default function AddFriendsScreen() {
                 <Row key={o.id} gap={space.md}>
                   <Avatar username={o.username} avatar={o.avatar} size={32} />
                   <Body style={{ flex: 1 }}>{`@${o.username}`}</Body>
-                  <Button compact variant="ghost" label="Cancel" onPress={() => void social.removeFriend(o.id).then(() => social.view().then(setView))} />
+                  <Button compact variant="ghost" label="Cancel" onPress={() => void social.removeFriend(o.id).then(refresh, () => setMessage('That didn’t work. Try again.'))} />
                 </Row>
               ))}
             </View>

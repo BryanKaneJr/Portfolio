@@ -1,7 +1,7 @@
 // Development harness (no Supabase, simulated accounts): sign-in first, onboarding,
 // a full chapter, resume, persistence, first-day cap, review, and progress that
 // belongs to the account (sign out, a second account, deletion).
-import { questMap, CHAPTER_REVIEW_MAX, CHECKPOINT_CURVE, CURVE, REVIEW_XP, bodyText, button, check, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, URL } from './helpers.mjs';
+import { questMap, CHAPTER_REVIEW_MAX, CHECKPOINT_CURVE, CURVE, REVIEW_XP, bodyText, button, check, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, URL, coldLoad } from './helpers.mjs';
 
 const progressKeys = (page) => page.evaluate(() => Object.keys(localStorage).filter((k) => k.startsWith('brainscroll.progress.')));
 
@@ -140,6 +140,13 @@ try {
   await exactButton(page, 'Add friends').first().click();
   await page.waitForTimeout(1000);
   check(/Your code/i.test(await bodyText(page)), 'Add friends shows your invite code');
+  check(/invite\/[A-Z0-9]{8}/.test(await bodyText(page)), 'and the invite link itself');
+  if (!(await page.evaluate(() => typeof navigator.share === 'function'))) {
+    // A desktop browser has no share sheet: Share copies the link and says so.
+    await exactButton(page, 'Share invite').click();
+    await page.waitForTimeout(500);
+    check(/Link copied|Copy the link above/.test(await bodyText(page)), 'Share invite without a share sheet copies the link and says so');
+  }
   await field(page, 'Find by username or code').fill('maya_reads');
   await exactButton(page, 'Find').click();
   await page.waitForTimeout(800);
@@ -150,6 +157,48 @@ try {
   await exactButton(page, 'Find').click();
   await page.waitForTimeout(800);
   check(/You and @leo_learns are friends now/.test(await bodyText(page)), 'an invite code makes friends at once');
+
+  // Profiles opened cold (a refresh or a shared link) wait for the account, and a bad link says so (QA 2026-10-03).
+  await coldLoad(page, errors, `${URL}person/sim-5`);
+  await page.waitForTimeout(2000);
+  let person = await bodyText(page);
+  check(/@noor/.test(person) && /Brain overview/i.test(person) && !/Something went wrong|not ready/.test(person), 'a profile link opened cold shows the profile');
+  // Report: a reason (username, cheating, something else) and an optional note.
+  await exactButton(page, 'Report').click();
+  await page.waitForTimeout(300);
+  check((await page.getByRole('radio').count()) === 3 && /What’s wrong\?/i.test(await bodyText(page)), 'Report asks what’s wrong: username, cheating or something else');
+  check(await exactButton(page, 'Send report').isDisabled(), 'and waits for a reason');
+  await page.getByRole('radio', { name: 'Cheating' }).click();
+  await field(page, 'Anything else? (optional)').fill('XP looks too fast');
+  await exactButton(page, 'Send report').click();
+  await page.waitForTimeout(500);
+  check(/Thanks\. We’ll take a look\./.test(await bodyText(page)), 'the report is sent');
+  // Block: noor becomes a hidden learner in the league, and Settings can unblock.
+  await exactButton(page, 'Block').click();
+  await page.waitForTimeout(300);
+  await exactButton(page, 'Block').last().click();
+  await page.waitForTimeout(1500);
+  check(!/@noor/.test(await bodyText(page)), 'blocking leaves their profile');
+  await page.getByRole('tab', { name: /Social/ }).click();
+  await page.waitForTimeout(1200);
+  await page.getByRole('button', { name: /League: you're/ }).click();
+  await page.waitForTimeout(1000);
+  person = await bodyText(page);
+  check(/Hidden learner/.test(person) && !/@noor/.test(person), 'a blocked learner is a hidden learner in the standings');
+  await page.goBack();
+  await page.waitForTimeout(1000);
+  check(!/@noor/.test(await bodyText(page)), 'and nowhere on Social, the league banner included');
+  await page.getByRole('tab', { name: /Profile/ }).click();
+  await page.waitForTimeout(800);
+  await exactButton(page, 'Settings').click();
+  await page.waitForTimeout(800);
+  check(/Blocked[\s\S]*@noor/i.test(await bodyText(page)), 'Settings lists who you blocked');
+  await exactButton(page, 'Unblock').click();
+  await page.waitForTimeout(600);
+  check(/Unblocked @noor/.test(await bodyText(page)) && /You haven’t blocked anyone/.test(await bodyText(page)), 'and Unblock brings them back');
+  await coldLoad(page, errors, `${URL}person/nobody-here`);
+  await page.waitForTimeout(2000);
+  check(/We can’t find that profile/.test(await bodyText(page)), 'a profile link to no one shows a friendly not-found state');
 
   await home(page);
   check((await bodyText(page)).includes('Astronomy · Lv. 1'), 'progress persists across reload');

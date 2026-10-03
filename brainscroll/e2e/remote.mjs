@@ -2,7 +2,7 @@
 // sign-in before anything (phone, email, Google OAuth), server-graded
 // completion, exactly-once XP, live content revisions, server-side
 // Brainpower, review, progress that survives a reinstall, and account deletion.
-import { questMap, CHAPTER_REVIEW_MAX, CURVE, REVIEW_XP, answerStep, bodyText, button, check, checkButton, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, sql, sqlUntil } from './helpers.mjs';
+import { questMap, CHAPTER_REVIEW_MAX, CURVE, REVIEW_XP, answerStep, bodyText, button, check, checkButton, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, sql, sqlUntil, URL, coldLoad } from './helpers.mjs';
 
 const { browser, page, errors } = await launch();
 // Every level bundle the app receives must be free of answer keys, and review
@@ -299,6 +299,7 @@ try {
   await exactButton(page, 'Add').click();
   await page.waitForTimeout(1000);
   check(/Request sent to @study_buddy/.test(await bodyText(page)) && sql(`select count(*) from public.friend_requests where user_id = '${learnerId}'`) === '1', 'a username search sends a request that waits on the server');
+  check(/Waiting for them[\s\S]*@study_buddy/i.test(await bodyText(page)), 'and shows under "Waiting for them" at once');
   await field(page, 'Find by username or code').fill('pal12345');
   await exactButton(page, 'Find').click();
   await page.waitForTimeout(1000);
@@ -306,6 +307,46 @@ try {
   await page.goBack();
   await page.waitForTimeout(1000);
   check(/This week with friends[\s\S]*@old_pal/.test(await bodyText(page)), 'friends appear ranked by this week\'s XP');
+
+  // Profiles (QA 2026-10-03): opened cold they wait for the account; a pending request shows only the name.
+  await coldLoad(page, errors, `${URL}person/00000000-0000-0000-0000-0000000000f1`);
+  await page.waitForTimeout(2500);
+  let person = await bodyText(page);
+  check(/@study_buddy/.test(person) && /Waiting for them/.test(person) && !/Brain overview|Total XP/i.test(person) && !/Something went wrong|not ready/.test(person),
+    'a cold-loaded profile of someone you only asked shows their name, not their stats');
+  await coldLoad(page, errors, `${URL}person/00000000-0000-0000-0000-0000000000f2`);
+  await page.waitForTimeout(2500);
+  person = await bodyText(page);
+  check(/@old_pal/.test(person) && /Brain overview/i.test(person), 'a friend\'s profile opens in full, cold');
+  // Report with a reason and a note; the server keeps both.
+  await exactButton(page, 'Report').click();
+  await page.waitForTimeout(300);
+  await page.getByRole('radio', { name: 'Their username' }).click();
+  await field(page, 'Anything else? (optional)').fill('Rude name');
+  await exactButton(page, 'Send report').click();
+  await page.waitForTimeout(1000);
+  check(/Thanks\. We’ll take a look\./.test(await bodyText(page)) && sql(`select reason || ':' || note from public.user_reports where user_id = '${learnerId}'`) === 'username:Rude name',
+    'a report carries its reason and note to the server');
+  // Block, then unblock from Settings.
+  await exactButton(page, 'Block').click();
+  await page.waitForTimeout(300);
+  await exactButton(page, 'Block').last().click();
+  await page.waitForTimeout(1500);
+  check(sql(`select count(*) from public.user_blocks where user_id = '${learnerId}'`) === '1' && sql(`select count(*) from public.friendships where user_id = '${learnerId}'`) === '0', 'blocking ends the friendship on the server');
+  await home(page);
+  await page.getByRole('tab', { name: /Profile/ }).click();
+  await page.waitForTimeout(800);
+  await exactButton(page, 'Settings').click();
+  await page.waitForTimeout(1200);
+  check(/Blocked[\s\S]*@old_pal/i.test(await bodyText(page)), 'Settings lists who you blocked');
+  await exactButton(page, 'Unblock').click();
+  await page.waitForTimeout(1000);
+  check(/Unblocked @old_pal/.test(await bodyText(page)) && sql(`select count(*) from public.user_blocks`) === '0', 'and Unblock lifts it on the server');
+  for (const bad of ['00000000-0000-0000-0000-000000000999', 'not-an-id']) {
+    await coldLoad(page, errors, `${URL}person/${bad}`);
+    await page.waitForTimeout(2500);
+    check(/We can’t find that profile/.test(await bodyText(page)), `a profile link to no one (${bad}) shows a friendly not-found state`);
+  }
   // The seeded learners leave again (and their friendship with them, by cascade).
   sql(`delete from auth.users where id in ('00000000-0000-0000-0000-0000000000f1', '00000000-0000-0000-0000-0000000000f2')`);
   check(sql(`select count(*) from public.friendships`) === '0', 'a deleted learner leaves no friendship behind');

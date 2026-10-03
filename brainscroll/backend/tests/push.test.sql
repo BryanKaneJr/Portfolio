@@ -69,13 +69,92 @@ do $$ begin
   assert (select params ->> 'username' from public.notification_outbox where user_id = pg_temp.uid('5a') and kind = 'friend_new') = 'ben';
 end $$;
 
--- 3. A heart tells the owner; hearting it again doesn't send another.
+-- 2b. Requests that are gone take their unsent note with them, and asking again doesn't ping again.
 set role authenticated;
-select public.react(pg_temp.uid('5a'), 'trophy:trophy.first_level', 'heart');
-select public.react(pg_temp.uid('5a'), 'trophy:trophy.first_level', 'heart');
+select pg_temp.as_user(pg_temp.uid('5c')::text);
+select public.send_friend_request(pg_temp.uid('5d'));
+select pg_temp.as_user(pg_temp.uid('5d')::text);
+select public.respond_friend_request(pg_temp.uid('5c'), false);
+select pg_temp.as_user(pg_temp.uid('5c')::text);
+select public.send_friend_request(pg_temp.uid('5d'));
+select pg_temp.as_user(pg_temp.uid('5d')::text);
+select public.respond_friend_request(pg_temp.uid('5c'), false);
+select pg_temp.as_user(pg_temp.uid('5c')::text);
+select public.send_friend_request(pg_temp.uid('5d'));
+reset role;
+do $$ begin
+  assert pg_temp.pending('5d', 'friend_request') = 1, 'asked, declined and asked again three times: one note waiting';
+  assert (select count(*) from public.notification_outbox where user_id = pg_temp.uid('5d') and kind = 'friend_request') = 1, 'and only one ever queued';
+end $$;
+set role authenticated;
+select public.remove_friend(pg_temp.uid('5d'));
+reset role;
+do $$ begin
+  assert pg_temp.pending('5d', 'friend_request') = 0, 'a withdrawn request takes its note with it';
+end $$;
+-- Crossing requests: Dee's note about Cy goes; Cy hears they're friends, until the friendship ends.
+set role authenticated;
+select public.send_friend_request(pg_temp.uid('5d'));
+select pg_temp.as_user(pg_temp.uid('5d')::text);
+select public.send_friend_request(pg_temp.uid('5c'));
+reset role;
+do $$ begin
+  assert pg_temp.pending('5d', 'friend_request') = 0, 'crossed: no "wants to be friends" note once they are friends';
+  assert pg_temp.pending('5c', 'friend_new') = 1, 'Cy hears they''re friends';
+end $$;
+set role authenticated;
+select public.remove_friend(pg_temp.uid('5c'));
+reset role;
+do $$ begin
+  assert pg_temp.pending('5c', 'friend_new') = 0, 'an ended friendship takes its unsent note with it';
+end $$;
+-- A note already sent counts too: asking again within the week doesn't ping again.
+set role authenticated;
+select pg_temp.as_user(pg_temp.uid('5c')::text);
+select public.send_friend_request(pg_temp.uid('5d'));
+reset role;
+update public.notification_outbox set status = 'sent', sent_at = now() where user_id = pg_temp.uid('5d') and kind = 'friend_request';
+set role authenticated;
+select pg_temp.as_user(pg_temp.uid('5d')::text);
+select public.respond_friend_request(pg_temp.uid('5c'), false);
+select pg_temp.as_user(pg_temp.uid('5c')::text);
+select public.send_friend_request(pg_temp.uid('5d'));
+select pg_temp.as_user(pg_temp.uid('5d')::text);
+select public.respond_friend_request(pg_temp.uid('5c'), false);
+reset role;
+do $$ begin
+  assert (select count(*) from public.notification_outbox where user_id = pg_temp.uid('5d') and kind = 'friend_request') = 1, 'sent once, not again';
+  assert pg_temp.pending('5d', 'friend_request') = 0;
+end $$;
+delete from public.notification_outbox where user_id = pg_temp.uid('5d');
+
+-- 3. A heart tells the owner, once: hearting again, or unliking and liking again, doesn't send another.
+-- Ana has a moment to heart (a trophy this week); made-up moments can't be hearted.
+insert into public.user_trophies (user_id, trophy_id, name) values (pg_temp.uid('5a'), 'trophy.quest_test', 'Test Quest');
+set role authenticated;
+select pg_temp.as_user(pg_temp.uid('5b')::text);
+select public.react(pg_temp.uid('5a'), 'trophy:trophy.quest_test', 'heart');
+select public.react(pg_temp.uid('5a'), 'trophy:trophy.quest_test', 'heart');
 reset role;
 do $$ begin
   assert pg_temp.pending('5a', 'reaction') = 1, 'one reaction, one note';
+  assert (select params ->> 'item_key' from public.notification_outbox where user_id = pg_temp.uid('5a') and kind = 'reaction') = 'trophy:trophy.quest_test';
+end $$;
+set role authenticated;
+select public.react(pg_temp.uid('5a'), 'trophy:trophy.quest_test', null);
+reset role;
+do $$ begin
+  assert pg_temp.pending('5a', 'reaction') = 0, 'a heart taken back takes its note with it';
+end $$;
+set role authenticated;
+select public.react(pg_temp.uid('5a'), 'trophy:trophy.quest_test', 'heart');
+do $$ begin
+  perform pg_temp.expect_error($q$ select public.react(pg_temp.uid('5a'), 'trophy:does_not_exist', 'heart') $q$, 'MOMENT_NOT_FOUND');
+end $$;
+reset role;
+do $$ begin
+  assert pg_temp.pending('5a', 'reaction') = 1, 'liked, unliked and liked again: one note';
+  assert not exists (select 1 from public.feed_reactions where item_key = 'trophy:does_not_exist'), 'no heart on a made-up moment';
 end $$;
 
 -- 4. Passing someone in the league: they hear once a day, with the gap.

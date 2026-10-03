@@ -1,4 +1,4 @@
-import { DR_SCROLL_FRIEND, leagueName, LEAGUE, ordinal, trophyInfo, type FeedItem, type DrScrollPost, type FeedReaction, type LeagueView } from '@brainscroll/core';
+import { DR_SCROLL_FRIEND, leagueName, leaguePrize, ordinal, trophyInfo, type FeedItem, type DrScrollPost, type FeedReaction, type LeagueView } from '@brainscroll/core';
 import { Animated, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import { TrophyBadge } from '@/components/TrophyBadge';
@@ -10,7 +10,7 @@ import { color, depth, elevation, iconSize, radius, space, type } from '@/theme/
 
 /**
  * Social building blocks (owner, 2026-10-01): avatars, the league banner and
- * the feed's moments with their Dr. Scroll reactions. There are no photos:
+ * the feed's moments with their hearts. There are no photos:
  * a learner wears an avatar from the set (a starter at random from sign-up).
  */
 
@@ -50,11 +50,16 @@ export function leagueDaysLeft(endsAt: string, now = Date.now()): string {
 /** Podium colours (the prize text): gold, silver, bronze. Gold here is the league's top prize, earned like mastery. */
 const PODIUM = [color.mastery, '#C9D2DC', '#D9925B'] as const;
 
+/** How a league row is named: you, a hidden learner (blocked either way), or their username. */
+export const leagueMemberName = (m: LeagueView['members'][number]) => (m.you ? 'You' : m.blocked ? 'Hidden learner' : `@${m.username}`);
+
 /**
  * The league as a banner (owner, 2026-10-01: "more fun and premium"): a
  * violet gradient card with a trophy (top 3) or medal beside your place, how far
- * the next place is, and the current podium with its prizes. Tap for the
- * standings.
+ * the next place is, and the current podium. Each podium spot shows the prize
+ * it would win if the week ended now (core leaguePrize, the server's rule:
+ * XP this week, and someone behind it), or its XP when it wouldn't. Tap for
+ * the standings.
  */
 export function LeagueBanner({ league, onPress }: { league: LeagueView; onPress: () => void }) {
   const place = league.members.findIndex((m) => m.you) + 1;
@@ -63,7 +68,7 @@ export function LeagueBanner({ league, onPress }: { league: LeagueView; onPress:
   const ahead = place > 1 ? league.members[place - 2] : undefined;
   const gap = ahead && me ? ahead.weeklyXp - me.weeklyXp + 1 : 0;
   const podium = league.members.slice(0, 3);
-  const chase = place === 1 ? 'You’re leading. Hold on to it!' : ahead ? `${gap.toLocaleString('en-US')} XP to pass ${ahead.you ? 'them' : `@${ahead.username}`}` : '';
+  const chase = place === 1 ? 'You’re leading. Hold on to it!' : ahead ? `${gap.toLocaleString('en-US')} XP to pass ${ahead.blocked ? 'the next place' : `@${ahead.username}`}` : '';
   return (
     <Pressable
       accessibilityRole="button"
@@ -73,7 +78,7 @@ export function LeagueBanner({ league, onPress }: { league: LeagueView; onPress:
       <GradientFill from={lift(color.brand, 0.12)} to={color.brandEdge} rx={radius.lg} />
       <Row gap={space.md}>
         <View style={styles.medalArt}>
-          <UiArt name={place <= LEAGUE.PRIZES.length ? 'trophy' : 'medal'} size={76} />
+          <UiArt name={leaguePrize(place, league.members.length, me?.weeklyXp ?? 0) ? 'trophy' : 'medal'} size={76} />
         </View>
         <View style={{ flex: 1, gap: space.xxs }}>
           <Text style={[type.label, { color: lift(color.brandText, 0.4) }]}>{name.toUpperCase()}</Text>
@@ -84,15 +89,20 @@ export function LeagueBanner({ league, onPress }: { league: LeagueView; onPress:
         <Icon name="forward" tint={color.onBrand} size={iconSize.md} />
       </Row>
       <View style={styles.podium}>
-        {podium.map((m, i) => (
-          <View key={m.id} style={styles.podiumSpot}>
-            <Avatar username={m.blocked ? '?' : m.username} avatar={m.blocked ? undefined : m.avatar} size={34} />
-            <View style={{ flexShrink: 1 }}>
-              <Text numberOfLines={1} style={[type.caption, { color: color.onBrand, fontWeight: '800' }]}>{m.you ? 'You' : `@${m.username}`}</Text>
-              <Text style={[type.caption, { color: PODIUM[i], fontSize: 12, lineHeight: 15 }]}>{`+${LEAGUE.PRIZES[i]!.toLocaleString('en-US')} XP`}</Text>
+        {podium.map((m, i) => {
+          const prize = leaguePrize(i + 1, league.members.length, m.weeklyXp);
+          return (
+            <View key={m.id} style={styles.podiumSpot}>
+              <Avatar username={m.blocked ? '?' : m.username} avatar={m.blocked ? undefined : m.avatar} size={34} />
+              <View style={{ flexShrink: 1 }}>
+                <Text numberOfLines={1} style={[type.caption, { color: color.onBrand, fontWeight: '800' }]}>{leagueMemberName(m)}</Text>
+                <Text style={[type.caption, { color: prize ? PODIUM[i] : lift(color.brandText, 0.55), fontSize: 12, lineHeight: 15 }]}>
+                  {prize ? `+${prize.toLocaleString('en-US')} XP` : `${m.weeklyXp.toLocaleString('en-US')} XP`}
+                </Text>
+              </View>
             </View>
-          </View>
-        ))}
+          );
+        })}
       </View>
     </Pressable>
   );
@@ -115,7 +125,7 @@ export function momentLine(item: FeedItem): string {
     case 'streak':
       return `hit a ${item.data.days}-day streak`;
     case 'league':
-      return `finished ${ordinal(item.data.place ?? 1)} in their league${item.data.xp ? ` (+${item.data.xp.toLocaleString('en-US')} XP)` : ''}`;
+      return `finished ${ordinal(item.data.place ?? 1)} in ${item.owner.you ? 'your' : 'their'} league${item.data.xp ? ` (+${item.data.xp.toLocaleString('en-US')} XP)` : ''}`;
   }
 }
 

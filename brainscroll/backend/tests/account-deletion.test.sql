@@ -43,6 +43,13 @@ reset role;
 insert into auth.users (id) values ('00000000-0000-0000-0000-0000000000cc');
 insert into public.user_blocks (user_id, blocked_id) values ('00000000-0000-0000-0000-00000000000a', '00000000-0000-0000-0000-0000000000cc'), ('00000000-0000-0000-0000-0000000000cc', '00000000-0000-0000-0000-00000000000a');
 insert into public.friend_requests (user_id, to_id) values ('00000000-0000-0000-0000-0000000000cc', '00000000-0000-0000-0000-00000000000a');
+-- Bob's notes about Alice: one already sent, as well as the pending ones her actions queued.
+do $$ begin
+  assert (select count(*) from public.notification_outbox where user_id = '00000000-0000-0000-0000-00000000000b' and params ->> 'user_id' = '00000000-0000-0000-0000-00000000000a') = 2,
+    'Bob has a "new friend" and a heart note naming Alice';
+end $$;
+update public.notification_outbox set status = 'sent', sent_at = now() where user_id = '00000000-0000-0000-0000-00000000000b' and kind = 'friend_new';
+insert into public.notification_outbox (user_id, kind, params) values ('00000000-0000-0000-0000-0000000000cc', 'friend_request', '{"user_id": "00000000-0000-0000-0000-00000000000b", "username": "bob"}');
 insert into public.entitlements (user_id, entitlement, active) values ('00000000-0000-0000-0000-00000000000a', 'unlimited_learning', true);
 
 -- Alice deletes her account.
@@ -73,6 +80,9 @@ begin
   assert not exists (select 1 from public.user_blocks where blocked_id = '00000000-0000-0000-0000-00000000000a'), 'blocks of her';
   assert not exists (select 1 from public.feed_reactions where owner_id = '00000000-0000-0000-0000-00000000000a'), 'reactions on her moments';
   assert not exists (select 1 from public.user_reports where reported_id = '00000000-0000-0000-0000-00000000000a'), 'reports about her';
+  -- Bob's notes named her (they're friends now, she hearted his trophy): those go too, pending or sent.
+  assert not exists (select 1 from public.notification_outbox where params ->> 'user_id' = '00000000-0000-0000-0000-00000000000a'), 'notes about her';
+  assert exists (select 1 from public.notification_outbox where user_id = '00000000-0000-0000-0000-0000000000cc'), 'notes about others stay';
   assert exists (select 1 from public.league_members where user_id = '00000000-0000-0000-0000-00000000000b'), 'Bob keeps his league';
   assert (select count(*) from public.xp_events where user_id = '00000000-0000-0000-0000-00000000000b') > 0, 'other learners are untouched';
   assert exists (select 1 from auth.users where id = '00000000-0000-0000-0000-00000000000b'), 'Bob still exists';
