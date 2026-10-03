@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 74,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Healthcare Systems",
   "objective": "After this level you can compare the main ways countries pay for healthcare.",
@@ -111,7 +111,7 @@
   "questions": [
     {
       "id": "question.government.074.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.health_financing_models"
@@ -119,33 +119,22 @@
       "sourceCardIds": [
         "card.government.074.c2"
       ],
-      "prompt": "In France, Germany and Japan, how is most health spending financed?",
-      "options": [
+      "prompt": "Match each way of paying for healthcare with countries that lean on it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Mostly by patients paying at the door",
-          "correct": false,
-          "rationale": "Out-of-pocket payments are large in Mexico or Greece, not here."
+          "left": "Government schemes",
+          "right": "Sweden, Norway, Denmark, UK"
         },
         {
-          "id": "b",
-          "label": "Charities and private donations",
-          "correct": false,
-          "rationale": "Donations are a tiny share; this is insurance."
+          "left": "Compulsory insurance",
+          "right": "France, Germany, Japan"
         },
         {
-          "id": "c",
-          "label": "Compulsory insurance funded by employer and employee contributions",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Fees charged to foreign visitors",
-          "correct": false,
-          "rationale": "Visitors don't fund national health systems."
+          "left": "Out of pocket",
+          "right": "Mexico, Chile, Latvia, Greece"
         }
       ],
-      "explanation": "In these countries, more than three-quarters of health spending goes through compulsory health insurance funded by contributions.",
+      "explanation": "Government schemes cover 80%+ of spending in Sweden, Norway, Denmark and the UK. Compulsory insurance covers over three-quarters in France, Germany and Japan. Out-of-pocket payments are over a third in Mexico, Chile, Latvia and Greece.",
       "difficulty": 0.2
     },
     {

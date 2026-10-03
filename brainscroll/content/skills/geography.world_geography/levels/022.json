@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 22,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "One World Ocean",
   "objective": "After this level you can name the five oceans and explain why they are really one connected ocean.",
@@ -136,7 +136,7 @@
     },
     {
       "id": "question.world_geography.022.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.five_oceans"
@@ -144,33 +144,17 @@
       "sourceCardIds": [
         "card.world_geography.022.c3"
       ],
-      "prompt": "A ship sails from the Atlantic into the Indian Ocean. What does it actually cross?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A line people drew on maps",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "An underwater wall between basins",
-          "correct": false,
-          "rationale": "No wall: the water is continuous."
-        },
-        {
-          "id": "c",
-          "label": "A strip of fresh water",
-          "correct": false,
-          "rationale": "The oceans share the same salty water."
-        },
-        {
-          "id": "d",
-          "label": "A change in sea level",
-          "correct": false,
-          "rationale": "The oceans are connected; there is no step."
-        }
+      "prompt": "Put the five oceans in order, from largest to smallest.",
+      "items": [
+        "Pacific",
+        "Atlantic",
+        "Indian",
+        "Southern",
+        "Arctic"
       ],
-      "explanation": "The named oceans are regions of one global ocean. The borders between them are lines people drew.",
+      "first": "Largest",
+      "last": "Smallest",
+      "explanation": "From largest to smallest: the Pacific, Atlantic, Indian, Southern and Arctic.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 79,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "When Volcanoes Cool the World",
   "objective": "After this level you can explain how big eruptions like Tambora and Pinatubo cooled the globe for a year or two.",
@@ -125,41 +125,27 @@
     },
     {
       "id": "question.earth_climate.079.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.climates_volcanic_stratosphere"
       ],
       "sourceCardIds": [
-        "card.earth_climate.079.c4"
+        "card.earth_climate.079.c4",
+        "card.earth_climate.079.c1",
+        "card.earth_climate.079.c2",
+        "card.earth_climate.079.c3"
       ],
-      "prompt": "Why can a smaller eruption sometimes cool the planet more than a bigger one?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Smaller eruptions throw out more ash",
-          "correct": false,
-          "rationale": "Ash falls out within days to weeks."
-        },
-        {
-          "id": "b",
-          "label": "Cooling depends on sulfur reaching the stratosphere, not size",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Smaller eruptions last for years longer",
-          "correct": false,
-          "rationale": "The level credits sulfur, not duration."
-        },
-        {
-          "id": "d",
-          "label": "Bigger eruptions warm the air with their heat",
-          "correct": false,
-          "rationale": "The level credits sulfur, not the heat of the blast."
-        }
+      "prompt": "Put these volcanic cooling events in order, from earliest to latest.",
+      "items": [
+        "Mount Tambora",
+        "Year without a summer",
+        "Mount Pinatubo",
+        "0.5 °C of global cooling"
       ],
-      "explanation": "Magma volume and sulfur dioxide don't always match, and it's the stratospheric sulfur that cools the climate.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Mount Tambora erupted in 1815, 1816 was the year without a summer, Mount Pinatubo erupted in 1991, and about 0.5 °C of global cooling followed in 1992.",
       "difficulty": 0.4
     },
     {

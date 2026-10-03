@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 45,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Aristotle's Golden Mean",
   "objective": "After this level you can explain Aristotle's virtue ethics, where courage sits between cowardice and recklessness and virtue is built by practice.",
@@ -93,7 +93,7 @@
   "questions": [
     {
       "id": "question.philosophy.045.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.philosophy.morals_golden_mean"
@@ -101,33 +101,22 @@
       "sourceCardIds": [
         "card.philosophy.045.c2"
       ],
-      "prompt": "Where does Aristotle place the virtue of courage?",
-      "options": [
+      "prompt": "Match each person with how much fear Aristotle says they feel.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Between rashness and recklessness",
-          "correct": false,
-          "rationale": "Those are both excesses of daring."
+          "left": "The coward",
+          "right": "Too much fear"
         },
         {
-          "id": "b",
-          "label": "Between cowardice and rashness",
-          "correct": true
+          "left": "The rash person",
+          "right": "Little or no fear"
         },
         {
-          "id": "c",
-          "label": "At the extreme of fearlessness",
-          "correct": false,
-          "rationale": "Fearlessness is the rash extreme."
-        },
-        {
-          "id": "d",
-          "label": "Anywhere a person feels no fear",
-          "correct": false,
-          "rationale": "Feeling no fear is rashness."
+          "left": "The courageous person",
+          "right": "The right amount of fear"
         }
       ],
-      "explanation": "Courage is the mean between cowardice, too much fear, and rashness, too little.",
+      "explanation": "The coward has too much fear, the rash person feels little or no fear, and the courageous person faces the right dangers with the right amount of fear.",
       "difficulty": 0.2
     },
     {

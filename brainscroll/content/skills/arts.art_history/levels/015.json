@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 15,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Greek Sculpture",
   "objective": "After this level you can explain how Greek sculptors moved from stiff figures to lifelike bodies.",
@@ -90,41 +90,25 @@
   "questions": [
     {
       "id": "question.art_history.015.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.greek_kouros"
       ],
       "sourceCardIds": [
-        "card.art_history.015.c2"
+        "card.art_history.015.c2",
+        "card.art_history.015.c3",
+        "card.art_history.015.c4"
       ],
-      "prompt": "Which pose marks an Archaic kouros?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Weight on one leg, the other knee bent",
-          "correct": false,
-          "rationale": "That's contrapposto, which came later."
-        },
-        {
-          "id": "b",
-          "label": "Twisting to throw, arms raised high",
-          "correct": false,
-          "rationale": "Kouroi keep their arms close to the body."
-        },
-        {
-          "id": "c",
-          "label": "Seated on a throne, holding a spear",
-          "correct": false,
-          "rationale": "Kouroi stand."
-        },
-        {
-          "id": "d",
-          "label": "Facing front, left foot forward, fists clenched",
-          "correct": true
-        }
+      "prompt": "Put these Greek statues in order, from earliest to latest.",
+      "items": [
+        "The kouros",
+        "The Kritios Boy",
+        "The Spear Bearer"
       ],
-      "explanation": "Early kouroi stand stiffly frontal, left foot slightly forward, arms at their sides and fists clenched.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Kouroi came first (about 615 to 590 BCE), then the Kritios Boy (just after 480 BCE), then Polyclitus's Spear Bearer (about 450 to 440 BCE).",
       "difficulty": 0.15
     },
     {

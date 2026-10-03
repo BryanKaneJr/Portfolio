@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 80,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Animal Behavior",
   "objective": "After this level you can explain how instinct, learning and groups shape animal behavior.",
@@ -217,7 +217,7 @@
     },
     {
       "id": "question.animals.080.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.behavior_bee_dance_discovery",
@@ -228,33 +228,22 @@
         "card.animals.073.c4",
         "card.animals.071.c4"
       ],
-      "prompt": "Animal Behavior recap: which pairing of 1973 Nobel laureate and discovery is right?",
-      "options": [
+      "prompt": "Match each Nobel laureate with the animal he studied.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Lorenz: imprinting",
-          "correct": true
+          "left": "Karl von Frisch",
+          "right": "Studied honeybees"
         },
         {
-          "id": "b",
-          "label": "Von Frisch: imprinting",
-          "correct": false,
-          "rationale": "Von Frisch decoded the bee dance."
+          "left": "Konrad Lorenz",
+          "right": "Studied ducklings"
         },
         {
-          "id": "c",
-          "label": "Tinbergen: the waggle dance",
-          "correct": false,
-          "rationale": "That was von Frisch."
-        },
-        {
-          "id": "d",
-          "label": "Lorenz: the waggle dance",
-          "correct": false,
-          "rationale": "Lorenz studied imprinting in young birds."
+          "left": "Nikolaas Tinbergen",
+          "right": "Studied gull chicks"
         }
       ],
-      "explanation": "Lorenz studied imprinting, von Frisch the bee dance, Tinbergen key stimuli with dummies.",
+      "explanation": "Karl von Frisch studied honeybees, Konrad Lorenz studied ducklings, and Nikolaas Tinbergen studied gull chicks.",
       "difficulty": 0.2
     },
     {

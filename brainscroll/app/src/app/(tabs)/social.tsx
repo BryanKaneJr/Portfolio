@@ -132,7 +132,7 @@ export default function SocialScreen() {
 
           {view.friends.length === 0 ? (
             <Card variant="plain" style={{ gap: space.md }}>
-              <DrScrollSays spot="social.empty" lines={['Learning is better with company. Bring a friend and see who learns more this week.']} />
+              <DrScrollSays spot="social.empty" animation="wave-point" size="md" lines={['Learning is better with company. Bring a friend and see who learns more this week.']} />
               <Button label="Add friends" onPress={() => router.push('/add-friends')} />
             </Card>
           ) : (

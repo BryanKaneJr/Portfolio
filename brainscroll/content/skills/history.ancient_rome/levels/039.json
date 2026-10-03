@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 39,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Crossing the Rubicon",
   "objective": "After this level you can explain why crossing the Rubicon meant civil war.",
@@ -164,7 +164,7 @@
     },
     {
       "id": "question.ancient_rome.039.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_rome.rubicon",
@@ -172,35 +172,20 @@
       ],
       "sourceCardIds": [
         "card.ancient_rome.039.c2",
-        "card.ancient_rome.033.c2"
+        "card.ancient_rome.033.c2",
+        "card.ancient_rome.039.c3",
+        "card.ancient_rome.039.c4"
       ],
-      "prompt": "From Level 33: which general had already led his army against Rome, in 88 BCE?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Sulla",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Marius",
-          "correct": false,
-          "rationale": "Sulla marched first."
-        },
-        {
-          "id": "c",
-          "label": "Cincinnatus",
-          "correct": false,
-          "rationale": "He was a model of restraint."
-        },
-        {
-          "id": "d",
-          "label": "Scipio",
-          "correct": false,
-          "rationale": "He fought abroad."
-        }
+      "prompt": "Put these civil war events in order, from earliest to latest.",
+      "items": [
+        "Sulla had marched his army on Rome",
+        "Crossed the Rubicon",
+        "Pharsalus",
+        "Fled to Egypt"
       ],
-      "explanation": "Sulla’s march on Rome in 88 BCE set the precedent Caesar followed.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Sulla marched on Rome in 88 BCE. Caesar crossed the Rubicon in 49 BCE and beat Pompey at Pharsalus in 48 BCE, and Pompey then fled to Egypt.",
       "difficulty": 0.3
     }
   ],

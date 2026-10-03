@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 55,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Lawyers",
   "objective": "After this level you can explain what lawyers do on each side of a case.",
@@ -164,7 +164,7 @@
     },
     {
       "id": "question.government.055.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.government.lawyers_gideon_right_to_counsel",
@@ -173,35 +173,19 @@
       "sourceCardIds": [
         "card.government.055.c4",
         "card.government.055.c2",
-        "card.government.054.c2"
+        "card.government.054.c2",
+        "card.government.055.c1"
       ],
-      "prompt": "Gideon was acquitted once he had a lawyer. How does a defence lawyer help protect Level 54's presumption of innocence?",
-      "options": [
-        {
-          "id": "a",
-          "label": "By proving the client is innocent",
-          "correct": false,
-          "rationale": "The accused never has to prove innocence."
-        },
-        {
-          "id": "b",
-          "label": "By deciding the verdict with the judge",
-          "correct": false,
-          "rationale": "Verdicts belong to the jury or court, not the lawyer."
-        },
-        {
-          "id": "c",
-          "label": "By choosing which cases the state brings",
-          "correct": false,
-          "rationale": "That's the prosecutor's decision."
-        },
-        {
-          "id": "d",
-          "label": "By testing the prosecution's evidence, which must prove guilt",
-          "correct": true
-        }
+      "prompt": "Put the steps of Clarence Earl Gideon's case in order, from first to last.",
+      "items": [
+        "Gideon defended himself",
+        "Handwritten petition",
+        "Ruled unanimously",
+        "The jury acquitted him"
       ],
-      "explanation": "The prosecution must prove guilt; a defence lawyer tests that evidence, as Gideon's lawyer did with the key witness.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Gideon defended himself and lost, sent the Supreme Court a handwritten petition, the Court ruled unanimously in 1963, and at his retrial the jury acquitted him.",
       "difficulty": 0.3
     }
   ],

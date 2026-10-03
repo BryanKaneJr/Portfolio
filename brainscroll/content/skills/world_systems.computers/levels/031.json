@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 31,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "What a Network Is",
   "objective": "After this level you can explain how a home or office network links devices through a switch or router so they can share data.",
@@ -98,41 +98,31 @@
   "questions": [
     {
       "id": "question.computers.031.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.net_switch_mac"
       ],
       "sourceCardIds": [
-        "card.computers.031.c3"
+        "card.computers.031.c3",
+        "card.computers.031.c5"
       ],
-      "prompt": "What is a MAC address?",
-      "options": [
+      "prompt": "Match each piece of a home network with its job.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The name you gave your home Wi-Fi network",
-          "correct": false,
-          "rationale": "That is a network name you choose, not a device address."
+          "left": "A switch",
+          "right": "Connects the devices inside one network"
         },
         {
-          "id": "b",
-          "label": "A 48-bit address stored on a device's network card",
-          "correct": true
+          "left": "A router",
+          "right": "Connects networks to each other"
         },
         {
-          "id": "c",
-          "label": "The password a device needs to join the network",
-          "correct": false,
-          "rationale": "A MAC address identifies a device; it is not a secret."
-        },
-        {
-          "id": "d",
-          "label": "A list of every device in the building, kept by the switch",
-          "correct": false,
-          "rationale": "A MAC address belongs to one device's network card."
+          "left": "A MAC address",
+          "right": "Identifies which device sent a message"
         }
       ],
-      "explanation": "A MAC address is 48 bits (6 bytes), written into the network card at the factory, and identifies the device on its local network.",
+      "explanation": "A switch connects the devices inside one network, a router connects networks to each other, and a MAC address identifies which device sent a message.",
       "difficulty": 0.2
     },
     {

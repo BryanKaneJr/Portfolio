@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 73,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Picking the Start Date",
   "objective": "After this level you can explain how choosing where a chart starts and ends can make the same trend look like a rise or a fall.",
@@ -120,7 +120,7 @@
     },
     {
       "id": "question.probability.073.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.chart_start_date_choice"
@@ -128,33 +128,15 @@
       "sourceCardIds": [
         "card.probability.073.c3"
       ],
-      "prompt": "How can one price chart honestly support both \"up 20%\" and \"down 20%\"?",
-      "options": [
-        {
-          "id": "a",
-          "label": "One of the headlines used the wrong numbers",
-          "correct": false,
-          "rationale": "Both use the real prices: 100, 150 and 120."
-        },
-        {
-          "id": "b",
-          "label": "Each headline measures from a different starting date",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The price changed after the chart was drawn",
-          "correct": false,
-          "rationale": "The same three prices give both results."
-        },
-        {
-          "id": "d",
-          "label": "A 20% rise and a 20% fall are the same thing",
-          "correct": false,
-          "rationale": "They are opposite moves; here they start from different points."
-        }
+      "prompt": "Put the price's ride in order, from first to last.",
+      "items": [
+        "Starts at 100",
+        "A peak of 150",
+        "Settles at 120"
       ],
-      "explanation": "From the start (100) to 120 is a 20% rise; from the peak (150) to 120 is a 20% fall. Only the starting point differs.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The price starts at 100, climbs to a peak of 150, then settles at 120. From the start that's a 20% rise; from the peak it's a 20% fall.",
       "difficulty": 0.35
     },
     {

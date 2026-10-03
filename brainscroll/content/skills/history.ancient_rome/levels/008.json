@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 8,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Roman Family",
   "objective": "After this level you can explain the power of the paterfamilias and how Roman families were organized.",
@@ -159,7 +159,7 @@
     },
     {
       "id": "question.ancient_rome.008.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_rome.roman_family",
@@ -167,35 +167,25 @@
       ],
       "sourceCardIds": [
         "card.ancient_rome.008.c3",
-        "card.ancient_rome.007.c2"
+        "card.ancient_rome.007.c2",
+        "card.ancient_rome.008.c2"
       ],
-      "prompt": "From Level 7: which guardian spirits did a Roman family honor at its household shrine?",
-      "options": [
+      "prompt": "Match each Roman family word with what it meant.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Jupiter, Juno and Minerva",
-          "correct": false,
-          "rationale": "They had the great Capitoline temple."
+          "left": "Paterfamilias",
+          "right": "Oldest living male"
         },
         {
-          "id": "b",
-          "label": "The Vestal Virgins",
-          "correct": false,
-          "rationale": "Vestals were priestesses, not spirits."
+          "left": "Familia",
+          "right": "The whole household"
         },
         {
-          "id": "c",
-          "label": "The augurs",
-          "correct": false,
-          "rationale": "Augurs were priests."
-        },
-        {
-          "id": "d",
-          "label": "The Lares and Penates",
-          "correct": true
+          "left": "Lares and Penates",
+          "right": "Guardian spirits of the home"
         }
       ],
-      "explanation": "The Lares and Penates guarded the home and its food store.",
+      "explanation": "The paterfamilias was the family’s oldest living male, familia meant the whole household, and the Lares and Penates were guardian spirits of the home.",
       "difficulty": 0.25
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 92,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Farm Animals",
   "objective": "After this level you can describe the animals that help feed the world.",
@@ -112,7 +112,7 @@
   "questions": [
     {
       "id": "question.animals.092.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.animals.farm_livestock_biomass"
@@ -120,33 +120,22 @@
       "sourceCardIds": [
         "card.animals.092.c2"
       ],
-      "prompt": "In the 2018 census of Earth's mammals by mass, about what share was livestock?",
-      "options": [
+      "prompt": "Match each group with its share of Earth's mammals by mass.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "About 4 percent",
-          "correct": false,
-          "rationale": "That's every wild mammal combined."
+          "left": "Livestock",
+          "right": "About 60 percent"
         },
         {
-          "id": "b",
-          "label": "About 36 percent",
-          "correct": false,
-          "rationale": "That's people."
+          "left": "People",
+          "right": "About 36 percent"
         },
         {
-          "id": "c",
-          "label": "About 60 percent",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "About 96 percent",
-          "correct": false,
-          "rationale": "That's livestock and people together."
+          "left": "Wild mammals",
+          "right": "About 4 percent"
         }
       ],
-      "explanation": "Livestock, mostly cattle and pigs, make up about 60 percent of mammals by mass; people about 36 and wild mammals about 4.",
+      "explanation": "By mass, livestock make up about 60 percent of Earth's mammals, people about 36 percent, and wild mammals about 4 percent.",
       "difficulty": 0.2
     },
     {

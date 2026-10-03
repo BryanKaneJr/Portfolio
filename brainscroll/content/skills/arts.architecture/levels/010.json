@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 10,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: How Buildings Stand",
   "objective": "After this level you can explain how walls, arches and domes carry weight.",
@@ -281,41 +281,31 @@
     },
     {
       "id": "question.architecture.010.q4",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.stand_post_lintel"
       ],
       "sourceCardIds": [
-        "card.architecture.003.c1"
+        "card.architecture.003.c1",
+        "card.architecture.010.c4"
       ],
-      "prompt": "How Buildings Stand recap: which joints fixed Stonehenge's lintels in place?",
-      "options": [
+      "prompt": "How Buildings Stand recap: match each way of carrying weight with what the chapter says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Iron bolts and rivets",
-          "correct": false,
-          "rationale": "Stonehenge used shaped joints in the stone itself."
+          "left": "Posts and beams",
+          "right": "So stone lintels stay short"
         },
         {
-          "id": "b",
-          "label": "Mortise-and-tenon and tongue-and-groove joints",
-          "correct": true
+          "left": "Arches and domes",
+          "right": "Wedges squeezed together"
         },
         {
-          "id": "c",
-          "label": "Portland cement mortar",
-          "correct": false,
-          "rationale": "Portland cement dates from 1824."
-        },
-        {
-          "id": "d",
-          "label": "Tie rings of oak timbers",
-          "correct": false,
-          "rationale": "That's Florence's dome."
+          "left": "Frames",
+          "right": "A skeleton carries the floors"
         }
       ],
-      "explanation": "Stonehenge's lintels sit on mortise-and-tenon joints and lock together with tongue-and-groove joints, usually found in woodworking.",
+      "explanation": "In posts and beams, the beam is stretched underneath, so stone lintels stay short. Arches and domes are wedges squeezed together. In frames, a skeleton carries the floors and walls hold only themselves.",
       "difficulty": 0.2
     },
     {

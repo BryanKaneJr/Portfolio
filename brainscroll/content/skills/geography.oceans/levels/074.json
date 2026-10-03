@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 74,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Southern Ocean",
   "objective": "After this level you can describe the ocean around Antarctica and its life.",
@@ -92,42 +92,33 @@
   "questions": [
     {
       "id": "question.oceans.074.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.oceans.southern_circumpolar_current",
         "concept.oceans.southern_ocean_status"
       ],
       "sourceCardIds": [
-        "card.oceans.074.c2"
+        "card.oceans.074.c2",
+        "card.oceans.074.c3",
+        "card.oceans.074.c4"
       ],
-      "prompt": "Which way does the Antarctic Circumpolar Current flow?",
-      "options": [
+      "prompt": "Match each with what makes it stand out in the Southern Ocean.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "North to south, toward Antarctica",
-          "correct": false,
-          "rationale": "It circles the continent instead."
+          "left": "Antarctic Circumpolar Current",
+          "right": "Flows west to east"
         },
         {
-          "id": "b",
-          "label": "East to west, along one coast only",
-          "correct": false,
-          "rationale": "It goes all the way around, eastward."
+          "left": "Antarctic icefish",
+          "right": "No red blood cells"
         },
         {
-          "id": "c",
-          "label": "Around the North Pole",
-          "correct": false,
-          "rationale": "It circles Antarctica, at the other end of Earth."
-        },
-        {
-          "id": "d",
-          "label": "West to east, all the way around Antarctica",
-          "correct": true
+          "left": "Arthur DeVries",
+          "right": "Antifreeze proteins"
         }
       ],
-      "explanation": "The Antarctic Circumpolar Current flows west to east all the way around Antarctica.",
+      "explanation": "The Antarctic Circumpolar Current flows west to east around Antarctica. Antarctic icefish have no red blood cells. Arthur DeVries found antifreeze proteins in Antarctic fishes.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 18,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Storing Energy",
   "objective": "After this level you can explain why storing electricity is hard and how big batteries help.",
@@ -107,7 +107,7 @@
   "questions": [
     {
       "id": "question.everyday_technology.018.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.pumped_storage"
@@ -115,33 +115,16 @@
       "sourceCardIds": [
         "card.everyday_technology.018.c3"
       ],
-      "prompt": "How does pumped-storage hydropower store energy?",
-      "options": [
-        {
-          "id": "a",
-          "label": "By freezing water into ice",
-          "correct": false,
-          "rationale": "It stores energy by height, not cold."
-        },
-        {
-          "id": "b",
-          "label": "By pumping water uphill to run back down later",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "By charging chemicals in huge cells",
-          "correct": false,
-          "rationale": "That's a battery."
-        },
-        {
-          "id": "d",
-          "label": "By keeping its turbines spinning nonstop",
-          "correct": false,
-          "rationale": "The turbines run only when pumping or generating."
-        }
+      "prompt": "Put the steps of pumped-storage hydropower in order.",
+      "items": [
+        "Spare electricity",
+        "Pumping water up to a reservoir",
+        "When power is needed",
+        "The water flows back down"
       ],
-      "explanation": "Spare electricity pumps water up to a reservoir; later it falls back through the turbines to make electricity.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Spare electricity runs the turbines in reverse, pumping water up to a reservoir. When power is needed, the water flows back down through the turbines.",
       "difficulty": 0.2
     },
     {

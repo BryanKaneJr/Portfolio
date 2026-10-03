@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 4,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Arch",
   "objective": "After this level you can explain how an arch carries weight.",
@@ -129,41 +129,36 @@
     },
     {
       "id": "question.architecture.004.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.stand_arch_thrust"
       ],
       "sourceCardIds": [
-        "card.architecture.004.c3"
+        "card.architecture.004.c3",
+        "card.architecture.004.c1",
+        "card.architecture.004.c2"
       ],
-      "prompt": "Why must the supports at an arch's feet be so massive?",
-      "options": [
+      "prompt": "Match each arch word with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "To hold up the wooden centering forever",
-          "correct": false,
-          "rationale": "The centering is removed once the keystone is set."
+          "left": "Centering",
+          "right": "Temporary wooden frame"
         },
         {
-          "id": "b",
-          "label": "To stretch the arch into tension",
-          "correct": false,
-          "rationale": "An arch works in compression."
+          "left": "Voussoirs",
+          "right": "Wedge-shaped blocks"
         },
         {
-          "id": "c",
-          "label": "To make the arch look heavier",
-          "correct": false,
-          "rationale": "It's about forces, not looks."
+          "left": "Keystone",
+          "right": "Top stone"
         },
         {
-          "id": "d",
-          "label": "To resist the arch's outward push, its thrust",
-          "correct": true
+          "left": "Thrust",
+          "right": "Diagonal force"
         }
       ],
-      "explanation": "An arch pushes outward at its feet (thrust); without massive supports to resist it, the arch collapses.",
+      "explanation": "Centering is the temporary wooden frame, voussoirs are the wedge-shaped blocks, the keystone is the top stone, set last, and thrust is the diagonal force pushing outward at the arch's feet.",
       "difficulty": 0.2
     },
     {

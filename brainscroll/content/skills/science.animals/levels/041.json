@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 41,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "What Makes a Fish",
   "objective": "After this level you can explain gills, fins and scales.",
@@ -169,7 +169,7 @@
     },
     {
       "id": "question.animals.041.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.fish_opah_warm_blood",
@@ -177,35 +177,30 @@
       ],
       "sourceCardIds": [
         "card.animals.041.c4",
-        "card.animals.005.c2"
+        "card.animals.005.c2",
+        "card.animals.041.c2",
+        "card.animals.041.c3"
       ],
-      "prompt": "Level 5 sorted fish with the ectotherms. What makes the opah an exception?",
-      "options": [
+      "prompt": "Match each fish feature with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It basks in the sun like a lizard",
-          "correct": false,
-          "rationale": "Basking is how ectotherms warm up."
+          "left": "Opah",
+          "right": "Keeps its whole body warm"
         },
         {
-          "id": "b",
-          "label": "It breathes air instead of water",
-          "correct": false,
-          "rationale": "It breathes with gills, like other fish."
+          "left": "Tunas and some sharks",
+          "right": "Warm only parts of their bodies"
         },
         {
-          "id": "c",
-          "label": "It has no backbone",
-          "correct": false,
-          "rationale": "Fish are vertebrates, with backbones."
+          "left": "Pectoral fins",
+          "right": "Steadying and steering"
         },
         {
-          "id": "d",
-          "label": "It is warm-blooded",
-          "correct": true
+          "left": "Gills",
+          "right": "Fleshy filaments"
         }
       ],
-      "explanation": "Most fish take their heat from the water, but the opah is warm-blooded, helped by a heat exchanger in its gills.",
+      "explanation": "The opah keeps its whole body warm, while tunas and some sharks warm only parts of their bodies. Pectoral fins are crucial for steadying and steering, and gills are fleshy filaments packed with blood vessels.",
       "difficulty": 0.25
     }
   ],

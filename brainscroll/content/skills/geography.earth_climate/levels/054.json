@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 54,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Why Most Rain Starts as Snow",
   "objective": "After this level you can explain how raindrops and snowflakes grow inside a cloud until they are heavy enough to fall.",
@@ -136,7 +136,7 @@
     },
     {
       "id": "question.earth_climate.054.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.weather_ice_crystal_process"
@@ -144,33 +144,16 @@
       "sourceCardIds": [
         "card.earth_climate.054.c3"
       ],
-      "prompt": "Why do ice crystals grow so fast in a cloud full of supercooled droplets?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Lightning in the cloud freezes droplets into crystals",
-          "correct": false,
-          "rationale": "The card's process doesn't need lightning."
-        },
-        {
-          "id": "b",
-          "label": "Vapor settles on ice more readily, so droplets evaporate to feed it",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Ice crystals fall faster and sweep up all the snow",
-          "correct": false,
-          "rationale": "The growth comes from water vapor moving from droplets to ice."
-        },
-        {
-          "id": "d",
-          "label": "Sunlight melts the droplets but leaves the ice alone",
-          "correct": false,
-          "rationale": "The droplets evaporate; sunlight isn't the cause."
-        }
+      "prompt": "Put the steps of the Bergeron process in order, from cloud to rain.",
+      "items": [
+        "The crystals grow",
+        "The crystals join into snowflakes",
+        "Grow heavy and fall",
+        "They melt into rain"
       ],
-      "explanation": "In the Bergeron process, water vapor deposits onto ice more readily than onto liquid, so the crystals grow at the droplets' expense.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Ice crystals grow as nearby droplets evaporate, the crystals join into snowflakes, grow heavy and fall, and then melt into rain in warmer air below.",
       "difficulty": 0.35
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 17,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Tendons and Ligaments",
   "objective": "After this level you can explain what tendons and ligaments connect.",
@@ -200,7 +200,7 @@
     },
     {
       "id": "question.human_body.017.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.tendon_ligament_roles",
@@ -208,32 +208,26 @@
       ],
       "sourceCardIds": [
         "card.human_body.017.c2",
-        "card.human_body.016.c3"
+        "card.human_body.016.c3",
+        "card.human_body.017.c5"
       ],
-      "prompt": "Level 16's biceps pulls to bend the elbow. What carries that pull from the muscle to the bone?",
-      "options": [
+      "prompt": "Match each word with what it means for tendons and ligaments.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A ligament",
-          "correct": false,
-          "rationale": "Ligaments connect bone to bone."
+          "left": "Tendon",
+          "right": "Connect muscle to bone"
         },
         {
-          "id": "b",
-          "label": "A tendon",
-          "correct": true
+          "left": "Ligament",
+          "right": "Connect bone to bone at a joint"
         },
         {
-          "id": "c",
-          "label": "Synovial fluid",
-          "correct": false,
-          "rationale": "That lubricates the joint."
+          "left": "Sprain",
+          "right": "A stretched or torn ligament"
         },
         {
-          "id": "d",
-          "label": "The triceps",
-          "correct": false,
-          "rationale": "The triceps pulls the other way."
+          "left": "Strain",
+          "right": "A stretched or torn muscle or tendon"
         }
       ],
       "explanation": "Tendons connect muscle to bone, carrying the muscle's pull to the skeleton.",

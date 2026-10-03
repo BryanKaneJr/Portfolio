@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 74,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Packs and Herds",
   "objective": "After this level you can explain why many animals live in groups.",
@@ -98,41 +98,31 @@
   "questions": [
     {
       "id": "question.animals.074.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.animals.behavior_wolf_pack_family"
       ],
       "sourceCardIds": [
-        "card.animals.074.c4"
+        "card.animals.074.c4",
+        "card.animals.074.c5"
       ],
-      "prompt": "According to Mech's 1999 study, what is a typical wild wolf pack?",
-      "options": [
+      "prompt": "Match each with what Mech and earlier studies found.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Unrelated adults ranked by fights",
-          "correct": false,
-          "rationale": "That describes captive packs."
+          "left": "The mother",
+          "right": "Cares for and defends the pups"
         },
         {
-          "id": "b",
-          "label": "A breeding pair and their offspring",
-          "correct": true
+          "left": "The father",
+          "right": "Leads hunting and brings food"
         },
         {
-          "id": "c",
-          "label": "Several males led by the strongest",
-          "correct": false,
-          "rationale": "Packs are families led by the parents."
-        },
-        {
-          "id": "d",
-          "label": "A seasonal gathering of lone wolves",
-          "correct": false,
-          "rationale": "Packs are lasting family groups."
+          "left": "Captive, unrelated wolves",
+          "right": "Did form a pecking order"
         }
       ],
-      "explanation": "Mech found a wild pack is usually a breeding pair and their young from the past 1 to 3 years.",
+      "explanation": "In a wild pack, the mother mainly cares for and defends the pups, and the father mainly leads hunting and brings food. Captive, unrelated wolves did form a pecking order.",
       "difficulty": 0.15
     },
     {

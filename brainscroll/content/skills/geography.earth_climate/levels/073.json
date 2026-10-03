@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 73,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Fast Carbon Cycle",
   "objective": "After this level you can explain how carbon moves each year between the air, plants, soil and ocean.",
@@ -126,41 +126,25 @@
     },
     {
       "id": "question.earth_climate.073.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.climates_fast_carbon_out"
       ],
       "sourceCardIds": [
-        "card.earth_climate.073.c3"
+        "card.earth_climate.073.c3",
+        "card.earth_climate.073.c2"
       ],
-      "prompt": "How does the carbon in a fallen log get back into the air?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It turns into oxygen as the wood dries out",
-          "correct": false,
-          "rationale": "Drying removes water, not carbon."
-        },
-        {
-          "id": "b",
-          "label": "Bacteria eat it as it decays, releasing carbon dioxide",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Rain carries it up into the sky as vapor",
-          "correct": false,
-          "rationale": "Rain falls down; it doesn't lift carbon up."
-        },
-        {
-          "id": "d",
-          "label": "It never does: wood locks carbon away for good",
-          "correct": false,
-          "rationale": "Decay or fire returns it within a lifespan."
-        }
+      "prompt": "Follow carbon through the fast carbon cycle: put these in order.",
+      "items": [
+        "Carbon dioxide from the air",
+        "Sugar",
+        "Leaves, wood and roots",
+        "Carbon dioxide back in the air"
       ],
-      "explanation": "As bacteria eat dead plants, the carbon goes back to the atmosphere as carbon dioxide (fire does the same, faster).",
+      "first": "Start",
+      "last": "End",
+      "explanation": "Plants combine carbon dioxide from the air with water to make sugar, the sugar becomes leaves, wood and roots, and decay or fire sends carbon dioxide back in the air.",
       "difficulty": 0.3
     },
     {

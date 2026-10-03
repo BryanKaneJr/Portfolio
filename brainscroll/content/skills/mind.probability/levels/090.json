@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 90,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Statistical Traps",
   "objective": "After this level you can explain which trap, from Simpson's paradox to survivorship bias, is at work in a surprising statistic.",
@@ -243,7 +243,7 @@
     },
     {
       "id": "question.probability.090.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.trap_which_trap",
@@ -252,35 +252,25 @@
       "sourceCardIds": [
         "card.probability.084.c3",
         "card.probability.084.c4",
-        "card.probability.090.c2"
+        "card.probability.090.c2",
+        "card.probability.090.c3"
       ],
-      "prompt": "The villages with the highest and the lowest rates of a rare illness are all tiny. Which trap is the likeliest explanation?",
-      "options": [
+      "prompt": "Match each kind of trap from Chapter 9 with its lesson.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Simpson's paradox",
-          "correct": false,
-          "rationale": "No groups are being combined here."
+          "left": "Mixing groups",
+          "right": "Split the data before trusting a total"
         },
         {
-          "id": "b",
-          "label": "Small groups swing more by chance",
-          "correct": true
+          "left": "Luck",
+          "right": "Test enough and something wins"
         },
         {
-          "id": "c",
-          "label": "Survivorship bias",
-          "correct": false,
-          "rationale": "Nobody was filtered out; the villages are just small."
-        },
-        {
-          "id": "d",
-          "label": "The ecological fallacy",
-          "correct": false,
-          "rationale": "The claim is about villages' rates, not individuals."
+          "left": "Filters and levels",
+          "right": "A gate can create a link"
         }
       ],
-      "explanation": "In a tiny village, one case moves the rate a lot, so small places crowd both ends of the ranking.",
+      "explanation": "For mixing groups, split the data before trusting a total. Luck means extremes drift back and if you test enough, something wins. Under filters and levels, a gate can create a link.",
       "difficulty": 0.45
     },
     {

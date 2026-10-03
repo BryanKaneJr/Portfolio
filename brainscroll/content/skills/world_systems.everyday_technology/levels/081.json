@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 81,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Skyscrapers",
   "objective": "After this level you can explain how steel frames let buildings rise so high.",
@@ -89,41 +89,25 @@
   "questions": [
     {
       "id": "question.everyday_technology.081.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.build_tallest_building"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.081.c4"
+        "card.everyday_technology.081.c4",
+        "card.everyday_technology.081.c2",
+        "card.everyday_technology.081.c3"
       ],
-      "prompt": "As of 2026, which skyscraper does the CTBUH rank as the world's tallest?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Monadnock Building in Chicago",
-          "correct": false,
-          "rationale": "It holds a different record: tallest office building held up by its walls."
-        },
-        {
-          "id": "b",
-          "label": "The Home Insurance Building in Chicago",
-          "correct": false,
-          "rationale": "That was the first frame building, only 10 stories."
-        },
-        {
-          "id": "c",
-          "label": "Burj Khalifa in Dubai",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The Crystal Palace in New York",
-          "correct": false,
-          "rationale": "That was an exhibition hall, not a skyscraper."
-        }
+      "prompt": "Put these tall buildings in order by when they were finished, from earliest to latest.",
+      "items": [
+        "Home Insurance Building",
+        "The Monadnock's north half",
+        "Burj Khalifa"
       ],
-      "explanation": "The CTBUH ranks Burj Khalifa, completed in 2010, as the tallest at 828 meters.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Home Insurance Building came first (1884-85), the Monadnock's north half was finished in 1891, and Burj Khalifa was completed in 2010.",
       "difficulty": 0.15
     },
     {

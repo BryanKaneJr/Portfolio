@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 2,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "What Makes a Mineral?",
   "objective": "After this level you can tell a mineral from a rock and list the traits every mineral shares, from a set recipe to an orderly crystal.",
@@ -126,41 +126,31 @@
     },
     {
       "id": "question.earth_climate.002.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.mineral_definition"
       ],
       "sourceCardIds": [
-        "card.earth_climate.002.c2"
+        "card.earth_climate.002.c2",
+        "card.earth_climate.002.c3"
       ],
-      "prompt": "Why does ice count as a mineral when liquid water doesn't?",
-      "options": [
+      "prompt": "Match each kind of quartz with its color.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Ice is colder than liquid water",
-          "correct": false,
-          "rationale": "Temperature isn't on the checklist."
+          "left": "Amethyst",
+          "right": "Purple"
         },
         {
-          "id": "b",
-          "label": "Ice has a different chemical recipe",
-          "correct": false,
-          "rationale": "Ice is water in solid form, with the same recipe."
+          "left": "Citrine",
+          "right": "Yellow"
         },
         {
-          "id": "c",
-          "label": "Only frozen things can be minerals",
-          "correct": false,
-          "rationale": "Quartz and many other minerals aren't frozen at all."
-        },
-        {
-          "id": "d",
-          "label": "Ice is a solid with orderly atoms",
-          "correct": true
+          "left": "Rose quartz",
+          "right": "Pink"
         }
       ],
-      "explanation": "A mineral must be a natural solid with a set recipe and ordered atoms. Ice passes; liquid water fails the solid test.",
+      "explanation": "Amethyst is purple, citrine is yellow and rose quartz is pink. All three are quartz, with the same recipe.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 90,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Climate Change",
   "objective": "After this level you can explain what the evidence shows about recent warming, what causes it and what it is changing.",
@@ -162,7 +162,7 @@
     },
     {
       "id": "question.earth_climate.090.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.warming_isotope_fingerprint",
@@ -173,33 +173,26 @@
         "card.earth_climate.082.c2",
         "card.earth_climate.082.c4"
       ],
-      "prompt": "Climate Change recap: which pair of clues shows the extra carbon dioxide comes from burning fossil fuels?",
-      "options": [
+      "prompt": "Climate Change recap: match each link in the chain with what it shows.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The Keeling Curve's yearly zigzag and May peak",
-          "correct": false,
-          "rationale": "That zigzag is plants growing and decaying."
+          "left": "Carbon-13 and carbon-14 fingerprints",
+          "right": "Point to fossil fuels"
         },
         {
-          "id": "b",
-          "label": "Falling carbon-13 and falling oxygen in the air",
-          "correct": true
+          "left": "Thermometers on land and sea",
+          "right": "About 1.1 °C of warming"
         },
         {
-          "id": "c",
-          "label": "A cooling stratosphere and a steady Sun",
-          "correct": false,
-          "rationale": "Those clues clear the Sun, not identify the carbon."
+          "left": "The Sun and volcanoes",
+          "right": "Add almost nothing"
         },
         {
-          "id": "d",
-          "label": "Hotter heatwaves and heavier downpours",
-          "correct": false,
-          "rationale": "Those are effects of warming, not its source."
+          "left": "Feedbacks",
+          "right": "Amplify the push"
         }
       ],
-      "explanation": "Fossil carbon is low in carbon-13, and burning it uses up oxygen: both clues point to fossil fuels.",
+      "explanation": "The carbon-13 and carbon-14 fingerprints point to fossil fuels, thermometers show about 1.1 °C of warming, the Sun and volcanoes add almost nothing, and feedbacks amplify the push.",
       "difficulty": 0.5
     },
     {

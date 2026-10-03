@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 85,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Space Race and the Moon",
   "objective": "After this level you can explain why the Soviet Sputnik launch of 1957 set off a space race and how Apollo 11 reached the Moon in 1969.",
@@ -125,41 +125,27 @@
     },
     {
       "id": "question.us_history.085.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.us_history.spacerace_moon_goal"
       ],
       "sourceCardIds": [
-        "card.us_history.085.c4"
+        "card.us_history.085.c4",
+        "card.us_history.085.c2",
+        "card.us_history.085.c3"
       ],
-      "prompt": "NASA’s supporters cheered Apollo 11, while Ralph Abernathy protested at its launch. What were they really arguing about?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Whether the Moon landing had really happened",
-          "correct": false,
-          "rationale": "The protest was about priorities, not doubt."
-        },
-        {
-          "id": "b",
-          "label": "Whether the Soviets had reached the Moon first",
-          "correct": false,
-          "rationale": "The level shows no Soviet Moon landing."
-        },
-        {
-          "id": "c",
-          "label": "Whether astronauts should be civilians",
-          "correct": false,
-          "rationale": "The protest wasn’t about who flew."
-        },
-        {
-          "id": "d",
-          "label": "Whether the Moon race was worth it while many were poor",
-          "correct": true
-        }
+      "prompt": "Put these space race events in order, from earliest to latest.",
+      "items": [
+        "Launched Sputnik 1",
+        "The law creating NASA",
+        "The first human in space",
+        "Kennedy asked Congress",
+        "Walked on the Moon"
       ],
-      "explanation": "Abernathy’s Poor People’s Campaign protest questioned the race’s cost while many Americans lived in poverty.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Soviets launched Sputnik 1 in 1957 and NASA was created in 1958. Gagarin became the first human in space on April 12, 1961, Kennedy asked Congress for a Moon landing on May 25, 1961, and Apollo 11’s astronauts walked on the Moon in 1969.",
       "difficulty": 0.35
     },
     {

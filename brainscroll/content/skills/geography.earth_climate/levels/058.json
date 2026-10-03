@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 58,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Three Cells That Circle Earth",
   "objective": "After this level you can explain how rising and sinking air in the Hadley cell puts rainforests at the Equator and deserts near 30 degrees.",
@@ -125,41 +125,24 @@
     },
     {
       "id": "question.earth_climate.058.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.weather_three_cells"
       ],
       "sourceCardIds": [
-        "card.earth_climate.058.c3"
+        "card.earth_climate.058.c3",
+        "card.earth_climate.058.c2"
       ],
-      "prompt": "Why does each hemisphere have three circulation cells instead of one?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Mountains block the air halfway to the pole",
-          "correct": false,
-          "rationale": "The cause is Earth's spin, not mountains."
-        },
-        {
-          "id": "b",
-          "label": "The oceans cool the air every 30 degrees",
-          "correct": false,
-          "rationale": "The card's cause is Earth's spin."
-        },
-        {
-          "id": "c",
-          "label": "Earth's spin turns the moving air, breaking up one big loop",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The Moon's pull divides the air into bands",
-          "correct": false,
-          "rationale": "The Moon doesn't shape the wind belts."
-        }
+      "prompt": "Put the three circulation cells in order, from the Equator to the pole.",
+      "items": [
+        "Hadley cell",
+        "Ferrel cell",
+        "Polar cells"
       ],
-      "explanation": "Without Earth's spin there would be one cell per hemisphere. The Coriolis effect turns moving air, splitting the circulation into three cells.",
+      "first": "Equator",
+      "last": "Pole",
+      "explanation": "The Hadley cell starts at the Equator, the Ferrel cell covers the middle latitudes, and the polar cells sit over the poles.",
       "difficulty": 0.35
     },
     {

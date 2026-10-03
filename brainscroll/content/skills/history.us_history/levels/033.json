@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 33,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Slavery in the Constitution",
   "objective": "After this level you can explain the three-fifths, slave trade and fugitive clauses, and how later Americans argued over what they meant.",
@@ -98,41 +98,31 @@
   "questions": [
     {
       "id": "question.us_history.033.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.republic_constitution_slavery_clauses"
       ],
       "sourceCardIds": [
-        "card.us_history.033.c3"
+        "card.us_history.033.c3",
+        "card.us_history.033.c2"
       ],
-      "prompt": "What did the Constitution say about the slave trade?",
-      "options": [
+      "prompt": "Match each slavery clause with what it dealt with.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It banned the trade at once",
-          "correct": false,
-          "rationale": "It protected the trade for years."
+          "left": "Three-fifths",
+          "right": "House seats and direct taxes"
         },
         {
-          "id": "b",
-          "label": "Congress couldn’t ban imports of enslaved people before 1808",
-          "correct": true
+          "left": "Before 1808",
+          "right": "the importation of enslaved people"
         },
         {
-          "id": "c",
-          "label": "It never dealt with the trade",
-          "correct": false,
-          "rationale": "A clause did, without using the word."
-        },
-        {
-          "id": "d",
-          "label": "Each enslaved person counted three-fifths toward it",
-          "correct": false,
-          "rationale": "That was the rule for House seats and taxes."
+          "left": "Held to Service or Labour",
+          "right": "delivered up on Claim"
         }
       ],
-      "explanation": "Congress could not ban the importation of enslaved people before 1808.",
+      "explanation": "The three-fifths clause counted enslaved people for House seats and direct taxes. Congress could not ban the importation of enslaved people before 1808, and a person “held to Service or Labour” who escaped had to be “delivered up on Claim.”",
       "difficulty": 0.25
     },
     {

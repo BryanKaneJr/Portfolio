@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 10,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: What an Argument Is",
   "objective": "After this level you can take an everyday argument apart into its claims, premises, hidden assumptions and conclusion.",
@@ -220,7 +220,7 @@
     },
     {
       "id": "question.logic.010.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.logic.unstated_premise",
@@ -231,33 +231,22 @@
         "card.logic.010.c3",
         "card.logic.007.c4"
       ],
-      "prompt": "What an Argument Is checkpoint: the student never says \"getting there on time matters\". What is that line?",
-      "options": [
+      "prompt": "Match each line of the subway decision with its role.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The main conclusion",
-          "correct": false,
-          "rationale": "The conclusion is taking the subway."
+          "left": "Take the subway express",
+          "right": "Main conclusion"
         },
         {
-          "id": "b",
-          "label": "An unstated premise",
-          "correct": true
+          "left": "The subway is quicker than the elevated",
+          "right": "Stated premise"
         },
         {
-          "id": "c",
-          "label": "A command",
-          "correct": false,
-          "rationale": "It's a claim, not an order."
-        },
-        {
-          "id": "d",
-          "label": "A matter of taste",
-          "correct": false,
-          "rationale": "It appeals to a standard, not personal taste."
+          "left": "Getting there on time matters",
+          "right": "Unstated premise"
         }
       ],
-      "explanation": "The argument needs it but never says it, and it's a value judgment, Level 7's hidden \"should\".",
+      "explanation": "\"Take the subway express\" is the main conclusion. \"The subway is quicker than the elevated\" is a stated premise, and \"getting there on time matters\" is the unstated premise he never said.",
       "difficulty": 0.3
     },
     {

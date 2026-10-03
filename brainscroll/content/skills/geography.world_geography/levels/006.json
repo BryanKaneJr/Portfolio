@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 6,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Compass and Directions",
   "objective": "After this level you can use the cardinal directions and explain how a compass finds north.",
@@ -132,41 +132,31 @@
     },
     {
       "id": "question.world_geography.006.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.magnetic_north"
       ],
       "sourceCardIds": [
-        "card.world_geography.006.c4"
+        "card.world_geography.006.c4",
+        "card.world_geography.006.c3"
       ],
-      "prompt": "Your compass and your map's true north disagree by a few degrees. Why?",
-      "options": [
+      "prompt": "Match each one with its fact about compasses and north.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The map was printed upside down",
-          "correct": false,
-          "rationale": "Maps are drawn with north at the top on purpose."
+          "left": "Geographic North Pole",
+          "right": "90° N"
         },
         {
-          "id": "b",
-          "label": "Compasses only work at the Equator",
-          "correct": false,
-          "rationale": "They work almost everywhere."
+          "left": "North Magnetic Pole",
+          "right": "Drifts over time"
         },
         {
-          "id": "c",
-          "label": "The needle is attracted to the Sun",
-          "correct": false,
-          "rationale": "The Sun doesn't steer a compass."
-        },
-        {
-          "id": "d",
-          "label": "Magnetic north isn't at the Geographic North Pole",
-          "correct": true
+          "left": "Compass needle",
+          "right": "A tiny magnet"
         }
       ],
-      "explanation": "The needle points toward magnetic north, which is not at 90° N. The difference is called magnetic declination.",
+      "explanation": "The Geographic North Pole sits at 90° N. The North Magnetic Pole drifts over time. A compass needle is a tiny magnet.",
       "difficulty": 0.3
     },
     {

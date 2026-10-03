@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 15,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Muscles",
   "objective": "After this level you can name the three kinds of muscle and what each one does.",
@@ -149,7 +149,7 @@
     },
     {
       "id": "question.human_body.015.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.muscle_three_types"
@@ -158,30 +158,19 @@
         "card.human_body.015.c3",
         "card.human_body.015.c2"
       ],
-      "prompt": "Why can you choose to move your arm but not choose to churn your stomach?",
-      "options": [
+      "prompt": "Match each kind of muscle with a feature that only it has.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Arm muscle is voluntary skeletal muscle; the gut's is smooth",
-          "correct": true
+          "left": "Skeletal",
+          "right": "Voluntary"
         },
         {
-          "id": "b",
-          "label": "The stomach wall has no muscle layers at all",
-          "correct": false,
-          "rationale": "It has three layers of smooth muscle."
+          "left": "Smooth",
+          "right": "No stripes"
         },
         {
-          "id": "c",
-          "label": "Your arm is moved by cardiac muscle, like the heart",
-          "correct": false,
-          "rationale": "Cardiac muscle is found only in the heart."
-        },
-        {
-          "id": "d",
-          "label": "Stomach muscle only works while you are asleep",
-          "correct": false,
-          "rationale": "Smooth muscle works on its own, awake or asleep."
+          "left": "Cardiac",
+          "right": "Found only in the walls of the heart"
         }
       ],
       "explanation": "Skeletal muscle waits for signals from your nervous system; smooth muscle, like the stomach's, works without conscious control.",

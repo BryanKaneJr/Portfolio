@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 65,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Workers Organize",
   "objective": "After this level you can explain why industrial workers struck and formed unions, and what the Triangle fire of 1911 changed.",
@@ -134,42 +134,27 @@
     },
     {
       "id": "question.us_history.065.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.us_history.labor_triangle_fire"
       ],
       "sourceCardIds": [
         "card.us_history.065.c4",
-        "card.us_history.065.c5"
+        "card.us_history.065.c5",
+        "card.us_history.065.c2",
+        "card.us_history.065.c3"
       ],
-      "prompt": "Why did the Triangle fire lead to new laws, not just grief?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The factory owners themselves asked for stricter safety rules",
-          "correct": false,
-          "rationale": "The level credits a state commission, not the owners."
-        },
-        {
-          "id": "b",
-          "label": "The workers’ union wrote and passed the new laws itself",
-          "correct": false,
-          "rationale": "The commission and legislature acted."
-        },
-        {
-          "id": "c",
-          "label": "Locked exits trapped workers, and a state commission pushed reform",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Congress quickly banned all garment factories in New York",
-          "correct": false,
-          "rationale": "No such ban happened."
-        }
+      "prompt": "Put these events in the labor story in order, from earliest to latest.",
+      "items": [
+        "Managers locked out the workers",
+        "Called for a general strike",
+        "Fire broke out",
+        "A Factory Investigating Commission"
       ],
-      "explanation": "Locked doors and blocked exits trapped the workers; New York’s Factory Investigating Commission led to over 30 safety laws.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Homestead managers locked out the workers in 1892, Clara Lemlich called for a general strike in 1909, fire broke out at the Triangle Waist Company in 1911, and New York then set up a Factory Investigating Commission.",
       "difficulty": 0.35
     },
     {

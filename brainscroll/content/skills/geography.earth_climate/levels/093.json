@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 93,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Watches Versus Warnings",
   "objective": "After this level you can tell a watch from a warning and decide what to do for a tornado, a flood or a hurricane.",
@@ -163,7 +163,7 @@
     },
     {
       "id": "question.earth_climate.093.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.hazard_watch_warning"
@@ -172,33 +172,26 @@
         "card.earth_climate.093.c2",
         "card.earth_climate.093.c3"
       ],
-      "prompt": "A tornado watch covers your county on a stormy afternoon. What's the right move?",
-      "options": [
+      "prompt": "Match each alert with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Ignore it until you actually see a funnel",
-          "correct": false,
-          "rationale": "A watch is the time to get ready, before danger arrives."
+          "left": "Tornado watch",
+          "right": "Tornadoes are possible"
         },
         {
-          "id": "b",
-          "label": "Open the windows to balance the air pressure",
-          "correct": false,
-          "rationale": "Never open windows; the advice is to avoid them."
+          "left": "Tornado warning",
+          "right": "A tornado has been sighted"
         },
         {
-          "id": "c",
-          "label": "Review your plan, check supplies, be ready to act",
-          "correct": true
+          "left": "Flood watch",
+          "right": "Conditions favor flooding"
         },
         {
-          "id": "d",
-          "label": "Evacuate the whole county at once",
-          "correct": false,
-          "rationale": "A watch covers a huge area; it means be prepared, not flee."
+          "left": "Flash flood warning",
+          "right": "A flash flood is imminent"
         }
       ],
-      "explanation": "A watch means tornadoes are possible: review your plan, check your supplies and safe room, and be ready to act if a warning comes.",
+      "explanation": "A tornado watch means tornadoes are possible, a tornado warning means one has been sighted or seen on radar, a flood watch means conditions favor flooding, and a flash flood warning means one is imminent or under way.",
       "difficulty": 0.35
     },
     {

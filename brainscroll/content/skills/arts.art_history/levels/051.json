@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 51,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Romanticism",
   "objective": "After this level you can explain how Romantic artists painted storms, feeling and the sublime.",
@@ -90,41 +90,32 @@
   "questions": [
     {
       "id": "question.art_history.051.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.romanticism"
       ],
       "sourceCardIds": [
-        "card.art_history.051.c4"
+        "card.art_history.051.c4",
+        "card.art_history.051.c1",
+        "card.art_history.051.c3"
       ],
-      "prompt": "What did Géricault paint in The Raft of the Medusa?",
-      "options": [
+      "prompt": "Match each person with their description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A battle from ancient Rome",
-          "correct": false,
-          "rationale": "He chose a recent disaster, not an ancient one."
+          "left": "Caspar David Friedrich",
+          "right": "A sea of fog"
         },
         {
-          "id": "b",
-          "label": "Survivors of a real 1816 shipwreck",
-          "correct": true
+          "left": "Théodore Géricault",
+          "right": "A scale model of the raft"
         },
         {
-          "id": "c",
-          "label": "A storm he watched from a ship's mast",
-          "correct": false,
-          "rationale": "That story belongs to a different painter."
-        },
-        {
-          "id": "d",
-          "label": "A calm harbor at sunrise",
-          "correct": false,
-          "rationale": "There is nothing calm about this raft."
+          "left": "Edmund Burke",
+          "right": "Split two feelings apart"
         }
       ],
-      "explanation": "The Medusa ran aground in 1816; about 150 people drifted on a raft and only 15 survived. Géricault painted them in 1818-19.",
+      "explanation": "Friedrich painted a man staring into a sea of fog, Géricault built a scale model of the raft for The Raft of the Medusa, and Edmund Burke split two feelings apart: the beautiful and the sublime.",
       "difficulty": 0.15
     },
     {

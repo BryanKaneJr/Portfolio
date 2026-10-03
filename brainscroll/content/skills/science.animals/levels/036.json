@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 36,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Lizards and Chameleons",
   "objective": "After this level you can explain how chameleons change color.",
@@ -91,41 +91,31 @@
   "questions": [
     {
       "id": "question.animals.036.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.animals.chameleon_color_crystals"
       ],
       "sourceCardIds": [
-        "card.animals.036.c2"
+        "card.animals.036.c2",
+        "card.animals.036.c4"
       ],
-      "prompt": "What did the 2015 Geneva study find panther chameleons tune to change colour?",
-      "options": [
+      "prompt": "Match each chameleon state with its colour.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The amount of blood near the skin",
-          "correct": false,
-          "rationale": "The key was crystals in iridophores, not blood."
+          "left": "Calm",
+          "right": "Reflect blue"
         },
         {
-          "id": "b",
-          "label": "Dyes from the insects they eat",
-          "correct": false,
-          "rationale": "The colour isn't eaten; it's made by crystal spacing."
+          "left": "Excited",
+          "right": "Yellows and reds"
         },
         {
-          "id": "c",
-          "label": "The thickness of their scales",
-          "correct": false,
-          "rationale": "Scale thickness doesn't change; crystal spacing does."
-        },
-        {
-          "id": "d",
-          "label": "A lattice of tiny crystals in skin cells",
-          "correct": true
+          "left": "Darker colours",
+          "right": "Absorb more light"
         }
       ],
-      "explanation": "Panther chameleons tune the spacing of guanine nanocrystals in iridophores: close together reflects blue, loosened reflects yellows and reds.",
+      "explanation": "Calm, the crystals sit close and reflect blue. Excited, the skin reflects yellows and reds. Darker colours absorb more light, helping a chilly chameleon warm up.",
       "difficulty": 0.2
     },
     {

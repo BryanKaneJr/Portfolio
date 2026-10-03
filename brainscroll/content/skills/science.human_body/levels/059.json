@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 59,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Hormones and Feelings",
   "objective": "After this level you can explain how hormones like adrenaline shape the way we feel.",
@@ -164,7 +164,7 @@
     },
     {
       "id": "question.human_body.059.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.nerve_vs_hormone_signals",
@@ -174,32 +174,14 @@
         "card.human_body.059.c3",
         "card.human_body.001.c2"
       ],
-      "prompt": "Level 1 listed the nervous and endocrine systems separately. How do they team up in a sudden scare?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The endocrine system replaces the nerves",
-          "correct": false,
-          "rationale": "Nerves still start the response."
-        },
-        {
-          "id": "b",
-          "label": "Hormones trigger the nerves a day later",
-          "correct": false,
-          "rationale": "The response comes within seconds."
-        },
-        {
-          "id": "c",
-          "label": "Nerves trigger the adrenal glands, whose hormone spreads the response",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "They take turns, one per hour",
-          "correct": false,
-          "rationale": "They work at the same time."
-        }
+      "prompt": "Follow a sudden scare: put the path to an adrenaline rush in order, from first to last.",
+      "items": [
+        "A nerve pathway from the hypothalamus",
+        "Your adrenal glands",
+        "Into the blood"
       ],
+      "first": "First",
+      "last": "Last",
       "explanation": "The fast nervous system triggers the adrenal glands, and adrenaline travels in the blood to prepare the whole body.",
       "difficulty": 0.3
     }

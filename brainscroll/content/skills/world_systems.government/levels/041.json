@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 41,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How a Bill Becomes Law",
   "objective": "After this level you can trace a bill from idea to law.",
@@ -115,41 +115,27 @@
   "questions": [
     {
       "id": "question.government.041.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.lawmaking_bill_stages"
       ],
       "sourceCardIds": [
-        "card.government.041.c1"
+        "card.government.041.c1",
+        "card.government.041.c3"
       ],
-      "prompt": "In the UK House of Commons, what happens at a bill's first reading?",
-      "options": [
-        {
-          "id": "a",
-          "label": "MPs debate every clause of the bill",
-          "correct": false,
-          "rationale": "Detailed work comes later, in committee."
-        },
-        {
-          "id": "b",
-          "label": "Its short title is read out, with no debate",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The monarch signs it into law",
-          "correct": false,
-          "rationale": "Royal Assent is the last step, not the first."
-        },
-        {
-          "id": "d",
-          "label": "The Lords vote on whether to accept it",
-          "correct": false,
-          "rationale": "First reading in the Commons has no vote at all."
-        }
+      "prompt": "Put the stages of a bill's journey through Westminster in order, from first to last.",
+      "items": [
+        "First reading",
+        "Second reading",
+        "Committee stage",
+        "Report and third reading",
+        "The other House",
+        "Royal Assent"
       ],
-      "explanation": "First reading in the Commons is a formality: the short title is read out and the bill is ordered to be printed.",
+      "first": "First stage",
+      "last": "Last stage",
+      "explanation": "A bill goes through first reading, second reading, committee stage, then report and third reading, repeats the stages in the other House, and becomes an Act at Royal Assent.",
       "difficulty": 0.2
     },
     {

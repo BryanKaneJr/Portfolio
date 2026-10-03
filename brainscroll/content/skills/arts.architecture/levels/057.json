@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 57,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Lighthouses",
   "objective": "After this level you can explain how lighthouses guided ships.",
@@ -165,7 +165,7 @@
     },
     {
       "id": "question.architecture.057.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.architecture.marvel_light_signatures"
@@ -173,33 +173,22 @@
       "sourceCardIds": [
         "card.architecture.057.c4"
       ],
-      "prompt": "A lighthouse's painted daymark does by day what which feature does by night?",
-      "options": [
+      "prompt": "Match each lighthouse with its painted daymark.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The dovetail joints in its granite blocks",
-          "correct": false,
-          "rationale": "Joints hold the tower together; they don't identify it."
+          "left": "Cape Hatteras",
+          "right": "Black and white spiral stripes"
         },
         {
-          "id": "b",
-          "label": "Its foundation rock",
-          "correct": false,
-          "rationale": "The rock doesn't identify the light."
+          "left": "Bodie Island",
+          "right": "Bands"
         },
         {
-          "id": "c",
-          "label": "Its flash pattern, called its characteristic",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Its storm shutters",
-          "correct": false,
-          "rationale": "Identification comes from the light's pattern."
+          "left": "Cape Lookout",
+          "right": "A checkerboard"
         }
       ],
-      "explanation": "By night each lighthouse is identified by its characteristic flash pattern; by day, by its painted daymark.",
+      "explanation": "Cape Hatteras has black and white spiral stripes, Bodie Island has bands, and Cape Lookout has a checkerboard.",
       "difficulty": 0.2
     }
   ],

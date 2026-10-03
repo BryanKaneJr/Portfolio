@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 85,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Miniatures and Matte Paintings",
   "objective": "After this level you can explain how models, forced perspective and painted backgrounds created impossible places before computers.",
@@ -130,41 +130,32 @@
     },
     {
       "id": "question.film_tv.085.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.miniature_effects"
       ],
       "sourceCardIds": [
-        "card.film_tv.085.c2"
+        "card.film_tv.085.c2",
+        "card.film_tv.085.c3",
+        "card.film_tv.085.c4"
       ],
-      "prompt": "A crew wants a small model castle to look like a full-size castle behind an actor, with no painting or computers. Which trick from this level fits best?",
-      "options": [
+      "prompt": "Match each effects term with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Place the model far behind the actor",
-          "correct": false,
-          "rationale": "Farther away makes it look even smaller."
+          "left": "Miniatures",
+          "right": "Scale models"
         },
         {
-          "id": "b",
-          "label": "Film the actor through clear glass",
-          "correct": false,
-          "rationale": "That's the matte method, which needs a painting."
+          "left": "Matte painting",
+          "right": "Norman Dawn"
         },
         {
-          "id": "c",
-          "label": "Place the model close to the camera so it appears larger",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Film the actor at a slower frame rate",
-          "correct": false,
-          "rationale": "That would speed up the actor, not enlarge the castle."
+          "left": "Filmed at more than 24 frames per second",
+          "right": "Slow motion"
         }
       ],
-      "explanation": "Forced perspective: the closer something is to the camera, the larger it appears.",
+      "explanation": "Miniatures are scale models, matte painting is credited to Norman Dawn, and models filmed at more than 24 frames per second play back in slow motion.",
       "difficulty": 0.35
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 33,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Knowing That and Knowing How",
   "objective": "After this level you can tell explicit memories of facts and events from implicit memories like skills, using patient H.M.'s case.",
@@ -103,7 +103,7 @@
   "questions": [
     {
       "id": "question.psychology.033.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.memory_explicit_implicit"
@@ -111,33 +111,22 @@
       "sourceCardIds": [
         "card.psychology.033.c3"
       ],
-      "prompt": "Which of these is an explicit (declarative) memory?",
-      "options": [
+      "prompt": "Match each kind of long-term memory with what it holds.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Riding a bicycle without thinking",
-          "correct": false,
-          "rationale": "Riding a bike is a procedural skill, an implicit memory."
+          "left": "Episodic",
+          "right": "Events you lived"
         },
         {
-          "id": "b",
-          "label": "Recalling what you did on your last birthday",
-          "correct": true
+          "left": "Semantic",
+          "right": "Facts and word meanings"
         },
         {
-          "id": "c",
-          "label": "Brushing your teeth on autopilot",
-          "correct": false,
-          "rationale": "Brushing your teeth is a skill, so it's implicit."
-        },
-        {
-          "id": "d",
-          "label": "Tracing a shape faster after practice",
-          "correct": false,
-          "rationale": "Improving at a skill like mirror tracing is implicit learning, as H.M. showed."
+          "left": "Procedural",
+          "right": "Skills like riding a bike"
         }
       ],
-      "explanation": "Explicit memories are consciously recalled and can be put into words; a birthday is an episodic memory, one kind of explicit memory.",
+      "explanation": "Episodic memory holds events you lived, like your last birthday. Semantic memory holds facts and word meanings. Procedural memory holds skills like riding a bike.",
       "difficulty": 0.15
     },
     {

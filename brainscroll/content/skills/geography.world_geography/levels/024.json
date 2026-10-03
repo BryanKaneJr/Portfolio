@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 24,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Coasts and Beaches",
   "objective": "After this level you can explain how waves build and wear away coastlines.",
@@ -127,7 +127,7 @@
     },
     {
       "id": "question.world_geography.024.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.longshore_drift"
@@ -135,33 +135,15 @@
       "sourceCardIds": [
         "card.world_geography.024.c4"
       ],
-      "prompt": "Why does longshore drift move sand along the shore instead of just in and out?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Waves usually arrive at a slight angle to the beach",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Tides only flow sideways",
-          "correct": false,
-          "rationale": "Tides are not what drives longshore drift."
-        },
-        {
-          "id": "c",
-          "label": "Sand is lighter than water",
-          "correct": false,
-          "rationale": "Sand sinks; the current carries it."
-        },
-        {
-          "id": "d",
-          "label": "Rivers push the sand sideways",
-          "correct": false,
-          "rationale": "It is the waves that set up the current."
-        }
+      "prompt": "Put this beach chain in order, from cause to effect.",
+      "items": [
+        "A slight angle",
+        "A longshore current",
+        "Beach sand rides along"
       ],
-      "explanation": "Waves reaching the beach at an angle set up a longshore current parallel to the shore, and it carries sand along.",
+      "first": "Cause",
+      "last": "Effect",
+      "explanation": "Waves reach the beach at a slight angle, which sets up a longshore current, and beach sand rides along with it.",
       "difficulty": 0.3
     },
     {

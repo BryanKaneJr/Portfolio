@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 59,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Operating Systems",
   "objective": "After this level you can explain what an operating system does.",
@@ -160,7 +160,7 @@
     },
     {
       "id": "question.everyday_technology.059.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.everyday_technology.computer_operating_system",
@@ -170,33 +170,16 @@
         "card.everyday_technology.059.c4",
         "card.everyday_technology.054.c2"
       ],
-      "prompt": "Level 54 said most RAM forgets everything without power. So what must happen each time a computer is switched on?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The operating system is typed in again by hand",
-          "correct": false,
-          "rationale": "A start-up program does the loading."
-        },
-        {
-          "id": "b",
-          "label": "The hard drive is erased",
-          "correct": false,
-          "rationale": "Storage keeps its data; that is its job."
-        },
-        {
-          "id": "c",
-          "label": "RAM is replaced with a fresh chip",
-          "correct": false,
-          "rationale": "The same RAM is reused; it just starts empty."
-        },
-        {
-          "id": "d",
-          "label": "A start-up program loads the operating system from storage into RAM",
-          "correct": true
-        }
+      "prompt": "Put the steps of booting a computer in order.",
+      "items": [
+        "Memory starts empty",
+        "Checks which devices are present",
+        "Loads the operating system",
+        "Start your apps"
       ],
-      "explanation": "Because RAM starts empty, a start-up program such as the BIOS loads the operating system from storage into main memory.",
+      "first": "Switch on",
+      "last": "Ready to use",
+      "explanation": "At switch-on memory starts empty. A start-up program checks which devices are present, then loads the operating system, and only then can it start your apps.",
       "difficulty": 0.3
     }
   ],

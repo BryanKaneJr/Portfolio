@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 38,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "One Address, Many Devices",
   "objective": "After this level you can explain how your home router shares one public address among all your devices.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "question.computers.038.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.net_nat_translation"
@@ -138,33 +138,16 @@
       "sourceCardIds": [
         "card.computers.038.c3"
       ],
-      "prompt": "How does the router know which device inside should get an incoming reply?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It sends the reply to every device in the home",
-          "correct": false,
-          "rationale": "It delivers to the one device that asked."
-        },
-        {
-          "id": "b",
-          "label": "The reply carries the device's private address from the start",
-          "correct": false,
-          "rationale": "Outsiders only ever see the public address."
-        },
-        {
-          "id": "c",
-          "label": "It looks up the reply's port in its translation table",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It asks the internet provider",
-          "correct": false,
-          "rationale": "The router keeps the record itself."
-        }
+      "prompt": "Put the steps of network address translation in order, from a packet going out to the reply coming in.",
+      "items": [
+        "Swaps its private address",
+        "Writes the swap in a table",
+        "A reply comes back to that port",
+        "Swaps the originals back in"
       ],
-      "explanation": "The table links the port the router picked to the device's private address and port, so the reply is swapped back and delivered.",
+      "first": "Packet goes out",
+      "last": "Reply passed inside",
+      "explanation": "The router swaps the laptop's private address for its public one, writes the swap in a table, and when a reply comes back to that port, it swaps the originals back in.",
       "difficulty": 0.3
     },
     {

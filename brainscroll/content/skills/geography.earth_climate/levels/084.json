@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 84,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Ruling Out the Sun and Volcanoes",
   "objective": "After this level you can weigh natural causes against greenhouse gases as explanations for recent warming.",
@@ -87,41 +87,31 @@
   "questions": [
     {
       "id": "question.earth_climate.084.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.earth_climate.warming_not_the_sun"
       ],
       "sourceCardIds": [
-        "card.earth_climate.084.c2"
+        "card.earth_climate.084.c2",
+        "card.earth_climate.084.c4"
       ],
-      "prompt": "What have satellite measurements of the Sun's energy reaching Earth shown since 1978?",
-      "options": [
+      "prompt": "Match each suspect with what the evidence shows.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A rise that matches Earth's warming",
-          "correct": false,
-          "rationale": "The Sun's output hasn't risen."
+          "left": "The Sun",
+          "right": "No upward trend"
         },
         {
-          "id": "b",
-          "label": "No upward trend",
-          "correct": true
+          "left": "Volcanoes",
+          "right": "A dip, not a long climb"
         },
         {
-          "id": "c",
-          "label": "A doubling of the Sun's output",
-          "correct": false,
-          "rationale": "Nothing like that has been measured."
-        },
-        {
-          "id": "d",
-          "label": "Nothing, since they can't see the Sun",
-          "correct": false,
-          "rationale": "They measure it directly from orbit."
+          "left": "Human causes",
+          "right": "0.8 to 1.3 °C"
         }
       ],
-      "explanation": "Satellite sensors show no upward trend in solar energy since 1978, while Earth warmed.",
+      "explanation": "The Sun's energy shows no upward trend, volcanoes make a dip, not a long climb, and human causes likely account for 0.8 to 1.3 °C of warming.",
       "difficulty": 0.35
     },
     {

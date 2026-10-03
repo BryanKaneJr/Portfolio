@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 69,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Optical Illusions",
   "objective": "After this level you can explain why the brain can be fooled by optical illusions.",
@@ -132,38 +132,28 @@
     },
     {
       "id": "question.human_body.069.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.senses_lightness_constancy"
       ],
       "sourceCardIds": [
-        "card.human_body.069.c3"
+        "card.human_body.069.c3",
+        "card.human_body.069.c2"
       ],
-      "prompt": "In Adelson's checker-shadow illusion, why does the square in the shadow look lighter than it really is?",
-      "options": [
+      "prompt": "Match each illusion term with what it shows.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Its paint is lighter than the other square's",
-          "correct": false,
-          "rationale": "They are the exact same grey."
+          "left": "Optical illusion",
+          "right": "A perception that contradicts reality"
         },
         {
-          "id": "b",
-          "label": "The brain corrects for a shadow it thinks is there",
-          "correct": true
+          "left": "Müller-Lyer illusion",
+          "right": "Fins flaring outward"
         },
         {
-          "id": "c",
-          "label": "The blind spot hides part of the picture",
-          "correct": false,
-          "rationale": "The blind spot isn't involved."
-        },
-        {
-          "id": "d",
-          "label": "Rods take over from cones inside the shadow",
-          "correct": false,
-          "rationale": "It's a flat picture, seen in the same light."
+          "left": "Checker-shadow illusion",
+          "right": "The exact same grey"
         }
       ],
       "explanation": "Your visual system estimates the lighting and judges each surface's own shade, correcting for shadow; on a flat picture the correction misleads.",

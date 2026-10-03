@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 70,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: The Internet",
   "objective": "After this level you can trace a message from your device across the internet and explain how it stays private.",
@@ -176,41 +176,31 @@
     },
     {
       "id": "question.everyday_technology.070.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.internet_latency"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.070.c3"
+        "card.everyday_technology.070.c3",
+        "card.everyday_technology.070.c4"
       ],
-      "prompt": "Why does light travel slower through an undersea fiber than through empty space?",
-      "options": [
+      "prompt": "Match each with how long the light takes. For empty space and optical fiber, that's per kilometer.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Seawater pushes back against it",
-          "correct": false,
-          "rationale": "The light is inside the glass; the glass slows it."
+          "left": "Empty space",
+          "right": "About 3.34 millionths of a second"
         },
         {
-          "id": "b",
-          "label": "It travels as electric current, not light",
-          "correct": false,
-          "rationale": "It is light, from lasers."
+          "left": "Optical fiber",
+          "right": "About 4.9 millionths"
         },
         {
-          "id": "c",
-          "label": "The glass of the fiber slows it down",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It stops at every packet to check the address",
-          "correct": false,
-          "rationale": "Speed in fiber is set by the glass itself."
+          "left": "A 10,000 km trip",
+          "right": "About a twentieth of a second"
         }
       ],
-      "explanation": "Light in optical fiber takes about 4.9 millionths of a second per km instead of 3.34 in a vacuum: the glass slows it to about two-thirds.",
+      "explanation": "Light crosses a kilometer of empty space in about 3.34 millionths of a second and of optical fiber in about 4.9 millionths. A 10,000 km fiber trip takes about a twentieth of a second.",
       "difficulty": 0.35
     },
     {

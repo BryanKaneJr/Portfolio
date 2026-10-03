@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 16,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Descartes Doubts Everything",
   "objective": "After this level you can explain Descartes's method of doubt, his dream and evil demon arguments, and why \"I think, therefore I am\" survived them.",
@@ -93,41 +93,24 @@
   "questions": [
     {
       "id": "question.philosophy.016.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.philosophy.descartes_method_of_doubt"
       ],
       "sourceCardIds": [
-        "card.philosophy.016.c4"
+        "card.philosophy.016.c4",
+        "card.philosophy.016.c2"
       ],
-      "prompt": "What did Descartes find that even an all-powerful deceiver could not make false?",
-      "options": [
-        {
-          "id": "a",
-          "label": "That two and three added together make five",
-          "correct": false,
-          "rationale": "The deceiver could fool him even about that."
-        },
-        {
-          "id": "b",
-          "label": "That he exists whenever he thinks it",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "That he is awake and not dreaming",
-          "correct": false,
-          "rationale": "Dreams made that doubtful."
-        },
-        {
-          "id": "d",
-          "label": "That the world outside him exists",
-          "correct": false,
-          "rationale": "That was among the things he doubted."
-        }
+      "prompt": "Put these books by Descartes in order, from earliest to latest.",
+      "items": [
+        "Discourse on the Method",
+        "Meditations",
+        "Principles of Philosophy"
       ],
-      "explanation": "If the deceiver deceives him, he must exist: “I am, I exist” is true whenever he thinks it.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Discourse on the Method came out in 1637, the Meditations in 1641, and the Principles of Philosophy in 1644.",
       "difficulty": 0.2
     },
     {

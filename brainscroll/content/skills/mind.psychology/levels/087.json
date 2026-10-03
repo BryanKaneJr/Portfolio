@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 87,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Bouncing Back",
   "objective": "After this level you can explain what research on loss and hardship shows about how common resilience is.",
@@ -90,41 +90,31 @@
   "questions": [
     {
       "id": "question.psychology.087.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.resilience_common"
       ],
       "sourceCardIds": [
-        "card.psychology.087.c2"
+        "card.psychology.087.c2",
+        "card.psychology.087.c3"
       ],
-      "prompt": "How did George Bonanno tell resilience apart from recovery?",
-      "options": [
+      "prompt": "Match each idea about loss with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Resilience means feeling no distress at all",
-          "correct": false,
-          "rationale": "Resilient people still have rough patches."
+          "left": "Recovery",
+          "right": "Functioning drops for months or longer"
         },
         {
-          "id": "b",
-          "label": "Recovery happens only with professional help",
-          "correct": false,
-          "rationale": "Recovery is defined by its path, not by treatment."
+          "left": "Resilience",
+          "right": "Relatively stable, healthy functioning"
         },
         {
-          "id": "c",
-          "label": "Resilience stays fairly stable; recovery dips, then returns",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Recovery is quicker than resilience",
-          "correct": false,
-          "rationale": "Resilience avoids the long dip altogether."
+          "left": "One prospective study",
+          "right": "About three years before a spouse died"
         }
       ],
-      "explanation": "In recovery, functioning drops for months or longer before returning; in resilience, it stays relatively stable.",
+      "explanation": "In recovery, functioning drops for months or longer, then returns. In resilience, people keep relatively stable, healthy functioning. One prospective study had data from about three years before a spouse died.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 20,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Atoms",
   "objective": "After this level you can describe the parts of an atom and how we discovered them.",
@@ -309,7 +309,7 @@
     },
     {
       "id": "question.chemistry.020.q5",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.thomson_electron",
@@ -317,35 +317,20 @@
       ],
       "sourceCardIds": [
         "card.chemistry.019.c2",
-        "card.chemistry.011.c2"
+        "card.chemistry.011.c2",
+        "card.chemistry.020.c3"
       ],
-      "prompt": "Atoms recap: which discovery first showed that the Greeks' \"uncuttable\" atom had smaller parts?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Becquerel's radioactivity in 1896",
-          "correct": false,
-          "rationale": "That showed nuclei can decay; the first part found was the electron."
-        },
-        {
-          "id": "b",
-          "label": "Chadwick's neutron in 1932",
-          "correct": false,
-          "rationale": "That came much later."
-        },
-        {
-          "id": "c",
-          "label": "Bohr's shells in 1913",
-          "correct": false,
-          "rationale": "Shells describe electrons already known."
-        },
-        {
-          "id": "d",
-          "label": "Thomson's electron in 1897",
-          "correct": true
-        }
+      "prompt": "Put these moments in the atom's story in order, from earliest to latest.",
+      "items": [
+        "Thomson finds the electron",
+        "Rutherford: a tiny, dense nucleus",
+        "Bohr: electrons in shells",
+        "Schrödinger: electrons as waves",
+        "Chadwick finds the neutron"
       ],
-      "explanation": "Thomson found particles far lighter than any atom, inside all matter: the atom had a piece you could knock off.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Thomson found the electron in 1897, Rutherford the nucleus in 1911, Bohr's shells came in 1913, Schrödinger's waves in 1926 and Chadwick's neutron in 1932.",
       "difficulty": 0.35
     }
   ],

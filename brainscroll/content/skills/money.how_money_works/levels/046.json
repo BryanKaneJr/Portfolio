@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 46,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Competition",
   "objective": "After this level you can explain how competition pushes prices down and quality up.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "question.how_money_works.046.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.competition_entry"
@@ -138,33 +138,16 @@
       "sourceCardIds": [
         "card.how_money_works.046.c3"
       ],
-      "prompt": "Sellers in a competitive market are earning big profits. What does competition predict?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Prices rise even higher",
-          "correct": false,
-          "rationale": "Entry adds supply, which pulls prices down."
-        },
-        {
-          "id": "b",
-          "label": "The government fixes the price",
-          "correct": false,
-          "rationale": "No law is needed; newcomers do the work."
-        },
-        {
-          "id": "c",
-          "label": "New firms enter and the price falls",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The existing sellers merge into one",
-          "correct": false,
-          "rationale": "Profits attract rivals; they don't create mergers."
-        }
+      "prompt": "Sellers in a competitive market are earning big profits. Put what happens next in order.",
+      "items": [
+        "Earn fat profits",
+        "New firms pile in",
+        "Their extra supply brings the price down",
+        "The extra profit is squeezed away"
       ],
-      "explanation": "Profits attract new firms. Their extra supply brings the price down until the extra profit is gone.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "When sellers earn fat profits, new firms pile in. Their extra supply brings the price down, until the extra profit is squeezed away.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 61,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why Elections?",
   "objective": "After this level you can explain what elections are for.",
@@ -96,41 +96,32 @@
   "questions": [
     {
       "id": "question.government.061.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.election_purpose_choose_remove"
       ],
       "sourceCardIds": [
-        "card.government.061.c3"
+        "card.government.061.c3",
+        "card.government.061.c2",
+        "card.government.061.c4"
       ],
-      "prompt": "What did Karl Popper treat as the test of a democracy?",
-      "options": [
+      "prompt": "Match each answer to why we hold elections with the thinker or text behind it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The ruled can remove rulers without bloodshed",
-          "correct": true
+          "left": "Joseph Schumpeter",
+          "right": "Competitive struggle"
         },
         {
-          "id": "b",
-          "label": "The people rule directly, day to day, on everything",
-          "correct": false,
-          "rationale": "Popper said the people do not rule anywhere."
+          "left": "Karl Popper",
+          "right": "Dismiss their rulers without bloodshed"
         },
         {
-          "id": "c",
-          "label": "The wisest candidate always wins the election",
-          "correct": false,
-          "rationale": "His test was about removal, not picking the best."
-        },
-        {
-          "id": "d",
-          "label": "Every new law is passed by a referendum",
-          "correct": false,
-          "rationale": "Popper's test was dismissing rulers, not referendums."
+          "left": "Article 21",
+          "right": "The will of the people"
         }
       ],
-      "explanation": "For Popper, what matters is that the ruled can get rid of their rulers without bloodshed, for example through general elections.",
+      "explanation": "Schumpeter saw democracy as a competitive struggle for votes, Popper as the power to dismiss rulers without bloodshed, and Article 21 makes the will of the people the basis of authority.",
       "difficulty": 0.15
     },
     {

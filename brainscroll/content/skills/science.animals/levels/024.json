@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 24,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Birds of Prey",
   "objective": "After this level you can describe eagles, hawks and falcons.",
@@ -142,41 +142,31 @@
     },
     {
       "id": "question.animals.024.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.raptor_hunting_tools"
       ],
       "sourceCardIds": [
-        "card.animals.024.c3"
+        "card.animals.024.c3",
+        "card.animals.024.c2"
       ],
-      "prompt": "How does a falcon usually kill differently from an eagle or a hawk?",
-      "options": [
+      "prompt": "Match each bird of prey with how it hunts.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It bites the neck with a notched beak",
-          "correct": true
+          "left": "Eagles and hawks",
+          "right": "Kill mainly with their feet"
         },
         {
-          "id": "b",
-          "label": "It squeezes prey hard with its feet",
-          "correct": false,
-          "rationale": "That's how eagles and hawks do it."
+          "left": "Falcons",
+          "right": "Often kill with a bite to the neck"
         },
         {
-          "id": "c",
-          "label": "It drops prey from a great height",
-          "correct": false,
-          "rationale": "The card says falcons bite."
-        },
-        {
-          "id": "d",
-          "label": "It hunts only at night",
-          "correct": false,
-          "rationale": "Falcons are daytime raptors."
+          "left": "Owls",
+          "right": "The night shift"
         }
       ],
-      "explanation": "Eagles and hawks constrict prey with their feet; falcons often finish with a bite, using the tomial tooth.",
+      "explanation": "Eagles and hawks kill mainly with their feet. Falcons often kill with a bite to the neck. Owls are the night shift.",
       "difficulty": 0.2
     },
     {

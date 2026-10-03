@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 82,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "What's Wrong With Personality Types",
   "objective": "After this level you can explain why type tests like the Myers-Briggs score poorly on reliability compared with trait measures.",
@@ -92,41 +92,32 @@
   "questions": [
     {
       "id": "question.psychology.082.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.personality_type_tests"
       ],
       "sourceCardIds": [
-        "card.psychology.082.c2"
+        "card.psychology.082.c1",
+        "card.psychology.082.c2",
+        "card.psychology.082.c4"
       ],
-      "prompt": "Who developed the Myers-Briggs Type Indicator?",
-      "options": [
+      "prompt": "Match each name with its part in the story of personality types.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Carl Jung, as a clinical test",
-          "correct": false,
-          "rationale": "Jung's ideas inspired it, but he didn't build the test."
+          "left": "Carl Jung",
+          "right": "Psychological types"
         },
         {
-          "id": "b",
-          "label": "Robert McCrae and Paul Costa",
-          "correct": false,
-          "rationale": "They later tested it against the Big Five."
+          "left": "David Pittenger",
+          "right": "A 1993 review"
         },
         {
-          "id": "c",
-          "label": "Isabel Briggs Myers and her mother, Katharine Briggs",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Gordon Allport and Henry Odbert",
-          "correct": false,
-          "rationale": "They counted trait words in the dictionary."
+          "left": "NEO PI-R",
+          "right": "A widely used Big Five questionnaire"
         }
       ],
-      "explanation": "Isabel Briggs Myers and her mother, Katharine Briggs, built the Myers-Briggs from Carl Jung's ideas about psychological types.",
+      "explanation": "Katharine Briggs read Carl Jung's work on psychological types. David Pittenger reported retest problems in a 1993 review. The NEO PI-R is a widely used Big Five questionnaire.",
       "difficulty": 0.2
     },
     {

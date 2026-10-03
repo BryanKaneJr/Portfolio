@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 86,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Climate Sensitivity",
   "objective": "After this level you can explain how much warming scientists expect from doubling carbon dioxide and why the range is uncertain.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "question.earth_climate.086.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.warming_sensitivity_range"
@@ -138,33 +138,26 @@
       "sourceCardIds": [
         "card.earth_climate.086.c3"
       ],
-      "prompt": "A new study estimates climate sensitivity at 6 °C. How does that compare with the IPCC's assessment?",
-      "options": [
+      "prompt": "Match each IPCC climate sensitivity figure with its value.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It matches the best estimate",
-          "correct": false,
-          "rationale": "The best estimate is 3 °C."
+          "left": "Best estimate",
+          "right": "About 3 °C"
         },
         {
-          "id": "b",
-          "label": "It sits inside the likely range",
-          "correct": false,
-          "rationale": "The likely range is 2.5 to 4 °C."
+          "left": "Likely range",
+          "right": "2.5 to 4 °C"
         },
         {
-          "id": "c",
-          "label": "It is above even the very likely range",
-          "correct": true
+          "left": "Very likely range",
+          "right": "2 to 5 °C"
         },
         {
-          "id": "d",
-          "label": "It is ruled out as impossible",
-          "correct": false,
-          "rationale": "Outside the range means unlikely, not impossible."
+          "left": "Old likely range",
+          "right": "1.5 to 4.5 °C"
         }
       ],
-      "explanation": "The very likely range is 2 to 5 °C, so 6 °C is judged unlikely, though not impossible.",
+      "explanation": "The best estimate is about 3 °C, the likely range 2.5 to 4 °C, the very likely range 2 to 5 °C, and the old likely range was 1.5 to 4.5 °C.",
       "difficulty": 0.55
     },
     {

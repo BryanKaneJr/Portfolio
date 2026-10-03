@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 10,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: What Psychology Is",
   "objective": "After this level you can explain how psychology grew from philosophy into a science that tests ideas about the mind.",
@@ -177,7 +177,7 @@
     },
     {
       "id": "question.psychology.010.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.psychology.behaviorism",
@@ -187,33 +187,15 @@
       "sourceCardIds": [
         "card.psychology.010.c3"
       ],
-      "prompt": "What Psychology Is recap: which list puts these events in the order they happened?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Watson's behaviorism, Wundt's lab, Neisser's textbook",
-          "correct": false,
-          "rationale": "Wundt's lab (1879) came before Watson (1913)."
-        },
-        {
-          "id": "b",
-          "label": "Wundt's lab, Neisser's textbook, Watson's behaviorism",
-          "correct": false,
-          "rationale": "Watson (1913) came before Neisser (1967)."
-        },
-        {
-          "id": "c",
-          "label": "Wundt's lab, Watson's behaviorism, Neisser's textbook",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Neisser's textbook, Wundt's lab, Watson's behaviorism",
-          "correct": false,
-          "rationale": "Neisser's book (1967) came last."
-        }
+      "prompt": "Put these events in the order they happened, from earliest to latest.",
+      "items": [
+        "Wundt opens the first psychology lab",
+        "Watson launches behaviorism",
+        "Neisser publishes the textbook"
       ],
-      "explanation": "Wundt's lab opened in 1879, Watson launched behaviorism in 1913, and Neisser's Cognitive Psychology appeared in 1967.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Wundt opened the first psychology lab in 1879, Watson launched behaviorism in 1913, and Neisser published Cognitive Psychology in 1967.",
       "difficulty": 0.25
     },
     {

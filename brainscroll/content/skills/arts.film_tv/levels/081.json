@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 81,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "New Hollywood",
   "objective": "After this level you can explain how a new generation of directors took creative control in Hollywood between the late 1960s and 1980, and what they borrowed from the New Wave.",
@@ -126,41 +126,25 @@
     },
     {
       "id": "question.film_tv.081.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.new_hollywood_rise"
       ],
       "sourceCardIds": [
-        "card.film_tv.081.c4"
+        "card.film_tv.081.c4",
+        "card.film_tv.081.c1"
       ],
-      "prompt": "It's 1981, and a director pitches a studio a costly, personal epic. Based on this level, why is the studio likely to hesitate?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The rating system had just banned violent epics",
-          "correct": false,
-          "rationale": "Nothing in this level says so."
-        },
-        {
-          "id": "b",
-          "label": "Directors were no longer allowed to write their own films",
-          "correct": false,
-          "rationale": "The level makes no such claim."
-        },
-        {
-          "id": "c",
-          "label": "Studios now chased blockbusters, and Heaven's Gate had sunk a studio",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Film schools had closed, so there were no trained crews",
-          "correct": false,
-          "rationale": "The movie brats came through new film schools."
-        }
+      "prompt": "Put these New Hollywood era films in order, from earliest to latest.",
+      "items": [
+        "Bonnie and Clyde",
+        "Easy Rider",
+        "Jaws",
+        "Heaven's Gate"
       ],
-      "explanation": "Post-Jaws studios prioritized blockbusters, and Heaven's Gate's huge overrun was a disaster for United Artists.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Bonnie and Clyde came out in 1967, Easy Rider in 1969, Jaws in 1975 and Heaven's Gate in 1980.",
       "difficulty": 0.35
     },
     {

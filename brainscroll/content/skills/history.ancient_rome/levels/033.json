@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 33,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Sulla Marches on Rome",
   "objective": "After this level you can explain why Sulla’s march on Rome broke a taboo.",
@@ -88,41 +88,26 @@
   "questions": [
     {
       "id": "question.ancient_rome.033.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_rome.sulla"
       ],
       "sourceCardIds": [
-        "card.ancient_rome.033.c2"
+        "card.ancient_rome.033.c2",
+        "card.ancient_rome.033.c3"
       ],
-      "prompt": "What did Sulla do in 88 BCE that no general had done before?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Marched his army on Rome",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Crossed the Alps with elephants",
-          "correct": false,
-          "rationale": "That was Hannibal."
-        },
-        {
-          "id": "c",
-          "label": "Invaded Britain",
-          "correct": false,
-          "rationale": "That was Caesar, later."
-        },
-        {
-          "id": "d",
-          "label": "Refused a triumph",
-          "correct": false,
-          "rationale": "His act was far more dangerous."
-        }
+      "prompt": "Put Sulla’s story in order, from first to last.",
+      "items": [
+        "Marched his army on Rome",
+        "Fought a civil war",
+        "Took the dictatorship",
+        "The proscription lists",
+        "Retired"
       ],
-      "explanation": "Sulla led his legions against Rome itself, breaking a deep taboo.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Sulla marched his army on Rome in 88 BCE and fought a civil war with Marius. He won, took the dictatorship, issued the proscription lists, and then retired.",
       "difficulty": 0.2
     },
     {

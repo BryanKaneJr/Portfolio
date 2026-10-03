@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 51,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Plato's Just City",
   "objective": "After this level you can explain why Plato's Republic argues for rule by philosopher-kings and how his three-class city mirrors a just soul.",
@@ -89,7 +89,7 @@
   "questions": [
     {
       "id": "question.philosophy.051.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.philosophy.justice_plato_republic"
@@ -97,33 +97,22 @@
       "sourceCardIds": [
         "card.philosophy.051.c3"
       ],
-      "prompt": "In Plato’s Republic, what makes a city just?",
-      "options": [
+      "prompt": "Match each class in Plato’s ideal city with its job.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Each class does its own work",
-          "correct": true
+          "left": "Guardians",
+          "right": "Ruling"
         },
         {
-          "id": "b",
-          "label": "Every citizen votes on each new law",
-          "correct": false,
-          "rationale": "Plato didn’t want rule by the crowd."
+          "left": "Auxiliaries",
+          "right": "Defend it"
         },
         {
-          "id": "c",
-          "label": "All property is divided equally",
-          "correct": false,
-          "rationale": "Justice is about each class’s work."
-        },
-        {
-          "id": "d",
-          "label": "The strongest citizen rules alone",
-          "correct": false,
-          "rationale": "Plato wanted rulers with knowledge."
+          "left": "Producers",
+          "right": "Make what it needs"
         }
       ],
-      "explanation": "A city is just when its guardians, auxiliaries and producers each do their own work, as the soul’s parts should.",
+      "explanation": "The guardians do the ruling, the auxiliaries defend the city, and the producers make what it needs.",
       "difficulty": 0.25
     },
     {

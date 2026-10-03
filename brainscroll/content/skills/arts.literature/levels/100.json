@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 100,
   "type": "mastery",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Mastery Challenge: Literature",
   "objective": "After this level you can demonstrate command of Literature Levels 1 to 99 across the whole tree.",
@@ -363,7 +363,7 @@
     },
     {
       "id": "question.literature.100.q6",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.literature.shakespeare_borrowed_plots",
@@ -374,33 +374,15 @@
         "card.literature.053.c2",
         "card.literature.007.c4"
       ],
-      "prompt": "Romeo and Juliet goes back through Arthur Brooke's poem to Ovid's Pyramus and Thisbe. Why did no one think Shakespeare was cheating?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Brooke's poem had long been forgotten",
-          "correct": false,
-          "rationale": "It was a popular poem, and the play's main source."
-        },
-        {
-          "id": "b",
-          "label": "Ovid's tales were unknown to English audiences",
-          "correct": false,
-          "rationale": "From the 15th to 17th centuries nearly every poet owed Ovid something."
-        },
-        {
-          "id": "c",
-          "label": "He kept Brooke's story exactly as it was",
-          "correct": false,
-          "rationale": "He squeezed nine months into four days and grew Mercutio."
-        },
-        {
-          "id": "d",
-          "label": "Plays then reworked old plots; the telling mattered",
-          "correct": true
-        }
+      "prompt": "Put these versions of the story in order, from oldest to newest.",
+      "items": [
+        "Ovid's Pyramus and Thisbe",
+        "Arthur Brooke's long poem",
+        "Romeo and Juliet"
       ],
-      "explanation": "Playwrights of the time reworked old stories and even other people's plots. The question wasn't what happens but how well you could tell it, and Ovid had supplied such stories for centuries.",
+      "first": "Oldest",
+      "last": "Newest",
+      "explanation": "Ovid's Pyramus and Thisbe stands furthest back, then came Arthur Brooke's long poem (1562), and then Shakespeare's Romeo and Juliet.",
       "difficulty": 0.45
     },
     {

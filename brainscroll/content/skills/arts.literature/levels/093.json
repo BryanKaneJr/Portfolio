@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 93,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Detective Story",
   "objective": "After this level you can use the fair-play rules of detective fiction, from Poe's Dupin to Sherlock Holmes, to spot a planted clue.",
@@ -90,41 +90,24 @@
   "questions": [
     {
       "id": "question.literature.093.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.literature.detective_dupin_holmes"
       ],
       "sourceCardIds": [
-        "card.literature.093.c2"
+        "card.literature.093.c2",
+        "card.literature.093.c3"
       ],
-      "prompt": "Which story is called the first detective story?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Doyle's A Study in Scarlet",
-          "correct": false,
-          "rationale": "That introduced Holmes, in 1887."
-        },
-        {
-          "id": "b",
-          "label": "Ronald Knox's ten rules",
-          "correct": false,
-          "rationale": "Those are rules, from 1929, not a story."
-        },
-        {
-          "id": "c",
-          "label": "The Grimms' Cinderella",
-          "correct": false,
-          "rationale": "That's a fairy tale, not a mystery."
-        },
-        {
-          "id": "d",
-          "label": "Poe's \"The Murders in the Rue Morgue\"",
-          "correct": true
-        }
+      "prompt": "Put these milestones of detective fiction in order, from earliest to latest.",
+      "items": [
+        "The Murders in the Rue Morgue",
+        "A Study in Scarlet",
+        "Ronald Knox set out ten rules"
       ],
-      "explanation": "Poe's \"The Murders in the Rue Morgue\" (1841), with its detective Dupin, is called the first detective story.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Poe's \"The Murders in the Rue Morgue\" came in 1841, Doyle's A Study in Scarlet in 1887, and Ronald Knox set out his ten rules in 1929.",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 52,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Judges",
   "objective": "After this level you can explain what judges do and why their independence matters.",
@@ -86,41 +86,25 @@
   "questions": [
     {
       "id": "question.government.052.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.judges_independence"
       ],
       "sourceCardIds": [
-        "card.government.052.c3"
+        "card.government.052.c3",
+        "card.government.052.c1",
+        "card.government.052.c4"
       ],
-      "prompt": "What did England's Act of Settlement of 1701 change for senior judges?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They were elected by the public",
-          "correct": false,
-          "rationale": "The Act didn't create judicial elections."
-        },
-        {
-          "id": "b",
-          "label": "They had to be approved by the Pope",
-          "correct": false,
-          "rationale": "Nothing of the kind; Parliament gained the power of removal."
-        },
-        {
-          "id": "c",
-          "label": "They held office during good behaviour, not at the monarch's pleasure",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "They could only serve for one year",
-          "correct": false,
-          "rationale": "The point was security of office, not short terms."
-        }
+      "prompt": "Put these steps toward independent judges in order, from earliest to latest.",
+      "items": [
+        "Godden v Hales",
+        "Act of Settlement",
+        "Basic Principles"
       ],
-      "explanation": "Judges held office during good behaviour; only both Houses of Parliament could remove them, and their salaries were fixed.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Godden v Hales came in 1686, the Act of Settlement in 1701, and the UN's Basic Principles on the Independence of the Judiciary in 1985.",
       "difficulty": 0.2
     },
     {

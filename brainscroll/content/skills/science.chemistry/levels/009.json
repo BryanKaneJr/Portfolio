@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 9,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Physical or Chemical Change?",
   "objective": "After this level you can tell a physical change from a chemical one.",
@@ -148,41 +148,36 @@
     },
     {
       "id": "question.chemistry.009.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.physical_change"
       ],
       "sourceCardIds": [
-        "card.chemistry.009.c4"
+        "card.chemistry.009.c4",
+        "card.chemistry.009.c2",
+        "card.chemistry.009.c3"
       ],
-      "prompt": "Boiling water is full of bubbles. Why is boiling still a physical change?",
-      "options": [
+      "prompt": "Match each change with the kind of change it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Bubbles always mean a physical change",
-          "correct": false,
-          "rationale": "Bubbles can signal a chemical change too."
+          "left": "Melting ice",
+          "right": "Physical change"
         },
         {
-          "id": "b",
-          "label": "Heat can never cause a chemical change",
-          "correct": false,
-          "rationale": "Heat drives plenty of chemical changes, like cooking."
+          "left": "Iron rusting",
+          "right": "Chemical change"
         },
         {
-          "id": "c",
-          "label": "The bubbles are made of air, not water",
-          "correct": false,
-          "rationale": "They are water vapor."
+          "left": "Tearing paper",
+          "right": "Physical change"
         },
         {
-          "id": "d",
-          "label": "No new substance forms; it's still water",
-          "correct": true
+          "left": "A match burning",
+          "right": "Chemical change"
         }
       ],
-      "explanation": "The bubbles are water vapor. Nothing new has formed, so it is a physical change.",
+      "explanation": "Melting ice and tearing paper are physical changes: no new stuff forms. Iron rusting and a match burning are chemical changes that make new substances.",
       "difficulty": 0.25
     },
     {

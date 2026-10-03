@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 45,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Base Rates: Start With How Common",
   "objective": "After this level you can explain why you should start with how common something is before judging a single case.",
@@ -120,7 +120,7 @@
     },
     {
       "id": "question.probability.045.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.risk_base_rates"
@@ -129,33 +129,22 @@
         "card.probability.045.c2",
         "card.probability.045.c4"
       ],
-      "prompt": "Why do doctors say \"think horses, not zebras\"?",
-      "options": [
+      "prompt": "In the made-up town, match each with its number of people this week.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Rare diseases can never be diagnosed",
-          "correct": false,
-          "rationale": "Rare diagnoses are real; they are just less likely."
+          "left": "Made-up town",
+          "right": "10,000 people"
         },
         {
-          "id": "b",
-          "label": "A common cause is far likelier than a rare one",
-          "correct": true
+          "left": "Have a cold",
+          "right": "1,000"
         },
         {
-          "id": "c",
-          "label": "Zebras are hard to tell apart from horses",
-          "correct": false,
-          "rationale": "It is about how common things are, not how they look."
-        },
-        {
-          "id": "d",
-          "label": "Common illnesses are always more dangerous",
-          "correct": false,
-          "rationale": "The saying is about likelihood, not danger."
+          "left": "Has a rare illness",
+          "right": "1"
         }
       ],
-      "explanation": "When a clue fits both a common and a rare cause, the common one is usually the answer, because it is so much more frequent.",
+      "explanation": "The made-up town has 10,000 people. This week 1,000 have a cold and 1 has a rare illness, so colds outnumber it 1,000 to 1.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 49,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "What's Inside a Smartphone",
   "objective": "After this level you can name the main parts inside a smartphone and what each one does.",
@@ -145,41 +145,36 @@
     },
     {
       "id": "question.everyday_technology.049.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.smartphone_parts"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.049.c3"
+        "card.everyday_technology.049.c3",
+        "card.everyday_technology.049.c2",
+        "card.everyday_technology.049.c4"
       ],
-      "prompt": "What makes the diaphragm in a phone's speaker move?",
-      "options": [
+      "prompt": "Match each smartphone part with what it is or uses.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Air pumped in by a tiny fan",
-          "correct": false,
-          "rationale": "The push comes from magnetism."
+          "left": "Capacitive touchscreens",
+          "right": "An electric field"
         },
         {
-          "id": "b",
-          "label": "Light from the screen hitting it",
-          "correct": false,
-          "rationale": "The screen and speaker are separate."
+          "left": "The speaker",
+          "right": "A coil of wire in a magnet's field"
         },
         {
-          "id": "c",
-          "label": "A changing current in a coil sitting in a magnet's field",
-          "correct": true
+          "left": "The buzz",
+          "right": "A motor"
         },
         {
-          "id": "d",
-          "label": "Heat from the battery expanding it",
-          "correct": false,
-          "rationale": "Heat isn't the driver."
+          "left": "The battery",
+          "right": "A lithium-ion cell"
         }
       ],
-      "explanation": "The changing current makes the coil move in the magnet's field, and the coil vibrates the diaphragm, which makes sound.",
+      "explanation": "A capacitive touchscreen carries an electric field, the speaker is a coil of wire in a magnet's field, the buzz is a motor, and the battery is a lithium-ion cell.",
       "difficulty": 0.3
     },
     {

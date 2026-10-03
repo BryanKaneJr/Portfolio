@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 42,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Zeus",
   "objective": "After this level you can describe Zeus, king of the gods, and his thunderbolt.",
@@ -133,41 +133,26 @@
     },
     {
       "id": "question.ancient_greece.042.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_greece.zeus_king_of_gods"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.042.c2"
+        "card.ancient_greece.042.c2",
+        "card.ancient_greece.042.c3",
+        "card.ancient_greece.042.c5"
       ],
-      "prompt": "Why did Cronus swallow his own children?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He was starving during a war",
-          "correct": false,
-          "rationale": "Hunger wasn’t his reason."
-        },
-        {
-          "id": "b",
-          "label": "Rhea asked him to hide them",
-          "correct": false,
-          "rationale": "Rhea tried to save them."
-        },
-        {
-          "id": "c",
-          "label": "He learned one was fated to overthrow him",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The Cyclopes ordered him to",
-          "correct": false,
-          "rationale": "The fear was his own."
-        }
+      "prompt": "Put the story of Zeus in order, from first to last.",
+      "items": [
+        "Hid the baby in a cave",
+        "Forced Cronus to cough up",
+        "Beat Cronus and the Titans",
+        "Divided the world"
       ],
-      "explanation": "Cronus had learned that one of his children was fated to overthrow him, so he swallowed each one at birth.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Rhea hid the baby in a cave on Crete. Grown up, Zeus forced Cronus to cough up his brothers and sisters, beat Cronus and the Titans, and then the brothers divided the world.",
       "difficulty": 0.25
     },
     {

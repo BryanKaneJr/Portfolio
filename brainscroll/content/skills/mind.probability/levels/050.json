@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 50,
   "type": "milestone",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Milestone: Thinking in Chances",
   "objective": "After this level you can connect percentages, averages, chance, expected value and base rates to judge one real-world risk.",
@@ -402,7 +402,7 @@
     },
     {
       "id": "question.probability.050.q7",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.probability.risk_four_questions",
@@ -411,33 +411,26 @@
       "sourceCardIds": [
         "card.probability.050.c2"
       ],
-      "prompt": "A headline says late-night snacking doubles your risk of a rare condition. What should you ask first?",
-      "options": [
+      "prompt": "Match each of the four questions for any risk with what it tells you to do.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "How many people read the headline?",
-          "correct": false,
-          "rationale": "Readership doesn't change the risk."
+          "left": "Doubled from what?",
+          "right": "Ask for the absolute risks"
         },
         {
-          "id": "b",
-          "label": "Does the condition have a long name?",
-          "correct": false,
-          "rationale": "The name says nothing about the risk."
+          "left": "Per what?",
+          "right": "Check what it is counted out of"
         },
         {
-          "id": "c",
-          "label": "Was the study published this year?",
-          "correct": false,
-          "rationale": "Recent or not, you still need the numbers."
+          "left": "How common is it to begin with?",
+          "right": "Start from the base rate"
         },
         {
-          "id": "d",
-          "label": "Doubled from what, and over how long?",
-          "correct": true
+          "left": "How many yeses are real?",
+          "right": "Many can be false alarms"
         }
       ],
-      "explanation": "\"Doubles\" is a relative risk. Ask for the absolute risks before and after, over a set time.",
+      "explanation": "Doubled from what? Ask for the absolute risks. Per what? Check what it is counted out of. How common is it? Start from the base rate. How many yeses are real? For a rare condition, many can be false alarms.",
       "difficulty": 0.35
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 42,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Rainforests",
   "objective": "After this level you can describe tropical rainforests and explain why they hold so many species.",
@@ -129,41 +129,25 @@
     },
     {
       "id": "question.world_geography.042.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.rainforest_biodiversity"
       ],
       "sourceCardIds": [
-        "card.world_geography.042.c3"
+        "card.world_geography.042.c3",
+        "card.world_geography.042.c2"
       ],
-      "prompt": "Why can tropical rainforests support such a huge variety of life?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Cold winters thin out their predators",
-          "correct": false,
-          "rationale": "Rainforests have no winter at all."
-        },
-        {
-          "id": "b",
-          "label": "They cover most of Earth's land",
-          "correct": false,
-          "rationale": "They cover only a small slice of the surface."
-        },
-        {
-          "id": "c",
-          "label": "Warmth, sunlight and rain last all year",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "They have Earth's richest soils",
-          "correct": false,
-          "rationale": "The key is the steady warmth, sunlight and moisture."
-        }
+      "prompt": "Put a rainforest's layers in order, from top to bottom.",
+      "items": [
+        "Emergents",
+        "Canopy",
+        "Understory",
+        "Forest floor"
       ],
-      "explanation": "Steady heat, sunlight and moisture with little seasonal change are the building blocks for rainforest diversity.",
+      "first": "Top",
+      "last": "Bottom",
+      "explanation": "The emergents poke out on top, then comes the canopy, then the dim understory, and at the bottom the forest floor.",
       "difficulty": 0.25
     },
     {

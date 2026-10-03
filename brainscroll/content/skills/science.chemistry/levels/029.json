@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 29,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Elements From Stars",
   "objective": "After this level you can explain how stars and supernovas made the elements.",
@@ -131,41 +131,32 @@
     },
     {
       "id": "question.chemistry.029.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.ptable_heavy_element_origin"
       ],
       "sourceCardIds": [
-        "card.chemistry.029.c4"
+        "card.chemistry.029.c4",
+        "card.chemistry.029.c2",
+        "card.chemistry.029.c3"
       ],
-      "prompt": "Why can't the fusion inside an ordinary star make gold?",
-      "options": [
+      "prompt": "Match each element with where it was made.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Stars contain no metals at all",
-          "correct": false,
-          "rationale": "Stars make iron, a metal."
+          "left": "Hydrogen",
+          "right": "The Big Bang"
         },
         {
-          "id": "b",
-          "label": "Gold only forms inside planets",
-          "correct": false,
-          "rationale": "Planets gather gold; they do not make it."
+          "left": "Carbon",
+          "right": "Fusion in stars"
         },
         {
-          "id": "c",
-          "label": "Gold was all made in the Big Bang",
-          "correct": false,
-          "rationale": "The Big Bang made only the lightest elements."
-        },
-        {
-          "id": "d",
-          "label": "Star fusion stops at iron; heavier needs more",
-          "correct": true
+          "left": "Gold",
+          "right": "Catching neutrons"
         }
       ],
-      "explanation": "Fusion in stars cannot go past iron; supernovas and neutron star mergers make heavier elements like gold.",
+      "explanation": "Hydrogen was made in the Big Bang, carbon by fusion in stars, and gold, heavier than iron, by nuclei catching neutrons.",
       "difficulty": 0.3
     },
     {

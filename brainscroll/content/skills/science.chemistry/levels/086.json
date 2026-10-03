@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 86,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How Smells Travel",
   "objective": "After this level you can explain how smell molecules reach your nose.",
@@ -126,41 +126,31 @@
     },
     {
       "id": "question.chemistry.086.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.home_smell_diffusion"
       ],
       "sourceCardIds": [
-        "card.chemistry.086.c4"
+        "card.chemistry.086.c4",
+        "card.chemistry.086.c2"
       ],
-      "prompt": "Smell molecules move at hundreds of meters per second. Why does a smell still take time to cross a room?",
-      "options": [
+      "prompt": "Match each with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They slow down to rest along the way",
-          "correct": false,
-          "rationale": "They keep moving fast; collisions steer them."
+          "left": "Volatile",
+          "right": "Vaporize readily"
         },
         {
-          "id": "b",
-          "label": "They must turn back into a liquid first",
-          "correct": false,
-          "rationale": "They travel as a gas the whole way."
+          "left": "Gas molecules",
+          "right": "Hundreds of meters per second"
         },
         {
-          "id": "c",
-          "label": "Air is too cold for molecules to move",
-          "correct": false,
-          "rationale": "Air molecules are moving too, and that's the problem."
-        },
-        {
-          "id": "d",
-          "label": "They keep colliding and changing direction",
-          "correct": true
+          "left": "Diffusion",
+          "right": "A zigzag commute"
         }
       ],
-      "explanation": "Constant collisions send each molecule zigzagging, so the overall spread is much slower than the molecules' speed.",
+      "explanation": "Volatile molecules vaporize readily, gas molecules zip at hundreds of meters per second, and diffusion is a zigzag commute, not a sprint.",
       "difficulty": 0.35
     },
     {

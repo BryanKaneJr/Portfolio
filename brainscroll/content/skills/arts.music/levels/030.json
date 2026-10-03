@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 30,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Early Music",
   "objective": "After this level you can trace music from bone flutes to Renaissance polyphony.",
@@ -227,42 +227,28 @@
     },
     {
       "id": "question.music.030.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.music.hohle_fels_flute"
       ],
       "sourceCardIds": [
         "card.music.021.c3",
-        "card.music.021.c2"
+        "card.music.021.c2",
+        "card.music.030.c2"
       ],
-      "prompt": "From Level 21: what are the oldest widely accepted musical instruments?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Bone and ivory flutes from German caves",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The Divje Babe bone from Slovenia",
-          "correct": false,
-          "rationale": "Its holes may be hyena bites, so it's disputed."
-        },
-        {
-          "id": "c",
-          "label": "The Zeng bronze bells",
-          "correct": false,
-          "rationale": "They're about 2,400 years old: ancient, but far younger."
-        },
-        {
-          "id": "d",
-          "label": "The Greek aulos",
-          "correct": false,
-          "rationale": "The flutes are tens of thousands of years older."
-        }
+      "prompt": "Put these moments in order, from earliest to latest.",
+      "items": [
+        "Flutes of bone and ivory",
+        "Euripides' Orestes",
+        "The Seikilos song",
+        "Staff lines let singers read exact pitch",
+        "Léonin's great book of organum",
+        "Petrucci prints polyphony"
       ],
-      "explanation": "Flutes from Geissenklösterle (42,000 to 43,000 years) and Hohle Fels (over 35,000) are the oldest accepted instruments.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Flutes of bone and ivory came 42,000 to 43,000 years ago, then Euripides' Orestes (408 BCE), the Seikilos song (1st or 2nd century CE), staff lines (about 1000), Léonin's book (about 1170) and Petrucci (1501).",
       "difficulty": 0.2
     },
     {

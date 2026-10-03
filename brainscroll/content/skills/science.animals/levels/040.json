@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 40,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Reptiles and Amphibians",
   "objective": "After this level you can compare reptiles and amphibians.",
@@ -143,7 +143,7 @@
   "questions": [
     {
       "id": "question.animals.040.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.animals.salamander_lizard_lookalike"
@@ -151,33 +151,26 @@
       "sourceCardIds": [
         "card.animals.040.c3"
       ],
-      "prompt": "Reptiles and Amphibians recap: which clue shows a lizard-shaped animal is really a salamander?",
-      "options": [
+      "prompt": "Match each clue with the animal it points to.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Dry skin covered in scales",
-          "correct": false,
-          "rationale": "Dry scales mean lizard."
+          "left": "Claws on its toes",
+          "right": "Lizard"
         },
         {
-          "id": "b",
-          "label": "Smooth, moist skin and no claws",
-          "correct": true
+          "left": "No ear openings",
+          "right": "Salamander"
         },
         {
-          "id": "c",
-          "label": "Eggs laid in a leathery shell",
-          "correct": false,
-          "rationale": "Leathery-shelled eggs are the lizard's."
+          "left": "A leathery shell",
+          "right": "Lizard"
         },
         {
-          "id": "d",
-          "label": "Ear openings on its head",
-          "correct": false,
-          "rationale": "Lizards have ear openings; salamanders don't."
+          "left": "Wrapped in clear jelly",
+          "right": "Salamander"
         }
       ],
-      "explanation": "Salamanders have smooth, moist skin and no claws; lizards have dry scales, claws and leathery-shelled eggs.",
+      "explanation": "Claws on its toes and eggs in a leathery shell point to a lizard. No ear openings and eggs wrapped in clear jelly point to a salamander.",
       "difficulty": 0.15
     },
     {

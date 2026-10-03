@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 83,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Drowning Child",
   "objective": "After this level you can apply Peter Singer’s drowning child argument to the question of how much we owe distant strangers, and weigh the main replies.",
@@ -128,41 +128,36 @@
     },
     {
       "id": "question.philosophy.083.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.dilemma_drowning_child"
       ],
       "sourceCardIds": [
-        "card.philosophy.083.c3"
+        "card.philosophy.083.c3",
+        "card.philosophy.083.c2",
+        "card.philosophy.083.c4"
       ],
-      "prompt": "You’re about to pay for a night out you’d barely remember. What does Singer’s principle imply about that money?",
-      "options": [
+      "prompt": "Match each part of Singer’s case with how he describes it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Give it to prevent something very bad, since it isn’t morally significant",
-          "correct": true
+          "left": "The mud",
+          "right": "Insignificant"
         },
         {
-          "id": "b",
-          "label": "Spend it freely, since the people it could help live far away from you",
-          "correct": false,
-          "rationale": "Singer denies that distance makes a difference."
+          "left": "The child’s death",
+          "right": "Very bad"
         },
         {
-          "id": "c",
-          "label": "Give it only if everyone else in your position gives their share too",
-          "correct": false,
-          "rationale": "Singer’s principle doesn’t depend on others."
+          "left": "Walking past",
+          "right": "Monstrous"
         },
         {
-          "id": "d",
-          "label": "Keep it, since helping strangers is generous but always optional",
-          "correct": false,
-          "rationale": "That is the critics’ view, not Singer’s."
+          "left": "Distance",
+          "right": "Makes no moral difference"
         }
       ],
-      "explanation": "Singer’s principle says that if you can prevent something very bad without sacrificing anything morally significant, you ought to, and he counts a night out as such a cost.",
+      "explanation": "The mud is insignificant, the child’s death would be very bad, walking past strikes most people as monstrous, and distance makes no moral difference.",
       "difficulty": 0.45
     },
     {

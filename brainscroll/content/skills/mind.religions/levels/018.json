@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 18,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Kosher and the Commandments",
   "objective": "After this level you can explain the mitzvot, the commandments Jews follow, using the basic rules of keeping kosher as the example.",
@@ -132,41 +132,31 @@
     },
     {
       "id": "question.religions.018.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.judaism_kashrut"
       ],
       "sourceCardIds": [
-        "card.religions.018.c4"
+        "card.religions.018.c4",
+        "card.religions.018.c5"
       ],
-      "prompt": "Why is a cheeseburger not kosher, even when made with kosher beef?",
-      "options": [
+      "prompt": "Match each group of US Jews with the share who keep kosher at home, from Pew's 2020 survey.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Because cheese is never kosher",
-          "correct": false,
-          "rationale": "Dairy can be kosher on its own."
+          "left": "Orthodox Jews",
+          "right": "95%"
         },
         {
-          "id": "b",
-          "label": "Because kosher law keeps meat and dairy strictly apart",
-          "correct": true
+          "left": "Conservative Jews",
+          "right": "24%"
         },
         {
-          "id": "c",
-          "label": "Because beef comes from an animal without cloven feet",
-          "correct": false,
-          "rationale": "Cattle chew the cud and have cloven feet."
-        },
-        {
-          "id": "d",
-          "label": "Because bread is forbidden with any meat",
-          "correct": false,
-          "rationale": "The rule is about meat and dairy."
+          "left": "Reform Jews",
+          "right": "5%"
         }
       ],
-      "explanation": "Kashrut requires strict separation of meat and dairy, from the verse about a kid in its mother's milk.",
+      "explanation": "In Pew's 2020 survey, 95% of Orthodox Jews, 24% of Conservative Jews and 5% of Reform Jews said they keep kosher at home.",
       "difficulty": 0.25
     },
     {

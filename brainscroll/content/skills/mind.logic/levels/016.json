@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 16,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Backwards If",
   "objective": "After this level you can spot the two tempting invalid if-then forms: affirming the consequent and denying the antecedent.",
@@ -86,41 +86,35 @@
   "questions": [
     {
       "id": "question.logic.016.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.deduction_if_then_fallacies"
       ],
       "sourceCardIds": [
-        "card.logic.016.c2"
+        "card.logic.016.c2",
+        "card.logic.016.c4"
       ],
-      "prompt": "What is affirming the consequent?",
-      "options": [
+      "prompt": "Match each if-then move with its verdict.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Treating a true then part as proof of the if part",
-          "correct": true
+          "left": "Affirm the if part",
+          "right": "Valid"
         },
         {
-          "id": "b",
-          "label": "Treating a false then part as proof of a false if part",
-          "correct": false,
-          "rationale": "That's modus tollens, which is valid."
+          "left": "Deny the then part",
+          "right": "Valid"
         },
         {
-          "id": "c",
-          "label": "Concluding the then part from the if part",
-          "correct": false,
-          "rationale": "That's modus ponens, which is valid."
+          "left": "Affirm the then part",
+          "right": "Invalid"
         },
         {
-          "id": "d",
-          "label": "Leaving a needed premise unstated",
-          "correct": false,
-          "rationale": "That's an unstated premise, not this fallacy."
+          "left": "Deny the if part",
+          "right": "Invalid"
         }
       ],
-      "explanation": "It runs the conditional backwards: the then part is true, so the if part is assumed true. The form is invalid.",
+      "explanation": "Affirming the if part and denying the then part are valid every time. Affirming the then part and denying the if part are invalid.",
       "difficulty": 0.15
     },
     {

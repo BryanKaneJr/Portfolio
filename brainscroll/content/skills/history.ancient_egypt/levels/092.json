@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 92,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Rosetta Stone",
   "objective": "After this level you can explain how the Rosetta Stone was found and why it mattered.",
@@ -88,7 +88,7 @@
   "questions": [
     {
       "id": "question.ancient_egypt.092.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_egypt.rosetta_stone_find"
@@ -96,33 +96,15 @@
       "sourceCardIds": [
         "card.ancient_egypt.092.c2"
       ],
-      "prompt": "Which three scripts are carved on the Rosetta Stone?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Hieroglyphs, Latin and Arabic script",
-          "correct": false,
-          "rationale": "There’s no Latin or Arabic on it."
-        },
-        {
-          "id": "b",
-          "label": "Demotic, Coptic and ancient Hebrew",
-          "correct": false,
-          "rationale": "Coptic and Hebrew aren’t on it."
-        },
-        {
-          "id": "c",
-          "label": "Hieroglyphs, demotic and ancient Greek",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Greek, Latin and Egyptian hieroglyphs",
-          "correct": false,
-          "rationale": "The third script is demotic, not Latin."
-        }
+      "prompt": "The Rosetta Stone carries the same decree three times. Put its three scripts in the order they come on the stone.",
+      "items": [
+        "Hieroglyphs",
+        "Demotic",
+        "Ancient Greek"
       ],
-      "explanation": "The decree appears in hieroglyphs, in demotic and in ancient Greek.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The decree comes first in hieroglyphs, then in demotic, the everyday Egyptian handwriting, then in ancient Greek.",
       "difficulty": 0.2
     },
     {

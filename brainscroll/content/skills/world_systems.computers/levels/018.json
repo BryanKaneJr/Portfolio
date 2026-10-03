@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 18,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Computer Comes Home",
   "objective": "After this level you can explain how the cheap microprocessor led to the Altair, the Apple II and the IBM PC, and put computers in homes.",
@@ -125,41 +125,27 @@
     },
     {
       "id": "question.computers.018.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.history_ibm_pc"
       ],
       "sourceCardIds": [
-        "card.computers.018.c4"
+        "card.computers.018.c4",
+        "card.computers.018.c1",
+        "card.computers.018.c2",
+        "card.computers.018.c3"
       ],
-      "prompt": "How did the IBM PC's design become an industry standard?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Other companies built compatible computers from its published details",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "IBM kept its design secret so nobody could copy it",
-          "correct": false,
-          "rationale": "IBM published a technical reference."
-        },
-        {
-          "id": "c",
-          "label": "It was the only computer that shops were allowed to sell",
-          "correct": false,
-          "rationale": "Rivals sold compatibles."
-        },
-        {
-          "id": "d",
-          "label": "It was the first computer to come with a keyboard",
-          "correct": false,
-          "rationale": "The 1977 machines came with keyboards."
-        }
+      "prompt": "Put these personal computing milestones in order, from earliest to latest.",
+      "items": [
+        "Intel's 4004",
+        "The Altair 8800",
+        "The Apple II",
+        "The IBM PC"
       ],
-      "explanation": "IBM used off-the-shelf parts and published a technical reference, and rivals built IBM-compatible machines.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Intel's 4004 arrived in 1971, the Altair 8800 in 1975, the Apple II in 1977 and the IBM PC in 1981.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 45,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Forests of the North",
   "objective": "After this level you can describe temperate and northern forests and how they survive winter.",
@@ -175,7 +175,7 @@
     },
     {
       "id": "question.world_geography.045.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.world_geography.boreal_forest",
@@ -185,33 +185,15 @@
         "card.world_geography.045.c5",
         "card.world_geography.041.c3"
       ],
-      "prompt": "Using Level 41, why do conifer forests in Canada and in Russia count as the same biome?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They were once one single forest",
-          "correct": false,
-          "rationale": "A biome is set by climate and life, not shared history."
-        },
-        {
-          "id": "b",
-          "label": "They sit at the same longitude",
-          "correct": false,
-          "rationale": "They're far apart in longitude."
-        },
-        {
-          "id": "c",
-          "label": "They share a similar climate and plants",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "People planted the same trees in both",
-          "correct": false,
-          "rationale": "The taiga grew naturally across the far north."
-        }
+      "prompt": "Put these biomes in order, from farthest north to farthest south.",
+      "items": [
+        "Tundra",
+        "Taiga",
+        "Temperate forest"
       ],
-      "explanation": "Wherever the same biome occurs, it has similar climate, plants and animal life. The taiga circles the whole far north.",
+      "first": "Farthest north",
+      "last": "Farthest south",
+      "explanation": "Tundra lies to the north of the taiga, and temperate forest lies to its south.",
       "difficulty": 0.3
     }
   ],

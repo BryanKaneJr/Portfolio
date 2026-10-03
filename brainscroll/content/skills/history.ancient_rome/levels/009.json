@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 9,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Last King",
   "objective": "After this level you can explain how Rome overthrew Tarquin the Proud and why it rejected kings.",
@@ -86,41 +86,25 @@
   "questions": [
     {
       "id": "question.ancient_rome.009.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_rome.fall_of_kings"
       ],
       "sourceCardIds": [
-        "card.ancient_rome.009.c3"
+        "card.ancient_rome.009.c3",
+        "card.ancient_rome.009.c2"
       ],
-      "prompt": "In what year, by tradition, did the Romans expel their last king?",
-      "options": [
-        {
-          "id": "a",
-          "label": "753 BCE",
-          "correct": false,
-          "rationale": "That’s the traditional founding."
-        },
-        {
-          "id": "b",
-          "label": "27 BCE",
-          "correct": false,
-          "rationale": "That’s the start of the Empire."
-        },
-        {
-          "id": "c",
-          "label": "509 BCE",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "476 CE",
-          "correct": false,
-          "rationale": "That’s the fall of the West."
-        }
+      "prompt": "Put the end of Rome’s kings in order, from first to last.",
+      "items": [
+        "Assaulted a noblewoman named Lucretia",
+        "Set off an uprising",
+        "Drove out their king",
+        "Swear never again"
       ],
-      "explanation": "Tradition dates the expulsion of Tarquin the Proud to 509 BCE.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The king’s son assaulted Lucretia, the crime set off an uprising, the Romans drove out their king in 509 BCE, and Brutus had them swear never again to have a king.",
       "difficulty": 0.15
     },
     {

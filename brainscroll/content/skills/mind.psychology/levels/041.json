@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 41,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "What Gets You Moving",
   "objective": "After this level you can explain drives, homeostasis and incentives as sources of motivation.",
@@ -105,41 +105,31 @@
   "questions": [
     {
       "id": "question.psychology.041.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.motivation_drives"
       ],
       "sourceCardIds": [
-        "card.psychology.041.c2"
+        "card.psychology.041.c2",
+        "card.psychology.041.c4"
       ],
-      "prompt": "In drive theory, what is homeostasis?",
-      "options": [
+      "prompt": "Match each idea with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The body's tendency to keep a steady balance",
-          "correct": true
+          "left": "Homeostasis",
+          "right": "Hold things at a steady level"
         },
         {
-          "id": "b",
-          "label": "A reward that pulls you toward a goal",
-          "correct": false,
-          "rationale": "That is an incentive."
+          "left": "Drive (push)",
+          "right": "Starts with a need inside the body"
         },
         {
-          "id": "c",
-          "label": "A habit formed by repeating a behavior",
-          "correct": false,
-          "rationale": "Habits follow from drive reduction, but homeostasis is the balance itself."
-        },
-        {
-          "id": "d",
-          "label": "A feeling of hunger after skipping a meal",
-          "correct": false,
-          "rationale": "Hunger is the drive that appears when balance slips."
+          "left": "Incentive (pull)",
+          "right": "A reward or goal in the world"
         }
       ],
-      "explanation": "Homeostasis is the tendency to keep a balance, or optimal level, within a biological system. Drives appear when it slips.",
+      "explanation": "Homeostasis is your body's work to hold things at a steady level. A drive pushes, starting with a need inside the body. An incentive pulls, starting with a reward or goal in the world.",
       "difficulty": 0.15
     },
     {

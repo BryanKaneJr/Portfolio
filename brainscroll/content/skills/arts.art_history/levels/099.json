@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 99,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why Art Lasts",
   "objective": "After this level you can explain why some art stays meaningful for centuries.",
@@ -101,42 +101,25 @@
   "questions": [
     {
       "id": "question.art_history.099.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.lasting_new_readings"
       ],
       "sourceCardIds": [
         "card.art_history.099.c1",
-        "card.art_history.099.c4"
+        "card.art_history.099.c4",
+        "card.art_history.091.c2"
       ],
-      "prompt": "Which poet wrote about the Icarus painting after seeing it in Brussels in 1938?",
-      "options": [
-        {
-          "id": "a",
-          "label": "William Carlos Williams",
-          "correct": false,
-          "rationale": "He wrote his poem in the early 1960s."
-        },
-        {
-          "id": "b",
-          "label": "Edmund Burke Feldman",
-          "correct": false,
-          "rationale": "He's the art educator behind the four steps."
-        },
-        {
-          "id": "c",
-          "label": "Pieter Bruegel",
-          "correct": false,
-          "rationale": "Bruegel is credited with the original painting."
-        },
-        {
-          "id": "d",
-          "label": "W. H. Auden",
-          "correct": true
-        }
+      "prompt": "Put the Icarus painting and its two poems in order, from earliest to latest.",
+      "items": [
+        "Landscape with the Fall of Icarus",
+        "W. H. Auden",
+        "William Carlos Williams"
       ],
-      "explanation": "W. H. Auden saw it in the Brussels museum in the winter of 1938 and wrote a poem about it.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Landscape with the Fall of Icarus dates from about 1560. W. H. Auden wrote his poem about it in 1938, and William Carlos Williams wrote his in the early 1960s.",
       "difficulty": 0.2
     },
     {

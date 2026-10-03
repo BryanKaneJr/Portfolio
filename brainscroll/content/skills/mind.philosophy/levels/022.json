@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 22,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Gettier Problem",
   "objective": "After this level you can explain how Edmund Gettier's 1963 cases, like the job applicant with ten coins in his pocket, show a lucky true belief falling short of knowledge.",
@@ -167,7 +167,7 @@
     },
     {
       "id": "question.philosophy.022.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.knowledge_gettier",
@@ -175,35 +175,27 @@
       ],
       "sourceCardIds": [
         "card.philosophy.022.c3",
-        "card.philosophy.021.c2"
+        "card.philosophy.021.c2",
+        "card.philosophy.022.c1",
+        "card.philosophy.022.c5",
+        "card.philosophy.021.c6"
       ],
-      "prompt": "Level 21 said knowledge needs three legs. Which leg was missing from Smith’s belief?",
-      "options": [
+      "prompt": "Match each philosopher with the case or claim linked to him.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Truth: his belief turned out false",
-          "correct": false,
-          "rationale": "His belief turned out true."
+          "left": "Edmund Gettier",
+          "right": "Ten coins"
         },
         {
-          "id": "b",
-          "label": "Belief: he never accepted the conclusion",
-          "correct": false,
-          "rationale": "He did believe it."
+          "left": "Roderick Chisholm",
+          "right": "Sheep in the field"
         },
         {
-          "id": "c",
-          "label": "Justification: his evidence was weak",
-          "correct": false,
-          "rationale": "His evidence was good."
-        },
-        {
-          "id": "d",
-          "label": "None: all three stood, yet it wasn’t knowledge",
-          "correct": true
+          "left": "Crispin Sartwell",
+          "right": "Knowledge is merely true belief"
         }
       ],
-      "explanation": "Smith’s belief was true, believed and justified. That is why it counts against the three-part definition.",
+      "explanation": "Gettier’s famous case involves ten coins, Chisholm’s involves a sheep in the field, and Sartwell argued that knowledge is merely true belief.",
       "difficulty": 0.35
     }
   ],

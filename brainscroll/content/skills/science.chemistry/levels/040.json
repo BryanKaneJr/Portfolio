@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 40,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Elements Up Close",
   "objective": "After this level you can compare the properties and uses of common elements.",
@@ -170,7 +170,7 @@
   "questions": [
     {
       "id": "question.chemistry.040.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.elements_in_phones"
@@ -178,33 +178,15 @@
       "sourceCardIds": [
         "card.chemistry.040.c2"
       ],
-      "prompt": "By weight, which metal does recycling a million phones recover the most of?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Gold",
-          "correct": false,
-          "rationale": "About 75 pounds: valuable, but small."
-        },
-        {
-          "id": "b",
-          "label": "Silver",
-          "correct": false,
-          "rationale": "About 772 pounds."
-        },
-        {
-          "id": "c",
-          "label": "Copper",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Palladium",
-          "correct": false,
-          "rationale": "Only a small amount."
-        }
+      "prompt": "Put the metals recovered from a million phones in order by weight, smallest haul first.",
+      "items": [
+        "Gold",
+        "Silver",
+        "Copper"
       ],
-      "explanation": "About 35 thousand pounds of copper, far more than the silver or gold, because copper is the wiring metal.",
+      "first": "Least by weight",
+      "last": "Most by weight",
+      "explanation": "A million phones give about 75 pounds of gold, 772 pounds of silver and about 35 thousand pounds of copper.",
       "difficulty": 0.2
     },
     {

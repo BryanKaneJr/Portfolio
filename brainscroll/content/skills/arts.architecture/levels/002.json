@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 2,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why Buildings Stand Up",
   "objective": "After this level you can explain how weight flows down through a building to the ground.",
@@ -129,7 +129,7 @@
     },
     {
       "id": "question.architecture.002.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.stand_load_path"
@@ -137,33 +137,16 @@
       "sourceCardIds": [
         "card.architecture.002.c3"
       ],
-      "prompt": "Why does a building need a continuous load path?",
-      "options": [
-        {
-          "id": "a",
-          "label": "So heat can rise from the basement to the roof",
-          "correct": false,
-          "rationale": "A load path carries forces, not heat."
-        },
-        {
-          "id": "b",
-          "label": "So people can find a way out in a fire",
-          "correct": false,
-          "rationale": "That's an escape route, not a load path."
-        },
-        {
-          "id": "c",
-          "label": "So every load can reach the soil beneath it",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "So the walls never have to carry anything",
-          "correct": false,
-          "rationale": "Walls are often part of the path."
-        }
+      "prompt": "Follow a building's load path. Put these in order, from where the weight starts to where it ends up.",
+      "items": [
+        "The roof",
+        "The walls",
+        "The foundation",
+        "The soil"
       ],
-      "explanation": "A continuous load path carries loads from the roof, through the walls and foundation, into the supporting soil.",
+      "first": "Where the weight starts",
+      "last": "Where it ends up",
+      "explanation": "A continuous load path runs from the roof, through the walls, to the foundation, and finally into the soil that holds the building up.",
       "difficulty": 0.2
     },
     {

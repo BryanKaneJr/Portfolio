@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 56,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Testing Only What You Believe",
   "objective": "After this level you can explain confirmation bias using Peter Wason's 2-4-6 number puzzle.",
@@ -87,41 +87,31 @@
   "questions": [
     {
       "id": "question.psychology.056.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.shortcuts_wason_246"
       ],
       "sourceCardIds": [
-        "card.psychology.056.c2"
+        "card.psychology.056.c2",
+        "card.psychology.056.c4"
       ],
-      "prompt": "What was the real rule in Wason's 2-4-6 puzzle?",
-      "options": [
+      "prompt": "Match each part of the 2-4-6 puzzle with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Even numbers going up by 2",
-          "correct": false,
-          "rationale": "That is the common guess, and it is too narrow."
+          "left": "Most people guess",
+          "right": "Increasing by 2"
         },
         {
-          "id": "b",
-          "label": "Any three increasing numbers",
-          "correct": true
+          "left": "The rule was",
+          "right": "Simply increasing numbers"
         },
         {
-          "id": "c",
-          "label": "The middle number is the average",
-          "correct": false,
-          "rationale": "That fits 2, 4, 6 but isn't the rule."
-        },
-        {
-          "id": "d",
-          "label": "Three numbers adding up to 12",
-          "correct": false,
-          "rationale": "That fits 2, 4, 6 but isn't the rule."
+          "left": "Klayman and Ha",
+          "right": "Positive test strategy"
         }
       ],
-      "explanation": "The rule was simply increasing numbers, much broader than most people's guesses.",
+      "explanation": "Most people guess \"increasing by 2\", but the rule was simply increasing numbers. Klayman and Ha called the habit of testing only fitting sets a positive test strategy.",
       "difficulty": 0.15
     },
     {

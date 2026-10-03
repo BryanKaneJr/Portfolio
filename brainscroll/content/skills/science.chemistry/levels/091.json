@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 91,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Alchemy",
   "objective": "After this level you can explain what alchemists tried to do and what they got right.",
@@ -171,7 +171,7 @@
     },
     {
       "id": "question.chemistry.091.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.alchemy_legacy",
@@ -181,33 +181,15 @@
         "card.chemistry.091.c3",
         "card.chemistry.007.c4"
       ],
-      "prompt": "The alchemist's alembic was a still. From Level 7, why can distilling separate the parts of a mixture?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The parts boil at different temperatures",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The parts have different colors",
-          "correct": false,
-          "rationale": "Color doesn't decide what turns to vapor first."
-        },
-        {
-          "id": "c",
-          "label": "A filter inside holds back the solids",
-          "correct": false,
-          "rationale": "That's filtering, not distilling."
-        },
-        {
-          "id": "d",
-          "label": "Heat turns every part into gold",
-          "correct": false,
-          "rationale": "Alas, no."
-        }
+      "prompt": "Put the parts of the alembic in the order the mixture passes through them.",
+      "items": [
+        "A vessel to heat the mixture",
+        "A head to catch and cool the vapor",
+        "A receiver for the liquid"
       ],
-      "explanation": "Distillation heats a mixture and collects the vapor; the part with the lowest boiling point comes off first.",
+      "first": "Heated here",
+      "last": "Collected here",
+      "explanation": "The vessel heats the mixture, the head catches and cools the vapor, and the receiver collects the liquid that drips out.",
       "difficulty": 0.25
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 84,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Consensus and the Lone Dissenter",
   "objective": "After this level you can explain why a field's consensus usually outweighs one contrarian expert, and how consensus can still change.",
@@ -142,41 +142,25 @@
     },
     {
       "id": "question.logic.084.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.sourcing_wegener_drift"
       ],
       "sourceCardIds": [
-        "card.logic.084.c4"
+        "card.logic.084.c4",
+        "card.logic.084.c1",
+        "card.logic.084.c5"
       ],
-      "prompt": "Why did many scientists reject Wegener's continental drift at first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He was not a famous scientist",
-          "correct": false,
-          "rationale": "Fame wasn't the objection; the missing mechanism was."
-        },
-        {
-          "id": "b",
-          "label": "He had no evidence of any kind",
-          "correct": false,
-          "rationale": "He had coastlines and fossils."
-        },
-        {
-          "id": "c",
-          "label": "He couldn't explain what force moved continents",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "He refused to publish his idea",
-          "correct": false,
-          "rationale": "He published it in 1912."
-        }
+      "prompt": "Put these moments in the continental drift story in order, from earliest to latest.",
+      "items": [
+        "Wegener proposed continental drift",
+        "Wegener died",
+        "New evidence from the ocean floor"
       ],
-      "explanation": "Wegener had clues, but no force that could move continents, and Jeffreys showed rock couldn't plow through the ocean floor.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Wegener proposed continental drift in 1912 and died in 1930, his theory still disputed. From the 1950s, new evidence from the ocean floor revived his ideas.",
       "difficulty": 0.35
     },
     {

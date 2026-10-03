@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 14,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "ENIAC and Its Programmers",
   "objective": "After this level you can explain how ENIAC was programmed by rewiring cables and switches, and who did that work.",
@@ -86,41 +86,25 @@
   "questions": [
     {
       "id": "question.computers.014.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.history_eniac_six"
       ],
       "sourceCardIds": [
-        "card.computers.014.c3"
+        "card.computers.014.c3",
+        "card.computers.014.c4"
       ],
-      "prompt": "What did the six ENIAC programmers have to learn the machine from?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A printed manual from the engineers",
-          "correct": false,
-          "rationale": "There were no manuals."
-        },
-        {
-          "id": "b",
-          "label": "A programming course at the university",
-          "correct": false,
-          "rationale": "No programming languages or courses existed yet."
-        },
-        {
-          "id": "c",
-          "label": "Its wiring and logical diagrams",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "An earlier computer of the same design",
-          "correct": false,
-          "rationale": "ENIAC was new; they worked from its diagrams."
-        }
+      "prompt": "Put the story of ENIAC's six programmers in order, from earliest to latest.",
+      "items": [
+        "Worked as human computers",
+        "Handed ENIAC's wiring",
+        "Devised the program",
+        "Recognition came much later"
       ],
-      "explanation": "They were given the wiring and logical diagrams, with no manuals or programming languages.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The six first worked as human computers, then were handed ENIAC's wiring and diagrams. Jennings and Snyder devised the program for the 1946 debut, and recognition came much later, in 1997.",
       "difficulty": 0.2
     },
     {

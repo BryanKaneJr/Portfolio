@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 51,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Buddha's Story",
   "objective": "After this level you can retell the traditional story of Siddhartha Gautama's awakening and say what historians can confirm about him.",
@@ -130,41 +130,26 @@
     },
     {
       "id": "question.religions.051.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.buddha_life_story"
       ],
       "sourceCardIds": [
-        "card.religions.051.c2"
+        "card.religions.051.c2",
+        "card.religions.051.c3"
       ],
-      "prompt": "In the traditional story, why did Siddhartha leave his life of luxury at 29?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He was sent away after his clan lost a war",
-          "correct": false,
-          "rationale": "Tradition gives a different reason: the four sights."
-        },
-        {
-          "id": "b",
-          "label": "His father ordered him to study far from home",
-          "correct": false,
-          "rationale": "He left on his own, after the four sights."
-        },
-        {
-          "id": "c",
-          "label": "He wanted a new kingdom to rule for himself",
-          "correct": false,
-          "rationale": "He gave up a royal life; he didn't seek one."
-        },
-        {
-          "id": "d",
-          "label": "The four sights showed him age, sickness and death",
-          "correct": true
-        }
+      "prompt": "Put these moments in the Buddha's story in order, as the tradition tells it.",
+      "items": [
+        "Born at Lumbini",
+        "He saw four sights",
+        "Lived as an ascetic",
+        "Attained enlightenment",
+        "Died at Kushinagar"
       ],
-      "explanation": "An old man, a sick person, a corpse and a monk: age, sickness and death come even to princes, so he left to seek a way through them.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Siddhartha was born at Lumbini, saw the four sights, lived six years as an ascetic, attained enlightenment at Bodh Gaya, and after 45 years of teaching died at Kushinagar.",
       "difficulty": 0.3
     },
     {

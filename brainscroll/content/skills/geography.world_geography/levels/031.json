@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 31,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Weather or Climate?",
   "objective": "After this level you can tell weather from climate and explain why the difference matters.",
@@ -87,41 +87,31 @@
   "questions": [
     {
       "id": "question.world_geography.031.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.weather_vs_climate"
       ],
       "sourceCardIds": [
-        "card.world_geography.031.c3"
+        "card.world_geography.031.c3",
+        "card.world_geography.031.c2"
       ],
-      "prompt": "What is climate?",
-      "options": [
+      "prompt": "Match each term with what it describes.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Today's temperature and rainfall",
-          "correct": false,
-          "rationale": "That's weather, the short-term picture."
+          "left": "Weather",
+          "right": "Right now"
         },
         {
-          "id": "b",
-          "label": "The average weather of a place over a long time",
-          "correct": true
+          "left": "Climate",
+          "right": "What's normal"
         },
         {
-          "id": "c",
-          "label": "The forecast for the coming week",
-          "correct": false,
-          "rationale": "Forecasts are about weather, days ahead."
-        },
-        {
-          "id": "d",
-          "label": "The air pressure at one moment",
-          "correct": false,
-          "rationale": "That's a snapshot of the weather."
+          "left": "Climate normals",
+          "right": "1991 to 2020"
         }
       ],
-      "explanation": "Climate is the long-term average weather of a place, usually over 30 years.",
+      "explanation": "Weather is what the sky is doing right now. Climate is what's normal over a long time. NOAA's current US climate normals cover 1991 to 2020.",
       "difficulty": 0.1
     },
     {

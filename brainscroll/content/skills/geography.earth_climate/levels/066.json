@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 66,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Inside a Hurricane",
   "objective": "After this level you can explain how the eye, the eyewall and the rain bands work together in a mature hurricane.",
@@ -87,41 +87,25 @@
   "questions": [
     {
       "id": "question.earth_climate.066.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.earth_climate.storm_hurricane_eye"
       ],
       "sourceCardIds": [
-        "card.earth_climate.066.c2"
+        "card.earth_climate.066.c2",
+        "card.earth_climate.066.c3",
+        "card.earth_climate.066.c4"
       ],
-      "prompt": "What is the weather like in a mature hurricane's eye?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The strongest winds in the storm",
-          "correct": false,
-          "rationale": "Those are in the eyewall around it."
-        },
-        {
-          "id": "b",
-          "label": "Fair weather, with the lowest surface pressure",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Nonstop lightning from the tallest clouds",
-          "correct": false,
-          "rationale": "The eye has fair weather; even the eyewall has little lightning."
-        },
-        {
-          "id": "d",
-          "label": "The heaviest rain of the whole storm",
-          "correct": false,
-          "rationale": "The heaviest rain falls around the eyewall."
-        }
+      "prompt": "Put a hurricane's zones in order, from the center outward.",
+      "items": [
+        "Eye",
+        "Eyewall",
+        "Rain bands"
       ],
-      "explanation": "The eye is a roughly circular area of fair weather, where the surface pressure is lowest.",
+      "first": "Center",
+      "last": "Farthest out",
+      "explanation": "The eye sits at the center, the eyewall rings it, and the rain bands spiral in from farther out.",
       "difficulty": 0.2
     },
     {

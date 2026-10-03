@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 28,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Hydraulics",
   "objective": "After this level you can explain how liquid under pressure lets a small push lift a heavy load.",
@@ -173,7 +173,7 @@
     },
     {
       "id": "question.everyday_technology.028.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.everyday_technology.motion_hydraulic_multiplier",
@@ -183,33 +183,16 @@
         "card.everyday_technology.028.c4",
         "card.everyday_technology.026.c3"
       ],
-      "prompt": "Level 26's brake pads squeeze a spinning disc. How does a light press on the pedal become a strong squeeze?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A small motor inside the pedal adds extra force",
-          "correct": false,
-          "rationale": "Hydraulic brakes need no motor."
-        },
-        {
-          "id": "b",
-          "label": "The pads grab much harder once they get hot",
-          "correct": false,
-          "rationale": "Heat is a result of braking, not its source."
-        },
-        {
-          "id": "c",
-          "label": "The spinning disc pulls the pads in by itself",
-          "correct": false,
-          "rationale": "The pads are pushed by pistons."
-        },
-        {
-          "id": "d",
-          "label": "Brake fluid passes the pressure to bigger pistons",
-          "correct": true
-        }
+      "prompt": "Put these in order, following your push through a car's hydraulic brakes.",
+      "items": [
+        "Brake pedal",
+        "Brake fluid",
+        "Pistons at the wheels",
+        "Brake pads"
       ],
-      "explanation": "The pedal pushes brake fluid, and the same pressure acting on larger pistons at the wheels gives a larger force.",
+      "first": "Your foot pushes here",
+      "last": "Squeezed last",
+      "explanation": "Your foot presses the brake pedal, which pushes on brake fluid. The fluid carries the pressure to pistons at the wheels, which squeeze the brake pads.",
       "difficulty": 0.3
     }
   ],

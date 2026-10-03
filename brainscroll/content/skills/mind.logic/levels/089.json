@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 89,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "A Real Photo, the Wrong Story",
   "objective": "After this level you can explain why a real photo or video proves only what it shows, and check whether it is being used out of context.",
@@ -92,41 +92,31 @@
   "questions": [
     {
       "id": "question.logic.089.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.sourcing_lunch_skyscraper"
       ],
       "sourceCardIds": [
-        "card.logic.089.c2"
+        "card.logic.089.c2",
+        "card.logic.089.c3"
       ],
-      "prompt": "What did researchers find about the famous 1932 photo of ironworkers lunching on a beam?",
-      "options": [
+      "prompt": "Match each one with its part in the photo or the trick.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It was faked in a darkroom",
-          "correct": false,
-          "rationale": "The original negative showed it is real."
+          "left": "Filmmakers",
+          "right": "Real, not a darkroom trick"
         },
         {
-          "id": "b",
-          "label": "The men were actors, not ironworkers",
-          "correct": false,
-          "rationale": "They were the ironworkers building it."
+          "left": "Smithsonian magazine",
+          "right": "A daring publicity stunt"
         },
         {
-          "id": "c",
-          "label": "It is genuine, but a publicity stunt",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It was taken on a different building",
-          "correct": false,
-          "rationale": "It was the RCA Building at Rockefeller Center."
+          "left": "Claire Wardle",
+          "right": "False context"
         }
       ],
-      "explanation": "The negative confirms the photo is real, and the lunch was staged to promote the building.",
+      "explanation": "Filmmakers who traced the negative confirmed the photo is real, not a darkroom trick. Smithsonian magazine calls it a daring publicity stunt. Claire Wardle names the trick false context.",
       "difficulty": 0.3
     },
     {

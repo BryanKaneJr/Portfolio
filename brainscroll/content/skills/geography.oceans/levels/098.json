@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 98,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Sea Monsters and Myths",
   "objective": "After this level you can explain the real animals behind sea-monster legends.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "question.oceans.098.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.seamyth_real_animals",
@@ -139,35 +139,25 @@
       "sourceCardIds": [
         "card.oceans.098.c1",
         "card.oceans.098.c3",
-        "card.oceans.098.c4"
+        "card.oceans.098.c4",
+        "card.oceans.098.c2"
       ],
-      "prompt": "What do the mermaid, sea-serpent and kraken legends in this level have in common?",
-      "options": [
+      "prompt": "Match each sea legend with the real animal most likely behind it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Each was invented as a joke by mapmakers",
-          "correct": false,
-          "rationale": "They grew from real animals."
+          "left": "Mermaids",
+          "right": "Manatees"
         },
         {
-          "id": "b",
-          "label": "Each likely grew from real animals seen badly or found dead",
-          "correct": true
+          "left": "Sea serpent",
+          "right": "Giant oarfish"
         },
         {
-          "id": "c",
-          "label": "Each describes an animal that went extinct",
-          "correct": false,
-          "rationale": "Manatees and oarfish are alive today."
-        },
-        {
-          "id": "d",
-          "label": "Each comes from the same Greek myth",
-          "correct": false,
-          "rationale": "Only the Sirens are Greek."
+          "left": "Kraken",
+          "right": "Giant squid"
         }
       ],
-      "explanation": "Mermaids were likely manatees, sea serpents fit oarfish, and kraken tales grew from washed-up squid and octopus remains.",
+      "explanation": "Mermaids were most likely manatees, sea-serpent tales top the list for the giant oarfish, and kraken tales were likely fed by remains of giant squid.",
       "difficulty": 0.3
     },
     {

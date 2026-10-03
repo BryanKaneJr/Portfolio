@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 34,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Routers Pass It On",
   "objective": "After this level you can explain how routers forward each packet one hop at a time, with no single machine knowing the whole route.",
@@ -141,7 +141,7 @@
     },
     {
       "id": "question.computers.034.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.net_hop_forwarding"
@@ -149,33 +149,15 @@
       "sourceCardIds": [
         "card.computers.034.c2"
       ],
-      "prompt": "How does a packet cross the internet when no single router knows the whole route?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The sender writes the full route into the packet",
-          "correct": false,
-          "rationale": "The sender only writes the destination address."
-        },
-        {
-          "id": "b",
-          "label": "Each router sends it one hop, to the neighbor its table lists",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "A central computer steers every packet",
-          "correct": false,
-          "rationale": "There is no central controller; each router decides."
-        },
-        {
-          "id": "d",
-          "label": "Packets try every path at once",
-          "correct": false,
-          "rationale": "Each router picks one next hop."
-        }
+      "prompt": "Put the steps a router takes with each arriving packet in order.",
+      "items": [
+        "Reads its destination IP address",
+        "Looks it up in its routing table",
+        "Sends the packet to that next hop"
       ],
-      "explanation": "At each router, the destination address is looked up in the routing table and the packet goes to the listed next hop.",
+      "first": "Packet arrives",
+      "last": "Packet moves on",
+      "explanation": "A router reads the packet's destination IP address, looks it up in its routing table, then sends the packet to that next hop.",
       "difficulty": 0.3
     },
     {

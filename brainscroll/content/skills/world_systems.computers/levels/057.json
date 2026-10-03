@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 57,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Viruses, Worms and Trojans",
   "objective": "After this level you can explain how viruses, worms and trojans differ in the way they get onto a computer and spread.",
@@ -151,7 +151,7 @@
     },
     {
       "id": "question.computers.057.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.security_malware_types"
@@ -160,33 +160,22 @@
         "card.computers.057.c3",
         "card.computers.057.c2"
       ],
-      "prompt": "Why doesn't a trojan need to break through any security hole to get onto a computer?",
-      "options": [
+      "prompt": "Match each kind of harmful software with how it works.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It is too small for security software to notice",
-          "correct": false,
-          "rationale": "Size is not the trick; disguise is."
+          "left": "Virus",
+          "right": "Attaches copies of itself"
         },
         {
-          "id": "b",
-          "label": "It only attacks computers with no password",
-          "correct": false,
-          "rationale": "It gets in by being installed, password or not."
+          "left": "Worm",
+          "right": "A self-contained program"
         },
         {
-          "id": "c",
-          "label": "It copies itself into every file on the network",
-          "correct": false,
-          "rationale": "That is closer to a virus or worm."
-        },
-        {
-          "id": "d",
-          "label": "It looks useful, so the user installs and runs it",
-          "correct": true
+          "left": "Trojan",
+          "right": "Hides a harmful function"
         }
       ],
-      "explanation": "Like the wooden horse, a trojan is let in: it seems useful, and its hidden function runs when you launch it.",
+      "explanation": "A virus attaches copies of itself to other programs, a worm is a self-contained program that spreads on its own, and a trojan looks useful but hides a harmful function.",
       "difficulty": 0.25
     },
     {

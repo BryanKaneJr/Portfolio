@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 29,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "When Banks Fail",
   "objective": "After this level you can explain bank runs and how deposit insurance protects savers.",
@@ -125,41 +125,32 @@
     },
     {
       "id": "question.how_money_works.029.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.bank_run_mechanics"
       ],
       "sourceCardIds": [
-        "card.how_money_works.029.c2"
+        "card.how_money_works.029.c2",
+        "card.how_money_works.029.c3",
+        "card.how_money_works.029.c4"
       ],
-      "prompt": "Why can't a bank pay all of its depositors at once?",
-      "options": [
+      "prompt": "Match each banking term with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Banks are forbidden to keep any cash",
-          "correct": false,
-          "rationale": "Banks keep reserves, just not enough for everyone at once."
+          "left": "Maturity transformation",
+          "right": "Borrowing short and lending long"
         },
         {
-          "id": "b",
-          "label": "Deposits are sent to the government each night",
-          "correct": false,
-          "rationale": "Deposits stay with the bank. Its money is in long-term loans."
+          "left": "Bank run",
+          "right": "Many depositors try to withdraw"
         },
         {
-          "id": "c",
-          "label": "Its money is tied up in loans that run for years",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Depositors must give a year of notice",
-          "correct": false,
-          "rationale": "Deposits can be withdrawn any day; the loans are what take years."
+          "left": "Deposit insurance",
+          "right": "The US answer to runs"
         }
       ],
-      "explanation": "Banks borrow short and lend long (maturity transformation), so they keep only some funds in reserve.",
+      "explanation": "Maturity transformation means borrowing short and lending long. A bank run is when many depositors try to withdraw at once. Deposit insurance is the US answer to runs.",
       "difficulty": 0.3
     },
     {

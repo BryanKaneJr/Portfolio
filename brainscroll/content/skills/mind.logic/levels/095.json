@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 95,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How Sure Are You?",
   "objective": "After this level you can explain calibration: matching how confident you feel to how often you turn out to be right.",
@@ -126,7 +126,7 @@
     },
     {
       "id": "question.logic.095.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.deciding_calibration"
@@ -135,33 +135,22 @@
         "card.logic.095.c2",
         "card.logic.095.c3"
       ],
-      "prompt": "Jo calls lots of her predictions \"very sure\", yet they come true no more often than the ones she calls \"unsure\". What does that show?",
-      "options": [
+      "prompt": "Match each way of being off with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "She is well calibrated",
-          "correct": false,
-          "rationale": "Her sureness doesn't track her record, so she isn't."
+          "left": "Too extreme",
+          "right": "Near-certain yes or no"
         },
         {
-          "id": "b",
-          "label": "Her confidence isn't tracking her record",
-          "correct": true
+          "left": "Too timid",
+          "right": "Hugging the middle"
         },
         {
-          "id": "c",
-          "label": "She should stop making predictions",
-          "correct": false,
-          "rationale": "The fix is to adjust her confidence, not to stop."
-        },
-        {
-          "id": "d",
-          "label": "Her predictions are all correct",
-          "correct": false,
-          "rationale": "Nothing says they're all correct."
+          "left": "Overconfidence",
+          "right": "The best-known form"
         }
       ],
-      "explanation": "If her \"very sure\" calls come true no more often than her \"unsure\" ones, her confidence carries no information: she's miscalibrated.",
+      "explanation": "Too extreme judgments leap to near-certain yes or no; too timid ones hug the middle. Overconfidence is the best-known form of miscalibration.",
       "difficulty": 0.5
     },
     {

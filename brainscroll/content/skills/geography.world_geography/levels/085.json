@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 85,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Pacific Islands",
   "objective": "After this level you can explain how volcanoes and coral built the islands of the Pacific.",
@@ -142,7 +142,7 @@
     },
     {
       "id": "question.world_geography.085.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.atoll_formation"
@@ -150,33 +150,16 @@
       "sourceCardIds": [
         "card.world_geography.085.c4"
       ],
-      "prompt": "Why does an atoll have a lagoon in the middle?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A meteorite made a crater there",
-          "correct": false,
-          "rationale": "No impact is needed: it's where a volcano used to be."
-        },
-        {
-          "id": "b",
-          "label": "The volcanic island it circled sank beneath the sea",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Waves scooped out the center",
-          "correct": false,
-          "rationale": "The center is where the sunken island lies."
-        },
-        {
-          "id": "d",
-          "label": "Coral can only grow in circles",
-          "correct": false,
-          "rationale": "Coral grows around whatever it's attached to."
-        }
+      "prompt": "Put the making of an atoll in order, from first to last.",
+      "items": [
+        "Coral grows as a reef",
+        "The island slowly sinks",
+        "The island vanishes under the sea",
+        "Only the ring of reef is left"
       ],
-      "explanation": "The reef grew around a volcanic island. The island sank out of sight, and the reef kept growing, leaving a ring around a lagoon.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Coral grows as a reef around a volcanic island. The island slowly sinks and finally vanishes under the sea, and only the ring of reef is left around a lagoon.",
       "difficulty": 0.3
     },
     {

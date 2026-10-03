@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 84,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Sit-ins, Freedom Rides, Marches",
   "objective": "After this level you can explain how nonviolent direct action, from lunch counters to the March on Washington, pushed the nation to act.",
@@ -91,41 +91,27 @@
   "questions": [
     {
       "id": "question.us_history.084.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.directaction_sit_ins"
       ],
       "sourceCardIds": [
-        "card.us_history.084.c2"
+        "card.us_history.084.c2",
+        "card.us_history.084.c3",
+        "card.us_history.084.c4"
       ],
-      "prompt": "Where did four North Carolina A&T students begin their sit-in on February 1, 1960?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A Greensboro Woolworth’s lunch counter",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "A Montgomery city bus",
-          "correct": false,
-          "rationale": "Buses were the Freedom Riders’ target; this was a lunch counter."
-        },
-        {
-          "id": "c",
-          "label": "The steps of the Lincoln Memorial",
-          "correct": false,
-          "rationale": "That was the 1963 march."
-        },
-        {
-          "id": "d",
-          "label": "Central High School in Little Rock",
-          "correct": false,
-          "rationale": "That was the 1957 school crisis."
-        }
+      "prompt": "Put these civil rights events in order, from earliest to latest.",
+      "items": [
+        "Sit-ins had spread to 55 cities",
+        "Set their bus on fire",
+        "The Interstate Commerce Commission",
+        "The March on Washington",
+        "Signed the Civil Rights Act"
       ],
-      "explanation": "They sat at the whites-only Woolworth’s lunch counter in Greensboro.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Sit-ins had spread to 55 cities by March 1960. A mob set the Freedom Riders’ bus on fire in May 1961, the Interstate Commerce Commission ordered desegregation that September, the March on Washington came in 1963, and Johnson signed the Civil Rights Act in 1964.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 30,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Temples and Churches",
   "objective": "After this level you can compare how different faiths shaped their holy buildings.",
@@ -141,7 +141,7 @@
   "questions": [
     {
       "id": "question.architecture.030.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.sacred_orientation"
@@ -149,33 +149,22 @@
       "sourceCardIds": [
         "card.architecture.030.c2"
       ],
-      "prompt": "Temples and Churches recap: where have Christian churches usually placed the apse or high altar?",
-      "options": [
+      "prompt": "Temples and Churches recap: match each kind of holy building with the way it usually faces.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "At the east end",
-          "correct": true
+          "left": "Christian churches",
+          "right": "High altar at the east end"
         },
         {
-          "id": "b",
-          "label": "At the west end",
-          "correct": false,
-          "rationale": "Old St. Peter's did, but it was the exception."
+          "left": "Mosques",
+          "right": "Faces Mecca"
         },
         {
-          "id": "c",
-          "label": "Facing Mecca",
-          "correct": false,
-          "rationale": "That's the rule for a mosque's mihrab."
-        },
-        {
-          "id": "d",
-          "label": "In the middle, under the dome",
-          "correct": false,
-          "rationale": "The usual rule puts the apse or altar at the east end."
+          "left": "Angkor Wat",
+          "right": "Faces west"
         }
       ],
-      "explanation": "Churches have usually been oriented with the apse or high altar at the east end; orientation comes from Latin oriens, the rising sun.",
+      "explanation": "Christian churches have usually put the apse or high altar at the east end. A mosque's mihrab faces Mecca, whatever direction that is. Angkor Wat faces west.",
       "difficulty": 0.15
     },
     {

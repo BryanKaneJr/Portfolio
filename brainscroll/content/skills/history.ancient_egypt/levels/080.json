@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 80,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Famous Pharaohs",
   "objective": "After this level you can compare Egypt's most famous rulers.",
@@ -149,7 +149,7 @@
   "questions": [
     {
       "id": "question.ancient_egypt.080.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_egypt.famous_pharaohs_compared",
@@ -159,33 +159,17 @@
         "card.ancient_egypt.080.c2",
         "card.ancient_egypt.076.c2"
       ],
-      "prompt": "Famous Pharaohs recap: on the chapter timeline, who reigned just before Ramesses II?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Khufu",
-          "correct": false,
-          "rationale": "He lived more than a thousand years earlier."
-        },
-        {
-          "id": "b",
-          "label": "Tutankhamun",
-          "correct": false,
-          "rationale": "He reigned decades before Seti."
-        },
-        {
-          "id": "c",
-          "label": "Seti I",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Cleopatra VII",
-          "correct": false,
-          "rationale": "She came last of all."
-        }
+      "prompt": "Put these famous pharaohs’ moments in order, from earliest to latest.",
+      "items": [
+        "Khufu’s Great Pyramid is complete",
+        "Tutankhamun reigns",
+        "Seti I reigns",
+        "Ramesses II reigns",
+        "Cleopatra VII rules"
       ],
-      "explanation": "Seti I reigned about 1290 to 1279 BCE, and his son Ramesses II took over in 1279 BCE.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Great Pyramid of Khufu was complete by the early 25th century BCE. Tutankhamun reigned about 1333 to 1323 BCE, then Seti I, then his son Ramesses II, and Cleopatra VII ruled 51 to 30 BCE.",
       "difficulty": 0.2
     },
     {

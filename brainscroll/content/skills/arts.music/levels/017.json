@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 17,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Guitar",
   "objective": "After this level you can explain how a guitar works and how it spread around the world.",
@@ -108,42 +108,26 @@
   "questions": [
     {
       "id": "question.music.017.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.instruments_guitar_spread"
       ],
       "sourceCardIds": [
         "card.music.017.c1",
-        "card.music.017.c4"
+        "card.music.017.c4",
+        "card.music.017.c3"
       ],
-      "prompt": "The ukulele grew from the machete. Who brought the machete to Hawaii in the 1870s?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Portuguese immigrants",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Spanish missionaries",
-          "correct": false,
-          "rationale": "The ukulele's ancestor came with Portuguese immigrants."
-        },
-        {
-          "id": "c",
-          "label": "Sailors from Mexico",
-          "correct": false,
-          "rationale": "Mexico's small guitar is the jarana, a different branch."
-        },
-        {
-          "id": "d",
-          "label": "Traders from South America",
-          "correct": false,
-          "rationale": "South America's small guitar is the charango."
-        }
+      "prompt": "Put these steps in the guitar's story in order, from earliest to latest.",
+      "items": [
+        "The guitar probably emerges in Spain",
+        "A fifth course is added",
+        "A sixth course arrives",
+        "Antonio de Torres"
       ],
-      "explanation": "Portuguese immigrants brought the small four-string machete to Hawaii, where it became the ukulele.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The guitar probably emerged in Spain in the early 1500s, a fifth course was added before 1600, a sixth arrived in the late 1700s, and Antonio de Torres gave it its modern form in the 1800s.",
       "difficulty": 0.15
     },
     {

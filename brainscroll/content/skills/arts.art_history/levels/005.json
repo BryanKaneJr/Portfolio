@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 5,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The First Artists",
   "objective": "After this level you can describe the oldest known cave art and how it was made.",
@@ -95,41 +95,26 @@
   "questions": [
     {
       "id": "question.art_history.005.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.sulawesi_story_scene"
       ],
       "sourceCardIds": [
+        "card.art_history.005.c1",
+        "card.art_history.005.c2",
+        "card.art_history.005.c3",
         "card.art_history.005.c4"
       ],
-      "prompt": "What does the oldest known picture story, at Leang Karampuang, show?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A hand stencil with claw-like fingers",
-          "correct": false,
-          "rationale": "That's Muna's record-breaking stencil, not a scene."
-        },
-        {
-          "id": "b",
-          "label": "Three human-like figures with a wild pig",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Four huge black bulls in a long row",
-          "correct": false,
-          "rationale": "Wrong cave, and much younger."
-        },
-        {
-          "id": "d",
-          "label": "A crosshatch of red ochre lines",
-          "correct": false,
-          "rationale": "That's the Blombos drawing."
-        }
+      "prompt": "Put these finds in order, from oldest to youngest.",
+      "items": [
+        "Blombos Cave",
+        "Muna island",
+        "Leang Karampuang"
       ],
-      "explanation": "Three human-like figures interact with a wild pig, making it a scene: the earliest known narrative art.",
+      "first": "Oldest",
+      "last": "Youngest",
+      "explanation": "First lines, then hands, then scenes: the Blombos Cave crosshatch (about 73,000 years), the Muna island hand (at least 67,800), then the Leang Karampuang story (at least 51,200).",
       "difficulty": 0.2
     },
     {

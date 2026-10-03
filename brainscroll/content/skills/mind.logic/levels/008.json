@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 8,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Explaining Isn't Arguing",
   "objective": "After this level you can tell an explanation of why something happened from an argument that something is true.",
@@ -121,42 +121,33 @@
     },
     {
       "id": "question.logic.008.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.explanation_vs_argument"
       ],
       "sourceCardIds": [
         "card.logic.008.c2",
-        "card.logic.008.c3"
+        "card.logic.008.c3",
+        "card.logic.008.c1",
+        "card.logic.008.c4"
       ],
-      "prompt": "A friend asks why the kettle is hot. You say, \"I just boiled it.\" What have you given?",
-      "options": [
+      "prompt": "Match each sentence with what it gives you.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "An argument that the kettle is hot",
-          "correct": false,
-          "rationale": "Nobody doubted it was hot; you explained why."
+          "left": "The grass is wet because it rained",
+          "right": "An explanation"
         },
         {
-          "id": "b",
-          "label": "An unstated premise",
-          "correct": false,
-          "rationale": "You stated your reason out loud."
+          "left": "It must have rained",
+          "right": "An argument"
         },
         {
-          "id": "c",
-          "label": "An explanation of why it is hot",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "A value judgment",
-          "correct": false,
-          "rationale": "It says nothing about what ought to be."
+          "left": "It was heated, and all metals expand",
+          "right": "An explanation"
         }
       ],
-      "explanation": "Your friend already accepts the kettle is hot, so your answer explains why.",
+      "explanation": "\"The grass is wet because it rained\" and \"It was heated, and all metals expand when heated\" explain. \"It must have rained, because the grass is wet\" argues that it rained.",
       "difficulty": 0.2
     },
     {

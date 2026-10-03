@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 30,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: How Software Works",
   "objective": "After this level you can explain how a program is written, translated, run and shared out by the operating system, and how it goes wrong.",
@@ -179,7 +179,7 @@
     },
     {
       "id": "question.computers.030.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.software_testing_limits"
@@ -187,33 +187,22 @@
       "sourceCardIds": [
         "card.computers.030.c2"
       ],
-      "prompt": "Why couldn't Dijkstra simply test every multiplication his computer could do?",
-      "options": [
+      "prompt": "Match each part of Dijkstra's multiplier sum with its number.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The computer had no multiply instruction",
-          "correct": false,
-          "rationale": "It did; the problem was the number of cases."
+          "left": "Its words",
+          "right": "27 bits long"
         },
         {
-          "id": "b",
-          "label": "Multiplication results can't be checked by the same computer",
-          "correct": false,
-          "rationale": "Each one is easy to check; there were just too many."
+          "left": "Possible multiplications",
+          "right": "2 to the power 54"
         },
         {
-          "id": "c",
-          "label": "Trying all 2 to the power 54 would take about 30,000 years",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The results would overflow the drive",
-          "correct": false,
-          "rationale": "Storage wasn't the obstacle; time was."
+          "left": "Trying each one once",
+          "right": "About 30,000 years"
         }
       ],
-      "explanation": "With 27-bit words there were 2 to the power 54 multiplications; at 2 to the power 14 a second, that's about 30,000 years.",
+      "explanation": "The computer's words were 27 bits long, so there were 2 to the power 54 possible multiplications, and trying each one once would take about 30,000 years.",
       "difficulty": 0.3
     },
     {

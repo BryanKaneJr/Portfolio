@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 98,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Perfect Pitch",
   "objective": "After this level you can explain perfect pitch and how rare it is.",
@@ -135,41 +135,32 @@
     },
     {
       "id": "question.music.098.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.absolute_pitch_tone_language"
       ],
       "sourceCardIds": [
-        "card.music.098.c4"
+        "card.music.098.c4",
+        "card.music.098.c1",
+        "card.music.098.c3"
       ],
-      "prompt": "In the 2006 conservatory study, which students were most likely to have absolute pitch?",
-      "options": [
+      "prompt": "Match each pitch idea with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Mandarin speakers who began training early",
-          "correct": true
+          "left": "Absolute pitch",
+          "right": "Without any reference note"
         },
         {
-          "id": "b",
-          "label": "English speakers who began training late",
-          "correct": false,
-          "rationale": "Later training went with less absolute pitch."
+          "left": "Relative pitch",
+          "right": "The relationships between notes"
         },
         {
-          "id": "c",
-          "label": "Mandarin speakers who never trained",
-          "correct": false,
-          "rationale": "The study compared music students by training age."
-        },
-        {
-          "id": "d",
-          "label": "Everyone equally, whatever their language",
-          "correct": false,
-          "rationale": "Mandarin speakers had far more at every starting age."
+          "left": "Mandarin",
+          "right": "Pitch changes meaning"
         }
       ],
-      "explanation": "Absolute pitch was more common with earlier training, and far more common among Mandarin speakers at every starting age.",
+      "explanation": "Absolute pitch means naming a note without any reference note, relative pitch means hearing the relationships between notes, and in Mandarin, pitch changes meaning.",
       "difficulty": 0.3
     },
     {

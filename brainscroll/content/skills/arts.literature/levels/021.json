@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 21,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Shape of a Plot",
   "objective": "After this level you can identify exposition, rising action, climax, falling action and resolution in a story.",
@@ -130,41 +130,26 @@
     },
     {
       "id": "question.literature.021.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.storycraft_plot_pyramid"
       ],
       "sourceCardIds": [
-        "card.literature.021.c2"
+        "card.literature.021.c2",
+        "card.literature.021.c3"
       ],
-      "prompt": "How does the climax work in the shape of a plot?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It introduces the setting and characters",
-          "correct": false,
-          "rationale": "That is the exposition."
-        },
-        {
-          "id": "b",
-          "label": "It unties the last knots after everything is over",
-          "correct": false,
-          "rationale": "That is the resolution, or denouement."
-        },
-        {
-          "id": "c",
-          "label": "It is the turning point where rising action turns into falling action",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It is a list of the main characters",
-          "correct": false,
-          "rationale": "The climax is a moment of action, not a list."
-        }
+      "prompt": "Put the five parts of a plot in order, from beginning to end.",
+      "items": [
+        "Exposition",
+        "Rising action",
+        "Climax",
+        "Falling action",
+        "Resolution"
       ],
-      "explanation": "The climax is the turning point, the top of the ladder, where the rising action turns into falling action.",
+      "first": "Beginning",
+      "last": "End",
+      "explanation": "Exposition sets things up, rising action builds the tension, the climax is the peak, falling action shows the consequences, and the resolution ends it.",
       "difficulty": 0.25
     },
     {

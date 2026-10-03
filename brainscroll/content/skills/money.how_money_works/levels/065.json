@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 65,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "GDP",
   "objective": "After this level you can explain what GDP measures and what it misses.",
@@ -91,41 +91,32 @@
   "questions": [
     {
       "id": "question.how_money_works.065.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.gdp_definition"
       ],
       "sourceCardIds": [
-        "card.how_money_works.065.c2"
+        "card.how_money_works.065.c2",
+        "card.how_money_works.065.c3",
+        "card.how_money_works.065.c4"
       ],
-      "prompt": "What does GDP measure?",
-      "options": [
+      "prompt": "Match each GDP idea or name with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The total amount of money held in a country's banks",
-          "correct": false,
-          "rationale": "That's about money, not production."
+          "left": "Flour sold to a baker",
+          "right": "An input"
         },
         {
-          "id": "b",
-          "label": "The average price of a basket of household goods",
-          "correct": false,
-          "rationale": "That's the CPI from Level 62."
+          "left": "Real GDP",
+          "right": "Adjusts for price changes"
         },
         {
-          "id": "c",
-          "label": "The total value of everything a country buys from abroad",
-          "correct": false,
-          "rationale": "GDP counts what a country produces."
-        },
-        {
-          "id": "d",
-          "label": "The market value of a country's final goods and services",
-          "correct": true
+          "left": "Simon Kuznets",
+          "right": "The first US national accounts"
         }
       ],
-      "explanation": "GDP is the market value of the final goods and services produced in a country in a period.",
+      "explanation": "Flour sold to a baker is an input, so only the bread counts in GDP. Real GDP adjusts for price changes. Simon Kuznets presented the first US national accounts in 1934.",
       "difficulty": 0.15
     },
     {

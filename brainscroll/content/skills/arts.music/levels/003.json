@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 3,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Pitch",
   "objective": "After this level you can explain how the speed of a vibration sets how high or low a note sounds.",
@@ -135,41 +135,31 @@
     },
     {
       "id": "question.music.003.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.pitch_frequency"
       ],
       "sourceCardIds": [
-        "card.music.003.c2"
+        "card.music.003.c2",
+        "card.music.003.c3"
       ],
-      "prompt": "A guitar string starts vibrating more times per second. What happens to its note?",
-      "options": [
+      "prompt": "Match each tuning standard with where it put the A.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It sounds higher",
-          "correct": true
+          "left": "France's official pitch",
+          "right": "435 Hz"
         },
         {
-          "id": "b",
-          "label": "It sounds lower",
-          "correct": false,
-          "rationale": "Slower vibrations sound lower; faster ones higher."
+          "left": "Old Philharmonic Pitch",
+          "right": "Above 450"
         },
         {
-          "id": "c",
-          "label": "It stays the same pitch",
-          "correct": false,
-          "rationale": "Pitch is how we hear frequency, so it changes."
-        },
-        {
-          "id": "d",
-          "label": "It reaches your ear sooner",
-          "correct": false,
-          "rationale": "Sound's speed through air doesn't depend on the note."
+          "left": "An international conference",
+          "right": "440 Hz"
         }
       ],
-      "explanation": "Pitch is how we hear frequency: more vibrations per second means a higher note.",
+      "explanation": "France's official pitch put the A at 435 Hz, Britain's Old Philharmonic Pitch pushed it above 450, and in 1939 an international conference settled on 440 Hz.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 7,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Why the Ocean Is Blue",
   "objective": "After this level you can explain why seawater looks blue.",
@@ -170,7 +170,7 @@
     },
     {
       "id": "question.oceans.007.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.ocean_green_water",
@@ -178,35 +178,25 @@
       ],
       "sourceCardIds": [
         "card.oceans.007.c4",
-        "card.oceans.001.c3"
+        "card.oceans.001.c3",
+        "card.oceans.007.c3"
       ],
-      "prompt": "From Level 1: plankton make about half of Earth's oxygen. What can plentiful phytoplankton do to the color of the sea?",
-      "options": [
+      "prompt": "Match each cause with the color it gives the sea.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Turn it bright red",
-          "correct": false,
-          "rationale": "Their chlorophyll tints water green."
+          "left": "Water absorbing red light",
+          "right": "Blue"
         },
         {
-          "id": "b",
-          "label": "Tint it green with their chlorophyll",
-          "correct": true
+          "left": "An overcast day",
+          "right": "Gray"
         },
         {
-          "id": "c",
-          "label": "Make it perfectly clear",
-          "correct": false,
-          "rationale": "They absorb some colors, tinting it green."
-        },
-        {
-          "id": "d",
-          "label": "Nothing: plankton are too few to matter",
-          "correct": false,
-          "rationale": "Where they're plentiful, the sea turns green."
+          "left": "Chlorophyll",
+          "right": "Green"
         }
       ],
-      "explanation": "Phytoplankton contain chlorophyll, which absorbs some colors, so where they thrive the water looks green.",
+      "explanation": "Water absorbing red light makes the sea blue. On an overcast day the sea reflects the sky and looks gray. Chlorophyll in phytoplankton tints it green.",
       "difficulty": 0.2
     }
   ],

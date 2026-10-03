@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 44,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Mud and Adobe",
   "objective": "After this level you can explain why thick earth walls suit hot places.",
@@ -134,41 +134,35 @@
     },
     {
       "id": "question.architecture.044.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.home_thermal_mass"
       ],
       "sourceCardIds": [
-        "card.architecture.044.c3"
+        "card.architecture.044.c3",
+        "card.architecture.044.c2"
       ],
-      "prompt": "Why does a room behind a thick earth wall stay cooler at midday?",
-      "options": [
+      "prompt": "Match each adobe word with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Earth reflects all the sunlight away",
-          "correct": false,
-          "rationale": "The wall absorbs heat; it just stores it slowly."
+          "left": "Adobe",
+          "right": "Earth mixed with water and straw"
         },
         {
-          "id": "b",
-          "label": "The wall stores heat slowly, so the room peaks hours later",
-          "correct": true
+          "left": "Vigas",
+          "right": "Big timbers"
         },
         {
-          "id": "c",
-          "label": "Straw in the wall blows cool air inside",
-          "correct": false,
-          "rationale": "Straw only helps the bricks dry evenly."
+          "left": "Thermal mass",
+          "right": "Store a lot of heat"
         },
         {
-          "id": "d",
-          "label": "Earth walls stop heat from ever getting in",
-          "correct": false,
-          "rationale": "The heat does get in, a few hours later."
+          "left": "Straw",
+          "right": "Shrink evenly"
         }
       ],
-      "explanation": "High thermal mass lets heavy walls store heat, so the inside temperature peaks a few hours after the outdoor peak.",
+      "explanation": "Adobe is earth mixed with water and straw. Vigas are big timbers holding up each story's roof. Walls with high thermal mass can store a lot of heat, and straw helps the bricks shrink evenly.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 4,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "The Equator and the Tropics",
   "objective": "After this level you can explain what the Equator, the tropics and the polar circles mark and why they sit where they do.",
@@ -93,41 +93,27 @@
   "questions": [
     {
       "id": "question.world_geography.004.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.equator"
       ],
       "sourceCardIds": [
-        "card.world_geography.004.c2"
+        "card.world_geography.004.c2",
+        "card.world_geography.004.c3",
+        "card.world_geography.004.c4"
       ],
-      "prompt": "What does the Equator divide Earth into?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Eastern and Western Hemispheres",
-          "correct": false,
-          "rationale": "That's the prime meridian's job."
-        },
-        {
-          "id": "b",
-          "label": "The Northern and Southern Hemispheres",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The tropics and the polar circles",
-          "correct": false,
-          "rationale": "Those are zones on each side of it."
-        },
-        {
-          "id": "d",
-          "label": "Day and night halves",
-          "correct": false,
-          "rationale": "Day and night are set by the Sun, not a fixed line."
-        }
+      "prompt": "Put these lines in order, from farthest north to farthest south.",
+      "items": [
+        "Arctic Circle",
+        "Tropic of Cancer",
+        "Equator",
+        "Tropic of Capricorn",
+        "Antarctic Circle"
       ],
-      "explanation": "The Equator, at 0° latitude, runs halfway between the poles and splits the Northern and Southern Hemispheres.",
+      "first": "Farthest north",
+      "last": "Farthest south",
+      "explanation": "From north to south: the Arctic Circle (66.5° N), the Tropic of Cancer (23.5° N), the Equator (0°), the Tropic of Capricorn (23.5° S) and the Antarctic Circle (66.5° S).",
       "difficulty": 0.1
     },
     {

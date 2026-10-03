@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 5,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Melody",
   "objective": "After this level you can explain what a melody is and what makes one memorable.",
@@ -92,7 +92,7 @@
   "questions": [
     {
       "id": "question.music.005.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.melody_contour"
@@ -100,33 +100,22 @@
       "sourceCardIds": [
         "card.music.005.c2"
       ],
-      "prompt": "What is a melody's contour?",
-      "options": [
+      "prompt": "Match each word with what it means for a melody.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The shape it traces as it rises and falls",
-          "correct": true
+          "left": "Contour",
+          "right": "The shape it traces"
         },
         {
-          "id": "b",
-          "label": "How loud it gets from start to end",
-          "correct": false,
-          "rationale": "Contour is about up and down, not loudness."
+          "left": "Steps",
+          "right": "To a neighboring note"
         },
         {
-          "id": "c",
-          "label": "How many instruments play it",
-          "correct": false,
-          "rationale": "One voice can have a contour."
-        },
-        {
-          "id": "d",
-          "label": "How fast its beat goes, in BPM",
-          "correct": false,
-          "rationale": "That's tempo."
+          "left": "Leaps",
+          "right": "Jumping over several at once"
         }
       ],
-      "explanation": "Contour is the melody's overall shape: rising, falling or arching, by steps and leaps.",
+      "explanation": "A melody's contour is the shape it traces. Steps move to a neighboring note, and leaps jump over several at once.",
       "difficulty": 0.1
     },
     {

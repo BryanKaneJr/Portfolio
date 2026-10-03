@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 82,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Who Benefits?",
   "objective": "After this level you can weigh a conflict of interest without dismissing a claim just because of who made it.",
@@ -91,7 +91,7 @@
   "questions": [
     {
       "id": "question.logic.082.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.sourcing_conflict_of_interest"
@@ -99,33 +99,22 @@
       "sourceCardIds": [
         "card.logic.082.c2"
       ],
-      "prompt": "In the ICMJE's definition, what can a secondary interest such as financial gain do?",
-      "options": [
+      "prompt": "Match each part of the ICMJE's idea with its example or meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Prove that the research is false",
-          "correct": false,
-          "rationale": "A conflict is a risk, not proof."
+          "left": "A primary interest",
+          "right": "The validity of research"
         },
         {
-          "id": "b",
-          "label": "Influence judgment about a primary interest",
-          "correct": true
+          "left": "A secondary interest",
+          "right": "Financial gain"
         },
         {
-          "id": "c",
-          "label": "Replace the need for any evidence",
-          "correct": false,
-          "rationale": "Evidence still decides the question."
-        },
-        {
-          "id": "d",
-          "label": "Make disclosure unnecessary",
-          "correct": false,
-          "rationale": "The ICMJE asks for disclosure precisely because of it."
+          "left": "A conflict",
+          "right": "A risk, not a verdict"
         }
       ],
-      "explanation": "A conflict exists when judgment about a primary interest, like valid research, may be influenced by a secondary one, like money.",
+      "explanation": "A primary interest is something like the validity of research; a secondary interest is something like financial gain. A conflict is a risk, not a verdict.",
       "difficulty": 0.3
     },
     {

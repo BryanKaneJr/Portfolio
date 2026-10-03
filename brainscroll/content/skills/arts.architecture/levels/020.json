@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 20,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Ancient Wonders",
   "objective": "After this level you can compare the great buildings of Egypt, Greece and Rome.",
@@ -233,7 +233,7 @@
     },
     {
       "id": "question.architecture.020.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.architecture.wonders_trabeated_arcuated",
@@ -243,33 +243,26 @@
         "card.architecture.020.c3",
         "card.architecture.014.c2"
       ],
-      "prompt": "Ancient Wonders recap: Karnak and the Parthenon are both trabeated. Where does each put its columns?",
-      "options": [
+      "prompt": "Ancient Wonders recap: match each building with how it holds up its stone.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Both put all their columns outside",
-          "correct": false,
-          "rationale": "Karnak's fill its hall inside."
+          "left": "Karnak",
+          "right": "134 columns under stone lintels"
         },
         {
-          "id": "b",
-          "label": "Karnak's fill the inside; the Parthenon's ring the outside",
-          "correct": true
+          "left": "The Parthenon",
+          "right": "Columns and lintels, outside"
         },
         {
-          "id": "c",
-          "label": "Karnak's ring the outside; the Parthenon's fill the inside",
-          "correct": false,
-          "rationale": "It's the other way around."
+          "left": "The Great Pyramid",
+          "right": "Slabs and a pointed roof"
         },
         {
-          "id": "d",
-          "label": "Neither uses columns: both use arches",
-          "correct": false,
-          "rationale": "Both use columns and stone lintels."
+          "left": "The Pantheon",
+          "right": "A cracked dome standing as arches"
         }
       ],
-      "explanation": "Egyptian temple interiors and Greek temple exteriors are both lined with columns carrying stone lintels.",
+      "explanation": "Karnak has 134 columns under stone lintels, inside. The Parthenon has columns and lintels, outside. The Great Pyramid has slabs and a pointed roof over a flat ceiling. The Pantheon is a cracked dome standing as arches.",
       "difficulty": 0.3
     },
     {

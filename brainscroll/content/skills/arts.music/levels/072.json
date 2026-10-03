@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 72,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Radio Hits",
   "objective": "After this level you can explain how radio created national hits.",
@@ -125,41 +125,28 @@
     },
     {
       "id": "question.music.072.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.radio_national_audience"
       ],
       "sourceCardIds": [
-        "card.music.072.c3"
+        "card.music.072.c3",
+        "card.music.072.c1",
+        "card.music.072.c2",
+        "card.music.072.c4"
       ],
-      "prompt": "How did a network like NBC, launched in 1926, help create national hits?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It sent one program to stations in many cities at the same time",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "It sold records door to door in every state",
-          "correct": false,
-          "rationale": "NBC broadcast programs; it didn't sell records door to door."
-        },
-        {
-          "id": "c",
-          "label": "It let listeners vote for songs by telephone",
-          "correct": false,
-          "rationale": "Its power was reach, not voting."
-        },
-        {
-          "id": "d",
-          "label": "It replaced local stations with one giant transmitter",
-          "correct": false,
-          "rationale": "It linked many stations: 25 carried its first broadcast."
-        }
+      "prompt": "Put these moments in radio's story in order, from earliest to latest.",
+      "items": [
+        "KDKA in Pittsburgh",
+        "NBC",
+        "The 1930 census",
+        "The payola scandal",
+        "Congress amended"
       ],
-      "explanation": "Linking 25 stations in 21 cities meant one performance reached listeners across the country on the same night.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "KDKA in Pittsburgh went on the air in 1920, NBC's network launched in 1926, the 1930 census counted radios, the payola scandal broke in the late 1950s, and Congress amended the Communications Act in 1960.",
       "difficulty": 0.25
     },
     {

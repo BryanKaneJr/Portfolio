@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 41,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Molecules",
   "objective": "After this level you can explain what a molecule is.",
@@ -134,41 +134,25 @@
     },
     {
       "id": "question.chemistry.041.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.molecule_definition"
       ],
       "sourceCardIds": [
-        "card.chemistry.041.c3"
+        "card.chemistry.041.c3",
+        "card.chemistry.041.c1",
+        "card.chemistry.041.c4"
       ],
-      "prompt": "What would you get if you broke a single water molecule apart?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Two smaller molecules of water",
-          "correct": false,
-          "rationale": "The molecule is the smallest piece that is still water."
-        },
-        {
-          "id": "b",
-          "label": "A drop of salt water",
-          "correct": false,
-          "rationale": "No salt is involved; water is only hydrogen and oxygen."
-        },
-        {
-          "id": "c",
-          "label": "Hydrogen and oxygen, which are no longer water",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Steam, because the water has boiled",
-          "correct": false,
-          "rationale": "Steam is still whole water molecules."
-        }
+      "prompt": "Put these pieces of water in order of size, from smallest to largest.",
+      "items": [
+        "Hydrogen atom",
+        "Water molecule",
+        "A drop of water"
       ],
-      "explanation": "The molecule is the last stop. Split it and you get hydrogen and oxygen, gases with very different properties from water.",
+      "first": "Smallest",
+      "last": "Largest",
+      "explanation": "A water molecule is built from two hydrogen atoms and one oxygen atom, and a drop of water holds a vast crowd of water molecules.",
       "difficulty": 0.25
     },
     {

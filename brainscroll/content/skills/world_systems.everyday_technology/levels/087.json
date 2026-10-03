@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 87,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Assembly Line",
   "objective": "After this level you can explain how Ford's assembly line made cars cheap.",
@@ -86,41 +86,36 @@
   "questions": [
     {
       "id": "question.everyday_technology.087.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.build_moving_assembly_line"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.087.c1"
+        "card.everyday_technology.087.c1",
+        "card.everyday_technology.087.c2",
+        "card.everyday_technology.087.c4"
       ],
-      "prompt": "On Ford's 1913 moving assembly line at Highland Park, what moved?",
-      "options": [
+      "prompt": "Match each part of Ford's assembly line story with its partner.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The workers, walking from car to car",
-          "correct": false,
-          "rationale": "That was the old way."
+          "left": "Slaughterhouses",
+          "right": "Disassembly line"
         },
         {
-          "id": "b",
-          "label": "Only finished cars, out to the showroom",
-          "correct": false,
-          "rationale": "The cars moved while being built."
+          "left": "Interchangeable parts",
+          "right": "Fit any car"
         },
         {
-          "id": "c",
-          "label": "The car, pulled past workers at their stations",
-          "correct": true
+          "left": "$5",
+          "right": "An eight-hour day"
         },
         {
-          "id": "d",
-          "label": "Robots carrying parts to each worker",
-          "correct": false,
-          "rationale": "There were no factory robots in 1913."
+          "left": "$2.34",
+          "right": "A nine-hour day"
         }
       ],
-      "explanation": "The car was pulled along, first by rope and then by chain, past workers who each built their part.",
+      "explanation": "Slaughterhouses used a disassembly line and interchangeable parts fit any car. Ford's 1914 offer was $5 for an eight-hour day, up from $2.34 for a nine-hour day.",
       "difficulty": 0.15
     },
     {

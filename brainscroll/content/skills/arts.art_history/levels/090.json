@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 90,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Modern and Contemporary",
   "objective": "After this level you can explain the main movements in art since 1945.",
@@ -198,7 +198,7 @@
     },
     {
       "id": "question.art_history.090.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.art_history.abex_action_painting",
@@ -209,33 +209,18 @@
       "sourceCardIds": [
         "card.art_history.090.c2"
       ],
-      "prompt": "Modern recap: which of these came first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Warhol's Soup Cans",
-          "correct": false,
-          "rationale": "1962."
-        },
-        {
-          "id": "b",
-          "label": "Pollock's Autumn Rhythm",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "LeWitt's essay on conceptual art",
-          "correct": false,
-          "rationale": "1967."
-        },
-        {
-          "id": "d",
-          "label": "Smithson's Spiral Jetty",
-          "correct": false,
-          "rationale": "1970."
-        }
+      "prompt": "Put Chapter 9's modern and contemporary moments in order, from earliest to latest.",
+      "items": [
+        "Pollock pours Autumn Rhythm on the floor",
+        "Hamilton's bodybuilder",
+        "Warhol's 32 Soup Cans line a shelf",
+        "Andre lays out 120 firebricks",
+        "LeWitt: the idea makes the art",
+        "Spiral Jetty coils into Great Salt Lake"
       ],
-      "explanation": "Pollock painted Autumn Rhythm in 1950, years before the others.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Pollock's Autumn Rhythm (1950), Hamilton's bodybuilder (1956), Warhol's Soup Cans (1962), Andre's firebricks (1966), LeWitt's idea (1967), then Spiral Jetty (1970).",
       "difficulty": 0.25
     },
     {

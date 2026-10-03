@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 88,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Persecution and the Right to Believe",
   "objective": "After this level you can explain how religious persecution, above all the Holocaust, led the world to declare freedom of religion a human right in 1948.",
@@ -132,7 +132,7 @@
     },
     {
       "id": "question.religions.088.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.persecution_history",
@@ -140,35 +140,20 @@
       ],
       "sourceCardIds": [
         "card.religions.088.c3",
-        "card.religions.088.c4"
+        "card.religions.088.c4",
+        "card.religions.088.c2"
       ],
-      "prompt": "Why did the UN adopt a declaration of human rights in 1948?",
-      "options": [
-        {
-          "id": "a",
-          "label": "To end the Roman Empire's persecutions",
-          "correct": false,
-          "rationale": "Those ended in the 300s."
-        },
-        {
-          "id": "b",
-          "label": "To vow never again after the Second World War's atrocities",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "To create a single world religion",
-          "correct": false,
-          "rationale": "It protects the freedom to choose any religion or none."
-        },
-        {
-          "id": "d",
-          "label": "To replace every country's laws",
-          "correct": false,
-          "rationale": "It set a common standard, not a world legal code."
-        }
+      "prompt": "Put these moments in the history of persecution and religious freedom in order, from earliest to latest.",
+      "items": [
+        "Diocletian",
+        "The Edict of Milan",
+        "Ferdinand and Isabella",
+        "The Holocaust",
+        "Universal Declaration of Human Rights"
       ],
-      "explanation": "After the Second World War, the nations of the UN vowed never again to allow such atrocities.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Persecution under Diocletian began in 303, the Edict of Milan came in 313, Ferdinand and Isabella expelled Spain's Jews in 1492, the Holocaust ran from 1933 to 1945, and the Universal Declaration of Human Rights was adopted in 1948.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 6,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Stone, Brick and Wood",
   "objective": "After this level you can compare the oldest building materials.",
@@ -159,41 +159,31 @@
     },
     {
       "id": "question.architecture.006.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.stand_material_tradeoffs"
       ],
       "sourceCardIds": [
-        "card.architecture.006.c1"
+        "card.architecture.006.c1",
+        "card.architecture.006.c2"
       ],
-      "prompt": "Why did London rebuild in brick after the Great Fire of 1666?",
-      "options": [
+      "prompt": "Match each old material with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "For protection from fire",
-          "correct": true
+          "left": "Stone",
+          "right": "Resists fire"
         },
         {
-          "id": "b",
-          "label": "Brick was lighter than wood",
-          "correct": false,
-          "rationale": "The reason was fire, not weight."
+          "left": "Brick",
+          "right": "Fired in a kiln"
         },
         {
-          "id": "c",
-          "label": "The king banned stone",
-          "correct": false,
-          "rationale": "The change was from wood to brick, for fire safety."
-        },
-        {
-          "id": "d",
-          "label": "Wood had run out across Europe",
-          "correct": false,
-          "rationale": "The reason given is protection from fire."
+          "left": "Wood",
+          "right": "Burns"
         }
       ],
-      "explanation": "After the Great Fire, London changed from a city of wood into one of brick to gain protection from fire.",
+      "explanation": "Stone resists fire. Brick can be fired in a kiln to make it strong and hard. Wood is strong for its weight, but it burns.",
       "difficulty": 0.15
     },
     {

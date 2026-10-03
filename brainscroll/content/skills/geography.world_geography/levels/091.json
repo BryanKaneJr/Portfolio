@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 91,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Eight Billion People",
   "objective": "After this level you can explain how the world population grew and where people live today.",
@@ -97,41 +97,25 @@
   "questions": [
     {
       "id": "question.world_geography.091.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.world_population_growth"
       ],
       "sourceCardIds": [
-        "card.world_geography.091.c2"
+        "card.world_geography.091.c2",
+        "card.world_geography.091.c1",
+        "card.world_geography.091.c3"
       ],
-      "prompt": "About how many people lived on Earth around 1800?",
-      "options": [
-        {
-          "id": "a",
-          "label": "About 100 million",
-          "correct": false,
-          "rationale": "Too few: the total was already about ten times that."
-        },
-        {
-          "id": "b",
-          "label": "About 1 billion",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "About 4 billion",
-          "correct": false,
-          "rationale": "That came much later, in the 20th century."
-        },
-        {
-          "id": "d",
-          "label": "About 8 billion",
-          "correct": false,
-          "rationale": "That's the 2022 milestone."
-        }
+      "prompt": "Put these population milestones in order, from earliest to latest.",
+      "items": [
+        "About 1 billion people",
+        "Passing 8 billion",
+        "Peak at about 10.3 billion"
       ],
-      "explanation": "Around 1800 the world population was about 1 billion. It passed 8 billion in 2022.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The world held about 1 billion people around 1800, passed 8 billion in 2022, and should peak at about 10.3 billion in the mid-2080s.",
       "difficulty": 0.2
     },
     {

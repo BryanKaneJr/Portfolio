@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 6,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Scripture and Oral Tradition",
   "objective": "After this level you can explain what makes a text sacred to a community and how some traditions passed scripture down by memory for centuries.",
@@ -125,41 +125,32 @@
     },
     {
       "id": "question.religions.006.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.scripture_canon"
       ],
       "sourceCardIds": [
-        "card.religions.006.c2"
+        "card.religions.006.c2",
+        "card.religions.006.c3",
+        "card.religions.006.c4"
       ],
-      "prompt": "What turns a collection of sacred texts into a canon?",
-      "options": [
+      "prompt": "Match each word about scripture with its meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Being the oldest writings in a language",
-          "correct": false,
-          "rationale": "Age alone doesn't do it."
+          "left": "Shruti",
+          "right": "What is heard"
         },
         {
-          "id": "b",
-          "label": "Being translated into many languages",
-          "correct": false,
-          "rationale": "Translation doesn't decide it."
+          "left": "Quran",
+          "right": "Recitation"
         },
         {
-          "id": "c",
-          "label": "A government printing office approving the text",
-          "correct": false,
-          "rationale": "It's the community or its religious bodies."
-        },
-        {
-          "id": "d",
-          "label": "A community or its religious bodies fixing which works count",
-          "correct": true
+          "left": "Canon",
+          "right": "A fixed collection"
         }
       ],
-      "explanation": "Canons are fixed by general agreement or by official religious bodies.",
+      "explanation": "Shruti means \"what is heard\", the Quran's name means \"recitation\", and a canon is a fixed collection held fully authoritative.",
       "difficulty": 0.3
     },
     {

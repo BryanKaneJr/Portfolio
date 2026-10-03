@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 41,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Asking for a Page",
   "objective": "After this level you can explain the request and response behind every web page, and why the web was built to forget you between requests.",
@@ -82,7 +82,7 @@
   "questions": [
     {
       "id": "question.computers.041.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.web_request_response"
@@ -90,33 +90,22 @@
       "sourceCardIds": [
         "card.computers.041.c2"
       ],
-      "prompt": "In HTTP, what does a response with status code 404 tell your browser?",
-      "options": [
+      "prompt": "Match each HTTP word or code with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The page was found and sent successfully",
-          "correct": false,
-          "rationale": "That's 200, which means the request succeeded."
+          "left": "GET",
+          "right": "Send me this"
         },
         {
-          "id": "b",
-          "label": "The server could not find what was asked for",
-          "correct": true
+          "left": "200",
+          "right": "It worked"
         },
         {
-          "id": "c",
-          "label": "The server wants you to sign in first",
-          "correct": false,
-          "rationale": "404 is about a missing resource, not signing in."
-        },
-        {
-          "id": "d",
-          "label": "The request is still on its way to the server",
-          "correct": false,
-          "rationale": "A status code arrives in the server's response."
+          "left": "404",
+          "right": "Couldn't find what you asked for"
         }
       ],
-      "explanation": "404 (Not Found) means the server cannot find the requested resource; 200 (OK) means success.",
+      "explanation": "GET means send me this, status code 200 means it worked, and 404 means the server couldn't find what you asked for.",
       "difficulty": 0.15
     },
     {

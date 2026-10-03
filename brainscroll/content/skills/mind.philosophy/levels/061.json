@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 61,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Is Everything Already Caused?",
   "objective": "After this level you can explain determinism, using Laplace's all-knowing intellect, and why it seems to threaten free will.",
@@ -132,42 +132,32 @@
     },
     {
       "id": "question.philosophy.061.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.freedom_determinism"
       ],
       "sourceCardIds": [
         "card.philosophy.061.c4",
-        "card.philosophy.061.c2"
+        "card.philosophy.061.c2",
+        "card.philosophy.061.c5"
       ],
-      "prompt": "How does determinism seem to threaten free will?",
-      "options": [
+      "prompt": "Match each view with its key claim.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It says the gods decide your fate whatever you do",
-          "correct": false,
-          "rationale": "That’s fatalism, not determinism."
+          "left": "Determinism",
+          "right": "Fixed by the laws of nature"
         },
         {
-          "id": "b",
-          "label": "It says your choices happen at random",
-          "correct": false,
-          "rationale": "Determinism makes them fixed, not random."
+          "left": "Fatalism",
+          "right": "Gods or destiny"
         },
         {
-          "id": "c",
-          "label": "It fixes your choices through a past and laws you can’t change",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It denies that people have desires at all",
-          "correct": false,
-          "rationale": "Desires are part of the causal chain."
+          "left": "Compatibilists",
+          "right": "Freedom was never threatened"
         }
       ],
-      "explanation": "If the past and the laws of nature fix what you do, and you can change neither, it is hard to see how you could have chosen otherwise.",
+      "explanation": "Determinism says the future is fixed by the laws of nature, fatalism says things happen whatever you do thanks to gods or destiny, and compatibilists argue freedom was never threatened.",
       "difficulty": 0.35
     },
     {

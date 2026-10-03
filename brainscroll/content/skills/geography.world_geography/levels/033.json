@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 33,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Wind and Pressure",
   "objective": "After this level you can explain how differences in air pressure make wind, including the trade winds.",
@@ -137,7 +137,7 @@
     },
     {
       "id": "question.world_geography.033.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.pressure_wind",
@@ -145,35 +145,19 @@
       ],
       "sourceCardIds": [
         "card.world_geography.033.c3",
-        "card.world_geography.032.c2"
+        "card.world_geography.032.c2",
+        "card.world_geography.033.c4"
       ],
-      "prompt": "Why is air pressure often low near the Equator?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Strong heating makes the air rise",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The trade winds blow the air away",
-          "correct": false,
-          "rationale": "The trade winds actually blow in toward the Equator."
-        },
-        {
-          "id": "c",
-          "label": "The Equator is too far from the Sun",
-          "correct": false,
-          "rationale": "It's the most directly heated place on Earth."
-        },
-        {
-          "id": "d",
-          "label": "Cold air sinks there",
-          "correct": false,
-          "rationale": "Sinking cool air makes high pressure, not low."
-        }
+      "prompt": "Put this chain in order, from the Sun's heat to the trade winds.",
+      "items": [
+        "Strong heating",
+        "Low pressure",
+        "Air from both sides flows in",
+        "The trade winds"
       ],
-      "explanation": "Direct sunlight heats the air near the Equator. Warm air rises and leaves low pressure below it.",
+      "first": "Cause",
+      "last": "Effect",
+      "explanation": "Strong heating near the Equator lifts warm air, leaving low pressure. Air from both sides flows in, and Earth's spin bends it into the trade winds.",
       "difficulty": 0.25
     },
     {

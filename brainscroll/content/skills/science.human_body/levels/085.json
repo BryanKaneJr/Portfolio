@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 85,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why We Age",
   "objective": "After this level you can explain what happens to cells as we get older.",
@@ -93,38 +93,29 @@
   "questions": [
     {
       "id": "question.human_body.085.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.aging_division_limit"
       ],
       "sourceCardIds": [
-        "card.human_body.085.c2"
+        "card.human_body.085.c2",
+        "card.human_body.085.c3",
+        "card.human_body.085.c4"
       ],
-      "prompt": "About how many times did Hayflick find that normal human cells in a dish divide before stopping?",
-      "options": [
+      "prompt": "Match each term from the biology of aging with its meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "About 5 to 10",
-          "correct": false,
-          "rationale": "Far too few."
+          "left": "Hayflick limit",
+          "right": "About 40 to 60 times"
         },
         {
-          "id": "b",
-          "label": "About 40 to 60",
-          "correct": true
+          "left": "Telomere",
+          "right": "A stretch of repeated DNA letters"
         },
         {
-          "id": "c",
-          "label": "About 400 to 600",
-          "correct": false,
-          "rationale": "Ten times too many."
-        },
-        {
-          "id": "d",
-          "label": "Without limit",
-          "correct": false,
-          "rationale": "That was Carrel's claim, which Hayflick overturned."
+          "left": "Senescent",
+          "right": "Stops dividing but doesn't die"
         }
       ],
       "explanation": "Hayflick and Moorhead found normal human cells divide about 40 to 60 times, then stop.",

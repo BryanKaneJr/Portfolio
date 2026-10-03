@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 30,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Castles and Knights",
   "objective": "After this level you can explain how land, castles and knights held medieval society together.",
@@ -154,7 +154,7 @@
   "questions": [
     {
       "id": "question.middle_ages.030.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.heraldry_origins",
@@ -165,33 +165,17 @@
         "card.middle_ages.029.c1",
         "card.middle_ages.027.c3"
       ],
-      "prompt": "Castles and knights: which order of events is right?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Geoffrey’s lion shield, the siege of Rochester, the plate revolution",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The siege of Rochester, Geoffrey’s lion shield, the plate revolution",
-          "correct": false,
-          "rationale": "Geoffrey’s shield came first, in 1128."
-        },
-        {
-          "id": "c",
-          "label": "The plate revolution, Geoffrey’s lion shield, the siege of Rochester",
-          "correct": false,
-          "rationale": "The plate revolution came last, from 1325."
-        },
-        {
-          "id": "d",
-          "label": "Geoffrey’s lion shield, the plate revolution, the siege of Rochester",
-          "correct": false,
-          "rationale": "Rochester (1215) came before 1325."
-        }
+      "prompt": "Put these castle and knight milestones in order, from earliest to latest.",
+      "items": [
+        "Castles begin to spread",
+        "Henry I gives Geoffrey of Anjou",
+        "Heralds appear at tournaments",
+        "King John’s miners",
+        "A revolution from mail to plate armour"
       ],
-      "explanation": "1128, then 1215, then 1325 to 1340.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Castles began to spread in the 9th century. Henry I gave Geoffrey of Anjou his lion shield in 1128, heralds appear at tournaments about 1170, King John’s miners struck Rochester in 1215, and the revolution from mail to plate came in 1325 to 1340.",
       "difficulty": 0.3
     },
     {

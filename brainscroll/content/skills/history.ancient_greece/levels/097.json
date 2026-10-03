@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 97,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How Greek Books Survived",
   "objective": "After this level you can explain how Arabic and Byzantine scholars saved Greek texts.",
@@ -95,41 +95,28 @@
   "questions": [
     {
       "id": "question.ancient_greece.097.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_greece.legacy_texts_survival"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.097.c2"
+        "card.ancient_greece.097.c2",
+        "card.ancient_greece.097.c3",
+        "card.ancient_greece.097.c4",
+        "card.ancient_greece.097.c5"
       ],
-      "prompt": "What is the Venetus A, now kept in Venice?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A Linear B tablet from Pylos",
-          "correct": false,
-          "rationale": "It’s a Byzantine manuscript."
-        },
-        {
-          "id": "b",
-          "label": "The oldest complete text of the Iliad",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Homer’s own handwritten copy",
-          "correct": false,
-          "rationale": "It was made in the 10th century CE."
-        },
-        {
-          "id": "d",
-          "label": "An Arabic translation of Galen",
-          "correct": false,
-          "rationale": "It’s a Greek text of the Iliad."
-        }
+      "prompt": "Put these moments in the survival of Greek books in order, from earliest to latest.",
+      "items": [
+        "Hunayn ibn Ishaq",
+        "Venetus A",
+        "Written over with prayers",
+        "Constantinople fell",
+        "A scholar spotted the faint math"
       ],
-      "explanation": "The Venetus A, from the end of the 10th century CE, is the oldest complete text of the Iliad.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Hunayn ibn Ishaq translated in the 9th century, the Venetus A was made late in the 10th, the Archimedes copy was written over with prayers in the 13th, Constantinople fell in 1453, and a scholar spotted the faint math in 1906.",
       "difficulty": 0.25
     },
     {

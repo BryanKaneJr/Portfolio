@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 21,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Water Cycle",
   "objective": "After this level you can describe how water moves between the ocean, the sky and the land.",
@@ -91,7 +91,7 @@
   "questions": [
     {
       "id": "question.world_geography.021.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.water_cycle"
@@ -99,33 +99,15 @@
       "sourceCardIds": [
         "card.world_geography.021.c2"
       ],
-      "prompt": "What two things drive the water cycle?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Wind and the Moon",
-          "correct": false,
-          "rationale": "Wind moves clouds, but the Sun and gravity run the loop."
-        },
-        {
-          "id": "b",
-          "label": "Energy from the Sun and gravity",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Ocean currents and tides",
-          "correct": false,
-          "rationale": "Those move water within the sea, not up into the sky."
-        },
-        {
-          "id": "d",
-          "label": "Earth's magnetic field and heat",
-          "correct": false,
-          "rationale": "Magnetism plays no part in the water cycle."
-        }
+      "prompt": "Water starts in the sea. Put its trip in order, from first to last.",
+      "items": [
+        "Evaporates",
+        "Condenses into clouds",
+        "Falls as rain or snow"
       ],
-      "explanation": "The Sun evaporates water and lifts it into the sky; gravity pulls it back down as rain or snow and downhill to the sea.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The Sun's energy makes water evaporate. Up high the vapor condenses into clouds, then gravity brings it down as rain or snow.",
       "difficulty": 0.15
     },
     {

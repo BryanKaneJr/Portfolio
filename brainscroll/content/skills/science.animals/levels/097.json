@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 97,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Zoos and Wildlife Parks",
   "objective": "After this level you can explain what modern zoos try to do.",
@@ -109,41 +109,24 @@
   "questions": [
     {
       "id": "question.animals.097.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.animals.zoo_conservation_role"
       ],
       "sourceCardIds": [
-        "card.animals.097.c2"
+        "card.animals.097.c2",
+        "card.animals.097.c1"
       ],
-      "prompt": "Where did the Arabian oryx's 'World Herd' begin?",
-      "options": [
-        {
-          "id": "a",
-          "label": "In Oman, with the last wild herd",
-          "correct": false,
-          "rationale": "The last wild oryx was shot in Oman in 1972."
-        },
-        {
-          "id": "b",
-          "label": "At the Phoenix Zoo, with nine animals",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "In Jordan, at the first release site",
-          "correct": false,
-          "rationale": "The first release was in Oman, in 1982."
-        },
-        {
-          "id": "d",
-          "label": "At a zoo in Tasmania",
-          "correct": false,
-          "rationale": "The herd started at the Phoenix Zoo."
-        }
+      "prompt": "Put the Arabian oryx story in order, from earliest to latest.",
+      "items": [
+        "Vanished from the wild",
+        "First in Oman",
+        "About 1,000 lived wild"
       ],
-      "explanation": "Nine oryx at the Phoenix Zoo formed the core of the World Herd that helped return the species to the wild.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Arabian oryx vanished from the wild in 1972. Reintroduction began first in Oman in 1982, and by 2011 about 1,000 lived wild.",
       "difficulty": 0.2
     },
     {

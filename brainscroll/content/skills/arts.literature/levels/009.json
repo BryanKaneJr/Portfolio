@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 9,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Amaterasu and Japan's Kojiki",
   "objective": "After this level you can retell the story of the sun goddess who hid in a cave, from Japan's oldest surviving book.",
@@ -126,41 +126,26 @@
     },
     {
       "id": "question.literature.009.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.kojiki"
       ],
       "sourceCardIds": [
-        "card.literature.009.c2"
+        "card.literature.009.c2",
+        "card.literature.009.c3",
+        "card.literature.009.c4"
       ],
-      "prompt": "How was the Kojiki put together?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Monks copied it from even older Japanese books",
-          "correct": false,
-          "rationale": "It is the oldest surviving book from Japan."
-        },
-        {
-          "id": "b",
-          "label": "Amaterasu dictated it to the emperor",
-          "correct": false,
-          "rationale": "It was compiled at court in 712."
-        },
-        {
-          "id": "c",
-          "label": "Hieda no Are memorized myths; Ō no Yasumaro wrote them down",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Travelers brought it from China",
-          "correct": false,
-          "rationale": "It used Chinese characters but told Japan's own myths."
-        }
+      "prompt": "Put these events of the Kojiki's sun goddess story in order, from first to last.",
+      "items": [
+        "Amaterasu withdrew into a cave",
+        "The goddess Amenouzume danced",
+        "Amaterasu was drawn out",
+        "They threw a shimenawa"
       ],
-      "explanation": "Emperor Temmu had Hieda no Are memorize Japan's earliest myths and records; Ō no Yasumaro wrote them down in 712.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Amaterasu withdrew into a cave, the goddess Amenouzume danced, Amaterasu was drawn out, and then the gods threw a shimenawa across the entrance so she couldn't hide again.",
       "difficulty": 0.25
     },
     {

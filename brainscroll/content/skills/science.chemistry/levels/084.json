@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 84,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Cleaning Safely",
   "objective": "After this level you can explain why some cleaners must never be mixed.",
@@ -99,41 +99,31 @@
   "questions": [
     {
       "id": "question.chemistry.084.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.home_cleaning_bleach_mixing"
       ],
       "sourceCardIds": [
-        "card.chemistry.084.c2"
+        "card.chemistry.084.c2",
+        "card.chemistry.084.c3"
       ],
-      "prompt": "Which toxic gases form when household bleach is mixed with ammonia?",
-      "options": [
+      "prompt": "Match each with the chemical behind it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Chloramines",
-          "correct": true
+          "left": "Household bleach",
+          "right": "Sodium hypochlorite"
         },
         {
-          "id": "b",
-          "label": "Carbon dioxide",
-          "correct": false,
-          "rationale": "That's the gas in rising bread, not this mix."
+          "left": "Bleach plus ammonia",
+          "right": "Chloramines"
         },
         {
-          "id": "c",
-          "label": "Helium",
-          "correct": false,
-          "rationale": "Nothing in cleaners makes helium."
-        },
-        {
-          "id": "d",
-          "label": "Water vapor",
-          "correct": false,
-          "rationale": "The danger is new toxic gases, not steam."
+          "left": "Bleach plus acid",
+          "right": "Chlorine gas"
         }
       ],
-      "explanation": "Bleach and ammonia react to form toxic chloramine gases.",
+      "explanation": "Household bleach is sodium hypochlorite. Mixed with ammonia it forms chloramines, and mixed with acid it releases chlorine gas.",
       "difficulty": 0.3
     },
     {

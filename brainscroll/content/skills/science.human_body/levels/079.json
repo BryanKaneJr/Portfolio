@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 79,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Allergies",
   "objective": "After this level you can explain what an allergy is and why some people have them.",
@@ -96,7 +96,7 @@
   "questions": [
     {
       "id": "question.human_body.079.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.defense_allergy_mechanism"
@@ -104,32 +104,15 @@
       "sourceCardIds": [
         "card.human_body.079.c3"
       ],
-      "prompt": "Which chemical, released by mast cells, causes symptoms like a runny nose and swelling?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Keratin",
-          "correct": false,
-          "rationale": "Keratin is the tough protein in skin, hair and nails."
-        },
-        {
-          "id": "b",
-          "label": "Pyrogens",
-          "correct": false,
-          "rationale": "Pyrogens push up the brain's temperature setting in a fever."
-        },
-        {
-          "id": "c",
-          "label": "Penicillin",
-          "correct": false,
-          "rationale": "Penicillin comes from a mold and attacks bacteria."
-        },
-        {
-          "id": "d",
-          "label": "Histamine",
-          "correct": true
-        }
+      "prompt": "Put the steps of an allergic reaction in order, from first to last.",
+      "items": [
+        "Made IgE against an allergen",
+        "Attach to mast cells and wait",
+        "Binds to the IgE",
+        "Release histamine"
       ],
+      "first": "First meeting",
+      "last": "Symptoms start",
       "explanation": "When an allergen binds IgE on mast cells, they release histamine, which causes the symptoms.",
       "difficulty": 0.15
     },

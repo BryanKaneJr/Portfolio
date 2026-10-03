@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 29,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Christianity Goes Global",
   "objective": "After this level you can explain how Christianity's center of gravity shifted to Africa, Latin America and Asia, and why Pentecostal churches grew so fast.",
@@ -93,7 +93,7 @@
   "questions": [
     {
       "id": "question.religions.029.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.religions.christianity_global_shift"
@@ -101,33 +101,15 @@
       "sourceCardIds": [
         "card.religions.029.c2"
       ],
-      "prompt": "By 2020, which region was home to the largest share of the world's Christians?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Sub-Saharan Africa",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Europe",
-          "correct": false,
-          "rationale": "Europe held about 22%, behind Africa and Latin America."
-        },
-        {
-          "id": "c",
-          "label": "Latin America and the Caribbean",
-          "correct": false,
-          "rationale": "It came second, at about 24%."
-        },
-        {
-          "id": "d",
-          "label": "North America",
-          "correct": false,
-          "rationale": "It wasn't among the top regions named."
-        }
+      "prompt": "Put these regions in order of their share of the world's Christians in 2020, largest first.",
+      "items": [
+        "Sub-Saharan Africa",
+        "Latin America and the Caribbean",
+        "Europe"
       ],
-      "explanation": "About 31% of the world's Christians lived in sub-Saharan Africa in 2020.",
+      "first": "Largest share",
+      "last": "Smallest share",
+      "explanation": "In 2020 about 31% of the world's Christians lived in sub-Saharan Africa, 24% in Latin America and the Caribbean, and 22% in Europe.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 32,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Perspective",
   "objective": "After this level you can explain how linear perspective makes a flat picture look deep.",
@@ -129,42 +129,25 @@
     },
     {
       "id": "question.art_history.032.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.ren_linear_perspective"
       ],
       "sourceCardIds": [
         "card.art_history.032.c1",
-        "card.art_history.032.c3"
+        "card.art_history.032.c3",
+        "card.art_history.032.c4"
       ],
-      "prompt": "Why did Brunelleschi have viewers peek through his panel at a mirror?",
-      "options": [
-        {
-          "id": "a",
-          "label": "To make the painting look brighter",
-          "correct": false,
-          "rationale": "The mirror was for comparing, not lighting."
-        },
-        {
-          "id": "b",
-          "label": "To hide the painting from rivals",
-          "correct": false,
-          "rationale": "Showing people was the whole point."
-        },
-        {
-          "id": "c",
-          "label": "To compare it with the real Baptistery",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "To see the painting upside down",
-          "correct": false,
-          "rationale": "The mirror let them check it against the building."
-        }
+      "prompt": "Put these steps in the story of perspective in order, from earliest to latest.",
+      "items": [
+        "The peephole proof",
+        "Masaccio painted the Holy Trinity",
+        "Alberti wrote it down"
       ],
-      "explanation": "In the mirror, the painted Baptistery could be compared directly with the real one, and it matched.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Brunelleschi's peephole proof came about 1415, Masaccio painted the Holy Trinity in 1425-27, and Alberti wrote the method down in On Painting in 1435.",
       "difficulty": 0.25
     },
     {

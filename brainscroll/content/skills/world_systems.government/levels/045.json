@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 45,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Veto",
   "objective": "After this level you can explain how a veto works.",
@@ -134,41 +134,35 @@
     },
     {
       "id": "question.government.045.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.lawmaking_veto_override_world"
       ],
       "sourceCardIds": [
-        "card.government.045.c4"
+        "card.government.045.c4",
+        "card.government.045.c2"
       ],
-      "prompt": "According to International IDEA, how does a veto change the majority a bill needs?",
-      "options": [
+      "prompt": "Match each country or kind of veto with what it takes to override.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Every bill then needs a unanimous vote",
-          "correct": false,
-          "rationale": "Overrides need a supermajority, not everyone."
+          "left": "Ghana",
+          "right": "Two-thirds"
         },
         {
-          "id": "b",
-          "label": "A bill the president opposes needs a supermajority",
-          "correct": true
+          "left": "Poland",
+          "right": "Three-fifths"
         },
         {
-          "id": "c",
-          "label": "A bill the president supports needs a supermajority",
-          "correct": false,
-          "rationale": "With the president's support, an ordinary majority is enough."
+          "left": "Brazil",
+          "right": "An absolute majority"
         },
         {
-          "id": "d",
-          "label": "It makes no difference to the numbers",
-          "correct": false,
-          "rationale": "It changes the bar from ordinary to supermajority."
+          "left": "Pocket veto",
+          "right": "Can't be overridden at all"
         }
       ],
-      "explanation": "With the president's support an ordinary majority passes a bill; against a veto, lawmakers need a supermajority.",
+      "explanation": "Ghana needs two-thirds to override a veto, Poland three-fifths, and Brazil only an absolute majority. A US pocket veto can't be overridden at all.",
       "difficulty": 0.35
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 91,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Sack of Rome, 410",
   "objective": "After this level you can explain Alaric's sack of Rome and its shock to the Roman world.",
@@ -173,7 +173,7 @@
     },
     {
       "id": "question.ancient_rome.091.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_rome.sack_410",
@@ -181,35 +181,20 @@
       ],
       "sourceCardIds": [
         "card.ancient_rome.091.c1",
-        "card.ancient_rome.018.c2"
+        "card.ancient_rome.018.c2",
+        "card.ancient_rome.091.c2",
+        "card.ancient_rome.091.c3"
       ],
-      "prompt": "From Level 18: which people had sacked Rome in about 390 BCE?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Carthaginians",
-          "correct": false,
-          "rationale": "They never took Rome."
-        },
-        {
-          "id": "b",
-          "label": "The Etruscans",
-          "correct": false,
-          "rationale": "They were neighbors, not sackers."
-        },
-        {
-          "id": "c",
-          "label": "The Gauls",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The Samnites",
-          "correct": false,
-          "rationale": "They never took Rome."
-        }
+      "prompt": "Put these events in order, from earliest to latest, ending with Augustine’s answer.",
+      "items": [
+        "Brennus and his Gauls",
+        "Stilicho was executed",
+        "Alaric’s Visigoths sacked Rome",
+        "The City of God"
       ],
-      "explanation": "Gauls led by Brennus sacked Rome in about 390 BCE, about 800 years before Alaric.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Brennus and his Gauls took Rome in about 390 BCE. Stilicho was executed in 408 CE, Alaric’s Visigoths sacked Rome in 410 CE, and Augustine then wrote The City of God.",
       "difficulty": 0.2
     }
   ],

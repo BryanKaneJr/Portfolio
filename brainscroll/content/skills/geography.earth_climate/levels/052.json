@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 52,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why Clouds Form",
   "objective": "After this level you can explain why rising air cools to its dew point and condenses on tiny specks of dust and salt.",
@@ -129,7 +129,7 @@
     },
     {
       "id": "question.earth_climate.052.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.weather_cloud_formation"
@@ -137,33 +137,16 @@
       "sourceCardIds": [
         "card.earth_climate.052.c2"
       ],
-      "prompt": "Why does rising air form clouds?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It expands and cools to its dew point",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "It gets squeezed, which wrings the water out",
-          "correct": false,
-          "rationale": "Rising air spreads out; the pressure around it drops."
-        },
-        {
-          "id": "c",
-          "label": "It picks up extra water from the Sun",
-          "correct": false,
-          "rationale": "The Sun doesn't add water; cooling makes vapor condense."
-        },
-        {
-          "id": "d",
-          "label": "It warms up and melts ice crystals high up",
-          "correct": false,
-          "rationale": "Rising air cools rather than warms."
-        }
+      "prompt": "Put the steps of cloud formation in order.",
+      "items": [
+        "Air rises",
+        "The pressure around it drops",
+        "Spreads out and cools",
+        "Water vapor condenses into droplets"
       ],
-      "explanation": "As air rises, the pressure drops, so it expands and cools. Once it reaches its dew point, its vapor condenses into cloud droplets.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Air rises, the pressure around it drops, so it spreads out and cools. Cooled to its dew point, its water vapor condenses into droplets.",
       "difficulty": 0.25
     },
     {

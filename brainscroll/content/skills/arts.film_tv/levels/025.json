@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 25,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Shot Sizes",
   "objective": "After this level you can tell a wide shot, a medium shot and a close-up apart and say what each one is good for.",
@@ -147,42 +147,32 @@
     },
     {
       "id": "question.film_tv.025.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.shoot_shot_size_jobs"
       ],
       "sourceCardIds": [
         "card.film_tv.025.c3",
-        "card.film_tv.025.c4"
+        "card.film_tv.025.c4",
+        "card.film_tv.025.c2"
       ],
-      "prompt": "How does cutting from a wide shot to a close-up change what a viewer takes in?",
-      "options": [
+      "prompt": "Match each shot size with how much of a person it shows.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It adds more of the setting around the character",
-          "correct": false,
-          "rationale": "That's what a wider shot does."
+          "left": "Wide or long shot",
+          "right": "The whole body, head to toe"
         },
         {
-          "id": "b",
-          "label": "It shows the character's whole body in motion",
-          "correct": false,
-          "rationale": "Full-body action needs a long shot."
+          "left": "Medium shot",
+          "right": "Roughly from the waist up"
         },
         {
-          "id": "c",
-          "label": "It trades the setting for the emotion on a face",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It tells the viewer where the scene takes place",
-          "correct": false,
-          "rationale": "That's an establishing shot's job."
+          "left": "Close-up",
+          "right": "A head fills the frame"
         }
       ],
-      "explanation": "Wide shots show where we are; a close-up fills the frame with a face, drawing you into the character's emotion.",
+      "explanation": "A wide or long shot shows the whole body, head to toe. A medium shot shows roughly from the waist up, and in a close-up a head fills the frame.",
       "difficulty": 0.3
     },
     {

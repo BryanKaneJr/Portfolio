@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 80,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Algorithms That Choose",
   "objective": "After this level you can explain how routes, recommendations, feeds, ads and filters are chosen for you, and who can check them.",
@@ -185,41 +185,35 @@
     },
     {
       "id": "question.computers.080.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.choosers_objectives"
       ],
       "sourceCardIds": [
-        "card.computers.080.c3"
+        "card.computers.080.c3",
+        "card.computers.080.c2"
       ],
-      "prompt": "Why does it matter which number an algorithm is built to chase?",
-      "options": [
+      "prompt": "Match each everyday chooser with the number it aims at.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The number decides what gets chosen for you",
-          "correct": true
+          "left": "Ride app",
+          "right": "Lowest average wait across a batch"
         },
         {
-          "id": "b",
-          "label": "The number sets how fast your phone runs",
-          "correct": false,
-          "rationale": "It sets the goal, not the hardware speed."
+          "left": "Recommender",
+          "right": "What people with similar taste liked"
         },
         {
-          "id": "c",
-          "label": "Only the number's size matters, not what it measures",
-          "correct": false,
-          "rationale": "What it measures is the whole point."
+          "left": "Feed",
+          "right": "A score built from predicted reactions"
         },
         {
-          "id": "d",
-          "label": "Numbers only matter to ad auctions",
-          "correct": false,
-          "rationale": "Every chooser in the chapter chases one."
+          "left": "Spam filter",
+          "right": "A spam probability"
         }
       ],
-      "explanation": "Swap the number, from travel time to predicted reactions to a bid, and the same machinery picks something else.",
+      "explanation": "A ride app aims at the lowest average wait across a batch, a recommender at what people with similar taste liked, a feed at a score built from predicted reactions, and a spam filter at a spam probability.",
       "difficulty": 0.3
     },
     {

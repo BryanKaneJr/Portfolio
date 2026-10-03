@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 67,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Referendums",
   "objective": "After this level you can explain direct votes on a single question.",
@@ -92,41 +92,37 @@
   "questions": [
     {
       "id": "question.government.067.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.election_referendum_types"
       ],
       "sourceCardIds": [
-        "card.government.067.c2"
+        "card.government.067.c2",
+        "card.government.067.c1",
+        "card.government.067.c3",
+        "card.government.067.c4"
       ],
-      "prompt": "What makes a citizens' initiative different from a referendum?",
-      "options": [
+      "prompt": "Match each referendum story or rule with its detail.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It is always advisory",
-          "correct": false,
-          "rationale": "Both can be binding or advisory."
+          "left": "Citizens' initiative",
+          "right": "Usually with a petition"
         },
         {
-          "id": "b",
-          "label": "Only parliament may vote in it",
-          "correct": false,
-          "rationale": "The electorate votes in both."
+          "left": "Augusto Pinochet",
+          "right": "Extend his term"
         },
         {
-          "id": "c",
-          "label": "It is started by the people, usually through a petition",
-          "correct": true
+          "left": "New Zealand",
+          "right": "53.9% chose MMP"
         },
         {
-          "id": "d",
-          "label": "It asks several unrelated questions at once",
-          "correct": false,
-          "rationale": "That's not the difference."
+          "left": "Venice Commission",
+          "right": "Must not suggest an answer"
         }
       ],
-      "explanation": "A referendum is sent to voters by governing institutions; an initiative is started by the people, typically by petition.",
+      "explanation": "A citizens' initiative starts usually with a petition, Pinochet called a vote to extend his term, in New Zealand 53.9% chose MMP, and the Venice Commission says the question must not suggest an answer.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 17,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Sea-Floor Mud",
   "objective": "After this level you can explain what the ocean floor is covered with.",
@@ -93,41 +93,33 @@
   "questions": [
     {
       "id": "question.oceans.017.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.oceans.marine_snow_ooze"
       ],
       "sourceCardIds": [
-        "card.oceans.017.c3"
+        "card.oceans.017.c3",
+        "card.oceans.017.c2",
+        "card.oceans.017.c4",
+        "card.oceans.017.c5"
       ],
-      "prompt": "About how much of the deep ocean floor is blanketed by ooze and other slow-settling sediments?",
-      "options": [
+      "prompt": "Match each part of the deep sea floor story with its size.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "About a tenth",
-          "correct": false,
-          "rationale": "Far more of the floor is covered."
+          "left": "Flakes",
+          "right": "Several centimeters across"
         },
         {
-          "id": "b",
-          "label": "About a quarter",
-          "correct": false,
-          "rationale": "It's about three times that."
+          "left": "Ooze builds up by",
+          "right": "About 6 m every million years"
         },
         {
-          "id": "c",
-          "label": "About three-quarters",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "All of it, everywhere",
-          "correct": false,
-          "rationale": "Not all: about three-quarters."
+          "left": "Abyssal plains",
+          "right": "3,000 to 6,000 m deep"
         }
       ],
-      "explanation": "Ooze and other slow-settling deep-sea sediments cover about three-quarters of the deep ocean floor.",
+      "explanation": "Marine snow flakes can be several centimeters across. Ooze builds up by only about 6 m every million years. Abyssal plains lie 3,000 to 6,000 m deep.",
       "difficulty": 0.15
     },
     {

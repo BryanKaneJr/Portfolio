@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 89,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Who Owns Antarctica?",
   "objective": "After this level you can explain the Antarctic Treaty and what it protects.",
@@ -132,41 +132,24 @@
     },
     {
       "id": "question.world_geography.089.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.antarctic_treaty"
       ],
       "sourceCardIds": [
-        "card.world_geography.089.c3"
+        "card.world_geography.089.c3",
+        "card.world_geography.089.c5"
       ],
-      "prompt": "How did the Antarctic Treaty deal with the rival territorial claims?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It split the continent into equal shares",
-          "correct": false,
-          "rationale": "It didn't divide anything."
-        },
-        {
-          "id": "b",
-          "label": "It handed Antarctica to a single country",
-          "correct": false,
-          "rationale": "No country was given control."
-        },
-        {
-          "id": "c",
-          "label": "It cancelled every claim for good",
-          "correct": false,
-          "rationale": "The old claims stay on the books."
-        },
-        {
-          "id": "d",
-          "label": "It froze them and banned new or bigger claims",
-          "correct": true
-        }
+      "prompt": "Put these Antarctic milestones in order, from earliest to latest.",
+      "items": [
+        "Signed the Antarctic Treaty",
+        "Came into force",
+        "The Madrid Protocol"
       ],
-      "explanation": "The treaty holds existing claims in place and forbids new or enlarged claims while it is in force.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Twelve countries signed the Antarctic Treaty in 1959, it came into force in 1961, and the Madrid Protocol followed in 1991.",
       "difficulty": 0.3
     },
     {

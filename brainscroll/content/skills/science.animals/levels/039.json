@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 39,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Dinosaurs Were Reptiles",
   "objective": "After this level you can explain what dinosaurs were and how we know about them.",
@@ -174,7 +174,7 @@
     },
     {
       "id": "question.animals.039.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.dinosaur_eggs_nests",
@@ -182,35 +182,19 @@
       ],
       "sourceCardIds": [
         "card.animals.039.c4",
-        "card.animals.031.c3"
+        "card.animals.031.c3",
+        "card.animals.039.c1",
+        "card.animals.039.c2"
       ],
-      "prompt": "How do the eggshells in Maiasaura's nests tie dinosaurs to Level 31's reptiles?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They gave birth to live young, like mammals",
-          "correct": false,
-          "rationale": "The nests were full of eggs."
-        },
-        {
-          "id": "b",
-          "label": "They laid jelly eggs in water, like amphibians",
-          "correct": false,
-          "rationale": "The nests were on land, and the eggs had shells."
-        },
-        {
-          "id": "c",
-          "label": "They laid shelled eggs in nests on land, like reptiles",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "They carried eggs in a pouch",
-          "correct": false,
-          "rationale": "The eggs sat in nests."
-        }
+      "prompt": "Put these names in the order they were given, from earliest to latest.",
+      "items": [
+        "Megalosaurus",
+        "Dinosauria",
+        "Maiasaura"
       ],
-      "explanation": "Maiasaura laid eggs in nests on land, the shelled-egg strategy that lets reptiles breed away from water.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Buckland described Megalosaurus in 1824, Owen proposed Dinosauria in 1842, and Maiasaura was named after the 1978 nesting ground find.",
       "difficulty": 0.2
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 1,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Chemistry: The Big Picture",
   "objective": "After this level you can explain what chemistry studies: what things are made of and how they change.",
@@ -80,7 +80,7 @@
   "questions": [
     {
       "id": "question.chemistry.001.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.chemistry_definition"
@@ -88,33 +88,22 @@
       "sourceCardIds": [
         "card.chemistry.001.c2"
       ],
-      "prompt": "In one line, what does chemistry study?",
-      "options": [
+      "prompt": "Match each part of chemistry with what it looks at.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The motion of planets and stars",
-          "correct": false,
-          "rationale": "That is astronomy."
+          "left": "Composition",
+          "right": "What something is made of"
         },
         {
-          "id": "b",
-          "label": "What matter is made of and how it changes",
-          "correct": true
+          "left": "Properties",
+          "right": "How it looks and behaves"
         },
         {
-          "id": "c",
-          "label": "How living things evolve over time",
-          "correct": false,
-          "rationale": "That is evolutionary biology."
-        },
-        {
-          "id": "d",
-          "label": "How to turn lead into gold",
-          "correct": false,
-          "rationale": "That was the old dream of alchemists, not a definition of chemistry."
+          "left": "Interactions",
+          "right": "When one kind of stuff meets another"
         }
       ],
-      "explanation": "Chemistry studies the composition, properties and interactions of matter: what stuff is made of and how it changes.",
+      "explanation": "Composition is what something is made of, properties are how it looks and behaves, and interactions are what happens when one kind of stuff meets another.",
       "difficulty": 0.1
     },
     {

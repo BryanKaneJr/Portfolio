@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 53,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Public Goods",
   "objective": "After this level you can explain why things like roads and lighthouses are usually paid for by governments.",
@@ -86,41 +86,31 @@
   "questions": [
     {
       "id": "question.how_money_works.053.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.govt_public_goods"
       ],
       "sourceCardIds": [
+        "card.how_money_works.053.c2",
         "card.how_money_works.053.c3"
       ],
-      "prompt": "Which two features make something a public good?",
-      "options": [
+      "prompt": "Match each idea from the fireworks problem with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It is expensive and rare",
-          "correct": false,
-          "rationale": "Public goods are defined by who can use them, not by price."
+          "left": "Free riding",
+          "right": "Let others pay"
         },
         {
-          "id": "b",
-          "label": "Non-payers cannot easily be excluded, and one person using it does not use it up",
-          "correct": true
+          "left": "Nonexcludable",
+          "right": "Costly or impossible to stop non-payers"
         },
         {
-          "id": "c",
-          "label": "It is sold in shops and taxed at the till",
-          "correct": false,
-          "rationale": "That describes ordinary goods with a sales tax."
-        },
-        {
-          "id": "d",
-          "label": "It is made by the government and given away",
-          "correct": false,
-          "rationale": "Who makes it is not the test: Coase found private lighthouses."
+          "left": "Nonrival",
+          "right": "Doesn't use up anyone else's view"
         }
       ],
-      "explanation": "A public good is nonexcludable and nonrival, like national defense.",
+      "explanation": "Free riding means letting others pay and enjoying the show anyway. Nonexcludable means it's costly or impossible to stop non-payers. Nonrival means your watching doesn't use up anyone else's view.",
       "difficulty": 0.2
     },
     {

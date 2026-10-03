@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 36,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Jump Cuts and Match Cuts",
   "objective": "After this level you can tell a jump cut from a match cut and explain the effect each has on a viewer.",
@@ -130,41 +130,32 @@
     },
     {
       "id": "question.film_tv.036.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.cutting_jump_cut"
       ],
       "sourceCardIds": [
-        "card.film_tv.036.c2"
+        "card.film_tv.036.c2",
+        "card.film_tv.036.c1",
+        "card.film_tv.036.c4"
       ],
-      "prompt": "How does a jump cut make time seem to skip?",
-      "options": [
+      "prompt": "Match each kind of cut with what this chapter says about it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It adds extra frames to slow the action",
-          "correct": false,
-          "rationale": "A jump cut removes action; it does not add frames."
+          "left": "Invisible editing",
+          "right": "Hide every join"
         },
         {
-          "id": "b",
-          "label": "It cuts between two places at once",
-          "correct": false,
-          "rationale": "That's crosscutting."
+          "left": "Jump cut",
+          "right": "Godard's Breathless"
         },
         {
-          "id": "c",
-          "label": "It fades the picture to black between scenes",
-          "correct": false,
-          "rationale": "A jump cut is abrupt, with no fade."
-        },
-        {
-          "id": "d",
-          "label": "It leaves out part of an action, so the picture jumps",
-          "correct": true
+          "left": "Match cut",
+          "right": "2001: A Space Odyssey"
         }
       ],
-      "explanation": "A jump cut leaves out part of an action, producing a visible break that shrinks time.",
+      "explanation": "Invisible editing works hard to hide every join. Godard's Breathless is famous for its jump cuts, and the bone-to-satellite cut in 2001: A Space Odyssey is the famous match cut.",
       "difficulty": 0.25
     },
     {

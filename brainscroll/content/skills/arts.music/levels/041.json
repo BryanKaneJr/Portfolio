@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 41,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Beethoven",
   "objective": "After this level you can explain how Beethoven bridged the Classical and Romantic eras.",
@@ -130,42 +130,27 @@
     },
     {
       "id": "question.music.041.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.beethoven_bridge"
       ],
       "sourceCardIds": [
         "card.music.041.c4",
-        "card.music.041.c2"
+        "card.music.041.c2",
+        "card.music.041.c1",
+        "card.music.041.c3"
       ],
-      "prompt": "Why is Beethoven seen as the bridge between the Classical and Romantic eras?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He invented the orchestra that later Romantics used",
-          "correct": false,
-          "rationale": "He wrote for the orchestra; he didn't invent it."
-        },
-        {
-          "id": "b",
-          "label": "He stretched Classical forms to carry a personal vision",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "He wrote only short songs for solo voice",
-          "correct": false,
-          "rationale": "He's famous for huge symphonies."
-        },
-        {
-          "id": "d",
-          "label": "He rejected symphonies and wrote operas instead",
-          "correct": false,
-          "rationale": "His symphonies are central to his fame."
-        }
+      "prompt": "Put these steps in Beethoven's career in order, from earliest to latest.",
+      "items": [
+        "Left for Vienna",
+        "Eroica",
+        "The Fifth Symphony",
+        "Ninth Symphony"
       ],
-      "explanation": "He kept Classical forms like the symphony but made them grander and personal: a symphony as its creator's view of the world.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Beethoven left for Vienna in 1792. The Eroica premiered in 1805, the Fifth Symphony in 1808, and the Ninth Symphony in 1824.",
       "difficulty": 0.3
     },
     {

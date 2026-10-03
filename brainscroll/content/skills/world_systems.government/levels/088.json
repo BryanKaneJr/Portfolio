@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 88,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Refugees",
   "objective": "After this level you can explain refugees and the right to asylum.",
@@ -95,41 +95,26 @@
   "questions": [
     {
       "id": "question.government.088.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.refugee_nansen"
       ],
       "sourceCardIds": [
-        "card.government.088.c1"
+        "card.government.088.c1",
+        "card.government.088.c2",
+        "card.government.088.c4"
       ],
-      "prompt": "What did the Nansen passport of 1922 give refugees who had lost their nationality?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Automatic citizenship in Norway",
-          "correct": false,
-          "rationale": "It was a travel document, not citizenship."
-        },
-        {
-          "id": "b",
-          "label": "A travel document for seeking work abroad",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "A free passage home to Russia",
-          "correct": false,
-          "rationale": "It helped them travel onward to find work, not go back."
-        },
-        {
-          "id": "d",
-          "label": "A seat in the League of Nations",
-          "correct": false,
-          "rationale": "Individuals didn't get seats; states did."
-        }
+      "prompt": "Put these milestones in protecting refugees in order, from earliest to latest.",
+      "items": [
+        "High Commissioner for Refugees",
+        "Nansen passport",
+        "Refugee Convention",
+        "Global Trends report"
       ],
-      "explanation": "The Nansen passport let refugees who had lost their nationality travel to other countries to look for work.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Nansen became High Commissioner for Refugees in 1921, the Nansen passport came in 1922, the Refugee Convention in 1951, and UNHCR's Global Trends report counted end-2025 figures.",
       "difficulty": 0.2
     },
     {

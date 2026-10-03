@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 89,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Nobody Is Average",
   "objective": "After this level you can explain why almost no one is average on many measures at once, using the US Air Force's 1950 cockpit study.",
@@ -120,42 +120,27 @@
     },
     {
       "id": "question.probability.089.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.trap_nobody_average"
       ],
       "sourceCardIds": [
         "card.probability.089.c3",
-        "card.probability.089.c4"
+        "card.probability.089.c4",
+        "card.probability.089.c2"
       ],
-      "prompt": "A company designs one shoe for the average foot in length, width and arch height. What does Daniels's study predict?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Most customers will get a good fit",
-          "correct": false,
-          "rationale": "Average on each measure doesn't mean average on all three."
-        },
-        {
-          "id": "b",
-          "label": "Only people with small feet will struggle",
-          "correct": false,
-          "rationale": "Misfits come in every direction, not just one."
-        },
-        {
-          "id": "c",
-          "label": "It will fit everyone in the middle 30%",
-          "correct": false,
-          "rationale": "The middle 30% on one measure isn't the middle on all."
-        },
-        {
-          "id": "d",
-          "label": "Few real feet will match on all three at once",
-          "correct": true
-        }
+      "prompt": "Watch the crowd shrink. Put Daniels's pilots in order, from the first count to the last.",
+      "items": [
+        "All 4,063 men",
+        "1,055 were of average height",
+        "302 also had an average chest",
+        "143 of them also had average sleeves",
+        "Not one man was left"
       ],
-      "explanation": "Each extra measurement cuts the 'average' group again, so few people match the average on several at once.",
+      "first": "Start",
+      "last": "After all 10 measures",
+      "explanation": "Of all 4,063 men, 1,055 were of average height, 302 of those also had an average chest, and 143 also had average sleeves. After all 10 measurements, not one man was left.",
       "difficulty": 0.45
     },
     {

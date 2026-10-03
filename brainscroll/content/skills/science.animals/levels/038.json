@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 38,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "From Tadpole to Frog",
   "objective": "After this level you can explain how a tadpole turns into a frog.",
@@ -103,7 +103,7 @@
   "questions": [
     {
       "id": "question.animals.038.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.animals.frog_metamorphosis_stages"
@@ -111,33 +111,15 @@
       "sourceCardIds": [
         "card.animals.038.c3"
       ],
-      "prompt": "In a growing tadpole, which legs appear first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The front legs",
-          "correct": false,
-          "rationale": "The front legs come later, with the lungs."
-        },
-        {
-          "id": "b",
-          "label": "All four at once",
-          "correct": false,
-          "rationale": "The hind legs lead the way."
-        },
-        {
-          "id": "c",
-          "label": "None until it leaves the water",
-          "correct": false,
-          "rationale": "The legs grow while it's still a tadpole."
-        },
-        {
-          "id": "d",
-          "label": "The hind legs",
-          "correct": true
-        }
+      "prompt": "Put these steps of a tadpole's change in order.",
+      "items": [
+        "Hind legs sprout",
+        "Front legs appear",
+        "The gills disappear"
       ],
-      "explanation": "Metamorphosis begins as the hind legs sprout; the front legs appear later, around when the lungs develop.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "First the hind legs sprout, next the front legs appear, and last the gills disappear, just before it becomes a frog.",
       "difficulty": 0.1
     },
     {

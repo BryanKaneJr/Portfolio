@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 18,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Pipe Organ",
   "objective": "After this level you can explain how a pipe organ makes sound from air.",
@@ -175,7 +175,7 @@
     },
     {
       "id": "question.music.018.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.music.instruments_organ_pipe_length",
@@ -183,35 +183,18 @@
       ],
       "sourceCardIds": [
         "card.music.018.c1",
-        "card.music.003.c4"
+        "card.music.003.c4",
+        "card.music.018.c4"
       ],
-      "prompt": "Level 3 said human hearing spans about 20 Hz to 20 kHz. How do the lowest notes of a large organ compare?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They reach about 16 Hz, below that floor",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "They stop at about 440 Hz",
-          "correct": false,
-          "rationale": "That's the tuning A, far above an organ's lowest notes."
-        },
-        {
-          "id": "c",
-          "label": "They are above 20 kHz",
-          "correct": false,
-          "rationale": "Those would be too high, not too low."
-        },
-        {
-          "id": "d",
-          "label": "They are exactly 20 Hz, the limit",
-          "correct": false,
-          "rationale": "Large organs go below it."
-        }
+      "prompt": "Put these organ pipes in order, from highest note to lowest.",
+      "items": [
+        "A 4-foot pipe",
+        "An 8-foot pipe",
+        "A 16-foot pipe"
       ],
-      "explanation": "Large pipe organs reach notes as low as about 16 Hz, below the roughly 20 Hz bottom of human hearing.",
+      "first": "Highest note",
+      "last": "Lowest note",
+      "explanation": "A 4-foot pipe sounds an octave above normal pitch, an 8-foot pipe at normal keyboard pitch, and a 16-foot pipe an octave lower.",
       "difficulty": 0.25
     }
   ],

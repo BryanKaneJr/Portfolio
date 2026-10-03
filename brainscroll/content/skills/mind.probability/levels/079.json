@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 79,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Error Bars and Storm Cones",
   "objective": "After this level you can read error bars and a hurricane forecast cone as ranges of uncertainty, not as sizes.",
@@ -86,41 +86,31 @@
   "questions": [
     {
       "id": "question.probability.079.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.chart_forecast_cone"
       ],
       "sourceCardIds": [
-        "card.probability.079.c3"
+        "card.probability.079.c3",
+        "card.probability.079.c2"
       ],
-      "prompt": "The National Hurricane Center sizes its forecast cone so that what share of past forecast errors fall inside it?",
-      "options": [
+      "prompt": "Match each with what it shows.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "One-third",
-          "correct": false,
-          "rationale": "That's roughly how often the center strays outside."
+          "left": "The bar",
+          "right": "The estimate"
         },
         {
-          "id": "b",
-          "label": "Half",
-          "correct": false,
-          "rationale": "The cone is sized to a bigger share than that."
+          "left": "The whiskers",
+          "right": "How far off it might be"
         },
         {
-          "id": "c",
-          "label": "Two-thirds",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "All of them",
-          "correct": false,
-          "rationale": "Then the center would never stray outside, but it does."
+          "left": "The center strays outside the cone",
+          "right": "About one time in three"
         }
       ],
-      "explanation": "The circles are sized so two-thirds of past errors fall inside, so the center strays outside about one time in three.",
+      "explanation": "On a chart, the bar shows the estimate and the whiskers show how far off it might be. The hurricane cone is sized so the center strays outside it about one time in three.",
       "difficulty": 0.25
     },
     {

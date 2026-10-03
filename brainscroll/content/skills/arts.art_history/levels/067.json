@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 67,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Abstract Art",
   "objective": "After this level you can explain how Kandinsky and Mondrian left recognizable subjects behind.",
@@ -91,41 +91,32 @@
   "questions": [
     {
       "id": "question.art_history.067.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.abstract_kandinsky"
       ],
       "sourceCardIds": [
-        "card.art_history.067.c1"
+        "card.art_history.067.c1",
+        "card.art_history.067.c3",
+        "card.art_history.067.c4"
       ],
-      "prompt": "What did Kandinsky conclude after seeing his own painting on its side at dusk?",
-      "options": [
+      "prompt": "Match each abstract painter with what goes with them.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Paintings look best by candlelight",
-          "correct": false,
-          "rationale": "He drew a conclusion about subjects, not lighting."
+          "left": "Wassily Kandinsky",
+          "right": "Reminiscences"
         },
         {
-          "id": "b",
-          "label": "He should paint only at night",
-          "correct": false,
-          "rationale": "The lesson was about objects in pictures."
+          "left": "Piet Mondrian",
+          "right": "De Stijl"
         },
         {
-          "id": "c",
-          "label": "Recognizable objects harmed his paintings",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Canvases should always hang sideways",
-          "correct": false,
-          "rationale": "The sideways view only revealed the idea."
+          "left": "Hilma af Klint",
+          "right": "Stockholm studio"
         }
       ],
-      "explanation": "With nothing recognizable in it, the painting glowed. He wrote that \"the object harmed my paintings\".",
+      "explanation": "Kandinsky told his dusk story in his memoir Reminiscences, Mondrian cofounded De Stijl, and Hilma af Klint painted abstract works in her Stockholm studio as early as 1906.",
       "difficulty": 0.3
     },
     {

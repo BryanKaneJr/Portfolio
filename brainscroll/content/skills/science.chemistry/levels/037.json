@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 37,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Copper and Bronze",
   "objective": "After this level you can explain how bronze began an age of history.",
@@ -136,7 +136,7 @@
     },
     {
       "id": "question.chemistry.037.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.bronze_alloy",
@@ -144,35 +144,18 @@
       ],
       "sourceCardIds": [
         "card.chemistry.037.c3",
-        "card.chemistry.037.c4"
+        "card.chemistry.037.c4",
+        "card.chemistry.037.c2"
       ],
-      "prompt": "Why did bronze, rather than plain copper, become the metal of an entire age of tools and weapons?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Bronze is lighter than copper",
-          "correct": false,
-          "rationale": "Weight wasn't the advantage."
-        },
-        {
-          "id": "b",
-          "label": "Bronze never needs to be melted",
-          "correct": false,
-          "rationale": "Bronze melts more readily, which helps casting."
-        },
-        {
-          "id": "c",
-          "label": "Bronze is harder and easier to cast in molds",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Bronze conducts electricity better",
-          "correct": false,
-          "rationale": "Electricity wasn't the point for ancient tools."
-        }
+      "prompt": "Put these metals in the order people first started using them, earliest first.",
+      "items": [
+        "Copper",
+        "Bronze",
+        "Iron"
       ],
-      "explanation": "Bronze is harder than copper and melts more readily, so it casts well into tools and weapons.",
+      "first": "Used first",
+      "last": "Used last",
+      "explanation": "People used copper around 8000 BCE, began making bronze around 3500 BCE, and iron ended the Bronze Age around 1000 BCE.",
       "difficulty": 0.3
     },
     {

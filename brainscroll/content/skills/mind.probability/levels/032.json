@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 32,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Expected Value",
   "objective": "After this level you can work out the average result of a bet over many plays by weighing each outcome by its chance.",
@@ -121,41 +121,35 @@
     },
     {
       "id": "question.probability.032.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.bet_expected_value"
       ],
       "sourceCardIds": [
-        "card.probability.032.c2"
+        "card.probability.032.c2",
+        "card.probability.032.c3"
       ],
-      "prompt": "Heads, you win $4. Tails, you lose $2. How does the expected value per flip work out?",
-      "options": [
+      "prompt": "Heads, you win $3. Tails, you lose $2. Match each with its amount.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "$4 minus $2, which is plus $2",
-          "correct": false,
-          "rationale": "Each outcome must be weighed by its chance, one half."
+          "left": "Winning $3",
+          "right": "Counts as $1.50"
         },
         {
-          "id": "b",
-          "label": "Zero, because a coin is fair",
-          "correct": false,
-          "rationale": "A fair coin can still pay unequal amounts."
+          "left": "Losing $2",
+          "right": "Counts as minus $1"
         },
         {
-          "id": "c",
-          "label": "$4 × ½ minus $2 × ½, which is plus $1",
-          "correct": true
+          "left": "Expected value of one flip",
+          "right": "50 cents"
         },
         {
-          "id": "d",
-          "label": "½ × ½, which is 25 cents",
-          "correct": false,
-          "rationale": "That multiplies the chances and ignores the dollars."
+          "left": "Play 100 times",
+          "right": "About $50 ahead"
         }
       ],
-      "explanation": "Weigh each result by one half: $2 minus $1 is plus $1 per flip.",
+      "explanation": "Weighed by one half, winning $3 counts as $1.50 and losing $2 counts as minus $1, so the expected value of one flip is 50 cents. Play 100 times and you'd expect about $50 ahead.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 41,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Baroque Drama",
   "objective": "After this level you can explain how Baroque art used movement and emotion to grab the viewer.",
@@ -134,41 +134,25 @@
     },
     {
       "id": "question.art_history.041.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.baroque_style"
       ],
       "sourceCardIds": [
-        "card.art_history.041.c3"
+        "card.art_history.041.c3",
+        "card.art_history.041.c2",
+        "card.art_history.041.c4"
       ],
-      "prompt": "Why does Rubens show the cross on a steep diagonal, halfway up?",
-      "options": [
-        {
-          "id": "a",
-          "label": "To fit a very tall cross on a small panel",
-          "correct": false,
-          "rationale": "It's about action, not space."
-        },
-        {
-          "id": "b",
-          "label": "Because the Church required crosses to lean",
-          "correct": false,
-          "rationale": "No such rule; the diagonal is Rubens's drama."
-        },
-        {
-          "id": "c",
-          "label": "To catch the moment in motion, mid-effort",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "To copy the calm balance of earlier altarpieces",
-          "correct": false,
-          "rationale": "Calm balance is exactly what the diagonal breaks."
-        }
+      "prompt": "Put these Baroque moments in order, from earliest to latest.",
+      "items": [
+        "The Council of Trent",
+        "The Elevation of the Cross",
+        "A dome that isn't there"
       ],
-      "explanation": "A cross stuck between lying and standing puts you in the middle of the struggle: movement and drama, the Baroque signature.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Council of Trent met from 1545 to 1563, Rubens painted The Elevation of the Cross about 1610, and Pozzo painted his dome that isn't there in 1685.",
       "difficulty": 0.3
     },
     {

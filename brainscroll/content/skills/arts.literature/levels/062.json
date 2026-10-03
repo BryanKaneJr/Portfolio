@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 62,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Gothic Novel",
   "objective": "After this level you can explain the Gothic toolkit of old castles, buried secrets and dread, from Walpole to Dracula.",
@@ -87,41 +87,25 @@
   "questions": [
     {
       "id": "question.literature.062.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.literature.gothic_toolkit"
       ],
       "sourceCardIds": [
-        "card.literature.062.c3"
+        "card.literature.062.c3",
+        "card.literature.062.c1",
+        "card.literature.062.c4"
       ],
-      "prompt": "Which setting belongs in the classic Gothic toolkit?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A sunlit village fair with dancing",
-          "correct": false,
-          "rationale": "Gothic novels want gloom, not sunshine."
-        },
-        {
-          "id": "b",
-          "label": "A castle with hidden panels and trapdoors",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "A busy modern office in a city",
-          "correct": false,
-          "rationale": "The Gothic looks back to medieval buildings."
-        },
-        {
-          "id": "d",
-          "label": "A calm voyage across a quiet sea",
-          "correct": false,
-          "rationale": "Calm is the opposite of Gothic dread."
-        }
+      "prompt": "Put these Gothic novels in order, from earliest to latest.",
+      "items": [
+        "The Castle of Otranto",
+        "The Mysteries of Udolpho",
+        "Dracula"
       ],
-      "explanation": "Gothic novels commonly use castles or monasteries with underground passages, hidden panels and trapdoors.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Castle of Otranto came out in 1764, The Mysteries of Udolpho in 1794, and Dracula in 1897.",
       "difficulty": 0.2
     },
     {

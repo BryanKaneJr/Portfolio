@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 35,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Birth of Opera",
   "objective": "After this level you can explain how opera began in Italy around 1600.",
@@ -107,42 +107,26 @@
   "questions": [
     {
       "id": "question.music.035.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.opera_birth_florence"
       ],
       "sourceCardIds": [
         "card.music.035.c2",
-        "card.music.035.c1"
+        "card.music.035.c1",
+        "card.music.035.c4"
       ],
-      "prompt": "What was Florence's Camerata trying to do when its work led toward opera?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Revive the music of ancient Greece",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Write new music for the Pope",
-          "correct": false,
-          "rationale": "Their model was ancient Greece, not the Church."
-        },
-        {
-          "id": "c",
-          "label": "Build Europe's first public theater",
-          "correct": false,
-          "rationale": "Venice's public opera house came later, in 1637."
-        },
-        {
-          "id": "d",
-          "label": "Invent a new kind of violin",
-          "correct": false,
-          "rationale": "They were after a style of singing, not an instrument."
-        }
+      "prompt": "Put these operas and events in order, from earliest to latest.",
+      "items": [
+        "Peri's La Dafne",
+        "Peri's L'Euridice",
+        "Monteverdi's Orfeo",
+        "Europe's first public opera house"
       ],
-      "explanation": "The Camerata tried to revive ancient Greek music, and its monody fed the first operas.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Peri's La Dafne came in 1598, his L'Euridice in 1600, Monteverdi's Orfeo in 1607, and Venice opened Europe's first public opera house in 1637.",
       "difficulty": 0.25
     },
     {

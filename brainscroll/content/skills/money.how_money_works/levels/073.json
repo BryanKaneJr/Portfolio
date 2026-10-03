@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 73,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Imports and Exports",
   "objective": "After this level you can explain imports, exports and the balance of trade.",
@@ -96,42 +96,31 @@
   "questions": [
     {
       "id": "question.how_money_works.073.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.trade_imports_exports"
       ],
       "sourceCardIds": [
-        "card.how_money_works.073.c1",
-        "card.how_money_works.073.c2"
+        "card.how_money_works.073.c2",
+        "card.how_money_works.073.c3"
       ],
-      "prompt": "A tourist from Japan pays for a museum ticket in New York. For the US, what is that spending?",
-      "options": [
+      "prompt": "Match each trade word with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "An import of services",
-          "correct": false,
-          "rationale": "It would be an import for Japan, not the US."
+          "left": "An export",
+          "right": "Sells to other countries"
         },
         {
-          "id": "b",
-          "label": "Not trade at all",
-          "correct": false,
-          "rationale": "Services, including travel, count as trade."
+          "left": "An import",
+          "right": "Buys from them"
         },
         {
-          "id": "c",
-          "label": "A tariff",
-          "correct": false,
-          "rationale": "A tariff is a tax on imports, not a purchase."
-        },
-        {
-          "id": "d",
-          "label": "An export of services",
-          "correct": true
+          "left": "The trade balance",
+          "right": "Take exports, subtract imports"
         }
       ],
-      "explanation": "What foreign visitors spend in a country counts as that country's exports, so the ticket is a US export.",
+      "explanation": "An export is something a country sells to other countries, and an import is something it buys from them. To get the trade balance, take exports and subtract imports.",
       "difficulty": 0.3
     },
     {

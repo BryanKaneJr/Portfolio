@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 34,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "What a Bond Is",
   "objective": "After this level you can explain how a bond works as a loan to a government or company.",
@@ -139,42 +139,32 @@
     },
     {
       "id": "question.how_money_works.034.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.bond_war_loan",
         "concept.how_money_works.bond_basics"
       ],
       "sourceCardIds": [
-        "card.how_money_works.034.c4"
+        "card.how_money_works.034.c2",
+        "card.how_money_works.034.c3"
       ],
-      "prompt": "Why could Britain choose to wait until 2015 to repay its 3½% War Loan?",
-      "options": [
+      "prompt": "Match each bond word with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Its holders had agreed to give up all interest",
-          "correct": false,
-          "rationale": "Holders kept collecting interest until repayment."
+          "left": "Face value",
+          "right": "Your original sum"
         },
         {
-          "id": "b",
-          "label": "Bonds never have to be repaid at all",
-          "correct": false,
-          "rationale": "Most bonds have a maturity date when the face value is due."
+          "left": "Maturity",
+          "right": "A set date"
         },
         {
-          "id": "c",
-          "label": "The bond had no fixed maturity date",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "A court had frozen the debt since 1932",
-          "correct": false,
-          "rationale": "The 1932 change was a swap into a new bond, not a court order."
+          "left": "Default",
+          "right": "Fail to pay"
         }
       ],
-      "explanation": "The 1932 conversion created a bond with no fixed maturity, so the government chose when to repay: in 2015, when rates were exceptionally low.",
+      "explanation": "The face value is your original sum, paid back on a set date called maturity. A default is when the issuer fails to pay.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 69,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Surrealism",
   "objective": "After this level you can explain how the Surrealists painted dreams, from Dalí to Magritte.",
@@ -100,41 +100,25 @@
   "questions": [
     {
       "id": "question.art_history.069.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.surreal_dali"
       ],
       "sourceCardIds": [
-        "card.art_history.069.c3"
+        "card.art_history.069.c3",
+        "card.art_history.069.c2",
+        "card.art_history.069.c4"
       ],
-      "prompt": "What's strange about the watches in The Persistence of Memory?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They all show different time zones",
-          "correct": false,
-          "rationale": "Time zones aren't the oddity here."
-        },
-        {
-          "id": "b",
-          "label": "They've gone soft, as if melting",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "They're painted with no hands",
-          "correct": false,
-          "rationale": "It's their shape that's impossible."
-        },
-        {
-          "id": "d",
-          "label": "They're made of real glued-on metal",
-          "correct": false,
-          "rationale": "It's a painting; collage was a Cubist idea."
-        }
+      "prompt": "Put these Surrealist works in order, from earliest to latest.",
+      "items": [
+        "Manifesto of Surrealism",
+        "The Treachery of Images",
+        "The Persistence of Memory"
       ],
-      "explanation": "Dalí's pocket watches sag and melt, one drooping over a ledge, painted realistically so the impossible looks real.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Breton published the Manifesto of Surrealism in 1924, Magritte painted The Treachery of Images in 1929, and Dalí painted The Persistence of Memory in 1931.",
       "difficulty": 0.3
     },
     {

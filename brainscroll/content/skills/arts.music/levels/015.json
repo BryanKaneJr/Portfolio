@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 15,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Percussion",
   "objective": "After this level you can explain how drums and other percussion instruments make sound.",
@@ -185,42 +185,32 @@
     },
     {
       "id": "question.music.015.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.music.instruments_orchestra_sections",
         "concept.music.instruments_hornbostel_sachs"
       ],
       "sourceCardIds": [
-        "card.music.015.c2"
+        "card.music.015.c2",
+        "card.music.015.c4"
       ],
-      "prompt": "Using Level 11's sorting rule, why is a drum a membranophone but a bell an idiophone?",
-      "options": [
+      "prompt": "Match each word with what it describes.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A drum is louder than a bell",
-          "correct": false,
-          "rationale": "Loudness doesn't decide the class."
+          "left": "Membranophone",
+          "right": "A stretched membrane vibrates"
         },
         {
-          "id": "b",
-          "label": "A bell is made of metal, a drum of wood",
-          "correct": false,
-          "rationale": "Material doesn't decide the class."
+          "left": "Idiophone",
+          "right": "The instrument's own body vibrates"
         },
         {
-          "id": "c",
-          "label": "A drum is struck, while a bell is shaken",
-          "correct": false,
-          "rationale": "Both can be struck; the difference is what vibrates."
-        },
-        {
-          "id": "d",
-          "label": "A drum's stretched skin vibrates; a bell's own body does",
-          "correct": true
+          "left": "Timpani",
+          "right": "The big kettledrums"
         }
       ],
-      "explanation": "The rule asks what vibrates: a drum's stretched membrane, but the whole body of a bell.",
+      "explanation": "In a membranophone a stretched membrane vibrates, in an idiophone the instrument's own body vibrates, and timpani are the big kettledrums.",
       "difficulty": 0.25
     }
   ],

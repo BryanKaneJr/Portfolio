@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 4,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Muybridge's Galloping Horse",
   "objective": "After this level you can explain how Eadweard Muybridge's row of cameras settled whether a galloping horse ever lifts all four hooves.",
@@ -126,41 +126,25 @@
     },
     {
       "id": "question.film_tv.004.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.muybridge_gallop"
       ],
       "sourceCardIds": [
-        "card.film_tv.004.c2"
+        "card.film_tv.004.c2",
+        "card.film_tv.004.c1",
+        "card.film_tv.004.c4"
       ],
-      "prompt": "How did Muybridge's setup capture a gallop that no eye could follow?",
-      "options": [
-        {
-          "id": "a",
-          "label": "One camera filmed the horse on a long roll of film",
-          "correct": false,
-          "rationale": "That came later, from Edison's lab."
-        },
-        {
-          "id": "b",
-          "label": "The horse broke threads that fired a row of cameras in turn",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "A painter sketched the horse very quickly",
-          "correct": false,
-          "rationale": "The point was to replace eyes with cameras."
-        },
-        {
-          "id": "d",
-          "label": "The horse was photographed standing in each pose",
-          "correct": false,
-          "rationale": "It was galloping at full speed."
-        }
+      "prompt": "Put Muybridge's story in order, from first to last.",
+      "items": [
+        "Hired photographer Eadweard Muybridge",
+        "Muybridge lined up 12 cameras",
+        "Muybridge then built the zoopraxiscope"
       ],
-      "explanation": "Twelve cameras sat in a row, and the galloping mare broke the threads that released each shutter in turn.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Leland Stanford hired Muybridge, Muybridge lined up 12 cameras to photograph the gallop in 1878, and then he built the zoopraxiscope to project the images.",
       "difficulty": 0.25
     },
     {

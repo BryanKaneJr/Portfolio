@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 66,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Polar Survivors",
   "objective": "After this level you can explain how polar bears and penguins survive the cold.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "question.animals.066.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.polar_cold_insulation"
@@ -138,33 +138,22 @@
       "sourceCardIds": [
         "card.animals.066.c4"
       ],
-      "prompt": "What does the side-by-side arrangement of arteries and veins in a penguin's legs achieve?",
-      "options": [
+      "prompt": "Match each part of a penguin's leg system with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Heat returns to the body, not the feet",
-          "correct": true
+          "left": "Arteries",
+          "right": "Carrying warm blood down"
         },
         {
-          "id": "b",
-          "label": "The feet stay as warm as the body",
-          "correct": false,
-          "rationale": "The feet stay near 0 °C on purpose."
+          "left": "Veins",
+          "right": "Bringing cold blood back up"
         },
         {
-          "id": "c",
-          "label": "The feet melt a warm spot in the ice",
-          "correct": false,
-          "rationale": "They're cold enough not to melt it."
-        },
-        {
-          "id": "d",
-          "label": "Blood stops flowing to the feet entirely",
-          "correct": false,
-          "rationale": "Blood still flows; it just swaps heat on the way."
+          "left": "Foot skin",
+          "right": "Near 0 °C"
         }
       ],
-      "explanation": "Warm blood heading down passes its heat to cold blood coming back, so little is lost through the feet.",
+      "explanation": "Arteries carrying warm blood down run beside veins bringing cold blood back up, so an emperor penguin's foot skin stays near 0 °C.",
       "difficulty": 0.3
     },
     {

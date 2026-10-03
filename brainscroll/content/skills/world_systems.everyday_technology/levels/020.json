@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 20,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Power for the World",
   "objective": "After this level you can compare the main ways the world makes electricity and their trade-offs.",
@@ -212,42 +212,32 @@
     },
     {
       "id": "question.everyday_technology.020.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.solar_photovoltaic"
       ],
       "sourceCardIds": [
         "card.everyday_technology.017.c1",
-        "card.everyday_technology.017.c2"
+        "card.everyday_technology.017.c2",
+        "card.everyday_technology.020.c2"
       ],
-      "prompt": "Power for the World recap: which source makes electricity without spinning any turbine?",
-      "options": [
+      "prompt": "Match each group of power sources with the sources in it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Nuclear power",
-          "correct": false,
-          "rationale": "Its steam spins a turbine."
+          "left": "Burn fuel",
+          "right": "Coal and gas"
         },
         {
-          "id": "b",
-          "label": "Hydropower",
-          "correct": false,
-          "rationale": "Falling water spins a turbine."
+          "left": "Split atoms",
+          "right": "Nuclear"
         },
         {
-          "id": "c",
-          "label": "Wind power",
-          "correct": false,
-          "rationale": "The wind spins a rotor and generator."
-        },
-        {
-          "id": "d",
-          "label": "Solar panels",
-          "correct": true
+          "left": "Catch nature",
+          "right": "Water, wind and sun"
         }
       ],
-      "explanation": "Solar cells turn sunlight straight into current: electrons knocked loose in a semiconductor. Nothing spins.",
+      "explanation": "Coal and gas burn fuel, nuclear plants split atoms, and water, wind and sun are the ways to catch nature.",
       "difficulty": 0.25
     },
     {

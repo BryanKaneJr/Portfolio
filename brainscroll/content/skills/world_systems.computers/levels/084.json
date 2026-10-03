@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 84,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why AI Needs So Many Chips",
   "objective": "After this level you can explain why training large models takes thousands of graphics chips and large amounts of electricity.",
@@ -120,7 +120,7 @@
     },
     {
       "id": "question.computers.084.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.ai_parallel_chips"
@@ -128,33 +128,22 @@
       "sourceCardIds": [
         "card.computers.084.c3"
       ],
-      "prompt": "Training a model would keep a single chip busy for centuries. What makes it possible in weeks?",
-      "options": [
+      "prompt": "Match each AI training fact with its number.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Splitting the work across thousands of chips running in parallel",
-          "correct": true
+          "left": "Training GPT-3",
+          "right": "10,000 GPUs"
         },
         {
-          "id": "b",
-          "label": "Swapping in one single chip with a much faster clock",
-          "correct": false,
-          "rationale": "One chip, however quick, still does all the work alone."
+          "left": "Its largest Llama 3 model",
+          "right": "Up to 16,000 GPUs"
         },
         {
-          "id": "c",
-          "label": "Training the model on just a single example",
-          "correct": false,
-          "rationale": "That would teach the model almost nothing."
-        },
-        {
-          "id": "d",
-          "label": "Storing the model on a much bigger hard drive",
-          "correct": false,
-          "rationale": "Storage size doesn't speed up the calculations."
+          "left": "A single chip",
+          "right": "About 400 years"
         }
       ],
-      "explanation": "By a 2021 estimate, GPT-3's training took about 400 chip-years, done in about 15 days by 10,000 GPUs working at once.",
+      "explanation": "Training GPT-3 kept 10,000 GPUs busy for about 15 days, Meta trained its largest Llama 3 model on up to 16,000 GPUs, and the GPT-3 job would be about 400 years of work for a single chip.",
       "difficulty": 0.35
     },
     {

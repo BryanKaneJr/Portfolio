@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 98,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Myths About Logic",
   "objective": "After this level you can debunk myths about logic, like \"a fallacy proves the conclusion false\" or \"you can't prove a negative\".",
@@ -91,41 +91,35 @@
   "questions": [
     {
       "id": "question.logic.098.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.deciding_fallacy_fallacy"
       ],
       "sourceCardIds": [
-        "card.logic.098.c2"
+        "card.logic.098.c2",
+        "card.logic.098.c4"
       ],
-      "prompt": "What is the fallacy fallacy?",
-      "options": [
+      "prompt": "Match each myth, name or law with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Using a fallacy on purpose to win a debate",
-          "correct": false,
-          "rationale": "That's arguing badly, not this mistake."
+          "left": "Myth 1",
+          "right": "A fallacy proves the conclusion false"
         },
         {
-          "id": "b",
-          "label": "Refusing to call any argument a fallacy",
-          "correct": false,
-          "rationale": "That's the opposite problem."
+          "left": "Myth 2",
+          "right": "You can't prove a negative"
         },
         {
-          "id": "c",
-          "label": "Deciding a conclusion is false because its argument was bad",
-          "correct": true
+          "left": "Steven Hales",
+          "right": "Folk logic"
         },
         {
-          "id": "d",
-          "label": "Believing every fallacy has a Latin name",
-          "correct": false,
-          "rationale": "Names are not the issue."
+          "left": "The law of non-contradiction",
+          "right": "Nothing is both true and false"
         }
       ],
-      "explanation": "It treats a flawed argument as proof that its conclusion is false. A bad argument only fails to support its conclusion.",
+      "explanation": "Myth 1 says a fallacy proves the conclusion false; myth 2 says you can't prove a negative. Steven Hales called the second folk logic. The law of non-contradiction says nothing is both true and false.",
       "difficulty": 0.4
     },
     {

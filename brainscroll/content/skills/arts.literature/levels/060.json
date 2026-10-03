@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 60,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Shakespeare and the Novel",
   "objective": "After this level you can explain why Shakespeare's plays and the first novels changed what stories could do.",
@@ -239,7 +239,7 @@
     },
     {
       "id": "question.literature.060.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.literature.globe_playhouse_audience",
@@ -250,33 +250,18 @@
       "sourceCardIds": [
         "card.literature.060.c2"
       ],
-      "prompt": "Chapter recap: which of these came first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Pride and Prejudice",
-          "correct": false,
-          "rationale": "That came in 1813."
-        },
-        {
-          "id": "b",
-          "label": "Robinson Crusoe",
-          "correct": false,
-          "rationale": "That came in 1719."
-        },
-        {
-          "id": "c",
-          "label": "Don Quixote, Part 1",
-          "correct": false,
-          "rationale": "That came in 1605."
-        },
-        {
-          "id": "d",
-          "label": "The Globe's opening on Bankside",
-          "correct": true
-        }
+      "prompt": "Put this chapter's milestones in order, from the Globe to Austen.",
+      "items": [
+        "The Globe opens on London's Bankside",
+        "Don Quixote, Part 1",
+        "The First Folio",
+        "Robinson Crusoe",
+        "Gulliver's Travels",
+        "Pride and Prejudice"
       ],
-      "explanation": "The Globe opened in 1599, before Don Quixote (1605), Robinson Crusoe (1719) and Pride and Prejudice (1813).",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Globe opened in 1599, then came Don Quixote, Part 1 (1605), the First Folio (1623), Robinson Crusoe (1719), Gulliver's Travels (1726) and Pride and Prejudice (1813).",
       "difficulty": 0.2
     },
     {

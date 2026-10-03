@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 84,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Growing Up",
   "objective": "After this level you can explain how growth spurts and hormones change the body.",
@@ -171,7 +171,7 @@
     },
     {
       "id": "question.human_body.084.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.puberty_hormone_relay",
@@ -181,32 +181,15 @@
         "card.human_body.084.c2",
         "card.human_body.001.c2"
       ],
-      "prompt": "Level 1 described the endocrine system as the body's hormone messenger. In what order does puberty's hormone relay run?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Ovaries or testes, then pituitary, then hypothalamus",
-          "correct": false,
-          "rationale": "That's the relay backwards."
-        },
-        {
-          "id": "b",
-          "label": "Pituitary, then hypothalamus, then ovaries or testes",
-          "correct": false,
-          "rationale": "The hypothalamus goes first."
-        },
-        {
-          "id": "c",
-          "label": "Hypothalamus, then ovaries or testes, then pituitary",
-          "correct": false,
-          "rationale": "The pituitary signals the ovaries or testes."
-        },
-        {
-          "id": "d",
-          "label": "Hypothalamus, then pituitary, then ovaries or testes",
-          "correct": true
-        }
+      "prompt": "Put puberty's hormone relay in order, from where it starts to the hormones that drive the changes.",
+      "items": [
+        "Hypothalamus",
+        "Pituitary",
+        "Ovaries or testes",
+        "Estrogens and testosterone"
       ],
+      "first": "Where the relay starts",
+      "last": "Drive the visible changes",
       "explanation": "The hypothalamus releases GnRH, the pituitary releases LH and FSH, and the ovaries or testes release sex hormones.",
       "difficulty": 0.3
     }

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 7,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Concrete",
   "objective": "After this level you can explain Roman and modern concrete.",
@@ -134,41 +134,36 @@
     },
     {
       "id": "question.architecture.007.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.stand_lime_clasts"
       ],
       "sourceCardIds": [
-        "card.architecture.007.c3"
+        "card.architecture.007.c3",
+        "card.architecture.007.c2",
+        "card.architecture.007.c4"
       ],
-      "prompt": "According to the 2023 MIT-led study, how can lime clasts seal a crack in Roman concrete?",
-      "options": [
+      "prompt": "Match each concrete name or word with what goes with it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They melt in summer heat and flow into the gap",
-          "correct": false,
-          "rationale": "Heat mattered during mixing, not afterward."
+          "left": "Lime clasts",
+          "right": "Little white lumps"
         },
         {
-          "id": "b",
-          "label": "They swell with seawater and jam the crack shut",
-          "correct": false,
-          "rationale": "The study describes calcium refilling cracks, not swelling."
+          "left": "Level 1's Vitruvius",
+          "right": "The Gulf of Naples"
         },
         {
-          "id": "c",
-          "label": "Water dissolves their calcium, which refills the crack",
-          "correct": true
+          "left": "Joseph Aspdin",
+          "right": "Portland cement"
         },
         {
-          "id": "d",
-          "label": "They grow like coral over the surface",
-          "correct": false,
-          "rationale": "The refill is calcium carbonate, not a living growth."
+          "left": "Joseph Monier",
+          "right": "Iron mesh"
         }
       ],
-      "explanation": "When water reaches a lime clast through a crack, dissolved calcium refills the crack as calcium carbonate.",
+      "explanation": "Lime clasts are little white lumps in Roman concrete. Vitruvius praised ash from around the Gulf of Naples. Joseph Aspdin made portland cement, and Joseph Monier reinforced concrete tubs with iron mesh.",
       "difficulty": 0.25
     },
     {

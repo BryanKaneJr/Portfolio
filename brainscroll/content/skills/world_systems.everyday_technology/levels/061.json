@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 61,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How the Internet Began",
   "objective": "After this level you can describe ARPANET and how the internet grew from it.",
@@ -130,41 +130,26 @@
     },
     {
       "id": "question.everyday_technology.061.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.internet_tcp_ip"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.061.c3"
+        "card.everyday_technology.061.c3",
+        "card.everyday_technology.061.c2",
+        "card.everyday_technology.061.c4"
       ],
-      "prompt": "Why is the internet called a \"network of networks\"?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Shared TCP/IP rules let separate networks join as one",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "One central computer runs every network",
-          "correct": false,
-          "rationale": "There's no single machine; it's an agreement on rules."
-        },
-        {
-          "id": "c",
-          "label": "The Defense Department built every network",
-          "correct": false,
-          "rationale": "ARPA funded ARPANET, but TCP joined other networks too."
-        },
-        {
-          "id": "d",
-          "label": "Each country runs its own separate internet",
-          "correct": false,
-          "rationale": "TCP/IP exists so networks can connect into one."
-        }
+      "prompt": "Put these moments in the internet's growth in order, from earliest to latest.",
+      "items": [
+        "First stuttered \"lo\"",
+        "ARPANET had grown to 15 nodes",
+        "ARPANET switched to TCP/IP",
+        "Reached about 6 billion people"
       ],
-      "explanation": "Cerf and Kahn's TCP let separately built networks, even radio and satellite ones, work together; ARPANET adopted TCP/IP in 1983.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The first \"lo\" went out in 1969, ARPANET had 15 nodes by 1971, it switched to TCP/IP in 1983, and the internet reached about 6 billion people in 2025.",
       "difficulty": 0.3
     },
     {

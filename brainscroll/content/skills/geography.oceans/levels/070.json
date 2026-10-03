@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 70,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Coasts and Islands",
   "objective": "After this level you can explain how waves, rivers and volcanoes shape coasts and islands.",
@@ -121,41 +121,25 @@
   "questions": [
     {
       "id": "question.oceans.070.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.oceans.surtsey_island_life"
       ],
       "sourceCardIds": [
-        "card.oceans.070.c2"
+        "card.oceans.070.c2",
+        "card.oceans.070.c4"
       ],
-      "prompt": "Coasts and Islands recap: about how much of Surtsey's area had the waves removed by 2002?",
-      "options": [
-        {
-          "id": "a",
-          "label": "About a tenth",
-          "correct": false,
-          "rationale": "Much more: it went from about 2.7 to 1.4 km²."
-        },
-        {
-          "id": "b",
-          "label": "About a quarter",
-          "correct": false,
-          "rationale": "More: 2.7 km² down to 1.4 km² is about half."
-        },
-        {
-          "id": "c",
-          "label": "About half",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "All of it",
-          "correct": false,
-          "rationale": "Surtsey is still there, about 1.4 km²."
-        }
+      "prompt": "Put Surtsey's life in order, from earliest to latest.",
+      "items": [
+        "The eruption broke the surface",
+        "An island of about 2.7 km²",
+        "Cut it to about 1.4 km²",
+        "Only that core will be left"
       ],
-      "explanation": "Surtsey shrank from about 2.7 km² in 1967 to about 1.4 km² by 2002: roughly half.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The eruption broke the surface in 1963 and left an island of about 2.7 km² by 1967. By 2002 waves had cut it to about 1.4 km², and in about 160 years only the tough core will be left.",
       "difficulty": 0.3
     },
     {

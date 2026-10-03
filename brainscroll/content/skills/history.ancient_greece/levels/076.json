@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 76,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Sculpture",
   "objective": "After this level you can explain how Greek sculpture became lifelike.",
@@ -125,41 +125,26 @@
     },
     {
       "id": "question.ancient_greece.076.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_greece.sculpture_bronze_survival"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.076.c3"
+        "card.ancient_greece.076.c3",
+        "card.ancient_greece.076.c2",
+        "card.ancient_greece.076.c4"
       ],
-      "prompt": "Why is Polyclitus’s Spear Bearer known only through Roman copies?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Polyclitus carved it in soft clay",
-          "correct": false,
-          "rationale": "It was bronze."
-        },
-        {
-          "id": "b",
-          "label": "The Romans made the original",
-          "correct": false,
-          "rationale": "The original was Greek."
-        },
-        {
-          "id": "c",
-          "label": "It was never finished",
-          "correct": false,
-          "rationale": "It was finished, then lost."
-        },
-        {
-          "id": "d",
-          "label": "The bronze original is lost, like most Greek bronzes",
-          "correct": true
-        }
+      "prompt": "Put these moments in Greek sculpture in order, from earliest to latest.",
+      "items": [
+        "Archaic kouroi",
+        "Kritios Boy",
+        "Spear Bearer",
+        "Brought up in 1972"
       ],
-      "explanation": "Most full-size Greek bronzes were later melted down; the Spear Bearer survives only in Roman copies.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Archaic kouroi were carved from about 615-590 BCE, the Kritios Boy just after 480 BCE, and the Spear Bearer about 450-440 BCE. The Riace Bronzes were brought up in 1972.",
       "difficulty": 0.3
     },
     {

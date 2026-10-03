@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 38,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Saving for Retirement",
   "objective": "After this level you can explain why starting early matters so much when saving for retirement.",
@@ -80,7 +80,7 @@
   "questions": [
     {
       "id": "question.how_money_works.038.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.retire_start_early"
@@ -88,33 +88,22 @@
       "sourceCardIds": [
         "card.how_money_works.038.c1"
       ],
-      "prompt": "In the SEC's candy-bar example, what turns $365 into $1,577.50?",
-      "options": [
+      "prompt": "Match each step of the SEC's candy-bar example with its amount.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Adding $365 more every single year",
-          "correct": false,
-          "rationale": "The $365 is saved once, then left alone."
+          "left": "A $1 candy bar every day for a year",
+          "right": "$365"
         },
         {
-          "id": "b",
-          "label": "A 30% return each year",
-          "correct": false,
-          "rationale": "The example uses 5% a year."
+          "left": "In five years",
+          "right": "$465.84"
         },
         {
-          "id": "c",
-          "label": "Buying a candy company's shares",
-          "correct": false,
-          "rationale": "It's just savings earning 5% a year."
-        },
-        {
-          "id": "d",
-          "label": "Thirty years of growth at 5% a year",
-          "correct": true
+          "left": "For 30 years",
+          "right": "$1,577.50"
         }
       ],
-      "explanation": "Saved once and earning 5% a year, the $365 grows to $465.84 in five years and $1,577.50 in 30.",
+      "explanation": "Skipping a $1 candy bar every day for a year saves $365. At 5% a year it grows to $465.84 in five years and $1,577.50 in 30 years.",
       "difficulty": 0.15
     },
     {

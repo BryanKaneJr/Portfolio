@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 27,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Polyphony",
   "objective": "After this level you can explain how singers began weaving several melodies together.",
@@ -146,41 +146,27 @@
     },
     {
       "id": "question.music.027.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.medieval_polyphony_organum"
       ],
       "sourceCardIds": [
-        "card.music.027.c2"
+        "card.music.027.c2",
+        "card.music.027.c3",
+        "card.music.027.c4",
+        "card.music.027.c5"
       ],
-      "prompt": "What makes music polyphonic rather than monophonic?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Two or more independent melodic lines at once",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "A large choir of singers",
-          "correct": false,
-          "rationale": "A big choir singing one line in unison is still monophonic."
-        },
-        {
-          "id": "c",
-          "label": "A strong, regular beat",
-          "correct": false,
-          "rationale": "Polyphony is about how many lines, not the beat."
-        },
-        {
-          "id": "d",
-          "label": "Words in Latin",
-          "correct": false,
-          "rationale": "Language doesn't decide it; the number of lines does."
-        }
+      "prompt": "Put these milestones of polyphony in order, from earliest to latest.",
+      "items": [
+        "Musica enchiriadis",
+        "Léonin",
+        "Pérotin",
+        "Machaut"
       ],
-      "explanation": "Polyphony is two or more melodic lines heard as independent; chant is a single line.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Musica enchiriadis described organum around 900, Léonin's great book came about 1170, his successor Pérotin wrote for three and four voices, and Machaut (c. 1300-1377) wrote the first complete polyphonic Mass by one composer.",
       "difficulty": 0.25
     },
     {

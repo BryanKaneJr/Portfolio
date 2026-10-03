@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 38,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Aluminum",
   "objective": "After this level you can explain why aluminum was once more precious than gold.",
@@ -134,7 +134,7 @@
     },
     {
       "id": "question.chemistry.038.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.aluminum_hall_heroult",
@@ -142,35 +142,18 @@
       ],
       "sourceCardIds": [
         "card.chemistry.038.c2",
-        "card.chemistry.038.c4"
+        "card.chemistry.038.c4",
+        "card.chemistry.038.c3"
       ],
-      "prompt": "Why did aluminum's price collapse after 1886?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Huge deposits of pure aluminum metal were discovered",
-          "correct": false,
-          "rationale": "Aluminum never occurs as a metal in nature."
-        },
-        {
-          "id": "b",
-          "label": "People stopped wanting it",
-          "correct": false,
-          "rationale": "Demand wasn't the cause."
-        },
-        {
-          "id": "c",
-          "label": "It was replaced by gold in cutlery",
-          "correct": false,
-          "rationale": "The change was in how aluminum was made."
-        },
-        {
-          "id": "d",
-          "label": "Electricity made freeing it from its compounds cheap",
-          "correct": true
-        }
+      "prompt": "Put these moments in aluminum's story in order, from earliest to latest.",
+      "items": [
+        "More valuable than gold",
+        "Electricity sets it free",
+        "Less than $1 a pound"
       ],
-      "explanation": "Hall and Heroult used electricity to free aluminum from alumina dissolved in molten cryolite; by 1891 it cost under $1 a pound.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "In the mid-1800s aluminum was more valuable than gold. In 1886 electricity set it free, and by 1891 it cost less than $1 a pound.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 8,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Density",
   "objective": "After this level you can explain why some things float and others sink.",
@@ -134,41 +134,24 @@
     },
     {
       "id": "question.chemistry.008.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.density_float_sink"
       ],
       "sourceCardIds": [
-        "card.chemistry.008.c3"
+        "card.chemistry.008.c3",
+        "card.chemistry.008.c4"
       ],
-      "prompt": "A huge log floats, but a tiny iron nail sinks. Why?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Big objects always float",
-          "correct": false,
-          "rationale": "Size alone doesn't decide it; a big rock sinks."
-        },
-        {
-          "id": "b",
-          "label": "The nail is heavier than the log",
-          "correct": false,
-          "rationale": "The nail is far lighter."
-        },
-        {
-          "id": "c",
-          "label": "Wood is less dense than water, and iron is denser",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Iron soaks up water and gets heavy",
-          "correct": false,
-          "rationale": "Iron sinks because it is denser than water."
-        }
+      "prompt": "Put these in order of density, from least dense to most dense.",
+      "items": [
+        "Ice",
+        "Liquid water",
+        "Iron"
       ],
-      "explanation": "Floating depends on density compared with the liquid, not on weight.",
+      "first": "Least dense",
+      "last": "Most dense",
+      "explanation": "Ice is only about 90 percent as dense as liquid water, so it floats. Iron is denser than water, so a nail sinks.",
       "difficulty": 0.25
     },
     {

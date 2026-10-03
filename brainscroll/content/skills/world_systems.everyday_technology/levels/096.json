@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 96,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Fusion Power",
   "objective": "After this level you can explain how fusion differs from fission and why it is so hard to achieve.",
@@ -100,41 +100,35 @@
   "questions": [
     {
       "id": "question.everyday_technology.096.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.fusion_vs_fission"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.096.c2"
+        "card.everyday_technology.096.c2",
+        "card.everyday_technology.096.c3"
       ],
-      "prompt": "How does nuclear fusion differ from nuclear fission?",
-      "options": [
+      "prompt": "Match each nuclear energy term with its partner.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Fusion splits heavy nuclei; fission joins light ones",
-          "correct": false,
-          "rationale": "That's backwards."
+          "left": "Fission",
+          "right": "Splitting heavy nuclei"
         },
         {
-          "id": "b",
-          "label": "Fusion only works with uranium",
-          "correct": false,
-          "rationale": "Fusion uses very light nuclei such as hydrogen."
+          "left": "Fusion",
+          "right": "Joins very light nuclei"
         },
         {
-          "id": "c",
-          "label": "Fission is what powers the Sun",
-          "correct": false,
-          "rationale": "The Sun runs on fusion."
+          "left": "Tokamaks",
+          "right": "Magnetic fields"
         },
         {
-          "id": "d",
-          "label": "Fusion joins light nuclei; fission splits heavy ones",
-          "correct": true
+          "left": "NIF",
+          "right": "Lasers"
         }
       ],
-      "explanation": "Fusion joins light nuclei such as hydrogen; fission splits heavy nuclei such as uranium.",
+      "explanation": "Fission releases energy by splitting heavy nuclei and fusion joins very light nuclei. Tokamaks hold the plasma with magnetic fields, while NIF squeezes its fuel with lasers.",
       "difficulty": 0.2
     },
     {

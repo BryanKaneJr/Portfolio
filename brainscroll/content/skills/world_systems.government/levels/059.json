@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 59,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Prisons and Punishment",
   "objective": "After this level you can explain the purposes of punishment and the debates about it.",
@@ -137,41 +137,36 @@
     },
     {
       "id": "question.government.059.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.punishment_debate"
       ],
       "sourceCardIds": [
-        "card.government.059.c3"
+        "card.government.059.c3",
+        "card.government.059.c4",
+        "card.government.059.c5"
       ],
-      "prompt": "Kant and Bentham disagreed about why we punish. Which pair matches their views?",
-      "options": [
+      "prompt": "Match each thinker or country with its view of punishment.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Kant: only to deter; Bentham: because it's deserved",
-          "correct": false,
-          "rationale": "That's the two views swapped."
+          "left": "Immanuel Kant",
+          "right": "The wrongdoer deserves it"
         },
         {
-          "id": "b",
-          "label": "Kant: because it's deserved; Bentham: only if it prevents a greater evil",
-          "correct": true
+          "left": "Jeremy Bentham",
+          "right": "Prevents some greater evil"
         },
         {
-          "id": "c",
-          "label": "Both: punishment should be abolished",
-          "correct": false,
-          "rationale": "Neither argued that."
+          "left": "Cesare Beccaria",
+          "right": "Certainty of punishment"
         },
         {
-          "id": "d",
-          "label": "Kant: to rehabilitate; Bentham: to keep prisons full",
-          "correct": false,
-          "rationale": "Neither matches their arguments."
+          "left": "Norway",
+          "right": "Principle of normality"
         }
       ],
-      "explanation": "Kant was a retributivist; Bentham held that punishment is itself an evil, justified only if it prevents a greater one.",
+      "explanation": "Kant said punishment is justified because the wrongdoer deserves it, Bentham only as far as it prevents some greater evil, Beccaria stressed the certainty of punishment, and Norway follows a principle of normality.",
       "difficulty": 0.3
     },
     {

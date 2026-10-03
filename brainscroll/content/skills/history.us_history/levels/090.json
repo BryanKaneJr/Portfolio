@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 90,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Superpower and Civil Rights",
   "objective": "After this level you can explain how the Cold War and the civil rights movement reshaped American life and rights between 1945 and 1975.",
@@ -154,7 +154,7 @@
   "questions": [
     {
       "id": "question.us_history.090.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.coldwar_containment",
@@ -164,33 +164,18 @@
       "sourceCardIds": [
         "card.us_history.090.c2"
       ],
-      "prompt": "Superpower and Civil Rights: which order of events is right?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Brown v. Board, the Truman Doctrine, Nixon resigns",
-          "correct": false,
-          "rationale": "The Truman Doctrine (1947) came before Brown (1954)."
-        },
-        {
-          "id": "b",
-          "label": "The Truman Doctrine, Brown v. Board, Nixon resigns",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The Truman Doctrine, Nixon resigns, Brown v. Board",
-          "correct": false,
-          "rationale": "Nixon resigned last, in 1974."
-        },
-        {
-          "id": "d",
-          "label": "Nixon resigns, Brown v. Board, the Truman Doctrine",
-          "correct": false,
-          "rationale": "Nixon’s resignation (1974) came last."
-        }
+      "prompt": "Put these events from the Truman Doctrine to Nixon’s resignation in order, from earliest to latest.",
+      "items": [
+        "Aid Greece and Turkey",
+        "Brown v. Board",
+        "The Soviets launch Sputnik 1",
+        "About 250,000 march on Washington",
+        "A new immigration law",
+        "Nixon resigns"
       ],
-      "explanation": "The Truman Doctrine came in 1947, Brown in 1954 and Nixon’s resignation in 1974.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Truman asked to aid Greece and Turkey in 1947, Brown v. Board came in 1954, Sputnik in 1957, the March on Washington in 1963, the new immigration law in 1965, and Nixon resigned in 1974.",
       "difficulty": 0.25
     },
     {

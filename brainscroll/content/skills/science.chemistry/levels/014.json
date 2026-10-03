@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 14,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Electron Shells",
   "objective": "After this level you can explain how electrons fill shells around the nucleus.",
@@ -91,41 +91,31 @@
   "questions": [
     {
       "id": "question.chemistry.014.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.atom_electron_shells"
       ],
       "sourceCardIds": [
-        "card.chemistry.014.c3"
+        "card.chemistry.014.c3",
+        "card.chemistry.014.c1"
       ],
-      "prompt": "In the shell model, how many electrons can an atom's first (innermost) shell hold?",
-      "options": [
+      "prompt": "Match each atom or shell with its number of electrons.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "1",
-          "correct": false,
-          "rationale": "It holds more than one."
+          "left": "Neon",
+          "right": "10 electrons"
         },
         {
-          "id": "b",
-          "label": "2",
-          "correct": true
+          "left": "Sodium",
+          "right": "11 electrons"
         },
         {
-          "id": "c",
-          "label": "8",
-          "correct": false,
-          "rationale": "That is the second shell."
-        },
-        {
-          "id": "d",
-          "label": "11",
-          "correct": false,
-          "rationale": "That is sodium's total, across three shells."
+          "left": "The first shell",
+          "right": "Up to 2 electrons"
         }
       ],
-      "explanation": "The first shell holds up to 2 electrons; the second holds up to 8.",
+      "explanation": "Neon has 10 electrons and sodium has 11. The first shell holds up to 2 electrons.",
       "difficulty": 0.15
     },
     {

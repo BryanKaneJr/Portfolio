@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 60,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Brain and Nerves",
   "objective": "After this level you can explain how nerves and the brain sense, decide and act.",
@@ -143,7 +143,7 @@
     },
     {
       "id": "question.human_body.060.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.nervous_sense_decide_act"
@@ -151,32 +151,14 @@
       "sourceCardIds": [
         "card.human_body.060.c2"
       ],
-      "prompt": "Brain and Nerves recap: a batter weighs the pitch's speed and the game situation before swinging. Which job is that?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Sensation",
-          "correct": false,
-          "rationale": "Sensation is taking in the pitch in the first place."
-        },
-        {
-          "id": "b",
-          "label": "Integration",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Response",
-          "correct": false,
-          "rationale": "The response is the swing that follows."
-        },
-        {
-          "id": "d",
-          "label": "A stretch reflex",
-          "correct": false,
-          "rationale": "Reflexes skip the weighing-up step."
-        }
+      "prompt": "Put the nervous system's three basic jobs in order, as a batter faces a pitch.",
+      "items": [
+        "Sensation",
+        "Integration",
+        "Response"
       ],
+      "first": "First",
+      "last": "Last",
       "explanation": "Integration is weighing incoming information against memories and circumstances before a response is chosen.",
       "difficulty": 0.25
     },

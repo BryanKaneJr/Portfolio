@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 95,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Marie Curie",
   "objective": "After this level you can explain Curie's discovery of radium and polonium.",
@@ -88,41 +88,24 @@
   "questions": [
     {
       "id": "question.chemistry.095.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.curie_discoveries"
       ],
       "sourceCardIds": [
-        "card.chemistry.095.c4"
+        "card.chemistry.095.c4",
+        "card.chemistry.095.c2"
       ],
-      "prompt": "What did Marie Curie win the 1911 Nobel Prize in Chemistry for?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Inventing the X-ray machine",
-          "correct": false,
-          "rationale": "That wasn't her prize."
-        },
-        {
-          "id": "b",
-          "label": "Discovering radium and polonium",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Splitting the atom",
-          "correct": false,
-          "rationale": "That was other scientists, later."
-        },
-        {
-          "id": "d",
-          "label": "Naming oxygen",
-          "correct": false,
-          "rationale": "That was Lavoisier, Level 93."
-        }
+      "prompt": "Put these moments in Marie Curie's career in order, from earliest to latest.",
+      "items": [
+        "Announced two new elements",
+        "Nobel Prize in Physics",
+        "Nobel Prize in Chemistry"
       ],
-      "explanation": "Her 1911 chemistry prize, won alone, was for discovering the elements radium and polonium.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Curies announced two new elements in 1898. Marie Curie shared the Nobel Prize in Physics in 1903 and won the Nobel Prize in Chemistry in 1911.",
       "difficulty": 0.2
     },
     {

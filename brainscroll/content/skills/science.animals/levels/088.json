@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 88,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Whales Once Walked",
   "objective": "After this level you can explain how whales evolved from land mammals.",
@@ -182,7 +182,7 @@
     },
     {
       "id": "question.animals.088.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.whale_land_ancestors",
@@ -193,33 +193,15 @@
         "card.animals.088.c1",
         "card.animals.009.c1"
       ],
-      "prompt": "Level 9's blue whale is a baleen whale. Where does its family history begin?",
-      "options": [
-        {
-          "id": "a",
-          "label": "With hippos",
-          "correct": false,
-          "rationale": "Hippos are cousins, not ancestors."
-        },
-        {
-          "id": "b",
-          "label": "With sharks",
-          "correct": false,
-          "rationale": "Sharks are fish; whales are mammals."
-        },
-        {
-          "id": "c",
-          "label": "With sea turtles",
-          "correct": false,
-          "rationale": "Not related this way."
-        },
-        {
-          "id": "d",
-          "label": "With four-legged land mammals",
-          "correct": true
-        }
+      "prompt": "Put these whale ancestors in order, from earliest to latest.",
+      "items": [
+        "Pakicetus",
+        "Ambulocetus",
+        "Dorudon"
       ],
-      "explanation": "Baleen whales, including blue whales, descend from land mammals like Pakicetus that lived about 50 million years ago.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Pakicetus lived about 50 million years ago, Ambulocetus 50 to 48 million years ago, and Dorudon 40 to 33 million years ago.",
       "difficulty": 0.3
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 65,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Shinto and the Kami",
   "objective": "After this level you can explain what kami are and how a Shinto shrine marks off sacred space.",
@@ -129,41 +129,37 @@
     },
     {
       "id": "question.religions.065.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.shinto_shrine_space"
       ],
       "sourceCardIds": [
-        "card.religions.065.c4"
+        "card.religions.065.c4",
+        "card.religions.065.c1",
+        "card.religions.065.c2",
+        "card.religions.065.c3"
       ],
-      "prompt": "How does a Shinto shrine mark off its sacred space?",
-      "options": [
+      "prompt": "Match each Shinto word with its meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "With a wall no visitor may cross",
-          "correct": false,
-          "rationale": "Visitors do enter the shrine grounds."
+          "left": "Shinto",
+          "right": "The way of the kami"
         },
         {
-          "id": "b",
-          "label": "A torii marks the border; the kami's own place is often hidden",
-          "correct": true
+          "left": "Torii",
+          "right": "A simple gate"
         },
         {
-          "id": "c",
-          "label": "With a written creed posted at the gate",
-          "correct": false,
-          "rationale": "Shinto, the Association says, has no dogma."
+          "left": "Jinja",
+          "right": "A shrine"
         },
         {
-          "id": "d",
-          "label": "By moving to a new site every year",
-          "correct": false,
-          "rationale": "Ise is rebuilt every 20 years, beside it."
+          "left": "Shimenawa",
+          "right": "A straw rope"
         }
       ],
-      "explanation": "The torii marks the border; the innermost place where the kami is present is the most sacred, often closed to view.",
+      "explanation": "Shinto means \"the way of the kami\", a torii is a simple gate, a jinja is a shrine, and shimenawa is a straw rope marking sacred trees.",
       "difficulty": 0.3
     },
     {

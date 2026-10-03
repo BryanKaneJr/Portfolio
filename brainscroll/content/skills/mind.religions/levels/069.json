@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 69,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Yoruba Religion and the Orisha",
   "objective": "After this level you can explain how Yoruba tradition links a supreme God, the orisha and the ancestors, and what Ifa divination is.",
@@ -103,41 +103,37 @@
   "questions": [
     {
       "id": "question.religions.069.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.religions.ifa_divination"
       ],
       "sourceCardIds": [
-        "card.religions.069.c5"
+        "card.religions.069.c5",
+        "card.religions.069.c2",
+        "card.religions.069.c3",
+        "card.religions.069.c4"
       ],
-      "prompt": "Who reads the signs in Ifa divination?",
-      "options": [
+      "prompt": "Match each Yoruba name with who or what it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "An Egungun masquerader",
-          "correct": false,
-          "rationale": "Egungun honors ancestors at festivals."
+          "left": "Olorun",
+          "right": "The Almighty Creator"
         },
         {
-          "id": "b",
-          "label": "A priest called the babalawo",
-          "correct": true
+          "left": "Shango",
+          "right": "Fire and lightning"
         },
         {
-          "id": "c",
-          "label": "The person asking the question, alone",
-          "correct": false,
-          "rationale": "A priest reads the signs."
+          "left": "Ifa",
+          "right": "The deity of wisdom"
         },
         {
-          "id": "d",
-          "label": "Olorun's own priests",
-          "correct": false,
-          "rationale": "Olorun has no priests."
+          "left": "Egungun",
+          "right": "Masquerades"
         }
       ],
-      "explanation": "The babalawo reads signs with sacred palm nuts and a divination chain.",
+      "explanation": "Olorun is the Almighty Creator, Shango is a force of fire and lightning, Ifa is the deity of wisdom, and Egungun masquerades honor the ancestors.",
       "difficulty": 0.3
     },
     {

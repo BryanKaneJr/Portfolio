@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 60,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Civil War and Reconstruction",
   "objective": "After this level you can explain how the war ended slavery and what Reconstruction promised, won and lost.",
@@ -159,7 +159,7 @@
   "questions": [
     {
       "id": "question.us_history.060.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.dred_scott_decision",
@@ -169,33 +169,18 @@
       "sourceCardIds": [
         "card.us_history.060.c2"
       ],
-      "prompt": "Civil War and Reconstruction: which order of events is right?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Emancipation Proclamation, Dred Scott, troops leave the South",
-          "correct": false,
-          "rationale": "Dred Scott (1857) came first."
-        },
-        {
-          "id": "b",
-          "label": "Dred Scott, Emancipation Proclamation, troops leave the South",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Dred Scott, troops leave the South, Emancipation Proclamation",
-          "correct": false,
-          "rationale": "The troops left in 1877, last."
-        },
-        {
-          "id": "d",
-          "label": "Troops leave the South, Dred Scott, Emancipation Proclamation",
-          "correct": false,
-          "rationale": "The troop withdrawal ended the story in 1877."
-        }
+      "prompt": "Put these events of the Civil War and Reconstruction in order, from earliest to latest.",
+      "items": [
+        "Dred Scott",
+        "Confederates fire on Fort Sumter",
+        "Emancipation Proclamation",
+        "Lee surrenders",
+        "The 14th Amendment",
+        "The last federal troops leave the South"
       ],
-      "explanation": "Dred Scott came in 1857, the Proclamation in 1863, and the last troops left in 1877.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Dred Scott came in 1857, Fort Sumter in 1861, the Emancipation Proclamation in 1863, Lee’s surrender in 1865, the 14th Amendment in 1868, and the last federal troops left the South in 1877.",
       "difficulty": 0.25
     },
     {

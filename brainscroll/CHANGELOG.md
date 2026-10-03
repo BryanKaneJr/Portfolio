@@ -2,6 +2,17 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: Dr. Scroll's first animation
+
+- **On Social, before you have friends,** Dr. Scroll now waves hello and then points at his speech bubble ("Learning is better with company…"), ending on the point (owner). With reduce motion he simply points.
+- **How animations work:** frames exported with a transparent background are packed into one sprite sheet and played once by `DrScroll`'s new `animation` prop, holding the last frame. No new library or app build needed. The steps for adding more are in `docs/mascot.md`, "Animations".
+
+## 2026-10-03: Every tree uses every kind of question
+
+- **Match and order are now in all 26 trees** (owner: "make sure our multiple types of answering exist everywhere"). Each tree has one match or put-in-order question in 92 to 100 of its levels: 2,474 new across the 25 trees that didn't have them (1,667 match and 901 order in total, Astronomy's included). With fill in the blank in about half of all levels, a typical lesson now mixes three ways of answering.
+- **Only where the cards settle it:** order questions use dates, sizes or steps the cards state outright, with no ties; match pairs are one-to-one, taken from the cards' own wording, so after a miss the "Take another look" cards settle the whole answer. A level was left alone when nothing was that concrete (32 levels across all trees).
+- **Each converted an existing question:** ids, concepts and difficulty are kept; nothing new is claimed; each changed level's revision is bumped. Prompts speak about the topic, never about "the cards".
+
 ## 2026-10-03: Fill in the blank
 
 - **A new way to answer** (owner): some multiple-choice questions are now a sentence with a gap ("Counting outward from the Sun, Earth is the _____ planet."). The options sit underneath as chips; tap one and it leaves the row and pops into the gap, leaving its outline behind. Tap it again to take it back. A wrong pick goes back crossed out; the right one turns mint in the sentence.

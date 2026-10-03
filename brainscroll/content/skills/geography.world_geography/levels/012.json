@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 12,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Plate Tectonics",
   "objective": "After this level you can explain how moving plates reshape continents over millions of years.",
@@ -153,7 +153,7 @@
     },
     {
       "id": "question.world_geography.012.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.plate_boundaries"
@@ -161,33 +161,22 @@
       "sourceCardIds": [
         "card.world_geography.012.c4"
       ],
-      "prompt": "At which kind of plate boundary is new crust made?",
-      "options": [
+      "prompt": "Match each way plates meet with what happens there.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Where plates slide past each other",
-          "correct": false,
-          "rationale": "Crust is neither made nor destroyed there."
+          "left": "Pulling apart",
+          "right": "New crust forms"
         },
         {
-          "id": "b",
-          "label": "Where one plate dives under another",
-          "correct": false,
-          "rationale": "That's where crust is destroyed."
+          "left": "Pushing together",
+          "right": "One plate dives under another"
         },
         {
-          "id": "c",
-          "label": "Where plates pull apart",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "In the middle of a plate, far from any edge",
-          "correct": false,
-          "rationale": "New crust forms at the gap between plates."
+          "left": "Sliding past",
+          "right": "Plates grind sideways"
         }
       ],
-      "explanation": "At divergent boundaries, like the Mid-Atlantic Ridge, plates spread apart and new crust forms in the gap.",
+      "explanation": "Where plates pull apart, new crust forms. Where they push together, one plate dives under another. Where they slide past, plates grind sideways.",
       "difficulty": 0.25
     },
     {

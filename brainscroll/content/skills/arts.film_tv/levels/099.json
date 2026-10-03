@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 99,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How to Watch Closely",
   "objective": "After this level you can use a simple method to watch any film or episode closely, separating how it was made from whether you liked it.",
@@ -82,41 +82,26 @@
   "questions": [
     {
       "id": "question.film_tv.099.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.critical_close_watching"
       ],
       "sourceCardIds": [
-        "card.film_tv.099.c2"
+        "card.film_tv.099.c2",
+        "card.film_tv.099.c3",
+        "card.film_tv.099.c4"
       ],
-      "prompt": "Why watch a film once straight through before taking notes?",
-      "options": [
-        {
-          "id": "a",
-          "label": "To experience it as intended before analyzing it",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Because notes are not allowed on a first viewing",
-          "correct": false,
-          "rationale": "It's advice, not a rule."
-        },
-        {
-          "id": "c",
-          "label": "To memorize the dialogue",
-          "correct": false,
-          "rationale": "The point is experience first, evidence second."
-        },
-        {
-          "id": "d",
-          "label": "Because the second viewing doesn't matter",
-          "correct": false,
-          "rationale": "The second viewing is for analysis."
-        }
+      "prompt": "Put the steps of the method in order, from first to last.",
+      "items": [
+        "Watch once straight through",
+        "Take notes with timestamps",
+        "Name what you see",
+        "Give your verdict"
       ],
-      "explanation": "The first viewing is for the experience; the second, with timestamped notes, is for analysis.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Watch once straight through, then watch again and take notes with timestamps. Next, name what you see, ask how it shapes you, and only then give your verdict.",
       "difficulty": 0.25
     },
     {

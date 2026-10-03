@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 6,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Homer: Poems Made to Be Sung",
   "objective": "After this level you can explain how oral poets composed epics like Homer's from stock phrases and repeated scenes.",
@@ -91,41 +91,31 @@
   "questions": [
     {
       "id": "question.literature.006.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.literature.type_scenes"
       ],
       "sourceCardIds": [
-        "card.literature.006.c3"
+        "card.literature.006.c3",
+        "card.literature.006.c2"
       ],
-      "prompt": "Scholars have a name for a recurring block of story with a set structure, like a sacrifice or arming. What is it?",
-      "options": [
+      "prompt": "Match each term from Homer's singing tradition with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "An epithet",
-          "correct": false,
-          "rationale": "An epithet is a descriptive phrase for a person or thing."
+          "left": "Dactylic hexameter",
+          "right": "A strict meter"
         },
         {
-          "id": "b",
-          "label": "A type-scene",
-          "correct": true
+          "left": "Formula",
+          "right": "A phrase shaped to fit the rhythm"
         },
         {
-          "id": "c",
-          "label": "A hexameter",
-          "correct": false,
-          "rationale": "That's the meter."
-        },
-        {
-          "id": "d",
-          "label": "A moral",
-          "correct": false,
-          "rationale": "That's a fable's lesson."
+          "left": "Type-scene",
+          "right": "Recurring blocks of story"
         }
       ],
-      "explanation": "A type-scene is a recurring block of story with a set structure, such as a sacrifice, welcoming a guest or putting on armor.",
+      "explanation": "Dactylic hexameter is the strict meter of Homer's poems. A formula is a phrase shaped to fit the rhythm, and type-scenes are recurring blocks of story with a set structure.",
       "difficulty": 0.15
     },
     {

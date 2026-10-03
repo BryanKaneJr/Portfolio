@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 26,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Theme: What a Story Means",
   "objective": "After this level you can tell a story's subject from its theme and state a theme in one sentence.",
@@ -126,7 +126,7 @@
     },
     {
       "id": "question.literature.026.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.storycraft_theme"
@@ -135,33 +135,15 @@
         "card.literature.026.c2",
         "card.literature.026.c3"
       ],
-      "prompt": "How can you turn a story's subject into a theme?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Add an assertion about the topic, in one sentence with a subject and a verb",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Replace the subject with the title",
-          "correct": false,
-          "rationale": "A title isn't a statement about the topic."
-        },
-        {
-          "id": "c",
-          "label": "List the characters who appear",
-          "correct": false,
-          "rationale": "That summarizes; it doesn't state an idea."
-        },
-        {
-          "id": "d",
-          "label": "Shorten the subject to one letter",
-          "correct": false,
-          "rationale": "A theme needs a full sentence."
-        }
+      "prompt": "Put the steps for finding a theme in order, from first to last.",
+      "items": [
+        "Take the topic",
+        "Add an assertion about it",
+        "Write the theme as one sentence"
       ],
-      "explanation": "Topic plus assertion, written as one sentence: \"death\" becomes \"even a king can't escape death, but what he builds can outlast him.\"",
+      "first": "First step",
+      "last": "Last step",
+      "explanation": "Take the topic, add an assertion about it, then write the theme as one sentence with a subject and a verb.",
       "difficulty": 0.3
     },
     {

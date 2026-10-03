@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 60,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Computers",
   "objective": "After this level you can explain how a computer turns switches, code and memory into useful work.",
@@ -235,7 +235,7 @@
     },
     {
       "id": "question.everyday_technology.060.q4",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.computer_binary_encoding"
@@ -244,33 +244,17 @@
         "card.everyday_technology.060.c2",
         "card.everyday_technology.052.c4"
       ],
-      "prompt": "Computers checkpoint: on its trip through the machine, how is the letter a stored?",
-      "options": [
-        {
-          "id": "a",
-          "label": "As one byte: 01100001",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "As one bit: 1",
-          "correct": false,
-          "rationale": "One bit can only tell two things apart."
-        },
-        {
-          "id": "c",
-          "label": "As a tiny picture of the letter",
-          "correct": false,
-          "rationale": "Text is stored as numbers; the picture comes later, as output."
-        },
-        {
-          "id": "d",
-          "label": "As a sound wave",
-          "correct": false,
-          "rationale": "Letters are stored as numbers."
-        }
+      "prompt": "Put these in order, following the letter a from your keyboard to your screen.",
+      "items": [
+        "The key press",
+        "A byte",
+        "RAM",
+        "Processing",
+        "Colored pixels"
       ],
-      "explanation": "In ASCII, lowercase a is the byte 01100001.",
+      "first": "You press the key",
+      "last": "It shows on screen",
+      "explanation": "The key press is input, the letter becomes a byte, it lands in RAM, the processor does the processing, and the result goes out as colored pixels.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 89,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Could a Machine Matter Morally?",
   "objective": "After this level you can weigh what earlier theories of mind and morals imply about whether an artificial system could ever deserve moral concern.",
@@ -137,7 +137,7 @@
     },
     {
       "id": "question.philosophy.089.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.dilemma_machine_moral_status",
@@ -147,33 +147,22 @@
         "card.philosophy.089.c3",
         "card.philosophy.089.c5"
       ],
-      "prompt": "Suppose a future system were shown to feel pain. Which view would count that most directly as grounds for moral concern?",
-      "options": [
+      "prompt": "Match each view of moral status with what it looks for.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A relational view of status",
-          "correct": false,
-          "rationale": "It looks at how we relate to the system, not at its feelings."
+          "left": "A sentience view",
+          "right": "Whether the system can feel"
         },
         {
-          "id": "b",
-          "label": "Kant’s rational autonomy view",
-          "correct": false,
-          "rationale": "It asks for a rational will, not just feeling."
+          "left": "A Kantian view",
+          "right": "Autonomy"
         },
         {
-          "id": "c",
-          "label": "A sentience view in Bentham’s line",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Joanna Bryson’s view",
-          "correct": false,
-          "rationale": "Bryson argues robots should not be given rights."
+          "left": "A relational view",
+          "right": "How we treat it"
         }
       ],
-      "explanation": "Sentience views, in the line of Bentham’s “Can they suffer?”, make the capacity to feel the key condition for moral status.",
+      "explanation": "A sentience view asks whether the system can feel, a Kantian view asks for autonomy, and a relational view looks at how we treat it.",
       "difficulty": 0.45
     },
     {

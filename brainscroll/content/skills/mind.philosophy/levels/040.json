@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 40,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Mind and Consciousness",
   "objective": "After this level you can compare dualism, physicalism and functionalism and say which puzzle about consciousness each struggles with.",
@@ -231,7 +231,7 @@
     },
     {
       "id": "question.philosophy.040.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.mind_theories_compared",
@@ -240,33 +240,22 @@
       "sourceCardIds": [
         "card.philosophy.040.c2"
       ],
-      "prompt": "In Mind and Consciousness, which objection is paired with the identity theory?",
-      "options": [
+      "prompt": "Match each theory of mind with the objection paired with it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A nation playing brain roles might feel nothing",
-          "correct": false,
-          "rationale": "That’s Block’s challenge to functionalism."
+          "left": "Dualism",
+          "right": "How could it ever move a body?"
         },
         {
-          "id": "b",
-          "label": "A mind with no extension can’t push a body",
-          "correct": false,
-          "rationale": "That’s Elisabeth’s challenge to dualism."
+          "left": "Identity theory",
+          "right": "Octopuses seem to feel pain"
         },
         {
-          "id": "c",
-          "label": "Octopuses seem to feel pain with very different brains",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The visitor who can’t find the University",
-          "correct": false,
-          "rationale": "That’s Ryle’s example against Descartes."
+          "left": "Functionalism",
+          "right": "A nation playing those roles"
         }
       ],
-      "explanation": "Putnam argued that pain can’t be one kind of brain state if creatures with very different brains all feel it.",
+      "explanation": "Dualism faces Elisabeth’s question of how a mind could ever move a body, the identity theory faces octopuses that seem to feel pain, and functionalism faces a nation playing those roles.",
       "difficulty": 0.35
     },
     {

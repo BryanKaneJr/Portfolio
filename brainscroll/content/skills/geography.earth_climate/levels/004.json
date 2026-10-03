@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 4,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Quartz, Feldspar and Mica",
   "objective": "After this level you can name the most common minerals in Earth's crust and spot them in everyday granite and sand.",
@@ -174,7 +174,7 @@
     },
     {
       "id": "question.earth_climate.004.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.earth_climate.granite_minerals",
@@ -182,35 +182,26 @@
       ],
       "sourceCardIds": [
         "card.earth_climate.004.c3",
-        "card.earth_climate.003.c2"
+        "card.earth_climate.003.c2",
+        "card.earth_climate.004.c2",
+        "card.earth_climate.004.c4"
       ],
-      "prompt": "A glassy grain in a granite countertop scratches window glass. Using Level 3's scale, which mineral is it most likely to be?",
-      "options": [
+      "prompt": "Match each common mineral with what it's known for.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Quartz",
-          "correct": true
+          "left": "Feldspar",
+          "right": "More than half of Earth's crust"
         },
         {
-          "id": "b",
-          "label": "Mica",
-          "correct": false,
-          "rationale": "Mica peels into thin sheets; it's the dark flakes."
+          "left": "Quartz",
+          "right": "Most sand"
         },
         {
-          "id": "c",
-          "label": "Talc",
-          "correct": false,
-          "rationale": "Talc is the softest mineral, at 1."
-        },
-        {
-          "id": "d",
-          "label": "Gypsum",
-          "correct": false,
-          "rationale": "Gypsum rates 2; even a fingernail scratches it."
+          "left": "Mica",
+          "right": "Thin, elastic sheets"
         }
       ],
-      "explanation": "Granite's glassy grains are quartz, and at 7 on the Mohs scale quartz scratches glass (about 5.5).",
+      "explanation": "Feldspars make up more than half of Earth's crust, most sand is quartz, and mica splits into thin, elastic sheets.",
       "difficulty": 0.3
     }
   ],

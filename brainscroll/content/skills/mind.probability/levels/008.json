@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 8,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How Big Is a Billion?",
   "objective": "After this level you can picture the difference between a thousand, a million and a billion using seconds of time.",
@@ -146,7 +146,7 @@
     },
     {
       "id": "question.probability.008.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.number_ladder",
@@ -154,35 +154,29 @@
       ],
       "sourceCardIds": [
         "card.probability.008.c2",
-        "card.probability.008.c4"
+        "card.probability.008.c4",
+        "card.probability.008.c3"
       ],
-      "prompt": "Why is a billion seconds so much longer than a million seconds?",
-      "options": [
+      "prompt": "Match each count of seconds with how long it lasts.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A billion is 1,000 millions, so 1,000 times as long",
-          "correct": true
+          "left": "1,000 seconds",
+          "right": "About 17 minutes"
         },
         {
-          "id": "b",
-          "label": "A billion is only one more zero than a million",
-          "correct": false,
-          "rationale": "It has three more zeros: 1,000 times bigger."
+          "left": "1 million seconds",
+          "right": "About 11 and a half days"
         },
         {
-          "id": "c",
-          "label": "Seconds get longer as you count",
-          "correct": false,
-          "rationale": "Every second is the same length; there are just far more."
+          "left": "1 billion seconds",
+          "right": "Almost 32 years"
         },
         {
-          "id": "d",
-          "label": "A billion is twice a million",
-          "correct": false,
-          "rationale": "It is a thousand times a million, not twice."
+          "left": "1 trillion seconds",
+          "right": "About 31,700 years"
         }
       ],
-      "explanation": "Each step up the ladder multiplies by 1,000, so a billion seconds is 1,000 times a million seconds.",
+      "explanation": "1,000 seconds is about 17 minutes, 1 million is about 11 and a half days, 1 billion is almost 32 years, and 1 trillion is about 31,700 years.",
       "difficulty": 0.25
     },
     {

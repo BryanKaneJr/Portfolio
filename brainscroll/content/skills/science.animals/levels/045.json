@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 45,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Jellyfish",
   "objective": "After this level you can describe jellyfish and how they sting.",
@@ -130,41 +130,31 @@
     },
     {
       "id": "question.animals.045.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.jellyfish_stinging_cells"
       ],
       "sourceCardIds": [
-        "card.animals.045.c3"
+        "card.animals.045.c3",
+        "card.animals.045.c2"
       ],
-      "prompt": "How can an animal with no brain catch prey inside a hard shell?",
-      "options": [
+      "prompt": "Match each jellyfish part with what it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It crushes shells with strong jaws",
-          "correct": false,
-          "rationale": "Jellyfish have no jaws."
+          "left": "Nematocysts",
+          "right": "Stinging capsules"
         },
         {
-          "id": "b",
-          "label": "It waits for the prey to die first",
-          "correct": false,
-          "rationale": "It hunts actively with stingers."
+          "left": "Nerve net",
+          "right": "A simple web of nerves"
         },
         {
-          "id": "c",
-          "label": "It dissolves shells with seawater",
-          "correct": false,
-          "rationale": "Its stingers pierce the shell."
-        },
-        {
-          "id": "d",
-          "label": "Its nematocysts fire harpoons through them",
-          "correct": true
+          "left": "Single opening",
+          "right": "Both mouth and anus"
         }
       ],
-      "explanation": "Nematocysts fire harpoons in about 700 nanoseconds, hard enough to pierce a crustacean's shell.",
+      "explanation": "Nematocysts are stinging capsules, the nerve net is a simple web of nerves, and a single opening serves as both mouth and anus.",
       "difficulty": 0.2
     },
     {

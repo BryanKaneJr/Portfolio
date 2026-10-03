@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 91,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "A Balanced Diet",
   "objective": "After this level you can describe what a balanced diet looks like.",
@@ -168,7 +168,7 @@
     },
     {
       "id": "question.human_body.091.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.health_diet_principles",
@@ -178,30 +178,23 @@
         "card.human_body.091.c2",
         "card.human_body.002.c2"
       ],
-      "prompt": "Level 2 said each cell takes in nutrients from food and turns them into energy. Which WHO diet principle is about getting enough nutrients, without going over?",
-      "options": [
+      "prompt": "Match each WHO healthy-diet principle with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Diversity",
-          "correct": false,
-          "rationale": "That's about variety across food groups."
+          "left": "Adequacy",
+          "right": "Enough of the nutrients"
         },
         {
-          "id": "b",
-          "label": "Moderation",
-          "correct": false,
-          "rationale": "That's about limiting foods that can harm."
+          "left": "Balance",
+          "right": "Matches the energy you use"
         },
         {
-          "id": "c",
-          "label": "Balance",
-          "correct": false,
-          "rationale": "That's about energy in matching energy used."
+          "left": "Moderation",
+          "right": "Going easy on things"
         },
         {
-          "id": "d",
-          "label": "Adequacy",
-          "correct": true
+          "left": "Diversity",
+          "right": "A wide variety of foods"
         }
       ],
       "explanation": "Adequacy means meeting the body's nutrient needs without exceeding them, which is what trillions of cells rely on.",

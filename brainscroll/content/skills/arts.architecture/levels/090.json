@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 90,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Cities",
   "objective": "After this level you can explain how streets, walls, parks and transport shape a city.",
@@ -278,41 +278,32 @@
     },
     {
       "id": "question.architecture.090.q5",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.cities_metroland"
       ],
       "sourceCardIds": [
-        "card.architecture.086.c4"
+        "card.architecture.086.c4",
+        "card.architecture.090.c2",
+        "card.architecture.090.c4"
       ],
-      "prompt": "Cities recap: what was 'Metro-land'?",
-      "options": [
+      "prompt": "Cities recap: match each place with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "London's first underground line, opened 1863",
-          "correct": false,
-          "rationale": "That was the Metropolitan Railway itself, in 1863."
+          "left": "Metro-land",
+          "right": "The countryside along its line"
         },
         {
-          "id": "b",
-          "label": "The railway's name for the countryside on its line",
-          "correct": true
+          "left": "The Eixample",
+          "right": "Barcelona's new district"
         },
         {
-          "id": "c",
-          "label": "A children's theme park in New York's Central Park",
-          "correct": false,
-          "rationale": "Metro-land was in London."
-        },
-        {
-          "id": "d",
-          "label": "A Paris district built on its demolished walls",
-          "correct": false,
-          "rationale": "That's a boulevard story."
+          "left": "Birkenhead",
+          "right": "Houses paid for its park"
         }
       ],
-      "explanation": "From 1915 the Metropolitan Railway sold the countryside along its line as Metro-land, and from 1919 built housing estates there.",
+      "explanation": "Metro-land was the railway's name for the countryside along its line. The Eixample is Barcelona's new district, on Cerdà's grid. At Birkenhead, the houses paid for its park.",
       "difficulty": 0.2
     }
   ],

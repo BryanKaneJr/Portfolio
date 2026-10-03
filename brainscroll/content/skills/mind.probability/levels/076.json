@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 76,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Two Axes, One Story",
   "objective": "After this level you can explain how a chart with two different vertical scales can make any two lines seem to move together.",
@@ -120,41 +120,35 @@
     },
     {
       "id": "question.probability.076.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.chart_dual_axis"
       ],
       "sourceCardIds": [
-        "card.probability.076.c2"
+        "card.probability.076.c2",
+        "card.probability.076.c3"
       ],
-      "prompt": "How can a dual-axis chart make two lines cross wherever its designer likes?",
-      "options": [
+      "prompt": "Match each with what the UK employment chart shows.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "By changing the data behind one line",
-          "correct": false,
-          "rationale": "The data don't need to change at all."
+          "left": "Employment rate",
+          "right": "Stayed above 70%"
         },
         {
-          "id": "b",
-          "label": "Each scale can be stretched or shifted on its own",
-          "correct": true
+          "left": "Unemployment rate",
+          "right": "Stayed under 10%"
         },
         {
-          "id": "c",
-          "label": "By using a log scale on both sides",
-          "correct": false,
-          "rationale": "The trick works with any two independent scales."
+          "left": "On a dual-axis chart",
+          "right": "The lines crossed"
         },
         {
-          "id": "d",
-          "label": "By starting both axes at zero",
-          "correct": false,
-          "rationale": "Zero on both sides would not free the lines to move."
+          "left": "On a single scale",
+          "right": "Would sit far apart"
         }
       ],
-      "explanation": "With two independent scales, the designer sets each line's height and steepness, so crossings are a choice.",
+      "explanation": "The employment rate stayed above 70% and the unemployment rate under 10%. On a dual-axis chart the lines crossed, but on a single scale they would sit far apart.",
       "difficulty": 0.35
     },
     {

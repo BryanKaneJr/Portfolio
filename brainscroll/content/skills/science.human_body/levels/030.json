@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 30,
   "type": "checkpoint",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Checkpoint: Heart and Blood",
   "objective": "After this level you can explain how the heart, blood vessels and blood deliver what cells need.",
@@ -162,7 +162,7 @@
     },
     {
       "id": "question.human_body.030.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.circulation_loop",
@@ -171,32 +171,17 @@
       "sourceCardIds": [
         "card.human_body.030.c2"
       ],
-      "prompt": "Heart and Blood recap: on one full lap of the body, why does blood pass through the heart twice?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The heart pumps each drop twice for extra force",
-          "correct": false,
-          "rationale": "Each side pumps a different circuit."
-        },
-        {
-          "id": "b",
-          "label": "Blood is made again in the heart halfway round",
-          "correct": false,
-          "rationale": "The same blood keeps circulating."
-        },
-        {
-          "id": "c",
-          "label": "It goes through the lungs and the body as two separate circuits",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The valves send half of it backward",
-          "correct": false,
-          "rationale": "Valves stop backflow."
-        }
+      "prompt": "Ride along with a red blood cell: put these stops in order, starting from the left ventricle.",
+      "items": [
+        "Left ventricle",
+        "Artery",
+        "Capillary",
+        "Veins",
+        "Right atrium",
+        "Right ventricle"
       ],
+      "first": "Start of the lap",
+      "last": "Last stop before the lungs",
       "explanation": "The right side pumps blood through the lungs and back to the left side, which pumps it through the body and back to the right side.",
       "difficulty": 0.25
     },

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 56,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The People Who Don't Answer",
   "objective": "After this level you can explain nonresponse bias: why the people who skip a survey can skew its results.",
@@ -81,7 +81,7 @@
   "questions": [
     {
       "id": "question.probability.056.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.poll_nonresponse_bias"
@@ -89,33 +89,22 @@
       "sourceCardIds": [
         "card.probability.056.c2"
       ],
-      "prompt": "What is nonresponse bias?",
-      "options": [
+      "prompt": "Match each year with Pew's typical phone survey response rate.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Error from asking too few people",
-          "correct": false,
-          "rationale": "That's sampling error, which the margin measures."
+          "left": "1997",
+          "right": "36%"
         },
         {
-          "id": "b",
-          "label": "Skew from a question worded to push an answer",
-          "correct": false,
-          "rationale": "That's a wording effect."
+          "left": "2012",
+          "right": "9%"
         },
         {
-          "id": "c",
-          "label": "Skew when people who skip a survey differ from those who answer",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Error from counting the same person twice",
-          "correct": false,
-          "rationale": "That's a data-cleaning slip, not nonresponse."
+          "left": "2018",
+          "right": "6%"
         }
       ],
-      "explanation": "If the people who don't answer differ from those who do on what the survey measures, the results skew.",
+      "explanation": "Pew's typical phone survey response rate fell from 36% in 1997 to 9% in 2012 and 6% in 2018.",
       "difficulty": 0.2
     },
     {

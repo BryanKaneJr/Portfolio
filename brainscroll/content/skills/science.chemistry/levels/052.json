@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 52,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Nothing Is Lost",
   "objective": "After this level you can explain Lavoisier's law of conservation of mass.",
@@ -125,7 +125,7 @@
     },
     {
       "id": "question.chemistry.052.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.reaction_lavoisier_weighing"
@@ -133,33 +133,15 @@
       "sourceCardIds": [
         "card.chemistry.052.c3"
       ],
-      "prompt": "In Lavoisier's sealed tin experiment, why did the total mass stay the same?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The tin never reacted at all",
-          "correct": false,
-          "rationale": "Some tin turned to powder and got heavier."
-        },
-        {
-          "id": "b",
-          "label": "The heat added mass that balanced the loss",
-          "correct": false,
-          "rationale": "Heat adds no matter."
-        },
-        {
-          "id": "c",
-          "label": "The vessel leaked just enough air to balance it",
-          "correct": false,
-          "rationale": "It was sealed; nothing came in or out."
-        },
-        {
-          "id": "d",
-          "label": "The solids gained exactly the mass the air inside lost",
-          "correct": true
-        }
+      "prompt": "Put the steps of Lavoisier's sealed tin experiment in order.",
+      "items": [
+        "Sealed tin inside a vessel with air",
+        "Heated it",
+        "Weighed it all"
       ],
-      "explanation": "Part of the air combined with the tin: the solids gained what the air lost, and the sealed total stayed put.",
+      "first": "First step",
+      "last": "Last step",
+      "explanation": "Lavoisier sealed tin inside a vessel with air, heated it, then weighed it all. The total mass never changed.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 85,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The European Union",
   "objective": "After this level you can explain how the EU works.",
@@ -131,7 +131,7 @@
     },
     {
       "id": "question.government.085.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.eu_lawmaking"
@@ -139,33 +139,16 @@
       "sourceCardIds": [
         "card.government.085.c3"
       ],
-      "prompt": "In the EU's lawmaking triangle, what is the European Commission's role?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It proposes new EU laws",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "It is directly elected by EU citizens",
-          "correct": false,
-          "rationale": "That's the European Parliament."
-        },
-        {
-          "id": "c",
-          "label": "It seats ministers from each member government",
-          "correct": false,
-          "rationale": "That's the Council of the EU."
-        },
-        {
-          "id": "d",
-          "label": "It alone adopts every EU law",
-          "correct": false,
-          "rationale": "Laws are adopted by the Parliament and the Council."
-        }
+      "prompt": "Put the steps of EU lawmaking in order, from first to last.",
+      "items": [
+        "The European Commission proposes",
+        "Two bodies adopt it",
+        "Put it into practice",
+        "The Commission checks"
       ],
-      "explanation": "The Commission proposes new laws; the Parliament and the Council adopt them.",
+      "first": "First step",
+      "last": "Last step",
+      "explanation": "The European Commission proposes a law, two bodies adopt it, the member countries put it into practice, and the Commission checks that they do.",
       "difficulty": 0.25
     },
     {

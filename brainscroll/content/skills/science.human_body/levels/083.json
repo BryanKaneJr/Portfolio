@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 83,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Twins",
   "objective": "After this level you can explain the difference between identical and fraternal twins.",
@@ -119,38 +119,29 @@
   "questions": [
     {
       "id": "question.human_body.083.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.twins_two_kinds"
       ],
       "sourceCardIds": [
-        "card.human_body.083.c2"
+        "card.human_body.083.c2",
+        "card.human_body.083.c3",
+        "card.human_body.083.c4"
       ],
-      "prompt": "How do identical twins form?",
-      "options": [
+      "prompt": "Match each twin fact with what it describes.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "One fertilized egg splits into two embryos",
-          "correct": true
+          "left": "Identical twins",
+          "right": "The early embryo splits in two"
         },
         {
-          "id": "b",
-          "label": "Two eggs are fertilized by two sperm",
-          "correct": false,
-          "rationale": "That makes fraternal twins."
+          "left": "Fraternal twins",
+          "right": "About half their genes shared"
         },
         {
-          "id": "c",
-          "label": "One egg is fertilized by two sperm",
-          "correct": false,
-          "rationale": "Identical twins come from one egg and one sperm."
-        },
-        {
-          "id": "d",
-          "label": "Two embryos merge into one",
-          "correct": false,
-          "rationale": "The single embryo splits apart."
+          "left": "Fingerprint ridges",
+          "right": "Shaped by conditions inside the womb"
         }
       ],
       "explanation": "Identical twins come from one egg fertilized by one sperm; the early embryo splits into two.",

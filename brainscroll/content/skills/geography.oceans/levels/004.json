@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 4,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Where Earth's Water Came From",
   "objective": "After this level you can explain the leading ideas for where Earth's water came from.",
@@ -142,41 +142,24 @@
     },
     {
       "id": "question.oceans.004.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.water_origin_clues"
       ],
       "sourceCardIds": [
-        "card.oceans.004.c3"
+        "card.oceans.004.c3",
+        "card.oceans.004.c4"
       ],
-      "prompt": "Why did Rosetta's 2014 measurement make comets look unlikely as the main source of Earth's water?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Comet 67P turned out to have no water",
-          "correct": false,
-          "rationale": "It had water, just with a different ratio."
-        },
-        {
-          "id": "b",
-          "label": "Its water had over three times Earth's deuterium ratio",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Comets never pass anywhere near Earth",
-          "correct": false,
-          "rationale": "That wasn't the finding."
-        },
-        {
-          "id": "d",
-          "label": "Its water was far saltier than seawater",
-          "correct": false,
-          "rationale": "The test was deuterium, not salt."
-        }
+      "prompt": "Put these findings about comet water in order, from earliest to latest.",
+      "items": [
+        "Rosetta measures comet 67P",
+        "A 2020 study added a twist",
+        "Dust had skewed Rosetta's readings"
       ],
-      "explanation": "Rosetta found 67P's deuterium-to-hydrogen ratio more than three times that of Earth's oceans, a poor match.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Rosetta measured comet 67P in 2014. A 2020 study found meteorites hold plenty of hydrogen. In 2024 a NASA-led team found dust had skewed Rosetta's readings.",
       "difficulty": 0.25
     },
     {

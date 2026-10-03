@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 100,
   "type": "mastery",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Mastery Challenge: Architecture",
   "objective": "After this level you can demonstrate command of Architecture Levels 1–99 across the whole tree.",
@@ -151,7 +151,7 @@
   "questions": [
     {
       "id": "question.architecture.100.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.vitruvian_triad"
@@ -159,33 +159,22 @@
       "sourceCardIds": [
         "card.architecture.001.c2"
       ],
-      "prompt": "In Vitruvius's three conditions, which word means a building is useful to the people in it?",
-      "options": [
+      "prompt": "Match each of Vitruvius's three conditions with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Firmness",
-          "correct": false,
-          "rationale": "Firmness means strength."
+          "left": "Firmness",
+          "right": "Strength"
         },
         {
-          "id": "b",
-          "label": "Delight",
-          "correct": false,
-          "rationale": "Delight means beauty."
+          "left": "Commodity",
+          "right": "Useful to the people inside"
         },
         {
-          "id": "c",
-          "label": "Commodity",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Venustas",
-          "correct": false,
-          "rationale": "Venustas is the Latin for delight."
+          "left": "Delight",
+          "right": "Beautiful"
         }
       ],
-      "explanation": "Firmness is strength, commodity is usefulness to the people who use it, and delight is beauty.",
+      "explanation": "Firmness means strength: it stands up. Commodity means it's useful to the people inside. Delight means it's beautiful.",
       "difficulty": 0.3
     },
     {

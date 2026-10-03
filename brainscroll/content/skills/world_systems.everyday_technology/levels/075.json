@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 75,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Heating and Cooling",
   "objective": "After this level you can explain how heat pumps and air conditioners move heat.",
@@ -105,41 +105,32 @@
   "questions": [
     {
       "id": "question.everyday_technology.075.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.hvac_air_conditioning"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.075.c1"
+        "card.everyday_technology.075.c1",
+        "card.everyday_technology.075.c3",
+        "card.everyday_technology.075.c4"
       ],
-      "prompt": "What problem was Willis Carrier's 1902 cooling system built to solve?",
-      "options": [
+      "prompt": "Match each heating or cooling name with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Stifling heat in New York offices",
-          "correct": false,
-          "rationale": "It began at a printing company."
+          "left": "Willis Carrier",
+          "right": "A Brooklyn printing company"
         },
         {
-          "id": "b",
-          "label": "Meat spoiling on long sea voyages",
-          "correct": false,
-          "rationale": "That is refrigeration, not his job."
+          "left": "A heat pump",
+          "right": "Work in either direction"
         },
         {
-          "id": "c",
-          "label": "Overheating electric motors in mills",
-          "correct": false,
-          "rationale": "His job was humidity at a printer."
-        },
-        {
-          "id": "d",
-          "label": "Humid air spoiling a printer's pages",
-          "correct": true
+          "left": "An ordinary electric heater",
+          "right": "One kilowatt-hour of heat"
         }
       ],
-      "explanation": "Carrier's first system used cooling coils to control humidity that was spoiling a Brooklyn printer's pages.",
+      "explanation": "Willis Carrier built his cooling system for a Brooklyn printing company. A heat pump is built to work in either direction, while an ordinary electric heater turns each kilowatt-hour into one kilowatt-hour of heat.",
       "difficulty": 0.15
     },
     {

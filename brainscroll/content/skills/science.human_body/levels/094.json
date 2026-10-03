@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 94,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Stress",
   "objective": "After this level you can explain how stress affects the body.",
@@ -91,40 +91,25 @@
   "questions": [
     {
       "id": "question.human_body.094.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.health_stress_response"
       ],
       "sourceCardIds": [
-        "card.human_body.094.c2"
+        "card.human_body.094.c2",
+        "card.human_body.094.c3"
       ],
-      "prompt": "In the stress response, which part of the brain first sends a distress signal to the hypothalamus?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The amygdala",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The spinal cord",
-          "correct": false,
-          "rationale": "The signal starts in the brain, at the amygdala."
-        },
-        {
-          "id": "c",
-          "label": "The visual centers, once they finish",
-          "correct": false,
-          "rationale": "The alarm starts before they finish processing."
-        },
-        {
-          "id": "d",
-          "label": "The stomach",
-          "correct": false,
-          "rationale": "Not part of the brain at all."
-        }
+      "prompt": "Put the stress response in order, from the first alarm to the brake.",
+      "items": [
+        "Amygdala",
+        "Hypothalamus",
+        "Adrenaline",
+        "Cortisol",
+        "Parasympathetic nervous system"
       ],
+      "first": "First alarm",
+      "last": "The brake",
       "explanation": "The eyes or ears send information to the amygdala, which instantly alerts the hypothalamus.",
       "difficulty": 0.25
     },

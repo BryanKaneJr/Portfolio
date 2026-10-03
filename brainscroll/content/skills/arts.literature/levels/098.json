@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 98,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Myths About Literature",
   "objective": "After this level you can debunk common myths, like Frankenstein being the monster's name or someone else writing Shakespeare's plays.",
@@ -135,7 +135,7 @@
     },
     {
       "id": "question.literature.098.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.litmyth_shakespeare_authorship"
@@ -143,33 +143,22 @@
       "sourceCardIds": [
         "card.literature.098.c4"
       ],
-      "prompt": "Someone argues that the earl of Oxford secretly wrote Shakespeare's plays. Which fact weighs most heavily against that?",
-      "options": [
+      "prompt": "Match each person with what goes with them.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Oxford died in 1604, before more than a dozen plays",
-          "correct": true
+          "left": "Delia Bacon",
+          "right": "A circle of writers"
         },
         {
-          "id": "b",
-          "label": "Delia Bacon had already proposed a Bacon circle",
-          "correct": false,
-          "rationale": "A rival theory doesn't disprove this one."
+          "left": "J. Thomas Looney",
+          "right": "Edward de Vere"
         },
         {
-          "id": "c",
-          "label": "Looney published his theory in 1920",
-          "correct": false,
-          "rationale": "The date of a theory isn't evidence against it."
-        },
-        {
-          "id": "d",
-          "label": "The First Folio came out after Shakespeare died",
-          "correct": false,
-          "rationale": "That's true of many collected works."
+          "left": "Ben Jonson",
+          "right": "Sweet Swan of Avon"
         }
       ],
-      "explanation": "By standard dating, more than a dozen plays were written after Oxford's death in 1604, a major difficulty scholars point to.",
+      "explanation": "Delia Bacon argued for a circle of writers, J. Thomas Looney proposed Edward de Vere, and Ben Jonson hailed Shakespeare as the \"Sweet Swan of Avon\".",
       "difficulty": 0.4
     },
     {

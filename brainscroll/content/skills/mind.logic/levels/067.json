@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 67,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Peer Review",
   "objective": "After this level you can explain what peer review checks before a study is published, and what it can miss.",
@@ -121,41 +121,25 @@
     },
     {
       "id": "question.logic.067.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.science_peer_review"
       ],
       "sourceCardIds": [
-        "card.logic.067.c4"
+        "card.logic.067.c4",
+        "card.logic.067.c2"
       ],
-      "prompt": "Why doesn't \"peer-reviewed\" mean \"proven true\"?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Reviewers only check spelling and style",
-          "correct": false,
-          "rationale": "They check reasoning, design and evidence."
-        },
-        {
-          "id": "b",
-          "label": "Journals publish everything they receive",
-          "correct": false,
-          "rationale": "Reviewers can recommend rejection."
-        },
-        {
-          "id": "c",
-          "label": "Review can miss errors, even fabricated data",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Peer review only starts after publication",
-          "correct": false,
-          "rationale": "It happens before publication."
-        }
+      "prompt": "Put the steps of peer review in order, from first to last.",
+      "items": [
+        "Write up a study",
+        "Send it to a journal",
+        "Send back criticism",
+        "The authors revise"
       ],
-      "explanation": "Peer-reviewed work isn't necessarily correct: Hwang's fabricated cloning claims were published before scrutiny exposed them.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Scientists write up a study and send it to a journal. The peers send back criticism, and often the authors revise and try again.",
       "difficulty": 0.25
     },
     {

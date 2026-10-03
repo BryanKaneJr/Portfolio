@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 75,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Ontological Argument",
   "objective": "After this level you can explain Anselm's ontological argument for God, Gaunilo's perfect island reply and Kant's objection that existence is not a property.",
@@ -93,41 +93,33 @@
   "questions": [
     {
       "id": "question.philosophy.075.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.philosophy.god_ontological_argument"
       ],
       "sourceCardIds": [
-        "card.philosophy.075.c3"
+        "card.philosophy.075.c3",
+        "card.philosophy.075.c1",
+        "card.philosophy.075.c2",
+        "card.philosophy.075.c5"
       ],
-      "prompt": "What did Gaunilo say Anselm’s reasoning could also prove?",
-      "options": [
+      "prompt": "Match each thinker with their work.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "That existence is not a real predicate",
-          "correct": false,
-          "rationale": "That’s Kant’s objection."
+          "left": "Anselm",
+          "right": "Proslogion"
         },
         {
-          "id": "b",
-          "label": "That a perfect island exists",
-          "correct": true
+          "left": "Gaunilo",
+          "right": "On Behalf of the Fool"
         },
         {
-          "id": "c",
-          "label": "That the fool was right all along",
-          "correct": false,
-          "rationale": "He argued about the form, not the fool."
-        },
-        {
-          "id": "d",
-          "label": "That God has no properties at all",
-          "correct": false,
-          "rationale": "That isn’t his point."
+          "left": "Kant",
+          "right": "Critique of Pure Reason"
         }
       ],
-      "explanation": "Gaunilo ran Anselm’s reasoning on an island more excellent than all lands to show the form proves too much.",
+      "explanation": "Anselm gave his argument in the Proslogion, Gaunilo replied in On Behalf of the Fool, and Kant objected in his Critique of Pure Reason.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 7,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Adding With Switches",
   "objective": "After this level you can explain how a handful of logic gates can add two binary numbers, the first step toward all computing.",
@@ -130,41 +130,31 @@
     },
     {
       "id": "question.computers.007.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.adder_circuits"
       ],
       "sourceCardIds": [
-        "card.computers.007.c4"
+        "card.computers.007.c4",
+        "card.computers.007.c3"
       ],
-      "prompt": "How does a row of full adders add two long binary numbers?",
-      "options": [
+      "prompt": "Match each part of an adding circuit with what it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Each adder guesses the answer and checks it",
-          "correct": false,
-          "rationale": "Adders compute each place exactly."
+          "left": "The sum digit",
+          "right": "exclusive OR"
         },
         {
-          "id": "b",
-          "label": "Each adder handles one place and passes its carry to the next",
-          "correct": true
+          "left": "A half adder",
+          "right": "adds two bits"
         },
         {
-          "id": "c",
-          "label": "One adder adds every place at the same moment",
-          "correct": false,
-          "rationale": "Each place needs its own adder in the chain."
-        },
-        {
-          "id": "d",
-          "label": "They convert the numbers to decimal first",
-          "correct": false,
-          "rationale": "Everything stays in binary."
+          "left": "A full adder",
+          "right": "adds three bits"
         }
       ],
-      "explanation": "Each full adder adds two digits plus the incoming carry, then passes its own carry along the chain.",
+      "explanation": "The sum digit comes from exclusive OR, a half adder adds two bits, and a full adder adds three bits: two digits plus the carry.",
       "difficulty": 0.3
     },
     {

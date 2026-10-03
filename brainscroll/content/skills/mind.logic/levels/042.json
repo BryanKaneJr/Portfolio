@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 42,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Correlation Isn't Causation",
   "objective": "After this level you can explain why two things rising and falling together doesn't show that one causes the other.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "question.logic.042.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.causal_chocolate_nobel",
@@ -138,35 +138,25 @@
       ],
       "sourceCardIds": [
         "card.logic.042.c3",
-        "card.logic.042.c2"
+        "card.logic.042.c2",
+        "card.logic.042.c4"
       ],
-      "prompt": "Why doesn't the chocolate correlation show that eating chocolate wins Nobel prizes?",
-      "options": [
+      "prompt": "Match each term with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Nobel prizes are awarded at random",
-          "correct": false,
-          "rationale": "The prizes aren't random; that isn't the reason."
+          "left": "Correlation",
+          "right": "How two things vary together"
         },
         {
-          "id": "b",
-          "label": "Correlations are always false alarms",
-          "correct": false,
-          "rationale": "Too strong: causation does bring correlation."
+          "left": "Causation",
+          "right": "One event is the result of the other"
         },
         {
-          "id": "c",
-          "label": "Chocolate has no effect on the body",
-          "correct": false,
-          "rationale": "The note doesn't claim that, and it isn't the point."
-        },
-        {
-          "id": "d",
-          "label": "The same pattern fits other explanations too",
-          "correct": true
+          "left": "Occasional Notes",
+          "right": "A home for lighter pieces"
         }
       ],
-      "explanation": "Y could influence X, or something could drive both. A correlation alone can't pick between those stories.",
+      "explanation": "A correlation describes how two things vary together. Causation means one event is the result of the other. The chocolate note ran in Occasional Notes, a home for lighter pieces.",
       "difficulty": 0.25
     },
     {

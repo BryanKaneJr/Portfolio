@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 66,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Balance",
   "objective": "After this level you can explain how the inner ear keeps you balanced.",
@@ -136,39 +136,30 @@
     },
     {
       "id": "question.human_body.066.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.senses_balance_mismatch"
       ],
       "sourceCardIds": [
         "card.human_body.066.c4",
-        "card.human_body.066.c1"
+        "card.human_body.066.c1",
+        "card.human_body.066.c2",
+        "card.human_body.066.c3"
       ],
-      "prompt": "Why do you feel dizzy right after you stop spinning?",
-      "options": [
+      "prompt": "Match each part of your balance system with what it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Your eyes stop sending signals for a while",
-          "correct": false,
-          "rationale": "Your eyes correctly show you're still."
+          "left": "Vestibular system",
+          "right": "Your balance organ"
         },
         {
-          "id": "b",
-          "label": "Canal fluid keeps moving, so ears and eyes disagree",
-          "correct": true
+          "left": "Semicircular canals",
+          "right": "Which way you turned"
         },
         {
-          "id": "c",
-          "label": "The grains in your inner ear dissolve",
-          "correct": false,
-          "rationale": "The grains stay put; gravity keeps pulling on them."
-        },
-        {
-          "id": "d",
-          "label": "Blood drains out of your inner ear for a moment",
-          "correct": false,
-          "rationale": "The cause is moving canal fluid."
+          "left": "The utricle and the saccule",
+          "right": "Sense which way is down"
         }
       ],
       "explanation": "The fluid in the semicircular canals keeps moving after you stop, so your inner ear reports motion while your eyes report stillness.",

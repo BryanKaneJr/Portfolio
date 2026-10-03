@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 7,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Nature, Nurture or Both?",
   "objective": "After this level you can explain how twin and adoption studies separate the effects of genes and upbringing.",
@@ -163,7 +163,7 @@
     },
     {
       "id": "question.psychology.007.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.psychology.twin_adoption_studies",
@@ -171,35 +171,28 @@
       ],
       "sourceCardIds": [
         "card.psychology.007.c2",
-        "card.psychology.007.c3"
+        "card.psychology.007.c4"
       ],
-      "prompt": "On a trait, identical twins raised together are much more alike than fraternal twins. What does that point to?",
-      "options": [
+      "prompt": "Match each twin type or trait with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Genes play a role in that trait",
-          "correct": true
+          "left": "Identical twins",
+          "right": "Almost no differences in their DNA"
         },
         {
-          "id": "b",
-          "label": "The trait has a heritability of zero",
-          "correct": false,
-          "rationale": "Zero heritability would mean genes explain none of the differences."
+          "left": "Fraternal twins",
+          "right": "Share on average 50 percent"
         },
         {
-          "id": "c",
-          "label": "The twins' parents taught them differently",
-          "correct": false,
-          "rationale": "Both kinds of twins were raised together, so upbringing is similar."
+          "left": "The language you speak",
+          "right": "Has a heritability of zero"
         },
         {
-          "id": "d",
-          "label": "Fraternal twins share all their DNA",
-          "correct": false,
-          "rationale": "Fraternal twins share on average 50 percent."
+          "left": "Hair color",
+          "right": "Highly heritable"
         }
       ],
-      "explanation": "Identical twins share almost all their DNA and fraternal twins about half, so extra similarity in identical twins suggests genes matter.",
+      "explanation": "Identical twins have almost no differences in their DNA, while fraternal twins share on average 50 percent. The language you speak has a heritability of zero, and hair color is highly heritable.",
       "difficulty": 0.3
     }
   ],

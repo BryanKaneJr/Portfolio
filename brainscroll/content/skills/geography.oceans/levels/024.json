@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 24,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Tides",
   "objective": "After this level you can explain how the Moon pulls the tides.",
@@ -187,7 +187,7 @@
     },
     {
       "id": "question.oceans.024.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.tides_daily_patterns",
@@ -197,33 +197,22 @@
         "card.oceans.024.c4",
         "card.oceans.024.c2"
       ],
-      "prompt": "Much of North America's east coast gets two nearly equal high tides each lunar day. What is that coast passing through twice?",
-      "options": [
+      "prompt": "Match each tide pattern with where it's common.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Two storm surges",
-          "correct": false,
-          "rationale": "Storm surges come from storms, not the daily rhythm."
+          "left": "Semidiurnal",
+          "right": "North America's east coast"
         },
         {
-          "id": "b",
-          "label": "Two spring tides",
-          "correct": false,
-          "rationale": "Spring tides come twice a month, not twice a day."
+          "left": "Mixed",
+          "right": "North America's west coast"
         },
         {
-          "id": "c",
-          "label": "The Moon passing overhead twice",
-          "correct": false,
-          "rationale": "The Moon passes overhead once per lunar day."
-        },
-        {
-          "id": "d",
-          "label": "The Moon's two tidal bulges",
-          "correct": true
+          "left": "Diurnal",
+          "right": "Gulf of Mexico"
         }
       ],
-      "explanation": "A semidiurnal coast gets two high tides because Earth carries it through the Moon's two bulges each lunar day.",
+      "explanation": "Semidiurnal tides are common on North America's east coast, mixed tides on its west coast, and diurnal tides in many parts of the Gulf of Mexico.",
       "difficulty": 0.25
     }
   ],

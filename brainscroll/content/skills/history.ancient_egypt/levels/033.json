@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 33,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Osiris and Isis",
   "objective": "After this level you can retell the myth of Osiris and Isis.",
@@ -125,41 +125,36 @@
     },
     {
       "id": "question.ancient_egypt.033.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.osiris_isis_myth"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.033.c4"
+        "card.ancient_egypt.033.c4",
+        "card.ancient_egypt.033.c2",
+        "card.ancient_egypt.033.c3"
       ],
-      "prompt": "Why did the Osiris myth matter to ordinary Egyptians, not just kings?",
-      "options": [
+      "prompt": "Match each god in the Osiris myth with their part in the story.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It told them how to farm the black land",
-          "correct": false,
-          "rationale": "It is a story about death and what comes after."
+          "left": "Seth",
+          "right": "Lord of the desert"
         },
         {
-          "id": "b",
-          "label": "At death, every Egyptian was linked with Osiris, who lived on",
-          "correct": true
+          "left": "Isis",
+          "right": "Osiris’s wife"
         },
         {
-          "id": "c",
-          "label": "It promised that no one would ever die",
-          "correct": false,
-          "rationale": "Osiris died too; he lived on in the underworld."
+          "left": "Anubis",
+          "right": "Embalmed and wrapped the body"
         },
         {
-          "id": "d",
-          "label": "It made everyone a relative of Seth",
-          "correct": false,
-          "rationale": "People were linked with Osiris, not Seth."
+          "left": "Horus",
+          "right": "Avenged his father"
         }
       ],
-      "explanation": "Later, every Egyptian was linked with Osiris at death, so his survival in the underworld became a promise for them too.",
+      "explanation": "Seth was lord of the desert. Isis was Osiris’s wife and gathered his pieces. Anubis embalmed and wrapped the body. Horus fought Seth and avenged his father.",
       "difficulty": 0.35
     },
     {

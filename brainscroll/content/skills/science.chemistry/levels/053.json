@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 53,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Burning",
   "objective": "After this level you can explain what happens when something burns.",
@@ -131,41 +131,31 @@
     },
     {
       "id": "question.chemistry.053.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.combustion_basics"
       ],
       "sourceCardIds": [
-        "card.chemistry.053.c3"
+        "card.chemistry.053.c3",
+        "card.chemistry.053.c4"
       ],
-      "prompt": "In a burning candle, what is actually burning?",
-      "options": [
+      "prompt": "Match each way of fighting a fire with the side of the fire triangle it takes away.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Wax vapor mixed with oxygen",
-          "correct": true
+          "left": "Water",
+          "right": "Heat"
         },
         {
-          "id": "b",
-          "label": "The solid wax at the bottom",
-          "correct": false,
-          "rationale": "Solid wax has to melt and vaporize first."
+          "left": "Stop, drop and roll",
+          "right": "Oxygen"
         },
         {
-          "id": "c",
-          "label": "The wick on its own",
-          "correct": false,
-          "rationale": "The wick helps, but the flame burns wax vapor."
-        },
-        {
-          "id": "d",
-          "label": "Carbon dioxide from the air",
-          "correct": false,
-          "rationale": "Carbon dioxide is a product of burning."
+          "left": "A fireline",
+          "right": "Fuel"
         }
       ],
-      "explanation": "The flame's heat vaporizes the wax, and the vapor reacts with oxygen.",
+      "explanation": "Water cools a fire, stealing heat. Stop, drop and roll cuts off oxygen. A fireline leaves the fire no fuel, nothing to burn.",
       "difficulty": 0.25
     },
     {

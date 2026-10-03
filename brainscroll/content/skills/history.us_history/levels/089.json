@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 89,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Watergate",
   "objective": "After this level you can explain how the Watergate scandal led to Nixon's resignation in 1974 and what it changed about how presidents are watched.",
@@ -99,41 +99,29 @@
   "questions": [
     {
       "id": "question.us_history.089.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.watergate_coverup"
       ],
       "sourceCardIds": [
-        "card.us_history.089.c2"
+        "card.us_history.089.c2",
+        "card.us_history.089.c3",
+        "card.us_history.089.c4",
+        "card.us_history.089.c5"
       ],
-      "prompt": "What did aide Alexander Butterfield reveal at the Senate hearings in July 1973?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A list of Communists in the government",
-          "correct": false,
-          "rationale": "That was McCarthy’s claim in 1950."
-        },
-        {
-          "id": "b",
-          "label": "A secret White House taping system",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The names of the five burglars",
-          "correct": false,
-          "rationale": "The burglars were arrested in 1972."
-        },
-        {
-          "id": "d",
-          "label": "A plan to pardon the president",
-          "correct": false,
-          "rationale": "Ford’s pardon came in September 1974."
-        }
+      "prompt": "Put these Watergate events in order, from earliest to latest.",
+      "items": [
+        "Five burglars were arrested",
+        "Alexander Butterfield revealed",
+        "United States v. Nixon",
+        "Nixon resigned",
+        "A full pardon",
+        "The Ethics in Government Act"
       ],
-      "explanation": "Butterfield revealed that a secret system recorded conversations in the White House.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The burglars were arrested in June 1972 and Butterfield revealed the taping system in July 1973. United States v. Nixon came on July 24, 1974, Nixon resigned on August 9, Ford pardoned him on September 8, and the Ethics in Government Act passed in 1978.",
       "difficulty": 0.2
     },
     {

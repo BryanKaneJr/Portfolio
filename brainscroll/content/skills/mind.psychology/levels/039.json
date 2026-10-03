@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 39,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "When Eyewitnesses Get It Wrong",
   "objective": "After this level you can explain why confident eyewitnesses can pick the wrong person and how lineups are made fairer.",
@@ -169,43 +169,26 @@
     },
     {
       "id": "question.psychology.039.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.psychology.memory_eyewitness_confidence",
         "concept.psychology.memory_misinformation_effect"
       ],
       "sourceCardIds": [
-        "card.psychology.039.c2",
-        "card.psychology.038.c3"
+        "card.psychology.039.c1",
+        "card.psychology.039.c2"
       ],
-      "prompt": "Level 38 showed that information after an event can change memory. Which moment in Ronald Cotton's case fits that pattern?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The detective praising the witness's pick",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The DNA test that cleared him",
-          "correct": false,
-          "rationale": "The DNA test corrected the error; it didn't cause it."
-        },
-        {
-          "id": "c",
-          "label": "The year the crime took place",
-          "correct": false,
-          "rationale": "When the crime happened didn't change her memory."
-        },
-        {
-          "id": "d",
-          "label": "The trial being held in North Carolina",
-          "correct": false,
-          "rationale": "Where the trial was held didn't change her memory."
-        }
+      "prompt": "Put the events of Ronald Cotton's case in order, from first to last.",
+      "items": [
+        "I think this is the guy",
+        "The detective told her she did great",
+        "She had absolutely no doubt",
+        "Cleared by DNA evidence"
       ],
-      "explanation": "The detective's \"you did great\" came after the event, and her hesitant \"I think\" became certainty by the trial.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "At the lineup the witness said \"I think this is the guy,\" the detective told her she did great, by the trial she had no doubt, and years later DNA evidence cleared Cotton.",
       "difficulty": 0.3
     }
   ],

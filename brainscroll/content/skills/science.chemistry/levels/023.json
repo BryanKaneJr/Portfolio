@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 23,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Reading the Periodic Table",
   "objective": "After this level you can explain groups and periods on the periodic table.",
@@ -165,7 +165,7 @@
     },
     {
       "id": "question.chemistry.023.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.chemistry.ptable_element_box",
@@ -175,33 +175,26 @@
         "card.chemistry.023.c4",
         "card.chemistry.021.c3"
       ],
-      "prompt": "Level 21 said one number is an element's ID card. Where do you find it in an element's box?",
-      "options": [
+      "prompt": "Match each element with its symbol on the table.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It's the symbol's first letter",
-          "correct": false,
-          "rationale": "The symbol is letters, not a number."
+          "left": "Iron",
+          "right": "Fe"
         },
         {
-          "id": "b",
-          "label": "It's the atomic mass",
-          "correct": false,
-          "rationale": "Atomic mass is a different figure in the box."
+          "left": "Gold",
+          "right": "Au"
         },
         {
-          "id": "c",
-          "label": "It's the row number",
-          "correct": false,
-          "rationale": "The row number is shared by a whole period."
+          "left": "Lead",
+          "right": "Pb"
         },
         {
-          "id": "d",
-          "label": "It's the atomic number",
-          "correct": true
+          "left": "Cobalt",
+          "right": "Co"
         }
       ],
-      "explanation": "Each box shows the atomic number, the proton count that identifies the element.",
+      "explanation": "Iron is Fe (from ferrum), gold is Au (from aurum), lead is Pb (from plumbum) and cobalt is Co.",
       "difficulty": 0.3
     }
   ],

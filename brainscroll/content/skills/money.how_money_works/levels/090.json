@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 90,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Companies and Work",
   "objective": "After this level you can explain how businesses make profits, set wages and change with technology.",
@@ -319,7 +319,7 @@
     },
     {
       "id": "question.how_money_works.090.q5",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.how_money_works.pin_factory_division",
@@ -330,33 +330,16 @@
       "sourceCardIds": [
         "card.how_money_works.090.c3"
       ],
-      "prompt": "Which list puts these Chapter 9 moments in order, oldest first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Salomon's company → Pin factory → Luddites → Unimate",
-          "correct": false,
-          "rationale": "Smith's pin factory (1776) came more than a century before Salomon (1892)."
-        },
-        {
-          "id": "b",
-          "label": "Pin factory → Luddites → Salomon's company → Unimate",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Luddites → Pin factory → Unimate → Salomon's company",
-          "correct": false,
-          "rationale": "The pin factory (1776) came before the Luddites (1811)."
-        },
-        {
-          "id": "d",
-          "label": "Pin factory → Salomon's company → Unimate → Luddites",
-          "correct": false,
-          "rationale": "The Luddites (1811) came long before Unimate (1961)."
-        }
+      "prompt": "Put these Chapter 9 moments in order, from earliest to latest.",
+      "items": [
+        "The Wealth of Nations",
+        "Luddites",
+        "Aron Salomon",
+        "Unimate"
       ],
-      "explanation": "Smith's pin factory in 1776, the Luddites in 1811, Salomon's company in 1892, Unimate in 1961.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Wealth of Nations came out in 1776, the Luddites began smashing stocking frames in 1811, Aron Salomon formed his company in 1892, and Unimate started work in 1961.",
       "difficulty": 0.3
     }
   ],

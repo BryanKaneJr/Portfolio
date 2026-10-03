@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 98,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Myths About Government",
   "objective": "After this level you can debunk common myths about how government works.",
@@ -101,41 +101,31 @@
   "questions": [
     {
       "id": "question.government.098.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.myth_tax_brackets"
       ],
       "sourceCardIds": [
-        "card.government.098.c2"
+        "card.government.098.c2",
+        "card.government.098.c4"
       ],
-      "prompt": "Under US or UK income tax brackets, what happens when your income crosses into a higher bracket?",
-      "options": [
+      "prompt": "Match each part of the myth-busting with the actual rule.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "All your income is taxed at the higher rate",
-          "correct": false,
-          "rationale": "That's the myth."
+          "left": "A higher bracket",
+          "right": "Only the income above the line"
         },
         {
-          "id": "b",
-          "label": "You stop paying tax on the lower part",
-          "correct": false,
-          "rationale": "The lower part is taxed as before."
+          "left": "UK MPs",
+          "right": "Everyone who lives in their constituency"
         },
         {
-          "id": "c",
-          "label": "Only the income above the line pays the higher rate",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Your whole tax bill is cut in half",
-          "correct": false,
-          "rationale": "Nothing like that happens."
+          "left": "Legal-rational authority",
+          "right": "Belongs to the office"
         }
       ],
-      "explanation": "Brackets are marginal: each rate applies only to the income inside its bracket.",
+      "explanation": "Crossing into a higher bracket taxes only the income above the line, UK MPs represent everyone who lives in their constituency, and legal-rational authority belongs to the office.",
       "difficulty": 0.2
     },
     {

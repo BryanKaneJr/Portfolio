@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 58,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Middle East",
   "objective": "After this level you can locate the Middle East and describe its deserts, rivers and seas.",
@@ -100,41 +100,32 @@
   "questions": [
     {
       "id": "question.world_geography.058.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.middle_east_region"
       ],
       "sourceCardIds": [
-        "card.world_geography.058.c2"
+        "card.world_geography.058.c2",
+        "card.world_geography.058.c3",
+        "card.world_geography.058.c4"
       ],
-      "prompt": "What is the Rub' al Khali?",
-      "options": [
+      "prompt": "Match each place with its fact.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A river that feeds the Dead Sea",
-          "correct": false,
-          "rationale": "That's the Jordan River."
+          "left": "Rub' al Khali",
+          "right": "The Empty Quarter"
         },
         {
-          "id": "b",
-          "label": "The world's largest area of continuous sand",
-          "correct": true
+          "left": "Mesopotamia",
+          "right": "Between rivers"
         },
         {
-          "id": "c",
-          "label": "The ancient name for Mesopotamia",
-          "correct": false,
-          "rationale": "Mesopotamia is Greek for 'between rivers.'"
-        },
-        {
-          "id": "d",
-          "label": "A rocky plateau in the Sahara",
-          "correct": false,
-          "rationale": "It's in the Arabian Peninsula, and it's sand."
+          "left": "The Dead Sea",
+          "right": "Lowest land on Earth"
         }
       ],
-      "explanation": "The Rub' al Khali, the Empty Quarter of the Arabian Peninsula, is the world's largest area of continuous sand.",
+      "explanation": "The Rub' al Khali is the Empty Quarter. Mesopotamia means 'between rivers'. The Dead Sea's shores are the lowest land on Earth.",
       "difficulty": 0.2
     },
     {

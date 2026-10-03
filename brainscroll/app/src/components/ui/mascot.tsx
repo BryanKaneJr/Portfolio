@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Animated, Image, Pressable, StyleSheet, Text, View, type ViewStyle } from 'react-native';
 import { useReduceMotion } from '@/theme/feedback';
 import { color, radius, space, type } from '@/theme/tokens';
+import { MASCOT_ANIMATIONS, type MascotAnimationName } from './mascotAnim';
 import { mascotArt } from './mascotArt';
 import { spring } from './motion';
 
@@ -24,7 +25,8 @@ const labelOf = (p: Placement) => (p.spot ? `mascot:${p.spot}` : `mascot:pose:${
  * He arrives with one small bounce (none with reduce motion), never more.
  */
 /** `size` is a named size, or pixels where a layout sizes him to the room (a lesson card's picture). */
-export function DrScroll({ size = 'md', style, ...placement }: Placement & { size?: MascotSize | number; style?: ViewStyle }) {
+/** `animation` plays one of his sprite animations once, ending on its last frame (straight to it with reduce motion). */
+export function DrScroll({ size = 'md', style, animation, ...placement }: Placement & { size?: MascotSize | number; style?: ViewStyle; animation?: MascotAnimationName }) {
   const px = typeof size === 'number' ? size : SIZE[size];
   const reduce = useReduceMotion();
   const [arrive] = useState(() => new Animated.Value(reduce ? 1 : 0));
@@ -47,8 +49,36 @@ export function DrScroll({ size = 'md', style, ...placement }: Placement & { siz
       aria-hidden
       accessibilityElementsHidden
       importantForAccessibility="no-hide-descendants">
-      <Image source={mascotArt(poseOf(placement), placement.pose ? undefined : placement.spot)} style={{ width: px, height: px }} resizeMode="contain" accessibilityIgnoresInvertColors />
+      {animation ? (
+        <Sprite name={animation} px={px} reduce={reduce} />
+      ) : (
+        <Image source={mascotArt(poseOf(placement), placement.pose ? undefined : placement.spot)} style={{ width: px, height: px }} resizeMode="contain" accessibilityIgnoresInvertColors />
+      )}
     </Animated.View>
+  );
+}
+
+/** One frame of a sprite sheet at a time, stepping through once and holding the last. */
+function Sprite({ name, px, reduce }: { name: MascotAnimationName; px: number; reduce: boolean }) {
+  const a = MASCOT_ANIMATIONS[name];
+  const last = a.frames - 1;
+  const [step, setStep] = useState(0);
+  // One frame per tick, stopping on the last; with reduce motion, straight to the last.
+  useEffect(() => {
+    if (reduce || step >= last) return;
+    const t = setTimeout(() => setStep((s) => s + 1), a.frameMs);
+    return () => clearTimeout(t);
+  }, [reduce, step, last, a.frameMs]);
+  const frame = reduce ? last : step;
+  const rows = Math.ceil(a.frames / a.cols);
+  return (
+    <View style={{ width: px, height: px, overflow: 'hidden' }}>
+      <Image
+        source={a.sheet}
+        style={{ position: 'absolute', width: px * a.cols, height: px * rows, left: -(frame % a.cols) * px, top: -Math.floor(frame / a.cols) * px }}
+        accessibilityIgnoresInvertColors
+      />
+    </View>
   );
 }
 
@@ -57,18 +87,19 @@ export function DrScroll({ size = 'md', style, ...placement }: Placement & { siz
  * the bubble (tips, reactions); `stack` puts him above it (intros and big
  * moments). Screen readers hear "Dr. Scroll says: …" and skip the picture.
  */
-export function DrScrollSays({ lines, size, layout = 'row', action, style, ...placement }: Placement & {
+export function DrScrollSays({ lines, size, layout = 'row', action, style, animation, ...placement }: Placement & {
   lines: readonly string[];
   size?: MascotSize;
   layout?: 'row' | 'stack';
   /** A small text button inside the bubble, e.g. "Got it" on a tip. */
   action?: { label: string; onPress: () => void };
   style?: ViewStyle;
+  animation?: MascotAnimationName;
 }) {
   const stack = layout === 'stack';
   return (
     <View style={[stack ? styles.stack : styles.row, style]}>
-      <DrScroll {...placement} size={size ?? (stack ? 'lg' : 'sm')} />
+      <DrScroll {...placement} animation={animation} size={size ?? (stack ? 'lg' : 'sm')} />
       <View style={[styles.bubble, stack ? styles.bubbleStack : styles.bubbleRow]}>
         <View style={[styles.tail, stack ? styles.tailUp : styles.tailLeft]} />
         <View accessible accessibilityLabel={`${MASCOT_NAME} says: ${lines.join(' ')}`} style={{ gap: space.sm }}>

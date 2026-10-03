@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 34,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Turtles and Tortoises",
   "objective": "After this level you can describe turtles and tortoises and their shells.",
@@ -170,7 +170,7 @@
     },
     {
       "id": "question.animals.034.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.turtle_temperature_sex",
@@ -180,33 +180,22 @@
         "card.animals.034.c4",
         "card.animals.031.c3"
       ],
-      "prompt": "Level 31's shelled egg lets reptiles nest on dry land. For sea turtles, what does the warmth of that nest decide?",
-      "options": [
+      "prompt": "Match each sand temperature with the sea turtle hatchlings it makes.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "How big the shell will grow",
-          "correct": false,
-          "rationale": "Temperature sets sex, not shell size."
+          "left": "Below 27.7 °C",
+          "right": "Males"
         },
         {
-          "id": "b",
-          "label": "Whether the eggs hatch in water",
-          "correct": false,
-          "rationale": "Sea turtle eggs incubate in sand on land."
+          "left": "Above 31 °C",
+          "right": "Females"
         },
         {
-          "id": "c",
-          "label": "How many eggs are laid",
-          "correct": false,
-          "rationale": "The count is set before the eggs meet the sand."
-        },
-        {
-          "id": "d",
-          "label": "Whether hatchlings are male or female",
-          "correct": true
+          "left": "In between",
+          "right": "A mix"
         }
       ],
-      "explanation": "Below 27.7 °C sea turtle eggs hatch male and above 31 °C female, so warm sand makes more females.",
+      "explanation": "Sea turtle eggs below 27.7 °C hatch as males, above 31 °C as females, and in between as a mix.",
       "difficulty": 0.2
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 1,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Philosophy: The Big Picture",
   "objective": "After this level you can explain what philosophy is, name its biggest questions and say how philosophers try to answer them with careful argument.",
@@ -159,41 +159,31 @@
     },
     {
       "id": "question.philosophy.001.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.what_is_philosophy"
       ],
       "sourceCardIds": [
-        "card.philosophy.001.c4"
+        "card.philosophy.001.c4",
+        "card.philosophy.001.c5"
       ],
-      "prompt": "Why are most doctorates, even in chemistry, called Doctor of Philosophy?",
-      "options": [
+      "prompt": "Match each early thinker with where he lived.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Every chemist must study Plato",
-          "correct": false,
-          "rationale": "No such requirement."
+          "left": "Thales",
+          "right": "Greece"
         },
         {
-          "id": "b",
-          "label": "Chemistry was invented by philosophers last century",
-          "correct": false,
-          "rationale": "That isn’t the reason."
+          "left": "Confucius",
+          "right": "China"
         },
         {
-          "id": "c",
-          "label": "It’s a modern marketing name for degrees",
-          "correct": false,
-          "rationale": "The name is much older."
-        },
-        {
-          "id": "d",
-          "label": "The sciences grew out of what was once called natural philosophy",
-          "correct": true
+          "left": "The Buddha",
+          "right": "India"
         }
       ],
-      "explanation": "The natural sciences were once called natural philosophy; questions that became testable by experiment left to form their own fields.",
+      "explanation": "Thales lived in Greece, Confucius in China and the Buddha in India, all within a few centuries of one another.",
       "difficulty": 0.3
     }
   ],

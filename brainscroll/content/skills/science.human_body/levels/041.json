@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 41,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "A Journey Through Digestion",
   "objective": "After this level you can trace food from the mouth through the intestines.",
@@ -165,7 +165,7 @@
     },
     {
       "id": "question.human_body.041.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.digestion_tract_route",
@@ -173,34 +173,20 @@
       ],
       "sourceCardIds": [
         "card.human_body.041.c4",
-        "card.human_body.008.c2"
+        "card.human_body.008.c2",
+        "card.human_body.041.c2"
       ],
-      "prompt": "Level 8 said almost all your bacteria live in the colon. Which part of the digestive tract is the colon in?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The large intestine",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The stomach",
-          "correct": false,
-          "rationale": "The colon comes well after the stomach."
-        },
-        {
-          "id": "c",
-          "label": "The esophagus",
-          "correct": false,
-          "rationale": "That's the tube from mouth to stomach."
-        },
-        {
-          "id": "d",
-          "label": "The small intestine",
-          "correct": false,
-          "rationale": "The colon is part of the large intestine."
-        }
+      "prompt": "Follow one bite through the digestive tract: put these in order, from start to finish.",
+      "items": [
+        "Mouth",
+        "Esophagus",
+        "Stomach",
+        "Small intestine",
+        "Large intestine",
+        "Anus"
       ],
+      "first": "Where food goes in",
+      "last": "Where it leaves",
       "explanation": "The colon is part of the large intestine, the last stretch of the tube, where water is absorbed and most gut bacteria live.",
       "difficulty": 0.2
     }

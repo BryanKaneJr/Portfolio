@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 86,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Reggae",
   "objective": "After this level you can describe reggae and Bob Marley.",
@@ -138,7 +138,7 @@
     },
     {
       "id": "question.music.086.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.reggae_roots_offbeat"
@@ -146,33 +146,15 @@
       "sourceCardIds": [
         "card.music.086.c2"
       ],
-      "prompt": "What gives a reggae song its signature groove?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A bass drum on every beat of the bar",
-          "correct": false,
-          "rationale": "That's disco's and house's four-on-the-floor."
-        },
-        {
-          "id": "b",
-          "label": "Short, choppy guitar or keyboard chords on the offbeats",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "A looped funk drum break",
-          "correct": false,
-          "rationale": "That's the hip-hop breakbeat."
-        },
-        {
-          "id": "d",
-          "label": "Rhymes landing on beat four",
-          "correct": false,
-          "rationale": "That describes early rap."
-        }
+      "prompt": "Put these Jamaican styles in order, from earliest to latest.",
+      "items": [
+        "Ska",
+        "Rocksteady",
+        "Reggae"
       ],
-      "explanation": "Over a heavy four-beat rhythm, the guitar or keyboard chops chords on the offbeats.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Ska became rocksteady, which became reggae.",
       "difficulty": 0.25
     },
     {

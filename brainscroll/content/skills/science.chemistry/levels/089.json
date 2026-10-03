@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 89,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Fuels",
   "objective": "After this level you can explain how gasoline and natural gas store energy.",
@@ -143,41 +143,33 @@
     },
     {
       "id": "question.chemistry.089.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.home_fuel_chemical_energy"
       ],
       "sourceCardIds": [
-        "card.chemistry.089.c2"
+        "card.chemistry.089.c2",
+        "card.chemistry.089.c1",
+        "card.chemistry.089.c3",
+        "card.chemistry.089.c5"
       ],
-      "prompt": "Where is the energy in gasoline stored before it burns?",
-      "options": [
+      "prompt": "Match each fuel term with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "In the heat left over from the refinery",
-          "correct": false,
-          "rationale": "The gasoline cools; the energy stays in its bonds."
+          "left": "Natural gas",
+          "right": "Mostly methane"
         },
         {
-          "id": "b",
-          "label": "In the metal of the fuel tank",
-          "correct": false,
-          "rationale": "The tank just holds it."
+          "left": "Mercaptan",
+          "right": "A strong, unpleasant smell"
         },
         {
-          "id": "c",
-          "label": "In the bonds of its molecules",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "In the air around the engine",
-          "correct": false,
-          "rationale": "Burning needs oxygen, but the stored energy is in the fuel."
+          "left": "Gasoline",
+          "right": "Made from crude oil"
         }
       ],
-      "explanation": "Fuels store chemical energy in the bonds of their molecules; burning converts it to heat.",
+      "explanation": "Natural gas is mostly methane, mercaptan is added for its strong, unpleasant smell, and gasoline is made from crude oil at refineries.",
       "difficulty": 0.35
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 5,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "DNA, the Instruction Book",
   "objective": "After this level you can explain what DNA is and where the body keeps it.",
@@ -169,7 +169,7 @@
     },
     {
       "id": "question.human_body.005.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.dna_location",
@@ -177,32 +177,22 @@
       ],
       "sourceCardIds": [
         "card.human_body.005.c4",
-        "card.human_body.003.c2"
+        "card.human_body.003.c2",
+        "card.human_body.005.c3"
       ],
-      "prompt": "Level 3 found red blood cells are about 84 percent of your cells. Why don't mature ones carry the nuclear DNA that other cells keep?",
-      "options": [
+      "prompt": "Match each with what it holds of your DNA.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They have no nucleus",
-          "correct": true
+          "left": "Nucleus",
+          "right": "46 chromosomes"
         },
         {
-          "id": "b",
-          "label": "They store it in their mitochondria",
-          "correct": false,
-          "rationale": "Mitochondria hold only a little DNA; mature red cells lack a nucleus entirely."
+          "left": "Mitochondria",
+          "right": "A small amount of DNA"
         },
         {
-          "id": "c",
-          "label": "Their DNA is too long to fit",
-          "correct": false,
-          "rationale": "Other cells pack about 2 meters of DNA into a nucleus."
-        },
-        {
-          "id": "d",
-          "label": "They swap it for bacterial DNA",
-          "correct": false,
-          "rationale": "Nothing like that happens; they simply lack a nucleus."
+          "left": "Red blood cells",
+          "right": "No nucleus"
         }
       ],
       "explanation": "Most DNA is kept in the nucleus, and mature red blood cells have no nucleus.",

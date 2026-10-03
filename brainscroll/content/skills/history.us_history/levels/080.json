@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 80,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: World Power, Boom and Bust",
   "objective": "After this level you can explain how war, boom and depression between 1898 and 1945 made the US a world power with a bigger federal government.",
@@ -149,7 +149,7 @@
   "questions": [
     {
       "id": "question.us_history.080.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.empire_war_1898",
@@ -157,37 +157,20 @@
         "concept.us_history.us_turning_points"
       ],
       "sourceCardIds": [
-        "card.us_history.080.c2",
-        "card.us_history.071.c3",
-        "card.us_history.075.c2"
+        "card.us_history.080.c2"
       ],
-      "prompt": "World Power, Boom and Bust: which order of events is right?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Black Tuesday, the Treaty of Paris, Pearl Harbor",
-          "correct": false,
-          "rationale": "The Treaty of Paris (1898) came before the crash (1929)."
-        },
-        {
-          "id": "b",
-          "label": "The Treaty of Paris, Pearl Harbor, Black Tuesday",
-          "correct": false,
-          "rationale": "Black Tuesday (1929) came before Pearl Harbor (1941)."
-        },
-        {
-          "id": "c",
-          "label": "The Treaty of Paris, Black Tuesday, Pearl Harbor",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Pearl Harbor, the Treaty of Paris, Black Tuesday",
-          "correct": false,
-          "rationale": "Pearl Harbor (1941) came last."
-        }
+      "prompt": "Put these events from 1898 to 1945 in order, from earliest to latest.",
+      "items": [
+        "Spain cedes Puerto Rico and Guam",
+        "The US declares war on Germany",
+        "The stock market crashes",
+        "The Social Security Act is signed",
+        "Japan attacks Pearl Harbor",
+        "Japan formally surrenders"
       ],
-      "explanation": "The Treaty of Paris was signed in 1898, the market crashed in 1929 and Japan attacked Pearl Harbor in 1941.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Spain ceded its islands in 1898, the US declared war on Germany in 1917, the stock market crashed in 1929, Social Security was signed in 1935, Japan attacked Pearl Harbor in 1941, and Japan surrendered in 1945.",
       "difficulty": 0.25
     },
     {

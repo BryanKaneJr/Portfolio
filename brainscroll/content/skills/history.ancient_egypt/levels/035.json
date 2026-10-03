@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 35,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Mummies",
   "objective": "After this level you can explain how and why Egyptians mummified the dead.",
@@ -156,41 +156,25 @@
     },
     {
       "id": "question.ancient_egypt.035.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.mummification_method"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.035.c4"
+        "card.ancient_egypt.035.c4",
+        "card.ancient_egypt.035.c3"
       ],
-      "prompt": "Why did embalmers usually leave the heart inside the body?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It was too hard to reach",
-          "correct": false,
-          "rationale": "Embalmers removed organs all around it."
-        },
-        {
-          "id": "b",
-          "label": "Egyptians saw it as the center of knowledge and emotions",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It dried out on its own in natron",
-          "correct": false,
-          "rationale": "The reason was belief, not chemistry."
-        },
-        {
-          "id": "d",
-          "label": "It was kept in a canopic jar instead",
-          "correct": false,
-          "rationale": "The jars held lungs, stomach, liver and intestines."
-        }
+      "prompt": "Put the steps of making a mummy in order, from first to last.",
+      "items": [
+        "The brain comes out through the nose",
+        "Lungs, stomach, liver and intestines",
+        "Natron, a natural salt, dries the body",
+        "Layers of linen, with amulets tucked in"
       ],
-      "explanation": "Egyptians saw the heart as the center of knowledge and emotions, so it stayed with the body.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "First the brain comes out through the nose. Next the lungs, stomach, liver and intestines go into canopic jars. Natron dries the body for about 40 days, and last come layers of linen with amulets.",
       "difficulty": 0.3
     },
     {

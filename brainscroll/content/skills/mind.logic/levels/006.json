@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 6,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Finding the Conclusion",
   "objective": "After this level you can use signal words like \"therefore\", \"so\" and \"because\" to find an argument's conclusion.",
@@ -176,7 +176,7 @@
     },
     {
       "id": "question.logic.006.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.logic.indicator_words",
@@ -184,35 +184,30 @@
       ],
       "sourceCardIds": [
         "card.logic.006.c4",
-        "card.logic.003.c2"
+        "card.logic.003.c2",
+        "card.logic.006.c2",
+        "card.logic.006.c3"
       ],
-      "prompt": "Why isn't \"I've been running competitively since 1999\" an argument?",
-      "options": [
+      "prompt": "Match each phrase with the job its small word is doing.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "\"Since\" marks time here, not a reason",
-          "correct": true
+          "left": "So the match is off",
+          "right": "A conclusion"
         },
         {
-          "id": "b",
-          "label": "It mentions a date",
-          "correct": false,
-          "rationale": "Dates can appear in arguments; that isn't the issue."
+          "left": "Because the pitch is flooded",
+          "right": "A premise"
         },
         {
-          "id": "c",
-          "label": "Running is a matter of taste",
-          "correct": false,
-          "rationale": "It's a factual claim about the speaker."
+          "left": "I am so happy",
+          "right": "Emphasis"
         },
         {
-          "id": "d",
-          "label": "It cannot be true or false",
-          "correct": false,
-          "rationale": "It can: it's a claim, just a single one with no reason."
+          "left": "Running competitively since 1999",
+          "right": "Time"
         }
       ],
-      "explanation": "It's one claim. \"Since\" tells you when, so nothing is offered as a reason for anything.",
+      "explanation": "\"So the match is off\" announces a conclusion and \"because the pitch is flooded\" flags a premise. In \"I am so happy\", so is just emphasis, and in \"running competitively since 1999\", since marks time.",
       "difficulty": 0.3
     }
   ],

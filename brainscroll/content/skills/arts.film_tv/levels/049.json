@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 49,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Widescreen Fights Back",
   "objective": "After this level you can explain why movies went wider and bigger in the 1950s as television kept audiences at home.",
@@ -126,41 +126,27 @@
     },
     {
       "id": "question.film_tv.049.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.studio_tv_competition"
       ],
       "sourceCardIds": [
-        "card.film_tv.049.c2"
+        "card.film_tv.049.c2",
+        "card.film_tv.049.c1",
+        "card.film_tv.049.c3",
+        "card.film_tv.049.c4"
       ],
-      "prompt": "Why did Hollywood make its pictures wider in the 1950s?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Theaters had run out of tall screens",
-          "correct": false,
-          "rationale": "The pressure came from outside theaters: television."
-        },
-        {
-          "id": "b",
-          "label": "To set movies apart as TV kept audiences home",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The Paramount decrees required wide screens",
-          "correct": false,
-          "rationale": "The decrees were about owning theaters, not screen shapes."
-        },
-        {
-          "id": "d",
-          "label": "Audiences complained that films were too short",
-          "correct": false,
-          "rationale": "Width, not length, was the answer to television."
-        }
+      "prompt": "Put these moments in Hollywood's fight with television in order, from earliest to latest.",
+      "items": [
+        "Two out of three Americans",
+        "This Is Cinerama",
+        "The Robe",
+        "Attendance was down almost 50 percent"
       ],
-      "explanation": "Television offered moving pictures at home and attendance fell, so studios used color and widescreen to make going out special.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "In 1946 two out of three Americans went to the movies every week. This Is Cinerama launched in 1952, The Robe brought CinemaScope in 1953, and by 1956 attendance was down almost 50 percent.",
       "difficulty": 0.3
     },
     {

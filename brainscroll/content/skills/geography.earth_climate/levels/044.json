@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 44,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why Rising Air Cools",
   "objective": "After this level you can explain why air cools as it rises and expands, and why mountaintops are cold.",
@@ -88,41 +88,35 @@
   "questions": [
     {
       "id": "question.earth_climate.044.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.earth_climate.lapse_rate"
       ],
       "sourceCardIds": [
-        "card.earth_climate.044.c4"
+        "card.earth_climate.044.c4",
+        "card.earth_climate.044.c3"
       ],
-      "prompt": "On average, how much colder does the air get for every 1,000 m you climb?",
-      "options": [
+      "prompt": "Match each with its temperature figure.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "About 1 °C",
-          "correct": false,
-          "rationale": "Far too small."
+          "left": "Dry air",
+          "right": "About 10 °C for every kilometer"
         },
         {
-          "id": "b",
-          "label": "About 6.5 °C",
-          "correct": true
+          "left": "Standard lapse rate",
+          "right": "About 6.5 °C for every 1,000 m"
         },
         {
-          "id": "c",
-          "label": "About 27 °C",
-          "correct": false,
-          "rationale": "That's the sea-level temperature in the example."
+          "left": "Sea level",
+          "right": "27 °C"
         },
         {
-          "id": "d",
-          "label": "It gets warmer instead",
-          "correct": false,
-          "rationale": "Near the surface, air cools as you climb."
+          "left": "4,000 m",
+          "right": "About 1 °C"
         }
       ],
-      "explanation": "The standard (average) lapse rate is about 6.5 °C per 1,000 m.",
+      "explanation": "Dry air cools about 10 °C for every kilometer, the standard lapse rate is about 6.5 °C per 1,000 m, so 27 °C at sea level becomes about 1 °C at 4,000 m.",
       "difficulty": 0.15
     },
     {

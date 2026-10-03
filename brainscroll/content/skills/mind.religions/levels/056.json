@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 56,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Three Schools of Buddhism",
   "objective": "After this level you can compare Theravada, Mahayana and Vajrayana Buddhism, why they differ and where each is practiced.",
@@ -131,41 +131,32 @@
     },
     {
       "id": "question.religions.056.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.buddhist_mahayana"
       ],
       "sourceCardIds": [
-        "card.religions.056.c3"
+        "card.religions.056.c3",
+        "card.religions.056.c2",
+        "card.religions.056.c4"
       ],
-      "prompt": "Why does a Mahayana bodhisattva delay entering nirvana?",
-      "options": [
+      "prompt": "Match each school of Buddhism with the meaning of its name.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "To help all other beings reach liberation",
-          "correct": true
+          "left": "Theravada",
+          "right": "Way of the Elders"
         },
         {
-          "id": "b",
-          "label": "Because nirvana is closed to laypeople",
-          "correct": false,
-          "rationale": "Mahayana teaches anyone can take this path."
+          "left": "Mahayana",
+          "right": "Greater Vehicle"
         },
         {
-          "id": "c",
-          "label": "To be reborn as a king",
-          "correct": false,
-          "rationale": "The aim is liberation for all, not status."
-        },
-        {
-          "id": "d",
-          "label": "Because the Pali canon forbids it",
-          "correct": false,
-          "rationale": "The ideal is Mahayana's own."
+          "left": "Vajrayana",
+          "right": "Diamond Vehicle"
         }
       ],
-      "explanation": "The bodhisattva vows to reach enlightenment but waits, to help all other beings reach liberation.",
+      "explanation": "Theravada means \"Way of the Elders\", Mahayana the \"Greater Vehicle\", and Vajrayana the \"Thunderbolt\" or \"Diamond Vehicle\".",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 60,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Reactions",
   "objective": "After this level you can explain what happens in a chemical reaction and what controls its speed.",
@@ -166,42 +166,26 @@
     },
     {
       "id": "question.chemistry.060.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.reaction_oxidation_speeds"
       ],
       "sourceCardIds": [
         "card.chemistry.060.c2",
-        "card.chemistry.060.c3"
+        "card.chemistry.060.c3",
+        "card.chemistry.060.c1"
       ],
-      "prompt": "If rusting and burning are both oxidation, what mainly separates them?",
-      "options": [
-        {
-          "id": "a",
-          "label": "How fast the reaction runs",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Only burning uses oxygen",
-          "correct": false,
-          "rationale": "Rust is iron combined with oxygen too."
-        },
-        {
-          "id": "c",
-          "label": "Burning destroys atoms and rusting does not",
-          "correct": false,
-          "rationale": "No reaction destroys atoms."
-        },
-        {
-          "id": "d",
-          "label": "Rusting happens only in space",
-          "correct": false,
-          "rationale": "Rust forms wherever iron meets oxygen and water."
-        }
+      "prompt": "Put the chapter's speed dial in order, from the slow end to the fastest.",
+      "items": [
+        "Iron rusts",
+        "A hand warmer",
+        "A flame",
+        "An explosion"
       ],
-      "explanation": "Rust creeps and fire races: the same kind of reaction at very different speeds.",
+      "first": "Slow end",
+      "last": "Fastest",
+      "explanation": "At the slow end iron rusts. Powdered with salt, it warms your hands. Faster still, oxidation races as a flame, and faster again it becomes an explosion.",
       "difficulty": 0.25
     },
     {

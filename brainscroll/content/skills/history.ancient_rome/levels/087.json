@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 87,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Julian the Apostate",
   "objective": "After this level you can describe Julian's attempt to restore the old religion.",
@@ -165,7 +165,7 @@
     },
     {
       "id": "question.ancient_rome.087.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_rome.julian",
@@ -173,29 +173,25 @@
       ],
       "sourceCardIds": [
         "card.ancient_rome.087.c2",
-        "card.ancient_rome.007.c3"
+        "card.ancient_rome.007.c3",
+        "card.ancient_rome.087.c3"
       ],
-      "prompt": "From Level 7: Julian hoped to revive the old gods, so who was the king of the gods in Rome’s greatest temple?",
-      "options": [
+      "prompt": "Match each name or word with its meaning in Julian’s story.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Vesta",
-          "correct": false,
-          "rationale": "She was the hearth goddess whose fire the Vestals tended."
+          "left": "Julian",
+          "right": "Constantine’s nephew"
         },
         {
-          "id": "b",
-          "label": "Jupiter",
-          "correct": true
+          "left": "Apostate",
+          "right": "Someone who abandons their faith"
         },
         {
-          "id": "c",
-          "label": "Mars",
-          "correct": false,
-          "rationale": "In legend he was the father of Romulus and Remus."
+          "left": "Jupiter",
+          "right": "King of the gods"
         }
       ],
-      "explanation": "Rome’s greatest temple, on the Capitoline, was dedicated to Jupiter, king of the gods, one of the gods Julian tried to restore.",
+      "explanation": "Julian was Constantine’s nephew, an apostate is someone who abandons their faith, and Jupiter was king of the gods, honored in Rome’s greatest temple.",
       "difficulty": 0.4
     }
   ],

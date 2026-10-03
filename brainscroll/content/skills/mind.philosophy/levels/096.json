@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 96,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Nietzsche's Eternal Return",
   "objective": "After this level you can explain Nietzsche's test of living your life again forever and why he thought saying yes to it mattered after \"God is dead\".",
@@ -128,41 +128,32 @@
     },
     {
       "id": "question.philosophy.096.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.meaning_eternal_return"
       ],
       "sourceCardIds": [
-        "card.philosophy.096.c4"
+        "card.philosophy.096.c4",
+        "card.philosophy.096.c2",
+        "card.philosophy.096.c3"
       ],
-      "prompt": "Sam says, “My life is fine, because it will all be made up for later.” Why wouldn’t that pass the demon’s test, on the reading in this level?",
-      "options": [
+      "prompt": "Match each figure or phrase with what it stands for in Nietzsche.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Nietzsche thought every life is fine as it is",
-          "correct": false,
-          "rationale": "The test asks whether you can affirm it, not whether it is fine."
+          "left": "A madman",
+          "right": "God is dead"
         },
         {
-          "id": "b",
-          "label": "The test asks for a yes to this life as it is, with nothing later to redeem it",
-          "correct": true
+          "left": "The demon",
+          "right": "Live this life again"
         },
         {
-          "id": "c",
-          "label": "Sam hasn’t lived long enough yet to judge his whole life",
-          "correct": false,
-          "rationale": "The test applies at any point in a life."
-        },
-        {
-          "id": "d",
-          "label": "The demon only visits people who have lost all hope in the future",
-          "correct": false,
-          "rationale": "Nothing like that is part of the test."
+          "left": "Amor fati",
+          "right": "Love of fate"
         }
       ],
-      "explanation": "A life that returns forever is never “made up for” later, so the yes must be to this life itself.",
+      "explanation": "A madman announces that God is dead, the demon says you must live this life again, and amor fati means love of fate.",
       "difficulty": 0.5
     },
     {

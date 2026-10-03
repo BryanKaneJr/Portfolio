@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 43,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Cookies",
   "objective": "After this level you can explain why websites use cookies to remember you, and how third-party cookies follow you across sites.",
@@ -86,7 +86,7 @@
   "questions": [
     {
       "id": "question.computers.043.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.cookies_session"
@@ -94,33 +94,16 @@
       "sourceCardIds": [
         "card.computers.043.c2"
       ],
-      "prompt": "What is a website cookie?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A copy of the whole page saved for later",
-          "correct": false,
-          "rationale": "A cookie is a small piece of data, not the page."
-        },
-        {
-          "id": "b",
-          "label": "Data the browser stores and sends back to the server",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "A program that speeds up the internet connection",
-          "correct": false,
-          "rationale": "Cookies carry data; they don't change speed."
-        },
-        {
-          "id": "d",
-          "label": "A status code that means the page was found",
-          "correct": false,
-          "rationale": "That's 200, a status code."
-        }
+      "prompt": "Put the steps of a cookie's round trip in order.",
+      "items": [
+        "A server sends to your browser",
+        "The browser stores it",
+        "Sends it back to the same server",
+        "Link them into one session"
       ],
-      "explanation": "A cookie is a small piece of data from a server that the browser stores and returns with later requests.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "A server sends the cookie to your browser, the browser stores it and sends it back to the same server with later requests, and the server can then link them into one session.",
       "difficulty": 0.15
     },
     {

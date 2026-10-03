@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 3,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Claims: True or False",
   "objective": "After this level you can explain what a claim is and why only claims, not questions or commands, can be true or false.",
@@ -126,7 +126,7 @@
     },
     {
       "id": "question.logic.003.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.non_claims",
@@ -136,33 +136,26 @@
         "card.logic.003.c2",
         "card.logic.003.c3"
       ],
-      "prompt": "Which of these is a claim?",
-      "options": [
+      "prompt": "Match each sentence with the kind of sentence it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Are you sleepy yet?",
-          "correct": false,
-          "rationale": "A question is neither true nor false."
+          "left": "Are you sleepy yet?",
+          "right": "Question"
         },
         {
-          "id": "b",
-          "label": "Wake up!",
-          "correct": false,
-          "rationale": "A command is neither true nor false."
+          "left": "Wake up!",
+          "right": "Command"
         },
         {
-          "id": "c",
-          "label": "Ouch!",
-          "correct": false,
-          "rationale": "An exclamation is neither true nor false."
+          "left": "Ouch!",
+          "right": "Exclamation"
         },
         {
-          "id": "d",
-          "label": "The Yangtze is a river in Japan.",
-          "correct": true
+          "left": "The Yangtze is a river in Japan",
+          "right": "A claim"
         }
       ],
-      "explanation": "It's false, but it's still a claim: it's the kind of sentence that can be true or false.",
+      "explanation": "\"Are you sleepy yet?\" is a question, \"Wake up!\" is a command and \"Ouch!\" is an exclamation. Only \"The Yangtze is a river in Japan\" is a claim: false, but it can be true or false.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 44,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Intestines",
   "objective": "After this level you can explain how the intestines absorb nutrients.",
@@ -125,38 +125,32 @@
     },
     {
       "id": "question.human_body.044.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.intestine_absorption"
       ],
       "sourceCardIds": [
-        "card.human_body.044.c2"
+        "card.human_body.044.c2",
+        "card.human_body.044.c4"
       ],
-      "prompt": "How do villi and microvilli help the small intestine absorb nutrients?",
-      "options": [
+      "prompt": "Match each part of absorbing a meal with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They squeeze food along the tube",
-          "correct": false,
-          "rationale": "That's peristalsis, from muscle."
+          "left": "Villi",
+          "right": "Tiny finger-like projections"
         },
         {
-          "id": "b",
-          "label": "They greatly enlarge the absorbing surface",
-          "correct": true
+          "left": "Microvilli",
+          "right": "Even tinier ones"
         },
         {
-          "id": "c",
-          "label": "They make stomach acid",
-          "correct": false,
-          "rationale": "Acid comes from glands in the stomach."
+          "left": "Fatty acids",
+          "right": "Through the lymphatic system"
         },
         {
-          "id": "d",
-          "label": "They store bile",
-          "correct": false,
-          "rationale": "The gallbladder stores bile."
+          "left": "Simple sugars",
+          "right": "To the liver first"
         }
       ],
       "explanation": "Finger-like villi, covered in cells with microvilli, greatly increase the surface that absorbs nutrients.",

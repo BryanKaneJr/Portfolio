@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 55,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Anglerfish",
   "objective": "After this level you can explain how the anglerfish hunts in the dark.",
@@ -126,41 +126,24 @@
     },
     {
       "id": "question.oceans.055.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.deep_anglerfish_hunting"
       ],
       "sourceCardIds": [
-        "card.oceans.055.c2"
+        "card.oceans.055.c2",
+        "card.oceans.055.c3"
       ],
-      "prompt": "Why does a deep-sea anglerfish wait with a lure instead of swimming around to hunt?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Its fins are too small for it to swim at all",
-          "correct": false,
-          "rationale": "It can swim; waiting saves energy."
-        },
-        {
-          "id": "b",
-          "label": "Its prey can only live close to the lure",
-          "correct": false,
-          "rationale": "Prey come to the light."
-        },
-        {
-          "id": "c",
-          "label": "Searching burns energy, and food is scarce",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The water is too cold for it to move far",
-          "correct": false,
-          "rationale": "The reason is saving energy."
-        }
+      "prompt": "Put an anglerfish's hunt in order, from first to last.",
+      "items": [
+        "Hangs in the dark and waits",
+        "Prey drifts in to inspect the light",
+        "A huge mouth snaps shut"
       ],
-      "explanation": "Where meals are rare, luring prey saves the energy that swimming and searching would burn.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The anglerfish hangs in the dark and waits. Prey drifts in to inspect the light, and a huge mouth snaps shut.",
       "difficulty": 0.2
     },
     {

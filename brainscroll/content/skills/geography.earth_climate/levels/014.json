@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 14,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Faults: Where Rock Breaks",
   "objective": "After this level you can tell normal, reverse and strike-slip faults apart by which way the rock moves.",
@@ -147,41 +147,31 @@
     },
     {
       "id": "question.earth_climate.014.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.fault_stress"
       ],
       "sourceCardIds": [
-        "card.earth_climate.014.c2"
+        "card.earth_climate.014.c2",
+        "card.earth_climate.014.c4"
       ],
-      "prompt": "How does a normal fault move, and what is the crust doing there?",
-      "options": [
+      "prompt": "Match each kind of fault with how it moves.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The hanging wall rides up because the crust is squeezed",
-          "correct": false,
-          "rationale": "That's a reverse fault."
+          "left": "Normal",
+          "right": "Hanging wall slides down"
         },
         {
-          "id": "b",
-          "label": "The hanging wall slides down as the crust is stretched",
-          "correct": true
+          "left": "Reverse",
+          "right": "Hanging wall pushed up and over"
         },
         {
-          "id": "c",
-          "label": "The two blocks slide sideways past each other",
-          "correct": false,
-          "rationale": "That's a strike-slip fault."
-        },
-        {
-          "id": "d",
-          "label": "Both blocks sink evenly into the mantle",
-          "correct": false,
-          "rationale": "One block moves relative to the other."
+          "left": "Strike-slip",
+          "right": "Blocks slide sideways"
         }
       ],
-      "explanation": "On a normal fault the hanging wall drops relative to the footwall, which happens where the crust is stretched.",
+      "explanation": "On a normal fault the hanging wall slides down, on a reverse fault it is pushed up and over, and on a strike-slip fault the blocks slide sideways.",
       "difficulty": 0.3
     },
     {

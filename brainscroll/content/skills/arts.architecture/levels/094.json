@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 94,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "3D-Printed Houses",
   "objective": "After this level you can explain how houses can be printed layer by layer.",
@@ -141,41 +141,31 @@
     },
     {
       "id": "question.architecture.094.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.future_print_buildability"
       ],
       "sourceCardIds": [
-        "card.architecture.094.c3"
+        "card.architecture.094.c3",
+        "card.architecture.094.c2"
       ],
-      "prompt": "Why must 3D-printing concrete be stiff once it leaves the nozzle?",
-      "options": [
+      "prompt": "Match each way of shaping a structure with what it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "So the nozzle never clogs",
-          "correct": false,
-          "rationale": "Inside the nozzle it must flow; stiffness matters afterwards."
+          "left": "Formwork",
+          "right": "Holds the wet mix in shape"
         },
         {
-          "id": "b",
-          "label": "So it dries to a brighter color",
-          "correct": false,
-          "rationale": "Color has nothing to do with it."
+          "left": "Centering",
+          "right": "Holds up an arch"
         },
         {
-          "id": "c",
-          "label": "So the house needs no foundation",
-          "correct": false,
-          "rationale": "Printed houses still sit on foundations."
-        },
-        {
-          "id": "d",
-          "label": "So it can carry the layers printed on top",
-          "correct": true
+          "left": "A construction printer",
+          "right": "Squeezes concrete through a nozzle"
         }
       ],
-      "explanation": "Buildability: the mix must flow through the nozzle, then support the weight of later layers without deforming.",
+      "explanation": "Formwork holds the wet mix in shape until it hardens. Level 4's centering holds up an arch until the keystone is set. A construction printer squeezes concrete through a nozzle, layer by layer.",
       "difficulty": 0.25
     },
     {

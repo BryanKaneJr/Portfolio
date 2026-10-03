@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 26,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why Some Recipes Scale Badly",
   "objective": "After this level you can explain how the steps an algorithm needs grow as its input grows, and why that decides whether it is usable.",
@@ -103,41 +103,24 @@
   "questions": [
     {
       "id": "question.computers.026.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.software_growth_rates"
       ],
       "sourceCardIds": [
-        "card.computers.026.c2"
+        "card.computers.026.c2",
+        "card.computers.026.c3"
       ],
-      "prompt": "What does big O notation describe?",
-      "options": [
-        {
-          "id": "a",
-          "label": "How fast a particular computer's clock ticks",
-          "correct": false,
-          "rationale": "Big O ignores the machine; it's about the algorithm."
-        },
-        {
-          "id": "b",
-          "label": "How many lines of code a program has",
-          "correct": false,
-          "rationale": "It counts how steps grow, not lines."
-        },
-        {
-          "id": "c",
-          "label": "How an algorithm's running time grows as its input grows",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "How much memory a chip can hold",
-          "correct": false,
-          "rationale": "That's a hardware measure."
-        }
+      "prompt": "Put these growth rates in order, from the one that grows slowest to the one that grows fastest.",
+      "items": [
+        "O(log n)",
+        "O(n)",
+        "O(n squared)"
       ],
-      "explanation": "Big O describes the order of an algorithm's running time as its input size n grows, with constant factors dropped.",
+      "first": "Grows slowest",
+      "last": "Grows fastest",
+      "explanation": "When the data doubles, O(log n) adds one extra step, O(n) takes twice the steps, and O(n squared) takes four times the steps.",
       "difficulty": 0.15
     },
     {

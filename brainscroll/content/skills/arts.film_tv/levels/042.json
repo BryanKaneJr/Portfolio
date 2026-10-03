@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 42,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Big Studios",
   "objective": "After this level you can explain why the major studios owned the whole chain, from making films to the theaters that showed them.",
@@ -131,41 +131,36 @@
     },
     {
       "id": "question.film_tv.042.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.studio_vertical_integration"
       ],
       "sourceCardIds": [
-        "card.film_tv.042.c3"
+        "card.film_tv.042.c3",
+        "card.film_tv.042.c2",
+        "card.film_tv.042.c4"
       ],
-      "prompt": "Why did the major studios buy up first-run theater chains in the 1920s?",
-      "options": [
+      "prompt": "Match each part of the studio business with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A federal law required studios to own theaters",
-          "correct": false,
-          "rationale": "No law required it; it was a business choice."
+          "left": "Production",
+          "right": "Making films"
         },
         {
-          "id": "b",
-          "label": "To guarantee screens for the films they made",
-          "correct": true
+          "left": "Distribution",
+          "right": "Renting them to theaters"
         },
         {
-          "id": "c",
-          "label": "Because theaters were cheaper than film sets",
-          "correct": false,
-          "rationale": "Cost wasn't the point; control of screens was."
+          "left": "Exhibition",
+          "right": "Showing them"
         },
         {
-          "id": "d",
-          "label": "To show mainly foreign films",
-          "correct": false,
-          "rationale": "They filled their houses with their own films."
+          "left": "Block booking",
+          "right": "Take the package"
         }
       ],
-      "explanation": "Owning theaters gave the majors houses to fill with their own features, shorts, cartoons and newsreels.",
+      "explanation": "Production is making films, distribution is renting them to theaters, and exhibition is showing them. Under block booking, a theater that wanted the big picture had to take the package.",
       "difficulty": 0.3
     },
     {

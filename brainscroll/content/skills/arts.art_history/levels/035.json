@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 35,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Leonardo da Vinci",
   "objective": "After this level you can describe Leonardo's paintings and his notebooks.",
@@ -90,41 +90,36 @@
   "questions": [
     {
       "id": "question.art_history.035.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.ren_leonardo_notebooks"
       ],
       "sourceCardIds": [
-        "card.art_history.035.c1"
+        "card.art_history.035.c1",
+        "card.art_history.035.c3",
+        "card.art_history.035.c4"
       ],
-      "prompt": "How is the writing in Leonardo's notebooks laid out?",
-      "options": [
+      "prompt": "Match each thing from Leonardo's work with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "In a secret number code",
-          "correct": false,
-          "rationale": "It reads normally in a mirror; no code needed."
+          "left": "Mirror writing",
+          "right": "Right to left"
         },
         {
-          "id": "b",
-          "label": "Only as drawings, with no words",
-          "correct": false,
-          "rationale": "There are words; they explain the drawings."
+          "left": "Sfumato",
+          "right": "Evaporating like smoke"
         },
         {
-          "id": "c",
-          "label": "In mirror writing, right to left",
-          "correct": true
+          "left": "The Last Supper",
+          "right": "Tempera on a dry wall"
         },
         {
-          "id": "d",
-          "label": "In columns running top to bottom",
-          "correct": false,
-          "rationale": "It runs sideways, right to left."
+          "left": "The Mona Lisa",
+          "right": "Hands folded"
         }
       ],
-      "explanation": "Leonardo, who was left-handed, wrote in mirror writing that runs from right to left.",
+      "explanation": "His mirror writing runs right to left, sfumato comes from the Italian for evaporating like smoke, The Last Supper was painted in tempera on a dry wall, and the Mona Lisa sits with hands folded.",
       "difficulty": 0.15
     },
     {

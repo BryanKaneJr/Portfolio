@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 14,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Needs and Wants",
   "objective": "After this level you can tell needs from wants and explain why the line differs from person to person.",
@@ -125,41 +125,31 @@
     },
     {
       "id": "question.how_money_works.014.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.needs_custom_smith"
       ],
       "sourceCardIds": [
-        "card.how_money_works.014.c3"
+        "card.how_money_works.014.c3",
+        "card.how_money_works.014.c4"
       ],
-      "prompt": "Why did Adam Smith count a linen shirt as a necessary in his time?",
-      "options": [
+      "prompt": "In Smith's day, who needed leather shoes? Match each country with the answer.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Custom made it shameful to appear in public without one",
-          "correct": true
+          "left": "England",
+          "right": "Both men and women"
         },
         {
-          "id": "b",
-          "label": "Linen was the only fabric available",
-          "correct": false,
-          "rationale": "Availability wasn't his point; custom was."
+          "left": "Scotland",
+          "right": "Men but not women"
         },
         {
-          "id": "c",
-          "label": "A law required workers to wear linen",
-          "correct": false,
-          "rationale": "Custom, not law, set the standard."
-        },
-        {
-          "id": "d",
-          "label": "The ancient Greeks and Romans wore linen",
-          "correct": false,
-          "rationale": "He noted they lived comfortably without it."
+          "left": "France",
+          "right": "Neither"
         }
       ],
-      "explanation": "Smith counted as necessaries whatever custom made it shameful for respectable people to go without.",
+      "explanation": "Custom made leather shoes a necessity for both men and women in England, for men but not women in Scotland, and for neither in France.",
       "difficulty": 0.25
     },
     {

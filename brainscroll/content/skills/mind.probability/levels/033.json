@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 33,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Why the Casino Always Wins",
   "objective": "After this level you can explain the house edge, using the extra green pockets on an American roulette wheel.",
@@ -125,42 +125,36 @@
     },
     {
       "id": "question.probability.033.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.bet_house_edge"
       ],
       "sourceCardIds": [
         "card.probability.033.c2",
-        "card.probability.033.c3"
+        "card.probability.033.c3",
+        "card.probability.033.c4"
       ],
-      "prompt": "How do the green 0 and 00 give the casino its edge?",
-      "options": [
+      "prompt": "Match each part of the roulette bet with its number.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The ball lands in the green pockets more often",
-          "correct": false,
-          "rationale": "Each pocket is one of 38; the edge comes from the payouts."
+          "left": "A win pays",
+          "right": "35 to 1"
         },
         {
-          "id": "b",
-          "label": "Payouts are set as if the wheel had only 36 pockets",
-          "correct": true
+          "left": "The true odds",
+          "right": "37 to 1 against"
         },
         {
-          "id": "c",
-          "label": "The casino takes a fee from every win",
-          "correct": false,
-          "rationale": "No fee is needed; the payout itself is short."
+          "left": "The American wheel",
+          "right": "About 5.26%"
         },
         {
-          "id": "d",
-          "label": "Players must also bet on green each spin",
-          "correct": false,
-          "rationale": "No such rule; the edge is built into the payouts."
+          "left": "A European wheel",
+          "right": "About 2.7%"
         }
       ],
-      "explanation": "A single number pays 35 to 1, fair for 36 pockets. With 38, the true odds are 37 to 1, so the casino keeps 2 parts in 38.",
+      "explanation": "A win on one number pays 35 to 1, but the true odds are 37 to 1 against. That gives the American wheel an edge of about 5.26%, and a European wheel about 2.7%.",
       "difficulty": 0.35
     },
     {

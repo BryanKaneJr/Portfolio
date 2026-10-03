@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 16,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Piano",
   "objective": "After this level you can explain how a piano's hammers and strings work.",
@@ -132,41 +132,31 @@
     },
     {
       "id": "question.music.016.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.instruments_piano_action"
       ],
       "sourceCardIds": [
-        "card.music.016.c3"
+        "card.music.016.c3",
+        "card.music.016.c4"
       ],
-      "prompt": "What does a piano's escapement do?",
-      "options": [
+      "prompt": "Match each part of a piano with what it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Lifts every damper at once",
-          "correct": false,
-          "rationale": "That's the right pedal."
+          "left": "Escapement",
+          "right": "Lets the hammer fall away"
         },
         {
-          "id": "b",
-          "label": "Plucks the string with a quill",
-          "correct": false,
-          "rationale": "That's the harpsichord."
+          "left": "Damper",
+          "right": "Stops that string"
         },
         {
-          "id": "c",
-          "label": "Tightens the strings to tune them",
-          "correct": false,
-          "rationale": "Tuning is a separate job."
-        },
-        {
-          "id": "d",
-          "label": "Lets the hammer fall away right after it strikes",
-          "correct": true
+          "left": "Right pedal",
+          "right": "Every damper lifts"
         }
       ],
-      "explanation": "The escapement lets the hammer fall away the instant it strikes, so it doesn't choke the string's sound.",
+      "explanation": "The escapement lets the hammer fall away after it strikes, a damper stops a string when you let go of its key, and with the right pedal every damper lifts at once.",
       "difficulty": 0.2
     },
     {

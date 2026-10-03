@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 44,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Is Flying Safer Than Driving?",
   "objective": "After this level you can explain why a risk comparison depends on what you count per: per trip, per mile or per hour.",
@@ -125,41 +125,31 @@
     },
     {
       "id": "question.probability.044.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.risk_per_what_travel"
       ],
       "sourceCardIds": [
-        "card.probability.044.c3"
+        "card.probability.044.c3",
+        "card.probability.044.c2"
       ],
-      "prompt": "Why does counting per trip make flying look much less safe than counting per mile?",
-      "options": [
+      "prompt": "Match each with what the flying and driving data show.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Most crashes happen around takeoff and landing, whatever the distance",
-          "correct": true
+          "left": "Per mile",
+          "right": "Flying wins by a landslide"
         },
         {
-          "id": "b",
-          "label": "Planes carry more passengers, so each crash is counted twice",
-          "correct": false,
-          "rationale": "Nothing is counted twice; the divider changes."
+          "left": "Per journey",
+          "right": "Flying riskier than a car trip"
         },
         {
-          "id": "c",
-          "label": "Airlines report fewer miles than their planes really fly",
-          "correct": false,
-          "rationale": "The figures aren't the problem; the choice of divider is."
-        },
-        {
-          "id": "d",
-          "label": "Car trips are much longer than flights on average",
-          "correct": false,
-          "rationale": "Flights usually cover far more distance per trip."
+          "left": "Most fatal airliner accidents",
+          "right": "Around takeoff and landing"
         }
       ],
-      "explanation": "A flight packs its risk into takeoff and landing, so a long flight adds lots of miles but little risk. Per trip, that advantage disappears.",
+      "explanation": "Per mile, flying wins by a landslide. Per journey, 1990s data found flying riskier than a car trip, because most fatal airliner accidents happen around takeoff and landing.",
       "difficulty": 0.4
     },
     {

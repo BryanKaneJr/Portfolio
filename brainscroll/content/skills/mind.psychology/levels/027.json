@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 27,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Why Slot Machines Hook People",
   "objective": "After this level you can explain reinforcement schedules and why unpredictable rewards keep a behavior going longest.",
@@ -140,41 +140,31 @@
     },
     {
       "id": "question.psychology.027.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.psychology.conditioning_reinforcement_schedules"
       ],
       "sourceCardIds": [
-        "card.psychology.027.c3"
+        "card.psychology.027.c2",
+        "card.psychology.027.c4"
       ],
-      "prompt": "How does a variable ratio schedule decide when a reward comes?",
-      "options": [
+      "prompt": "Match each kind of reinforcement with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "After a set amount of time",
-          "correct": false,
-          "rationale": "That's a fixed interval schedule."
+          "left": "Continuous reinforcement",
+          "right": "Every single time"
         },
         {
-          "id": "b",
-          "label": "After an unpredictable number of responses",
-          "correct": true
+          "left": "Variable ratio",
+          "right": "The most resistant to extinction"
         },
         {
-          "id": "c",
-          "label": "After every single response",
-          "correct": false,
-          "rationale": "That's continuous reinforcement."
-        },
-        {
-          "id": "d",
-          "label": "After a set number of responses",
-          "correct": false,
-          "rationale": "That's a fixed ratio schedule."
+          "left": "Fixed interval",
+          "right": "The easiest to extinguish"
         }
       ],
-      "explanation": "In a variable ratio schedule the number of responses needed for each reward changes unpredictably.",
+      "explanation": "Continuous reinforcement rewards a behavior every single time. Variable ratio is the most resistant to extinction, and fixed interval is the easiest to extinguish.",
       "difficulty": 0.2
     },
     {

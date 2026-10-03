@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 31,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Surface Currents",
   "objective": "After this level you can explain how wind drives surface currents.",
@@ -131,41 +131,32 @@
     },
     {
       "id": "question.oceans.031.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.currents_coriolis"
       ],
       "sourceCardIds": [
-        "card.oceans.031.c3"
+        "card.oceans.031.c3",
+        "card.oceans.031.c2",
+        "card.oceans.031.c4"
       ],
-      "prompt": "Why did the sea ice Nansen watched drift to the right of the wind instead of straight downwind?",
-      "options": [
+      "prompt": "Match each term with what it does to the sea.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The ice melted faster on one side and tipped",
-          "correct": false,
-          "rationale": "Melting doesn't steer ice sideways."
+          "left": "Friction",
+          "right": "Drags the top layer of water along"
         },
         {
-          "id": "b",
-          "label": "A strong current from Alaska kept pushing it",
-          "correct": false,
-          "rationale": "The deflection happens everywhere, not from one current."
+          "left": "The Coriolis effect",
+          "right": "Moving air and water get deflected"
         },
         {
-          "id": "c",
-          "label": "Earth's spin deflects it (the Coriolis effect)",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The wind swung around every single day",
-          "correct": false,
-          "rationale": "The veer was steady, so it wasn't shifting winds."
+          "left": "Gyres",
+          "right": "Huge rotating systems of currents"
         }
       ],
-      "explanation": "Earth's rotation deflects moving air and water, to the right in the Northern Hemisphere. That's the Coriolis effect.",
+      "explanation": "By friction, wind drags the top layer of water along. The Coriolis effect deflects moving air and water. Gyres are huge rotating systems of currents.",
       "difficulty": 0.2
     },
     {

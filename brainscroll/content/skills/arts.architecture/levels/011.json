@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 11,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The First Buildings",
   "objective": "After this level you can describe the earliest houses and temples.",
@@ -97,41 +97,32 @@
   "questions": [
     {
       "id": "question.architecture.011.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.wonders_first_houses"
       ],
       "sourceCardIds": [
-        "card.architecture.011.c4"
+        "card.architecture.011.c4",
+        "card.architecture.011.c2",
+        "card.architecture.011.c5"
       ],
-      "prompt": "How did people get into their houses at Çatalhöyük?",
-      "options": [
+      "prompt": "Match each early site with what it's known for.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Through a front door on a narrow street",
-          "correct": false,
-          "rationale": "There were no streets between the houses."
+          "left": "Göbekli Tepe",
+          "right": "T-shaped limestone pillars"
         },
         {
-          "id": "b",
-          "label": "Down a ladder through an opening in the roof",
-          "correct": true
+          "left": "Çatalhöyük",
+          "right": "The rooftops were the streets"
         },
         {
-          "id": "c",
-          "label": "Up a ramp to a door on the second floor",
-          "correct": false,
-          "rationale": "Entry was from the roof, climbing down."
-        },
-        {
-          "id": "d",
-          "label": "Through tunnels under the neighboring houses",
-          "correct": false,
-          "rationale": "People moved across the roofs, not under them."
+          "left": "Skara Brae",
+          "right": "Stone dressers and box beds"
         }
       ],
-      "explanation": "Çatalhöyük's houses were packed wall to wall with no streets, so people walked across the roofs and climbed down a wooden ladder into their homes.",
+      "explanation": "Göbekli Tepe has T-shaped limestone pillars, at Çatalhöyük the rooftops were the streets, and Skara Brae's houses still hold their stone dressers and box beds.",
       "difficulty": 0.15
     },
     {

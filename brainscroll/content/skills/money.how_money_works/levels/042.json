@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 42,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Supply",
   "objective": "After this level you can explain why sellers offer more of something when its price rises.",
@@ -86,41 +86,32 @@
   "questions": [
     {
       "id": "question.how_money_works.042.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.supply_law"
       ],
       "sourceCardIds": [
-        "card.how_money_works.042.c2"
+        "card.how_money_works.042.c2",
+        "card.how_money_works.042.c3",
+        "card.how_money_works.042.c4"
       ],
-      "prompt": "What does the law of supply say?",
-      "options": [
+      "prompt": "Match each supply term with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "When a price rises, buyers want less",
-          "correct": false,
-          "rationale": "That's the law of demand, the buyers' side."
+          "left": "Quantity supplied",
+          "right": "The amount they offer at a given price"
         },
         {
-          "id": "b",
-          "label": "Prices always rise over time",
-          "correct": false,
-          "rationale": "The law is about how much sellers offer at each price."
+          "left": "Supply curve",
+          "right": "Slopes upward"
         },
         {
-          "id": "c",
-          "label": "Sellers always offer the same amount",
-          "correct": false,
-          "rationale": "The amount they offer changes with the price."
-        },
-        {
-          "id": "d",
-          "label": "When a price rises, sellers offer more",
-          "correct": true
+          "left": "Ceteris paribus",
+          "right": "All other things stay equal"
         }
       ],
-      "explanation": "A rise in price almost always increases the quantity supplied, and a fall in price decreases it.",
+      "explanation": "Quantity supplied is the amount sellers offer at a given price. The supply curve usually slopes upward. Ceteris paribus means all other things stay equal.",
       "difficulty": 0.1
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 74,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Sewers",
   "objective": "After this level you can explain how sewers and treatment plants deal with waste water.",
@@ -132,41 +132,26 @@
     },
     {
       "id": "question.everyday_technology.074.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.sewer_treatment_plant"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.074.c4"
+        "card.everyday_technology.074.c4",
+        "card.everyday_technology.074.c3"
       ],
-      "prompt": "In a sewage plant, why is air bubbled into the big treatment tanks?",
-      "options": [
-        {
-          "id": "a",
-          "label": "To blow the smell away from the neighbors",
-          "correct": false,
-          "rationale": "The air is for the microbes."
-        },
-        {
-          "id": "b",
-          "label": "To push the sewage uphill to the river",
-          "correct": false,
-          "rationale": "Gravity moves most sewage."
-        },
-        {
-          "id": "c",
-          "label": "To make the heavy sludge float to the top",
-          "correct": false,
-          "rationale": "Sludge sinks in the settling tanks."
-        },
-        {
-          "id": "d",
-          "label": "So microbes can thrive and eat the waste",
-          "correct": true
-        }
+      "prompt": "Put the steps at a sewage treatment plant in order.",
+      "items": [
+        "Screens catch big debris",
+        "Settling tanks",
+        "Air is bubbled into big tanks",
+        "Disinfected with chlorine or bleach",
+        "Released into a river or the ocean"
       ],
-      "explanation": "Air lets microorganisms already in the sewage thrive, and they eat much of the organic material.",
+      "first": "Sewage arrives",
+      "last": "Water leaves",
+      "explanation": "Screens catch big debris, settling tanks let sludge sink and grease be skimmed, air is bubbled in for microbes, the water is disinfected, and then it's released into a river or the ocean.",
       "difficulty": 0.3
     },
     {

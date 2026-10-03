@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 13,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Hotspots: Hawaii and Yellowstone",
   "objective": "After this level you can explain what a hotspot is and why it leaves a chain of volcanoes as a plate moves over it.",
@@ -81,7 +81,7 @@
   "questions": [
     {
       "id": "question.earth_climate.013.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.earth_climate.hotspot_yellowstone"
@@ -89,33 +89,15 @@
       "sourceCardIds": [
         "card.earth_climate.013.c4"
       ],
-      "prompt": "Along the Yellowstone hotspot's trail, where are the oldest volcanic fields?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Right beside Yellowstone's geysers",
-          "correct": false,
-          "rationale": "Those mark the hotspot's youngest activity."
-        },
-        {
-          "id": "b",
-          "label": "In northern Nevada and southern Oregon",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Far to the northeast, in Montana",
-          "correct": false,
-          "rationale": "The trail gets older to the southwest."
-        },
-        {
-          "id": "d",
-          "label": "Scattered at random, with no pattern",
-          "correct": false,
-          "rationale": "The ages line up in a clear trail."
-        }
+      "prompt": "Put the places on the Yellowstone hotspot's trail in order, from youngest to oldest.",
+      "items": [
+        "Yellowstone",
+        "Snake River Plain",
+        "Northern Nevada and southern Oregon"
       ],
-      "explanation": "The trail starts about 17 million years ago in northern Nevada and southern Oregon and gets younger toward Yellowstone.",
+      "first": "Youngest",
+      "last": "Oldest",
+      "explanation": "Yellowstone is the hotspot's current address, the fields across Idaho's Snake River Plain are older, and the oldest lie in northern Nevada and southern Oregon.",
       "difficulty": 0.25
     },
     {

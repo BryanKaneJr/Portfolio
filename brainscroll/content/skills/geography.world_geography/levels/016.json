@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 16,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Tsunamis",
   "objective": "After this level you can explain how undersea earthquakes cause tsunamis and why they are so destructive.",
@@ -129,41 +129,25 @@
     },
     {
       "id": "question.world_geography.016.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.tsunami_behavior"
       ],
       "sourceCardIds": [
-        "card.world_geography.016.c3"
+        "card.world_geography.016.c3",
+        "card.world_geography.016.c2"
       ],
-      "prompt": "Why does a tsunami grow taller as it nears the coast?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It picks up extra water from rivers",
-          "correct": false,
-          "rationale": "The water was already moving; it just piles up."
-        },
-        {
-          "id": "b",
-          "label": "It slows in shallow water, so the water piles up higher",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The wind pushes it higher near land",
-          "correct": false,
-          "rationale": "Wind isn't what builds a tsunami."
-        },
-        {
-          "id": "d",
-          "label": "It speeds up as the water gets shallower",
-          "correct": false,
-          "rationale": "It slows down near shore."
-        }
+      "prompt": "Put a tsunami's story in order, from start to finish.",
+      "items": [
+        "Seafloor suddenly lifts or drops",
+        "Travel as fast as a jet plane",
+        "It slows down",
+        "Builds up higher and higher"
       ],
-      "explanation": "Out at sea it's fast and low. In shallow water it slows, and the moving water builds up higher and higher.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The seafloor suddenly lifts or drops, and the wave races across deep ocean as fast as a jet plane. Near shore it slows down and builds up higher and higher.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 16,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Cocktail Party Effect",
   "objective": "After this level you can explain selective attention and why your own name cuts through a noisy room.",
@@ -86,41 +86,26 @@
   "questions": [
     {
       "id": "question.psychology.016.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.attention_selective_attention"
       ],
       "sourceCardIds": [
-        "card.psychology.016.c2"
+        "card.psychology.016.c2",
+        "card.psychology.016.c3",
+        "card.psychology.016.c4"
       ],
-      "prompt": "In Colin Cherry's shadowing experiments, what did many listeners fail to notice in the ignored ear?",
-      "options": [
-        {
-          "id": "a",
-          "label": "That a message was playing at all",
-          "correct": false,
-          "rationale": "They knew speech was there; they missed its content."
-        },
-        {
-          "id": "b",
-          "label": "That it switched from English to German",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "That their own ear had been repeating it",
-          "correct": false,
-          "rationale": "They repeated the other ear's message."
-        },
-        {
-          "id": "d",
-          "label": "That the music had stopped",
-          "correct": false,
-          "rationale": "The ignored ear carried speech, not music."
-        }
+      "prompt": "Put these studies of attention in order, from earliest to latest.",
+      "items": [
+        "Colin Cherry",
+        "Moray",
+        "Wood and Cowan",
+        "A 2021 replication"
       ],
-      "explanation": "Listeners shadowing one ear could say little about the other, and many missed a switch from English to German.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Colin Cherry's paper came in 1953, Moray's study in 1959, Wood and Cowan's repeat in 1995, and the replication in 2021.",
       "difficulty": 0.2
     },
     {

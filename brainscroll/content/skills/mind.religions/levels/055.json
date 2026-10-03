@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 55,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Monks, Nuns and Laypeople",
   "objective": "After this level you can explain the Three Jewels and why monastics and lay Buddhists depend on each other, from the alms round to Vesak.",
@@ -99,41 +99,31 @@
   "questions": [
     {
       "id": "question.religions.055.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.religions.buddhist_three_jewels"
       ],
       "sourceCardIds": [
-        "card.religions.055.c2"
+        "card.religions.055.c2",
+        "card.religions.055.c3"
       ],
-      "prompt": "What are Buddhism's Three Jewels?",
-      "options": [
+      "prompt": "Match each name with what it refers to.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The Four Noble Truths, karma and nirvana",
-          "correct": false,
-          "rationale": "The jewels are the Buddha, the dharma and the sangha."
+          "left": "Dharma",
+          "right": "His teaching"
         },
         {
-          "id": "b",
-          "label": "The Buddha, the dharma and the sangha",
-          "correct": true
+          "left": "Sangha",
+          "right": "The community"
         },
         {
-          "id": "c",
-          "label": "Lumbini, Bodh Gaya and Sarnath",
-          "correct": false,
-          "rationale": "Those are places in the Buddha's story."
-        },
-        {
-          "id": "d",
-          "label": "Meditation, fasting and pilgrimage",
-          "correct": false,
-          "rationale": "The jewels are what Buddhists take refuge in."
+          "left": "Mahaprajapati",
+          "right": "His stepmother"
         }
       ],
-      "explanation": "The Buddha, his teaching (dharma) and the community (sangha).",
+      "explanation": "The dharma is the Buddha's teaching and the sangha is the community. Mahaprajapati was his stepmother, at whose request he established an order of nuns.",
       "difficulty": 0.15
     },
     {

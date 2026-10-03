@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 55,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Year of the Four Emperors",
   "objective": "After this level you can explain what happened in 69 CE and what it revealed about imperial power.",
@@ -90,41 +90,25 @@
   "questions": [
     {
       "id": "question.ancient_rome.055.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_rome.four_emperors"
       ],
       "sourceCardIds": [
-        "card.ancient_rome.055.c3"
+        "card.ancient_rome.055.c3",
+        "card.ancient_rome.055.c2"
       ],
-      "prompt": "Who won the civil war of 69 CE?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Galba",
-          "correct": false,
-          "rationale": "He held power only briefly."
-        },
-        {
-          "id": "b",
-          "label": "Otho",
-          "correct": false,
-          "rationale": "He held power only briefly."
-        },
-        {
-          "id": "c",
-          "label": "Vespasian",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Vitellius",
-          "correct": false,
-          "rationale": "He held power only briefly."
-        }
+      "prompt": "Put the four emperors of 69 CE in order, from first to last.",
+      "items": [
+        "Galba",
+        "Otho",
+        "Vitellius",
+        "Vespasian"
       ],
-      "explanation": "Vespasian won and founded the Flavian dynasty.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Galba, Otho, Vitellius and Vespasian held power in turn, and Vespasian was the last man standing.",
       "difficulty": 0.15
     },
     {

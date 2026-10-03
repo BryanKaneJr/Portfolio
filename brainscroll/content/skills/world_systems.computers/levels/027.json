@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 27,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "One Processor, Many Programs",
   "objective": "After this level you can explain how the operating system switches the processor between programs so quickly they seem to run at once.",
@@ -121,41 +121,25 @@
     },
     {
       "id": "question.computers.027.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.software_time_sharing"
       ],
       "sourceCardIds": [
-        "card.computers.027.c2"
+        "card.computers.027.c2",
+        "card.computers.027.c3"
       ],
-      "prompt": "How does the operating system take the processor back from a program that never gives it up?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It waits patiently until the program finishes on its own, however long",
-          "correct": false,
-          "rationale": "A stuck program might never finish."
-        },
-        {
-          "id": "b",
-          "label": "A hardware timer raises an interrupt that hands control to the operating system",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It reboots the computer every few milliseconds",
-          "correct": false,
-          "rationale": "Rebooting is the fix when there's no timer."
-        },
-        {
-          "id": "d",
-          "label": "It deletes the program from storage",
-          "correct": false,
-          "rationale": "The program is paused, not deleted."
-        }
+      "prompt": "Put the steps of a context switch in order, from the timer to the next program.",
+      "items": [
+        "Raise an interrupt",
+        "Whatever program is running is halted",
+        "Save the running program's registers",
+        "Restore the saved ones"
       ],
-      "explanation": "The timer, set at start-up, fires every few milliseconds; the running program is halted and the operating system's handler runs.",
+      "first": "Timer fires",
+      "last": "Next program runs",
+      "explanation": "The hardware timer raises an interrupt, whatever program is running is halted, the operating system saves its registers and program counter, then restores the saved ones of the next program.",
       "difficulty": 0.25
     },
     {

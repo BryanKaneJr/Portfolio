@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 92,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "A/B Tests: Experiments on You",
   "objective": "After this level you can explain how apps and websites run randomized experiments on their users and what those tests can show.",
@@ -86,7 +86,7 @@
   "questions": [
     {
       "id": "question.probability.092.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.news_ab_testing"
@@ -94,33 +94,22 @@
       "sourceCardIds": [
         "card.probability.092.c2"
       ],
-      "prompt": "In an A/B test, what decides whether a user sees version A or version B?",
-      "options": [
+      "prompt": "Match each part of an A/B test with its role.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The user picks the version they prefer",
-          "correct": false,
-          "rationale": "Then the groups would differ in who chose what."
+          "left": "Version A",
+          "right": "The control"
         },
         {
-          "id": "b",
-          "label": "Engineers pick the users most likely to click",
-          "correct": false,
-          "rationale": "That would stack the deck."
+          "left": "Version B",
+          "right": "Has one change"
         },
         {
-          "id": "c",
-          "label": "Random assignment",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The user's past purchases",
-          "correct": false,
-          "rationale": "Chance decides, not history."
+          "left": "Each user",
+          "right": "Randomly assigned to one version"
         }
       ],
-      "explanation": "Users are randomly assigned, so a clear difference between the groups points to the change itself.",
+      "explanation": "Version A is what users already get, the control. Version B has one change. Each user is randomly assigned to one version, so chance decides who sees what.",
       "difficulty": 0.2
     },
     {

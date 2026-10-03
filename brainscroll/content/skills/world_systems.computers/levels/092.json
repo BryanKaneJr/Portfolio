@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 92,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Is My Phone Listening to Me?",
   "objective": "After this level you can weigh the evidence on whether phones secretly record conversations for ads, and the simpler explanations for eerie ads.",
@@ -126,7 +126,7 @@
     },
     {
       "id": "question.computers.092.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.techcheck_ad_explanations"
@@ -135,33 +135,22 @@
         "card.computers.092.c4",
         "card.computers.092.c2"
       ],
-      "prompt": "You talk about a camping trip, then see a tent ad. Which explanation fits the evidence best?",
-      "options": [
+      "prompt": "Match each phone clue with what it tells you or records.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The phone recorded you and sent the audio to advertisers",
-          "correct": false,
-          "rationale": "The large app study found no secret audio leaks."
+          "left": "Tracking pixels",
+          "right": "Record what you browse"
         },
         {
-          "id": "b",
-          "label": "Ads are chosen at random, so it's pure luck",
-          "correct": false,
-          "rationale": "Ads are targeted using data about you."
+          "left": "An orange dot",
+          "right": "An app is using it"
         },
         {
-          "id": "c",
-          "label": "Location, browsing and app data had already pointed to camping",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The ad company read your text messages",
-          "correct": false,
-          "rationale": "Nothing in the evidence shows that; tracking data is enough."
+          "left": "A green dot",
+          "right": "The camera is on"
         }
       ],
-      "explanation": "Location, browsing and combined app profiles explain targeted ads without any microphone, and the big study found no secret listening.",
+      "explanation": "Tracking pixels record what you browse. On an iPhone, an orange dot means an app is using the microphone, and a green dot means the camera is on too.",
       "difficulty": 0.4
     },
     {

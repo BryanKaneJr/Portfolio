@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 73,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Clean Water",
   "objective": "After this level you can explain how water is cleaned before it reaches your tap.",
@@ -86,41 +86,26 @@
   "questions": [
     {
       "id": "question.everyday_technology.073.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.water_treatment_steps"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.073.c2"
+        "card.everyday_technology.073.c2",
+        "card.everyday_technology.073.c3"
       ],
-      "prompt": "At a drinking-water treatment plant, what are flocs?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Filters made of sand and charcoal",
-          "correct": false,
-          "rationale": "That is the filtration step."
-        },
-        {
-          "id": "b",
-          "label": "Germs killed by chlorine",
-          "correct": false,
-          "rationale": "Chlorine comes last, in disinfection."
-        },
-        {
-          "id": "c",
-          "label": "Heavier clumps of dirt that settle out",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Pipes that carry water to your tap",
-          "correct": false,
-          "rationale": "Flocs never leave the plant."
-        }
+      "prompt": "Put the steps of drinking-water treatment in order.",
+      "items": [
+        "Coagulation",
+        "Flocculation",
+        "Sedimentation",
+        "Filters",
+        "Disinfection"
       ],
-      "explanation": "Coagulation makes particles stick together, and gentle mixing grows them into heavy clumps called flocs, which settle out.",
+      "first": "First step",
+      "last": "Last step",
+      "explanation": "Coagulation makes dirt stick together, flocculation grows the clumps, sedimentation lets them settle, filters catch what's left, and disinfection kills the remaining germs.",
       "difficulty": 0.15
     },
     {

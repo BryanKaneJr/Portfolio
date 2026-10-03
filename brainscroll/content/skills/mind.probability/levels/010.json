@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 10,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Making Sense of Numbers",
   "objective": "After this level you can explain what percentages, percentage points, rates and big numbers really say, and spot when one is misused.",
@@ -153,7 +153,7 @@
   "questions": [
     {
       "id": "question.probability.010.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.out_of_what",
@@ -162,33 +162,26 @@
       "sourceCardIds": [
         "card.probability.010.c2"
       ],
-      "prompt": "For a rate per 100,000 people, what is the \"out of what\"?",
-      "options": [
+      "prompt": "Match each kind of share with its \"out of what\".",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The starting value",
-          "correct": false,
-          "rationale": "That's the whole for a percent change."
+          "left": "A percent",
+          "right": "Out of 100"
         },
         {
-          "id": "b",
-          "label": "The population",
-          "correct": true
+          "left": "A percent change",
+          "right": "Out of the starting value"
         },
         {
-          "id": "c",
-          "label": "The number of cases",
-          "correct": false,
-          "rationale": "Cases are the part, not the whole."
+          "left": "A rate",
+          "right": "Out of the population"
         },
         {
-          "id": "d",
-          "label": "100",
-          "correct": false,
-          "rationale": "That's the whole for a percent."
+          "left": "\"1 in N\"",
+          "right": "Out of N"
         }
       ],
-      "explanation": "A rate divides the count (the part) by the population (the whole).",
+      "explanation": "A percent is out of 100, a percent change is out of the starting value, a rate is out of the population, and \"1 in N\" is out of N.",
       "difficulty": 0.2
     },
     {

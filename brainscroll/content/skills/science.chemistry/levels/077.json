@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 77,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Enzymes",
   "objective": "After this level you can explain how enzymes speed up reactions in the body.",
@@ -135,41 +135,31 @@
     },
     {
       "id": "question.chemistry.077.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.lifechem_enzyme_active_site"
       ],
       "sourceCardIds": [
-        "card.chemistry.077.c3"
+        "card.chemistry.077.c3",
+        "card.chemistry.077.c2"
       ],
-      "prompt": "Why does each enzyme work on only certain molecules?",
-      "options": [
+      "prompt": "Match each enzyme name with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Its substrate must fit its active site",
-          "correct": true
+          "left": "Emil Fischer",
+          "right": "A lock and key"
         },
         {
-          "id": "b",
-          "label": "Enzymes are used up after one reaction",
-          "correct": false,
-          "rationale": "Enzymes come out of reactions unchanged."
+          "left": "Daniel Koshland",
+          "right": "Induced fit"
         },
         {
-          "id": "c",
-          "label": "Enzymes only work on sugars",
-          "correct": false,
-          "rationale": "Enzymes work on many kinds of molecules, each on its own substrates."
-        },
-        {
-          "id": "d",
-          "label": "Every enzyme is the same shape",
-          "correct": false,
-          "rationale": "Their different shapes are exactly why they are specific."
+          "left": "Amylase",
+          "right": "Found in saliva"
         }
       ],
-      "explanation": "A substrate binds in the enzyme's active site, and the close fit makes each enzyme specific.",
+      "explanation": "Emil Fischer compared enzymes to a lock and key in 1894, Daniel Koshland refined it to induced fit in 1958, and amylase is found in saliva.",
       "difficulty": 0.35
     },
     {

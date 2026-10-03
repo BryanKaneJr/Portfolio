@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 1,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Rome: The Big Picture",
   "objective": "After this level you can describe the three big eras of Roman history and roughly when each began and ended.",
@@ -89,7 +89,7 @@
   "questions": [
     {
       "id": "question.ancient_rome.001.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_rome.rome_eras"
@@ -97,33 +97,15 @@
       "sourceCardIds": [
         "card.ancient_rome.001.c2"
       ],
-      "prompt": "Which list gives Rome’s three eras in order?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Republic, Kingdom, Empire",
-          "correct": false,
-          "rationale": "Kings came first."
-        },
-        {
-          "id": "b",
-          "label": "Empire, Republic, Kingdom",
-          "correct": false,
-          "rationale": "That runs backwards."
-        },
-        {
-          "id": "c",
-          "label": "Kingdom, Republic, Empire",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Kingdom, Empire, Republic",
-          "correct": false,
-          "rationale": "The Republic came before the emperors."
-        }
+      "prompt": "Put Rome’s three eras in order, from earliest to latest.",
+      "items": [
+        "Kingdom",
+        "Republic",
+        "Empire"
       ],
-      "explanation": "First kings, then the Republic from 509 BCE, then the Empire from 27 BCE.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "First the Kingdom, then the Republic from 509 BCE, then the Empire from 27 BCE.",
       "difficulty": 0.15
     },
     {

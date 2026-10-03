@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 4,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Naming Animals",
   "objective": "After this level you can explain scientific names and Linnaeus's system.",
@@ -165,7 +165,7 @@
     },
     {
       "id": "question.animals.004.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.taxonomy_ranks",
@@ -175,33 +175,18 @@
         "card.animals.004.c4",
         "card.animals.002.c3"
       ],
-      "prompt": "Level 2's species estimate leaned on the bigger groups that species sit inside. Which list gives three of those ranks, from biggest to smallest?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Genus, family, order",
-          "correct": false,
-          "rationale": "That runs from smallest to biggest."
-        },
-        {
-          "id": "b",
-          "label": "Species, genus, kingdom",
-          "correct": false,
-          "rationale": "Species is the smallest rank, not a bigger group."
-        },
-        {
-          "id": "c",
-          "label": "Order, kingdom, family",
-          "correct": false,
-          "rationale": "Kingdom is bigger than order."
-        },
-        {
-          "id": "d",
-          "label": "Kingdom, phylum, class",
-          "correct": true
-        }
+      "prompt": "Put these ranks in order, from biggest to smallest.",
+      "items": [
+        "Phylum",
+        "Class",
+        "Order",
+        "Family",
+        "Genus",
+        "Species"
       ],
-      "explanation": "Today's ladder runs domain, kingdom, phylum, class, order, family, genus, species; Mora's team used the better-known higher ranks.",
+      "first": "Biggest",
+      "last": "Smallest",
+      "explanation": "Today's ladder runs phylum, class, order, family, genus, species, from the biggest box to the smallest.",
       "difficulty": 0.3
     }
   ],

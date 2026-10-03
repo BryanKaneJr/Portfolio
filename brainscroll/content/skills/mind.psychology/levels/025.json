@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 25,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Skinner Box",
   "objective": "After this level you can explain operant conditioning: how consequences change how often a behavior happens.",
@@ -179,43 +179,33 @@
     },
     {
       "id": "question.psychology.025.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.psychology.conditioning_operant",
         "concept.psychology.conditioning_classical"
       ],
       "sourceCardIds": [
-        "card.psychology.025.c3",
-        "card.psychology.021.c3"
+        "card.psychology.025.c1",
+        "card.psychology.025.c2",
+        "card.psychology.025.c3"
       ],
-      "prompt": "How does Skinner's operant conditioning differ from the classical conditioning of Level 21?",
-      "options": [
+      "prompt": "Match each researcher or method with the animals or result it's known for.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The stimulus comes just before the response",
-          "correct": false,
-          "rationale": "That's classical conditioning."
+          "left": "Pavlov's method",
+          "right": "Make a dog drool"
         },
         {
-          "id": "b",
-          "label": "It works only on inborn reflexes",
-          "correct": false,
-          "rationale": "That's classical conditioning's limit."
+          "left": "Edward Thorndike",
+          "right": "A cat in a box with a lever"
         },
         {
-          "id": "c",
-          "label": "The consequence comes after the behavior",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It was tested only on dogs",
-          "correct": false,
-          "rationale": "Skinner mainly used rats and pigeons."
+          "left": "B. F. Skinner",
+          "right": "Rats and pigeons"
         }
       ],
-      "explanation": "In operant conditioning a consequence follows the behavior; in classical conditioning a stimulus comes just before the response.",
+      "explanation": "Pavlov's method can make a dog drool. Edward Thorndike placed a cat in a box with a lever, and B. F. Skinner studied mostly rats and pigeons.",
       "difficulty": 0.25
     }
   ],

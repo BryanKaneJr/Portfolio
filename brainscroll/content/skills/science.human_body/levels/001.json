@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 1,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Your Body: The Big Picture",
   "objective": "After this level you can name the body's main systems and what each one does.",
@@ -187,7 +187,7 @@
     },
     {
       "id": "question.human_body.001.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.organ_systems",
@@ -197,30 +197,23 @@
         "card.human_body.001.c4",
         "card.human_body.001.c2"
       ],
-      "prompt": "Which pair of organ systems shares the job of keeping your body at a steady temperature?",
-      "options": [
+      "prompt": "Match each organ system with its main job.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Skeletal and reproductive",
-          "correct": false,
-          "rationale": "Neither is described as a heat keeper."
+          "left": "Skeletal",
+          "right": "The frame that holds you up"
         },
         {
-          "id": "b",
-          "label": "Urinary and digestive",
-          "correct": false,
-          "rationale": "They handle waste, water and food."
+          "left": "Respiratory",
+          "right": "Oxygen in, carbon dioxide out"
         },
         {
-          "id": "c",
-          "label": "Muscular and cardiovascular",
-          "correct": true
+          "left": "Urinary",
+          "right": "Filters waste from blood"
         },
         {
-          "id": "d",
-          "label": "Lymphatic and skeletal",
-          "correct": false,
-          "rationale": "Those return fluid, fight germs and hold you up."
+          "left": "Nervous",
+          "right": "Senses and responds"
         }
       ],
       "explanation": "Muscles help keep the body warm, and the cardiovascular system evens out temperature across the body.",

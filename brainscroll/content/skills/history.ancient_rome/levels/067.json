@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 67,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "What Romans Ate",
   "objective": "After this level you can describe what rich and poor Romans ate, including garum.",
@@ -125,41 +125,36 @@
     },
     {
       "id": "question.ancient_rome.067.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_rome.roman_food"
       ],
       "sourceCardIds": [
-        "card.ancient_rome.067.c4"
+        "card.ancient_rome.067.c4",
+        "card.ancient_rome.067.c2",
+        "card.ancient_rome.067.c3"
       ],
-      "prompt": "Which food could a Roman NOT have eaten?",
-      "options": [
+      "prompt": "Match each Roman food word with what it was.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Bread",
-          "correct": false,
-          "rationale": "Grain was the staple."
+          "left": "Garum",
+          "right": "A fermented fish sauce"
         },
         {
-          "id": "b",
-          "label": "Olives",
-          "correct": false,
-          "rationale": "Olive oil was everywhere."
+          "left": "Thermopolia",
+          "right": "Street counters"
         },
         {
-          "id": "c",
-          "label": "Beans",
-          "correct": false,
-          "rationale": "Beans were common."
+          "left": "Amphorae",
+          "right": "Clay jars"
         },
         {
-          "id": "d",
-          "label": "Tomatoes",
-          "correct": true
+          "left": "Triclinium",
+          "right": "Reclining on couches"
         }
       ],
-      "explanation": "Tomatoes came from the Americas more than a thousand years after Rome.",
+      "explanation": "Garum was a fermented fish sauce carried in clay jars called amphorae. Thermopolia were street counters selling hot food, and in the triclinium the rich dined reclining on couches.",
       "difficulty": 0.2
     },
     {

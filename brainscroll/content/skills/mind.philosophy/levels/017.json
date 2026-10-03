@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 17,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Spinoza and Leibniz",
   "objective": "After this level you can explain what made Spinoza and Leibniz rationalists, with Spinoza's \"God or Nature\" and Leibniz's claim that this is the best possible world.",
@@ -89,41 +89,38 @@
   "questions": [
     {
       "id": "question.philosophy.017.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.philosophy.spinoza_leibniz_rationalism"
       ],
       "sourceCardIds": [
-        "card.philosophy.017.c3"
+        "card.philosophy.017.c3",
+        "card.philosophy.017.c4",
+        "card.philosophy.017.c5",
+        "card.philosophy.016.c2",
+        "card.philosophy.016.c4"
       ],
-      "prompt": "Which phrase sums up Spinoza’s view of God and the world?",
-      "options": [
+      "prompt": "Match each thinker with the phrase or work linked to him.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "“God, or Nature”",
-          "correct": true
+          "left": "Spinoza",
+          "right": "God, or Nature"
         },
         {
-          "id": "b",
-          "label": "“The best of all possible worlds”",
-          "correct": false,
-          "rationale": "That’s Leibniz."
+          "left": "Leibniz",
+          "right": "The best of all possible worlds"
         },
         {
-          "id": "c",
-          "label": "“I am, I exist”",
-          "correct": false,
-          "rationale": "That’s Descartes."
+          "left": "Voltaire",
+          "right": "Candide"
         },
         {
-          "id": "d",
-          "label": "“To be is to be perceived”",
-          "correct": false,
-          "rationale": "That’s Berkeley, coming up next."
+          "left": "Descartes",
+          "right": "I am, I exist"
         }
       ],
-      "explanation": "Spinoza held there is one substance, God, with everything in it: “God, or Nature”.",
+      "explanation": "“God, or Nature” is Spinoza’s, “the best of all possible worlds” is Leibniz’s, Voltaire mocked it in Candide, and “I am, I exist” is from Descartes.",
       "difficulty": 0.15
     },
     {

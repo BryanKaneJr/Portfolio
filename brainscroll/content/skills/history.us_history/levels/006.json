@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 6,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Haudenosaunee Confederacy",
   "objective": "After this level you can explain how the Great Law of Peace joined five nations into one league, and why its influence on the US Constitution is debated.",
@@ -176,43 +176,28 @@
     },
     {
       "id": "question.us_history.006.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.us_history.haudenosaunee_constitution_debate",
         "concept.us_history.us_turning_points"
       ],
       "sourceCardIds": [
+        "card.us_history.006.c3",
         "card.us_history.006.c4",
         "card.us_history.001.c3"
       ],
-      "prompt": "Which order is right for these events, from earliest to latest?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Franklin’s remark, Canassatego’s appeal, the Constitution is written",
-          "correct": false,
-          "rationale": "Canassatego spoke first, in 1744."
-        },
-        {
-          "id": "b",
-          "label": "Canassatego’s appeal, the Constitution is written, Franklin’s remark",
-          "correct": false,
-          "rationale": "Franklin’s remark (1751) came before 1787."
-        },
-        {
-          "id": "c",
-          "label": "The Constitution is written, Canassatego’s appeal, Franklin’s remark",
-          "correct": false,
-          "rationale": "The Constitution came last, in 1787."
-        },
-        {
-          "id": "d",
-          "label": "Canassatego’s appeal, Franklin’s remark, the Constitution is written",
-          "correct": true
-        }
+      "prompt": "Put these events, from the Six Nations to the Constitution, in order from earliest to latest.",
+      "items": [
+        "The Tuscarora joined",
+        "Canassatego urged the colonies to unite",
+        "Benjamin Franklin argued",
+        "The Constitution is written",
+        "Congress passed a resolution"
       ],
-      "explanation": "1744, then 1751, then 1787.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Tuscarora joined in 1722, Canassatego urged unity in 1744, Franklin made his argument in 1751, the Constitution was written in 1787, and Congress passed its resolution in 1988.",
       "difficulty": 0.35
     }
   ],

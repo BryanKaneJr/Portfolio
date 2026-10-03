@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 40,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Saving and Investing",
   "objective": "After this level you can compare saving, stocks, bonds and funds by risk and return.",
@@ -197,43 +197,24 @@
     },
     {
       "id": "question.how_money_works.040.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.invest_three_questions",
         "concept.how_money_works.risk_stocks_vs_bills"
       ],
       "sourceCardIds": [
-        "card.how_money_works.040.c3",
-        "card.how_money_works.032.c2"
+        "card.how_money_works.040.c3"
       ],
-      "prompt": "Which statement fits the 1928 to 2025 ladder of bills, bonds and stocks?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The safest path also grew the most",
-          "correct": false,
-          "rationale": "Bills were safest and grew the least."
-        },
-        {
-          "id": "b",
-          "label": "All three paths grew by about the same amount",
-          "correct": false,
-          "rationale": "Bills reached about $2,600; stocks passed $1 million."
-        },
-        {
-          "id": "c",
-          "label": "Higher-returning paths came with bigger bumps",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Stocks rose every single year",
-          "correct": false,
-          "rationale": "Stocks lost money in 26 of the 98 years."
-        }
+      "prompt": "$100 invested from 1928 to 2025. Put these paths in order, from least growth to most.",
+      "items": [
+        "Treasury bills",
+        "10-year US government bonds",
+        "US stocks"
       ],
-      "explanation": "Returns rose up the ladder from bills to bonds to stocks, and so did the losing years.",
+      "first": "Grew the least",
+      "last": "Grew the most",
+      "explanation": "$100 grew to about $2,600 in Treasury bills, about $7,750 in 10-year US government bonds and over $1 million in US stocks. Higher returns came with bigger bumps.",
       "difficulty": 0.25
     },
     {

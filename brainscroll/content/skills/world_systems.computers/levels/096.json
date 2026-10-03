@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 96,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Is Moore's Law Over?",
   "objective": "After this level you can weigh the arguments over whether chip progress is slowing, and what engineers do now that shrinking is harder.",
@@ -91,41 +91,26 @@
   "questions": [
     {
       "id": "question.computers.096.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.techcheck_moore_observation"
       ],
       "sourceCardIds": [
-        "card.computers.096.c2"
+        "card.computers.096.c2",
+        "card.computers.096.c1",
+        "card.computers.096.c4"
       ],
-      "prompt": "In 1975, what did Gordon Moore revise his prediction to?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Transistors doubling every year",
-          "correct": false,
-          "rationale": "That was his 1965 prediction."
-        },
-        {
-          "id": "b",
-          "label": "Transistors doubling every two years",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Clock speeds doubling every month",
-          "correct": false,
-          "rationale": "His prediction was about transistors on a chip."
-        },
-        {
-          "id": "d",
-          "label": "Chip prices halving every decade",
-          "correct": false,
-          "rationale": "It concerned the number of transistors."
-        }
+      "prompt": "Put these moments in the story of Moore's law in order, from earliest to latest.",
+      "items": [
+        "Gordon Moore predicted",
+        "He revised it to every two years",
+        "MIT researchers wrote",
+        "Nvidia's chief executive said"
       ],
-      "explanation": "Moore predicted yearly doubling in 1965 and revised it to every two years in 1975.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Gordon Moore predicted yearly doubling in 1965, he revised it to every two years in 1975, MIT researchers wrote about shrinking limits in 2020, and Nvidia's chief executive said the law was dead in 2022.",
       "difficulty": 0.2
     },
     {

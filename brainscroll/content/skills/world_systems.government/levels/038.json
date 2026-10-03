@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 38,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Women's Suffrage",
   "objective": "After this level you can explain how women won the vote.",
@@ -215,7 +215,7 @@
     },
     {
       "id": "question.government.038.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.government.women_suffrage_us_swiss",
@@ -225,33 +225,16 @@
         "card.government.038.c5",
         "card.government.037.c3"
       ],
-      "prompt": "The 19th Amendment follows the pattern of Level 37's 15th. On account of what does it bar denying the vote?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Race",
-          "correct": false,
-          "rationale": "That's the 15th Amendment."
-        },
-        {
-          "id": "b",
-          "label": "Sex",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Age, for those 18 or older",
-          "correct": false,
-          "rationale": "That's the 26th Amendment."
-        },
-        {
-          "id": "d",
-          "label": "Failure to pay a poll tax",
-          "correct": false,
-          "rationale": "That's the 24th Amendment."
-        }
+      "prompt": "Put these wins for women's suffrage in order, from earliest to latest.",
+      "items": [
+        "New Zealand: women get the vote",
+        "Britain: women over 30 vote",
+        "19th Amendment",
+        "Switzerland: women win the right to vote"
       ],
-      "explanation": "Like the 15th (race) and 26th (age), the 19th Amendment names one ground: it bars denying the vote on account of sex.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "New Zealand women got the vote in 1893, British women over 30 voted in 1918, the US 19th Amendment came in 1920, and Swiss women won the vote in 1971.",
       "difficulty": 0.25
     }
   ],

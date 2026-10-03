@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 49,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Modern House",
   "objective": "After this level you can explain open plans and big windows.",
@@ -91,41 +91,32 @@
   "questions": [
     {
       "id": "question.architecture.049.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.home_schroder_open_plan"
       ],
       "sourceCardIds": [
-        "card.architecture.049.c2"
+        "card.architecture.049.c2",
+        "card.architecture.049.c1",
+        "card.architecture.049.c4"
       ],
-      "prompt": "What could the Schröder family do with their upper floor each evening?",
-      "options": [
+      "prompt": "Match each feature of these modern houses with what it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Lower the ceiling to keep in heat",
-          "correct": false,
-          "rationale": "The walls moved, not the ceiling."
+          "left": "Sliding walls",
+          "right": "Three separate rooms"
         },
         {
-          "id": "b",
-          "label": "Open the roof to the stars",
-          "correct": false,
-          "rationale": "It was the corner window that opened."
+          "left": "Corner window",
+          "right": "The corner simply disappears"
         },
         {
-          "id": "c",
-          "label": "Slide walls out to split it into three rooms",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Fold the whole floor into the attic",
-          "correct": false,
-          "rationale": "Sliding walls divided the open space."
+          "left": "Steel frame",
+          "right": "Up within 16 hours"
         }
       ],
-      "explanation": "By day the upper floor was open; in the evening sliding walls split it into three separate rooms.",
+      "explanation": "At the Schröder house, sliding walls split the upper floor into three separate rooms, and when the corner window opens, the corner simply disappears. The Eames House's steel frame was up within 16 hours.",
       "difficulty": 0.1
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 88,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Library of Alexandria",
   "objective": "After this level you can describe the Library and the Lighthouse of Alexandria.",
@@ -93,41 +93,37 @@
   "questions": [
     {
       "id": "question.ancient_greece.088.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_greece.alexandria_library_lighthouse"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.088.c4"
+        "card.ancient_greece.088.c4",
+        "card.ancient_greece.088.c2",
+        "card.ancient_greece.088.c3",
+        "card.ancient_greece.088.c5"
       ],
-      "prompt": "What was the Pinakes that Callimachus compiled in Alexandria?",
-      "options": [
+      "prompt": "Match each person with their part in Greek Alexandria.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A map of the harbor and the lighthouse",
-          "correct": false,
-          "rationale": "It was about books."
+          "left": "Demetrius of Phaleron",
+          "right": "Found a library"
         },
         {
-          "id": "b",
-          "label": "A play about Alexander’s death",
-          "correct": false,
-          "rationale": "It was a catalog."
+          "left": "Callimachus",
+          "right": "The Pinakes"
         },
         {
-          "id": "c",
-          "label": "A catalog of the library’s authors and works",
-          "correct": true
+          "left": "Ptolemy III",
+          "right": "15 talents of silver"
         },
         {
-          "id": "d",
-          "label": "A list of the Ptolemaic kings",
-          "correct": false,
-          "rationale": "It listed authors and works."
+          "left": "Sostratus of Cnidus",
+          "right": "The lighthouse"
         }
       ],
-      "explanation": "The Pinakes, in 120 books, cataloged the library’s authors and their works by field.",
+      "explanation": "Demetrius of Phaleron was asked to found a library, Callimachus compiled the Pinakes, Ptolemy III left 15 talents of silver for Athens’ texts, and Sostratus of Cnidus built the lighthouse.",
       "difficulty": 0.2
     },
     {

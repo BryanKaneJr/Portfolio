@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 32,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "The Gulf Stream",
   "objective": "After this level you can explain the Gulf Stream and how it warms Europe.",
@@ -127,41 +127,24 @@
     },
     {
       "id": "question.oceans.032.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.gulf_stream_path"
       ],
       "sourceCardIds": [
-        "card.oceans.032.c2"
+        "card.oceans.032.c2",
+        "card.oceans.032.c3"
       ],
-      "prompt": "Why did British mail ships take longer to sail west than the whalers did?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Mail ships were heavier and needed calm seas",
-          "correct": false,
-          "rationale": "The ships weren't the problem; the current was."
-        },
-        {
-          "id": "b",
-          "label": "They sailed against the current whalers rode",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Westerly winds only blew in the summer months",
-          "correct": false,
-          "rationale": "The cause was a current, not the season."
-        },
-        {
-          "id": "d",
-          "label": "Whalers took a shorter route around Greenland",
-          "correct": false,
-          "rationale": "The whalers used the current, not a shortcut."
-        }
+      "prompt": "Follow the Gulf Stream. Put its path in order, from start to finish.",
+      "items": [
+        "Along the coast of Florida",
+        "Turns east off North Carolina",
+        "Flows northeast across the Atlantic"
       ],
-      "explanation": "Folger explained that whalers knew the warm, strong current and used it, while the mail captains didn't know it and sailed against it.",
+      "first": "Start",
+      "last": "Finish",
+      "explanation": "The Gulf Stream moves north along the coast of Florida, turns east off North Carolina and flows northeast across the Atlantic.",
       "difficulty": 0.2
     },
     {

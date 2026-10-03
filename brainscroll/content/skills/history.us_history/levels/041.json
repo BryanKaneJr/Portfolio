@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 41,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Trail of Tears",
   "objective": "After this level you can explain the Indian Removal Act of 1830 and how the Cherokee won in court but still lost their homeland.",
@@ -103,41 +103,29 @@
   "questions": [
     {
       "id": "question.us_history.041.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.removal_cherokee_nation"
       ],
       "sourceCardIds": [
-        "card.us_history.041.c2"
+        "card.us_history.041.c2",
+        "card.us_history.041.c3",
+        "card.us_history.041.c4",
+        "card.us_history.041.c5"
       ],
-      "prompt": "By 1828, what had the Cherokee Nation built?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A writing system, a written constitution and a newspaper",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "A standing army and a fleet of river gunboats",
-          "correct": false,
-          "rationale": "The level describes writing, a constitution and a newspaper, not an army."
-        },
-        {
-          "id": "c",
-          "label": "A treaty that gave Georgia all of its lands",
-          "correct": false,
-          "rationale": "That came later, signed by a small faction at New Echota."
-        },
-        {
-          "id": "d",
-          "label": "A seat for its chief in the US Senate",
-          "correct": false,
-          "rationale": "The Cherokee Nation governed itself; it had no Senate seat."
-        }
+      "prompt": "Put these events in Cherokee history in order, from earliest to latest.",
+      "items": [
+        "A Cherokee writing system",
+        "The Cherokee Phoenix",
+        "The Indian Removal Act",
+        "Worcester v. Georgia",
+        "The Treaty of New Echota",
+        "The Trail of Tears"
       ],
-      "explanation": "Sequoyah's syllabary (1821), a written constitution (1827) and the Cherokee Phoenix (1828).",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Sequoyah’s writing system came by 1821 and the Cherokee Phoenix in 1828. The Indian Removal Act passed in 1830, Worcester v. Georgia came in 1832, the Treaty of New Echota in 1835, and the Trail of Tears in 1838.",
       "difficulty": 0.2
     },
     {

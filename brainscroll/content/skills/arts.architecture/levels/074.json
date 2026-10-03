@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 74,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Bauhaus",
   "objective": "After this level you can explain Bauhaus design.",
@@ -131,7 +131,7 @@
     },
     {
       "id": "question.architecture.074.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.masters_bauhaus_breuer_chair",
@@ -139,35 +139,19 @@
       ],
       "sourceCardIds": [
         "card.architecture.074.c3",
-        "card.architecture.074.c2"
+        "card.architecture.074.c2",
+        "card.architecture.074.c1",
+        "card.architecture.074.c4"
       ],
-      "prompt": "Why did Marcel Breuer's tubular steel chair suit the Bauhaus so well?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It was carved by hand, one at a time",
-          "correct": false,
-          "rationale": "The Bauhaus aimed at mass manufacture."
-        },
-        {
-          "id": "b",
-          "label": "Bent steel tube suited factory production",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It copied a traditional wooden design",
-          "correct": false,
-          "rationale": "It was inspired by bicycle handlebars."
-        },
-        {
-          "id": "d",
-          "label": "It was built from leftover building steel",
-          "correct": false,
-          "rationale": "Its steel tube came from the bicycle idea."
-        }
+      "prompt": "The Bauhaus moved twice. Put its three cities in order, from first to last.",
+      "items": [
+        "Weimar",
+        "Dessau",
+        "Berlin"
       ],
-      "explanation": "Breuer saw bent tubular steel, like his bicycle's handlebars, as suited to industrial production, the Bauhaus goal.",
+      "first": "First home",
+      "last": "Last home",
+      "explanation": "Gropius founded the Bauhaus in Weimar in 1919. It moved to Dessau in 1925 and to Berlin in 1932, and the Nazi regime forced it to close in 1933.",
       "difficulty": 0.2
     },
     {

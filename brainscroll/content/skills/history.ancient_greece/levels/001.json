@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 1,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Ancient Greece: The Big Picture",
   "objective": "After this level you can describe the main eras of ancient Greece from the Bronze Age to Roman rule.",
@@ -137,41 +137,26 @@
     },
     {
       "id": "question.ancient_greece.001.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_greece.greece_eras"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.001.c3"
+        "card.ancient_greece.001.c3",
+        "card.ancient_greece.001.c2"
       ],
-      "prompt": "Why is it misleading to picture all of ancient Greece as its Classical age?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Classical age came before the Bronze Age",
-          "correct": false,
-          "rationale": "It came long after."
-        },
-        {
-          "id": "b",
-          "label": "Historians have no records from the Classical age",
-          "correct": false,
-          "rationale": "It’s the best-known part."
-        },
-        {
-          "id": "c",
-          "label": "Only Rome ever had a Classical age",
-          "correct": false,
-          "rationale": "Greece had one, 480 to 323 BCE."
-        },
-        {
-          "id": "d",
-          "label": "It’s a short, late part of a much longer story",
-          "correct": true
-        }
+      "prompt": "Put the five eras of ancient Greece in order, from earliest to latest.",
+      "items": [
+        "Bronze Age",
+        "Dark Age",
+        "Archaic age",
+        "Classical age",
+        "Hellenistic age"
       ],
-      "explanation": "The Classical age lasted less than 160 years, and the Bronze Age palaces had fallen some 700 years before it began.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "First came the Bronze Age, then the Dark Age, the Archaic age, the Classical age and finally the Hellenistic age.",
       "difficulty": 0.3
     },
     {

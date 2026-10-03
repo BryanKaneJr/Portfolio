@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 94,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "When the Favorite Loses",
   "objective": "After this level you can explain why a candidate given a 70% chance should still lose about 3 times in 10, and why that doesn't make the forecast wrong.",
@@ -91,41 +91,31 @@
   "questions": [
     {
       "id": "question.probability.094.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.news_upsets_expected"
       ],
       "sourceCardIds": [
-        "card.probability.094.c2"
+        "card.probability.094.c2",
+        "card.probability.094.c3"
       ],
-      "prompt": "A forecast gives a candidate a 70% chance of winning. About how often should candidates with that chance lose?",
-      "options": [
+      "prompt": "Match each forecast fact with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Never",
-          "correct": false,
-          "rationale": "A 70% chance leaves 30% for the other outcome."
+          "left": "A 70% chance of winning",
+          "right": "A 30% chance of losing"
         },
         {
-          "id": "b",
-          "label": "About 1 time in 10",
-          "correct": false,
-          "rationale": "That would be a 90% favorite."
+          "left": "A 75% chance",
+          "right": "25 times out of 100"
         },
         {
-          "id": "c",
-          "label": "About 3 times in 10",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "About 7 times in 10",
-          "correct": false,
-          "rationale": "That's how often they should win."
+          "left": "If every one of those favorites won",
+          "right": "Too timid"
         }
       ],
-      "explanation": "70% to win is 30% to lose: 30 in 100, about 3 times in 10.",
+      "explanation": "A 70% chance of winning is a 30% chance of losing, and a 75% chance means that 25 times out of 100 the opposite happens. If every one of a forecaster's 70% favorites won, they were too timid.",
       "difficulty": 0.2
     },
     {

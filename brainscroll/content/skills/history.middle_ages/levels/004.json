@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 4,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Byzantine Empire",
   "objective": "After this level you can explain how the Eastern Roman Empire lasted another thousand years.",
@@ -129,7 +129,7 @@
     },
     {
       "id": "question.middle_ages.004.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.byzantine_survival"
@@ -137,33 +137,15 @@
       "sourceCardIds": [
         "card.middle_ages.004.c3"
       ],
-      "prompt": "How were Constantinople’s land walls built to stop attackers?",
-      "options": [
-        {
-          "id": "a",
-          "label": "One very tall wall with no towers",
-          "correct": false,
-          "rationale": "There were 96 towers."
-        },
-        {
-          "id": "b",
-          "label": "Walls along the sea side only",
-          "correct": false,
-          "rationale": "These were the land walls."
-        },
-        {
-          "id": "c",
-          "label": "Wooden fences rebuilt every year",
-          "correct": false,
-          "rationale": "They were long-lasting walls."
-        },
-        {
-          "id": "d",
-          "label": "A moat, an outer wall and a taller main wall",
-          "correct": true
-        }
+      "prompt": "Put Constantinople’s land defenses in the order an attacker met them.",
+      "items": [
+        "A moat",
+        "An outer wall",
+        "A taller main wall"
       ],
-      "explanation": "Attackers had to cross a moat, then an outer wall, then a taller main wall with 96 towers.",
+      "first": "Met first",
+      "last": "Met last",
+      "explanation": "An attacker faced a moat, then an outer wall, then a taller main wall studded with 96 towers.",
       "difficulty": 0.3
     },
     {

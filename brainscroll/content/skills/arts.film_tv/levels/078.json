@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 78,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Cable Changes TV",
   "objective": "After this level you can explain how cable and satellite channels ended the network era by serving smaller, targeted audiences.",
@@ -135,41 +135,26 @@
     },
     {
       "id": "question.film_tv.078.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.tv_audience_fragmentation"
       ],
       "sourceCardIds": [
-        "card.film_tv.078.c4"
+        "card.film_tv.078.c4",
+        "card.film_tv.078.c1",
+        "card.film_tv.078.c2"
       ],
-      "prompt": "How did cable end the network era's shared mass audience?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Channels aimed at specific interests divided viewers into smaller segments",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "A court ordered the three networks to close",
-          "correct": false,
-          "rationale": "No court order ended the network era."
-        },
-        {
-          "id": "c",
-          "label": "Cable showed the same programs as the networks",
-          "correct": false,
-          "rationale": "Cable's new channels increasingly targeted special interests."
-        },
-        {
-          "id": "d",
-          "label": "Viewers stopped watching TV altogether",
-          "correct": false,
-          "rationale": "They kept watching, but different channels."
-        }
+      "prompt": "Put these steps in cable's story in order, from earliest to latest.",
+      "items": [
+        "Improve reception of network broadcasts",
+        "HBO started",
+        "Deliver its programming by satellite",
+        "CNN began"
       ],
-      "explanation": "The number of cable services aimed at specialized audiences grew faster than ever, splitting viewers into smaller and smaller segments.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Cable began in the late 1940s to improve reception of network broadcasts. HBO started in 1972, delivered its programming by satellite in 1975, and CNN began in 1980.",
       "difficulty": 0.35
     },
     {

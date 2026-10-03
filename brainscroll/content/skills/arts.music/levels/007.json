@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 7,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Major and Minor",
   "objective": "After this level you can explain why major keys often sound bright and minor keys darker.",
@@ -135,7 +135,7 @@
     },
     {
       "id": "question.music.007.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.major_minor_emotion"
@@ -143,33 +143,22 @@
       "sourceCardIds": [
         "card.music.007.c3"
       ],
-      "prompt": "In the 2001 study, how did 5-year-olds decide whether music was happy or sad?",
-      "options": [
+      "prompt": "In the 2001 study, match each age group with how it judged happy and sad music.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "By major versus minor",
-          "correct": false,
-          "rationale": "Children used that from about age 6."
+          "left": "At 3 and 4",
+          "right": "Couldn't reliably tell which was which"
         },
         {
-          "id": "b",
-          "label": "By how loud it was",
-          "correct": false,
-          "rationale": "The study changed tempo and mode, and tempo won."
+          "left": "Five-year-olds",
+          "right": "Went by tempo alone"
         },
         {
-          "id": "c",
-          "label": "They couldn't tell at all",
-          "correct": false,
-          "rationale": "That was the 3- and 4-year-olds."
-        },
-        {
-          "id": "d",
-          "label": "By tempo alone",
-          "correct": true
+          "left": "From about age 6",
+          "right": "Also use major versus minor"
         }
       ],
-      "explanation": "Five-year-olds judged by tempo only; the major-minor cue came in from about age 6.",
+      "explanation": "At 3 and 4, children couldn't reliably tell which was which. Five-year-olds went by tempo alone, and from about age 6 they also used major versus minor.",
       "difficulty": 0.25
     },
     {

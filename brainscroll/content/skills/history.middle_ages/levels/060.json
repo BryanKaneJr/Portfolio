@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 60,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Life in a Medieval Town",
   "objective": "After this level you can describe work, trade, food and fun in a medieval town.",
@@ -159,7 +159,7 @@
   "questions": [
     {
       "id": "question.middle_ages.060.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.middle_ages.town_revival",
@@ -171,33 +171,17 @@
         "card.middle_ages.056.c3",
         "card.middle_ages.058.c2"
       ],
-      "prompt": "In the story of medieval towns, which order of events is right?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Windmills in English records, the 1363 apparel law, the City of Ladies",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The 1363 apparel law, windmills in English records, the City of Ladies",
-          "correct": false,
-          "rationale": "Windmills came first, in the 1180s."
-        },
-        {
-          "id": "c",
-          "label": "The City of Ladies, the 1363 apparel law, windmills in English records",
-          "correct": false,
-          "rationale": "The City of Ladies came last, in 1405."
-        },
-        {
-          "id": "d",
-          "label": "Windmills in English records, the City of Ladies, the 1363 apparel law",
-          "correct": false,
-          "rationale": "The law (1363) came before 1405."
-        }
+      "prompt": "Put these milestones of town life in order, from earliest to latest.",
+      "items": [
+        "Henry V’s charters",
+        "Windmills appear in English records",
+        "The Champagne fairs at their peak",
+        "England’s law on who may wear what",
+        "Christine de Pizan’s City of Ladies"
       ],
-      "explanation": "The 1180s, then 1363, then 1405.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Henry V’s charters date from 1111 to 1125. Windmills appear in English records in the 1180s, the Champagne fairs peaked in the 13th century, England’s apparel law came in 1363, and the City of Ladies in 1405.",
       "difficulty": 0.3
     },
     {

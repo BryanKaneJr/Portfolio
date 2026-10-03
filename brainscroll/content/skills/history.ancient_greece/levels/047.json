@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 47,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Perseus and Medusa",
   "objective": "After this level you can retell Perseus's quest.",
@@ -133,42 +133,26 @@
     },
     {
       "id": "question.ancient_greece.047.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_greece.perseus_medusa"
       ],
       "sourceCardIds": [
         "card.ancient_greece.047.c5",
-        "card.ancient_greece.047.c2"
+        "card.ancient_greece.047.c2",
+        "card.ancient_greece.047.c3"
       ],
-      "prompt": "How did the prophecy about Acrisius come true, despite the chest set adrift at sea?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Perseus hunted him down for revenge",
-          "correct": false,
-          "rationale": "It was an accident."
-        },
-        {
-          "id": "b",
-          "label": "Polydectes killed him on Seriphus",
-          "correct": false,
-          "rationale": "Polydectes was turned to stone."
-        },
-        {
-          "id": "c",
-          "label": "Medusa’s head turned him to stone",
-          "correct": false,
-          "rationale": "A discus killed him."
-        },
-        {
-          "id": "d",
-          "label": "Perseus’s discus struck and killed him by accident",
-          "correct": true
-        }
+      "prompt": "Put the story of Perseus in order, from first to last.",
+      "items": [
+        "Cast it into the sea",
+        "Bring him the head of Medusa",
+        "Turned Polydectes and his supporters",
+        "Killed Acrisius"
       ],
-      "explanation": "Years later, Perseus accidentally struck and killed Acrisius while throwing the discus, just as the prophecy said.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Acrisius cast the chest into the sea. Perseus promised to bring Polydectes the head of Medusa, then turned Polydectes and his supporters to stone, and later killed Acrisius by accident.",
       "difficulty": 0.25
     },
     {

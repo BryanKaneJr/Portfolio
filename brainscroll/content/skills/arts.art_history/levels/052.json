@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 52,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Goya",
   "objective": "After this level you can describe Goya's path from court painter to dark visions.",
@@ -125,42 +125,27 @@
     },
     {
       "id": "question.art_history.052.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.goya_dark_turn"
       ],
       "sourceCardIds": [
         "card.art_history.052.c2",
-        "card.art_history.052.c4"
+        "card.art_history.052.c4",
+        "card.art_history.052.c3"
       ],
-      "prompt": "How did Goya's art change after the 1792 illness that left him deaf?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He stopped painting and only wrote",
-          "correct": false,
-          "rationale": "He kept working for decades."
-        },
-        {
-          "id": "b",
-          "label": "He turned to cheerful court portraits only",
-          "correct": false,
-          "rationale": "The opposite: his work grew darker."
-        },
-        {
-          "id": "c",
-          "label": "He switched to painting landscapes outdoors",
-          "correct": false,
-          "rationale": "Not Goya's path at all."
-        },
-        {
-          "id": "d",
-          "label": "It grew darker and more critical",
-          "correct": true
-        }
+      "prompt": "Put these moments in Goya's life in order, from earliest to latest.",
+      "items": [
+        "Painter to the king",
+        "Left him permanently deaf",
+        "Los Caprichos",
+        "The Third of May 1808",
+        "The Black Paintings"
       ],
-      "explanation": "Afterward came Los Caprichos, attacking abuses, and at the end the Black Paintings on his own walls.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Goya became painter to the king in 1786, an illness left him deaf in 1792, Los Caprichos came out in 1799, he painted The Third of May 1808 in 1814, and the Black Paintings about 1819 to 1823.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 31,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Medieval Church",
   "objective": "After this level you can explain the Church's power over daily life.",
@@ -165,7 +165,7 @@
     },
     {
       "id": "question.middle_ages.031.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.middle_ages.parish_church_life",
@@ -173,35 +173,20 @@
       ],
       "sourceCardIds": [
         "card.middle_ages.031.c2",
+        "card.middle_ages.031.c3",
+        "card.middle_ages.031.c4",
         "card.middle_ages.006.c3"
       ],
-      "prompt": "Level 6’s Clovis was baptized by a bishop at Reims. Where would an ordinary medieval villager normally be baptized?",
-      "options": [
-        {
-          "id": "a",
-          "label": "At their own parish church",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Only at the nearest cathedral",
-          "correct": false,
-          "rationale": "The parish church gave the sacraments."
-        },
-        {
-          "id": "c",
-          "label": "In a monastery’s scriptorium",
-          "correct": false,
-          "rationale": "That was a writing room."
-        },
-        {
-          "id": "d",
-          "label": "At the royal court",
-          "correct": false,
-          "rationale": "Villagers used their parish church."
-        }
+      "prompt": "Put these church rules and writings in order, from earliest to latest.",
+      "items": [
+        "Church law required it",
+        "Kings’ law enforced it",
+        "Counted seven sacraments",
+        "The Fourth Lateran Council"
       ],
-      "explanation": "Baptism is a sacrament, and the parish church was normally the only place parishioners could receive the sacraments.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Church law required the tithe from the 6th century, and kings’ law enforced it from the 8th. Peter Lombard counted seven sacraments in the 12th century, and the Fourth Lateran Council met in 1215.",
       "difficulty": 0.25
     }
   ],

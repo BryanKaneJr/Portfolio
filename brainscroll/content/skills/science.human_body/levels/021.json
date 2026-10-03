@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 21,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Heart",
   "objective": "After this level you can explain how the heart's four chambers pump blood.",
@@ -90,40 +90,26 @@
   "questions": [
     {
       "id": "question.human_body.021.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.heart_chambers"
       ],
       "sourceCardIds": [
-        "card.human_body.021.c2"
+        "card.human_body.021.c2",
+        "card.human_body.021.c3"
       ],
-      "prompt": "Which heart chambers are the lower pumps that push blood out of the heart?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The atria",
-          "correct": false,
-          "rationale": "They are the upper chambers that receive blood."
-        },
-        {
-          "id": "b",
-          "label": "The ventricles",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The valves",
-          "correct": false,
-          "rationale": "Valves are doors between spaces, not chambers."
-        },
-        {
-          "id": "d",
-          "label": "The venae cavae",
-          "correct": false,
-          "rationale": "Those are the large veins bringing blood in."
-        }
+      "prompt": "Follow blood through the heart: put these stops in order, from arriving to leaving.",
+      "items": [
+        "Right atrium",
+        "Right ventricle",
+        "Lungs",
+        "Pulmonary veins",
+        "Left atrium",
+        "Left ventricle"
       ],
+      "first": "Blood arrives from the body",
+      "last": "Pushed out to the whole body",
       "explanation": "The two lower chambers, the ventricles, pump blood out; the atria above them receive it.",
       "difficulty": 0.1
     },

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 38,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Extraordinary Claims",
   "objective": "After this level you can explain why a surprising claim needs stronger evidence than an ordinary one.",
@@ -160,7 +160,7 @@
     },
     {
       "id": "question.logic.038.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.logic.evidence_extraordinary_claims",
@@ -168,35 +168,26 @@
       ],
       "sourceCardIds": [
         "card.logic.038.c2",
-        "card.logic.001.c4"
+        "card.logic.001.c4",
+        "card.logic.038.c3",
+        "card.logic.038.c4"
       ],
-      "prompt": "Hume said a wise person proportions belief to the evidence. Which Level 1 idea is closest to that?",
-      "options": [
+      "prompt": "Match each person with what they wrote or doubted.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "\"Logic\" comes from the Greek logos",
-          "correct": false,
-          "rationale": "That's the word's history, not a way of weighing beliefs."
+          "left": "David Hume",
+          "right": "Proportions his belief to the evidence"
         },
         {
-          "id": "b",
-          "label": "An argument isn't a quarrel",
-          "correct": false,
-          "rationale": "True, but it's about what arguments are, not belief."
+          "left": "Marcello Truzzi",
+          "right": "Extraordinary proof"
         },
         {
-          "id": "c",
-          "label": "Only claims can be true or false",
-          "correct": false,
-          "rationale": "That's Level 3, and not about weighing belief."
-        },
-        {
-          "id": "d",
-          "label": "Dewey: weigh a belief in the light of its grounds",
-          "correct": true
+          "left": "An Indian prince",
+          "right": "The first reports of frost"
         }
       ],
-      "explanation": "Both say how strongly you believe should depend on what supports the belief: Dewey's grounds, Hume's evidence.",
+      "explanation": "Hume wrote that a wise man proportions his belief to the evidence. Marcello Truzzi wrote that an extraordinary claim requires extraordinary proof. Hume's Indian prince doubted the first reports of frost.",
       "difficulty": 0.3
     }
   ],

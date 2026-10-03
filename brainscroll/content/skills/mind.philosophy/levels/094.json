@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 94,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Stoic Split",
   "objective": "After this level you can explain the Stoic line between what is up to us and what is not, as Epictetus and Marcus Aurelius taught it, and apply it to a setback.",
@@ -168,7 +168,7 @@
     },
     {
       "id": "question.philosophy.094.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.meaning_stoic_control",
@@ -176,35 +176,26 @@
       ],
       "sourceCardIds": [
         "card.philosophy.094.c5",
-        "card.philosophy.002.c2"
+        "card.philosophy.002.c2",
+        "card.philosophy.094.c2",
+        "card.philosophy.094.c3"
       ],
-      "prompt": "The Stoics and Aristotle disagree about whether bad luck can spoil a happy life. Which branch from Level 2 asks what makes a life good?",
-      "options": [
+      "prompt": "Match each thinker with the work or example linked to him.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Ethics",
-          "correct": true
+          "left": "Epictetus",
+          "right": "Handbook"
         },
         {
-          "id": "b",
-          "label": "Metaphysics",
-          "correct": false,
-          "rationale": "It asks what exists."
+          "left": "Marcus Aurelius",
+          "right": "Private notes to himself"
         },
         {
-          "id": "c",
-          "label": "Epistemology",
-          "correct": false,
-          "rationale": "It asks about knowledge."
-        },
-        {
-          "id": "d",
-          "label": "Aesthetics",
-          "correct": false,
-          "rationale": "It asks about beauty and art."
+          "left": "Aristotle",
+          "right": "King Priam"
         }
       ],
-      "explanation": "Ethics asks what makes actions right and what makes a person or a life good.",
+      "explanation": "Epictetus’s Handbook opens with the split, Marcus Aurelius wrote private notes to himself, and Aristotle pointed to old King Priam.",
       "difficulty": 0.25
     }
   ],

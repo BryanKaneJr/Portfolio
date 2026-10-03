@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 36,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Gold and Silver",
   "objective": "After this level you can explain why gold and silver were prized for money and jewelry.",
@@ -130,41 +130,32 @@
     },
     {
       "id": "question.chemistry.036.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.gold_silver_money"
       ],
       "sourceCardIds": [
-        "card.chemistry.036.c3"
+        "card.chemistry.036.c3",
+        "card.chemistry.036.c2",
+        "card.chemistry.036.c4"
       ],
-      "prompt": "Why did King Croesus of Lydia replace electrum coins with pure gold and pure silver ones?",
-      "options": [
+      "prompt": "Match each precious metal with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Electrum's mix of metals made its worth hard to calculate",
-          "correct": true
+          "left": "Gold",
+          "right": "Doesn't corrode or tarnish"
         },
         {
-          "id": "b",
-          "label": "Electrum was too heavy to carry",
-          "correct": false,
-          "rationale": "Weight wasn't the problem."
+          "left": "Silver",
+          "right": "The best conductor"
         },
         {
-          "id": "c",
-          "label": "Electrum tarnished black overnight",
-          "correct": false,
-          "rationale": "The problem was the uncertain mix of metals."
-        },
-        {
-          "id": "d",
-          "label": "Electrum could not be stamped",
-          "correct": false,
-          "rationale": "Lydia's earliest coins were stamped electrum."
+          "left": "Electrum",
+          "right": "A natural mix of gold and silver"
         }
       ],
-      "explanation": "Electrum is a natural gold-silver mix in varying amounts, so a coin's value was uncertain. Pure metals fixed that.",
+      "explanation": "Gold doesn't corrode or tarnish, silver is the best conductor of all metals, and electrum is a natural mix of gold and silver.",
       "difficulty": 0.3
     },
     {

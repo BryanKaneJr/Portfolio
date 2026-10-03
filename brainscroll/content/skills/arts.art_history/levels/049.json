@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 49,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Neoclassicism",
   "objective": "After this level you can explain why artists turned back to Greece and Rome in the late 1700s.",
@@ -125,7 +125,7 @@
     },
     {
       "id": "question.art_history.049.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.oath_of_horatii",
@@ -133,35 +133,19 @@
       ],
       "sourceCardIds": [
         "card.art_history.049.c3",
-        "card.art_history.049.c4"
+        "card.art_history.049.c4",
+        "card.art_history.049.c1"
       ],
-      "prompt": "How does the Oath of the Horatii turn away from the Rococo?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It uses more pink and more curves",
-          "correct": false,
-          "rationale": "It's the opposite: sober color, straight lines."
-        },
-        {
-          "id": "b",
-          "label": "It shows a flirting couple in a garden",
-          "correct": false,
-          "rationale": "It shows brothers swearing to fight for Rome."
-        },
-        {
-          "id": "c",
-          "label": "It hides its figures in deep darkness",
-          "correct": false,
-          "rationale": "David used clear light."
-        },
-        {
-          "id": "d",
-          "label": "Stern duty, firm outlines and straight lines replace playful curves",
-          "correct": true
-        }
+      "prompt": "Put these moments, from Pompeii to David's Oath, in order from earliest to latest.",
+      "items": [
+        "Vesuvius had buried Pompeii",
+        "Diggers began uncovering a Roman city",
+        "Oath of the Horatii",
+        "Shown in Paris"
       ],
-      "explanation": "Duty and sacrifice, firm outlines, sober color and straight lines: the opposite of Rococo's pastel play.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Vesuvius buried Pompeii in 79 CE, diggers began uncovering it in 1748, David painted the Oath of the Horatii in 1784, and it was shown in Paris in 1785.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 87,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "International Courts",
   "objective": "After this level you can explain courts that judge countries and war crimes.",
@@ -140,41 +140,32 @@
     },
     {
       "id": "question.government.087.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.intl_court_icc"
       ],
       "sourceCardIds": [
-        "card.government.087.c4"
+        "card.government.087.c4",
+        "card.government.087.c1",
+        "card.government.087.c2"
       ],
-      "prompt": "What does it mean that the ICC is a court of last resort?",
-      "options": [
+      "prompt": "Match each international court with its detail.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It hears appeals from the ICJ's decisions",
-          "correct": false,
-          "rationale": "The two courts are separate; the ICC doesn't review the ICJ."
+          "left": "International Court of Justice",
+          "right": "Peace Palace"
         },
         {
-          "id": "b",
-          "label": "It only sits when the UN is at war",
-          "correct": false,
-          "rationale": "It isn't tied to UN wars."
+          "left": "International Criminal Court",
+          "right": "Rome Statute"
         },
         {
-          "id": "c",
-          "label": "It complements national courts rather than replacing them",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It can only try heads of state",
-          "correct": false,
-          "rationale": "It tries individuals, whoever they are."
+          "left": "Nuremberg",
+          "right": "22 leading Nazi officials"
         }
       ],
-      "explanation": "The ICC seeks to complement national courts, not replace them, stepping in as a court of last resort.",
+      "explanation": "The International Court of Justice sits in the Peace Palace, the International Criminal Court was set up by the Rome Statute, and the tribunal at Nuremberg tried 22 leading Nazi officials.",
       "difficulty": 0.3
     },
     {

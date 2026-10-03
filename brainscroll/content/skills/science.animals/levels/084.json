@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 84,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Age of Dinosaurs",
   "objective": "After this level you can describe when dinosaurs lived and how varied they were.",
@@ -103,7 +103,7 @@
   "questions": [
     {
       "id": "question.animals.084.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.animals.mesozoic_timeline"
@@ -111,33 +111,16 @@
       "sourceCardIds": [
         "card.animals.084.c2"
       ],
-      "prompt": "Which three periods make up the Mesozoic Era, the Age of Dinosaurs?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Triassic, Jurassic, Cretaceous",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Jurassic, Cretaceous, Ice Age",
-          "correct": false,
-          "rationale": "The Ice Age came long after."
-        },
-        {
-          "id": "c",
-          "label": "Cambrian, Triassic, Jurassic",
-          "correct": false,
-          "rationale": "The Cambrian is far older."
-        },
-        {
-          "id": "d",
-          "label": "Devonian, Permian, Triassic",
-          "correct": false,
-          "rationale": "Only the Triassic is Mesozoic."
-        }
+      "prompt": "Put these in order, from earliest to latest.",
+      "items": [
+        "The first dinosaurs",
+        "Stegosaurus",
+        "Titanosaurs",
+        "Tyrannosaurus"
       ],
-      "explanation": "The Mesozoic runs Triassic (252 to 201), Jurassic (201 to 145), Cretaceous (145 to 66 million years ago).",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The first dinosaurs came in the Triassic, Stegosaurus in the Jurassic, and in the Cretaceous came titanosaurs, then Tyrannosaurus.",
       "difficulty": 0.15
     },
     {

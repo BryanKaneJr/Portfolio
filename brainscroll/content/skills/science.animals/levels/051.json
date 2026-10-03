@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 51,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Insects",
   "objective": "After this level you can explain what makes an insect an insect.",
@@ -135,7 +135,7 @@
     },
     {
       "id": "question.animals.051.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.insect_body_plan"
@@ -143,33 +143,22 @@
       "sourceCardIds": [
         "card.animals.051.c2"
       ],
-      "prompt": "A garden creature has two body parts and eight legs. What does the insect body plan say about it?",
-      "options": [
+      "prompt": "Match each part of an insect's body with what it carries or holds.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It’s an insect with two extra legs",
-          "correct": false,
-          "rationale": "Insects have exactly six legs as adults."
+          "left": "Head",
+          "right": "One pair of antennae"
         },
         {
-          "id": "b",
-          "label": "It’s not an insect: insects have three parts and six legs",
-          "correct": true
+          "left": "Thorax",
+          "right": "Three pairs of legs"
         },
         {
-          "id": "c",
-          "label": "It’s a young insect that hasn’t finished growing",
-          "correct": false,
-          "rationale": "Adult insects have six legs, but this plan fails both counts."
-        },
-        {
-          "id": "d",
-          "label": "It’s an insect whose wings fell off",
-          "correct": false,
-          "rationale": "Wings don’t change the count of legs or body parts."
+          "left": "Abdomen",
+          "right": "Digestive and reproductive organs"
         }
       ],
-      "explanation": "An insect has three body parts (head, thorax, abdomen) and six legs on the thorax. Two parts and eight legs fails both counts.",
+      "explanation": "The head carries the eyes, mouthparts and one pair of antennae. The thorax carries three pairs of legs, and the abdomen holds the digestive and reproductive organs.",
       "difficulty": 0.2
     },
     {

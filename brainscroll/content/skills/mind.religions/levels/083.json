@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 83,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Food Rules Across Faiths",
   "objective": "After this level you can compare kosher, halal, Hindu, Jain and Buddhist food rules and the reasons each tradition gives for them.",
@@ -93,41 +93,36 @@
   "questions": [
     {
       "id": "question.religions.083.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.religions.food_commanded_rules"
       ],
       "sourceCardIds": [
-        "card.religions.083.c2"
+        "card.religions.083.c2",
+        "card.religions.083.c3",
+        "card.religions.083.c4"
       ],
-      "prompt": "Which of these is part of keeping kosher?",
-      "options": [
+      "prompt": "Match each term or group with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Eating no food after sunset",
-          "correct": false,
-          "rationale": "That isn't a kosher rule."
+          "left": "Halal",
+          "right": "What Islamic law permits"
         },
         {
-          "id": "b",
-          "label": "Avoiding all root vegetables",
-          "correct": false,
-          "rationale": "That's a Jain practice."
+          "left": "Haram",
+          "right": "What it forbids"
         },
         {
-          "id": "c",
-          "label": "Eating only what is given as alms",
-          "correct": false,
-          "rationale": "That describes early Buddhist monastics."
+          "left": "Kosher",
+          "right": "Fins and scales"
         },
         {
-          "id": "d",
-          "label": "Keeping meat and dairy strictly apart",
-          "correct": true
+          "left": "Jains",
+          "right": "Avoid root vegetables"
         }
       ],
-      "explanation": "Kosher law keeps meat and dairy strictly apart, down to separate dishes.",
+      "explanation": "Halal is what Islamic law permits and haram what it forbids. Kosher law permits fish with both fins and scales, and many Jains avoid root vegetables.",
       "difficulty": 0.2
     },
     {

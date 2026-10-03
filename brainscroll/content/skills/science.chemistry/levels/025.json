@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 25,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Noble Gases",
   "objective": "After this level you can explain why noble gases barely react, and how neon lights glow.",
@@ -134,7 +134,7 @@
     },
     {
       "id": "question.chemistry.025.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.ptable_neon_glow",
@@ -142,35 +142,27 @@
       ],
       "sourceCardIds": [
         "card.chemistry.025.c3",
-        "card.chemistry.005.c2"
+        "card.chemistry.005.c2",
+        "card.chemistry.025.c1",
+        "card.chemistry.025.c2",
+        "card.chemistry.025.c4"
       ],
-      "prompt": "What is actually glowing inside a lit neon sign?",
-      "options": [
+      "prompt": "Match each with the noble gas fact it goes with.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A thin, red-hot metal wire",
-          "correct": false,
-          "rationale": "There is no glowing wire; the gas itself lights up."
+          "left": "Rayleigh and Ramsay",
+          "right": "Argon"
         },
         {
-          "id": "b",
-          "label": "Liquid neon",
-          "correct": false,
-          "rationale": "The neon stays a gas and becomes plasma."
+          "left": "Neil Bartlett",
+          "right": "A compound of xenon"
         },
         {
-          "id": "c",
-          "label": "A burning fuel",
-          "correct": false,
-          "rationale": "Nothing burns; neon barely reacts at all."
-        },
-        {
-          "id": "d",
-          "label": "Plasma: gas with electrons torn loose",
-          "correct": true
+          "left": "Red signs",
+          "right": "Real neon"
         }
       ],
-      "explanation": "Electricity turns the gas into plasma, the fourth state of matter from Level 5.",
+      "explanation": "Rayleigh and Ramsay found argon in air, Neil Bartlett made a compound of xenon in 1962, and only red signs hold real neon.",
       "difficulty": 0.3
     },
     {

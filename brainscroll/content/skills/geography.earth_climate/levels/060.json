@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 60,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: How Weather Works",
   "objective": "After this level you can explain how heat, moisture, pressure and fronts combine to make the weather in your forecast.",
@@ -285,42 +285,27 @@
     },
     {
       "id": "question.earth_climate.060.q5",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.weather_cloud_formation"
       ],
       "sourceCardIds": [
         "card.earth_climate.060.c2",
-        "card.earth_climate.052.c2"
+        "card.earth_climate.052.c2",
+        "card.earth_climate.060.c3",
+        "card.earth_climate.060.c4"
       ],
-      "prompt": "How Weather Works recap: warm air rising over a warm front cools. When does it start to form cloud?",
-      "options": [
-        {
-          "id": "a",
-          "label": "As soon as it leaves the ground",
-          "correct": false,
-          "rationale": "It must cool to its dew point first."
-        },
-        {
-          "id": "b",
-          "label": "When it cools to its dew point",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Only once it reaches the jet stream",
-          "correct": false,
-          "rationale": "Clouds form far below the jet once air hits its dew point."
-        },
-        {
-          "id": "d",
-          "label": "When its relative humidity drops to zero",
-          "correct": false,
-          "rationale": "Cooling raises relative humidity toward 100%."
-        }
+      "prompt": "How Weather Works recap: put what you see as the storm passes in order.",
+      "items": [
+        "High cirrus appear",
+        "Lower, thicker cloud",
+        "Thunderstorms roll through",
+        "The skies clear"
       ],
-      "explanation": "Rising air expands and cools; once it reaches its dew point, its vapor condenses into cloud droplets.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "High cirrus appear, then lower, thicker cloud brings rain. The cold front follows and thunderstorms roll through, then the skies clear.",
       "difficulty": 0.25
     }
   ],

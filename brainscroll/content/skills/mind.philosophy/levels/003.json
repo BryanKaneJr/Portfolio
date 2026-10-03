@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 3,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Thought Experiments",
   "objective": "After this level you can explain how a thought experiment tests an idea by imagining a carefully built case instead of running a real one.",
@@ -132,41 +132,32 @@
     },
     {
       "id": "question.philosophy.003.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.thought_experiments"
       ],
       "sourceCardIds": [
-        "card.philosophy.003.c3"
+        "card.philosophy.003.c3",
+        "card.philosophy.003.c4",
+        "card.philosophy.003.c5"
       ],
-      "prompt": "How does Galileo’s tied-balls case undermine the view that heavier things fall faster?",
-      "options": [
+      "prompt": "Match each person with their part in the story of thought experiments.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It shows the pair falling at exactly the right speed",
-          "correct": false,
-          "rationale": "It shows a contradiction."
+          "left": "Galileo",
+          "right": "Tying a heavy ball to a light one"
         },
         {
-          "id": "b",
-          "label": "It measures the balls on a real tower",
-          "correct": false,
-          "rationale": "Nothing is dropped."
+          "left": "Glaucon",
+          "right": "The ring of invisibility"
         },
         {
-          "id": "c",
-          "label": "It shows the view predicts the pair falls both slower and faster",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It proves light things always fall first",
-          "correct": false,
-          "rationale": "That isn’t its conclusion."
+          "left": "Kathleen Wilkes",
+          "right": "Preferred to study real cases"
         }
       ],
-      "explanation": "The light ball should slow the pair, yet the pair is heavier and should fall faster; the view contradicts itself.",
+      "explanation": "Galileo imagined tying a heavy ball to a light one, Glaucon told of the ring of invisibility, and Kathleen Wilkes doubted thought experiments and preferred to study real cases.",
       "difficulty": 0.35
     },
     {

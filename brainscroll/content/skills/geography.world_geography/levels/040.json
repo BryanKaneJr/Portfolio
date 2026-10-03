@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 40,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Climate and Weather",
   "objective": "After this level you can explain how sunlight, wind, water and mountains combine to make weather and climate.",
@@ -276,7 +276,7 @@
     },
     {
       "id": "question.world_geography.040.q5",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.hadley_cell",
@@ -286,35 +286,20 @@
       "sourceCardIds": [
         "card.world_geography.040.c2",
         "card.world_geography.032.c2",
-        "card.world_geography.038.c3"
+        "card.world_geography.038.c3",
+        "card.world_geography.040.c3"
       ],
-      "prompt": "Using Levels 32 and 38: what starts the loop that puts big hot deserts about 15 to 30 degrees from the Equator?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Cold air sinking at the poles",
-          "correct": false,
-          "rationale": "The Hadley loop starts at the Equator."
-        },
-        {
-          "id": "b",
-          "label": "Direct sunlight heating air near the Equator",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Mountains lifting air near the tropics",
-          "correct": false,
-          "rationale": "Mountains make rain shadows, not this loop."
-        },
-        {
-          "id": "d",
-          "label": "The Moon pulling on the atmosphere",
-          "correct": false,
-          "rationale": "The Sun, not the Moon, drives it."
-        }
+      "prompt": "Put the Hadley cell's loop in order, from first to last.",
+      "items": [
+        "Direct sunlight heats the air",
+        "Drops its moisture as heavy rain",
+        "Spreads out toward the poles",
+        "Dry air sinks and warms up again",
+        "The trade winds"
       ],
-      "explanation": "Direct sunlight heats the equatorial air, which rises and rains; the dried air then sinks near 30°, where the deserts lie.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Direct sunlight heats the air at the Equator; it rises and drops its moisture as heavy rain, spreads out toward the poles, sinks and warms near 30°, then flows back as the trade winds.",
       "difficulty": 0.35
     }
   ],

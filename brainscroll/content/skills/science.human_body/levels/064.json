@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 64,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Glasses and Contacts",
   "objective": "After this level you can explain how lenses correct short and long sight.",
@@ -135,38 +135,32 @@
     },
     {
       "id": "question.human_body.064.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.senses_corrective_lenses"
       ],
       "sourceCardIds": [
-        "card.human_body.064.c3"
+        "card.human_body.064.c3",
+        "card.human_body.064.c2"
       ],
-      "prompt": "Why does a concave lens help a nearsighted eye see far away?",
-      "options": [
+      "prompt": "Match each eye problem or lens with what it does to light.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It spreads rays so the focus moves back",
-          "correct": true
+          "left": "Nearsightedness",
+          "right": "Focuses in front of the retina"
         },
         {
-          "id": "b",
-          "label": "It magnifies whatever is far away",
-          "correct": false,
-          "rationale": "Magnifying convex lenses help with close work."
+          "left": "Farsightedness",
+          "right": "Focuses behind the retina"
         },
         {
-          "id": "c",
-          "label": "It blocks extra light from the pupil",
-          "correct": false,
-          "rationale": "The problem is focus, not brightness."
+          "left": "Concave lens",
+          "right": "Spreads light rays apart"
         },
         {
-          "id": "d",
-          "label": "It makes the eyeball itself shorter",
-          "correct": false,
-          "rationale": "Glasses change the light, not the eye."
+          "left": "Convex lens",
+          "right": "Brings rays together"
         }
       ],
       "explanation": "A concave lens spreads light rays apart, pushing the focus back from in front of the retina onto it.",

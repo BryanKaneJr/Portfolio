@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 8,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Families of Faith",
   "objective": "After this level you can sort the world's religions into the Abrahamic, Indian, East Asian and Indigenous families and say what links each family.",
@@ -184,7 +184,7 @@
     },
     {
       "id": "question.religions.008.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.religions.indian_family",
@@ -192,35 +192,30 @@
       ],
       "sourceCardIds": [
         "card.religions.008.c3",
-        "card.religions.008.c4"
+        "card.religions.008.c4",
+        "card.religions.008.c2",
+        "card.religions.008.c5"
       ],
-      "prompt": "Which pairing of family and link is right?",
-      "options": [
+      "prompt": "Match each tradition or people with its family of faith.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Indian: descent from Abraham. East Asian: karma and rebirth",
-          "correct": false,
-          "rationale": "Those links belong to other families."
+          "left": "Islam",
+          "right": "Abrahamic"
         },
         {
-          "id": "b",
-          "label": "Indian: karma and rebirth. East Asian: blending and ancestors",
-          "correct": true
+          "left": "Sikhism",
+          "right": "Indian"
         },
         {
-          "id": "c",
-          "label": "Indian: honoring ancestors. East Asian: descent from Abraham",
-          "correct": false,
-          "rationale": "Abraham links the Abrahamic family."
+          "left": "Shinto",
+          "right": "East Asian"
         },
         {
-          "id": "d",
-          "label": "Indian: one shared scripture. East Asian: karma and rebirth",
-          "correct": false,
-          "rationale": "Karma runs through the Indian family."
+          "left": "The Menominee",
+          "right": "Indigenous"
         }
       ],
-      "explanation": "Karma, rebirth and release run through the Indian family; blending traditions and honoring ancestors mark East Asia.",
+      "explanation": "Islam is Abrahamic, Sikhism belongs to the Indian family, Shinto to the East Asian family, and the Menominee tradition is Indigenous.",
       "difficulty": 0.3
     }
   ],

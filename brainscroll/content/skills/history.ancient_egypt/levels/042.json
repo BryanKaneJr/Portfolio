@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 42,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Papyrus",
   "objective": "After this level you can explain how papyrus was made from reeds.",
@@ -121,7 +121,7 @@
     },
     {
       "id": "question.ancient_egypt.042.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.papyrus_making"
@@ -129,33 +129,16 @@
       "sourceCardIds": [
         "card.ancient_egypt.042.c3"
       ],
-      "prompt": "Which order of steps turned papyrus stems into a writing sheet?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Boil the stems, pulp them, pour the pulp into a frame",
-          "correct": false,
-          "rationale": "That’s how later paper was made."
-        },
-        {
-          "id": "b",
-          "label": "Weave whole stems into a mat, then paint it white",
-          "correct": false,
-          "rationale": "Whole stems weren’t woven into sheets."
-        },
-        {
-          "id": "c",
-          "label": "Lay pith strips side by side, add a crossed layer, press, then dry",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Peel the bark into sheets and stretch it on a frame",
-          "correct": false,
-          "rationale": "Papyrus sheets came from the pith, not bark."
-        }
+      "prompt": "Put the steps for making a papyrus sheet in order, from first to last.",
+      "items": [
+        "Laid them side by side",
+        "A second layer went on top",
+        "Dampened and pressed",
+        "Hammered and dried in the sun"
       ],
-      "explanation": "Strips were laid side by side, crossed at right angles by a second layer, dampened and pressed, hammered and sun-dried.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Workers laid strips of pith side by side, then a second layer went on top at right angles. The sheet was dampened and pressed, then hammered and dried in the sun.",
       "difficulty": 0.3
     },
     {

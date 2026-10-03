@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 61,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Europe: The Big Picture",
   "objective": "After this level you can describe Europe's shape, seas and main regions.",
@@ -92,7 +92,7 @@
   "questions": [
     {
       "id": "question.world_geography.061.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.europe_regions"
@@ -100,33 +100,16 @@
       "sourceCardIds": [
         "card.world_geography.061.c4"
       ],
-      "prompt": "Which of Europe's four physical regions is its most densely populated?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Western Uplands",
-          "correct": false,
-          "rationale": "That's hard, ancient rock scraped by glaciers."
-        },
-        {
-          "id": "b",
-          "label": "The Central Uplands",
-          "correct": false,
-          "rationale": "That band is heavily wooded."
-        },
-        {
-          "id": "c",
-          "label": "The North European Plain",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The Alpine Mountains",
-          "correct": false,
-          "rationale": "That's the mountainous southern stripe."
-        }
+      "prompt": "Put Europe's four bands in order, from north to south.",
+      "items": [
+        "Western Uplands",
+        "North European Plain",
+        "Central Uplands",
+        "Alpine Mountains"
       ],
-      "explanation": "The North European Plain, low land running from the southern UK to Russia, is Europe's most densely populated region.",
+      "first": "North",
+      "last": "South",
+      "explanation": "From north to south: the Western Uplands, the North European Plain, the Central Uplands and the Alpine Mountains.",
       "difficulty": 0.2
     },
     {

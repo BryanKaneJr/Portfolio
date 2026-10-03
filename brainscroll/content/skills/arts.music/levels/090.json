@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 90,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Hip-Hop, Electronic and Beyond",
   "objective": "After this level you can explain how turntables, synthesizers and computers changed music.",
@@ -276,41 +276,27 @@
     },
     {
       "id": "question.music.090.q4",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.hiphop_sampling"
       ],
       "sourceCardIds": [
-        "card.music.082.c4"
+        "card.music.082.c4",
+        "card.music.090.c3"
       ],
-      "prompt": "From Level 82's sampling story: why is Clyde Stubblefield's drumming on \"Funky Drummer\" famous?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It was the first song recorded on a synthesizer",
-          "correct": false,
-          "rationale": "It's a 1970 funk drum solo."
-        },
-        {
-          "id": "b",
-          "label": "It was the first rap record to chart",
-          "correct": false,
-          "rationale": "That was Rapper's Delight in 1979."
-        },
-        {
-          "id": "c",
-          "label": "It was played at Herc's 1973 party",
-          "correct": false,
-          "rationale": "The story says nothing about that."
-        },
-        {
-          "id": "d",
-          "label": "It has been called the most sampled drum break in music",
-          "correct": true
-        }
+      "prompt": "Put these machine moments in order, from earliest to latest.",
+      "items": [
+        "Moog unveils his modular synthesizer",
+        "Kool Herc loops breaks",
+        "Planet Rock",
+        "Detroit's techno pioneers",
+        "The .mp3 name is chosen",
+        "Spotify launches"
       ],
-      "explanation": "Stubblefield's 20-second solo on the 1970 single has been called the most sampled drum break in music.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Moog unveiled his synthesizer in 1964, Kool Herc looped breaks in 1973, \"Planet Rock\" came in 1982, Detroit's techno pioneers drew attention in 1985, the .mp3 name was chosen in 1995, and Spotify launched in 2008.",
       "difficulty": 0.2
     },
     {

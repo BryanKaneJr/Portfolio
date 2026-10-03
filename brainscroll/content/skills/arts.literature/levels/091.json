@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 91,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Fairy Tales Written Down",
   "objective": "After this level you can compare versions of a fairy tale by Perrault, the Grimms and Andersen and explain why they differ.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "question.literature.091.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.fairytale_tellers_aims",
@@ -138,35 +138,25 @@
       ],
       "sourceCardIds": [
         "card.literature.091.c2",
-        "card.literature.091.c3"
+        "card.literature.091.c3",
+        "card.literature.091.c4"
       ],
-      "prompt": "Perrault's Cinderella forgives her stepsisters; the Grimms' has them blinded. Which explanation best fits their aims?",
-      "options": [
+      "prompt": "Match each teller with where their tales came from.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Perrault softened the Grimms' earlier version for France",
-          "correct": false,
-          "rationale": "Perrault came first, in 1697."
+          "left": "Perrault",
+          "right": "To amuse his children"
         },
         {
-          "id": "b",
-          "label": "The Grimms invented the punishment to shock adults",
-          "correct": false,
-          "rationale": "They took most tales from oral sources."
+          "left": "The Grimms",
+          "right": "Oral sources"
         },
         {
-          "id": "c",
-          "label": "Perrault retold for his children; the Grimms kept the tellers' voice",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Both copied one old book, and printers changed endings",
-          "correct": false,
-          "rationale": "Their sources and aims differed."
+          "left": "Andersen",
+          "right": "His own creations"
         }
       ],
-      "explanation": "Perrault retold half-forgotten tales to amuse his children; the Grimms took theirs mostly from oral sources and tried to keep the teller's words.",
+      "explanation": "Perrault retold old tales to amuse his children, the Grimms took most of theirs from oral sources, and all but a dozen of Andersen's tales are his own creations.",
       "difficulty": 0.4
     },
     {

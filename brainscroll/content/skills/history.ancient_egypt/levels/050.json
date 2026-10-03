@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 50,
   "type": "milestone",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Milestone: The Age of Pyramids",
   "objective": "After this level you can connect the pharaohs, pyramids, gods and writing of Egypt’s first great age.",
@@ -337,7 +337,7 @@
     },
     {
       "id": "question.ancient_egypt.050.q6",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_egypt.pyramid_texts",
@@ -347,33 +347,16 @@
         "card.ancient_egypt.050.c2",
         "card.ancient_egypt.001.c2"
       ],
-      "prompt": "In which of Level 1’s kingdoms were the first Pyramid Texts carved?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Old Kingdom",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The Middle Kingdom",
-          "correct": false,
-          "rationale": "Unas lived long before the Middle Kingdom."
-        },
-        {
-          "id": "c",
-          "label": "The New Kingdom",
-          "correct": false,
-          "rationale": "The New Kingdom was about a thousand years later."
-        },
-        {
-          "id": "d",
-          "label": "None: they came after Roman rule",
-          "correct": false,
-          "rationale": "They are from the pharaohs’ own age."
-        }
+      "prompt": "Put these Old Kingdom milestones in order, from earliest to latest.",
+      "items": [
+        "The Old Kingdom begins",
+        "Unas has the first Pyramid Texts carved",
+        "The Old Kingdom ends",
+        "Middle Kingdom: Egypt is reunited"
       ],
-      "explanation": "Unas carved them in the 24th century BCE, inside the Old Kingdom (about 2686 to 2160 BCE).",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Old Kingdom began about 2686 BCE. Unas had the first Pyramid Texts carved in the 24th century BCE, the Old Kingdom ended about 2160 BCE, and then the Middle Kingdom reunited Egypt.",
       "difficulty": 0.3
     },
     {

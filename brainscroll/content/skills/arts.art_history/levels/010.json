@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 10,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: The First Artists",
   "objective": "After this level you can describe the earliest known art and the main ideas about why it was made.",
@@ -238,7 +238,7 @@
     },
     {
       "id": "question.art_history.010.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.art_history.blombos_drawing",
@@ -249,33 +249,17 @@
       "sourceCardIds": [
         "card.art_history.010.c2"
       ],
-      "prompt": "Chapter recap: which of these is the oldest?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Lascaux's aurochs",
-          "correct": false,
-          "rationale": "About 17,000 years old."
-        },
-        {
-          "id": "b",
-          "label": "Chauvet's lions",
-          "correct": false,
-          "rationale": "About 35,500 years old."
-        },
-        {
-          "id": "c",
-          "label": "The Lion-Man",
-          "correct": false,
-          "rationale": "About 40,000 years old."
-        },
-        {
-          "id": "d",
-          "label": "The Blombos crosshatch",
-          "correct": true
-        }
+      "prompt": "Put the chapter's finds in order, from oldest to youngest.",
+      "items": [
+        "An ochre crosshatch at Blombos Cave",
+        "The Lion-Man, carved in ivory",
+        "Chauvet's lions and rhinos",
+        "Lascaux's great aurochs",
+        "Stonehenge's stones go up"
       ],
-      "explanation": "The Blombos drawing, about 73,000 years old, is the oldest known drawing.",
+      "first": "Oldest",
+      "last": "Youngest",
+      "explanation": "Oldest first: the Blombos crosshatch (about 73,000 years), the Lion-Man (about 40,000), Chauvet (about 35,500), Lascaux (about 17,000), then Stonehenge's stones (about 4,500).",
       "difficulty": 0.3
     },
     {

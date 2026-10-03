@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 99,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Myths About the Body",
   "objective": "After this level you can debunk common myths, like using only 10 percent of your brain.",
@@ -218,7 +218,7 @@
     },
     {
       "id": "question.human_body.099.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.health_body_myths",
@@ -226,32 +226,27 @@
       ],
       "sourceCardIds": [
         "card.human_body.099.c2",
-        "card.human_body.055.c4"
+        "card.human_body.055.c4",
+        "card.human_body.099.c3",
+        "card.human_body.099.c4"
       ],
-      "prompt": "From Level 55: brain scans busted the left-brain, right-brain myth. What do scans show that busts the '10% brain' myth?",
-      "options": [
+      "prompt": "Match each body myth with the finding that busts it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The unused 90 percent is in the cerebellum",
-          "correct": false,
-          "rationale": "Nobody has found an unused 90 percent anywhere."
+          "left": "The 10% brain",
+          "right": "No completely silent area"
         },
         {
-          "id": "b",
-          "label": "No brain area is completely silent",
-          "correct": true
+          "left": "The tongue map",
+          "right": "Every area with taste buds"
         },
         {
-          "id": "c",
-          "label": "Only the left half is active at rest",
-          "correct": false,
-          "rationale": "Neither side dominates; scans found no lopsided people."
+          "left": "Knuckle cracking",
+          "right": "No arthritis in either hand"
         },
         {
-          "id": "d",
-          "label": "Children use far more of it than adults",
-          "correct": false,
-          "rationale": "No scan found an unused part at any age."
+          "left": "Spiders in your sleep",
+          "right": "Spiders prefer quiet corners"
         }
       ],
       "explanation": "Just as scans found no left- or right-brained people, they find no completely silent area of the brain.",

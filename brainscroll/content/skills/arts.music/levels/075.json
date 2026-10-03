@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 75,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Beatles",
   "objective": "After this level you can explain why the Beatles changed pop music.",
@@ -130,41 +130,26 @@
     },
     {
       "id": "question.music.075.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.beatles_studio_album"
       ],
       "sourceCardIds": [
-        "card.music.075.c4"
+        "card.music.075.c4",
+        "card.music.075.c1",
+        "card.music.075.c3"
       ],
-      "prompt": "Why did the Beatles stop performing live in 1966?",
-      "options": [
-        {
-          "id": "a",
-          "label": "To concentrate on making records in the studio",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Because their records had stopped selling",
-          "correct": false,
-          "rationale": "They'd held the Hot 100's whole top five in 1964."
-        },
-        {
-          "id": "c",
-          "label": "To start their own television show",
-          "correct": false,
-          "rationale": "They turned to the studio, not TV."
-        },
-        {
-          "id": "d",
-          "label": "Because Abbey Road studios had closed",
-          "correct": false,
-          "rationale": "They spent months at Abbey Road making Sgt. Pepper."
-        }
+      "prompt": "Put these moments in the Beatles' story in order, from earliest to latest.",
+      "items": [
+        "The Ed Sullivan Show",
+        "All top five spots",
+        "Quit performing live",
+        "Sgt. Pepper's Lonely Hearts Club Band"
       ],
-      "explanation": "They retired from the stage to use the studio fully; Sgt. Pepper took months at Abbey Road.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Beatles played The Ed Sullivan Show in February 1964, held all top five spots in April 1964, quit performing live in 1966, and released Sgt. Pepper's Lonely Hearts Club Band in 1967.",
       "difficulty": 0.2
     },
     {

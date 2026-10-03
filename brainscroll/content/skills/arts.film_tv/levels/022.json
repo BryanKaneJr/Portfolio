@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 22,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Screenplay",
   "objective": "After this level you can explain how a screenplay is laid out and why one page is reckoned at about one minute of screen time.",
@@ -130,42 +130,33 @@
     },
     {
       "id": "question.film_tv.022.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.shoot_page_per_minute"
       ],
       "sourceCardIds": [
         "card.film_tv.022.c3",
-        "card.film_tv.022.c4"
+        "card.film_tv.022.c4",
+        "card.film_tv.022.c1",
+        "card.film_tv.022.c2"
       ],
-      "prompt": "How can a producer estimate a film's running time from its screenplay?",
-      "options": [
+      "prompt": "Match each part of the screenplay format with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Count the scene headings: each scene lasts about a minute",
-          "correct": false,
-          "rationale": "The rule works per page, not per scene."
+          "left": "Scene heading",
+          "right": "Slug line"
         },
         {
-          "id": "b",
-          "label": "Time how long it takes to read the dialogue aloud",
-          "correct": false,
-          "rationale": "The level's rule uses page count, which works because the format is fixed."
+          "left": "Courier, 12-point",
+          "right": "The industry standard"
         },
         {
-          "id": "c",
-          "label": "Count the pages: in the standard format each is about a minute",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Count the characters, since each needs about a minute",
-          "correct": false,
-          "rationale": "Cast size doesn't set running time."
+          "left": "One page of screenplay",
+          "right": "About one minute of screen time"
         }
       ],
-      "explanation": "Every page uses the same font, margins and spacing, so one page works out to about a minute of screen time. It's an estimate.",
+      "explanation": "A scene heading is also called a slug line, Courier at 12-point is the industry standard font, and one page of screenplay is about one minute of screen time.",
       "difficulty": 0.3
     },
     {

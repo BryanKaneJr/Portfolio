@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 64,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Neutralization",
   "objective": "After this level you can explain what happens when an acid meets a base.",
@@ -149,41 +149,31 @@
     },
     {
       "id": "question.chemistry.064.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.antacid_neutralization"
       ],
       "sourceCardIds": [
-        "card.chemistry.064.c5"
+        "card.chemistry.064.c5",
+        "card.chemistry.064.c1"
       ],
-      "prompt": "Why can an antacid such as milk of magnesia ease excess stomach acid?",
-      "options": [
+      "prompt": "Match each common name with its chemical name.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It adds extra hydrogen ions to the stomach",
-          "correct": false,
-          "rationale": "That would make the stomach more acidic."
+          "left": "Milk of magnesia",
+          "right": "Magnesium hydroxide"
         },
         {
-          "id": "b",
-          "label": "It is a base whose hydroxide ions neutralize some acid",
-          "correct": true
+          "left": "Lye",
+          "right": "Sodium hydroxide"
         },
         {
-          "id": "c",
-          "label": "It freezes the acid so it cannot move",
-          "correct": false,
-          "rationale": "Antacids work by a reaction, not by cold."
-        },
-        {
-          "id": "d",
-          "label": "It is an acid that is stronger than stomach acid",
-          "correct": false,
-          "rationale": "An acid would add to the problem."
+          "left": "Table salt",
+          "right": "Sodium chloride"
         }
       ],
-      "explanation": "Milk of magnesia is magnesium hydroxide, a base: its hydroxide ions neutralize some of the stomach's hydrochloric acid.",
+      "explanation": "Milk of magnesia is magnesium hydroxide, lye is sodium hydroxide, and table salt is sodium chloride.",
       "difficulty": 0.25
     },
     {

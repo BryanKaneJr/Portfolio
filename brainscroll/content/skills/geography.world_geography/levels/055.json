@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 55,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Kilimanjaro and Africa's Peaks",
   "objective": "After this level you can describe Africa's highest mountains and their shrinking ice.",
@@ -130,41 +130,24 @@
     },
     {
       "id": "question.world_geography.055.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.shrinking_ice"
       ],
       "sourceCardIds": [
-        "card.world_geography.055.c3"
+        "card.world_geography.055.c3",
+        "card.world_geography.055.c1"
       ],
-      "prompt": "Besides warming, why is Kilimanjaro's ice shrinking?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Drier air brings less snow and fewer clouds",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The volcano is heating up from below",
-          "correct": false,
-          "rationale": "The cause is the air around it, not the rock."
-        },
-        {
-          "id": "c",
-          "label": "The mountain is sinking into the rift",
-          "correct": false,
-          "rationale": "Its height is steady; its ice is not."
-        },
-        {
-          "id": "d",
-          "label": "Climbers wear the ice away",
-          "correct": false,
-          "rationale": "People are not the main cause the research names."
-        }
+      "prompt": "Put Kilimanjaro's ice story in order, from earliest to latest.",
+      "items": [
+        "Rebmann had seen a snow-capped mountain",
+        "Lost more than 85% of its mass",
+        "The ice could vanish"
       ],
-      "explanation": "A drier regional atmosphere brings less fresh snow to rebuild the ice and fewer clouds to shade it from the Sun.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Rebmann saw the snow-capped mountain in 1848. Between 1912 and 2011 the summit ice lost more than 85% of its mass, and it could vanish by 2060.",
       "difficulty": 0.3
     },
     {

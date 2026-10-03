@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 39,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Aristotle's Rules of Tragedy",
   "objective": "After this level you can explain Aristotle's ideas of the tragic hero's error, the reversal, the recognition and catharsis.",
@@ -88,41 +88,32 @@
   "questions": [
     {
       "id": "question.literature.039.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.literature.aristotle_tragic_hero"
       ],
       "sourceCardIds": [
-        "card.literature.039.c2"
+        "card.literature.039.c2",
+        "card.literature.039.c3",
+        "card.literature.039.c4"
       ],
-      "prompt": "What did Aristotle mean by the tragic hero's hamartia?",
-      "options": [
+      "prompt": "Match each of Aristotle's terms with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Pure wickedness that deserves punishment",
-          "correct": false,
-          "rationale": "Aristotle's hero falls \"not by vice or depravity.\""
+          "left": "Hamartia",
+          "right": "An error of judgment"
         },
         {
-          "id": "b",
-          "label": "An error of judgment that brings him down",
-          "correct": true
+          "left": "Anagnorisis",
+          "right": "Ignorance to knowledge"
         },
         {
-          "id": "c",
-          "label": "The audience's release of pity and fear",
-          "correct": false,
-          "rationale": "That's catharsis."
-        },
-        {
-          "id": "d",
-          "label": "The chorus's final song",
-          "correct": false,
-          "rationale": "Hamartia belongs to the hero."
+          "left": "Catharsis",
+          "right": "Purgation or purification"
         }
       ],
-      "explanation": "Hamartia, from the Greek \"to err,\" is an error of judgment; later critics read it as a moral flaw.",
+      "explanation": "Hamartia is an error of judgment. Anagnorisis, the recognition, is a change from ignorance to knowledge, and catharsis means purgation or purification.",
       "difficulty": 0.2
     },
     {

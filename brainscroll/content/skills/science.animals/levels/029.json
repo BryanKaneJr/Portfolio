@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 29,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Migration",
   "objective": "After this level you can explain how birds migrate thousands of miles.",
@@ -162,7 +162,7 @@
     },
     {
       "id": "question.animals.029.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.migration_record_flights",
@@ -170,35 +170,25 @@
       ],
       "sourceCardIds": [
         "card.animals.029.c3",
-        "card.animals.029.c2"
+        "card.animals.029.c2",
+        "card.animals.029.c4"
       ],
-      "prompt": "An Arctic tern flies farther each year than B6's record flight. Why does the godwit still hold the nonstop record?",
-      "options": [
+      "prompt": "Match each record with its distance.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The tern's route is shorter than it looks",
-          "correct": false,
-          "rationale": "Tracked terns averaged 70,900 km a year."
+          "left": "B6",
+          "right": "About 13,560 km"
         },
         {
-          "id": "b",
-          "label": "The tern's migration includes stopovers",
-          "correct": true
+          "left": "Farne Islands tern",
+          "right": "96,000 km round trip"
         },
         {
-          "id": "c",
-          "label": "The godwit flew higher than the tern",
-          "correct": false,
-          "rationale": "The record is about distance without stopping."
-        },
-        {
-          "id": "d",
-          "label": "The tern migrates only every other year",
-          "correct": false,
-          "rationale": "The 70,900 km is a yearly figure."
+          "left": "A lifetime of migrations",
+          "right": "2.4 million km"
         }
       ],
-      "explanation": "The tern's huge yearly trip includes stopovers; B6 covered its 13,560 km without landing once.",
+      "explanation": "B6 flew about 13,560 km nonstop. A Farne Islands tern made an estimated 96,000 km round trip, and a tern's lifetime of migrations may top 2.4 million km.",
       "difficulty": 0.3
     }
   ],

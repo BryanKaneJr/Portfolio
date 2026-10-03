@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 51,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Africa: The Big Picture",
   "objective": "After this level you can describe Africa's size and how its landscapes change from north to south.",
@@ -135,7 +135,7 @@
     },
     {
       "id": "question.world_geography.051.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.africa_across_equator"
@@ -143,33 +143,16 @@
       "sourceCardIds": [
         "card.world_geography.051.c3"
       ],
-      "prompt": "Why do Africa's climate zones repeat in the same order north and south of its middle?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Sahara spreads south every year",
-          "correct": false,
-          "rationale": "The Sahara stays in the north; the pattern comes from latitude."
-        },
-        {
-          "id": "b",
-          "label": "Mountains split it into two equal halves",
-          "correct": false,
-          "rationale": "No mountain wall does it; a line of latitude does."
-        },
-        {
-          "id": "c",
-          "label": "The Equator cuts it almost in half",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Every coast has the same ocean current",
-          "correct": false,
-          "rationale": "Currents differ; the Equator sets the pattern."
-        }
+      "prompt": "Put Africa's climate zones in order, from its middle out to its tips.",
+      "items": [
+        "Rainforest",
+        "Savanna",
+        "Desert",
+        "Mediterranean"
       ],
-      "explanation": "The Equator runs through Africa's middle, so climates change in the same order heading north or south: rainforest, savanna, desert, Mediterranean.",
+      "first": "Middle",
+      "last": "Far tips",
+      "explanation": "From the Equator outward, in both directions: rainforest, then savanna, then desert, and Mediterranean climates at the far tips.",
       "difficulty": 0.3
     },
     {

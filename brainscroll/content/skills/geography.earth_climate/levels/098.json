@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 98,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Paris and the Climate Debate",
   "objective": "After this level you can describe what the Paris Agreement aims for and the main options people argue over for cutting emissions and adapting.",
@@ -119,41 +119,24 @@
   "questions": [
     {
       "id": "question.earth_climate.098.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.earth_climate.policy_paris"
       ],
       "sourceCardIds": [
-        "card.earth_climate.098.c2"
+        "card.earth_climate.098.c2",
+        "card.earth_climate.098.c5"
       ],
-      "prompt": "What long-term temperature goal does the Paris Agreement set?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Well below 2°C of warming, aiming for 1.5°C",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Zero warming from today onward",
-          "correct": false,
-          "rationale": "It limits warming; it doesn't set zero."
-        },
-        {
-          "id": "c",
-          "label": "Below 4°C of warming by the year 2100",
-          "correct": false,
-          "rationale": "The goal is well below 2°C."
-        },
-        {
-          "id": "d",
-          "label": "Whatever each country's plan adds up to",
-          "correct": false,
-          "rationale": "Countries set their own plans, but the shared goal is well below 2°C."
-        }
+      "prompt": "Put these climate milestones in order, from earliest to latest.",
+      "items": [
+        "The Paris Agreement was reached",
+        "Came into force",
+        "A 2021 National Academies report"
       ],
-      "explanation": "The Paris Agreement aims to hold warming well below 2°C above pre-industrial levels and to pursue efforts to limit it to 1.5°C.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Paris Agreement was reached on 12 December 2015, came into force on 4 November 2016, and a 2021 National Academies report backed research on dimming sunlight.",
       "difficulty": 0.3
     },
     {

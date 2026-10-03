@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 29,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Printing Music",
   "objective": "After this level you can explain how printed music spread songs across Europe.",
@@ -126,41 +126,25 @@
     },
     {
       "id": "question.music.029.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.attaingnant_single_impression"
       ],
       "sourceCardIds": [
-        "card.music.029.c4"
+        "card.music.029.c4",
+        "card.music.029.c1",
+        "card.music.029.c2"
       ],
-      "prompt": "Why did Attaingnant's printing method spread quickly across Europe?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It halved the time and labor of printing music",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "It printed music in color",
-          "correct": false,
-          "rationale": "Its advantage was speed, not color."
-        },
-        {
-          "id": "c",
-          "label": "It needed three passes through the press",
-          "correct": false,
-          "rationale": "That was Petrucci's slower method."
-        },
-        {
-          "id": "d",
-          "label": "It used handwritten master copies",
-          "correct": false,
-          "rationale": "It used movable type, each piece a note plus staff."
-        }
+      "prompt": "Put these printed works in order, from earliest to latest.",
+      "items": [
+        "Gutenberg",
+        "Harmonice Musices Odhecaton A",
+        "Chansons nouvelles"
       ],
-      "explanation": "Each piece of type combined a note with a fragment of staff, so one impression did the job.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Gutenberg printed his Bible around 1455, Petrucci's Harmonice Musices Odhecaton A came out in 1501, and Attaingnant's Chansons nouvelles in 1528.",
       "difficulty": 0.25
     },
     {

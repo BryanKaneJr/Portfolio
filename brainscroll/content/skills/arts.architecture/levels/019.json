@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 19,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Pantheon",
   "objective": "After this level you can explain how the Pantheon's dome has stood for 1,900 years.",
@@ -105,7 +105,7 @@
   "questions": [
     {
       "id": "question.architecture.019.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.wonders_pantheon_lightening"
@@ -113,33 +113,15 @@
       "sourceCardIds": [
         "card.architecture.019.c2"
       ],
-      "prompt": "Which stone went into the Pantheon's concrete toward the center of the vault?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Basalt",
-          "correct": false,
-          "rationale": "Heavy basalt went into the foundations."
-        },
-        {
-          "id": "b",
-          "label": "Granite",
-          "correct": false,
-          "rationale": "That lines the Great Pyramid's King's Chamber."
-        },
-        {
-          "id": "c",
-          "label": "Travertine",
-          "correct": false,
-          "rationale": "That's the Colosseum's framework stone."
-        },
-        {
-          "id": "d",
-          "label": "Pumice",
-          "correct": true
-        }
+      "prompt": "The Romans graded the Pantheon's materials by height. Put these in order, from the foundations up to the center of the vault.",
+      "items": [
+        "Basalt",
+        "Brick and tufa",
+        "Pumice"
       ],
-      "explanation": "The materials run from heavy basalt in the foundations, through brick and tufa, to the lightest pumice toward the center of the vault.",
+      "first": "In the foundations",
+      "last": "Center of the vault",
+      "explanation": "Heavy basalt went in the foundations, brick and tufa higher up, and the lightest stone, pumice, toward the center of the vault.",
       "difficulty": 0.15
     },
     {

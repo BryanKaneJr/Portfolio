@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 16,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Direct Democracy",
   "objective": "After this level you can explain government where citizens vote on everything themselves.",
@@ -86,41 +86,32 @@
   "questions": [
     {
       "id": "question.government.016.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.direct_democracy_assemblies"
       ],
       "sourceCardIds": [
-        "card.government.016.c1"
+        "card.government.016.c1",
+        "card.government.016.c2",
+        "card.government.016.c3"
       ],
-      "prompt": "How do voters decide at the Landsgemeinde in Glarus and Appenzell Innerrhoden?",
-      "options": [
+      "prompt": "Match each way of deciding with where or how it happens.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "By electing a parliament to decide for them",
-          "correct": false,
-          "rationale": "The point of the Landsgemeinde is deciding in person."
+          "left": "Landsgemeinde",
+          "right": "Appenzell Innerrhoden"
         },
         {
-          "id": "b",
-          "label": "By mailing in a secret ballot",
-          "correct": false,
-          "rationale": "Voting is open, by raised hands."
+          "left": "Town meeting",
+          "right": "New England"
         },
         {
-          "id": "c",
-          "label": "By a show of hands at an open-air assembly",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "By letting the cantonal council vote in private",
-          "correct": false,
-          "rationale": "Voters decide themselves, in the open."
+          "left": "Representative democracy",
+          "right": "You vote for people"
         }
       ],
-      "explanation": "Once a year, voters gather in the open air and vote on laws and taxes by a show of hands.",
+      "explanation": "The Landsgemeinde meets in Glarus and Appenzell Innerrhoden, the town meeting governs New England towns, and in a representative democracy you vote for people.",
       "difficulty": 0.15
     },
     {

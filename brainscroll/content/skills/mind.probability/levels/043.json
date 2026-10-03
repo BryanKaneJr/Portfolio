@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 43,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How Many Must Take the Pill?",
   "objective": "After this level you can explain the number needed to treat: how many people take a treatment for one of them to benefit.",
@@ -82,41 +82,31 @@
   "questions": [
     {
       "id": "question.probability.043.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.risk_number_needed_to_treat"
       ],
       "sourceCardIds": [
-        "card.probability.043.c3"
+        "card.probability.043.c3",
+        "card.probability.043.c4"
       ],
-      "prompt": "A treatment has a number needed to treat of 50. What does that mean?",
-      "options": [
+      "prompt": "Match how many people a treatment helps with its number needed to treat.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It works for 50% of the people who take it",
-          "correct": false,
-          "rationale": "An NNT is a head count, not a percent."
+          "left": "Helps everyone",
+          "right": "1"
         },
         {
-          "id": "b",
-          "label": "It cuts the risk to one fiftieth of what it was",
-          "correct": false,
-          "rationale": "That would be a relative change; NNT counts people."
+          "left": "Helps half",
+          "right": "2"
         },
         {
-          "id": "c",
-          "label": "It must be taken for 50 days before it works",
-          "correct": false,
-          "rationale": "The time period is set by the study, not by the NNT."
-        },
-        {
-          "id": "d",
-          "label": "About 50 people take it for one of them to benefit",
-          "correct": true
+          "left": "A quarter",
+          "right": "4"
         }
       ],
-      "explanation": "The number needed to treat is how many people take a treatment, over a set time, for one of them to benefit.",
+      "explanation": "If a treatment helps everyone, the NNT is 1: you treat 1 person to help 1. If it helps half, the NNT is 2, and if it helps a quarter, 4.",
       "difficulty": 0.25
     },
     {

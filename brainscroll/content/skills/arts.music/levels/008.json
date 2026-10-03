@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 8,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Scales and Octaves",
   "objective": "After this level you can explain what a scale is and how octaves work.",
@@ -174,7 +174,7 @@
     },
     {
       "id": "question.music.008.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.music.scale_structure"
@@ -183,33 +183,22 @@
         "card.music.008.c4",
         "card.music.008.c3"
       ],
-      "prompt": "Arabic and Indian classical music use notes between a piano's keys. What does that show about the 12-semitone octave?",
-      "options": [
+      "prompt": "Match each kind of music with how it divides the octave.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Those traditions are out of tune",
-          "correct": false,
-          "rationale": "They follow their own, different systems."
+          "left": "Pentatonic scales",
+          "right": "Five-note"
         },
         {
-          "id": "b",
-          "label": "A piano can play every note in world music",
-          "correct": false,
-          "rationale": "Some notes fall between its keys."
+          "left": "Western keyboards",
+          "right": "12 equal semitones"
         },
         {
-          "id": "c",
-          "label": "Octaves don't exist outside the West",
-          "correct": false,
-          "rationale": "The octave is a constant in most cultures' scales."
-        },
-        {
-          "id": "d",
-          "label": "It's one way of dividing the octave, not the only one",
-          "correct": true
+          "left": "Arabic and Indian classical music",
+          "right": "Intervals smaller than a semitone"
         }
       ],
-      "explanation": "Equal temperament splits the octave into 12; other traditions use pentatonic scales or intervals smaller than a semitone.",
+      "explanation": "Pentatonic scales are five-note scales, Western keyboards split the octave into 12 equal semitones, and Arabic and Indian classical music use intervals smaller than a semitone.",
       "difficulty": 0.3
     }
   ],

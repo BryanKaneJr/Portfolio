@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 21,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Levers, Wheels and Pulleys",
   "objective": "After this level you can explain how simple machines make work easier.",
@@ -129,41 +129,31 @@
     },
     {
       "id": "question.everyday_technology.021.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.motion_simple_machines"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.021.c2"
+        "card.everyday_technology.021.c2",
+        "card.everyday_technology.021.c3"
       ],
-      "prompt": "Why can a long lever lift a rock you could never lift by hand?",
-      "options": [
+      "prompt": "Match each simple machine with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "You push far from the pivot, so your force is multiplied",
-          "correct": true
+          "left": "Lever",
+          "right": "A bar that turns on a pivot"
         },
         {
-          "id": "b",
-          "label": "The bar adds some energy of its own to your push",
-          "correct": false,
-          "rationale": "No machine creates energy."
+          "left": "Wheel and axle",
+          "right": "A lever that goes round"
         },
         {
-          "id": "c",
-          "label": "Rocks weigh less while a metal bar is touching them",
-          "correct": false,
-          "rationale": "The rock weighs the same; your push is multiplied."
-        },
-        {
-          "id": "d",
-          "label": "Metal bars pull rocks upward, a bit like magnets",
-          "correct": false,
-          "rationale": "It is leverage, not magnetism."
+          "left": "Pulley",
+          "right": "A wheel carrying a rope"
         }
       ],
-      "explanation": "Force times distance from the fulcrum balances on each side, so pushing far from the pivot multiplies your force.",
+      "explanation": "A lever is a bar that turns on a pivot, a wheel and axle is a lever that goes round, and a pulley is a wheel carrying a rope.",
       "difficulty": 0.3
     },
     {

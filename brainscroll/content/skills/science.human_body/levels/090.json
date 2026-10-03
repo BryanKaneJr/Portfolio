@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 90,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Growing and Changing",
   "objective": "After this level you can explain how genes, hormones and time shape a body from birth to old age.",
@@ -228,7 +228,7 @@
     },
     {
       "id": "question.human_body.090.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.human_body.prenatal_development"
@@ -237,32 +237,16 @@
         "card.human_body.081.c5",
         "card.human_body.090.c2"
       ],
-      "prompt": "Growing and Changing recap, from Level 81: when is a developing embryo first called a fetus?",
-      "options": [
-        {
-          "id": "a",
-          "label": "At the end of week 10 of pregnancy",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "On the day of fertilization",
-          "correct": false,
-          "rationale": "Then it's a single cell, the zygote."
-        },
-        {
-          "id": "c",
-          "label": "At about week 40",
-          "correct": false,
-          "rationale": "That's around birth."
-        },
-        {
-          "id": "d",
-          "label": "At the start of puberty",
-          "correct": false,
-          "rationale": "That's years after birth."
-        }
+      "prompt": "Put the stages of one life in order, from a single cell to later life.",
+      "items": [
+        "Fertilization",
+        "The embryo is now a fetus",
+        "Puberty begins",
+        "The prefrontal cortex finishes maturing",
+        "Senescent cells build up"
       ],
+      "first": "A single cell",
+      "last": "Later life",
       "explanation": "At the end of week 10 of pregnancy, about 8 weeks after fertilization, the embryo is called a fetus.",
       "difficulty": 0.25
     },

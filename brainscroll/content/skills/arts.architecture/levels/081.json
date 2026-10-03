@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 81,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The First Cities",
   "objective": "After this level you can describe early cities like Uruk.",
@@ -86,41 +86,32 @@
   "questions": [
     {
       "id": "question.architecture.081.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.cities_what_makes_city"
       ],
       "sourceCardIds": [
-        "card.architecture.081.c2"
+        "card.architecture.081.c2",
+        "card.architecture.081.c3",
+        "card.architecture.081.c4"
       ],
-      "prompt": "Which of these is on V. Gordon Childe's list of signs of the earliest cities?",
-      "options": [
+      "prompt": "Match each sign of an early city with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A railway station",
-          "correct": false,
-          "rationale": "Railways came some 5,000 years later."
+          "left": "Full-time specialists",
+          "right": "Do one job all day"
         },
         {
-          "id": "b",
-          "label": "Full-time specialists",
-          "correct": true
+          "left": "V. Gordon Childe",
+          "right": "10 signs"
         },
         {
-          "id": "c",
-          "label": "A population of exactly 10,000",
-          "correct": false,
-          "rationale": "Childe listed kinds of evidence, not a set population."
-        },
-        {
-          "id": "d",
-          "label": "Paved car parks",
-          "correct": false,
-          "rationale": "Cars are a very modern problem."
+          "left": "Painted clay cones",
+          "right": "Mosaics"
         }
       ],
-      "explanation": "Childe's 10 signs include larger settlements, large-scale public works, writing and full-time specialists.",
+      "explanation": "V. Gordon Childe listed 10 signs of the earliest cities, including full-time specialists, who do one job all day. Painted clay cones made the mosaics on Uruk's mud-brick walls.",
       "difficulty": 0.15
     },
     {

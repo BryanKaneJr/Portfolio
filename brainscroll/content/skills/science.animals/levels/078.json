@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 78,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How Smart Are Animals?",
   "objective": "After this level you can explain how scientists test animal intelligence.",
@@ -135,41 +135,24 @@
     },
     {
       "id": "question.animals.078.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.behavior_mirror_test_limits"
       ],
       "sourceCardIds": [
-        "card.animals.078.c4"
+        "card.animals.078.c4",
+        "card.animals.078.c2"
       ],
-      "prompt": "Why might a dog fail the mirror test even if it can recognize itself?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It relies more on smell than sight",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Dogs can't see reflections",
-          "correct": false,
-          "rationale": "They can see them; sight just isn't their main sense."
-        },
-        {
-          "id": "c",
-          "label": "Dogs are too young when tested",
-          "correct": false,
-          "rationale": "Age isn't the issue."
-        },
-        {
-          "id": "d",
-          "label": "The mark is too small",
-          "correct": false,
-          "rationale": "The problem is the sense the test uses."
-        }
+      "prompt": "Put the stages of the mirror mark test in order.",
+      "items": [
+        "Gets used to the mirror",
+        "Make odd movements",
+        "Pokes at the mark"
       ],
-      "explanation": "The mirror is a sight test, and in a smell version dogs reacted to changes in their own scent.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "First the animal gets used to the mirror, next it often makes odd movements, and last, once marked, it passes if it pokes at the mark while watching its reflection.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 25,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Binary Search: Halve and Halve Again",
   "objective": "After this level you can explain how binary search finds one name in a sorted list of a million in about 20 steps.",
@@ -124,41 +124,32 @@
     },
     {
       "id": "question.computers.025.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.software_binary_search"
       ],
       "sourceCardIds": [
-        "card.computers.025.c2"
+        "card.computers.025.c2",
+        "card.computers.025.c3",
+        "card.computers.025.c4"
       ],
-      "prompt": "How does each step of binary search shrink the problem?",
-      "options": [
+      "prompt": "Match each search idea with how it behaves.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It checks the next name in order, from the start of the list",
-          "correct": false,
-          "rationale": "That's linear search."
+          "left": "A linear search",
+          "right": "Checks items one by one"
         },
         {
-          "id": "b",
-          "label": "It picks a name at random and hopes",
-          "correct": false,
-          "rationale": "Every step is a planned check of the middle."
+          "left": "Binary search",
+          "right": "Halves what's left each time"
         },
         {
-          "id": "c",
-          "label": "It checks the middle and throws away the half that can't hold the name",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It sorts the list again from scratch",
-          "correct": false,
-          "rationale": "The list must already be sorted."
+          "left": "Doubling the list",
+          "right": "Adds just one step"
         }
       ],
-      "explanation": "Each step compares the target with the middle item and discards the half that can't contain it.",
+      "explanation": "A linear search checks items one by one, binary search halves what's left each time, and for binary search, doubling the list adds just one step.",
       "difficulty": 0.2
     },
     {

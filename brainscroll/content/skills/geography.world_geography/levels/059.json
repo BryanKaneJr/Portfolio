@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 59,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Oil and Water",
   "objective": "After this level you can explain why oil and fresh water shape life in the Middle East.",
@@ -126,7 +126,7 @@
     },
     {
       "id": "question.world_geography.059.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.gulf_water_scarcity"
@@ -134,33 +134,15 @@
       "sourceCardIds": [
         "card.world_geography.059.c4"
       ],
-      "prompt": "How do Gulf countries power their energy-hungry desalination plants?",
-      "options": [
-        {
-          "id": "a",
-          "label": "With oil and natural gas",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "With river dams",
-          "correct": false,
-          "rationale": "Kuwait has no rivers to dam."
-        },
-        {
-          "id": "c",
-          "label": "With geothermal heat from the rift",
-          "correct": false,
-          "rationale": "The fuel is under the sand, not in the rift."
-        },
-        {
-          "id": "d",
-          "label": "With imported fresh water",
-          "correct": false,
-          "rationale": "That's water, not power."
-        }
+      "prompt": "Put this Gulf chain in order, from fuel to faucet.",
+      "items": [
+        "Oil and natural gas",
+        "Desalination",
+        "Drinking water"
       ],
-      "explanation": "Desalination takes a lot of energy, and the Gulf countries run it on their own oil and natural gas.",
+      "first": "Cause",
+      "last": "Effect",
+      "explanation": "Oil and natural gas power desalination, which removes the salt from seawater to make drinking water.",
       "difficulty": 0.25
     },
     {

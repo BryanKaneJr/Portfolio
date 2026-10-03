@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 4,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "What a Law Is",
   "objective": "After this level you can explain what makes a rule a law.",
@@ -164,7 +164,7 @@
     },
     {
       "id": "question.government.004.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.government.law_definition",
@@ -172,35 +172,26 @@
       ],
       "sourceCardIds": [
         "card.government.004.c2",
-        "card.government.003.c3"
+        "card.government.003.c3",
+        "card.government.004.c1",
+        "card.government.004.c3"
       ],
-      "prompt": "Level 3 defined authority as accepted power. What role does it play in making a law?",
-      "options": [
+      "prompt": "Match each piece of Hammurabi's story with its detail.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It carves the law into stone",
-          "correct": false,
-          "rationale": "Carving was Hammurabi's choice, not what makes a law."
+          "left": "Hammurabi",
+          "right": "Babylon"
         },
         {
-          "id": "b",
-          "label": "It decides which games people play",
-          "correct": false,
-          "rationale": "That's closer to Level 2's football rules."
+          "left": "Law 196",
+          "right": "An eye for an eye"
         },
         {
-          "id": "c",
-          "label": "It stands behind the rule and enforces it",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It makes the law apply only to rulers",
-          "correct": false,
-          "rationale": "Laws bind the community, not only rulers."
+          "left": "The Louvre",
+          "right": "Paris"
         }
       ],
-      "explanation": "A law is enforced through a controlling authority: accepted power standing behind the rule.",
+      "explanation": "Hammurabi ruled Babylon, Law 196 is the famous eye for an eye, and the stone slab now sits in the Louvre in Paris.",
       "difficulty": 0.3
     }
   ],

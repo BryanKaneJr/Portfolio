@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 62,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Van Gogh",
   "objective": "After this level you can describe Van Gogh's brushwork, his colors and his life.",
@@ -95,41 +95,32 @@
   "questions": [
     {
       "id": "question.art_history.062.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.vangogh_starry_night"
       ],
       "sourceCardIds": [
-        "card.art_history.062.c2"
+        "card.art_history.062.c2",
+        "card.art_history.062.c3",
+        "card.art_history.062.c4"
       ],
-      "prompt": "Why did Van Gogh paint The Starry Night from memory?",
-      "options": [
+      "prompt": "Match each Van Gogh painting or term with what it's known for.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "He couldn't paint in his asylum bedroom",
-          "correct": true
+          "left": "The Starry Night",
+          "right": "A dark cypress"
         },
         {
-          "id": "b",
-          "label": "He painted it years later, far from France",
-          "correct": false,
-          "rationale": "He painted it in 1889, at the asylum near Saint-Rémy."
+          "left": "The Night Café",
+          "right": "A battle of greens and reds"
         },
         {
-          "id": "c",
-          "label": "Clouds hid the sky every night that year",
-          "correct": false,
-          "rationale": "He could watch the sky from his barred window."
-        },
-        {
-          "id": "d",
-          "label": "He always worked from photographs",
-          "correct": false,
-          "rationale": "He worked from memory or his own drawings."
+          "left": "Impasto",
+          "right": "Stands up in ridges"
         }
       ],
-      "explanation": "He could see the night sky from his barred bedroom window but couldn't paint in that room, so he worked from memory or drawings.",
+      "explanation": "The Starry Night has a dark cypress rising like a flame, The Night Café is a battle of greens and reds, and impasto is paint so thick it stands up in ridges.",
       "difficulty": 0.3
     },
     {

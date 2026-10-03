@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 10,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Moving Pictures",
   "objective": "After this level you can explain how inventors turned photographs into projected moving pictures that could tell a story.",
@@ -285,41 +285,26 @@
     },
     {
       "id": "question.film_tv.010.q4",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.melies_stop_trick"
       ],
       "sourceCardIds": [
-        "card.film_tv.007.c2"
+        "card.film_tv.007.c2",
+        "card.film_tv.010.c2"
       ],
-      "prompt": "From Level 7: a bus turned into a hearse and a queen into a dummy. Which trick did both use?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Cross-cutting between places",
-          "correct": false,
-          "rationale": "That's Porter's method in Level 8."
-        },
-        {
-          "id": "b",
-          "label": "A twin-bladed shutter",
-          "correct": false,
-          "rationale": "That's a projector part, not a trick."
-        },
-        {
-          "id": "c",
-          "label": "Hand-cranking faster",
-          "correct": false,
-          "rationale": "Speed changes don't swap objects."
-        },
-        {
-          "id": "d",
-          "label": "The stop trick",
-          "correct": true
-        }
+      "prompt": "Put these moments from Chapter 1 in order, from earliest to latest.",
+      "items": [
+        "Muybridge's 12 cameras",
+        "The first Kinetoscope parlor",
+        "The Lumières' paid screening",
+        "Méliès's A Trip to the Moon",
+        "Porter's The Great Train Robbery"
       ],
-      "explanation": "Stop the camera, swap what's in front of it, restart: Méliès's bus and Edison's 1895 beheading scene both used it.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Muybridge's 12 cameras came in 1878, the first Kinetoscope parlor in 1894, the Lumières' paid screening in 1895, A Trip to the Moon in 1902 and The Great Train Robbery in 1903.",
       "difficulty": 0.25
     },
     {

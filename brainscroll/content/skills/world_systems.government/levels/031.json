@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 31,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "What a Constitution Is",
   "objective": "After this level you can explain what a constitution does.",
@@ -180,42 +180,37 @@
     },
     {
       "id": "question.government.031.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.government.constitution_definition",
         "concept.government.aristotle_political_animal"
       ],
       "sourceCardIds": [
-        "card.government.031.c4"
+        "card.government.031.c4",
+        "card.government.031.c1",
+        "card.government.031.c2"
       ],
-      "prompt": "Level 10's Aristotle gave the simplest definition of a constitution. What was it?",
-      "options": [
+      "prompt": "Match each source with how it describes a constitution.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The arrangement of the offices in a state",
-          "correct": true
+          "left": "United States",
+          "right": "One specific written document"
         },
         {
-          "id": "b",
-          "label": "A contract signed by every single citizen",
-          "correct": false,
-          "rationale": "That's closer to Level 7's social contract."
+          "left": "United Kingdom",
+          "right": "A collection of documents"
         },
         {
-          "id": "c",
-          "label": "A list of one king's personal commands",
-          "correct": false,
-          "rationale": "A constitution arranges offices; it isn't one ruler's orders."
+          "left": "Aristotle",
+          "right": "The arrangement of the offices"
         },
         {
-          "id": "d",
-          "label": "The good life a city exists to provide",
-          "correct": false,
-          "rationale": "That's his purpose of the city, not his definition of a constitution."
+          "left": "International IDEA",
+          "right": "The supreme law of a country"
         }
       ],
-      "explanation": "Aristotle's simplest definition of a constitution was \"the arrangement of the offices in a polis\" (state).",
+      "explanation": "The United States has one specific written document, the United Kingdom has a collection of documents, statutes and practices, Aristotle called it the arrangement of the offices, and International IDEA calls it the supreme law of a country.",
       "difficulty": 0.25
     }
   ],

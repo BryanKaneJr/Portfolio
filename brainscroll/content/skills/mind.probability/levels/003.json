@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 3,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Percent Change",
   "objective": "After this level you can work out how much something rose or fell in percent by comparing the change with where it started.",
@@ -165,7 +165,7 @@
     },
     {
       "id": "question.probability.003.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.probability.percent_change_method",
@@ -175,33 +175,15 @@
         "card.probability.003.c2",
         "card.probability.002.c2"
       ],
-      "prompt": "The ticket's price rose 25%. Using Level 2's meaning of percent, how much did it rise for every $100 of its old price?",
-      "options": [
-        {
-          "id": "a",
-          "label": "$25",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "$5",
-          "correct": false,
-          "rationale": "That was the actual rise on a $20 ticket, not per $100."
-        },
-        {
-          "id": "c",
-          "label": "$20",
-          "correct": false,
-          "rationale": "That's the old price itself."
-        },
-        {
-          "id": "d",
-          "label": "$125",
-          "correct": false,
-          "rationale": "That would be the new price per $100, not the rise."
-        }
+      "prompt": "Put the steps for finding a percent change in order.",
+      "items": [
+        "Find the change: new minus old",
+        "Divide it by where you started",
+        "Turn the answer into a percent"
       ],
-      "explanation": "Percent means out of every 100, so a 25% rise is $25 for every $100 of the starting price.",
+      "first": "First step",
+      "last": "Last step",
+      "explanation": "First find the change (new minus old), then divide it by where you started, then turn the answer into a percent.",
       "difficulty": 0.3
     }
   ],

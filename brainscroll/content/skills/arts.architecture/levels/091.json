@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 91,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Green Buildings",
   "objective": "After this level you can explain how buildings can save energy.",
@@ -130,41 +130,31 @@
     },
     {
       "id": "question.architecture.091.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.future_passive_solar"
       ],
       "sourceCardIds": [
-        "card.architecture.091.c3"
+        "card.architecture.091.c3",
+        "card.architecture.091.c4"
       ],
-      "prompt": "Why does a fixed roof overhang above a south-facing window help in both summer and winter?",
-      "options": [
+      "prompt": "Match each green-building feature with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It carries the wall above, like a stone lintel",
-          "correct": false,
-          "rationale": "It shades the window; it isn't there to carry the wall."
+          "left": "Heat recovery ventilator",
+          "right": "A heat exchanger"
         },
         {
-          "id": "b",
-          "label": "It keeps rain off, so the glass stays warm",
-          "correct": false,
-          "rationale": "It works with the sun's angle, not the rain."
+          "left": "A roof overhang",
+          "right": "Leaves the window in shade"
         },
         {
-          "id": "c",
-          "label": "It blocks sunlight all year round",
-          "correct": false,
-          "rationale": "Then the room would lose its winter warmth."
-        },
-        {
-          "id": "d",
-          "label": "It shades high summer sun, admits low winter sun",
-          "correct": true
+          "left": "Main windows",
+          "right": "Within 30 degrees of true south"
         }
       ],
-      "explanation": "The summer sun rides high and hits the overhang; the low winter sun slips underneath and warms the room.",
+      "explanation": "A heat recovery ventilator passes air through a heat exchanger. In summer a roof overhang leaves the window in shade, and main windows should face within 30 degrees of true south.",
       "difficulty": 0.25
     },
     {

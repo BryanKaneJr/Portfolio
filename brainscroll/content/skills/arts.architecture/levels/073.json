@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 73,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Le Corbusier",
   "objective": "After this level you can explain the idea of a house as a machine for living in.",
@@ -130,42 +130,26 @@
     },
     {
       "id": "question.architecture.073.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.masters_corbusier_machine"
       ],
       "sourceCardIds": [
         "card.architecture.073.c1",
-        "card.architecture.073.c3"
+        "card.architecture.073.c3",
+        "card.architecture.073.c2"
       ],
-      "prompt": "How does the Villa Savoye's curved ground floor show Le Corbusier's 'machine for living' idea?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It hides the machinery that heats the house",
-          "correct": false,
-          "rationale": "The curve is about the car."
-        },
-        {
-          "id": "b",
-          "label": "It matches the turning radius of the family car",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It makes the house look like a ship",
-          "correct": false,
-          "rationale": "The curve follows the car's path."
-        },
-        {
-          "id": "d",
-          "label": "It keeps rain away from the pilotis",
-          "correct": false,
-          "rationale": "It was shaped for the car driving under the house."
-        }
+      "prompt": "Put these Le Corbusier milestones in order, from earliest to latest.",
+      "items": [
+        "The Dom-ino system",
+        "Vers une architecture",
+        "Five points for a new architecture",
+        "The Villa Savoye"
       ],
-      "explanation": "The ground floor curves to fit the car's turning radius as it drove in under the pilotis: the house built around how it would be used.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "He drew the Dom-ino system in 1914, wrote Vers une architecture in 1923, set out his five points for a new architecture in 1927, and built the Villa Savoye from 1928 to 1931.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 70,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: The Senses",
   "objective": "After this level you can explain how the senses gather information and how the brain makes sense of it.",
@@ -131,38 +131,33 @@
   "questions": [
     {
       "id": "question.human_body.070.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.senses_sensory_adaptation"
       ],
       "sourceCardIds": [
-        "card.human_body.070.c4"
+        "card.human_body.070.c4",
+        "card.human_body.070.c2",
+        "card.human_body.070.c3"
       ],
-      "prompt": "Senses recap: what is it called when you stop perceiving a stimulus that stays the same for a long time?",
-      "options": [
+      "prompt": "Match each term from the senses chapter with its meaning.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Transduction",
-          "correct": false,
-          "rationale": "That's turning a stimulus into a nerve signal."
+          "left": "Transduction",
+          "right": "Stimulus into a nerve signal"
         },
         {
-          "id": "b",
-          "label": "Sensory adaptation",
-          "correct": true
+          "left": "Sensation",
+          "right": "A receptor detecting something"
         },
         {
-          "id": "c",
-          "label": "Proprioception",
-          "correct": false,
-          "rationale": "That's your sense of body position."
+          "left": "Perception",
+          "right": "Interpreting it into an experience"
         },
         {
-          "id": "d",
-          "label": "Motion sickness",
-          "correct": false,
-          "rationale": "That comes from clashing balance signals."
+          "left": "Sensory adaptation",
+          "right": "Stop perceiving stimuli"
         }
       ],
       "explanation": "Sensory adaptation: we often stop perceiving stimuli that stay relatively constant, like a steadily flashing light.",

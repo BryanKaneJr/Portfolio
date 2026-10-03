@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 49,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Tchaikovsky and Ballet",
   "objective": "After this level you can describe Tchaikovsky's ballets.",
@@ -126,41 +126,26 @@
     },
     {
       "id": "question.music.049.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.music.tchaikovsky_ballet"
       ],
       "sourceCardIds": [
-        "card.music.049.c3"
+        "card.music.049.c3",
+        "card.music.049.c1",
+        "card.music.049.c4"
       ],
-      "prompt": "Why does the Swan Lake danced today owe so much to 1895?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Tchaikovsky rewrote the whole score that year",
-          "correct": false,
-          "rationale": "He had died in 1893."
-        },
-        {
-          "id": "b",
-          "label": "Petipa and Ivanov's restaging became the standard",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It was first recorded on film that year",
-          "correct": false,
-          "rationale": "The key was a new staging, not a recording."
-        },
-        {
-          "id": "d",
-          "label": "The Bolshoi finally allowed a second night",
-          "correct": false,
-          "rationale": "The revival was at the Mariinsky in St. Petersburg."
-        }
+      "prompt": "Put these events in order, from earliest to latest.",
+      "items": [
+        "Swan Lake opened in Moscow",
+        "The Nutcracker",
+        "Tchaikovsky died in St. Petersburg",
+        "Restaged Swan Lake"
       ],
-      "explanation": "The 1895 Petipa-Ivanov restaging at the Mariinsky is the version most often followed today.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Swan Lake opened in Moscow in 1877, The Nutcracker premiered in 1892, Tchaikovsky died in St. Petersburg in 1893, and Petipa and Ivanov restaged Swan Lake in 1895.",
       "difficulty": 0.25
     },
     {

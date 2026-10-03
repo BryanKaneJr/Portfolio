@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 97,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Quantum Computers",
   "objective": "After this level you can explain what makes quantum computers different, without the hype.",
@@ -130,42 +130,25 @@
     },
     {
       "id": "question.everyday_technology.097.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.quantum_uses_limits"
       ],
       "sourceCardIds": [
         "card.everyday_technology.097.c3",
-        "card.everyday_technology.097.c4"
+        "card.everyday_technology.097.c4",
+        "card.everyday_technology.097.c1"
       ],
-      "prompt": "Which job are quantum computers actually expected to help with?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Running your web browser faster",
-          "correct": false,
-          "rationale": "They aren't faster laptops."
-        },
-        {
-          "id": "b",
-          "label": "Simulating how molecules and materials behave",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Replacing every ordinary computer",
-          "correct": false,
-          "rationale": "NIST expects the two to work together."
-        },
-        {
-          "id": "d",
-          "label": "Storing photos with fewer errors",
-          "correct": false,
-          "rationale": "Qubits make far more errors than ordinary bits."
-        }
+      "prompt": "Put these moments in quantum computing in order, from earliest to latest.",
+      "items": [
+        "Peter Shor described a quantum algorithm",
+        "Sycamore processor",
+        "First encryption standards"
       ],
-      "explanation": "NIST expects quantum computers to help with specific problems, such as simulating the quantum rules of molecules, chemicals and materials.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Peter Shor described his factoring algorithm in 1994, Google's Sycamore processor did its benchmark in 2019, and NIST released its first quantum-safe encryption standards in 2024.",
       "difficulty": 0.35
     },
     {

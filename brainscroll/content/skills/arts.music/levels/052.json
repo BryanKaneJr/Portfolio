@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 52,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Indian Classical Music",
   "objective": "After this level you can explain ragas and talas.",
@@ -91,41 +91,35 @@
   "questions": [
     {
       "id": "question.music.052.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.india_tala"
       ],
       "sourceCardIds": [
-        "card.music.052.c3"
+        "card.music.052.c3",
+        "card.music.052.c4"
       ],
-      "prompt": "In a tala cycle of Indian classical music, what is the sam?",
-      "options": [
+      "prompt": "Match each part of a Hindustani performance with what it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The drone note under the whole raga",
-          "correct": false,
-          "rationale": "That's the tambura's job."
+          "left": "Tambura",
+          "right": "Plays only the drone"
         },
         {
-          "id": "b",
-          "label": "The first beat, the point of greatest resolution",
-          "correct": true
+          "left": "Tabla",
+          "right": "Two drums played by one musician"
         },
         {
-          "id": "c",
-          "label": "The last beat, where the cycle ends",
-          "correct": false,
-          "rationale": "The sam is the first beat, where the cycle lands."
+          "left": "Alap",
+          "right": "A long improvisation with no meter"
         },
         {
-          "id": "d",
-          "label": "A fast closing section of the concert",
-          "correct": false,
-          "rationale": "The sam is a beat, not a section."
+          "left": "Sam",
+          "right": "The first beat"
         }
       ],
-      "explanation": "The sam is the first beat of the cycle and its point of maximum rhythmic resolution.",
+      "explanation": "The tambura plays only the drone, the tabla is two drums played by one musician, the alap is a long improvisation with no meter, and the sam is the first beat of the tala.",
       "difficulty": 0.2
     },
     {

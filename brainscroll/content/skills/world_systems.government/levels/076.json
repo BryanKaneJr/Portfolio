@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 76,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Roads and Bridges",
   "objective": "After this level you can explain how governments build and maintain infrastructure.",
@@ -86,41 +86,25 @@
   "questions": [
     {
       "id": "question.government.076.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.infra_genoa_maintenance"
       ],
       "sourceCardIds": [
-        "card.government.076.c2"
+        "card.government.076.c2",
+        "card.government.076.c1",
+        "card.government.076.c3"
       ],
-      "prompt": "What was built into Genoa's San Giorgio bridge to help with maintenance?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A toll booth at each end",
-          "correct": false,
-          "rationale": "Tolls raise money; the maintenance feature is the robots."
-        },
-        {
-          "id": "b",
-          "label": "Robots that run along it checking for weathering and erosion",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "A second deck for spare traffic",
-          "correct": false,
-          "rationale": "It has no spare deck; its robots check the structure."
-        },
-        {
-          "id": "d",
-          "label": "Solar panels to pay for repairs",
-          "correct": false,
-          "rationale": "The maintenance feature is its inspection robots."
-        }
+      "prompt": "Put these moments in the story of roads and bridges in order, from earliest to latest.",
+      "items": [
+        "Highway Trust Fund",
+        "A motorway bridge in Genoa fell",
+        "San Giorgio bridge"
       ],
-      "explanation": "Four robots run along the San Giorgio bridge, checking it for weathering and erosion.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The US set up the Highway Trust Fund in 1956, the Morandi bridge in Genoa fell in 2018, and the San Giorgio bridge opened in 2020.",
       "difficulty": 0.2
     },
     {

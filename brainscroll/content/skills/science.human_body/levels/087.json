@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 87,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Our Ancestors in Us",
   "objective": "After this level you can explain which features our bodies inherited from early humans.",
@@ -137,40 +137,25 @@
     },
     {
       "id": "question.human_body.087.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.ancestry_neanderthal_dna"
       ],
       "sourceCardIds": [
-        "card.human_body.087.c4"
+        "card.human_body.087.c4",
+        "card.human_body.087.c2",
+        "card.human_body.087.c3"
       ],
-      "prompt": "What does the Neanderthal DNA found in many people today show?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Our species and Neanderthals interbred",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Neanderthals are still alive",
-          "correct": false,
-          "rationale": "Neanderthals are extinct."
-        },
-        {
-          "id": "c",
-          "label": "Humans evolved from Neanderthals in Europe",
-          "correct": false,
-          "rationale": "Homo sapiens evolved in Africa."
-        },
-        {
-          "id": "d",
-          "label": "DNA can't last more than a century",
-          "correct": false,
-          "rationale": "Pääbo sequenced ancient Neanderthal DNA."
-        }
+      "prompt": "Put these chapters of human history in order, from earliest to latest.",
+      "items": [
+        "Walking on two legs",
+        "Big brains",
+        "Homo sapiens",
+        "The first Neanderthal genome"
       ],
+      "first": "Earliest",
+      "last": "Latest",
       "explanation": "Pääbo's work showed that Homo sapiens and Neanderthals interbred, leaving about 1 to 2 percent Neanderthal DNA in people of European or Asian descent.",
       "difficulty": 0.3
     },

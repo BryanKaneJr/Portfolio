@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 49,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why Winds Curve",
   "objective": "After this level you can explain how Earth's spin deflects moving air (the Coriolis effect) and why storms spin.",
@@ -82,7 +82,7 @@
   "questions": [
     {
       "id": "question.earth_climate.049.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.earth_climate.coriolis_storm_spin"
@@ -90,33 +90,22 @@
       "sourceCardIds": [
         "card.earth_climate.049.c4"
       ],
-      "prompt": "Seen from above, which way does a big storm in the Northern Hemisphere spin?",
-      "options": [
+      "prompt": "Match each place with how Earth's spin affects storms there.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Clockwise",
-          "correct": false,
-          "rationale": "That's the Southern Hemisphere."
+          "left": "Northern Hemisphere",
+          "right": "Counterclockwise"
         },
         {
-          "id": "b",
-          "label": "Counterclockwise",
-          "correct": true
+          "left": "Near the poles",
+          "right": "Strongest"
         },
         {
-          "id": "c",
-          "label": "It does not spin",
-          "correct": false,
-          "rationale": "Deflected inflowing air sets it turning."
-        },
-        {
-          "id": "d",
-          "label": "It changes every hour",
-          "correct": false,
-          "rationale": "The direction follows the hemisphere."
+          "left": "At the Equator",
+          "right": "Zero"
         }
       ],
-      "explanation": "Air flowing into a low is deflected to the right in the north, so storms there turn counterclockwise.",
+      "explanation": "Storms spin counterclockwise in the Northern Hemisphere. The effect is strongest near the poles and zero at the Equator, which is why hurricanes almost never form there.",
       "difficulty": 0.15
     },
     {

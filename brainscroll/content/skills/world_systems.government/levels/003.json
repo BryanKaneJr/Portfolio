@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 3,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Power and Authority",
   "objective": "After this level you can tell power from authority.",
@@ -190,7 +190,7 @@
     },
     {
       "id": "question.government.003.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.government.power_vs_authority",
@@ -198,35 +198,25 @@
       ],
       "sourceCardIds": [
         "card.government.003.c3",
-        "card.government.001.c4"
+        "card.government.001.c4",
+        "card.government.003.c4"
       ],
-      "prompt": "Level 1's Sumer needed a central authority to share its water. In Weber's terms, what did that authority need beyond power?",
-      "options": [
+      "prompt": "Match each of Weber's roots of authority with what it rests on.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A bigger army than its neighbors",
-          "correct": false,
-          "rationale": "An army is power; authority needs acceptance."
+          "left": "Traditional",
+          "right": "Long-standing custom"
         },
         {
-          "id": "b",
-          "label": "A written constitution",
-          "correct": false,
-          "rationale": "Constitutions aren't part of Weber's test."
+          "left": "Charismatic",
+          "right": "Exceptional personal qualities"
         },
         {
-          "id": "c",
-          "label": "Control of the only boats",
-          "correct": false,
-          "rationale": "Controlling boats would be power, not authority."
-        },
-        {
-          "id": "d",
-          "label": "People accepting its orders as valid",
-          "correct": true
+          "left": "Legal-rational",
+          "right": "Laws and written rules"
         }
       ],
-      "explanation": "Authority is power that people accept. Sharing water works far better when people accept who decides.",
+      "explanation": "Traditional authority rests on long-standing custom, charismatic authority on a leader's exceptional personal qualities, and legal-rational authority on laws and written rules.",
       "difficulty": 0.3
     }
   ],

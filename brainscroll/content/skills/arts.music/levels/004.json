@@ -3,7 +3,7 @@
   "skillId": "skill.arts.music",
   "number": 4,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Rhythm and Beat",
   "objective": "After this level you can explain beat, tempo and rhythm.",
@@ -91,7 +91,7 @@
   "questions": [
     {
       "id": "question.music.004.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.music.beat_tempo"
@@ -99,33 +99,16 @@
       "sourceCardIds": [
         "card.music.004.c2"
       ],
-      "prompt": "A score is marked 120 BPM. What does that tell the musician?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Play 120 notes in the piece",
-          "correct": false,
-          "rationale": "BPM counts beats, not notes."
-        },
-        {
-          "id": "b",
-          "label": "Play at 120 beats every minute",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Group the beats in 120s",
-          "correct": false,
-          "rationale": "Grouping is meter, usually twos or threes."
-        },
-        {
-          "id": "d",
-          "label": "Hold every note for 120 seconds",
-          "correct": false,
-          "rationale": "It sets the speed of the beat."
-        }
+      "prompt": "Put these tempo markings in order, from slowest to fastest.",
+      "items": [
+        "Adagio",
+        "Andante",
+        "Allegro",
+        "Presto"
       ],
-      "explanation": "Tempo is counted in beats per minute; 120 BPM is twice as fast as 60.",
+      "first": "Slowest",
+      "last": "Fastest",
+      "explanation": "Adagio means slow, andante is a walking pace, allegro is fast and presto is very fast.",
       "difficulty": 0.1
     },
     {

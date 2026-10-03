@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 37,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Raphael and the High Renaissance",
   "objective": "After this level you can explain what made High Renaissance painting feel balanced and calm.",
@@ -164,7 +164,7 @@
     },
     {
       "id": "question.art_history.037.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.art_history.ren_school_of_athens",
@@ -172,35 +172,29 @@
       ],
       "sourceCardIds": [
         "card.art_history.037.c3",
-        "card.art_history.032.c2"
+        "card.art_history.032.c2",
+        "card.art_history.037.c2"
       ],
-      "prompt": "Where does The School of Athens put its vanishing point, the spot from Level 32 where receding lines meet?",
-      "options": [
+      "prompt": "Match each figure in The School of Athens with how Raphael shows him.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "In the corner, near Raphael",
-          "correct": false,
-          "rationale": "Raphael is at the edge; the lines meet in the middle."
+          "left": "Plato",
+          "right": "Pointing up to the sky"
         },
         {
-          "id": "b",
-          "label": "On Heraclitus's marble block",
-          "correct": false,
-          "rationale": "Heraclitus is in front, not at the center."
+          "left": "Aristotle",
+          "right": "Gesturing down toward the earth"
         },
         {
-          "id": "c",
-          "label": "Off the wall, outside the frame",
-          "correct": false,
-          "rationale": "It's inside the picture, at the center."
+          "left": "Heraclitus",
+          "right": "A portrait of Michelangelo"
         },
         {
-          "id": "d",
-          "label": "Where Plato and Aristotle stand",
-          "correct": true
+          "left": "Raphael",
+          "right": "A black beret"
         }
       ],
-      "explanation": "The architecture's central vanishing point falls on Plato and Aristotle, so every line steers your eye to them.",
+      "explanation": "Plato points up to the sky, Aristotle gestures down toward the earth, Heraclitus is a portrait of Michelangelo, and Raphael put himself at the far right in a black beret.",
       "difficulty": 0.25
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 10,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Inside the Machine",
   "objective": "After this level you can explain how bits, gates, a processor and memory turn stored numbers into text, pictures and sums.",
@@ -158,7 +158,7 @@
   "questions": [
     {
       "id": "question.computers.010.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.bits_need_context"
@@ -166,33 +166,22 @@
       "sourceCardIds": [
         "card.computers.010.c2"
       ],
-      "prompt": "Read as ASCII text, what do the bytes 72, 73 and 33 say?",
-      "options": [
+      "prompt": "Match each way of reading the bytes 72, 73, 33 with what you get.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "ABC",
-          "correct": false,
-          "rationale": "A, B and C are 65, 66 and 67."
+          "left": "Read as ASCII text",
+          "right": "The screen shows HI!"
         },
         {
-          "id": "b",
-          "label": "HI!",
-          "correct": true
+          "left": "Read as one pixel",
+          "right": "A shade of yellow"
         },
         {
-          "id": "c",
-          "label": "Yes",
-          "correct": false,
-          "rationale": "Those letters have different codes."
-        },
-        {
-          "id": "d",
-          "label": "Nothing: they are only a color",
-          "correct": false,
-          "rationale": "The same bytes can be read as text too."
+          "left": "Read as plain numbers",
+          "right": "they sum to 178"
         }
       ],
-      "explanation": "In ASCII, 72 is H, 73 is I and 33 is an exclamation mark.",
+      "explanation": "Read as ASCII text, the screen shows HI!. Read as one pixel, they're a shade of yellow. Read as plain numbers, they sum to 178.",
       "difficulty": 0.2
     },
     {

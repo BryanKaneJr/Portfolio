@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 50,
   "type": "milestone",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Milestone: Fuel and Oxygen",
   "objective": "After this level you can connect digestion, breathing and blood into one picture of how cells get energy.",
@@ -295,7 +295,7 @@
     },
     {
       "id": "question.human_body.050.q5",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.digestion_fuel_to_cells",
@@ -305,32 +305,16 @@
         "card.human_body.050.c2",
         "card.human_body.002.c4"
       ],
-      "prompt": "Food and Digestion milestone: glucose from your lunch reaches a muscle cell. What happens to its energy there?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It is stored in the nucleus as DNA",
-          "correct": false,
-          "rationale": "DNA holds instructions, not fuel."
-        },
-        {
-          "id": "b",
-          "label": "It leaves in urine unused",
-          "correct": false,
-          "rationale": "Cells use it."
-        },
-        {
-          "id": "c",
-          "label": "It is turned back into starch in the blood",
-          "correct": false,
-          "rationale": "Starch is broken down, not rebuilt, in the blood."
-        },
-        {
-          "id": "d",
-          "label": "Mitochondria convert it into a form the cell can use",
-          "correct": true
-        }
+      "prompt": "Follow the energy in your lunch: put these in order, from your plate to your cells.",
+      "items": [
+        "Starch",
+        "Simple sugars",
+        "The small intestine absorbs it",
+        "The liver first",
+        "Mitochondria"
       ],
+      "first": "On your plate",
+      "last": "Inside your cells",
       "explanation": "Mitochondria convert the energy from food into a form the cell can use.",
       "difficulty": 0.25
     },

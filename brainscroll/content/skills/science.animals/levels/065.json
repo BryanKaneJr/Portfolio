@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 65,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Desert Survivors",
   "objective": "After this level you can explain how camels and other animals survive with little water.",
@@ -127,42 +127,36 @@
     },
     {
       "id": "question.animals.065.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.desert_water_survival"
       ],
       "sourceCardIds": [
         "card.animals.065.c3",
-        "card.animals.065.c4"
+        "card.animals.065.c4",
+        "card.animals.065.c2"
       ],
-      "prompt": "How does a kangaroo rat survive with almost no drinking?",
-      "options": [
+      "prompt": "Match each desert trick with the animal that uses it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It stores extra water in its long tail",
-          "correct": false,
-          "rationale": "It makes water from food instead."
+          "left": "Up to about 30 gallons",
+          "right": "Camel"
         },
         {
-          "id": "b",
-          "label": "Seeds supply water, and it wastes little",
-          "correct": true
+          "left": "Nearly a week without drinking",
+          "right": "Camel"
         },
         {
-          "id": "c",
-          "label": "It licks dew off cactus spines every night",
-          "correct": false,
-          "rationale": "Its water comes from its seeds."
+          "left": "Eats mostly dry seeds",
+          "right": "Kangaroo rat"
         },
         {
-          "id": "d",
-          "label": "It drinks a lot once a week, like a camel",
-          "correct": false,
-          "rationale": "It has almost no need to drink at all."
+          "left": "Neither sweats nor pants",
+          "right": "Kangaroo rat"
         }
       ],
-      "explanation": "Seeds yield about half their weight in water, and no sweating, no panting and concentrated urine save the rest.",
+      "explanation": "A camel drinks up to about 30 gallons at once, then goes nearly a week without drinking. A kangaroo rat eats mostly dry seeds and neither sweats nor pants.",
       "difficulty": 0.25
     },
     {

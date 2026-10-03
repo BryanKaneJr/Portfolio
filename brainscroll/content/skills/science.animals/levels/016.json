@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 16,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Marsupials",
   "objective": "After this level you can explain how kangaroos and other marsupials raise their young in a pouch.",
@@ -167,7 +167,7 @@
     },
     {
       "id": "question.animals.016.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.marsupial_birth_pouch",
@@ -176,35 +176,19 @@
       "sourceCardIds": [
         "card.animals.016.c3",
         "card.animals.016.c2",
-        "card.animals.011.c2"
+        "card.animals.011.c2",
+        "card.animals.016.c1"
       ],
-      "prompt": "Level 11's checklist says mammals feed their young milk. Until about what age does a red kangaroo joey keep suckling?",
-      "options": [
-        {
-          "id": "a",
-          "label": "About 1 month",
-          "correct": false,
-          "rationale": "That's roughly when it's born."
-        },
-        {
-          "id": "b",
-          "label": "About 12 months",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "About 5 years",
-          "correct": false,
-          "rationale": "Far too long for a kangaroo."
-        },
-        {
-          "id": "d",
-          "label": "It never drinks milk",
-          "correct": false,
-          "rationale": "Every mammal feeds its young milk."
-        }
+      "prompt": "Put a red kangaroo's early life in order, from first to last.",
+      "items": [
+        "Pregnant for only about 33 days",
+        "Straight into her pouch",
+        "Leaves the pouch for good",
+        "Keeps suckling until about 12 months"
       ],
-      "explanation": "A joey leaves the pouch at around 235 days but keeps suckling until about 12 months.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The mother is pregnant for only about 33 days, then the newborn climbs straight into her pouch. The joey leaves the pouch for good at about 235 days and keeps suckling until about 12 months.",
       "difficulty": 0.2
     }
   ],

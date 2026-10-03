@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 20,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: How Computers Came to Be",
   "objective": "After this level you can trace computing from punched cards to smartphones and name the switch that powered each era.",
@@ -211,42 +211,25 @@
     },
     {
       "id": "question.computers.020.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.history_switch_eras",
         "concept.computers.history_integrated_circuit"
       ],
       "sourceCardIds": [
-        "card.computers.020.c2"
+        "card.computers.020.c2",
+        "card.computers.020.c1"
       ],
-      "prompt": "What let circuits shrink once transistors went onto chips?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Each transistor was heated so it glowed brighter",
-          "correct": false,
-          "rationale": "Heating was the tubes' problem."
-        },
-        {
-          "id": "b",
-          "label": "Chips used punched cards in place of their wiring",
-          "correct": false,
-          "rationale": "Cards were an earlier technology."
-        },
-        {
-          "id": "c",
-          "label": "Transistors and wiring were built together on one piece of silicon",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Chips needed far fewer switches to do anything useful",
-          "correct": false,
-          "rationale": "Chips allowed more switches, not fewer."
-        }
+      "prompt": "Put the eras of the computer's switch in order, from oldest to newest.",
+      "items": [
+        "Holes in cards",
+        "Vacuum tubes",
+        "Transistors, then chips"
       ],
-      "explanation": "A chip builds transistors and the connections between them on one piece of silicon, so parts no longer had to be wired by hand.",
+      "first": "Oldest",
+      "last": "Newest",
+      "explanation": "First came holes in cards, then vacuum tubes like ENIAC's, then transistors, which were later built into chips.",
       "difficulty": 0.3
     },
     {

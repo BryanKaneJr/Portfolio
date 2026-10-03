@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 10,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Myth and Memory",
   "objective": "After this level you can connect the land, the Bronze Age and Homer into the story of early Greece.",
@@ -320,7 +320,7 @@
     },
     {
       "id": "question.ancient_greece.010.q5",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_greece.greece_eras",
@@ -329,35 +329,18 @@
       ],
       "sourceCardIds": [
         "card.ancient_greece.010.c4",
-        "card.ancient_greece.001.c2"
+        "card.ancient_greece.001.c2",
+        "card.ancient_greece.004.c4"
       ],
-      "prompt": "Myth and Memory recap: which order of early Greek writing is right?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Dark Age with no writing, Linear B palaces, Phoenician alphabet",
-          "correct": false,
-          "rationale": "The palaces came first."
-        },
-        {
-          "id": "b",
-          "label": "Phoenician alphabet, Linear B palaces, Dark Age",
-          "correct": false,
-          "rationale": "The alphabet came last."
-        },
-        {
-          "id": "c",
-          "label": "Linear B palaces, Phoenician alphabet, Dark Age",
-          "correct": false,
-          "rationale": "The Dark Age came before the alphabet."
-        },
-        {
-          "id": "d",
-          "label": "Linear B palaces, Dark Age with no writing, Phoenician alphabet",
-          "correct": true
-        }
+      "prompt": "Put these chapters of early Greek writing in order, from earliest to latest.",
+      "items": [
+        "Linear B",
+        "Dark Age",
+        "Alphabet borrowed from the Phoenicians"
       ],
-      "explanation": "Palaces kept Linear B records until about 1200 BCE; writing was lost in the Dark Age; then Greeks borrowed the Phoenician alphabet.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The palaces kept records in Linear B. In the Dark Age writing was lost, until an alphabet borrowed from the Phoenicians let Greeks write again.",
       "difficulty": 0.3
     }
   ],

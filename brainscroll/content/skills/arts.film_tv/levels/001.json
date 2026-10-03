@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 1,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Film & TV: The Big Picture",
   "objective": "After this level you can trace how still frames became movies and then television, and name the crafts that go into every film.",
@@ -204,7 +204,7 @@
     },
     {
       "id": "question.film_tv.001.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.film_tv.film_to_television_path"
@@ -213,33 +213,15 @@
         "card.film_tv.001.c2",
         "card.film_tv.001.c3"
       ],
-      "prompt": "On this level's timeline, what did television change about how moving pictures reached people?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It projected film onto much bigger screens",
-          "correct": false,
-          "rationale": "Television didn't need a projector at all."
-        },
-        {
-          "id": "b",
-          "label": "It replaced still frames with hand-drawn pictures",
-          "correct": false,
-          "rationale": "Nothing on the level says so; the change was in delivery."
-        },
-        {
-          "id": "c",
-          "label": "It delivered moving images electronically to a receiver",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It came before the Lumières' paid screening",
-          "correct": false,
-          "rationale": "Television broadcasts came in 1928, long after 1895."
-        }
+      "prompt": "Put these moments from the timeline in order, from earliest to latest.",
+      "items": [
+        "Muybridge photographs a galloping horse",
+        "The Lumière brothers project films",
+        "Regular experimental TV broadcasts"
       ],
-      "explanation": "Television delivers moving images and sound electronically from a source to a receiver, and regular experimental broadcasts began in 1928.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Muybridge photographed a galloping horse in 1878, the Lumière brothers projected films for a paying audience in 1895, and General Electric began regular experimental TV broadcasts in 1928.",
       "difficulty": 0.25
     }
   ],

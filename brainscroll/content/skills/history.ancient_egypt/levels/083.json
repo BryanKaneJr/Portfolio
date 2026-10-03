@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 83,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Nubian Pharaohs",
   "objective": "After this level you can describe the kings of Kush who ruled Egypt.",
@@ -120,41 +120,25 @@
     },
     {
       "id": "question.ancient_egypt.083.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.kushite_pharaohs"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.083.c4"
+        "card.ancient_egypt.083.c4",
+        "card.ancient_egypt.083.c3"
       ],
-      "prompt": "What happened to Kush after the Assyrians drove its kings out of Egypt?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It carried on for about a thousand years, later ruled from Meroe",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "It collapsed within a few years of leaving Egypt",
-          "correct": false,
-          "rationale": "It lasted until 350 CE."
-        },
-        {
-          "id": "c",
-          "label": "It became a province of the Assyrian Empire",
-          "correct": false,
-          "rationale": "The Kushites went back to Nubia and ruled on."
-        },
-        {
-          "id": "d",
-          "label": "Its people all moved north to live in Egypt",
-          "correct": false,
-          "rationale": "Kush continued in Nubia."
-        }
+      "prompt": "Put these events in the story of Kush in order, from earliest to latest.",
+      "items": [
+        "Piye marches north",
+        "All of Egypt was ruled from Kush",
+        "The Assyrians invaded",
+        "The king of Aksum destroyed Meroe"
       ],
-      "explanation": "Kush lasted about another thousand years, ruling later from Meroe, until Aksum destroyed Meroe in 350 CE.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Piye marched north in the 8th century BCE, and by about 715 BCE all of Egypt was ruled from Kush. The Assyrians invaded in 671 BCE, and much later, in 350 CE, the king of Aksum destroyed Meroe.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 21,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Pavlov's Dogs",
   "objective": "After this level you can explain classical conditioning using Ivan Pavlov's experiments with dogs.",
@@ -86,41 +86,31 @@
   "questions": [
     {
       "id": "question.psychology.021.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.conditioning_pavlov_discovery"
       ],
       "sourceCardIds": [
-        "card.psychology.021.c2"
+        "card.psychology.021.c2",
+        "card.psychology.021.c3"
       ],
-      "prompt": "What first told Pavlov that his dogs had learned something?",
-      "options": [
+      "prompt": "Match each part of Pavlov's experiment with its name.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They drooled when food was in their mouths",
-          "correct": false,
-          "rationale": "That's a reflex; no learning is needed."
+          "left": "Meat powder",
+          "right": "Unconditioned stimulus"
         },
         {
-          "id": "b",
-          "label": "They stopped eating their usual food",
-          "correct": false,
-          "rationale": "Their eating didn't change; their drooling did."
+          "left": "Drooling at food in the mouth",
+          "right": "Unconditioned response"
         },
         {
-          "id": "c",
-          "label": "They barked whenever a bell rang",
-          "correct": false,
-          "rationale": "Barking wasn't what he measured."
-        },
-        {
-          "id": "d",
-          "label": "They drooled at lab assistants' footsteps",
-          "correct": true
+          "left": "The tone",
+          "right": "Conditioned stimulus"
         }
       ],
-      "explanation": "Dogs don't naturally drool at footsteps or an empty bowl, so those responses had to be learned.",
+      "explanation": "Meat powder was the unconditioned stimulus, and drooling at food in the mouth was the unconditioned response. After pairing, the tone had become a conditioned stimulus.",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 14,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Temple, Exile and Return",
   "objective": "After this level you can explain how the destruction of the Jerusalem Temple in 586 BCE and again in 70 CE reshaped Jewish life.",
@@ -93,41 +93,25 @@
   "questions": [
     {
       "id": "question.religions.014.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.religions.judaism_first_temple"
       ],
       "sourceCardIds": [
-        "card.religions.014.c2"
+        "card.religions.014.c2",
+        "card.religions.014.c4"
       ],
-      "prompt": "Who destroyed Jerusalem and its First Temple in 586 BCE?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Roman army",
-          "correct": false,
-          "rationale": "Rome destroyed the Second Temple, in 70 CE."
-        },
-        {
-          "id": "b",
-          "label": "The Persian king Cyrus the Great",
-          "correct": false,
-          "rationale": "Cyrus let the exiles return."
-        },
-        {
-          "id": "c",
-          "label": "The Babylonian king Nebuchadnezzar II",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The Egyptian pharaoh Merneptah",
-          "correct": false,
-          "rationale": "He lived centuries earlier."
-        }
+      "prompt": "Put these in order of their part in the Temple's story, from earliest to latest.",
+      "items": [
+        "King Solomon",
+        "Nebuchadnezzar II",
+        "Cyrus the Great",
+        "The Romans"
       ],
-      "explanation": "In 586 BCE Nebuchadnezzar II of Babylonia destroyed Jerusalem and deported many Judeans.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The First Temple was completed under King Solomon, destroyed by Nebuchadnezzar II in 586 BCE; Cyrus the Great let the Jews go home in 538 BCE; the Romans destroyed the rebuilt Temple in 70 CE.",
       "difficulty": 0.2
     },
     {

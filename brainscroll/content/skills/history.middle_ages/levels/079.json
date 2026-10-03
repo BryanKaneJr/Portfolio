@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 79,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Holy Roman Empire",
   "objective": "After this level you can explain what the Holy Roman Empire was, and what it was not.",
@@ -130,41 +130,26 @@
     },
     {
       "id": "question.middle_ages.079.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.hre_electors"
       ],
       "sourceCardIds": [
+        "card.middle_ages.079.c1",
+        "card.middle_ages.079.c2",
         "card.middle_ages.079.c4"
       ],
-      "prompt": "After the Golden Bull of 1356, how did a man become Holy Roman Emperor?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He inherited it from his father automatically",
-          "correct": false,
-          "rationale": "The emperor was elected."
-        },
-        {
-          "id": "b",
-          "label": "The Byzantine emperor appointed him",
-          "correct": false,
-          "rationale": "Byzantium had no say."
-        },
-        {
-          "id": "c",
-          "label": "He was chosen by seven electors",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "He won a vote of every town in the empire",
-          "correct": false,
-          "rationale": "Only seven electors voted."
-        }
+      "prompt": "Put these moments in the Holy Roman Empire’s story in order, from earliest to latest.",
+      "items": [
+        "Otto I was crowned emperor",
+        "The Golden Bull",
+        "Voltaire’s verdict",
+        "Francis II gave up the title"
       ],
-      "explanation": "The Golden Bull fixed the electors at seven: three archbishops and four lay rulers.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Otto I was crowned emperor in 962. The Golden Bull fixed the electors in 1356, Voltaire gave his verdict in 1756, and Francis II gave up the title in 1806.",
       "difficulty": 0.3
     },
     {

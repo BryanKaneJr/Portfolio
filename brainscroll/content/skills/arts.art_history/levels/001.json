@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 1,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Art History: The Big Picture",
   "objective": "After this level you can describe the big eras of art from cave paintings to today.",
@@ -185,7 +185,7 @@
     },
     {
       "id": "question.art_history.001.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.art_history.art_eras"
@@ -194,33 +194,18 @@
         "card.art_history.001.c3",
         "card.art_history.001.c4"
       ],
-      "prompt": "Renaissance means \"rebirth\". Which earlier era did its artists bring back to life?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Ancient Greece and Rome",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Prehistoric cave art",
-          "correct": false,
-          "rationale": "Cave art wasn't known to Renaissance artists."
-        },
-        {
-          "id": "c",
-          "label": "The Middle Ages in Europe",
-          "correct": false,
-          "rationale": "The Renaissance came right after the Middle Ages; it reached further back."
-        },
-        {
-          "id": "d",
-          "label": "The Baroque of the 1600s",
-          "correct": false,
-          "rationale": "The Baroque came after the Renaissance."
-        }
+      "prompt": "Put these eras of art in order, from earliest to latest.",
+      "items": [
+        "Stone Age",
+        "Ancient worlds",
+        "Middle Ages",
+        "Renaissance",
+        "Baroque",
+        "Modern"
       ],
-      "explanation": "Starting in 14th-century Italy, Renaissance artists revived the learning and art of ancient Greece and Rome.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The big eras run Stone Age, ancient worlds, Middle Ages, Renaissance, Baroque, then Modern.",
       "difficulty": 0.2
     }
   ],

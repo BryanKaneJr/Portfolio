@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 61,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "What a Database Is",
   "objective": "After this level you can explain how a database stores records in tables and uses an index to find one among billions.",
@@ -86,41 +86,31 @@
   "questions": [
     {
       "id": "question.computers.061.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.privacy_database_tables"
       ],
       "sourceCardIds": [
-        "card.computers.061.c2"
+        "card.computers.061.c2",
+        "card.computers.061.c4"
       ],
-      "prompt": "In a relational database table, what does each row hold?",
-      "options": [
+      "prompt": "Match each part of a database table with what it holds.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A single column's worth of values",
-          "correct": false,
-          "rationale": "A column runs down the table; a row runs across it."
+          "left": "Each row",
+          "right": "One record"
         },
         {
-          "id": "b",
-          "label": "One record, such as one customer",
-          "correct": true
+          "left": "Each column",
+          "right": "One field"
         },
         {
-          "id": "c",
-          "label": "The table's data types",
-          "correct": false,
-          "rationale": "Types belong to columns."
-        },
-        {
-          "id": "d",
-          "label": "An index of the whole table",
-          "correct": false,
-          "rationale": "An index is kept separately from the rows."
+          "left": "A database index",
+          "right": "In sorted order"
         }
       ],
-      "explanation": "Each row is one record and each column is a field of that record.",
+      "explanation": "Each row is one record, each column is one field of that record, and a database index keeps one column's values in sorted order.",
       "difficulty": 0.2
     },
     {

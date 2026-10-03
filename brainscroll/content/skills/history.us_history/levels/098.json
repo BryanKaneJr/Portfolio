@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 98,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "September 11, 2001",
   "objective": "After this level you can describe the attacks of September 11, 2001, and explain why historians treat very recent events differently from the distant past.",
@@ -94,41 +94,31 @@
   "questions": [
     {
       "id": "question.us_history.098.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.historians_september_11"
       ],
       "sourceCardIds": [
-        "card.us_history.098.c3"
+        "card.us_history.098.c3",
+        "card.us_history.098.c2"
       ],
-      "prompt": "What happened aboard Flight 93 on September 11, 2001?",
-      "options": [
+      "prompt": "Match each place with how many people the attacks killed there.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It struck the Pentagon",
-          "correct": false,
-          "rationale": "A different plane hit the Pentagon."
+          "left": "New York",
+          "right": "2,753"
         },
         {
-          "id": "b",
-          "label": "It hit the North Tower",
-          "correct": false,
-          "rationale": "A different plane hit the North Tower."
+          "left": "The Pentagon",
+          "right": "184"
         },
         {
-          "id": "c",
-          "label": "Passengers fought back, and it crashed in a Pennsylvania field",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It landed safely after the hijackers surrendered",
-          "correct": false,
-          "rationale": "It crashed; all 40 aboard were killed."
+          "left": "Flight 93",
+          "right": "40"
         }
       ],
-      "explanation": "Passengers on Flight 93 fought back after learning of the other attacks, and the plane crashed into a field in western Pennsylvania.",
+      "explanation": "The attacks killed 2,977 people: 2,753 in New York, 184 at the Pentagon and 40 on Flight 93.",
       "difficulty": 0.2
     },
     {

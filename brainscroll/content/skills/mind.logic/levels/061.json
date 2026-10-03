@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 61,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "What Makes Science Different",
   "objective": "After this level you can explain science as a way of testing ideas against the world and correcting its own mistakes.",
@@ -126,42 +126,32 @@
     },
     {
       "id": "question.logic.061.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.science_self_correction",
         "concept.logic.science_testing_ideas"
       ],
       "sourceCardIds": [
-        "card.logic.061.c3"
+        "card.logic.061.c3",
+        "card.logic.061.c1"
       ],
-      "prompt": "How was Abderhalden's pregnancy test found to be wrong?",
-      "options": [
+      "prompt": "Match each one with its part in the pregnancy test.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "He confessed it himself in a lecture",
-          "correct": false,
-          "rationale": "Nothing says he confessed; other scientists' checks exposed it."
+          "left": "Emil Abderhalden",
+          "right": "Protective enzymes"
         },
         {
-          "id": "b",
-          "label": "Other scientists couldn't reproduce his results",
-          "correct": true
+          "left": "Other scientists",
+          "right": "Couldn't reproduce his results"
         },
         {
-          "id": "c",
-          "label": "A committee of scientists voted it down",
-          "correct": false,
-          "rationale": "Science settles such questions with tests, not votes."
-        },
-        {
-          "id": "d",
-          "label": "A cheaper test simply replaced it",
-          "correct": false,
-          "rationale": "It fell because it failed when others checked it."
+          "left": "UC Berkeley's Understanding Science",
+          "right": "Fraud"
         }
       ],
-      "explanation": "Others ran the test and couldn't get his results. The protective enzymes turned out not to exist.",
+      "explanation": "Emil Abderhalden announced protective enzymes that could reveal a pregnancy. Other scientists couldn't reproduce his results, and UC Berkeley's Understanding Science calls it fraud.",
       "difficulty": 0.25
     },
     {

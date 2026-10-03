@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 90,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Oceania and the Poles",
   "objective": "After this level you can describe Australia, the Pacific islands, the Arctic and Antarctica.",
@@ -126,41 +126,35 @@
   "questions": [
     {
       "id": "question.world_geography.090.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.polar_opposites"
       ],
       "sourceCardIds": [
-        "card.world_geography.090.c2"
+        "card.world_geography.090.c2",
+        "card.world_geography.090.c3"
       ],
-      "prompt": "What is the key geographic difference between the Arctic and the Antarctic?",
-      "options": [
+      "prompt": "Match each clue with the pole it describes.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The Arctic is land; Antarctica is floating sea ice",
-          "correct": false,
-          "rationale": "It's the other way around."
+          "left": "Sea ice floating on the Arctic Ocean",
+          "right": "North Pole"
         },
         {
-          "id": "b",
-          "label": "The Arctic is ocean ringed by land; Antarctica is land ringed by ocean",
-          "correct": true
+          "left": "The polar plateau",
+          "right": "South Pole"
         },
         {
-          "id": "c",
-          "label": "Both are continents covered in ice sheets",
-          "correct": false,
-          "rationale": "The Arctic is an ocean."
+          "left": "Winter averages about −60 °C",
+          "right": "South Pole"
         },
         {
-          "id": "d",
-          "label": "Both are oceans covered in sea ice",
-          "correct": false,
-          "rationale": "Antarctica is a continent."
+          "left": "About −40 °C",
+          "right": "North Pole"
         }
       ],
-      "explanation": "The Arctic is an ocean surrounded by continents, and Antarctica is a continent surrounded by ocean.",
+      "explanation": "At the North Pole you'd stand on sea ice floating on the Arctic Ocean, and winter averages about −40 °C. At the South Pole you'd stand on the polar plateau, and winter averages about −60 °C.",
       "difficulty": 0.2
     },
     {

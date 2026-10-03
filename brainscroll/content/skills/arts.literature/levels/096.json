@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 96,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Fantasy and Its Old Myths",
   "objective": "After this level you can trace how Tolkien built Middle-earth from Norse myth and Beowulf.",
@@ -126,41 +126,25 @@
     },
     {
       "id": "question.literature.096.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.tolkien_beowulf_dragon"
       ],
       "sourceCardIds": [
-        "card.literature.096.c4"
+        "card.literature.096.c4",
+        "card.literature.096.c2"
       ],
-      "prompt": "Bilbo's cup theft looks a lot like Beowulf's. Which explanation matches what Tolkien himself said in 1938?",
-      "options": [
-        {
-          "id": "a",
-          "label": "He copied the scene from Beowulf on purpose",
-          "correct": false,
-          "rationale": "He said it wasn't consciously in his mind."
-        },
-        {
-          "id": "b",
-          "label": "He had never read Beowulf",
-          "correct": false,
-          "rationale": "He gave a landmark lecture on it in 1936."
-        },
-        {
-          "id": "c",
-          "label": "Beowulf was a valued source, but the theft arose naturally",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "He took the theft from the Poetic Edda",
-          "correct": false,
-          "rationale": "He named Beowulf as the valued source."
-        }
+      "prompt": "Put these Tolkien milestones in order, from earliest to latest.",
+      "items": [
+        "A landmark 1936 lecture on Beowulf",
+        "The Hobbit",
+        "A 1938 letter",
+        "The Lord of the Rings"
       ],
-      "explanation": "Tolkien called Beowulf among his most valued sources but said the theft arose naturally from the story, not from conscious borrowing.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Tolkien gave his Beowulf lecture in 1936, published The Hobbit in 1937, wrote the letter about his sources in 1938, and published The Lord of the Rings in 1954 to 1955.",
       "difficulty": 0.45
     },
     {

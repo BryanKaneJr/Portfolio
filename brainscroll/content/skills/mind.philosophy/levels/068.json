@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 68,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Teleporter Puzzle",
   "objective": "After this level you can explain Derek Parfit's teleporter and fission cases and his conclusion that identity may matter less than we think.",
@@ -93,7 +93,7 @@
   "questions": [
     {
       "id": "question.philosophy.068.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.philosophy.selfhood_parfit_teleporter"
@@ -101,33 +101,16 @@
       "sourceCardIds": [
         "card.philosophy.068.c2"
       ],
-      "prompt": "What does Parfit’s teletransporter do to the original body?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Freezes it safely back on Earth",
-          "correct": false,
-          "rationale": "It destroys the original."
-        },
-        {
-          "id": "b",
-          "label": "Beams its own atoms to Mars",
-          "correct": false,
-          "rationale": "The duplicate is built from new matter."
-        },
-        {
-          "id": "c",
-          "label": "Destroys it after copying it",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Shrinks it down for the trip",
-          "correct": false,
-          "rationale": "It destroys the original."
-        }
+      "prompt": "Put the steps of Parfit’s teletransporter in order, from first to last.",
+      "items": [
+        "Records an exact blueprint",
+        "Destroys the original",
+        "Sends the information to Mars",
+        "A perfect duplicate is built"
       ],
-      "explanation": "The teletransporter records an exact blueprint, destroys the original and builds a duplicate on Mars from new matter.",
+      "first": "First step",
+      "last": "Last step",
+      "explanation": "The teletransporter records an exact blueprint, destroys the original, sends the information to Mars, and there a perfect duplicate is built from new matter.",
       "difficulty": 0.2
     },
     {

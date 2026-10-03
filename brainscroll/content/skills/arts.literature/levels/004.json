@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 4,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "A Flood Story on a Clay Tablet",
   "objective": "After this level you can explain how the flood story in Gilgamesh was recognized in 1872 and how it parallels the flood in Genesis.",
@@ -151,42 +151,36 @@
     },
     {
       "id": "question.literature.004.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.flood_genesis_parallel"
       ],
       "sourceCardIds": [
         "card.literature.004.c4",
-        "card.literature.004.c3"
+        "card.literature.004.c3",
+        "card.literature.004.c2"
       ],
-      "prompt": "The Babylonian and Genesis floods share a shape. Where do they most clearly differ?",
-      "options": [
+      "prompt": "Match each detail with the flood story it belongs to.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Only Genesis has a boat",
-          "correct": false,
-          "rationale": "Utnapishtim builds a boat too."
+          "left": "The boat grounds on Mount Nimush",
+          "right": "Gilgamesh"
         },
         {
-          "id": "b",
-          "label": "Only the Babylonian story sends out birds",
-          "correct": false,
-          "rationale": "Noah sends a raven and a dove."
+          "left": "The ark rests on the mountains of Ararat",
+          "right": "Genesis"
         },
         {
-          "id": "c",
-          "label": "Why the flood comes: a quarrel among gods, or human wrongdoing",
-          "correct": true
+          "left": "The gods disagree",
+          "right": "Gilgamesh"
         },
         {
-          "id": "d",
-          "label": "Only Genesis has the boat come to rest on a mountain",
-          "correct": false,
-          "rationale": "Utnapishtim grounds on Mount Nimush."
+          "left": "The flood answers human wrongdoing",
+          "right": "Genesis"
         }
       ],
-      "explanation": "In the Babylonian story the flood comes from a disagreement among the gods; in Genesis it answers human wrongdoing.",
+      "explanation": "In Gilgamesh the gods disagree and the boat grounds on Mount Nimush. In Genesis the flood answers human wrongdoing and the ark rests on the mountains of Ararat.",
       "difficulty": 0.3
     },
     {

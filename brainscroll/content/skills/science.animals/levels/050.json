@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 50,
   "type": "milestone",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Milestone: Animals With Backbones",
   "objective": "After this level you can connect mammals, birds, reptiles, amphibians and fish into one family tree.",
@@ -300,7 +300,7 @@
     },
     {
       "id": "question.animals.050.q5",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.body_heat_source"
@@ -309,33 +309,26 @@
         "card.animals.050.c2",
         "card.animals.005.c2"
       ],
-      "prompt": "Animals With Backbones milestone: which pair of vertebrate groups makes its own body heat?",
-      "options": [
+      "prompt": "Match each group with where it stands on heat and backbones.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Mammals and birds",
-          "correct": true
+          "left": "Mammals",
+          "right": "About 37 °C"
         },
         {
-          "id": "b",
-          "label": "Fish and amphibians",
-          "correct": false,
-          "rationale": "They take heat from outside."
+          "left": "Birds",
+          "right": "About 40 °C"
         },
         {
-          "id": "c",
-          "label": "Reptiles and birds",
-          "correct": false,
-          "rationale": "Reptiles take heat from outside."
+          "left": "Amphibians and reptiles",
+          "right": "Take heat from outside"
         },
         {
-          "id": "d",
-          "label": "Amphibians and mammals",
-          "correct": false,
-          "rationale": "Amphibians take heat from outside."
+          "left": "Jellyfish and sea stars",
+          "right": "No backbone at all"
         }
       ],
-      "explanation": "Mammals and birds are endotherms; fish, amphibians and reptiles mostly take heat from their surroundings.",
+      "explanation": "Mammals make their own heat at about 37 °C and birds at about 40 °C. Amphibians and reptiles take heat from outside, and jellyfish and sea stars have no backbone at all.",
       "difficulty": 0.15
     },
     {

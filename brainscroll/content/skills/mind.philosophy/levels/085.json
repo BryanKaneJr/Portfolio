@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 85,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Murderer at the Door",
   "objective": "After this level you can weigh Kant’s claim that you may not lie even to a murderer asking where your friend is hiding against a consequentialist reply.",
@@ -168,7 +168,7 @@
     },
     {
       "id": "question.philosophy.085.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.dilemma_murderer_at_door",
@@ -176,35 +176,22 @@
       ],
       "sourceCardIds": [
         "card.philosophy.085.c3",
-        "card.philosophy.003.c4"
+        "card.philosophy.003.c4",
+        "card.philosophy.085.c2",
+        "card.philosophy.084.c1",
+        "card.philosophy.054.c2",
+        "card.philosophy.083.c1"
       ],
-      "prompt": "Glaucon, in Level 3, argued that people are just only when they can’t safely be unjust. How does Kant’s view of truthfulness differ?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Kant held truthfulness is a duty however great the disadvantage",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Kant agreed that honesty is only fear of being caught",
-          "correct": false,
-          "rationale": "Kant’s duty holds whatever the consequences."
-        },
-        {
-          "id": "c",
-          "label": "Kant said truth is owed only to those with a right to it",
-          "correct": false,
-          "rationale": "That was Constant’s view."
-        },
-        {
-          "id": "d",
-          "label": "Kant thought lying is fine if no one finds out",
-          "correct": false,
-          "rationale": "Kant said a lie always injures humanity."
-        }
+      "prompt": "Put these moral thinkers’ ideas in order of date, from earliest to latest.",
+      "items": [
+        "Jeremy Bentham",
+        "Benjamin Constant",
+        "Mill",
+        "Peter Singer"
       ],
-      "explanation": "Glaucon’s ring suggests people are honest only out of fear; Kant held truthfulness a duty to everyone, however great the disadvantage.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Bentham proposed his test in 1789, Constant challenged Kant in 1797, Mill’s On Liberty came out in 1859, and Singer’s essay in 1972.",
       "difficulty": 0.35
     }
   ],

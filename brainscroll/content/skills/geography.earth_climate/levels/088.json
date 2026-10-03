@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 88,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Where the Emissions Come From",
   "objective": "After this level you can name the main human sources of greenhouse gases, from power and transport to farming and forests.",
@@ -87,7 +87,7 @@
   "questions": [
     {
       "id": "question.earth_climate.088.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.earth_climate.warming_emission_sectors"
@@ -95,33 +95,17 @@
       "sourceCardIds": [
         "card.earth_climate.088.c2"
       ],
-      "prompt": "According to the IPCC, which sector produced the largest share of human greenhouse gas emissions in 2019?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Transport",
-          "correct": false,
-          "rationale": "Transport made about 15%."
-        },
-        {
-          "id": "b",
-          "label": "Buildings",
-          "correct": false,
-          "rationale": "Buildings made about 6%."
-        },
-        {
-          "id": "c",
-          "label": "Agriculture, forestry and land use",
-          "correct": false,
-          "rationale": "That sector made about 22%."
-        },
-        {
-          "id": "d",
-          "label": "Energy supply",
-          "correct": true
-        }
+      "prompt": "Put these sectors in order by their share of 2019's emissions, from largest to smallest.",
+      "items": [
+        "Energy supply",
+        "Industry",
+        "Agriculture",
+        "Transport",
+        "Buildings"
       ],
-      "explanation": "Energy supply, mostly electricity and heat from fossil fuels, made about 34% of 2019 emissions.",
+      "first": "Largest share",
+      "last": "Smallest share",
+      "explanation": "Energy supply made about 34%, industry 24%, agriculture, forestry and other land use 22%, transport 15% and buildings 6%.",
       "difficulty": 0.35
     },
     {

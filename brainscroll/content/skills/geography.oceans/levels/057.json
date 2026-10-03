@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 57,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Life Without Sunlight",
   "objective": "After this level you can explain how life thrives around hydrothermal vents.",
@@ -170,7 +170,7 @@
     },
     {
       "id": "question.oceans.057.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.deep_chemosynthesis",
@@ -178,35 +178,18 @@
       ],
       "sourceCardIds": [
         "card.oceans.057.c4",
-        "card.oceans.056.c4"
+        "card.oceans.056.c4",
+        "card.oceans.057.c2"
       ],
-      "prompt": "What do vent communities and the final stage of a Level 56 whale fall have in common?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Both need sunlight filtering down from above",
-          "correct": false,
-          "rationale": "Neither gets sunlight."
-        },
-        {
-          "id": "b",
-          "label": "Both are fed mainly by falling marine snow",
-          "correct": false,
-          "rationale": "Both run on bacteria and chemicals."
-        },
-        {
-          "id": "c",
-          "label": "Both run on bacteria and hydrogen sulfide",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Both are found only near the Galapagos",
-          "correct": false,
-          "rationale": "Whale falls happen wherever whales sink."
-        }
+      "prompt": "Put this vent food chain in order, from energy source to eaters.",
+      "items": [
+        "Hydrogen sulfide",
+        "Microbes",
+        "Tubeworms, shrimp and mussels"
       ],
-      "explanation": "Both communities build on bacteria using hydrogen sulfide, not on sunlight.",
+      "first": "Energy source",
+      "last": "Eaters",
+      "explanation": "Microbes take hydrogen sulfide from vent water and turn it into food, and tubeworms, shrimp and mussels live on what the microbes make.",
       "difficulty": 0.25
     }
   ],

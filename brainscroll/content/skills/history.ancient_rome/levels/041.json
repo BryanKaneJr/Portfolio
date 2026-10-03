@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 41,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Octavian, Caesar's Heir",
   "objective": "After this level you can explain how Caesar's young heir built power after the assassination.",
@@ -175,7 +175,7 @@
     },
     {
       "id": "question.ancient_rome.041.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_rome.octavian",
@@ -183,35 +183,18 @@
       ],
       "sourceCardIds": [
         "card.ancient_rome.041.c3",
-        "card.ancient_rome.040.c3"
+        "card.ancient_rome.040.c3",
+        "card.ancient_rome.041.c2"
       ],
-      "prompt": "From Level 40: whom did Antony and Octavian defeat at Philippi in 42 BCE?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Pompey and his sons",
-          "correct": false,
-          "rationale": "Pompey died in 48 BCE."
-        },
-        {
-          "id": "b",
-          "label": "Spartacus and his army",
-          "correct": false,
-          "rationale": "That revolt ended in 71 BCE."
-        },
-        {
-          "id": "c",
-          "label": "Brutus and Cassius, Caesar’s assassins",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Catiline and his fellow plotters",
-          "correct": false,
-          "rationale": "Cicero dealt with them in 63 BCE."
-        }
+      "prompt": "Put Octavian’s rise in order, from first to last.",
+      "items": [
+        "Adopted Octavian",
+        "Second Triumvirate",
+        "Philippi"
       ],
-      "explanation": "Brutus and Cassius, who led the plot against Caesar, were defeated at Philippi.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Caesar’s will adopted Octavian, in 43 BCE Octavian formed the Second Triumvirate, and in 42 BCE he and Antony won at Philippi.",
       "difficulty": 0.25
     }
   ],

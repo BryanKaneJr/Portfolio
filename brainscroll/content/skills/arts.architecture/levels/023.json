@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 23,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Round Arches and Thick Walls",
   "objective": "After this level you can describe Romanesque churches.",
@@ -130,41 +130,32 @@
     },
     {
       "id": "question.architecture.023.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.romanesque_groin_vault"
       ],
       "sourceCardIds": [
-        "card.architecture.023.c3"
+        "card.architecture.023.c3",
+        "card.architecture.023.c2",
+        "card.architecture.023.c4"
       ],
-      "prompt": "Why could the walls under a row of groin vaults be thinner than under a barrel vault?",
-      "options": [
+      "prompt": "Match each vault or church with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Groin vaults are made of wood, not stone",
-          "correct": false,
-          "rationale": "They're stone; the difference is where the push goes."
+          "left": "Barrel vault",
+          "right": "Like half a tunnel"
         },
         {
-          "id": "b",
-          "label": "Groin vaults push only straight down",
-          "correct": false,
-          "rationale": "They still push out, but only at the corners."
+          "left": "Groin vault",
+          "right": "Two barrel vaults at right angles"
         },
         {
-          "id": "c",
-          "label": "Their push gathers at four corners, so only those need buttressing",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Groin vaults are always much smaller",
-          "correct": false,
-          "rationale": "In a row they can cover long spaces."
+          "left": "Durham Cathedral",
+          "right": "Stone ribs, forming pointed arches"
         }
       ],
-      "explanation": "A groin vault's thrust gathers at its four corners, so the wall between them no longer has to be massive.",
+      "explanation": "A barrel vault is a row of arches, like half a tunnel. A groin vault is two barrel vaults crossed at right angles. Durham Cathedral's vault rests on stone ribs, forming pointed arches.",
       "difficulty": 0.3
     },
     {

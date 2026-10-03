@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 81,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "From One Cell to a Baby",
   "objective": "After this level you can explain how a baby develops from a single cell.",
@@ -153,40 +153,24 @@
     },
     {
       "id": "question.human_body.081.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.prenatal_development"
       ],
       "sourceCardIds": [
-        "card.human_body.081.c5"
+        "card.human_body.081.c5",
+        "card.human_body.081.c4"
       ],
-      "prompt": "Why is the embryo called a fetus at the end of week 10 of pregnancy, when it's only about 8 weeks old?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Embryos grow twice as fast as fetuses",
-          "correct": false,
-          "rationale": "Growth speed isn't why the numbers differ."
-        },
-        {
-          "id": "b",
-          "label": "Fertilization happens two weeks after birth",
-          "correct": false,
-          "rationale": "Fertilization comes at the very start."
-        },
-        {
-          "id": "c",
-          "label": "Pregnancy is counted from about two weeks before fertilization",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Doctors round every week up to ten",
-          "correct": false,
-          "rationale": "The gap comes from where the count starts."
-        }
+      "prompt": "Put the stages from one cell to a baby in order, from first to last.",
+      "items": [
+        "Zygote",
+        "A ball of cells",
+        "Fetus",
+        "Birth"
       ],
+      "first": "Fertilization",
+      "last": "About week 40",
       "explanation": "Pregnancy is dated from the first day of the last menstrual period, about two weeks before fertilization.",
       "difficulty": 0.3
     },

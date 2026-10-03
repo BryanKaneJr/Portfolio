@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 46,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Shahnameh",
   "objective": "After this level you can explain why Ferdowsi's Book of Kings is credited with keeping the Persian language alive.",
@@ -87,41 +87,31 @@
   "questions": [
     {
       "id": "question.literature.046.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.literature.shahnameh_epic"
       ],
       "sourceCardIds": [
-        "card.literature.046.c3"
+        "card.literature.046.c3",
+        "card.literature.046.c1"
       ],
-      "prompt": "How does the Shahnameh's famous fight between Rostam and Sohrab end?",
-      "options": [
+      "prompt": "Match each name with who or what it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Sohrab defeats Rostam and becomes king",
-          "correct": false,
-          "rationale": "Rostam wins, at a terrible price."
+          "left": "Shahnameh",
+          "right": "The Book of Kings"
         },
         {
-          "id": "b",
-          "label": "They learn they are brothers and make peace",
-          "correct": false,
-          "rationale": "Sohrab is his son, and the fight ends in death."
+          "left": "Rostam",
+          "right": "The great hero"
         },
         {
-          "id": "c",
-          "label": "The father unwittingly kills his own son",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "A god stops the fight and turns both to stone",
-          "correct": false,
-          "rationale": "No god steps in; it ends in tragedy."
+          "left": "Sohrab",
+          "right": "His own son"
         }
       ],
-      "explanation": "The tragic fight ends with Rostam unwittingly killing his own son, Sohrab.",
+      "explanation": "The Shahnameh is the Book of Kings. Rostam is its great hero, and Sohrab is his own son, whom he unwittingly kills.",
       "difficulty": 0.15
     },
     {

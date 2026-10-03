@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 82,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Jaws and the Blockbuster",
   "objective": "After this level you can explain how Jaws in 1975 set the summer blockbuster pattern of wide release and heavy TV advertising.",
@@ -92,41 +92,25 @@
   "questions": [
     {
       "id": "question.film_tv.082.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.jaws_wide_release"
       ],
       "sourceCardIds": [
-        "card.film_tv.082.c2"
+        "card.film_tv.082.c2",
+        "card.film_tv.082.c1",
+        "card.film_tv.082.c3"
       ],
-      "prompt": "How did Jaws open in 1975?",
-      "options": [
-        {
-          "id": "a",
-          "label": "In one New York theater, then city by city",
-          "correct": false,
-          "rationale": "That was the usual pattern Jaws broke."
-        },
-        {
-          "id": "b",
-          "label": "Only at drive-ins during the summer",
-          "correct": false,
-          "rationale": "The level says nothing about drive-ins."
-        },
-        {
-          "id": "c",
-          "label": "On television first, then in theaters",
-          "correct": false,
-          "rationale": "TV carried its trailers, not the film."
-        },
-        {
-          "id": "d",
-          "label": "In more than 400 US theaters on its first weekend",
-          "correct": true
-        }
+      "prompt": "Put these steps in the story of Jaws in order, from first to last.",
+      "items": [
+        "Peter Benchley's 1974 novel",
+        "Heavily promoted on television",
+        "More than 400 theaters"
       ],
-      "explanation": "Jaws opened in more than 400 theaters across the United States at once.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Jaws began as Peter Benchley's 1974 novel. In the week before release it was heavily promoted on television, then it opened in more than 400 theaters on its first weekend.",
       "difficulty": 0.2
     },
     {

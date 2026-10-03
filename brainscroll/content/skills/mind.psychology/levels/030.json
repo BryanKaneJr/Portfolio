@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 30,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Learning and Habits",
   "objective": "After this level you can explain how association, consequences and watching others shape what we do.",
@@ -197,7 +197,7 @@
     },
     {
       "id": "question.psychology.030.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.psychology.conditioning_classical",
@@ -206,33 +206,22 @@
       "sourceCardIds": [
         "card.psychology.030.c3"
       ],
-      "prompt": "Learning and Habits recap: a cat runs in whenever it hears the can opener that always comes before its dinner. Which route is this?",
-      "options": [
+      "prompt": "Match each route to learning with how it works.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Operant conditioning",
-          "correct": false,
-          "rationale": "The cat isn't rewarded for an action; a sound predicts food."
+          "left": "Classical (Pavlov)",
+          "right": "One stimulus predicts another"
         },
         {
-          "id": "b",
-          "label": "Observational learning",
-          "correct": false,
-          "rationale": "The cat didn't learn by watching another animal."
+          "left": "Operant (Skinner)",
+          "right": "A behavior brings a consequence"
         },
         {
-          "id": "c",
-          "label": "Classical conditioning",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Shaping",
-          "correct": false,
-          "rationale": "Shaping rewards closer and closer steps of a behavior."
+          "left": "Observational (Bandura)",
+          "right": "Learn by watching a model"
         }
       ],
-      "explanation": "A sound that reliably comes just before food becomes a signal: that's classical conditioning.",
+      "explanation": "In classical conditioning you learn that one stimulus predicts another. In operant conditioning you learn that a behavior brings a consequence. In observational learning you learn by watching a model.",
       "difficulty": 0.25
     },
     {

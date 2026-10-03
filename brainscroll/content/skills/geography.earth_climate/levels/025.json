@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 25,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How Glaciers Sculpt Mountains",
   "objective": "After this level you can explain how moving ice carves U-shaped valleys, cirques and fjords.",
@@ -86,7 +86,7 @@
   "questions": [
     {
       "id": "question.earth_climate.025.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.earth_climate.land_glacial_landforms"
@@ -94,33 +94,26 @@
       "sourceCardIds": [
         "card.earth_climate.025.c3"
       ],
-      "prompt": "What is a glacial horn, such as the Matterhorn?",
-      "options": [
+      "prompt": "Match each glacial landform with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A bowl-shaped hollow that fills with a lake",
-          "correct": false,
-          "rationale": "That's a cirque holding a tarn."
+          "left": "Cirque",
+          "right": "Bowl-shaped hollow"
         },
         {
-          "id": "b",
-          "label": "A long groove scratched into bedrock",
-          "correct": false,
-          "rationale": "That's a striation."
+          "left": "Tarn",
+          "right": "Lake"
         },
         {
-          "id": "c",
-          "label": "A sharp peak left where several cirques meet",
-          "correct": true
+          "left": "Arête",
+          "right": "Knife-edged ridge"
         },
         {
-          "id": "d",
-          "label": "A flooded valley below sea level",
-          "correct": false,
-          "rationale": "That's a fjord."
+          "left": "Horn",
+          "right": "Sharp peak"
         }
       ],
-      "explanation": "When three or more cirques erode into a mountain from different sides, they leave arêtes that meet at a sharp peak: a horn.",
+      "explanation": "A cirque is a bowl-shaped hollow, a tarn is a lake that fills it, an arête is a knife-edged ridge and a horn is a sharp peak.",
       "difficulty": 0.2
     },
     {

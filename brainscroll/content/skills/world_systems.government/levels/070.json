@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 70,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Elections",
   "objective": "After this level you can explain how elections turn votes into power.",
@@ -180,7 +180,7 @@
     },
     {
       "id": "question.government.070.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.government.election_gerrymandering",
@@ -192,35 +192,20 @@
         "card.government.064.c3",
         "card.government.062.c2",
         "card.government.066.c1",
-        "card.government.063.c3"
+        "card.government.063.c3",
+        "card.government.070.c1"
       ],
-      "prompt": "Elections checkpoint: which list puts these in order, oldest first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Victoria ballot → Gerry-mander → Digest poll → NZ MMP vote",
-          "correct": false,
-          "rationale": "The Gerry-mander (1812) is older than Victoria's ballot (1856)."
-        },
-        {
-          "id": "b",
-          "label": "Gerry-mander → Victoria ballot → Digest poll → NZ MMP vote",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Gerry-mander → Digest poll → Victoria ballot → NZ MMP vote",
-          "correct": false,
-          "rationale": "Victoria's ballot (1856) came before the Digest poll (1936)."
-        },
-        {
-          "id": "d",
-          "label": "Digest poll → Gerry-mander → NZ MMP vote → Victoria ballot",
-          "correct": false,
-          "rationale": "The 1936 poll is the second-newest of these."
-        }
+      "prompt": "Put these moments in the history of elections in order, from oldest to newest.",
+      "items": [
+        "Gerry-mander",
+        "Victoria's secret ballot law",
+        "The Literary Digest",
+        "A Royal Commission recommended",
+        "IPU's Declaration"
       ],
-      "explanation": "The Gerry-mander (1812), Victoria's secret ballot (1856), the Literary Digest poll (1936), New Zealand's first MMP election (1996).",
+      "first": "Oldest",
+      "last": "Newest",
+      "explanation": "The Gerry-mander (1812), Victoria's secret ballot law (1856), the Literary Digest poll (1936), New Zealand's Royal Commission recommending MMP (1986), then the IPU's Declaration (1994).",
       "difficulty": 0.35
     },
     {

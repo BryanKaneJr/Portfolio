@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 15,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Hydropower",
   "objective": "After this level you can explain how dams turn falling water into electricity.",
@@ -91,7 +91,7 @@
   "questions": [
     {
       "id": "question.everyday_technology.015.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.hydro_how"
@@ -99,33 +99,17 @@
       "sourceCardIds": [
         "card.everyday_technology.015.c2"
       ],
-      "prompt": "At a hydroelectric dam, what turns the turbine?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Water falling through a penstock",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Steam from a boiler",
-          "correct": false,
-          "rationale": "A dam needs no fire and no steam."
-        },
-        {
-          "id": "c",
-          "label": "Wind blowing across the reservoir",
-          "correct": false,
-          "rationale": "It's the falling water that pushes."
-        },
-        {
-          "id": "d",
-          "label": "A battery at the base of the dam",
-          "correct": false,
-          "rationale": "Batteries store energy; they don't turn turbines here."
-        }
+      "prompt": "Put these in order, following the water through a hydroelectric dam.",
+      "items": [
+        "Reservoir",
+        "Intake",
+        "Penstock",
+        "Turbine",
+        "Generator"
       ],
-      "explanation": "Water from the reservoir falls through the penstock and spins the turbine, which turns the generator.",
+      "first": "Water held back",
+      "last": "Electricity made",
+      "explanation": "Water held in the reservoir enters an intake, falls through the penstock and spins a turbine, whose shaft turns a generator.",
       "difficulty": 0.15
     },
     {

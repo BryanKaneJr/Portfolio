@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 67,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Tolstoy's Big Canvas",
   "objective": "After this level you can explain how War and Peace and Anna Karenina weave private lives into the history around them.",
@@ -130,42 +130,32 @@
     },
     {
       "id": "question.literature.067.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.tolstoy_war_and_peace"
       ],
       "sourceCardIds": [
         "card.literature.067.c2",
-        "card.literature.067.c3"
+        "card.literature.067.c3",
+        "card.literature.067.c4"
       ],
-      "prompt": "How does War and Peace tie private lives to history?",
-      "options": [
+      "prompt": "Match each book or character with what goes with it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It tells only Napoleon's life story",
-          "correct": false,
-          "rationale": "Napoleon isn't steering the book."
+          "left": "War and Peace",
+          "right": "The French invasion of Russia in 1812"
         },
         {
-          "id": "b",
-          "label": "It sets fictional families inside a real war",
-          "correct": true
+          "left": "Anna",
+          "right": "Count Vronsky"
         },
         {
-          "id": "c",
-          "label": "It keeps the war entirely offstage",
-          "correct": false,
-          "rationale": "The invasion of 1812 is at its center."
-        },
-        {
-          "id": "d",
-          "label": "It is told in letters found in a castle",
-          "correct": false,
-          "rationale": "That's more a Gothic device."
+          "left": "Kitty",
+          "right": "Levin"
         }
       ],
-      "explanation": "War and Peace mixes a history of the Napoleonic Wars with fictional families' lives and essays on history.",
+      "explanation": "War and Peace centers on the French invasion of Russia in 1812. Anna Karenina centers on Anna's affair with Count Vronsky, alongside the courtship and marriage of Kitty and Levin.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 63,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Hypothesis, Prediction, Test",
   "objective": "After this level you can explain the logic of a scientific test: a hypothesis predicts something, and a failed prediction counts against it.",
@@ -121,7 +121,7 @@
     },
     {
       "id": "question.logic.063.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.science_hypothesis_test"
@@ -129,33 +129,16 @@
       "sourceCardIds": [
         "card.logic.063.c3"
       ],
-      "prompt": "How did the gold-foil results count against the snowball model of the atom?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The foil was too thin to test anything",
-          "correct": false,
-          "rationale": "The test worked; its result was the surprise."
-        },
-        {
-          "id": "b",
-          "label": "Rutherford changed his mind for other reasons",
-          "correct": false,
-          "rationale": "He changed it because of this result."
-        },
-        {
-          "id": "c",
-          "label": "All the particles passed straight through",
-          "correct": false,
-          "rationale": "Most did, as predicted; the problem was the rest."
-        },
-        {
-          "id": "d",
-          "label": "It predicted little scattering, but some particles bounced back",
-          "correct": true
-        }
+      "prompt": "Put Rutherford's gold-foil test in order, from the starting idea to the conclusion.",
+      "items": [
+        "The snowball atom",
+        "Only minor scattering",
+        "Some bounced back",
+        "The atom has a dense core"
       ],
-      "explanation": "The spread-out atom predicted only minor scattering. Some particles bounced back, so the prediction failed.",
+      "first": "Starting idea",
+      "last": "Conclusion",
+      "explanation": "Rutherford started from the snowball atom, which predicted only minor scattering. Some particles bounced back, so he concluded the atom has a dense core: a nucleus.",
       "difficulty": 0.25
     },
     {

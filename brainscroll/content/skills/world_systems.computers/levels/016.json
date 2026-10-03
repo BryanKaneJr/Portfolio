@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 16,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Transistor",
   "objective": "After this level you can explain how the 1947 transistor replaced hot, fragile vacuum tubes as the computer's switch.",
@@ -86,41 +86,24 @@
   "questions": [
     {
       "id": "question.computers.016.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.history_transistor"
       ],
       "sourceCardIds": [
-        "card.computers.016.c3"
+        "card.computers.016.c3",
+        "card.computers.014.c1"
       ],
-      "prompt": "Where was the first working transistor made, in December 1947?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Bell Labs",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The University of Manchester",
-          "correct": false,
-          "rationale": "That's where the Baby was built."
-        },
-        {
-          "id": "c",
-          "label": "The University of Pennsylvania",
-          "correct": false,
-          "rationale": "That's where ENIAC was built."
-        },
-        {
-          "id": "d",
-          "label": "Texas Instruments",
-          "correct": false,
-          "rationale": "That comes up with the first chips, in Level 17."
-        }
+      "prompt": "Put these milestones of the electronic switch in order, from earliest to latest.",
+      "items": [
+        "ENIAC was built",
+        "The first working transistor",
+        "Shared the Nobel Prize in Physics"
       ],
-      "explanation": "Bardeen and Brattain made it at Bell Labs, in Shockley's group.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "ENIAC was built from 1943 to 1945, the first working transistor came in December 1947, and Bardeen, Brattain and Shockley shared the Nobel Prize in Physics in 1956.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 70,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: How Science Tests Ideas",
   "objective": "After this level you can explain how controls, blinding, randomizing and replication turn a hunch into knowledge.",
@@ -151,42 +151,33 @@
     },
     {
       "id": "question.logic.070.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.science_semmelweis_test",
         "concept.logic.science_hypothesis_test"
       ],
       "sourceCardIds": [
-        "card.logic.070.c2"
+        "card.logic.070.c2",
+        "card.logic.070.c3",
+        "card.logic.070.c4"
       ],
-      "prompt": "Why did the birth-position explanation lose support?",
-      "options": [
+      "prompt": "Match each test or safeguard with what came of it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Its prediction failed: the fever did not fall",
-          "correct": true
+          "left": "The birth position",
+          "right": "The fever didn't fall"
         },
         {
-          "id": "b",
-          "label": "Other doctors voted against it",
-          "correct": false,
-          "rationale": "A test, not a vote, sank it."
+          "left": "The doctors' hands",
+          "right": "Fever rates plummeted"
         },
         {
-          "id": "c",
-          "label": "It could not be tested at all",
-          "correct": false,
-          "rationale": "It was tested, and it failed."
-        },
-        {
-          "id": "d",
-          "label": "Semmelweis never tried changing positions",
-          "correct": false,
-          "rationale": "He did try it."
+          "left": "Blinding",
+          "right": "Keeps them from knowing who got which"
         }
       ],
-      "explanation": "If birth position caused the fever, labor on the side should have lowered it. It did not, so the evidence counted against the idea.",
+      "explanation": "When women labored on their sides, the fever didn't fall. When doctors washed their hands, fever rates plummeted. In modern trials, blinding keeps people from knowing who got which.",
       "difficulty": 0.25
     },
     {

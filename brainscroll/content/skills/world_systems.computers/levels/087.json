@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 87,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Why Chatbots Make Things Up",
   "objective": "After this level you can explain why a language model can state false things fluently, and check a chatbot's answer against a source.",
@@ -130,42 +130,33 @@
     },
     {
       "id": "question.computers.087.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.llm_confabulation"
       ],
       "sourceCardIds": [
         "card.computers.087.c4",
-        "card.computers.087.c1"
+        "card.computers.087.c1",
+        "card.computers.087.c2",
+        "card.computers.087.c3"
       ],
-      "prompt": "A chatbot gives you a quote and names the book it came from. What is the best way to check it?",
-      "options": [
+      "prompt": "Match each part of the made-up answers story with its detail.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Ask the chatbot whether it's sure",
-          "correct": false,
-          "rationale": "That asks the same guesser again; in 2023 one vouched for a case that didn't exist."
+          "left": "Confabulation",
+          "right": "Confidently stated but false content"
         },
         {
-          "id": "b",
-          "label": "Find the book yourself and look for the quote",
-          "correct": true
+          "left": "Mata v. Avianca",
+          "right": "Court cases that ChatGPT had made up"
         },
         {
-          "id": "c",
-          "label": "Trust it if the answer sounds confident",
-          "correct": false,
-          "rationale": "Confabulations are stated confidently too."
-        },
-        {
-          "id": "d",
-          "label": "Ask the same question again and compare",
-          "correct": false,
-          "rationale": "Two likely-sounding answers can both be invented."
+          "left": "A 2025 research paper",
+          "right": "Models guess when they're unsure"
         }
       ],
-      "explanation": "The check that works is outside the chatbot: find the source and see that it exists and says what was claimed.",
+      "explanation": "Confabulation is confidently stated but false content, Mata v. Avianca involved court cases that ChatGPT had made up, and a 2025 research paper said models guess when they're unsure.",
       "difficulty": 0.35
     },
     {

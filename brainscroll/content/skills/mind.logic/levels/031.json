@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 31,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "What Counts as Evidence",
   "objective": "After this level you can explain what makes something evidence for a claim rather than just a reason to like it.",
@@ -130,41 +130,31 @@
     },
     {
       "id": "question.logic.031.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.evidence_what_counts"
       ],
       "sourceCardIds": [
-        "card.logic.031.c2"
+        "card.logic.031.c2",
+        "card.logic.031.c3"
       ],
-      "prompt": "How does smoke count as evidence of fire?",
-      "options": [
+      "prompt": "Match each kind of reason with what it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Most people say \"fire\" when they see smoke",
-          "correct": false,
-          "rationale": "Popular talk isn't what makes it evidence."
+          "left": "Evidence for a claim",
+          "right": "Makes the claim more likely to be true"
         },
         {
-          "id": "b",
-          "label": "It proves beyond any doubt that something is burning",
-          "correct": false,
-          "rationale": "Evidence makes a claim more likely, not certain."
+          "left": "Evidence against",
+          "right": "Makes it less likely"
         },
         {
-          "id": "c",
-          "label": "It is a reliable sign that makes fire more likely",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It is something we'd like to be true",
-          "correct": false,
-          "rationale": "Wanting a claim true is a reason to like it, not evidence."
+          "left": "Prudential",
+          "right": "What holding a belief does for you"
         }
       ],
-      "explanation": "Smoke is a reliable sign of fire, so seeing it makes \"there's a fire\" more likely to be true. That is what makes something evidence.",
+      "explanation": "Evidence for a claim makes it more likely to be true, and evidence against makes it less likely. Prudential reasons are about what holding a belief does for you.",
       "difficulty": 0.25
     },
     {

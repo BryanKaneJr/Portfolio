@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 14,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Mahabharata",
   "objective": "After this level you can describe the Mahabharata's war between two sets of cousins and the Bhagavad Gita spoken on its battlefield.",
@@ -91,41 +91,31 @@
   "questions": [
     {
       "id": "question.literature.014.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.literature.mahabharata_war"
       ],
       "sourceCardIds": [
-        "card.literature.014.c2"
+        "card.literature.014.c2",
+        "card.literature.014.c4"
       ],
-      "prompt": "In the Mahabharata, who fights for the right to rule?",
-      "options": [
+      "prompt": "Match each name from the Mahabharata with who they are.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Two rival gods of the sky",
-          "correct": false,
-          "rationale": "The rivals are human princes."
+          "left": "Kauravas",
+          "right": "Sons of Dhritarashtra"
         },
         {
-          "id": "b",
-          "label": "A king and a sea monster",
-          "correct": false,
-          "rationale": "The rivals are family."
+          "left": "Pandavas",
+          "right": "Sons of Pandu"
         },
         {
-          "id": "c",
-          "label": "Two sets of cousins",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "India and a foreign empire",
-          "correct": false,
-          "rationale": "It's a quarrel inside one family."
+          "left": "Krishna",
+          "right": "An avatar of the god Vishnu"
         }
       ],
-      "explanation": "The Kauravas and the Pandavas, two groups of cousins, struggle for sovereignty.",
+      "explanation": "The Kauravas are the sons of Dhritarashtra and the Pandavas are the sons of Pandu. Krishna, Arjuna's charioteer, is an avatar of the god Vishnu.",
       "difficulty": 0.15
     },
     {

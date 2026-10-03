@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 26,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Why Expect the Sun to Rise?",
   "objective": "After this level you can explain Hume's problem of induction: why any argument that the future will resemble the past seems to assume what it needs to prove.",
@@ -132,41 +132,31 @@
     },
     {
       "id": "question.philosophy.026.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.knowledge_hume_induction"
       ],
       "sourceCardIds": [
-        "card.philosophy.026.c3"
+        "card.philosophy.026.c3",
+        "card.philosophy.026.c4"
       ],
-      "prompt": "How, according to Hume, does an argument from past experience that the future will resemble the past go wrong?",
-      "options": [
+      "prompt": "Match each term from Hume’s argument with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It relies on too few observations",
-          "correct": false,
-          "rationale": "More observations wouldn’t fix the circle."
+          "left": "Demonstrative",
+          "right": "Proved by reason alone"
         },
         {
-          "id": "b",
-          "label": "It assumes the very point it is trying to prove",
-          "correct": true
+          "left": "Probable",
+          "right": "Drawn from experience"
         },
         {
-          "id": "c",
-          "label": "It contradicts the laws of logic",
-          "correct": false,
-          "rationale": "Hume’s point is circularity, not contradiction."
-        },
-        {
-          "id": "d",
-          "label": "It ignores what scientists have found",
-          "correct": false,
-          "rationale": "The problem applies to scientific evidence too."
+          "left": "Custom",
+          "right": "The great guide of human life"
         }
       ],
-      "explanation": "A probable argument already takes for granted that the future resembles the past, so it is circular.",
+      "explanation": "A demonstrative argument is proved by reason alone, a probable one is drawn from experience, and custom, Hume said, is the great guide of human life.",
       "difficulty": 0.4
     },
     {

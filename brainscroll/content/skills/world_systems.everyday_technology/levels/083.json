@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 83,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Bridges",
   "objective": "After this level you can explain how beam, arch and suspension bridges carry their loads.",
@@ -129,41 +129,31 @@
     },
     {
       "id": "question.everyday_technology.083.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.build_tension_compression"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.083.c2"
+        "card.everyday_technology.083.c2",
+        "card.everyday_technology.083.c3"
       ],
-      "prompt": "A heavy truck stops in the middle of a beam bridge. What happens along the bottom of the beam?",
-      "options": [
+      "prompt": "Match each kind of bridge with how it carries its load.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It is squeezed in compression",
-          "correct": false,
-          "rationale": "That happens along the top."
+          "left": "Beam bridge",
+          "right": "A stiff span resting on supports"
         },
         {
-          "id": "b",
-          "label": "It pushes outward into the supports",
-          "correct": false,
-          "rationale": "That's an arch's thrust."
+          "left": "An arch",
+          "right": "Carries its load mainly by compression"
         },
         {
-          "id": "c",
-          "label": "It is stretched in tension",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It feels no force at all",
-          "correct": false,
-          "rationale": "A bending beam feels both forces."
+          "left": "A suspension bridge",
+          "right": "Hangs from curved cables"
         }
       ],
-      "explanation": "A bending beam is squeezed on top and stretched on the bottom.",
+      "explanation": "A beam bridge is a stiff span resting on supports, an arch carries its load mainly by compression, and a suspension bridge's deck hangs from curved cables.",
       "difficulty": 0.25
     },
     {

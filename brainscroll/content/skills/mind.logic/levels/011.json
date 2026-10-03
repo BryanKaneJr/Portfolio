@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 11,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Deduction",
   "objective": "After this level you can explain deduction: reasoning in which true premises guarantee a true conclusion.",
@@ -81,41 +81,32 @@
   "questions": [
     {
       "id": "question.logic.011.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.logic.deduction_definition"
       ],
       "sourceCardIds": [
-        "card.logic.011.c2"
+        "card.logic.011.c2",
+        "card.logic.011.c3",
+        "card.logic.011.c4"
       ],
-      "prompt": "In a deductive argument, what are the premises meant to do for the conclusion?",
-      "options": [
+      "prompt": "Match each idea with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Make it popular with most listeners",
-          "correct": false,
-          "rationale": "Popularity has nothing to do with deduction."
+          "left": "Deduction",
+          "right": "Meant to guarantee the conclusion"
         },
         {
-          "id": "b",
-          "label": "Make it sound fairly likely",
-          "correct": false,
-          "rationale": "Likely isn't enough: deduction aims for must."
+          "left": "Induction",
+          "right": "From the particular to the universal"
         },
         {
-          "id": "c",
-          "label": "Guarantee it, if they are true",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Explain why it happened",
-          "correct": false,
-          "rationale": "That's an explanation, Level 8's other job."
+          "left": "Counterexample",
+          "right": "A case where every premise is true"
         }
       ],
-      "explanation": "In deduction, true premises guarantee a true conclusion: if they are true, it must be true.",
+      "explanation": "In deduction the premises are meant to guarantee the conclusion. Induction runs from the particular to the universal. A counterexample is a case where every premise is true but the conclusion isn't.",
       "difficulty": 0.1
     },
     {

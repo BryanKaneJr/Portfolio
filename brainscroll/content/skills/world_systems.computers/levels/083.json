@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 83,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Inside a Neural Network",
   "objective": "After this level you can explain how a neural network learns by nudging millions of weights, a little at a time, to shrink its errors.",
@@ -81,7 +81,7 @@
   "questions": [
     {
       "id": "question.computers.083.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.neural_weights"
@@ -89,33 +89,16 @@
       "sourceCardIds": [
         "card.computers.083.c2"
       ],
-      "prompt": "What does each artificial neuron do with its inputs?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Stores them as pixels so it can look at them later",
-          "correct": false,
-          "rationale": "Neurons calculate with inputs; they don't store pictures."
-        },
-        {
-          "id": "b",
-          "label": "Multiplies each by a weight, adds them up and adds a bias",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Checks them against a list of written rules",
-          "correct": false,
-          "rationale": "Nobody writes rules for a neuron; its weights are learned."
-        },
-        {
-          "id": "d",
-          "label": "Passes them on to the next layer exactly as they arrived",
-          "correct": false,
-          "rationale": "Each neuron changes its inputs with its weights."
-        }
+      "prompt": "Put the steps an artificial neuron takes with its inputs in order.",
+      "items": [
+        "Multiplies every input by its own weight",
+        "Adds up the results",
+        "Adds one more number called the bias",
+        "Passes the total on"
       ],
-      "explanation": "Each neuron sums its inputs multiplied by their weights, plus a bias, and passes the total on.",
+      "first": "Inputs arrive",
+      "last": "Output leaves",
+      "explanation": "A neuron multiplies every input by its own weight, adds up the results, adds one more number called the bias, and passes the total on.",
       "difficulty": 0.25
     },
     {

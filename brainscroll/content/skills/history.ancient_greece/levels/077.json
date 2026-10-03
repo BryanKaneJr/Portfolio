@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 77,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Painted Pottery",
   "objective": "After this level you can explain black-figure and red-figure pottery.",
@@ -96,41 +96,36 @@
   "questions": [
     {
       "id": "question.ancient_greece.077.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_greece.pottery_figure_styles"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.077.c3"
+        "card.ancient_greece.077.c3",
+        "card.ancient_greece.077.c2",
+        "card.ancient_greece.077.c4"
       ],
-      "prompt": "On a red-figure vase, which part is painted black?",
-      "options": [
+      "prompt": "Match each kind of Greek pot or painting with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The figures",
-          "correct": false,
-          "rationale": "That’s black-figure."
+          "left": "Black-figure",
+          "right": "Each figure in black"
         },
         {
-          "id": "b",
-          "label": "The background",
-          "correct": true
+          "left": "Red-figure",
+          "right": "Background was painted black"
         },
         {
-          "id": "c",
-          "label": "Only the fine details",
-          "correct": false,
-          "rationale": "Details were brushed on the red figures."
+          "left": "Krater",
+          "right": "Mixing wine with water"
         },
         {
-          "id": "d",
-          "label": "Nothing; the whole pot is red",
-          "correct": false,
-          "rationale": "The background is black."
+          "left": "Prize amphorae",
+          "right": "Full of olive oil"
         }
       ],
-      "explanation": "Red-figure reversed black-figure: the background was painted black and the figures left the red of the clay.",
+      "explanation": "In black-figure, painters filled in each figure in black. In red-figure the background was painted black. A krater was for mixing wine with water, and prize amphorae came full of olive oil.",
       "difficulty": 0.2
     },
     {

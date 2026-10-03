@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 62,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Wars for the West",
   "objective": "After this level you can explain the wars between the US Army and the Plains nations, from Little Bighorn in 1876 to Wounded Knee in 1890.",
@@ -139,41 +139,28 @@
     },
     {
       "id": "question.us_history.062.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.us_history.plainswars_black_hills"
       ],
       "sourceCardIds": [
-        "card.us_history.062.c2"
+        "card.us_history.062.c2",
+        "card.us_history.062.c3",
+        "card.us_history.062.c4",
+        "card.us_history.062.c5"
       ],
-      "prompt": "Why did war break out over the Black Hills in the 1870s?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Lakota attacked the transcontinental railroad",
-          "correct": false,
-          "rationale": "The level ties the war to the Black Hills gold rush."
-        },
-        {
-          "id": "b",
-          "label": "The Sioux sold the hills and then changed their minds",
-          "correct": false,
-          "rationale": "The Sioux did not sell them; they refused payment even in 1980."
-        },
-        {
-          "id": "c",
-          "label": "Gold drew miners into land the 1868 treaty recognized as Sioux",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Spain claimed the hills for itself",
-          "correct": false,
-          "rationale": "Spain had no part in it."
-        }
+      "prompt": "Put these events in the fight for the Black Hills in order, from earliest to latest.",
+      "items": [
+        "The Fort Laramie Treaty",
+        "Custer led an expedition",
+        "The Little Bighorn",
+        "Wounded Knee",
+        "The Supreme Court ruled"
       ],
-      "explanation": "After gold was found in 1874, miners poured into land the Fort Laramie Treaty had recognized as part of the Great Sioux Reservation.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Fort Laramie Treaty came in 1868 and Custer’s expedition in 1874. The Little Bighorn was fought in 1876, Wounded Knee came in 1890, and the Supreme Court ruled on the Black Hills in 1980.",
       "difficulty": 0.3
     },
     {

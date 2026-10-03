@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 42,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Kelp Forests",
   "objective": "After this level you can describe underwater kelp forests.",
@@ -130,41 +130,31 @@
     },
     {
       "id": "question.oceans.042.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.sunlit_kelp_forest"
       ],
       "sourceCardIds": [
-        "card.oceans.042.c3"
+        "card.oceans.042.c3",
+        "card.oceans.042.c2"
       ],
-      "prompt": "Why are kelp forests rarely found deeper than about 15 to 40 m?",
-      "options": [
+      "prompt": "Match each part of a kelp with what it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Holdfasts can only grip rocks near shore",
-          "correct": false,
-          "rationale": "The limit is light, not grip."
+          "left": "Holdfast",
+          "right": "Grips the rock"
         },
         {
-          "id": "b",
-          "label": "Kelp needs sunlight for photosynthesis",
-          "correct": true
+          "left": "Stipes",
+          "right": "Flexible stems"
         },
         {
-          "id": "c",
-          "label": "Sea otters can't dive any deeper",
-          "correct": false,
-          "rationale": "Otters matter for urchins, not depth."
-        },
-        {
-          "id": "d",
-          "label": "The water below is too warm for kelp",
-          "correct": false,
-          "rationale": "Deeper water is colder; light is the limit."
+          "left": "Gas-filled bladders",
+          "right": "Float the blades upward"
         }
       ],
-      "explanation": "Kelp depends on light for photosynthesis, so its forests stay in shallow water.",
+      "explanation": "The root-like holdfast grips the rock, the stipes are flexible stems, and gas-filled bladders float the blades upward toward the light.",
       "difficulty": 0.2
     },
     {

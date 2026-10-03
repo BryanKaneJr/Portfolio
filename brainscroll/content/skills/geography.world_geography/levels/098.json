@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 98,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "People on the Move",
   "objective": "After this level you can explain why people migrate and where the biggest movements happen.",
@@ -178,7 +178,7 @@
     },
     {
       "id": "question.world_geography.098.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.world_geography.migration_push_pull",
@@ -188,27 +188,26 @@
         "card.world_geography.098.c2",
         "card.world_geography.035.c4"
       ],
-      "prompt": "From Level 35: a monsoon that comes too hard floods South Asia's farms. In migration terms, what is that flood?",
-      "options": [
+      "prompt": "Match each one with the kind of factor it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A pull factor",
-          "correct": false,
-          "rationale": "A pull draws people in; a flood drives them away."
+          "left": "War",
+          "right": "Push factor"
         },
         {
-          "id": "b",
-          "label": "International migration",
-          "correct": false,
-          "rationale": "That's a kind of move, not a reason for one."
+          "left": "Floods",
+          "right": "Push factor"
         },
         {
-          "id": "c",
-          "label": "A push factor",
-          "correct": true
+          "left": "Jobs",
+          "right": "Pull factor"
+        },
+        {
+          "left": "A nicer climate",
+          "right": "Pull factor"
         }
       ],
-      "explanation": "A flood drives people away from home, so it's a push factor, like war or food shortages.",
+      "explanation": "War and floods are push factors that drive people away. Jobs and a nicer climate are pull factors that draw them somewhere.",
       "difficulty": 0.35
     }
   ],

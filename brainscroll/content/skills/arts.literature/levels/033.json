@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 33,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Rhyme, Alliteration and Sound",
   "objective": "After this level you can identify rhyme, slant rhyme, alliteration and assonance and how each ties words together.",
@@ -123,41 +123,31 @@
     },
     {
       "id": "question.literature.033.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.sound_alliteration_assonance"
       ],
       "sourceCardIds": [
-        "card.literature.033.c3"
+        "card.literature.033.c3",
+        "card.literature.033.c2"
       ],
-      "prompt": "How does assonance tie words together?",
-      "options": [
+      "prompt": "Match each sound tool with what it ties together.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It repeats consonants at the start of words",
-          "correct": false,
-          "rationale": "That's alliteration."
+          "left": "Rhyme",
+          "right": "Line endings"
         },
         {
-          "id": "b",
-          "label": "It repeats vowel sounds in nearby words",
-          "correct": true
+          "left": "Alliteration",
+          "right": "Word beginnings"
         },
         {
-          "id": "c",
-          "label": "It matches the sounds at the ends of lines",
-          "correct": false,
-          "rationale": "That's rhyme."
-        },
-        {
-          "id": "d",
-          "label": "It counts stressed syllables",
-          "correct": false,
-          "rationale": "That's meter."
+          "left": "Assonance",
+          "right": "The vowels in between"
         }
       ],
-      "explanation": "Assonance, from the Latin for \"to answer with the same sound,\" repeats vowel sounds in nearby words.",
+      "explanation": "Rhyme ties line endings together, alliteration ties word beginnings, and assonance ties the vowels in between.",
       "difficulty": 0.3
     },
     {

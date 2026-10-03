@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 56,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Impressionism",
   "objective": "After this level you can explain how the Impressionists painted light and passing moments outdoors.",
@@ -131,41 +131,25 @@
     },
     {
       "id": "question.art_history.056.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.impressionist_technique"
       ],
       "sourceCardIds": [
-        "card.art_history.056.c3"
+        "card.art_history.056.c3",
+        "card.art_history.056.c1",
+        "card.art_history.056.c2"
       ],
-      "prompt": "Why did Impressionists paint outdoors, in front of the scene?",
-      "options": [
-        {
-          "id": "a",
-          "label": "To record colors as they looked in that light, at that moment",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Because studios were banned in Paris",
-          "correct": false,
-          "rationale": "No such ban existed."
-        },
-        {
-          "id": "c",
-          "label": "To avoid buying expensive canvases",
-          "correct": false,
-          "rationale": "Outdoor work did not save canvas."
-        },
-        {
-          "id": "d",
-          "label": "Because the Salon required it",
-          "correct": false,
-          "rationale": "The Salon had rejected them."
-        }
+      "prompt": "Put these moments in the story of Impressionism in order, from earliest to latest.",
+      "items": [
+        "A squeezable tin tube",
+        "Impression, Sunrise",
+        "Held their own exhibition"
       ],
-      "explanation": "They wanted color and form as they actually appeared in natural light at a given time, not as reworked in the studio.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Rand patented a squeezable tin tube in 1841, Monet painted Impression, Sunrise in 1872, and the rejected painters held their own exhibition in 1874.",
       "difficulty": 0.25
     },
     {

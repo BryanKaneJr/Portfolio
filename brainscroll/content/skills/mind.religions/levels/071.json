@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 71,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Baha'i Faith",
   "objective": "After this level you can explain the Baha'i teachings of the oneness of God, religion and humanity, and the faith's beginnings in 1800s Iran.",
@@ -131,41 +131,25 @@
     },
     {
       "id": "question.religions.071.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.newfaith_bahai_oneness"
       ],
       "sourceCardIds": [
-        "card.religions.071.c3"
+        "card.religions.071.c3",
+        "card.religions.071.c2"
       ],
-      "prompt": "How do Baha'is explain the many religions that have appeared in history?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Each religion was founded by a different god",
-          "correct": false,
-          "rationale": "Baha'is believe in one God."
-        },
-        {
-          "id": "b",
-          "label": "One God sent Messengers in turn, each suited to its time",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Only the newest faith comes from God; older ones are errors",
-          "correct": false,
-          "rationale": "Baha'is honor the earlier Messengers."
-        },
-        {
-          "id": "d",
-          "label": "Religions arose by chance, with no divine source",
-          "correct": false,
-          "rationale": "Baha'is see one divine source behind them."
-        }
+      "prompt": "Put these moments in the Baha'i story in order, from earliest to latest.",
+      "items": [
+        "The Bab founded the movement",
+        "Thrown into a Tehran dungeon",
+        "Declared to his fellow Babis",
+        "Died near Akka"
       ],
-      "explanation": "Baha'is call it progressive revelation: God sent a series of Messengers, each bringing guidance for humanity's stage of growth.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Bab founded the movement in 1844. Baha'u'llah was thrown into a Tehran dungeon in 1852, declared to his fellow Babis in 1863, and died near Akka in 1892.",
       "difficulty": 0.3
     },
     {

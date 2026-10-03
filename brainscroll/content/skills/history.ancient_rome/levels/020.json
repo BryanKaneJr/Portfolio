@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 20,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: How the Republic Worked",
   "objective": "After this level you can explain how consuls, Senate, assemblies and tribunes balanced one another.",
@@ -131,41 +131,31 @@
   "questions": [
     {
       "id": "question.ancient_rome.020.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_rome.mixed_constitution"
       ],
       "sourceCardIds": [
-        "card.ancient_rome.020.c2"
+        "card.ancient_rome.020.c2",
+        "card.ancient_rome.020.c3"
       ],
-      "prompt": "In Rome’s assemblies, what did citizens do?",
-      "options": [
+      "prompt": "Polybius saw three kinds of rule in Rome. Match each part with the one it stood for.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Advised the consuls on war",
-          "correct": false,
-          "rationale": "That was the Senate."
+          "left": "The consuls",
+          "right": "The monarchy"
         },
         {
-          "id": "b",
-          "label": "Tended the sacred fire",
-          "correct": false,
-          "rationale": "That was the Vestals."
+          "left": "The Senate",
+          "right": "The aristocracy"
         },
         {
-          "id": "c",
-          "label": "Elected magistrates and passed laws",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Chose the next king",
-          "correct": false,
-          "rationale": "There were no kings."
+          "left": "The assemblies",
+          "right": "The democracy"
         }
       ],
-      "explanation": "Citizens met in assemblies to elect magistrates and pass laws.",
+      "explanation": "For Polybius, the consuls were the monarchy, the Senate the aristocracy, and the assemblies the democracy, and each checked the others.",
       "difficulty": 0.25
     },
     {

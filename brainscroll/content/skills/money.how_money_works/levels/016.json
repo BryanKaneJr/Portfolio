@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 16,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How Prices Nudge You",
   "objective": "After this level you can spot common pricing tricks like prices ending in 99 and decoy options.",
@@ -126,41 +126,32 @@
     },
     {
       "id": "question.how_money_works.016.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.pricing_decoy"
       ],
       "sourceCardIds": [
+        "card.how_money_works.016.c2",
+        "card.how_money_works.016.c3",
         "card.how_money_works.016.c4"
       ],
-      "prompt": "Hardly anyone orders the medium, priced just under the large. Why offer it?",
-      "options": [
+      "prompt": "Match each price cue with what it did.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It raises the price of the small",
-          "correct": false,
-          "rationale": "The small stays at $3."
+          "left": "A price ending in 9",
+          "right": "Did better than an actual $5 discount"
         },
         {
-          "id": "b",
-          "label": "It makes the $5 large look like a bargain",
-          "correct": true
+          "left": "\"Sale\" beside a price",
+          "right": "Increased demand by more than 50%"
         },
         {
-          "id": "c",
-          "label": "It is meant to be the best seller",
-          "correct": false,
-          "rationale": "Hardly anyone orders it; that is the point."
-        },
-        {
-          "id": "d",
-          "label": "It replaces the small",
-          "correct": false,
-          "rationale": "The small is still on the menu."
+          "left": "The decoy effect",
+          "right": "The large looks like a steal"
         }
       ],
-      "explanation": "A decoy is a less attractive option that changes how people choose between the other two.",
+      "explanation": "A price ending in 9 did better than an actual $5 discount. \"Sale\" beside a price increased demand by more than 50%. A decoy medium makes the large look like a steal.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 23,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "The Alhambra and Great Mosques",
   "objective": "After this level you can describe the architecture of the Alhambra and the great mosques.",
@@ -130,41 +130,37 @@
     },
     {
       "id": "question.art_history.023.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.cordoba_great_mosque"
       ],
       "sourceCardIds": [
-        "card.art_history.023.c2"
+        "card.art_history.023.c2",
+        "card.art_history.023.c1",
+        "card.art_history.023.c3",
+        "card.art_history.023.c4"
       ],
-      "prompt": "Why did Córdoba's builders stack a second tier of arches on the columns?",
-      "options": [
+      "prompt": "Match each name from Córdoba and the Alhambra with what it refers to.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "To hold up a gold mosaic dome",
-          "correct": false,
-          "rationale": "The point was height, not a dome."
+          "left": "Al-Hamra",
+          "right": "The red one"
         },
         {
-          "id": "b",
-          "label": "To make room for a second floor",
-          "correct": false,
-          "rationale": "There's no upper floor; the hall just rises higher."
+          "left": "Muqarnas",
+          "right": "Niche-like cells"
         },
         {
-          "id": "c",
-          "label": "To hide the reused Roman columns",
-          "correct": false,
-          "rationale": "The columns stay in plain view."
+          "left": "The Nasrid motto",
+          "right": "There is no victor but God"
         },
         {
-          "id": "d",
-          "label": "To give the prayer hall greater height",
-          "correct": true
+          "left": "Abd al-Rahman I",
+          "right": "The Great Mosque of Córdoba"
         }
       ],
-      "explanation": "Stacking a second tier of arches above the horseshoe arches gave the prayer hall greater height.",
+      "explanation": "Al-Hamra means the red one, muqarnas are ceilings of small niche-like cells, the Nasrid motto is \"There is no victor but God\", and the Great Mosque of Córdoba was begun under Abd al-Rahman I.",
       "difficulty": 0.3
     },
     {

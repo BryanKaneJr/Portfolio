@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 49,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "What Dreams Say About You",
   "objective": "After this level you can explain what research on dream content shows and how it compares with Freud's dream interpretation.",
@@ -170,43 +170,33 @@
     },
     {
       "id": "question.psychology.049.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.psychology.dream_content_research",
         "concept.psychology.freud_evidence"
       ],
       "sourceCardIds": [
+        "card.psychology.049.c2",
         "card.psychology.049.c3",
-        "card.psychology.004.c3"
+        "card.psychology.049.c4"
       ],
-      "prompt": "Level 4 showed Freud treated his own interpretations as proof. How did Hall and Van de Castle study dreams differently?",
-      "options": [
+      "prompt": "Match each idea or researcher from dream research with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They interpreted one patient's dreams in depth",
-          "correct": false,
-          "rationale": "That is closer to Freud's approach."
+          "left": "Manifest content",
+          "right": "The storyline you remember"
         },
         {
-          "id": "b",
-          "label": "They asked people to invent dreams in the lab",
-          "correct": false,
-          "rationale": "They studied reported dreams."
+          "left": "Calvin Hall and Robert Van de Castle",
+          "right": "Counting what happens in dreams"
         },
         {
-          "id": "c",
-          "label": "They relied on the dreamers' own interpretations",
-          "correct": false,
-          "rationale": "They counted content rather than interpreting it."
-        },
-        {
-          "id": "d",
-          "label": "They counted dream content with a set system",
-          "correct": true
+          "left": "Rosalind Cartwright",
+          "right": "Women going through divorce"
         }
       ],
-      "explanation": "Hall and Van de Castle counted what happens in dreams with a coding system and built norms from many reports, instead of relying on one interpreter.",
+      "explanation": "Manifest content is the storyline you remember. Hall and Van de Castle built a system for counting what happens in dreams. Rosalind Cartwright studied women going through divorce.",
       "difficulty": 0.25
     }
   ],

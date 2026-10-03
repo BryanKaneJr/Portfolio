@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 38,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Sunni and Shia",
   "objective": "After this level you can explain how a dispute over who should lead after Muhammad's death in 632 produced Islam's two main branches.",
@@ -86,41 +86,31 @@
   "questions": [
     {
       "id": "question.religions.038.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.religions.sunni_shia_succession"
       ],
       "sourceCardIds": [
-        "card.religions.038.c2"
+        "card.religions.038.c2",
+        "card.religions.038.c3"
       ],
-      "prompt": "Where does the name Shia come from?",
-      "options": [
+      "prompt": "Match each person with who they were.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Shahada, the statement of faith",
-          "correct": false,
-          "rationale": "The shahada is the first pillar."
+          "left": "Abu Bakr",
+          "right": "A close Companion of the Prophet"
         },
         {
-          "id": "b",
-          "label": "Sunnah, the Prophet's example",
-          "correct": false,
-          "rationale": "That's where the name Sunni comes from."
+          "left": "Ali",
+          "right": "Muhammad's cousin and son-in-law"
         },
         {
-          "id": "c",
-          "label": "Shiat Ali, the partisans of Ali",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Sharia, the path of law",
-          "correct": false,
-          "rationale": "Sharia is Islamic law, not a branch's name."
+          "left": "Husayn",
+          "right": "The Prophet's grandson"
         }
       ],
-      "explanation": "Shia is short for Shiat Ali, the partisans of Ali, who held that he should lead.",
+      "explanation": "Abu Bakr was a close Companion of the Prophet, Ali was Muhammad's cousin and son-in-law, and Husayn was the Prophet's grandson.",
       "difficulty": 0.2
     },
     {

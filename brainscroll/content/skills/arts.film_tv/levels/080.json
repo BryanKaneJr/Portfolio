@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 80,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Television",
   "objective": "After this level you can trace television from radio's networks to streaming and explain what drove each change.",
@@ -220,41 +220,27 @@
     },
     {
       "id": "question.film_tv.080.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.tv_kinescope_videotape"
       ],
       "sourceCardIds": [
-        "card.film_tv.073.c4"
+        "card.film_tv.073.c4",
+        "card.film_tv.080.c3"
       ],
-      "prompt": "From Level 73: what did Ampex introduce in 1956?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The first three-camera sitcom",
-          "correct": false,
-          "rationale": "That was I Love Lucy's method, from 1951."
-        },
-        {
-          "id": "b",
-          "label": "The first practical videotape recorder for TV stations",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The Audimeter for measuring viewers",
-          "correct": false,
-          "rationale": "Nielsen's Audimeter came from A.C. Nielsen."
-        },
-        {
-          "id": "d",
-          "label": "The first national cable channel",
-          "correct": false,
-          "rationale": "That was HBO in 1975."
-        }
+      "prompt": "Put these moments from Chapter 8 in order, from earliest to latest.",
+      "items": [
+        "NBC's first radio network program",
+        "I Love Lucy debuts",
+        "Ampex videotape",
+        "The Public Broadcasting Act",
+        "HBO goes national by satellite",
+        "House of Cards"
       ],
-      "explanation": "Ampex's 1956 videotape recorder replaced kinescope film.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "NBC's first network program aired in 1926, I Love Lucy debuted in 1951, Ampex videotape arrived in 1956, the Public Broadcasting Act in 1967, HBO went national in 1975 and House of Cards in 2013.",
       "difficulty": 0.25
     },
     {

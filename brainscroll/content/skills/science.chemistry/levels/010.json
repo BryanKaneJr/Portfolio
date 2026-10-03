@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 10,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Matter",
   "objective": "After this level you can explain states of matter, mixtures and the two kinds of change.",
@@ -127,41 +127,32 @@
   "questions": [
     {
       "id": "question.chemistry.010.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.sublimation_deposition"
       ],
       "sourceCardIds": [
-        "card.chemistry.010.c2"
+        "card.chemistry.010.c2",
+        "card.chemistry.010.c3",
+        "card.chemistry.010.c4"
       ],
-      "prompt": "What is sublimation?",
-      "options": [
+      "prompt": "Match each example with the state or change of state it shows.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A gas turning into a liquid",
-          "correct": false,
-          "rationale": "That is condensation."
+          "left": "Dry ice",
+          "right": "Sublimation"
         },
         {
-          "id": "b",
-          "label": "A solid turning straight into a gas",
-          "correct": true
+          "left": "Frost",
+          "right": "Deposition"
         },
         {
-          "id": "c",
-          "label": "A liquid turning into a solid",
-          "correct": false,
-          "rationale": "That is freezing."
-        },
-        {
-          "id": "d",
-          "label": "A gas turning straight into a solid",
-          "correct": false,
-          "rationale": "That is deposition, the reverse."
+          "left": "The Sun",
+          "right": "Plasma"
         }
       ],
-      "explanation": "Sublimation skips the liquid step: solid straight to gas, as dry ice does at normal air pressure.",
+      "explanation": "Dry ice turns straight from solid to gas (sublimation), frost forms straight from water vapor (deposition), and the Sun is plasma.",
       "difficulty": 0.2
     },
     {

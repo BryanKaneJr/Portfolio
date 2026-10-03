@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 30,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Christianity",
   "objective": "After this level you can explain what Christians believe, how they worship and why they divided into Catholic, Orthodox and Protestant churches.",
@@ -176,7 +176,7 @@
   "questions": [
     {
       "id": "question.religions.030.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.religions.christianity_nicene_creed",
@@ -189,33 +189,17 @@
         "card.religions.022.c4",
         "card.religions.028.c2"
       ],
-      "prompt": "Nicaea's creed, Athanasius's list of 27 books, Luther's theses: which order did they come in?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Athanasius, then Nicaea, then Luther",
-          "correct": false,
-          "rationale": "Nicaea (325) came before Athanasius (367)."
-        },
-        {
-          "id": "b",
-          "label": "Luther, then Nicaea, then Athanasius",
-          "correct": false,
-          "rationale": "Luther (1517) came last."
-        },
-        {
-          "id": "c",
-          "label": "Nicaea, then Luther, then Athanasius",
-          "correct": false,
-          "rationale": "Athanasius (367) came long before Luther (1517)."
-        },
-        {
-          "id": "d",
-          "label": "Nicaea, then Athanasius, then Luther",
-          "correct": true
-        }
+      "prompt": "Put these turning points in Christian history in order, from earliest to latest.",
+      "items": [
+        "Mark writes the first Gospel",
+        "Nicaea",
+        "Athanasius",
+        "Schism separates East and West",
+        "Luther's Ninety-five Theses"
       ],
-      "explanation": "325, then 367, then 1517.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Mark wrote the first Gospel about 70 CE, Nicaea came in 325, Athanasius listed the 27 books in 367, the schism separated East and West in 1054, and Luther's theses came in 1517.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 77,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "One Word, Two Meanings",
   "objective": "After this level you can spot equivocation, where an argument quietly switches the meaning of a key word halfway through.",
@@ -125,41 +125,31 @@
     },
     {
       "id": "question.logic.077.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.persuasion_equivocation"
       ],
       "sourceCardIds": [
-        "card.logic.077.c3"
+        "card.logic.077.c3",
+        "card.logic.077.c1"
       ],
-      "prompt": "How does \"All banks are beside rivers, so my bank is beside a river\" fail?",
-      "options": [
+      "prompt": "Match each reading with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It has no premise at all",
-          "correct": false,
-          "rationale": "\"All banks are beside rivers\" is its premise."
+          "left": "The first \"nobody\"",
+          "right": "An unimportant person"
         },
         {
-          "id": "b",
-          "label": "Its conclusion is a question",
-          "correct": false,
-          "rationale": "Its conclusion is a claim."
+          "left": "Riverside",
+          "right": "Doesn't follow"
         },
         {
-          "id": "c",
-          "label": "On either meaning, a premise or a step breaks",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Money banks are never near rivers",
-          "correct": false,
-          "rationale": "Some may be; the problem is the switch in meaning."
+          "left": "The money kind",
+          "right": "The premise is false"
         }
       ],
-      "explanation": "As riverside, the conclusion doesn't follow; as a money bank, the premise is false.",
+      "explanation": "In Brad's argument, the first \"nobody\" means an unimportant person. Read \"bank\" as riverside and the conclusion doesn't follow; read it as the money kind and the premise is false.",
       "difficulty": 0.3
     },
     {

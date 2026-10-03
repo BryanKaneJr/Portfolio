@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 23,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Eggs and Nests",
   "objective": "After this level you can explain how birds build nests and hatch their eggs.",
@@ -164,7 +164,7 @@
     },
     {
       "id": "question.animals.023.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.bird_nest_variety",
@@ -172,35 +172,29 @@
       ],
       "sourceCardIds": [
         "card.animals.023.c1",
-        "card.animals.021.c3"
+        "card.animals.021.c3",
+        "card.animals.023.c2"
       ],
-      "prompt": "Every bird lays hard-shelled eggs (Level 21). Which is true of the nests birds lay them in?",
-      "options": [
+      "prompt": "Match each bird with its nest.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Every bird builds a cup of twigs",
-          "correct": false,
-          "rationale": "Falcons and owls make no real nest at all."
+          "left": "Small hummingbirds",
+          "right": "About 2 cm across"
         },
         {
-          "id": "b",
-          "label": "Only seabirds skip nest building",
-          "correct": false,
-          "rationale": "Falcons and owls skip it too."
+          "left": "Large eagles",
+          "right": "More than 2 m"
         },
         {
-          "id": "c",
-          "label": "They range from nothing at all to woven homes",
-          "correct": true
+          "left": "Some swifts",
+          "right": "Saliva"
         },
         {
-          "id": "d",
-          "label": "All nests are about the same size",
-          "correct": false,
-          "rationale": "They run from about 2 cm to more than 2 m."
+          "left": "Weavers",
+          "right": "Flask-shaped homes"
         }
       ],
-      "explanation": "Eggs are universal; nests aren't. They range from no real structure to woven weaver nests.",
+      "explanation": "Small hummingbirds build nests about 2 cm across, large eagles more than 2 m. Some swifts glue nests with saliva, and weavers weave flask-shaped homes.",
       "difficulty": 0.2
     }
   ],

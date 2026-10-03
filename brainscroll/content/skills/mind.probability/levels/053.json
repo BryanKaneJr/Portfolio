@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 53,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Poll That Picked the Wrong Winner",
   "objective": "After this level you can explain how the 1936 Literary Digest poll got 2 million answers and still called the election wrong.",
@@ -129,7 +129,7 @@
     },
     {
       "id": "question.probability.053.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.poll_sampling_list_bias",
@@ -137,35 +137,18 @@
       ],
       "sourceCardIds": [
         "card.probability.053.c3",
-        "card.probability.053.c4"
+        "card.probability.053.c4",
+        "card.probability.053.c1"
       ],
-      "prompt": "Why couldn't 2.4 million answers save the Digest's poll?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Its sample and replies were biased, and size doesn't fix bias",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Too few people answered for a country that size",
-          "correct": false,
-          "rationale": "2.4 million is enormous; the problem was who answered."
-        },
-        {
-          "id": "c",
-          "label": "Roosevelt supporters weren't allowed to reply",
-          "correct": false,
-          "rationale": "Nobody was barred; the lists and the replies leaned one way."
-        },
-        {
-          "id": "d",
-          "label": "The magazine counted the ballots wrong",
-          "correct": false,
-          "rationale": "The counting wasn't the problem; the sample was."
-        }
+      "prompt": "Put the Literary Digest's 1936 poll in order, from first step to last.",
+      "items": [
+        "Mailed about 10 million straw ballots",
+        "Got about 2.4 million back",
+        "Called the US presidential election"
       ],
-      "explanation": "The lists leaned toward the better-off and the replies were biased too. A bigger sample shrinks chance error, not bias.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The Digest mailed about 10 million straw ballots, got about 2.4 million back, and then called the US presidential election. It picked the loser.",
       "difficulty": 0.35
     },
     {

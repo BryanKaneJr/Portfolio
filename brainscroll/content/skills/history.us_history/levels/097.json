@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 97,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why the Cold War Ended",
   "objective": "After this level you can weigh the explanations for the Cold War's end in 1989 to 1991, from American pressure under Reagan to Gorbachev's reforms and the Soviet economy.",
@@ -94,41 +94,26 @@
   "questions": [
     {
       "id": "question.us_history.097.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.historians_cold_war_end_events"
       ],
       "sourceCardIds": [
-        "card.us_history.097.c3"
+        "card.us_history.097.c3",
+        "card.us_history.097.c2"
       ],
-      "prompt": "When did Gorbachev resign as the Soviet flag was lowered over the Kremlin for the last time?",
-      "options": [
-        {
-          "id": "a",
-          "label": "March 1985",
-          "correct": false,
-          "rationale": "That is when Gorbachev took power."
-        },
-        {
-          "id": "b",
-          "label": "December 1987",
-          "correct": false,
-          "rationale": "That is when he and Reagan signed the INF Treaty."
-        },
-        {
-          "id": "c",
-          "label": "November 1989",
-          "correct": false,
-          "rationale": "That is when the Berlin Wall came down."
-        },
-        {
-          "id": "d",
-          "label": "December 25, 1991",
-          "correct": true
-        }
+      "prompt": "Put these steps in the end of the Cold War in order, from earliest to latest.",
+      "items": [
+        "Gorbachev became the Soviet leader",
+        "The INF Treaty",
+        "Solidarity movement won freer elections",
+        "The Berlin Wall came down",
+        "Gorbachev resigned"
       ],
-      "explanation": "On December 25, 1991, Gorbachev resigned and the Soviet flag came down over the Kremlin for the last time.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Gorbachev became the Soviet leader in 1985 and signed the INF Treaty in 1987. Solidarity won freer elections in Poland in 1989, the Berlin Wall came down that November, and Gorbachev resigned on December 25, 1991.",
       "difficulty": 0.25
     },
     {

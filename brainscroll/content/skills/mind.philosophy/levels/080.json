@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 80,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Reality, Time and God",
   "objective": "After this level you can connect puzzles about reality, time and God's existence to the earlier chapters' tools of reason and experience.",
@@ -236,7 +236,7 @@
     },
     {
       "id": "question.philosophy.080.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.reality_time_god_compared",
@@ -245,33 +245,26 @@
       "sourceCardIds": [
         "card.philosophy.080.c2"
       ],
-      "prompt": "Reality, Time and God recap: which argument for God starts from reason alone, with no observation?",
-      "options": [
+      "prompt": "Match each thinker with where his argument starts.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Paley’s watchmaker argument",
-          "correct": false,
-          "rationale": "It starts from observed purpose."
+          "left": "Anselm",
+          "right": "From reason alone"
         },
         {
-          "id": "b",
-          "label": "Aquinas’s Second Way",
-          "correct": false,
-          "rationale": "It starts from causes we see."
+          "left": "Zeno",
+          "right": "From reason alone"
         },
         {
-          "id": "c",
-          "label": "Anselm’s ontological argument",
-          "correct": true
+          "left": "Paley",
+          "right": "From the world first"
         },
         {
-          "id": "d",
-          "label": "Al-Ghazali’s argument from beginnings",
-          "correct": false,
-          "rationale": "It starts from the world’s events."
+          "left": "Augustine",
+          "right": "From the world first"
         }
       ],
-      "explanation": "Ontological arguments proceed from a priori premises alone; cosmological and design arguments start from the observed world.",
+      "explanation": "Anselm and Zeno argue from reason alone. Paley and Augustine start from the world first.",
       "difficulty": 0.3
     },
     {

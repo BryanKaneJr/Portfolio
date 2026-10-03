@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 74,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Fats",
   "objective": "After this level you can explain what fats are and why the body needs them.",
@@ -93,41 +93,31 @@
   "questions": [
     {
       "id": "question.chemistry.074.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.lifechem_fat_structure"
       ],
       "sourceCardIds": [
-        "card.chemistry.074.c3"
+        "card.chemistry.074.c3",
+        "card.chemistry.074.c4"
       ],
-      "prompt": "Why is olive oil liquid at room temperature while butter is solid?",
-      "options": [
+      "prompt": "Match each fat fact with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Olive oil contains more water",
-          "correct": false,
-          "rationale": "Fats don't dissolve in water at all."
+          "left": "Butter",
+          "right": "Saturated fat"
         },
         {
-          "id": "b",
-          "label": "Butter's fats have no fatty acid tails",
-          "correct": false,
-          "rationale": "Every fat has three fatty acid tails."
+          "left": "Olive oil",
+          "right": "Unsaturated fat"
         },
         {
-          "id": "c",
-          "label": "Olive oil is a carbohydrate",
-          "correct": false,
-          "rationale": "Olive oil is a fat."
-        },
-        {
-          "id": "d",
-          "label": "Kinks in olive oil's tails stop them packing tightly",
-          "correct": true
+          "left": "A gram of fat",
+          "right": "9 calories"
         }
       ],
-      "explanation": "Double bonds kink unsaturated fatty acids so they can't pack tightly; butter's straight saturated tails stack into a solid.",
+      "explanation": "Butter is a saturated fat with straight tails, olive oil an unsaturated fat with kinked tails, and a gram of fat holds 9 calories.",
       "difficulty": 0.3
     },
     {

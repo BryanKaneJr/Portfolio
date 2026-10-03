@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 56,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Air Masses",
   "objective": "After this level you can explain why a large body of air takes on the temperature and moisture of the place it sits over.",
@@ -108,7 +108,7 @@
   "questions": [
     {
       "id": "question.earth_climate.056.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.earth_climate.weather_air_mass_types"
@@ -116,33 +116,26 @@
       "sourceCardIds": [
         "card.earth_climate.056.c3"
       ],
-      "prompt": "What does the word continental in an air mass's name tell you?",
-      "options": [
+      "prompt": "Match each word in an air mass's name with what it tells you.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It formed over land and is fairly dry",
-          "correct": true
+          "left": "Maritime",
+          "right": "Formed over ocean, humid"
         },
         {
-          "id": "b",
-          "label": "It formed over an ocean and is humid",
-          "correct": false,
-          "rationale": "That's maritime."
+          "left": "Continental",
+          "right": "Formed over land, drier"
         },
         {
-          "id": "c",
-          "label": "It is warm because it formed near the tropics",
-          "correct": false,
-          "rationale": "Temperature comes from the second word, tropical or polar."
+          "left": "Tropical",
+          "right": "Warm"
         },
         {
-          "id": "d",
-          "label": "It has crossed at least one continent",
-          "correct": false,
-          "rationale": "The name describes where it formed."
+          "left": "Polar",
+          "right": "Cold"
         }
       ],
-      "explanation": "Continental air masses form over land and are drier; maritime ones form over oceans and are more humid.",
+      "explanation": "Maritime means formed over ocean and humid, continental means formed over land and drier, tropical means warm, and polar means cold.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 93,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Virtual and Augmented Reality",
   "objective": "After this level you can explain how VR and AR headsets create or add to what you see.",
@@ -91,41 +91,37 @@
   "questions": [
     {
       "id": "question.everyday_technology.093.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.vr_headset"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.093.c2"
+        "card.everyday_technology.093.c2",
+        "card.everyday_technology.093.c1",
+        "card.everyday_technology.093.c3",
+        "card.everyday_technology.093.c4"
       ],
-      "prompt": "How does a VR headset give you a sense of depth?",
-      "options": [
+      "prompt": "Match each VR or AR idea with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It projects the scene onto the walls around you",
-          "correct": false,
-          "rationale": "The images are on screens right in front of your eyes."
+          "left": "Virtual reality",
+          "right": "Swaps your view for an artificial one"
         },
         {
-          "id": "b",
-          "label": "It shows each eye a slightly offset image",
-          "correct": true
+          "left": "Augmented reality",
+          "right": "Overlays computer-made images"
         },
         {
-          "id": "c",
-          "label": "It overlays graphics on the real room",
-          "correct": false,
-          "rationale": "That's augmented reality."
+          "left": "Ivan Sutherland",
+          "right": "Sword of Damocles"
         },
         {
-          "id": "d",
-          "label": "It uses one extra-bright screen for both eyes",
-          "correct": false,
-          "rationale": "Depth comes from two slightly different images."
+          "left": "Motion sensors",
+          "right": "Track your head"
         }
       ],
-      "explanation": "Each eye gets its own slightly offset image, and the brain fuses them into one picture with depth.",
+      "explanation": "Virtual reality swaps your view for an artificial one, augmented reality overlays computer-made images, Ivan Sutherland's headset was nicknamed the Sword of Damocles, and motion sensors track your head.",
       "difficulty": 0.2
     },
     {

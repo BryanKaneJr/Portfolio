@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 96,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Decision to Drop the Bomb",
   "objective": "After this level you can weigh the arguments historians make about why the US used atomic bombs on Japan in 1945.",
@@ -98,41 +98,32 @@
   "questions": [
     {
       "id": "question.us_history.096.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.historians_bomb_debate"
       ],
       "sourceCardIds": [
-        "card.us_history.096.c4"
+        "card.us_history.096.c4",
+        "card.us_history.096.c3",
+        "card.us_history.096.c5"
       ],
-      "prompt": "Which historian argued in 1965 that the atomic bombs were meant mainly to strengthen the US hand against the Soviet Union?",
-      "options": [
+      "prompt": "Match each person with their view of the atomic bombings.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Gar Alperovitz",
-          "correct": true
+          "left": "Henry Stimson",
+          "right": "Harper’s Magazine"
         },
         {
-          "id": "b",
-          "label": "Henry Stimson",
-          "correct": false,
-          "rationale": "Stimson defended the decision in 1947."
+          "left": "Gar Alperovitz",
+          "right": "against the Soviet Union"
         },
         {
-          "id": "c",
-          "label": "J. Samuel Walker",
-          "correct": false,
-          "rationale": "Walker concluded the main motive was to end the war quickly."
-        },
-        {
-          "id": "d",
-          "label": "W. E. B. Du Bois",
-          "correct": false,
-          "rationale": "Du Bois wrote about Reconstruction (Level 94)."
+          "left": "J. Samuel Walker",
+          "right": "end the war as quickly as possible"
         }
       ],
-      "explanation": "Gar Alperovitz argued in 1965 that the bombs were not needed and were aimed at the Soviet Union.",
+      "explanation": "Henry Stimson defended the bombs in Harper’s Magazine. Gar Alperovitz argued they were aimed mainly at strengthening the US hand against the Soviet Union, and J. Samuel Walker concluded the main motive was to end the war as quickly as possible.",
       "difficulty": 0.25
     },
     {

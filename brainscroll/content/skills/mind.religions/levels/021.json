@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 21,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Jesus of Nazareth",
   "objective": "After this level you can separate what historians generally accept about Jesus, a Jewish teacher from Galilee, from what Christians believe about him.",
@@ -134,41 +134,36 @@
     },
     {
       "id": "question.religions.021.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.christianity_tacitus_evidence"
       ],
       "sourceCardIds": [
-        "card.religions.021.c3"
+        "card.religions.021.c3",
+        "card.religions.021.c2",
+        "card.religions.021.c4"
       ],
-      "prompt": "How can historians confirm Jesus's execution without relying only on Christian writings?",
-      "options": [
+      "prompt": "Match each name with who or what it was.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A Roman historian, Tacitus, records it",
-          "correct": true
+          "left": "Pontius Pilate",
+          "right": "Roman governor of Judaea"
         },
         {
-          "id": "b",
-          "label": "Pilate's own trial notes survive",
-          "correct": false,
-          "rationale": "No such notes are mentioned; the outside witness is Tacitus."
+          "left": "Tacitus",
+          "right": "The Roman historian"
         },
         {
-          "id": "c",
-          "label": "Jesus's letters describe it",
-          "correct": false,
-          "rationale": "The main sources are the Gospels, written by his followers."
+          "left": "Tiberius",
+          "right": "The emperor"
         },
         {
-          "id": "d",
-          "label": "The Gospels are Roman records",
-          "correct": false,
-          "rationale": "They were written by his followers."
+          "left": "Christ",
+          "right": "The anointed one"
         }
       ],
-      "explanation": "Tacitus, a Roman with no sympathy for Christians, wrote that Christus was put to death by sentence of Pontius Pilate.",
+      "explanation": "Pontius Pilate was the Roman governor of Judaea, Tacitus the Roman historian, and Tiberius the emperor. Christ is a title meaning \"the anointed one\".",
       "difficulty": 0.35
     },
     {

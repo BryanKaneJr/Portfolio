@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 58,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Foundations",
   "objective": "After this level you can explain why foundations matter, using the Leaning Tower of Pisa.",
@@ -91,41 +91,27 @@
   "questions": [
     {
       "id": "question.architecture.058.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.marvel_pisa_rescue"
       ],
       "sourceCardIds": [
-        "card.architecture.058.c4"
+        "card.architecture.058.c4",
+        "card.architecture.058.c1",
+        "card.architecture.058.c3"
       ],
-      "prompt": "How did engineers straighten the Leaning Tower of Pisa between 1990 and 2001?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They removed soil from under its raised side",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "They added weight to its leaning side",
-          "correct": false,
-          "rationale": "Adding weight on the short side is what di Simone did, and it backfired."
-        },
-        {
-          "id": "c",
-          "label": "They rebuilt its upper stories straight",
-          "correct": false,
-          "rationale": "The stonework stayed; they fixed the ground."
-        },
-        {
-          "id": "d",
-          "label": "They jacked it up on steel piles",
-          "correct": false,
-          "rationale": "They removed soil rather than lifting the tower."
-        }
+      "prompt": "Put these moments in the Leaning Tower of Pisa's story in order, from earliest to latest.",
+      "items": [
+        "Work began",
+        "Finished in the 14th century",
+        "The tower closed",
+        "It reopened",
+        "Stopped moving"
       ],
-      "explanation": "They removed 38 cubic meters of soil from under the raised side, and the tower settled back about 45 cm.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Work began in 1173, and the tower was finished in the 14th century. It closed in 1990, reopened in 2001 about 45 cm straighter, and in 2008 engineers announced it had stopped moving.",
       "difficulty": 0.15
     },
     {

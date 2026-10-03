@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 99,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Judging New Technology",
   "objective": "After this level you can weigh the benefits and risks of a new invention.",
@@ -96,42 +96,27 @@
   "questions": [
     {
       "id": "question.everyday_technology.099.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.techjudge_tradeoffs"
       ],
       "sourceCardIds": [
         "card.everyday_technology.099.c1",
-        "card.everyday_technology.099.c2"
+        "card.everyday_technology.099.c2",
+        "card.everyday_technology.099.c3",
+        "card.everyday_technology.099.c4"
       ],
-      "prompt": "Why was lead added to petrol from 1922 onward?",
-      "options": [
-        {
-          "id": "a",
-          "label": "To make engines run better",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "To protect children's health",
-          "correct": false,
-          "rationale": "It harmed children's developing brains."
-        },
-        {
-          "id": "c",
-          "label": "To make petrol cheaper to refine",
-          "correct": false,
-          "rationale": "Its purpose was better engine performance."
-        },
-        {
-          "id": "d",
-          "label": "To stop cars from polluting",
-          "correct": false,
-          "rationale": "It spread lead pollution instead."
-        }
+      "prompt": "Put these moments in judging technology in order, from earliest to latest.",
+      "items": [
+        "Tetraethyllead was added to petrol",
+        "David Collingridge described the trap",
+        "The last country stopped selling it",
+        "The European Union's AI Act"
       ],
-      "explanation": "Tetraethyllead was added to improve engine performance; its health costs took decades to act on.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Lead went into petrol from 1922, Collingridge described his dilemma in 1980, the last country stopped selling leaded petrol in July 2021, and the EU's AI Act came into force in August 2024.",
       "difficulty": 0.2
     },
     {

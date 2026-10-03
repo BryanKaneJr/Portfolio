@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 10,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: The Gift of the Nile",
   "objective": "After this level you can explain how the Nile, the desert and unification created Egypt.",
@@ -145,7 +145,7 @@
   "questions": [
     {
       "id": "question.ancient_egypt.010.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_egypt.before_pharaohs",
@@ -155,33 +155,17 @@
         "card.ancient_egypt.010.c2",
         "card.ancient_egypt.007.c2"
       ],
-      "prompt": "On Egypt’s road from villages to kingdom, which came first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Narmer Palette",
-          "correct": false,
-          "rationale": "That came near unification, much later."
-        },
-        {
-          "id": "b",
-          "label": "Farming villages in the Faiyum",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The start of the Old Kingdom",
-          "correct": false,
-          "rationale": "That came after unification."
-        },
-        {
-          "id": "d",
-          "label": "Boats painted on pots",
-          "correct": false,
-          "rationale": "Those date to about 3500 to 3300 BCE."
-        }
+      "prompt": "Put these steps from villages to one kingdom in order, from earliest to latest.",
+      "items": [
+        "Farming villages in the Faiyum",
+        "Badarian potters",
+        "Boats painted on Egyptian pots",
+        "Upper and Lower Egypt become one kingdom",
+        "The Old Kingdom begins"
       ],
-      "explanation": "Faiyum villages were farming by about 5000 BCE, long before towns, kings or pyramids.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Farming villages in the Faiyum (about 5000 BCE), Badarian potters (about 4000 BCE), boats painted on pots (about 3500 to 3300 BCE), one kingdom (about 3100 to 3000 BCE), then the Old Kingdom (about 2686 BCE).",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 44,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why the Cloud Won",
   "objective": "After this level you can explain why companies rent computing from cloud providers instead of running their own servers, and what they give up.",
@@ -82,41 +82,32 @@
   "questions": [
     {
       "id": "question.computers.044.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.cloud_rent_economics"
       ],
       "sourceCardIds": [
-        "card.computers.044.c2"
+        "card.computers.044.c2",
+        "card.computers.044.c3",
+        "card.computers.044.c4"
       ],
-      "prompt": "In NIST's definition of cloud computing, what does \"rapid elasticity\" mean?",
-      "options": [
+      "prompt": "Match each feature of the cloud with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Capacity can be added and released quickly as demand changes",
-          "correct": true
+          "left": "Rapid elasticity",
+          "right": "Added and released quickly"
         },
         {
-          "id": "b",
-          "label": "Servers are built to bend without breaking",
-          "correct": false,
-          "rationale": "It's about capacity, not physical toughness."
+          "left": "Measured service",
+          "right": "Metered, like electricity"
         },
         {
-          "id": "c",
-          "label": "Prices change every hour with the weather",
-          "correct": false,
-          "rationale": "Elasticity is about scaling capacity up and down."
-        },
-        {
-          "id": "d",
-          "label": "Data is stretched across as many drives as possible",
-          "correct": false,
-          "rationale": "It describes adding and releasing capacity."
+          "left": "Moving to a public cloud",
+          "right": "Hands control of data"
         }
       ],
-      "explanation": "Rapid elasticity means capacity can be provisioned and released quickly, sometimes automatically, as demand rises and falls.",
+      "explanation": "Rapid elasticity means capacity can be added and released quickly, measured service means use is metered like electricity, and moving to a public cloud hands control of data and systems to the provider.",
       "difficulty": 0.2
     },
     {

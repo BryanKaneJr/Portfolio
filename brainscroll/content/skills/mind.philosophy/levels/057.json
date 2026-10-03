@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 57,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Beauvoir's Second Sex",
   "objective": "After this level you can explain why Simone de Beauvoir wrote that \"one is not born, but rather becomes, a woman\" and what she meant by woman as the Other.",
@@ -160,7 +160,7 @@
     },
     {
       "id": "question.philosophy.057.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.justice_beauvoir",
@@ -168,35 +168,20 @@
       ],
       "sourceCardIds": [
         "card.philosophy.057.c3",
-        "card.philosophy.055.c3"
+        "card.philosophy.055.c3",
+        "card.philosophy.057.c2",
+        "card.philosophy.057.c4",
+        "card.philosophy.055.c2"
       ],
-      "prompt": "Beauvoir and Wollstonecraft (Level 55) both challenged a common view of women. Which one?",
-      "options": [
-        {
-          "id": "a",
-          "label": "That women should be allowed to vote",
-          "correct": false,
-          "rationale": "Neither level’s argument is about the vote."
-        },
-        {
-          "id": "b",
-          "label": "That education matters for citizens",
-          "correct": false,
-          "rationale": "Wollstonecraft argued education matters."
-        },
-        {
-          "id": "c",
-          "label": "That women’s character is simply fixed by nature",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "That marriage should rest on friendship",
-          "correct": false,
-          "rationale": "That isn’t what they challenged."
-        }
+      "prompt": "Put these writers on women in order, from earliest to latest.",
+      "items": [
+        "Wollstonecraft",
+        "Beauvoir",
+        "Elizabeth Spelman"
       ],
-      "explanation": "Wollstonecraft blamed false education and Beauvoir social conditions for what others called women’s nature.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Wollstonecraft’s Vindication came out in 1792, Beauvoir’s The Second Sex in 1949, and Spelman’s critique in 1988.",
       "difficulty": 0.3
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 14,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Mode: Most Popular Wins",
   "objective": "After this level you can find the mode and explain when the most common value is the most useful average, as with shoe sizes.",
@@ -125,41 +125,32 @@
     },
     {
       "id": "question.probability.014.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.averages_mode"
       ],
       "sourceCardIds": [
-        "card.probability.014.c3"
+        "card.probability.014.c3",
+        "card.probability.014.c2",
+        "card.probability.014.c4"
       ],
-      "prompt": "A café's customers order tea, coffee, coffee, juice, coffee and tea. Which average can describe the orders?",
-      "options": [
+      "prompt": "Match each set with its mode.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The mean, because it counts every order",
-          "correct": false,
-          "rationale": "You cannot add drinks together."
+          "left": "Sizes 6, 7, 7, 7 and 11",
+          "right": "7"
         },
         {
-          "id": "b",
-          "label": "The median, the order in the middle",
-          "correct": false,
-          "rationale": "Drinks cannot be lined up from small to large."
+          "left": "Favorite colors",
+          "right": "Red"
         },
         {
-          "id": "c",
-          "label": "None, because averages need numbers",
-          "correct": false,
-          "rationale": "The mode works for categories."
-        },
-        {
-          "id": "d",
-          "label": "The mode, which is coffee",
-          "correct": true
+          "left": "11 retirement ages",
+          "right": "54"
         }
       ],
-      "explanation": "Drinks are categories: you cannot add them or order them, but you can count them. Coffee is the most common.",
+      "explanation": "The mode is the most common value: 7 for the shoe sizes, red for the favorite colors, and 54 for Level 12's 11 retirement ages.",
       "difficulty": 0.25
     },
     {

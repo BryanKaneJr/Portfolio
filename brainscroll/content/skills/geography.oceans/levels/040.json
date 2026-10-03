@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 40,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Currents and Climate",
   "objective": "After this level you can explain how ocean currents shape climate.",
@@ -170,7 +170,7 @@
     },
     {
       "id": "question.oceans.040.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.gulf_stream_path",
@@ -179,33 +179,17 @@
       "sourceCardIds": [
         "card.oceans.040.c3"
       ],
-      "prompt": "Currents and Climate recap: in what order does our warm parcel travel?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It sinks first, then rides the Gulf Stream, then the wind moves it",
-          "correct": false,
-          "rationale": "Sinking comes last, once it's cold and salty."
-        },
-        {
-          "id": "b",
-          "label": "Wind-driven current, Gulf Stream north, then sinking into the conveyor",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It rides the Gulf Stream south to the equator, then sinks",
-          "correct": false,
-          "rationale": "The Gulf Stream carries it north."
-        },
-        {
-          "id": "d",
-          "label": "It sinks at the equator and rises near Norway",
-          "correct": false,
-          "rationale": "It sinks in the cold far north."
-        }
+      "prompt": "Follow the warm parcel. Put its trip in order, from start to finish.",
+      "items": [
+        "Winds push our parcel",
+        "North along Florida",
+        "Northeast across the Atlantic",
+        "It hands its heat to the air",
+        "It sinks and joins the deep conveyor"
       ],
-      "explanation": "Winds push it into the Gulf Stream, which carries it north; there it cools, turns salty and sinks into the conveyor.",
+      "first": "Start",
+      "last": "Finish",
+      "explanation": "Winds push the parcel into the Gulf Stream, north along Florida and northeast across the Atlantic. In the far north it hands its heat to the air, then sinks and joins the deep conveyor.",
       "difficulty": 0.25
     },
     {

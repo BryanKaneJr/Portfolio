@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 37,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "What Is It Like to Be a Bat?",
   "objective": "After this level you can explain Thomas Nagel's argument that science's outside view may leave out what an experience is like from the inside.",
@@ -89,41 +89,34 @@
   "questions": [
     {
       "id": "question.philosophy.037.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.philosophy.mind_nagel_bat"
       ],
       "sourceCardIds": [
-        "card.philosophy.037.c2"
+        "card.philosophy.037.c2",
+        "card.philosophy.037.c1",
+        "card.philosophy.037.c5",
+        "card.philosophy.036.c1",
+        "card.philosophy.036.c4"
       ],
-      "prompt": "According to Thomas Nagel, when does an organism have conscious mental states?",
-      "options": [
+      "prompt": "Match each philosopher with the idea linked to them.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "When it can pass Turing’s imitation game",
-          "correct": false,
-          "rationale": "That tests conversation, not consciousness."
+          "left": "Thomas Nagel",
+          "right": "Something it is like"
         },
         {
-          "id": "b",
-          "label": "When there is something it is like to be that organism",
-          "correct": true
+          "left": "Kathleen Akins",
+          "right": "Bat physiology"
         },
         {
-          "id": "c",
-          "label": "When it has a brain built much like a human brain",
-          "correct": false,
-          "rationale": "Nagel assumes bats are conscious with very different brains."
-        },
-        {
-          "id": "d",
-          "label": "When it can use a language",
-          "correct": false,
-          "rationale": "Bats don’t need language for his test."
+          "left": "John Searle",
+          "right": "Strong AI"
         }
       ],
-      "explanation": "Nagel’s criterion: an organism is conscious if and only if there is something it is like to be it, for it.",
+      "explanation": "Nagel tied consciousness to there being something it is like to be an organism, Akins dug into bat physiology, and Searle attacked Strong AI.",
       "difficulty": 0.2
     },
     {

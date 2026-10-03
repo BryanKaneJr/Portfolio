@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 79,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Global Institutions",
   "objective": "After this level you can describe what the IMF, the World Bank and the WTO do.",
@@ -134,41 +134,32 @@
     },
     {
       "id": "question.how_money_works.079.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.how_money_works.global_wto"
       ],
       "sourceCardIds": [
+        "card.how_money_works.079.c2",
+        "card.how_money_works.079.c3",
         "card.how_money_works.079.c4"
       ],
-      "prompt": "Two countries disagree over whether a tariff breaks their trade agreements. Which body handles disputes like that?",
-      "options": [
+      "prompt": "Match each global institution with its job.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The World Trade Organization",
-          "correct": true
+          "left": "The IMF",
+          "right": "Lends in a crisis"
         },
         {
-          "id": "b",
-          "label": "The World Bank",
-          "correct": false,
-          "rationale": "The World Bank funds development projects."
+          "left": "The World Bank",
+          "right": "A builder"
         },
         {
-          "id": "c",
-          "label": "The International Monetary Fund",
-          "correct": false,
-          "rationale": "The IMF lends to countries in financial trouble."
-        },
-        {
-          "id": "d",
-          "label": "The Silk Road merchants' guild",
-          "correct": false,
-          "rationale": "That's a joke option; trade disputes go to the WTO."
+          "left": "The WTO",
+          "right": "Handles disputes"
         }
       ],
-      "explanation": "The WTO runs trade agreements and handles trade disputes between its members.",
+      "explanation": "The IMF lends in a crisis, with conditions. The World Bank is a builder, funding development projects. The WTO runs trade agreements and handles disputes between members.",
       "difficulty": 0.35
     },
     {

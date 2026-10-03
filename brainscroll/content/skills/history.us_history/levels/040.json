@@ -3,7 +3,7 @@
   "skillId": "skill.history.us_history",
   "number": 40,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: A New Republic",
   "objective": "After this level you can explain how Americans wrote a constitution, argued over it, and made it work in the republic's first decades.",
@@ -159,44 +159,27 @@
   "questions": [
     {
       "id": "question.us_history.040.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.us_history.republic_new_republic_overview",
         "concept.us_history.republic_articles_weakness"
       ],
       "sourceCardIds": [
-        "card.us_history.040.c2",
-        "card.us_history.031.c2",
-        "card.us_history.038.c2"
+        "card.us_history.040.c2"
       ],
-      "prompt": "A New Republic: which order of events is right?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Louisiana Purchase, the Articles take effect, the Great Compromise",
-          "correct": false,
-          "rationale": "The purchase came last, in 1803."
-        },
-        {
-          "id": "b",
-          "label": "The Articles take effect, the Great Compromise, the Louisiana Purchase",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "The Great Compromise, the Articles take effect, the Louisiana Purchase",
-          "correct": false,
-          "rationale": "The Articles took effect first, in 1781."
-        },
-        {
-          "id": "d",
-          "label": "The Articles take effect, the Louisiana Purchase, the Great Compromise",
-          "correct": false,
-          "rationale": "The compromise (1787) came before 1803."
-        }
+      "prompt": "Put these events in the new republic in order, from earliest to latest.",
+      "items": [
+        "Articles of Confederation take effect",
+        "The Great Compromise passes by one vote",
+        "The states ratify the Bill of Rights",
+        "The House elects Jefferson after a tie",
+        "The Louisiana Purchase",
+        "Tecumseh is killed at the Thames"
       ],
-      "explanation": "The Articles took effect in 1781, the Great Compromise passed in 1787, and the Louisiana Purchase came in 1803.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "The Articles took effect in 1781, the Great Compromise passed in 1787, the Bill of Rights was ratified in 1791, the House elected Jefferson in 1801, the Louisiana Purchase came in 1803, and Tecumseh was killed in 1813.",
       "difficulty": 0.25
     },
     {

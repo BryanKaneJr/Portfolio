@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 91,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Megabits, Megabytes and Speed",
   "objective": "After this level you can work out a real download time from an advertised internet speed, and spot claims that mix up bits and bytes.",
@@ -134,7 +134,7 @@
     },
     {
       "id": "question.computers.091.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.techcheck_download_time"
@@ -143,33 +143,22 @@
         "card.computers.091.c3",
         "card.computers.091.c2"
       ],
-      "prompt": "An ad says its 200 Mbps plan downloads a 100 MB game in half a second. At best, how long would it really take?",
-      "options": [
+      "prompt": "Match each speed or size unit with what it stands for.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Half a second, as promised",
-          "correct": false,
-          "rationale": "That treats megabits as megabytes."
+          "left": "Mbps",
+          "right": "Megabits per second"
         },
         {
-          "id": "b",
-          "label": "About 32 seconds",
-          "correct": false,
-          "rationale": "That multiplies by 8 twice over."
+          "left": "MB",
+          "right": "Megabytes"
         },
         {
-          "id": "c",
-          "label": "About 2 seconds",
-          "correct": false,
-          "rationale": "That divides the speed by 4, not 8."
-        },
-        {
-          "id": "d",
-          "label": "About 4 seconds",
-          "correct": true
+          "left": "A byte",
+          "right": "8 bits"
         }
       ],
-      "explanation": "200 Mbps divided by 8 is 25 MB a second, so 100 MB takes at least 4 seconds.",
+      "explanation": "Mbps means megabits per second, MB means megabytes, and a byte is 8 bits, so divide a speed in Mbps by 8 to get megabytes a second.",
       "difficulty": 0.4
     },
     {

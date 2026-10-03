@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 40,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Deep Time",
   "objective": "After this level you can explain how geologists read rocks, fossils and radioactive clocks to tell Earth's 4.5-billion-year story.",
@@ -212,7 +212,7 @@
     },
     {
       "id": "question.earth_climate.040.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.earth_climate.deeptime_unconformity",
@@ -220,35 +220,19 @@
       ],
       "sourceCardIds": [
         "card.earth_climate.031.c3",
-        "card.earth_climate.040.c2"
+        "card.earth_climate.040.c2",
+        "card.earth_climate.031.c4"
       ],
-      "prompt": "Deep Time recap: at Siccar Point, which rocks formed first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The nearly vertical greywacke layers",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The gently sloping red sandstone",
-          "correct": false,
-          "rationale": "It was laid on the worn tops of the older layers."
-        },
-        {
-          "id": "c",
-          "label": "Both at exactly the same time",
-          "correct": false,
-          "rationale": "An unconformity means they formed at different times."
-        },
-        {
-          "id": "d",
-          "label": "The erosion surface between them",
-          "correct": false,
-          "rationale": "Erosion wore down layers that already existed."
-        }
+      "prompt": "Deep Time recap: put the steps Hutton read in Siccar Point's cliff in order.",
+      "items": [
+        "Laid flat",
+        "Tilted up",
+        "Worn down",
+        "Buried again"
       ],
-      "explanation": "The vertical layers were laid down, tilted and worn down before the red sandstone was deposited on top.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The vertical layers were laid flat first, then tilted up, worn down and buried again under the red sandstone.",
       "difficulty": 0.3
     },
     {

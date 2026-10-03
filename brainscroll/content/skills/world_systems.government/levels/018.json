@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 18,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Federal or Unitary?",
   "objective": "After this level you can explain how power can be split between the center and the regions.",
@@ -169,7 +169,7 @@
     },
     {
       "id": "question.government.018.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.government.federal_system",
@@ -177,35 +177,26 @@
       ],
       "sourceCardIds": [
         "card.government.018.c2",
-        "card.government.008.c3"
+        "card.government.008.c3",
+        "card.government.018.c3",
+        "card.government.018.c4"
       ],
-      "prompt": "Power across the map: in Level 8, Canada's provinces ran education and hospitals. Which kind of system does Canada have?",
-      "options": [
+      "prompt": "Match each way of sharing power across the map with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Unitary",
-          "correct": false,
-          "rationale": "Canada appears on Britannica's list of federal countries."
+          "left": "Federal",
+          "right": "Power split by contract"
         },
         {
-          "id": "b",
-          "label": "Federal",
-          "correct": true
+          "left": "Unitary",
+          "right": "Power on loan from the center"
         },
         {
-          "id": "c",
-          "label": "Neither: provinces are just branches of Ottawa",
-          "correct": false,
-          "rationale": "Provinces have their own constitutional responsibilities."
-        },
-        {
-          "id": "d",
-          "label": "Direct democracy",
-          "correct": false,
-          "rationale": "That's about how citizens decide, not how power is split across the map."
+          "left": "Scotland Act 1998",
+          "right": "Scottish Parliament"
         }
       ],
-      "explanation": "Canada is federal: its provinces hold their own responsibilities, like schools and hospitals.",
+      "explanation": "In a federal system power is split by contract, in a unitary state power is on loan from the center, and the Scotland Act 1998 set up the Scottish Parliament.",
       "difficulty": 0.25
     }
   ],

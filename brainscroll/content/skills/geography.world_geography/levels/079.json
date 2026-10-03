@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 79,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Amazon and the Andes",
   "objective": "After this level you can explain how the Andes and the Amazon shape South America.",
@@ -97,7 +97,7 @@
   "questions": [
     {
       "id": "question.world_geography.079.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.andes"
@@ -105,33 +105,17 @@
       "sourceCardIds": [
         "card.world_geography.079.c2"
       ],
-      "prompt": "Where do the Andes run?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Along South America's eastern coast",
-          "correct": false,
-          "rationale": "The east is plains and lowlands."
-        },
-        {
-          "id": "b",
-          "label": "Across the middle of the Amazon basin",
-          "correct": false,
-          "rationale": "The basin lies east of the mountains."
-        },
-        {
-          "id": "c",
-          "label": "Along South America's western edge",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Across the Central American isthmus",
-          "correct": false,
-          "rationale": "The Andes are in South America."
-        }
+      "prompt": "Put the Continental Divide's route in order, from north to south.",
+      "items": [
+        "Alaska",
+        "Rockies",
+        "Mexico",
+        "Central America",
+        "Andes"
       ],
-      "explanation": "The Andes, the world's longest continental range, run along South America's western edge through seven countries.",
+      "first": "North end",
+      "last": "South end",
+      "explanation": "The Continental Divide runs from Alaska along the Rockies, through Mexico and Central America, and down the Andes.",
       "difficulty": 0.15
     },
     {

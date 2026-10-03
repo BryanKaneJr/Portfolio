@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 100,
   "type": "mastery",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Mastery Challenge: Ancient Egypt",
   "objective": "After this level you can demonstrate command of Ancient Egypt Levels 1–99 across the whole tree.",
@@ -151,7 +151,7 @@
   "questions": [
     {
       "id": "question.ancient_egypt.100.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.flood_farming"
@@ -160,33 +160,16 @@
         "card.ancient_egypt.004.c2",
         "card.ancient_egypt.004.c3"
       ],
-      "prompt": "An Egyptian farmer watches the last floodwater drain off her fields. What happens next in the farming year?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Shemu begins, and she harvests at once",
-          "correct": false,
-          "rationale": "Harvest comes at the end of the year."
-        },
-        {
-          "id": "b",
-          "label": "Akhet begins, and she waits for the flood",
-          "correct": false,
-          "rationale": "The flood has just ended."
-        },
-        {
-          "id": "c",
-          "label": "Peret begins, and she plows and sows the wet silt",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The dry season begins, and fields are left empty",
-          "correct": false,
-          "rationale": "Wet, fresh silt is ready for planting."
-        }
+      "prompt": "Put a farmer’s year by the Nile in order, from Akhet to Shemu.",
+      "items": [
+        "The flood covers the fields",
+        "The land comes out of the water",
+        "Farmers plow and sow",
+        "Harvest, then a dry spell"
       ],
-      "explanation": "As the land emerged in Peret, farmers plowed and sowed the soaked, fertile soil.",
+      "first": "Akhet",
+      "last": "Shemu",
+      "explanation": "In Akhet the flood covers the fields. In Peret the land comes out of the water, and farmers plow and sow. In Shemu comes the harvest, then a dry spell until the next flood.",
       "difficulty": 0.4
     },
     {

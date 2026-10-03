@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 51,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why Updates Matter",
   "objective": "After this level you can explain why all complex software has security holes, what a zero-day is, and why installing updates quickly matters.",
@@ -126,7 +126,7 @@
     },
     {
       "id": "question.computers.051.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.computers.security_patch_race"
@@ -135,33 +135,15 @@
         "card.computers.051.c4",
         "card.computers.051.c3"
       ],
-      "prompt": "Why could WannaCry spread in May 2017 when a fix had existed since March?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Many computers had not installed the March update",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The March fix only worked on phones",
-          "correct": false,
-          "rationale": "The fix was a Windows update; unpatched Windows machines were hit."
-        },
-        {
-          "id": "c",
-          "label": "WannaCry used a brand-new zero-day flaw",
-          "correct": false,
-          "rationale": "The flaw was already known and fixed in March."
-        },
-        {
-          "id": "d",
-          "label": "Updates cannot fix security flaws",
-          "correct": false,
-          "rationale": "A patch is exactly an update that fixes security flaws."
-        }
+      "prompt": "Put the steps of the race to fix a software flaw in order.",
+      "items": [
+        "A maker learns of a flaw",
+        "It ships a patch",
+        "The patch is installed"
       ],
-      "explanation": "WannaCry hit computers that had not applied Microsoft's March 14 fix; infected NHS organisations ran unpatched or unsupported Windows.",
+      "first": "First",
+      "last": "Your machine is safe",
+      "explanation": "Once a maker learns of a flaw, it ships a patch, and your machine is safe from that flaw only after the patch is installed.",
       "difficulty": 0.25
     },
     {

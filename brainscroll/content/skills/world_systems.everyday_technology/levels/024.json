@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 24,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Car Engine",
   "objective": "After this level you can explain how a four-stroke engine turns fuel into motion.",
@@ -146,41 +146,25 @@
     },
     {
       "id": "question.everyday_technology.024.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.everyday_technology.motion_internal_combustion"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.024.c2"
+        "card.everyday_technology.024.c2",
+        "card.everyday_technology.024.c3"
       ],
-      "prompt": "What makes a car engine an internal combustion engine?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Its fuel burns inside the cylinder",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "It boils water in a boiler first",
-          "correct": false,
-          "rationale": "That is how a steam engine works."
-        },
-        {
-          "id": "c",
-          "label": "It runs on electricity stored inside",
-          "correct": false,
-          "rationale": "That describes an electric car."
-        },
-        {
-          "id": "d",
-          "label": "Its engine sits inside the car body",
-          "correct": false,
-          "rationale": "The name is about where the fuel burns."
-        }
+      "prompt": "Put the four strokes of a car engine in order.",
+      "items": [
+        "Intake",
+        "Compression",
+        "Power",
+        "Exhaust"
       ],
-      "explanation": "The fuel burns inside the cylinder itself, and the hot expanding gas pushes the piston directly.",
+      "first": "First stroke",
+      "last": "Last stroke",
+      "explanation": "The piston draws in fuel and air (intake), squeezes the mix (compression), is driven down by the burning gas (power), then pushes the burned gases out (exhaust).",
       "difficulty": 0.2
     },
     {

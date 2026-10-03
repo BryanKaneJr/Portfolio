@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 22,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "A Lifetime of Beats",
   "objective": "After this level you can explain heart rate and how much blood the heart pumps in a lifetime.",
@@ -125,38 +125,28 @@
     },
     {
       "id": "question.human_body.022.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.heart_output"
       ],
       "sourceCardIds": [
-        "card.human_body.022.c3"
+        "card.human_body.022.c3",
+        "card.human_body.022.c2"
       ],
-      "prompt": "Each heartbeat moves only about 70 milliliters of blood. How does the heart still pump thousands of liters a day?",
-      "options": [
+      "prompt": "Match each group with its normal resting heart rate, in beats a minute.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It beats about 100,000 times a day",
-          "correct": true
+          "left": "Adults",
+          "right": "60 to 100"
         },
         {
-          "id": "b",
-          "label": "Each beat pushes out a full liter",
-          "correct": false,
-          "rationale": "Each beat moves only about 70 milliliters."
+          "left": "Young children",
+          "right": "80 to 130"
         },
         {
-          "id": "c",
-          "label": "The veins pump most of the blood",
-          "correct": false,
-          "rationale": "The heart does the pumping."
-        },
-        {
-          "id": "d",
-          "label": "Blood is made fresh every hour",
-          "correct": false,
-          "rationale": "The heart is moving the same blood around."
+          "left": "Well-trained athletes",
+          "right": "40 to 60"
         }
       ],
       "explanation": "At about 100,000 beats a day, 70 milliliters per beat adds up to about 7,000 to 8,000 liters.",

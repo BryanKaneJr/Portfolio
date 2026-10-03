@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 29,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Why Bicycles Stay Up",
   "objective": "After this level you can explain what keeps a moving bicycle upright.",
@@ -81,41 +81,36 @@
   "questions": [
     {
       "id": "question.everyday_technology.029.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.motion_bike_self_stability"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.029.c4"
+        "card.everyday_technology.029.c4",
+        "card.everyday_technology.029.c1",
+        "card.everyday_technology.029.c3"
       ],
-      "prompt": "What did the 2011 riderless bike experiment by Kooijman's team show?",
-      "options": [
+      "prompt": "Match each part of the bicycle balance story with its detail.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The spinning wheels alone keep a bike upright",
-          "correct": false,
-          "rationale": "Their bike cancelled the spin and still balanced."
+          "left": "Karl von Drais",
+          "right": "Wooden two-wheeler"
         },
         {
-          "id": "b",
-          "label": "A bike can balance itself with no gyro effect or trail",
-          "correct": true
+          "left": "Trail",
+          "right": "Like a shopping-cart caster"
         },
         {
-          "id": "c",
-          "label": "A bike can never balance itself without a rider",
-          "correct": false,
-          "rationale": "Their riderless bike balanced itself."
+          "left": "Gyroscopic effect",
+          "right": "Spinning front wheel"
         },
         {
-          "id": "d",
-          "label": "Trail is the only thing that keeps a bike upright",
-          "correct": false,
-          "rationale": "Their bike had no trail and still balanced."
+          "left": "Kooijman and colleagues",
+          "right": "Extra wheels spinning backwards"
         }
       ],
-      "explanation": "Their test bike cancelled the gyroscopic effect and had no trail, yet steered itself upright: neither effect is required.",
+      "explanation": "Karl von Drais rode a wooden two-wheeler. Trail works like a shopping-cart caster, the gyroscopic effect comes from the spinning front wheel, and Kooijman and colleagues cancelled it with extra wheels spinning backwards.",
       "difficulty": 0.3
     },
     {

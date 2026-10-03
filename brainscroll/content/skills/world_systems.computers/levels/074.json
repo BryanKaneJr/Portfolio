@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 74,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Auction Behind Every Ad",
   "objective": "After this level you can explain how an ad space is auctioned in a fraction of a second while a page loads, using data about you.",
@@ -85,41 +85,25 @@
   "questions": [
     {
       "id": "question.computers.074.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.computers.adauction_real_time_bidding"
       ],
       "sourceCardIds": [
-        "card.computers.074.c3"
+        "card.computers.074.c3",
+        "card.computers.074.c2"
       ],
-      "prompt": "In the ad auction, which bid wins the space?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The first bid to arrive",
-          "correct": false,
-          "rationale": "Speed only matters for beating the deadline."
-        },
-        {
-          "id": "b",
-          "label": "A bid chosen at random",
-          "correct": false,
-          "rationale": "The auction picks the highest bid."
-        },
-        {
-          "id": "c",
-          "label": "The highest bid that arrives before the deadline",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The advertiser located closest to you",
-          "correct": false,
-          "rationale": "Location may shape a bid, but the highest bid wins."
-        }
+      "prompt": "Put the steps of a real-time ad auction in order.",
+      "items": [
+        "Put an ad space up for auction",
+        "A message called a bid request goes out",
+        "The highest bid wins the space",
+        "That ad appears on your page"
       ],
-      "explanation": "Late replies are excluded; among the rest, the highest bid wins and its ad is placed.",
+      "first": "Page starts loading",
+      "last": "Page finished",
+      "explanation": "The publisher puts an ad space up for auction, a bid request goes out to advertisers, the highest bid that arrives in time wins the space, and that ad appears on your page.",
       "difficulty": 0.2
     },
     {

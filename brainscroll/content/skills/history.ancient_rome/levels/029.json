@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 29,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Legion",
   "objective": "After this level you can describe how a Roman legion was organized, equipped and trained.",
@@ -125,7 +125,7 @@
     },
     {
       "id": "question.ancient_rome.029.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_rome.legion"
@@ -133,33 +133,15 @@
       "sourceCardIds": [
         "card.ancient_rome.029.c3"
       ],
-      "prompt": "How were a legion’s three lines arranged?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Richest men in front, poorest at the back",
-          "correct": false,
-          "rationale": "The lines were arranged by experience."
-        },
-        {
-          "id": "b",
-          "label": "Veterans in front, youngest at the back",
-          "correct": false,
-          "rationale": "The other way round: the veteran triarii stood last."
-        },
-        {
-          "id": "c",
-          "label": "Cavalry in front, foot soldiers behind",
-          "correct": false,
-          "rationale": "All three lines were made of maniples."
-        },
-        {
-          "id": "d",
-          "label": "Youngest men in front, veterans at the back",
-          "correct": true
-        }
+      "prompt": "Put a legion’s three lines in order, from front to back.",
+      "items": [
+        "Hastati",
+        "Principes",
+        "Triarii"
       ],
-      "explanation": "The youngest men (hastati) stood in front, then the principes, with the veteran triarii at the back.",
+      "first": "Front",
+      "last": "Back",
+      "explanation": "The youngest men, the hastati, stood in front, the principes came next, and the veterans, the triarii, stood at the back.",
       "difficulty": 0.4
     },
     {

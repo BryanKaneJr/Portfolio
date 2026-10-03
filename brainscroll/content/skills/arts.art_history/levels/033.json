@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 33,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Brunelleschi's Dome",
   "objective": "After this level you can explain how Brunelleschi built Florence's great dome.",
@@ -91,41 +91,36 @@
   "questions": [
     {
       "id": "question.art_history.033.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.art_history.ren_dome_method"
       ],
       "sourceCardIds": [
-        "card.art_history.033.c2"
+        "card.art_history.033.c2",
+        "card.art_history.033.c3",
+        "card.art_history.033.c4"
       ],
-      "prompt": "What did Brunelleschi build his dome without?",
-      "options": [
+      "prompt": "Match each part of Brunelleschi's dome story with what it is or does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Bricks and mortar",
-          "correct": false,
-          "rationale": "The dome is built of brick, set in mortar."
+          "left": "Centering",
+          "right": "A temporary wooden frame"
         },
         {
-          "id": "b",
-          "label": "A temporary wooden frame",
-          "correct": true
+          "left": "Outer shell",
+          "right": "Keeps off the weather"
         },
         {
-          "id": "c",
-          "label": "An approved design",
-          "correct": false,
-          "rationale": "The city chose his design in 1420."
+          "left": "The lantern",
+          "right": "The small tower on top"
         },
         {
-          "id": "d",
-          "label": "Measuring wires",
-          "correct": false,
-          "rationale": "Wires are how he kept the curves true."
+          "left": "Herringbone pattern",
+          "right": "Lock each new ring of bricks"
         }
       ],
-      "explanation": "He built it with no centering, the temporary wooden frame that normally held a dome up during building.",
+      "explanation": "Centering is a temporary wooden frame, which Brunelleschi skipped. The outer shell keeps off the weather, the lantern is the small tower on top, and the herringbone pattern locks each new ring of bricks to the ones below.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 72,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Köppen Climate Map",
   "objective": "After this level you can explain how climates are classified by temperature and rainfall and read a place's climate type.",
@@ -127,7 +127,7 @@
     },
     {
       "id": "question.earth_climate.072.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.climates_koppen_thresholds"
@@ -135,33 +135,26 @@
       "sourceCardIds": [
         "card.earth_climate.072.c2"
       ],
-      "prompt": "How can a scorching desert and a freezing desert both end up in Köppen's group B?",
-      "options": [
+      "prompt": "Match each Köppen first letter with its climate group.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Group B is defined by dryness, not temperature",
-          "correct": true
+          "left": "A",
+          "right": "Tropical"
         },
         {
-          "id": "b",
-          "label": "Both have a warmest month below 10 °C",
-          "correct": false,
-          "rationale": "That's the rule for polar E climates."
+          "left": "B",
+          "right": "Dry climates"
         },
         {
-          "id": "c",
-          "label": "Both have a coolest month of 18 °C or more",
-          "correct": false,
-          "rationale": "That's the rule for tropical A climates."
+          "left": "C and D",
+          "right": "Midlatitude climates"
         },
         {
-          "id": "d",
-          "label": "Group B is for any place with extreme weather",
-          "correct": false,
-          "rationale": "The B rule is about dryness."
+          "left": "E",
+          "right": "Polar"
         }
       ],
-      "explanation": "A, C, D and E are sorted by temperature, but B is set by dryness, so hot and cold deserts share it.",
+      "explanation": "A is tropical, B is dry climates, C and D are midlatitude climates, and E is polar.",
       "difficulty": 0.35
     },
     {

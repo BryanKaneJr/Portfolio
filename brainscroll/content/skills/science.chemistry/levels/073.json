@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 73,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Proteins",
   "objective": "After this level you can explain proteins as chains of amino acids.",
@@ -135,41 +135,31 @@
     },
     {
       "id": "question.chemistry.073.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.lifechem_protein_shape"
       ],
       "sourceCardIds": [
-        "card.chemistry.073.c4"
+        "card.chemistry.073.c4",
+        "card.chemistry.073.c3"
       ],
-      "prompt": "Why does a fried egg white stay white and firm even after it cools?",
-      "options": [
+      "prompt": "Match each protein with what it does or where it's found.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Heat permanently changed the shape of its proteins",
-          "correct": true
+          "left": "Keratin",
+          "right": "Hair and nails"
         },
         {
-          "id": "b",
-          "label": "The pan added new protein to the egg",
-          "correct": false,
-          "rationale": "Nothing is added; the existing albumin unfolds."
+          "left": "Albumin",
+          "right": "Egg white"
         },
         {
-          "id": "c",
-          "label": "The egg white froze solid as it cooled",
-          "correct": false,
-          "rationale": "It's firm because its proteins unfolded, not because it froze."
-        },
-        {
-          "id": "d",
-          "label": "The heat turned the protein into sugar",
-          "correct": false,
-          "rationale": "Denaturation changes shape, not what the protein is made of."
+          "left": "Enzymes",
+          "right": "Run your chemical reactions"
         }
       ],
-      "explanation": "Frying denatures the albumin in egg white: its shape changes for good, so it stays white and firm.",
+      "explanation": "Keratin forms tough strands in your hair and nails, albumin is the protein in egg white, and enzymes run your chemical reactions.",
       "difficulty": 0.35
     },
     {

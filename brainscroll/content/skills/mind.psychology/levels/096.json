@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 96,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Talking About Mental Health",
   "objective": "After this level you can explain how to talk about mental health without stigma and where to point someone who needs help.",
@@ -112,42 +112,30 @@
   "questions": [
     {
       "id": "question.psychology.096.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.psychology.stigma_language"
       ],
       "sourceCardIds": [
-        "card.psychology.096.c3",
-        "card.psychology.096.c2"
+        "card.psychology.096.c3"
       ],
-      "prompt": "Which of these phrases do mental health groups advise against?",
-      "options": [
+      "prompt": "Match each recommended phrase with the phrase it replaces.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "\"A person with schizophrenia\"",
-          "correct": false,
-          "rationale": "That's the recommended person-first wording."
+          "left": "A person with schizophrenia",
+          "right": "A schizophrenic"
         },
         {
-          "id": "b",
-          "label": "\"Died by suicide\"",
-          "correct": false,
-          "rationale": "That's the recommended wording."
+          "left": "That's so surprising",
+          "right": "That's so crazy"
         },
         {
-          "id": "c",
-          "label": "\"That's so surprising\"",
-          "correct": false,
-          "rationale": "That's the suggested swap for casual \"crazy\"."
-        },
-        {
-          "id": "d",
-          "label": "\"Committed suicide\"",
-          "correct": true
+          "left": "Died by suicide",
+          "right": "Committed suicide"
         }
       ],
-      "explanation": "NIMH advises avoiding \"committing suicide\"; \"died by suicide\" is recommended instead.",
+      "explanation": "Say \"a person with schizophrenia\", not \"a schizophrenic\"; \"that's so surprising\", not \"that's so crazy\"; and \"died by suicide\", not \"committed suicide\".",
       "difficulty": 0.25
     },
     {

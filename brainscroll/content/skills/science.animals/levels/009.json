@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 9,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Smallest and the Largest",
   "objective": "After this level you can compare the smallest and largest animals alive.",
@@ -154,41 +154,25 @@
     },
     {
       "id": "question.animals.009.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.smallest_animals"
       ],
       "sourceCardIds": [
-        "card.animals.009.c3"
+        "card.animals.009.c3",
+        "card.animals.009.c2"
       ],
-      "prompt": "Why did the Brazilian flea toad take the 'smallest vertebrate' title in 2024?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It was the first frog ever measured",
-          "correct": false,
-          "rationale": "Paedophryne amauensis was measured years earlier."
-        },
-        {
-          "id": "b",
-          "label": "Its males averaged smaller than the old record frog's",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It is smaller than a fairyfly",
-          "correct": false,
-          "rationale": "The fairyfly, an insect, is far smaller."
-        },
-        {
-          "id": "d",
-          "label": "It has no backbone",
-          "correct": false,
-          "rationale": "It is a vertebrate, so it has one."
-        }
+      "prompt": "Put these animals in order, from smallest to largest.",
+      "items": [
+        "Fairyfly wasp",
+        "Brazilian flea toad",
+        "Paedophryne amauensis",
+        "Blue whale"
       ],
-      "explanation": "Male flea toads average 7.1 mm, just under the 7.7 mm of the previous record holder, Paedophryne amauensis.",
+      "first": "Smallest",
+      "last": "Largest",
+      "explanation": "The fairyfly wasp (0.139 mm) is smallest, then the Brazilian flea toad (7.1 mm), then Paedophryne amauensis (about 7.7 mm), and the blue whale is largest.",
       "difficulty": 0.25
     },
     {

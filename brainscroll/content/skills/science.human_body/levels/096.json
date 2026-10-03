@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 96,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Testing Medicines",
   "objective": "After this level you can explain how new medicines are tested before doctors use them.",
@@ -107,7 +107,7 @@
   "questions": [
     {
       "id": "question.human_body.096.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.health_trial_phases"
@@ -115,32 +115,16 @@
       "sourceCardIds": [
         "card.human_body.096.c2"
       ],
-      "prompt": "In the FDA's sequence of clinical-trial phases, what is Phase 1 mainly checking?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Long-term safety after approval",
-          "correct": false,
-          "rationale": "That's Phase 4."
-        },
-        {
-          "id": "b",
-          "label": "Whether it beats other drugs in thousands",
-          "correct": false,
-          "rationale": "Large comparisons come in Phase 3."
-        },
-        {
-          "id": "c",
-          "label": "Safety and the right dose, in 20 to 100 people",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "How it behaves in lab dishes only",
-          "correct": false,
-          "rationale": "That's preclinical research."
-        }
+      "prompt": "Put the testing of a new medicine in order, from lab bench to pharmacy shelf.",
+      "items": [
+        "Lab and animal studies",
+        "20 to 100 people",
+        "Up to several hundred patients",
+        "300 to 3,000 patients",
+        "After approval"
       ],
+      "first": "Lab bench",
+      "last": "Pharmacy shelf",
       "explanation": "Phase 1 tests safety and dosage in a small group of 20 to 100 people.",
       "difficulty": 0.25
     },

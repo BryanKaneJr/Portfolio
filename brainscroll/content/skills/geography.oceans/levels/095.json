@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 95,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Ocean Pollution",
   "objective": "After this level you can explain the main kinds of ocean pollution.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "question.oceans.095.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.pollution_dead_zones"
@@ -138,33 +138,16 @@
       "sourceCardIds": [
         "card.oceans.095.c3"
       ],
-      "prompt": "How can fertilizer used on farms create a dead zone in the sea?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It is poisonous to fish on contact",
-          "correct": false,
-          "rationale": "The harm comes through algae and lost oxygen."
-        },
-        {
-          "id": "b",
-          "label": "It makes the water too salty",
-          "correct": false,
-          "rationale": "It's about oxygen, not salt."
-        },
-        {
-          "id": "c",
-          "label": "It blocks sunlight from reaching the water",
-          "correct": false,
-          "rationale": "The algae it feeds are the problem."
-        },
-        {
-          "id": "d",
-          "label": "It feeds algae whose rotting uses up the oxygen",
-          "correct": true
-        }
+      "prompt": "How does a dead zone form? Put these steps in order, from first to last.",
+      "items": [
+        "Nutrients from farms and cities",
+        "Algae bloom",
+        "The rotting uses up the oxygen",
+        "Fish swim away or die"
       ],
-      "explanation": "Nutrients feed algae blooms; when the algae die and decompose, the decay uses up oxygen, leaving water too low in oxygen for most life.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Nutrients from farms and cities reach the Gulf of Mexico. Algae bloom, die and rot, the rotting uses up the oxygen, and fish swim away or die.",
       "difficulty": 0.3
     },
     {

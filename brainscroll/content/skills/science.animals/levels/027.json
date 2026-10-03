@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 27,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Hummingbirds",
   "objective": "After this level you can describe hummingbirds' speed and energy needs.",
@@ -168,7 +168,7 @@
     },
     {
       "id": "question.animals.027.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.animals.hummingbird_torpor",
@@ -176,35 +176,25 @@
       ],
       "sourceCardIds": [
         "card.animals.027.c3",
-        "card.animals.005.c4"
+        "card.animals.005.c4",
+        "card.animals.027.c1"
       ],
-      "prompt": "Level 5 said making your own heat costs food. Why does that bill hit hummingbirds so hard?",
-      "options": [
+      "prompt": "Match each heart with its beats per minute.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They are ectotherms that must bask",
-          "correct": false,
-          "rationale": "They are birds, which make their own heat."
+          "left": "Hummingbird in flight",
+          "right": "More than 1,200"
         },
         {
-          "id": "b",
-          "label": "They eat only once a day",
-          "correct": false,
-          "rationale": "The card doesn't say so; the issue is their tiny, costly bodies."
+          "left": "At rest",
+          "right": "About 225"
         },
         {
-          "id": "c",
-          "label": "They're tiny, poorly insulated, and burn energy fast",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "They fly only in the tropics",
-          "correct": false,
-          "rationale": "The issue is their bodies, not where they live."
+          "left": "A human athlete",
+          "right": "About 150"
         }
       ],
-      "explanation": "At 2 to 20 grams, with poor insulation and huge metabolic demands, hummingbirds pay the heat bill hardest.",
+      "explanation": "A ruby-throated hummingbird's heart beats more than 1,200 times a minute in flight and about 225 at rest. A hard-working human athlete reaches only about 150.",
       "difficulty": 0.25
     }
   ],

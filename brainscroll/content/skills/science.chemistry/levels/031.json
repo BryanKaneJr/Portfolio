@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 31,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Hydrogen",
   "objective": "After this level you can describe hydrogen, the lightest and most common element.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "question.chemistry.031.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.hydrogen_lightest_gas",
@@ -138,35 +138,25 @@
       ],
       "sourceCardIds": [
         "card.chemistry.031.c3",
-        "card.chemistry.031.c4"
+        "card.chemistry.031.c4",
+        "card.chemistry.031.c2"
       ],
-      "prompt": "Free hydrogen gas is scarce in Earth's air. Why, and where is most of Earth's hydrogen instead?",
-      "options": [
+      "prompt": "Match each with its part in hydrogen's story.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It's so light it escapes to space; most is locked in water",
-          "correct": true
+          "left": "Henry Cavendish",
+          "right": "A gas that burns"
         },
         {
-          "id": "b",
-          "label": "It's too heavy and sinks into rocks; most is in the core",
-          "correct": false,
-          "rationale": "Hydrogen is the lightest gas, not a heavy one."
+          "left": "Lavoisier",
+          "right": "Named it hydrogen"
         },
         {
-          "id": "c",
-          "label": "Plants use it all up; most is in leaves",
-          "correct": false,
-          "rationale": "The level's answer is escape to space, with most hydrogen held in water."
-        },
-        {
-          "id": "d",
-          "label": "It freezes in the cold; most is in snowflakes",
-          "correct": false,
-          "rationale": "Freezing isn't the reason it's missing from air."
+          "left": "Helium",
+          "right": "The runner-up"
         }
       ],
-      "explanation": "Hydrogen molecules are light and fast enough to escape from the top of the atmosphere. What stays behind is bound up in water.",
+      "explanation": "Henry Cavendish showed in 1766 that a gas that burns was a substance of its own, Lavoisier named it hydrogen, and helium is the runner-up in abundance.",
       "difficulty": 0.3
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 99,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Humans Change the Planet",
   "objective": "After this level you can explain how farming, cities and pollution reshape the land and the sea.",
@@ -131,7 +131,7 @@
     },
     {
       "id": "question.world_geography.099.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.world_geography.dead_zones"
@@ -139,33 +139,16 @@
       "sourceCardIds": [
         "card.world_geography.099.c4"
       ],
-      "prompt": "How do fertilizers from inland farms create a dead zone out at sea?",
-      "options": [
-        {
-          "id": "a",
-          "label": "They poison fish directly as soon as they arrive",
-          "correct": false,
-          "rationale": "The damage comes through algae and oxygen."
-        },
-        {
-          "id": "b",
-          "label": "They make the water too salty",
-          "correct": false,
-          "rationale": "Salt is not the problem."
-        },
-        {
-          "id": "c",
-          "label": "They warm the water until fish leave",
-          "correct": false,
-          "rationale": "Temperature is not the mechanism here."
-        },
-        {
-          "id": "d",
-          "label": "They feed algae that use up oxygen as they decompose",
-          "correct": true
-        }
+      "prompt": "Put the making of a dead zone in order, from cause to effect.",
+      "items": [
+        "Excess nutrients",
+        "Huge blooms of algae",
+        "The algae die and decompose",
+        "A dead zone"
       ],
-      "explanation": "Excess nutrients feed algae; when the algae die and decompose, they use up the oxygen, leaving water that can kill marine life.",
+      "first": "Cause",
+      "last": "Effect",
+      "explanation": "Excess nutrients wash into the Gulf and feed huge blooms of algae. When the algae die and decompose they use up the oxygen, leaving a dead zone.",
       "difficulty": 0.3
     },
     {

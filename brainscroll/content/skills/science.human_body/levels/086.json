@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 86,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "How Long Humans Live",
   "objective": "After this level you can explain why life expectancy has risen so much.",
@@ -140,38 +140,29 @@
     },
     {
       "id": "question.human_body.086.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.lifespan_life_expectancy_rise"
       ],
       "sourceCardIds": [
-        "card.human_body.086.c3"
+        "card.human_body.086.c3",
+        "card.human_body.086.c2",
+        "card.human_body.086.c5"
       ],
-      "prompt": "Why was average life expectancy so low before modern times?",
-      "options": [
+      "prompt": "Match each life span fact with its figure.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Adults rarely lived past 30",
-          "correct": false,
-          "rationale": "Many adults did; the average hid them."
+          "left": "Global life expectancy",
+          "right": "73.3 years"
         },
         {
-          "id": "b",
-          "label": "People aged faster in the past",
-          "correct": false,
-          "rationale": "The cause was early deaths."
+          "left": "Jeanne Calment",
+          "right": "122 years and 164 days"
         },
         {
-          "id": "c",
-          "label": "Many babies and children died young",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Nobody kept records of older people",
-          "correct": false,
-          "rationale": "The low figure reflects real deaths."
+          "left": "About a quarter of babies",
+          "right": "Died in their first year"
         }
       ],
       "explanation": "About a quarter of babies died in their first year and almost half of children before the end of puberty, dragging the average down.",

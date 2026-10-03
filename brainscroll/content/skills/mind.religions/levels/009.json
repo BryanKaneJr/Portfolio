@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 9,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Counting the World's Believers",
   "objective": "After this level you can explain how researchers count religious groups, and roughly how large the biggest groups and the religiously unaffiliated are.",
@@ -147,41 +147,26 @@
     },
     {
       "id": "question.religions.009.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.counting_methods"
       ],
       "sourceCardIds": [
-        "card.religions.009.c2"
+        "card.religions.009.c2",
+        "card.religions.009.c3"
       ],
-      "prompt": "What do Pew's world religion figures actually measure?",
-      "options": [
-        {
-          "id": "a",
-          "label": "How often people attend services",
-          "correct": false,
-          "rationale": "Attendance isn't what they count."
-        },
-        {
-          "id": "b",
-          "label": "How strongly people believe in God",
-          "correct": false,
-          "rationale": "Belief isn't measured directly."
-        },
-        {
-          "id": "c",
-          "label": "How many holy books each person owns",
-          "correct": false,
-          "rationale": "Nothing like that is counted."
-        },
-        {
-          "id": "d",
-          "label": "The religious identity people report",
-          "correct": true
-        }
+      "prompt": "Put these groups in order of their share of the world's people in 2020, largest first.",
+      "items": [
+        "Christian",
+        "Muslim",
+        "Religiously unaffiliated",
+        "Hindus",
+        "Buddhists"
       ],
-      "explanation": "The figures come from censuses and surveys asking 'What is your religion, if any?': reported identity.",
+      "first": "Largest share",
+      "last": "Smallest share",
+      "explanation": "In 2020 about 29% were Christian, 26% Muslim, 24% religiously unaffiliated, 15% Hindus and 4% Buddhists.",
       "difficulty": 0.3
     },
     {

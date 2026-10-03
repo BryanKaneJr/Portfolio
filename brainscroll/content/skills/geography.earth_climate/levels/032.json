@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 32,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "How Rock Layers Tell Order",
   "objective": "After this level you can use superposition and cross-cutting to put rock layers and events in order.",
@@ -130,41 +130,31 @@
     },
     {
       "id": "question.earth_climate.032.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.deeptime_cross_cutting"
       ],
       "sourceCardIds": [
-        "card.earth_climate.032.c3"
+        "card.earth_climate.032.c3",
+        "card.earth_climate.032.c2"
       ],
-      "prompt": "A dike of cooled magma slices through layers A, B and C. How do geologists know the dike is younger than all three?",
-      "options": [
+      "prompt": "Match each term with what it tells geologists.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Magma always forms before sediment does",
-          "correct": false,
-          "rationale": "Magma can intrude at any time; order comes from what cuts what."
+          "left": "Superposition",
+          "right": "The oldest layer is at the bottom"
         },
         {
-          "id": "b",
-          "label": "It cuts across them, so they had to exist first",
-          "correct": true
+          "left": "Cross-cutting relationships",
+          "right": "The cutter is younger"
         },
         {
-          "id": "c",
-          "label": "The dike is darker than the layers around it",
-          "correct": false,
-          "rationale": "Color doesn't reveal age."
-        },
-        {
-          "id": "d",
-          "label": "Dikes are always at the bottom of a stack",
-          "correct": false,
-          "rationale": "A dike cuts upward through layers."
+          "left": "Dike",
+          "right": "A wall of rock"
         }
       ],
-      "explanation": "You can't cut through rock that isn't there yet, so anything that cuts across layers is younger than they are.",
+      "explanation": "Superposition says the oldest layer is at the bottom, cross-cutting relationships say the cutter is younger, and a dike is a wall of rock made when magma cools.",
       "difficulty": 0.3
     },
     {

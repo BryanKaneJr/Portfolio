@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 54,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Rust",
   "objective": "After this level you can explain how and why iron rusts.",
@@ -126,41 +126,32 @@
     },
     {
       "id": "question.chemistry.054.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.rust_protection"
       ],
       "sourceCardIds": [
-        "card.chemistry.054.c3"
+        "card.chemistry.054.c3",
+        "card.chemistry.054.c2",
+        "card.chemistry.054.c4"
       ],
-      "prompt": "Why does rust keep eating deeper into iron instead of stopping at the surface?",
-      "options": [
+      "prompt": "Match each with its part in the story of rust.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It releases heat that melts the iron",
-          "correct": false,
-          "rationale": "Rusting is far too slow for that."
+          "left": "Rust",
+          "right": "Iron oxide"
         },
         {
-          "id": "b",
-          "label": "It flakes off and exposes fresh iron",
-          "correct": true
+          "left": "Salts",
+          "right": "Speed the reaction up"
         },
         {
-          "id": "c",
-          "label": "It turns back into water",
-          "correct": false,
-          "rationale": "Rust is iron oxide; it stays solid."
-        },
-        {
-          "id": "d",
-          "label": "It pulls oxygen out of the iron",
-          "correct": false,
-          "rationale": "Oxygen joins the iron; it isn't pulled out."
+          "left": "Zinc",
+          "right": "Corrodes instead"
         }
       ],
-      "explanation": "Unlike copper's coating, rust flakes away, so fresh iron keeps meeting air and water.",
+      "explanation": "Rust is iron oxide. Salts speed the reaction up, and zinc on galvanized iron corrodes instead, sparing the iron.",
       "difficulty": 0.25
     },
     {

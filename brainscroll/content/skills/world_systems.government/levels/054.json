@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 54,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Innocent Until Proven Guilty",
   "objective": "After this level you can explain the presumption of innocence.",
@@ -124,41 +124,32 @@
     },
     {
       "id": "question.government.054.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.presumption_innocence"
       ],
       "sourceCardIds": [
-        "card.government.054.c3"
+        "card.government.054.c3",
+        "card.government.054.c2",
+        "card.government.054.c4"
       ],
-      "prompt": "Blackstone wrote that it's better that ten guilty persons escape than that one innocent suffer. What does that say about the justice system?",
-      "options": [
+      "prompt": "Match each voice for the presumption of innocence with what it said.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "That most accused people are guilty anyway",
-          "correct": false,
-          "rationale": "It's about which mistake is worse, not how many are guilty."
+          "left": "Viscount Sankey",
+          "right": "The golden thread"
         },
         {
-          "id": "b",
-          "label": "That it is built to avoid convicting the innocent, even at a cost",
-          "correct": true
+          "left": "William Blackstone",
+          "right": "Ten guilty persons escape"
         },
         {
-          "id": "c",
-          "label": "That ten guilty people must be freed for every conviction",
-          "correct": false,
-          "rationale": "It's a way of weighing errors, not a quota."
-        },
-        {
-          "id": "d",
-          "label": "That punishment should be as light as possible",
-          "correct": false,
-          "rationale": "It's about proof, not sentence length."
+          "left": "Article 11",
+          "right": "Presumed innocent until proved guilty"
         }
       ],
-      "explanation": "The system is tilted on purpose: a reasonable doubt means acquittal, because convicting an innocent person is the worse error.",
+      "explanation": "Viscount Sankey named the golden thread, William Blackstone said it is better that ten guilty persons escape than one innocent suffer, and Article 11 says everyone is presumed innocent until proved guilty.",
       "difficulty": 0.25
     },
     {

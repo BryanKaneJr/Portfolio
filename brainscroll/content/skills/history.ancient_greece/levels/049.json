@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_greece",
   "number": 49,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Voyage of Odysseus",
   "objective": "After this level you can describe the monsters and trials of the Odyssey.",
@@ -133,41 +133,25 @@
     },
     {
       "id": "question.ancient_greece.049.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_greece.odysseus_voyage"
       ],
       "sourceCardIds": [
-        "card.ancient_greece.049.c4"
+        "card.ancient_greece.049.c4",
+        "card.ancient_greece.049.c2",
+        "card.ancient_greece.049.c5"
       ],
-      "prompt": "Why did Odysseus have himself tied to the mast as his ship passed the Sirens?",
-      "options": [
-        {
-          "id": "a",
-          "label": "To keep watch for Scylla",
-          "correct": false,
-          "rationale": "Scylla came later."
-        },
-        {
-          "id": "b",
-          "label": "Because his crew had mutinied",
-          "correct": false,
-          "rationale": "His crew obeyed him."
-        },
-        {
-          "id": "c",
-          "label": "To prove his courage to Poseidon",
-          "correct": false,
-          "rationale": "It was a safety measure."
-        },
-        {
-          "id": "d",
-          "label": "So he couldn’t steer the ship off course",
-          "correct": true
-        }
+      "prompt": "Put these stops on Odysseus’s voyage in order, from first to last.",
+      "items": [
+        "Polyphemus",
+        "Sirens",
+        "Scylla and Charybdis"
       ],
-      "explanation": "The crew’s ears were stopped with wax, and Odysseus was tied to the mast so he could not steer toward the Sirens.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "First Odysseus blinded Polyphemus. Then came the Sirens, and next he passed between Scylla and Charybdis.",
       "difficulty": 0.25
     },
     {

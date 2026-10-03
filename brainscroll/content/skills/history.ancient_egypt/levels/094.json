@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 94,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Egyptomania",
   "objective": "After this level you can explain the craze for all things Egyptian in Europe.",
@@ -98,41 +98,25 @@
   "questions": [
     {
       "id": "question.ancient_egypt.094.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_egypt.egyptomania_craze"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.094.c2"
+        "card.ancient_egypt.094.c2",
+        "card.ancient_egypt.094.c3"
       ],
-      "prompt": "What was the Description de l’Égypte?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A treaty that ended the French campaign",
-          "correct": false,
-          "rationale": "It was a book, not a treaty."
-        },
-        {
-          "id": "b",
-          "label": "Champollion’s list of hieroglyphic signs",
-          "correct": false,
-          "rationale": "It came from Napoleon’s scholars."
-        },
-        {
-          "id": "c",
-          "label": "An illustrated record by Napoleon’s scholars",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "A guidebook written for Roman tourists",
-          "correct": false,
-          "rationale": "It was published from 1809."
-        }
+      "prompt": "Put these milestones of Egyptomania in order, from earliest to latest.",
+      "items": [
+        "The 1798 invasion",
+        "Description de l’Égypte",
+        "Champollion’s decipherment",
+        "The Washington Monument"
       ],
-      "explanation": "Napoleon’s scholars recorded Egypt, and their work was published from 1809 with huge prints of its antiquities.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Napoleon’s invasion came in 1798, and the Description de l’Égypte was published from 1809. Champollion’s decipherment followed in 1822, and the Washington Monument was begun in 1848.",
       "difficulty": 0.2
     },
     {

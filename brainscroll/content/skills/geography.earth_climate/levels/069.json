@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 69,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Lake-Effect Snow",
   "objective": "After this level you can explain how cold air crossing warm lakes dumps narrow bands of very heavy snow.",
@@ -87,7 +87,7 @@
   "questions": [
     {
       "id": "question.earth_climate.069.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.earth_climate.storm_lake_effect"
@@ -95,33 +95,16 @@
       "sourceCardIds": [
         "card.earth_climate.069.c2"
       ],
-      "prompt": "On which side of a Great Lake does lake-effect snow usually fall?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The upwind side, where the cold air arrives",
-          "correct": false,
-          "rationale": "The air picks up moisture over the lake first."
-        },
-        {
-          "id": "b",
-          "label": "Right in the middle of the lake",
-          "correct": false,
-          "rationale": "The snow falls on the shores."
-        },
-        {
-          "id": "c",
-          "label": "The downwind, or leeward, side",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Evenly all around the lake",
-          "correct": false,
-          "rationale": "Snow falls in narrow bands, set by the wind."
-        }
+      "prompt": "Put the steps of lake-effect snow in order.",
+      "items": [
+        "Crosses the open water",
+        "Warmed from below",
+        "Clouds form",
+        "Comes down as snow"
       ],
-      "explanation": "The air gathers heat and moisture as it crosses, then rises and drops snow on the leeward shores.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Cold air crosses the open water, is warmed from below and rises, clouds form, and the lake's water comes down as snow on the downwind shores.",
       "difficulty": 0.2
     },
     {

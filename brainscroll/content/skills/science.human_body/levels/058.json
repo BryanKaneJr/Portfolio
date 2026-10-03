@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 58,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Dreams",
   "objective": "After this level you can describe what scientists know about why we dream.",
@@ -147,40 +147,23 @@
     },
     {
       "id": "question.human_body.058.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.dream_theories"
       ],
       "sourceCardIds": [
-        "card.human_body.058.c3"
+        "card.human_body.058.c3",
+        "card.human_body.058.c2"
       ],
-      "prompt": "According to the activation-synthesis hypothesis, where do dreams come from?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Wishes in disguise",
-          "correct": false,
-          "rationale": "That is Freud's theory."
-        },
-        {
-          "id": "b",
-          "label": "The forebrain making a story from signals fired in REM",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Messages about the future",
-          "correct": false,
-          "rationale": "No scientific theory here says that."
-        },
-        {
-          "id": "d",
-          "label": "Sounds in the bedroom only",
-          "correct": false,
-          "rationale": "The theory centers on signals from the brainstem."
-        }
+      "prompt": "Put these dream researchers in order, from earliest to latest.",
+      "items": [
+        "Sigmund Freud",
+        "Aserinsky and Nathaniel Kleitman",
+        "Hobson and McCarley"
       ],
+      "first": "Earliest",
+      "last": "Latest",
       "explanation": "Hobson and McCarley proposed that the brainstem fires signals during REM and the forebrain builds a story to make sense of them.",
       "difficulty": 0.3
     },

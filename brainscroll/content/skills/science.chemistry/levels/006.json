@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 6,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Mixtures and Solutions",
   "objective": "After this level you can explain how mixtures and solutions differ.",
@@ -92,41 +92,35 @@
   "questions": [
     {
       "id": "question.chemistry.006.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.chemistry.solution_basics"
       ],
       "sourceCardIds": [
-        "card.chemistry.006.c3"
+        "card.chemistry.006.c3",
+        "card.chemistry.006.c2"
       ],
-      "prompt": "In salt water, which substance is the solute?",
-      "options": [
+      "prompt": "Match each mixture word with what it means.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The water",
-          "correct": false,
-          "rationale": "The water does the dissolving, so it is the solvent."
+          "left": "Heterogeneous",
+          "right": "Not the same all the way through"
         },
         {
-          "id": "b",
-          "label": "The glass it is in",
-          "correct": false,
-          "rationale": "The container isn't part of the solution."
+          "left": "Homogeneous",
+          "right": "The same all the way through"
         },
         {
-          "id": "c",
-          "label": "The salt",
-          "correct": true
+          "left": "Solute",
+          "right": "What dissolves"
         },
         {
-          "id": "d",
-          "label": "Neither, because salt water is a pure substance",
-          "correct": false,
-          "rationale": "Salt water is a mixture: its saltiness can vary."
+          "left": "Solvent",
+          "right": "What does the dissolving"
         }
       ],
-      "explanation": "The solute is the substance that gets dissolved: here, the salt.",
+      "explanation": "Heterogeneous means not the same all the way through, and homogeneous means the same all the way through. The solute is what dissolves; the solvent does the dissolving.",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 1,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "The Animal Kingdom: The Big Picture",
   "objective": "After this level you can explain what makes an animal an animal and name the main groups.",
@@ -139,7 +139,7 @@
     },
     {
       "id": "question.animals.001.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.animal_traits"
@@ -148,33 +148,15 @@
         "card.animals.001.c3",
         "card.animals.001.c2"
       ],
-      "prompt": "An adult sponge never leaves its spot. Why do biologists still count it as an animal?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It grows roots like a plant",
-          "correct": false,
-          "rationale": "Sponges attach, but they don't grow roots."
-        },
-        {
-          "id": "b",
-          "label": "It has muscles hidden inside",
-          "correct": false,
-          "rationale": "Sponges lack muscle tissue."
-        },
-        {
-          "id": "c",
-          "label": "It eats other living things and swam when young",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It makes its own food from sunlight",
-          "correct": false,
-          "rationale": "That's what producers like plants do."
-        }
+      "prompt": "Put a sponge's life in order, from first to last.",
+      "items": [
+        "Swim",
+        "Settle",
+        "Stay put for good"
       ],
-      "explanation": "Sponges are many-celled, eat bacteria they filter from water, and swim as larvae, so they tick every box on the checklist.",
+      "first": "First, as a larva",
+      "last": "Last, as an adult",
+      "explanation": "Sponge larvae swim, then they settle and attach, and the adult stays put for good.",
       "difficulty": 0.2
     },
     {

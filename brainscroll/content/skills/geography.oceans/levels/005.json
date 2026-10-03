@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 5,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Why the Sea Is Salty",
   "objective": "After this level you can explain where the salt in seawater comes from.",
@@ -129,7 +129,7 @@
     },
     {
       "id": "question.oceans.005.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.salt_sources"
@@ -137,33 +137,15 @@
       "sourceCardIds": [
         "card.oceans.005.c3"
       ],
-      "prompt": "Rivers bring salt to the sea, yet river water tastes fresh. Why does the sea end up salty?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Rivers carry no salt; fish add it",
-          "correct": false,
-          "rationale": "Rivers carry a little salt; fish aren't the source."
-        },
-        {
-          "id": "b",
-          "label": "Rain falling on the sea is salty",
-          "correct": false,
-          "rationale": "Rain is fresh water; it's slightly acidic, not salty."
-        },
-        {
-          "id": "c",
-          "label": "Evaporation removes water but leaves the salt",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The seabed is made of solid salt",
-          "correct": false,
-          "rationale": "The salt comes from weathered rock and vents."
-        }
+      "prompt": "Follow the salt. Put these steps in order, from rain on land to salt in the sea.",
+      "items": [
+        "Breaks down rocks on land",
+        "Rivers carry the freed salts to the sea",
+        "The salt is left behind"
       ],
-      "explanation": "Rivers keep delivering small amounts of salt; evaporation takes away the water and leaves the salt, so it builds up.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Slightly acidic rain breaks down rocks on land, rivers carry the freed salts to the sea, and when seawater evaporates the salt is left behind.",
       "difficulty": 0.2
     },
     {

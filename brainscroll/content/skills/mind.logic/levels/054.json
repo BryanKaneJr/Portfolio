@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 54,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Natural Isn't Always Better",
   "objective": "After this level you can spot the appeal to nature: assuming something is good or safe just because it is natural.",
@@ -129,7 +129,7 @@
     },
     {
       "id": "question.logic.054.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.trap_natural_not_safe"
@@ -138,33 +138,22 @@
         "card.logic.054.c3",
         "card.logic.054.c4"
       ],
-      "prompt": "Why is \"it's natural\" a weak reason to believe something is safe?",
-      "options": [
+      "prompt": "Match each natural thing with its risk.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Natural things are always weaker than lab-made ones",
-          "correct": false,
-          "rationale": "Some natural things, like the death cap, are deadly strong."
+          "left": "The death cap",
+          "right": "The deadliest mushroom known to humans"
         },
         {
-          "id": "b",
-          "label": "Deadly things, like the death cap, are natural too",
-          "correct": true
+          "left": "Kava",
+          "right": "Liver disease"
         },
         {
-          "id": "c",
-          "label": "Nothing natural has ever been studied",
-          "correct": false,
-          "rationale": "Plenty has; kava's risks are known from study."
-        },
-        {
-          "id": "d",
-          "label": "The word \"natural\" is illegal on labels",
-          "correct": false,
-          "rationale": "The problem is logic, not law."
+          "left": "St. John's wort",
+          "right": "Makes many medicines less effective"
         }
       ],
-      "explanation": "Poisons are as natural as anything else, so naturalness says nothing about safety.",
+      "explanation": "The death cap is the deadliest mushroom known to humans. Kava supplements can cause liver disease, and St. John's wort makes many medicines less effective.",
       "difficulty": 0.3
     },
     {

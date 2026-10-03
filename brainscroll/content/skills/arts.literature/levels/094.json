@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 94,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Science Fiction's Big What If",
   "objective": "After this level you can explain how Jules Verne and H. G. Wells turned scientific what-ifs into fiction.",
@@ -103,41 +103,26 @@
   "questions": [
     {
       "id": "question.literature.094.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.literature.scifi_verne"
       ],
       "sourceCardIds": [
-        "card.literature.094.c2"
+        "card.literature.094.c2",
+        "card.literature.094.c1",
+        "card.literature.094.c3"
       ],
-      "prompt": "What was new about Verne's From the Earth to the Moon?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It landed its travelers safely on the Moon",
-          "correct": false,
-          "rationale": "They only whiz past it."
-        },
-        {
-          "id": "b",
-          "label": "It treated space travel as an engineering problem",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It was the first story ever set on the Moon",
-          "correct": false,
-          "rationale": "Myths like Chang'e's are far older."
-        },
-        {
-          "id": "d",
-          "label": "It warned about a class split in society",
-          "correct": false,
-          "rationale": "That's Wells's Time Machine."
-        }
+      "prompt": "Put these novels in order, from earliest to latest.",
+      "items": [
+        "From the Earth to the Moon",
+        "Round the Moon",
+        "The Time Machine",
+        "The War of the Worlds"
       ],
-      "explanation": "Verne's novel was the first fiction to treat space travel as a coherent engineering problem, though he couldn't land his passengers.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "From the Earth to the Moon came out in 1865 and its sequel Round the Moon in 1870. Wells's The Time Machine followed in 1895 and The War of the Worlds in 1898.",
       "difficulty": 0.2
     },
     {

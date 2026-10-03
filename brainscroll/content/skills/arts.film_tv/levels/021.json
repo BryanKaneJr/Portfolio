@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 21,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "From Script to Screen",
   "objective": "After this level you can name the five stages of making a film, from development to distribution, and what happens in each.",
@@ -87,7 +87,7 @@
   "questions": [
     {
       "id": "question.film_tv.021.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.shoot_five_stages"
@@ -97,33 +97,17 @@
         "card.film_tv.021.c3",
         "card.film_tv.021.c4"
       ],
-      "prompt": "Which list gives the five stages of making a film in the right order?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Pre-production, development, production, distribution, post-production",
-          "correct": false,
-          "rationale": "Development comes first: there's nothing to plan without an idea and money."
-        },
-        {
-          "id": "b",
-          "label": "Development, pre-production, production, post-production, distribution",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Development, production, pre-production, distribution, post-production",
-          "correct": false,
-          "rationale": "Planning comes before the shoot, and a film is finished before it's distributed."
-        },
-        {
-          "id": "d",
-          "label": "Production, development, post-production, pre-production, distribution",
-          "correct": false,
-          "rationale": "The shoot can't come before the idea and the plan."
-        }
+      "prompt": "Put the five stages of making a film in order, from first to last.",
+      "items": [
+        "Develop",
+        "Prepare",
+        "Shoot",
+        "Finish",
+        "Distribute"
       ],
-      "explanation": "Develop the idea and money, prepare the shoot, shoot, finish the film in post-production, then distribute it.",
+      "first": "First stage",
+      "last": "Last stage",
+      "explanation": "A film goes through development, pre-production (prepare), production (shoot), post-production (finish) and then distribution.",
       "difficulty": 0.2
     },
     {

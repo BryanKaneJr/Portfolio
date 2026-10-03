@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 80,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Graphs That Mislead",
   "objective": "After this level you can take apart a misleading chart and redraw its story fairly in words.",
@@ -272,41 +272,35 @@
     },
     {
       "id": "question.probability.080.q4",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.probability.chart_cumulative"
       ],
       "sourceCardIds": [
-        "card.probability.078.c3"
+        "card.probability.078.c3",
+        "card.probability.080.c2"
       ],
-      "prompt": "A running-total chart's line has started to bend flatter. What does that tell you?",
-      "options": [
+      "prompt": "Match each chart check with what it tells you.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The total is going down",
-          "correct": false,
-          "rationale": "A running total never goes down."
+          "left": "Bars",
+          "right": "Start at zero"
         },
         {
-          "id": "b",
-          "label": "The chart has an error in it",
-          "correct": false,
-          "rationale": "Bending flatter is normal when new counts slow."
+          "left": "Cumulative",
+          "right": "It can only go up"
         },
         {
-          "id": "c",
-          "label": "Cases have stopped completely",
-          "correct": false,
-          "rationale": "That would be a flat line, not a bend."
+          "left": "Log steps",
+          "right": "Multiply"
         },
         {
-          "id": "d",
-          "label": "New cases are arriving more slowly",
-          "correct": true
+          "left": "Totals",
+          "right": "Mostly map where people live"
         }
       ],
-      "explanation": "Each period adds less than before, so the total still rises but more slowly, and the line bends flatter.",
+      "explanation": "Bars should start at zero, a cumulative chart can only go up, log steps multiply, and maps of totals mostly map where people live.",
       "difficulty": 0.35
     },
     {

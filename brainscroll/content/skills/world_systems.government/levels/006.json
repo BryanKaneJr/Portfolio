@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 6,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Paying for It",
   "objective": "After this level you can explain how taxes fund government.",
@@ -193,7 +193,7 @@
     },
     {
       "id": "question.government.006.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.government.tax_definition",
@@ -201,35 +201,25 @@
       ],
       "sourceCardIds": [
         "card.government.006.c2",
-        "card.government.005.c4"
+        "card.government.005.c4",
+        "card.government.006.c3"
       ],
-      "prompt": "Level 5's free riders enjoy public goods without paying. Which feature of taxes stops them?",
-      "options": [
+      "prompt": "Match each thing that gets taxed with a tax on it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Taxes are compulsory",
-          "correct": true
+          "left": "What you earn",
+          "right": "Taxes on income and profits"
         },
         {
-          "id": "b",
-          "label": "Taxes are only on property",
-          "correct": false,
-          "rationale": "Taxes fall on earnings, spending and property."
+          "left": "What you buy",
+          "right": "Value-added tax (VAT)"
         },
         {
-          "id": "c",
-          "label": "Taxes are set by each person",
-          "correct": false,
-          "rationale": "Nobody sets their own tax; that would invite free riding."
-        },
-        {
-          "id": "d",
-          "label": "Taxes buy one specific service",
-          "correct": false,
-          "rationale": "Taxes are unrequited: they don't buy a specific service."
+          "left": "What you own",
+          "right": "Taxes on property"
         }
       ],
-      "explanation": "Because taxes are compulsory, everyone contributes, so nobody can free ride on public goods.",
+      "explanation": "What you earn is hit by taxes on income and profits, what you buy by taxes like value-added tax (VAT), and what you own by taxes on property.",
       "difficulty": 0.3
     }
   ],

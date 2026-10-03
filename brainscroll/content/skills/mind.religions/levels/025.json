@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 25,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Christmas, Lent and Easter",
   "objective": "After this level you can explain the shape of the Christian year and why the date of Easter moves from year to year.",
@@ -141,41 +141,27 @@
     },
     {
       "id": "question.religions.025.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.christianity_easter_date"
       ],
       "sourceCardIds": [
-        "card.religions.025.c5"
+        "card.religions.025.c5",
+        "card.religions.025.c2",
+        "card.religions.025.c3",
+        "card.religions.025.c4"
       ],
-      "prompt": "How do Western churches set the date of Easter each year?",
-      "options": [
-        {
-          "id": "a",
-          "label": "First Sunday after the first full moon on or after March 21",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Always the last Sunday in March",
-          "correct": false,
-          "rationale": "Easter can fall as late as April 25."
-        },
-        {
-          "id": "c",
-          "label": "Forty days after Christmas",
-          "correct": false,
-          "rationale": "Forty days is Lent's length, before Easter."
-        },
-        {
-          "id": "d",
-          "label": "The Sunday nearest April 1",
-          "correct": false,
-          "rationale": "The rule follows the Moon, not a fixed day."
-        }
+      "prompt": "Put these seasons of the Easter cycle in order.",
+      "items": [
+        "Lent",
+        "Holy Week",
+        "Easter",
+        "Pentecost"
       ],
-      "explanation": "Easter follows the first full moon on or after March 21, so it falls between March 22 and April 25.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "The Easter cycle runs through Lent and Holy Week to Easter, and then 50 days on to Pentecost.",
       "difficulty": 0.35
     },
     {

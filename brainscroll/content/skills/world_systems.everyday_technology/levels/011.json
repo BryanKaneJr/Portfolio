@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 11,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Power Grid",
   "objective": "After this level you can explain how electricity travels from a power plant to your wall socket.",
@@ -90,7 +90,7 @@
   "questions": [
     {
       "id": "question.everyday_technology.011.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.grid_journey"
@@ -98,33 +98,17 @@
       "sourceCardIds": [
         "card.everyday_technology.011.c2"
       ],
-      "prompt": "On the grid's trip from a power plant to your home, where is the voltage stepped down?",
-      "options": [
-        {
-          "id": "a",
-          "label": "At the power plant, before the long lines",
-          "correct": false,
-          "rationale": "That's where it's stepped up."
-        },
-        {
-          "id": "b",
-          "label": "At substations and a transformer near your home",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Nowhere: homes get the full line voltage",
-          "correct": false,
-          "rationale": "Homes get a much lower, safer voltage."
-        },
-        {
-          "id": "d",
-          "label": "Inside each appliance's plug",
-          "correct": false,
-          "rationale": "The grid steps it down before it reaches you."
-        }
+      "prompt": "Put these stops on electricity's trip in order, from the power plant to your home.",
+      "items": [
+        "Step-up transformer",
+        "High-voltage transmission lines",
+        "Substation",
+        "Lower-voltage distribution lines",
+        "One last transformer near your home"
       ],
-      "explanation": "Substations step the high transmission voltage down for local lines, and a last transformer near your home lowers it again.",
+      "first": "At the power plant",
+      "last": "At your home",
+      "explanation": "A step-up transformer raises the voltage, transmission lines carry it far, a substation steps it down, distribution lines run along your street, and one last transformer near your home steps it down again.",
       "difficulty": 0.2
     },
     {

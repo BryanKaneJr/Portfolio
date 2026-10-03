@@ -3,7 +3,7 @@
   "skillId": "skill.geography.world_geography",
   "number": 23,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Ocean Currents",
   "objective": "After this level you can explain how currents like the Gulf Stream carry heat around the planet.",
@@ -91,41 +91,36 @@
   "questions": [
     {
       "id": "question.world_geography.023.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.world_geography.surface_currents"
       ],
       "sourceCardIds": [
-        "card.world_geography.023.c2"
+        "card.world_geography.023.c2",
+        "card.world_geography.023.c3",
+        "card.world_geography.023.c4"
       ],
-      "prompt": "What mainly drives the currents at the ocean's surface?",
-      "options": [
+      "prompt": "Match each one with its fact about ocean currents.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Wind",
-          "correct": true
+          "left": "Surface currents",
+          "right": "Their engine is the wind"
         },
         {
-          "id": "b",
-          "label": "Earth's magnetic field",
-          "correct": false,
-          "rationale": "Magnetism does not push the water."
+          "left": "Conveyor belt",
+          "right": "About 1,000 years"
         },
         {
-          "id": "c",
-          "label": "Rivers flowing into the sea",
-          "correct": false,
-          "rationale": "River water is far too small a push."
+          "left": "Cold, salty water",
+          "right": "Dense and sinks"
         },
         {
-          "id": "d",
-          "label": "Undersea volcanoes",
-          "correct": false,
-          "rationale": "They heat water locally but do not drive surface currents."
+          "left": "Bath toys",
+          "right": "Washed up in Alaska"
         }
       ],
-      "explanation": "Winds drive the currents at and near the ocean surface; that is what carried the bath toys to Alaska.",
+      "explanation": "The wind is the engine of surface currents. One lap of the deep conveyor belt takes about 1,000 years. Cold, salty water is dense and sinks, and the first bath toys washed up in Alaska.",
       "difficulty": 0.15
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 79,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Military",
   "objective": "After this level you can explain what militaries do and who controls them.",
@@ -142,41 +142,36 @@
     },
     {
       "id": "question.government.079.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.military_civilian_control"
       ],
       "sourceCardIds": [
-        "card.government.079.c3"
+        "card.government.079.c3",
+        "card.government.079.c1",
+        "card.government.079.c5"
       ],
-      "prompt": "Under civilian control of the military, who decides the military's missions and budget?",
-      "options": [
+      "prompt": "Match each player in defence with its role or record.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The most senior generals",
-          "correct": false,
-          "rationale": "Commanders decide how to carry missions out, not what they are."
+          "left": "Costa Rica",
+          "right": "Abolishes the army"
         },
         {
-          "id": "b",
-          "label": "Foreign allies",
-          "correct": false,
-          "rationale": "Each country's own elected authorities decide."
+          "left": "Civilians",
+          "right": "Missions, size, budget and purchases"
         },
         {
-          "id": "c",
-          "label": "The soldiers, by vote",
-          "correct": false,
-          "rationale": "Soldiers don't vote on missions or budgets."
+          "left": "Commanders",
+          "right": "How to carry the missions out"
         },
         {
-          "id": "d",
-          "label": "Democratically elected civilian authorities",
-          "correct": true
+          "left": "SIPRI",
+          "right": "Creative accounting"
         }
       ],
-      "explanation": "Civilian authorities decide missions, size, budget and purchases; the military decides how to carry missions out.",
+      "explanation": "Costa Rica's constitution abolishes the army. Civilians decide the military's missions, size, budget and purchases, commanders decide how to carry the missions out, and SIPRI warned of creative accounting.",
       "difficulty": 0.25
     },
     {

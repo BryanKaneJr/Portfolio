@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 30,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Shooting a Scene",
   "objective": "After this level you can explain how planning, crew, camera and light work together to capture a single scene.",
@@ -212,41 +212,36 @@
     },
     {
       "id": "question.film_tv.030.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.shoot_page_per_minute"
       ],
       "sourceCardIds": [
-        "card.film_tv.022.c4"
+        "card.film_tv.022.c4",
+        "card.film_tv.030.c2",
+        "card.film_tv.030.c3"
       ],
-      "prompt": "From Level 22: roughly how much screen time does one page of a screenplay stand for?",
-      "options": [
+      "prompt": "Match each piece of filmmaking with what it does, from this chapter.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "About ten seconds",
-          "correct": false,
-          "rationale": "Field's rule of thumb is much longer than that."
+          "left": "Each screenplay page",
+          "right": "About a minute"
         },
         {
-          "id": "b",
-          "label": "About one minute",
-          "correct": true
+          "left": "Depth of field",
+          "right": "Decides what's sharp"
         },
         {
-          "id": "c",
-          "label": "About five minutes",
-          "correct": false,
-          "rationale": "That would make a short script a very long film."
+          "left": "The gaffer's lights",
+          "right": "Set the mood"
         },
         {
-          "id": "d",
-          "label": "About ten minutes",
-          "correct": false,
-          "rationale": "Field's rule is one page, about one minute."
+          "left": "The clapper",
+          "right": "Information about the take"
         }
       ],
-      "explanation": "In the standard format one page is about a minute of screen time, a rule of thumb, not a law.",
+      "explanation": "Each screenplay page is about a minute, depth of field decides what's sharp, the gaffer's lights set the mood, and the clapper's slate shows information about the take.",
       "difficulty": 0.2
     },
     {

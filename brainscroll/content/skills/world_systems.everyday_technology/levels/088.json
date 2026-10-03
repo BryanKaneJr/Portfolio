@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 88,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Factory Robots",
   "objective": "After this level you can explain what factory robots do and how they are programmed.",
@@ -90,41 +90,25 @@
   "questions": [
     {
       "id": "question.everyday_technology.088.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.build_industrial_robot"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.088.c2"
+        "card.everyday_technology.088.c2",
+        "card.everyday_technology.088.c1",
+        "card.everyday_technology.088.c4"
       ],
-      "prompt": "What was Unimate's first job at General Motors in 1961?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Welding car bodies together",
-          "correct": false,
-          "rationale": "Robots weld today, but Unimate began with die-cast parts."
-        },
-        {
-          "id": "b",
-          "label": "Painting finished cars",
-          "correct": false,
-          "rationale": "Its first job was handling hot metal."
-        },
-        {
-          "id": "c",
-          "label": "Inspecting engines with a camera",
-          "correct": false,
-          "rationale": "It lifted and stacked parts."
-        },
-        {
-          "id": "d",
-          "label": "Lifting hot parts out of a die-casting machine",
-          "correct": true
-        }
+      "prompt": "Put these moments in the story of robots in order, from earliest to latest.",
+      "items": [
+        "R.U.R.",
+        "Unimate",
+        "About 5 million industrial robots"
       ],
-      "explanation": "Unimate lifted hot metal parts out of a die-casting machine and stacked them.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Karel Capek's play R.U.R. came in 1920, Unimate started work in 1961, and about 5 million industrial robots were at work in 2025.",
       "difficulty": 0.15
     },
     {

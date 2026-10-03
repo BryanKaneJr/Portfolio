@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 31,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "What Editing Does",
   "objective": "After this level you can explain how an editor chooses, orders and trims shots, from cutting film by hand to editing software.",
@@ -87,41 +87,24 @@
   "questions": [
     {
       "id": "question.film_tv.031.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.film_tv.cutting_editor_job"
       ],
       "sourceCardIds": [
-        "card.film_tv.031.c2"
+        "card.film_tv.031.c2",
+        "card.film_tv.031.c1"
       ],
-      "prompt": "What does a film editor do with all the footage from a shoot?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Decides where to put the camera on set",
-          "correct": false,
-          "rationale": "Camera placement happens during the shoot; the editor works with what was filmed."
-        },
-        {
-          "id": "b",
-          "label": "Writes the lines the actors speak",
-          "correct": false,
-          "rationale": "That's the screenwriter's job."
-        },
-        {
-          "id": "c",
-          "label": "Selects the best takes and puts them in order",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Records the music for the soundtrack",
-          "correct": false,
-          "rationale": "Composers and musicians do that."
-        }
+      "prompt": "A saying holds that a film is made three times. Put the three in order, from first to last.",
+      "items": [
+        "When the script is written",
+        "When it's shot",
+        "Again in the editing"
       ],
-      "explanation": "The editor reviews all the footage, picks the best take of each shot and orders them, from a rough cut to a fine cut.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "A film is made first when the script is written, again when it's shot, and a third time in the editing.",
       "difficulty": 0.2
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 53,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Landscape Painting",
   "objective": "After this level you can explain how Turner and Constable made landscape a serious subject.",
@@ -170,7 +170,7 @@
     },
     {
       "id": "question.art_history.053.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.art_history.turner_landscape",
@@ -178,35 +178,29 @@
       ],
       "sourceCardIds": [
         "card.art_history.053.c4",
-        "card.art_history.051.c3"
+        "card.art_history.051.c3",
+        "card.art_history.053.c3"
       ],
-      "prompt": "Turner's Snow Storm shows a small steamboat in a swirling storm. Which Level 51 idea does it fit best?",
-      "options": [
+      "prompt": "Match each landscape work with what it shows.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The beautiful: small, smooth and delicate",
-          "correct": false,
-          "rationale": "A storm at sea is the opposite of smooth."
+          "left": "The Hay Wain",
+          "right": "An empty hay wagon"
         },
         {
-          "id": "b",
-          "label": "The rules of the Academy's ranking",
-          "correct": false,
-          "rationale": "Turner was pushing against those."
+          "left": "Snow Storm",
+          "right": "A steamboat"
         },
         {
-          "id": "c",
-          "label": "The calm order of Neoclassicism",
-          "correct": false,
-          "rationale": "Nothing about this is calm."
+          "left": "Rain, Steam and Speed",
+          "right": "A steam train"
         },
         {
-          "id": "d",
-          "label": "The sublime: awe mixed with terror",
-          "correct": true
+          "left": "Skying",
+          "right": "Cloud studies"
         }
       ],
-      "explanation": "Vast, powerful nature dwarfing a boat is Burke's sublime: awe with a touch of terror.",
+      "explanation": "The Hay Wain shows an empty hay wagon, Snow Storm a steamboat tossed in a vortex, Rain, Steam and Speed a steam train, and Constable's \"skying\" was his cloud studies.",
       "difficulty": 0.3
     }
   ],

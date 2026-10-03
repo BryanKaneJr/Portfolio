@@ -3,7 +3,7 @@
   "skillId": "skill.science.animals",
   "number": 44,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Octopuses",
   "objective": "After this level you can explain why octopuses are so intelligent.",
@@ -125,41 +125,31 @@
     },
     {
       "id": "question.animals.044.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.animals.octopus_hearts_blood"
       ],
       "sourceCardIds": [
-        "card.animals.044.c4"
+        "card.animals.044.c4",
+        "card.animals.044.c2"
       ],
-      "prompt": "Why is an octopus's blood blue?",
-      "options": [
+      "prompt": "Match each octopus fact with its partner.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Its oxygen carrier uses copper, not iron",
-          "correct": true
+          "left": "Hemocyanin",
+          "right": "Uses copper"
         },
         {
-          "id": "b",
-          "label": "It carries no oxygen at all",
-          "correct": false,
-          "rationale": "It carries oxygen, using hemocyanin."
+          "left": "The third heart",
+          "right": "Stops beating when the octopus swims"
         },
         {
-          "id": "c",
-          "label": "It is mixed with seawater",
-          "correct": false,
-          "rationale": "The color comes from copper in hemocyanin."
-        },
-        {
-          "id": "d",
-          "label": "It is too cold to turn red",
-          "correct": false,
-          "rationale": "Temperature isn't it; copper is."
+          "left": "Common octopus",
+          "right": "About 500 million neurons"
         }
       ],
-      "explanation": "Octopus blood carries oxygen with hemocyanin, which contains copper rather than iron.",
+      "explanation": "Hemocyanin, the octopus's oxygen carrier, uses copper. The third heart stops beating when the octopus swims, and the common octopus has about 500 million neurons.",
       "difficulty": 0.2
     },
     {

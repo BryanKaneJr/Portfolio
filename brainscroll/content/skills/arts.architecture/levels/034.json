@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 34,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "The Forbidden City",
   "objective": "After this level you can describe Beijing's palace city.",
@@ -135,41 +135,31 @@
     },
     {
       "id": "question.architecture.034.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.architecture.forbidden_city_layout"
       ],
       "sourceCardIds": [
-        "card.architecture.034.c2"
+        "card.architecture.034.c2",
+        "card.architecture.034.c3"
       ],
-      "prompt": "Which way do the Forbidden City's most important buildings face, and why?",
-      "options": [
+      "prompt": "Match each part of the Forbidden City with what it held.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "North, toward the old border walls",
-          "correct": false,
-          "rationale": "They face the other way."
+          "left": "Outer Court",
+          "right": "Three main halls of government"
         },
         {
-          "id": "b",
-          "label": "East, toward the sunrise over the sea",
-          "correct": false,
-          "rationale": "The axis runs north-south."
+          "left": "Inner Court",
+          "right": "Imperial living quarters"
         },
         {
-          "id": "c",
-          "label": "Toward the moat, to watch for attackers",
-          "correct": false,
-          "rationale": "Their facing honours the Sun, not the moat."
-        },
-        {
-          "id": "d",
-          "label": "South, to honour the Sun",
-          "correct": true
+          "left": "Hall of Supreme Harmony",
+          "right": "The emperor's throne"
         }
       ],
-      "explanation": "The most important buildings, especially those on the north-south axis, face south to honour the Sun.",
+      "explanation": "The Outer Court held three main halls of government, the Inner Court held the imperial living quarters, and the Hall of Supreme Harmony was home of the emperor's throne.",
       "difficulty": 0.2
     },
     {

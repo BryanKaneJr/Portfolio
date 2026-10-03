@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 93,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Rise of the Nones",
   "objective": "After this level you can explain who the religiously unaffiliated are and why \"none\" rarely means no belief at all.",
@@ -137,7 +137,7 @@
     },
     {
       "id": "question.religions.093.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.doubt_nones_makeup",
@@ -149,33 +149,15 @@
         "card.religions.093.c3",
         "card.religions.093.c4"
       ],
-      "prompt": "A headline reads: \"29% of Americans are now atheists.\" What's wrong with it?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Most nones aren't atheists, and most believe in a higher power",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The real share of nones is 16%",
-          "correct": false,
-          "rationale": "16% was the 2007 figure."
-        },
-        {
-          "id": "c",
-          "label": "Pew doesn't survey American adults",
-          "correct": false,
-          "rationale": "The Religious Landscape Study does exactly that."
-        },
-        {
-          "id": "d",
-          "label": "Atheists aren't counted among nones",
-          "correct": false,
-          "rationale": "They are one of the three kinds of none."
-        }
+      "prompt": "Put these kinds of nones in order of their share in Pew's 2023 data, largest first.",
+      "items": [
+        "Nothing in particular",
+        "Agnostic",
+        "Atheist"
       ],
-      "explanation": "29% is the share of all nones; atheists are about 17% of them, and most nones believe in God or a higher power.",
+      "first": "Largest share",
+      "last": "Smallest share",
+      "explanation": "63% of nones chose \"nothing in particular\", 20% called themselves agnostic and 17% atheist.",
       "difficulty": 0.4
     },
     {

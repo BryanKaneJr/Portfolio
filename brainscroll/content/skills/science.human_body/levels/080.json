@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 80,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Defending the Body",
   "objective": "After this level you can explain how skin, the immune system and medicine protect us from germs.",
@@ -168,7 +168,7 @@
     },
     {
       "id": "question.human_body.080.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.defense_adaptive_immunity"
@@ -177,30 +177,23 @@
         "card.human_body.080.c2",
         "card.human_body.073.c4"
       ],
-      "prompt": "Defending the Body recap: which layer of defense remembers a germ and responds faster next time?",
-      "options": [
+      "prompt": "Match each tool in the body's castle defenses with what it does.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The skin wall",
-          "correct": false,
-          "rationale": "Skin blocks germs but doesn't remember them."
+          "left": "Phagocytes",
+          "right": "Devour intruders"
         },
         {
-          "id": "b",
-          "label": "Fever",
-          "correct": false,
-          "rationale": "Fever stirs white blood cells but doesn't store memory."
+          "left": "Soap and water",
+          "right": "Scrub germs away"
         },
         {
-          "id": "c",
-          "label": "Acquired immunity, with its B and T cells",
-          "correct": true
+          "left": "Vaccines",
+          "right": "Train memory in advance"
         },
         {
-          "id": "d",
-          "label": "Phagocytes in innate immunity",
-          "correct": false,
-          "rationale": "Innate defenses are nonspecific; memory belongs to lymphocytes."
+          "left": "Penicillin",
+          "right": "Blocks bacteria"
         }
       ],
       "explanation": "Acquired immunity keeps memory B and T cells, so a second meeting with the same germ is faster.",

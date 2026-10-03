@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 77,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Zaha Hadid",
   "objective": "After this level you can describe Hadid's flowing buildings.",
@@ -96,41 +96,28 @@
   "questions": [
     {
       "id": "question.architecture.077.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.masters_hadid_paper_architect"
       ],
       "sourceCardIds": [
-        "card.architecture.077.c1"
+        "card.architecture.077.c1",
+        "card.architecture.077.c2",
+        "card.architecture.077.c3",
+        "card.architecture.077.c4"
       ],
-      "prompt": "Why was Zaha Hadid once labeled a 'paper architect'?",
-      "options": [
-        {
-          "id": "a",
-          "label": "She designed buildings made of paper",
-          "correct": false,
-          "rationale": "The label was about designs that stayed on paper."
-        },
-        {
-          "id": "b",
-          "label": "She refused to enter competitions",
-          "correct": false,
-          "rationale": "She kept winning them."
-        },
-        {
-          "id": "c",
-          "label": "She worked only as a magazine critic",
-          "correct": false,
-          "rationale": "She was a practicing architect."
-        },
-        {
-          "id": "d",
-          "label": "Her winning designs often went unbuilt",
-          "correct": true
-        }
+      "prompt": "Put these moments in Zaha Hadid's career in order, from earliest to latest.",
+      "items": [
+        "Born in Baghdad",
+        "The Peak",
+        "The Vitra Fire Station",
+        "The Pritzker Architecture Prize",
+        "Heydar Aliyev Center"
       ],
-      "explanation": "She kept winning competitions, like The Peak in 1983, but for years her winning designs often went unbuilt.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Hadid was born in Baghdad in 1950. She won The Peak competition in 1983, finished the Vitra Fire Station in 1993, won the Pritzker Architecture Prize in 2004, and her office completed the Heydar Aliyev Center in 2012.",
       "difficulty": 0.15
     },
     {

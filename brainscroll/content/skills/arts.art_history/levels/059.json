@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 59,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Morisot and Cassatt",
   "objective": "After this level you can describe the work of Berthe Morisot and Mary Cassatt and what they chose to paint.",
@@ -126,42 +126,26 @@
     },
     {
       "id": "question.art_history.059.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.cassatt",
         "concept.art_history.morisot"
       ],
       "sourceCardIds": [
-        "card.art_history.059.c4"
+        "card.art_history.059.c4",
+        "card.art_history.059.c2",
+        "card.art_history.059.c3"
       ],
-      "prompt": "Why did Cassatt and Morisot paint so many domestic scenes?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Social rules limited where they could go and whom they could paint",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The Salon only accepted pictures of mothers",
-          "correct": false,
-          "rationale": "They were showing with the Impressionists."
-        },
-        {
-          "id": "c",
-          "label": "Outdoor painting was banned for everyone",
-          "correct": false,
-          "rationale": "Their male colleagues painted outdoors freely."
-        },
-        {
-          "id": "d",
-          "label": "They had no interest in modern life",
-          "correct": false,
-          "rationale": "Private life was their modern subject."
-        }
+      "prompt": "Put these paintings in order, from earliest to latest.",
+      "items": [
+        "The Cradle",
+        "Little Girl in a Blue Armchair",
+        "The Child's Bath"
       ],
-      "explanation": "Social rules limited the places and models open to women artists, so they turned to family, friends and private spaces.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Morisot painted The Cradle in 1872, Cassatt's Little Girl in a Blue Armchair came in 1878, and her The Child's Bath in 1893.",
       "difficulty": 0.3
     },
     {

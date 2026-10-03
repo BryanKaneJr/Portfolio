@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 7,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Separating Mixtures",
   "objective": "After this level you can explain filtering, evaporating and distilling.",
@@ -132,41 +132,25 @@
     },
     {
       "id": "question.chemistry.007.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.separation_filtration_evaporation"
       ],
       "sourceCardIds": [
-        "card.chemistry.007.c2"
+        "card.chemistry.007.c2",
+        "card.chemistry.007.c3",
+        "card.chemistry.007.c4"
       ],
-      "prompt": "Why does salt pass straight through a filter that stops sand?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Salt grains are bigger than the filter's holes",
-          "correct": false,
-          "rationale": "Then the filter would catch them."
-        },
-        {
-          "id": "b",
-          "label": "The filter turns the salt into water",
-          "correct": false,
-          "rationale": "Filtering doesn't change what anything is made of."
-        },
-        {
-          "id": "c",
-          "label": "Salt becomes a gas in seawater",
-          "correct": false,
-          "rationale": "It stays dissolved in the liquid water."
-        },
-        {
-          "id": "d",
-          "label": "It's dissolved, so there are no grains to catch",
-          "correct": true
-        }
+      "prompt": "Put the steps for separating sandy seawater in order, from first to last.",
+      "items": [
+        "Filter out the sand",
+        "Evaporate for the salt",
+        "Distill to keep the water"
       ],
-      "explanation": "Dissolved salt is spread out among the water, so it travels through the filter with the water.",
+      "first": "Step 1",
+      "last": "Step 3",
+      "explanation": "Step 1 filters out the sand, step 2 evaporates the water for the salt, and step 3 distills to keep the fresh water too.",
       "difficulty": 0.3
     },
     {

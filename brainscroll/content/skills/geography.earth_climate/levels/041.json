@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 41,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "What Air Is Made Of",
   "objective": "After this level you can explain why air is mostly nitrogen and oxygen and why tiny amounts of other gases still matter.",
@@ -126,41 +126,26 @@
     },
     {
       "id": "question.earth_climate.041.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.air_composition"
       ],
       "sourceCardIds": [
-        "card.earth_climate.041.c3"
+        "card.earth_climate.041.c3",
+        "card.earth_climate.041.c2",
+        "card.earth_climate.041.c4"
       ],
-      "prompt": "Why has nitrogen built up to become most of the air?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Plants give it off as they grow",
-          "correct": false,
-          "rationale": "That's how oxygen got into the air."
-        },
-        {
-          "id": "b",
-          "label": "It is heavier than every other gas",
-          "correct": false,
-          "rationale": "Weight is not the reason; staying power is."
-        },
-        {
-          "id": "c",
-          "label": "Little removes it: inert, insoluble, never rains out",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Volcanoes stopped releasing all other gases",
-          "correct": false,
-          "rationale": "The point is what removes gases, not what adds them."
-        }
+      "prompt": "Put these gases in order by their share of the air, from largest to smallest.",
+      "items": [
+        "Nitrogen",
+        "Oxygen",
+        "Argon",
+        "Carbon dioxide"
       ],
-      "explanation": "Nitrogen is almost completely inert, barely dissolves in water and doesn't condense, so it stays and builds up.",
+      "first": "Largest share",
+      "last": "Smallest share",
+      "explanation": "Nitrogen is about 78% of dry air, oxygen 21%, argon almost 1% and carbon dioxide only about 0.04%.",
       "difficulty": 0.3
     },
     {

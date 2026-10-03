@@ -3,7 +3,7 @@
   "skillId": "skill.history.middle_ages",
   "number": 82,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Black Death Arrives",
   "objective": "After this level you can explain how the Black Death reached Europe in 1347.",
@@ -152,41 +152,27 @@
     },
     {
       "id": "question.middle_ages.082.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.middle_ages.black_death_toll"
       ],
       "sourceCardIds": [
+        "card.middle_ages.082.c2",
+        "card.middle_ages.082.c3",
         "card.middle_ages.082.c4"
       ],
-      "prompt": "Why is the Black Death’s toll given as a range, such as 30% to 50% of Europe?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The figures are estimates, and historians calculate them differently",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Records show exactly half died in every town",
-          "correct": false,
-          "rationale": "There are no exact counts; estimates vary."
-        },
-        {
-          "id": "c",
-          "label": "Nobody died in half of Europe’s countries",
-          "correct": false,
-          "rationale": "It reached almost everywhere."
-        },
-        {
-          "id": "d",
-          "label": "The plague killed only children",
-          "correct": false,
-          "rationale": "It killed people of every age."
-        }
+      "prompt": "Put the Black Death’s path in order, from earliest to latest.",
+      "items": [
+        "Plague deaths near Lake Issyk-Kul",
+        "Plague strikes the siege of Caffa",
+        "Ships bring it to Messina",
+        "Italy, Spain and France",
+        "Scandinavia and the Baltic"
       ],
-      "explanation": "Death tolls are estimates: most land between about 30% and 50%, and Benedictow calculated about 60%.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Plague deaths came near Lake Issyk-Kul in 1338 to 1339, at the siege of Caffa in 1346, and at Messina in October 1347. It reached Italy, Spain and France in 1348, and Scandinavia and the Baltic in 1350.",
       "difficulty": 0.3
     },
     {

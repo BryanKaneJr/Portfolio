@@ -3,7 +3,7 @@
   "skillId": "skill.mind.psychology",
   "number": 90,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Personality and Wellbeing",
   "objective": "After this level you can explain how traits, appraisals and habits shape how people cope and thrive.",
@@ -189,43 +189,31 @@
     },
     {
       "id": "question.psychology.090.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.psychology.personality_trait_measurement",
         "concept.psychology.personality_test_reliability"
       ],
       "sourceCardIds": [
-        "card.psychology.090.c3",
-        "card.psychology.082.c3"
+        "card.psychology.090.c3"
       ],
-      "prompt": "Personality and Wellbeing recap: why do dial-style trait scores hold steadier on retest than four-letter types?",
-      "options": [
+      "prompt": "Match each of the chapter's three levers with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Trait tests ask far fewer questions",
-          "correct": false,
-          "rationale": "The number of questions isn't the reason."
+          "left": "Traits",
+          "right": "Mature slowly, most from 20 to 40"
         },
         {
-          "id": "b",
-          "label": "People near the middle stay near the middle, with no cut-off to flip",
-          "correct": true
+          "left": "Appraisals",
+          "right": "Stress when demands seem to exceed"
         },
         {
-          "id": "c",
-          "label": "Trait tests are taken only once in life",
-          "correct": false,
-          "rationale": "Retests show trait scores stay closely matched."
-        },
-        {
-          "id": "d",
-          "label": "Types measure a different, faster-changing personality",
-          "correct": false,
-          "rationale": "Both measure the same personality."
+          "left": "Habits",
+          "right": "If-then plans tie a new routine to a cue"
         }
       ],
-      "explanation": "Most people score near the middle. Types split scales at a cut-off, so small shifts flip letters; dials just record a nearby score.",
+      "explanation": "Traits mature slowly, most from 20 to 40. Appraisals bring stress when demands seem to exceed resources. Habits change when if-then plans tie a new routine to a cue.",
       "difficulty": 0.45
     },
     {

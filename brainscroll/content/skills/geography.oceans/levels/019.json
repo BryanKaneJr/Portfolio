@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 19,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Tsunamis",
   "objective": "After this level you can explain how tsunamis cross whole oceans.",
@@ -179,7 +179,7 @@
     },
     {
       "id": "question.oceans.019.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.tsunami_seafloor_detection",
@@ -189,33 +189,15 @@
         "card.oceans.019.c4",
         "card.oceans.009.c2"
       ],
-      "prompt": "From Level 9: pressure comes from the water above you. How does a DART recorder on the sea floor notice a passing tsunami?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It hears the wave crash on the surface",
-          "correct": false,
-          "rationale": "It senses pressure, not sound."
-        },
-        {
-          "id": "b",
-          "label": "It spots the wave with an underwater camera",
-          "correct": false,
-          "rationale": "There's no light at 6,000 m."
-        },
-        {
-          "id": "c",
-          "label": "The water overhead changes, and so does the pressure",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "The sea floor heats up under the wave",
-          "correct": false,
-          "rationale": "Temperature isn't the signal; pressure is."
-        }
+      "prompt": "How does a DART station catch a tsunami? Put these in order, from cause to effect.",
+      "items": [
+        "A tsunami moves the whole water column",
+        "The water overhead changes",
+        "The recorder feels it"
       ],
-      "explanation": "A tsunami moves the whole water column, so the water above the recorder changes, changing the pressure it measures.",
+      "first": "Cause",
+      "last": "Effect",
+      "explanation": "A tsunami moves the whole water column, so the water overhead changes, and the pressure recorder on the sea floor feels it.",
       "difficulty": 0.3
     }
   ],

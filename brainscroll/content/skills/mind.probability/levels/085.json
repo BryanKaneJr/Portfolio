@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 85,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "How Filters Create Fake Links",
   "objective": "After this level you can explain how studying only a selected group can create a link between two traits that isn't there in everyone.",
@@ -85,41 +85,32 @@
   "questions": [
     {
       "id": "question.probability.085.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.probability.trap_selection_fake_links"
       ],
       "sourceCardIds": [
-        "card.probability.085.c4"
+        "card.probability.085.c4",
+        "card.probability.085.c2",
+        "card.probability.085.c3"
       ],
-      "prompt": "What did Joseph Berkson show in 1946 about studying only hospital patients?",
-      "options": [
+      "prompt": "Match each with where they saw a filter create a link.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Patients are a perfect sample of everyone",
-          "correct": false,
-          "rationale": "They're filtered by being ill enough to be admitted."
+          "left": "Allen Downey",
+          "right": "Real SAT data"
         },
         {
-          "id": "b",
-          "label": "It can create false links between a disease and a cause",
-          "correct": true
+          "left": "Joseph Berkson",
+          "right": "Hospital patients"
         },
         {
-          "id": "c",
-          "label": "Diseases in hospitals are always linked",
-          "correct": false,
-          "rationale": "The links can be false, created by admission."
-        },
-        {
-          "id": "d",
-          "label": "Most hospital records are wrong",
-          "correct": false,
-          "rationale": "The records can be right; the filter misleads."
+          "left": "Statisticians who study admissions",
+          "right": "Exceptional reference letters"
         }
       ],
-      "explanation": "Admission depends on being ill, so a study limited to patients can show links that don't exist in everyone.",
+      "explanation": "Allen Downey used real SAT data, Joseph Berkson studied hospital patients in 1946, and statisticians who study admissions found low test scores going with exceptional reference letters.",
       "difficulty": 0.35
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 87,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Land Art and Installations",
   "objective": "After this level you can describe art made from landscapes and from whole rooms.",
@@ -130,41 +130,26 @@
     },
     {
       "id": "question.art_history.087.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.land_art_spiral_jetty"
       ],
       "sourceCardIds": [
-        "card.art_history.087.c3"
+        "card.art_history.087.c3",
+        "card.art_history.087.c1",
+        "card.art_history.087.c4"
       ],
-      "prompt": "Why has Spiral Jetty looked so different over the years?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Smithson rebuilt it in a new shape each decade",
-          "correct": false,
-          "rationale": "The shape stayed; the water moved."
-        },
-        {
-          "id": "b",
-          "label": "The lake's water level rises and falls",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Visitors add rocks to it every summer",
-          "correct": false,
-          "rationale": "Nothing here says visitors change it."
-        },
-        {
-          "id": "d",
-          "label": "It was moved to a museum and back",
-          "correct": false,
-          "rationale": "It's far too big to move."
-        }
+      "prompt": "Put these moments in land art and installation in order, from earliest to latest.",
+      "items": [
+        "Infinity Mirror Room",
+        "Robert Smithson built it",
+        "The lake rose over it",
+        "Droughts brought it back"
       ],
-      "explanation": "It went under in 1972 and came back when droughts lowered the lake in 2002; its look depends on the water.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Kusama's first Infinity Mirror Room came in 1965. Robert Smithson built Spiral Jetty in 1970, the lake rose over it in 1972, and droughts brought it back in 2002.",
       "difficulty": 0.25
     },
     {

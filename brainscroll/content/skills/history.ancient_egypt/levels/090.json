@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 90,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Decline and Conquest",
   "objective": "After this level you can explain how Egypt passed from pharaohs to foreign rulers.",
@@ -154,7 +154,7 @@
   "questions": [
     {
       "id": "question.ancient_egypt.090.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_egypt.kushite_pharaohs",
@@ -164,33 +164,18 @@
         "card.ancient_egypt.090.c2",
         "card.ancient_egypt.083.c3"
       ],
-      "prompt": "Decline and Conquest recap: which of these foreign powers ruled Egypt first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Persia",
-          "correct": false,
-          "rationale": "Persia came in 525 BCE, after Kush."
-        },
-        {
-          "id": "b",
-          "label": "Kush",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Rome",
-          "correct": false,
-          "rationale": "Rome came last of these, in 30 BCE."
-        },
-        {
-          "id": "d",
-          "label": "The Macedonian Ptolemies",
-          "correct": false,
-          "rationale": "They came after Alexander, in the 4th century BCE."
-        }
+      "prompt": "Put these turning points of Egypt under outsiders in order, from earliest to latest.",
+      "items": [
+        "Ramesses III beats off the Sea Peoples",
+        "Kush takes Egypt",
+        "Persia’s Cambyses II conquers Egypt",
+        "Egypt welcomes Alexander the Great",
+        "Egypt becomes a province of Rome",
+        "Arab forces enter Alexandria"
       ],
-      "explanation": "Kush conquered Egypt in the 8th century BCE, before Persia (525 BCE), the Ptolemies and Rome (30 BCE).",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Ramesses III beat off the Sea Peoples about 1177 BCE. Kush took Egypt in the 8th century BCE, Persia in 525 BCE, Alexander arrived in 332 BCE, Rome took over in 30 BCE, and Arab forces entered Alexandria in 642 CE.",
       "difficulty": 0.3
     },
     {

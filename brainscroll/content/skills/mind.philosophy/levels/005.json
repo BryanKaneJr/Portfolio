@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 5,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Aristotle's Four Causes",
   "objective": "After this level you can use Aristotle's four causes (material, formal, efficient and final) to explain what a bronze statue is and why it exists.",
@@ -132,41 +132,35 @@
     },
     {
       "id": "question.philosophy.005.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.philosophy.four_causes"
       ],
       "sourceCardIds": [
-        "card.philosophy.005.c2"
+        "card.philosophy.005.c2",
+        "card.philosophy.005.c3"
       ],
-      "prompt": "Why does Aristotle give four causes instead of one?",
-      "options": [
+      "prompt": "Match each of Aristotle’s four causes with the question it answers.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A why-question can be answered in four different ways",
-          "correct": true
+          "left": "Material cause",
+          "right": "What is it made of?"
         },
         {
-          "id": "b",
-          "label": "He counted four elements in nature",
-          "correct": false,
-          "rationale": "The causes aren’t the elements."
+          "left": "Formal cause",
+          "right": "What is it?"
         },
         {
-          "id": "c",
-          "label": "Each cause belongs to a different statue",
-          "correct": false,
-          "rationale": "All four explain one thing."
+          "left": "Efficient cause",
+          "right": "Where did the change come from?"
         },
         {
-          "id": "d",
-          "label": "Plato had already given three",
-          "correct": false,
-          "rationale": "It’s about kinds of explanation."
+          "left": "Final cause",
+          "right": "What it’s for"
         }
       ],
-      "explanation": "For Aristotle a cause is an answer to “why?”, and there are four kinds of answer: material, formal, efficient and final.",
+      "explanation": "The material cause answers “What is it made of?”, the formal cause “What is it?”, the efficient cause “Where did the change come from?”, and the final cause is what it’s for.",
       "difficulty": 0.35
     },
     {

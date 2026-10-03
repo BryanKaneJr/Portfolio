@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 78,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Deficits and Debt",
   "objective": "After this level you can explain government deficits and debt.",
@@ -162,41 +162,36 @@
     },
     {
       "id": "question.government.078.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.government.debt_levels_views"
       ],
       "sourceCardIds": [
-        "card.government.078.c4"
+        "card.government.078.c4",
+        "card.government.078.c3",
+        "card.government.078.c5"
       ],
-      "prompt": "Why does the IMF rate the fiscal risk of high-debt G20 countries like Japan as only moderate?",
-      "options": [
+      "prompt": "Match each voice in the debt debate with its position or record.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Their debts are secretly small",
-          "correct": false,
-          "rationale": "Their debts are above, or near, 100% of GDP."
+          "left": "The IMF",
+          "right": "Keep debt at safer levels"
         },
         {
-          "id": "b",
-          "label": "They never borrow abroad",
-          "correct": false,
-          "rationale": "The IMF's reason is the depth of their bond markets."
+          "left": "The OECD",
+          "right": "Fund public investment"
         },
         {
-          "id": "c",
-          "label": "They have deep, liquid markets for their bonds",
-          "correct": true
+          "left": "Germany",
+          "right": "Debt brake"
         },
         {
-          "id": "d",
-          "label": "Their debts don't charge interest",
-          "correct": false,
-          "rationale": "Government debt carries interest; cost matters."
+          "left": "Norway",
+          "right": "Led the small surplus club"
         }
       ],
-      "explanation": "Deep, liquid bond markets and broad policy choices mean the IMF sees their fiscal risk as moderate despite debts above 100% of GDP.",
+      "explanation": "The IMF says keep debt at safer levels, the OECD says sustainable deficits can fund public investment, Germany has a debt brake, and Norway led the small surplus club in 2023.",
       "difficulty": 0.35
     },
     {

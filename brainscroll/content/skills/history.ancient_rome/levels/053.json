@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 53,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Claudius Conquers Britain",
   "objective": "After this level you can describe Claudius's reign and the invasion of Britain.",
@@ -164,7 +164,7 @@
     },
     {
       "id": "question.ancient_rome.053.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_rome.claudius",
@@ -172,35 +172,20 @@
       ],
       "sourceCardIds": [
         "card.ancient_rome.053.c4",
-        "card.ancient_rome.038.c2"
+        "card.ancient_rome.038.c2",
+        "card.ancient_rome.053.c2",
+        "card.ancient_rome.053.c3"
       ],
-      "prompt": "From Level 38: what had Julius Caesar achieved in Britain?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Full conquest of the whole island",
-          "correct": false,
-          "rationale": "Claudius began that."
-        },
-        {
-          "id": "b",
-          "label": "Two raids, in 55 and 54 BCE",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "A peace treaty with Boudica",
-          "correct": false,
-          "rationale": "She lived a century later."
-        },
-        {
-          "id": "d",
-          "label": "A wall across the north",
-          "correct": false,
-          "rationale": "That was Hadrian, later."
-        }
+      "prompt": "Put these events in Britain’s story in order, from earliest to latest.",
+      "items": [
+        "Caesar had raided Britain twice",
+        "Made his uncle Claudius emperor",
+        "Launched the invasion of Britain",
+        "Led a revolt that burned London"
       ],
-      "explanation": "Caesar led two expeditions to Britain but did not conquer it.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Caesar raided Britain in 55 and 54 BCE. The Guard made Claudius emperor in 41 CE, he launched the invasion of Britain in 43 CE, and Boudica led a revolt that burned London in about 60 CE.",
       "difficulty": 0.25
     }
   ],

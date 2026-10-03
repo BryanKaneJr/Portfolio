@@ -3,7 +3,7 @@
   "skillId": "skill.arts.architecture",
   "number": 87,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Suburbs and Sprawl",
   "objective": "After this level you can explain how cars shaped suburbs.",
@@ -105,41 +105,25 @@
   "questions": [
     {
       "id": "question.architecture.087.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.architecture.cities_car_suburbs"
       ],
       "sourceCardIds": [
-        "card.architecture.087.c1"
+        "card.architecture.087.c1",
+        "card.architecture.087.c2",
+        "card.architecture.087.c3"
       ],
-      "prompt": "Levittown, New York (1946 to 1951) was an early example of what?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A walled town modeled on medieval European ones",
-          "correct": false,
-          "rationale": "Levittown had no walls; it was a suburb."
-        },
-        {
-          "id": "b",
-          "label": "A town built around a new underground railway",
-          "correct": false,
-          "rationale": "It grew in the car era."
-        },
-        {
-          "id": "c",
-          "label": "A preplanned, mass-produced housing development",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "A planned government capital like Washington",
-          "correct": false,
-          "rationale": "It was a private suburb of homes."
-        }
+      "prompt": "Put these steps in the growth of American suburbs in order, from earliest to latest.",
+      "items": [
+        "An 1814 ferry to Manhattan",
+        "Levittown",
+        "The Federal-Aid Highway Act"
       ],
-      "explanation": "Levittown was an early completely preplanned, mass-produced housing development of more than 17,000 homes.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Brooklyn Heights grew after an 1814 ferry to Manhattan. Levittown was built from 1946 to 1951, and the Federal-Aid Highway Act was signed in 1956.",
       "difficulty": 0.15
     },
     {

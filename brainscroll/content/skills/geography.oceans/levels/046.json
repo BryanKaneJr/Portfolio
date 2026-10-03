@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 46,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Dolphins",
   "objective": "After this level you can describe how dolphins hunt and communicate.",
@@ -137,7 +137,7 @@
     },
     {
       "id": "question.oceans.046.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.oceans.sunlit_dolphin_echolocation"
@@ -146,33 +146,15 @@
         "card.oceans.046.c2",
         "card.oceans.046.c3"
       ],
-      "prompt": "Why does hunting by echolocation suit dolphins so well in the sea?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Sound travels fast and far in seawater, even where light fails",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Dolphins have poor eyes and can't see at all",
-          "correct": false,
-          "rationale": "Echolocation fills gaps; it doesn't replace eyes."
-        },
-        {
-          "id": "c",
-          "label": "Fish give off their own sounds for dolphins to hear",
-          "correct": false,
-          "rationale": "Dolphins read echoes of their own sounds."
-        },
-        {
-          "id": "d",
-          "label": "Sound travels more slowly in water, so echoes last longer",
-          "correct": false,
-          "rationale": "Sound is over four times faster in seawater."
-        }
+      "prompt": "Put a dolphin's echolocation in order, from first to last.",
+      "items": [
+        "Send out sounds",
+        "Focus them with the melon",
+        "Read the echoes"
       ],
-      "explanation": "Light fades quickly underwater, but sound travels over four times faster than in air and much farther, so echoes paint a picture in the dark.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Dolphins send out sounds, focus them with the melon, and read the echoes that bounce back.",
       "difficulty": 0.25
     },
     {

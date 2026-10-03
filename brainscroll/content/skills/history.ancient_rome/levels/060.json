@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 60,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: The Five Good Emperors",
   "objective": "After this level you can explain the era of the Five Good Emperors, ending with Marcus Aurelius.",
@@ -100,41 +100,26 @@
   "questions": [
     {
       "id": "question.ancient_rome.060.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_rome.five_good"
       ],
       "sourceCardIds": [
-        "card.ancient_rome.060.c3"
+        "card.ancient_rome.060.c3",
+        "card.ancient_rome.060.c2",
+        "card.ancient_rome.059.c2"
       ],
-      "prompt": "Who was the last of the Five Good Emperors?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Nerva",
-          "correct": false,
-          "rationale": "He was the first."
-        },
-        {
-          "id": "b",
-          "label": "Commodus",
-          "correct": false,
-          "rationale": "He was Marcus’s son, and ended the era."
-        },
-        {
-          "id": "c",
-          "label": "Marcus Aurelius",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Domitian",
-          "correct": false,
-          "rationale": "He came before Nerva."
-        }
+      "prompt": "Put these second-century emperors in order, from earliest to latest.",
+      "items": [
+        "Trajan",
+        "Hadrian",
+        "Marcus Aurelius",
+        "Commodus"
       ],
-      "explanation": "Marcus Aurelius, the philosopher emperor, was the last of the five.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Hadrian was Trajan’s successor. Marcus Aurelius was the last of the Five Good Emperors, and he was succeeded by his son, Commodus.",
       "difficulty": 0.15
     },
     {

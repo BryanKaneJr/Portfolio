@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 50,
   "type": "milestone",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Milestone: From Caves to Classics",
   "objective": "After this level you can connect art from the caves to Neoclassicism into one story.",
@@ -446,7 +446,7 @@
     },
     {
       "id": "question.art_history.050.q7",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.art_history.rococo_style",
@@ -454,35 +454,18 @@
       ],
       "sourceCardIds": [
         "card.art_history.048.c2",
-        "card.art_history.049.c1"
+        "card.art_history.049.c1",
+        "card.art_history.041.c1"
       ],
-      "prompt": "Which order is right, oldest style first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Rococo, Baroque, Neoclassicism",
-          "correct": false,
-          "rationale": "Rococo reacted against the Baroque, so it came after."
-        },
-        {
-          "id": "b",
-          "label": "Neoclassicism, Rococo, Baroque",
-          "correct": false,
-          "rationale": "That's backwards."
-        },
-        {
-          "id": "c",
-          "label": "Baroque, Rococo, Neoclassicism",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Baroque, Neoclassicism, Rococo",
-          "correct": false,
-          "rationale": "Neoclassicism reacted against Rococo, so it came last."
-        }
+      "prompt": "Put these styles in order, from oldest to newest.",
+      "items": [
+        "Baroque",
+        "Rococo",
+        "Neoclassicism"
       ],
-      "explanation": "Rococo reacted against Louis XIV's Baroque; Neoclassicism then reacted against Rococo.",
+      "first": "Oldest",
+      "last": "Newest",
+      "explanation": "Baroque came first. Rococo began in the early 1700s as a reaction against heavy Baroque, and Neoclassicism then turned against the Rococo.",
       "difficulty": 0.3
     }
   ],

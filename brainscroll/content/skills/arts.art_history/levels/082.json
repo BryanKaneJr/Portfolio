@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 82,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Pop Art",
   "objective": "After this level you can explain how Pop Art borrowed from ads, comics and celebrity.",
@@ -130,42 +130,28 @@
     },
     {
       "id": "question.art_history.082.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.art_history.pop_art_sources",
         "concept.art_history.abex_rothko_color_field"
       ],
       "sourceCardIds": [
-        "card.art_history.082.c3"
+        "card.art_history.082.c3",
+        "card.art_history.082.c1",
+        "card.art_history.082.c2",
+        "card.art_history.082.c4"
       ],
-      "prompt": "Why did Pop artists choose impersonal images like soup cans?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Museums had stopped buying abstract art",
-          "correct": false,
-          "rationale": "Nothing here says museums changed their buying."
-        },
-        {
-          "id": "b",
-          "label": "To step away from Abstract Expressionist feeling",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Comic pages cost less than canvas and paint",
-          "correct": false,
-          "rationale": "Cost wasn't the reason given."
-        },
-        {
-          "id": "d",
-          "label": "To deepen Rothko's sense of tragedy",
-          "correct": false,
-          "rationale": "They moved away from that kind of feeling."
-        }
+      "prompt": "Put these Pop moments in order, from earliest to latest.",
+      "items": [
+        "This Is Tomorrow",
+        "A list of what Pop should be",
+        "All-American Men of War",
+        "Whaam!"
       ],
-      "explanation": "Everyday, impersonal images let Pop artists move away from the personal feelings at the heart of Abstract Expressionism.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Hamilton's collage was made for This Is Tomorrow in 1956, his list of what Pop should be came in 1957, the war comic All-American Men of War in 1962, and Lichtenstein's Whaam! in 1963.",
       "difficulty": 0.25
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 34,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Spartacus",
   "objective": "After this level you can describe the slave revolt led by Spartacus and how it ended.",
@@ -166,7 +166,7 @@
     },
     {
       "id": "question.ancient_rome.034.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_rome.spartacus",
@@ -174,35 +174,19 @@
       ],
       "sourceCardIds": [
         "card.ancient_rome.034.c3",
-        "card.ancient_rome.019.c3"
+        "card.ancient_rome.019.c3",
+        "card.ancient_rome.034.c2"
       ],
-      "prompt": "From Level 19: along which road were the captured rebels crucified?",
-      "options": [
-        {
-          "id": "a",
-          "label": "The Via Appia",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "The Via Salaria",
-          "correct": false,
-          "rationale": "That was the salt route."
-        },
-        {
-          "id": "c",
-          "label": "The Via Sacra",
-          "correct": false,
-          "rationale": "That ran through the Forum."
-        },
-        {
-          "id": "d",
-          "label": "The Via Flaminia",
-          "correct": false,
-          "rationale": "It was the Appian Way."
-        }
+      "prompt": "Put the revolt of Spartacus in order, from first to last.",
+      "items": [
+        "Escaped from a gladiator school",
+        "Defeated several Roman forces",
+        "Crassus crushed the revolt",
+        "Crucified along the Appian Way"
       ],
-      "explanation": "Crassus lined the Appian Way, Rome’s first great road, with crucified rebels.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "In 73 BCE Spartacus escaped from a gladiator school, and his army defeated several Roman forces. In 71 BCE Crassus crushed the revolt, and captured rebels were crucified along the Appian Way.",
       "difficulty": 0.3
     }
   ],

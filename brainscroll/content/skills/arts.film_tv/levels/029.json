@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 29,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Lighting a Scene",
   "objective": "After this level you can explain three-point lighting and how high-key and low-key lighting set a mood.",
@@ -120,7 +120,7 @@
     },
     {
       "id": "question.film_tv.029.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.film_tv.shoot_high_low_key"
@@ -129,33 +129,22 @@
         "card.film_tv.029.c2",
         "card.film_tv.029.c4"
       ],
-      "prompt": "How does low-key lighting leave deep shadows on a face?",
-      "options": [
+      "prompt": "Match each light in three-point lighting with its job.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It raises the fill almost to the key's level",
-          "correct": false,
-          "rationale": "That's high-key lighting, which is bright with few shadows."
+          "left": "Key light",
+          "right": "The bright main light"
         },
         {
-          "id": "b",
-          "label": "It uses very little fill to soften the key's shadows",
-          "correct": true
+          "left": "Fill light",
+          "right": "Softens the shadows the key casts"
         },
         {
-          "id": "c",
-          "label": "It moves the backlight in front of the actor",
-          "correct": false,
-          "rationale": "The backlight separates actor and background; shadows come from missing fill."
-        },
-        {
-          "id": "d",
-          "label": "It tips the camera so the frame isn't level",
-          "correct": false,
-          "rationale": "That's a Dutch angle, not lighting."
+          "left": "Backlight",
+          "right": "Behind the actor"
         }
       ],
-      "explanation": "The fill light is what softens the key's shadows; with very little fill, the shadows stay deep and the contrast strong.",
+      "explanation": "The key light is the bright main light, the fill light softens the shadows the key casts, and the backlight sits behind the actor to pick them out from the background.",
       "difficulty": 0.35
     },
     {

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.religions",
   "number": 97,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Cult or New Religion?",
   "objective": "After this level you can explain why scholars prefer \"new religious movement\" to \"cult\" and how to judge claims about any group by its actions.",
@@ -132,41 +132,32 @@
     },
     {
       "id": "question.religions.097.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.religions.dialogue_judge_by_actions"
       ],
       "sourceCardIds": [
-        "card.religions.097.c5"
+        "card.religions.097.c5",
+        "card.religions.097.c2",
+        "card.religions.097.c3"
       ],
-      "prompt": "A news story calls a small new group \"a dangerous cult\" but gives no details. Following Barker, what should you ask first?",
-      "options": [
+      "prompt": "Match each group with how scholars describe it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "How new the group is",
-          "correct": false,
-          "rationale": "Every religion was new once."
+          "left": "Early Christianity",
+          "right": "A sect within the Judaic tradition"
         },
         {
-          "id": "b",
-          "label": "What this group actually believes and does, here and now",
-          "correct": true
+          "left": "Early Methodism",
+          "right": "A sect within Christianity"
         },
         {
-          "id": "c",
-          "label": "Whether its beliefs differ from yours",
-          "correct": false,
-          "rationale": "Different beliefs aren't evidence of harm."
-        },
-        {
-          "id": "d",
-          "label": "Whether other groups were also called cults",
-          "correct": false,
-          "rationale": "A label on others proves nothing about this one."
+          "left": "New religious movement",
+          "right": "The generally accepted term"
         }
       ],
-      "explanation": "Barker says movements differ so much that each must be judged by what it believes and does at a particular time and place.",
+      "explanation": "Early Christianity was a sect within the Judaic tradition, early Methodism a sect within Christianity, and \"new religious movement\" is the generally accepted term.",
       "difficulty": 0.4
     },
     {

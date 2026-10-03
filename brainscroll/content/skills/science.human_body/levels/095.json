@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 95,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Sun and Skin",
   "objective": "After this level you can explain how sunlight helps make vitamin D and how too much harms skin.",
@@ -136,38 +136,32 @@
     },
     {
       "id": "question.human_body.095.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.human_body.health_sun_vitamin_d"
       ],
       "sourceCardIds": [
-        "card.human_body.095.c2"
+        "card.human_body.095.c2",
+        "card.human_body.095.c5"
       ],
-      "prompt": "Why doesn't sitting in a sunny spot behind a closed window help your skin make vitamin D?",
-      "options": [
+      "prompt": "Match each sun and skin fact with its partner.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Window light is too warm",
-          "correct": false,
-          "rationale": "Warmth isn't what makes vitamin D."
+          "left": "UVB rays",
+          "right": "Vitamin D"
         },
         {
-          "id": "b",
-          "label": "Skin only makes vitamin D in winter",
-          "correct": false,
-          "rationale": "In the UK, winter sun is too weak for it."
+          "left": "Window glass",
+          "right": "Blocks UVB"
         },
         {
-          "id": "c",
-          "label": "Window glass blocks the UVB rays",
-          "correct": true
+          "left": "UV Index",
+          "right": "3 or above"
         },
         {
-          "id": "d",
-          "label": "Vitamin D only comes from food",
-          "correct": false,
-          "rationale": "Skin makes it from UVB in sunlight."
+          "left": "Sunscreen",
+          "right": "SPF 15 or higher"
         }
       ],
       "explanation": "Skin makes vitamin D from UVB rays, and window glass blocks UVB.",

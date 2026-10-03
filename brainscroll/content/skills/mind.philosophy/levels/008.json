@@ -3,7 +3,7 @@
   "skillId": "skill.mind.philosophy",
   "number": 8,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Buddha's Case Against a Self",
   "objective": "After this level you can explain the Buddhist no-self argument, using the monk Nagasena's chariot that is nothing over and above its parts.",
@@ -172,7 +172,7 @@
     },
     {
       "id": "question.philosophy.008.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.philosophy.no_self",
@@ -180,35 +180,26 @@
       ],
       "sourceCardIds": [
         "card.philosophy.008.c2",
-        "card.philosophy.004.c4"
+        "card.philosophy.004.c4",
+        "card.philosophy.008.c3",
+        "card.philosophy.008.c5"
       ],
-      "prompt": "Plato’s Forms in Level 4 are eternal and changeless. What do Buddhist philosophers say about the parts that make up a person?",
-      "options": [
+      "prompt": "Match each person with who they were.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "They are eternal Forms too",
-          "correct": false,
-          "rationale": "They are impermanent."
+          "left": "Nagasena",
+          "right": "The monk"
         },
         {
-          "id": "b",
-          "label": "They are known only by thought",
-          "correct": false,
-          "rationale": "That’s Plato’s claim about Forms."
+          "left": "King Milinda",
+          "right": "Menander I"
         },
         {
-          "id": "c",
-          "label": "They never change once you are grown",
-          "correct": false,
-          "rationale": "They are always changing."
-        },
-        {
-          "id": "d",
-          "label": "They are impermanent, so none is a lasting self",
-          "correct": true
+          "left": "Vatsyayana",
+          "right": "Nyaya"
         }
       ],
-      "explanation": "The five aggregates are impermanent, so none can be a lasting self: the opposite of Plato’s changeless Forms.",
+      "explanation": "Nagasena was the monk in the debate, King Milinda is usually identified with Menander I, and Vatsyayana was a critic from the Nyaya school.",
       "difficulty": 0.3
     }
   ],

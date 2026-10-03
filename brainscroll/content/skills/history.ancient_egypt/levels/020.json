@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 20,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Pharaohs and Power",
   "objective": "After this level you can explain how pharaohs, officials and ma'at held Egypt together.",
@@ -305,7 +305,7 @@
     },
     {
       "id": "question.ancient_egypt.020.q5",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.ancient_egypt.royal_women_queens",
@@ -316,33 +316,16 @@
         "card.ancient_egypt.020.c2",
         "card.ancient_egypt.017.c4"
       ],
-      "prompt": "Pharaohs and Power recap: which of these came first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Hatshepsut rules as king",
-          "correct": false,
-          "rationale": "She came in the New Kingdom."
-        },
-        {
-          "id": "b",
-          "label": "Sobekneferu rules as king",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "Horse and chariot transform Egyptian warfare",
-          "correct": false,
-          "rationale": "That was the Second Intermediate Period."
-        },
-        {
-          "id": "d",
-          "label": "Per-aa comes to mean the king himself",
-          "correct": false,
-          "rationale": "That began in the New Kingdom."
-        }
+      "prompt": "Put these moments of royal power in order, from earliest to latest.",
+      "items": [
+        "The king tours the land to collect taxes",
+        "Sobekneferu rules as king",
+        "Horse and chariot transform warfare",
+        "Hatshepsut rules as king"
       ],
-      "explanation": "Sobekneferu ruled at the end of the Middle Kingdom, before chariots arrived and long before Hatshepsut.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "In the Old Kingdom the king toured the land to collect taxes. Sobekneferu ruled at the end of the Middle Kingdom, the horse and chariot came about 1650 to 1550 BCE, and Hatshepsut ruled about 1473 to 1458 BCE.",
       "difficulty": 0.35
     }
   ],

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.logic",
   "number": 86,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Weighing a Conspiracy Claim",
   "objective": "After this level you can judge a conspiracy claim by whether it could be tested and how many people would have to keep the secret.",
@@ -125,41 +125,33 @@
     },
     {
       "id": "question.logic.086.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.logic.sourcing_conspiracy_claims"
       ],
       "sourceCardIds": [
-        "card.logic.086.c3"
+        "card.logic.086.c3",
+        "card.logic.086.c1",
+        "card.logic.086.c2",
+        "card.logic.086.c4"
       ],
-      "prompt": "Each time evidence against a theory appears, its fans adjust it, and none of its predictions ever comes true. What does that show?",
-      "options": [
+      "prompt": "Match each example or philosopher with its point about conspiracy claims.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The theory is being tested and passing",
-          "correct": false,
-          "rationale": "Passing tests means predictions come true."
+          "left": "Watergate",
+          "right": "The standard example"
         },
         {
-          "id": "b",
-          "label": "The evidence against it must be fake",
-          "correct": false,
-          "rationale": "That's the adjustment move itself."
+          "left": "David Robert Grimes",
+          "right": "Modeled secret-keeping"
         },
         {
-          "id": "c",
-          "label": "It is being protected rather than tested",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "It is probably a real conspiracy",
-          "correct": false,
-          "rationale": "Real ones, like Watergate, produced confirmed predictions."
+          "left": "Brian Keeley",
+          "right": "Diligent searches keep failing"
         }
       ],
-      "explanation": "A theory that only adjusts to dodge evidence and never confirms a prediction is being protected, not tested.",
+      "explanation": "Watergate is the standard example of a conspiracy theory that uncovered a real conspiracy. David Robert Grimes modeled secret-keeping. Brian Keeley says we may trust a claim less if diligent searches keep failing.",
       "difficulty": 0.4
     },
     {

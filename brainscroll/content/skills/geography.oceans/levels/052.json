@@ -3,7 +3,7 @@
   "skillId": "skill.geography.oceans",
   "number": 52,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "The Twilight Zone",
   "objective": "After this level you can describe the nightly rise of deep-sea animals.",
@@ -164,7 +164,7 @@
     },
     {
       "id": "question.oceans.052.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.oceans.deep_nightly_migration"
@@ -173,33 +173,15 @@
         "card.oceans.052.c2",
         "card.oceans.052.c1"
       ],
-      "prompt": "Why did World War II Navy sonar show a \"sea floor\" that rose toward the surface every night?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It was a layer of migrating animals, not the floor",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "Tides lifted the sea floor at night",
-          "correct": false,
-          "rationale": "The real floor never moved."
-        },
-        {
-          "id": "c",
-          "label": "Enemy submarines were jamming the sonar",
-          "correct": false,
-          "rationale": "The cause turned out to be alive."
-        },
-        {
-          "id": "d",
-          "label": "Cold night water bent the sound",
-          "correct": false,
-          "rationale": "It was a layer of animals."
-        }
+      "prompt": "Put the daily migration in order, from first to last.",
+      "items": [
+        "Darkness falls",
+        "Swim up to feed near the surface",
+        "Sink back down at daybreak"
       ],
-      "explanation": "The false bottom was the twilight zone's animals, rising at dusk to feed and sinking again at dawn.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "As darkness falls, twilight-zone animals swim up to feed near the surface, then sink back down at daybreak.",
       "difficulty": 0.25
     }
   ],

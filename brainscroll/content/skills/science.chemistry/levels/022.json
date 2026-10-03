@@ -3,7 +3,7 @@
   "skillId": "skill.science.chemistry",
   "number": 22,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Mendeleev's Table",
   "objective": "After this level you can explain how Mendeleev arranged the elements and predicted new ones.",
@@ -130,7 +130,7 @@
     },
     {
       "id": "question.chemistry.022.q2",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "understanding",
       "conceptIds": [
         "concept.chemistry.ptable_mendeleev_predictions"
@@ -138,33 +138,15 @@
       "sourceCardIds": [
         "card.chemistry.022.c3"
       ],
-      "prompt": "Why did germanium's discovery in 1886 boost Mendeleev's table so much?",
-      "options": [
-        {
-          "id": "a",
-          "label": "It was the first metal ever found",
-          "correct": false,
-          "rationale": "People had used metals for thousands of years."
-        },
-        {
-          "id": "b",
-          "label": "It matched what he had predicted for a gap",
-          "correct": true
-        },
-        {
-          "id": "c",
-          "label": "It proved elements can be split",
-          "correct": false,
-          "rationale": "Elements can't be split by chemistry."
-        },
-        {
-          "id": "d",
-          "label": "It was the heaviest element known",
-          "correct": false,
-          "rationale": "Heavier elements were already known."
-        }
+      "prompt": "Put the elements that filled Mendeleev's gaps in order of discovery.",
+      "items": [
+        "Gallium",
+        "Scandium",
+        "Germanium"
       ],
-      "explanation": "Germanium fit the gap he called eka-silicon, with an atomic weight close to his forecast of 72.",
+      "first": "Found first",
+      "last": "Found last",
+      "explanation": "Gallium turned up in 1875, scandium in 1879 and germanium in 1886, each fitting a gap Mendeleev left.",
       "difficulty": 0.25
     },
     {

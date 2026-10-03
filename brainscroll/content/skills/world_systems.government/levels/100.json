@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.government",
   "number": 100,
   "type": "mastery",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Mastery Challenge: How Government Works",
   "objective": "After this level you can demonstrate command of How Government Works Levels 1–99 across the whole tree.",
@@ -350,41 +350,31 @@
     },
     {
       "id": "question.government.100.q6",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.government.citizenship_birth_rules"
       ],
       "sourceCardIds": [
-        "card.government.091.c3"
+        "card.government.091.c3",
+        "card.government.091.c4"
       ],
-      "prompt": "A baby born abroad to a Japanese mother is a Japanese citizen. Which rule is that?",
-      "options": [
+      "prompt": "Match each route to citizenship with how it works.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Jus soli, the right of the soil",
-          "correct": false,
-          "rationale": "The baby was born abroad, so birthplace isn't the reason."
+          "left": "Jus soli",
+          "right": "Born on the territory"
         },
         {
-          "id": "b",
-          "label": "Jus sanguinis, the right of blood",
-          "correct": true
+          "left": "Jus sanguinis",
+          "right": "Passes from a parent"
         },
         {
-          "id": "c",
-          "label": "Naturalization",
-          "correct": false,
-          "rationale": "Naturalization is for people who apply later."
-        },
-        {
-          "id": "d",
-          "label": "The general will",
-          "correct": false,
-          "rationale": "That's Rousseau, not a citizenship rule."
+          "left": "Naturalization",
+          "right": "Becoming a citizen by applying"
         }
       ],
-      "explanation": "Japan uses descent: a child is Japanese if the father or mother is a Japanese national at birth.",
+      "explanation": "Under jus soli you're a citizen if born on the territory, under jus sanguinis citizenship passes from a parent, and naturalization is becoming a citizen by applying.",
       "difficulty": 0.4
     },
     {

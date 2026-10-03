@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 92,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "What a 40% Chance of Rain Means",
   "objective": "After this level you can interpret a probability forecast and explain why forecasts lose skill after about a week or two.",
@@ -137,7 +137,7 @@
     },
     {
       "id": "question.earth_climate.092.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.earth_climate.forecast_chaos_limit"
@@ -146,33 +146,22 @@
         "card.earth_climate.092.c4",
         "card.earth_climate.092.c3"
       ],
-      "prompt": "Why does forecast accuracy fade after a week or so, even on powerful computers?",
-      "options": [
+      "prompt": "Match each forecast length with how often it's right.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Small errors in the starting picture grow",
-          "correct": true
+          "left": "A 5-day forecast",
+          "right": "About 90%"
         },
         {
-          "id": "b",
-          "label": "Satellites can only see a few days ahead",
-          "correct": false,
-          "rationale": "Satellites observe the present; they don't see the future."
+          "left": "A 7-day forecast",
+          "right": "Around 80%"
         },
         {
-          "id": "c",
-          "label": "Forecasters aren't allowed to run longer models",
-          "correct": false,
-          "rationale": "The limit comes from the atmosphere, not a rule."
-        },
-        {
-          "id": "d",
-          "label": "The Sun's brightness changes every week",
-          "correct": false,
-          "rationale": "The problem is growing errors, not the Sun."
+          "left": "A 10-day forecast",
+          "right": "Only about half"
         }
       ],
-      "explanation": "The atmosphere is chaotic, so the small errors that are always in the starting picture grow until they swamp the forecast.",
+      "explanation": "A 5-day forecast is right about 90% of the time, a 7-day forecast around 80%, and a 10-day forecast only about half.",
       "difficulty": 0.4
     },
     {

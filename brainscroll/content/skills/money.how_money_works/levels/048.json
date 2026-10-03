@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 48,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Incentives",
   "objective": "After this level you can explain how incentives shape the choices people make.",
@@ -95,7 +95,7 @@
   "questions": [
     {
       "id": "question.how_money_works.048.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.how_money_works.incentive_definition"
@@ -103,33 +103,22 @@
       "sourceCardIds": [
         "card.how_money_works.048.c2"
       ],
-      "prompt": "Which of these is a negative incentive?",
-      "options": [
+      "prompt": "Match each one with the kind of incentive it is.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A buy-one-get-one-free sale",
-          "correct": false,
-          "rationale": "That's a reward, so it's a positive incentive."
+          "left": "A buy-one-get-one-free sale",
+          "right": "Positive incentive"
         },
         {
-          "id": "b",
-          "label": "A littering fine",
-          "correct": true
+          "left": "A speeding ticket",
+          "right": "Negative incentive"
         },
         {
-          "id": "c",
-          "label": "A bonus for good work",
-          "correct": false,
-          "rationale": "A bonus is a reward, a positive incentive."
-        },
-        {
-          "id": "d",
-          "label": "A discount for paying early",
-          "correct": false,
-          "rationale": "A discount rewards a choice, so it is positive."
+          "left": "A littering fine",
+          "right": "Negative incentive"
         }
       ],
-      "explanation": "Negative incentives are penalties that discourage a behavior, like fines and speeding tickets.",
+      "explanation": "A buy-one-get-one-free sale is a reward, so it's a positive incentive. A speeding ticket and a littering fine are penalties, so they're negative incentives.",
       "difficulty": 0.1
     },
     {

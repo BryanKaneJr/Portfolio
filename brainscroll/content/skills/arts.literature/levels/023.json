@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 23,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Round and Flat Characters",
   "objective": "After this level you can tell round characters from flat ones and trace a character arc.",
@@ -87,41 +87,36 @@
   "questions": [
     {
       "id": "question.literature.023.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.literature.storycraft_flat_round"
       ],
       "sourceCardIds": [
-        "card.literature.023.c2"
+        "card.literature.023.c2",
+        "card.literature.023.c1",
+        "card.literature.023.c4"
       ],
-      "prompt": "According to E. M. Forster, what is a flat character built around, in its purest form?",
-      "options": [
+      "prompt": "Match each name from Forster's and Dickens's books with what goes with it.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "A single idea or quality",
-          "correct": true
+          "left": "E. M. Forster",
+          "right": "Aspects of the Novel"
         },
         {
-          "id": "b",
-          "label": "A long life story told in flashbacks",
-          "correct": false,
-          "rationale": "Flat characters can be summed up in one sentence."
+          "left": "Mrs. Micawber",
+          "right": "I never will desert Mr. Micawber"
         },
         {
-          "id": "c",
-          "label": "A secret that changes everything",
-          "correct": false,
-          "rationale": "That's closer to a round character's surprise."
+          "left": "Scrooge",
+          "right": "Transformed into a kind benefactor"
         },
         {
-          "id": "d",
-          "label": "The narrator's point of view",
-          "correct": false,
-          "rationale": "Forster defined flat characters by their single idea."
+          "left": "Flat character",
+          "right": "A single idea or quality"
         }
       ],
-      "explanation": "Forster wrote that flat characters are \"constructed round a single idea or quality\" and can be summed up in a sentence.",
+      "explanation": "E. M. Forster wrote Aspects of the Novel. Mrs. Micawber says \"I never will desert Mr. Micawber,\" Scrooge is transformed into a kind benefactor, and a flat character is built round a single idea or quality.",
       "difficulty": 0.15
     },
     {

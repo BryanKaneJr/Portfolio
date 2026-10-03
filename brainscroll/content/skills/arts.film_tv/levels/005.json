@@ -3,7 +3,7 @@
   "skillId": "skill.arts.film_tv",
   "number": 5,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Edison's Peep Show",
   "objective": "After this level you can describe the Kinetoscope, the one-viewer movie cabinet built in Edison's lab, and why projection overtook it.",
@@ -166,7 +166,7 @@
     },
     {
       "id": "question.film_tv.005.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.film_tv.zoopraxiscope",
@@ -174,35 +174,20 @@
       ],
       "sourceCardIds": [
         "card.film_tv.005.c2",
-        "card.film_tv.004.c4"
+        "card.film_tv.004.c4",
+        "card.film_tv.005.c1",
+        "card.film_tv.005.c4"
       ],
-      "prompt": "Muybridge (Level 4) needed a row of cameras. What did Edison's lab have that made motion pictures more practical?",
-      "options": [
-        {
-          "id": "a",
-          "label": "A camera that recorded the whole sequence by itself",
-          "correct": true
-        },
-        {
-          "id": "b",
-          "label": "A faster horse to photograph",
-          "correct": false,
-          "rationale": "The subject wasn't the problem."
-        },
-        {
-          "id": "c",
-          "label": "A bigger magic lantern",
-          "correct": false,
-          "rationale": "Projection wasn't the issue; recording was."
-        },
-        {
-          "id": "d",
-          "label": "Hand-painted glass discs",
-          "correct": false,
-          "rationale": "Those were used for projection, not recording."
-        }
+      "prompt": "Put these events in order, from earliest to latest.",
+      "items": [
+        "Muybridge visited Thomas Edison's lab",
+        "Edison filed plans",
+        "The first Kinetoscope parlor opened",
+        "Sold a projector, the Vitascope"
       ],
-      "explanation": "Dickson's single camera recorded successive images on its own, which influenced every later motion picture device.",
+      "first": "Earliest",
+      "last": "Latest",
+      "explanation": "Muybridge visited Edison's lab in February 1888, Edison filed plans for the Kinetoscope that October, the first Kinetoscope parlor opened in 1894, and Edison's company sold the Vitascope projector in 1896.",
       "difficulty": 0.3
     }
   ],

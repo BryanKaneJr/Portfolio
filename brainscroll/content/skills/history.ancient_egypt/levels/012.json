@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_egypt",
   "number": 12,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Crook and Flail",
   "objective": "After this level you can explain the symbols of royal power.",
@@ -127,41 +127,32 @@
     },
     {
       "id": "question.ancient_egypt.012.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.ancient_egypt.royal_regalia"
       ],
       "sourceCardIds": [
-        "card.ancient_egypt.012.c3"
+        "card.ancient_egypt.012.c3",
+        "card.ancient_egypt.012.c2",
+        "card.ancient_egypt.012.c4"
       ],
-      "prompt": "Why do Egyptologists disagree about the royal flail?",
-      "options": [
+      "prompt": "Match each piece of royal regalia with what it was.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Its original meaning is unclear",
-          "correct": true
+          "left": "Crook",
+          "right": "A herdsman’s staff"
         },
         {
-          "id": "b",
-          "label": "It was invented by modern artists",
-          "correct": false,
-          "rationale": "It already appears on the Narmer Palette."
+          "left": "Nemes",
+          "right": "A folded headcloth"
         },
         {
-          "id": "c",
-          "label": "No picture of it survives",
-          "correct": false,
-          "rationale": "It appears on the Narmer Palette and in images of Osiris."
-        },
-        {
-          "id": "d",
-          "label": "Only foreign kings carried it",
-          "correct": false,
-          "rationale": "It was Egyptian royal regalia."
+          "left": "Uraeus",
+          "right": "A cobra"
         }
       ],
-      "explanation": "It has been read as a herdsman’s whip, a birth symbol or a tool for gathering labdanum; nobody knows for sure.",
+      "explanation": "The crook began as a herdsman’s staff, the nemes was a folded headcloth, and the uraeus was a cobra on the king’s forehead.",
       "difficulty": 0.3
     },
     {

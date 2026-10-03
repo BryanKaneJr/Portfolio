@@ -3,7 +3,7 @@
   "skillId": "skill.arts.art_history",
   "number": 80,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Art Around the World",
   "objective": "After this level you can compare art traditions from Japan, China, Africa, Australia and the Americas.",
@@ -248,7 +248,7 @@
     },
     {
       "id": "question.art_history.080.q3",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "connection",
       "conceptIds": [
         "concept.art_history.orchid_pavilion",
@@ -259,33 +259,18 @@
       "sourceCardIds": [
         "card.art_history.080.c3"
       ],
-      "prompt": "Around the world recap: which of these came first?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Papunya's Honey Ant Dreaming mural",
-          "correct": false,
-          "rationale": "That was 1971."
-        },
-        {
-          "id": "b",
-          "label": "Hokusai's Great Wave",
-          "correct": false,
-          "rationale": "About 1830–32."
-        },
-        {
-          "id": "c",
-          "label": "The looting of Benin City",
-          "correct": false,
-          "rationale": "That was 1897."
-        },
-        {
-          "id": "d",
-          "label": "Wang Xizhi's Orchid Pavilion Preface",
-          "correct": true
-        }
+      "prompt": "Put the chapter's moments in order, from oldest to newest.",
+      "items": [
+        "A kangaroo painted in the Kimberley",
+        "The Orchid Pavilion Preface",
+        "Hokusai's Great Wave",
+        "British forces loot Benin City",
+        "Picasso studies African masks in Paris",
+        "Papunya's Honey Ant Dreaming mural"
       ],
-      "explanation": "Wang Xizhi wrote the Preface in 353, more than 1,400 years before the Great Wave.",
+      "first": "Oldest",
+      "last": "Newest",
+      "explanation": "The Kimberley kangaroo (about 17,300 years ago), the Orchid Pavilion Preface (353), the Great Wave (about 1830-32), the looting of Benin City (1897), Picasso and African masks (1907), then the Papunya mural (1971).",
       "difficulty": 0.3
     },
     {

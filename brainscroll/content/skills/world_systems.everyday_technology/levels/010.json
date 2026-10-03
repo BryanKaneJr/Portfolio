@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.everyday_technology",
   "number": 10,
   "type": "checkpoint",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Checkpoint: Energy and Electricity",
   "objective": "After this level you can explain how electricity is made, stored and used to do work.",
@@ -156,41 +156,32 @@
   "questions": [
     {
       "id": "question.everyday_technology.010.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.everyday_technology.electric_power"
       ],
       "sourceCardIds": [
-        "card.everyday_technology.010.c3"
+        "card.everyday_technology.010.c3",
+        "card.everyday_technology.010.c4",
+        "card.everyday_technology.003.c4"
       ],
-      "prompt": "What is one watt?",
-      "options": [
+      "prompt": "Match each electrical unit with how much it stands for.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "One coulomb of charge per second",
-          "correct": false,
-          "rationale": "That's an ampere (Level 3)."
+          "left": "Watt",
+          "right": "One joule of energy every second"
         },
         {
-          "id": "b",
-          "label": "One joule of energy per second",
-          "correct": true
+          "left": "Kilowatt-hour",
+          "right": "3.6 million joules"
         },
         {
-          "id": "c",
-          "label": "One joule per coulomb of charge",
-          "correct": false,
-          "rationale": "That's a volt."
-        },
-        {
-          "id": "d",
-          "label": "One kilowatt-hour of energy",
-          "correct": false,
-          "rationale": "That's a unit of energy, not power."
+          "left": "Volt",
+          "right": "One joule for every coulomb"
         }
       ],
-      "explanation": "A watt is a rate: one joule of energy every second.",
+      "explanation": "A watt is one joule of energy every second, a kilowatt-hour is 3.6 million joules, and a volt is one joule for every coulomb.",
       "difficulty": 0.2
     },
     {

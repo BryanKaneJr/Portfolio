@@ -3,7 +3,7 @@
   "skillId": "skill.geography.earth_climate",
   "number": 5,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Rocks Born From Fire",
   "objective": "After this level you can tell granite from basalt and explain why slow cooling grows bigger crystals.",
@@ -187,7 +187,7 @@
     },
     {
       "id": "question.earth_climate.005.q3",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "connection",
       "conceptIds": [
         "concept.earth_climate.granite_vs_basalt",
@@ -195,35 +195,25 @@
       ],
       "sourceCardIds": [
         "card.earth_climate.005.c4",
-        "card.earth_climate.004.c3"
+        "card.earth_climate.004.c3",
+        "card.earth_climate.005.c3"
       ],
-      "prompt": "Granite is usually light and basalt dark. Which explanation fits Levels 4 and 5?",
-      "options": [
+      "prompt": "Match each igneous rock with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "Granite is mostly feldspar and quartz; basalt is iron-rich",
-          "correct": true
+          "left": "Granite",
+          "right": "Typical rock of the continents"
         },
         {
-          "id": "b",
-          "label": "Granite cooled in sunlight; basalt cooled in the dark",
-          "correct": false,
-          "rationale": "Granite cools deep underground, not in sunlight."
+          "left": "Basalt",
+          "right": "Main rock of the ocean floor"
         },
         {
-          "id": "c",
-          "label": "Basalt is granite that lava has burned black",
-          "correct": false,
-          "rationale": "They are different rocks from different melts."
-        },
-        {
-          "id": "d",
-          "label": "Basalt is made only of volcanic glass, like obsidian",
-          "correct": false,
-          "rationale": "Basalt is very fine-grained rock, not pure glass."
+          "left": "Obsidian",
+          "right": "Natural volcanic glass"
         }
       ],
-      "explanation": "Granite is built mostly of feldspar and quartz; basalt is dark because it's rich in iron and magnesium.",
+      "explanation": "Granite is the typical rock of the continents, basalt is the main rock of the ocean floor, and obsidian is a natural volcanic glass.",
       "difficulty": 0.3
     }
   ],

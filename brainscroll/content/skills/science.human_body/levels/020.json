@@ -3,7 +3,7 @@
   "skillId": "skill.science.human_body",
   "number": 20,
   "type": "checkpoint",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Checkpoint: Bones and Muscles",
   "objective": "After this level you can explain how bones, joints and muscles work together to move you.",
@@ -131,7 +131,7 @@
   "questions": [
     {
       "id": "question.human_body.020.q1",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "recall",
       "conceptIds": [
         "concept.human_body.musculoskeletal_levers"
@@ -139,30 +139,23 @@
       "sourceCardIds": [
         "card.human_body.020.c2"
       ],
-      "prompt": "Bones and Muscles recap: in the body's lever system, what acts as the fulcrum?",
-      "options": [
+      "prompt": "Match each part of the body's lever system with its role.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "The bones",
-          "correct": false,
-          "rationale": "Bones are the stiff levers."
+          "left": "Bones",
+          "right": "The stiff levers"
         },
         {
-          "id": "b",
-          "label": "The joints",
-          "correct": true
+          "left": "Joints",
+          "right": "The fulcrums"
         },
         {
-          "id": "c",
-          "label": "The muscles",
-          "correct": false,
-          "rationale": "Muscles supply the effort."
+          "left": "Muscles",
+          "right": "Supply the effort"
         },
         {
-          "id": "d",
-          "label": "The load",
-          "correct": false,
-          "rationale": "The load is whatever is being moved."
+          "left": "The load",
+          "right": "Whatever you're moving"
         }
       ],
       "explanation": "Bones are the levers, joints are the fulcrums and contracting muscles supply the effort.",

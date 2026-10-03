@@ -3,7 +3,7 @@
   "skillId": "skill.arts.literature",
   "number": 34,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Metaphor, Simile and Imagery",
   "objective": "After this level you can tell a metaphor from a simile and explain how an image makes a reader feel an idea.",
@@ -142,42 +142,32 @@
     },
     {
       "id": "question.literature.034.q2",
-      "kind": "mcq",
+      "kind": "match",
       "purpose": "understanding",
       "conceptIds": [
         "concept.literature.figure_simile_metaphor"
       ],
       "sourceCardIds": [
         "card.literature.034.c3",
-        "card.literature.034.c2"
+        "card.literature.034.c2",
+        "card.literature.034.c4"
       ],
-      "prompt": "How does the metaphor \"All the world's a stage\" work?",
-      "options": [
+      "prompt": "Match each comparison tool with its description.",
+      "pairs": [
         {
-          "id": "a",
-          "label": "It speaks of the world as a theater, with no \"like\" or \"as\"",
-          "correct": true
+          "left": "Simile",
+          "right": "Says so with \"like\" or \"as\""
         },
         {
-          "id": "b",
-          "label": "It describes a real theater called The World",
-          "correct": false,
-          "rationale": "The stage isn't literal."
+          "left": "Metaphor",
+          "right": "One thing is the other"
         },
         {
-          "id": "c",
-          "label": "It compares the world to a stage using \"like\"",
-          "correct": false,
-          "rationale": "There's no \"like\" in it."
-        },
-        {
-          "id": "d",
-          "label": "It repeats the same consonant sound",
-          "correct": false,
-          "rationale": "That would be alliteration."
+          "left": "Imagery",
+          "right": "Language that calls up the senses"
         }
       ],
-      "explanation": "A metaphor carries one thing's qualities over to another without \"like\" or \"as\": the world simply is a stage.",
+      "explanation": "A simile makes its comparison with \"like\" or \"as\". In a metaphor one thing is the other, and imagery is language that calls up the senses.",
       "difficulty": 0.3
     },
     {

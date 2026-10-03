@@ -3,7 +3,7 @@
   "skillId": "skill.history.ancient_rome",
   "number": 36,
   "type": "regular",
-  "revision": 1,
+  "revision": 2,
   "status": "published",
   "title": "Cicero Against Catiline",
   "objective": "After this level you can explain the Catiline conspiracy and Cicero’s role as consul.",
@@ -81,7 +81,7 @@
   "questions": [
     {
       "id": "question.ancient_rome.036.q1",
-      "kind": "mcq",
+      "kind": "order",
       "purpose": "recall",
       "conceptIds": [
         "concept.ancient_rome.cicero_catiline"
@@ -89,33 +89,16 @@
       "sourceCardIds": [
         "card.ancient_rome.036.c3"
       ],
-      "prompt": "Who exposed Catiline’s conspiracy in 63 BCE?",
-      "options": [
-        {
-          "id": "a",
-          "label": "Pompey",
-          "correct": false,
-          "rationale": "Pompey was in the East."
-        },
-        {
-          "id": "b",
-          "label": "Sulla",
-          "correct": false,
-          "rationale": "Sulla was dead by then."
-        },
-        {
-          "id": "c",
-          "label": "Cicero",
-          "correct": true
-        },
-        {
-          "id": "d",
-          "label": "Marius",
-          "correct": false,
-          "rationale": "Marius was dead by then."
-        }
+      "prompt": "Put these events in Cicero’s life in order, from first to last.",
+      "items": [
+        "Elected consul",
+        "Exposed a conspiracy by Catiline",
+        "Had several conspirators executed",
+        "His exile"
       ],
-      "explanation": "As consul, Cicero exposed the plot and denounced Catiline in famous speeches.",
+      "first": "First",
+      "last": "Last",
+      "explanation": "Cicero was elected consul for 63 BCE, exposed Catiline’s conspiracy, and had several conspirators executed without trial, which later led to his exile.",
       "difficulty": 0.15
     },
     {
