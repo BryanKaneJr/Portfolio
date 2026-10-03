@@ -11,8 +11,12 @@ import type { ProgressState } from './completion';
  * refilled (to DAILY_REFILL, more kept), and the next change saves that.
  * Every award is recorded once by key, so nothing pays twice: on Unlimited,
  * or at MAX, it's recorded as granted 0.
+ *
+ * Weekly Quests (owner, 2026-10-03): +1 for each requirement met
+ * (`quest_step:<quest>:<skill>`) and +1 for completing the quest
+ * (`quest:<quest>`), on top of its trophy. SQL brainpower_sync_quests.
  */
-export type BrainpowerAwardKind = 'streak' | 'trophy' | 'chapter_review' | 'perfect';
+export type BrainpowerAwardKind = 'streak' | 'trophy' | 'chapter_review' | 'perfect' | 'quest_step' | 'quest';
 export interface BrainpowerAward {
   kind: BrainpowerAwardKind;
   /** 1 when it raised the balance; 0 when full or on Unlimited. */
@@ -81,4 +85,21 @@ export function trophyBrainpower(state: ProgressState, trophyIds: readonly strin
 /** A perfect first clear: a PERFECT_DROP_PERCENT chance of +1 (truly random, no pity). */
 export function perfectDropBrainpower(state: ProgressState, levelId: string, now: Date, random: () => number = Math.random): ProgressState {
   return random() * 100 < BRAINPOWER.PERFECT_DROP_PERCENT ? grantBrainpower(state, `perfect:${levelId}`, 'perfect', now) : state;
+}
+
+/** A quest as Brainpower needs it: its requirements' progress (0 unless it's counting) and whether it's completed. */
+export interface QuestProgress {
+  id: string;
+  state: string;
+  requirements: readonly { skillId: string; required: number; done: number }[];
+}
+
+/** +1 for each quest requirement met and each quest completed, once each (SQL brainpower_sync_quests). */
+export function questBrainpower(state: ProgressState, quests: readonly QuestProgress[], now: Date): ProgressState {
+  let s = state;
+  for (const q of quests) {
+    for (const r of q.requirements) if (r.required > 0 && r.done >= r.required) s = grantBrainpower(s, `quest_step:${q.id}:${r.skillId}`, 'quest_step', now);
+    if (q.state === 'completed') s = grantBrainpower(s, `quest:${q.id}`, 'quest', now);
+  }
+  return s;
 }

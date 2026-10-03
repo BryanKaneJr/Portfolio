@@ -69,10 +69,10 @@ do $$ begin
   assert (select params ->> 'username' from public.notification_outbox where user_id = pg_temp.uid('5a') and kind = 'friend_new') = 'ben';
 end $$;
 
--- 3. A reaction tells the owner; changing the pose doesn't send another.
+-- 3. A heart tells the owner; hearting it again doesn't send another.
 set role authenticated;
-select public.react(pg_temp.uid('5a'), 'trophy:trophy.first_level', 'clapping');
-select public.react(pg_temp.uid('5a'), 'trophy:trophy.first_level', 'celebrate');
+select public.react(pg_temp.uid('5a'), 'trophy:trophy.first_level', 'heart');
+select public.react(pg_temp.uid('5a'), 'trophy:trophy.first_level', 'heart');
 reset role;
 do $$ begin
   assert pg_temp.pending('5a', 'reaction') = 1, 'one reaction, one note';

@@ -1,5 +1,5 @@
 -- Social: usernames, friends, invites, blocks, leagues (matching, the safety net, prizes),
--- the derived feed and Dr. Scroll reactions. Mirrors packages/core/src/social.ts.
+-- the derived feed and its hearts. Mirrors packages/core/src/social.ts.
 \set ON_ERROR_STOP on
 \set QUIET on
 \ir fixtures.sql
@@ -160,7 +160,7 @@ do $$ begin
 end $$;
 set role authenticated;
 
--- 7. The feed: Alice sees Bob's first-level trophy and his league win; reactions are Dr. Scroll poses.
+-- 7. The feed: Alice sees Bob's first-level trophy and his league win; the only reaction is a heart.
 do $$
 declare
   f jsonb;
@@ -170,13 +170,17 @@ begin
   select x into item from jsonb_array_elements(f) x where x -> 'owner' ->> 'username' = 'bob' and x ->> 'key' = 'trophy:trophy.first_level';
   assert item is not null, format('Bob''s first trophy is in Alice''s feed, got %s', f);
   assert exists (select 1 from jsonb_array_elements(f) x where x -> 'owner' ->> 'username' = 'bob' and x ->> 'kind' = 'league'), 'and his league win';
-  perform public.react(pg_temp.uid('2b'), 'trophy:trophy.first_level', 'clapping');
-  perform public.react(pg_temp.uid('2b'), 'trophy:trophy.first_level', 'celebrate');
+  perform public.react(pg_temp.uid('2b'), 'trophy:trophy.first_level', 'heart');
+  perform public.react(pg_temp.uid('2b'), 'trophy:trophy.first_level', 'heart');
   select x into item from jsonb_array_elements(public.get_feed()) x where x -> 'owner' ->> 'username' = 'bob' and x ->> 'key' = 'trophy:trophy.first_level';
-  assert item -> 'reactions' = '{"celebrate": 1}'::jsonb and item ->> 'mine' = 'celebrate', format('one reaction each, replaceable, got %s', item);
-  perform pg_temp.expect_error($q$ select public.react(pg_temp.uid('2b'), 'trophy:trophy.first_level', 'heart') $q$,
+  assert item -> 'reactions' = '{"heart": 1}'::jsonb and item ->> 'mine' = 'heart', format('one heart each, got %s', item);
+  perform pg_temp.expect_error($q$ select public.react(pg_temp.uid('2b'), 'trophy:trophy.first_level', 'clapping') $q$,
     'new row for relation "feed_reactions" violates check constraint "feed_reactions_reaction_check"');
-  perform pg_temp.expect_error($q$ select public.react(pg_temp.uid('2a'), 'x', 'clapping') $q$, 'USER_NOT_FOUND');
+  perform public.react(pg_temp.uid('2b'), 'trophy:trophy.first_level', null);
+  select x into item from jsonb_array_elements(public.get_feed()) x where x -> 'owner' ->> 'username' = 'bob' and x ->> 'key' = 'trophy:trophy.first_level';
+  assert item -> 'reactions' = '{}'::jsonb and item -> 'mine' = 'null'::jsonb, format('unhearting takes it back, got %s', item);
+  perform public.react(pg_temp.uid('2b'), 'trophy:trophy.first_level', 'heart');
+  perform pg_temp.expect_error($q$ select public.react(pg_temp.uid('2a'), 'x', 'heart') $q$, 'USER_NOT_FOUND');
 end $$;
 
 -- 8. Profiles: friends compare brains; strangers can't look.

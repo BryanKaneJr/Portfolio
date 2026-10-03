@@ -37,7 +37,7 @@ select public.send_friend_request('00000000-0000-0000-0000-00000000000a');
 select set_config('request.jwt.claim.sub', '00000000-0000-0000-0000-00000000000a', false);
 select public.get_league();
 select public.respond_friend_request('00000000-0000-0000-0000-00000000000b', true);
-select public.react('00000000-0000-0000-0000-00000000000b', 'trophy:trophy.first_level', 'clapping');
+select public.react('00000000-0000-0000-0000-00000000000b', 'trophy:trophy.first_level', 'heart');
 select public.report_user('00000000-0000-0000-0000-00000000000b', 'other');
 reset role;
 insert into auth.users (id) values ('00000000-0000-0000-0000-0000000000cc');

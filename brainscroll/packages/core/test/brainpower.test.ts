@@ -7,6 +7,7 @@ import {
   emptyProgress,
   grantBrainpower,
   perfectDropBrainpower,
+  questBrainpower,
   spendBrainpower,
   streakBrainpower,
   trophyBrainpower,
@@ -76,5 +77,19 @@ describe('Brainpower', () => {
     expect(brainpowerBalance(perfectDropBrainpower(at(4), 'level.x.001', NOW, () => 0.05), NOW)).toBe(5);
     expect(brainpowerBalance(perfectDropBrainpower(at(4), 'level.x.001', NOW, () => 0.1), NOW)).toBe(4);
     expect(brainpowerBalance(perfectDropBrainpower(at(4), 'level.x.001', NOW, () => 0.99), NOW)).toBe(4);
+  });
+
+  it('pays +1 for each quest goal met and +1 for finishing the quest, once each', () => {
+    const quest = (state: string, done: number[]) => ({ id: 'quest.q', state, requirements: [{ skillId: 'skill.a', required: 2, done: done[0]! }, { skillId: 'skill.b', required: 1, done: done[1]! }] });
+    let s = questBrainpower(at(3), [quest('live', [1, 0])], NOW);
+    expect(brainpowerBalance(s, NOW)).toBe(3);
+    s = questBrainpower(s, [quest('live', [2, 0])], NOW);
+    expect(brainpowerBalance(s, NOW)).toBe(4);
+    s = questBrainpower(s, [quest('live', [2, 1])], NOW);
+    expect(brainpowerBalance(s, NOW)).toBe(5);
+    s = questBrainpower(s, [quest('completed', [2, 1])], NOW);
+    expect(brainpowerBalance(s, NOW)).toBe(6);
+    expect(Object.keys(s.brainpowerAwards ?? {}).sort()).toEqual(['quest:quest.q', 'quest_step:quest.q:skill.a', 'quest_step:quest.q:skill.b']);
+    expect(questBrainpower(s, [quest('completed', [2, 1])], NOW)).toBe(s);
   });
 });

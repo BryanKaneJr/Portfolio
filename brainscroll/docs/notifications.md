@@ -4,7 +4,7 @@ BrainScroll sends two kinds of notifications. Both need the OS permission the ap
 
 | | Reminders | Friends and leagues |
 | --- | --- | --- |
-| What | "Finish Chapter 7 of Astronomy!", reviews, the 11 pm streak note | Friend requests, new friends, someone passing you in your league, your league result, reactions to your moments |
+| What | "Finish Chapter 7 of Astronomy!", reviews, the 11 pm streak note | Friend requests, new friends, someone passing you in your league, your league result, hearts on your moments |
 | Who sends | The phone itself (scheduled locally, `app/src/reminders`) | The server, through Expo's push service |
 | Rules | Core `reminders.ts` | `claim_social_pushes` (migration `20261028000000_social_push.sql`) |
 | Copy | Core `reminders.ts` (copy test in core) | `backend/supabase/functions/_shared/push.ts` (copy test in `scripts/test/push.test.ts`) |
@@ -17,7 +17,7 @@ Both follow the same line: the app wants people to come back, but never as a jer
 1. **Events queue a note.** Database triggers write to `notification_outbox`:
    - a friend request: the other person hears about it;
    - a new friendship: whoever didn't make it happen hears "you're friends now";
-   - a new feed reaction: the owner hears about it;
+   - a new heart on a feed moment: the owner hears about it;
    - XP that passes a league mate: they hear about it, at most once a day, and only if they've earned XP that week;
    - a finished league week: everyone who played hears their place and any prize.
 2. **A cron job calls the `send-push` function** every 5 minutes. It:

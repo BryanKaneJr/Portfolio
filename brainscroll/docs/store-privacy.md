@@ -98,7 +98,7 @@ App Store Connect → App Information → Age Rating. Apple's current questionna
 | Age Assurance | No | |
 | Unrestricted Web Access | No | No browser; only links to the privacy policy, terms and store subscription pages |
 | User-Generated Content | **Yes** | Usernames are chosen by learners and shown to friends and league mates. There's no free text, chat or posting otherwise. Apple's guideline 1.2 asks for a filter, reporting and blocking, and a way to act on reports: BrainScroll has the username filter, Report and Block on every profile, and the admin's Learner reports queue (`docs/moderation.md`) |
-| Messaging and Chat | No | No messages or comments; the only reactions are fixed Dr. Scroll poses |
+| Messaging and Chat | No | No messages or comments; the only reaction is a heart |
 | Social Media | **Confirm** (likely No) | Friends, weekly leagues and a feed of earned moments exist, but nobody can post, message or comment. If Apple's current wording counts friends and leaderboards, answer Yes |
 | Advertising | No | |
 | Profanity or Crude Humor | None | |
@@ -131,7 +131,7 @@ Play Console → App content → Content rating → start the questionnaire. Cat
 | Controlled substances (drugs, alcohol, tobacco) | References only, no use shown or encouraged | Same factual mentions as the Apple answer above. Answer the "references" question Yes if the form separates references from depictions. |
 | Crude humour | No | |
 | Gambling (real or simulated) | No | |
-| Users interact or exchange content | **Yes** | Learners add friends, see each other's usernames, avatars and progress in leagues and the feed, and react with fixed Dr. Scroll poses. No chat, free text or media is exchanged. Report and Block are on every profile. |
+| Users interact or exchange content | **Yes** | Learners add friends, see each other's usernames, avatars and progress in leagues and the feed, and heart each other's moments. No chat, free text or media is exchanged. Report and Block are on every profile. |
 | Shares the user's location with others | No | |
 | Digital purchases | Yes | The Unlimited subscription |
 | Unrestricted internet access | No | |

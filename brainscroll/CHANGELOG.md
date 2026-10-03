@@ -2,6 +2,13 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-03: Hearts, gold trophies in the feed, quest Brainpower, livelier Dr. Scroll
+
+- **The feed's only reaction is a heart** (owner: "cleaner, like every other app"): an outline that fills red when you tap it (with a little pop), tap again to take it back, and the count beside it. Your own moments show how many hearts they have. Earlier Dr. Scroll reactions all became hearts, so no likes were lost; the push note now reads "@ana liked your moment in the feed."
+- **Trophies read as trophies:** "You earned the **First Level** trophy", the name in bold gold (it read like broken English before).
+- **Weekly Quests earn Brainpower:** +1 for each goal met (like "3 new Astronomy levels") and +1 for completing the quest, once each, on top of the quest's trophy. Server: `brainpower_sync_quests` in migration `20261102000000`; local play: core `questBrainpower`. Shown on Level Complete as "Quest goal reached" and in the ways to earn Brainpower.
+- **Dr. Scroll's wave plays at its real speed** (24 frames a second, about 2.4 s; it was in slow motion).
+
 ## 2026-10-03: Content Admin saves on Windows
 
 - **Fix:** on Windows, saving an edited level in the Content Admin was refused (409) with every question "duplicating" itself. Content paths were read with backslashes but compared with forward slashes, so the edit was added as a second copy instead of replacing the file. Paths are now forward slashes on every OS (`scripts/lib/load-content.ts`).
