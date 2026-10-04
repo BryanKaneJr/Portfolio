@@ -196,7 +196,7 @@ Each fixed place in the app is a **spot** with a stable ID. Screens ask for a sp
 | `social.empty` | `wave` | Social: no friends yet, inviting the learner to add some |
 | `profile.dr-scroll` | `celebrate` | Dr. Scroll's own profile (everyone's first friend, core `drScrollFriend.ts`): a fun line that changes on each tap |
 | `social.dr-scroll-post` | `tea-pinky` | Social feed: his own post, one a day, each in its moment's everyday pose (core `DR_SCROLL_POSTS`); tapping it opens his profile |
-| `lesson.leave` | `explaining` | Lesson: the check before leaving a level partway ("If you leave now, this level starts over from the beginning next time."), with Keep going and Leave level |
+| `lesson.leave` | `explaining` | Lesson: the check before leaving a level partway ("If you leave now, this level starts over from the beginning next time. Your first answers still count."), with Keep going and Leave level |
 | `checkpoint.intro` | `checkpoint` | Lesson: beside the title of every checkpoint level (lesson: calm pose) |
 | `feedback.correct` | `thumbs-up` | Lesson and review: beside "Correct" (lesson: calm pose) |
 | `feedback.wrong` | `oops` | Lesson and review: beside "Not quite" (lesson: calm pose) |

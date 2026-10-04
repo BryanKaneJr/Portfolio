@@ -205,7 +205,7 @@ export const DR_SCROLL_LINES = {
   introReply: 'Nice to meet you',
   reviewEmpty: "Nothing to refresh. Your memory's in great shape, so I'm taking a nap.",
   homeStart: "Not sure where to begin? Tap any subject, or let me pick one for you with Choose for me.",
-  leaveLevel: "Heading out? If you leave now, this level starts over from the beginning next time.",
+  leaveLevel: "Heading out? If you leave now, this level starts over from the beginning next time. Your first answers still count.",
 } as const;
 
 /**

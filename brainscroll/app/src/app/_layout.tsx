@@ -7,6 +7,8 @@ import 'react-native-reanimated';
 import { BrandSplash } from '@/components/BrandSplash';
 import { PushSync } from '@/components/PushSync';
 import { ReminderSync } from '@/components/ReminderSettings';
+// First, so its popstate listener runs before the router's (web; see popGuard).
+import '@/navigation/popGuard';
 import { initCrashReporting, withCrashReporting } from '@/observability/crash';
 import { ProgressProvider, useProgress } from '@/progress/ProgressProvider';
 import { holdInviteFrom, takePendingInvite } from '@/social/pendingInvite';

@@ -392,6 +392,8 @@ export interface ReviewResult {
   wrong?: number[];
   /** Shown once resolved. */
   explanation?: string;
+  /** After a recorded first attempt: Brainpower, with what it paid in `brainpowerEarned` (the streak's +1, a trophy). */
+  daily?: DailyAllowance;
 }
 
 /**

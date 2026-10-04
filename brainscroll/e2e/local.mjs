@@ -1,7 +1,7 @@
 // Development harness (no Supabase, simulated accounts): sign-in first, onboarding,
 // a full chapter, resume, persistence, first-day cap, review, and progress that
 // belongs to the account (sign out, a second account, deletion).
-import { questMap, CHAPTER_REVIEW_MAX, CHECKPOINT_CURVE, CURVE, REVIEW_XP, bodyText, button, check, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, URL, coldLoad } from './helpers.mjs';
+import { questMap, CHAPTER_REVIEW_MAX, CHECKPOINT_CURVE, CURVE, REVIEW_XP, rightPositions, bodyText, button, check, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, URL, coldLoad } from './helpers.mjs';
 
 const progressKeys = (page) => page.evaluate(() => Object.keys(localStorage).filter((k) => k.startsWith('brainscroll.progress.')));
 
@@ -28,9 +28,20 @@ try {
   check((await page.getByTestId('mascot:onboarding.hello').count()) === 1, 'his hello is the onboarding.hello spot');
   await onboard(page, { start: true });
   check((await bodyText(page)).includes('Your Cosmic Address'), 'onboarding lands in Level 1');
+  // Level 1 opens with no history behind it (onboarding replaced itself): the close X still leaves, after asking.
+  await button(page, 'Continue').click();
+  await page.waitForTimeout(300);
+  await button(page, 'Leave level').click();
+  await page.waitForTimeout(300);
+  check(/Your first answers still count/.test(await bodyText(page)), 'leaving Level 1 right after onboarding asks first (and first answers still count)');
+  await exactButton(page, 'Leave anyway').click();
+  await page.waitForTimeout(1500);
+  check(/\/skill\//.test(page.url()) && (await button(page, 'Start Level 1').count()) > 0, 'and Leave anyway goes to the skill map');
+  await button(page, 'Start Level 1').click();
+  await page.waitForTimeout(600);
 
   const l1Texts = [];
-  const reinforced = await playLevel(page, { pick: (i) => (i === 0 ? 3 : 0), texts: l1Texts });
+  const reinforced = await playLevel(page, { pick: (i) => (i === 0 ? 'wrong' : 'right'), texts: l1Texts });
   check(reinforced > 0, 'a missed question shows "Take another look" and must be answered correctly');
   const TIP_QUESTION = 'Pick one, then tap Check.';
   const TIP_MISS = 'Missing one costs you nothing.';
@@ -224,6 +235,15 @@ try {
   await home(page);
   check(/Up next/i.test(await bodyText(page)) && (await page.getByRole('button', { name: /^Open Science, level 1, learning now$/ }).count()) === 1, 'Home shows each subject and its level, and what is up next');
 
+  // Deep links (a refresh, a shared link) load straight into the screen, with no hydration errors (React #418).
+  const errorsBefore = errors.length;
+  await page.goto(`${URL}level/level.science.astronomy.002`);
+  await page.waitForTimeout(2000);
+  check(/Astronomy · Level 2/.test(await bodyText(page)) && errors.length === errorsBefore, `a deep link to a level opens it without page errors ${errors.slice(errorsBefore).join('; ')}`);
+  await page.goto(`${URL}skill/skill.science.astronomy`);
+  await page.waitForTimeout(1500);
+  check((await button(page, 'Start Level 2').count()) > 0 && errors.length === errorsBefore, `a deep link to a skill map opens it without page errors ${errors.slice(errorsBefore).join('; ')}`);
+
   // Leaving a level partway: Dr. Scroll checks first, and the level starts over next time.
   await questMap(page);
   await button(page, 'Start Level 2').click();
@@ -232,6 +252,13 @@ try {
   await button(page, 'Continue').click();
   await button(page, 'Continue').click();
   const midway = (await bodyText(page)).slice(0, 200);
+  // The browser's Back button asks too (web), instead of dropping the level silently.
+  await page.goBack();
+  await page.waitForTimeout(500);
+  check(/this level starts over from the beginning next time/.test(await bodyText(page)), 'browser Back on a started level asks first');
+  await exactButton(page, 'Keep going').click();
+  await page.waitForTimeout(300);
+  check((await bodyText(page)).slice(0, 200) === midway && /\/level\//.test(page.url()), 'and Keep going stays on the same card');
   await button(page, 'Leave level').click();
   await page.waitForTimeout(300);
   check(/this level starts over from the beginning next time/.test(await bodyText(page)), 'leaving partway, Dr. Scroll warns the level will start over');
@@ -296,6 +323,11 @@ try {
     }
   }
   check(ranOut, 'a first day runs out of Brainpower before Level 10');
+  {
+    const at = [0, 1, 2, 3].map((k) => rightPositions.filter((p) => p === k).length);
+    check(rightPositions.length >= 20 && at.filter((n) => n > 0).length >= 3 && Math.max(...at) < rightPositions.length * 0.6,
+      `answer options are shuffled: right answers shown at A/B/C/D ${at.join('/')}`);
+  }
   await home(page);
   await page.getByRole('tab', { name: /Profile/ }).click();
   await page.waitForTimeout(800);

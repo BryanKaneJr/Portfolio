@@ -16,6 +16,7 @@ Typical normal level:
 - Roughly 150–320 words total, depending on topic.
 - Optional image, map, timeline, diagram, comparison, or connection card.
 - 3 questions. Besides multiple choice, about one a level is a match or an order question (owner, 2026-10-03): concrete pairs or a sequence with one right answer, graded by label (identical labels interchangeable), dragged or tapped into place. Same first-attempt rules: only the first Check counts, a miss marks the wrong positions and shows the source cards, and the answer is never revealed.
+- Multiple-choice options (fill in the blank too) show in a stable shuffled order per question (owner, 2026-10-03: the right answer sat second far too often), or smallest first when every option is a number or quantity. Display only: grading stays by option id.
 - Roughly 3–6 minutes total.
 
 The normal three questions should generally cover:
@@ -56,7 +57,7 @@ Core rule:
 
 > First-attempt retention determines reward quality. Correct resolution determines progression.
 
-**Leaving a level partway starts it over** (owner, 2026-10-02: "if you close a level, you start back at the beginning of it when you reopen it"). The app keeps no memory of a level in progress: closing it, going back or quitting the app means it opens on its first card next time. Before a level is left partway, Dr. Scroll checks ("If you leave now, this level starts over from the beginning next time.") with Keep going and Leave anyway. Starting over never changes what the level pays: first attempts are recorded server-side when checked, so answering again only resolves.
+**Leaving a level partway starts it over** (owner, 2026-10-02: "if you close a level, you start back at the beginning of it when you reopen it"). The app keeps no memory of a level in progress: closing it, going back or quitting the app means it opens on its first card next time. Before a level is left partway, Dr. Scroll checks ("If you leave now, this level starts over from the beginning next time. Your first answers still count.") with Keep going and Leave anyway. Starting over never changes what the level pays: first attempts are recorded server-side when checked, so answering again only resolves.
 
 ## 4. Regular-level XP: first attempt only
 

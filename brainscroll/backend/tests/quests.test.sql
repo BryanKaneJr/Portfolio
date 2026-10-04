@@ -84,11 +84,16 @@ reset role;
 do $$ begin
   assert not pg_temp.awarded('quest_step:quest.live:skill.science.testing'), 'a goal half met earns no Brainpower yet';
 end $$;
+-- Met by a level started at 10: the level spends first (10 → 9), so the goal's +1 is kept (→ 10), as in core.
+update public.user_brainpower set balance = 10, as_of = public.brainpower_today(user_id) where user_id = '00000000-0000-0000-0000-00000000000a';
 set role authenticated;
 select pg_temp.clear_testing(2);
 reset role;
 do $$ begin
   assert pg_temp.awarded('quest_step:quest.live:skill.science.testing'), 'meeting a quest goal earns +1 Brainpower';
+  assert (select granted from public.brainpower_awards where user_id = '00000000-0000-0000-0000-00000000000a'
+          and award_key = 'quest_step:quest.live:skill.science.testing') = 1, 'a goal met on a level started at 10 is kept';
+  assert (select balance from public.user_brainpower where user_id = '00000000-0000-0000-0000-00000000000a') = 10, '10 → 9 → 10';
   assert (select kind from public.brainpower_awards where award_key = 'quest_step:quest.live:skill.science.testing') = 'quest_step';
   assert not pg_temp.awarded('quest_step:quest.past:skill.science.testing'), 'not for a quest you have not taken on';
 end $$;
@@ -126,6 +131,8 @@ begin
   r := public.complete_quest('quest.live');
   assert (r ->> 'xp_awarded')::int = 50 and (r ->> 'live_clear')::boolean and r -> 'trophy' ->> 'trophy_id' = 'trophy.live',
     format('a live-week clear pays the bonus and the trophy: %s', r);
+  assert r -> 'daily' -> 'brainpower_earned' @> '[{"key": "quest:quest.live", "kind": "quest"}, {"key": "trophy:trophy.live", "kind": "trophy"}]',
+    format('what the finish paid comes back with it: %s', r -> 'daily');
   r := public.complete_quest('quest.live');
   assert (r ->> 'xp_awarded')::int = 0 and (r ->> 'live_clear')::boolean, 'finishing again changes nothing';
   assert pg_temp.quest('quest.live') ->> 'state' = 'completed', 'the quest shows as finished';

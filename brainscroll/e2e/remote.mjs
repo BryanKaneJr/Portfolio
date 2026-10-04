@@ -216,6 +216,7 @@ try {
   await page.waitForTimeout(1500);
   const questDone = await bodyText(page);
   check(/Quest complete/i.test(questDone) && /Trophy: The Roman World/.test(questDone), 'finishing in its week earns the trophy');
+  check(/Quest goal reached|Quest complete\s*\+1|Trophy unlocked[^\n]*\s*\+1|Brainpower Full/.test(questDone), 'Quest Complete shows the Brainpower the finish paid');
   check(Number(sql('select sum(amount) from public.xp_events')) === questXpBefore + 50 && sql(`select count(*) from public.xp_events where type = 'QUEST_COMPLETE'`) === '1', 'and the quest\'s +50 XP, once');
   check(sql(`select trophy_id from public.user_trophies where user_id = '${learnerId}'`) === 'trophy.roman_world', 'the trophy is recorded on the server');
   await exactButton(page, 'Done').click();

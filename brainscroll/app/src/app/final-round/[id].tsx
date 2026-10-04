@@ -4,8 +4,10 @@ import { track } from '@/analytics/track';
 import { useEffect, useRef, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { BrainpowerEarned } from '@/components/BrainpowerEarned';
+import { BrainpowerFlight, NO_DAILY } from '@/components/BrainpowerFlight';
 import { LearningCard } from '@/components/cards/LearningCard';
-import { feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
+import { canCheck, feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { Body, Button, Caption, DrScroll, Eyebrow, H1, LessonShell, LessonSkeleton, LevelArt, LoadError, Notice, Numeral, Pop, Reveal, useCountUp } from '@/components/ui';
 import { getCard, getSkill, levelMeta } from '@/content';
 import type { FinalRoundItem } from '@/progress/backend';
@@ -129,7 +131,7 @@ export default function FinalRoundScreen() {
 
   const onCheck = () => {
     const optionId = selected;
-    if (!optionId || resolved || inFlight.current || !id) return;
+    if (!canCheck(itemAttempts, optionId) || resolved || inFlight.current || !id) return;
     inFlight.current = true;
     setAnswering(true);
     setError(null);
@@ -173,7 +175,7 @@ export default function FinalRoundScreen() {
             }}
           />
         ) : (
-          <Button label={answering ? 'Checking' : 'Check'} loading={answering} disabled={!selected} onPress={onCheck} />
+          <Button label={answering ? 'Checking' : 'Check'} loading={answering} disabled={!canCheck(itemAttempts, selected)} onPress={onCheck} />
         )
       }>
       <Caption>
@@ -203,6 +205,7 @@ function QuestComplete({ title, art, trophyName, titleReward, result, onDone }: 
   const others = useNewTrophies(result.questId, result.trophy?.trophyId);
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: color.bgDeep, padding: layout.gutter }}>
+      <BrainpowerFlight daily={result.daily ?? NO_DAILY}>
       {/* Scrolls on small phones: the trophy, the XP and any other trophies can outgrow the screen. */}
       <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', gap: space.lg, alignItems: 'center', paddingVertical: space.lg }}>
         <DrScroll spot="quest.complete" size="md" />
@@ -242,8 +245,16 @@ function QuestComplete({ title, art, trophyName, titleReward, result, onDone }: 
             {result.liveClear ? 'Finished in its week. That one’s yours for good.' : 'Finished from the Archive: the knowledge and the XP are yours.'}
           </Body>
         </Reveal>
+        {result.daily && result.daily.brainpowerEarned.length > 0 && (
+          <View style={{ alignSelf: 'stretch' }}>
+            <Reveal delay={600}>
+              <BrainpowerEarned daily={result.daily} at={600} />
+            </Reveal>
+          </View>
+        )}
       </ScrollView>
       <Button label="Done" onPress={onDone} />
+      </BrainpowerFlight>
     </SafeAreaView>
   );
 }

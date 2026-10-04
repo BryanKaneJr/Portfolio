@@ -1,6 +1,6 @@
-import { blankParts, type Card, type Question } from '@brainscroll/core';
+import { blankParts, optionLetter, shuffledOptions, type Card, type Question } from '@brainscroll/core';
 import { View } from 'react-native';
-import { AnswerOption, Body, EvidenceBlock, Eyebrow, FeedbackPanel, H2, type AnswerState } from '@/components/ui';
+import { AnswerOption, Body, EvidenceBlock, Eyebrow, FeedbackPanel, H2, RadioGroup, type AnswerState } from '@/components/ui';
 import type { AttemptView } from '@/progress/ProgressProvider';
 import { space } from '@/theme/tokens';
 import { MatchQuestion, OrderQuestion } from './ArrangeQuestions';
@@ -71,11 +71,12 @@ export function QuestionCard({
       ) : blank ? (
         <FillBlankQuestion key={question.id} question={question} before={blank.before} after={blank.after} stateOf={stateOf} onSelect={onSelect} />
       ) : (
-        <View style={{ gap: space.md }} accessibilityRole="radiogroup">
-          {question.options.map((o) => (
-            <AnswerOption key={o.id} letter={o.id} label={o.label} state={stateOf(o.id)} onPress={() => onSelect(o.id)} />
+        // Shown in a stable shuffled order (core shuffledOptions), lettered as shown; picks still travel by option id.
+        <RadioGroup label={question.prompt}>
+          {shuffledOptions(question).map((o, i) => (
+            <AnswerOption key={o.id} letter={optionLetter(i)} label={o.label} state={stateOf(o.id)} onPress={() => onSelect(o.id)} />
           ))}
-        </View>
+        </RadioGroup>
       )}
 
       {/* Under the choices, so a miss never pushes them off screen (UX review C2). */}
@@ -111,13 +112,20 @@ export function questionStatus(attempts: AttemptView[]) {
 export function QuestionFeedback({ attempts }: { attempts: AttemptView[] }) {
   const s = questionStatus(attempts);
   // Keyed by attempt, so every verdict (even a second "Not quite") arrives and is announced afresh.
-  if (s.resolvedBy)
+  if (s.resolvedBy) {
+    // Right first time here, but a level left partway and started again keeps its first answers: a miss then still counts.
+    const missedBefore = s.firstTry && s.resolvedBy.firstAttemptCorrect === false;
     return (
-      <FeedbackPanel key={attempts.length} tone="success" mascot="feedback.correct" title={s.firstTry ? 'Correct' : 'Got it: reinforced'}>
+      <FeedbackPanel key={attempts.length} tone="success" mascot="feedback.correct" title={s.firstTry && !missedBefore ? 'Correct' : 'Got it: reinforced'}>
         {s.resolvedBy.explanation ? <Body>{s.resolvedBy.explanation}</Body> : null}
-        {!s.firstTry && <Body muted>We’ll bring this back later so it sticks.</Body>}
+        {missedBefore ? (
+          <Body muted>Your first answer from last time still counts, so we’ll bring this back later.</Body>
+        ) : (
+          !s.firstTry && <Body muted>We’ll bring this back later so it sticks.</Body>
+        )}
       </FeedbackPanel>
     );
+  }
   if (s.lastWrong)
     return (
       <FeedbackPanel key={attempts.length} tone="reinforce" mascot="feedback.wrong" title="Not quite">
@@ -133,6 +141,13 @@ function wrongLine(a: AttemptView): string {
   if (a.wrong) return a.wrong.length === 1 ? 'One is in the wrong place.' : `${a.wrong.length} are in the wrong place.`;
   return 'That one doesn’t fit.';
 }
+
+/**
+ * Whether CHECK is live: something is chosen, and it isn't an answer already
+ * checked (an arrangement put back the way it was checked). Same everywhere a
+ * question is asked, so CHECK is never a button that silently does nothing.
+ */
+export const canCheck = (attempts: AttemptView[], selected: string | undefined): selected is string => !!selected && !attempts.some((a) => a.optionId === selected);
 
 export function feedbackTone(attempts: AttemptView[]): 'success' | 'reinforce' | undefined {
   const s = questionStatus(attempts);

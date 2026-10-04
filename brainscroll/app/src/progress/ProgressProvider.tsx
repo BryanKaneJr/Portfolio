@@ -41,6 +41,11 @@ export interface AttemptView {
   /** Match and order: the positions that were wrong. */
   wrong?: number[];
   explanation?: string;
+  /**
+   * The recorded first attempt, when the server says so (levels). False on a
+   * right answer means an earlier visit missed it first: that still counts.
+   */
+  firstAttemptCorrect?: boolean;
 }
 
 /**
@@ -407,7 +412,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         const session = sessionsRef.current[level.id];
         if (session) {
           const prev = session.attempts[questionId] ?? [];
-          const attempt: AttemptView = { optionId, correct: result.correct, rationale: result.rationale, explanation: result.explanation };
+          const attempt: AttemptView = { optionId, correct: result.correct, rationale: result.rationale, wrong: result.wrong, explanation: result.explanation, firstAttemptCorrect: result.firstAttemptCorrect };
           commitSessions({ ...sessionsRef.current, [level.id]: { ...session, attempts: { ...session.attempts, [questionId]: [...prev, attempt] } } });
         }
         return result;

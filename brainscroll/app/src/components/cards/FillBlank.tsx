@@ -1,7 +1,7 @@
-import type { Question } from '@brainscroll/core';
+import { shuffledOptions, type Question } from '@brainscroll/core';
 import { useState } from 'react';
 import { Animated, Pressable, StyleSheet, Text, View, type LayoutChangeEvent } from 'react-native';
-import { H2, type AnswerState } from '@/components/ui';
+import { RadioGroup, type AnswerState } from '@/components/ui';
 import { usePop } from '@/components/ui/motion';
 import { color, depth, radius, space, type } from '@/theme/tokens';
 
@@ -15,8 +15,10 @@ type Mcq = Extract<Question, { kind: 'mcq' }>;
  * chip, CHECK. Tap the chip in the gap (or its outline in the bank) to take it
  * back.
  *
- * Screen readers hear the whole sentence, with "blank" or the chosen answer in
- * the gap, and the chips are the same radio group as a normal question.
+ * Screen readers hear the whole sentence once, as one heading, with "blank"
+ * or the chosen answer in the gap (its words are hidden one by one), and the
+ * chips are the same radio group as a normal question, in the same stable
+ * shuffled order (core shuffledOptions).
  */
 export function FillBlankQuestion({
   question,
@@ -33,12 +35,13 @@ export function FillBlankQuestion({
 }) {
   const [sizes, setSizes] = useState<Record<string, { w: number; h: number }>>({});
   const [rowWidth, setRowWidth] = useState(0);
+  const options = shuffledOptions(question);
   const measured = Object.values(sizes);
   const gapWidth = Math.min(Math.max(80, ...measured.map((s) => s.w)), rowWidth || Infinity);
   const gapHeight = Math.max(40, ...measured.map((s) => s.h));
 
   // In the gap: the right answer once found, else the current pick (a wrong pick goes back, crossed out).
-  const filled = question.options.find((o) => stateOf(o.id) === 'correct') ?? question.options.find((o) => ['selected', 'checking'].includes(stateOf(o.id)));
+  const filled = options.find((o) => stateOf(o.id) === 'correct') ?? options.find((o) => ['selected', 'checking'].includes(stateOf(o.id)));
   const filledState = filled ? stateOf(filled.id) : undefined;
   const canTakeBack = filledState === 'selected';
   const pop = usePop(filled?.id ?? null, { from: 0.6 });
@@ -59,7 +62,7 @@ export function FillBlankQuestion({
         onLayout={(e: LayoutChangeEvent) => setRowWidth(e.nativeEvent.layout.width)}
         style={styles.sentence}>
         {beforeWords.map((w, i) => (
-          <H2 key={`b${i}`}>{w}</H2>
+          <Word key={`b${i}`}>{w}</Word>
         ))}
         <View style={styles.stuck}>
           <View style={[styles.gap, { width: gapWidth, height: gapHeight }]}>
@@ -69,22 +72,22 @@ export function FillBlankQuestion({
               </Animated.View>
             )}
           </View>
-          {stuck ? <H2>{stuck}</H2> : null}
+          {stuck ? <Word>{stuck}</Word> : null}
         </View>
         {afterWords.map((w, i) => (
-          <H2 key={`a${i}`}>{w}</H2>
+          <Word key={`a${i}`}>{w}</Word>
         ))}
       </View>
 
-      <View style={styles.bank} accessibilityRole="radiogroup">
-        {question.options.map((o) => {
+      <RadioGroup label={spoken} style={styles.bank}>
+        {options.map((o) => {
           const state = stateOf(o.id);
           const inGap = o.id === filled?.id;
           return (
             <Pressable
               key={o.id}
               accessibilityRole="radio"
-              accessibilityLabel={inGap ? `${o.label}, in the blank` : state === 'eliminated' ? `${o.label}, crossed out` : o.label}
+              accessibilityLabel={inGap ? (state === 'correct' ? `${o.label}, correct` : `${o.label}, in the blank`) : state === 'eliminated' ? `${o.label}, crossed out` : o.label}
               aria-checked={inGap}
               aria-disabled={!inGap && state !== 'idle'}
               disabled={inGap ? !canTakeBack : state !== 'idle'}
@@ -93,11 +96,11 @@ export function FillBlankQuestion({
             </Pressable>
           );
         })}
-      </View>
+      </RadioGroup>
 
       {/* Every option measured off-screen at chip size, so the gap fits the longest before anything is picked. */}
-      <View style={styles.measure} pointerEvents="none" accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
-        {question.options.map((o) => (
+      <View style={styles.measure} pointerEvents="none" aria-hidden accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
+        {options.map((o) => (
           <View
             key={o.id}
             style={{ alignSelf: 'flex-start' }}
@@ -110,6 +113,15 @@ export function FillBlankQuestion({
         ))}
       </View>
     </View>
+  );
+}
+
+/** One word of the sentence, in the heading's style. Hidden on its own: the sentence is read whole, from the heading's label. */
+function Word({ children }: { children: string }) {
+  return (
+    <Text aria-hidden style={styles.word}>
+      {children}
+    </Text>
   );
 }
 
@@ -155,6 +167,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   label: { ...type.choice, color: color.text, textAlign: 'center' },
+  word: { ...type.h2, color: color.text },
 });
 
 const chipStyle: Record<ChipState, object> = {

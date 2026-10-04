@@ -1,4 +1,4 @@
-import type { DailyAllowance } from '@brainscroll/core';
+import { BRAINPOWER, type DailyAllowance } from '@brainscroll/core';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { Animated, Easing, View } from 'react-native';
 import { BrainpowerIcon } from '@/components/BrainpowerIcon';
@@ -23,6 +23,9 @@ interface Flight {
   launch(from: Point, granted: 0 | 1): void;
 }
 const FlightContext = createContext<Flight | null>(null);
+
+/** Nothing earned: for a result that carries no daily status (a repeat, an older server). */
+export const NO_DAILY: DailyAllowance = { cap: null, used: 0, remaining: null, dailyComplete: false, brainpower: null, brainpowerMax: BRAINPOWER.MAX, brainpowerRefill: BRAINPOWER.DAILY_REFILL, brainpowerEarned: [] };
 export const useBrainpowerFlight = () => useContext(FlightContext);
 
 const SPARK = 30;

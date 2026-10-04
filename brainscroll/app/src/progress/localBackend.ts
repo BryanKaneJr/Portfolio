@@ -218,8 +218,8 @@ export function createLocalBackend(): ProgressBackend {
     async completeQuest(questId) {
       const now = new Date();
       const r = completeQuest(current(), questDef(questId), now);
-      commit(withTrophyBrainpower(r.state, now));
-      return r.result;
+      const state = commit(withTrophyBrainpower(r.state, now));
+      return { ...r.result, daily: dailyOf(state, now) };
     },
     async startChapterReview(skillId, chapter) {
       const r = startChapterReview(current(), { skillId, chapter, reviewId: newIdempotencyKey(), now: new Date(), questionsFor: (levelId) => getLevel(levelId)?.questions });
@@ -247,8 +247,10 @@ export function createLocalBackend(): ProgressBackend {
     async submitReview(item, optionId) {
       const now = new Date();
       const r = submitReview(current(), { item, optionId, now });
-      commit(withTrophyBrainpower(r.state, now));
-      return r.result;
+      const state = commit(withTrophyBrainpower(r.state, now));
+      // A recorded first attempt (as SQL returns it): what it paid, if anything.
+      const recorded = r.result.scheduled && r.result.attemptCount === 1;
+      return recorded ? { ...r.result, daily: dailyOf(state, now) } : r.result;
     },
     async entitlement() {
       const grant = user ? await load<DevUnlimitedGrant>(`${DEV_UNLIMITED_KEY}:${user.userId}`) : null;
