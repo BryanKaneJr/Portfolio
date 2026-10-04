@@ -1,9 +1,9 @@
-import { dayNumber, MASCOT_NAME, spotPose, type MascotPose, type MascotSpot } from '@brainscroll/core';
+import { dayNumber, MASCOT_NAME, MASCOT_SPOTS, spotPose, type MascotPose, type MascotSpot } from '@brainscroll/core';
 import { useEffect, useMemo, useState } from 'react';
 import { Animated, Easing, Image, Pressable, StyleSheet, Text, View, type ViewStyle } from 'react-native';
 import { useReduceMotion } from '@/theme/feedback';
 import { color, radius, space, type } from '@/theme/tokens';
-import { MASCOT_ANIMATIONS, type MascotAnimationName } from './mascotAnim';
+import { MASCOT_ANIMATIONS, POSE_ANIMATION, type MascotAnimationName } from './mascotAnim';
 import { mascotArt } from './mascotArt';
 import { spring } from './motion';
 
@@ -29,6 +29,10 @@ const labelOf = (p: Placement) => (p.spot ? `mascot:${p.spot}` : `mascot:pose:${
 export function DrScroll({ size = 'md', style, animation, ...placement }: Placement & { size?: MascotSize | number; style?: ViewStyle; animation?: MascotAnimationName }) {
   const px = typeof size === 'number' ? size : SIZE[size];
   const reduce = useReduceMotion();
+  // A pose with an animation plays it, except inside lessons (they stay calm) and with reduce motion (the still).
+  const lesson = !!placement.spot && 'lesson' in MASCOT_SPOTS[placement.spot];
+  const posed = lesson || reduce ? undefined : POSE_ANIMATION[poseOf(placement)];
+  const play = animation ?? posed;
   const [arrive] = useState(() => new Animated.Value(reduce ? 1 : 0));
   useEffect(() => {
     if (reduce) return arrive.setValue(1);
@@ -49,8 +53,8 @@ export function DrScroll({ size = 'md', style, animation, ...placement }: Placem
       aria-hidden
       accessibilityElementsHidden
       importantForAccessibility="no-hide-descendants">
-      {animation ? (
-        <Sprite name={animation} px={px} reduce={reduce} />
+      {play ? (
+        <Sprite name={play} px={px} reduce={reduce} />
       ) : (
         <Image source={mascotArt(poseOf(placement), placement.pose ? undefined : placement.spot)} style={{ width: px, height: px }} resizeMode="contain" accessibilityIgnoresInvertColors />
       )}
@@ -60,7 +64,7 @@ export function DrScroll({ size = 'md', style, animation, ...placement }: Placem
 
 /**
  * One frame of a sprite sheet at a time, stepping through once and holding the
- * last. The sheet slides by whole frames on the native thread, timed by the
+ * last (or round and round, for a looping one). The sheet slides by whole frames on the native thread, timed by the
  * clock rather than by JS renders, so a busy JS thread can't slow him down
  * (a timer per frame played at about half speed on phones). Starts once the
  * sheet has loaded, so the first frames aren't spent on a blank square.
@@ -77,10 +81,11 @@ function Sprite({ name, px, reduce }: { name: MascotAnimationName; px: number; r
       const late = setTimeout(() => setLoaded(true), 400);
       return () => clearTimeout(late);
     }
-    const run = Animated.timing(t, { toValue: a.frames, duration: a.frames * a.frameMs, easing: Easing.linear, useNativeDriver: true });
+    const once = Animated.timing(t, { toValue: a.frames, duration: a.frames * a.frameMs, easing: Easing.linear, useNativeDriver: true });
+    const run = 'loop' in a && a.loop ? Animated.loop(once) : once;
     run.start();
     return () => run.stop();
-  }, [reduce, loaded, t, last, a.frames, a.frameMs]);
+  }, [reduce, loaded, t, last, a]);
   const move = useMemo(() => {
     // Frame i shows for t in [i, i + 1): a step for each frame, no sliding between them.
     const input: number[] = [];

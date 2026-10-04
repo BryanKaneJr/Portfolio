@@ -227,6 +227,13 @@ A spot can play a short animation instead of its still pose: `DrScrollSays anima
 | Animation | Where | What it does |
 |---|---|---|
 | `wave-point` | `social.empty` (Social, no friends yet) | Waves hello, then points to his right at his speech bubble. 57 frames at 24 fps, about 2.4 s |
+| `clapping` | the `clapping` pose: Level Complete on a replay, Review Complete | Claps, eyes closed and smiling. Loops, 73 frames |
+| `scratch-head` | the `tangled` pose: `error.load`, `not-found` | Scratches his head, puzzled. Loops, 96 frames |
+| `astronaut` | the `space-helmet` pose: the Astronomy map guide (one day in three) | Floats in his space helmet. Loops, 96 frames |
+| `bee-chase` | the `bee-chase` pose: a finished chapter on a skill map (`map.rest`) | Runs happily, a bee buzzing round him. Loops, 96 frames |
+| `yoga-wobble` | the `yoga-wobble` pose: `map.rest`, Out of Brainpower | Wobbles on one leg. Loops, 93 frames |
+
+**Poses that come to life:** `POSE_ANIMATION` in `mascotAnim.ts` ties a still pose to its animation, so wherever that pose shows (outside lessons, without reduce motion) the animation loops instead, and no screen has to ask for it. Lesson spots always keep the still, so learning mode stays calm. A looping animation must start and end on the same frame.
 
 **Making one:** export the animation from the generator as a **PNG ZIP with Transparent background ticked** (the MP4 export keeps the green screen). Frames are packed into one sprite sheet, `app/assets/images/mascot/anim/<name>.webp`: square frames cropped to the union of the figure across all frames, 240 px each, 8 across, WebP quality 75 (about 0.5 MB). Register it in `app/src/components/ui/mascotAnim.ts` with its frame count and speed. If an export ever still has the green screen, key it out (remove the green by its excess over red and blue, and take each edge pixel's colour from the solid figure just inside it, never from the green).
 

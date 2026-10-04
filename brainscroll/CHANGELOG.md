@@ -3,6 +3,11 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-04: Dr. Scroll comes to life
+
+- **Five new looping animations** (owner's exports): clapping, scratching his head, astronaut, bee chase and yoga wobble, each packed as a sprite sheet like the wave.
+- **Poses that come to life:** wherever the matching still pose shows outside a lesson, the animation loops instead. That puts them on the skill maps (the astronaut guiding Astronomy one day in three; the bee chase and yoga wobble goofing off in finished chapters), on Level Complete replays and Review Complete (clapping), on the can't-load and not-found screens (scratching his head), and on Out of Brainpower (yoga wobble). Lessons keep the stills; reduce motion shows the still everywhere.
+
 ## 2026-10-04: Leaner Level Complete, even match tiles, no league rules paragraph
 
 - **Level Complete** (owner: "streamlined and clean level up screens"): the skill card is a small emblem, "Level up" and the skill name, and one bar toward the next ★. Gone: the "Lv. 1 → 2" line, the big emblem, the "Long-term goal" heading and the Level 100 write-up, and the "Across BrainScroll" chips. The Brainpower card lists what was earned, without the "5 / 10" balance (the chip up top has it).
