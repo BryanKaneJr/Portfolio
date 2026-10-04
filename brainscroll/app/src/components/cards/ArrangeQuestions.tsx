@@ -302,14 +302,19 @@ export function MatchQuestion({ question: q, attempts, busy, onSelect }: { quest
   };
 
   return (
-    <View testID="match-question" style={{ flexDirection: 'row', gap: space.md }}>
-      <View style={{ flex: 1, gap: space.sm }}>
-        {lefts.map((label, i) => {
-          const n = assign[i] !== null ? i + 1 : undefined;
-          const state = resolved ? 'correct' : wrong.has(i) ? 'wrong' : left === i ? 'picked' : n ? 'paired' : 'idle';
-          return (
+    // One row per pair of tiles, so each tile is as tall as the one across from it (owner, 2026-10-04: "make boxes even").
+    <View testID="match-question" style={{ gap: space.sm }}>
+      {lefts.map((label, i) => {
+        const n = assign[i] !== null ? i + 1 : undefined;
+        const state = resolved ? 'correct' : wrong.has(i) ? 'wrong' : left === i ? 'picked' : n ? 'paired' : 'idle';
+        const j = i;
+        const rLabel = rights[j]!;
+        const owner = assign.indexOf(j);
+        const rn = owner >= 0 ? owner + 1 : undefined;
+        const rState = resolved ? 'correct' : owner >= 0 && wrong.has(owner) ? 'wrong' : right === j ? 'picked' : rn ? 'paired' : 'idle';
+        return (
+          <View key={i} style={{ flexDirection: 'row', gap: space.md }}>
             <MatchTile
-              key={`l${i}`}
               side="left"
               label={label}
               n={n}
@@ -318,28 +323,18 @@ export function MatchQuestion({ question: q, attempts, busy, onSelect }: { quest
               a11y={`${label}${state === 'picked' ? ', picked' : ''}${n ? `, matched with ${rights[assign[i]!]}` : ''}${state === 'wrong' ? ', not a match' : ''}`}
               onPress={() => tapLeft(i)}
             />
-          );
-        })}
-      </View>
-      <View style={{ flex: 1, gap: space.sm }}>
-        {rights.map((label, j) => {
-          const owner = assign.indexOf(j);
-          const n = owner >= 0 ? owner + 1 : undefined;
-          const state = resolved ? 'correct' : owner >= 0 && wrong.has(owner) ? 'wrong' : right === j ? 'picked' : n ? 'paired' : 'idle';
-          return (
             <MatchTile
-              key={`r${j}`}
               side="right"
-              label={label}
-              n={n}
-              state={state}
+              label={rLabel}
+              n={rn}
+              state={rState}
               locked={locked}
-              a11y={`${label}${state === 'picked' ? ', picked' : ''}${owner >= 0 ? `, matched with ${lefts[owner]}` : ''}${state === 'wrong' ? ', not a match' : ''}`}
+              a11y={`${rLabel}${rState === 'picked' ? ', picked' : ''}${owner >= 0 ? `, matched with ${lefts[owner]}` : ''}${rState === 'wrong' ? ', not a match' : ''}`}
               onPress={() => tapRight(j)}
             />
-          );
-        })}
-      </View>
+          </View>
+        );
+      })}
     </View>
   );
 }
@@ -381,7 +376,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: space.md,
   },
-  matchTile: { justifyContent: 'center', paddingHorizontal: space.sm },
+  matchTile: { flex: 1, justifyContent: 'center', paddingHorizontal: space.sm },
   idle: { borderColor: color.border, backgroundColor: color.surface },
   picked: { borderColor: color.brand, backgroundColor: color.brandSoft },
   paired: { borderColor: color.brand, backgroundColor: color.brandSoft },

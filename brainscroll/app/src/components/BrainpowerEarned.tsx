@@ -77,10 +77,13 @@ export function BrainpowerEarned({ daily, at = 0 }: { daily: DailyAllowance; at?
         );
       })}
       <View ref={fullLine} collapsable={false}>
-        <Row gap={space.xxs}>
-          <BrainpowerIcon size={iconSize.md} />
-          <Caption>{full && daily.brainpower >= daily.brainpowerMax ? `Brainpower Full · ${daily.brainpower} / ${daily.brainpowerMax}` : `${daily.brainpower} / ${daily.brainpowerMax}`}</Caption>
-        </Row>
+        {/* The balance lives in the chip up top (owner, 2026-10-04); only "full" is worth a line here. */}
+        {full && daily.brainpower >= daily.brainpowerMax && (
+          <Row gap={space.xxs}>
+            <BrainpowerIcon size={iconSize.md} />
+            <Caption>Brainpower Full</Caption>
+          </Row>
+        )}
       </View>
     </Card>
   );

@@ -1,4 +1,4 @@
-import { LEAGUE, leagueName, leaguePrize, ordinal, type LeagueView } from '@brainscroll/core';
+import { leagueName, leaguePrize, ordinal, type LeagueView } from '@brainscroll/core';
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
@@ -48,7 +48,7 @@ export default function LeagueScreen() {
       ) : (
         <>
           {league.members.length <= 1 && <Body>{LEAGUE_OF_ONE}</Body>}
-          <Caption>{`Ranked by XP earned this week. When it ends, the top 3 win ${LEAGUE.PRIZES.map((x) => x.toLocaleString('en-US')).join(' / ')} XP if they earned XP this week and someone finished behind them. Then a new league starts with learners near your brain level.`}</Caption>
+          {/* No rules paragraph (owner, 2026-10-04): the standings explain themselves. */}
           <Card variant="plain" style={{ paddingVertical: space.xs, paddingHorizontal: 0, gap: 0 }}>
             {league.members.map((m, i) => {
               const place = i + 1;
