@@ -3,6 +3,14 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-04: Faster skill maps, lessons and Level Complete
+
+A performance check (production web build, CPU slowed 4x and 6x to stand in for a phone, against the real server code) found three problems that a release build would have too:
+
+- **Screens out of sight no longer redraw.** Every card and answer used to re-render every screen underneath the lesson, including the 100-level skill map, so lessons slowed down after the first map visit (card to card 0.18 s became 0.8 s). Screens now freeze while hidden (`freezeOnBlur`), the progress context shares only whether a level is open rather than every session, and the quest and social loaders no longer refetch on unrelated updates.
+- **The skill map draws chapters as they come near.** It used to draw all ten chapters' waypoints, road, art and Dr. Scroll at once (2 to 3.5 s). Now the chapter you're in and its neighbours draw first; the rest are banners of their exact height that fill in as you scroll, so nothing jumps.
+- **Fewer waits on the server in a row.** Launch no longer waits for the timezone update or the sign-in options when you're already signed in; your plan, progress and this week's quests load together; Level Complete shows as soon as the level is saved, with progress refreshing behind it (the streak chip pops in when it lands).
+
 ## 2026-10-04: Dr. Scroll comes to life
 
 - **Five new looping animations** (owner's exports): clapping, scratching his head, astronaut, bee chase and yoga wobble, each packed as a sprite sheet like the wave.

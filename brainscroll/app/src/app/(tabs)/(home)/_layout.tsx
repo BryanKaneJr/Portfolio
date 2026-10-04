@@ -9,5 +9,5 @@ import { color } from '@/theme/tokens';
 export default function HomeStack() {
   // Map to region to skill slides in; with Reduce Motion it fades.
   const reduce = useReduceMotion();
-  return <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: color.bg }, animation: reduce ? 'fade' : 'default' }} />;
+  return <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: color.bg }, animation: reduce ? 'fade' : 'default', freezeOnBlur: true }} />;
 }

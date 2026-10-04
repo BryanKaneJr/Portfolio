@@ -77,7 +77,13 @@ interface ProgressContextValue {
   reconnect(): Promise<void>;
   backend: 'local' | 'remote';
   snapshot: ProgressSnapshot;
-  sessions: Record<string, LevelSession>;
+  /**
+   * Whether any level is open partway. Only this flag is shared, not the
+   * sessions themselves: they change on every card, and putting them in the
+   * context re-rendered every mounted screen (the skill map underneath a
+   * lesson) on each step. The level screen keeps its own copy.
+   */
+  hasOpenLevel: boolean;
   lastSummary: CompletionSummary | undefined;
   /** Set when the last completed level was the day's first learning: the streak it made (for Level Complete). */
   streakMoment: number | undefined;
@@ -197,7 +203,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   }, []);
   const [reconnecting, setReconnecting] = useState(false);
   const [snapshot, setSnapshot] = useState<ProgressSnapshot>(EMPTY_SNAPSHOT);
-  const [sessions, setSessions] = useState<Record<string, LevelSession>>({});
+  const [hasOpenLevel, setHasOpenLevel] = useState(false);
   const [lastSummary, setLastSummary] = useState<CompletionSummary>();
   const [streakMoment, setStreakMoment] = useState<number>();
   const [onboarded, setOnboarded] = useState(false);
@@ -209,7 +215,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const [entitlement, setEntitlement] = useState<EntitlementView>(NO_ENTITLEMENT);
   const purchases = useMemo(() => createPurchases(BACKEND_KIND), []);
   // Synchronous mirrors for handlers.
-  const sessionsRef = useRef(sessions);
+  const sessionsRef = useRef<Record<string, LevelSession>>({});
   const snapshotRef = useRef(snapshot);
   const accountRef = useRef<AccountState | null>(null);
 
@@ -231,9 +237,15 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     setSnapshot(s);
   }, [backendOrThrow]);
 
+  /**
+   * Quests fetched alongside progress on entering an account, handed to the
+   * first screen that asks (Home, straight after) while still fresh.
+   */
+  const primedQuests = useRef<{ at: number; view: Promise<QuestsView> } | null>(null);
+
   const commitSessions = useCallback((next: Record<string, LevelSession>) => {
     sessionsRef.current = next;
-    setSessions(next);
+    setHasOpenLevel(Object.keys(next).length > 0);
   }, []);
 
   /** Loads everything that belongs to this account: its server progress and its device-side state. */
@@ -242,8 +254,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       accountRef.current = next;
       if (next.status !== 'signed_in') {
         setOffline(false);
-        sessionsRef.current = {};
-        setSessions({});
+        commitSessions({});
         snapshotRef.current = EMPTY_SNAPSHOT;
         setSnapshot(EMPTY_SNAPSHOT);
         setLastSummary(undefined);
@@ -267,21 +278,26 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       ]);
       seenTipsRef.current = tips ?? [];
       setSeenTips(tips ?? []);
-      sessionsRef.current = {};
-      setSessions({});
+      commitSessions({});
       setActiveSkillId(active);
-      setEntitlement(await backendOrThrow().entitlement().catch(() => NO_ENTITLEMENT));
+      // The plan, progress and this week's quests in one go, not one after another.
+      primedQuests.current = { at: Date.now(), view: backendOrThrow().quests() };
+      primedQuests.current.view.catch(() => {});
       let reached = true;
-      await refresh().catch(() => {
-        reached = false;
-      });
+      const [e] = await Promise.all([
+        backendOrThrow().entitlement().catch(() => NO_ENTITLEMENT),
+        refresh().catch(() => {
+          reached = false;
+        }),
+      ]);
+      setEntitlement(e);
       setOffline(!reached);
       // Progress comes with the account: anyone who has cleared a level (on any device) has onboarded.
       // Offline, we can't tell yet; the offline state shows instead, and reconnecting decides.
       setOnboarded(o === true || snapshotRef.current.completedLevels.length > 0 || !reached);
       setAccount(next);
     },
-    [refresh, backendOrThrow, purchases, setOffline],
+    [refresh, backendOrThrow, purchases, setOffline, commitSessions],
   );
 
   /** After any store change: the server re-reads the store, then the cap and plan refresh. */
@@ -303,8 +319,11 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
           // Events are only ever sent under a signed-in account; while signed out they wait in the queue.
           accountRef.current?.status === 'signed_in' ? backend.logEvents(events) : Promise.reject(new AccountError('NOT_SIGNED_IN')),
         );
-        const [a, methods] = await Promise.all([backend.account(), backend.signInMethods()]);
-        setSignInMethods(methods);
+        const a = await backend.account();
+        // Signed in, the sign-in options aren't needed yet: read them without holding up launch.
+        const methods = backend.signInMethods();
+        if (a.status === 'signed_in') void methods.then(setSignInMethods, () => {});
+        else setSignInMethods(await methods);
         await enter(a);
         track('app_open', { backend: backend.kind });
       } catch (e) {
@@ -358,6 +377,43 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     [enter],
   );
 
+  // Stable across progress changes, so screens that load with them (useSocial,
+  // useQuests) don't refetch on every unrelated update.
+  const social = useMemo<SocialApi>(
+    () => ({
+      view: () => backendOrThrow().social(),
+      async league() {
+        const r = await backendOrThrow().league();
+        // Opening the league pays last week's podium: bring the XP up to date.
+        if (r.lastWeek?.xp) await refresh().catch(() => {});
+        return r;
+      },
+      feed: () => backendOrThrow().feed(),
+      profile: (userId) => backendOrThrow().socialProfile(userId),
+      setUsername: (name) => backendOrThrow().setUsername(name),
+      setAvatar: (avatar) => backendOrThrow().setAvatar(avatar),
+      findUser: (username) => backendOrThrow().findUser(username),
+      sendFriendRequest: (userId) => backendOrThrow().sendFriendRequest(userId),
+      respondFriendRequest: (fromId, accept) => backendOrThrow().respondFriendRequest(fromId, accept),
+      removeFriend: (userId) => backendOrThrow().removeFriend(userId),
+      acceptInvite: (code) => backendOrThrow().acceptInvite(code),
+      blockUser: (userId) => backendOrThrow().blockUser(userId),
+      blocked: () => backendOrThrow().blockedUsers(),
+      unblockUser: (userId) => backendOrThrow().unblockUser(userId),
+      reportUser: (userId, reason, note) => backendOrThrow().reportUser(userId, reason, note),
+      react: (ownerId, itemKey, reaction) => backendOrThrow().react(ownerId, itemKey, reaction),
+      setNotifications: (on) => backendOrThrow().setSocialNotifications(on),
+      setPrivateProfile: (on) => backendOrThrow().setPrivateProfile(on),
+      registerPushToken: (token, platform) => backendOrThrow().registerPushToken(token, platform),
+    }),
+    [backendOrThrow, refresh],
+  );
+  const quests = useCallback(() => {
+    const primed = primedQuests.current;
+    primedQuests.current = null;
+    return primed && Date.now() - primed.at < 10_000 ? primed.view.catch(() => backendOrThrow().quests()) : backendOrThrow().quests();
+  }, [backendOrThrow]);
+
   const value = useMemo<ProgressContextValue>(
     () => ({
       ready,
@@ -367,7 +423,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       reconnect,
       backend: BACKEND_KIND,
       snapshot,
-      sessions,
+      hasOpenLevel,
       lastSummary,
       streakMoment,
       onboarded,
@@ -434,40 +490,22 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         const { [levelId]: _done, ...rest } = sessionsRef.current;
         commitSessions(rest);
         setLastSummary(summary);
-        // The level is saved; if the refresh after it fails, don't report the completion as failed.
-        await refresh().catch(() => setOffline(true));
-        const after = snapshotRef.current.streak;
-        setStreakMoment(!countedBefore && after.today ? after.current : undefined);
+        // The level is saved, so Level Complete shows now (it reads the summary) and progress
+        // refreshes behind it; the streak chip pops in when the refresh lands. If the refresh
+        // fails, the completion still stands.
+        setStreakMoment(undefined);
+        void refresh().then(
+          () => {
+            const after = snapshotRef.current.streak;
+            setStreakMoment(!countedBefore && after.today ? after.current : undefined);
+          },
+          () => setOffline(true),
+        );
         return summary;
       },
       reviewQueue: (limit = 10) => backendOrThrow().reviewQueue(limit),
-      social: {
-        view: () => backendOrThrow().social(),
-        async league() {
-          const r = await backendOrThrow().league();
-          // Opening the league pays last week's podium: bring the XP up to date.
-          if (r.lastWeek?.xp) await refresh().catch(() => {});
-          return r;
-        },
-        feed: () => backendOrThrow().feed(),
-        profile: (userId) => backendOrThrow().socialProfile(userId),
-        setUsername: (name) => backendOrThrow().setUsername(name),
-        setAvatar: (avatar) => backendOrThrow().setAvatar(avatar),
-        findUser: (username) => backendOrThrow().findUser(username),
-        sendFriendRequest: (userId) => backendOrThrow().sendFriendRequest(userId),
-        respondFriendRequest: (fromId, accept) => backendOrThrow().respondFriendRequest(fromId, accept),
-        removeFriend: (userId) => backendOrThrow().removeFriend(userId),
-        acceptInvite: (code) => backendOrThrow().acceptInvite(code),
-        blockUser: (userId) => backendOrThrow().blockUser(userId),
-        blocked: () => backendOrThrow().blockedUsers(),
-        unblockUser: (userId) => backendOrThrow().unblockUser(userId),
-        reportUser: (userId, reason, note) => backendOrThrow().reportUser(userId, reason, note),
-        react: (ownerId, itemKey, reaction) => backendOrThrow().react(ownerId, itemKey, reaction),
-        setNotifications: (on) => backendOrThrow().setSocialNotifications(on),
-        setPrivateProfile: (on) => backendOrThrow().setPrivateProfile(on),
-        registerPushToken: (token, platform) => backendOrThrow().registerPushToken(token, platform),
-      },
-      quests: () => backendOrThrow().quests(),
+      social,
+      quests,
       startQuest: (questId) => backendOrThrow().startQuest(questId),
       openFinalRound: (questId) => backendOrThrow().openFinalRound(questId),
       answerFinalRound: (questId, questionId, optionId) => backendOrThrow().answerFinalRound(questId, questionId, optionId),
@@ -565,7 +603,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         await resync();
       },
     }),
-    [ready, error, offline, reconnecting, reconnect, setOffline, snapshot, sessions, lastSummary, streakMoment, onboarded, seenTips, account, signInMethods, activeSkillId, entitlement, purchases, refresh, resync, commitSessions, backendOrThrow, userIdOrThrow, enter, signedIn],
+    [ready, error, offline, reconnecting, reconnect, setOffline, snapshot, hasOpenLevel, lastSummary, streakMoment, onboarded, seenTips, account, signInMethods, activeSkillId, entitlement, purchases, refresh, resync, commitSessions, social, quests, backendOrThrow, userIdOrThrow, enter, signedIn],
   );
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;
@@ -579,7 +617,7 @@ export function useProgress(): ProgressContextValue {
 
 /** Display-ready view of progress for Home, Skills and Profile. */
 export function useProgressView() {
-  const { snapshot, sessions } = useProgress();
+  const { snapshot, hasOpenLevel } = useProgress();
   const skillViews = skills.map((s) => {
     const p = snapshot.skills[s.id];
     return { ...s, view: skillProgressView(p?.highestCleared ?? 0), xp: p?.totalXp ?? 0 };
@@ -592,7 +630,7 @@ export function useProgressView() {
     today: snapshot.daily,
     reviewsDue: snapshot.reviewsDue,
     streak: snapshot.streak,
-    sessions,
+    hasOpenLevel,
   };
 }
 

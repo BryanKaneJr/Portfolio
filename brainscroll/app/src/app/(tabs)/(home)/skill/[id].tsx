@@ -1,6 +1,6 @@
 import { Redirect, router, useLocalSearchParams } from 'expo-router';
-import { useEffect, useRef, useState } from 'react';
-import { View, type ScrollView } from 'react-native';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { useWindowDimensions, View, type ScrollView } from 'react-native';
 import { Body, Card, Emblem, IconButton, Loading, OfflineState, Row, Screen, Skeleton, SkeletonCard, Stars, Title } from '@/components/ui';
 import { chaptersFor, levelMeta } from '@/content';
 import { LevelPath } from '@/components/LevelPath';
@@ -29,6 +29,34 @@ export default function SkillMapScreen() {
   const scroll = useRef<ScrollView>(null);
   const [pathY, setPathY] = useState<number | null>(null);
   const [stopY, setStopY] = useState<number | null>(null);
+  // Chapters near the screen draw their whole map; the rest wait as banners of
+  // the right height (drawing all ten at once took seconds on a phone). Once
+  // drawn, a chapter stays drawn.
+  const { height: screenH } = useWindowDimensions();
+  const scrollY = useRef(0);
+  const spans = useRef<Record<number, { y: number; h: number }>>({});
+  const [live, setLive] = useState<ReadonlySet<number>>(new Set());
+  // Draw every chapter within a screen above or two below what's in view.
+  const reveal = useCallback(() => {
+    const from = scrollY.current - screenH;
+    const to = scrollY.current + 2 * screenH;
+    const near = Object.entries(spans.current).filter(([, s]) => s.y < to && s.y + s.h > from).map(([n]) => Number(n));
+    setLive((prev) => (near.every((n) => prev.has(n)) ? prev : new Set([...prev, ...near])));
+  }, [screenH]);
+  const onScroll = useCallback(
+    (y: number) => {
+      scrollY.current = y;
+      reveal();
+    },
+    [reveal],
+  );
+  const onChapterLayout = useCallback(
+    (n: number, y: number, h: number) => {
+      spans.current[n] = { y, h };
+      reveal();
+    },
+    [reveal],
+  );
   // Bring the next level into view, about a third of the way down the screen.
   useEffect(() => {
     // Only when it would sit low on the screen; a new learner sees their first chapter from the top.
@@ -68,6 +96,7 @@ export default function SkillMapScreen() {
   return (
     <Screen
       scrollRef={scroll}
+      onScroll={onScroll}
       header={
         <Row gap={space.sm}>
           <IconButton
@@ -98,8 +127,16 @@ export default function SkillMapScreen() {
       {/* The whole skill as one map: each chapter's banner sits where that chapter begins. */}
       {chapters.map((c) => {
         const here = focus >= c.levels[0] && focus <= c.levels[1];
+        // The chapter you're in and its neighbours draw straight away.
+        const nearFocus = Math.abs(c.levels[0] - (focus - ((focus - 1) % 10))) <= 10;
         return (
-          <View key={c.number} onLayout={here ? (e) => setPathY(e.nativeEvent.layout.y) : undefined}>
+          <View
+            key={c.number}
+            onLayout={(e) => {
+              const { y, height } = e.nativeEvent.layout;
+              onChapterLayout(c.number, y, height);
+              if (here) setPathY(y);
+            }}>
             <LevelPath
               skillId={skill.id}
               chapter={c}
@@ -112,6 +149,7 @@ export default function SkillMapScreen() {
               teaser={false}
               onCurrent={here ? setStopY : undefined}
               onOpen={startLevel}
+              live={nearFocus || live.has(c.number)}
             />
           </View>
         );

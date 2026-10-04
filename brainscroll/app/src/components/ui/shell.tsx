@@ -8,7 +8,7 @@ import { ProgressBar } from './progress';
 import { Eyebrow, H1 } from './text';
 
 /** Tab screens: safe area, gutters, generous vertical rhythm, centered on wide screens. */
-export function Screen({ children, tone = 'default', scrollRef, header, topColor }: {
+export function Screen({ children, tone = 'default', scrollRef, header, topColor, onScroll }: {
   children: ReactNode;
   tone?: 'default' | 'reward';
   scrollRef?: Ref<ScrollView>;
@@ -20,6 +20,8 @@ export function Screen({ children, tone = 'default', scrollRef, header, topColor
    * a pull-down reveals, so the band reaches the very top of the phone.
    */
   topColor?: string;
+  /** How far the content has scrolled, a few times a second (the skill map draws chapters as they come near). */
+  onScroll?: (y: number) => void;
 }) {
   const bg = tone === 'reward' ? color.bgDeep : color.bg;
   return (
@@ -29,7 +31,12 @@ export function Screen({ children, tone = 'default', scrollRef, header, topColor
           <View style={[styles.column, { gap: space.md }]}>{header}</View>
         </View>
       )}
-      <ScrollView ref={scrollRef} style={topColor ? { backgroundColor: bg } : undefined} contentContainerStyle={styles.scroll}>
+      <ScrollView
+        ref={scrollRef}
+        style={topColor ? { backgroundColor: bg } : undefined}
+        contentContainerStyle={styles.scroll}
+        onScroll={onScroll ? (e) => onScroll(e.nativeEvent.contentOffset.y) : undefined}
+        scrollEventThrottle={onScroll ? 100 : undefined}>
         {topColor && <View pointerEvents="none" style={[styles.overscroll, { backgroundColor: topColor }]} />}
         <View style={styles.column}>{children}</View>
       </ScrollView>

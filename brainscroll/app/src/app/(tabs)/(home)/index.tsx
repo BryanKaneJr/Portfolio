@@ -59,7 +59,7 @@ export default function WorldScreen() {
   const { today } = v;
   // Nothing started yet: no level cleared and none in progress.
   const quest = featuredQuest(quests.data);
-  const fresh = v.skills.every((k) => k.view.level === 0) && Object.keys(v.sessions).length === 0;
+  const fresh = v.skills.every((k) => k.view.level === 0) && !v.hasOpenLevel;
 
   return (
     <Screen
