@@ -55,7 +55,8 @@ export function DrScrollProfile({ onBack }: { onBack: () => void }) {
         <Row gap={space.lg}>
           <Emblem value={stats.knowledgeLevel} caption="Brain" tone="mastery" />
           <View style={{ flex: 1, gap: space.xs }}>
-            <Row gap={space.lg}>
+            {/* Wraps on a small phone rather than running "1,000+" off the card. */}
+            <Row gap={space.lg} style={{ flexWrap: 'wrap', rowGap: space.xs }}>
               <View>
                 <Numeral>{stats.levels.toLocaleString('en-US')}</Numeral>
                 <Caption>Levels cleared</Caption>
@@ -72,13 +73,18 @@ export function DrScrollProfile({ onBack }: { onBack: () => void }) {
 
       <View style={{ gap: space.sm }}>
         <Title>{`All ${trophies.length} trophies`}</Title>
-        <Row gap={space.md} style={{ flexWrap: 'wrap', justifyContent: 'space-between' }}>
+        {/* Four across at any width; each tile fits its art and count to its slot. */}
+        <View style={{ flexDirection: 'row', flexWrap: 'wrap', rowGap: space.md, justifyContent: 'space-between' }}>
           {trophies.map((id) => (
-            <View key={id} style={{ width: 64, alignItems: 'center' }} accessible accessibilityLabel={trophyInfo(id, trophyCatalog)?.name ?? 'Trophy'}>
+            <View key={id} style={{ width: '23%', alignItems: 'center' }} accessible accessibilityLabel={trophyInfo(id, trophyCatalog)?.name ?? 'Trophy'}>
               <TrophyBadge trophyId={id} name="" size={56} />
             </View>
           ))}
-        </Row>
+          {/* Fillers, so a short last row lines up with the columns above. */}
+          {Array.from({ length: (4 - (trophies.length % 4)) % 4 }, (_, i) => (
+            <View key={`fill-${i}`} style={{ width: '23%' }} />
+          ))}
+        </View>
       </View>
     </Screen>
   );

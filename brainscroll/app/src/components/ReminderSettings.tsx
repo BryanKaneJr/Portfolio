@@ -65,7 +65,7 @@ export function ReminderPrompt() {
   const [denied, setDenied] = useState(false);
   if (!REMINDER_SUPPORTED || !prefs.loaded || (prefs.asked && !denied)) return null;
   return (
-    <Card style={{ width: '100%', minWidth: 300, gap: space.md }}>
+    <Card style={{ width: '100%', gap: space.md }}>
       <Title>Want a reminder to come back?</Title>
       <Caption>{WHEN} You can turn them off in Settings.</Caption>
       {denied ? (

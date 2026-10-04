@@ -8,14 +8,16 @@ import { color, depth, iconSize, radius, space } from '@/theme/tokens';
 
 /**
  * The +1 moment on a reward screen: each Brainpower earned lifts off its line
- * as a spark, arcs up to a Brainpower chip pinned top right, and the count
+ * as a spark, arcs up to a Brainpower chip top right, and the count
  * ticks up with a small pulse and tick. At 10 the spark still lands, but the
  * number stays and the chip says "Full". With reduce motion there is no
  * spark: the count simply changes when each line arrives.
  *
  * The chip starts at the balance before this action's awards (the result's
  * balance minus what was granted), so it ends on the server's number.
- * Decorative: the lines themselves say every +1 in words.
+ * Decorative: the lines themselves say every +1 in words. The chip has its
+ * own row above the screen's content (not floating over it), so scrolling
+ * never slides a card or headline under it.
  */
 type Point = { x: number; y: number };
 interface Flight {
@@ -75,8 +77,8 @@ export function BrainpowerFlight({ daily, children }: { daily: DailyAllowance; c
   return (
     <FlightContext.Provider value={show ? flight : null}>
       <View ref={layer} style={{ flex: 1 }} collapsable={false}>
-        {children}
         {show && (
+          <View style={{ flexDirection: 'row', justifyContent: 'flex-end', paddingTop: space.sm, paddingHorizontal: space.md }}>
           <Animated.View
             ref={chip}
             collapsable={false}
@@ -84,9 +86,6 @@ export function BrainpowerFlight({ daily, children }: { daily: DailyAllowance; c
             aria-hidden
             importantForAccessibility="no-hide-descendants"
             style={{
-              position: 'absolute',
-              top: space.sm,
-              right: space.md,
               flexDirection: 'row',
               alignItems: 'center',
               gap: space.xxs,
@@ -103,7 +102,9 @@ export function BrainpowerFlight({ daily, children }: { daily: DailyAllowance; c
             <Numeral style={{ color: color.brandText }}>{count}</Numeral>
             {full && <Caption style={{ color: color.brandText }}>Full</Caption>}
           </Animated.View>
+          </View>
         )}
+        {children}
         {sparks.map((s) => (
           <Spark key={s.id} from={s.from} to={s.to} onLand={() => { land(s.granted); setSparks((all) => all.filter((x) => x.id !== s.id)); }} />
         ))}

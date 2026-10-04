@@ -119,7 +119,7 @@ export default function LevelCompleteScreen() {
               {mastery ? (
                 <Image source={masteryBadge(s.skillId) ?? TROPHY_ART} style={styles.badge} resizeMode="contain" accessible accessibilityRole="image" accessibilityLabel={`${skill?.name ?? 'Skill'} mastery badge`} />
               ) : (
-                // Decoration: the eyebrow below says "Checkpoint N complete" in words.
+                // Decoration: the eyebrow below says "Level N · Checkpoint complete" in words.
                 // The owner's chapter art (the halfway art for Level 50), as on the Trophies shelf.
                 <Image
                   source={TROPHY_ARTS[level.number % MASTERY_BAND_SIZE === 50 ? 'halfway' : 'chapters'] ?? TROPHY_ART}
@@ -134,13 +134,14 @@ export default function LevelCompleteScreen() {
             </Pop>
           )}
           <Eyebrow tone={mastery ? 'mastery' : 'success'}>
-            {s.alreadyCompleted ? 'Replay complete' : mastery ? '★ Mastery star earned' : `${label} ${level.number} complete`}
+            {s.alreadyCompleted ? 'Replay complete' : mastery ? '★ Mastery star earned' : level.type === 'regular' ? `Level ${level.number} complete` : `Level ${level.number} · ${label} complete`}
           </Eyebrow>
 
           {proof && (
+            <View style={{ alignSelf: 'stretch' }}>
             <Reveal delay={PROOF_START - 250}>
               {/* Unlabelled on purpose: its title, lines and "You know this now." read one by one, in order. */}
-              <Card style={{ width: '100%', minWidth: 300, padding: space.xl, gap: space.md }}>
+              <Card style={{ width: '100%', padding: space.xl, gap: space.md }}>
                 <Title>{level.number === 10 ? '10 levels ago' : `Before Level ${level.number - 9}`}, could you have explained this?</Title>
                 {proof.map((line, i) => (
                   <Reveal key={line} delay={PROOF_START + i * PROOF_STEP}>
@@ -155,6 +156,7 @@ export default function LevelCompleteScreen() {
                 </Reveal>
               </Card>
             </Reveal>
+            </View>
           )}
 
           <View style={{ alignItems: 'center', gap: space.sm }}>
@@ -207,11 +209,13 @@ export default function LevelCompleteScreen() {
             </View>
           )}
 
+          {/* Stretched rather than given a minimum width, so a 320 pt phone keeps its margins. */}
+          <View style={{ alignSelf: 'stretch' }}>
           <Reveal delay={600 + t0}>
             <Card
               variant={mastery ? 'mastery' : leveledUp ? 'reward' : 'plain'}
               // A level-up glows in the skill's subject colour; a mastery stays gold.
-              style={{ width: '100%', minWidth: 300, padding: space.xl, gap: space.lg, ...(leveledUp && !mastery ? { borderColor: subjectTint(skill?.subjectId).base, shadowColor: subjectTint(skill?.subjectId).base } : null) }}>
+              style={{ width: '100%', padding: space.xl, gap: space.lg, ...(leveledUp && !mastery ? { borderColor: subjectTint(skill?.subjectId).base, shadowColor: subjectTint(skill?.subjectId).base } : null) }}>
               <Row gap={space.lg}>
                 <Emblem value={levelShown} tone={mastery ? 'mastery' : 'brand'} glowing={leveledUp} tint={subjectTint(skill?.subjectId)} />
                 <View style={{ flex: 1, gap: space.xs }}>
@@ -242,7 +246,9 @@ export default function LevelCompleteScreen() {
               </View>
             </Card>
           </Reveal>
+          </View>
 
+          <View style={{ alignSelf: 'stretch' }}>
           <Reveal delay={900 + t0}>
             <View style={{ alignItems: 'center', gap: space.lg }}>
               {!proof && (
@@ -250,7 +256,7 @@ export default function LevelCompleteScreen() {
                   spot={mastery ? 'level-complete.mastery' : luckyDrop ? 'level-complete.lucky-drop' : leveledUp ? 'level-complete.level-up' : 'level-complete.cleared'}
                   lines={[drScrollSaying(s.alreadyCompleted ? 'levelReplay' : mastery ? 'levelMastery' : DR_SCROLL_OUTCOME[s.outcome], s.skillId, level?.number ?? 0)]}
                   size="md"
-                  style={{ width: '100%', minWidth: 300 }}
+                  style={{ width: '100%' }}
                 />
               )}
               {/* Once, after the first level: would they like reminders? */}
@@ -275,6 +281,7 @@ export default function LevelCompleteScreen() {
               )}
             </View>
           </Reveal>
+          </View>
         </View>
       </ScrollView>
 

@@ -189,11 +189,14 @@ function ReviewComplete({ xp, firstTry, total, daily, onDone }: { xp: number; fi
       <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', gap: space.lg, alignItems: 'center', paddingVertical: space.lg }}>
         <DrScroll spot="review-complete" size="md" />
         <Eyebrow tone="success">Review complete</Eyebrow>
-        <Pop>
-          <Numeral size="hero" tone="brand" accessibilityLabel={`plus ${xp} XP`}>
-            +{shown} XP
-          </Numeral>
-        </Pop>
+        {/* Nothing earned is said quietly: no big violet "+0". */}
+        {xp > 0 ? (
+          <Pop>
+            <Numeral size="hero" tone="brand" accessibilityLabel={`plus ${xp} XP`}>
+              +{shown} XP
+            </Numeral>
+          </Pop>
+        ) : null}
         <Reveal delay={300}>
           <H2 center>
             {firstTry} / {total} right first time
@@ -201,7 +204,9 @@ function ReviewComplete({ xp, firstTry, total, daily, onDone }: { xp: number; fi
         </Reveal>
         <Reveal delay={450}>
           <Body muted center>
-            {xp < firstTry * XP.REVIEW_FIRST_ATTEMPT
+            {firstTry === 0
+              ? 'No XP this time. These come back sooner, and each look helps them stick.'
+              : xp < firstTry * XP.REVIEW_FIRST_ATTEMPT
               ? `+${XP.REVIEW_FIRST_ATTEMPT} XP for each one you remembered after a break. A quick re-check of one you just missed, or just saw in a lesson, earns no XP, but it still helps it stick.`
               : `+${XP.REVIEW_FIRST_ATTEMPT} XP for each one you remembered on the first try.`}
           </Body>

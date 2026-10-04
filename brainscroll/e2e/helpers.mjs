@@ -246,7 +246,7 @@ export async function playLevel(page, { pick = () => 0, doubleTapComplete = fals
       const b = button(page, 'Complete level');
       if (doubleTapComplete) await b.dblclick(); // two rapid taps, like an impatient thumb
       else await b.click();
-      await page.getByText(/(Level|Checkpoint|Milestone|Mastery Challenge) \d+ complete|Replay complete|Mastery star earned/i).first().waitFor({ timeout: 10_000 });
+      await page.getByText(/Level \d+( · (Checkpoint|Milestone|Mastery Challenge))? complete|Replay complete|Mastery star earned/i).first().waitFor({ timeout: 10_000 });
       return reinforced;
     }
     await button(page, 'Continue').click();

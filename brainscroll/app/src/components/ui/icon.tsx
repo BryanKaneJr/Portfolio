@@ -1,5 +1,5 @@
 import { SymbolView, type SymbolViewProps } from 'expo-symbols';
-import { View, type ColorValue } from 'react-native';
+import { Platform, useWindowDimensions, View, type ColorValue } from 'react-native';
 
 /**
  * Named icons: SF Symbols on iOS, Material Symbols on Android and web. Use an
@@ -47,11 +47,20 @@ const ICONS = {
 } as const satisfies Record<string, SymbolViewProps['name']>;
 export type IconName = keyof typeof ICONS;
 
-/** Decorative: the text beside it carries the meaning, so screen readers skip it. */
+/**
+ * Decorative: the text beside it carries the meaning, so screen readers skip it.
+ *
+ * Off iOS the symbol is a font glyph, and it grows with the system text size
+ * while SymbolView keeps its box at `size`; the glyph then spills into the
+ * label beside it. So the box grows by the same font scale (iOS symbols are
+ * images and stay put).
+ */
 export function Icon({ name, tint, size = 20 }: { name: IconName; tint: ColorValue; size?: number }) {
+  const { fontScale } = useWindowDimensions();
+  const box = Platform.OS === 'ios' || !(fontScale > 1) ? size : Math.ceil(size * fontScale);
   return (
     <View aria-hidden accessible={false} importantForAccessibility="no-hide-descendants">
-      <SymbolView name={ICONS[name]} tintColor={tint} size={size} />
+      <SymbolView name={ICONS[name]} tintColor={tint} size={size} style={box === size ? undefined : { width: box, height: box }} />
     </View>
   );
 }

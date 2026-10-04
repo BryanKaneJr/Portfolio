@@ -65,7 +65,8 @@ export default function AvatarScreen() {
             <Icon name="lock" tint={color.text} size={14} />
           </View>
         )}
-        <Caption center numberOfLines={2} style={{ fontSize: 11, lineHeight: 14 }}>
+        {/* Up to three short lines, so long names ("Earth, Weather & Climate") are never cut. */}
+        <Caption center numberOfLines={3} style={{ fontSize: 11, lineHeight: 14 }}>
           {label}
         </Caption>
       </Pressable>

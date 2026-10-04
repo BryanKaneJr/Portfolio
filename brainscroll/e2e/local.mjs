@@ -316,7 +316,7 @@ try {
     if (f.firstTry === f.total) sawPerfect ||= /perfect recall/i.test(f.text);
     if (f.total === 3 && f.xp !== CURVE[f.firstTry]) throw new Error(`level ${n}: ${f.firstTry}/3 gave ${f.xp} XP`);
     if (n === 10) {
-      check(/CHECKPOINT 10 COMPLETE/i.test(f.text), 'all ten Golden levels play from data; Level 10 is a checkpoint');
+      check(/LEVEL 10 · CHECKPOINT COMPLETE/i.test(f.text), 'all ten Golden levels play from data; Level 10 is a checkpoint');
       check(f.total === 5 && f.xp === CHECKPOINT_CURVE[f.firstTry], `the checkpoint uses its own XP pool (${f.firstTry}/5 → ${f.xp} XP)`);
       check(/10 levels ago, could you have explained this\?/.test(f.text) && f.text.includes('You know this now.'), 'the checkpoint shows the chapter recap as proof of what was learned');
       check(f.text.includes('At Lv. 100:'), 'Level Complete names what Level 100 means for the skill');
@@ -364,7 +364,8 @@ try {
   const corrected = await playReview(page);
   const t = await bodyText(page);
   check(/REVIEW COMPLETE/i.test(t), `a review session completes once every item is resolved (${corrected} corrected)`);
-  const [, xp, right, total] = t.match(/\+(\d+) XP[\s\S]*?(\d+) \/ (\d+) right first time/) ?? [];
+  // No first-try right: no "+0 XP" numeral, just the count.
+  const [, xp = '0', right, total] = t.match(/(?:\+(\d+) XP[\s\S]*?)?(\d+) \/ (\d+) right first time/) ?? [];
   check(Number(xp) === REVIEW_XP * Number(right) && Number(total) - Number(right) === corrected,
     `review XP is ${REVIEW_XP} per first-try item; corrections earn nothing (${right}/${total} → +${xp})`);
 

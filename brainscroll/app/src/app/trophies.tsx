@@ -91,7 +91,7 @@ export default function TrophiesScreen() {
         </Row>
       )}
       {rows(earned).map((row, i) => (
-        <Row key={i} gap={space.sm}>
+        <Row key={i} gap={space.sm} style={{ alignItems: 'flex-start' }}>
           {row.map((t) => (
             <Pressable
               key={t.trophyId}

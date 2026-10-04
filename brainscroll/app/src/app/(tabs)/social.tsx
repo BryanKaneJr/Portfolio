@@ -89,7 +89,7 @@ export default function SocialScreen() {
       ) : (
         <>
           {last?.place && last.place <= LEAGUE.PRIZES.length && last.xp ? (
-            <Card variant="mastery" accessibilityLabel={`Last week you finished ${ordinal(last.place)} in your league: plus ${last.xp} XP`}>
+            <Card variant="reward" accessibilityLabel={`Last week you finished ${ordinal(last.place)} in your league: plus ${last.xp} XP`}>
               <Title>{`Last week: ${ordinal(last.place)} in your league!`}</Title>
               <Caption>{`+${last.xp.toLocaleString('en-US')} XP, added to your total.`}</Caption>
             </Card>

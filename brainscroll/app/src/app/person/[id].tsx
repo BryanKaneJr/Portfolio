@@ -239,11 +239,11 @@ function ProfileDetails({ them, you, isYou, rarest, rows }: { them: SocialProfil
                   <View key={r.subjectId} style={{ gap: space.xs }} accessible accessibilityLabel={`${r.name}: you ${r.you} levels, them ${r.them}${youLead ? ', you lead' : themLead ? ', they lead' : ', tied'}`}>
                     <Body center>{r.name}</Body>
                     <Row gap={space.xs}>
-                      <Body style={{ width: 36, ...(youLead ? { fontWeight: '800', color: color.success } : themLead ? { color: color.danger } : { color: color.textMuted }) }}>{String(r.you)}</Body>
+                      <Body style={{ width: 36, ...(youLead ? { fontWeight: '800', color: color.success } : { color: color.textMuted }) }}>{String(r.you)}</Body>
                       <CompareBar value={r.you} scale={scale} tone={youLead ? 'ahead' : themLead ? 'behind' : 'tied'} toward="left" />
                       <View style={styles.middle} />
                       <CompareBar value={r.them} scale={scale} tone={themLead ? 'ahead' : youLead ? 'behind' : 'tied'} toward="right" />
-                      <Body style={{ width: 36, textAlign: 'right', ...(themLead ? { fontWeight: '800', color: color.success } : youLead ? { color: color.danger } : { color: color.textMuted }) }}>{String(r.them)}</Body>
+                      <Body style={{ width: 36, textAlign: 'right', ...(themLead ? { fontWeight: '800', color: color.success } : { color: color.textMuted }) }}>{String(r.them)}</Body>
                     </Row>
                   </View>
                 );
@@ -257,17 +257,19 @@ function ProfileDetails({ them, you, isYou, rarest, rows }: { them: SocialProfil
 }
 
 /**
- * One side of a subject's comparison: green when that side leads, coral when
- * it trails, violet when tied, lit toward its tip like the app's progress bars.
+ * One side of a subject's comparison: green when that side leads, a quiet
+ * grey when it trails (never coral: that's a wrong answer's colour, and being
+ * behind a friend isn't a mistake), violet when tied, lit toward its tip like
+ * the app's progress bars.
  */
 function CompareBar({ value, scale, tone, toward }: { value: number; scale: number; tone: 'ahead' | 'behind' | 'tied'; toward: 'left' | 'right' }) {
-  const base = tone === 'ahead' ? color.success : tone === 'behind' ? color.danger : color.brand;
+  const base = tone === 'ahead' ? color.success : tone === 'behind' ? color.textFaint : color.brand;
   // Anything above zero stays visible, however small next to the scale.
   const pct = value > 0 ? Math.max(4, (100 * value) / scale) : 0;
   return (
     <View style={styles.track}>
       {pct > 0 && (
-        <View style={[styles.fill, { width: `${pct}%`, alignSelf: toward === 'left' ? 'flex-end' : 'flex-start', opacity: tone === 'behind' ? 0.85 : 1 }]}>
+        <View style={[styles.fill, { width: `${pct}%`, alignSelf: toward === 'left' ? 'flex-end' : 'flex-start' }]}>
           <GradientFill horizontal from={toward === 'left' ? lift(base, 0.3) : base} to={toward === 'left' ? base : lift(base, 0.3)} rx={6} />
         </View>
       )}

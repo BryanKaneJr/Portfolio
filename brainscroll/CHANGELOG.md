@@ -2,6 +2,22 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-04: Visual fixes from QA
+
+- **Gold stays mastery-only on Social:** league prize amounts on the banner are white and the prize places in the standings are violet (they were gold, silver and bronze); "Last week: 1st in your league!" glows violet. The trophy name in feed moments and Dr. Scroll's first-friend card stay gold (owner decisions).
+- **League banner at 320 pt:** the podium stacks each spot (avatar, name, prize) so names and "+1,000 XP" fit; "451 XP this week · 2 days left" never splits a number from its unit.
+- **A league of one** shows no place, podium or prize: "Just you so far" and "Your league fills up as learners join this week." (also on the standings).
+- **"You and them" on a profile:** whoever trails is a quiet grey, not coral (the wrong-answer colour); the leader stays green, a tie violet (CURRENT_PRODUCT_DECISIONS §22).
+- **Trophy tiles fit their slot:** the art and its count (25, 100, 1,000) shrink to the tile instead of hanging over its edges, and names sit under the tile, so the streak trophies, Trophies, Profile and Dr. Scroll's four-across grid line up at every width. Dr. Scroll's "1,000+" wraps on a small phone instead of running off the card.
+- **Level Complete:** the "Trophy earned" card and the other cards keep their margins at 320 pt (no fixed 300 pt minimum); the Brainpower chip on reward screens has its own row instead of floating over cards as you scroll; a checkpoint reads "Level 10 · Checkpoint complete" (it read like the tenth checkpoint).
+- **Review Complete with nothing right first try** shows no big "+0 XP": just the count and a quiet line.
+- **Review offline** shows the same full-screen offline state as the other tabs.
+- **Onboarding:** each step opens at its top, and the progress bar has a backdrop, so "The deal" never starts half-scrolled behind it.
+- **Stat tiles** (Brainpower, streak, Profile) stretch to one height with centred labels, so numbers line up when a label wraps.
+- **Large text:** the tab bar has room for labels at their 1.3× cap; off iOS an icon's box grows with the text size so the glyph never runs into its label; the lesson hook's heading is capped like H1.
+- **Smaller fixes:** avatar names get up to three lines instead of "Earth, Weather & ..", Unlimited's gleams twinkle around the headline only (not over "Sandbox"), and Edit profile's Title section is carded like Username.
+- **`npm run screens` walks every screen again:** it answers match and order questions, picks a different choice before playing a chapter review (a second tap on a fill in the blank's chip took it back out), and likes a moment with the heart (the React button is gone).
+
 ## 2026-10-03: Core loop fixes from QA, shuffled answer options
 
 - **Shuffled answer options** (owner: the right answer sat in position B far too often). Every multiple-choice question, fill in the blank included, shows its options in one stable order per question, from its id (core `shuffledOptions`, reusing the hash `shuffledLabels` uses for match and order), in lessons, reviews, chapter reviews and the Final Round, local and remote. Letters follow the shown order. When every option is a number or quantity of one kind ("125", "3.3 million years", "82 BCE", "About 200 m"), they show smallest first instead. Display only: answers are still graded by option id and no content changed.

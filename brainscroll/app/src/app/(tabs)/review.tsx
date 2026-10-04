@@ -2,7 +2,7 @@ import { dayNumber, drScrollSaying, REVIEW_SESSION_MAX_QUESTIONS, type ReviewIte
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Body, Button, Caption, Card, DrScrollSays, Icon, LoadError, Loading, Numeral, Row, Screen, ScreenHeader, SkeletonCard, StateBlock, UiArt } from '@/components/ui';
+import { Body, Button, Caption, Card, DrScrollSays, Icon, LoadError, Loading, Numeral, OfflineState, Row, Screen, ScreenHeader, SkeletonCard, StateBlock, UiArt } from '@/components/ui';
 import { ChapterReviews } from '@/components/ChapterReviews';
 import { getConcept } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
@@ -14,7 +14,7 @@ import { color, iconSize, radius, space } from '@/theme/tokens';
  * It never uses the daily allowance and stays open after 5/5.
  */
 export default function ReviewScreen() {
-  const { reviewQueue, refresh, ready } = useProgress();
+  const { reviewQueue, refresh, ready, offline, reconnect, reconnecting } = useProgress();
   const [queue, setQueue] = useState<ReviewItem[] | null>(null);
   // A failed load is its own state: never shown as "caught up".
   const [failed, setFailed] = useState(false);
@@ -43,6 +43,9 @@ export default function ReviewScreen() {
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ready, refresh, attempt]),
   );
+
+  // Like the other tabs: no server, the whole tab says so (and retries by itself).
+  if (offline) return <OfflineState onRetry={() => void reconnect()} retrying={reconnecting} />;
 
   const n = queue?.length ?? 0;
   const preview = (queue ?? []).slice(0, 4);

@@ -95,7 +95,7 @@ export default function EditProfileScreen() {
         {nameMessage && <Notice tone="text">{nameMessage}</Notice>}
       </Card>
 
-      <View style={{ gap: space.sm }}>
+      <Card variant="plain" style={{ gap: space.md }}>
         <Eyebrow>Title</Eyebrow>
         {titles.length === 0 ? (
           <Caption>Finish a weekly quest in its week to earn a title. It shows under your name.</Caption>
@@ -108,7 +108,7 @@ export default function EditProfileScreen() {
           </View>
         )}
         {titleError && <Notice>{titleError}</Notice>}
-      </View>
+      </Card>
     </Screen>
   );
 }

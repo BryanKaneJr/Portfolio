@@ -76,13 +76,13 @@ export default function ProfileScreen() {
       </View>
       </View>
 
-      <Row gap={space.sm}>
+      <Row gap={space.sm} style={{ alignItems: 'stretch' }}>
         <StatTile label="Total XP" value={v.totalXp} tone="brand" icon="xp" />
         <StatTile label="Skills" value={v.skills.filter((s) => s.view.level > 0).length} icon="skills" />
         <StatTile label="Stars" value={stars} tone={stars > 0 ? 'mastery' : 'text'} icon="star" art={stars > 0 ? 'mastery-star' : undefined} />
       </Row>
       <Pressable accessibilityRole="button" accessibilityLabel={`Learning streak: ${v.streak.current} days, longest ${v.streak.longest}. Open`} onPress={() => router.push('/streak')}>
-      <Row gap={space.sm}>
+      <Row gap={space.sm} style={{ alignItems: 'stretch' }}>
         <StatTile label="Streak" value={`${v.streak.current} ${v.streak.current === 1 ? 'day' : 'days'}`} tone={v.streak.today ? 'streak' : 'text'} art={v.streak.current > 0 && !v.streak.today ? 'streak-ember' : 'streak-flame'} />
         <StatTile label="Longest" value={`${v.streak.longest} ${v.streak.longest === 1 ? 'day' : 'days'}`} art="streak-flame" />
       </Row>
