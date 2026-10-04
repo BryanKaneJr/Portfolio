@@ -41,6 +41,8 @@ export interface LocalSocialState {
   inviteCode?: string;
   /** Friend and league push notifications (default on). */
   socialNotifications?: boolean;
+  /** Private profile (Settings); simulated learners' profiles are public. */
+  privateProfile?: boolean;
   friends: string[];
   outgoing: string[];
   /** Simulated learners who asked you (one does, the first time you look). */
@@ -123,7 +125,7 @@ export function ensureIdentity(userId: string, social: LocalSocialState): LocalS
 export function socialView(userId: string, social: LocalSocialState, state: ProgressState, now: Date): SocialView {
   const cards = (ids: string[]) => ids.flatMap((id) => (simById(id) ? [simCard(simById(id)!, state, now)] : []));
   return {
-    me: { id: userId, username: social.username!, inviteCode: social.inviteCode!, ...(social.avatar ? { avatar: social.avatar } : {}), socialNotifications: social.socialNotifications !== false },
+    me: { id: userId, username: social.username!, inviteCode: social.inviteCode!, ...(social.avatar ? { avatar: social.avatar } : {}), socialNotifications: social.socialNotifications !== false, privateProfile: social.privateProfile === true },
     friends: cards(social.friends).sort((a, b) => b.weeklyXp - a.weeklyXp),
     incoming: cards(social.incoming),
     outgoing: cards(social.outgoing),
@@ -251,9 +253,9 @@ export function profileView(userId: string, targetId: string, social: LocalSocia
     };
   }
   const sim = simById(targetId);
-  // Mirrors SQL get_social_profile. Every simulated learner is in your league, so their profiles are open.
+  // Mirrors SQL get_social_profile. Simulated learners are public and in your league, so their profiles are open.
   const access = sim
-    ? profileAccess({ self: false, friend: social.friends.includes(sim.id), leagueMate: true, requested: social.outgoing.includes(sim.id), askedYou: social.incoming.includes(sim.id), blocked: social.blocked.includes(sim.id) })
+    ? profileAccess({ self: false, friend: social.friends.includes(sim.id), leagueMate: true, requested: social.outgoing.includes(sim.id), askedYou: social.incoming.includes(sim.id), blocked: social.blocked.includes(sim.id), private: false })
     : null;
   if (!sim || !access) throw new SocialError('USER_NOT_FOUND');
   const h = hash(sim.id);

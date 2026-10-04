@@ -381,6 +381,11 @@ export function createLocalBackend(): ProgressBackend {
       commitSocial({ ...social, socialNotifications: on });
       return on;
     },
+    async setPrivateProfile(on) {
+      me();
+      commitSocial({ ...social, privateProfile: on });
+      return on;
+    },
     async registerPushToken() {},
     async unregisterPushToken() {},
     async reportContent(input) {

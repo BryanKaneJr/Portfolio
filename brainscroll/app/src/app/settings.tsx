@@ -4,6 +4,7 @@ import { AccountCard } from '@/components/AccountCard';
 import { BlockedSettings } from '@/components/BlockedSettings';
 import { DeleteAccount } from '@/components/DeleteAccount';
 import { FeedbackSettings } from '@/components/FeedbackSettings';
+import { PrivacySettings } from '@/components/PrivacySettings';
 import { ReminderSettings } from '@/components/ReminderSettings';
 import { UnlimitedCard } from '@/components/UnlimitedCard';
 import { Button, Eyebrow, IconButton, Row, Screen, Title } from '@/components/ui';
@@ -13,8 +14,8 @@ import { space } from '@/theme/tokens';
 /**
  * Settings (owner, 2026-09-30): everything that isn't about what you know
  * lives here, one tap from the bottom of Profile, so Profile stays a
- * character sheet. Plan, sound and haptics, the daily reminder, the people
- * you've blocked (to unblock), the account (sign out) and, last, deleting it.
+ * character sheet. Plan, sound and haptics, the daily reminder, Private
+ * profile, the people you've blocked (to unblock), the account (sign out) and, last, deleting it.
  */
 export default function SettingsScreen() {
   const { resetAll } = useProgress();
@@ -32,6 +33,7 @@ export default function SettingsScreen() {
       <UnlimitedCard />
       <FeedbackSettings />
       <ReminderSettings />
+      <PrivacySettings />
       <BlockedSettings />
       <AccountCard />
       <DeleteAccount />

@@ -58,15 +58,18 @@ describe('profiles', () => {
 
 // QA fixes, 2026-10-03 (migration 20261103000000_social_qa_fixes.sql).
 describe('privacy and safety', () => {
-  const none = { self: false, friend: false, leagueMate: false, requested: false, askedYou: false, blocked: false };
-  it('opens a profile to yourself, friends and league mates only; a pending request shows just the name', () => {
-    expect(profileAccess({ ...none, self: true })).toEqual({ relation: 'you', limited: false });
-    expect(profileAccess({ ...none, friend: true })).toEqual({ relation: 'friend', limited: false });
-    expect(profileAccess({ ...none, leagueMate: true })).toEqual({ relation: 'league', limited: false });
-    expect(profileAccess({ ...none, requested: true })).toEqual({ relation: 'requested', limited: true });
-    expect(profileAccess({ ...none, askedYou: true })).toEqual({ relation: 'asked_you', limited: true });
-    expect(profileAccess({ ...none, requested: true, leagueMate: true })).toEqual({ relation: 'requested', limited: false });
-    expect(profileAccess(none)).toBeNull();
+  const none = { self: false, friend: false, leagueMate: false, requested: false, askedYou: false, blocked: false, private: false };
+  it('opens a public profile to anyone; a private one to yourself, friends and league mates only', () => {
+    expect(profileAccess(none)).toEqual({ relation: 'none', limited: false });
+    expect(profileAccess({ ...none, requested: true })).toEqual({ relation: 'requested', limited: false });
+    const priv = { ...none, private: true };
+    expect(profileAccess({ ...priv, self: true })).toEqual({ relation: 'you', limited: false });
+    expect(profileAccess({ ...priv, friend: true })).toEqual({ relation: 'friend', limited: false });
+    expect(profileAccess({ ...priv, leagueMate: true })).toEqual({ relation: 'league', limited: false });
+    expect(profileAccess({ ...priv, requested: true })).toEqual({ relation: 'requested', limited: true });
+    expect(profileAccess({ ...priv, askedYou: true })).toEqual({ relation: 'asked_you', limited: true });
+    expect(profileAccess({ ...priv, requested: true, leagueMate: true })).toEqual({ relation: 'requested', limited: false });
+    expect(profileAccess(priv)).toEqual({ relation: 'none', limited: true });
     expect(profileAccess({ ...none, friend: true, blocked: true })).toBeNull();
   });
 

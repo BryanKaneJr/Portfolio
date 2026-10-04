@@ -152,10 +152,16 @@ export default function PersonScreen() {
       {notice && <Notice tone="muted">{notice}</Notice>}
 
       {them.limited ? (
-        // Profiles open up with friendship (or a shared league): a request alone shows only who it is.
+        // A private profile opens up with friendship (or a shared league): until then, only who it is.
         <Card variant="plain" style={{ gap: space.xs }}>
-          <Title>{them.relation === 'asked_you' ? 'They want to be friends' : 'Waiting for them'}</Title>
-          <Caption>{them.relation === 'asked_you' ? 'Accept to see their brain, trophies and subjects, and compare them with yours.' : 'Once they accept, you’ll see their brain, trophies and subjects here.'}</Caption>
+          <Title>{them.relation === 'asked_you' ? 'They want to be friends' : 'This profile is private'}</Title>
+          <Caption>
+            {them.relation === 'asked_you'
+              ? 'Accept to see their brain, trophies and subjects, and compare them with yours.'
+              : them.relation === 'requested'
+                ? 'Once they accept, you’ll see their brain, trophies and subjects here.'
+                : 'Add them as a friend to see their brain, trophies and subjects.'}
+          </Caption>
         </Card>
       ) : (
         <ProfileDetails them={them} you={you} isYou={isYou} rarest={rarest} rows={rows} />

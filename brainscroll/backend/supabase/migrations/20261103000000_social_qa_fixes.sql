@@ -1,9 +1,11 @@
 -- Social fixes from QA (2026-10-03). Mirrors packages/core/src/social.ts,
 -- packages/core/src/usernameFilter.ts and app/src/progress/localSocial.ts.
 --
--- 1. Profiles are for friends and league mates only (CURRENT_PRODUCT_DECISIONS
---    §22). A pending request either way no longer opens one: it shows the
---    username and avatar, and nothing else ('limited').
+-- 1. Profiles are public by default, with a Private profile switch (owner,
+--    2026-10-03: "maybe we just have a set to private toggle in settings").
+--    A private profile opens only to friends and league mates; anyone else
+--    (a pending request either way included) sees the username and avatar
+--    ('limited').
 -- 2. A blocked learner is hidden in your league: their row keeps its place and
 --    weekly XP, but no id, username, avatar or level.
 -- 3. Account deletion also removes other learners' pending and sent notes that
@@ -15,20 +17,52 @@
 --    no longer do.
 -- 5. report_user refuses yourself and unknown learners.
 -- 6. get_blocked lists the learners you've blocked, so you can unblock them.
--- 7. Fewer, truer pushes: a friend request or a heart from the same person
---    queues one note a week at most (dedupe); a request that's withdrawn,
---    declined, accepted or crossed, a heart taken back, and a friendship ended
---    take their unsent notes with them; react() only takes a moment that exists
---    (the owner's last 14 days, as in the feed), so a made-up item_key can't
---    queue a push.
+-- 7. Truer pushes: a request that's withdrawn, declined, accepted or crossed,
+--    a heart taken back, and a friendship ended take their unsent notes with
+--    them (tapping one would lead nowhere); react() only takes a moment that
+--    exists (the owner's last 14 days, as in the feed), so a made-up item_key
+--    can't queue a push. Every real request and heart still pings (owner:
+--    notifications bring people back); claim_social_pushes' daily cap and
+--    quiet hours stay the limit.
 
 -- ─────────────────────────────────────────────────────────────────────────────
--- 1. Profiles: friends and league mates only
+-- 1. Profiles: public unless the learner makes theirs private
 -- ─────────────────────────────────────────────────────────────────────────────
 
--- A friend's or league mate's profile (or your own), to compare brains. A
--- learner you've only sent a request to, or who sent you one, shows just their
--- username and avatar ('limited': true), so a request never unlocks a profile.
+alter table public.profiles add column private_profile boolean not null default false;
+
+-- The Private profile switch in Settings.
+create or replace function public.set_private_profile(p_on boolean) returns jsonb
+language plpgsql security definer set search_path = public, pg_temp as $$
+begin
+  if auth.uid() is null then raise exception 'NOT_AUTHENTICATED' using errcode = '28000'; end if;
+  update public.profiles set private_profile = coalesce(p_on, false) where id = auth.uid();
+  return jsonb_build_object('private_profile', coalesce(p_on, false));
+end $$;
+
+-- Your username, invite code and switches, friends and requests (now with private_profile).
+create or replace function public.get_social() returns jsonb
+language plpgsql security definer set search_path = public, pg_temp as $$
+declare v_uid uuid := auth.uid();
+begin
+  if v_uid is null then raise exception 'NOT_AUTHENTICATED' using errcode = '28000'; end if;
+  perform public.ensure_social_identity(v_uid);
+  return jsonb_build_object(
+    'me', (select jsonb_build_object('id', id, 'username', username, 'invite_code', invite_code, 'avatar', avatar,
+                                     'social_notifications', social_notifications, 'private_profile', private_profile)
+           from public.profiles where id = v_uid),
+    'friends', (select coalesce(jsonb_agg(public.social_card(f.friend_id) order by public.weekly_xp(f.friend_id, public.league_week_start(now())) desc), '[]')
+                from public.friendships f where f.user_id = v_uid),
+    'incoming', (select coalesce(jsonb_agg(public.social_card(r.user_id) order by r.created_at), '[]')
+                 from public.friend_requests r where r.to_id = v_uid and not public.blocked_between(v_uid, r.user_id)),
+    'outgoing', (select coalesce(jsonb_agg(public.social_card(r.to_id) order by r.created_at), '[]')
+                 from public.friend_requests r where r.user_id = v_uid)
+  );
+end $$;
+
+-- Someone's profile, to compare brains. Open unless they made it private; a
+-- private one opens only to friends and league mates, and anyone else sees
+-- just the username and avatar ('limited': true). Blocked either way: not found.
 create or replace function public.get_social_profile(p_user uuid) returns jsonb
 language plpgsql security definer set search_path = public, pg_temp as $$
 declare
@@ -41,16 +75,17 @@ begin
      or (p_user <> v_uid and public.blocked_between(v_uid, p_user)) then
     raise exception 'USER_NOT_FOUND' using errcode = 'P0002';
   end if;
-  -- Friends and current league mates (social_circle already leaves out anyone blocked).
-  v_open := p_user = v_uid or exists (select 1 from public.social_circle(v_uid) c where c.user_id = p_user);
+  -- Public profiles, plus friends and current league mates (social_circle already leaves out anyone blocked).
+  v_open := p_user = v_uid or not (select private_profile from public.profiles where id = p_user)
+            or exists (select 1 from public.social_circle(v_uid) c where c.user_id = p_user);
   v_rel := case
     when p_user = v_uid then 'you'
     when exists (select 1 from public.friendships where user_id = v_uid and friend_id = p_user) then 'friend'
     when exists (select 1 from public.friend_requests where user_id = v_uid and to_id = p_user) then 'requested'
     when exists (select 1 from public.friend_requests where user_id = p_user and to_id = v_uid) then 'asked_you'
-    when v_open then 'league'
+    when exists (select 1 from public.social_circle(v_uid) c where c.user_id = p_user) then 'league'
+    else 'none'
   end;
-  if v_rel is null then raise exception 'USER_NOT_FOUND' using errcode = 'P0002'; end if;
   if not v_open then
     return (select jsonb_build_object('id', p.id, 'username', p.username, 'avatar', p.avatar, 'relation', v_rel, 'limited', true)
             from public.profiles p where p.id = p_user);
@@ -309,15 +344,11 @@ begin
   end if;
 end $$;
 
--- A request: the other side hears about it, once a week at most per person
--- (asking, being turned down and asking again doesn't ping them each time).
+-- A request: the other side hears about it (every time; the daily cap and quiet hours are the limit).
 create or replace function public.push_on_friend_request() returns trigger
 language plpgsql security definer set search_path = public, pg_temp as $$
 begin
-  if not public.blocked_between(new.user_id, new.to_id)
-     and not exists (select 1 from public.notification_outbox o
-                     where o.user_id = new.to_id and o.kind = 'friend_request' and o.status in ('pending', 'sent')
-                       and o.params ->> 'user_id' = new.user_id::text and o.created_at > now() - interval '7 days') then
+  if not public.blocked_between(new.user_id, new.to_id) then
     perform public.enqueue_push(new.to_id, 'friend_request',
       jsonb_build_object('user_id', new.user_id, 'username', (select username from public.profiles where id = new.user_id)));
   end if;
@@ -346,16 +377,11 @@ end $$;
 create trigger friendships_push_forget after delete on public.friendships
   for each row execute function public.push_forget_friendship();
 
--- A heart: the owner hears about it, once per person and moment (liking,
--- unliking and liking again doesn't ping twice).
+-- A heart: the owner hears about it (taking it back before it's sent removes the note).
 create or replace function public.push_on_reaction() returns trigger
 language plpgsql security definer set search_path = public, pg_temp as $$
 begin
-  if new.user_id <> new.owner_id
-     and not exists (select 1 from public.notification_outbox o
-                     where o.user_id = new.owner_id and o.kind = 'reaction' and o.status in ('pending', 'sent')
-                       and o.params ->> 'user_id' = new.user_id::text and o.params ->> 'item_key' = new.item_key
-                       and o.created_at > now() - interval '7 days') then
+  if new.user_id <> new.owner_id then
     perform public.enqueue_push(new.owner_id, 'reaction',
       jsonb_build_object('user_id', new.user_id, 'username', (select username from public.profiles where id = new.user_id), 'item_key', new.item_key));
   end if;
@@ -380,7 +406,7 @@ revoke execute on function public.forget_social_mentions(), public.push_on_frien
 do $$
 declare f text;
 begin
-  foreach f in array array['get_league()', 'report_user(uuid, text, text)', 'get_social_profile(uuid)', 'get_feed()', 'react(uuid, text, text)'] loop
+  foreach f in array array['get_league()', 'get_social()', 'set_private_profile(boolean)', 'report_user(uuid, text, text)', 'get_social_profile(uuid)', 'get_feed()', 'react(uuid, text, text)'] loop
     execute format('revoke execute on function public.%s from public, anon', f);
     execute format('grant execute on function public.%s to authenticated', f);
   end loop;

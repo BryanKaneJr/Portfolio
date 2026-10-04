@@ -185,7 +185,7 @@ begin
   perform pg_temp.expect_error($q$ select public.react(pg_temp.uid('2b'), 'trophy:does_not_exist', 'heart') $q$, 'MOMENT_NOT_FOUND');
 end $$;
 
--- 8. Profiles: friends compare brains; strangers can't look.
+-- 8. Profiles: public by default; a private one opens to friends and league mates only.
 do $$
 declare r jsonb;
 begin
@@ -193,9 +193,25 @@ begin
   assert r ->> 'relation' = 'friend' and (r ->> 'total_xp')::int = 1100, format('got %s', r);
   assert r -> 'skills' = '{"skill.science.testing": 1}'::jsonb, format('skill levels, got %s', r -> 'skills');
   assert exists (select 1 from jsonb_array_elements(r -> 'trophies') t where t ->> 'trophy_id' = 'trophy.first_level');
-  perform pg_temp.expect_error($q$ select public.get_social_profile(pg_temp.uid('3b')) $q$, 'USER_NOT_FOUND');
+  -- Profiles are public by default (owner, 2026-10-03): a stranger's opens too.
+  r := public.get_social_profile(pg_temp.uid('3b'));
+  assert r ->> 'relation' = 'none' and not (r ->> 'limited')::boolean and r ? 'total_xp', format('public stranger, got %s', r);
   perform pg_temp.expect_error($q$ select public.get_social_profile('00000000-0000-0000-0000-0000000000ff') $q$, 'USER_NOT_FOUND');
-  -- A pending request doesn't open a profile, either way: just the username and avatar.
+end $$;
+-- They turn on Private profile.
+select pg_temp.as_user(pg_temp.uid('3b')::text);
+do $$ begin
+  assert not (public.get_social() -> 'me' ->> 'private_profile')::boolean, 'public by default';
+  assert (public.set_private_profile(true) ->> 'private_profile')::boolean;
+  assert (public.get_social() -> 'me' ->> 'private_profile')::boolean, 'now private';
+end $$;
+select pg_temp.as_user(pg_temp.uid('2a')::text);
+do $$
+declare r jsonb;
+begin
+  r := public.get_social_profile(pg_temp.uid('3b'));
+  assert r ->> 'relation' = 'none' and (r ->> 'limited')::boolean and not (r ? 'total_xp'), format('private stranger: limited, got %s', r);
+  -- A pending request doesn't open a private profile, either way: just the username and avatar.
   assert public.send_friend_request(pg_temp.uid('3b')) = 'requested';
   r := public.get_social_profile(pg_temp.uid('3b'));
   assert r ->> 'relation' = 'requested' and (r ->> 'limited')::boolean and r ? 'username' and r ? 'avatar', format('limited, got %s', r);
@@ -207,9 +223,10 @@ do $$
 declare r jsonb;
 begin
   r := public.get_social_profile(pg_temp.uid('2a'));
-  assert r ->> 'relation' = 'asked_you' and (r ->> 'limited')::boolean and not (r ? 'total_xp'), format('asked you: limited too, got %s', r);
+  assert r ->> 'relation' = 'asked_you' and not (r ->> 'limited')::boolean, format('asked you, public profile: open, got %s', r);
   perform public.respond_friend_request(pg_temp.uid('2a'), false);
-  perform pg_temp.expect_error($q$ select public.get_social_profile(pg_temp.uid('2a')) $q$, 'USER_NOT_FOUND');
+  r := public.get_social_profile(pg_temp.uid('2a'));
+  assert r ->> 'relation' = 'none' and not (r ->> 'limited')::boolean, format('2a is public: open to anyone, got %s', r);
 end $$;
 select pg_temp.as_user(pg_temp.uid('2a')::text);
 do $$ begin

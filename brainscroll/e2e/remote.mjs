@@ -308,12 +308,18 @@ try {
   await page.waitForTimeout(1000);
   check(/This week with friends[\s\S]*@old_pal/.test(await bodyText(page)), 'friends appear ranked by this week\'s XP');
 
-  // Profiles (QA 2026-10-03): opened cold they wait for the account; a pending request shows only the name.
+  // Profiles: public by default, with a Private profile switch (owner, 2026-10-03). Opened cold they wait for the account.
   await coldLoad(page, errors, `${URL}person/00000000-0000-0000-0000-0000000000f1`);
   await page.waitForTimeout(2500);
   let person = await bodyText(page);
-  check(/@study_buddy/.test(person) && /Waiting for them/.test(person) && !/Brain overview|Total XP/i.test(person) && !/Something went wrong|not ready/.test(person),
-    'a cold-loaded profile of someone you only asked shows their name, not their stats');
+  check(/@study_buddy/.test(person) && /Brain overview/i.test(person) && !/Something went wrong|not ready/.test(person),
+    'a cold-loaded public profile opens in full, even before they accept');
+  sql(`update public.profiles set private_profile = true where id = '00000000-0000-0000-0000-0000000000f1'`);
+  await coldLoad(page, errors, `${URL}person/00000000-0000-0000-0000-0000000000f1`);
+  await page.waitForTimeout(2500);
+  person = await bodyText(page);
+  check(/@study_buddy/.test(person) && /This profile is private/.test(person) && !/Brain overview|Total XP/i.test(person),
+    'a private profile you only asked shows their name, not their stats');
   await coldLoad(page, errors, `${URL}person/00000000-0000-0000-0000-0000000000f2`);
   await page.waitForTimeout(2500);
   person = await bodyText(page);

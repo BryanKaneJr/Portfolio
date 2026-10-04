@@ -196,6 +196,14 @@ try {
   await exactButton(page, 'Unblock').click();
   await page.waitForTimeout(600);
   check(/Unblocked @noor/.test(await bodyText(page)) && /You haven’t blocked anyone/.test(await bodyText(page)), 'and Unblock brings them back');
+  // Private profile (owner, 2026-10-03): off by default, a switch in Settings.
+  const priv = page.getByRole('switch', { name: 'Private profile' });
+  check((await priv.getAttribute('aria-checked')) === 'false', 'profiles are public by default (Private profile off)');
+  await priv.click();
+  await page.waitForTimeout(400);
+  check((await priv.getAttribute('aria-checked')) === 'true', 'and the Private profile switch turns on');
+  await priv.click();
+  await page.waitForTimeout(400);
   await coldLoad(page, errors, `${URL}person/nobody-here`);
   await page.waitForTimeout(2000);
   check(/We can’t find that profile/.test(await bodyText(page)), 'a profile link to no one shows a friendly not-found state');

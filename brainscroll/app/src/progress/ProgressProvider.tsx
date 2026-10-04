@@ -459,6 +459,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         reportUser: (userId, reason, note) => backendOrThrow().reportUser(userId, reason, note),
         react: (ownerId, itemKey, reaction) => backendOrThrow().react(ownerId, itemKey, reaction),
         setNotifications: (on) => backendOrThrow().setSocialNotifications(on),
+        setPrivateProfile: (on) => backendOrThrow().setPrivateProfile(on),
         registerPushToken: (token, platform) => backendOrThrow().registerPushToken(token, platform),
       },
       quests: () => backendOrThrow().quests(),
@@ -609,6 +610,7 @@ export interface SocialApi {
   reportUser: ProgressBackend['reportUser'];
   react: ProgressBackend['react'];
   setNotifications: ProgressBackend['setSocialNotifications'];
+  setPrivateProfile: ProgressBackend['setPrivateProfile'];
   registerPushToken: ProgressBackend['registerPushToken'];
 }
 

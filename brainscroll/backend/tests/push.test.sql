@@ -108,7 +108,8 @@ reset role;
 do $$ begin
   assert pg_temp.pending('5c', 'friend_new') = 0, 'an ended friendship takes its unsent note with it';
 end $$;
--- A note already sent counts too: asking again within the week doesn't ping again.
+-- Asking again after being turned down pings again (owner, 2026-10-03: notifications bring people back;
+-- the daily cap and quiet hours are the limit).
 set role authenticated;
 select pg_temp.as_user(pg_temp.uid('5c')::text);
 select public.send_friend_request(pg_temp.uid('5d'));
@@ -119,16 +120,21 @@ select pg_temp.as_user(pg_temp.uid('5d')::text);
 select public.respond_friend_request(pg_temp.uid('5c'), false);
 select pg_temp.as_user(pg_temp.uid('5c')::text);
 select public.send_friend_request(pg_temp.uid('5d'));
+reset role;
+do $$ begin
+  assert pg_temp.pending('5d', 'friend_request') = 1, 'the new request pings again';
+end $$;
+set role authenticated;
 select pg_temp.as_user(pg_temp.uid('5d')::text);
 select public.respond_friend_request(pg_temp.uid('5c'), false);
 reset role;
 do $$ begin
-  assert (select count(*) from public.notification_outbox where user_id = pg_temp.uid('5d') and kind = 'friend_request') = 1, 'sent once, not again';
+  assert (select count(*) from public.notification_outbox where user_id = pg_temp.uid('5d') and kind = 'friend_request') = 1, 'the sent one stays; the declined one goes unsent';
   assert pg_temp.pending('5d', 'friend_request') = 0;
 end $$;
 delete from public.notification_outbox where user_id = pg_temp.uid('5d');
 
--- 3. A heart tells the owner, once: hearting again, or unliking and liking again, doesn't send another.
+-- 3. A heart tells the owner; a heart taken back before it's sent takes its note with it.
 -- Ana has a moment to heart (a trophy this week); made-up moments can't be hearted.
 insert into public.user_trophies (user_id, trophy_id, name) values (pg_temp.uid('5a'), 'trophy.quest_test', 'Test Quest');
 set role authenticated;

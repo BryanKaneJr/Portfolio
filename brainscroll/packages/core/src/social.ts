@@ -15,8 +15,9 @@
  *   your league mates: trophies, chapters finished, streak milestones and
  *   league podiums. The only reaction is a heart; there are no comments or
  *   messages.
- * - Profiles are for friends and league mates. A pending request (either way)
- *   shows only the username and avatar (`profileAccess`); a blocked learner
+ * - Profiles are public unless the learner turns on Private profile; a
+ *   private one opens only to friends and league mates, and anyone else sees
+ *   the username and avatar (`profileAccess`); a blocked learner
  *   is a hidden row in the league (`hiddenLeagueMember`). Fixes from QA,
  *   2026-10-03: migration 20261103000000_social_qa_fixes.sql.
  */
@@ -197,8 +198,8 @@ export interface SocialCard {
 }
 
 export interface SocialView {
-  /** socialNotifications: friend and league push notifications are on (default on; the server sends them). */
-  me: { id: string; username: string; inviteCode: string; avatar?: string; socialNotifications: boolean };
+  /** socialNotifications: friend and league push notifications are on (default on; the server sends them). privateProfile: only friends and league mates see your profile (default off). */
+  me: { id: string; username: string; inviteCode: string; avatar?: string; socialNotifications: boolean; privateProfile: boolean };
   friends: SocialCard[];
   incoming: SocialCard[];
   outgoing: SocialCard[];
@@ -225,11 +226,11 @@ export interface FeedItem {
   mine?: FeedReaction;
 }
 
-export type Relation = 'you' | 'friend' | 'requested' | 'asked_you' | 'league';
+export type Relation = 'you' | 'friend' | 'requested' | 'asked_you' | 'league' | 'none';
 export interface SocialProfile extends SocialCard {
   relation: Relation;
   /**
-   * Not a friend or league mate (a pending request either way): only the
+   * A private profile and you're not a friend or league mate: only the
    * username and avatar are shared, and every number below is empty.
    */
   limited: boolean;
@@ -242,16 +243,17 @@ export interface SocialProfile extends SocialCard {
 
 /**
  * Who may see a learner's profile, and how much (mirrors SQL get_social_profile):
- * yourself, friends and current league mates see it all; a pending request
- * either way shows only the username and avatar; anyone else, or anyone
- * blocked either way, sees nothing (null: "not found").
+ * a public profile is open to everyone; a private one (owner, 2026-10-03: a
+ * Settings switch) to yourself, friends and current league mates, and anyone
+ * else sees only the username and avatar. Blocked either way: nothing (null:
+ * "not found").
  */
-export function profileAccess(a: { self: boolean; friend: boolean; leagueMate: boolean; requested: boolean; askedYou: boolean; blocked: boolean }): { relation: Relation; limited: boolean } | null {
+export function profileAccess(a: { self: boolean; friend: boolean; leagueMate: boolean; requested: boolean; askedYou: boolean; blocked: boolean; private: boolean }): { relation: Relation; limited: boolean } | null {
   if (a.self) return { relation: 'you', limited: false };
   if (a.blocked) return null;
-  const open = a.friend || a.leagueMate;
-  const relation: Relation | null = a.friend ? 'friend' : a.requested ? 'requested' : a.askedYou ? 'asked_you' : a.leagueMate ? 'league' : null;
-  return relation ? { relation, limited: !open } : null;
+  const open = !a.private || a.friend || a.leagueMate;
+  const relation: Relation = a.friend ? 'friend' : a.requested ? 'requested' : a.askedYou ? 'asked_you' : a.leagueMate ? 'league' : 'none';
+  return { relation, limited: !open };
 }
 
 /**

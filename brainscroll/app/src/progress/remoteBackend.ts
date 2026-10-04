@@ -334,9 +334,9 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
     logEvents,
     reportContent,
     async social() {
-      const r = await rpc<{ me: { id: string; username: string; invite_code: string; avatar: string | null; social_notifications?: boolean }; friends: RawCard[]; incoming: RawCard[]; outgoing: RawCard[] }>('get_social');
+      const r = await rpc<{ me: { id: string; username: string; invite_code: string; avatar: string | null; social_notifications?: boolean; private_profile?: boolean }; friends: RawCard[]; incoming: RawCard[]; outgoing: RawCard[] }>('get_social');
       return {
-        me: { id: r.me.id, username: r.me.username, inviteCode: r.me.invite_code, ...(r.me.avatar ? { avatar: r.me.avatar } : {}), socialNotifications: r.me.social_notifications !== false },
+        me: { id: r.me.id, username: r.me.username, inviteCode: r.me.invite_code, ...(r.me.avatar ? { avatar: r.me.avatar } : {}), socialNotifications: r.me.social_notifications !== false, privateProfile: r.me.private_profile === true },
         friends: r.friends.map(card),
         incoming: r.incoming.map(card),
         outgoing: r.outgoing.map(card),
@@ -433,6 +433,9 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
     },
     async setSocialNotifications(on) {
       return (await rpc<{ social_notifications: boolean }>('set_social_notifications', { p_on: on })).social_notifications;
+    },
+    async setPrivateProfile(on) {
+      return (await rpc<{ private_profile: boolean }>('set_private_profile', { p_on: on })).private_profile;
     },
     async registerPushToken(token, platform) {
       await rpc('register_push_token', { p_token: token, p_platform: platform });

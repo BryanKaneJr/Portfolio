@@ -142,7 +142,7 @@ export interface ProgressBackend {
   league(): Promise<LeagueView>;
   /** The last 14 days of moments from you, your friends and your league mates. */
   feed(): Promise<FeedItem[]>;
-  /** A friend's or league mate's profile (or your own). Throws SocialError USER_NOT_FOUND otherwise. */
+  /** Anyone's profile (`limited` when it's private and you're not a friend or league mate). Throws SocialError USER_NOT_FOUND when blocked or unknown. */
   socialProfile(userId: string): Promise<SocialProfile>;
   setUsername(name: string): Promise<string>;
   /** Wear an avatar (core avatarUnlocked). Everyone has one; there's no going back to a letter. */
@@ -167,6 +167,8 @@ export interface ProgressBackend {
   react(ownerId: string, itemKey: string, reaction: FeedReaction | null): Promise<void>;
   /** Friend and league push notifications on or off (docs/notifications.md). */
   setSocialNotifications(on: boolean): Promise<boolean>;
+  /** Private profile on or off: when on, only friends and league mates see your levels, XP and trophies. */
+  setPrivateProfile(on: boolean): Promise<boolean>;
   /** This device's Expo push token, for this account; it moves with whoever signs in. */
   registerPushToken(token: string, platform: 'ios' | 'android'): Promise<void>;
   /** Signing out: this device stops getting this account's notifications. */
