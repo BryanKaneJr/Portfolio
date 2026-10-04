@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 3,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Kilobytes to Terabytes",
   "objective": "After this level you can compare the sizes of a text message, a photo, a movie and a whole drive in bytes.",
@@ -122,10 +122,10 @@
       ],
       "prompt": "Put these storage prefixes in order, from smallest to largest.",
       "items": [
-        "kilo",
-        "mega",
-        "giga",
-        "tera"
+        "Kilo",
+        "Mega",
+        "Giga",
+        "Tera"
       ],
       "first": "Smallest",
       "last": "Largest",
@@ -163,9 +163,9 @@
         },
         {
           "id": "d",
-          "label": "Drives lose space as soon as they are switched on",
+          "label": "Drives slowly lose space every time they are switched on",
           "correct": false,
-          "rationale": "No bytes go missing at all."
+          "rationale": "No bytes go missing; the drive still holds a trillion bytes."
         }
       ],
       "explanation": "The maker counts a trillion bytes; Windows divides by its bigger, 1,024-based gigabyte and gets about 931.",
@@ -183,7 +183,7 @@
         "card.computers.003.c2",
         "card.computers.002.c4"
       ],
-      "prompt": "Level 2 says a byte is 8 bits, so a 1 KB file of about 1,000 bytes holds about _____ bits.",
+      "prompt": "A byte is 8 bits, so a 1 KB file of about 1,000 bytes holds about _____ bits.",
       "options": [
         {
           "id": "a",
@@ -193,8 +193,9 @@
         },
         {
           "id": "b",
-          "label": "8,000",
-          "correct": true
+          "label": "256",
+          "correct": false,
+          "rationale": "That is the number of patterns in one byte."
         },
         {
           "id": "c",
@@ -204,9 +205,8 @@
         },
         {
           "id": "d",
-          "label": "256",
-          "correct": false,
-          "rationale": "That is the number of patterns in one byte."
+          "label": "8,000",
+          "correct": true
         }
       ],
       "explanation": "About 1,000 bytes times 8 bits each is about 8,000 bits.",

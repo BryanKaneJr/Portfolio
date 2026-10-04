@@ -41,6 +41,11 @@ export interface AttemptView {
   /** Match and order: the positions that were wrong. */
   wrong?: number[];
   explanation?: string;
+  /**
+   * The recorded first attempt, when the server says so (levels). False on a
+   * right answer means an earlier visit missed it first: that still counts.
+   */
+  firstAttemptCorrect?: boolean;
 }
 
 /**
@@ -407,7 +412,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         const session = sessionsRef.current[level.id];
         if (session) {
           const prev = session.attempts[questionId] ?? [];
-          const attempt: AttemptView = { optionId, correct: result.correct, rationale: result.rationale, explanation: result.explanation };
+          const attempt: AttemptView = { optionId, correct: result.correct, rationale: result.rationale, wrong: result.wrong, explanation: result.explanation, firstAttemptCorrect: result.firstAttemptCorrect };
           commitSessions({ ...sessionsRef.current, [level.id]: { ...session, attempts: { ...session.attempts, [questionId]: [...prev, attempt] } } });
         }
         return result;
@@ -454,9 +459,12 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         removeFriend: (userId) => backendOrThrow().removeFriend(userId),
         acceptInvite: (code) => backendOrThrow().acceptInvite(code),
         blockUser: (userId) => backendOrThrow().blockUser(userId),
+        blocked: () => backendOrThrow().blockedUsers(),
+        unblockUser: (userId) => backendOrThrow().unblockUser(userId),
         reportUser: (userId, reason, note) => backendOrThrow().reportUser(userId, reason, note),
         react: (ownerId, itemKey, reaction) => backendOrThrow().react(ownerId, itemKey, reaction),
         setNotifications: (on) => backendOrThrow().setSocialNotifications(on),
+        setPrivateProfile: (on) => backendOrThrow().setPrivateProfile(on),
         registerPushToken: (token, platform) => backendOrThrow().registerPushToken(token, platform),
       },
       quests: () => backendOrThrow().quests(),
@@ -602,9 +610,12 @@ export interface SocialApi {
   removeFriend: ProgressBackend['removeFriend'];
   acceptInvite: ProgressBackend['acceptInvite'];
   blockUser: ProgressBackend['blockUser'];
+  blocked: ProgressBackend['blockedUsers'];
+  unblockUser: ProgressBackend['unblockUser'];
   reportUser: ProgressBackend['reportUser'];
   react: ProgressBackend['react'];
   setNotifications: ProgressBackend['setSocialNotifications'];
+  setPrivateProfile: ProgressBackend['setPrivateProfile'];
   registerPushToken: ProgressBackend['registerPushToken'];
 }
 

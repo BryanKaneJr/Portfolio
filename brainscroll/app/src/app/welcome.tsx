@@ -38,8 +38,9 @@ export default function WelcomeScreen() {
         <ProgressBar value={(step + 1) / STEPS} size="lesson" grow />
       </View>
 
-      {/* Scrolls, so every skill stays reachable on short screens and at large text sizes. */}
-      <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.body}>
+      {/* Scrolls, so every skill stays reachable on short screens and at large text sizes.
+          Keyed by step, so each step opens at its top (the skill list's scroll never carries over). */}
+      <ScrollView key={step} style={{ flex: 1 }} contentContainerStyle={styles.body}>
         {step === 0 && (
           <DrScrollSays
             spot="onboarding.hello"
@@ -140,7 +141,8 @@ const STEPS = 3;
 
 const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: color.bg },
-  top: { flexDirection: 'row', paddingHorizontal: layout.gutter, paddingTop: space.lg },
+  // The bar sits on the screen's own colour, above the scrolling steps, so nothing shows through it.
+  top: { flexDirection: 'row', paddingHorizontal: layout.gutter, paddingTop: space.lg, paddingBottom: space.sm, backgroundColor: color.bg, zIndex: 1 },
   body: { paddingHorizontal: layout.gutter, paddingTop: space.xxxl, paddingBottom: space.xl, gap: space.lg, width: '100%', maxWidth: layout.readingWidth + 2 * layout.gutter, alignSelf: 'center' },
   subject: { ...type.label, color: color.textMuted, marginTop: space.xs },
   // Compact rows: 26 skills should scan in a few swipes, not a catalog.

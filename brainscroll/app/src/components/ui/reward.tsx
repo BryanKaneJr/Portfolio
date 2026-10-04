@@ -128,8 +128,8 @@ export function StatTile({ label, value, tone = 'text', icon, art }: { label: st
   const c = { text: color.text, brand: color.brandText, success: color.success, mastery: color.mastery, streak: color.streak }[tone];
   return (
     <View style={styles.tile} accessible accessibilityLabel={`${label}: ${value}`}>
-      <Text style={[type.label, { color: color.textMuted }]}>{label}</Text>
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: space.xs }}>
+      <Text style={[type.label, { color: color.textMuted, textAlign: 'center' }]}>{label}</Text>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: space.sm }}>
         {art ? <UiArt name={art} size={iconSize.lg} /> : icon && <Icon name={icon} tint={tone === 'text' ? color.textMuted : c} size={iconSize.md} />}
         <Text style={[type.numberSm, { color: c }]}>{value}</Text>
       </View>
@@ -145,7 +145,8 @@ export function Halo({ tone = 'brand' }: { tone?: 'brand' | 'mastery' }) {
 const styles = StyleSheet.create({
   shimmer: { position: 'absolute', left: 0, backgroundColor: color.masteryShine },
   emblem: { alignItems: 'center', justifyContent: 'center' },
-  tile: { flex: 1, backgroundColor: color.surface, borderRadius: radius.md, borderWidth: depth.border, borderBottomWidth: depth.edge, borderColor: color.border, paddingVertical: space.md, paddingHorizontal: space.md, gap: space.xs, alignItems: 'center' },
+  // In a row that stretches its tiles (alignItems: 'stretch'), a label that wraps keeps every number on one baseline.
+  tile: { flex: 1, backgroundColor: color.surface, borderRadius: radius.md, borderWidth: depth.border, borderBottomWidth: depth.edge, borderColor: color.border, paddingVertical: space.md, paddingHorizontal: space.md, gap: space.xs, alignItems: 'center', justifyContent: 'space-between' },
   // Sized to sit behind a hero numeral; decorative geometry, not layout.
   halo: { position: 'absolute', alignSelf: 'center', top: 10, width: 200, height: 200, borderRadius: radius.pill },
 });

@@ -3,7 +3,7 @@
   "skillId": "skill.mind.probability",
   "number": 31,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Odds and Probability",
   "objective": "After this level you can turn odds like \"3 to 1 against\" into a probability and back again.",
@@ -175,7 +175,7 @@
         "card.probability.031.c3",
         "card.probability.007.c2"
       ],
-      "prompt": "Odds of 9 to 1 against make a 1 in 10 chance. Using Level 7's \"1 in N\" switch, what percent is that?",
+      "prompt": "Odds of 9 to 1 against make a 1 in 10 chance. Switching \"1 in N\" to a percent, what percent is that?",
       "options": [
         {
           "id": "a",
@@ -185,9 +185,8 @@
         },
         {
           "id": "b",
-          "label": "90%",
-          "correct": false,
-          "rationale": "That's the chance of losing."
+          "label": "10%",
+          "correct": true
         },
         {
           "id": "c",
@@ -197,8 +196,9 @@
         },
         {
           "id": "d",
-          "label": "10%",
-          "correct": true
+          "label": "90%",
+          "correct": false,
+          "rationale": "That's the chance of losing."
         }
       ],
       "explanation": "Add 9 and 1 to get the whole, 10. Then 100 ÷ 10 turns \"1 in 10\" into 10%.",

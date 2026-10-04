@@ -115,7 +115,14 @@ function CardFrame({
   return (
     <View style={styles.block}>
       {!compact && label}
-      {hook && !compact ? <Text style={styles.hook}>{heading}</Text> : <Heading>{heading}</Heading>}
+      {/* The hook's big heading grows with the text size like H1 (capped at 1.8×, its line height with it). */}
+      {hook && !compact ? (
+        <Text maxFontSizeMultiplier={1.8} style={styles.hook}>
+          {heading}
+        </Text>
+      ) : (
+        <Heading>{heading}</Heading>
+      )}
       {children}
       {keyIdea && <KeyIdea text={keyIdea} compact={compact} />}
     </View>

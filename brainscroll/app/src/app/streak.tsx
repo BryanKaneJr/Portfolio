@@ -42,14 +42,14 @@ export default function StreakScreen() {
               ? 'Today counts. Any new level or review keeps it going.'
               : 'Today isn’t counted yet. Any new level or review counts.'}
         </Body>
-        <Row gap={space.sm} style={{ alignSelf: 'stretch' }}>
+        <Row gap={space.sm} style={{ alignSelf: 'stretch', alignItems: 'stretch' }}>
           <StatTile label="Current" value={`${streak.current} ${streak.current === 1 ? 'day' : 'days'}`} tone="streak" art="streak-flame" />
           <StatTile label="Longest" value={`${streak.longest} ${streak.longest === 1 ? 'day' : 'days'}`} art="streak-flame" />
         </Row>
         <View style={{ alignSelf: 'stretch', gap: space.sm }}>
           <Eyebrow>Streak trophies</Eyebrow>
           {[tiers.slice(0, 3), tiers.slice(3)].map((row, i) => (
-            <Row key={i} gap={space.sm}>
+            <Row key={i} gap={space.sm} style={{ alignItems: 'flex-start' }}>
               {row.map((t) => {
                 const name = trophyInfo(t.id, trophyCatalog)?.name ?? '';
                 return t.earned ? (

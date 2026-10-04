@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { avatarIdFor, avatarUnlocked, compareSubjects, leagueFits, leaguePrize, leagueWeekStart, ordinal, rarestTrophies, usernameProblem, weeklyXp, type XpEvent } from '../src';
+import { avatarIdFor, avatarUnlocked, compareSubjects, hiddenLeagueMember, leagueFits, leaguePrize, leagueWeekStart, ordinal, profileAccess, rarestTrophies, SOCIAL_ERROR_TEXT, USER_REPORT_NOTE_MAX, USER_REPORT_REASONS, usernameProblem, weeklyXp, type XpEvent } from '../src';
 
 // Mirrors backend/tests/social.test.sql.
 describe('leagues', () => {
@@ -53,6 +53,43 @@ describe('profiles', () => {
     expect(usernameProblem('ab')).toBeTruthy();
     expect(usernameProblem('has space')).toBeTruthy();
     expect(usernameProblem('Curious_Owl_42')).toBeNull();
+  });
+});
+
+// QA fixes, 2026-10-03 (migration 20261103000000_social_qa_fixes.sql).
+describe('privacy and safety', () => {
+  const none = { self: false, friend: false, leagueMate: false, requested: false, askedYou: false, blocked: false, private: false };
+  it('opens a public profile to anyone; a private one to yourself, friends and league mates only', () => {
+    expect(profileAccess(none)).toEqual({ relation: 'none', limited: false });
+    expect(profileAccess({ ...none, requested: true })).toEqual({ relation: 'requested', limited: false });
+    const priv = { ...none, private: true };
+    expect(profileAccess({ ...priv, self: true })).toEqual({ relation: 'you', limited: false });
+    expect(profileAccess({ ...priv, friend: true })).toEqual({ relation: 'friend', limited: false });
+    expect(profileAccess({ ...priv, leagueMate: true })).toEqual({ relation: 'league', limited: false });
+    expect(profileAccess({ ...priv, requested: true })).toEqual({ relation: 'requested', limited: true });
+    expect(profileAccess({ ...priv, askedYou: true })).toEqual({ relation: 'asked_you', limited: true });
+    expect(profileAccess({ ...priv, requested: true, leagueMate: true })).toEqual({ relation: 'requested', limited: false });
+    expect(profileAccess(priv)).toEqual({ relation: 'none', limited: true });
+    expect(profileAccess({ ...none, friend: true, blocked: true })).toBeNull();
+  });
+
+  it('hides who a blocked league mate is, but keeps their place and XP', () => {
+    const m = hiddenLeagueMember(3, 420);
+    expect(m).toMatchObject({ username: '', knowledgeLevel: 0, weeklyXp: 420, blocked: true, you: false });
+    expect(m.avatar).toBeUndefined();
+    expect(m.id).not.toMatch(/sim|[0-9a-f]{8}-/);
+  });
+
+  it('pays a podium place only when the server would (the real rule, not a promise)', () => {
+    expect(leaguePrize(1, 3, 0)).toBe(0); // no XP this week
+    expect(leaguePrize(2, 2, 300)).toBe(0); // 2nd of 2: nobody behind
+    expect(leaguePrize(1, 2, 300)).toBe(1000);
+  });
+
+  it('offers the report reasons the server takes, with a short note', () => {
+    expect(USER_REPORT_REASONS.map((r) => r.id)).toEqual(['username', 'cheating', 'other']);
+    expect(USER_REPORT_NOTE_MAX).toBe(500);
+    expect(SOCIAL_ERROR_TEXT.MOMENT_NOT_FOUND).toBeTruthy();
   });
 });
 

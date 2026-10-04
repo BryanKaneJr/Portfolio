@@ -2,7 +2,7 @@
 
 Usernames are the only thing learners write that other learners see. There are no messages, comments or photos (CURRENT_PRODUCT_DECISIONS §22). Moderation therefore comes down to two things:
 - refusing offensive usernames when they're set;
-- a queue for the reports learners send from a profile (Report: username, cheating, something else).
+- a queue for the reports learners send from a profile (Report: their username, cheating or something else, with an optional note of up to 500 characters). Nobody can report themselves.
 
 ## The username filter
 
@@ -28,9 +28,11 @@ Generated defaults also help: everyone starts with a safe name like `curious_ott
 
 ### What BrainScroll does
 
-`packages/core/src/usernameFilter.ts` and SQL `username_blocked` (migration `20261026000000_username_filter.sql`) implement exactly the four parts above:
+`packages/core/src/usernameFilter.ts` and SQL `username_blocked` (migrations `20261026000000_username_filter.sql` and `20261103000000_social_qa_fixes.sql`) implement exactly the four parts above:
 
-- **Anywhere terms** (unambiguous profanity, sexual terms, slurs, hate and violence, and names posing as BrainScroll or its staff) are refused inside any part of the name. Innocent words that contain one are cut out first (`grape`, `therapist`, `scunthorpe`, `badminton`, `supportive`).
+- **Reserved names** (`brainscroll`, `drscroll`, `doctorscroll`) are refused anywhere in the whole name, read with underscores dropped, look-alike digits as letters and i, l and 1 as one letter. So `dr_scroll`, `brain_scroll`, `brainscroii` and `dr_scro11` are all refused.
+- **Phrases** that are innocent but contain a word term (`cum_laude`, `sex_ed`, `hoe_down`, `tit_for_tat`, `dick_grayson`) are cut out first, even when underscores split them.
+- **Anywhere terms** (unambiguous profanity, sexual terms, slurs, hate and violence, and names posing as BrainScroll staff) are refused inside any part of the name. Innocent words that contain one are cut out first (`grape`, `therapist`, `scunthorpe`, `badminton`, `supportive`, `rapeseed`, `pussycat`).
 - **Word terms** (`ass`, `dick`, `cock`, `cum`, `sex`, `tit`, ...) are refused only as a whole part, since they hide in ordinary words (`class`, `dickens`, `cocktail`, `cucumber`, `sussex`).
 - **The name is read** in parts at underscores, with one-letter parts joined (`f_u_c_k`), look-alike digits as letters, and any letter of a term allowed to repeat.
 
@@ -38,7 +40,7 @@ The server is the authority (`set_username` raises `USERNAME_NOT_ALLOWED`). The 
 
 ### Changing the list
 
-- **Permanently:** edit the three lists in `usernameFilter.ts` and add a migration that changes `public.username_terms` the same way. `scripts/test/username-terms.test.ts` (in `npm run check`) fails until both match.
+- **Permanently:** edit the lists in `usernameFilter.ts` (reserved, anywhere, word, allowed and phrase) and add a migration that changes `public.username_terms` the same way, with `delete from public.username_terms where term in (...)` and `insert into public.username_terms (term, kind) values ...`. `scripts/test/username-terms.test.ts` (in `npm run check`) replays the migrations and fails until both match.
 - **Right away on the live project:** insert into `username_terms` from the Supabase SQL editor, for example `insert into public.username_terms values ('newterm', 'anywhere');`. Then bring the code in line with a migration.
 - **Existing usernames** that fail a newly added term appear in the admin's moderation queue ("Usernames that fail the filter").
 

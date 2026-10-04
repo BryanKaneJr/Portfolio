@@ -97,7 +97,7 @@ Run `npm run check`, `npm run test:db`, `npm run e2e` and `npm run e2e:remote`: 
 1. Apple Developer Program and Google Play Console accounts.
 2. A Supabase production project (and a staging one for testing).
 3. RevenueCat, the store products and the webhook ([`subscriptions.md`](subscriptions.md)).
-4. The privacy policy reviewed, and the site's `SITE_*` details set so it publishes complete at `https://brainscroll.app/privacy` ([`invite-links.md`](invite-links.md)); a support URL or email for the listings.
+4. The site's `SITE_*` details set so the privacy policy publishes complete at `https://brainscroll.app/privacy` ([`invite-links.md`](invite-links.md)). The policy itself is reviewed (2026-10-03); a legal review is still worth having. The **Support URL** for both listings is `https://brainscroll.app`: its footer shows `SITE_CONTACT_EMAIL`.
 5. Screenshots and final listing copy ([`store-listing.md`](store-listing.md)).
 6. A review sign-in: a dedicated test Google account, entered in App Store Connect (App Review Information) and Play Console (App access), never in this repo. Also decide how reviewers see Unlimited work. See [App review sign-in](#app-review-sign-in).
 7. The App Privacy, Data safety and age rating answers ([`store-privacy.md`](store-privacy.md)), including its "Confirm" items, and the account-deletion web page for Google Play: `https://brainscroll.app/delete-account`.

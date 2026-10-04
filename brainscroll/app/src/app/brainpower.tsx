@@ -42,7 +42,7 @@ export default function BrainpowerScreen() {
         </Body>
         {!unlimited && (
           <>
-            <Row gap={space.sm} style={{ alignSelf: 'stretch' }}>
+            <Row gap={space.sm} style={{ alignSelf: 'stretch', alignItems: 'stretch' }}>
               <StatTile label="Daily refill" value={`${today.brainpowerRefill}`} tone="brand" />
               <StatTile label="Most you can hold" value={`${today.brainpowerMax}`} />
             </Row>

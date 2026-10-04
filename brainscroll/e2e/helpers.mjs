@@ -64,7 +64,7 @@ export async function onboard(page, { start, skill = 'Astronomy' }) {
 
 /**
  * Plays the open level to the end. Questions are select → CHECK. `pick(i)`
- * chooses the FIRST attempt at question i. After a miss the level shows "Take
+ * chooses the FIRST attempt at question i: a shown position, or 'right' / 'wrong'. After a miss the level shows "Take
  * another look" (the source cards, under the choices) and the player must choose
  * again; we try the remaining options in order until one is right.
  * Returns how many questions needed another look.
@@ -85,7 +85,7 @@ function arrangementsByPrompt() {
         if (q.kind === 'match' || q.kind === 'order') arrangements.set(q.prompt, [...(arrangements.get(q.prompt) ?? []), q]);
   return arrangements;
 }
-const labelOf = (aria) => aria.replace(/, (\d+ of \d+|matched with .*|not a match|correct|in the wrong place)(,.*)?$/, '');
+const labelOf = (aria) => aria.replace(/, (\d+ of \d+|picked|matched with .*|not a match|correct|in the wrong place)(,.*)?$/, '');
 const tileLabels = async (page, id) => Promise.all((await page.getByTestId(id).all()).map(async (t) => labelOf((await t.getAttribute('aria-label')) ?? '')));
 
 /** The open arrangement question and its answer, or null for multiple choice. */
@@ -149,14 +149,59 @@ async function answerArrangement(page, a, right) {
   else await arrangeMatch(page, target);
 }
 
+// ─── Multiple choice ─────────────────────────────────────────────────────────
+// Options show in a stable shuffled order (core shuffledOptions), so a test
+// that needs a right or wrong first try asks for 'right' or 'wrong' and the
+// helper finds it from the content files (by the options shown); a number
+// still picks that position.
+let mcqs;
+function mcqsByOptions() {
+  if (mcqs) return mcqs;
+  mcqs = new Map();
+  for (const skill of readdirSync(contentDir))
+    for (const f of (() => { try { return readdirSync(join(contentDir, skill, 'levels')); } catch { return []; } })())
+      for (const q of JSON.parse(readFileSync(join(contentDir, skill, 'levels', f), 'utf8')).questions ?? [])
+        if (!q.kind || q.kind === 'mcq') {
+          const key = q.options.map((o) => o.label).sort().join('\u0000');
+          mcqs.set(key, [...(mcqs.get(key) ?? []), q]);
+        }
+  return mcqs;
+}
+const optionLabelOf = (aria) => aria.replace(/, (correct|crossed out|in the blank)$/, '');
+
+/** The shown position of the open multiple-choice question's right answer. */
+export async function rightOptionIndex(page) {
+  const shown = await Promise.all((await page.getByRole('radio').all()).map(async (r) => optionLabelOf((await r.getAttribute('aria-label')) ?? (await r.innerText()))));
+  const qs = mcqsByOptions().get([...shown].sort().join('\u0000')) ?? [];
+  const text = await bodyText(page);
+  const words = (s) => s.replace(/_____/g, ' ').split(/\s+/).filter(Boolean).slice(0, 6).join(' ');
+  const q = qs.find((x) => text.replace(/\s+/g, ' ').includes(words(x.prompt))) ?? qs[0];
+  if (!q) throw new Error(`multiple-choice question not found in content: ${shown.join(' | ')}`);
+  const right = q.options.find((o) => o.correct).label;
+  return shown.indexOf(right);
+}
+
+/** Where each multiple-choice question answered so far showed its right answer (0 = first). */
+export const rightPositions = [];
+
+/** A first pick: a position, or 'right' / 'wrong'. */
+async function pickIndex(page, pick) {
+  if (typeof pick === 'number') return pick;
+  const right = await rightOptionIndex(page);
+  return pick === 'right' ? right : right === 0 ? 1 : 0;
+}
+
 export async function answerStep(page, firstPick, onMiss) {
   const arrangement = await openArrangement(page);
   if (arrangement) {
-    // Match and order: a first pick of 0 answers right; anything else misses first.
+    // Match and order: a first pick of 0 (or 'right') answers right; anything else misses first.
     if (await page.getByText('Take another look').count()) {
       onMiss();
       await answerArrangement(page, arrangement, true);
-    } else await answerArrangement(page, arrangement, firstPick() === 0);
+    } else {
+      const p = firstPick();
+      await answerArrangement(page, arrangement, p === 0 || p === 'right');
+    }
     await checkButton(page).click();
     await page.waitForTimeout(150);
     return;
@@ -167,7 +212,9 @@ export async function answerStep(page, firstPick, onMiss) {
     onMiss();
     await page.getByRole('radio', { disabled: false }).first().click();
   } else {
-    await page.getByRole('radio').nth(firstPick()).click();
+    const right = await rightOptionIndex(page).catch(() => undefined);
+    if (right !== undefined) rightPositions.push(right);
+    await page.getByRole('radio').nth(await pickIndex(page, firstPick())).click();
   }
   await checkButton(page).click();
   await page.waitForTimeout(150);
@@ -199,7 +246,7 @@ export async function playLevel(page, { pick = () => 0, doubleTapComplete = fals
       const b = button(page, 'Complete level');
       if (doubleTapComplete) await b.dblclick(); // two rapid taps, like an impatient thumb
       else await b.click();
-      await page.getByText(/(Level|Checkpoint|Milestone|Mastery Challenge) \d+ complete|Replay complete|Mastery star earned/i).first().waitFor({ timeout: 10_000 });
+      await page.getByText(/Level \d+( · (Checkpoint|Milestone|Mastery Challenge))? complete|Replay complete|Mastery star earned/i).first().waitFor({ timeout: 10_000 });
       return reinforced;
     }
     await button(page, 'Continue').click();
@@ -289,4 +336,19 @@ export async function sqlUntil(query, expected, timeoutMs = 10_000) {
 export function check(cond, message) {
   if (!cond) throw new Error(`✖ ${message}`);
   console.log(`✓ ${message}`);
+}
+
+/**
+ * Opens a deep link cold (a refresh or a shared link), as a learner would.
+ * The e2e server answers unknown dynamic routes with the app's index page, so
+ * React reports a hydration mismatch (#418) on the first render; that is a
+ * separate, app-wide fix. Only that one error is set aside here, so anything
+ * else a cold load throws (like "Progress backend not ready") still fails.
+ */
+export async function coldLoad(page, errors, url) {
+  const before = errors.length;
+  await page.goto(url);
+  await page.waitForTimeout(1500);
+  const added = errors.splice(before);
+  errors.push(...added.filter((e) => !/Minified React error #418/.test(e)));
 }

@@ -3,7 +3,7 @@ import { router } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { Avatar, DrScrollPostCard, LeagueBanner, MomentCard } from '@/components/social';
-import { Body, Button, Caption, Card, DrScrollSays, Icon, IconButton, LoadError, OfflineState, Row, Screen, ScreenHeader, SkeletonCard, Title } from '@/components/ui';
+import { Body, Button, Caption, Card, DrScrollSays, Icon, IconButton, LoadError, Notice, OfflineState, Row, Screen, ScreenHeader, SkeletonCard, Title } from '@/components/ui';
 import { useProgress } from '@/progress/ProgressProvider';
 import { load, save } from '@/progress/storage';
 import { useSocial } from '@/progress/useSocial';
@@ -12,13 +12,16 @@ import { color, iconSize, space } from '@/theme/tokens';
 /**
  * Social (owner, 2026-10-01): your league as a banner on top (tap for the
  * standings), this week's XP against your friends, then the feed of moments
- * from friends and league mates, with Dr. Scroll reactions.
+ * from friends and league mates, with hearts.
  */
 export default function SocialScreen() {
   const p = useProgress();
   const { view, league, feed, failed, reload, setFeed } = useSocial();
   const userId = p.account?.status === 'signed_in' ? p.account.userId : undefined;
   const [met, meet] = useMetDrScroll(userId);
+  // A friend request being answered, and what went wrong if it didn't go through (the card stays).
+  const [answering, setAnswering] = useState<{ id: string; accept: boolean } | null>(null);
+  const [requestError, setRequestError] = useState<{ id: string; text: string } | null>(null);
   // His daily moments, slotted into the feed by time.
   const moments = useMemo(() => {
     const posts = drScrollPosts(new Date()).map((post) => ({ at: post.at, post }));
@@ -28,6 +31,18 @@ export default function SocialScreen() {
   if (p.offline) return <OfflineState onRetry={() => void p.reconnect()} retrying={p.reconnecting} />;
 
   const openPerson = (id: string) => router.push({ pathname: '/person/[id]', params: { id } });
+  const answer = async (fromId: string, accept: boolean) => {
+    setAnswering({ id: fromId, accept });
+    setRequestError(null);
+    try {
+      await p.social.respondFriendRequest(fromId, accept);
+      await reload();
+    } catch {
+      setRequestError({ id: fromId, text: accept ? 'Couldn’t accept that. Check your connection and try again.' : 'Couldn’t answer that. Check your connection and try again.' });
+    } finally {
+      setAnswering(null);
+    }
+  };
   const react = (ownerId: string, key: string, reaction: FeedReaction | null) => {
     // Show it at once; the server agrees or the next load corrects it.
     setFeed((items) =>
@@ -74,7 +89,7 @@ export default function SocialScreen() {
       ) : (
         <>
           {last?.place && last.place <= LEAGUE.PRIZES.length && last.xp ? (
-            <Card variant="mastery" accessibilityLabel={`Last week you finished ${ordinal(last.place)} in your league: plus ${last.xp} XP`}>
+            <Card variant="reward" accessibilityLabel={`Last week you finished ${ordinal(last.place)} in your league: plus ${last.xp} XP`}>
               <Title>{`Last week: ${ordinal(last.place)} in your league!`}</Title>
               <Caption>{`+${last.xp.toLocaleString('en-US')} XP, added to your total.`}</Caption>
             </Card>
@@ -98,12 +113,13 @@ export default function SocialScreen() {
                   </Pressable>
                   <Row gap={space.sm}>
                     <View style={{ flex: 1 }}>
-                      <Button compact label="Accept" onPress={() => void p.social.respondFriendRequest(r.id, true).then(reload)} />
+                      <Button compact label="Accept" loading={answering?.id === r.id && answering.accept} disabled={!!answering && answering.id !== r.id} onPress={() => void answer(r.id, true)} />
                     </View>
                     <View style={{ flex: 1 }}>
-                      <Button compact variant="secondary" label="Not now" onPress={() => void p.social.respondFriendRequest(r.id, false).then(reload)} />
+                      <Button compact variant="secondary" label="Not now" loading={answering?.id === r.id && !answering.accept} disabled={!!answering && answering.id !== r.id} onPress={() => void answer(r.id, false)} />
                     </View>
                   </Row>
+                  {requestError?.id === r.id && <Notice>{requestError.text}</Notice>}
                 </Card>
               ))}
             </View>

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { encodeArrangement, gradeAnswer, shuffledLabels, type Question } from '../src';
+import { encodeArrangement, gradeAnswer, optionLetter, quantityOf, shuffledLabels, shuffledOptions, type Question } from '../src';
 
 const base = {
   id: 'question.astronomy.001.q2',
@@ -70,5 +70,70 @@ describe('shuffledLabels', () => {
       const items = ['A', 'B', 'C'];
       expect(shuffledLabels(`question.x.${i}.q1`, items)).not.toEqual(items);
     }
+  });
+});
+
+describe('shuffledOptions', () => {
+  const options = ['a', 'b', 'c', 'd'].map((id) => ({ id, label: id.toUpperCase(), correct: id === 'b' }));
+  const q = (id: string) => ({ id, options });
+
+  it('is a stable reordering of the same options, per question id', () => {
+    const shown = shuffledOptions(q('question.astronomy.001.q1'));
+    expect(shuffledOptions(q('question.astronomy.001.q1'))).toEqual(shown);
+    expect(shown.map((o) => o.id).sort()).toEqual(['a', 'b', 'c', 'd']);
+    // The same option objects: grading by id is untouched, and the question is not changed.
+    expect(shown.every((o) => options.includes(o))).toBe(true);
+    expect(options.map((o) => o.id)).toEqual(['a', 'b', 'c', 'd']);
+  });
+
+  it('spreads a right answer that content always puts second across every position', () => {
+    const at = [0, 0, 0, 0];
+    for (let i = 0; i < 2000; i++) at[shuffledOptions(q(`question.x.${String(i).padStart(3, '0')}.q${(i % 3) + 1}`)).findIndex((o) => o.correct)]! += 1;
+    for (const n of at) expect(n / 2000).toBeGreaterThan(0.2);
+  });
+
+  it('never needs the correct flags (learner bundles have none)', () => {
+    const stripped = options.map(({ id, label }) => ({ id, label }));
+    expect(shuffledOptions({ id: 'question.x.001.q1', options: stripped }).map((o) => o.id)).toEqual(shuffledOptions(q('question.x.001.q1')).map((o) => o.id));
+  });
+
+  it('letters follow the shown order', () => {
+    expect([0, 1, 2, 3].map(optionLetter)).toEqual(['A', 'B', 'C', 'D']);
+  });
+});
+
+describe('shuffledOptions with numbers', () => {
+  const q = (labels: string[]) => ({ id: 'question.x.001.q1', options: labels.map((label, i) => ({ id: 'abcdef'[i]!, label })) });
+  const shown = (labels: string[]) => shuffledOptions(q(labels)).map((o) => o.label);
+
+  it('shows numbers and quantities smallest first, not shuffled', () => {
+    expect(shown(['1,000', '125', '12', '5'])).toEqual(['5', '12', '125', '1,000']);
+    expect(shown(['3.3 million years', '300,000 years', '10 years', '1 billion years'])).toEqual(['10 years', '300,000 years', '3.3 million years', '1 billion years']);
+    expect(shown(['44 BCE', '82 BCE', '14 CE', '27 BCE'])).toEqual(['82 BCE', '44 BCE', '27 BCE', '14 CE']);
+    expect(shown(['About 2 km', 'About 200 m', 'About 20 km', 'Over 50 m'])).toEqual(['Over 50 m', 'About 200 m', 'About 2 km', 'About 20 km']);
+    expect(shown(['75%', '10%', 'About 40%', '25%'])).toEqual(['10%', '25%', 'About 40%', '75%']);
+    expect(shown(['1999', '1948', '1983', '1964'])).toEqual(['1948', '1964', '1983', '1999']);
+    expect(shown(['about 10 years', 'about 45 days', 'about 6 months', 'about 410 days'])).toEqual(['about 45 days', 'about 6 months', 'about 410 days', 'about 10 years']);
+  });
+
+  it('shuffles anything that is not all numbers, or mixes kinds of quantity', () => {
+    expect(quantityOf('about half')).toBeNull();
+    expect(quantityOf('one hour')).toBeNull();
+    expect(quantityOf('About 270 to 300')).toBeNull();
+    const mixed = ['10 km', '10 kg', '5 km', '1 kg'];
+    expect([...shown(mixed)].sort()).toEqual([...mixed].sort());
+    // Not sorted: the same order any id-seeded shuffle of these options gives.
+    const words = ['about half', '10%', '25%', 'all of them'];
+    expect(shown(words).sort()).toEqual([...words].sort());
+    const many = Array.from({ length: 40 }, (_, i) => shuffledOptions({ id: `question.x.${i}.q1`, options: q(words).options }).map((o) => o.label).join('|'));
+    expect(new Set(many).size).toBeGreaterThan(5);
+  });
+
+  it('reads a quantity: qualifiers, commas, scales and eras', () => {
+    expect(quantityOf('About 200 m')).toEqual({ value: 200, unit: 'm' });
+    expect(quantityOf('1,000')).toEqual({ value: 1000, unit: '' });
+    expect(quantityOf('82 BCE')).toEqual({ value: -82, unit: '' });
+    expect(quantityOf('7 million')).toEqual({ value: 7e6, unit: '' });
+    expect(quantityOf('45%')).toEqual({ value: 45, unit: '%' });
   });
 });

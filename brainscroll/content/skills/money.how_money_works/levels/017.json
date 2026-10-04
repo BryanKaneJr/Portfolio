@@ -3,7 +3,7 @@
   "skillId": "skill.money.how_money_works",
   "number": 17,
   "type": "regular",
-  "revision": 3,
+  "revision": 4,
   "status": "published",
   "title": "Paying by Card",
   "objective": "After this level you can explain how a card payment works and who pays the fees.",
@@ -99,7 +99,7 @@
       "options": [
         {
           "id": "a",
-          "label": "the card networks",
+          "label": "networks like Visa",
           "correct": true
         },
         {
@@ -121,7 +121,7 @@
           "rationale": "Employers aren't part of the payment."
         }
       ],
-      "explanation": "Card networks like Visa and Mastercard set interchange fees, which go to the card issuer.",
+      "explanation": "Card networks like Visa and Mastercard set interchange fees, which go to the bank that issued your card.",
       "difficulty": 0.15
     },
     {
@@ -144,7 +144,7 @@
         },
         {
           "id": "b",
-          "label": "Cash customers pay a surcharge at the till",
+          "label": "Cash customers always pay a separate surcharge at the till",
           "correct": false,
           "rationale": "Shops usually charge everyone the same price."
         },
@@ -177,13 +177,13 @@
       "prompt": "Put the steps of a card payment in order.",
       "items": [
         "You tap",
-        "Sends a request through the card network",
+        "Sends a request",
         "Checks that the account is valid",
         "The acquirer settles the sale"
       ],
       "first": "First",
       "last": "Last",
-      "explanation": "You tap, the café's bank sends a request through the card network, your bank checks that the account is valid and approves, and the acquirer settles the sale. Only balances change.",
+      "explanation": "You tap, the café's bank sends a request through the payment network, your bank checks that the account is valid and approves, and the acquirer settles the sale. Only balances change.",
       "difficulty": 0.2
     }
   ],

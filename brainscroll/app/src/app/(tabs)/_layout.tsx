@@ -33,8 +33,12 @@ function icon(art: ImageSourcePropType) {
 
 /** The tab icon's box: fixed, so the active outline is the same size on every tab. */
 const TAB_BOX = { width: 52, height: 36 } as const;
-/** Tab bar height above the home indicator: the box, its label and breathing room. */
-const TAB_BAR = 72;
+/**
+ * Tab bar height above the home indicator: the box, its label and breathing
+ * room, with space for the label to grow to its 1.3× cap at large text sizes
+ * (at 72 a grown label lost its bottom).
+ */
+const TAB_BAR = 78;
 
 const tabStyles = StyleSheet.create({
   box: { ...TAB_BOX, borderRadius: radius.md, alignItems: 'center', justifyContent: 'center', borderWidth: depth.border, borderColor: 'transparent' },
@@ -45,7 +49,7 @@ const tabStyles = StyleSheet.create({
 });
 
 // No letter spacing: on iOS it makes a one-line label measure short, so "Skills" showed as "Skil…".
-const tabLabel = { marginTop: space.xs, fontSize: 11, ...fw('700'), textAlign: 'center' } as const;
+const tabLabel = { marginTop: space.xs, fontSize: 11, lineHeight: 14, ...fw('700'), textAlign: 'center' } as const;
 
 /**
  * Five destinations, left to right: Skills, Review, Home, Social and Profile (owner, 2026-10-01: Home in the

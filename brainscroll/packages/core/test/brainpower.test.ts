@@ -92,4 +92,11 @@ describe('Brainpower', () => {
     expect(Object.keys(s.brainpowerAwards ?? {}).sort()).toEqual(['quest:quest.q', 'quest_step:quest.q:skill.a', 'quest_step:quest.q:skill.b']);
     expect(questBrainpower(s, [quest('completed', [2, 1])], NOW)).toBe(s);
   });
+
+  it('keeps a quest goal met by a level started at 10: the level spends first (10 → 9 → 10), as SQL does', () => {
+    const quest = { id: 'quest.q', state: 'live', requirements: [{ skillId: 'skill.a', required: 1, done: 1 }] };
+    const s = questBrainpower(spendBrainpower(at(10), NOW), [quest], NOW);
+    expect(brainpowerBalance(s, NOW)).toBe(10);
+    expect(brainpowerEarnedAt(s, NOW)).toEqual([{ kind: 'quest_step', key: 'quest_step:quest.q:skill.a', granted: 1 }]);
+  });
 });

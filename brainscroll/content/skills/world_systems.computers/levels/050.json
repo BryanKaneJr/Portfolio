@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 50,
   "type": "milestone",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Milestone: One Web Page, Start to Finish",
   "objective": "After this level you can explain every step from typing a web address to seeing the page: bits, software, DNS, packets, servers and your browser.",
@@ -195,11 +195,11 @@
         "card.computers.050.c2",
         "card.computers.033.c3"
       ],
-      "prompt": "Step 1 turns the site's name into an IP address. From Level 33, how does a resolver with no saved answer find it?",
+      "prompt": "Step 1 turns the site's name into an IP address. How does a DNS resolver with no saved answer find it?",
       "options": [
         {
           "id": "a",
-          "label": "It copies the address from one master file listing every computer",
+          "label": "It copies the address from one master file that lists every computer online",
           "correct": false,
           "rationale": "That single file was dropped as the network grew; DNS replaced it."
         },
@@ -259,11 +259,11 @@
         "card.computers.035.c3",
         "card.computers.035.c4"
       ],
-      "prompt": "Packets carrying the page can be lost or arrive out of order. From Level 35, how does TCP still deliver every byte?",
+      "prompt": "Packets carrying the page can be lost or arrive out of order. How does TCP still deliver every byte?",
       "options": [
         {
           "id": "a",
-          "label": "It sends every packet twice, in case one copy goes missing",
+          "label": "It sends every packet twice, in case one of the copies goes missing",
           "correct": false,
           "rationale": "TCP resends only what isn't acknowledged, not everything."
         },
@@ -298,7 +298,7 @@
       "sourceCardIds": [
         "card.computers.046.c3"
       ],
-      "prompt": "From Level 46: a much faster plan adds bandwidth. What does it leave unchanged?",
+      "prompt": "A much faster internet plan adds bandwidth. What does it leave unchanged?",
       "options": [
         {
           "id": "a",
@@ -339,11 +339,11 @@
         "card.computers.022.c4",
         "card.computers.022.c2"
       ],
-      "prompt": "The page's scripts arrive as JavaScript, which no processor runs directly. From Level 22, how does your browser run them?",
+      "prompt": "The page's scripts arrive as JavaScript, which no processor runs directly. How does your browser run them?",
       "options": [
         {
           "id": "a",
-          "label": "The processor reads the JavaScript itself, line by line",
+          "label": "The processor reads the JavaScript text itself, line by line",
           "correct": false,
           "rationale": "Only machine code runs on a processor."
         },
@@ -379,7 +379,7 @@
         "card.computers.015.c2",
         "card.computers.015.c4"
       ],
-      "prompt": "The same laptop runs a browser now and a game later, with no rewiring. Which 1940s idea from Chapter 2 makes that possible?",
+      "prompt": "The same laptop runs a browser now and a game later, with no rewiring. Which 1940s idea makes that possible?",
       "options": [
         {
           "id": "a",
@@ -420,7 +420,7 @@
         "card.computers.005.c2",
         "card.computers.050.c3"
       ],
-      "prompt": "At the paint step, the browser sets every pixel. From Chapter 1, what is each pixel's color made of?",
+      "prompt": "At the paint step, the browser sets every pixel. What is each pixel's color made of?",
       "options": [
         {
           "id": "a",
@@ -441,9 +441,9 @@
         },
         {
           "id": "d",
-          "label": "A tiny compressed JPEG file of its own",
+          "label": "Its own tiny compressed JPEG file, one per pixel",
           "correct": false,
-          "rationale": "The image is compressed, not each pixel."
+          "rationale": "The whole image is compressed, not each pixel."
         }
       ],
       "explanation": "Each pixel mixes red, green and blue light, each a number from 0 to 255 that fits in one byte.",

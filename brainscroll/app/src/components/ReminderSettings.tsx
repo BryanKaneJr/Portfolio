@@ -11,7 +11,7 @@ import { rearmReminder, REMINDER_SUPPORTED, requestReminderPermission } from '@/
 import { space } from '@/theme/tokens';
 
 const WHEN = 'Notes at 8 am, noon and 7 pm about where you are, and one at 11 pm if your streak still needs today.';
-const SOCIAL = 'Friend requests, new friends, your weekly league result, and when someone passes you. Never before 9 am or after 9 pm.';
+const SOCIAL = 'Friend requests, new friends, hearts on your moments, your weekly league result, and when someone passes you. Never before 9 am or after 9 pm.';
 const DENIED = 'Notifications are off for BrainScroll. Turn them on in your phone’s Settings to get them.';
 
 /** Turns reminders on (asking the OS), and remembers the answer either way. */
@@ -65,7 +65,7 @@ export function ReminderPrompt() {
   const [denied, setDenied] = useState(false);
   if (!REMINDER_SUPPORTED || !prefs.loaded || (prefs.asked && !denied)) return null;
   return (
-    <Card style={{ width: '100%', minWidth: 300, gap: space.md }}>
+    <Card style={{ width: '100%', gap: space.md }}>
       <Title>Want a reminder to come back?</Title>
       <Caption>{WHEN} You can turn them off in Settings.</Caption>
       {denied ? (

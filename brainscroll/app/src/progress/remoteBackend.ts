@@ -17,8 +17,10 @@ import {
   trophyInfo,
   checkClientConfig,
   CompletionError, type CompletionErrorCode, type CompletionOutcome, type CompletionSummary, type Level, type QuestView, type ReviewItem, type StartReason, NO_STREAK, type Streak,
+  hiddenLeagueMember,
   placeFromReason,
   SocialError,
+  type BlockedLearner,
   type FeedItem,
   type FeedKind,
   type LeagueView,
@@ -34,6 +36,7 @@ import { signInWithBrowser } from '@/auth/oauthBrowser';
 import { getLevel, levelIdOfQuestion, trophyCatalog } from '@/content';
 import type { EntitlementView, ProgressBackend, ProgressSnapshot } from './backend';
 import { deviceTimeZone } from './backend';
+import { isUuid } from './storage';
 
 /**
  * Supabase-backed progress. The server owns every award; this module only
@@ -175,8 +178,14 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       return { titleQuestId: r.title_quest_id, emblemQuestId: r.emblem_quest_id };
     },
     async completeQuest(questId) {
-      const r = await rpc<{ quest_id: string; xp_awarded: number; live_clear: boolean; trophy: { trophy_id: string; name: string } | null }>('complete_quest', { p_quest_id: questId });
-      return { questId: r.quest_id, xpAwarded: r.xp_awarded, liveClear: r.live_clear, ...(r.trophy ? { trophy: { trophyId: r.trophy.trophy_id, name: r.trophy.name } } : {}) };
+      const r = await rpc<{ quest_id: string; xp_awarded: number; live_clear: boolean; trophy: { trophy_id: string; name: string } | null; daily?: RawDaily }>('complete_quest', { p_quest_id: questId });
+      return {
+        questId: r.quest_id,
+        xpAwarded: r.xp_awarded,
+        liveClear: r.live_clear,
+        ...(r.trophy ? { trophy: { trophyId: r.trophy.trophy_id, name: r.trophy.name } } : {}),
+        ...(r.daily ? { daily: mapDaily(r.daily) } : {}),
+      };
     },
     async startChapterReview(skillId, chapter) {
       const r = await rpc<{ review_id: string; skill_id: string; chapter: number; question_ids: string[]; resolved: string[] }>('start_chapter_review', {
@@ -241,6 +250,7 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
         scheduled: boolean;
         rationale: string | null; wrong?: number[];
         explanation: string | null;
+        daily?: RawDaily;
       }>('submit_review', {
         p_concept_id: item.conceptId,
         p_question_id: item.question.id,
@@ -256,6 +266,7 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
         rationale: r.rationale ?? undefined,
         ...(r.wrong ? { wrong: r.wrong } : {}),
         explanation: r.explanation ?? undefined,
+        ...(r.daily ? { daily: mapDaily(r.daily) } : {}),
       };
     },
     async reset() {
@@ -331,9 +342,9 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
     logEvents,
     reportContent,
     async social() {
-      const r = await rpc<{ me: { id: string; username: string; invite_code: string; avatar: string | null; social_notifications?: boolean }; friends: RawCard[]; incoming: RawCard[]; outgoing: RawCard[] }>('get_social');
+      const r = await rpc<{ me: { id: string; username: string; invite_code: string; avatar: string | null; social_notifications?: boolean; private_profile?: boolean }; friends: RawCard[]; incoming: RawCard[]; outgoing: RawCard[] }>('get_social');
       return {
-        me: { id: r.me.id, username: r.me.username, inviteCode: r.me.invite_code, ...(r.me.avatar ? { avatar: r.me.avatar } : {}), socialNotifications: r.me.social_notifications !== false },
+        me: { id: r.me.id, username: r.me.username, inviteCode: r.me.invite_code, ...(r.me.avatar ? { avatar: r.me.avatar } : {}), socialNotifications: r.me.social_notifications !== false, privateProfile: r.me.private_profile === true },
         friends: r.friends.map(card),
         incoming: r.incoming.map(card),
         outgoing: r.outgoing.map(card),
@@ -345,7 +356,8 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
         leagueId: String(r.league_id),
         weekStart: r.week_start,
         endsAt: r.ends_at,
-        members: r.members.map((m) => ({ ...card(m), you: m.you, blocked: m.blocked })),
+        // Someone blocked either way comes without an id, name or avatar: just their place and XP.
+        members: r.members.map((m, i) => (m.blocked ? hiddenLeagueMember(i, m.weekly_xp) : { ...card(m), you: m.you, blocked: false })),
         ...(r.last_week ? { lastWeek: { weekStart: r.last_week.week_start, place: placeFromReason(r.last_week.place), xp: r.last_week.xp ?? undefined } } : {}),
       };
     },
@@ -370,17 +382,25 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       }));
     },
     async socialProfile(userId): Promise<SocialProfile> {
-      const r = await rpc<RawCard & { relation: SocialProfile['relation']; total_xp: number; streak: { current: number; longest: number }; trophies: { trophy_id: string; earned_at: string }[]; skills: Record<string, number> }>(
+      // Not an account id at all (a mistyped or made-up link): no one to show.
+      if (!isUuid(userId)) throw new SocialError('USER_NOT_FOUND');
+      const r = await rpc<Partial<RawCard> & { id: string; username: string; relation: SocialProfile['relation']; limited?: boolean; total_xp?: number; streak?: { current: number; longest: number }; trophies?: { trophy_id: string; earned_at: string }[]; skills?: Record<string, number> }>(
         'get_social_profile',
         { p_user: userId },
       );
+      // A pending request either way shares only the username and avatar.
       return {
-        ...card(r),
+        id: r.id,
+        username: r.username,
+        ...(r.avatar ? { avatar: r.avatar } : {}),
+        knowledgeLevel: r.knowledge_level ?? 0,
+        weeklyXp: r.weekly_xp ?? 0,
         relation: r.relation,
-        totalXp: r.total_xp,
+        limited: !!r.limited,
+        totalXp: r.total_xp ?? 0,
         streak: { current: r.streak?.current ?? 0, longest: r.streak?.longest ?? 0 },
-        trophies: r.trophies.map((t) => ({ trophyId: t.trophy_id, earnedAt: t.earned_at })),
-        skills: r.skills,
+        trophies: (r.trophies ?? []).map((t) => ({ trophyId: t.trophy_id, earnedAt: t.earned_at })),
+        skills: r.skills ?? {},
       };
     },
     async setUsername(name) {
@@ -407,13 +427,23 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       await rpc('block_user', { p_user: userId });
     },
     async reportUser(userId, reason, note) {
-      await rpc('report_user', { p_user: userId, p_reason: reason, p_note: note ?? null });
+      await rpc('report_user', { p_user: userId, p_reason: reason, p_note: note?.trim() || null });
+    },
+    async blockedUsers(): Promise<BlockedLearner[]> {
+      const r = await rpc<{ id: string; username: string; avatar: string | null }[]>('get_blocked');
+      return r.map((b) => ({ id: b.id, username: b.username, ...(b.avatar ? { avatar: b.avatar } : {}) }));
+    },
+    async unblockUser(userId) {
+      await rpc('unblock_user', { p_user: userId });
     },
     async react(ownerId, itemKey, reaction) {
       await rpc('react', { p_owner: ownerId, p_item_key: itemKey, p_reaction: reaction });
     },
     async setSocialNotifications(on) {
       return (await rpc<{ social_notifications: boolean }>('set_social_notifications', { p_on: on })).social_notifications;
+    },
+    async setPrivateProfile(on) {
+      return (await rpc<{ private_profile: boolean }>('set_private_profile', { p_on: on })).private_profile;
     },
     async registerPushToken(token, platform) {
       await rpc('register_push_token', { p_token: token, p_platform: platform });
@@ -645,7 +675,7 @@ interface RawEntitlement {
 }
 const mapEntitlement = (e: RawEntitlement): EntitlementView => ({ active: !!e.active, expiresAt: e.expires_at ?? null, willRenew: e.will_renew ?? null, store: e.store ?? null });
 
-const SOCIAL_ERRORS = new Set<string>(['AVATAR_LOCKED', 'AVATAR_NOT_FOUND', 'USERNAME_INVALID', 'USERNAME_NOT_ALLOWED', 'USERNAME_TAKEN', 'USER_NOT_FOUND', 'INVITE_NOT_FOUND', 'TOO_MANY_REQUESTS'] satisfies SocialErrorCode[]);
+const SOCIAL_ERRORS = new Set<string>(['AVATAR_LOCKED', 'AVATAR_NOT_FOUND', 'USERNAME_INVALID', 'USERNAME_NOT_ALLOWED', 'USERNAME_TAKEN', 'USER_NOT_FOUND', 'INVITE_NOT_FOUND', 'TOO_MANY_REQUESTS', 'MOMENT_NOT_FOUND'] satisfies SocialErrorCode[]);
 
 interface RawCard {
   id: string;

@@ -2,7 +2,7 @@
 // sign-in before anything (phone, email, Google OAuth), server-graded
 // completion, exactly-once XP, live content revisions, server-side
 // Brainpower, review, progress that survives a reinstall, and account deletion.
-import { questMap, CHAPTER_REVIEW_MAX, CURVE, REVIEW_XP, answerStep, bodyText, button, check, checkButton, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, sql, sqlUntil } from './helpers.mjs';
+import { questMap, CHAPTER_REVIEW_MAX, CURVE, REVIEW_XP, answerStep, bodyText, button, check, checkButton, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, sql, sqlUntil, URL, coldLoad } from './helpers.mjs';
 
 const { browser, page, errors } = await launch();
 // Every level bundle the app receives must be free of answer keys, and review
@@ -216,6 +216,7 @@ try {
   await page.waitForTimeout(1500);
   const questDone = await bodyText(page);
   check(/Quest complete/i.test(questDone) && /Trophy: The Roman World/.test(questDone), 'finishing in its week earns the trophy');
+  check(/Quest goal reached|Quest complete\s*\+1|Trophy unlocked[^\n]*\s*\+1|Brainpower Full/.test(questDone), 'Quest Complete shows the Brainpower the finish paid');
   check(Number(sql('select sum(amount) from public.xp_events')) === questXpBefore + 50 && sql(`select count(*) from public.xp_events where type = 'QUEST_COMPLETE'`) === '1', 'and the quest\'s +50 XP, once');
   check(sql(`select trophy_id from public.user_trophies where user_id = '${learnerId}'`) === 'trophy.roman_world', 'the trophy is recorded on the server');
   await exactButton(page, 'Done').click();
@@ -273,7 +274,7 @@ try {
   await page.getByRole('tab', { name: /Social/ }).click();
   await page.waitForTimeout(1500);
   let social = await bodyText(page);
-  check(/League/i.test(social) && /1st place/.test(social) && /You’re leading/.test(social), 'Social joins this week\'s league on the server and shows your place');
+  check(/League/i.test(social) && /Just you so far/.test(social) && /fills up as learners join/.test(social) && !/1st place/.test(social), 'Social joins this week\'s league on the server; a league of one says it fills up, with no place or prize');
   check(/You earned the First Level trophy/.test(social), 'the feed shows your own moments, derived on the server');
   check(/^[a-z]+_[a-z]+_\d{4}$/.test(sql(`select username from public.profiles where id = '${learnerId}'`)), 'you get a friendly username');
   check(/^avatar\.[a-z_]+$/.test(sql(`select avatar from public.profiles where id = '${learnerId}'`)), 'the server gave you a random starter avatar');
@@ -299,6 +300,7 @@ try {
   await exactButton(page, 'Add').click();
   await page.waitForTimeout(1000);
   check(/Request sent to @study_buddy/.test(await bodyText(page)) && sql(`select count(*) from public.friend_requests where user_id = '${learnerId}'`) === '1', 'a username search sends a request that waits on the server');
+  check(/Waiting for them[\s\S]*@study_buddy/i.test(await bodyText(page)), 'and shows under "Waiting for them" at once');
   await field(page, 'Find by username or code').fill('pal12345');
   await exactButton(page, 'Find').click();
   await page.waitForTimeout(1000);
@@ -306,6 +308,52 @@ try {
   await page.goBack();
   await page.waitForTimeout(1000);
   check(/This week with friends[\s\S]*@old_pal/.test(await bodyText(page)), 'friends appear ranked by this week\'s XP');
+
+  // Profiles: public by default, with a Private profile switch (owner, 2026-10-03). Opened cold they wait for the account.
+  await coldLoad(page, errors, `${URL}person/00000000-0000-0000-0000-0000000000f1`);
+  await page.waitForTimeout(2500);
+  let person = await bodyText(page);
+  check(/@study_buddy/.test(person) && /Brain overview/i.test(person) && !/Something went wrong|not ready/.test(person),
+    'a cold-loaded public profile opens in full, even before they accept');
+  sql(`update public.profiles set private_profile = true where id = '00000000-0000-0000-0000-0000000000f1'`);
+  await coldLoad(page, errors, `${URL}person/00000000-0000-0000-0000-0000000000f1`);
+  await page.waitForTimeout(2500);
+  person = await bodyText(page);
+  check(/@study_buddy/.test(person) && /This profile is private/.test(person) && !/Brain overview|Total XP/i.test(person),
+    'a private profile you only asked shows their name, not their stats');
+  await coldLoad(page, errors, `${URL}person/00000000-0000-0000-0000-0000000000f2`);
+  await page.waitForTimeout(2500);
+  person = await bodyText(page);
+  check(/@old_pal/.test(person) && /Brain overview/i.test(person), 'a friend\'s profile opens in full, cold');
+  // Report with a reason and a note; the server keeps both.
+  await exactButton(page, 'Report').click();
+  await page.waitForTimeout(300);
+  await page.getByRole('radio', { name: 'Their username' }).click();
+  await field(page, 'Anything else? (optional)').fill('Rude name');
+  await exactButton(page, 'Send report').click();
+  await page.waitForTimeout(1000);
+  check(/Thanks\. We’ll take a look\./.test(await bodyText(page)) && sql(`select reason || ':' || note from public.user_reports where user_id = '${learnerId}'`) === 'username:Rude name',
+    'a report carries its reason and note to the server');
+  // Block, then unblock from Settings.
+  await exactButton(page, 'Block').click();
+  await page.waitForTimeout(300);
+  await exactButton(page, 'Block').last().click();
+  await page.waitForTimeout(1500);
+  check(sql(`select count(*) from public.user_blocks where user_id = '${learnerId}'`) === '1' && sql(`select count(*) from public.friendships where user_id = '${learnerId}'`) === '0', 'blocking ends the friendship on the server');
+  await home(page);
+  await page.getByRole('tab', { name: /Profile/ }).click();
+  await page.waitForTimeout(800);
+  await exactButton(page, 'Settings').click();
+  await page.waitForTimeout(1200);
+  check(/Blocked[\s\S]*@old_pal/i.test(await bodyText(page)), 'Settings lists who you blocked');
+  await exactButton(page, 'Unblock').click();
+  await page.waitForTimeout(1000);
+  check(/Unblocked @old_pal/.test(await bodyText(page)) && sql(`select count(*) from public.user_blocks`) === '0', 'and Unblock lifts it on the server');
+  for (const bad of ['00000000-0000-0000-0000-000000000999', 'not-an-id']) {
+    await coldLoad(page, errors, `${URL}person/${bad}`);
+    await page.waitForTimeout(2500);
+    check(/We can’t find that profile/.test(await bodyText(page)), `a profile link to no one (${bad}) shows a friendly not-found state`);
+  }
   // The seeded learners leave again (and their friendship with them, by cascade).
   sql(`delete from auth.users where id in ('00000000-0000-0000-0000-0000000000f1', '00000000-0000-0000-0000-0000000000f2')`);
   check(sql(`select count(*) from public.friendships`) === '0', 'a deleted learner leaves no friendship behind');

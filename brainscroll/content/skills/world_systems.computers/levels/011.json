@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 11,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Punched Cards",
   "objective": "After this level you can explain how punched cards steered a weaving loom in 1804 and counted the 1890 US census.",
@@ -103,14 +103,14 @@
       ],
       "prompt": "Put the steps of Hollerith's tabulator in order, from pin to dial.",
       "items": [
-        "Metal pins dropped onto the card",
+        "Metal pins dropped",
         "Dipped into mercury",
         "Closing an electric circuit",
         "Nudged a counting dial forward"
       ],
       "first": "First",
       "last": "Last",
-      "explanation": "Metal pins dropped onto the card, a pin through a hole dipped into mercury, that closed an electric circuit, and the circuit nudged a counting dial forward.",
+      "explanation": "Metal pins dropped onto each punched card. A pin passing through a hole dipped into mercury, closing an electric circuit, and the circuit nudged a counting dial forward.",
       "difficulty": 0.2
     },
     {
@@ -123,7 +123,7 @@
       "sourceCardIds": [
         "card.computers.011.c2"
       ],
-      "prompt": "In Jacquard's loom, what happened when a pin met a spot on the card with no hole?",
+      "prompt": "In Jacquard's loom, what happened when a pin met a spot on a punched card with no hole?",
       "options": [
         {
           "id": "a",
@@ -132,15 +132,15 @@
         },
         {
           "id": "b",
-          "label": "The pin punched a fresh hole in that spot of the card",
+          "label": "The pin punched a fresh hole right in that blank spot",
           "correct": false,
-          "rationale": "The pins read the card; they didn't punch it."
+          "rationale": "The pins only read each card; they never punched holes."
         },
         {
           "id": "c",
-          "label": "The loom stopped weaving and skipped to the next card",
+          "label": "The loom stopped weaving and skipped ahead to a new card",
           "correct": false,
-          "rationale": "Every spot on the card was read, hole or not."
+          "rationale": "Every spot on each card was read, hole or not."
         },
         {
           "id": "d",
@@ -164,13 +164,13 @@
         "card.computers.011.c3",
         "card.computers.002.c2"
       ],
-      "prompt": "Level 2's bit holds one choice between two options. What on a Jacquard card holds the same kind of choice?",
+      "prompt": "A bit holds one choice between two options. What on a Jacquard loom's punched card holds the same kind of choice?",
       "options": [
         {
           "id": "a",
           "label": "The color of the thread",
           "correct": false,
-          "rationale": "Color came from the threads, not the card."
+          "rationale": "Color came from the threads, not the punched cards."
         },
         {
           "id": "b",
@@ -180,12 +180,12 @@
         },
         {
           "id": "c",
-          "label": "Each spot on the card: hole or no hole",
+          "label": "Each spot on a card: hole or no hole",
           "correct": true
         },
         {
           "id": "d",
-          "label": "The number of cards in the chain",
+          "label": "The number of cards in the whole chain",
           "correct": false,
           "rationale": "That sets the pattern's length, not a single choice."
         }

@@ -68,6 +68,14 @@ The source of truth is `LEARNING_STRUCTURE` in `packages/core/src/constants.ts` 
 
 ### Answer positions
 
+### Questions stand on their own
+
+A question also comes back in reviews, mixed with other levels, so it never points at the app's own structure: no "this level", "the card says", "Level 13's raid", "Chapter 2's moments" or "Cities recap:" (owner, 2026-10-03). Name the topic instead: "The Viking raid on Lindisfarne in 793...". This covers everything a question shows: prompt, choices, rationales, explanation, order items and match labels. `validate:content` refuses it.
+
+### Wrong answers as long as the right one
+
+The right answer must not be the giveaway longest choice. When it would be, make one wrong choice at least as long: more specific, still clearly wrong by the cards, same grammatical form (owner, 2026-10-03).
+
 ### Match and order questions
 
 Besides multiple choice (`"kind": "mcq"`), a question can be a **match** or an **order** (owner, 2026-10-03: about one per level). Both are graded by label, so two identical labels are interchangeable ("two Mars": either one in either spot is right).
@@ -88,6 +96,8 @@ A multiple-choice question becomes a **fill in the blank** when its prompt is a 
 - **Short options:** 30 characters or fewer each (the validator enforces it), so the chip sits inside the sentence. Drop the words the sentence already says ("The third" becomes "third" after "Earth is the _____ planet").
 - **Only one option can be true in the sentence.** If a wrong option also makes a true statement, it isn't a distractor.
 - Keep the rationales: they still explain a wrong pick ("That's Neptune, the outermost planet.").
+
+**Option order doesn't matter in the files** (owner, 2026-10-03). Every multiple-choice question, fill in the blank included, is shown in one stable shuffled order per question (core `shuffledOptions`), so the right answer can sit anywhere in `options`. When every option is a number or quantity of one kind ("125", "1,000", "3.3 million years", "82 BCE", "About 200 m", "45%"), they show smallest first instead, so keep such options in the same unit where you can. Never write "all of the above" or refer to an option by its letter: letters follow the shown order.
 - Converting a published question bumps the level's `revision`, like any content change.
 
 Vary which option is correct across a skill. The validator warns when one letter holds more than 45% of the correct answers. If the options have a natural order (numbers, dates, sequences), keep that order and let the correct answer land wherever it falls.

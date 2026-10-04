@@ -2,6 +2,62 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+## 2026-10-04: Visual fixes from QA
+
+- **Gold stays mastery-only on Social:** league prize amounts on the banner are white and the prize places in the standings are violet (they were gold, silver and bronze); "Last week: 1st in your league!" glows violet. The trophy name in feed moments and Dr. Scroll's first-friend card stay gold (owner decisions).
+- **League banner at 320 pt:** the podium stacks each spot (avatar, name, prize) so names and "+1,000 XP" fit; "451 XP this week · 2 days left" never splits a number from its unit.
+- **A league of one** shows no place, podium or prize: "Just you so far" and "Your league fills up as learners join this week." (also on the standings).
+- **"You and them" on a profile:** whoever trails is a quiet grey, not coral (the wrong-answer colour); the leader stays green, a tie violet (CURRENT_PRODUCT_DECISIONS §22).
+- **Trophy tiles fit their slot:** the art and its count (25, 100, 1,000) shrink to the tile instead of hanging over its edges, and names sit under the tile, so the streak trophies, Trophies, Profile and Dr. Scroll's four-across grid line up at every width. Dr. Scroll's "1,000+" wraps on a small phone instead of running off the card.
+- **Level Complete:** the "Trophy earned" card and the other cards keep their margins at 320 pt (no fixed 300 pt minimum); the Brainpower chip on reward screens has its own row instead of floating over cards as you scroll; a checkpoint reads "Level 10 · Checkpoint complete" (it read like the tenth checkpoint).
+- **Review Complete with nothing right first try** shows no big "+0 XP": just the count and a quiet line.
+- **Review offline** shows the same full-screen offline state as the other tabs.
+- **Onboarding:** each step opens at its top, and the progress bar has a backdrop, so "The deal" never starts half-scrolled behind it.
+- **Stat tiles** (Brainpower, streak, Profile) stretch to one height with centred labels, so numbers line up when a label wraps.
+- **Large text:** the tab bar has room for labels at their 1.3× cap; off iOS an icon's box grows with the text size so the glyph never runs into its label; the lesson hook's heading is capped like H1.
+- **Smaller fixes:** avatar names get up to three lines instead of "Earth, Weather & ..", Unlimited's gleams twinkle around the headline only (not over "Sandbox"), and Edit profile's Title section is carded like Username.
+- **`npm run screens` walks every screen again:** it answers match and order questions, picks a different choice before playing a chapter review (a second tap on a fill in the blank's chip took it back out), and likes a moment with the heart (the React button is gone).
+
+## 2026-10-03: Core loop fixes from QA, shuffled answer options
+
+- **Shuffled answer options** (owner: the right answer sat in position B far too often). Every multiple-choice question, fill in the blank included, shows its options in one stable order per question, from its id (core `shuffledOptions`, reusing the hash `shuffledLabels` uses for match and order), in lessons, reviews, chapter reviews and the Final Round, local and remote. Letters follow the shown order. When every option is a number or quantity of one kind ("125", "3.3 million years", "82 BCE", "About 200 m"), they show smallest first instead. Display only: answers are still graded by option id and no content changed.
+- **A Weekly Quest goal met at 10 Brainpower keeps its +1.** The server checked quest goals when the level's XP row landed, before the level spent its Brainpower, so at 10 the goal's +1 was lost. Now it checks after the spend (10 → 9 → 10), as local play always did (migration `20261104000000`, `quests.test.sql`).
+- **Quest Complete shows its Brainpower** (the quest's +1 and its trophy's), and **Review Complete shows what a review earned**, such as the streak's +1 when a review is the day's first learning. `complete_quest` and `submit_review` now return the daily status.
+- **Out of Brainpower after spending it elsewhere** (another device): the used-up screen reads the real balance instead of the stale one.
+- **Leaving a level always works:** the close X on a level opened with no history behind it (Level 1 straight after onboarding, "Next: Level n", a deep link) goes to the skill map after Dr. Scroll checks; the review session's way out goes to the Review tab. The browser's Back button on a started level now asks first too.
+- **Deep links load cleanly on the web** (no React hydration error #418): the e2e server serves a dynamic route's own page (`level/[id].html`) instead of the home page's.
+- **Lesson questions:** CHECK is off for an answer already checked (it did nothing before); a miss's marks on match and order stay on the places you haven't changed; with an item picked in a match, tapping a paired partner re-pairs it; order tiles renumber as you drag, don't select text on the web, and land right when rows differ in height; a question first missed before you left and restarted the level says so ("Your first answer from last time still counts").
+- **Accessibility (web):** Space picks a choice and the arrow keys move through choices; answer groups are named by their question; order tiles are buttons with Move up and Move down actions (arrow keys on the web) and say when one is picked to swap; match tiles say "picked"; a fill in the blank reads as one heading, and its hidden measuring chips are hidden from screen readers; focus moves to Continue (or the first choice) instead of falling to the page after CHECK and Continue; the right chip in a fill in the blank says "correct".
+- **Copy:** Review Complete no longer promises +10 XP for each right answer when a quick re-check paid nothing; Dr. Scroll's check before leaving a level adds "Your first answers still count."
+
+## 2026-10-03: Social fixes from QA
+
+- **Private profile switch:** profiles are public by default (owner: "maybe we just have a set to private toggle in settings"); Settings → Privacy → **Private profile** opens yours only to friends and league mates, and everyone else sees your username and avatar with "This profile is private". A pending request doesn't open a private profile.
+- **Blocked means hidden:** in a shared league a blocked learner (either way) is a "Hidden learner" row with their place and XP, and no id, username, avatar or level, on the server and on the Social banner. Settings has a new **Blocked** list with Unblock (`get_blocked`).
+- **Profile links work when opened cold:** a refreshed or shared `/person/<id>` waits for the account instead of crashing ("Progress backend not ready"), and a link to no one shows a friendly "We can't find that profile."
+- **Account deletion** now also removes other learners' notifications that name the deleted learner (a request, a new friend, a heart, a pass), pending or sent.
+- **Usernames:** names posing as BrainScroll or Dr. Scroll are checked across the whole name (`dr_scroll`, `brain_scroll`, `brainscroii`, `dr_scro11` are refused again); innocent phrases like `cum_laude`, `sex_ed`, `tit_for_tat`, `rapeseed` and `pussycat` pass; `fvck`, `phuck` and `f0ck` don't. Core and SQL stay identical (`username-terms.test.ts` now replays every migration).
+- **Report asks why:** their username, cheating or something else, plus an optional note, sent to the team's queue. You can't report yourself.
+- **Prizes as the server pays them:** the league screen and the banner's podium show a prize only where it would really be paid (XP this week and someone behind you); otherwise the podium shows that learner's XP.
+- **Truer pushes:** every friend request and heart still pings (owner: notifications bring people back; the daily cap and quiet hours are the limit), but notes that stop being true (a request withdrawn, declined, accepted or crossed, a heart taken back, a friendship ended) are withdrawn before they go out. Hearts only go on real moments. The Settings line now mentions hearts.
+- **Smaller fixes:** Accept and Not now show an error and keep the card if they fail; Share invite on a desktop browser copies the link and says so, and the link is shown; "Waiting for them" updates as soon as a request is sent; your own league podium reads "You finished 1st in your league".
+- Server: migration `20261103000000_social_qa_fixes.sql`; tests in `social.test.sql`, `push.test.sql`, `account-deletion.test.sql`, core `social.test.ts` and `usernameFilter.test.ts`, and both e2e runs.
+
+## 2026-10-03: Question clean-up across all 26 trees (from a full content audit)
+
+- **Questions stand on their own:** about 2,400 questions, choices, rationales and explanations that said "this level", "the card says", "Level 13's raid", "Chapter 2" or "Cities recap:" now name the topic instead (a tester was confused by them). `validate:content` now refuses these (`APP_STRUCTURE_REF` in core `editorial.ts`).
+- **No more "pick the longest answer":** the right answer was the longest choice in 52% of multiple-choice and fill-in-the-blank questions. In 75% of those, one wrong choice was rewritten to be at least as long (still clearly wrong by the cards); the tell is now 13%, below chance.
+- **Audit fixes:** about 40 ambiguous or mismatched questions fixed (George Mason pairing, Marx's manuscripts, Sulla's order, the film projector claw, FHA wording, 1916 gravitational waves, and more); vague match prompts made specific; Human Body's match and order explanations now state the full answer; numeric choices in ascending order; The Wizard of Oz's Kansas scenes are sepia-toned black and white.
+
+## 2026-10-03: The level is a chip on the World Map
+
+- The World Map header drops "Knowledge Lv. N" and its block (owner: redundant). The Knowledge Level is now a chip like Brainpower and the streak: a glossy violet graduation cap and the number, top left. Tapping it opens Profile (`LevelBadge.tsx`). All three header chips share one size, 15% smaller than before (`statChip.ts`).
+
+## 2026-10-03: Privacy policy reviewed, support contact on the site
+
+- The privacy policy, the website and the delete-account page now say hearts where they said Dr. Scroll reactions. Owner reviewed the policy.
+- The site's footer shows the contact email (`SITE_CONTACT_EMAIL`), so `https://brainscroll.app` serves as the store listings' Support URL (`docs/release.md`).
+
 ## 2026-10-03: Hearts, gold trophies in the feed, quest Brainpower, livelier Dr. Scroll
 
 - **The feed's only reaction is a heart** (owner: "cleaner, like every other app"): an outline that fills red when you tap it (with a little pop), tap again to take it back, and the count beside it. Your own moments show how many hearts they have. Earlier Dr. Scroll reactions all became hearts, so no likes were lost; the push note now reads "@ana liked your moment in the feed."

@@ -6,7 +6,7 @@ import { levelId, levelScope, parseLevelId } from './ids';
 import { levelTypeFor } from './progression';
 import { cardRole, learningCards, learningWordCount, structureFor } from './structure';
 import { checkQuality, checkRevisions } from './quality';
-import { EM_DASH_MESSAGE, SOURCE_METADATA_KEYS, VERBATIM_KEYS, emDashPaths } from './editorial';
+import { APP_STRUCTURE_MESSAGE, APP_STRUCTURE_REF, EM_DASH_MESSAGE, SOURCE_METADATA_KEYS, VERBATIM_KEYS, emDashPaths, questionTexts } from './editorial';
 import { MAX_MASCOT_ASIDES_PER_LEVEL } from './mascot';
 
 export interface ContentIssue {
@@ -234,6 +234,8 @@ export function validateContent(raw: RawContentBundle): { issues: ContentIssue[]
           err(q.id, `source card ${cid} must be a learning or hook card, not a ${owner.card.type} card`);
       }
       if (q.kind !== 'mcq' && q.shuffled) err(q.id, '`shuffled` is set by the server for phones; content never sets it');
+      for (const [path, text] of questionTexts(q as unknown as Record<string, unknown>))
+        if (APP_STRUCTURE_REF.test(text)) err(q.id, `${path} ${APP_STRUCTURE_MESSAGE}`);
       const gaps = blankCount(q.prompt);
       if (gaps > 1) err(q.id, `a fill-in-the-blank has one gap; this prompt has ${gaps}`);
       else if (gaps === 1 && q.kind !== 'mcq') err(q.id, 'only multiple choice can be a fill-in-the-blank');

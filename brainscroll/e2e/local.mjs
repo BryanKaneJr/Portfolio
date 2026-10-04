@@ -1,7 +1,7 @@
 // Development harness (no Supabase, simulated accounts): sign-in first, onboarding,
 // a full chapter, resume, persistence, first-day cap, review, and progress that
 // belongs to the account (sign out, a second account, deletion).
-import { questMap, CHAPTER_REVIEW_MAX, CHECKPOINT_CURVE, CURVE, REVIEW_XP, bodyText, button, check, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, URL } from './helpers.mjs';
+import { questMap, CHAPTER_REVIEW_MAX, CHECKPOINT_CURVE, CURVE, REVIEW_XP, rightPositions, bodyText, button, check, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, URL, coldLoad } from './helpers.mjs';
 
 const progressKeys = (page) => page.evaluate(() => Object.keys(localStorage).filter((k) => k.startsWith('brainscroll.progress.')));
 
@@ -28,9 +28,20 @@ try {
   check((await page.getByTestId('mascot:onboarding.hello').count()) === 1, 'his hello is the onboarding.hello spot');
   await onboard(page, { start: true });
   check((await bodyText(page)).includes('Your Cosmic Address'), 'onboarding lands in Level 1');
+  // Level 1 opens with no history behind it (onboarding replaced itself): the close X still leaves, after asking.
+  await button(page, 'Continue').click();
+  await page.waitForTimeout(300);
+  await button(page, 'Leave level').click();
+  await page.waitForTimeout(300);
+  check(/Your first answers still count/.test(await bodyText(page)), 'leaving Level 1 right after onboarding asks first (and first answers still count)');
+  await exactButton(page, 'Leave anyway').click();
+  await page.waitForTimeout(1500);
+  check(/\/skill\//.test(page.url()) && (await button(page, 'Start Level 1').count()) > 0, 'and Leave anyway goes to the skill map');
+  await button(page, 'Start Level 1').click();
+  await page.waitForTimeout(600);
 
   const l1Texts = [];
-  const reinforced = await playLevel(page, { pick: (i) => (i === 0 ? 3 : 0), texts: l1Texts });
+  const reinforced = await playLevel(page, { pick: (i) => (i === 0 ? 'wrong' : 'right'), texts: l1Texts });
   check(reinforced > 0, 'a missed question shows "Take another look" and must be answered correctly');
   const TIP_QUESTION = 'Pick one, then tap Check.';
   const TIP_MISS = 'Missing one costs you nothing.';
@@ -140,6 +151,13 @@ try {
   await exactButton(page, 'Add friends').first().click();
   await page.waitForTimeout(1000);
   check(/Your code/i.test(await bodyText(page)), 'Add friends shows your invite code');
+  check(/invite\/[A-Z0-9]{8}/.test(await bodyText(page)), 'and the invite link itself');
+  if (!(await page.evaluate(() => typeof navigator.share === 'function'))) {
+    // A desktop browser has no share sheet: Share copies the link and says so.
+    await exactButton(page, 'Share invite').click();
+    await page.waitForTimeout(500);
+    check(/Link copied|Copy the link above/.test(await bodyText(page)), 'Share invite without a share sheet copies the link and says so');
+  }
   await field(page, 'Find by username or code').fill('maya_reads');
   await exactButton(page, 'Find').click();
   await page.waitForTimeout(800);
@@ -150,6 +168,56 @@ try {
   await exactButton(page, 'Find').click();
   await page.waitForTimeout(800);
   check(/You and @leo_learns are friends now/.test(await bodyText(page)), 'an invite code makes friends at once');
+
+  // Profiles opened cold (a refresh or a shared link) wait for the account, and a bad link says so (QA 2026-10-03).
+  await coldLoad(page, errors, `${URL}person/sim-5`);
+  await page.waitForTimeout(2000);
+  let person = await bodyText(page);
+  check(/@noor/.test(person) && /Brain overview/i.test(person) && !/Something went wrong|not ready/.test(person), 'a profile link opened cold shows the profile');
+  // Report: a reason (username, cheating, something else) and an optional note.
+  await exactButton(page, 'Report').click();
+  await page.waitForTimeout(300);
+  check((await page.getByRole('radio').count()) === 3 && /What’s wrong\?/i.test(await bodyText(page)), 'Report asks what’s wrong: username, cheating or something else');
+  check(await exactButton(page, 'Send report').isDisabled(), 'and waits for a reason');
+  await page.getByRole('radio', { name: 'Cheating' }).click();
+  await field(page, 'Anything else? (optional)').fill('XP looks too fast');
+  await exactButton(page, 'Send report').click();
+  await page.waitForTimeout(500);
+  check(/Thanks\. We’ll take a look\./.test(await bodyText(page)), 'the report is sent');
+  // Block: noor becomes a hidden learner in the league, and Settings can unblock.
+  await exactButton(page, 'Block').click();
+  await page.waitForTimeout(300);
+  await exactButton(page, 'Block').last().click();
+  await page.waitForTimeout(1500);
+  check(!/@noor/.test(await bodyText(page)), 'blocking leaves their profile');
+  await page.getByRole('tab', { name: /Social/ }).click();
+  await page.waitForTimeout(1200);
+  await page.getByRole('button', { name: /League: you're/ }).click();
+  await page.waitForTimeout(1000);
+  person = await bodyText(page);
+  check(/Hidden learner/.test(person) && !/@noor/.test(person), 'a blocked learner is a hidden learner in the standings');
+  await page.goBack();
+  await page.waitForTimeout(1000);
+  check(!/@noor/.test(await bodyText(page)), 'and nowhere on Social, the league banner included');
+  await page.getByRole('tab', { name: /Profile/ }).click();
+  await page.waitForTimeout(800);
+  await exactButton(page, 'Settings').click();
+  await page.waitForTimeout(800);
+  check(/Blocked[\s\S]*@noor/i.test(await bodyText(page)), 'Settings lists who you blocked');
+  await exactButton(page, 'Unblock').click();
+  await page.waitForTimeout(600);
+  check(/Unblocked @noor/.test(await bodyText(page)) && /You haven’t blocked anyone/.test(await bodyText(page)), 'and Unblock brings them back');
+  // Private profile (owner, 2026-10-03): off by default, a switch in Settings.
+  const priv = page.getByRole('switch', { name: 'Private profile' });
+  check((await priv.getAttribute('aria-checked')) === 'false', 'profiles are public by default (Private profile off)');
+  await priv.click();
+  await page.waitForTimeout(400);
+  check((await priv.getAttribute('aria-checked')) === 'true', 'and the Private profile switch turns on');
+  await priv.click();
+  await page.waitForTimeout(400);
+  await coldLoad(page, errors, `${URL}person/nobody-here`);
+  await page.waitForTimeout(2000);
+  check(/We can’t find that profile/.test(await bodyText(page)), 'a profile link to no one shows a friendly not-found state');
 
   await home(page);
   check((await bodyText(page)).includes('Astronomy · Lv. 1'), 'progress persists across reload');
@@ -167,6 +235,15 @@ try {
   await home(page);
   check(/Up next/i.test(await bodyText(page)) && (await page.getByRole('button', { name: /^Open Science, level 1, learning now$/ }).count()) === 1, 'Home shows each subject and its level, and what is up next');
 
+  // Deep links (a refresh, a shared link) load straight into the screen, with no hydration errors (React #418).
+  const errorsBefore = errors.length;
+  await page.goto(`${URL}level/level.science.astronomy.002`);
+  await page.waitForTimeout(2000);
+  check(/Astronomy · Level 2/.test(await bodyText(page)) && errors.length === errorsBefore, `a deep link to a level opens it without page errors ${errors.slice(errorsBefore).join('; ')}`);
+  await page.goto(`${URL}skill/skill.science.astronomy`);
+  await page.waitForTimeout(1500);
+  check((await button(page, 'Start Level 2').count()) > 0 && errors.length === errorsBefore, `a deep link to a skill map opens it without page errors ${errors.slice(errorsBefore).join('; ')}`);
+
   // Leaving a level partway: Dr. Scroll checks first, and the level starts over next time.
   await questMap(page);
   await button(page, 'Start Level 2').click();
@@ -175,6 +252,13 @@ try {
   await button(page, 'Continue').click();
   await button(page, 'Continue').click();
   const midway = (await bodyText(page)).slice(0, 200);
+  // The browser's Back button asks too (web), instead of dropping the level silently.
+  await page.goBack();
+  await page.waitForTimeout(500);
+  check(/this level starts over from the beginning next time/.test(await bodyText(page)), 'browser Back on a started level asks first');
+  await exactButton(page, 'Keep going').click();
+  await page.waitForTimeout(300);
+  check((await bodyText(page)).slice(0, 200) === midway && /\/level\//.test(page.url()), 'and Keep going stays on the same card');
   await button(page, 'Leave level').click();
   await page.waitForTimeout(300);
   check(/this level starts over from the beginning next time/.test(await bodyText(page)), 'leaving partway, Dr. Scroll warns the level will start over');
@@ -232,13 +316,18 @@ try {
     if (f.firstTry === f.total) sawPerfect ||= /perfect recall/i.test(f.text);
     if (f.total === 3 && f.xp !== CURVE[f.firstTry]) throw new Error(`level ${n}: ${f.firstTry}/3 gave ${f.xp} XP`);
     if (n === 10) {
-      check(/CHECKPOINT 10 COMPLETE/i.test(f.text), 'all ten Golden levels play from data; Level 10 is a checkpoint');
+      check(/LEVEL 10 · CHECKPOINT COMPLETE/i.test(f.text), 'all ten Golden levels play from data; Level 10 is a checkpoint');
       check(f.total === 5 && f.xp === CHECKPOINT_CURVE[f.firstTry], `the checkpoint uses its own XP pool (${f.firstTry}/5 → ${f.xp} XP)`);
       check(/10 levels ago, could you have explained this\?/.test(f.text) && f.text.includes('You know this now.'), 'the checkpoint shows the chapter recap as proof of what was learned');
       check(f.text.includes('At Lv. 100:'), 'Level Complete names what Level 100 means for the skill');
     }
   }
   check(ranOut, 'a first day runs out of Brainpower before Level 10');
+  {
+    const at = [0, 1, 2, 3].map((k) => rightPositions.filter((p) => p === k).length);
+    check(rightPositions.length >= 20 && at.filter((n) => n > 0).length >= 3 && Math.max(...at) < rightPositions.length * 0.6,
+      `answer options are shuffled: right answers shown at A/B/C/D ${at.join('/')}`);
+  }
   await home(page);
   await page.getByRole('tab', { name: /Profile/ }).click();
   await page.waitForTimeout(800);
@@ -275,7 +364,8 @@ try {
   const corrected = await playReview(page);
   const t = await bodyText(page);
   check(/REVIEW COMPLETE/i.test(t), `a review session completes once every item is resolved (${corrected} corrected)`);
-  const [, xp, right, total] = t.match(/\+(\d+) XP[\s\S]*?(\d+) \/ (\d+) right first time/) ?? [];
+  // No first-try right: no "+0 XP" numeral, just the count.
+  const [, xp = '0', right, total] = t.match(/(?:\+(\d+) XP[\s\S]*?)?(\d+) \/ (\d+) right first time/) ?? [];
   check(Number(xp) === REVIEW_XP * Number(right) && Number(total) - Number(right) === corrected,
     `review XP is ${REVIEW_XP} per first-try item; corrections earn nothing (${right}/${total} → +${xp})`);
 

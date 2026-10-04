@@ -1,10 +1,12 @@
-import { REVIEW_SESSION_MAX_QUESTIONS, XP, type Card, type ReviewItem } from '@brainscroll/core';
+import { REVIEW_SESSION_MAX_QUESTIONS, XP, type BrainpowerEarned as Earned, type Card, type DailyAllowance, type ReviewItem } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { BrainpowerEarned } from '@/components/BrainpowerEarned';
+import { BrainpowerFlight, NO_DAILY } from '@/components/BrainpowerFlight';
 import { DrScrollTip } from '@/components/DrScrollTip';
-import { feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
+import { canCheck, feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { Body, Button, Caption, DrScroll, Eyebrow, H2, LessonShell, LessonSkeleton, LoadError, Notice, Numeral, Pop, Reveal, StateBlock, useCountUp } from '@/components/ui';
 import { getCard, getSkill } from '@/content';
 import { TrophyEarned } from '@/components/TrophyEarned';
@@ -37,6 +39,9 @@ export default function ReviewSessionScreen() {
   const [answering, setAnswering] = useState(false);
   const [xp, setXp] = useState(0);
   const [firstTry, setFirstTry] = useState(0);
+  // Brainpower this session earned (each answer reports its own), and the balance after the last.
+  const [earned, setEarned] = useState<Earned[]>([]);
+  const [daily, setDaily] = useState<DailyAllowance | null>(null);
 
   // Bumped by "Try again".
   const [attempt, setAttempt] = useState(0);
@@ -53,10 +58,12 @@ export default function ReviewSessionScreen() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [p.ready, attempt]);
 
+  // Opened with no history behind it (a deep link, a refresh): back means the Review tab.
+  const back = () => (router.canGoBack() ? router.back() : router.replace('/review'));
   // Refresh Home/Review counts once the session is over.
   const finish = () => {
     void p.refresh();
-    router.back();
+    back();
   };
 
   if (failed)
@@ -67,7 +74,7 @@ export default function ReviewSessionScreen() {
           setFailed(false);
           setAttempt((a) => a + 1);
         }}
-        onBack={() => router.back()}
+        onBack={back}
       />
     );
   if (queue === null) return <LessonSkeleton label="Loading your review" />;
@@ -79,10 +86,11 @@ export default function ReviewSessionScreen() {
         art="review-clear"
         title="You’re caught up."
         body="Nothing needs review right now. Go learn something new."
-        secondary={{ label: 'Back', onPress: () => router.back() }}
+        secondary={{ label: 'Back', onPress: back }}
       />
     );
-  if (index >= queue.length) return <ReviewComplete xp={xp} firstTry={firstTry} total={queue.length} onDone={finish} />;
+  if (index >= queue.length)
+    return <ReviewComplete xp={xp} firstTry={firstTry} total={queue.length} daily={daily ? { ...daily, brainpowerEarned: earned } : NO_DAILY} onDone={finish} />;
 
   const item = queue[index]!;
   const itemAttempts = attempts[item.question.id] ?? [];
@@ -92,7 +100,7 @@ export default function ReviewSessionScreen() {
 
   const onCheck = () => {
     const optionId = selected;
-    if (!optionId || resolved || inFlight.current) return;
+    if (!canCheck(itemAttempts, optionId) || resolved || inFlight.current) return;
     inFlight.current = true;
     setAnswering(true);
     const qid = item.question.id;
@@ -102,6 +110,11 @@ export default function ReviewSessionScreen() {
         setXp((x) => x + r.xpAwarded);
         setSelected(undefined);
         if (r.correct && r.attemptCount <= 1) setFirstTry((c) => c + 1);
+        const d = r.daily;
+        if (d) {
+          setDaily(d);
+          setEarned((e) => [...e, ...d.brainpowerEarned.filter((x) => !e.some((y) => y.key === x.key))]);
+        }
         if (r.correct) feedback('correct');
         else feedback('incorrect');
       })
@@ -140,7 +153,7 @@ export default function ReviewSessionScreen() {
               }}
             />
           ) : (
-            <Button label={answering ? 'Checking' : 'Check'} loading={answering} disabled={!selected} onPress={onCheck} />
+            <Button label={answering ? 'Checking' : 'Check'} loading={answering} disabled={!canCheck(itemAttempts, selected)} onPress={onCheck} />
           )}
         </>
       }>
@@ -165,21 +178,25 @@ export default function ReviewSessionScreen() {
 }
 
 /** A modest progression moment: review XP is small by design, so the celebration is too. */
-function ReviewComplete({ xp, firstTry, total, onDone }: { xp: number; firstTry: number; total: number; onDone: () => void }) {
+function ReviewComplete({ xp, firstTry, total, daily, onDone }: { xp: number; firstTry: number; total: number; daily: DailyAllowance; onDone: () => void }) {
   const shown = useCountUp(xp, { delay: 200 });
   // A review can earn a trophy too (a streak day, Long Memory): celebrate it here, once.
   const newTrophies = useNewTrophies('review-session');
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: color.bgDeep, padding: layout.gutter }}>
+      <BrainpowerFlight daily={daily}>
       {/* Scrolls on small phones when a trophy card joins the XP. */}
       <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', gap: space.lg, alignItems: 'center', paddingVertical: space.lg }}>
         <DrScroll spot="review-complete" size="md" />
         <Eyebrow tone="success">Review complete</Eyebrow>
-        <Pop>
-          <Numeral size="hero" tone="brand" accessibilityLabel={`plus ${xp} XP`}>
-            +{shown} XP
-          </Numeral>
-        </Pop>
+        {/* Nothing earned is said quietly: no big violet "+0". */}
+        {xp > 0 ? (
+          <Pop>
+            <Numeral size="hero" tone="brand" accessibilityLabel={`plus ${xp} XP`}>
+              +{shown} XP
+            </Numeral>
+          </Pop>
+        ) : null}
         <Reveal delay={300}>
           <H2 center>
             {firstTry} / {total} right first time
@@ -187,9 +204,20 @@ function ReviewComplete({ xp, firstTry, total, onDone }: { xp: number; firstTry:
         </Reveal>
         <Reveal delay={450}>
           <Body muted center>
-            {`+${XP.REVIEW_FIRST_ATTEMPT} XP for each one you remembered on the first try.`}
+            {firstTry === 0
+              ? 'No XP this time. These come back sooner, and each look helps them stick.'
+              : xp < firstTry * XP.REVIEW_FIRST_ATTEMPT
+              ? `+${XP.REVIEW_FIRST_ATTEMPT} XP for each one you remembered after a break. A quick re-check of one you just missed, or just saw in a lesson, earns no XP, but it still helps it stick.`
+              : `+${XP.REVIEW_FIRST_ATTEMPT} XP for each one you remembered on the first try.`}
           </Body>
         </Reveal>
+        {daily.brainpowerEarned.length > 0 && (
+          <View style={{ alignSelf: 'stretch' }}>
+            <Reveal delay={500}>
+              <BrainpowerEarned daily={daily} at={500} />
+            </Reveal>
+          </View>
+        )}
         {newTrophies.length > 0 && (
           <View style={{ alignSelf: 'stretch' }}>
             <Reveal delay={550}>
@@ -199,6 +227,7 @@ function ReviewComplete({ xp, firstTry, total, onDone }: { xp: number; firstTry:
         )}
       </ScrollView>
       <Button label="Done" onPress={onDone} />
+      </BrainpowerFlight>
     </SafeAreaView>
   );
 }

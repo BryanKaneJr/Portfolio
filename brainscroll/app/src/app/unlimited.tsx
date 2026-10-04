@@ -90,9 +90,12 @@ export default function UnlimitedScreen() {
       <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: layout.gutter, paddingBottom: space.xl }}>
         <View style={{ width: '100%', maxWidth: layout.readingWidth, alignSelf: 'center', gap: space.xl }}>
           <View style={{ gap: space.sm }}>
-            <Eyebrow tone="brand">Unlimited</Eyebrow>
-            <Display>{active ? 'Unlimited is on.' : 'Keep leveling today.'}</Display>
-            <Gleams count={3} />
+            {/* The gleams twinkle around the headline only, never over the lines below it. */}
+            <View style={{ gap: space.sm }}>
+              <Eyebrow tone="brand">Unlimited</Eyebrow>
+              <Display>{active ? 'Unlimited is on.' : 'Keep leveling today.'}</Display>
+              <Gleams count={3} />
+            </View>
             <Body muted>
               {active
                 ? '∞ Brainpower: as many new levels as you like.'

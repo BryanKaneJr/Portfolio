@@ -44,7 +44,7 @@ export function TrophyEarned({ trophies, at = 0 }: { trophies: Trophy[]; at?: nu
     // The whole card shares; the small share mark in its corner says so without a big button.
     <Card
       variant={gold ? 'mastery' : 'reward'}
-      style={{ width: '100%', minWidth: 300 }}
+      style={{ width: '100%' }}
       onPress={() => router.push({ pathname: '/share/[id]', params: { id: first.trophyId } })}
       accessibilityLabel={`${eyebrow}: ${first.name}. Share`}>
       <Row gap={space.lg} style={{ alignItems: 'flex-start' }}>

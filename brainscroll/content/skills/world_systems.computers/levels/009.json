@@ -3,7 +3,7 @@
   "skillId": "skill.world_systems.computers",
   "number": 9,
   "type": "regular",
-  "revision": 2,
+  "revision": 3,
   "status": "published",
   "title": "Why Memory Comes in Layers",
   "objective": "After this level you can explain why a computer keeps data in layers, from tiny fast cache to roomy RAM to big slow storage.",
@@ -154,9 +154,9 @@
         },
         {
           "id": "b",
-          "label": "It stores the program permanently with the power off",
+          "label": "It stores the whole program permanently, even with the power off",
           "correct": false,
-          "rationale": "That is storage's job."
+          "rationale": "Keeping data with the power off is storage's job."
         },
         {
           "id": "c",
@@ -185,7 +185,7 @@
         "card.computers.009.c1",
         "card.computers.008.c2"
       ],
-      "prompt": "Level 8's processor fetches from memory on every cycle. Why does a 20 to 80 nanosecond memory delay matter?",
+      "prompt": "A processor fetches from memory constantly. Why does a 20 to 80 nanosecond memory delay matter?",
       "options": [
         {
           "id": "a",
@@ -200,9 +200,9 @@
         },
         {
           "id": "c",
-          "label": "The clock stops completely during every fetch",
+          "label": "The clock stops completely during each fetch and restarts once the data arrives",
           "correct": false,
-          "rationale": "The clock keeps ticking at a fixed rate."
+          "rationale": "The clock keeps ticking at a fixed rate; the processor just waits."
         },
         {
           "id": "d",

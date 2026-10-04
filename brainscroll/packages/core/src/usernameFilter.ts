@@ -2,11 +2,17 @@
  * The username filter (owner, 2026-10-01). Usernames are the one thing
  * learners write that other learners see, so offensive ones are refused when
  * they're set. Mirrors SQL `username_blocked` and the `username_terms` table
- * (migration 20261026000000_username_filter.sql); a scripts test keeps the
- * lists identical.
+ * (migrations 20261026000000_username_filter.sql and
+ * 20261103000000_social_qa_fixes.sql); a scripts test keeps the lists identical.
  *
  * How it works (the usual approach: a term list, normalisation against
  * workarounds, and an allowlist for innocent words that contain a term):
+ * - `RESERVED` names (BrainScroll, Dr. Scroll) are looked for in the whole
+ *   name, with underscores dropped, look-alike digits read as letters and
+ *   i, l and 1 read as one letter, so `dr_scroll`, `brain_scroll`,
+ *   `brainscroii` and `dr_scro11` are all refused.
+ * - `PHRASES` (innocent phrases whose words are refused alone: `cum_laude`,
+ *   `sex_ed`, `tit_for_tat`) are cut out first, even split by underscores.
  * - The name is split into parts at underscores. Runs of one-letter parts are
  *   joined, so `f_u_c_k` is read as one word.
  * - Look-alike digits count as letters (`sh1t`, `b00b`), and any letter of a
@@ -20,12 +26,15 @@
  * existing usernames that fail this filter) catch the rest.
  */
 
-/** Refused anywhere in a part: unambiguous terms, and names that pose as BrainScroll. */
+/** Refused anywhere in the whole name, read with underscores dropped: names that pose as BrainScroll or Dr. Scroll. */
+export const USERNAME_RESERVED: readonly string[] = ['brainscroll', 'drscroll', 'doctorscroll'];
+
+/** Refused anywhere in a part: unambiguous terms, and names that pose as BrainScroll staff. */
 export const USERNAME_ANYWHERE: readonly string[] = [
-  // Posing as BrainScroll or its staff
-  'brainscroll', 'drscroll', 'admin', 'moderator', 'support', 'official',
+  // Posing as BrainScroll staff
+  'admin', 'moderator', 'support', 'official',
   // Profanity
-  'fuck', 'shit', 'cunt', 'bitch', 'bastard', 'asshole', 'twat', 'wank', 'motherf',
+  'fuck', 'fvck', 'phuck', 'fock', 'shit', 'cunt', 'bitch', 'bastard', 'asshole', 'twat', 'wank', 'motherf',
   // Sexual
   'porn', 'pussy', 'penis', 'vagina', 'dildo', 'blowjob', 'handjob', 'jizz', 'cumshot', 'orgasm', 'masturbat',
   'whore', 'slut', 'milf', 'hentai', 'boner', 'erection', 'genital', 'testicle', 'clitor',
@@ -46,8 +55,11 @@ export const USERNAME_WORD: readonly string[] = [
 export const USERNAME_ALLOWED: readonly string[] = [
   'grape', 'drape', 'scrape', 'trapeze', 'parapet', 'therapist', 'scunthorpe', 'niggle', 'snigger', 'sniggle',
   'torpedo', 'pedometer', 'encyclopedia', 'cyclopedia', 'expedition', 'pedometric', 'orthopedic', 'pedology',
-  'badminton', 'lynchburg', 'shitake', 'supportive',
+  'badminton', 'lynchburg', 'shitake', 'supportive', 'rapeseed', 'pussycat',
 ];
+
+/** Innocent phrases whose words are refused alone, cut out first even when underscores split them (`cum_laude`). */
+export const USERNAME_PHRASES: readonly string[] = ['cumlaude', 'sexed', 'hoedown', 'titfortat', 'dickgrayson'];
 
 /** Look-alike digits read as letters. */
 const LEET: Record<string, string> = { '0': 'o', '1': 'i', '3': 'e', '4': 'a', '5': 's', '7': 't', '8': 'b', '9': 'g' };
@@ -58,6 +70,11 @@ const stretchy = (term: string) => term.split('').map((c) => `${c}+`).join('');
 const ANYWHERE_RE = new RegExp(USERNAME_ANYWHERE.map(stretchy).join('|'));
 const ALLOWED_RE = new RegExp(USERNAME_ALLOWED.map(stretchy).join('|'), 'g');
 const collapse = (s: string) => s.replace(/(.)\1+/g, '$1');
+/** The whole name as one word for reserved names: no underscores, look-alike digits as letters, and i, l and 1 alike. */
+const skeleton = (s: string) => lettersOnly(deLeet(s)).replace(/i/g, 'l');
+const RESERVED_RE = new RegExp(USERNAME_RESERVED.map((t) => stretchy(skeleton(t))).join('|'));
+/** A phrase whose letters may repeat and be split by underscores: `cumlaude` finds `cum_laude`. */
+const PHRASE_RE = new RegExp(USERNAME_PHRASES.map((t) => t.split('').map((c) => `${c}+`).join('_*')).join('|'), 'g');
 
 /** The name's parts: split at underscores, with runs of one-character parts joined (`f_u_c_k` → `fuck`). */
 export function usernameParts(name: string): string[] {
@@ -77,7 +94,9 @@ export function usernameParts(name: string): string[] {
 
 /** True when a username contains a blocked term (see the module comment). */
 export function usernameBlocked(name: string): boolean {
-  for (const part of usernameParts(name)) {
+  const v = name.trim().toLowerCase();
+  if (RESERVED_RE.test(skeleton(v))) return true;
+  for (const part of usernameParts(v.replace(PHRASE_RE, '_'))) {
     const read = lettersOnly(deLeet(part));
     // Allowed words are cut out first, so `grapes` passes and `grape_rapist` doesn't.
     if (ANYWHERE_RE.test(read.replace(ALLOWED_RE, '_'))) return true;

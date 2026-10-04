@@ -1,6 +1,6 @@
 import { encodeArrangement, shuffledLabels, type Question } from '@brainscroll/core';
 import { useMemo, useState } from 'react';
-import { Animated, PanResponder, Pressable, StyleSheet, Text, View, type LayoutChangeEvent } from 'react-native';
+import { Animated, PanResponder, Platform, Pressable, StyleSheet, Text, View, type LayoutChangeEvent, type ViewStyle } from 'react-native';
 import { Icon } from '@/components/ui';
 import type { AttemptView } from '@/progress/ProgressProvider';
 import { feedback } from '@/theme/feedback';
@@ -18,18 +18,40 @@ import { color, depth, fw, radius, space, type } from '@/theme/tokens';
 type OrderQ = Extract<Question, { kind: 'order' }>;
 type MatchQ = Extract<Question, { kind: 'match' }>;
 
-/** The last attempt's wrong positions, while the arrangement is still the one that was checked. */
-function markedWrong(attempts: AttemptView[], answer: string): Set<number> {
+/**
+ * The last check's wrong positions that still hold what was checked there: a
+ * mark stays on a position (or pair) until that position changes, so fixing
+ * one doesn't wipe the others.
+ */
+function markedWrong(attempts: AttemptView[], current: readonly (string | undefined)[]): Set<number> {
   const last = attempts.at(-1);
-  return last && !last.correct && last.optionId === answer ? new Set(last.wrong ?? []) : new Set();
+  if (!last || last.correct || !last.wrong) return new Set();
+  let checked: unknown;
+  try {
+    checked = JSON.parse(last.optionId);
+  } catch {
+    return new Set();
+  }
+  if (!Array.isArray(checked)) return new Set();
+  return new Set(last.wrong.filter((i) => current[i] !== undefined && current[i] === checked[i]));
 }
+
+/** Web: dragging a tile mustn't select the page's text. */
+const noSelect = (Platform.OS === 'web' ? { userSelect: 'none' } : {}) as ViewStyle;
+
+/** A key per tile that follows the label as it moves (the nth copy of a label), so a moved tile keeps its focus. */
+const tileKeys = (labels: readonly string[]) => {
+  const seen: Record<string, number> = {};
+  return labels.map((l) => `${l}#${(seen[l] = (seen[l] ?? 0) + 1)}`);
+};
 
 // ─── Order ──────────────────────────────────────────────────────────────────
 
 /**
  * Put in order: drag a tile by its handle, or tap two tiles to swap them
- * (owner: "drag with tap as backup"). Screen readers swipe up or down on a
- * tile to move it. The two ends are named above and below the list.
+ * (owner: "drag with tap as backup"). Screen readers use the tile's Move up
+ * and Move down actions, and on the web the arrow keys move the focused tile.
+ * The two ends are named above and below the list.
  */
 export function OrderQuestion({ question: q, attempts, busy, onSelect }: { question: OrderQ; attempts: AttemptView[]; busy: boolean; onSelect: (answer: string) => void }) {
   const [arr, setArr] = useState(() => (q.shuffled ? [...q.items] : shuffledLabels(q.id, q.items)));
@@ -37,11 +59,28 @@ export function OrderQuestion({ question: q, attempts, busy, onSelect }: { quest
   const [drag, setDrag] = useState<{ from: number; to: number } | null>(null);
   const resolved = attempts.some((a) => a.correct);
   const locked = resolved || busy;
-  const answer = encodeArrangement(arr);
-  const wrong = markedWrong(attempts, answer);
-  // One row's height plus the gap: how far a tile moves per place.
-  const [rowH, setRowH] = useState(0);
+  const wrong = markedWrong(attempts, arr);
+  // Each row's height plus the gap, so a drag lands right even when rows differ in height.
+  const [heights, setHeights] = useState<number[]>([]);
   const [dy] = useState(() => new Animated.Value(0));
+  const keys = tileKeys(arr);
+  // Where a tile dragged `drag` points from `from` would land: past the middle of each row it crosses.
+  const targetFor = (from: number, drag: number) => {
+    const h = (k: number) => heights[k] || heights[from] || 1;
+    let to = from;
+    let rest = drag;
+    if (rest > 0)
+      while (to < arr.length - 1 && rest >= h(to + 1) / 2) {
+        rest -= h(to + 1);
+        to += 1;
+      }
+    else
+      while (to > 0 && -rest >= h(to - 1) / 2) {
+        rest += h(to - 1);
+        to -= 1;
+      }
+    return to;
+  };
 
   // The screen acknowledges each change (onSelect); in-between taps tick here.
   const commit = (next: string[]) => {
@@ -85,13 +124,11 @@ export function OrderQuestion({ question: q, attempts, busy, onSelect }: { quest
           },
           onPanResponderMove: (_e, g) => {
             dy.setValue(g.dy);
-            const h = rowH || 1;
-            const to = Math.max(0, Math.min(arr.length - 1, i + Math.round(g.dy / h)));
+            const to = targetFor(i, g.dy);
             setDrag((d) => (d && d.to !== to ? { ...d, to } : d));
           },
           onPanResponderRelease: (_e, g) => {
-            const h = rowH || 1;
-            const to = Math.max(0, Math.min(arr.length - 1, i + Math.round(g.dy / h)));
+            const to = targetFor(i, g.dy);
             setDrag(null);
             dy.setValue(0);
             if (to !== i) {
@@ -109,16 +146,36 @@ export function OrderQuestion({ question: q, attempts, busy, onSelect }: { quest
         }),
       ),
     // Rebuilt when what they read changes; none of it changes mid-drag (the order is only committed on release).
-    [q.items, arr, locked, rowH, onSelect, dy],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [q.items, arr, locked, heights, onSelect, dy],
   );
 
-  // While dragging, the tiles between the start and the target step aside.
+  // While dragging, the tiles between the start and the target step aside (by the dragged tile's height).
   const shift = (k: number) => {
     if (!drag || k === drag.from) return 0;
-    const h = rowH;
+    const h = heights[drag.from] ?? 0;
     if (drag.from < drag.to && k > drag.from && k <= drag.to) return -h;
     if (drag.from > drag.to && k < drag.from && k >= drag.to) return h;
     return 0;
+  };
+  // The place each tile would have if dropped now, so the numbers follow the drag.
+  const placeOf = (k: number) => {
+    if (!drag) return k;
+    if (k === drag.from) return drag.to;
+    if (drag.from < drag.to && k > drag.from && k <= drag.to) return k - 1;
+    if (drag.from > drag.to && k < drag.from && k >= drag.to) return k + 1;
+    return k;
+  };
+  // Web: the arrow keys move the focused tile up or down.
+  const onKey = (i: number) => (e: { key: string; preventDefault: () => void }) => {
+    if (locked) return;
+    if (e.key === 'ArrowUp' && i > 0) {
+      e.preventDefault();
+      move(i, i - 1);
+    } else if (e.key === 'ArrowDown' && i < arr.length - 1) {
+      e.preventDefault();
+      move(i, i + 1);
+    }
   };
 
   return (
@@ -130,22 +187,33 @@ export function OrderQuestion({ question: q, attempts, busy, onSelect }: { quest
           const state = resolved ? 'correct' : wrong.has(i) ? 'wrong' : picked === i || dragging ? 'picked' : 'idle';
           return (
             <Animated.View
-              key={`${i}:${label}`}
-              onLayout={i === 0 ? (e: LayoutChangeEvent) => setRowH(e.nativeEvent.layout.height + ROW_GAP) : undefined}
+              key={keys[i]}
+              onLayout={(e: LayoutChangeEvent) => {
+                const h = e.nativeEvent.layout.height + ROW_GAP;
+                setHeights((hs) => (hs[i] === h ? hs : Object.assign([...hs], { [i]: h })));
+              }}
               style={[{ zIndex: dragging ? 2 : 1 }, { transform: [{ translateY: dragging ? dy : shift(i) }] }]}>
               <Pressable
                 testID="order-tile"
-                accessibilityRole="adjustable"
-                accessibilityLabel={`${label}, ${i + 1} of ${arr.length}${state === 'wrong' ? ', in the wrong place' : state === 'correct' ? ', correct' : ''}`}
-                accessibilityHint={locked ? undefined : 'Swipe up or down to move it. Or tap it, then tap another to swap.'}
-                accessibilityActions={locked ? [] : [{ name: 'increment' }, { name: 'decrement' }]}
-                onAccessibilityAction={(e) => (e.nativeEvent.actionName === 'increment' ? move(i, Math.min(i + 1, arr.length - 1)) : move(i, Math.max(i - 1, 0)))}
+                accessibilityRole="button"
+                accessibilityLabel={`${label}, ${i + 1} of ${arr.length}${picked === i ? ', picked to swap' : ''}${state === 'wrong' ? ', in the wrong place' : state === 'correct' ? ', correct' : ''}`}
+                accessibilityHint={locked ? undefined : 'Tap it, then tap another to swap them. Or move it up or down.'}
+                accessibilityActions={
+                  locked
+                    ? []
+                    : [
+                        { name: 'moveUp', label: 'Move up' },
+                        { name: 'moveDown', label: 'Move down' },
+                      ]
+                }
+                onAccessibilityAction={(e) => (e.nativeEvent.actionName === 'moveDown' ? move(i, Math.min(i + 1, arr.length - 1)) : move(i, Math.max(i - 1, 0)))}
+                {...(Platform.OS === 'web' ? { onKeyDown: onKey(i) } : null)}
                 disabled={locked}
                 onPress={() => tap(i)}
-                style={({ pressed }) => [styles.tile, styles[state], pressed && !locked && { transform: [{ scale: 0.985 }] }]}>
+                style={({ pressed }) => [styles.tile, styles[state], noSelect, pressed && !locked && { transform: [{ scale: 0.985 }] }]}>
                 <View style={[styles.badge, state === 'correct' && styles.badgeCorrect, state === 'picked' && styles.badgePicked]}>
                   <Text maxFontSizeMultiplier={1.4} style={[styles.badgeText, (state === 'correct' || state === 'picked') && { color: color.onBrand }]}>
-                    {state === 'correct' ? '✓' : String(i + 1)}
+                    {state === 'correct' ? '✓' : String(placeOf(i) + 1)}
                   </Text>
                 </View>
                 <Text style={[styles.label, state === 'wrong' && { color: color.danger }]}>{label}</Text>
@@ -191,9 +259,10 @@ export function MatchQuestion({ question: q, attempts, busy, onSelect }: { quest
   const [right, setRight] = useState<number | null>(null);
   const resolved = attempts.some((a) => a.correct);
   const locked = resolved || busy;
-  const complete = assign.every((a) => a !== null);
-  const answer = complete ? encodeArrangement(assign.map((j) => rights[j!]!)) : '';
-  const wrong = markedWrong(attempts, answer);
+  const wrong = markedWrong(
+    attempts,
+    assign.map((j) => (j === null ? undefined : rights[j])),
+  );
 
   const report = (next: (number | null)[]) => {
     setAssign(next);
@@ -208,24 +277,26 @@ export function MatchQuestion({ question: q, attempts, busy, onSelect }: { quest
   };
   const tapLeft = (i: number) => {
     if (locked) return;
+    // A right item is waiting: pair them, even if this one is paired already (it moves to the new partner).
+    if (right !== null) return pair(i, right);
     if (assign[i] !== null) {
       const next = [...assign];
       next[i] = null;
       return report(next);
     }
-    if (right !== null) return pair(i, right);
     feedback('select');
     setLeft(left === i ? null : i);
   };
   const tapRight = (j: number) => {
     if (locked) return;
+    // A left item is waiting: pair them, even if this one is paired already.
+    if (left !== null) return pair(left, j);
     const owner = assign.indexOf(j);
     if (owner >= 0) {
       const next = [...assign];
       next[owner] = null;
       return report(next);
     }
-    if (left !== null) return pair(left, j);
     feedback('select');
     setRight(right === j ? null : j);
   };
@@ -244,7 +315,7 @@ export function MatchQuestion({ question: q, attempts, busy, onSelect }: { quest
               n={n}
               state={state}
               locked={locked}
-              a11y={`${label}${n ? `, matched with ${rights[assign[i]!]}` : ''}${state === 'wrong' ? ', not a match' : ''}`}
+              a11y={`${label}${state === 'picked' ? ', picked' : ''}${n ? `, matched with ${rights[assign[i]!]}` : ''}${state === 'wrong' ? ', not a match' : ''}`}
               onPress={() => tapLeft(i)}
             />
           );
@@ -263,7 +334,7 @@ export function MatchQuestion({ question: q, attempts, busy, onSelect }: { quest
               n={n}
               state={state}
               locked={locked}
-              a11y={`${label}${owner >= 0 ? `, matched with ${lefts[owner]}` : ''}${state === 'wrong' ? ', not a match' : ''}`}
+              a11y={`${label}${state === 'picked' ? ', picked' : ''}${owner >= 0 ? `, matched with ${lefts[owner]}` : ''}${state === 'wrong' ? ', not a match' : ''}`}
               onPress={() => tapRight(j)}
             />
           );
@@ -279,7 +350,7 @@ function MatchTile({ side, label, n, state, locked, a11y, onPress }: { side: 'le
       testID={`match-${side}`}
       accessibilityRole="button"
       accessibilityLabel={a11y}
-      aria-selected={state === 'picked'}
+      aria-pressed={state === 'picked'}
       disabled={locked}
       onPress={onPress}
       style={({ pressed }) => [styles.tile, styles.matchTile, styles[state === 'paired' ? 'picked' : state], pressed && !locked && { transform: [{ scale: 0.97 }] }]}>

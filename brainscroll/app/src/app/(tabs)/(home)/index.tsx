@@ -2,9 +2,10 @@ import { DR_SCROLL_LINES } from '@brainscroll/core';
 import { Redirect, router } from 'expo-router';
 import { useRef } from 'react';
 import { View, type ScrollView } from 'react-native';
-import { Button, Card, Caption, DrScrollSays, Emblem, Eyebrow, LevelArt, Loading, OfflineState, Row, Screen, Skeleton, SkeletonCard, Title } from '@/components/ui';
+import { Button, Card, Caption, DrScrollSays, Eyebrow, LevelArt, Loading, OfflineState, Row, Screen, Skeleton, SkeletonCard, Title } from '@/components/ui';
 import { ChooseForMe } from '@/components/ChooseForMe';
 import { BrainpowerBadge } from '@/components/BrainpowerBadge';
+import { LevelBadge } from '@/components/LevelBadge';
 import { StreakBadge } from '@/components/StreakBadge';
 import { WorldMap, type Region } from '@/components/WorldMap';
 import { levelByNumber, levelMeta, subjects } from '@/content';
@@ -13,7 +14,7 @@ import { QuestCard } from '@/components/QuestCard';
 import { featuredQuest, useQuests } from '@/progress/useQuests';
 import { useCurrentSkill } from '@/progress/useCurrentSkill';
 import { subjectTint } from '@/theme/subjectTheme';
-import { layout, radius, space, type } from '@/theme/tokens';
+import { layout, radius, space } from '@/theme/tokens';
 
 /**
  * Home is the World Map (owner direction: RPG-inspired, a map of the
@@ -64,11 +65,10 @@ export default function WorldScreen() {
     <Screen
       scrollRef={scroller}
       header={
+        // Three stat chips (owner, 2026-10-03): the Knowledge Level on the left, Brainpower and the streak on the right.
         <Row gap={space.sm}>
-          <Emblem value={v.knowledgeLevel} size="sm" />
-          <View style={{ flex: 1, gap: space.xxs }}>
-            <Title>Knowledge Lv. {v.knowledgeLevel}</Title>
-          </View>
+          <LevelBadge />
+          <View style={{ flex: 1 }} />
           <BrainpowerBadge />
           <StreakBadge />
         </Row>
@@ -102,12 +102,8 @@ function HomeSkeleton() {
   return (
     <Loading label="Loading your subjects">
       <Row gap={space.sm}>
-        {/* The small level emblem's footprint. */}
-        <Skeleton width={52} height={52} r={radius.md} />
-        <View style={{ flex: 1, gap: space.xs }}>
-          <Skeleton width="45%" height={type.label.fontSize} />
-          <Skeleton width="65%" height={type.title.lineHeight} />
-        </View>
+        {/* The level chip's footprint. */}
+        <Skeleton width={62} height={36} r={radius.pill} />
       </Row>
       <SkeletonCard art={64} lines={1} action />
       <Row gap={space.sm} style={{ flexWrap: 'wrap' }}>

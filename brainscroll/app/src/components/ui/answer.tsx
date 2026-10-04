@@ -1,6 +1,6 @@
 import type { MascotSpot } from '@brainscroll/core';
 import type { ReactNode } from 'react';
-import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Animated, Platform, Pressable, StyleSheet, Text, View, type StyleProp, type ViewStyle } from 'react-native';
 import { liveRegion, useAnnounce } from '@/theme/feedback';
 import { color, depth, layout, radius, space, type, fw } from '@/theme/tokens';
 import { DrScroll } from './mascot';
@@ -59,6 +59,41 @@ export function AnswerOption({ label, state, onPress, letter }: { label: string;
     </Pressable>
     </Animated.View>
   );
+}
+
+/**
+ * A set of answer radios, named for screen readers (`label`, usually the
+ * question's prompt). On the web it also works like a native radio group from
+ * the keyboard: Space picks the focused choice (Enter already does), and the
+ * arrow keys move to the next or previous choice that's still open and pick
+ * it. Picking is only selecting: CHECK still grades it.
+ */
+export function RadioGroup({ label, style, children }: { label: string; style?: StyleProp<ViewStyle>; children: ReactNode }) {
+  return (
+    <View style={[{ gap: space.md }, style]} accessibilityRole="radiogroup" aria-label={label} {...(Platform.OS === 'web' ? { onKeyDown: radioKeys } : null)}>
+      {children}
+    </View>
+  );
+}
+
+/** Web only: Space and the arrow keys inside a radio group (WAI-ARIA radio group pattern). */
+function radioKeys(e: { key: string; target: unknown; currentTarget: unknown; preventDefault: () => void }) {
+  const target = e.target as HTMLElement | null;
+  if (target?.getAttribute?.('role') !== 'radio') return;
+  if (e.key === ' ' || e.key === 'Spacebar') {
+    e.preventDefault();
+    if (target.getAttribute('aria-disabled') !== 'true') target.click();
+    return;
+  }
+  const step = e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : e.key === 'ArrowUp' || e.key === 'ArrowLeft' ? -1 : 0;
+  if (!step) return;
+  e.preventDefault();
+  const radios = Array.from((e.currentTarget as HTMLElement).querySelectorAll<HTMLElement>('[role="radio"]')).filter((r) => r.getAttribute('aria-disabled') !== 'true');
+  if (radios.length === 0) return;
+  const at = radios.indexOf(target);
+  const next = radios[(at + step + radios.length) % radios.length]!;
+  next.focus();
+  next.click();
 }
 
 /**

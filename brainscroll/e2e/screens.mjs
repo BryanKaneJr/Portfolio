@@ -7,7 +7,7 @@
 import { mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { chromium } from 'playwright';
-import { URL, bodyText, button, checkButton, exactButton, field, home, onboard, playLevel, playReview, signIn } from './helpers.mjs';
+import { URL, answerStep, bodyText, button, checkButton, exactButton, field, home, onboard, playLevel, playReview, rightOptionIndex, signIn } from './helpers.mjs';
 
 const setBrainpower = (page, balance) =>
   page.evaluate((b) => {
@@ -72,7 +72,16 @@ try {
         await page.waitForTimeout(400);
         continue;
       }
-      await page.getByRole('radio').nth(missed ? 0 : 3).click();
+      // Match and order questions: shown, then answered right.
+      if ((await page.getByTestId('order-question').count()) || (await page.getByTestId('match-question').count())) {
+        await shot(`level-question-${step}`);
+        await answerStep(page, () => 0, () => {});
+        await page.waitForTimeout(400);
+        continue;
+      }
+      // A miss on the first question (for the "Take another look" shots), then right answers.
+      const right = await rightOptionIndex(page);
+      await page.getByRole('radio').nth(missed ? right : right === 0 ? 1 : 0).click();
       await shot(`level-question-${step}`);
       await checkButton(page).click();
       await page.waitForTimeout(500);
@@ -203,7 +212,8 @@ try {
   await shot('review-tab-chapters');
   await page.getByRole('button', { name: /^Review Astronomy, Chapter 1:/ }).click();
   await page.waitForTimeout(800);
-  await page.getByRole('radio').first().click();
+  // The second choice, so playReview's first pick changes it (a second tap on a fill in the blank's chip takes it back out).
+  await page.getByRole('radio').nth(1).click();
   await shot('chapter-review-question');
   await playReview(page);
   await shot('chapter-review-complete');
@@ -260,7 +270,7 @@ try {
   await shot('social');
   await scrollDown();
   await shot('social-feed');
-  await exactButton(page, 'React').first().click();
+  await page.getByRole('button', { name: /^Like(,|$)/ }).first().click();
   await page.waitForTimeout(500);
   await shot('social-react');
   await page.getByRole('button', { name: /League: you're/ }).click();
