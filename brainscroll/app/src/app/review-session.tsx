@@ -211,10 +211,10 @@ function ReviewComplete({ xp, firstTry, total, daily, onDone }: { xp: number; fi
               : `+${XP.REVIEW_FIRST_ATTEMPT} XP for each one you remembered on the first try.`}
           </Body>
         </Reveal>
-        {brainpowerCardShows(daily, newTrophies.length > 0) && (
+        {brainpowerCardShows(daily, newTrophies.length > 0 || trophyBrainpower(daily) > 0) && (
           <View style={{ alignSelf: 'stretch' }}>
             <Reveal delay={500}>
-              <BrainpowerEarned daily={daily} at={500} trophiesShown={newTrophies.length > 0} />
+              <BrainpowerEarned daily={daily} at={500} trophiesShown={newTrophies.length > 0 || trophyBrainpower(daily) > 0} />
             </Reveal>
           </View>
         )}

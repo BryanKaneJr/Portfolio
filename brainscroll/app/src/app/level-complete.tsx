@@ -200,10 +200,10 @@ export default function LevelCompleteScreen() {
             </View>
           )}
 
-          {brainpowerCardShows(s.daily, newTrophies.length > 0) && (
+          {brainpowerCardShows(s.daily, newTrophies.length > 0 || trophyBrainpower(s.daily) > 0) && (
             <View style={{ alignSelf: 'stretch' }}>
               <Pop delay={580 + t0}>
-                <BrainpowerEarned daily={s.daily} at={580 + t0} trophiesShown={newTrophies.length > 0} />
+                <BrainpowerEarned daily={s.daily} at={580 + t0} trophiesShown={newTrophies.length > 0 || trophyBrainpower(s.daily) > 0} />
               </Pop>
             </View>
           )}
