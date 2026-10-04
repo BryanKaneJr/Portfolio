@@ -62,6 +62,7 @@ export function LevelPath({
   onCurrent,
   onOpen,
   aside,
+  live = true,
 }: {
   skillId: string;
   /** Highest level cleared. */
@@ -82,6 +83,12 @@ export function LevelPath({
   onOpen: (levelId: string) => void;
   /** Pinned beside the top of the road, on the left (this week's quest tile). */
   aside?: React.ReactNode;
+  /**
+   * False draws only the banner and an empty map of the right height (a
+   * chapter far off screen): the waypoints, road, art and Dr. Scroll are most
+   * of the skill map's cost, so they come in as a chapter nears the screen.
+   */
+  live?: boolean;
 }) {
   const [width, setWidth] = useState(340);
   // The skill's subject colour (theme/subjectTheme.ts).
@@ -130,6 +137,8 @@ export function LevelPath({
           setWidth(e.nativeEvent.layout.width);
           setMapY(e.nativeEvent.layout.y);
         }}>
+        {live && (
+        <>
         <Svg width={width} height={height} style={StyleSheet.absoluteFill} pointerEvents="none" accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
           {reached < numbers.length - 1 && (
             <Path d={road(Math.max(reached, 0), numbers.length - 1)} stroke={color.borderStrong} strokeWidth={6} strokeLinecap="round" strokeDasharray="0.1 16" fill="none" />
@@ -224,6 +233,8 @@ export function LevelPath({
             </View>
           );
         })}
+        </>
+        )}
       </View>
 
       {teaser && nextChapter && (

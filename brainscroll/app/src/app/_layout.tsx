@@ -71,8 +71,9 @@ function RootLayout() {
         <AuthGate />
         <ReminderSync />
         <PushSync />
-        {/* Reduce Motion turns every push, sheet and slide into a fade. */}
-        <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: color.bg }, animation: reduce ? 'fade' : 'default' }}>
+        {/* Reduce Motion turns every push, sheet and slide into a fade. Screens
+            out of sight freeze (no re-renders) until they're back in view. */}
+        <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: color.bg }, animation: reduce ? 'fade' : 'default', freezeOnBlur: true }}>
           <Stack.Screen name="(tabs)" />
           {/* Spatial transitions (roadmap §14): a lesson rises into focus, its result
               settles in place over it, and Reduce Motion turns both into fades. */}
