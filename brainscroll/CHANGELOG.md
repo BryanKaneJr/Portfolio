@@ -10,6 +10,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 - **Lucky drop as a button:** a perfect first clear's lucky +1 shows as an "Extra Brainpower!" button; tapping it sends the spark to the chip (owner, 2026-10-04). The server has already added it, so moving on without tapping keeps it. Also fixed: a trophy's +1 could fly twice when the trophy card appeared a moment late.
 - **Match questions:** tiles sit in rows, each as tall as the one across from it, instead of two ragged columns.
 - **League:** the rules paragraph is gone; the standings explain themselves.
+- **Dr. Scroll's animations play at true speed:** the wave on Social ran at about half speed on phones, because each frame waited on a JS timer and a re-render. Frames now step on the native thread, timed by the clock (24 fps, 2.4 s), and start once the sheet has loaded.
 ## 2026-10-04: Visual fixes from QA
 
 - **Gold stays mastery-only on Social:** league prize amounts on the banner are white and the prize places in the standings are violet (they were gold, silver and bronze); "Last week: 1st in your league!" glows violet. The trophy name in feed moments and Dr. Scroll's first-friend card stay gold (owner decisions).

@@ -222,7 +222,7 @@ Writer-placed card asides (`mascot` on a learning card) aren't spots; their pose
 
 ## Animations
 
-A spot can play a short animation instead of its still pose: `DrScrollSays animation="wave-point"` (or `DrScroll animation=…`). It plays once and holds its last frame; with reduce motion it shows only the last frame. Use them sparingly, where he greets or points, never inside a lesson.
+A spot can play a short animation instead of its still pose: `DrScrollSays animation="wave-point"` (or `DrScroll animation=…`). It plays once and holds its last frame; with reduce motion it shows only the last frame. Playback runs on the native thread and is timed by the clock, starting once the sheet has loaded, so it keeps its true speed on a busy phone (a JS timer per frame ran at about half speed). Use them sparingly, where he greets or points, never inside a lesson.
 
 | Animation | Where | What it does |
 |---|---|---|

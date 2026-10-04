@@ -1,6 +1,6 @@
 import { dayNumber, MASCOT_NAME, spotPose, type MascotPose, type MascotSpot } from '@brainscroll/core';
-import { useEffect, useState } from 'react';
-import { Animated, Image, Pressable, StyleSheet, Text, View, type ViewStyle } from 'react-native';
+import { useEffect, useMemo, useState } from 'react';
+import { Animated, Easing, Image, Pressable, StyleSheet, Text, View, type ViewStyle } from 'react-native';
 import { useReduceMotion } from '@/theme/feedback';
 import { color, radius, space, type } from '@/theme/tokens';
 import { MASCOT_ANIMATIONS, type MascotAnimationName } from './mascotAnim';
@@ -58,24 +58,53 @@ export function DrScroll({ size = 'md', style, animation, ...placement }: Placem
   );
 }
 
-/** One frame of a sprite sheet at a time, stepping through once and holding the last. */
+/**
+ * One frame of a sprite sheet at a time, stepping through once and holding the
+ * last. The sheet slides by whole frames on the native thread, timed by the
+ * clock rather than by JS renders, so a busy JS thread can't slow him down
+ * (a timer per frame played at about half speed on phones). Starts once the
+ * sheet has loaded, so the first frames aren't spent on a blank square.
+ */
 function Sprite({ name, px, reduce }: { name: MascotAnimationName; px: number; reduce: boolean }) {
   const a = MASCOT_ANIMATIONS[name];
   const last = a.frames - 1;
-  const [step, setStep] = useState(0);
-  // One frame per tick, stopping on the last; with reduce motion, straight to the last.
+  const [t] = useState(() => new Animated.Value(reduce ? last : 0));
+  const [loaded, setLoaded] = useState(false);
   useEffect(() => {
-    if (reduce || step >= last) return;
-    const t = setTimeout(() => setStep((s) => s + 1), a.frameMs);
-    return () => clearTimeout(t);
-  }, [reduce, step, last, a.frameMs]);
-  const frame = reduce ? last : step;
+    if (reduce) return t.setValue(last);
+    // Should onLoad never come (a cached sheet on some platforms), start anyway.
+    if (!loaded) {
+      const late = setTimeout(() => setLoaded(true), 400);
+      return () => clearTimeout(late);
+    }
+    const run = Animated.timing(t, { toValue: a.frames, duration: a.frames * a.frameMs, easing: Easing.linear, useNativeDriver: true });
+    run.start();
+    return () => run.stop();
+  }, [reduce, loaded, t, last, a.frames, a.frameMs]);
+  const move = useMemo(() => {
+    // Frame i shows for t in [i, i + 1): a step for each frame, no sliding between them.
+    const input: number[] = [];
+    const x: number[] = [];
+    const y: number[] = [];
+    for (let i = 0; i < a.frames; i++) {
+      const fx = -(i % a.cols) * px;
+      const fy = -Math.floor(i / a.cols) * px;
+      input.push(i, i + 0.999);
+      x.push(fx, fx);
+      y.push(fy, fy);
+    }
+    return {
+      translateX: t.interpolate({ inputRange: input, outputRange: x, extrapolate: 'clamp' }),
+      translateY: t.interpolate({ inputRange: input, outputRange: y, extrapolate: 'clamp' }),
+    };
+  }, [t, px, a.frames, a.cols]);
   const rows = Math.ceil(a.frames / a.cols);
   return (
     <View style={{ width: px, height: px, overflow: 'hidden' }}>
-      <Image
+      <Animated.Image
         source={a.sheet}
-        style={{ position: 'absolute', width: px * a.cols, height: px * rows, left: -(frame % a.cols) * px, top: -Math.floor(frame / a.cols) * px }}
+        onLoad={() => setLoaded(true)}
+        style={{ position: 'absolute', left: 0, top: 0, width: px * a.cols, height: px * rows, transform: [{ translateX: move.translateX }, { translateY: move.translateY }] }}
         accessibilityIgnoresInvertColors
       />
     </View>
