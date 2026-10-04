@@ -2,6 +2,15 @@
 
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
+
+## 2026-10-04: Leaner Level Complete, even match tiles, no league rules paragraph
+
+- **Level Complete** (owner: "streamlined and clean level up screens"): the skill card is a small emblem, "Level up" and the skill name, and one bar toward the next ★. Gone: the "Lv. 1 → 2" line, the big emblem, the "Long-term goal" heading and the Level 100 write-up, and the "Across BrainScroll" chips. The Brainpower card lists what was earned, without the "5 / 10" balance (the chip up top has it).
+- **A trophy's +1 Brainpower sits on the trophy card** ("+1 🧠") instead of a second "Trophy unlocked" line in the Brainpower card (owner: "we're literally stating they got the trophy twice"); with nothing else earned, there's no Brainpower card. Level Complete and Review Complete.
+- **Lucky drop as a button:** a perfect first clear's lucky +1 shows as an "Extra Brainpower!" button; tapping it sends the spark to the chip (owner, 2026-10-04). The server has already added it, so moving on without tapping keeps it. Also fixed: a trophy's +1 could fly twice when the trophy card appeared a moment late.
+- **Match questions:** tiles sit in rows, each as tall as the one across from it, instead of two ragged columns.
+- **League:** the rules paragraph is gone; the standings explain themselves.
+- **Dr. Scroll's animations play at true speed:** the wave on Social ran at about half speed on phones, because each frame waited on a JS timer and a re-render. Frames now step on the native thread, timed by the clock (24 fps, 2.4 s), and start once the sheet has loaded.
 ## 2026-10-04: Visual fixes from QA
 
 - **Gold stays mastery-only on Social:** league prize amounts on the banner are white and the prize places in the standings are violet (they were gold, silver and bronze); "Last week: 1st in your league!" glows violet. The trophy name in feed moments and Dr. Scroll's first-friend card stay gold (owner decisions).

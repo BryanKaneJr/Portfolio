@@ -1,9 +1,11 @@
-import { isGoldArt, trophyInfo, type Trophy } from '@brainscroll/core';
+import { isGoldArt, trophyInfo, type DailyAllowance, type Trophy } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { Animated, StyleSheet, View } from 'react-native';
+import { useBrainpowerFlight } from '@/components/BrainpowerFlight';
+import { BrainpowerIcon } from '@/components/BrainpowerIcon';
 import { TrophyBadge } from '@/components/TrophyBadge';
-import { Caption, Card, Eyebrow, Gleams, Icon, Row, Shimmer, spring, Title } from '@/components/ui';
+import { Body, Caption, Card, Eyebrow, Gleams, Icon, Row, Shimmer, spring, Title } from '@/components/ui';
 import { feedback, useReduceMotion } from '@/theme/feedback';
 import { trophyCatalog } from '@/content';
 import { color, iconSize, radius, space } from '@/theme/tokens';
@@ -18,8 +20,15 @@ import { color, iconSize, radius, space } from '@/theme/tokens';
  * a gold trophy then catches the light. With reduce motion it simply
  * appears, and the haptic still marks it.
  */
-export function TrophyEarned({ trophies, at = 0 }: { trophies: Trophy[]; at?: number }) {
+/** The trophy +1s an action paid (granted, not lost at the cap), for the card's own "+1" (owner, 2026-10-04). */
+export function trophyBrainpower(daily: DailyAllowance | undefined): number {
+  return (daily?.brainpowerEarned ?? []).filter((e) => e.kind === 'trophy' && e.granted === 1).length;
+}
+
+export function TrophyEarned({ trophies, at = 0, brainpower = 0 }: { trophies: Trophy[]; at?: number; brainpower?: number }) {
   const first = trophies[0];
+  const flight = useBrainpowerFlight();
+  const plus = useRef<View>(null);
   const reduce = useReduceMotion();
   const [pop] = useState(() => new Animated.Value(reduce ? 1 : 0));
   const key = first?.trophyId;
@@ -35,6 +44,18 @@ export function TrophyEarned({ trophies, at = 0 }: { trophies: Trophy[]; at?: nu
     }, at + BADGE_DELAY);
     return () => clearTimeout(t);
   }, [key, at, reduce, pop]);
+  // Its +1s fly from the card's own "+1" to the Brainpower chip, like the Brainpower card's lines.
+  useEffect(() => {
+    if (!flight || !key || brainpower <= 0) return;
+    const timers = Array.from({ length: brainpower }, (_, i) =>
+      setTimeout(() => {
+        const v = plus.current;
+        if (!v) return flight.launch({ x: 0, y: 0 }, 1);
+        v.measureInWindow((x, y, w, h) => flight.launch({ x: x + w / 2, y: y + h / 2 }, 1));
+      }, at + BADGE_DELAY + 450 + i * 520),
+    );
+    return () => timers.forEach(clearTimeout);
+  }, [flight, key, brainpower, at]);
   if (!first) return null;
   const info = trophyInfo(first.trophyId, trophyCatalog);
   const gold = first.kind === 'mastery' || first.kind === 'subject' || first.trophyId === 'trophy.master_of_all' || isGoldArt(info?.art);
@@ -46,7 +67,7 @@ export function TrophyEarned({ trophies, at = 0 }: { trophies: Trophy[]; at?: nu
       variant={gold ? 'mastery' : 'reward'}
       style={{ width: '100%' }}
       onPress={() => router.push({ pathname: '/share/[id]', params: { id: first.trophyId } })}
-      accessibilityLabel={`${eyebrow}: ${first.name}. Share`}>
+      accessibilityLabel={`${eyebrow}: ${first.name}${brainpower > 0 ? `, plus ${brainpower} Brainpower` : ''}. Share`}>
       <Row gap={space.lg} style={{ alignItems: 'flex-start' }}>
         <Animated.View
           style={{
@@ -67,6 +88,14 @@ export function TrophyEarned({ trophies, at = 0 }: { trophies: Trophy[]; at?: nu
           <Title>{first.name}</Title>
           {info?.description ? <Caption>{info.description}</Caption> : null}
           {more > 0 && <Caption>{`and ${more} more`}</Caption>}
+          {brainpower > 0 && (
+            <View ref={plus} collapsable={false} style={{ alignSelf: 'flex-start' }}>
+              <Row gap={space.xxs}>
+                <Body style={{ color: color.brandText }}>{`+${brainpower}`}</Body>
+                <BrainpowerIcon size={iconSize.md} />
+              </Row>
+            </View>
+          )}
         </View>
         <View style={[styles.share, gold && styles.shareGold]} aria-hidden accessible={false}>
           <Icon name="share" tint={gold ? color.mastery : color.brandText} size={iconSize.sm} />

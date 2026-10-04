@@ -55,7 +55,7 @@ try {
   check(l1.total === 3 && l1.xp === CURVE[l1.firstTry], `XP follows the first-attempt curve (${l1.firstTry}/3 → ${l1.xp} XP)`);
   check(/Streak started/.test(l1.text), "the day's first level starts the learning streak");
   check(/Trophy earned[\s\S]*First Level/i.test(l1.text), 'the first level earns a trophy, shown on Level Complete');
-  await page.getByRole('button', { name: /^Trophy earned: First Level\. Share$/ }).click();
+  await page.getByRole('button', { name: /^Trophy earned: First Level(, plus \d+ Brainpower)?\. Share$/ }).click();
   await page.waitForTimeout(800);
   check(/I finished my first level on BrainScroll!/.test(await bodyText(page)), 'Share opens the trophy card with its line');
   await exactButton(page, 'Close').click();
@@ -115,7 +115,7 @@ try {
   await page.getByRole('button', { name: /League: you're/ }).click();
   await page.waitForTimeout(1000);
   social = await bodyText(page);
-  check(/Ranked by XP earned this week/.test(social) && /1,000 XP prize/.test(social) && /250 XP prize/.test(social), 'the standings mark the top 3 prizes');
+  check(!/Ranked by XP earned this week/.test(social) && /1,000 XP prize/.test(social) && /250 XP prize/.test(social), 'the standings mark the top 3 prizes, with no rules paragraph');
   await page.getByRole('button', { name: /^1st: / }).click();
   await page.waitForTimeout(1000);
   social = await bodyText(page);
@@ -319,7 +319,7 @@ try {
       check(/LEVEL 10 · CHECKPOINT COMPLETE/i.test(f.text), 'all ten Golden levels play from data; Level 10 is a checkpoint');
       check(f.total === 5 && f.xp === CHECKPOINT_CURVE[f.firstTry], `the checkpoint uses its own XP pool (${f.firstTry}/5 → ${f.xp} XP)`);
       check(/10 levels ago, could you have explained this\?/.test(f.text) && f.text.includes('You know this now.'), 'the checkpoint shows the chapter recap as proof of what was learned');
-      check(f.text.includes('At Lv. 100:'), 'Level Complete names what Level 100 means for the skill');
+      check(!f.text.includes('At Lv. 100:') && /10 \/ 100 toward ★ Mastery I/.test(f.text), 'Level Complete stays lean: the bar toward the next ★, no write-up');
     }
   }
   check(ranOut, 'a first day runs out of Brainpower before Level 10');
@@ -383,7 +383,7 @@ try {
   const cxp = ct.match(/\+(\d+) XP[\s\S]*?\d+ \/ \d+ right first time/)?.[1] ?? '0';
   check(/Chapter review complete/i.test(ct) && ctotal === '10' && Number(cxp) === Math.round((CHAPTER_REVIEW_MAX * Number(cright)) / 10),
     `a chapter review pays at most ${CHAPTER_REVIEW_MAX} XP, from first tries (${cright}/10 → +${cxp}, ${chapterCorrected} corrected)`);
-  check(/Chapter review complete\s*\+1/.test(ct) && ct.includes('1 / 10'), 'a first chapter review earns +1 Brainpower');
+  check(/Chapter review complete\s*\+1/.test(ct) && !/\d+ \/ 10\b/.test(ct.split('Chapter review complete')[1] ?? ''), 'a first chapter review earns +1 Brainpower (the balance stays in the chip)');
   await exactButton(page, 'Done').click();
   await page.waitForTimeout(600);
   await home(page);

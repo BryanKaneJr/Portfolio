@@ -3,13 +3,13 @@ import { router } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { BrainpowerEarned } from '@/components/BrainpowerEarned';
+import { BrainpowerEarned, brainpowerCardShows } from '@/components/BrainpowerEarned';
 import { BrainpowerFlight, NO_DAILY } from '@/components/BrainpowerFlight';
 import { DrScrollTip } from '@/components/DrScrollTip';
 import { canCheck, feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { Body, Button, Caption, DrScroll, Eyebrow, H2, LessonShell, LessonSkeleton, LoadError, Notice, Numeral, Pop, Reveal, StateBlock, useCountUp } from '@/components/ui';
 import { getCard, getSkill } from '@/content';
-import { TrophyEarned } from '@/components/TrophyEarned';
+import { TrophyEarned, trophyBrainpower } from '@/components/TrophyEarned';
 import { useProgress, type AttemptView } from '@/progress/ProgressProvider';
 import { useNewTrophies } from '@/progress/useNewTrophies';
 import { feedback } from '@/theme/feedback';
@@ -211,17 +211,17 @@ function ReviewComplete({ xp, firstTry, total, daily, onDone }: { xp: number; fi
               : `+${XP.REVIEW_FIRST_ATTEMPT} XP for each one you remembered on the first try.`}
           </Body>
         </Reveal>
-        {daily.brainpowerEarned.length > 0 && (
+        {brainpowerCardShows(daily, newTrophies.length > 0 || trophyBrainpower(daily) > 0) && (
           <View style={{ alignSelf: 'stretch' }}>
             <Reveal delay={500}>
-              <BrainpowerEarned daily={daily} at={500} />
+              <BrainpowerEarned daily={daily} at={500} trophiesShown={newTrophies.length > 0 || trophyBrainpower(daily) > 0} />
             </Reveal>
           </View>
         )}
         {newTrophies.length > 0 && (
           <View style={{ alignSelf: 'stretch' }}>
             <Reveal delay={550}>
-              <TrophyEarned trophies={newTrophies} at={550} />
+              <TrophyEarned trophies={newTrophies} at={550} brainpower={trophyBrainpower(daily)} />
             </Reveal>
           </View>
         )}

@@ -28,11 +28,10 @@ import {
   UiArt,
 } from '@/components/ui';
 import { chapterFor, getConcept, getSkill, levelByNumber, levelMeta } from '@/content';
-import { BrainpowerEarned } from '@/components/BrainpowerEarned';
+import { BrainpowerEarned, brainpowerCardShows } from '@/components/BrainpowerEarned';
 import { BrainpowerFlight } from '@/components/BrainpowerFlight';
-import { BrainpowerLabel } from '@/components/BrainpowerLabel';
 import { ReminderPrompt } from '@/components/ReminderSettings';
-import { TrophyEarned } from '@/components/TrophyEarned';
+import { TrophyEarned, trophyBrainpower } from '@/components/TrophyEarned';
 import { TROPHY_ART as TROPHY_ARTS } from '@/components/ui/trophyArt';
 import { useProgress } from '@/progress/ProgressProvider';
 import { useNewTrophies } from '@/progress/useNewTrophies';
@@ -196,15 +195,15 @@ export default function LevelCompleteScreen() {
             // Stretched to the width of the skill card below.
             <View style={{ alignSelf: 'stretch' }}>
               <Pop delay={550 + t0}>
-                <TrophyEarned trophies={newTrophies} at={550 + t0} />
+                <TrophyEarned trophies={newTrophies} at={550 + t0} brainpower={trophyBrainpower(s.daily)} />
               </Pop>
             </View>
           )}
 
-          {s.daily.brainpowerEarned.length > 0 && (
+          {brainpowerCardShows(s.daily, newTrophies.length > 0 || trophyBrainpower(s.daily) > 0) && (
             <View style={{ alignSelf: 'stretch' }}>
               <Pop delay={580 + t0}>
-                <BrainpowerEarned daily={s.daily} at={580 + t0} />
+                <BrainpowerEarned daily={s.daily} at={580 + t0} trophiesShown={newTrophies.length > 0 || trophyBrainpower(s.daily) > 0} />
               </Pop>
             </View>
           )}
@@ -214,35 +213,24 @@ export default function LevelCompleteScreen() {
           <Reveal delay={600 + t0}>
             <Card
               variant={mastery ? 'mastery' : leveledUp ? 'reward' : 'plain'}
-              // A level-up glows in the skill's subject colour; a mastery stays gold.
-              style={{ width: '100%', padding: space.xl, gap: space.lg, ...(leveledUp && !mastery ? { borderColor: subjectTint(skill?.subjectId).base, shadowColor: subjectTint(skill?.subjectId).base } : null) }}>
-              <Row gap={space.lg}>
-                <Emblem value={levelShown} tone={mastery ? 'mastery' : 'brand'} glowing={leveledUp} tint={subjectTint(skill?.subjectId)} />
-                <View style={{ flex: 1, gap: space.xs }}>
-                  <Eyebrow tone={mastery ? 'mastery' : 'muted'} style={leveledUp && !mastery ? { color: subjectTint(skill?.subjectId).text } : undefined}>{leveledUp ? 'Level up' : 'Skill'}</Eyebrow>
-                  <Title>{skill?.name}</Title>
-                  {/* Its own unbreakable line, so "0 → 1" never splits (UX review P1). */}
-                  {/* Shrinks rather than truncates at large text sizes: the numbers are the point. */}
-                  <Title
-                    numberOfLines={1}
-                    adjustsFontSizeToFit
-                    accessibilityLabel={s.alreadyCompleted ? `Level ${s.skillLevel}` : `Level ${s.skillLevelBefore} to ${s.skillLevel}`}
-                    style={{ color: mastery ? color.mastery : subjectTint(skill?.subjectId).text }}>
-                    {`Lv.\u00a0${s.alreadyCompleted ? s.skillLevel : `${s.skillLevelBefore}\u00a0→\u00a0${s.skillLevel}`}`}
-                  </Title>
-                  <Stars count={view.stars} />
+              // A level-up glows in the skill's subject colour; a mastery stays gold. Kept lean (owner, 2026-10-04):
+              // the skill, its level and the bar toward the next ★, nothing to read.
+              style={{ width: '100%', padding: space.lg, gap: space.md, ...(leveledUp && !mastery ? { borderColor: subjectTint(skill?.subjectId).base, shadowColor: subjectTint(skill?.subjectId).base } : null) }}>
+              <Row gap={space.md}>
+                <Emblem value={levelShown} size="sm" tone={mastery ? 'mastery' : 'brand'} glowing={leveledUp} tint={subjectTint(skill?.subjectId)} label={`Level ${levelShown}`} />
+                <View style={{ flex: 1, gap: space.xxs }}>
+                  <Eyebrow tone={mastery ? 'mastery' : 'muted'} style={leveledUp && !mastery ? { color: subjectTint(skill?.subjectId).text } : undefined}>{mastery ? 'Mastery' : leveledUp ? 'Level up' : 'Skill'}</Eyebrow>
+                  <Title numberOfLines={1}>{skill?.name}</Title>
                 </View>
+                <Stars count={view.stars} />
               </Row>
-              <View style={styles.divider} />
               <View style={{ gap: space.xs }}>
-                <Eyebrow tone={mastery ? 'mastery' : 'muted'}>{mastery ? 'Mastery' : 'Long-term goal'}</Eyebrow>
                 <ProgressBar value={intoBand / MASTERY_BAND_SIZE} tone="mastery" fill={mastery ? undefined : subjectTint(skill?.subjectId).base} />
                 <Caption>
                   {mastery
-                    ? `Levels ${level.number - MASTERY_BAND_SIZE + 1}–${level.number} completed and resolved. Levels ${level.number + 1}–${level.number + MASTERY_BAND_SIZE} are open. ★ Mastery ${roman(band)}.`
-                    : `${intoBand} / ${MASTERY_BAND_SIZE} levels toward ★ Mastery ${roman(nextStar)}`}
+                    ? `★ Mastery ${roman(band)}. Levels ${level.number + 1}–${level.number + MASTERY_BAND_SIZE} are open.`
+                    : `${intoBand} / ${MASTERY_BAND_SIZE} toward ★ Mastery ${roman(nextStar)}`}
                 </Caption>
-                {skill?.masteryPromise && s.skillLevel < 100 && <Caption>At Lv. 100: {skill.masteryPromise}</Caption>}
               </View>
             </Card>
           </Reveal>
@@ -261,17 +249,6 @@ export default function LevelCompleteScreen() {
               )}
               {/* Once, after the first level: would they like reminders? */}
               {!s.alreadyCompleted && <ReminderPrompt />}
-              <View style={{ alignItems: 'center', gap: space.xs }}>
-                <Eyebrow>Across BrainScroll</Eyebrow>
-                <Row style={{ flexWrap: 'wrap', justifyContent: 'center' }}>
-                  <Chip tone="brand" icon="knowledge">
-                    <Caption tone="text">Knowledge Lv. {s.knowledgeLevel}</Caption>
-                  </Chip>
-                  <Chip>
-                    <BrainpowerLabel today={s.daily} />
-                  </Chip>
-                </Row>
-              </View>
               {!s.alreadyCompleted && s.reinforcedConceptIds.length > 0 && (
                 <Caption center>
                   {s.reinforcedConceptIds.length <= 3
@@ -337,7 +314,6 @@ const styles = StyleSheet.create({
   trophyShort: { width: 104, height: 104 },
   // Level 100·k: the skill's own gold badge (gold means mastery only).
   badge: { width: 144, height: 144 },
-  divider: { height: 1, backgroundColor: color.border },
 });
 
 /** "×1.2" from a bonus percent. */
