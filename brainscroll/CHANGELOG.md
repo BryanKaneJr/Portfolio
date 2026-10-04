@@ -6,6 +6,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 ## 2026-10-04: Leaner Level Complete, even match tiles, no league rules paragraph
 
 - **Level Complete** (owner: "streamlined and clean level up screens"): the skill card is a small emblem, "Level up" and the skill name, and one bar toward the next ★. Gone: the "Lv. 1 → 2" line, the big emblem, the "Long-term goal" heading and the Level 100 write-up, and the "Across BrainScroll" chips. The Brainpower card lists what was earned, without the "5 / 10" balance (the chip up top has it).
+- **A trophy's +1 Brainpower sits on the trophy card** ("+1 🧠") instead of a second "Trophy unlocked" line in the Brainpower card (owner: "we're literally stating they got the trophy twice"); with nothing else earned, there's no Brainpower card. Level Complete and Review Complete.
 - **Match questions:** tiles sit in rows, each as tall as the one across from it, instead of two ragged columns.
 - **League:** the rules paragraph is gone; the standings explain themselves.
 ## 2026-10-04: Visual fixes from QA

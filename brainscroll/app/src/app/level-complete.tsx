@@ -28,10 +28,10 @@ import {
   UiArt,
 } from '@/components/ui';
 import { chapterFor, getConcept, getSkill, levelByNumber, levelMeta } from '@/content';
-import { BrainpowerEarned } from '@/components/BrainpowerEarned';
+import { BrainpowerEarned, brainpowerCardShows } from '@/components/BrainpowerEarned';
 import { BrainpowerFlight } from '@/components/BrainpowerFlight';
 import { ReminderPrompt } from '@/components/ReminderSettings';
-import { TrophyEarned } from '@/components/TrophyEarned';
+import { TrophyEarned, trophyBrainpower } from '@/components/TrophyEarned';
 import { TROPHY_ART as TROPHY_ARTS } from '@/components/ui/trophyArt';
 import { useProgress } from '@/progress/ProgressProvider';
 import { useNewTrophies } from '@/progress/useNewTrophies';
@@ -195,15 +195,15 @@ export default function LevelCompleteScreen() {
             // Stretched to the width of the skill card below.
             <View style={{ alignSelf: 'stretch' }}>
               <Pop delay={550 + t0}>
-                <TrophyEarned trophies={newTrophies} at={550 + t0} />
+                <TrophyEarned trophies={newTrophies} at={550 + t0} brainpower={trophyBrainpower(s.daily)} />
               </Pop>
             </View>
           )}
 
-          {s.daily.brainpowerEarned.length > 0 && (
+          {brainpowerCardShows(s.daily, newTrophies.length > 0) && (
             <View style={{ alignSelf: 'stretch' }}>
               <Pop delay={580 + t0}>
-                <BrainpowerEarned daily={s.daily} at={580 + t0} />
+                <BrainpowerEarned daily={s.daily} at={580 + t0} trophiesShown={newTrophies.length > 0} />
               </Pop>
             </View>
           )}

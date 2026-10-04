@@ -30,11 +30,22 @@ const SPARK_GAP = 520;
  *
  * Inside a BrainpowerFlight, each +1 then flies from its line to the chip
  * top right, `at` ms after the screen opens (when this card arrives).
+ *
+ * `trophiesShown`: a trophy card on the same screen carries its own +1
+ * (owner, 2026-10-04: "we're literally stating they got the trophy twice"),
+ * so trophy lines are left out here; with nothing else, no card at all.
  */
-export function BrainpowerEarned({ daily, at = 0 }: { daily: DailyAllowance; at?: number }) {
+/** Whether BrainpowerEarned shows anything, so a screen can leave out its slot (and the space around it). */
+export function brainpowerCardShows(daily: DailyAllowance, trophiesShown = false): boolean {
+  if (daily.unlimited || daily.brainpower === null) return false;
+  const earned = daily.brainpowerEarned ?? [];
+  return earned.some((e) => e.granted === 0) || earned.some((e) => e.granted === 1 && !(trophiesShown && e.kind === 'trophy'));
+}
+
+export function BrainpowerEarned({ daily, at = 0, trophiesShown = false }: { daily: DailyAllowance; at?: number; trophiesShown?: boolean }) {
   const flight = useBrainpowerFlight();
   const earned = daily.brainpowerEarned ?? [];
-  const granted = earned.filter((e) => e.granted === 1);
+  const granted = earned.filter((e) => e.granted === 1 && !(trophiesShown && e.kind === 'trophy'));
   const full = earned.some((e) => e.granted === 0);
   const rows = useRef<(View | null)[]>([]);
   const fullLine = useRef<View>(null);
@@ -60,7 +71,7 @@ export function BrainpowerEarned({ daily, at = 0 }: { daily: DailyAllowance; at?
   }, [key, flight]);
 
   if (daily.unlimited || daily.brainpower === null) return null;
-  if (earned.length === 0) return null;
+  if (earned.length === 0 || (granted.length === 0 && !full)) return null;
   return (
     <Card variant="quiet" style={{ width: '100%', minWidth: 280, gap: space.sm }}>
       <Eyebrow tone="brand">Brainpower</Eyebrow>
