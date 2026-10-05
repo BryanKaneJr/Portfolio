@@ -39,7 +39,7 @@ import {
   type DailyAllowance,
   gradeAnswer,
 } from '@brainscroll/core';
-import { allLevels, getLevel, levelCount, levelIdOfQuestion, quests as questDefs, trophyCatalog } from '@/content';
+import { allLevels, getCard, getLevel, levelCount, levelIdOfQuestion, quests as questDefs, trophyCatalog } from '@/content';
 import type { EntitlementView, ProgressBackend, ProgressSnapshot } from './backend';
 import { deviceTimeZone } from './backend';
 import { OFFERED_METHODS } from '@/auth/config';
@@ -87,7 +87,7 @@ function finalRoundItems(questionIds: string[]) {
   return questionIds.flatMap((id) => {
     const levelId = levelIdOfQuestion(id);
     const question = levelId ? getLevel(levelId)?.questions.find((q) => q.id === id) : undefined;
-    return question && levelId ? [{ question, levelId }] : [];
+    return question && levelId ? [{ question, levelId, cards: question.sourceCardIds.flatMap((c) => getCard(c) ?? []) }] : [];
   });
 }
 
@@ -188,6 +188,9 @@ export function createLocalBackend(): ProgressBackend {
       const next = startQuest(current(), def, new Date());
       commit(next);
       return questView(next, def, new Date());
+    },
+    async cards(ids) {
+      return ids.flatMap((id) => getCard(id) ?? []);
     },
     async openFinalRound(questId) {
       const def = questDef(questId);

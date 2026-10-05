@@ -24,7 +24,7 @@ import {
   Stars,
   Title,
   TROPHY_ART,
-  useCountUp,
+  CountUp,
   UiArt,
 } from '@/components/ui';
 import { chapterFor, getConcept, getSkill, levelByNumber, levelMeta } from '@/content';
@@ -76,8 +76,6 @@ export default function LevelCompleteScreen() {
   // When the recap leads, everything else waits for "You know this now."
   const knowAt = proof ? PROOF_START + proof.length * PROOF_STEP : 0;
   const t0 = proof ? knowAt + 450 : 0;
-  const xp = useCountUp(s?.xpAwarded ?? 0, { delay: 250 + t0 });
-  const levelShown = useCountUp(s?.skillLevel ?? 0, { from: s?.skillLevelBefore ?? 0, delay: 900 + t0, duration: 400 });
 
   const eventKey = s ? `${s.levelId}:${s.skillLevel}:${s.alreadyCompleted}` : '';
   const newTrophies = useNewTrophies(s && !s.alreadyCompleted ? s.levelId : undefined);
@@ -166,7 +164,7 @@ export default function LevelCompleteScreen() {
             </Reveal>
             <Pop delay={150 + t0}>
               <Numeral size="hero" tone={mastery ? 'mastery' : 'brand'} accessibilityLabel={`plus ${s.xpAwarded} XP`}>
-                +{xp} XP
+                +<CountUp to={s.xpAwarded} delay={250 + t0} /> XP
               </Numeral>
             </Pop>
             <Reveal delay={t0}>
@@ -217,7 +215,9 @@ export default function LevelCompleteScreen() {
               // the skill, its level and the bar toward the next ★, nothing to read.
               style={{ width: '100%', padding: space.lg, gap: space.md, ...(leveledUp && !mastery ? { borderColor: subjectTint(skill?.subjectId).base, shadowColor: subjectTint(skill?.subjectId).base } : null) }}>
               <Row gap={space.md}>
-                <Emblem value={levelShown} size="sm" tone={mastery ? 'mastery' : 'brand'} glowing={leveledUp} tint={subjectTint(skill?.subjectId)} label={`Level ${levelShown}`} />
+                <CountUp to={s.skillLevel} from={s.skillLevelBefore} delay={900 + t0} duration={400}>
+                  {(shown) => <Emblem value={shown} size="sm" tone={mastery ? 'mastery' : 'brand'} glowing={leveledUp} tint={subjectTint(skill?.subjectId)} label={`Level ${shown}`} />}
+                </CountUp>
                 <View style={{ flex: 1, gap: space.xxs }}>
                   <Eyebrow tone={mastery ? 'mastery' : 'muted'} style={leveledUp && !mastery ? { color: subjectTint(skill?.subjectId).text } : undefined}>{mastery ? 'Mastery' : leveledUp ? 'Level up' : 'Skill'}</Eyebrow>
                   <Title numberOfLines={1}>{skill?.name}</Title>

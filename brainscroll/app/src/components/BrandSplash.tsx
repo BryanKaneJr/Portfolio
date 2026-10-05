@@ -5,13 +5,15 @@ import { color } from '@/theme/tokens';
 
 /**
  * The launch screen: the BrainScroll wordmark over crowned Dr. Scroll, on
- * plum (owner, 2026-10-03). One image (assets/images/splash-brand.png,
- * 1024 × 1260, transparent) is both the native splash (app.json →
- * expo-splash-screen, 300 wide) and this screen at the same size, and the
- * native splash stays up until this one's image has drawn: no moment of plum
- * without Dr. Scroll. _layout.tsx calls SplashScreen.preventAutoHideAsync().
+ * plum (owner, 2026-10-03). One picture (1024 × 1260, transparent) is both
+ * the native splash (assets/images/splash-brand.png, which app.json →
+ * expo-splash-screen needs as a PNG, 300 wide) and this screen at the same
+ * size (splash-brand.webp: the same art at a fifth of the bytes, so it draws
+ * sooner), and the native splash stays up until this one's image has drawn:
+ * no moment of plum without Dr. Scroll. _layout.tsx calls
+ * SplashScreen.preventAutoHideAsync().
  */
-const art = require('../../assets/images/splash-brand.png');
+const art = require('../../assets/images/splash-brand.webp');
 const WIDTH = 300;
 const HEIGHT = Math.round((WIDTH * 1260) / 1024);
 

@@ -16,7 +16,7 @@ import {
   type SignInMethod,
   trophyInfo,
   checkClientConfig,
-  CompletionError, type CompletionErrorCode, type CompletionOutcome, type CompletionSummary, type Level, type QuestView, type ReviewItem, type StartReason, NO_STREAK, type Streak,
+  CompletionError, type CompletionErrorCode, type CompletionOutcome, type CompletionSummary, type Card, type Level, type QuestView, type ReviewItem, type StartReason, NO_STREAK, type Streak,
   hiddenLeagueMember,
   placeFromReason,
   SocialError,
@@ -33,7 +33,7 @@ import { Platform } from 'react-native';
 import { OFFERED_METHODS } from '@/auth/config';
 import { canUseNativeSheet, forgetNativeSession, getIdToken } from '@/auth/idToken';
 import { signInWithBrowser } from '@/auth/oauthBrowser';
-import { getLevel, levelIdOfQuestion, trophyCatalog } from '@/content';
+import { levelIdOfQuestion, trophyCatalog } from '@/content';
 import type { EntitlementView, ProgressBackend, ProgressSnapshot } from './backend';
 import { deviceTimeZone } from './backend';
 import { isUuid } from './storage';
@@ -62,10 +62,22 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
 
   let methodsCache: Promise<Set<SignInMethod> | null> | null = null;
 
+  // Levels fetched for their cards or questions, kept for the session (published
+  // content only changes with a new revision, and a level in play brings its own).
+  const levelCache = new Map<string, Level>();
   async function bundles(levelIds: string[]): Promise<Record<string, Level>> {
-    if (levelIds.length === 0) return {};
-    const raw = await rpc<Record<string, LearnerBundle>>('get_level_bundles', { p_level_ids: levelIds });
-    return Object.fromEntries(Object.entries(raw).map(([id, b]) => [id, fromLearnerBundle(b)]));
+    const missing = levelIds.filter((id) => !levelCache.has(id));
+    if (missing.length) {
+      const raw = await rpc<Record<string, LearnerBundle>>('get_level_bundles', { p_level_ids: missing });
+      for (const [id, b] of Object.entries(raw)) levelCache.set(id, fromLearnerBundle(b));
+    }
+    return Object.fromEntries(levelIds.flatMap((id) => (levelCache.has(id) ? [[id, levelCache.get(id)!] as const] : [])));
+  }
+  async function cardsById(ids: readonly string[]): Promise<Map<string, Card>> {
+    const levels = await bundles([...new Set(ids.map((id) => levelIdOfQuestion(id)).filter((l): l is string => !!l))]);
+    const found = new Map<string, Card>();
+    for (const level of Object.values(levels)) for (const c of level.cards) if (ids.includes(c.id)) found.set(c.id, c);
+    return found;
   }
 
   return {
@@ -106,8 +118,13 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       const r = await rpc<{ allowed: boolean; reason: StartReason; revision?: number; bundle?: LearnerBundle }>('start_level', {
         p_level_id: levelId,
       });
-      const level = r.bundle ? fromLearnerBundle(r.bundle) : getLevel(levelId);
+      // The app ships no lessons in server builds: a playable level always comes with its bundle.
+      const level = r.bundle ? fromLearnerBundle(r.bundle) : undefined;
       return { reason: r.reason, level, revision: r.revision };
+    },
+    async cards(ids) {
+      const found = await cardsById(ids);
+      return ids.flatMap((id) => found.get(id) ?? []);
     },
     async answerQuestion(level, questionId, optionId) {
       const r = await rpc<{ correct: boolean; resolved: boolean; first_attempt_correct: boolean; attempt_count: number; rationale: string | null; wrong?: number[]; explanation: string | null }>(
@@ -159,11 +176,14 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       const ids = view.finalRound?.questionIds ?? [];
       const levelIds = [...new Set(ids.map((id) => levelIdOfQuestion(id)).filter((l): l is string => !!l))];
       const levels = await bundles(levelIds);
-      const items = ids.flatMap((id) => {
+      const found = ids.flatMap((id) => {
         const levelId = levelIdOfQuestion(id);
         const question = levelId ? levels[levelId]?.questions.find((q) => q.id === id) : undefined;
         return question && levelId ? [{ question, levelId }] : [];
       });
+      // Each question's source cards (they can sit in earlier levels).
+      const cards = await cardsById(found.flatMap((it) => it.question.sourceCardIds));
+      const items = found.map((it) => ({ ...it, cards: it.question.sourceCardIds.flatMap((c) => cards.get(c) ?? []) }));
       return { view, items };
     },
     async answerFinalRound(questId, questionId, optionId) {

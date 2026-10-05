@@ -1,4 +1,4 @@
-import type { BlockedLearner, UserReportReason, FeedItem, FeedReaction, LeagueView, SocialCard, SocialProfile, SocialView, AccountState, AnalyticsEvent, ChapterReviewResult, Equipped, OtpTarget, SignInMethod, AnswerResult, ContentReportInput, CompletionSummary, DailyAllowance, FinalRoundAnswer, Level, Question, QuestCompletion, QuestsView, QuestView, ReviewItem, ReviewResult, StartReason, Streak } from '@brainscroll/core';
+import type { BlockedLearner, UserReportReason, FeedItem, FeedReaction, LeagueView, SocialCard, SocialProfile, SocialView, AccountState, AnalyticsEvent, ChapterReviewResult, Equipped, OtpTarget, SignInMethod, AnswerResult, Card, ContentReportInput, CompletionSummary, DailyAllowance, FinalRoundAnswer, Level, Question, QuestCompletion, QuestsView, QuestView, ReviewItem, ReviewResult, StartReason, Streak } from '@brainscroll/core';
 
 /**
  * Where progress lives. `remote` calls the Supabase RPCs, which are
@@ -43,6 +43,8 @@ export interface StartResult {
 export interface FinalRoundItem {
   question: Question;
   levelId: string;
+  /** Final Round only: the question's source cards, in order (the first is shown before the questions, all of them after a miss). */
+  cards?: Card[];
 }
 
 /** A started (or resumed) chapter review: its questions, and those already answered right. */
@@ -59,6 +61,12 @@ export interface ProgressBackend {
   init(): Promise<void>;
   snapshot(): Promise<ProgressSnapshot>;
   startLevel(levelId: string): Promise<StartResult>;
+  /**
+   * Cards by id, from any level (a missed question's evidence can come from
+   * an earlier one). Server builds fetch their levels' bundles and keep them;
+   * the app doesn't ship lessons in those builds.
+   */
+  cards(ids: readonly string[]): Promise<Card[]>;
   /** Grade one attempt. The first attempt at each question is recorded once and never replaced. */
   answerQuestion(level: Level, questionId: string, optionId: string): Promise<AnswerResult>;
   /** Completes a level whose questions are all resolved. XP comes from first attempts only. */
