@@ -489,6 +489,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         return result;
       },
       async completeLevel(levelId, level) {
+        // Anything that completes can earn trophies: the quests fetched at launch are out of date now.
+        primedQuests.current = null;
         let session = sessionsRef.current[levelId];
         if (!session) throw new Error(`No session for ${levelId}`);
         // A level started before the key fix holds a key the server refuses. It never saved, so a new one is safe.
@@ -532,14 +534,19 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       answerFinalRound: (questId, questionId, optionId) => backendOrThrow().answerFinalRound(questId, questionId, optionId),
       setEquipped: (next) => backendOrThrow().setEquipped(next),
       async completeQuest(questId) {
+        primedQuests.current = null;
         const result = await backendOrThrow().completeQuest(questId);
         await refresh().catch(() => setOffline(true));
         return result;
       },
-      submitReview: (item, optionId) => backendOrThrow().submitReview(item, optionId),
+      submitReview(item, optionId) {
+        primedQuests.current = null;
+        return backendOrThrow().submitReview(item, optionId);
+      },
       startChapterReview: (skillId, chapter) => backendOrThrow().startChapterReview(skillId, chapter),
       answerChapterReview: (reviewId, question, optionId) => backendOrThrow().answerChapterReview(reviewId, question, optionId),
       async completeChapterReview(reviewId) {
+        primedQuests.current = null;
         const result = await backendOrThrow().completeChapterReview(reviewId);
         await refresh().catch(() => setOffline(true));
         return result;
