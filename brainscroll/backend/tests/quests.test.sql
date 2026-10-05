@@ -13,6 +13,10 @@ exception when others then
   if sqlerrm not like '%' || code || '%' then raise exception 'expected error % but got: %', code, sqlerrm; end if;
 end $$;
 
+-- Perfect levels drop Brainpower at random (brainpower.test.sql); here they never do,
+-- or a lucky +1 could fill the balance before a quest goal's +1 (a 1-in-10 failure).
+update public.app_settings set brainpower_perfect_drop_percent = 0 where true;
+
 -- This week's quest, and two that ended (two and three weeks ago). Mondays, UTC.
 create function pg_temp.monday(weeks_ago int) returns text language sql as $$
   select (date_trunc('week', now() at time zone 'UTC')::date - 7 * weeks_ago)::text

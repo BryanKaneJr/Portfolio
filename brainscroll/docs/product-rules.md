@@ -121,7 +121,7 @@ The patterns live in `packages/core/src/ids.ts` and as `CHECK` constraints in th
 
 | Event | XP | Guardrail |
 | --- | --- | --- |
-| `LEVEL_COMPLETE` | Regular 100 / 70 / 35 / 15 · checkpoint 150 / 105 / 60 / 25 · milestone 250 / 175 / 90 / 40 · mastery 500 / 350 / 175 / 75 | Once per canonical level, ever. The amount comes from the level type's pool and first-attempt accuracy; corrections add nothing. A perfect level straight after other perfect levels adds the perfect streak's +10% per level in a row, up to +50% (`XP.PERFECT_STREAK_*`; CURRENT_PRODUCT_DECISIONS §4) |
+| `LEVEL_COMPLETE` | Regular 100 / 70 / 35 / 15 · checkpoint 150 / 105 / 60 / 25 · milestone 250 / 175 / 90 / 40 · mastery 500 / 350 / 175 / 75 | Once per canonical level, ever. The amount comes from the level type's pool and first-attempt accuracy; corrections add nothing. A perfect level straight after other perfect levels adds the perfect streak's +10% per level in a row, up to +100%, so 2.0× (`XP.PERFECT_STREAK_*`; CURRENT_PRODUCT_DECISIONS §4) |
 | `DELAYED_RECALL` | 10 | A scheduled review item right on the **first** attempt. Once per scheduled occurrence (idempotency key per concept + due time); replaying or reopening a review earns nothing; a wrong first answer earns 0 and its correction earns nothing (`XP.REVIEW_FIRST_ATTEMPT`, `app_settings.xp_review_first_attempt`) |
 | `QUESTION_CORRECT` | retired | The old per-answer bonus. Kept only for historical rows |
 | `MASTERY_CLEAR` | retired | The old +250 Level 100 bonus. The Mastery Challenge's own pool replaces it. Kept only for historical rows |

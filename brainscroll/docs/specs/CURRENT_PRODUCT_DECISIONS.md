@@ -80,12 +80,12 @@ Additional rules:
 
 ### Perfect streak (owner, 2026-10-01)
 
-A level cleared with every question right on the first try, straight after other perfect levels, pays more. The 2nd perfect level in a row pays **1.1×**, the 3rd **1.2×**, and so on, up to **1.5×** (+50%). It works on any level type, from that level's own first-attempt XP.
+A level cleared with every question right on the first try, straight after other perfect levels, pays more. The 2nd perfect level in a row pays **1.1×**, the 3rd **1.2×**, and so on, up to **2.0×** (+100%, from the 11th perfect level in a row; owner, 2026-10-05: "cap the multiplier at 2.0x its cleaner"). It works on any level type, from that level's own first-attempt XP.
 
 - **What counts:** first clears of levels only. Reviews, chapter reviews and quests neither build it nor break it, and replays don't count. A level cleared with any first-try miss ends it, and the next perfect level starts again at 1×.
 - **How it's paid:** the bonus is part of that level's single `LEVEL_COMPLETE` event, so there's still one XP row per level. The streak is derived from completed levels, never stored as a counter (SQL `perfect_streak_before`, core `perfectStreakBefore`; `XP.PERFECT_STREAK_*` and `app_settings.perfect_streak_*`).
 - **Where it shows:** Level Complete only (lessons stay quiet), as one chip: "Perfect!" on the first perfect level, then "Perfect streak ×1.2" and so on. No line under it explaining the rules or what the next level pays (owner, 2026-10-05: no over-explaining). Ending a streak shows nothing: it ends quietly.
-- **Why a cap:** nothing dwarfs a level. At most a perfect regular level pays 150.
+- **Why a cap:** nothing dwarfs a level. At most a perfect regular level pays 200.
 
 ## 5. Checkpoint / milestone / mastery XP
 

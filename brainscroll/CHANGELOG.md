@@ -3,6 +3,11 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-05: Perfect streak caps at 2.0×
+
+- **The perfect streak now tops out at 2.0×** instead of 1.5× (owner: "cap the multiplier at 2.0x its cleaner"): still +10% per perfect level in a row, so 2.0× from the 11th, and a perfect regular level pays at most 200. `XP.PERFECT_STREAK_MAX_PERCENT` is 100, and migration `20261105000000_perfect_streak_cap.sql` moves `app_settings.perfect_streak_max_percent` from 50 to 100 (a project that changed it on purpose keeps its value).
+- **Test fix:** `quests.test.sql` failed about 1 run in 10 (it was the red "Database migrations + SQL tests" step on CI). A goal met on a perfect level could find Brainpower already full, because the level's random lucky +1 landed first. The test now turns the lucky drop off, as `core-loop.test.sql` does.
+
 ## 2026-10-05: Skill map returns and checkpoint results
 
 - **The cleared level pops when you're back on the map.** "Back to the map" used to show no pop on the level just cleared (it played, or didn't, while the map was hidden under the lesson). The map now pops the cleared waypoint and wakes the next one when it comes back into view, once per completion.
