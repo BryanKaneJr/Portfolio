@@ -3,6 +3,13 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-05: Map chests, XP boosts and cosmetics (in progress)
+
+Owner, 2026-10-05: "luck of the draw", boosts of "15, 30, 1 hour the big one", avatar rings, name styles and titles. Spec: `docs/specs/REWARDS.md`.
+
+- **Rules (core `rewards.ts`):** one chest per chapter after its 5th level, opened once, one roll: a 15, 30 or 60 minute XP boost, +2 Brainpower (only with room for both, never on Unlimited), or a ring, name style or title not owned yet from a tier the learner's Knowledge Level reaches (Rare 15+, Epic 30+, Legendary 50+). A roll that can't pay out becomes the 15-minute boost, so a chest never pays a duplicate. A running boost makes a level's first clear pay 2.0x, the perfect streak included, never more, in its one event, so it counts toward the league. A skill's first Mastery star earns "<Skill> Master". One title shows at a time.
+- **Server (migration `20261106000000_rewards.sql`):** `cosmetic_items` (24 items, identical to core, `rewards-sync.test.ts`), `user_chests`, `user_cosmetics`, `user_boosts`, the profile's look; `open_chest`, `start_boost`, `set_look`, `get_locker`; the boost in `complete_level`; ring, name style and title on every learner card; `app_settings.chest_loot` and friends so the odds can change without an app update; analytics `chest_opened`, `boost_started`, `cosmetic_equipped`. `rewards.test.sql` covers it.
+
 ## 2026-10-05: Perfect streak caps at 2.0×
 
 - **The perfect streak now tops out at 2.0×** instead of 1.5× (owner: "cap the multiplier at 2.0x its cleaner"): still +10% per perfect level in a row, so 2.0× from the 11th, and a perfect regular level pays at most 200. `XP.PERFECT_STREAK_MAX_PERCENT` is 100, and migration `20261105000000_perfect_streak_cap.sql` moves `app_settings.perfect_streak_max_percent` from 50 to 100 (a project that changed it on purpose keeps its value).

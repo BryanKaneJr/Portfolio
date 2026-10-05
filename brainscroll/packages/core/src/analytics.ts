@@ -37,6 +37,10 @@ export const ANALYTICS_EVENTS = {
   // Chapter reviews: which chapters people go back to, and whether it fed a quest.
   chapter_review_started: { skill_id: 'string', chapter: 'number' },
   chapter_review_completed: { skill_id: 'string', chapter: 'number', quest_credit: 'boolean' },
+  // Map chests and the Locker: what chests pay out, and whether boosts and cosmetics get used.
+  chest_opened: { skill_id: 'string', chapter: 'number', reward: 'string' },
+  boost_started: { boost: 'string' },
+  cosmetic_equipped: { kind: 'string', item_id: 'string' },
 } as const satisfies Record<string, Record<string, PropType>>;
 
 export type AnalyticsEventName = keyof typeof ANALYTICS_EVENTS;
