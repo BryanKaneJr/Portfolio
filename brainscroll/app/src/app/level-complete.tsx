@@ -27,7 +27,7 @@ import {
   CountUp,
   UiArt,
 } from '@/components/ui';
-import { chapterFor, getConcept, getSkill, levelByNumber, levelMeta } from '@/content';
+import { chapterFor, getSkill, levelByNumber, levelMeta } from '@/content';
 import { BrainpowerEarned, brainpowerCardShows } from '@/components/BrainpowerEarned';
 import { BrainpowerFlight } from '@/components/BrainpowerFlight';
 import { ReminderPrompt } from '@/components/ReminderSettings';
@@ -233,14 +233,13 @@ export default function LevelCompleteScreen() {
                 </View>
                 <Stars count={view.stars} />
               </Row>
-              <View style={{ gap: space.xs }}>
-                <ProgressBar value={intoBand / MASTERY_BAND_SIZE} tone="mastery" fill={mastery ? undefined : subjectTint(skill?.subjectId).base} />
-                <Caption>
-                  {mastery
-                    ? `★ Mastery ${roman(band)}. Levels ${level.number + 1}–${level.number + MASTERY_BAND_SIZE} are open.`
-                    : `${intoBand} / ${MASTERY_BAND_SIZE} toward ★ Mastery ${roman(nextStar)}`}
-                </Caption>
-              </View>
+              {/* Just the bar (owner, 2026-10-05: no over-explaining); screen readers hear where it stands. */}
+              <ProgressBar
+                value={intoBand / MASTERY_BAND_SIZE}
+                tone="mastery"
+                fill={mastery ? undefined : subjectTint(skill?.subjectId).base}
+                label={mastery ? `Mastery ${roman(band)} earned` : `${intoBand} of ${MASTERY_BAND_SIZE} toward Mastery ${roman(nextStar)}`}
+              />
             </Card>
           </Reveal>
           </View>
@@ -258,13 +257,6 @@ export default function LevelCompleteScreen() {
               )}
               {/* Once, after the first level: would they like reminders? */}
               {!s.alreadyCompleted && <ReminderPrompt />}
-              {!s.alreadyCompleted && s.reinforcedConceptIds.length > 0 && (
-                <Caption center>
-                  {s.reinforcedConceptIds.length <= 3
-                    ? `Back sooner in Review: ${s.reinforcedConceptIds.map((id) => getConcept(id)?.title ?? id).join(', ')}`
-                    : `${s.reinforcedConceptIds.length} concepts back sooner in Review`}
-                </Caption>
-              )}
             </View>
           </Reveal>
           </View>

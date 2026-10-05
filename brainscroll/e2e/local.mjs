@@ -322,7 +322,7 @@ try {
       check(f.total === 5 && f.xp === CHECKPOINT_CURVE[f.firstTry], `the checkpoint uses its own XP pool (${f.firstTry}/5 → ${f.xp} XP)`);
       // The recap is a screen of its own; Continue brings in the result.
       check(/10 levels ago, could you have explained this\?/.test(f.recap) && f.recap.includes('You know this now.') && !/could you have explained/.test(f.text), 'the checkpoint shows the chapter recap as proof of what was learned, then Continue shows the result');
-      check(!f.text.includes('At Lv. 100:') && /10 \/ 100 toward ★ Mastery I/.test(f.text), 'Level Complete stays lean: the bar toward the next ★, no write-up');
+      check(!f.text.includes('At Lv. 100:') && !/toward ★ Mastery/.test(f.text) && (await page.locator('[aria-label="10 of 100 toward Mastery I"]').count()) === 1, 'Level Complete stays lean: just the bar toward the next ★ (its place said to screen readers), no write-up');
     }
   }
   check(ranOut, 'a first day runs out of Brainpower before Level 10');
