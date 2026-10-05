@@ -78,7 +78,7 @@ export default function LevelCompleteScreen() {
   const t0 = proof ? knowAt + 450 : 0;
 
   const eventKey = s ? `${s.levelId}:${s.skillLevel}:${s.alreadyCompleted}` : '';
-  const newTrophies = useNewTrophies(s && !s.alreadyCompleted ? s.levelId : undefined);
+  const newTrophies = useNewTrophies(s && !s.alreadyCompleted ? s.levelId : undefined, undefined, s?.daily);
   useEffect(() => {
     if (!s || !level) return;
     const event = s.alreadyCompleted
@@ -131,7 +131,7 @@ export default function LevelCompleteScreen() {
             </Pop>
           )}
           <Eyebrow tone={mastery ? 'mastery' : 'success'}>
-            {s.alreadyCompleted ? 'Replay complete' : mastery ? '★ Mastery star earned' : level.type === 'regular' ? `Level ${level.number} complete` : `Level ${level.number} · ${label} complete`}
+            {s.alreadyCompleted ? `Level ${level.number} replay` : mastery ? '★ Mastery star earned' : level.type === 'regular' ? `Level ${level.number} complete` : `Level ${level.number} · ${label} complete`}
           </Eyebrow>
 
           {proof && (

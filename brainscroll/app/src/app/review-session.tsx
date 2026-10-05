@@ -180,7 +180,7 @@ export default function ReviewSessionScreen() {
 /** A modest progression moment: review XP is small by design, so the celebration is too. */
 function ReviewComplete({ xp, firstTry, total, daily, onDone }: { xp: number; firstTry: number; total: number; daily: DailyAllowance; onDone: () => void }) {
   // A review can earn a trophy too (a streak day, Long Memory): celebrate it here, once.
-  const newTrophies = useNewTrophies('review-session');
+  const newTrophies = useNewTrophies('review-session', undefined, daily);
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: color.bgDeep, padding: layout.gutter }}>
       <BrainpowerFlight daily={daily}>
