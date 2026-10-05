@@ -1,4 +1,4 @@
-import { cardPicturePose, CompletionError, DR_SCROLL_LINES, mascotPictureCard, LEARNING_STRUCTURE, type Level, type StartReason } from '@brainscroll/core';
+import { cardPicturePose, CompletionError, type Card as LessonCard, DR_SCROLL_LINES, mascotPictureCard, LEARNING_STRUCTURE, type Level, type StartReason } from '@brainscroll/core';
 import { router, useLocalSearchParams, useNavigation } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { Platform, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
@@ -9,7 +9,7 @@ import { DrScrollTip } from '@/components/DrScrollTip';
 import { canCheck, feedbackTone, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { ReportSheet } from '@/components/ReportSheet';
 import { Button, Caption, Card, DrScroll, DrScrollSays, H1, hasLevelArt, IconButton, LessonShell, LessonSkeleton, LevelArt, LoadError, Notice, Row, StateBlock } from '@/components/ui';
-import { getCard, getSkill, skills } from '@/content';
+import { getSkill, skills } from '@/content';
 import { CARD_ART, CARD_ART_FILL } from '@/content/cardArt';
 import { skillTint } from '@/theme/subjectTheme';
 import { setPopGuard } from '@/navigation/popGuard';
@@ -30,6 +30,8 @@ export default function LevelScreen() {
   const p = useProgress();
   const [level, setLevel] = useState<Level | null>(null);
   const [session, setSession] = useState<LevelSession | null>(null);
+  // Evidence cards from earlier levels, for missed questions (fetched once the level is in).
+  const [borrowed, setBorrowed] = useState<ReadonlyMap<string, LessonCard>>(new Map());
   const [blocked, setBlocked] = useState<StartReason | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -119,8 +121,16 @@ export default function LevelScreen() {
         if (cancelled) return;
         if (r.reason === 'DAILY_COMPLETE') router.replace('/daily-complete');
         else if ((r.reason === 'NEW' || r.reason === 'REPLAY') && r.level) {
+          const own = new Set(r.level.cards.map((c) => c.id));
+          const elsewhere = [...new Set(r.level.questions.flatMap((q) => q.sourceCardIds).filter((c) => !own.has(c)))];
           setLevel(playable(r.level));
           setSession(p.startSession(r.level.id, r.revision ?? r.level.revision));
+          // Best-effort: without them, a miss still shows its explanation.
+          if (elsewhere.length)
+            p.cards(elsewhere).then(
+              (found) => !cancelled && setBorrowed(new Map(found.map((c) => [c.id, c]))),
+              () => {},
+            );
         } else setBlocked(r.reason);
       })
       .catch(() => !cancelled && setLoadFailed(true));
@@ -157,8 +167,8 @@ export default function LevelScreen() {
   const status = questionStatus(attempts);
   // A question blocks progress until it's answered correctly (on any attempt).
   const unresolved = questionId !== undefined && !status.resolved;
-  // Evidence cards: this level's cards first, then earlier levels in the offline bundle.
-  const resolveCard = (cardId: string) => level.cards.find((c) => c.id === cardId) ?? getCard(cardId);
+  // Evidence cards: this level's cards first, then earlier levels' (fetched on entry).
+  const resolveCard = (cardId: string) => level.cards.find((c) => c.id === cardId) ?? borrowed.get(cardId);
   const typeLabel = LEARNING_STRUCTURE[level.type].label;
   const context = level.type === 'regular' ? `${skill?.name ?? ''} · Level ${level.number}` : `${skill?.name ?? ''} · ${typeLabel} ${level.number}`;
 

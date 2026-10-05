@@ -7,7 +7,7 @@ import { track } from '@/analytics/track';
 import { BrainpowerEarned } from '@/components/BrainpowerEarned';
 import { BrainpowerFlight, NO_DAILY } from '@/components/BrainpowerFlight';
 import { canCheck, feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
-import { Body, Button, Caption, DrScroll, Eyebrow, H1, H2, LessonShell, LessonSkeleton, LoadError, Notice, Numeral, Pop, Reveal, useCountUp } from '@/components/ui';
+import { Body, Button, Caption, DrScroll, Eyebrow, H1, H2, LessonShell, LessonSkeleton, LoadError, Notice, Numeral, Pop, Reveal, CountUp } from '@/components/ui';
 import { chaptersFor, getCard, getSkill, levelMeta } from '@/content';
 import type { ChapterReviewSession } from '@/progress/backend';
 import { useProgress, type AttemptView } from '@/progress/ProgressProvider';
@@ -171,7 +171,6 @@ export default function ChapterReviewScreen() {
 
 /** A modest moment, like a review's: the XP is small by design. */
 function ChapterReviewComplete({ skillName, chapter, chapterTitle, result, onDone }: { skillName: string; chapter: number; chapterTitle?: string; result: ChapterReviewResult; onDone: () => void }) {
-  const shown = useCountUp(result.xpAwarded, { delay: 200 });
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: color.bgDeep, padding: layout.gutter }}>
       <BrainpowerFlight daily={result.daily ?? NO_DAILY}>
@@ -186,7 +185,7 @@ function ChapterReviewComplete({ skillName, chapter, chapterTitle, result, onDon
         {result.xpAwarded > 0 && (
           <Pop>
             <Numeral size="hero" tone="brand" accessibilityLabel={`plus ${result.xpAwarded} XP`}>
-              +{shown} XP
+              +<CountUp to={result.xpAwarded} delay={200} /> XP
             </Numeral>
           </Pop>
         )}

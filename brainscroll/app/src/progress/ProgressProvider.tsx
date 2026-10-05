@@ -1,4 +1,4 @@
-import { AccountError, BRAINPOWER, NO_STREAK, SIGNED_OUT, skillProgressView, type AccountState, type AnswerResult, type OtpTarget, type SignInMethod, type ContentReportInput, type CompletionSummary, type Level, type ReviewItem, type ReviewResult, type Equipped, type FinalRoundAnswer, type QuestCompletion, type QuestsView, type QuestView, type ChapterReviewResult, type Question } from '@brainscroll/core';
+import { AccountError, BRAINPOWER, NO_STREAK, SIGNED_OUT, skillProgressView, type AccountState, type AnswerResult, type Card, type OtpTarget, type SignInMethod, type ContentReportInput, type CompletionSummary, type Level, type ReviewItem, type ReviewResult, type Equipped, type FinalRoundAnswer, type QuestCompletion, type QuestsView, type QuestView, type ChapterReviewResult, type Question } from '@brainscroll/core';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { AppState, Platform } from 'react-native';
 import { clearAnalytics, configureAnalytics, flush as flushAnalytics, track } from '@/analytics/track';
@@ -95,6 +95,8 @@ interface ProgressContextValue {
   /** The next level to play in a skill, if it exists in the bundle. */
   nextLevelId(skillId: string): string | undefined;
   startLevel(levelId: string): Promise<StartResult>;
+  /** Cards by id from any level (a missed question's evidence), fetched from the server in server builds. */
+  cards(ids: readonly string[]): Promise<Card[]>;
   /** Starts the level from its first card (a level never resumes). */
   startSession(levelId: string, revision: number): LevelSession;
   /** Forgets a level left unfinished, so it starts over next time. */
@@ -448,6 +450,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         }
         return backendOrThrow().startLevel(levelId);
       },
+      cards: (ids) => backendOrThrow().cards(ids),
       startSession(levelId, revision) {
         const created: LevelSession = { revision, cardIndex: 0, attempts: {}, idempotencyKey: newIdempotencyKey() };
         commitSessions({ ...sessionsRef.current, [levelId]: created });

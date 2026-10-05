@@ -7,7 +7,7 @@ import { BrainpowerEarned, brainpowerCardShows } from '@/components/BrainpowerEa
 import { BrainpowerFlight, NO_DAILY } from '@/components/BrainpowerFlight';
 import { DrScrollTip } from '@/components/DrScrollTip';
 import { canCheck, feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
-import { Body, Button, Caption, DrScroll, Eyebrow, H2, LessonShell, LessonSkeleton, LoadError, Notice, Numeral, Pop, Reveal, StateBlock, useCountUp } from '@/components/ui';
+import { Body, Button, Caption, DrScroll, Eyebrow, H2, LessonShell, LessonSkeleton, LoadError, Notice, Numeral, Pop, Reveal, StateBlock, CountUp } from '@/components/ui';
 import { getCard, getSkill } from '@/content';
 import { TrophyEarned, trophyBrainpower } from '@/components/TrophyEarned';
 import { useProgress, type AttemptView } from '@/progress/ProgressProvider';
@@ -179,7 +179,6 @@ export default function ReviewSessionScreen() {
 
 /** A modest progression moment: review XP is small by design, so the celebration is too. */
 function ReviewComplete({ xp, firstTry, total, daily, onDone }: { xp: number; firstTry: number; total: number; daily: DailyAllowance; onDone: () => void }) {
-  const shown = useCountUp(xp, { delay: 200 });
   // A review can earn a trophy too (a streak day, Long Memory): celebrate it here, once.
   const newTrophies = useNewTrophies('review-session');
   return (
@@ -193,7 +192,7 @@ function ReviewComplete({ xp, firstTry, total, daily, onDone }: { xp: number; fi
         {xp > 0 ? (
           <Pop>
             <Numeral size="hero" tone="brand" accessibilityLabel={`plus ${xp} XP`}>
-              +{shown} XP
+              +<CountUp to={xp} delay={200} /> XP
             </Numeral>
           </Pop>
         ) : null}

@@ -1,4 +1,4 @@
-import type { Card, QuestCompletion } from '@brainscroll/core';
+import type { QuestCompletion } from '@brainscroll/core';
 import { router, useLocalSearchParams } from 'expo-router';
 import { track } from '@/analytics/track';
 import { useEffect, useRef, useState } from 'react';
@@ -8,8 +8,8 @@ import { BrainpowerEarned } from '@/components/BrainpowerEarned';
 import { BrainpowerFlight, NO_DAILY } from '@/components/BrainpowerFlight';
 import { LearningCard } from '@/components/cards/LearningCard';
 import { canCheck, feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
-import { Body, Button, Caption, DrScroll, Eyebrow, H1, LessonShell, LessonSkeleton, LevelArt, LoadError, Notice, Numeral, Pop, Reveal, useCountUp } from '@/components/ui';
-import { getCard, getSkill, levelMeta } from '@/content';
+import { Body, Button, Caption, DrScroll, Eyebrow, H1, LessonShell, LessonSkeleton, LevelArt, LoadError, Notice, Numeral, Pop, Reveal, CountUp } from '@/components/ui';
+import { getSkill, levelMeta } from '@/content';
 import type { FinalRoundItem } from '@/progress/backend';
 import { useProgress, type AttemptView } from '@/progress/ProgressProvider';
 import { useNewTrophies } from '@/progress/useNewTrophies';
@@ -101,7 +101,7 @@ export default function FinalRoundScreen() {
   // The lesson: one card from each skill.
   if (index < n) {
     const it = items[index]!;
-    const card = getCard(it.question.sourceCardIds[0] ?? '');
+    const card = it.cards?.[0];
     // The card can come from an earlier level than the one that counted: name the card's own level.
     const cardLevel = Number(card?.id.split('.')[2]);
     const meta = levelMeta(it.levelId);
@@ -126,7 +126,7 @@ export default function FinalRoundScreen() {
   const qid = item.question.id;
   const itemAttempts = attempts[qid] ?? [];
   const resolved = questionStatus(itemAttempts).resolved || resolvedBefore.includes(qid);
-  const sourceCards = item.question.sourceCardIds.map(getCard).filter((c): c is Card => !!c);
+  const sourceCards = item.cards ?? [];
   const meta = levelMeta(item.levelId);
 
   const onCheck = () => {
@@ -200,7 +200,6 @@ export default function FinalRoundScreen() {
 
 /** The payoff: the trophy for a live-week clear, or the XP from the Archive. */
 function QuestComplete({ title, art, trophyName, titleReward, result, onDone }: { title: string; art: string; trophyName: string; titleReward: string; result: QuestCompletion; onDone: () => void }) {
-  const shown = useCountUp(result.xpAwarded, { delay: 400 });
   // Other trophies this finish unlocked (Quester, ...); the quest's own is shown above.
   const others = useNewTrophies(result.questId, result.trophy?.trophyId);
   return (
@@ -229,7 +228,7 @@ function QuestComplete({ title, art, trophyName, titleReward, result, onDone }: 
         {result.xpAwarded > 0 && (
           <Reveal delay={300}>
             <Numeral size="hero" tone="brand" accessibilityLabel={`plus ${result.xpAwarded} XP`}>
-              +{shown} XP
+              +<CountUp to={result.xpAwarded} delay={400} /> XP
             </Numeral>
           </Reveal>
         )}

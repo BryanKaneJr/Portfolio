@@ -39,6 +39,16 @@ export function useCountUp(to: number, { from = 0, delay = 0, duration = motion.
   return reduce || to === from ? to : value;
 }
 
+/**
+ * A number counting up, as its own small component so only it redraws each
+ * frame (the hook in a whole screen redrew the screen ~60 times a second for a
+ * second). Renders the number as text, or whatever `children` makes of it.
+ */
+export function CountUp({ to, from, delay, duration, children }: { to: number; from?: number; delay?: number; duration?: number; children?: (value: number) => ReactNode }) {
+  const value = useCountUp(to, { from, delay, duration });
+  return <>{children ? children(value) : value}</>;
+}
+
 /** Fades and rises in after `delay` ms: a staggered reveal for reward screens. */
 export function Reveal({ children, delay = 0 }: { children: ReactNode; delay?: number }) {
   const reduce = useReduceMotion();
