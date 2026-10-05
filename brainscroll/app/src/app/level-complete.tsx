@@ -1,6 +1,6 @@
 import { drScrollSaying, LEARNING_STRUCTURE, MASTERY_BAND_SIZE, skillProgressView, XP, type CompletionOutcome, type DrScrollMoment } from '@brainscroll/core';
 import { Redirect, router } from 'expo-router';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { Image, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
@@ -35,7 +35,7 @@ import { TrophyEarned, trophyBrainpower } from '@/components/TrophyEarned';
 import { TROPHY_ART as TROPHY_ARTS } from '@/components/ui/trophyArt';
 import { useProgress } from '@/progress/ProgressProvider';
 import { useNewTrophies } from '@/progress/useNewTrophies';
-import { completionEvent, feedback } from '@/theme/feedback';
+import { completionEvent, feedback, useReduceMotion } from '@/theme/feedback';
 import { subjectTint } from '@/theme/subjectTheme';
 import { color, iconSize, layout, space } from '@/theme/tokens';
 
@@ -77,6 +77,22 @@ export default function LevelCompleteScreen() {
   const knowAt = proof ? PROOF_START + proof.length * PROOF_STEP : 0;
   const t0 = proof ? knowAt + 450 : 0;
 
+ // After a checkpoint's recap, the result (headline, XP, trophy) is below the fold on a
+  // phone: bring it up once it appears, unless the learner has already scrolled.
+  const scrollRef = useRef<ScrollView>(null);
+  const resultY = useRef<number | null>(null);
+  const touched = useRef(false);
+  const reduceMotion = useReduceMotion();
+  useEffect(() => {
+    if (!proof) return;
+    const timer = setTimeout(() => {
+      if (!touched.current && resultY.current !== null) scrollRef.current?.scrollTo({ y: Math.max(resultY.current - space.xl, 0), animated: !reduceMotion });
+    }, t0);
+    return () => clearTimeout(timer);
+    // Once per completion.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [s?.levelId, s?.skillLevel]);
+
   const eventKey = s ? `${s.levelId}:${s.skillLevel}:${s.alreadyCompleted}` : '';
   const newTrophies = useNewTrophies(s && !s.alreadyCompleted ? s.levelId : undefined, undefined, s?.daily);
   useEffect(() => {
@@ -109,7 +125,10 @@ export default function LevelCompleteScreen() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: color.bgDeep }} edges={['top']}>
       <BrainpowerFlight daily={s.daily}>
-      <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: layout.gutter, paddingVertical: short ? space.lg : space.xl, justifyContent: 'center' }}>
+      <ScrollView
+        ref={scrollRef}
+        onScrollBeginDrag={() => (touched.current = true)}
+        contentContainerStyle={{ flexGrow: 1, paddingHorizontal: layout.gutter, paddingVertical: short ? space.lg : space.xl, justifyContent: 'center' }}>
         <View style={{ width: '100%', maxWidth: layout.readingWidth, alignSelf: 'center', gap: short ? space.lg : space.xl, alignItems: 'center' }}>
           {!s.alreadyCompleted && level.number % 10 === 0 && (
             <Pop delay={100}>
@@ -156,7 +175,7 @@ export default function LevelCompleteScreen() {
             </View>
           )}
 
-          <View style={{ alignItems: 'center', gap: space.sm }}>
+          <View style={{ alignItems: 'center', gap: space.sm }} onLayout={(e) => (resultY.current = e.nativeEvent.layout.y)}>
             <Reveal delay={t0}>
               <Display center tone={mastery ? 'mastery' : 'text'}>
                 {headline}

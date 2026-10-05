@@ -3,6 +3,13 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-05: Skill map returns and checkpoint results
+
+- **The cleared level pops when you're back on the map.** "Back to the map" used to show no pop on the level just cleared (it played, or didn't, while the map was hidden under the lesson). The map now pops the cleared waypoint and wakes the next one when it comes back into view, once per completion.
+- **A link or reload opens the map at your level.** On a cold load the map first shows its skeleton, and the scroll handle added only when the real map replaced it never attached, so it stayed at the top. The skeleton now carries the same handle; the scroll also checks it took and tries again for a moment if the map wasn't ready.
+- **Coming back keeps your place.** The map scrolls to your next level when you open it and when that level moves on, not on every return, so leaving a replay or a level partway leaves the map where you had it.
+- **Checkpoint and mastery results come into view.** After the "You know this now." recap, Level Complete scrolls the headline, XP and trophy up into view (unless you've already scrolled).
+
 ## 2026-10-05: Fixes from the regression pass
 
 Four test agents re-checked the last two performance PRs (fresh data, the skill map, server-fetched cards, fresh accounts, offline, every Level Complete). Fixed:

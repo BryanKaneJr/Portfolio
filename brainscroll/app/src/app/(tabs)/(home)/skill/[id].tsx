@@ -1,4 +1,4 @@
-import { Redirect, router, useLocalSearchParams } from 'expo-router';
+import { Redirect, router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useWindowDimensions, View, type ScrollView } from 'react-native';
 import { Body, Card, Emblem, IconButton, Loading, OfflineState, Row, Screen, Skeleton, SkeletonCard, Stars, Title } from '@/components/ui';
@@ -12,6 +12,9 @@ import { layout, space, type } from '@/theme/tokens';
 import { QuestTile } from '@/components/QuestTile';
 import { featuredQuest, useQuests } from '@/progress/useQuests';
 import { subjectTint } from '@/theme/subjectTheme';
+
+/** Completions whose cleared level has already popped on a map, so it pops once, in view. */
+const popped = new WeakSet<object>();
 
 /**
  * A skill's map: every chapter's level path, opened scrolled to the next level
@@ -56,14 +59,46 @@ export default function SkillMapScreen() {
   const onChapterLayout = useCallback((n: number, y: number, h: number) => {
     spans.current[n] = { y, h };
   }, []);
-  // Bring the next level into view, about a third of the way down the screen.
+  // The level just cleared pops (and the next one wakes) when the map is back in
+  // view, not while it was hidden under the lesson and Level Complete.
+  const skillKey = id ?? current?.id;
+  const [cleared, setCleared] = useState<number | undefined>();
+  useFocusEffect(
+    useCallback(() => {
+      const last = p.lastSummary;
+      if (!last || popped.has(last) || last.skillId !== skillKey || last.alreadyCompleted) return;
+      popped.add(last);
+      setCleared(levelMeta(last.levelId)?.number);
+    }, [p.lastSummary, skillKey]),
+  );
+  // Bring the next level into view, about a third of the way down the screen:
+  // on opening, and when it moves on (a level cleared). Not on every return,
+  // so coming back from a replay leaves the map where the learner had it.
+  const target = `${skillKey}:${p.nextLevelId(skillKey ?? '') ?? 'done'}`;
+  const scrolledFor = useRef<string | null>(null);
   useEffect(() => {
-    // Only when it would sit low on the screen; a new learner sees their first chapter from the top.
-    if (pathY !== null && stopY !== null && pathY + stopY > 360) scroll.current?.scrollTo({ y: pathY + stopY - 220, animated: false });
-  }, [pathY, stopY]);
+    if (pathY === null || stopY === null || scrolledFor.current === target) return;
+    // Settle first: after a level is cleared the measurements arrive over a frame or two.
+    // Then check it took: opened from a link or a reload, the map can still be
+    // on its way in, and a scroll then does nothing, so try again shortly.
+    let timer = setTimeout(function attempt(tries = 0) {
+      scrolledFor.current = target;
+      // Only when it would sit low on the screen; a new learner sees their first chapter from the top.
+      if (pathY + stopY <= 360) return;
+      const y = pathY + stopY - 220;
+      scroll.current?.scrollTo({ y, animated: false });
+      timer = setTimeout(() => {
+        if (Math.abs(scrollY.current - y) > 40 && tries < 12) attempt(tries + 1);
+      }, 150);
+    }, 60);
+    return () => clearTimeout(timer);
+  }, [pathY, stopY, target]);
   if (!p.ready)
     return (
-      <Screen>
+      // The same scroll ref as the map: React keeps this ScrollView when the map
+      // replaces the skeleton, and a ref added only then never attached (a cold
+      // link or reload then couldn't scroll to the next level).
+      <Screen scrollRef={scroll}>
         <Loading label="Loading the skill map">
           <Skeleton width="60%" height={type.title.lineHeight} />
           <SkeletonCard lines={1} />
@@ -83,9 +118,7 @@ export default function SkillMapScreen() {
   const nextId = p.nextLevelId(skill.id);
   const next = nextId ? levelMeta(nextId) : undefined;
   const { today } = v;
-  // The level just finished pops on the path when Home comes back into view.
-  const last = p.lastSummary;
-  const justCleared = last && last.skillId === skill.id && !last.alreadyCompleted ? levelMeta(last.levelId)?.number : undefined;
+  const justCleared = cleared;
 
   const focus = next?.number ?? Math.max(skill.view.level, 1);
   const chapters = chaptersFor(skill.id);
