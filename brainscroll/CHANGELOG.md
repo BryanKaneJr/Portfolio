@@ -8,6 +8,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 - **Server builds ship no lessons.** Development builds downloaded a 32 MB bundle at every launch, and about 14 MB of it was lessons the app already gets from the server. Builds that talk to Supabase (development builds against staging, and every release) now load an empty lesson set (`src/content/noLessons.ts`); a missed question's evidence cards from earlier levels, and the Final Round's cards, come from the server (`get_level_bundles`, kept for the session). The development harness without a server still bundles everything.
 - **Count-ups redraw only the number.** Level Complete, Review Complete, Chapter Review and the Final Round counted their XP (and the skill level) up by redrawing the whole screen every frame for about a second; a small `CountUp` component now redraws just the number.
 - **The in-app splash is a WebP** (151 KB instead of 716 KB), so it draws sooner. The phone's own launch screen keeps the PNG it needs.
+- **Test fix:** the local end-to-end test assumed you trail someone in the simulated league; early in a league week you can lead it. It now accepts "You're leading" and opens the first rival's profile rather than whoever is 1st.
 
 ## 2026-10-04: Faster skill maps, lessons and Level Complete
 

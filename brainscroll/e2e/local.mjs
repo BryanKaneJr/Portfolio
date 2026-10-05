@@ -79,8 +79,9 @@ try {
   await page.getByRole('tab', { name: /Social/ }).click();
   await page.waitForTimeout(1200);
   let social = await bodyText(page);
-  check(/League/i.test(social) && /\d+(st|nd|rd|th) place/.test(social) && /XP this week/.test(social) && /XP to pass @/.test(social) && /\+1,000 XP[\s\S]*\+500 XP[\s\S]*\+250 XP/.test(social),
-    'Social opens on the league banner: your place, your XP, how far the next place is, and the podium with its prizes');
+  check(/League/i.test(social) && /\d+(st|nd|rd|th) place/.test(social) && /XP this week/.test(social) && /XP to pass @|You’re leading/.test(social) && /\+1,000 XP[\s\S]*\+500 XP[\s\S]*\+250 XP/.test(social),
+    // Early in a league week the simulated rivals have little XP yet, so you can be leading.
+    'Social opens on the league banner: your place, your XP, how far the next place is (or that you lead), and the podium with its prizes');
   check(/You earned the First Level trophy/.test(social), 'your own trophy is in the feed');
   // Dr. Scroll: everyone's first friend, with a profile like no one else's.
   check(/Dr\. Scroll[\s\S]*Your first friend/.test(social), 'Dr. Scroll is everyone\'s first friend');
@@ -116,7 +117,8 @@ try {
   await page.waitForTimeout(1000);
   social = await bodyText(page);
   check(!/Ranked by XP earned this week/.test(social) && /1,000 XP prize/.test(social) && /250 XP prize/.test(social), 'the standings mark the top 3 prizes, with no rules paragraph');
-  await page.getByRole('button', { name: /^1st: / }).click();
+  // The first rival in the standings (early in a week, 1st can be you).
+  await page.getByRole('button', { name: /^\d+(st|nd|rd|th): @/ }).first().click();
   await page.waitForTimeout(1000);
   social = await bodyText(page);
   check(/Brain overview/i.test(social) && /Rarest trophies/.test(social), 'a league mate\'s profile shows their brain and rarest trophies');
