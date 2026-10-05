@@ -27,6 +27,12 @@ import {
   type SocialCard,
   type SocialErrorCode,
   type SocialProfile,
+  RewardError,
+  type ChestReward,
+  type CosmeticTier,
+  type LockerView,
+  type RewardErrorCode,
+  NO_LOOK,
 } from '@brainscroll/core';
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { Platform } from 'react-native';
@@ -55,6 +61,7 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
     if (error) {
       if (COMPLETION_ERRORS.has(error.message)) throw new CompletionError(error.message as CompletionErrorCode);
       if (SOCIAL_ERRORS.has(error.message)) throw new SocialError(error.message as SocialErrorCode);
+      if (REWARD_ERRORS.has(error.message)) throw new RewardError(error.message as RewardErrorCode);
       throw new Error(`${fn}: ${error.message}`);
     }
     return data as T;
@@ -100,7 +107,7 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       return mapEntitlement(data);
     },
     async snapshot(): Promise<ProgressSnapshot> {
-      const s = await rpc<RawProgress>('get_progress');
+      const [s, locker] = await Promise.all([rpc<RawProgress>('get_progress'), rpc<RawLocker>('get_locker')]);
       return {
         skills: Object.fromEntries(
           Object.entries(s.skills).map(([id, v]) => [id, { highestCleared: v.highest_cleared, stars: v.stars, totalXp: v.total_xp }]),
@@ -112,6 +119,7 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
         xpToday: Number(s.xp_today),
         reviewsDue: s.reviews_due,
         streak: s.streak ?? NO_STREAK,
+        locker: mapLocker(locker),
       };
     },
     async startLevel(levelId) {
@@ -194,6 +202,16 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
         p_option_id: optionId,
       });
       return { correct: r.correct, resolved: r.resolved, ...(r.rationale ? { rationale: r.rationale } : {}), ...(r.wrong ? { wrong: r.wrong } : {}), ...(r.explanation ? { explanation: r.explanation } : {}) };
+    },
+    async openChest(skillId, chapter) {
+      const r = await rpc<{ reward: RawChestReward; locker: RawLocker; daily: RawDaily }>('open_chest', { p_skill_id: skillId, p_chapter: chapter });
+      return { reward: mapChestReward(r.reward), locker: mapLocker(r.locker), daily: mapDaily(r.daily) };
+    },
+    async startBoost(boostId) {
+      return mapLocker(await rpc<RawLocker>('start_boost', { p_boost_id: boostId }));
+    },
+    async setLook(look) {
+      return mapLocker(await rpc<RawLocker>('set_look', { p_ring: look.ring, p_name_style: look.nameStyle, p_title: look.title }));
     },
     async setEquipped(next) {
       const r = await rpc<{ title_quest_id: string | null; emblem_quest_id: string | null }>('set_equipped', { p_title_quest: next.titleQuestId, p_emblem_quest: next.emblemQuestId });
@@ -710,8 +728,54 @@ interface RawCard {
   avatar?: string | null;
   knowledge_level: number;
   weekly_xp: number;
+  ring?: string | null;
+  name_style?: string | null;
+  title?: string | null;
 }
-const card = (r: RawCard): SocialCard => ({ id: r.id, username: r.username, ...(r.avatar ? { avatar: r.avatar } : {}), knowledgeLevel: r.knowledge_level, weeklyXp: r.weekly_xp });
+const card = (r: RawCard): SocialCard => ({
+  id: r.id,
+  username: r.username,
+  ...(r.avatar ? { avatar: r.avatar } : {}),
+  knowledgeLevel: r.knowledge_level,
+  weeklyXp: r.weekly_xp,
+  ring: r.ring ?? null,
+  nameStyle: r.name_style ?? null,
+  title: r.title ?? null,
+});
+
+const REWARD_ERRORS = new Set<string>(['CHEST_NOT_FOUND', 'CHEST_LOCKED', 'CHEST_OPENED', 'BOOST_NOT_FOUND', 'BOOST_USED', 'BOOST_ACTIVE', 'NOT_OWNED'] satisfies RewardErrorCode[]);
+
+interface RawBoost {
+  id: string;
+  minutes: number;
+  source: string;
+  started_at: string | null;
+  ends_at: string | null;
+}
+interface RawLocker {
+  cosmetics: string[];
+  boosts: RawBoost[];
+  active_boost: RawBoost | null;
+  look: { ring: string | null; name_style: string | null; title: string | null } | null;
+  chests: string[];
+}
+type RawChestReward = { kind: 'boost'; minutes: 15 | 30 | 60 } | { kind: 'brainpower'; amount: number } | { kind: 'cosmetic'; item_id: string; tier: CosmeticTier };
+
+const boost = (b: RawBoost) => ({ id: b.id, minutes: b.minutes, source: b.source, ...(b.started_at ? { startedAt: b.started_at } : {}), ...(b.ends_at ? { endsAt: b.ends_at } : {}) });
+function mapLocker(r: RawLocker): LockerView {
+  return {
+    cosmetics: r.cosmetics ?? [],
+    boosts: (r.boosts ?? []).map(boost),
+    activeBoost: r.active_boost ? boost(r.active_boost) : null,
+    look: r.look ? { ring: r.look.ring, nameStyle: r.look.name_style, title: r.look.title } : NO_LOOK,
+    chests: r.chests ?? [],
+  };
+}
+function mapChestReward(r: RawChestReward): ChestReward {
+  if (r.kind === 'cosmetic') return { kind: 'cosmetic', itemId: r.item_id, tier: r.tier };
+  if (r.kind === 'boost') return { kind: 'boost', minutes: r.minutes };
+  return { kind: 'brainpower', amount: r.amount };
+}
 
 interface RawFeedItem {
   owner: RawCard & { you: boolean; friend: boolean };

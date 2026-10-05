@@ -3,13 +3,14 @@ import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { Pressable, View } from 'react-native';
 import { AttributeRow, SubjectRing, type SubjectStat } from '@/components/CharacterSheet';
+import { LockerTile, lookTitleName, StyledName } from '@/components/cosmetics';
 import { Avatar } from '@/components/social';
-import { Button, Caption, Card, Chip, Eyebrow, GradientFill, H1, IconButton, LevelArt, OfflineState, Row, Screen, StatTile } from '@/components/ui';
+import { Button, Caption, Card, Chip, Eyebrow, GradientFill, IconButton, LevelArt, OfflineState, Row, Screen, StatTile } from '@/components/ui';
 import { TrophyBadge } from '@/components/TrophyBadge';
 import { questDef, useQuests } from '@/progress/useQuests';
 import { subjects } from '@/content';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
-import { color, layout, space } from '@/theme/tokens';
+import { color, layout, space, type } from '@/theme/tokens';
 
 /**
  * The character sheet: "this is the character I've built by learning", not
@@ -37,6 +38,9 @@ export default function ProfileScreen() {
   const trophies = questData?.trophies ?? [];
   const next = trophiesAhead(trophies.map((t) => t.trophyId));
   const title = questData?.equipped.titleQuestId ? questDef(questData.equipped.titleQuestId) : undefined;
+  const look = p.snapshot.locker.look;
+  // One title shows: one from the Locker, else a quest's.
+  const titleName = lookTitleName(look.title) ?? title?.titleReward;
   const emblem = questData?.equipped.emblemQuestId ? questDef(questData.equipped.emblemQuestId) : undefined;
   // Your username once it's loaded (what friends see); a first name from the email until then.
   const fallbackName = account?.status !== 'signed_in' ? 'Learner' : account.email && !account.email.endsWith('privaterelay.appleid.com') ? capitalize(account.email.split('@')[0]) : 'Learner';
@@ -65,13 +69,13 @@ export default function ProfileScreen() {
         <IconButton label="Edit profile" icon="edit" onPress={() => router.push('/edit-profile')} />
       </Row>
       <View style={{ alignItems: 'center', gap: space.md, paddingBottom: space.lg }}>
-        <SubjectRing stats={stats} knowledge={v.knowledgeLevel} center={me ? <Avatar username={me.username} avatar={me.avatar} size={176} /> : undefined} />
+        <SubjectRing stats={stats} knowledge={v.knowledgeLevel} center={me ? <Avatar username={me.username} avatar={me.avatar} ring={look.ring} size={176} /> : undefined} />
         <Row gap={space.sm}>
           {emblem ? <LevelArt art={emblem.art} size={40} /> : null}
-          <H1 numberOfLines={1} style={{ flexShrink: 1 }}>{me ? `@${me.username}` : fallbackName}</H1>
+          <StyledName header nameStyle={look.nameStyle} style={[type.h1, { color: color.text, flexShrink: 1 }]}>{me ? `@${me.username}` : fallbackName}</StyledName>
         </Row>
-        <Chip tone={title ? 'brand' : 'muted'}>
-          <Caption>{title ? title.titleReward : 'No title yet'}</Caption>
+        <Chip tone={titleName ? 'brand' : 'muted'}>
+          <Caption>{titleName ?? 'No title yet'}</Caption>
         </Chip>
       </View>
       </View>
@@ -87,6 +91,8 @@ export default function ProfileScreen() {
         <StatTile label="Longest" value={`${v.streak.longest} ${v.streak.longest === 1 ? 'day' : 'days'}`} art="streak-flame" />
       </Row>
       </Pressable>
+
+      <LockerTile />
 
       <View style={{ gap: space.sm }}>
         <Eyebrow>Trophies</Eyebrow>

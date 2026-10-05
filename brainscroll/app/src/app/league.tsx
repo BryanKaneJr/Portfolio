@@ -2,10 +2,11 @@ import { leagueName, leaguePrize, ordinal, type LeagueView } from '@brainscroll/
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
+import { StyledName } from '@/components/cosmetics';
 import { Avatar, LEAGUE_OF_ONE, leagueDaysLeft, leagueMemberName } from '@/components/social';
 import { Body, Caption, Card, Eyebrow, IconButton, LoadError, Row, Screen, SkeletonCard, Title } from '@/components/ui';
 import { useProgress } from '@/progress/ProgressProvider';
-import { color, space } from '@/theme/tokens';
+import { color, space, type } from '@/theme/tokens';
 
 /**
  * The league's standings this week (owner, 2026-10-01): up to 20 learners at
@@ -65,9 +66,9 @@ export default function LeagueScreen() {
                   onPress={() => router.push({ pathname: '/person/[id]', params: { id: m.id } })}
                   style={({ pressed }) => [styles.row, i > 0 && styles.divided, m.you && { backgroundColor: color.brandSoft }, pressed && { opacity: 0.8 }]}>
                   <Body style={{ width: 36, ...(prize ? { color: color.brandText, fontWeight: '800' } : null) }}>{ordinal(place)}</Body>
-                  <Avatar username={m.blocked ? '?' : m.username} avatar={m.blocked ? undefined : m.avatar} size={36} />
+                  <Avatar username={m.blocked ? '?' : m.username} avatar={m.blocked ? undefined : m.avatar} ring={m.blocked ? null : m.ring} size={36} />
                   <View style={{ flex: 1, gap: space.xxs }}>
-                    <Body numberOfLines={1}>{name}</Body>
+                    <StyledName nameStyle={m.blocked ? null : m.nameStyle} style={[type.body, { color: color.text }]}>{name}</StyledName>
                     {detail ? <Caption>{detail}</Caption> : null}
                   </View>
                   <Body>{`${m.weeklyXp.toLocaleString('en-US')} XP`}</Body>

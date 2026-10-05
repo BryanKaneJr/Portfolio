@@ -265,3 +265,19 @@ export function lockerView(state: ProgressState, now: Date): LockerView {
     chests: Object.keys(state.chests ?? {}),
   };
 }
+
+/** The title others see (SQL `shown_title`): a look title, else a quest title. */
+export function shownTitle(
+  state: Pick<ProgressState, 'look' | 'equipped'>,
+  names: { skill: (skillId: string) => string | undefined; questTitle: (questId: string) => string | undefined },
+): string | null {
+  const t = state.look?.title;
+  if (t) {
+    const skill = masteryTitleSkill(t);
+    const name = skill ? names.skill(skill) : undefined;
+    if (skill) return name ? masteryTitleName(name) : null;
+    return cosmeticItem(t)?.name ?? null;
+  }
+  const q = state.equipped?.titleQuestId;
+  return q ? (names.questTitle(q) ?? null) : null;
+}

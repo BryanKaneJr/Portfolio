@@ -5,6 +5,7 @@ import { View, type ScrollView } from 'react-native';
 import { Button, Card, Caption, DrScrollSays, Eyebrow, LevelArt, Loading, OfflineState, Row, Screen, Skeleton, SkeletonCard, Title } from '@/components/ui';
 import { ChooseForMe } from '@/components/ChooseForMe';
 import { BrainpowerBadge } from '@/components/BrainpowerBadge';
+import { BoostChip } from '@/components/cosmetics';
 import { LevelBadge } from '@/components/LevelBadge';
 import { StreakBadge } from '@/components/StreakBadge';
 import { WorldMap, type Region } from '@/components/WorldMap';
@@ -69,6 +70,7 @@ export default function WorldScreen() {
         <Row gap={space.sm}>
           <LevelBadge />
           <View style={{ flex: 1 }} />
+          <BoostChip />
           <BrainpowerBadge />
           <StreakBadge />
         </Row>

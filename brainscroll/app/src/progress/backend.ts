@@ -1,4 +1,4 @@
-import type { BlockedLearner, UserReportReason, FeedItem, FeedReaction, LeagueView, SocialCard, SocialProfile, SocialView, AccountState, AnalyticsEvent, ChapterReviewResult, Equipped, OtpTarget, SignInMethod, AnswerResult, Card, ContentReportInput, CompletionSummary, DailyAllowance, FinalRoundAnswer, Level, Question, QuestCompletion, QuestsView, QuestView, ReviewItem, ReviewResult, StartReason, Streak } from '@brainscroll/core';
+import type { BlockedLearner, UserReportReason, FeedItem, FeedReaction, LeagueView, SocialCard, SocialProfile, SocialView, AccountState, AnalyticsEvent, ChapterReviewResult, Equipped, OtpTarget, SignInMethod, AnswerResult, Card, ContentReportInput, CompletionSummary, DailyAllowance, FinalRoundAnswer, Level, Question, QuestCompletion, QuestsView, QuestView, ReviewItem, ReviewResult, StartReason, Streak, ChestReward, LockerView, Look } from '@brainscroll/core';
 
 /**
  * Where progress lives. `remote` calls the Supabase RPCs, which are
@@ -17,6 +17,15 @@ export interface ProgressSnapshot {
   reviewsDue: number;
   /** Learning streak, derived by the server from first clears and review answers. */
   streak: Streak;
+  /** Chests opened, boosts and cosmetics won, and what the learner wears (rewards.ts). */
+  locker: LockerView;
+}
+
+/** A chest just opened: what it paid, the Locker after it, and the day's Brainpower. */
+export interface ChestOpening {
+  reward: ChestReward;
+  locker: LockerView;
+  daily: DailyAllowance;
 }
 
 /** The learner's Unlimited plan, as the server records it. Display only: the cap itself is enforced server-side. */
@@ -97,6 +106,13 @@ export interface ProgressBackend {
   answerChapterReview(reviewId: string, question: Question, optionId: string): Promise<AnswerResult>;
   /** Finishes once every question is resolved: up to XP.CHAPTER_REVIEW_MAX, from first attempts. */
   completeChapterReview(reviewId: string): Promise<ChapterReviewResult>;
+  // ── Map chests and the Locker (core rewards.ts; SQL 20261106000000_rewards.sql) ──
+  /** Opens a chapter's chest (after its 5th level), once: one roll, made by the server. */
+  openChest(skillId: string, chapter: number): Promise<ChestOpening>;
+  /** Starts a saved XP boost (one at a time). */
+  startBoost(boostId: string): Promise<LockerView>;
+  /** Wears a ring, name style and title (null takes one off); each must be owned. */
+  setLook(look: Look): Promise<LockerView>;
   /** Dev only: erase the signed-in learner's progress and keep the account. */
   reset(): Promise<void>;
 

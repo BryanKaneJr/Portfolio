@@ -1,11 +1,11 @@
-import { AccountError, BRAINPOWER, dayNumber, NO_STREAK, SIGNED_OUT, skillProgressView, type AccountState, type AnswerResult, type Card, type OtpTarget, type SignInMethod, type ContentReportInput, type CompletionSummary, type Level, type ReviewItem, type ReviewResult, type Equipped, type FinalRoundAnswer, type QuestCompletion, type QuestsView, type QuestView, type ChapterReviewResult, type Question } from '@brainscroll/core';
+import { AccountError, BRAINPOWER, dayNumber, NO_STREAK, SIGNED_OUT, skillProgressView, type AccountState, type AnswerResult, type Card, type OtpTarget, type SignInMethod, type ContentReportInput, type CompletionSummary, type Level, type ReviewItem, type ReviewResult, type Equipped, type FinalRoundAnswer, type QuestCompletion, type QuestsView, type QuestView, type ChapterReviewResult, type Question, type Look, type LockerView, NO_LOOK } from '@brainscroll/core';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { AppState, Platform } from 'react-native';
 import { clearAnalytics, configureAnalytics, flush as flushAnalytics, track } from '@/analytics/track';
 import { levelByNumber, levelMeta, skills } from '@/content';
 import { currentPushToken } from '@/notifications/push';
 import { createPurchases, type PlanId, type PurchaseOutcome, type Purchases } from '@/purchases';
-import { deviceTimeZone, NO_ENTITLEMENT, type ChapterReviewSession, type EntitlementView, type FinalRoundItem, type ProgressBackend, type ProgressSnapshot, type StartResult } from './backend';
+import { deviceTimeZone, NO_ENTITLEMENT, type ChestOpening, type ChapterReviewSession, type EntitlementView, type FinalRoundItem, type ProgressBackend, type ProgressSnapshot, type StartResult } from './backend';
 import { createLocalBackend } from './localBackend';
 import { createRemoteBackend } from './remoteBackend';
 import { isUuid, load, newIdempotencyKey, remove, save, TROPHIES_SEEN_KEY, TROPHIES_VIEWED_KEY } from './storage';
@@ -115,6 +115,8 @@ interface ProgressContextValue {
   answerFinalRound(questId: string, questionId: string, optionId: string): Promise<FinalRoundAnswer>;
   completeQuest(questId: string): Promise<QuestCompletion>;
   setEquipped(next: Equipped): Promise<Equipped>;
+  /** Map chests, XP boosts and the look (snapshot.locker updates with each). */
+  rewards: RewardsApi;
   submitReview(item: ReviewItem, optionId: string): Promise<ReviewResult>;
   /** Chapter reviews: see ProgressBackend. Finishing one refreshes XP. */
   startChapterReview(skillId: string, chapter: number): Promise<ChapterReviewSession>;
@@ -167,6 +169,7 @@ const EMPTY_SNAPSHOT: ProgressSnapshot = {
   xpToday: 0,
   streak: NO_STREAK,
   reviewsDue: 0,
+  locker: { cosmetics: [], boosts: [], activeBoost: null, look: NO_LOOK, chests: [] },
 };
 
 const SUPABASE_URL = process.env.EXPO_PUBLIC_SUPABASE_URL;
@@ -422,6 +425,41 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     }),
     [backendOrThrow, refresh],
   );
+  // The Locker changes in place, so the map, header and Profile see it at once.
+  const withLocker = useCallback((locker: LockerView, daily?: ChestOpening['daily']) => {
+    const s = { ...snapshotRef.current, locker, ...(daily ? { daily: { ...snapshotRef.current.daily, ...daily } } : {}) };
+    snapshotRef.current = s;
+    setSnapshot(s);
+  }, []);
+  const rewards = useMemo<RewardsApi>(
+    () => ({
+      async openChest(skillId, chapter) {
+        const r = await backendOrThrow().openChest(skillId, chapter);
+        withLocker(r.locker, r.daily);
+        track('chest_opened', { skill_id: skillId, chapter, reward: r.reward.kind });
+        return r;
+      },
+      async startBoost(boostId) {
+        const minutes = snapshotRef.current.locker.boosts.find((b) => b.id === boostId)?.minutes;
+        const locker = await backendOrThrow().startBoost(boostId);
+        withLocker(locker);
+        if (minutes) track('boost_started', { boost: `boost_${minutes}` });
+        return locker;
+      },
+      async setLook(look) {
+        const before = snapshotRef.current.locker.look;
+        const locker = await backendOrThrow().setLook(look);
+        withLocker(locker);
+        for (const [kind, id] of [['ring', look.ring], ['name_style', look.nameStyle], ['title', look.title]] as const) {
+          const was = kind === 'name_style' ? before.nameStyle : before[kind];
+          if (id && id !== was) track('cosmetic_equipped', { kind, item_id: id });
+        }
+        return locker;
+      },
+    }),
+    [backendOrThrow, withLocker],
+  );
+
   const quests = useCallback(() => {
     const primed = primedQuests.current;
     primedQuests.current = null;
@@ -532,7 +570,13 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       startQuest: (questId) => backendOrThrow().startQuest(questId),
       openFinalRound: (questId) => backendOrThrow().openFinalRound(questId),
       answerFinalRound: (questId, questionId, optionId) => backendOrThrow().answerFinalRound(questId, questionId, optionId),
-      setEquipped: (next) => backendOrThrow().setEquipped(next),
+      async setEquipped(next) {
+        const r = await backendOrThrow().setEquipped(next);
+        // A quest title takes off a look title.
+        if (next.titleQuestId && snapshotRef.current.locker.look.title) void refresh().catch(() => {});
+        return r;
+      },
+      rewards,
       async completeQuest(questId) {
         primedQuests.current = null;
         const result = await backendOrThrow().completeQuest(questId);
@@ -631,7 +675,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         await resync();
       },
     }),
-    [ready, error, offline, reconnecting, reconnect, setOffline, snapshot, hasOpenLevel, lastSummary, streakMoment, onboarded, seenTips, account, signInMethods, activeSkillId, entitlement, purchases, refresh, resync, commitSessions, social, quests, backendOrThrow, userIdOrThrow, enter, signedIn],
+    [ready, error, offline, reconnecting, reconnect, setOffline, snapshot, hasOpenLevel, lastSummary, streakMoment, onboarded, seenTips, account, signInMethods, activeSkillId, entitlement, purchases, refresh, resync, commitSessions, social, rewards, quests, backendOrThrow, userIdOrThrow, enter, signedIn],
   );
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;
@@ -663,6 +707,12 @@ export function useProgressView() {
 }
 
 /** The social half of ProgressBackend, as screens use it. */
+export interface RewardsApi {
+  openChest(skillId: string, chapter: number): Promise<ChestOpening>;
+  startBoost(boostId: string): Promise<LockerView>;
+  setLook(look: Look): Promise<LockerView>;
+}
+
 export interface SocialApi {
   view: ProgressBackend['social'];
   league: ProgressBackend['league'];
