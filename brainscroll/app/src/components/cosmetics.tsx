@@ -2,7 +2,7 @@ import { cosmeticItem, masteryTitleName, masteryTitleSkill, type CosmeticTier } 
 import { useEffect, useId, useState, type ReactNode } from 'react';
 import { router } from 'expo-router';
 import { Animated, Easing, Image, Pressable, StyleSheet, Text, View, type StyleProp, type TextStyle } from 'react-native';
-import Svg, { Circle, Defs, LinearGradient, Stop } from 'react-native-svg';
+import Svg, { Circle, Defs, RadialGradient, Stop } from 'react-native-svg';
 import { getSkill } from '@/content';
 import { useReduceMotion } from '@/theme/feedback';
 import { Material } from '@/components/rewardsUi';
@@ -17,16 +17,20 @@ import { color, iconSize, radius, space, type } from '@/theme/tokens';
  * core COSMETICS. Legendary ones move; with Reduce Motion they hold still.
  */
 
-/** Each ring: its gradient stops (top to bottom), and whether it turns. */
-export const RING_LOOKS: Record<string, { stops: string[]; turns?: boolean; width?: number }> = {
+/**
+ * Each glow (ids stay `ring.*` from when these were rings; owner, 2026-10-05:
+ * "instead of rings, we did a back glow"): its colours, and whether it turns
+ * (Galaxy, Prism) or breathes (Epic and up).
+ */
+export const RING_LOOKS: Record<string, { stops: string[]; turns?: boolean; breathes?: boolean }> = {
   'ring.plum': { stops: [color.plum, color.plumDeep] },
   'ring.silver': { stops: ['#F2F5F9', '#8D99A6'] },
   'ring.ocean': { stops: ['#5FE1F0', '#2F6BFF'] },
   'ring.gold': { stops: ['#FFE39A', '#E0A42C'] },
-  'ring.flame': { stops: ['#FFE066', '#FF8A2B', '#E5383B'], width: 1.3 },
-  'ring.aurora': { stops: ['#7CF5C4', '#4DA3FF', '#B57BFF'], width: 1.3 },
-  'ring.galaxy': { stops: ['#2B1B6E', '#7856FF', '#FF7AD9', '#2B1B6E'], turns: true, width: 1.4 },
-  'ring.prism': { stops: ['#FF6B6B', '#FFC857', '#39D98A', '#4DA3FF', '#B57BFF'], turns: true, width: 1.4 },
+  'ring.flame': { stops: ['#FFE066', '#FF8A2B', '#E5383B'], breathes: true },
+  'ring.aurora': { stops: ['#7CF5C4', '#4DA3FF', '#B57BFF'], breathes: true },
+  'ring.galaxy': { stops: ['#7856FF', '#FF7AD9', '#4DA3FF'], turns: true, breathes: true },
+  'ring.prism': { stops: ['#FF6B6B', '#FFC857', '#39D98A', '#4DA3FF', '#B57BFF'], turns: true, breathes: true },
 };
 
 /** Each name style: its colour, an optional glow, and for legendary ones a second colour it breathes into. */
@@ -57,31 +61,61 @@ function useTurn(active: boolean) {
   return v.interpolate({ inputRange: [0, 1], outputRange: ['0deg', '360deg'] });
 }
 
-/** A ring drawn around whatever it holds, at the same outer size (Avatar passes the art inside). */
-export function AvatarRing({ ring, size, children }: { ring: string; size: number; children: (inner: number) => ReactNode }) {
+/** A slow swell, on the native driver (Epic and Legendary glows). */
+function useSwell(active: boolean) {
+  const reduce = useReduceMotion();
+  const [v] = useState(() => new Animated.Value(0));
+  useEffect(() => {
+    if (!active || reduce) return v.setValue(0);
+    const half = { duration: 1800, easing: Easing.inOut(Easing.sin), useNativeDriver: true };
+    const loop = Animated.loop(Animated.sequence([Animated.timing(v, { toValue: 1, ...half }), Animated.timing(v, { toValue: 0, ...half })]));
+    loop.start();
+    return () => loop.stop();
+  }, [v, active, reduce]);
+  return v.interpolate({ inputRange: [0, 1], outputRange: [0.92, 1.08] });
+}
+
+/**
+ * A soft light behind the avatar art, spilling past its edge: one colour
+ * fading out, or (three colours and up) several blooms around the middle.
+ * The art itself is untouched, drawn on top at full size.
+ */
+export function AvatarGlow({ ring, size, children }: { ring: string; size: number; children: ReactNode }) {
   const look = RING_LOOKS[ring];
-  const id = `r${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
+  const id = `g${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
   const spin = useTurn(!!look?.turns);
-  if (!look) return <>{children(size)}</>;
-  const stroke = Math.max(2, Math.round(size * 0.06 * (look.width ?? 1)));
-  const gap = Math.max(1, Math.round(size * 0.03));
-  const inner = size - 2 * (stroke + gap);
-  const r = (size - stroke) / 2;
+  const swell = useSwell(!!look?.breathes);
+  if (!look) return <>{children}</>;
+  const spread = Math.round(size * 1.6);
+  const c = spread / 2;
+  const many = look.stops.length >= 3;
+  const blooms = many
+    ? look.stops.map((col, i) => {
+        const a = (i / look.stops.length) * Math.PI * 2 - Math.PI / 2;
+        return { col, x: c + Math.cos(a) * size * 0.16, y: c + Math.sin(a) * size * 0.16, r: c * 0.82 };
+      })
+    : [{ col: look.stops[0]!, x: c, y: c, r: c }];
   return (
     <View style={{ width: size, height: size }}>
-      <Animated.View style={[StyleSheet.absoluteFill, look.turns ? { transform: [{ rotate: spin }] } : null]}>
-        <Svg width={size} height={size}>
+      <Animated.View
+        pointerEvents="none"
+        style={{ position: 'absolute', left: (size - spread) / 2, top: (size - spread) / 2, width: spread, height: spread, transform: [...(look.turns ? [{ rotate: spin }] : []), { scale: swell }] }}>
+        <Svg width={spread} height={spread}>
           <Defs>
-            <LinearGradient id={id} x1="0" y1="0" x2="1" y2="1">
-              {look.stops.map((c, i) => (
-                <Stop key={i} offset={look.stops.length === 1 ? 0 : i / (look.stops.length - 1)} stopColor={c} />
-              ))}
-            </LinearGradient>
+            {blooms.map((b, i) => (
+              <RadialGradient key={i} id={`${id}${i}`} cx="50%" cy="50%" r="50%">
+                <Stop offset="0" stopColor={b.col} stopOpacity={many ? 0.8 : 1} />
+                <Stop offset="0.45" stopColor={many ? b.col : (look.stops[1] ?? b.col)} stopOpacity={many ? 0.45 : 0.7} />
+                <Stop offset="1" stopColor={many ? b.col : (look.stops[1] ?? b.col)} stopOpacity={0} />
+              </RadialGradient>
+            ))}
           </Defs>
-          <Circle cx={size / 2} cy={size / 2} r={r} stroke={`url(#${id})`} strokeWidth={stroke} fill="none" />
+          {blooms.map((b, i) => (
+            <Circle key={i} cx={b.x} cy={b.y} r={b.r} fill={`url(#${id}${i})`} />
+          ))}
         </Svg>
       </Animated.View>
-      <View style={{ position: 'absolute', left: stroke + gap, top: stroke + gap }}>{children(inner)}</View>
+      {children}
     </View>
   );
 }

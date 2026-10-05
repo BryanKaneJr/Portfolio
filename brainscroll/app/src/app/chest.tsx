@@ -107,7 +107,7 @@ export default function ChestScreen() {
                 {item?.kind === 'ring' && (
                   <>
                     <Avatar username={me?.username ?? 'you'} avatar={me?.avatar} ring={item.id} size={148} />
-                    <Text style={[type.h2, { color: color.text }]}>{`${item.name} ring`}</Text>
+                    <Text style={[type.h2, { color: color.text }]}>{`${item.name} glow`}</Text>
                   </>
                 )}
                 {item?.kind === 'name_style' && <NameSwatch nameStyle={item.id} size={56} />}

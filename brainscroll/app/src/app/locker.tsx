@@ -13,14 +13,14 @@ import { color, iconSize, layout, radius, space, type } from '@/theme/tokens';
 
 type Tab = 'ring' | 'name_style' | 'title';
 const TABS: { id: Tab; label: string }[] = [
-  { id: 'ring', label: 'Rings' },
+  { id: 'ring', label: 'Glows' },
   { id: 'name_style', label: 'Name styles' },
   { id: 'title', label: 'Titles' },
 ];
 
 /**
  * The Locker (owner, 2026-10-05; docs/specs/REWARDS.md): you as others see
- * you, XP boosts waiting to start, and a wardrobe of rings, name styles and
+ * you, XP boosts waiting to start, and a wardrobe of glows, name styles and
  * titles from map chests, one of each worn. Each item sits on its rarity's
  * material (components/rewardsUi.tsx); ones not found yet wait in shadow.
  */

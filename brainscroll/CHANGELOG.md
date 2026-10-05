@@ -3,6 +3,10 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-05: Rings become glows
+
+- **Instead of a ring around the avatar, a glow behind it** (owner: "I like the art we have, what if instead of rings, we did a back glow?"). The avatar art stays exactly as drawn; the glow is soft light in the item's colours spilling past its edge. Plum, Silver, Ocean and Gold are one colour; Flame and Aurora blend three and breathe; Galaxy and Prism bloom in several colours, breathe and slowly turn. Everywhere a ring showed (leagues, the feed, friends, profiles, the Locker, chest prizes). The Locker's tab is "Glows". Ids stay `ring.*`, so nothing changes on the server.
+
 ## 2026-10-05: Premium look for titles, the Locker and chest prizes
 
 Owner: "make titles and all the stuff we added much better looking ... doesn't look premium at all".

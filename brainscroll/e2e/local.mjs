@@ -427,7 +427,7 @@ try {
   await page.getByTestId('open-locker').click();
   await page.waitForTimeout(1000);
   const lockerText = await bodyText(page);
-  check(/Rings/.test(lockerText) && /Name styles/.test(lockerText) && /Titles/.test(lockerText) && (!boosted || /XP boost on/.test(lockerText)), 'the Locker lists rings, name styles and titles (and the running boost)');
+  check(/Glows/.test(lockerText) && /Name styles/.test(lockerText) && /Titles/.test(lockerText) && (!boosted || /XP boost on/.test(lockerText)), 'the Locker lists glows, name styles and titles (and the running boost)');
 
   // A second skill: opening it on the Skills tab shows its map, but Home keeps the tree last played.
   await home(page);
