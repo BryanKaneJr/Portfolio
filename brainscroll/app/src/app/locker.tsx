@@ -1,25 +1,34 @@
-import { COSMETICS, cosmeticItem, masteryTitleId, RewardError, type CosmeticKind, type Look, type SocialView } from '@brainscroll/core';
+import { COSMETICS, masteryTitleId, RewardError, type CosmeticKind, type Look, type SocialView } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { boostLength, clock, lookTitleName, NameSwatch, StyledName, TIER_INK, useBoostLeft } from '@/components/cosmetics';
+import { boostLength, clock, lookTitleName, NameSwatch, StyledName, useBoostLeft } from '@/components/cosmetics';
+import { ItemCard, Material, TitlePlate, titleRarity } from '@/components/rewardsUi';
 import { Avatar } from '@/components/social';
-import { Body, Button, Caption, Card, Chip, Eyebrow, Icon, IconButton, Notice, Screen, Title } from '@/components/ui';
+import { Button, GradientFill, Icon, IconButton, Notice, Screen } from '@/components/ui';
 import { skills } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
 import { feedback } from '@/theme/feedback';
-import { color, depth, iconSize, radius, space, type } from '@/theme/tokens';
+import { color, iconSize, layout, radius, space, type } from '@/theme/tokens';
+
+type Tab = 'ring' | 'name_style' | 'title';
+const TABS: { id: Tab; label: string }[] = [
+  { id: 'ring', label: 'Rings' },
+  { id: 'name_style', label: 'Name styles' },
+  { id: 'title', label: 'Titles' },
+];
 
 /**
- * The Locker (owner, 2026-10-05; docs/specs/REWARDS.md): XP boosts waiting to
- * be started, and the rings, name styles and titles won from map chests. One
- * of each is worn; others see them on the learner's card. Items not won yet
- * show as locked tiles with their tier, so there's something to look for.
+ * The Locker (owner, 2026-10-05; docs/specs/REWARDS.md): you as others see
+ * you, XP boosts waiting to start, and a wardrobe of rings, name styles and
+ * titles from map chests, one of each worn. Each item sits on its rarity's
+ * material (components/rewardsUi.tsx); ones not found yet wait in shadow.
  */
 export default function LockerScreen() {
   const p = useProgress();
   const { locker, skills: progress } = p.snapshot;
   const [me, setMe] = useState<SocialView['me'] | null>(null);
+  const [tab, setTab] = useState<Tab>('ring');
   const [busy, setBusy] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const left = useBoostLeft();
@@ -30,6 +39,7 @@ export default function LockerScreen() {
   const owned = new Set(locker.cosmetics);
   const look = locker.look;
   const saved = locker.boosts.filter((b) => !b.startedAt);
+  const running = locker.activeBoost;
   // Mastery titles: one for each skill with a ★.
   const mastery = skills.filter((s) => (progress[s.id]?.stars ?? 0) >= 1).map((s) => masteryTitleId(s.id));
 
@@ -49,196 +59,127 @@ export default function LockerScreen() {
     const next: Look = { ...look, ...(kind === 'ring' ? { ring: id } : kind === 'name_style' ? { nameStyle: id } : { title: id }) };
     void run(`${kind}:${id}`, () => p.rewards.setLook(next));
   };
+  const titleName = lookTitleName(look.title);
+  const name = me ? `@${me.username}` : 'You';
 
-  const rings = (
-    <View style={styles.grid}>
-      <Tile label="None" selected={look.ring === null} onPress={() => wear('ring', null)} testID="wear-ring-none">
-        <Icon name="close" tint={color.textMuted} size={iconSize.md} />
-      </Tile>
-      {COSMETICS.filter((c) => c.kind === 'ring').map((c) => {
-        const has = owned.has(c.id);
-        return (
-          <Tile
-            key={c.id}
-            testID={`wear-${c.id}`}
-            label={c.name}
-            tierInk={has ? undefined : TIER_INK[c.tier]}
-            locked={!has}
-            selected={look.ring === c.id}
-            onPress={has ? () => wear('ring', c.id) : undefined}>
-            <Avatar username={me?.username ?? 'you'} avatar={me?.avatar} ring={c.id} size={48} />
-          </Tile>
-        );
-      })}
-    </View>
-  );
-  // Each name style is just its name, written in it.
-  const nameStyles = (
-    <View style={styles.titles}>
-      <Pick label="None" selected={look.nameStyle === null} onPress={() => wear('name_style', null)} />
-      {COSMETICS.filter((c) => c.kind === 'name_style').map((c) => {
-        const has = owned.has(c.id);
-        return (
-          <Pick key={c.id} testID={`wear-${c.id}`} label={c.name} locked={!has} selected={look.nameStyle === c.id} onPress={has ? () => wear('name_style', c.id) : undefined}>
-            <NameSwatch nameStyle={c.id} />
-          </Pick>
-        );
-      })}
-    </View>
-  );
-
-  const titles = [...mastery, ...COSMETICS.filter((c) => c.kind === 'title').map((c) => c.id)];
   return (
     <Screen header={<IconButton label="Back" icon="back" onPress={close} />}>
-      <Eyebrow tone="brand">Locker</Eyebrow>
       {/* You, as others see you. */}
-      <Card variant="raised" style={{ alignItems: 'center', gap: space.sm }}>
-        <Avatar username={me?.username ?? 'you'} avatar={me?.avatar} ring={look.ring} size={96} />
-        <StyledName nameStyle={look.nameStyle} style={[type.h2, { color: color.text }]}>{me ? `@${me.username}` : 'You'}</StyledName>
-        {lookTitleName(look.title) ? <Chip tone="brand">{lookTitleName(look.title)}</Chip> : null}
-      </Card>
+      <View style={styles.hero}>
+        <GradientFill from={color.profileHeader} to={color.bg} />
+        <Text style={[type.label, { color: color.brandText }]}>Locker</Text>
+        <Avatar username={me?.username ?? 'you'} avatar={me?.avatar} ring={look.ring} size={120} />
+        <StyledName header nameStyle={look.nameStyle} style={[type.h1, { color: color.text }]}>{name}</StyledName>
+        {titleName ? <TitlePlate name={titleName} rarity={titleRarity(look.title)} /> : <View style={{ height: 30 }} />}
+      </View>
       {notice && <Notice tone="danger">{notice}</Notice>}
 
-      {(left !== null || saved.length > 0) && (
-      <View style={{ gap: space.sm }}>
-        <Title>XP boosts</Title>
-        {left !== null && (
-          <Card variant="raised" style={styles.boostRow}>
-            <View style={styles.boostBadge}>
-              <Text style={[type.title, { color: color.onMastery }]}>2x</Text>
+      {(running || saved.length > 0) && (
+        <View style={{ gap: space.sm }}>
+          {running && left !== null && (
+            <View style={styles.boost}>
+              <Material rarity="quest" />
+              <BoostBadge />
+              <View style={{ flex: 1, gap: 2 }}>
+                <Text style={[type.title, { color: color.onBrand }]}>XP boost on</Text>
+                <View style={styles.track}>
+                  <View style={[styles.fill, { width: `${Math.max(4, (left / (running.minutes * 60000)) * 100)}%` }]} />
+                </View>
+              </View>
+              <Text style={[type.numberSm, { color: color.onBrand }]}>{clock(left)}</Text>
             </View>
-            <View style={{ flex: 1 }}>
-              <Body>Boost running</Body>
-              <Caption style={{ color: color.mastery, fontVariant: ['tabular-nums'] }}>{`${clock(left)} left`}</Caption>
+          )}
+          {saved.map((b) => (
+            <View key={b.id} style={styles.boost}>
+              <Material rarity="quest" soft />
+              <BoostBadge />
+              <View style={{ flex: 1 }}>
+                <Text style={[type.title, { color: color.text }]}>{`${boostLength(b.minutes)} XP boost`}</Text>
+              </View>
+              <Button compact label="Start" testID={`start-boost-${b.minutes}`} disabled={left !== null} loading={busy === b.id} onPress={() => run(b.id, () => p.rewards.startBoost(b.id))} />
             </View>
-          </Card>
-        )}
-        {saved.map((b) => (
-          <Card key={b.id} variant="raised" style={styles.boostRow}>
-            <View style={[styles.boostBadge, { backgroundColor: color.masterySoft }]}>
-              <Text style={[type.title, { color: color.mastery }]}>2x</Text>
-            </View>
-            <View style={{ flex: 1 }}>
-              <Body>{`${boostLength(b.minutes)} XP boost`}</Body>
-            </View>
-            <Button
-              compact
-              label="Start"
-              testID={`start-boost-${b.minutes}`}
-              disabled={left !== null}
-              loading={busy === b.id}
-              onPress={() => run(b.id, () => p.rewards.startBoost(b.id))}
-            />
-          </Card>
-        ))}
-      </View>
+          ))}
+        </View>
       )}
 
-      <View style={{ gap: space.sm }}>
-        <Title>Rings</Title>
-        {rings}
+      <View style={styles.tabs} accessibilityRole="tablist">
+        {TABS.map((t) => (
+          <Pressable key={t.id} accessibilityRole="tab" accessibilityState={{ selected: tab === t.id }} onPress={() => setTab(t.id)} style={[styles.tab, tab === t.id && styles.tabOn]}>
+            <Text style={[type.bodyStrong, { color: tab === t.id ? color.text : color.textMuted }]}>{t.label}</Text>
+          </Pressable>
+        ))}
       </View>
-      <View style={{ gap: space.sm }}>
-        <Title>Name styles</Title>
-        {nameStyles}
-      </View>
-      <View style={{ gap: space.sm }}>
-        <Title>Titles</Title>
-        <View style={styles.titles}>
-          <Pick label="None" selected={look.title === null} onPress={() => wear('title', null)} />
-          {titles.map((id) => {
-            const item = cosmeticItem(id);
-            const has = item ? owned.has(id) : true;
+
+      {tab === 'ring' && (
+        <View style={styles.grid}>
+          <ItemCard rarity={null} label="None" selected={look.ring === null} onPress={() => wear('ring', null)} testID="wear-ring-none">
+            <Icon name="close" tint={color.textMuted} size={iconSize.lg} />
+          </ItemCard>
+          {COSMETICS.filter((c) => c.kind === 'ring').map((c) => {
+            const has = owned.has(c.id);
             return (
-              <Pick
-                key={id}
-                label={lookTitleName(id) ?? id}
-                tierInk={has ? undefined : TIER_INK[item!.tier]}
-                locked={!has}
-                selected={look.title === id}
-                onPress={has ? () => wear('title', id) : undefined}
-              />
+              <ItemCard key={c.id} testID={`wear-${c.id}`} rarity={c.tier} label={c.name} locked={!has} selected={look.ring === c.id} onPress={has ? () => wear('ring', c.id) : undefined}>
+                <Avatar username={me?.username ?? 'you'} avatar={me?.avatar} ring={c.id} size={56} />
+              </ItemCard>
             );
           })}
         </View>
-      </View>
+      )}
+
+      {tab === 'name_style' && (
+        <View style={styles.grid}>
+          <ItemCard span="half" rarity={null} label="None" selected={look.nameStyle === null} onPress={() => wear('name_style', null)} testID="wear-name-none">
+            <Text style={[type.title, { color: color.textMuted }]}>None</Text>
+          </ItemCard>
+          {COSMETICS.filter((c) => c.kind === 'name_style').map((c) => {
+            const has = owned.has(c.id);
+            return (
+              // Each name style is just its name, written in it.
+              <ItemCard key={c.id} span="half" testID={`wear-${c.id}`} rarity={c.tier} label={c.name} locked={!has} selected={look.nameStyle === c.id} onPress={has ? () => wear('name_style', c.id) : undefined}>
+                <NameSwatch nameStyle={c.id} size={22} />
+              </ItemCard>
+            );
+          })}
+        </View>
+      )}
+
+      {tab === 'title' && (
+        <View style={styles.grid}>
+          <ItemCard span="full" rarity={null} label="None" selected={look.title === null} onPress={() => wear('title', null)} testID="wear-title-none">
+            <Text style={[type.bodyStrong, { color: color.textMuted }]}>None</Text>
+          </ItemCard>
+          {[...mastery, ...COSMETICS.filter((c) => c.kind === 'title').map((c) => c.id)].map((id) => {
+            const label = lookTitleName(id) ?? id;
+            const has = mastery.includes(id) || owned.has(id);
+            return (
+              <ItemCard key={id} span="full" testID={`wear-${id}`} rarity={titleRarity(id)} label={label} locked={!has} selected={look.title === id} onPress={has ? () => wear('title', id) : undefined}>
+                <TitlePlate name={label} rarity={titleRarity(id)} />
+              </ItemCard>
+            );
+          })}
+        </View>
+      )}
     </Screen>
   );
 }
 
-function Tile({ children, label, selected, locked, tierInk, onPress, testID }: { children: React.ReactNode; label: string; selected?: boolean; locked?: boolean; tierInk?: string; onPress?: () => void; testID?: string }) {
+/** "2x" on a lit disc: an XP boost. */
+function BoostBadge() {
   return (
-    <Pressable
-      testID={testID}
-      accessibilityRole="radio"
-      accessibilityState={{ selected: !!selected, disabled: !onPress }}
-      accessibilityLabel={locked ? `${label}, not found yet` : label}
-      disabled={!onPress}
-      onPress={onPress}
-      style={({ pressed }) => [styles.tile, selected && styles.tileSelected, pressed && { opacity: 0.8 }]}>
-      <View style={[styles.tileArt, locked && { opacity: 0.35 }]}>{children}</View>
-      {locked && (
-        <View style={styles.lock}>
-          <Icon name="lock" tint={color.textMuted} size={iconSize.sm} />
-        </View>
-      )}
-      <Text numberOfLines={1} style={[type.meta, { color: tierInk ?? (selected ? color.brandText : color.textMuted), fontWeight: '700' }]}>
-        {label}
-      </Text>
-    </Pressable>
-  );
-}
-
-function Pick({ label, selected, locked, tierInk, onPress, testID, children }: { label: string; selected?: boolean; locked?: boolean; tierInk?: string; onPress?: () => void; testID?: string; children?: React.ReactNode }) {
-  return (
-    <Pressable
-      testID={testID}
-      accessibilityRole="radio"
-      accessibilityState={{ selected: !!selected, disabled: !onPress }}
-      accessibilityLabel={locked ? `${label}, not found yet` : label}
-      disabled={!onPress}
-      onPress={onPress}
-      style={({ pressed }) => [styles.titleChip, selected && styles.tileSelected, pressed && { opacity: 0.8 }]}>
-      {locked && <Icon name="lock" tint={color.textFaint} size={iconSize.sm} />}
-      <View style={locked && children ? { opacity: 0.45 } : undefined}>
-        {children ?? <Text style={[type.caption, { color: tierInk ?? (selected ? color.brandText : color.text), fontWeight: '700' }]}>{label}</Text>}
-      </View>
-    </Pressable>
+    <View style={styles.badge}>
+      <Text style={[type.title, { color: color.brandEdge, fontWeight: '900' }]}>2x</Text>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  hero: { alignItems: 'center', gap: space.md, marginHorizontal: -layout.gutter, marginTop: -space.lg, paddingTop: space.lg, paddingBottom: space.xl, overflow: 'hidden' },
+  boost: { flexDirection: 'row', alignItems: 'center', gap: space.md, padding: space.md, borderRadius: radius.md, overflow: 'hidden' },
+  badge: { width: 48, height: 48, borderRadius: 24, backgroundColor: color.onBrand, alignItems: 'center', justifyContent: 'center' },
+  track: { height: 6, borderRadius: 3, backgroundColor: 'rgba(255,255,255,0.25)', overflow: 'hidden', marginTop: space.xs },
+  fill: { height: 6, borderRadius: 3, backgroundColor: color.onBrand },
+  tabs: { flexDirection: 'row', backgroundColor: color.surface, borderRadius: radius.pill, padding: 4, gap: 4 },
+  tab: { flex: 1, minHeight: 40, borderRadius: radius.pill, alignItems: 'center', justifyContent: 'center' },
+  tabOn: { backgroundColor: color.surfaceRaised },
   grid: { flexDirection: 'row', flexWrap: 'wrap', gap: space.sm },
-  // Three to a row: each kind has a None tile and eight items.
-  tile: {
-    flexBasis: '30%',
-    flexGrow: 1,
-    height: 92,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: space.xs,
-    backgroundColor: color.surface,
-    borderRadius: radius.md,
-    borderWidth: depth.border,
-    borderBottomWidth: depth.edge,
-    borderColor: color.border,
-    paddingHorizontal: space.xs,
-  },
-  tileSelected: { borderColor: color.brand, backgroundColor: color.brandSoft },
-  tileArt: { height: 50, alignItems: 'center', justifyContent: 'center' },
-  lock: { position: 'absolute', top: 30, alignSelf: 'center' },
-  titles: { flexDirection: 'row', flexWrap: 'wrap', gap: space.sm },
-  titleChip: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: space.xs,
-    minHeight: 40,
-    paddingHorizontal: space.md,
-    borderRadius: radius.pill,
-    borderWidth: depth.border,
-    borderColor: color.border,
-    backgroundColor: color.surface,
-  },
-  boostRow: { flexDirection: 'row', alignItems: 'center', gap: space.md },
-  boostBadge: { width: 48, height: 48, borderRadius: radius.pill, backgroundColor: color.mastery, alignItems: 'center', justifyContent: 'center' },
 });

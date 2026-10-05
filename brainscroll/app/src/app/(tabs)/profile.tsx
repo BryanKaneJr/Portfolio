@@ -4,8 +4,9 @@ import { useCallback, useState } from 'react';
 import { Pressable, View } from 'react-native';
 import { AttributeRow, SubjectRing, type SubjectStat } from '@/components/CharacterSheet';
 import { LockerTile, lookTitleName, StyledName } from '@/components/cosmetics';
+import { TitlePlate, titleRarity } from '@/components/rewardsUi';
 import { Avatar } from '@/components/social';
-import { Button, Caption, Card, Chip, Eyebrow, GradientFill, IconButton, LevelArt, OfflineState, Row, Screen, StatTile } from '@/components/ui';
+import { Button, Caption, Card, Eyebrow, GradientFill, IconButton, LevelArt, OfflineState, Row, Screen, StatTile } from '@/components/ui';
 import { TrophyBadge } from '@/components/TrophyBadge';
 import { questDef, useQuests } from '@/progress/useQuests';
 import { subjects } from '@/content';
@@ -74,9 +75,7 @@ export default function ProfileScreen() {
           {emblem ? <LevelArt art={emblem.art} size={40} /> : null}
           <StyledName header nameStyle={look.nameStyle} style={[type.h1, { color: color.text, flexShrink: 1 }]}>{me ? `@${me.username}` : fallbackName}</StyledName>
         </Row>
-        <Chip tone={titleName ? 'brand' : 'muted'}>
-          <Caption>{titleName ?? 'No title yet'}</Caption>
-        </Chip>
+        {titleName ? <TitlePlate name={titleName} rarity={look.title ? titleRarity(look.title) : 'quest'} /> : null}
       </View>
       </View>
 

@@ -1,16 +1,17 @@
 import { chestKey, cosmeticItem, RewardError, type ChestReward, type SocialView } from '@brainscroll/core';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Animated, Easing, View } from 'react-native';
+import { Animated, Easing, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { BrainpowerIcon } from '@/components/BrainpowerIcon';
-import { boostLength, ChestArt, NameSwatch, TIER_INK, TIER_LABEL } from '@/components/cosmetics';
+import { boostLength, ChestArt, NameSwatch } from '@/components/cosmetics';
+import { Burst, RarityLabel, TitlePlate } from '@/components/rewardsUi';
 import { Avatar } from '@/components/social';
-import { Body, Button, Chip, Eyebrow, Gleams, IconButton, Notice, OutlinedNumber, Row, Title, useLoop } from '@/components/ui';
+import { Button, Eyebrow, IconButton, Notice, OutlinedNumber, Row, useLoop } from '@/components/ui';
 import { getSkill } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
 import { feedback, useReduceMotion } from '@/theme/feedback';
-import { color, layout, space } from '@/theme/tokens';
+import { color, layout, space, type } from '@/theme/tokens';
 
 /**
  * A map chest (owner, 2026-10-05; docs/specs/REWARDS.md), opened from the
@@ -67,6 +68,7 @@ export default function ChestScreen() {
   const skillName = getSkill(skillId)?.name ?? '';
   const boostId = reward?.kind === 'boost' ? p.snapshot.locker.boosts.findLast((b) => b.source === chestKey(skillId, chapter) && !b.startedAt)?.id : undefined;
   const item = reward?.kind === 'cosmetic' ? cosmeticItem(reward.itemId) : undefined;
+  const rarity = item ? item.tier : 'quest';
   const rise = { opacity: burst, transform: [{ translateY: burst.interpolate({ inputRange: [0, 1], outputRange: [24, 0] }) }, { scale: burst.interpolate({ inputRange: [0, 1], outputRange: [0.6, 1] }) }] };
   const tilt = wobble.interpolate({ inputRange: [0, 0.5, 1], outputRange: ['-4deg', '4deg', '-4deg'] });
 
@@ -86,37 +88,33 @@ export default function ChestScreen() {
           </>
         ) : (
           <>
-            <View style={{ alignItems: 'center' }}>
-              <ChestArt state="opened" size={120} />
-              <Gleams count={6} tint={color.mastery} size={18} />
+            <View style={{ alignItems: 'center', justifyContent: 'center', width: 320, height: 300 }}>
+              <Burst rarity={rarity} size={320} />
+              <Animated.View style={[{ alignItems: 'center', gap: space.lg }, rise]} testID="chest-reward">
+                {item && <RarityLabel rarity={item.tier} />}
+                {reward.kind === 'boost' && (
+                  <>
+                    <OutlinedNumber value="2x" fontSize={96} tone="brand" />
+                    <TitlePlate name={`${boostLength(reward.minutes)} XP boost`} rarity="quest" size="lg" />
+                  </>
+                )}
+                {reward.kind === 'brainpower' && (
+                  <>
+                    <BrainpowerIcon size={132} state="lit" />
+                    <TitlePlate name={`+${reward.amount} Brainpower`} rarity="quest" size="lg" />
+                  </>
+                )}
+                {item?.kind === 'ring' && (
+                  <>
+                    <Avatar username={me?.username ?? 'you'} avatar={me?.avatar} ring={item.id} size={148} />
+                    <Text style={[type.h2, { color: color.text }]}>{`${item.name} ring`}</Text>
+                  </>
+                )}
+                {item?.kind === 'name_style' && <NameSwatch nameStyle={item.id} size={56} />}
+                {item?.kind === 'title' && <TitlePlate name={item.name} rarity={item.tier} size="lg" />}
+              </Animated.View>
             </View>
-            <Animated.View style={[{ alignItems: 'center', gap: space.md }, rise]} testID="chest-reward">
-              {reward.kind === 'boost' && (
-                <>
-                  <OutlinedNumber value="2x" fontSize={88} tone="gold" />
-                  <Title style={{ color: color.mastery }}>{`${boostLength(reward.minutes)} XP boost`}</Title>
-                </>
-              )}
-              {reward.kind === 'brainpower' && (
-                <>
-                  <BrainpowerIcon size={120} state="lit" />
-                  <Title style={{ color: color.brandText }}>{`+${reward.amount} Brainpower`}</Title>
-                </>
-              )}
-              {reward.kind === 'cosmetic' && item && (
-                <>
-                  <Chip tone="muted">
-                    <Body style={{ color: TIER_INK[item.tier], fontWeight: '800' }}>{TIER_LABEL[item.tier]}</Body>
-                  </Chip>
-                  {item.kind === 'ring' && <Avatar username={me?.username ?? 'you'} avatar={me?.avatar} ring={item.id} size={128} />}
-                  {item.kind === 'name_style' && (
-<NameSwatch nameStyle={item.id} size={48} />
-                  )}
-                  {item.kind === 'title' && <OutlinedNumber value={item.name} fontSize={36} tone="brand" />}
-                  {item.kind !== 'name_style' && <Title>{`${item.name} ${item.kind === 'ring' ? 'ring' : 'title'}`}</Title>}
-                </>
-              )}
-            </Animated.View>
+            <ChestArt state="opened" size={96} />
             {error && <Notice tone="danger">{error}</Notice>}
           </>
         )}

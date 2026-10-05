@@ -5,10 +5,11 @@ import { Animated, Easing, Image, Pressable, StyleSheet, Text, View, type StyleP
 import Svg, { Circle, Defs, LinearGradient, Stop } from 'react-native-svg';
 import { getSkill } from '@/content';
 import { useReduceMotion } from '@/theme/feedback';
+import { Material } from '@/components/rewardsUi';
 import { Icon } from '@/components/ui';
 import { UI_ART } from '@/components/ui/uiArt';
 import { useProgress } from '@/progress/ProgressProvider';
-import { color, depth, iconSize, radius, space, type } from '@/theme/tokens';
+import { color, iconSize, radius, space, type } from '@/theme/tokens';
 
 /**
  * Cosmetics from map chests (owner, 2026-10-05; docs/specs/REWARDS.md), all
@@ -200,8 +201,8 @@ export function BoostChip() {
       accessibilityLabel={`2x XP boost, ${Math.ceil(left / 60000)} minutes left. Open the Locker`}
       onPress={() => router.push('/locker')}
       style={({ pressed }) => [styles.boostChip, pressed && { opacity: 0.8 }]}>
-      <Icon name="xp" tint={color.onMastery} size={iconSize.sm} />
-      <Text style={[type.label, { color: color.onMastery, fontWeight: '800', fontVariant: ['tabular-nums'] }]}>{`2x ${clock(left)}`}</Text>
+      <Icon name="xp" tint={color.onBrand} size={iconSize.sm} />
+      <Text style={[type.label, { color: color.onBrand, fontWeight: '800', fontVariant: ['tabular-nums'] }]}>{`2x ${clock(left)}`}</Text>
     </Pressable>
   );
 }
@@ -218,11 +219,12 @@ export function LockerTile() {
       accessibilityRole="button"
       accessibilityLabel={line ? `Locker: ${line}. Open` : 'Locker. Open'}
       onPress={() => router.push('/locker')}
-      style={({ pressed }) => [styles.lockerTile, pressed && { opacity: 0.8 }]}>
-      <ChestArt state="ready" size={48} />
+      style={({ pressed }) => [styles.lockerTile, pressed && { transform: [{ scale: 0.98 }] }]}>
+      <Material rarity="quest" soft />
+      <ChestArt state="ready" size={64} />
       <View style={{ flex: 1, gap: space.xxs }}>
-        <Text style={[type.title, { color: color.text }]}>Locker</Text>
-        {line && <Text style={[type.caption, { color: left !== null ? color.mastery : color.textMuted }]}>{line}</Text>}
+        <Text style={[type.h2, { color: color.text }]}>Locker</Text>
+        {line && <Text style={[type.caption, { color: color.brandText, fontWeight: '700' }]}>{line}</Text>}
       </View>
       <Icon name="forward" tint={color.textMuted} size={iconSize.md} />
     </Pressable>
@@ -230,16 +232,6 @@ export function LockerTile() {
 }
 
 const styles = StyleSheet.create({
-  boostChip: { flexDirection: 'row', alignItems: 'center', gap: space.xxs, backgroundColor: color.mastery, borderRadius: radius.pill, paddingHorizontal: space.sm, paddingVertical: space.xxs, minHeight: 32 },
-  lockerTile: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: space.md,
-    backgroundColor: color.surface,
-    borderRadius: radius.md,
-    borderWidth: depth.border,
-    borderBottomWidth: depth.edge,
-    borderColor: color.border,
-    padding: space.md,
-  },
+  boostChip: { flexDirection: 'row', alignItems: 'center', gap: space.xxs, backgroundColor: color.brand, borderRadius: radius.pill, paddingHorizontal: space.sm, paddingVertical: space.xxs, minHeight: 32 },
+  lockerTile: { flexDirection: 'row', alignItems: 'center', gap: space.md, borderRadius: radius.md, paddingVertical: space.md, paddingHorizontal: space.lg, overflow: 'hidden' },
 });

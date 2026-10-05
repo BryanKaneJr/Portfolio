@@ -3,6 +3,16 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-05: Premium look for titles, the Locker and chest prizes
+
+Owner: "make titles and all the stuff we added much better looking ... doesn't look premium at all".
+
+- **Rarity materials** (`components/rewardsUi.tsx`): Common is polished silver, Rare sapphire, Epic amethyst, Legendary sunset orange, each a gradient with a lit edge and a small cut gem. Mastery titles wear gold (gold stays for mastery) and Weekly Quest titles violet.
+- **Titles are nameplates:** the title in spaced capitals on its rarity's material (with ✦ marks on Epic, Legendary and Mastery), on Profile, on others' profiles, in the Locker and as a chest prize.
+- **The Locker is a wardrobe:** a hero band with you as others see you (big avatar and ring, styled name, nameplate), the running boost as a violet card with a time bar and saved boosts with Start, then tabs for Rings, Name styles and Titles. Items sit on cards in their rarity's material with a gem and a check when worn; ones not found yet stay in shadow with a small lock in the corner.
+- **Chest prizes** rise out of slow-turning rays in the rarity's colour, with the rarity named above them ("✦ Legendary ✦").
+- **Boosts are violet, not gold** (the Home chip, Level Complete and the Locker), keeping gold for mastery. The Profile Locker tile has the chest larger on violet.
+
 ## 2026-10-05: The owner's chest art, and a cleaner Locker
 
 - **The chest is the owner's art** (`ui/chest` and `ui/chest-open`, already in the UI set but marked unused under the old "no loot" note): on the road, on the chest screen and in the Locker tile, replacing the one drawn in code.
