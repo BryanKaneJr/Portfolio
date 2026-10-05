@@ -137,7 +137,7 @@ function FeedbackBody({ tone, title, children }: { tone: 'success' | 'reinforce'
  */
 export function EvidenceBlock({ children }: { children: ReactNode }) {
   return (
-    <View style={styles.evidence}>
+    <View style={styles.evidence} testID="evidence">
       <Eyebrow tone="brand">Take another look</Eyebrow>
       {children}
     </View>

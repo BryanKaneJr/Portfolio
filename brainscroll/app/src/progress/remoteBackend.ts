@@ -182,7 +182,8 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
         return question && levelId ? [{ question, levelId }] : [];
       });
       // Each question's source cards (they can sit in earlier levels).
-      const cards = await cardsById(found.flatMap((it) => it.question.sourceCardIds));
+      // Best-effort: if they can't be fetched, the round still opens with the questions.
+      const cards = await cardsById(found.flatMap((it) => it.question.sourceCardIds)).catch(() => new Map<string, Card>());
       const items = found.map((it) => ({ ...it, cards: it.question.sourceCardIds.flatMap((c) => cards.get(c) ?? []) }));
       return { view, items };
     },
@@ -521,7 +522,8 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
   function projectMethods(): Promise<Set<SignInMethod> | null> {
     methodsCache ??= (async () => {
       try {
-        const r = await fetch(`${url.replace(/\/+$/, '')}/auth/v1/settings`, { headers: { apikey: anonKey } });
+        // A hung request on a bad network must not hold the sign-in screen: give up after 4 s.
+        const r = await fetch(`${url.replace(/\/+$/, '')}/auth/v1/settings`, { headers: { apikey: anonKey }, signal: AbortSignal.timeout(4000) });
         if (!r.ok) throw new Error(`auth settings ${r.status}`);
         const external = ((await r.json()) as { external?: Record<string, boolean> }).external;
         if (!external) throw new Error('auth settings without providers');

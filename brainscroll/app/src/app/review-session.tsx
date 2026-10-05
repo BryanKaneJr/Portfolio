@@ -1,4 +1,4 @@
-import { REVIEW_SESSION_MAX_QUESTIONS, XP, type BrainpowerEarned as Earned, type Card, type DailyAllowance, type ReviewItem } from '@brainscroll/core';
+import { REVIEW_SESSION_MAX_QUESTIONS, XP, type BrainpowerEarned as Earned, type DailyAllowance, type ReviewItem } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { ScrollView, View } from 'react-native';
@@ -8,7 +8,8 @@ import { BrainpowerFlight, NO_DAILY } from '@/components/BrainpowerFlight';
 import { DrScrollTip } from '@/components/DrScrollTip';
 import { canCheck, feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { Body, Button, Caption, DrScroll, Eyebrow, H2, LessonShell, LessonSkeleton, LoadError, Notice, Numeral, Pop, Reveal, StateBlock, CountUp } from '@/components/ui';
-import { getCard, getSkill } from '@/content';
+import { getSkill } from '@/content';
+import { useCards } from '@/progress/useCards';
 import { TrophyEarned, trophyBrainpower } from '@/components/TrophyEarned';
 import { useProgress, type AttemptView } from '@/progress/ProgressProvider';
 import { useNewTrophies } from '@/progress/useNewTrophies';
@@ -45,6 +46,8 @@ export default function ReviewSessionScreen() {
 
   // Bumped by "Try again".
   const [attempt, setAttempt] = useState(0);
+  // The current question's evidence, for a miss (server builds fetch it).
+  const evidence = useCards(queue?.[index]?.question.sourceCardIds ?? []);
 
   useEffect(() => {
     if (!p.ready) return;
@@ -95,7 +98,7 @@ export default function ReviewSessionScreen() {
   const item = queue[index]!;
   const itemAttempts = attempts[item.question.id] ?? [];
   const resolved = questionStatus(itemAttempts).resolved || !!unreachable[item.question.id];
-  const sourceCards = item.question.sourceCardIds.map(getCard).filter((c): c is Card => !!c);
+  const sourceCards = evidence;
   const isLast = index === queue.length - 1;
 
   const onCheck = () => {
@@ -180,7 +183,7 @@ export default function ReviewSessionScreen() {
 /** A modest progression moment: review XP is small by design, so the celebration is too. */
 function ReviewComplete({ xp, firstTry, total, daily, onDone }: { xp: number; firstTry: number; total: number; daily: DailyAllowance; onDone: () => void }) {
   // A review can earn a trophy too (a streak day, Long Memory): celebrate it here, once.
-  const newTrophies = useNewTrophies('review-session');
+  const newTrophies = useNewTrophies('review-session', undefined, daily);
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: color.bgDeep, padding: layout.gutter }}>
       <BrainpowerFlight daily={daily}>

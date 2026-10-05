@@ -1,11 +1,11 @@
-import { AccountError, BRAINPOWER, NO_STREAK, SIGNED_OUT, skillProgressView, type AccountState, type AnswerResult, type Card, type OtpTarget, type SignInMethod, type ContentReportInput, type CompletionSummary, type Level, type ReviewItem, type ReviewResult, type Equipped, type FinalRoundAnswer, type QuestCompletion, type QuestsView, type QuestView, type ChapterReviewResult, type Question } from '@brainscroll/core';
+import { AccountError, BRAINPOWER, dayNumber, NO_STREAK, SIGNED_OUT, skillProgressView, type AccountState, type AnswerResult, type Card, type OtpTarget, type SignInMethod, type ContentReportInput, type CompletionSummary, type Level, type ReviewItem, type ReviewResult, type Equipped, type FinalRoundAnswer, type QuestCompletion, type QuestsView, type QuestView, type ChapterReviewResult, type Question } from '@brainscroll/core';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { AppState, Platform } from 'react-native';
 import { clearAnalytics, configureAnalytics, flush as flushAnalytics, track } from '@/analytics/track';
 import { levelByNumber, levelMeta, skills } from '@/content';
 import { currentPushToken } from '@/notifications/push';
 import { createPurchases, type PlanId, type PurchaseOutcome, type Purchases } from '@/purchases';
-import { NO_ENTITLEMENT, type ChapterReviewSession, type EntitlementView, type FinalRoundItem, type ProgressBackend, type ProgressSnapshot, type StartResult } from './backend';
+import { deviceTimeZone, NO_ENTITLEMENT, type ChapterReviewSession, type EntitlementView, type FinalRoundItem, type ProgressBackend, type ProgressSnapshot, type StartResult } from './backend';
 import { createLocalBackend } from './localBackend';
 import { createRemoteBackend } from './remoteBackend';
 import { isUuid, load, newIdempotencyKey, remove, save, TROPHIES_SEEN_KEY, TROPHIES_VIEWED_KEY } from './storage';
@@ -232,12 +232,23 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     return a.userId;
   }, []);
 
+  // Refreshes can overlap (one runs in the background after each level), so each
+  // takes a number: a reply that comes back after a newer refresh started, or
+  // after the account changed (signed out meanwhile), is out of date and dropped.
+  const refreshGen = useRef(0);
   const refresh = useCallback(async () => {
-    if (accountRef.current?.status !== 'signed_in') return;
+    const a = accountRef.current;
+    if (a?.status !== 'signed_in') return;
+    const gen = ++refreshGen.current;
     const s = await backendOrThrow().snapshot();
+    if (gen !== refreshGen.current || accountRef.current !== a) return;
     snapshotRef.current = s;
     setSnapshot(s);
   }, [backendOrThrow]);
+  /** The latest completion, so a late refresh only sets the streak chip for the level on screen. */
+  const completionGen = useRef(0);
+  /** The device day this account last cleared a new level, so a level whose refresh hasn't landed yet still counts as learning today. */
+  const learnedDay = useRef<number | null>(null);
 
   /**
    * Quests fetched alongside progress on entering an account, handed to the
@@ -254,6 +265,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const enter = useCallback(
     async (next: AccountState) => {
       accountRef.current = next;
+      learnedDay.current = null;
       if (next.status !== 'signed_in') {
         setOffline(false);
         commitSessions({});
@@ -477,6 +489,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         return result;
       },
       async completeLevel(levelId, level) {
+        // Anything that completes can earn trophies: the quests fetched at launch are out of date now.
+        primedQuests.current = null;
         let session = sessionsRef.current[levelId];
         if (!session) throw new Error(`No session for ${levelId}`);
         // A level started before the key fix holds a key the server refuses. It never saved, so a new one is safe.
@@ -484,7 +498,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
           session = { ...session, idempotencyKey: newIdempotencyKey() };
           commitSessions({ ...sessionsRef.current, [levelId]: session });
         }
-        const countedBefore = snapshotRef.current.streak.today;
+        const today = dayNumber(new Date(), deviceTimeZone());
+        const countedBefore = snapshotRef.current.streak.today || learnedDay.current === today;
         const summary = await backendOrThrow().completeLevel({
           level,
           revision: session.revision,
@@ -493,12 +508,17 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         const { [levelId]: _done, ...rest } = sessionsRef.current;
         commitSessions(rest);
         setLastSummary(summary);
+        if (!summary.alreadyCompleted) learnedDay.current = today;
+        const mine = ++completionGen.current;
+        const who = accountRef.current;
         // The level is saved, so Level Complete shows now (it reads the summary) and progress
         // refreshes behind it; the streak chip pops in when the refresh lands. If the refresh
         // fails, the completion still stands.
         setStreakMoment(undefined);
         void refresh().then(
           () => {
+            // A newer level (or another account) is on screen now: its own refresh decides.
+            if (mine !== completionGen.current || accountRef.current !== who) return;
             const after = snapshotRef.current.streak;
             setStreakMoment(!countedBefore && after.today ? after.current : undefined);
           },
@@ -514,14 +534,19 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       answerFinalRound: (questId, questionId, optionId) => backendOrThrow().answerFinalRound(questId, questionId, optionId),
       setEquipped: (next) => backendOrThrow().setEquipped(next),
       async completeQuest(questId) {
+        primedQuests.current = null;
         const result = await backendOrThrow().completeQuest(questId);
         await refresh().catch(() => setOffline(true));
         return result;
       },
-      submitReview: (item, optionId) => backendOrThrow().submitReview(item, optionId),
+      submitReview(item, optionId) {
+        primedQuests.current = null;
+        return backendOrThrow().submitReview(item, optionId);
+      },
       startChapterReview: (skillId, chapter) => backendOrThrow().startChapterReview(skillId, chapter),
       answerChapterReview: (reviewId, question, optionId) => backendOrThrow().answerChapterReview(reviewId, question, optionId),
       async completeChapterReview(reviewId) {
+        primedQuests.current = null;
         const result = await backendOrThrow().completeChapterReview(reviewId);
         await refresh().catch(() => setOffline(true));
         return result;

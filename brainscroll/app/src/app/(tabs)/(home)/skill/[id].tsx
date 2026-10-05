@@ -50,13 +50,12 @@ export default function SkillMapScreen() {
     },
     [reveal],
   );
-  const onChapterLayout = useCallback(
-    (n: number, y: number, h: number) => {
-      spans.current[n] = { y, h };
-      reveal();
-    },
-    [reveal],
-  );
+  // Layout only records where chapters are: drawing follows scrolling (the
+  // open-at-your-level scroll included), so chapters far above aren't drawn
+  // while the map is still at the top. Yours and its neighbours draw anyway.
+  const onChapterLayout = useCallback((n: number, y: number, h: number) => {
+    spans.current[n] = { y, h };
+  }, []);
   // Bring the next level into view, about a third of the way down the screen.
   useEffect(() => {
     // Only when it would sit low on the screen; a new learner sees their first chapter from the top.

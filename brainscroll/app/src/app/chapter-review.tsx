@@ -1,4 +1,4 @@
-import { XP, type Card, type ChapterReviewResult } from '@brainscroll/core';
+import { XP, type ChapterReviewResult } from '@brainscroll/core';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { ScrollView, View } from 'react-native';
@@ -8,7 +8,8 @@ import { BrainpowerEarned } from '@/components/BrainpowerEarned';
 import { BrainpowerFlight, NO_DAILY } from '@/components/BrainpowerFlight';
 import { canCheck, feedbackTone, QuestionCard, QuestionFeedback, questionStatus } from '@/components/cards/QuestionCard';
 import { Body, Button, Caption, DrScroll, Eyebrow, H1, H2, LessonShell, LessonSkeleton, LoadError, Notice, Numeral, Pop, Reveal, CountUp } from '@/components/ui';
-import { chaptersFor, getCard, getSkill, levelMeta } from '@/content';
+import { chaptersFor, getSkill, levelMeta } from '@/content';
+import { useCards } from '@/progress/useCards';
 import type { ChapterReviewSession } from '@/progress/backend';
 import { useProgress, type AttemptView } from '@/progress/ProgressProvider';
 import { feedback } from '@/theme/feedback';
@@ -37,6 +38,8 @@ export default function ChapterReviewScreen() {
   const [result, setResult] = useState<ChapterReviewResult | null>(null);
   const inFlight = useRef(false);
   const scrollRef = useRef<ScrollView>(null);
+  // The current question's evidence, for a miss (server builds fetch it).
+  const evidence = useCards(session?.items[index]?.question.sourceCardIds ?? []);
 
   useEffect(() => {
     if (!skillId || !chapter || !p.ready) return;
@@ -97,7 +100,7 @@ export default function ChapterReviewScreen() {
   const qid = item.question.id;
   const itemAttempts = attempts[qid] ?? [];
   const resolved = questionStatus(itemAttempts).resolved || session.resolved.includes(qid);
-  const sourceCards = item.question.sourceCardIds.map(getCard).filter((c): c is Card => !!c);
+  const sourceCards = evidence;
   const meta = levelMeta(item.levelId);
   const isLast = index === n - 1;
 
