@@ -8,6 +8,7 @@ import { brainpowerBalance, brainpowerEarnedAt, perfectDropBrainpower, spendBrai
 import { localDate, type DailyAllowance } from './daily';
 import { parseLevelId } from './ids';
 import { knowledgeLevel, levelCompletionXp, perfectStreakBonus } from './progression';
+import { activeBoost, levelBonusPercent, type Boost, type ChestReward, type Look } from './rewards';
 import { nextDue, nextStrength } from './review';
 import { streakFrom, type Streak } from './streak';
 
@@ -71,6 +72,14 @@ export interface ProgressState {
   equipped?: Equipped;
   /** Chapter reviews, by review id (chapterReview.ts). Optional for older saves. */
   chapterReviews?: Record<string, ChapterReviewRun>;
+  /** Map chests opened, by chest key (rewards.ts). Optional for older saves. */
+  chests?: Record<string, { openedAt: string; reward: ChestReward }>;
+  /** Cosmetics won from chests, by item id (rewards.ts). Optional for older saves. */
+  cosmetics?: string[];
+  /** XP boosts won, started or not (rewards.ts). Optional for older saves. */
+  boosts?: Boost[];
+  /** The ring, name style and title worn (rewards.ts setLook). Optional for older saves. */
+  look?: Look;
 }
 
 export interface ConceptMastery {
@@ -185,6 +194,13 @@ export interface CompletionSummary {
   perfectStreak: number;
   perfectStreakPercent: number;
   perfectStreakBonusXp: number;
+  /**
+   * An XP boost ran (rewards.ts): the level paid 2x, the streak's extra
+   * included (never past 2x). `boostBonusXp` is what the boost added on top of
+   * the streak's, already in `xpAwarded`.
+   */
+  boosted: boolean;
+  boostBonusXp: number;
 }
 
 /**
@@ -534,8 +550,8 @@ export function completeLevel(
   const at = now.toISOString();
   const total = level.questions.length;
 
-  type Extra = Omit<CompletionSummary, 'skillId' | 'skillLevel' | 'stars' | 'skillXp' | 'knowledgeLevel' | 'daily' | 'perfectStreak' | 'perfectStreakPercent' | 'perfectStreakBonusXp'> &
-    Partial<Pick<CompletionSummary, 'perfectStreak' | 'perfectStreakPercent' | 'perfectStreakBonusXp'>>;
+  type Optional = 'perfectStreak' | 'perfectStreakPercent' | 'perfectStreakBonusXp' | 'boosted' | 'boostBonusXp';
+  type Extra = Omit<CompletionSummary, 'skillId' | 'skillLevel' | 'stars' | 'skillXp' | 'knowledgeLevel' | 'daily' | Optional> & Partial<Pick<CompletionSummary, Optional>>;
   const summarize = (s: ProgressState, extra: Extra): CompletionSummary => {
     const sp = s.skills[skillId];
     const { localDate: _ignored, ...daily } = dailyStatus(s, now);
@@ -543,6 +559,8 @@ export function completeLevel(
       perfectStreak: 0,
       perfectStreakPercent: 0,
       perfectStreakBonusXp: 0,
+      boosted: false,
+      boostBonusXp: 0,
       ...extra,
       skillId,
       skillLevel: sp?.highestCleared ?? 0,
@@ -622,7 +640,11 @@ export function completeLevel(
   const perfect = firstAttemptCorrect >= total;
   const perfectBefore = perfect ? perfectStreakBefore(state) : 0;
   const streak = perfect ? perfectStreakBonus(xp.total, perfectBefore) : { percent: 0, bonus: 0 };
-  const awarded = xp.total + streak.bonus;
+  // A running XP boost lifts the extra to 2x (never past it with the streak).
+  const boosted = activeBoost(state, now) !== undefined;
+  const percent = levelBonusPercent(streak.percent, boosted);
+  const extra = boosted ? Math.floor((xp.total * percent + 50) / 100) : streak.bonus;
+  const awarded = xp.total + extra;
   // One event per completion. Level 100's ★ comes from resolving it; there is no separate mastery bonus.
   const events: XpEvent[] = [{ type: 'LEVEL_COMPLETE', amount: awarded, skillId, levelId: level.id, idempotencyKey: `level_complete:${level.id}`, at }];
 
@@ -660,6 +682,8 @@ export function completeLevel(
       perfectStreak: perfect ? perfectBefore + 1 : 0,
       perfectStreakPercent: streak.percent,
       perfectStreakBonusXp: streak.bonus,
+      boosted,
+      boostBonusXp: extra - streak.bonus,
     }),
   };
 }

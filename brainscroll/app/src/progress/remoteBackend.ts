@@ -649,6 +649,8 @@ interface RawSummary {
   perfect_streak?: number;
   perfect_streak_percent?: number;
   perfect_streak_bonus_xp?: number;
+  boosted?: boolean;
+  boost_bonus_xp?: number;
   knowledge_level: number;
   daily: RawDaily;
 }
@@ -685,6 +687,8 @@ function mapSummary(r: RawSummary): CompletionSummary {
     perfectStreak: r.perfect_streak ?? 0,
     perfectStreakPercent: r.perfect_streak_percent ?? 0,
     perfectStreakBonusXp: r.perfect_streak_bonus_xp ?? 0,
+    boosted: r.boosted ?? false,
+    boostBonusXp: r.boost_bonus_xp ?? 0,
     knowledgeLevel: r.knowledge_level,
     daily: mapDaily(r.daily),
   };

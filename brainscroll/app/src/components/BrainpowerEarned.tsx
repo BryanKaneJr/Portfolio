@@ -17,8 +17,9 @@ const LINE: Record<BrainpowerAwardKind, string> = {
   perfect: 'Lucky Brainpower Drop',
   quest_step: 'Quest goal reached',
   quest: 'Quest complete',
+  chest: 'Map chest opened',
 };
-const ART = { ...Object.fromEntries(BRAINPOWER_WAYS.map((w) => [w.kind, w.art])), quest_step: 'medal' } as unknown as Record<BrainpowerAwardKind, UiArtName>;
+const ART = { ...Object.fromEntries(BRAINPOWER_WAYS.map((w) => [w.kind, w.art])), quest_step: 'medal', chest: 'medal' } as unknown as Record<BrainpowerAwardKind, UiArtName>;
 
 /** When the first spark leaves after the card arrives, and the gap between sparks (ms). */
 const FIRST_SPARK = 450;

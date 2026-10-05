@@ -266,5 +266,7 @@ export function completeQuest(state: ProgressState, def: QuestDefinition, now: D
 export function setEquipped(state: ProgressState, next: Equipped): ProgressState {
   const held = (questId: string | null) => questId === null || (state.trophies ?? []).some((t) => t.kind === 'quest' && t.questId === questId);
   if (!held(next.titleQuestId) || !held(next.emblemQuestId)) throw new QuestError('NOT_EARNED');
-  return { ...state, equipped: next };
+  // One title shows: a quest title takes off a chest or Mastery title (rewards.ts setLook).
+  const look = next.titleQuestId && state.look?.title ? { ...state.look, title: null } : state.look;
+  return { ...state, equipped: next, look };
 }

@@ -26,3 +26,4 @@ export * from './reminders';
 export * from './social';
 export * from './drScrollFriend';
 export * from './usernameFilter';
+export * from './rewards';

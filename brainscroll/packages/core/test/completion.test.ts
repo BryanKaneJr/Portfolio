@@ -10,6 +10,7 @@ import {
   emptyProgress,
   levelTypeFor,
   perfectStreakBonus,
+  startBoost,
   XP,
   type Level,
   type ProgressState,
@@ -203,6 +204,18 @@ describe('perfect streak (mirrors core-loop.test.sql section 12)', () => {
     });
     expect(s.xpEvents.find((e) => e.type === 'LEVEL_COMPLETE' && e.levelId === lvl(2).id)?.amount).toBe(110);
     expect(s.skills['skill.science.testing']?.totalXp).toBe(100 + 110 + 70 + 100 + 110 + 120);
+  });
+
+  it('pays 2x while an XP boost runs, the streak included, never past 2x (mirrors rewards.test.sql)', () => {
+    let s: ProgressState = { ...veteran(), hasUnlimited: true, boosts: [{ id: 'b1', minutes: 15, source: 'x' }] };
+    s = clear(s, 1, ['a', 'a', 'a']).state;
+    s = startBoost(s, 'b1', at(2));
+    const r2 = clear(s, 2, ['a', 'a', 'a']);
+    expect(r2.summary).toMatchObject({ xpAwarded: 200, perfectStreakBonusXp: 10, boosted: true, boostBonusXp: 90 });
+    const r3 = clear(r2.state, 3, ['b', 'a', 'a']);
+    expect(r3.summary).toMatchObject({ xpAwarded: 140, boosted: true, boostBonusXp: 70 });
+    const r4 = completeLevel(play(r3.state, 4), { level: lvl(4), idempotencyKey: 'k4', now: new Date(at(2).getTime() + 15 * 60_000) });
+    expect(r4.summary).toMatchObject({ xpAwarded: 100, boosted: false, boostBonusXp: 0 });
   });
 
   it(`stops climbing at +${XP.PERFECT_STREAK_MAX_PERCENT}%`, () => {
