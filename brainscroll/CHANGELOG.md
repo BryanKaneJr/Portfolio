@@ -3,6 +3,19 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-05: Fixes from the regression pass
+
+Four test agents re-checked the last two performance PRs (fresh data, the skill map, server-fetched cards, fresh accounts, offline, every Level Complete). Fixed:
+
+- **Late progress refreshes no longer win.** With progress refreshing in the background after a level, a slow reply could land after a newer one (putting old progress back on every screen), or after signing out (showing the old account's progress to the next one). Each refresh now has a number and remembers the account; out-of-date replies are dropped.
+- **Streak chip:** a slow refresh could show "Streak started" on the second level of the day. A level already cleared today now counts, and a late refresh only sets the chip for the level on screen.
+- **Trophies offline:** going offline right after a level hid the trophy and its +1 (and celebrated it a level later). If the trophy shelf can't be read, the trophies the level awarded show from its own result.
+- **Quests fetched at launch** are dropped as soon as anything completes, so a level finished within seconds of opening the app still shows its trophy.
+- **Review and Chapter Review evidence:** after a miss, "Take another look" was empty in server builds (they still read the bundled lessons, which server builds no longer have). They now fetch the cards like lessons do (`useCards`). The end-to-end helper now checks the cards themselves appear after a miss, not just the words.
+- **No empty evidence box** while cards are loading or can't be fetched; the Final Round opens even if its earlier-level cards can't be read.
+- **The skill map** no longer draws chapters 1 and 2 when you open it deep in a skill; drawing follows scrolling.
+- **Smaller:** the sign-in options read gives up after 4 s on a bad network; a replay's eyebrow names the level instead of repeating the headline; Profile's streak label says "1 day".
+
 ## 2026-10-05: Smaller app, lighter results screens
 
 - **Server builds ship no lessons.** Development builds downloaded a 32 MB bundle at every launch, and about 14 MB of it was lessons the app already gets from the server. Builds that talk to Supabase (development builds against staging, and every release) now load an empty lesson set (`src/content/noLessons.ts`); a missed question's evidence cards from earlier levels, and the Final Round's cards, come from the server (`get_level_bundles`, kept for the session). The development harness without a server still bundles everything.
