@@ -68,7 +68,7 @@ export default function LockerScreen() {
             selected={worn(kind) === c.id}
             onPress={has ? () => wear(kind, c.id) : undefined}>
             {kind === 'ring' ? (
-              <Avatar username={me?.username ?? 'you'} avatar={me?.avatar} ring={has ? c.id : null} size={48} />
+              <Avatar username={me?.username ?? 'you'} avatar={me?.avatar} ring={c.id} size={48} />
             ) : (
               <NameSwatch nameStyle={c.id} />
             )}
@@ -121,7 +121,7 @@ export default function LockerScreen() {
             />
           </Card>
         ))}
-        {left === null && saved.length === 0 && <Caption>None saved. They come from map chests.</Caption>}
+        {left === null && saved.length === 0 && <Caption>None saved.</Caption>}
       </View>
 
       <View style={{ gap: space.sm }}>
@@ -193,15 +193,17 @@ function TitleChip({ label, selected, locked, tierInk, onPress }: { label: strin
       onPress={onPress}
       style={({ pressed }) => [styles.titleChip, selected && styles.tileSelected, pressed && { opacity: 0.8 }]}>
       {locked && <Icon name="lock" tint={color.textFaint} size={iconSize.sm} />}
-      <Text style={[type.label, { color: tierInk ?? (selected ? color.brandText : color.text), fontWeight: '700' }]}>{label}</Text>
+      <Text style={[type.caption, { color: tierInk ?? (selected ? color.brandText : color.text), fontWeight: '700' }]}>{label}</Text>
     </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
   grid: { flexDirection: 'row', flexWrap: 'wrap', gap: space.sm },
+  // Three to a row: each kind has a None tile and eight items.
   tile: {
-    width: 76,
+    flexBasis: '30%',
+    flexGrow: 1,
     height: 92,
     alignItems: 'center',
     justifyContent: 'center',

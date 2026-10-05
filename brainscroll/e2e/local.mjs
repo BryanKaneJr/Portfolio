@@ -403,6 +403,32 @@ try {
   await page.waitForTimeout(800);
   const profileText = await bodyText(page);
   check(profileText.includes('Signed in with email: learner@example.com') && !/guest/i.test(profileText), 'Settings shows the account (normalised email), and there is no guest anywhere');
+  // Map chests (owner, 2026-10-05): one per chapter after its 5th level, opened once from the road.
+  await page.goto(`${URL}skill/skill.science.astronomy`);
+  await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Chapter 1 chest. Open' }).click();
+  await page.waitForTimeout(800);
+  await page.getByTestId('open-chest').click();
+  await page.getByTestId('chest-reward').waitFor({ timeout: 5_000 });
+  const prize = await bodyText(page);
+  check(/XP boost|\+2 Brainpower|ring|name style|title/.test(prize), `a chest pays one prize (${prize.match(/(\d+ (min|hour) XP boost|\+2 Brainpower|[A-Z][a-z]+ (ring|name style|title))/)?.[0]})`);
+  const boosted = (await page.getByTestId('start-boost-now').count()) > 0;
+  if (boosted) {
+    await page.getByTestId('start-boost-now').click();
+    await page.waitForTimeout(600);
+  }
+  await exactButton(page, boosted ? 'Done' : (await exactButton(page, 'Later').count()) ? 'Later' : 'Done').click();
+  await page.waitForTimeout(800);
+  check((await page.getByRole('button', { name: 'Chapter 1 chest, opened' }).count()) === 1, 'the chest stays open on the road (once ever)');
+  await home(page);
+  if (boosted) check((await page.getByTestId('boost-chip').count()) === 1, 'a started boost shows its 2x chip on Home');
+  await page.getByRole('tab', { name: /Profile/ }).click();
+  await page.waitForTimeout(800);
+  await page.getByTestId('open-locker').click();
+  await page.waitForTimeout(1000);
+  const lockerText = await bodyText(page);
+  check(/XP boosts/.test(lockerText) && /Rings/.test(lockerText) && /Name styles/.test(lockerText) && / of 24 found/.test(lockerText), 'the Locker lists boosts, rings, name styles and titles');
+
   // A second skill: opening it on the Skills tab shows its map, but Home keeps the tree last played.
   await home(page);
   await page.getByRole('tab', { name: /Skills/ }).click();

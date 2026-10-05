@@ -67,6 +67,13 @@ No streak titles: the learning streak's only rewards stay its trophies and its
 
 One title is shown at a time, a chest, earned or quest one.
 
+## In the app
+
+- **The map:** the chest sits beside the road between the 5th and 6th levels: shut and dim until the 5th is cleared, bobbing and lit when ready, open after.
+- **Opening:** a screen of its own. Open, then the prize: a boost (Start now, or Save for later), +2 Brainpower, or a cosmetic (Wear it, or Later).
+- **The Locker** (Profile): saved boosts with Start (one runs at a time, with its time left), then rings, name styles and titles in a grid, worn with a tap. Items not found yet show dimmed with their tier.
+- **While a boost runs:** a gold "2x" chip with the time left on Home, and "2x XP boost" on Level Complete.
+
 ## Out of scope here
 
 App icons (they need icon art and a new phone build), Dr. Scroll outfits.

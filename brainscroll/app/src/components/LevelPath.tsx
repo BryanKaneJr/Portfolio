@@ -189,7 +189,7 @@ export function LevelPath({
           <MapChest
             state={chestState}
             // Off the road to the right, a half row below the 5th level (clear of the next level's callout).
-            x={(points[chestAt]!.x + points[chestAt + 1]!.x) / 2 + 90}
+            x={(points[chestAt]!.x + points[chestAt + 1]!.x) / 2 + 112}
             y={points[chestAt]!.y + ROW / 2}
             label={chestState === 'ready' ? `Chapter ${chapterNo} chest. Open` : chestState === 'opened' ? `Chapter ${chapterNo} chest, opened` : `Chapter ${chapterNo} chest, opens after Level ${numbers[chestAt]}`}
             onPress={chestState === 'locked' ? undefined : () => { feedback('select'); onChest!(chapterNo); }}
@@ -275,14 +275,23 @@ export function LevelPath({
 function MapChest({ state, x, y, label, onPress }: { state: 'locked' | 'ready' | 'opened'; x: number; y: number; label: string; onPress?: () => void }) {
   const bob = useLoop(900, { active: state === 'ready' });
   const lift = bob.interpolate({ inputRange: [0, 1], outputRange: [0, -6] });
-  const SIZE_CHEST = 52;
+  const SIZE_CHEST = 60;
   return (
-    <Animated.View style={{ position: 'absolute', left: x - SIZE_CHEST / 2, top: y - SIZE_CHEST / 2, transform: [{ translateY: lift }], opacity: state === 'locked' ? 0.6 : 1 }}>
-      <Pressable testID={`map-chest-${state}`} accessibilityRole="button" accessibilityLabel={label} aria-disabled={!onPress} disabled={!onPress} onPress={onPress} hitSlop={8}>
+    // The button holds still; only the chest inside it bobs.
+    <Pressable
+      testID={`map-chest-${state}`}
+      accessibilityRole="button"
+      accessibilityLabel={label}
+      aria-disabled={!onPress}
+      disabled={!onPress}
+      onPress={onPress}
+      hitSlop={8}
+      style={{ position: 'absolute', left: x - SIZE_CHEST / 2, top: y - SIZE_CHEST / 2, opacity: state === 'locked' ? 0.6 : 1 }}>
+      <Animated.View style={{ transform: [{ translateY: lift }] }}>
         <ChestArt state={state} size={SIZE_CHEST} />
-        {state === 'ready' && <Gleams count={3} tint={color.mastery} size={10} />}
-      </Pressable>
-    </Animated.View>
+      </Animated.View>
+      {state === 'ready' && <Gleams count={3} tint={color.mastery} size={10} />}
+    </Pressable>
   );
 }
 
