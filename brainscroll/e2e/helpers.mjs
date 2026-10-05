@@ -191,11 +191,23 @@ async function pickIndex(page, pick) {
   return pick === 'right' ? right : right === 0 ? 1 : 0;
 }
 
+/**
+ * After a miss, the question's own cards must be on screen under "Take another
+ * look" (the words alone also appear in the verdict). Server builds fetch
+ * cards from earlier levels, so give them a moment.
+ */
+async function evidenceShown(page) {
+  await page.getByTestId('evidence').first().waitFor({ state: 'visible', timeout: 5000 }).catch(() => {
+    throw new Error('a miss shows no evidence cards');
+  });
+}
+
 export async function answerStep(page, firstPick, onMiss) {
   const arrangement = await openArrangement(page);
   if (arrangement) {
     // Match and order: a first pick of 0 (or 'right') answers right; anything else misses first.
     if (await page.getByText('Take another look').count()) {
+      await evidenceShown(page);
       onMiss();
       await answerArrangement(page, arrangement, true);
     } else {
@@ -208,7 +220,7 @@ export async function answerStep(page, firstPick, onMiss) {
   }
   const missed = await page.getByText('Take another look').count();
   if (missed) {
-    if (!(await page.getByText('Take another look').first().isVisible())) throw new Error('evidence not visible');
+    await evidenceShown(page);
     onMiss();
     await page.getByRole('radio', { disabled: false }).first().click();
   } else {

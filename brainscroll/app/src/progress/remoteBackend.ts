@@ -182,7 +182,8 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
         return question && levelId ? [{ question, levelId }] : [];
       });
       // Each question's source cards (they can sit in earlier levels).
-      const cards = await cardsById(found.flatMap((it) => it.question.sourceCardIds));
+      // Best-effort: if they can't be fetched, the round still opens with the questions.
+      const cards = await cardsById(found.flatMap((it) => it.question.sourceCardIds)).catch(() => new Map<string, Card>());
       const items = found.map((it) => ({ ...it, cards: it.question.sourceCardIds.flatMap((c) => cards.get(c) ?? []) }));
       return { view, items };
     },

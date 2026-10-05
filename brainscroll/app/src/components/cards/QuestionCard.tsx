@@ -80,7 +80,8 @@ export function QuestionCard({
       )}
 
       {/* Under the choices, so a miss never pushes them off screen (UX review C2). */}
-      {s.needsAnotherLook && (
+      {/* No box at all while the cards are on their way (or couldn't be fetched); the verdict still says what to do. */}
+      {s.needsAnotherLook && sourceCards.length > 0 && (
         <EvidenceBlock>
           {sourceCards.map((c) => (
             <LearningCard key={c.id} card={c} compact />
