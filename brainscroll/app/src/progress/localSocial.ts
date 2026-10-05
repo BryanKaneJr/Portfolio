@@ -24,8 +24,9 @@ import {
   type SocialCard,
   type SocialProfile,
   type SocialView,
+  shownTitle,
 } from '@brainscroll/core';
-import { skills, trophyCatalog } from '@/content';
+import { quests, skills, trophyCatalog } from '@/content';
 
 /**
  * Social in the development harness (localBackend): the same screens, with
@@ -97,7 +98,24 @@ function simCard(sim: Sim, state: ProgressState, now: Date): SocialCard {
 }
 
 function myCard(userId: string, social: LocalSocialState, state: ProgressState, now: Date): SocialCard {
-  return { id: userId, username: social.username ?? 'you', ...(social.avatar ? { avatar: social.avatar } : {}), knowledgeLevel: myLevel(state), weeklyXp: weeklyXp(state.xpEvents, leagueWeekStart(now)) };
+  return {
+    id: userId,
+    username: social.username ?? 'you',
+    ...(social.avatar ? { avatar: social.avatar } : {}),
+    knowledgeLevel: myLevel(state),
+    weeklyXp: weeklyXp(state.xpEvents, leagueWeekStart(now)),
+    ring: state.look?.ring ?? null,
+    nameStyle: state.look?.nameStyle ?? null,
+    title: myTitle(state),
+  };
+}
+
+/** The title you show (SQL shown_title). */
+export function myTitle(state: ProgressState): string | null {
+  return shownTitle(state, {
+    skill: (id) => skills.find((k) => k.id === id)?.name,
+    questTitle: (id) => quests.find((q) => q.id === id)?.titleReward,
+  });
 }
 
 /** A friendly generated username (curious_otter_4821), never one the filter refuses: some numbers read as words (8008). */

@@ -195,6 +195,10 @@ export interface SocialCard {
   avatar?: string;
   knowledgeLevel: number;
   weeklyXp: number;
+  /** What they wear (rewards.ts): a ring id, a name style id, and their title's name. */
+  ring?: string | null;
+  nameStyle?: string | null;
+  title?: string | null;
 }
 
 export interface SocialView {

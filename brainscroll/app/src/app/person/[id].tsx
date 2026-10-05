@@ -3,13 +3,14 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { DrScrollProfile } from '@/components/DrScrollProfile';
+import { StyledName } from '@/components/cosmetics';
 import { Avatar } from '@/components/social';
 import { TrophyBadge } from '@/components/TrophyBadge';
-import { Body, Button, GradientFill, Caption, Card, Emblem, Eyebrow, Field, H1, IconButton, LoadError, Notice, Numeral, OfflineState, Row, Screen, SkeletonCard, StateBlock, Title } from '@/components/ui';
+import { Body, Button, GradientFill, Caption, Card, Emblem, Eyebrow, Field, IconButton, LoadError, Notice, Numeral, OfflineState, Row, Screen, SkeletonCard, StateBlock, Title } from '@/components/ui';
 import { skills, subjects, trophyCatalog } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
 import { lift } from '@/theme/subjectTheme';
-import { color, radius, space } from '@/theme/tokens';
+import { color, radius, space, type } from '@/theme/tokens';
 
 /**
  * A friend's or league mate's profile (owner, 2026-10-01): their brain at a
@@ -93,14 +94,15 @@ export default function PersonScreen() {
       <Row gap={space.lg}>
         {them.relation === 'you' ? (
           <Pressable accessibilityRole="button" accessibilityLabel="Edit your profile" onPress={() => router.push('/edit-profile')}>
-            <Avatar username={them.username} avatar={them.avatar} size={72} />
+            <Avatar username={them.username} avatar={them.avatar} ring={them.ring} size={72} />
           </Pressable>
         ) : (
-          <Avatar username={them.username} avatar={them.avatar} size={72} />
+          <Avatar username={them.username} avatar={them.avatar} ring={them.ring} size={72} />
         )}
         <View style={{ flex: 1, gap: space.xxs }}>
           <Eyebrow tone="brand">{isYou ? 'You' : them.relation === 'friend' ? 'Friend' : them.relation === 'league' ? 'In your league' : 'Learner'}</Eyebrow>
-          <H1 numberOfLines={1}>{`@${them.username}`}</H1>
+          <StyledName header nameStyle={them.nameStyle} style={[type.h1, { color: color.text }]}>{`@${them.username}`}</StyledName>
+          {them.title ? <Caption style={{ color: color.brandText, fontWeight: '700' }}>{them.title}</Caption> : null}
         </View>
       </Row>
 

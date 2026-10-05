@@ -381,6 +381,27 @@ try {
   await page.waitForTimeout(800);
   check(new RegExp(`Total XP\\D{0,40}\\b${xpBefore}\\b`, 'i').test(await bodyText(page)), `all ${xpBefore} XP came back with the account`);
 
+  // Map chests, rolled on the server (open_chest). The odds are a server setting: here, always a 30-minute boost.
+  sql(`update public.app_settings set chest_loot = '{"boost_15": 0, "boost_30": 100, "boost_60": 0, "brainpower": 0, "common": 0, "rare": 0, "epic": 0, "legendary": 0}' where true`);
+  await page.goto(`${URL}skill/skill.science.astronomy`);
+  await page.waitForTimeout(2000);
+  await page.getByRole('button', { name: 'Chapter 1 chest. Open' }).click();
+  await page.waitForTimeout(800);
+  await page.getByTestId('open-chest').click();
+  await page.getByTestId('chest-reward').waitFor({ timeout: 5_000 });
+  check(/30 min XP boost/.test(await bodyText(page)), 'the server rolls the chest (a 30-minute boost here)');
+  check(sql(`select reward->>'kind' from public.user_chests where user_id = '${learnerId}' and chapter = 1`) === 'boost', 'and records it, once');
+  await page.getByTestId('start-boost-now').click();
+  await page.waitForTimeout(800);
+  check(sql(`select count(*) from public.user_boosts where user_id = '${learnerId}' and ends_at > now()`) === '1', 'Start now starts the boost on the server');
+  await exactButton(page, 'Done').click();
+  await page.waitForTimeout(600);
+  check((await page.getByRole('button', { name: 'Chapter 1 chest, opened' }).count()) === 1, 'the chest stays open on the road');
+  await home(page);
+  check((await page.getByTestId('boost-chip').count()) === 1, 'Home shows the running boost');
+  await page.getByRole('tab', { name: /Profile/ }).click();
+  await page.waitForTimeout(800);
+
   // Google on the web: an OAuth redirect (PKCE) that comes back signed in to a separate, new account.
   await exactButton(page, 'Settings').click();
   await page.waitForTimeout(800);

@@ -1,6 +1,7 @@
 import { DR_SCROLL_FRIEND, leagueName, leaguePrize, ordinal, trophyInfo, type FeedItem, type DrScrollPost, type FeedReaction, type LeagueView } from '@brainscroll/core';
 import { Animated, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
+import { AvatarRing } from '@/components/cosmetics';
 import { TrophyBadge } from '@/components/TrophyBadge';
 import { AVATAR_ART, Caption, Card, DrScroll, GradientFill, Icon, Row, UiArt } from '@/components/ui';
 import { getSkill, trophyCatalog } from '@/content';
@@ -30,13 +31,15 @@ const STARTERS = Object.keys(AVATAR_ART).filter((id) => /^avatar\.[a-z_]+$/.test
 /**
  * A learner's avatar (AVATAR_ART). Everyone wears one from sign-up (owner,
  * 2026-10-01: no letter avatars); if one is ever missing, a starter is picked
- * from the username. The art is its own circle: never wrap it in a ring.
+ * from the username. The art is its own circle; the only ring around it is one
+ * won from a map chest (owner, 2026-10-05), drawn at the same outer size.
  */
-export function Avatar({ username, avatar, size = 40 }: { username: string; avatar?: string; size?: number }) {
+export function Avatar({ username, avatar, size = 40, ring }: { username: string; avatar?: string; size?: number; ring?: string | null }) {
   const art = (avatar ? AVATAR_ART[avatar] : undefined) ?? AVATAR_ART[STARTERS[hash(username) % STARTERS.length]!];
+  const face = (s: number) => art && <Image source={art} style={{ width: s, height: s }} resizeMode="contain" accessibilityIgnoresInvertColors />;
   return (
     <View accessible={false} aria-hidden importantForAccessibility="no-hide-descendants" style={{ width: size, height: size }}>
-      {art && <Image source={art} style={{ width: size, height: size }} resizeMode="contain" accessibilityIgnoresInvertColors />}
+      {ring ? <AvatarRing ring={ring} size={size}>{face}</AvatarRing> : face(size)}
     </View>
   );
 }
@@ -104,7 +107,7 @@ export function LeagueBanner({ league, onPress }: { league: LeagueView; onPress:
             return (
               // Stacked and centred, so each spot gets a third of the banner for its name.
               <View key={m.id} style={styles.podiumSpot}>
-                <Avatar username={m.blocked ? '?' : m.username} avatar={m.blocked ? undefined : m.avatar} size={34} />
+                <Avatar username={m.blocked ? '?' : m.username} avatar={m.blocked ? undefined : m.avatar} ring={m.blocked ? null : m.ring} size={34} />
                 <Text numberOfLines={1} style={[type.caption, { color: color.onBrand, fontWeight: '800', textAlign: 'center', alignSelf: 'stretch' }]}>
                   {leagueMemberName(m)}
                 </Text>
@@ -188,7 +191,7 @@ export function MomentCard({ item, onOpen, onReact }: { item: FeedItem; onOpen: 
     <Card variant="plain" style={{ gap: space.sm }}>
       <Pressable accessibilityRole="button" accessibilityLabel={`${who} ${line}, ${timeAgo(item.at)} ago. Open their profile`} onPress={onOpen}>
         <Row gap={space.md} style={{ alignItems: 'flex-start' }}>
-          <Avatar username={item.owner.username} avatar={item.owner.avatar} />
+          <Avatar username={item.owner.username} avatar={item.owner.avatar} ring={item.owner.ring} />
           <View style={{ flex: 1, gap: space.xxs }}>
             <Text style={[type.body, { color: color.text }]}>
               <Text style={{ fontWeight: '800' }}>{who}</Text>{' '}

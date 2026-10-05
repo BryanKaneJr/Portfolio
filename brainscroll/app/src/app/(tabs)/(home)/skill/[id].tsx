@@ -182,6 +182,8 @@ export default function SkillMapScreen() {
               onCurrent={here ? setStopY : undefined}
               onOpen={startLevel}
               live={nearFocus || live.has(c.number)}
+              chestsOpened={p.snapshot.locker.chests}
+              onChest={(n) => router.push({ pathname: '/chest', params: { skillId: skill.id, chapter: String(n) } })}
             />
           </View>
         );

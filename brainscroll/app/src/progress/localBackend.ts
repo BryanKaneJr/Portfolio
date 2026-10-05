@@ -28,6 +28,10 @@ import {
   questWindow,
   QuestError,
   setEquipped,
+  lockerView,
+  openChest,
+  startBoost,
+  setLook,
   startQuest,
   answerChapterReview,
   completeChapterReview,
@@ -159,6 +163,7 @@ export function createLocalBackend(): ProgressBackend {
         xpToday: state.xpEvents.filter((e) => localDate(new Date(e.at), state.timeZone) === daily.localDate).reduce((n, e) => n + e.amount, 0),
         reviewsDue: buildReviewQueue(state, allLevels(), now, 50).length,
         streak: learningStreak(state, now),
+        locker: lockerView(state, now),
       };
     },
     async startLevel(levelId) {
@@ -213,6 +218,19 @@ export function createLocalBackend(): ProgressBackend {
       });
       commit(withTrophyBrainpower(r.state, now));
       return r.result;
+    },
+    async openChest(skillId, chapter) {
+      const now = new Date();
+      const r = openChest(current(), { skillId, chapter, now, boostId: `boost-${now.getTime()}-${Math.random().toString(36).slice(2, 8)}` });
+      const state = commit(r.state);
+      return { reward: r.reward, locker: lockerView(state, now), daily: dailyOf(state, now) };
+    },
+    async startBoost(boostId) {
+      const now = new Date();
+      return lockerView(commit(startBoost(current(), boostId, now)), now);
+    },
+    async setLook(look) {
+      return lockerView(commit(setLook(current(), look)), new Date());
     },
     async setEquipped(next) {
       commit(setEquipped(current(), next));

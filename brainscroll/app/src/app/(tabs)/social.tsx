@@ -2,12 +2,13 @@ import { DR_SCROLL_FRIEND, drScrollPosts, LEAGUE, ordinal, type FeedReaction } f
 import { router } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
+import { StyledName } from '@/components/cosmetics';
 import { Avatar, DrScrollPostCard, LeagueBanner, MomentCard } from '@/components/social';
 import { Body, Button, Caption, Card, DrScrollSays, Icon, IconButton, LoadError, Notice, OfflineState, Row, Screen, ScreenHeader, SkeletonCard, Title } from '@/components/ui';
 import { useProgress } from '@/progress/ProgressProvider';
 import { load, save } from '@/progress/storage';
 import { useSocial } from '@/progress/useSocial';
-import { color, iconSize, space } from '@/theme/tokens';
+import { color, iconSize, space, type } from '@/theme/tokens';
 
 /**
  * Social (owner, 2026-10-01): your league as a banner on top (tap for the
@@ -72,7 +73,7 @@ export default function SocialScreen() {
           <Row gap={space.sm}>
             {view && (
               <Pressable accessibilityRole="button" accessibilityLabel="Edit your profile" onPress={() => router.push('/edit-profile')} hitSlop={6}>
-                <Avatar username={view.me.username} avatar={view.me.avatar} size={40} />
+                <Avatar username={view.me.username} avatar={view.me.avatar} ring={p.snapshot.locker.look.ring} size={40} />
               </Pressable>
             )}
             <IconButton label="Add friends" icon="addFriend" onPress={() => router.push('/add-friends')} />
@@ -104,9 +105,9 @@ export default function SocialScreen() {
                   {/* Name on its own line, buttons below, so a long username never squeezes. */}
                   <Pressable accessibilityRole="button" accessibilityLabel={`Open @${r.username}'s profile`} onPress={() => openPerson(r.id)}>
                     <Row gap={space.md}>
-                      <Avatar username={r.username} avatar={r.avatar} size={48} />
+                      <Avatar username={r.username} avatar={r.avatar} ring={r.ring} size={48} />
                       <View style={{ flex: 1 }}>
-                        <Body numberOfLines={1}>{`@${r.username}`}</Body>
+                        <StyledName nameStyle={r.nameStyle} style={[type.body, { color: color.text }]}>{`@${r.username}`}</StyledName>
                         <Caption>{`Brain Lv. ${r.knowledgeLevel}`}</Caption>
                       </View>
                     </Row>
@@ -165,10 +166,10 @@ export default function SocialScreen() {
                       onPress={() => openPerson(f.id)}
                       style={({ pressed }) => [styles.row, i > 0 && styles.divided, you && { backgroundColor: color.brandSoft }, pressed && { opacity: 0.8 }]}>
                       <Caption style={{ width: 28 }}>{ordinal(i + 1)}</Caption>
-                      <Avatar username={f.username} avatar={f.avatar} size={32} />
-                      <Body style={{ flex: 1 }} numberOfLines={1}>
-                        {you ? 'You' : `@${f.username}`}
-                      </Body>
+                      <Avatar username={f.username} avatar={f.avatar} ring={f.ring} size={32} />
+                      <View style={{ flex: 1 }}>
+                        <StyledName nameStyle={f.nameStyle} style={[type.body, { color: color.text }]}>{you ? 'You' : `@${f.username}`}</StyledName>
+                      </View>
                       <Body>{`${f.weeklyXp.toLocaleString('en-US')} XP`}</Body>
                     </Pressable>
                   );

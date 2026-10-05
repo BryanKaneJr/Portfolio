@@ -181,6 +181,15 @@ export default function LevelCompleteScreen() {
                 {s.alreadyCompleted ? 'Replays earn no XP' : `First try: ${s.firstAttemptCorrect} / ${s.total}`}
               </Caption>
             </Reveal>
+            {s.boosted && (
+              <Pop delay={380}>
+                <View accessible accessibilityLabel={`XP boost: 2x, plus ${s.boostBonusXp} XP`} style={{ alignItems: 'center' }}>
+                  <Chip tone="mastery" icon="xp">
+                    <Caption style={{ color: color.mastery }}>2x XP boost</Caption>
+                  </Chip>
+                </View>
+              </Pop>
+            )}
             {s.perfectStreak > 0 && (
               <Pop delay={400}>
                 <PerfectStreak streak={s.perfectStreak} percent={s.perfectStreakPercent} bonus={s.perfectStreakBonusXp} />

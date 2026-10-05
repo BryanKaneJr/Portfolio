@@ -16,7 +16,7 @@ import type { ProgressState } from './completion';
  * (`quest_step:<quest>:<skill>`) and +1 for completing the quest
  * (`quest:<quest>`), on top of its trophy. SQL brainpower_sync_quests.
  */
-export type BrainpowerAwardKind = 'streak' | 'trophy' | 'chapter_review' | 'perfect' | 'quest_step' | 'quest';
+export type BrainpowerAwardKind = 'streak' | 'trophy' | 'chapter_review' | 'perfect' | 'quest_step' | 'quest' | 'chest';
 export interface BrainpowerAward {
   kind: BrainpowerAwardKind;
   /** 1 when it raised the balance; 0 when full or on Unlimited. */

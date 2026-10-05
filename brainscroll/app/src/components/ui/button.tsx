@@ -32,6 +32,7 @@ export function Button({
   icon,
   selected,
   style,
+  testID,
 }: {
   label: string;
   onPress?: () => void;
@@ -44,12 +45,14 @@ export function Button({
   /** One choice of a set: a radio for screen readers, with a check when picked. */
   selected?: boolean;
   style?: ViewStyle;
+  testID?: string;
 }) {
   const v = disabled && !loading ? 'disabled' : variant;
   const inert = disabled || loading;
   const choice = selected !== undefined;
   return (
     <Pressable
+      testID={testID}
       accessibilityRole={choice ? 'radio' : 'button'}
       accessibilityLabel={label}
       // aria-* props: React Native reads them as accessibilityState, and react-native-web puts them on the DOM.

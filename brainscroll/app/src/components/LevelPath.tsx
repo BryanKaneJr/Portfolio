@@ -1,4 +1,5 @@
-import { dayNumber, mapGuidePose, mapRestPose, MASTERY_BAND_SIZE, RECAP_OPENING } from '@brainscroll/core';
+import { CHEST, chestKey, dayNumber, mapGuidePose, mapRestPose, MASTERY_BAND_SIZE, RECAP_OPENING } from '@brainscroll/core';
+import { ChestArt } from '@/components/cosmetics';
 import { useEffect, useId, useState } from 'react';
 import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { ClipPath, Defs, Path, Polygon } from 'react-native-svg';
@@ -63,6 +64,8 @@ export function LevelPath({
   onOpen,
   aside,
   live = true,
+  chestsOpened,
+  onChest,
 }: {
   skillId: string;
   /** Highest level cleared. */
@@ -89,6 +92,9 @@ export function LevelPath({
    * of the skill map's cost, so they come in as a chapter nears the screen.
    */
   live?: boolean;
+  /** Map chests opened (core chestKey); with `onChest`, the chapter's chest sits on the road after its 5th level. */
+  chestsOpened?: readonly string[];
+  onChest?: (chapter: number) => void;
 }) {
   const [width, setWidth] = useState(340);
   // The skill's subject colour (theme/subjectTheme.ts).
@@ -124,6 +130,11 @@ export function LevelPath({
     }
     return d;
   };
+  // The chapter's chest, beside the road between its 5th and 6th levels (docs/specs/REWARDS.md).
+  const chapterNo = chapter?.number ?? Math.ceil(first / 10);
+  const chestAt = onChest && points[CHEST.LEVEL_IN_CHAPTER] ? CHEST.LEVEL_IN_CHAPTER - 1 : -1;
+  const chestState: 'locked' | 'ready' | 'opened' | null =
+    chestAt < 0 ? null : chestsOpened?.includes(chestKey(skillId, chapterNo)) ? 'opened' : level >= numbers[chestAt]! ? 'ready' : 'locked';
   // The road is walked up to the next level (or the last one cleared).
   const reached = numbers.filter((n) => stateOf(n) !== 'locked').length - 1;
 
@@ -172,6 +183,17 @@ export function LevelPath({
         {restPose && points[6] && (
           // A finished chapter: he stayed behind, goofing off by the road.
           <DrScroll spot="map.rest" pose={restPose} size="lg" style={{ position: 'absolute', left: Math.min(width * POCKETS[1].x - 84, width - 168), top: points[6].y - 96 }} />
+        )}
+
+        {chestState && (
+          <MapChest
+            state={chestState}
+            // Off the road to the right, a half row below the 5th level (clear of the next level's callout).
+            x={(points[chestAt]!.x + points[chestAt + 1]!.x) / 2 + 112}
+            y={points[chestAt]!.y + ROW / 2}
+            label={chestState === 'ready' ? `Chapter ${chapterNo} chest. Open` : chestState === 'opened' ? `Chapter ${chapterNo} chest, opened` : `Chapter ${chapterNo} chest, opens after Level ${numbers[chestAt]}`}
+            onPress={chestState === 'locked' ? undefined : () => { feedback('select'); onChest!(chapterNo); }}
+          />
         )}
 
         {numbers.map((n, i) => {
@@ -246,6 +268,30 @@ export function LevelPath({
         </View>
       )}
     </View>
+  );
+}
+
+/** The chest by the road: bobbing and lit when ready, shut and dim before, open after. */
+function MapChest({ state, x, y, label, onPress }: { state: 'locked' | 'ready' | 'opened'; x: number; y: number; label: string; onPress?: () => void }) {
+  const bob = useLoop(900, { active: state === 'ready' });
+  const lift = bob.interpolate({ inputRange: [0, 1], outputRange: [0, -6] });
+  const SIZE_CHEST = 60;
+  return (
+    // The button holds still; only the chest inside it bobs.
+    <Pressable
+      testID={`map-chest-${state}`}
+      accessibilityRole="button"
+      accessibilityLabel={label}
+      aria-disabled={!onPress}
+      disabled={!onPress}
+      onPress={onPress}
+      hitSlop={8}
+      style={{ position: 'absolute', left: x - SIZE_CHEST / 2, top: y - SIZE_CHEST / 2, opacity: state === 'locked' ? 0.6 : 1 }}>
+      <Animated.View style={{ transform: [{ translateY: lift }] }}>
+        <ChestArt state={state} size={SIZE_CHEST} />
+      </Animated.View>
+      {state === 'ready' && <Gleams count={3} tint={color.mastery} size={10} />}
+    </Pressable>
   );
 }
 

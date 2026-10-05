@@ -51,6 +51,11 @@ end $$;
 update public.notification_outbox set status = 'sent', sent_at = now() where user_id = '00000000-0000-0000-0000-00000000000b' and kind = 'friend_new';
 insert into public.notification_outbox (user_id, kind, params) values ('00000000-0000-0000-0000-0000000000cc', 'friend_request', '{"user_id": "00000000-0000-0000-0000-00000000000b", "username": "bob"}');
 insert into public.entitlements (user_id, entitlement, active) values ('00000000-0000-0000-0000-00000000000a', 'unlimited_learning', true);
+-- Her chest, cosmetic and boost (rewards).
+insert into public.user_chests (user_id, skill_id, chapter, reward) values ('00000000-0000-0000-0000-00000000000a', 'skill.science.testing', 1, '{"kind": "cosmetic"}');
+insert into public.user_cosmetics (user_id, item_id, source) values ('00000000-0000-0000-0000-00000000000a', 'ring.plum', 'chest:skill.science.testing:1');
+insert into public.user_boosts (user_id, minutes, source) values ('00000000-0000-0000-0000-00000000000a', 15, 'chest:skill.science.testing:2');
+update public.profiles set look_ring = 'ring.plum' where id = '00000000-0000-0000-0000-00000000000a';
 
 -- Alice deletes her account.
 set request.jwt.claim.sub = '00000000-0000-0000-0000-00000000000a';
@@ -69,7 +74,8 @@ begin
     'user_review_attempts', 'user_question_checks', 'user_quests', 'user_quest_answers', 'user_trophies',
     'user_chapter_reviews', 'user_chapter_review_answers', 'user_learning_days',
     'friendships', 'friend_requests', 'user_blocks', 'user_reports', 'league_members', 'feed_reactions',
-    'push_tokens', 'notification_outbox', 'user_brainpower', 'brainpower_awards'] loop
+    'push_tokens', 'notification_outbox', 'user_brainpower', 'brainpower_awards',
+    'user_chests', 'user_cosmetics', 'user_boosts'] loop
     execute format('select count(*) from public.%I where %I = %L', t, case when t = 'profiles' then 'id' else 'user_id' end,
                    '00000000-0000-0000-0000-00000000000a') into n;
     assert n = 0, format('%s still has %s rows for the deleted learner', t, n);
