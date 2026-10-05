@@ -1,4 +1,4 @@
-import { drScrollSaying, LEARNING_STRUCTURE, MASTERY_BAND_SIZE, skillProgressView, XP, type CompletionOutcome, type DrScrollMoment } from '@brainscroll/core';
+import { drScrollSaying, LEARNING_STRUCTURE, MASTERY_BAND_SIZE, skillProgressView, type CompletionOutcome, type DrScrollMoment } from '@brainscroll/core';
 import { Redirect, router } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { Image, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
@@ -341,19 +341,17 @@ const times = (percent: number) => `×${((100 + percent) / 100).toFixed(1)}`;
 
 /**
  * The perfect streak (XP.PERFECT_STREAK_*): perfect levels in a row pay more.
- * The first perfect level says what the next one pays; later ones show the
- * multiplier that just paid out. A miss ends it quietly: nothing here says it
- * broke.
+ * Just the chip: "Perfect!", then the multiplier that just paid out, with no
+ * line explaining the rules under it (owner, 2026-10-05: no over-explaining).
+ * A miss ends it quietly: nothing here says it broke.
  */
 function PerfectStreak({ streak, percent, bonus }: { streak: number; percent: number; bonus: number }) {
-  const next = Math.min(streak * XP.PERFECT_STREAK_STEP_PERCENT, XP.PERFECT_STREAK_MAX_PERCENT);
-  const label = streak === 1 ? `Perfect! Next perfect level: ${times(next)} XP` : `Perfect streak ${streak} · ${times(percent)} · +${bonus} XP`;
+  const label = streak === 1 ? 'Perfect!' : `Perfect streak ${times(percent)}, plus ${bonus} XP`;
   return (
-    <View accessible accessibilityLabel={label} style={{ alignItems: 'center', gap: space.xxs }}>
+    <View accessible accessibilityLabel={label} style={{ alignItems: 'center' }}>
       <Chip tone="brand" icon="xp">
         <Caption tone="text">{streak === 1 ? 'Perfect!' : `Perfect streak ${times(percent)}`}</Caption>
       </Chip>
-      <Caption center>{streak === 1 ? `Get the next level perfect for ${times(next)} XP` : next > percent ? `+${bonus} XP. Next perfect level: ${times(next)}` : `+${bonus} XP, the most it pays`}</Caption>
     </View>
   );
 }

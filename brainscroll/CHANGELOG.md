@@ -9,6 +9,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 - **A link or reload opens the map at your level.** On a cold load the map first shows its skeleton, and the scroll handle added only when the real map replaced it never attached, so it stayed at the top. The skeleton now carries the same handle; the scroll also checks it took and tries again for a moment if the map wasn't ready.
 - **Coming back keeps your place.** The map scrolls to your next level when you open it and when that level moves on, not on every return, so leaving a replay or a level partway leaves the map where you had it.
 - **Checkpoint and mastery recaps get a Continue.** The recap is now a screen of its own (chapter art, "could you have explained this?", the lines one by one, "You know this now."), and Continue brings in the result (headline, XP, trophy, skill) on a clean screen that fits without scrolling, its count-ups and sparks starting then. Before, the result sat below the fold, and scrolling it into view cut the recap card in half at the top (owner, 2026-10-05: "lets just do the continue").
+- **No rules line under the perfect streak chip.** Level Complete shows just "Perfect!" or "Perfect streak ×1.5"; the caption explaining what the next level pays ("+75 XP, the most it pays", "Get the next level perfect for ×1.1 XP") is gone (owner: "we shouldnt have over explaining lines in here").
 
 ## 2026-10-05: Fixes from the regression pass
 
