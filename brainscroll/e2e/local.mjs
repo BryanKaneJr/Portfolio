@@ -320,7 +320,8 @@ try {
     if (n === 10) {
       check(/LEVEL 10 · CHECKPOINT COMPLETE/i.test(f.text), 'all ten Golden levels play from data; Level 10 is a checkpoint');
       check(f.total === 5 && f.xp === CHECKPOINT_CURVE[f.firstTry], `the checkpoint uses its own XP pool (${f.firstTry}/5 → ${f.xp} XP)`);
-      check(/10 levels ago, could you have explained this\?/.test(f.text) && f.text.includes('You know this now.'), 'the checkpoint shows the chapter recap as proof of what was learned');
+      // The recap leads, then folds into one line ("You know this now · <chapter>") so the result fits on screen.
+      check(/You know this now · \S/.test(f.text) && (await page.locator('[aria-label^="You know this now. "]').count()) === 1, 'the checkpoint shows the chapter recap as proof of what was learned, folded once it lands');
       check(!f.text.includes('At Lv. 100:') && /10 \/ 100 toward ★ Mastery I/.test(f.text), 'Level Complete stays lean: the bar toward the next ★, no write-up');
     }
   }

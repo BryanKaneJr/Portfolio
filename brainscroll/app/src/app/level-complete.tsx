@@ -1,7 +1,7 @@
 import { drScrollSaying, LEARNING_STRUCTURE, MASTERY_BAND_SIZE, skillProgressView, XP, type CompletionOutcome, type DrScrollMoment } from '@brainscroll/core';
 import { Redirect, router } from 'expo-router';
-import { useEffect, useRef } from 'react';
-import { Image, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
+import { useEffect, useRef, useState } from 'react';
+import { Image, LayoutAnimation, Platform, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
   Body,
@@ -72,10 +72,12 @@ export default function LevelCompleteScreen() {
   // Small phones (iPhone SE): a tighter column, so the next step stays close.
   const short = useWindowDimensions().height < 720;
   const level = s ? levelMeta(s.levelId) : undefined;
-  const proof = s && level && !s.alreadyCompleted && level.number % 10 === 0 ? chapterFor(s.skillId, level.number)?.learned : undefined;
+  const chapter = s && level ? chapterFor(s.skillId, level.number) : undefined;
+  const proof = s && level && !s.alreadyCompleted && level.number % 10 === 0 ? chapter?.learned : undefined;
   // When the recap leads, everything else waits for "You know this now."
   const knowAt = proof ? PROOF_START + proof.length * PROOF_STEP : 0;
-  const t0 = proof ? knowAt + 450 : 0;
+  // The recap holds a moment on "You know this now.", folds, then the result comes in below it.
+  const t0 = proof ? knowAt + FOLD_AFTER + 250 : 0;
 
  // After a checkpoint's recap, the result (headline, XP, trophy) is below the fold on a
   // phone: bring it up once it appears, unless the learner has already scrolled.
@@ -83,6 +85,19 @@ export default function LevelCompleteScreen() {
   const resultY = useRef<number | null>(null);
   const touched = useRef(false);
   const reduceMotion = useReduceMotion();
+  // Once "You know this now." has landed, the recap folds into one line so the
+  // result below fits on screen whole, rather than half a card cut off at the top.
+  const [folded, setFolded] = useState(false);
+  useEffect(() => {
+    if (!proof) return;
+    const fold = setTimeout(() => {
+      if (!reduceMotion && Platform.OS !== 'web') LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+      setFolded(true);
+    }, knowAt + FOLD_AFTER);
+    return () => clearTimeout(fold);
+    // Once per completion.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [s?.levelId, s?.skillLevel]);
   useEffect(() => {
     if (!proof) return;
     const timer = setTimeout(() => {
@@ -153,7 +168,17 @@ export default function LevelCompleteScreen() {
             {s.alreadyCompleted ? `Level ${level.number} replay` : mastery ? '★ Mastery star earned' : level.type === 'regular' ? `Level ${level.number} complete` : `Level ${level.number} · ${label} complete`}
           </Eyebrow>
 
-          {proof && (
+          {proof && folded && (
+            <Card style={{ width: '100%', paddingVertical: space.md, paddingHorizontal: space.lg }} accessibilityLabel={`You know this now. ${proof.join(' ')}`}>
+              <Row gap={space.sm} style={{ alignItems: 'center' }}>
+                <Icon name="check" tint={color.success} size={iconSize.md} />
+                <Body style={{ flex: 1, color: color.success }}>
+                  You know this now{chapter ? ` · ${chapter.title}` : ''}
+                </Body>
+              </Row>
+            </Card>
+          )}
+          {proof && !folded && (
             <View style={{ alignSelf: 'stretch' }}>
             <Reveal delay={PROOF_START - 250}>
               {/* Unlabelled on purpose: its title, lines and "You know this now." read one by one, in order. */}
@@ -301,6 +326,8 @@ export default function LevelCompleteScreen() {
 /** The proof moment's pacing: first line, then one line every step (ms). */
 const PROOF_START = 500;
 const PROOF_STEP = 320;
+/** How long "You know this now." stays with the full recap before it folds into one line (ms). */
+const FOLD_AFTER = 900;
 
 const DR_SCROLL_OUTCOME: Record<CompletionOutcome, DrScrollMoment> = {
   perfect: 'levelPerfect',
