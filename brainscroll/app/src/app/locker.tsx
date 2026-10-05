@@ -2,9 +2,9 @@ import { COSMETICS, cosmeticItem, masteryTitleId, RewardError, type CosmeticKind
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { boostLength, ChestArt, clock, lookTitleName, NameSwatch, StyledName, TIER_INK, TIER_LABEL, useBoostLeft } from '@/components/cosmetics';
+import { boostLength, clock, lookTitleName, NameSwatch, StyledName, TIER_INK, useBoostLeft } from '@/components/cosmetics';
 import { Avatar } from '@/components/social';
-import { Body, Button, Caption, Card, Chip, Eyebrow, Icon, IconButton, Notice, Row, Screen, Title } from '@/components/ui';
+import { Body, Button, Caption, Card, Chip, Eyebrow, Icon, IconButton, Notice, Screen, Title } from '@/components/ui';
 import { skills } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
 import { feedback } from '@/theme/feedback';
@@ -49,30 +49,39 @@ export default function LockerScreen() {
     const next: Look = { ...look, ...(kind === 'ring' ? { ring: id } : kind === 'name_style' ? { nameStyle: id } : { title: id }) };
     void run(`${kind}:${id}`, () => p.rewards.setLook(next));
   };
-  const worn = (kind: CosmeticKind) => (kind === 'ring' ? look.ring : kind === 'name_style' ? look.nameStyle : look.title);
 
-  const grid = (kind: CosmeticKind) => (
+  const rings = (
     <View style={styles.grid}>
-      <Tile label="None" selected={worn(kind) === null} onPress={() => wear(kind, null)} testID={`wear-${kind}-none`}>
+      <Tile label="None" selected={look.ring === null} onPress={() => wear('ring', null)} testID="wear-ring-none">
         <Icon name="close" tint={color.textMuted} size={iconSize.md} />
       </Tile>
-      {COSMETICS.filter((c) => c.kind === kind).map((c) => {
+      {COSMETICS.filter((c) => c.kind === 'ring').map((c) => {
         const has = owned.has(c.id);
         return (
           <Tile
             key={c.id}
             testID={`wear-${c.id}`}
-            label={has ? c.name : TIER_LABEL[c.tier]}
+            label={c.name}
             tierInk={has ? undefined : TIER_INK[c.tier]}
             locked={!has}
-            selected={worn(kind) === c.id}
-            onPress={has ? () => wear(kind, c.id) : undefined}>
-            {kind === 'ring' ? (
-              <Avatar username={me?.username ?? 'you'} avatar={me?.avatar} ring={c.id} size={48} />
-            ) : (
-              <NameSwatch nameStyle={c.id} />
-            )}
+            selected={look.ring === c.id}
+            onPress={has ? () => wear('ring', c.id) : undefined}>
+            <Avatar username={me?.username ?? 'you'} avatar={me?.avatar} ring={c.id} size={48} />
           </Tile>
+        );
+      })}
+    </View>
+  );
+  // Each name style is just its name, written in it.
+  const nameStyles = (
+    <View style={styles.titles}>
+      <Pick label="None" selected={look.nameStyle === null} onPress={() => wear('name_style', null)} />
+      {COSMETICS.filter((c) => c.kind === 'name_style').map((c) => {
+        const has = owned.has(c.id);
+        return (
+          <Pick key={c.id} testID={`wear-${c.id}`} label={c.name} locked={!has} selected={look.nameStyle === c.id} onPress={has ? () => wear('name_style', c.id) : undefined}>
+            <NameSwatch nameStyle={c.id} />
+          </Pick>
         );
       })}
     </View>
@@ -90,6 +99,7 @@ export default function LockerScreen() {
       </Card>
       {notice && <Notice tone="danger">{notice}</Notice>}
 
+      {(left !== null || saved.length > 0) && (
       <View style={{ gap: space.sm }}>
         <Title>XP boosts</Title>
         {left !== null && (
@@ -121,28 +131,28 @@ export default function LockerScreen() {
             />
           </Card>
         ))}
-        {left === null && saved.length === 0 && <Caption>None saved.</Caption>}
       </View>
+      )}
 
       <View style={{ gap: space.sm }}>
         <Title>Rings</Title>
-        {grid('ring')}
+        {rings}
       </View>
       <View style={{ gap: space.sm }}>
         <Title>Name styles</Title>
-        {grid('name_style')}
+        {nameStyles}
       </View>
       <View style={{ gap: space.sm }}>
         <Title>Titles</Title>
         <View style={styles.titles}>
-          <TitleChip label="None" selected={look.title === null} onPress={() => wear('title', null)} />
+          <Pick label="None" selected={look.title === null} onPress={() => wear('title', null)} />
           {titles.map((id) => {
             const item = cosmeticItem(id);
             const has = item ? owned.has(id) : true;
             return (
-              <TitleChip
+              <Pick
                 key={id}
-                label={has ? (lookTitleName(id) ?? id) : `${TIER_LABEL[item!.tier]} title`}
+                label={lookTitleName(id) ?? id}
                 tierInk={has ? undefined : TIER_INK[item!.tier]}
                 locked={!has}
                 selected={look.title === id}
@@ -152,10 +162,6 @@ export default function LockerScreen() {
           })}
         </View>
       </View>
-      <Row gap={space.md} style={{ justifyContent: 'center', opacity: 0.7, paddingVertical: space.lg }}>
-        <ChestArt state="locked" size={36} />
-        <Caption>{`${locker.cosmetics.length} of ${COSMETICS.length} found`}</Caption>
-      </Row>
     </Screen>
   );
 }
@@ -183,9 +189,10 @@ function Tile({ children, label, selected, locked, tierInk, onPress, testID }: {
   );
 }
 
-function TitleChip({ label, selected, locked, tierInk, onPress }: { label: string; selected?: boolean; locked?: boolean; tierInk?: string; onPress?: () => void }) {
+function Pick({ label, selected, locked, tierInk, onPress, testID, children }: { label: string; selected?: boolean; locked?: boolean; tierInk?: string; onPress?: () => void; testID?: string; children?: React.ReactNode }) {
   return (
     <Pressable
+      testID={testID}
       accessibilityRole="radio"
       accessibilityState={{ selected: !!selected, disabled: !onPress }}
       accessibilityLabel={locked ? `${label}, not found yet` : label}
@@ -193,7 +200,9 @@ function TitleChip({ label, selected, locked, tierInk, onPress }: { label: strin
       onPress={onPress}
       style={({ pressed }) => [styles.titleChip, selected && styles.tileSelected, pressed && { opacity: 0.8 }]}>
       {locked && <Icon name="lock" tint={color.textFaint} size={iconSize.sm} />}
-      <Text style={[type.caption, { color: tierInk ?? (selected ? color.brandText : color.text), fontWeight: '700' }]}>{label}</Text>
+      <View style={locked && children ? { opacity: 0.45 } : undefined}>
+        {children ?? <Text style={[type.caption, { color: tierInk ?? (selected ? color.brandText : color.text), fontWeight: '700' }]}>{label}</Text>}
+      </View>
     </Pressable>
   );
 }

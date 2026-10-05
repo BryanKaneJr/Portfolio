@@ -1,11 +1,12 @@
 import { cosmeticItem, masteryTitleName, masteryTitleSkill, type CosmeticTier } from '@brainscroll/core';
 import { useEffect, useId, useState, type ReactNode } from 'react';
 import { router } from 'expo-router';
-import { Animated, Easing, Pressable, StyleSheet, Text, View, type StyleProp, type TextStyle } from 'react-native';
-import Svg, { Circle, Defs, G, LinearGradient, Path, Rect, Stop } from 'react-native-svg';
+import { Animated, Easing, Image, Pressable, StyleSheet, Text, View, type StyleProp, type TextStyle } from 'react-native';
+import Svg, { Circle, Defs, LinearGradient, Stop } from 'react-native-svg';
 import { getSkill } from '@/content';
 import { useReduceMotion } from '@/theme/feedback';
 import { Icon } from '@/components/ui';
+import { UI_ART } from '@/components/ui/uiArt';
 import { useProgress } from '@/progress/ProgressProvider';
 import { color, depth, iconSize, radius, space, type } from '@/theme/tokens';
 
@@ -125,8 +126,9 @@ export function StyledName({ children, nameStyle, style, numberOfLines = 1, head
 }
 
 /** A name style's swatch for the Locker: "Aa" in that style. */
-export function NameSwatch({ nameStyle, size = 22 }: { nameStyle: string; size?: number }) {
-  return <StyledName nameStyle={nameStyle} style={{ fontSize: size, fontWeight: '800' }}>Aa</StyledName>;
+/** A name style, shown as its own name written in it ("Gold" in gold). */
+export function NameSwatch({ nameStyle, size = 18 }: { nameStyle: string; size?: number }) {
+  return <StyledName nameStyle={nameStyle} style={{ fontSize: size, fontWeight: '800' }}>{cosmeticName(nameStyle)}</StyledName>;
 }
 
 export const cosmeticName = (id: string) => cosmeticItem(id)?.name ?? id;
@@ -143,48 +145,19 @@ export function lookTitleName(id: string | null | undefined): string | undefined
 }
 
 /**
- * The map chest: a plum chest with a gold band. `ready` has its lid lifted a
- * crack with light spilling out; `opened` stands open and empty; `locked` is
- * shut and dim. Drawn on a 64 x 56 box.
+ * The map chest, from the owner's art (ui/chest, ui/chest-open): shut and dim
+ * before it can open, shut when ready, open after.
  */
 export function ChestArt({ state, size = 56 }: { state: 'locked' | 'ready' | 'opened'; size?: number }) {
-  const id = `c${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
-  const h = (size * 56) / 64;
-  const body = state === 'locked' ? '#4A3A5C' : color.plumDeep;
-  const bodyDark = state === 'locked' ? '#352944' : '#6E2F99';
-  const band = state === 'locked' ? '#8A7A55' : color.mastery;
-  const open = state === 'opened';
   return (
-    <Svg width={size} height={h} viewBox="0 0 64 56">
-      <Defs>
-        <LinearGradient id={id} x1="0" y1="0" x2="0" y2="1">
-          <Stop offset="0" stopColor="#FFF3C4" stopOpacity="0.95" />
-          <Stop offset="1" stopColor={color.mastery} stopOpacity="0" />
-        </LinearGradient>
-      </Defs>
-      {state === 'ready' && <Path d="M14 22 L4 0 L60 0 L50 22 Z" fill={`url(#${id})`} />}
-      {/* Body */}
-      <Rect x="8" y="26" width="48" height="28" rx="4" fill={bodyDark} />
-      <Rect x="8" y="26" width="48" height="24" rx="4" fill={body} />
-      <Rect x="8" y="34" width="48" height="4" fill={band} />
-      {open ? (
-        // The lid thrown back, and the empty inside.
-        <G>
-          <Rect x="11" y="24" width="42" height="6" rx="2" fill="#2A1A3A" />
-          <Path d="M10 24 L14 6 Q32 0 50 6 L54 24 Z" fill={bodyDark} />
-          <Path d="M14 6 Q32 0 50 6" stroke={band} strokeWidth="3" fill="none" />
-        </G>
-      ) : (
-        <G transform={state === 'ready' ? 'rotate(-6 8 26)' : undefined}>
-          <Path d="M8 26 L8 18 Q32 4 56 18 L56 26 Z" fill={body} />
-          <Path d="M8 26 L8 18 Q32 4 56 18 L56 26 Z" fill="none" stroke={bodyDark} strokeWidth="2" />
-          <Rect x="28" y="9" width="8" height="17" fill={band} />
-        </G>
-      )}
-      {/* The clasp */}
-      {!open && <Rect x="27" y="30" width="10" height="11" rx="2" fill={band} stroke={state === 'locked' ? '#5E5340' : color.masteryEdge} strokeWidth="1.5" />}
-      {!open && state === 'locked' && <Circle cx="32" cy="35" r="1.6" fill="#352944" />}
-    </Svg>
+    <View style={{ width: size, height: size, alignItems: 'center', justifyContent: 'center' }}>
+      <Image
+        source={state === 'opened' ? UI_ART['chest-open'] : UI_ART.chest}
+        style={{ width: size, height: size, opacity: state === 'locked' ? 0.45 : 1 }}
+        resizeMode="contain"
+        accessibilityIgnoresInvertColors
+      />
+    </View>
   );
 }
 
@@ -238,18 +211,18 @@ export function LockerTile() {
   const { locker } = useProgress().snapshot;
   const left = useBoostLeft();
   const saved = locker.boosts.filter((b) => !b.startedAt).length;
-  const line = left !== null ? `2x XP · ${clock(left)} left` : saved ? `${saved} XP ${saved === 1 ? 'boost' : 'boosts'} saved` : `${locker.cosmetics.length} of 24 collected`;
+  const line = left !== null ? `2x XP · ${clock(left)} left` : saved ? `${saved} XP ${saved === 1 ? 'boost' : 'boosts'}` : null;
   return (
     <Pressable
       testID="open-locker"
       accessibilityRole="button"
-      accessibilityLabel={`Locker: ${line}. Open`}
+      accessibilityLabel={line ? `Locker: ${line}. Open` : 'Locker. Open'}
       onPress={() => router.push('/locker')}
       style={({ pressed }) => [styles.lockerTile, pressed && { opacity: 0.8 }]}>
       <ChestArt state="ready" size={48} />
       <View style={{ flex: 1, gap: space.xxs }}>
         <Text style={[type.title, { color: color.text }]}>Locker</Text>
-        <Text style={[type.caption, { color: left !== null ? color.mastery : color.textMuted }]}>{line}</Text>
+        {line && <Text style={[type.caption, { color: left !== null ? color.mastery : color.textMuted }]}>{line}</Text>}
       </View>
       <Icon name="forward" tint={color.textMuted} size={iconSize.md} />
     </Pressable>

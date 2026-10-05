@@ -3,6 +3,12 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-05: The owner's chest art, and a cleaner Locker
+
+- **The chest is the owner's art** (`ui/chest` and `ui/chest-open`, already in the UI set but marked unused under the old "no loot" note): on the road, on the chest screen and in the Locker tile, replacing the one drawn in code.
+- **Name styles are just their names, written in the style** ("Gold" in gold), on the chest screen and in the Locker (owner: "the display of name styles is clunky").
+- **Fewer explaining lines** (owner: "more of that over explaining stuff we have to avoid"): no "Map chest" heading, no "Boost on. Every new level pays 2x." or "Wearing it." after a tap, no "N of 24 found" or "None saved.", and the XP boosts section only shows when there's a boost. Locked rings and titles show their own names (in their tier's colour) instead of "Rare title".
+
 ## 2026-10-05: Map chests, XP boosts and cosmetics
 
 Owner, 2026-10-05: "luck of the draw", boosts of "15, 30, 1 hour the big one", avatar rings, name styles and titles. Spec: `docs/specs/REWARDS.md`.

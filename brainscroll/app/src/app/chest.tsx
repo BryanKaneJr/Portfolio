@@ -4,13 +4,13 @@ import { useEffect, useState } from 'react';
 import { Animated, Easing, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { BrainpowerIcon } from '@/components/BrainpowerIcon';
-import { boostLength, ChestArt, NameSwatch, StyledName, TIER_INK, TIER_LABEL } from '@/components/cosmetics';
+import { boostLength, ChestArt, NameSwatch, TIER_INK, TIER_LABEL } from '@/components/cosmetics';
 import { Avatar } from '@/components/social';
-import { Body, Button, Chip, Eyebrow, Gleams, H1, IconButton, Notice, OutlinedNumber, Row, Title, useLoop } from '@/components/ui';
+import { Body, Button, Chip, Eyebrow, Gleams, IconButton, Notice, OutlinedNumber, Row, Title, useLoop } from '@/components/ui';
 import { getSkill } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
 import { feedback, useReduceMotion } from '@/theme/feedback';
-import { color, layout, space, type } from '@/theme/tokens';
+import { color, layout, space } from '@/theme/tokens';
 
 /**
  * A map chest (owner, 2026-10-05; docs/specs/REWARDS.md), opened from the
@@ -27,7 +27,7 @@ export default function ChestScreen() {
   const [reward, setReward] = useState<ChestReward | null>(null);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [done, setDone] = useState<string | null>(null);
+  const [done, setDone] = useState(false);
   const [me, setMe] = useState<SocialView['me'] | null>(null);
   const close = () => (router.canGoBack() ? router.back() : router.navigate('/'));
   const wobble = useLoop(700, { active: !reward && !opened && !busy });
@@ -51,12 +51,12 @@ export default function ChestScreen() {
       setBusy(false);
     }
   };
-  const act = async (fn: () => Promise<unknown>, said: string) => {
+  const act = async (fn: () => Promise<unknown>) => {
     setBusy(true);
     try {
       await fn();
       feedback('select');
-      setDone(said);
+      setDone(true);
     } catch {
       setError('That didn’t save. Try again.');
     } finally {
@@ -82,7 +82,6 @@ export default function ChestScreen() {
             <Animated.View style={{ transform: [{ rotate: opened ? '0deg' : tilt }] }}>
               <ChestArt state={opened ? 'opened' : 'ready'} size={176} />
             </Animated.View>
-            <H1 center>{opened ? 'Already opened' : 'Map chest'}</H1>
             {error && <Notice tone="danger">{error}</Notice>}
           </>
         ) : (
@@ -111,17 +110,13 @@ export default function ChestScreen() {
                   </Chip>
                   {item.kind === 'ring' && <Avatar username={me?.username ?? 'you'} avatar={me?.avatar} ring={item.id} size={128} />}
                   {item.kind === 'name_style' && (
-                    <>
-                      <NameSwatch nameStyle={item.id} size={56} />
-                      <StyledName nameStyle={item.id} style={[type.h1, { color: color.text }]}>{me ? `@${me.username}` : item.name}</StyledName>
-                    </>
+<NameSwatch nameStyle={item.id} size={48} />
                   )}
                   {item.kind === 'title' && <OutlinedNumber value={item.name} fontSize={36} tone="brand" />}
-                  <Title>{`${item.name} ${item.kind === 'ring' ? 'ring' : item.kind === 'name_style' ? 'name style' : 'title'}`}</Title>
+                  {item.kind !== 'name_style' && <Title>{`${item.name} ${item.kind === 'ring' ? 'ring' : 'title'}`}</Title>}
                 </>
               )}
             </Animated.View>
-            {done && <Body muted center>{done}</Body>}
             {error && <Notice tone="danger">{error}</Notice>}
           </>
         )}
@@ -131,7 +126,7 @@ export default function ChestScreen() {
         {!reward && opened && <Button variant="secondary" label="See your Locker" onPress={() => router.replace('/locker')} />}
         {reward?.kind === 'boost' && boostId && !done && (
           <>
-            <Button testID="start-boost-now" label="Start now" loading={busy} onPress={() => act(() => p.rewards.startBoost(boostId), 'Boost on. Every new level pays 2x.')} />
+            <Button testID="start-boost-now" label="Start now" loading={busy} onPress={() => act(() => p.rewards.startBoost(boostId))} />
             <Button variant="secondary" label="Save for later" onPress={close} />
           </>
         )}
@@ -145,7 +140,7 @@ export default function ChestScreen() {
                 act(() => {
                   const look = p.snapshot.locker.look;
                   return p.rewards.setLook(item.kind === 'ring' ? { ...look, ring: item.id } : item.kind === 'name_style' ? { ...look, nameStyle: item.id } : { ...look, title: item.id });
-                }, 'Wearing it.')
+                })
               }
             />
             <Button variant="secondary" label="Later" onPress={close} />
