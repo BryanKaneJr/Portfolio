@@ -253,7 +253,7 @@ do $$ begin
   assert (select highest_cleared from public.user_skill_progress) = 6 and (select total_xp from public.user_skill_progress) = 100 + 110 + 15 + 100 + 110 + 115, 'skill XP includes the bonus';
 end $$;
 reset role;
-update public.app_settings set perfect_streak_max_percent = 50 where true;
+update public.app_settings set perfect_streak_max_percent = 100 where true;
 
 -- 11. Published revisions are immutable, and learner bundles never carry answer keys.
 reset role;

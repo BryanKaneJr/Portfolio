@@ -1,6 +1,6 @@
-import { drScrollSaying, LEARNING_STRUCTURE, MASTERY_BAND_SIZE, skillProgressView, XP, type CompletionOutcome, type DrScrollMoment } from '@brainscroll/core';
+import { drScrollSaying, LEARNING_STRUCTURE, MASTERY_BAND_SIZE, skillProgressView, type CompletionOutcome, type DrScrollMoment } from '@brainscroll/core';
 import { Redirect, router } from 'expo-router';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Image, ScrollView, StyleSheet, useWindowDimensions, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
@@ -27,7 +27,7 @@ import {
   CountUp,
   UiArt,
 } from '@/components/ui';
-import { chapterFor, getConcept, getSkill, levelByNumber, levelMeta } from '@/content';
+import { chapterFor, getSkill, levelByNumber, levelMeta } from '@/content';
 import { BrainpowerEarned, brainpowerCardShows } from '@/components/BrainpowerEarned';
 import { BrainpowerFlight } from '@/components/BrainpowerFlight';
 import { ReminderPrompt } from '@/components/ReminderSettings';
@@ -58,10 +58,11 @@ import { color, iconSize, layout, space } from '@/theme/tokens';
  * now knows, not another test, so there's no score beside it. On a chapter's
  * last level the knowledge comes first (roadmap §14): the lines reveal one at
  * a time, "You know this now." lands with the checkpoint's haptic and sound,
- * and only then does the XP arrive. The knowledge is the reward; XP supports it.
+ * and Continue then brings in the result (XP, trophy, skill) on a clean
+ * screen of its own. The knowledge is the reward; XP supports it.
  *
  * Screen readers get the same story in the same order (eyebrow, the recap
- * lines, "You know this now.", then the outcome and XP): nothing is hidden
+ * lines, "You know this now.", Continue, then the outcome and XP): nothing is hidden
  * while it waits to reveal, the trophy is decoration, and counting numbers
  * are read at their settled values. With Reduce Motion every reveal, pop and
  * count-up simply appears; with sound and haptics off, the words carry it.
@@ -72,10 +73,14 @@ export default function LevelCompleteScreen() {
   // Small phones (iPhone SE): a tighter column, so the next step stays close.
   const short = useWindowDimensions().height < 720;
   const level = s ? levelMeta(s.levelId) : undefined;
-  const proof = s && level && !s.alreadyCompleted && level.number % 10 === 0 ? chapterFor(s.skillId, level.number)?.learned : undefined;
-  // When the recap leads, everything else waits for "You know this now."
+  const chapter = s && level ? chapterFor(s.skillId, level.number) : undefined;
+  const proof = s && level && !s.alreadyCompleted && level.number % 10 === 0 ? chapter?.learned : undefined;
+  // On a checkpoint the recap is its own moment (owner, 2026-10-05: "the continue"):
+  // it plays line by line, and Continue brings in the result on a clean screen.
   const knowAt = proof ? PROOF_START + proof.length * PROOF_STEP : 0;
-  const t0 = proof ? knowAt + 450 : 0;
+  const [recapDone, setRecapDone] = useState(false);
+  const recap = !!proof && !recapDone;
+  const scrollRef = useRef<ScrollView>(null);
 
   const eventKey = s ? `${s.levelId}:${s.skillLevel}:${s.alreadyCompleted}` : '';
   const newTrophies = useNewTrophies(s && !s.alreadyCompleted ? s.levelId : undefined, undefined, s?.daily);
@@ -109,9 +114,11 @@ export default function LevelCompleteScreen() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: color.bgDeep }} edges={['top']}>
       <BrainpowerFlight daily={s.daily}>
-      <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: layout.gutter, paddingVertical: short ? space.lg : space.xl, justifyContent: 'center' }}>
+      <ScrollView
+        ref={scrollRef}
+        contentContainerStyle={{ flexGrow: 1, paddingHorizontal: layout.gutter, paddingVertical: short ? space.lg : space.xl, justifyContent: 'center' }}>
         <View style={{ width: '100%', maxWidth: layout.readingWidth, alignSelf: 'center', gap: short ? space.lg : space.xl, alignItems: 'center' }}>
-          {!s.alreadyCompleted && level.number % 10 === 0 && (
+          {!s.alreadyCompleted && level.number % 10 === 0 && (!proof || recap) && (
             <Pop delay={100}>
               {mastery ? (
                 <Image source={masteryBadge(s.skillId) ?? TROPHY_ART} style={styles.badge} resizeMode="contain" accessible accessibilityRole="image" accessibilityLabel={`${skill?.name ?? 'Skill'} mastery badge`} />
@@ -134,7 +141,7 @@ export default function LevelCompleteScreen() {
             {s.alreadyCompleted ? `Level ${level.number} replay` : mastery ? '★ Mastery star earned' : level.type === 'regular' ? `Level ${level.number} complete` : `Level ${level.number} · ${label} complete`}
           </Eyebrow>
 
-          {proof && (
+          {recap && (
             <View style={{ alignSelf: 'stretch' }}>
             <Reveal delay={PROOF_START - 250}>
               {/* Unlabelled on purpose: its title, lines and "You know this now." read one by one, in order. */}
@@ -156,29 +163,31 @@ export default function LevelCompleteScreen() {
             </View>
           )}
 
+          {!recap && (
+          <>
           <View style={{ alignItems: 'center', gap: space.sm }}>
-            <Reveal delay={t0}>
+            <Reveal>
               <Display center tone={mastery ? 'mastery' : 'text'}>
                 {headline}
               </Display>
             </Reveal>
-            <Pop delay={150 + t0}>
+            <Pop delay={150}>
               <Numeral size="hero" tone={mastery ? 'mastery' : 'brand'} accessibilityLabel={`plus ${s.xpAwarded} XP`}>
-                +<CountUp to={s.xpAwarded} delay={250 + t0} /> XP
+                +<CountUp to={s.xpAwarded} delay={250} /> XP
               </Numeral>
             </Pop>
-            <Reveal delay={t0}>
+            <Reveal>
               <Caption center>
                 {s.alreadyCompleted ? 'Replays earn no XP' : `First try: ${s.firstAttemptCorrect} / ${s.total}`}
               </Caption>
             </Reveal>
             {s.perfectStreak > 0 && (
-              <Pop delay={400 + t0}>
+              <Pop delay={400}>
                 <PerfectStreak streak={s.perfectStreak} percent={s.perfectStreakPercent} bonus={s.perfectStreakBonusXp} />
               </Pop>
             )}
             {streakMoment !== undefined && !s.alreadyCompleted && (
-              <Pop delay={450 + t0}>
+              <Pop delay={450}>
                 <Chip tone="streak">
                   <UiArt name="streak-flame" size={18} />
                   <Caption style={{ color: color.streak }}>{streakMoment === 1 ? 'Streak started' : `Day ${streakMoment} streak`}</Caption>
@@ -192,30 +201,30 @@ export default function LevelCompleteScreen() {
           {newTrophies.length > 0 && (
             // Stretched to the width of the skill card below.
             <View style={{ alignSelf: 'stretch' }}>
-              <Pop delay={550 + t0}>
-                <TrophyEarned trophies={newTrophies} at={550 + t0} brainpower={trophyBrainpower(s.daily)} />
+              <Pop delay={550}>
+                <TrophyEarned trophies={newTrophies} at={550} brainpower={trophyBrainpower(s.daily)} />
               </Pop>
             </View>
           )}
 
           {brainpowerCardShows(s.daily, newTrophies.length > 0 || trophyBrainpower(s.daily) > 0) && (
             <View style={{ alignSelf: 'stretch' }}>
-              <Pop delay={580 + t0}>
-                <BrainpowerEarned daily={s.daily} at={580 + t0} trophiesShown={newTrophies.length > 0 || trophyBrainpower(s.daily) > 0} />
+              <Pop delay={580}>
+                <BrainpowerEarned daily={s.daily} at={580} trophiesShown={newTrophies.length > 0 || trophyBrainpower(s.daily) > 0} />
               </Pop>
             </View>
           )}
 
           {/* Stretched rather than given a minimum width, so a 320 pt phone keeps its margins. */}
           <View style={{ alignSelf: 'stretch' }}>
-          <Reveal delay={600 + t0}>
+          <Reveal delay={600}>
             <Card
               variant={mastery ? 'mastery' : leveledUp ? 'reward' : 'plain'}
               // A level-up glows in the skill's subject colour; a mastery stays gold. Kept lean (owner, 2026-10-04):
               // the skill, its level and the bar toward the next ★, nothing to read.
               style={{ width: '100%', padding: space.lg, gap: space.md, ...(leveledUp && !mastery ? { borderColor: subjectTint(skill?.subjectId).base, shadowColor: subjectTint(skill?.subjectId).base } : null) }}>
               <Row gap={space.md}>
-                <CountUp to={s.skillLevel} from={s.skillLevelBefore} delay={900 + t0} duration={400}>
+                <CountUp to={s.skillLevel} from={s.skillLevelBefore} delay={900} duration={400}>
                   {(shown) => <Emblem value={shown} size="sm" tone={mastery ? 'mastery' : 'brand'} glowing={leveledUp} tint={subjectTint(skill?.subjectId)} label={`Level ${shown}`} />}
                 </CountUp>
                 <View style={{ flex: 1, gap: space.xxs }}>
@@ -224,20 +233,19 @@ export default function LevelCompleteScreen() {
                 </View>
                 <Stars count={view.stars} />
               </Row>
-              <View style={{ gap: space.xs }}>
-                <ProgressBar value={intoBand / MASTERY_BAND_SIZE} tone="mastery" fill={mastery ? undefined : subjectTint(skill?.subjectId).base} />
-                <Caption>
-                  {mastery
-                    ? `★ Mastery ${roman(band)}. Levels ${level.number + 1}–${level.number + MASTERY_BAND_SIZE} are open.`
-                    : `${intoBand} / ${MASTERY_BAND_SIZE} toward ★ Mastery ${roman(nextStar)}`}
-                </Caption>
-              </View>
+              {/* Just the bar (owner, 2026-10-05: no over-explaining); screen readers hear where it stands. */}
+              <ProgressBar
+                value={intoBand / MASTERY_BAND_SIZE}
+                tone="mastery"
+                fill={mastery ? undefined : subjectTint(skill?.subjectId).base}
+                label={mastery ? `Mastery ${roman(band)} earned` : `${intoBand} of ${MASTERY_BAND_SIZE} toward Mastery ${roman(nextStar)}`}
+              />
             </Card>
           </Reveal>
           </View>
 
           <View style={{ alignSelf: 'stretch' }}>
-          <Reveal delay={900 + t0}>
+          <Reveal delay={900}>
             <View style={{ alignItems: 'center', gap: space.lg }}>
               {!proof && (
                 <DrScrollSays
@@ -249,21 +257,25 @@ export default function LevelCompleteScreen() {
               )}
               {/* Once, after the first level: would they like reminders? */}
               {!s.alreadyCompleted && <ReminderPrompt />}
-              {!s.alreadyCompleted && s.reinforcedConceptIds.length > 0 && (
-                <Caption center>
-                  {s.reinforcedConceptIds.length <= 3
-                    ? `Back sooner in Review: ${s.reinforcedConceptIds.map((id) => getConcept(id)?.title ?? id).join(', ')}`
-                    : `${s.reinforcedConceptIds.length} concepts back sooner in Review`}
-                </Caption>
-              )}
             </View>
           </Reveal>
           </View>
+          </>
+          )}
         </View>
       </ScrollView>
 
       <View style={{ paddingHorizontal: layout.gutter, paddingBottom: Math.max(insets.bottom, space.lg), gap: space.sm, width: '100%', maxWidth: layout.readingWidth + 2 * layout.gutter, alignSelf: 'center' }}>
-        {s.daily.dailyComplete ? (
+        {recap ? (
+          <Button
+            variant={mastery ? 'mastery' : 'primary'}
+            label="Continue"
+            onPress={() => {
+              setRecapDone(true);
+              scrollRef.current?.scrollTo({ y: 0, animated: false });
+            }}
+          />
+        ) : s.daily.dailyComplete ? (
           <Button label="Continue" onPress={() => router.replace('/daily-complete')} />
         ) : next && !s.alreadyCompleted ? (
           <Button
@@ -272,7 +284,7 @@ export default function LevelCompleteScreen() {
             onPress={() => router.replace({ pathname: '/level/[id]', params: { id: next.id } })}
           />
         ) : null}
-        <Button variant="ghost" label="Back to the map" onPress={() => router.dismissTo({ pathname: '/skill/[id]', params: { id: s.skillId } })} />
+ {!recap && <Button variant="ghost" label="Back to the map" onPress={() => router.dismissTo({ pathname: '/skill/[id]', params: { id: s.skillId } })} />}
       </View>
       </BrainpowerFlight>
     </SafeAreaView>
@@ -321,19 +333,17 @@ const times = (percent: number) => `×${((100 + percent) / 100).toFixed(1)}`;
 
 /**
  * The perfect streak (XP.PERFECT_STREAK_*): perfect levels in a row pay more.
- * The first perfect level says what the next one pays; later ones show the
- * multiplier that just paid out. A miss ends it quietly: nothing here says it
- * broke.
+ * Just the chip: "Perfect!", then the multiplier that just paid out, with no
+ * line explaining the rules under it (owner, 2026-10-05: no over-explaining).
+ * A miss ends it quietly: nothing here says it broke.
  */
 function PerfectStreak({ streak, percent, bonus }: { streak: number; percent: number; bonus: number }) {
-  const next = Math.min(streak * XP.PERFECT_STREAK_STEP_PERCENT, XP.PERFECT_STREAK_MAX_PERCENT);
-  const label = streak === 1 ? `Perfect! Next perfect level: ${times(next)} XP` : `Perfect streak ${streak} · ${times(percent)} · +${bonus} XP`;
+  const label = streak === 1 ? 'Perfect!' : `Perfect streak ${times(percent)}, plus ${bonus} XP`;
   return (
-    <View accessible accessibilityLabel={label} style={{ alignItems: 'center', gap: space.xxs }}>
+    <View accessible accessibilityLabel={label} style={{ alignItems: 'center' }}>
       <Chip tone="brand" icon="xp">
         <Caption tone="text">{streak === 1 ? 'Perfect!' : `Perfect streak ${times(percent)}`}</Caption>
       </Chip>
-      <Caption center>{streak === 1 ? `Get the next level perfect for ${times(next)} XP` : next > percent ? `+${bonus} XP. Next perfect level: ${times(next)}` : `+${bonus} XP, the most it pays`}</Caption>
     </View>
   );
 }

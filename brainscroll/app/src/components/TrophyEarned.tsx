@@ -86,7 +86,6 @@ export function TrophyEarned({ trophies, at = 0, brainpower = 0 }: { trophies: T
         <View style={{ flex: 1, gap: space.xxs }}>
           <Eyebrow tone={gold ? 'mastery' : 'brand'}>{eyebrow}</Eyebrow>
           <Title>{first.name}</Title>
-          {info?.description ? <Caption>{info.description}</Caption> : null}
           {more > 0 && <Caption>{`and ${more} more`}</Caption>}
           {brainpower > 0 && (
             <View ref={plus} collapsable={false} style={{ alignSelf: 'flex-start' }}>

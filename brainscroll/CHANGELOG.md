@@ -3,6 +3,20 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-05: Perfect streak caps at 2.0×
+
+- **The perfect streak now tops out at 2.0×** instead of 1.5× (owner: "cap the multiplier at 2.0x its cleaner"): still +10% per perfect level in a row, so 2.0× from the 11th, and a perfect regular level pays at most 200. `XP.PERFECT_STREAK_MAX_PERCENT` is 100, and migration `20261105000000_perfect_streak_cap.sql` moves `app_settings.perfect_streak_max_percent` from 50 to 100 (a project that changed it on purpose keeps its value).
+- **Test fix:** `quests.test.sql` failed about 1 run in 10 (it was the red "Database migrations + SQL tests" step on CI). A goal met on a perfect level could find Brainpower already full, because the level's random lucky +1 landed first. The test now turns the lucky drop off, as `core-loop.test.sql` does.
+
+## 2026-10-05: Skill map returns and checkpoint results
+
+- **The cleared level pops when you're back on the map.** "Back to the map" used to show no pop on the level just cleared (it played, or didn't, while the map was hidden under the lesson). The map now pops the cleared waypoint and wakes the next one when it comes back into view, once per completion.
+- **A link or reload opens the map at your level.** On a cold load the map first shows its skeleton, and the scroll handle added only when the real map replaced it never attached, so it stayed at the top. The skeleton now carries the same handle; the scroll also checks it took and tries again for a moment if the map wasn't ready.
+- **Coming back keeps your place.** The map scrolls to your next level when you open it and when that level moves on, not on every return, so leaving a replay or a level partway leaves the map where you had it.
+- **Checkpoint and mastery recaps get a Continue.** The recap is now a screen of its own (chapter art, "could you have explained this?", the lines one by one, "You know this now."), and Continue brings in the result (headline, XP, trophy, skill) on a clean screen that fits without scrolling, its count-ups and sparks starting then. Before, the result sat below the fold, and scrolling it into view cut the recap card in half at the top (owner, 2026-10-05: "lets just do the continue").
+- **No rules line under the perfect streak chip.** Level Complete shows just "Perfect!" or "Perfect streak ×1.5"; the caption explaining what the next level pays ("+75 XP, the most it pays", "Get the next level perfect for ×1.1 XP") is gone (owner: "we shouldnt have over explaining lines in here").
+- **Fewer explaining lines on Level Complete** (owner, 2026-10-05): the trophy card shows the trophy's name without its description (also on Review Complete and the Final Round); the skill card's bar has no "N / 100 toward ★ Mastery" caption (screen readers still hear where it stands); and the "Back sooner in Review: …" line is gone.
+
 ## 2026-10-05: Fixes from the regression pass
 
 Four test agents re-checked the last two performance PRs (fresh data, the skill map, server-fetched cards, fresh accounts, offline, every Level Complete). Fixed:

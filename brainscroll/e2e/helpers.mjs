@@ -310,8 +310,21 @@ export async function playReview(page) {
 
 /** Reads "First try: x / n" and the settled "+N XP" from the Level Complete screen. */
 export async function completionFacts(page) {
-  // Let the XP count-up settle. On a checkpoint the recap leads and the XP
-  // arrives after "You know this now.", so poll until the number holds.
+  // A checkpoint's recap is a screen of its own: read it once "You know this
+  // now." has landed, then Continue to the result.
+  let recap = '';
+  for (let i = 0; i < 20; i++) {
+    await page.waitForTimeout(300);
+    const now = await bodyText(page);
+    if (/could you have explained this\?/.test(now)) {
+      await page.getByText('You know this now.').waitFor({ timeout: 8_000 });
+      recap = await bodyText(page);
+      await exactButton(page, 'Continue').click();
+      break;
+    }
+    if (/\+\d+ XP|Replays earn no XP/.test(now)) break;
+  }
+  // Let the XP count-up settle: poll until the number holds.
   let t = '';
   let last;
   let steady = 0;
@@ -325,7 +338,7 @@ export async function completionFacts(page) {
   }
   const first = t.match(/First try: (\d+) \/ (\d+)/);
   const xp = t.match(/\+(\d+) XP/);
-  return { firstTry: first ? Number(first[1]) : undefined, total: first ? Number(first[2]) : undefined, xp: xp ? Number(xp[1]) : undefined, text: t };
+  return { firstTry: first ? Number(first[1]) : undefined, total: first ? Number(first[2]) : undefined, xp: xp ? Number(xp[1]) : undefined, text: t, recap };
 }
 
 export function sql(query) {

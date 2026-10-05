@@ -160,10 +160,10 @@ try {
     await playLevel(page, { pick: () => 0 });
   }
   await page.waitForTimeout(2600);
-  await shot('checkpoint-complete');
-  await scrollDown();
-  await page.waitForTimeout(1500);
   await shot('checkpoint-complete-proof');
+  await exactButton(page, 'Continue').click();
+  await page.waitForTimeout(1800);
+  await shot('checkpoint-complete');
   // Chapter 1 finished: Dr. Scroll stays behind goofing off by its road.
   await home(page);
   await page.getByRole('button', { name: 'Continue', exact: true }).click();
