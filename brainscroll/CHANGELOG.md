@@ -3,6 +3,11 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-06: Prizes as cards
+
+- **The prize turns up as a card** (owner: "make the awards more premium looking when they're opened... they look very ehhhh"): a frame in the rarity's material around a deep panel tinted with it, the rarity on top (cosmetics only), the prize big in a pool of its own light, its name large and what it is in small capitals (Glow, Name style, Title, XP boost, Brainpower). It flips up out of the open chest on a spring, a sheen crosses it every few seconds, and sparkles in the rarity's colour float over it (`PrizeCard`, components/rewardsUi.tsx).
+- **Fix:** reloading the chest page on the web no longer logs a hydration error (the pre-rendered page has no link query, so it now draws once mounted).
+
 ## 2026-10-06: The chest opening
 
 - **Opening a chest is a moment** (owner: "a quick animation of the chest shaking and then have the chest opened image with a glow behind it appear"). Tap Open: the chest rattles, each swing a little wider (about 0.8 s, while the server rolls), then pops open with a springy scale and slow-turning light in the prize's rarity colour behind it, and the prize rises a beat later. With Reduce Motion it skips the rattle. The buttons (Start now, Wear it, Done) come in with the prize, not before.

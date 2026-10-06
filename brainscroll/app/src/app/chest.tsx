@@ -1,11 +1,11 @@
 import { chestKey, cosmeticItem, RewardError, type ChestReward, type SocialView } from '@brainscroll/core';
 import { router, useLocalSearchParams } from 'expo-router';
-import { useEffect, useState } from 'react';
-import { Animated, Easing, Text, View } from 'react-native';
+import { useEffect, useState, useSyncExternalStore } from 'react';
+import { Animated, Easing, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { BrainpowerIcon } from '@/components/BrainpowerIcon';
-import { boostLength, ChestArt, NameSwatch } from '@/components/cosmetics';
-import { Burst, RarityLabel, TitlePlate } from '@/components/rewardsUi';
+import { boostLength, ChestArt, StyledName } from '@/components/cosmetics';
+import { Burst, PrizeCard, TitlePlate } from '@/components/rewardsUi';
 import { Avatar } from '@/components/social';
 import { Button, Eyebrow, IconButton, Notice, OutlinedNumber, Row, useLoop } from '@/components/ui';
 import { getSkill } from '@/content';
@@ -20,10 +20,14 @@ import { color, layout, space, type } from '@/theme/tokens';
  * rarity colour behind it, and the prize rises. A boost can start now or wait in
  * the Locker; a cosmetic can be worn straight away.
  */
+const noop = () => () => {};
+
 export default function ChestScreen() {
   const { skillId = '', chapter: chapterParam = '1' } = useLocalSearchParams<{ skillId: string; chapter: string }>();
   const chapter = Number(chapterParam);
   const p = useProgress();
+  // The web build is pre-rendered without the link's query: draw nothing until mounted, so a reload of this page hydrates cleanly.
+  const mounted = useSyncExternalStore(noop, () => true, () => false);
   const reduce = useReduceMotion();
   // Opened before this visit (opening it here marks it opened at once, mid-shake: that doesn't count).
   const [opened] = useState(() => p.snapshot.locker.chests.includes(chestKey(skillId, chapter)));
@@ -65,7 +69,7 @@ export default function ChestScreen() {
       setReward(r.reward);
       Animated.sequence([
         Animated.spring(pop, { toValue: 1, friction: 5, tension: 140, useNativeDriver: true }),
-        Animated.timing(burst, { toValue: 1, duration: reduce ? 1 : 480, easing: Easing.out(Easing.back(1.4)), useNativeDriver: true }),
+        Animated.spring(burst, { toValue: 1, friction: 7, tension: 50, useNativeDriver: true }),
       ]).start(() => setPrizeShown(true));
     } catch (e) {
       setError(e instanceof RewardError && e.code === 'CHEST_LOCKED' ? `Clear Level ${(chapter - 1) * 10 + 5} to open it.` : 'It didn’t open. Try again.');
@@ -91,7 +95,6 @@ export default function ChestScreen() {
   const boostId = reward?.kind === 'boost' ? p.snapshot.locker.boosts.findLast((b) => b.source === chestKey(skillId, chapter) && !b.startedAt)?.id : undefined;
   const item = reward?.kind === 'cosmetic' ? cosmeticItem(reward.itemId) : undefined;
   const rarity = item ? item.tier : 'quest';
-  const rise = { opacity: burst, transform: [{ translateY: burst.interpolate({ inputRange: [0, 1], outputRange: [24, 0] }) }, { scale: burst.interpolate({ inputRange: [0, 1], outputRange: [0.6, 1] }) }] };
   const tilt = wobble.interpolate({ inputRange: [0, 0.5, 1], outputRange: ['-4deg', '4deg', '-4deg'] });
   const rattleStyle = {
     transform: [
@@ -102,6 +105,7 @@ export default function ChestScreen() {
   };
   const popStyle = { opacity: pop, transform: [{ scale: pop.interpolate({ inputRange: [0, 1], outputRange: [0.6, 1] }) }] };
 
+  if (!mounted) return <View style={{ flex: 1, backgroundColor: color.bgDeep }} />;
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: color.bgDeep }}>
       <Row style={{ paddingHorizontal: layout.gutter, paddingTop: space.sm }}>
@@ -118,34 +122,38 @@ export default function ChestScreen() {
           </>
         ) : (
           <>
-            {/* The chest bursts open, its glow in the prize's rarity colour. */}
-            <Animated.View style={[{ alignItems: 'center', justifyContent: 'center', width: 300, height: 210 }, popStyle]}>
-              <Burst rarity={rarity} size={300} />
-              <ChestArt state="opened" size={168} />
+            {/* The chest bursts open, and the prize card turns up out of its light. */}
+            <Animated.View style={[{ alignItems: 'center', marginBottom: -space.xl }, popStyle]}>
+              <ChestArt state="opened" size={92} />
             </Animated.View>
-            <Animated.View style={[{ alignItems: 'center', gap: space.md }, rise]} testID="chest-reward">
-              {item && <RarityLabel rarity={item.tier} />}
+            <View style={{ alignItems: 'center', justifyContent: 'center' }} testID="chest-reward">
+              <Burst rarity={rarity} size={400} />
               {reward.kind === 'boost' && (
-                <>
-                  <OutlinedNumber value="2x" fontSize={72} tone="brand" />
-                  <TitlePlate name={`${boostLength(reward.minutes)} XP boost`} rarity="quest" size="lg" />
-                </>
+                <PrizeCard rarity="quest" showRarity={false} kind="XP boost" name={boostLength(reward.minutes)} reveal={burst}>
+                  <OutlinedNumber value="2x" fontSize={96} tone="brand" />
+                </PrizeCard>
               )}
               {reward.kind === 'brainpower' && (
-                <>
-                  <BrainpowerIcon size={96} state="lit" />
-                  <TitlePlate name={`+${reward.amount} Brainpower`} rarity="quest" size="lg" />
-                </>
+                <PrizeCard rarity="quest" showRarity={false} kind="Brainpower" name={`+${reward.amount}`} reveal={burst}>
+                  <BrainpowerIcon size={124} state="lit" />
+                </PrizeCard>
               )}
               {item?.kind === 'ring' && (
-                <>
-                  <Avatar username={me?.username ?? 'you'} avatar={me?.avatar} ring={item.id} size={112} />
-                  <Text style={[type.h2, { color: color.text }]}>{`${item.name} glow`}</Text>
-                </>
+                <PrizeCard rarity={item.tier} kind="Glow" name={item.name} reveal={burst}>
+                  <Avatar username={me?.username ?? 'you'} avatar={me?.avatar} ring={item.id} size={124} />
+                </PrizeCard>
               )}
-              {item?.kind === 'name_style' && <NameSwatch nameStyle={item.id} size={48} />}
-              {item?.kind === 'title' && <TitlePlate name={item.name} rarity={item.tier} size="lg" />}
-            </Animated.View>
+              {item?.kind === 'name_style' && (
+                <PrizeCard rarity={item.tier} kind="Name style" name={item.name} reveal={burst}>
+                  <StyledName nameStyle={item.id} style={[type.h1, { color: color.text }]}>{me ? `@${me.username}` : 'Your name'}</StyledName>
+                </PrizeCard>
+              )}
+              {item?.kind === 'title' && (
+                <PrizeCard rarity={item.tier} kind="Title" reveal={burst}>
+                  <TitlePlate name={item.name} rarity={item.tier} size="lg" />
+                </PrizeCard>
+              )}
+            </View>
             {error && <Notice tone="danger">{error}</Notice>}
           </>
         )}
