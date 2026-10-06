@@ -3,6 +3,10 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-06: App preview
+
+- **The app on every branch** (owner: the preview links only ever showed the home page). `npm run app:preview` builds the web app in local mode (offline play, simulated email sign-in with code 123456, nothing sent to a server) for a second Cloudflare Pages project, `brainscroll-app`; once it's set up (`docs/app-preview.md`), each pull request gets a link that opens the app itself.
+
 ## 2026-10-06: A simpler chest
 
 - **The owner's chest-opening animation** (72 frames at 24 fps, packed into `ui/chest-open-anim.webp`, played by `ChestOpening` like Dr. Scroll's sprites): tap, the chest rattles while the server rolls, then the lid lifts and light fills it, and the open chest fades away as the prize comes in on its own in the rarity's glow (owner: "maybe we dont do it on top and we fade away the chest and bring the award in?"). The closed chest is the animation's first frame and the screen keeps one layout throughout (the buttons sit over space kept for them), so the chest never moves when it opens (owner: "the chest like jumps up higher when it opens"). With Reduce Motion it shows the open chest at once.
