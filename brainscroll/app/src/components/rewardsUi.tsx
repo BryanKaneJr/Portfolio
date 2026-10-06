@@ -1,9 +1,8 @@
 import { COSMETICS, cosmeticItem, masteryTitleSkill, type CosmeticTier } from '@brainscroll/core';
-import { useEffect, useId, useState, type ReactNode } from 'react';
-import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
-import Svg, { Defs, G, LinearGradient, Path, RadialGradient, Rect, Stop } from 'react-native-svg';
+import { useId, useState, type ReactNode } from 'react';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
+import Svg, { Defs, LinearGradient, Path, RadialGradient, Rect, Stop } from 'react-native-svg';
 import { Icon } from '@/components/ui';
-import { useReduceMotion } from '@/theme/feedback';
 import { color, radius, space, type } from '@/theme/tokens';
 
 /**
@@ -112,42 +111,22 @@ export function TitlePlate({ name, rarity, size = 'md' }: { name: string; rarity
   );
 }
 
-/** Light pouring out behind a prize: slow-turning rays and a soft glow in the rarity's colour. */
-export function Burst({ rarity, size = 320 }: { rarity: Rarity; size?: number }) {
-  const id = `b${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
-  const reduce = useReduceMotion();
-  const [spin] = useState(() => new Animated.Value(0));
-  useEffect(() => {
-    if (reduce) return;
-    const loop = Animated.loop(Animated.timing(spin, { toValue: 1, duration: 24000, easing: Easing.linear, useNativeDriver: true }));
-    loop.start();
-    return () => loop.stop();
-  }, [spin, reduce]);
+/** A soft pool of light in the rarity's colour, behind the chest and its prize. */
+export function SoftGlow({ rarity, size = 300 }: { rarity: Rarity; size?: number }) {
+  const id = `s${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
   const r = RARITY[rarity];
-  const c = size / 2;
-  const rays = Array.from({ length: 14 }, (_, i) => {
-    const a = (i / 14) * Math.PI * 2;
-    const w = 0.09;
-    const p = (t: number, d: number) => `${c + Math.cos(t) * d} ${c + Math.sin(t) * d}`;
-    return `M ${c} ${c} L ${p(a - w, c)} L ${p(a + w, c)} Z`;
-  }).join(' ');
   return (
     <View pointerEvents="none" style={{ position: 'absolute', width: size, height: size }} accessible={false} importantForAccessibility="no-hide-descendants">
-      <Animated.View style={{ position: 'absolute', width: size, height: size, transform: [{ rotate: spin.interpolate({ inputRange: [0, 1], outputRange: ['0deg', '360deg'] }) }] }}>
-        <Svg width={size} height={size}>
-          <Defs>
-            <RadialGradient id={id} cx="50%" cy="50%" r="50%">
-              <Stop offset="0" stopColor={r.accent} stopOpacity={0.55} />
-              <Stop offset="0.55" stopColor={r.stops[0]} stopOpacity={0.18} />
-              <Stop offset="1" stopColor={r.stops[1]} stopOpacity={0} />
-            </RadialGradient>
-          </Defs>
-          <G>
-            <Path d={rays} fill={`url(#${id})`} />
-          </G>
-        </Svg>
-      </Animated.View>
-      <View style={{ position: 'absolute', left: c - size * 0.22, top: c - size * 0.22, width: size * 0.44, height: size * 0.44, borderRadius: size, backgroundColor: r.glow, opacity: 0.5 }} />
+      <Svg width={size} height={size}>
+        <Defs>
+          <RadialGradient id={id} cx="50%" cy="50%" r="50%">
+            <Stop offset="0" stopColor={r.accent} stopOpacity={0.35} />
+            <Stop offset="0.6" stopColor={r.stops[0]} stopOpacity={0.12} />
+            <Stop offset="1" stopColor={r.stops[1]} stopOpacity={0} />
+          </RadialGradient>
+        </Defs>
+        <Rect x="0" y="0" width={size} height={size} fill={`url(#${id})`} />
+      </Svg>
     </View>
   );
 }

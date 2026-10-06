@@ -3,6 +3,12 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-06: A simpler chest
+
+- **The owner's chest-opening animation** (72 frames at 24 fps, packed into `ui/chest-open-anim.webp`, played by `ChestOpening` like Dr. Scroll's sprites): tap, the chest rattles while the server rolls, then the lid lifts and light fills it, and the open chest fades away as the prize comes in on its own in the rarity's glow (owner: "maybe we dont do it on top and we fade away the chest and bring the award in?"). The closed chest is the animation's first frame and the screen keeps one layout throughout (the buttons sit over space kept for them), so the chest never moves when it opens (owner: "the chest like jumps up higher when it opens"). With Reduce Motion it shows the open chest at once.
+- **Less is more** (owner, with Duolingo's chest screens as the reference: "they still dont look good. think less is more"). The chest screen is now one big chest, one line and one button. Before opening: "Chapter N chest", the chest large in a soft glow with a few sparkles, and "Tap to open" (the chest itself is the button). After: the prize, large (2x, the brain, your avatar in its glow, your name in its style, or the title's plate), one bold line naming it ("15 minute XP boost", "+2 Brainpower", "Plum glow", "Silver name style", "New title") and, for cosmetics, the rarity in its colour. The prize card, the light rays and the skill eyebrow are gone.
+- **Fix:** reloading the chest page on the web no longer logs a hydration error (the pre-rendered page has no link query, so it now draws once mounted).
+
 ## 2026-10-06: The chest opening
 
 - **Opening a chest is a moment** (owner: "a quick animation of the chest shaking and then have the chest opened image with a glow behind it appear"). Tap Open: the chest rattles, each swing a little wider (about 0.8 s, while the server rolls), then pops open with a springy scale and slow-turning light in the prize's rarity colour behind it, and the prize rises a beat later. With Reduce Motion it skips the rattle. The buttons (Start now, Wear it, Done) come in with the prize, not before.
