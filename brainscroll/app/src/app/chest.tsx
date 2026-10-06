@@ -146,10 +146,13 @@ export default function ChestScreen() {
       <Row style={{ paddingHorizontal: layout.gutter, paddingTop: space.sm }}>
         <IconButton label="Close" icon="close" onPress={close} />
       </Row>
-      <View style={{ flex: 1, padding: layout.gutter, alignItems: 'center', justifyContent: 'center', gap: space.lg }}>
-        {!reward ? (
-          <>
+      {/* One layout before and after opening, so the chest never moves; the buttons sit over the space kept for them. */}
+      <View style={{ flex: 1 }}>
+        <View style={styles.main}>
+          <Animated.View style={reward ? { opacity: reveal.interpolate({ inputRange: [0, 0.5], outputRange: [1, 0], extrapolate: 'clamp' }) } : null}>
             <Text style={[type.h1, { color: color.text, textAlign: 'center' }]}>{opened ? 'Chest opened' : `Chapter ${chapter} chest`}</Text>
+          </Animated.View>
+          {!reward ? (
             <Pressable testID="open-chest" accessibilityRole="button" accessibilityLabel="Open the chest" disabled={opened || busy} onPress={open} style={styles.stage}>
               <SoftGlow rarity="quest" size={300} />
               <Animated.View style={shaking ? rattleStyle : { transform: [{ rotate: opened ? '0deg' : tilt }] }}>
@@ -157,61 +160,66 @@ export default function ChestScreen() {
               </Animated.View>
               {!opened && <Gleams count={4} tint={color.text} size={16} />}
             </Pressable>
-            {!opened && <Text style={[type.title, { color: color.textMuted }]}>{busy ? ' ' : 'Tap to open'}</Text>}
-            {error && <Notice tone="danger">{error}</Notice>}
-          </>
-        ) : (
-          <>
-            {/* The chest glows open, then fades away as the prize comes in. */}
+          ) : (
+            // The chest glows open, then fades away as the prize comes in.
             <View style={styles.stage}>
-              <SoftGlow rarity={rarity} size={320} />
+              <SoftGlow rarity={rarity} size={300} />
               <Animated.View style={chestStyle}>
                 <ChestOpening size={250} onOpen={land} />
               </Animated.View>
               <Animated.View style={[styles.prize, prizeStyle]}>{prizeArt}</Animated.View>
             </View>
-            <Animated.View style={[{ alignItems: 'center', gap: space.xs }, fadeIn]} testID="chest-reward">
-              <Text style={[type.h1, { color: color.text, textAlign: 'center' }]}>{headline}</Text>
-              {item && <Text style={[type.label, { color: RARITY[item.tier].accent, letterSpacing: 2.4 }]}>{RARITY[item.tier].label}</Text>}
-            </Animated.View>
+          )}
+          <View style={styles.caption}>
+            {!reward ? (
+              !opened && <Text style={[type.title, { color: color.textMuted }]}>{busy ? ' ' : 'Tap to open'}</Text>
+            ) : (
+              <Animated.View style={[{ alignItems: 'center', gap: space.xs }, fadeIn]} testID="chest-reward">
+                <Text style={[type.h1, { color: color.text, textAlign: 'center' }]}>{headline}</Text>
+                {item && <Text style={[type.label, { color: RARITY[item.tier].accent, letterSpacing: 2.4 }]}>{RARITY[item.tier].label}</Text>}
+              </Animated.View>
+            )}
             {error && <Notice tone="danger">{error}</Notice>}
-          </>
-        )}
+          </View>
+        </View>
+        {/* After opening, the choices come in with the prize. */}
+        <Animated.View
+          pointerEvents={reward && !prizeShown ? 'none' : 'auto'}
+          style={[styles.footer, reward ? { opacity: burst, transform: [{ translateY: burst.interpolate({ inputRange: [0, 1], outputRange: [16, 0] }) }] } : null]}>
+          {!reward && opened && <Button variant="secondary" label="See your Locker" onPress={() => router.replace('/locker')} />}
+          {reward?.kind === 'boost' && boostId && !done && (
+            <>
+              <Button testID="start-boost-now" label="Start now" loading={busy} onPress={() => act(() => p.rewards.startBoost(boostId))} />
+              <Button variant="secondary" label="Save for later" onPress={close} />
+            </>
+          )}
+          {reward?.kind === 'cosmetic' && item && !done && (
+            <>
+              <Button
+                testID="wear-now"
+                label="Wear it"
+                loading={busy}
+                onPress={() =>
+                  act(() => {
+                    const look = p.snapshot.locker.look;
+                    return p.rewards.setLook(item.kind === 'ring' ? { ...look, ring: item.id } : item.kind === 'name_style' ? { ...look, nameStyle: item.id } : { ...look, title: item.id });
+                  })
+                }
+              />
+              <Button variant="secondary" label="Later" onPress={close} />
+            </>
+          )}
+          {reward && (reward.kind === 'brainpower' || done) && <Button label="Done" onPress={close} />}
+        </Animated.View>
       </View>
-      {/* After opening, the choices come in with the prize. */}
-      <Animated.View
-        pointerEvents={reward && !prizeShown ? 'none' : 'auto'}
-        style={[{ padding: layout.gutter, gap: space.sm }, reward ? { opacity: burst, transform: [{ translateY: burst.interpolate({ inputRange: [0, 1], outputRange: [16, 0] }) }] } : null]}>
-        {!reward && opened && <Button variant="secondary" label="See your Locker" onPress={() => router.replace('/locker')} />}
-        {reward?.kind === 'boost' && boostId && !done && (
-          <>
-            <Button testID="start-boost-now" label="Start now" loading={busy} onPress={() => act(() => p.rewards.startBoost(boostId))} />
-            <Button variant="secondary" label="Save for later" onPress={close} />
-          </>
-        )}
-        {reward?.kind === 'cosmetic' && item && !done && (
-          <>
-            <Button
-              testID="wear-now"
-              label="Wear it"
-              loading={busy}
-              onPress={() =>
-                act(() => {
-                  const look = p.snapshot.locker.look;
-                  return p.rewards.setLook(item.kind === 'ring' ? { ...look, ring: item.id } : item.kind === 'name_style' ? { ...look, nameStyle: item.id } : { ...look, title: item.id });
-                })
-              }
-            />
-            <Button variant="secondary" label="Later" onPress={close} />
-          </>
-        )}
-        {reward && (reward.kind === 'brainpower' || done) && <Button label="Done" onPress={close} />}
-      </Animated.View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  main: { flex: 1, padding: layout.gutter, paddingBottom: layout.gutter * 2 + layout.buttonHeight * 2 + space.sm, alignItems: 'center', justifyContent: 'center', gap: space.lg },
+  caption: { minHeight: 72, alignItems: 'center', gap: space.sm },
+  footer: { position: 'absolute', left: 0, right: 0, bottom: 0, padding: layout.gutter, gap: space.sm },
   stage: { width: 300, height: 300, alignItems: 'center', justifyContent: 'center' },
   prize: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, alignItems: 'center', justifyContent: 'center' },
 });
