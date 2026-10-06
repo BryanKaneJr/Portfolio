@@ -4,7 +4,7 @@ import { useEffect, useState, useSyncExternalStore } from 'react';
 import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { BrainpowerIcon } from '@/components/BrainpowerIcon';
-import { ChestArt, StyledName } from '@/components/cosmetics';
+import { ChestArt, ChestOpening, StyledName } from '@/components/cosmetics';
 import { RARITY, SoftGlow, TitlePlate } from '@/components/rewardsUi';
 import { Avatar } from '@/components/social';
 import { Button, Gleams, IconButton, Notice, OutlinedNumber, Row, useLoop } from '@/components/ui';
@@ -15,8 +15,8 @@ import { color, layout, space, type } from '@/theme/tokens';
 /**
  * A map chest (owner, 2026-10-05; docs/specs/REWARDS.md), opened from the
  * road after a chapter's 5th level. Tap Open: the chest rattles harder and
- * harder while the server rolls once, bursts open with a glow in the prize's
- * rarity colour behind it, and the prize rises. A boost can start now or wait in
+ * harder while the server rolls once, bursts open glowing, and the prize slaps
+ * down over it. A boost can start now or wait in
  * the Locker; a cosmetic can be worn straight away.
  */
 const noop = () => () => {};
@@ -37,12 +37,14 @@ export default function ChestScreen() {
   const [me, setMe] = useState<SocialView['me'] | null>(null);
   const close = () => (router.canGoBack() ? router.back() : router.navigate('/'));
   const wobble = useLoop(700, { active: !reward && !opened && !busy });
-  // The opening: shake (while the server rolls), pop open with a glow, then the prize rises.
+  // The opening: shake (while the server rolls), then the owner's opening animation, then the prize slaps down.
   const [shaking, setShaking] = useState(false);
   const [prizeShown, setPrizeShown] = useState(false);
   const [shake] = useState(() => new Animated.Value(0));
-  const [pop] = useState(() => new Animated.Value(0));
   const [burst] = useState(() => new Animated.Value(0));
+  // The prize slaps down onto the open chest, and the chest gives under it.
+  const [slam] = useState(() => new Animated.Value(0));
+  const [impact] = useState(() => new Animated.Value(0));
   useEffect(() => {
     p.social.view().then((s) => setMe(s.me), () => {});
   }, [p.social]);
@@ -63,19 +65,29 @@ export default function ChestScreen() {
     try {
       const [r] = await Promise.all([p.rewards.openChest(skillId, chapter), rattle()]);
       feedback('unlock');
-      pop.setValue(0);
+      slam.setValue(0);
+      impact.setValue(0);
       burst.setValue(0);
       setReward(r.reward);
-      Animated.sequence([
-        Animated.spring(pop, { toValue: 1, friction: 5, tension: 140, useNativeDriver: true }),
-        Animated.spring(burst, { toValue: 1, friction: 6, tension: 60, useNativeDriver: true }),
-      ]).start(() => setPrizeShown(true));
     } catch (e) {
       setError(e instanceof RewardError && e.code === 'CHEST_LOCKED' ? `Clear Level ${(chapter - 1) * 10 + 5} to open it.` : 'It didn’t open. Try again.');
     } finally {
       setShaking(false);
       setBusy(false);
     }
+  };
+  /** The lid stands open (the opening animation calls this): the prize slaps down, then the words and buttons. */
+  const land = () => {
+    Animated.sequence([
+        Animated.timing(slam, { toValue: 1, duration: reduce ? 1 : 320, easing: Easing.out(Easing.back(1.8)), useNativeDriver: true }),
+        Animated.parallel([
+          Animated.sequence([
+            Animated.timing(impact, { toValue: 1, duration: reduce ? 1 : 70, useNativeDriver: true }),
+            Animated.spring(impact, { toValue: 0, friction: 4, tension: 160, useNativeDriver: true }),
+          ]),
+          Animated.timing(burst, { toValue: 1, duration: reduce ? 1 : 360, easing: Easing.out(Easing.quad), useNativeDriver: true }),
+        ]),
+      ]).start(() => setPrizeShown(true));
   };
   const act = async (fn: () => Promise<unknown>) => {
     setBusy(true);
@@ -101,13 +113,13 @@ export default function ChestScreen() {
       { scale: shake.interpolate({ inputRange: [-1, 0, 1], outputRange: [1.06, 1, 1.06] }) },
     ],
   };
-  const popStyle = { opacity: pop, transform: [{ scale: pop.interpolate({ inputRange: [0, 1], outputRange: [0.6, 1] }) }] };
 
   const fadeIn = { opacity: burst, transform: [{ translateY: burst.interpolate({ inputRange: [0, 1], outputRange: [12, 0] }) }] };
   const prizeStyle = {
-    opacity: burst,
-    transform: [{ translateY: burst.interpolate({ inputRange: [0, 1], outputRange: [90, 0] }) }, { scale: burst.interpolate({ inputRange: [0, 1], outputRange: [0.4, 1] }) }],
+    opacity: slam.interpolate({ inputRange: [0, 0.35, 1], outputRange: [0, 1, 1], extrapolate: 'clamp' }),
+    transform: [{ scale: slam.interpolate({ inputRange: [0, 1], outputRange: [2.4, 1] }) }],
   };
+  const chestStyle = { transform: [{ scaleY: impact.interpolate({ inputRange: [0, 1], outputRange: [1, 0.9] }) }, { scaleX: impact.interpolate({ inputRange: [0, 1], outputRange: [1, 1.06] }) }] };
   const minutes = reward?.kind === 'boost' ? reward.minutes : 0;
   const headline = !reward
     ? ''
@@ -127,7 +139,9 @@ export default function ChestScreen() {
   ) : item?.kind === 'ring' ? (
     <Avatar username={me?.username ?? 'you'} avatar={me?.avatar} ring={item.id} size={104} />
   ) : item?.kind === 'name_style' ? (
-    <StyledName nameStyle={item.id} style={[type.h1, { color: color.text }]}>{me ? `@${me.username}` : 'Your name'}</StyledName>
+    <View style={styles.namePill}>
+      <StyledName nameStyle={item.id} style={[type.h2, { color: color.text }]}>{me ? `@${me.username}` : 'Your name'}</StyledName>
+    </View>
   ) : item ? (
     <TitlePlate name={item.name} rarity={item.tier} size="lg" />
   ) : null;
@@ -145,7 +159,7 @@ export default function ChestScreen() {
             <Pressable testID="open-chest" accessibilityRole="button" accessibilityLabel="Open the chest" disabled={opened || busy} onPress={open} style={styles.stage}>
               <SoftGlow rarity="quest" size={300} />
               <Animated.View style={shaking ? rattleStyle : { transform: [{ rotate: opened ? '0deg' : tilt }] }}>
-                <ChestArt state={opened ? 'opened' : 'ready'} size={200} />
+                {opened ? <ChestArt state="opened" size={200} /> : <ChestOpening size={250} play={false} />}
               </Animated.View>
               {!opened && <Gleams count={4} tint={color.text} size={16} />}
             </Pressable>
@@ -154,13 +168,13 @@ export default function ChestScreen() {
           </>
         ) : (
           <>
-            {/* The prize rises out of the open chest. */}
+            {/* The chest glows open, and the prize slaps down over it. */}
             <View style={styles.stage}>
               <SoftGlow rarity={rarity} size={320} />
-              <Animated.View style={[styles.prize, prizeStyle]}>{prizeArt}</Animated.View>
-              <Animated.View style={[{ marginTop: space.xxxl }, popStyle]}>
-                <ChestArt state="opened" size={168} />
+              <Animated.View style={chestStyle}>
+                <ChestOpening size={250} onOpen={land} />
               </Animated.View>
+              <Animated.View style={[styles.prize, prizeStyle]}>{prizeArt}</Animated.View>
             </View>
             <Animated.View style={[{ alignItems: 'center', gap: space.xs }, fadeIn]} testID="chest-reward">
               <Text style={[type.h1, { color: color.text, textAlign: 'center' }]}>{headline}</Text>
@@ -205,5 +219,6 @@ export default function ChestScreen() {
 
 const styles = StyleSheet.create({
   stage: { width: 300, height: 300, alignItems: 'center', justifyContent: 'center' },
-  prize: { position: 'absolute', top: -4, alignItems: 'center' },
+  prize: { position: 'absolute', left: 0, right: 0, top: 0, bottom: 56, alignItems: 'center', justifyContent: 'center' },
+  namePill: { backgroundColor: 'rgba(10,14,20,0.82)', borderRadius: 999, paddingHorizontal: space.lg, paddingVertical: space.xs },
 });

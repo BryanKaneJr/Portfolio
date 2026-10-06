@@ -1,5 +1,5 @@
 import { cosmeticItem, masteryTitleName, masteryTitleSkill, type CosmeticTier } from '@brainscroll/core';
-import { useEffect, useId, useState, type ReactNode } from 'react';
+import { useEffect, useId, useMemo, useState, type ReactNode } from 'react';
 import { router } from 'expo-router';
 import { Animated, Easing, Image, Pressable, StyleSheet, Text, View, type StyleProp, type TextStyle } from 'react-native';
 import Svg, { Circle, Defs, RadialGradient, Stop } from 'react-native-svg';
@@ -269,3 +269,59 @@ const styles = StyleSheet.create({
   boostChip: { flexDirection: 'row', alignItems: 'center', gap: space.xxs, backgroundColor: color.brand, borderRadius: radius.pill, paddingHorizontal: space.sm, paddingVertical: space.xxs, minHeight: 32 },
   lockerTile: { flexDirection: 'row', alignItems: 'center', gap: space.md, borderRadius: radius.md, paddingVertical: space.md, paddingHorizontal: space.lg, overflow: 'hidden' },
 });
+
+/**
+ * The owner's chest-opening animation (ui/chest-open-anim: 72 frames at 24 fps,
+ * the lid lifting and light filling the chest), played once from the closed
+ * chest and held on its last, glowing frame. `onOpen` fires as the lid stands
+ * open, about a second in. With Reduce Motion it shows the open chest at once.
+ */
+const OPENING = { sheet: require('../../assets/images/ui/chest-open-anim.webp'), frames: 72, cols: 8, frameMs: 42, openAt: 22 };
+export function ChestOpening({ size, onOpen, play = true }: { size: number; onOpen?: () => void; /** False holds the closed chest (frame 0) until it's time to open. */ play?: boolean }) {
+  const reduce = useReduceMotion();
+  const last = OPENING.frames - 1;
+  const [t] = useState(() => new Animated.Value(reduce && play ? last : 0));
+  useEffect(() => {
+    if (!play) return;
+    if (reduce) {
+      t.setValue(last);
+      onOpen?.();
+      return;
+    }
+    const run = Animated.timing(t, { toValue: OPENING.frames, duration: OPENING.frames * OPENING.frameMs, easing: Easing.linear, useNativeDriver: true });
+    run.start();
+    const opened = setTimeout(() => onOpen?.(), OPENING.openAt * OPENING.frameMs);
+    return () => {
+      run.stop();
+      clearTimeout(opened);
+    };
+    // Plays once, when `play` turns on.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [play]);
+  const move = useMemo(() => {
+    const input: number[] = [];
+    const x: number[] = [];
+    const y: number[] = [];
+    for (let i = 0; i < OPENING.frames; i++) {
+      const fx = -(i % OPENING.cols) * size;
+      const fy = -Math.floor(i / OPENING.cols) * size;
+      input.push(i, i + 0.999);
+      x.push(fx, fx);
+      y.push(fy, fy);
+    }
+    return {
+      translateX: t.interpolate({ inputRange: input, outputRange: x, extrapolate: 'clamp' }),
+      translateY: t.interpolate({ inputRange: input, outputRange: y, extrapolate: 'clamp' }),
+    };
+  }, [t, size]);
+  const rows = Math.ceil(OPENING.frames / OPENING.cols);
+  return (
+    <View style={{ width: size, height: size, overflow: 'hidden' }} accessible={false} importantForAccessibility="no-hide-descendants">
+      <Animated.Image
+        source={OPENING.sheet}
+        style={{ position: 'absolute', left: 0, top: 0, width: size * OPENING.cols, height: size * rows, transform: [{ translateX: move.translateX }, { translateY: move.translateY }] }}
+        accessibilityIgnoresInvertColors
+      />
+    </View>
+  );
+}
