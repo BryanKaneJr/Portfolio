@@ -389,7 +389,7 @@ try {
   await page.waitForTimeout(800);
   await page.getByTestId('open-chest').click();
   await page.getByTestId('chest-reward').waitFor({ timeout: 5_000 });
-  check(/30 min\s+XP boost/i.test(await bodyText(page)), 'the server rolls the chest (a 30-minute boost here)');
+  check(/30 minute XP boost/i.test(await bodyText(page)), 'the server rolls the chest (a 30-minute boost here)');
   check(sql(`select reward->>'kind' from public.user_chests where user_id = '${learnerId}' and chapter = 1`) === 'boost', 'and records it, once');
   await page.getByTestId('start-boost-now').click();
   await page.waitForTimeout(800);

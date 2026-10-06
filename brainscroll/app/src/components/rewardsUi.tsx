@@ -1,9 +1,8 @@
 import { COSMETICS, cosmeticItem, masteryTitleSkill, type CosmeticTier } from '@brainscroll/core';
-import { useEffect, useId, useState, type ReactNode } from 'react';
-import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
-import Svg, { Defs, G, LinearGradient, Path, RadialGradient, Rect, Stop } from 'react-native-svg';
-import { Gleams, Icon } from '@/components/ui';
-import { useReduceMotion } from '@/theme/feedback';
+import { useId, useState, type ReactNode } from 'react';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
+import Svg, { Defs, LinearGradient, Path, RadialGradient, Rect, Stop } from 'react-native-svg';
+import { Icon } from '@/components/ui';
 import { color, radius, space, type } from '@/theme/tokens';
 
 /**
@@ -112,42 +111,22 @@ export function TitlePlate({ name, rarity, size = 'md' }: { name: string; rarity
   );
 }
 
-/** Light pouring out behind a prize: slow-turning rays and a soft glow in the rarity's colour. */
-export function Burst({ rarity, size = 320 }: { rarity: Rarity; size?: number }) {
-  const id = `b${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
-  const reduce = useReduceMotion();
-  const [spin] = useState(() => new Animated.Value(0));
-  useEffect(() => {
-    if (reduce) return;
-    const loop = Animated.loop(Animated.timing(spin, { toValue: 1, duration: 24000, easing: Easing.linear, useNativeDriver: true }));
-    loop.start();
-    return () => loop.stop();
-  }, [spin, reduce]);
+/** A soft pool of light in the rarity's colour, behind the chest and its prize. */
+export function SoftGlow({ rarity, size = 300 }: { rarity: Rarity; size?: number }) {
+  const id = `s${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
   const r = RARITY[rarity];
-  const c = size / 2;
-  const rays = Array.from({ length: 14 }, (_, i) => {
-    const a = (i / 14) * Math.PI * 2;
-    const w = 0.09;
-    const p = (t: number, d: number) => `${c + Math.cos(t) * d} ${c + Math.sin(t) * d}`;
-    return `M ${c} ${c} L ${p(a - w, c)} L ${p(a + w, c)} Z`;
-  }).join(' ');
   return (
     <View pointerEvents="none" style={{ position: 'absolute', width: size, height: size }} accessible={false} importantForAccessibility="no-hide-descendants">
-      <Animated.View style={{ position: 'absolute', width: size, height: size, transform: [{ rotate: spin.interpolate({ inputRange: [0, 1], outputRange: ['0deg', '360deg'] }) }] }}>
-        <Svg width={size} height={size}>
-          <Defs>
-            <RadialGradient id={id} cx="50%" cy="50%" r="50%">
-              <Stop offset="0" stopColor={r.accent} stopOpacity={0.55} />
-              <Stop offset="0.55" stopColor={r.stops[0]} stopOpacity={0.18} />
-              <Stop offset="1" stopColor={r.stops[1]} stopOpacity={0} />
-            </RadialGradient>
-          </Defs>
-          <G>
-            <Path d={rays} fill={`url(#${id})`} />
-          </G>
-        </Svg>
-      </Animated.View>
-      <View style={{ position: 'absolute', left: c - size * 0.22, top: c - size * 0.22, width: size * 0.44, height: size * 0.44, borderRadius: size, backgroundColor: r.glow, opacity: 0.5 }} />
+      <Svg width={size} height={size}>
+        <Defs>
+          <RadialGradient id={id} cx="50%" cy="50%" r="50%">
+            <Stop offset="0" stopColor={r.accent} stopOpacity={0.35} />
+            <Stop offset="0.6" stopColor={r.stops[0]} stopOpacity={0.12} />
+            <Stop offset="1" stopColor={r.stops[1]} stopOpacity={0} />
+          </RadialGradient>
+        </Defs>
+        <Rect x="0" y="0" width={size} height={size} fill={`url(#${id})`} />
+      </Svg>
     </View>
   );
 }
@@ -203,90 +182,7 @@ export function ItemCard({ rarity, label, selected, locked, onPress, testID, chi
   );
 }
 
-/**
- * The prize, as a card you've just pulled: a frame in the rarity's material
- * around a dark, rarity-tinted panel; the rarity on top; the prize big in a
- * pool of its own light; its name large and what it is in small capitals.
- * A sheen crosses it now and then, and sparkles in the rarity's colour float
- * over it. `reveal` (0 to 1) turns it up into view.
- */
-export function PrizeCard({ rarity, kind, name, reveal, children, showRarity = true }: { rarity: Rarity; kind: string; name?: ReactNode; reveal: Animated.Value; children: ReactNode; showRarity?: boolean }) {
-  const id = `p${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
-  const reduce = useReduceMotion();
-  const r = RARITY[rarity];
-  const [sheen] = useState(() => new Animated.Value(0));
-  useEffect(() => {
-    if (reduce) return;
-    const loop = Animated.loop(
-      Animated.sequence([
-        Animated.delay(700),
-        Animated.timing(sheen, { toValue: 1, duration: 900, easing: Easing.inOut(Easing.quad), useNativeDriver: true }),
-        Animated.timing(sheen, { toValue: 0, duration: 0, useNativeDriver: true }),
-        Animated.delay(2200),
-      ]),
-    );
-    loop.start();
-    return () => loop.stop();
-  }, [sheen, reduce]);
-  const W = 264;
-  const H = 336;
-  return (
-    <Animated.View
-      style={[
-        styles.prize,
-        { width: W, height: H, shadowColor: r.glow.replace(/[\d.]+\)$/, '1)') },
-        {
-          opacity: reveal.interpolate({ inputRange: [0, 0.3, 1], outputRange: [0, 1, 1] }),
-          transform: [
-            { perspective: 900 },
-            { translateY: reveal.interpolate({ inputRange: [0, 1], outputRange: [60, 0] }) },
-            { rotateX: reveal.interpolate({ inputRange: [0, 1], outputRange: ['70deg', '0deg'] }) },
-            { scale: reveal.interpolate({ inputRange: [0, 1], outputRange: [0.7, 1] }) },
-          ],
-        },
-      ]}>
-      {/* The frame: the rarity's material; inside it, a deep panel with the rarity's light pooled in the middle. */}
-      <Material rarity={rarity} rx={24} />
-      <View style={[styles.prizeInner, { width: W - 8, height: H - 8 }]}>
-        <Svg width={W - 8} height={H - 8} style={StyleSheet.absoluteFill}>
-          <Defs>
-            <LinearGradient id={`${id}bg`} x1="0" y1="0" x2="0" y2="1">
-              <Stop offset="0" stopColor={r.stops[1]} stopOpacity={0.55} />
-              <Stop offset="0.6" stopColor="#0B1016" stopOpacity={1} />
-              <Stop offset="1" stopColor="#0B1016" stopOpacity={1} />
-            </LinearGradient>
-            <RadialGradient id={`${id}pool`} cx="50%" cy="42%" r="45%">
-              <Stop offset="0" stopColor={r.accent} stopOpacity={0.45} />
-              <Stop offset="1" stopColor={r.stops[0]} stopOpacity={0} />
-            </RadialGradient>
-          </Defs>
-          <Rect x="0" y="0" width={W - 8} height={H - 8} rx={20} ry={20} fill={`url(#${id}bg)`} />
-          <Rect x="0" y="0" width={W - 8} height={H - 8} rx={20} ry={20} fill={`url(#${id}pool)`} />
-        </Svg>
-        <View style={styles.prizeTop}>{showRarity && <RarityLabel rarity={rarity} />}</View>
-        <View style={styles.prizeArt}>{children}</View>
-        <View style={styles.prizeFoot}>
-          {typeof name === 'string' ? <Text numberOfLines={1} style={[type.display, { color: color.text, textAlign: 'center' }]}>{name}</Text> : name}
-          <Text style={[type.label, { color: r.accent, letterSpacing: 2.4 }]}>{kind}</Text>
-        </View>
-        <Gleams count={5} tint={r.accent} size={12} />
-        {/* The sheen: a slanted band of light crossing the card. */}
-        <Animated.View
-          pointerEvents="none"
-          style={[styles.sheen, { height: H * 1.4, transform: [{ rotate: '20deg' }, { translateX: sheen.interpolate({ inputRange: [0, 1], outputRange: [-W, W * 1.2] }) }] }]}
-        />
-      </View>
-    </Animated.View>
-  );
-}
-
 const styles = StyleSheet.create({
-  prize: { borderRadius: 24, alignItems: 'center', justifyContent: 'center', shadowOpacity: 0.7, shadowRadius: 30, shadowOffset: { width: 0, height: 10 }, elevation: 12 },
-  prizeInner: { borderRadius: 20, overflow: 'hidden', alignItems: 'center', justifyContent: 'space-between', paddingVertical: space.lg },
-  prizeTop: { alignItems: 'center' },
-  prizeArt: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: space.md },
-  prizeFoot: { alignItems: 'center', gap: space.xs, paddingHorizontal: space.md },
-  sheen: { position: 'absolute', top: -60, left: 0, width: 46, backgroundColor: 'rgba(255,255,255,0.16)' },
   rarityLabel: { flexDirection: 'row', alignItems: 'center', gap: space.sm },
   plate: { flexDirection: 'row', alignItems: 'center', gap: space.sm, alignSelf: 'center', shadowOpacity: 0.45, shadowRadius: 14, shadowOffset: { width: 0, height: 4 } },
   mark: { fontWeight: '800' },

@@ -3,9 +3,9 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
-## 2026-10-06: Prizes as cards
+## 2026-10-06: A simpler chest
 
-- **The prize turns up as a card** (owner: "make the awards more premium looking when they're opened... they look very ehhhh"): a frame in the rarity's material around a deep panel tinted with it, the rarity on top (cosmetics only), the prize big in a pool of its own light, its name large and what it is in small capitals (Glow, Name style, Title, XP boost, Brainpower). It flips up out of the open chest on a spring, a sheen crosses it every few seconds, and sparkles in the rarity's colour float over it (`PrizeCard`, components/rewardsUi.tsx).
+- **Less is more** (owner, with Duolingo's chest screens as the reference: "they still dont look good. think less is more"). The chest screen is now one big chest, one line and one button. Before opening: "Chapter N chest", the chest large in a soft glow with a few sparkles, and "Tap to open" (the chest itself is the button). After: the open chest with the prize rising out of it (2x, the brain, your avatar in its glow, your name in its style, or the title's plate), one bold line naming it ("15 minute XP boost", "+2 Brainpower", "Plum glow", "Silver name style", "New title") and, for cosmetics, the rarity in its colour. The prize card, the light rays and the skill eyebrow are gone.
 - **Fix:** reloading the chest page on the web no longer logs a hydration error (the pre-rendered page has no link query, so it now draws once mounted).
 
 ## 2026-10-06: The chest opening
