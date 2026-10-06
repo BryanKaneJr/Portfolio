@@ -3,7 +3,6 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState, useSyncExternalStore } from 'react';
 import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Svg, { Defs, RadialGradient, Rect, Stop } from 'react-native-svg';
 import { BrainpowerIcon } from '@/components/BrainpowerIcon';
 import { ChestArt, ChestOpening, StyledName } from '@/components/cosmetics';
 import { RARITY, SoftGlow, TitlePlate } from '@/components/rewardsUi';
@@ -16,8 +15,8 @@ import { color, layout, space, type } from '@/theme/tokens';
 /**
  * A map chest (owner, 2026-10-05; docs/specs/REWARDS.md), opened from the
  * road after a chapter's 5th level. Tap Open: the chest rattles harder and
- * harder while the server rolls once, bursts open glowing, and the prize slaps
- * down over it. A boost can start now or wait in
+ * harder while the server rolls once, bursts open glowing, then fades away
+ * as the prize comes in. A boost can start now or wait in
  * the Locker; a cosmetic can be worn straight away.
  */
 const noop = () => () => {};
@@ -38,14 +37,13 @@ export default function ChestScreen() {
   const [me, setMe] = useState<SocialView['me'] | null>(null);
   const close = () => (router.canGoBack() ? router.back() : router.navigate('/'));
   const wobble = useLoop(700, { active: !reward && !opened && !busy });
-  // The opening: shake (while the server rolls), then the owner's opening animation, then the prize slaps down.
+  // The opening: shake (while the server rolls), then the owner's opening animation, then the prize.
   const [shaking, setShaking] = useState(false);
   const [prizeShown, setPrizeShown] = useState(false);
   const [shake] = useState(() => new Animated.Value(0));
   const [burst] = useState(() => new Animated.Value(0));
-  // The prize slaps down onto the open chest, and the chest gives under it.
-  const [slam] = useState(() => new Animated.Value(0));
-  const [impact] = useState(() => new Animated.Value(0));
+  // The open chest fades away as the prize comes in.
+  const [reveal] = useState(() => new Animated.Value(0));
   useEffect(() => {
     p.social.view().then((s) => setMe(s.me), () => {});
   }, [p.social]);
@@ -66,8 +64,7 @@ export default function ChestScreen() {
     try {
       const [r] = await Promise.all([p.rewards.openChest(skillId, chapter), rattle()]);
       feedback('unlock');
-      slam.setValue(0);
-      impact.setValue(0);
+      reveal.setValue(0);
       burst.setValue(0);
       setReward(r.reward);
     } catch (e) {
@@ -77,18 +74,13 @@ export default function ChestScreen() {
       setBusy(false);
     }
   };
-  /** The lid stands open (the opening animation calls this): the prize slaps down, then the words and buttons. */
+  /** The lid stands open (the opening animation calls this): the chest fades away as the prize comes in, then the words and buttons. */
   const land = () => {
     Animated.sequence([
-        Animated.timing(slam, { toValue: 1, duration: reduce ? 1 : 320, easing: Easing.out(Easing.back(1.8)), useNativeDriver: true }),
-        Animated.parallel([
-          Animated.sequence([
-            Animated.timing(impact, { toValue: 1, duration: reduce ? 1 : 70, useNativeDriver: true }),
-            Animated.spring(impact, { toValue: 0, friction: 4, tension: 160, useNativeDriver: true }),
-          ]),
-          Animated.timing(burst, { toValue: 1, duration: reduce ? 1 : 360, easing: Easing.out(Easing.quad), useNativeDriver: true }),
-        ]),
-      ]).start(() => setPrizeShown(true));
+      Animated.delay(reduce ? 0 : 450),
+      Animated.timing(reveal, { toValue: 1, duration: reduce ? 1 : 520, easing: Easing.out(Easing.cubic), useNativeDriver: true }),
+      Animated.timing(burst, { toValue: 1, duration: reduce ? 1 : 360, easing: Easing.out(Easing.quad), useNativeDriver: true }),
+    ]).start(() => setPrizeShown(true));
   };
   const act = async (fn: () => Promise<unknown>) => {
     setBusy(true);
@@ -117,10 +109,13 @@ export default function ChestScreen() {
 
   const fadeIn = { opacity: burst, transform: [{ translateY: burst.interpolate({ inputRange: [0, 1], outputRange: [12, 0] }) }] };
   const prizeStyle = {
-    opacity: slam.interpolate({ inputRange: [0, 0.35, 1], outputRange: [0, 1, 1], extrapolate: 'clamp' }),
-    transform: [{ scale: slam.interpolate({ inputRange: [0, 1], outputRange: [2.4, 1] }) }],
+    opacity: reveal.interpolate({ inputRange: [0, 0.3, 1], outputRange: [0, 0, 1] }),
+    transform: [{ scale: reveal.interpolate({ inputRange: [0, 0.3, 1], outputRange: [0.6, 0.6, 1] }) }],
   };
-  const chestStyle = { transform: [{ scaleY: impact.interpolate({ inputRange: [0, 1], outputRange: [1, 0.9] }) }, { scaleX: impact.interpolate({ inputRange: [0, 1], outputRange: [1, 1.06] }) }] };
+  const chestStyle = {
+    opacity: reveal.interpolate({ inputRange: [0, 0.7, 1], outputRange: [1, 0, 0] }),
+    transform: [{ scale: reveal.interpolate({ inputRange: [0, 1], outputRange: [1, 1.15] }) }],
+  };
   const minutes = reward?.kind === 'boost' ? reward.minutes : 0;
   const headline = !reward
     ? ''
@@ -134,15 +129,13 @@ export default function ChestScreen() {
             ? `${item.name} name style`
             : 'New title';
   const prizeArt = !reward ? null : reward.kind === 'boost' ? (
-    <OutlinedNumber value="2x" fontSize={80} tone="brand" />
+    <OutlinedNumber value="2x" fontSize={112} tone="brand" />
   ) : reward.kind === 'brainpower' ? (
-    <BrainpowerIcon size={104} state="lit" />
+    <BrainpowerIcon size={150} state="lit" />
   ) : item?.kind === 'ring' ? (
-    <Avatar username={me?.username ?? 'you'} avatar={me?.avatar} ring={item.id} size={104} />
+    <Avatar username={me?.username ?? 'you'} avatar={me?.avatar} ring={item.id} size={150} />
   ) : item?.kind === 'name_style' ? (
-    <View style={styles.namePill}>
-      <StyledName nameStyle={item.id} style={[type.h2, { color: color.text }]}>{me ? `@${me.username}` : 'Your name'}</StyledName>
-    </View>
+    <StyledName nameStyle={item.id} style={[type.h1, { color: color.text }]}>{me ? `@${me.username}` : 'Your name'}</StyledName>
   ) : item ? (
     <TitlePlate name={item.name} rarity={item.tier} size="lg" />
   ) : null;
@@ -169,18 +162,13 @@ export default function ChestScreen() {
           </>
         ) : (
           <>
-            {/* The chest glows open, and the prize slaps down over it. */}
+            {/* The chest glows open, then fades away as the prize comes in. */}
             <View style={styles.stage}>
               <SoftGlow rarity={rarity} size={320} />
               <Animated.View style={chestStyle}>
                 <ChestOpening size={250} onOpen={land} />
               </Animated.View>
-              <Animated.View style={[styles.prize, prizeStyle]}>
-                <View>
-                  <PrizeShadow />
-                  {prizeArt}
-                </View>
-              </Animated.View>
+              <Animated.View style={[styles.prize, prizeStyle]}>{prizeArt}</Animated.View>
             </View>
             <Animated.View style={[{ alignItems: 'center', gap: space.xs }, fadeIn]} testID="chest-reward">
               <Text style={[type.h1, { color: color.text, textAlign: 'center' }]}>{headline}</Text>
@@ -223,27 +211,7 @@ export default function ChestScreen() {
   );
 }
 
-/** A soft dark pool under the prize, so it lifts off the chest. */
-function PrizeShadow() {
-  return (
-    <View pointerEvents="none" style={styles.shadow}>
-      <Svg width="100%" height="100%">
-        <Defs>
-          <RadialGradient id="prizeShadow" cx="50%" cy="50%" r="50%">
-            <Stop offset="0" stopColor="#05080C" stopOpacity={0.95} />
-            <Stop offset="0.5" stopColor="#05080C" stopOpacity={0.8} />
-            <Stop offset="1" stopColor="#05080C" stopOpacity={0} />
-          </RadialGradient>
-        </Defs>
-        <Rect x="0" y="0" width="100%" height="100%" fill="url(#prizeShadow)" />
-      </Svg>
-    </View>
-  );
-}
-
 const styles = StyleSheet.create({
-  shadow: { position: 'absolute', top: -28, bottom: -60, left: -60, right: -60 },
   stage: { width: 300, height: 300, alignItems: 'center', justifyContent: 'center' },
-  prize: { position: 'absolute', left: 0, right: 0, top: 0, bottom: 56, alignItems: 'center', justifyContent: 'center' },
-  namePill: { backgroundColor: 'rgba(10,14,20,0.82)', borderRadius: 999, paddingHorizontal: space.lg, paddingVertical: space.xs },
+  prize: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, alignItems: 'center', justifyContent: 'center' },
 });
