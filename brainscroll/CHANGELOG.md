@@ -5,7 +5,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-10-06: The chest opening
 
-- **Opening a chest is a moment** (owner: "a quick animation of the chest shaking and then have the chest opened image with a glow behind it appear"). Tap Open: the chest rattles, each swing a little wider (about 0.8 s, while the server rolls), then pops open with a springy scale and slow-turning light in the prize's rarity colour behind it, and the prize rises a beat later. With Reduce Motion it skips the rattle.
+- **Opening a chest is a moment** (owner: "a quick animation of the chest shaking and then have the chest opened image with a glow behind it appear"). Tap Open: the chest rattles, each swing a little wider (about 0.8 s, while the server rolls), then pops open with a springy scale and slow-turning light in the prize's rarity colour behind it, and the prize rises a beat later. With Reduce Motion it skips the rattle. The buttons (Start now, Wear it, Done) come in with the prize, not before.
 - **Fix:** the chest no longer flips to "Already opened" mid-rattle (opening it marks it opened at once; only a chest opened before the visit counts).
 
 ## 2026-10-05: Rings become glows

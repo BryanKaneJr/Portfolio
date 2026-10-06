@@ -36,6 +36,7 @@ export default function ChestScreen() {
   const wobble = useLoop(700, { active: !reward && !opened && !busy });
   // The opening: shake (while the server rolls), pop open with a glow, then the prize rises.
   const [shaking, setShaking] = useState(false);
+  const [prizeShown, setPrizeShown] = useState(false);
   const [shake] = useState(() => new Animated.Value(0));
   const [pop] = useState(() => new Animated.Value(0));
   const [burst] = useState(() => new Animated.Value(0));
@@ -65,7 +66,7 @@ export default function ChestScreen() {
       Animated.sequence([
         Animated.spring(pop, { toValue: 1, friction: 5, tension: 140, useNativeDriver: true }),
         Animated.timing(burst, { toValue: 1, duration: reduce ? 1 : 480, easing: Easing.out(Easing.back(1.4)), useNativeDriver: true }),
-      ]).start();
+      ]).start(() => setPrizeShown(true));
     } catch (e) {
       setError(e instanceof RewardError && e.code === 'CHEST_LOCKED' ? `Clear Level ${(chapter - 1) * 10 + 5} to open it.` : 'It didn’t open. Try again.');
     } finally {
@@ -149,7 +150,10 @@ export default function ChestScreen() {
           </>
         )}
       </View>
-      <View style={{ padding: layout.gutter, gap: space.sm }}>
+      {/* After opening, the choices come in with the prize. */}
+      <Animated.View
+        pointerEvents={reward && !prizeShown ? 'none' : 'auto'}
+        style={[{ padding: layout.gutter, gap: space.sm }, reward ? { opacity: burst, transform: [{ translateY: burst.interpolate({ inputRange: [0, 1], outputRange: [16, 0] }) }] } : null]}>
         {!reward && !opened && <Button testID="open-chest" label="Open" loading={busy} onPress={open} />}
         {!reward && opened && <Button variant="secondary" label="See your Locker" onPress={() => router.replace('/locker')} />}
         {reward?.kind === 'boost' && boostId && !done && (
@@ -175,7 +179,7 @@ export default function ChestScreen() {
           </>
         )}
         {reward && (reward.kind === 'brainpower' || done) && <Button label="Done" onPress={close} />}
-      </View>
+      </Animated.View>
     </SafeAreaView>
   );
 }
