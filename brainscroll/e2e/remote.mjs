@@ -233,7 +233,7 @@ try {
   check(sql(`select equipped_title_quest from public.profiles where id = '${learnerId}'`) === 'quest.roman_world', 'the live clear\'s title can be shown');
   await page.goBack();
   await page.waitForTimeout(800);
-  check(/Citizen of Rome/.test(await bodyText(page)), 'Profile shows the chosen title');
+  check((await page.getByLabel('Title: Citizen of Rome', { exact: true }).count()) >= 1, 'Profile shows the chosen title (as its nameplate)');
   // The Archive: an ended quest still pays XP, never a trophy.
   await home(page);
   await button(page, 'This week’s quest: The Roman World').click();
@@ -389,7 +389,7 @@ try {
   await page.waitForTimeout(800);
   await page.getByTestId('open-chest').click();
   await page.getByTestId('chest-reward').waitFor({ timeout: 5_000 });
-  check(/30 min XP boost/.test(await bodyText(page)), 'the server rolls the chest (a 30-minute boost here)');
+  check(/30 min XP boost/i.test(await bodyText(page)), 'the server rolls the chest (a 30-minute boost here)');
   check(sql(`select reward->>'kind' from public.user_chests where user_id = '${learnerId}' and chapter = 1`) === 'boost', 'and records it, once');
   await page.getByTestId('start-boost-now').click();
   await page.waitForTimeout(800);

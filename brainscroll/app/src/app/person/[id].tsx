@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { DrScrollProfile } from '@/components/DrScrollProfile';
 import { StyledName } from '@/components/cosmetics';
+import { rarityOfTitleName, TitlePlate } from '@/components/rewardsUi';
 import { Avatar } from '@/components/social';
 import { TrophyBadge } from '@/components/TrophyBadge';
 import { Body, Button, GradientFill, Caption, Card, Emblem, Eyebrow, Field, IconButton, LoadError, Notice, Numeral, OfflineState, Row, Screen, SkeletonCard, StateBlock, Title } from '@/components/ui';
@@ -102,7 +103,7 @@ export default function PersonScreen() {
         <View style={{ flex: 1, gap: space.xxs }}>
           <Eyebrow tone="brand">{isYou ? 'You' : them.relation === 'friend' ? 'Friend' : them.relation === 'league' ? 'In your league' : 'Learner'}</Eyebrow>
           <StyledName header nameStyle={them.nameStyle} style={[type.h1, { color: color.text }]}>{`@${them.username}`}</StyledName>
-          {them.title ? <Caption style={{ color: color.brandText, fontWeight: '700' }}>{them.title}</Caption> : null}
+          {them.title ? <View style={{ alignSelf: 'flex-start' }}><TitlePlate name={them.title} rarity={rarityOfTitleName(them.title)} size="sm" /></View> : null}
         </View>
       </Row>
 

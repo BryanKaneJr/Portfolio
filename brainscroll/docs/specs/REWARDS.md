@@ -46,12 +46,14 @@ and titles. Boosted XP counts toward the league.
 
 ## Cosmetics
 
+Glows (owner, 2026-10-05: "instead of rings, we did a back glow", to keep the avatar art as it is): a soft light behind the avatar that spills past its edge. Epic and Legendary glows breathe, and Galaxy and Prism turn. They were rings at first, so their ids stay `ring.*` (and `look_ring` on the server).
+
 Drawn in code, no art. Everything owned lives in the **Locker** (Profile),
-where the learner equips one ring, one name style and one title. Others see
-them: the ring around the avatar and the styled name in leagues, the feed,
+where the learner equips one glow, one name style and one title. Others see
+them: the glow behind the avatar and the styled name in leagues, the feed,
 friends and profiles; the title under the name on profiles.
 
-| Tier | Rings | Name styles | Titles |
+| Tier | Glows (ids `ring.*`) | Name styles | Titles |
 |---|---|---|---|
 | Common | Plum, Silver | Plum, Silver | Curious Mind, Bookworm |
 | Rare | Ocean, Gold | Ocean, Gold | Scholar, Night Owl |
@@ -71,7 +73,7 @@ One title is shown at a time, a chest, earned or quest one.
 
 - **The map:** the chest sits beside the road between the 5th and 6th levels: shut and dim until the 5th is cleared, bobbing and lit when ready, open after.
 - **Opening:** a screen of its own. Open, then the prize: a boost (Start now, or Save for later), +2 Brainpower, or a cosmetic (Wear it, or Later).
-- **The Locker** (Profile): saved boosts with Start (one runs at a time, with its time left), then rings, name styles and titles in a grid, worn with a tap. Items not found yet show dimmed with their tier.
+- **The Locker** (Profile): saved boosts with Start (one runs at a time, with its time left), then glows, name styles and titles in tabs, worn with a tap. Items not found yet show dimmed with their tier.
 - **While a boost runs:** a gold "2x" chip with the time left on Home, and "2x XP boost" on Level Complete.
 
 ## Out of scope here

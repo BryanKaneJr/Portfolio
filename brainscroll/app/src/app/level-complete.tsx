@@ -184,8 +184,8 @@ export default function LevelCompleteScreen() {
             {s.boosted && (
               <Pop delay={380}>
                 <View accessible accessibilityLabel={`XP boost: 2x, plus ${s.boostBonusXp} XP`} style={{ alignItems: 'center' }}>
-                  <Chip tone="mastery" icon="xp">
-                    <Caption style={{ color: color.mastery }}>2x XP boost</Caption>
+                  <Chip tone="brand" icon="xp">
+                    <Caption tone="text">2x XP boost</Caption>
                   </Chip>
                 </View>
               </Pop>

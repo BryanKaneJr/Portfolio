@@ -1,7 +1,7 @@
 import { DR_SCROLL_FRIEND, leagueName, leaguePrize, ordinal, trophyInfo, type FeedItem, type DrScrollPost, type FeedReaction, type LeagueView } from '@brainscroll/core';
 import { Animated, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
-import { AvatarRing } from '@/components/cosmetics';
+import { AvatarGlow } from '@/components/cosmetics';
 import { TrophyBadge } from '@/components/TrophyBadge';
 import { AVATAR_ART, Caption, Card, DrScroll, GradientFill, Icon, Row, UiArt } from '@/components/ui';
 import { getSkill, trophyCatalog } from '@/content';
@@ -31,15 +31,15 @@ const STARTERS = Object.keys(AVATAR_ART).filter((id) => /^avatar\.[a-z_]+$/.test
 /**
  * A learner's avatar (AVATAR_ART). Everyone wears one from sign-up (owner,
  * 2026-10-01: no letter avatars); if one is ever missing, a starter is picked
- * from the username. The art is its own circle; the only ring around it is one
- * won from a map chest (owner, 2026-10-05), drawn at the same outer size.
+ * from the username. The art is its own circle and is never wrapped: what a
+ * map chest adds is a glow behind it (owner, 2026-10-05), spilling past its edge.
  */
 export function Avatar({ username, avatar, size = 40, ring }: { username: string; avatar?: string; size?: number; ring?: string | null }) {
   const art = (avatar ? AVATAR_ART[avatar] : undefined) ?? AVATAR_ART[STARTERS[hash(username) % STARTERS.length]!];
   const face = (s: number) => art && <Image source={art} style={{ width: s, height: s }} resizeMode="contain" accessibilityIgnoresInvertColors />;
   return (
     <View accessible={false} aria-hidden importantForAccessibility="no-hide-descendants" style={{ width: size, height: size }}>
-      {ring ? <AvatarRing ring={ring} size={size}>{face}</AvatarRing> : face(size)}
+      {ring ? <AvatarGlow ring={ring} size={size}>{face(size)}</AvatarGlow> : face(size)}
     </View>
   );
 }

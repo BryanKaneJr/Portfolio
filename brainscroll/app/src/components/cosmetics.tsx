@@ -1,13 +1,15 @@
 import { cosmeticItem, masteryTitleName, masteryTitleSkill, type CosmeticTier } from '@brainscroll/core';
 import { useEffect, useId, useState, type ReactNode } from 'react';
 import { router } from 'expo-router';
-import { Animated, Easing, Pressable, StyleSheet, Text, View, type StyleProp, type TextStyle } from 'react-native';
-import Svg, { Circle, Defs, G, LinearGradient, Path, Rect, Stop } from 'react-native-svg';
+import { Animated, Easing, Image, Pressable, StyleSheet, Text, View, type StyleProp, type TextStyle } from 'react-native';
+import Svg, { Circle, Defs, RadialGradient, Stop } from 'react-native-svg';
 import { getSkill } from '@/content';
 import { useReduceMotion } from '@/theme/feedback';
+import { Material } from '@/components/rewardsUi';
 import { Icon } from '@/components/ui';
+import { UI_ART } from '@/components/ui/uiArt';
 import { useProgress } from '@/progress/ProgressProvider';
-import { color, depth, iconSize, radius, space, type } from '@/theme/tokens';
+import { color, iconSize, radius, space, type } from '@/theme/tokens';
 
 /**
  * Cosmetics from map chests (owner, 2026-10-05; docs/specs/REWARDS.md), all
@@ -15,16 +17,20 @@ import { color, depth, iconSize, radius, space, type } from '@/theme/tokens';
  * core COSMETICS. Legendary ones move; with Reduce Motion they hold still.
  */
 
-/** Each ring: its gradient stops (top to bottom), and whether it turns. */
-export const RING_LOOKS: Record<string, { stops: string[]; turns?: boolean; width?: number }> = {
+/**
+ * Each glow (ids stay `ring.*` from when these were rings; owner, 2026-10-05:
+ * "instead of rings, we did a back glow"): its colours, and whether it turns
+ * (Galaxy, Prism) or breathes (Epic and up).
+ */
+export const RING_LOOKS: Record<string, { stops: string[]; turns?: boolean; breathes?: boolean }> = {
   'ring.plum': { stops: [color.plum, color.plumDeep] },
   'ring.silver': { stops: ['#F2F5F9', '#8D99A6'] },
   'ring.ocean': { stops: ['#5FE1F0', '#2F6BFF'] },
   'ring.gold': { stops: ['#FFE39A', '#E0A42C'] },
-  'ring.flame': { stops: ['#FFE066', '#FF8A2B', '#E5383B'], width: 1.3 },
-  'ring.aurora': { stops: ['#7CF5C4', '#4DA3FF', '#B57BFF'], width: 1.3 },
-  'ring.galaxy': { stops: ['#2B1B6E', '#7856FF', '#FF7AD9', '#2B1B6E'], turns: true, width: 1.4 },
-  'ring.prism': { stops: ['#FF6B6B', '#FFC857', '#39D98A', '#4DA3FF', '#B57BFF'], turns: true, width: 1.4 },
+  'ring.flame': { stops: ['#FFE066', '#FF8A2B', '#E5383B'], breathes: true },
+  'ring.aurora': { stops: ['#7CF5C4', '#4DA3FF', '#B57BFF'], breathes: true },
+  'ring.galaxy': { stops: ['#7856FF', '#FF7AD9', '#4DA3FF'], turns: true, breathes: true },
+  'ring.prism': { stops: ['#FF6B6B', '#FFC857', '#39D98A', '#4DA3FF', '#B57BFF'], turns: true, breathes: true },
 };
 
 /** Each name style: its colour, an optional glow, and for legendary ones a second colour it breathes into. */
@@ -55,31 +61,61 @@ function useTurn(active: boolean) {
   return v.interpolate({ inputRange: [0, 1], outputRange: ['0deg', '360deg'] });
 }
 
-/** A ring drawn around whatever it holds, at the same outer size (Avatar passes the art inside). */
-export function AvatarRing({ ring, size, children }: { ring: string; size: number; children: (inner: number) => ReactNode }) {
+/** A slow swell, on the native driver (Epic and Legendary glows). */
+function useSwell(active: boolean) {
+  const reduce = useReduceMotion();
+  const [v] = useState(() => new Animated.Value(0));
+  useEffect(() => {
+    if (!active || reduce) return v.setValue(0);
+    const half = { duration: 1800, easing: Easing.inOut(Easing.sin), useNativeDriver: true };
+    const loop = Animated.loop(Animated.sequence([Animated.timing(v, { toValue: 1, ...half }), Animated.timing(v, { toValue: 0, ...half })]));
+    loop.start();
+    return () => loop.stop();
+  }, [v, active, reduce]);
+  return v.interpolate({ inputRange: [0, 1], outputRange: [0.92, 1.08] });
+}
+
+/**
+ * A soft light behind the avatar art, spilling past its edge: one colour
+ * fading out, or (three colours and up) several blooms around the middle.
+ * The art itself is untouched, drawn on top at full size.
+ */
+export function AvatarGlow({ ring, size, children }: { ring: string; size: number; children: ReactNode }) {
   const look = RING_LOOKS[ring];
-  const id = `r${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
+  const id = `g${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
   const spin = useTurn(!!look?.turns);
-  if (!look) return <>{children(size)}</>;
-  const stroke = Math.max(2, Math.round(size * 0.06 * (look.width ?? 1)));
-  const gap = Math.max(1, Math.round(size * 0.03));
-  const inner = size - 2 * (stroke + gap);
-  const r = (size - stroke) / 2;
+  const swell = useSwell(!!look?.breathes);
+  if (!look) return <>{children}</>;
+  const spread = Math.round(size * 1.6);
+  const c = spread / 2;
+  const many = look.stops.length >= 3;
+  const blooms = many
+    ? look.stops.map((col, i) => {
+        const a = (i / look.stops.length) * Math.PI * 2 - Math.PI / 2;
+        return { col, x: c + Math.cos(a) * size * 0.16, y: c + Math.sin(a) * size * 0.16, r: c * 0.82 };
+      })
+    : [{ col: look.stops[0]!, x: c, y: c, r: c }];
   return (
     <View style={{ width: size, height: size }}>
-      <Animated.View style={[StyleSheet.absoluteFill, look.turns ? { transform: [{ rotate: spin }] } : null]}>
-        <Svg width={size} height={size}>
+      <Animated.View
+        pointerEvents="none"
+        style={{ position: 'absolute', left: (size - spread) / 2, top: (size - spread) / 2, width: spread, height: spread, transform: [...(look.turns ? [{ rotate: spin }] : []), { scale: swell }] }}>
+        <Svg width={spread} height={spread}>
           <Defs>
-            <LinearGradient id={id} x1="0" y1="0" x2="1" y2="1">
-              {look.stops.map((c, i) => (
-                <Stop key={i} offset={look.stops.length === 1 ? 0 : i / (look.stops.length - 1)} stopColor={c} />
-              ))}
-            </LinearGradient>
+            {blooms.map((b, i) => (
+              <RadialGradient key={i} id={`${id}${i}`} cx="50%" cy="50%" r="50%">
+                <Stop offset="0" stopColor={b.col} stopOpacity={many ? 0.8 : 1} />
+                <Stop offset="0.45" stopColor={many ? b.col : (look.stops[1] ?? b.col)} stopOpacity={many ? 0.45 : 0.7} />
+                <Stop offset="1" stopColor={many ? b.col : (look.stops[1] ?? b.col)} stopOpacity={0} />
+              </RadialGradient>
+            ))}
           </Defs>
-          <Circle cx={size / 2} cy={size / 2} r={r} stroke={`url(#${id})`} strokeWidth={stroke} fill="none" />
+          {blooms.map((b, i) => (
+            <Circle key={i} cx={b.x} cy={b.y} r={b.r} fill={`url(#${id}${i})`} />
+          ))}
         </Svg>
       </Animated.View>
-      <View style={{ position: 'absolute', left: stroke + gap, top: stroke + gap }}>{children(inner)}</View>
+      {children}
     </View>
   );
 }
@@ -125,8 +161,9 @@ export function StyledName({ children, nameStyle, style, numberOfLines = 1, head
 }
 
 /** A name style's swatch for the Locker: "Aa" in that style. */
-export function NameSwatch({ nameStyle, size = 22 }: { nameStyle: string; size?: number }) {
-  return <StyledName nameStyle={nameStyle} style={{ fontSize: size, fontWeight: '800' }}>Aa</StyledName>;
+/** A name style, shown as its own name written in it ("Gold" in gold). */
+export function NameSwatch({ nameStyle, size = 18 }: { nameStyle: string; size?: number }) {
+  return <StyledName nameStyle={nameStyle} style={{ fontSize: size, fontWeight: '800' }}>{cosmeticName(nameStyle)}</StyledName>;
 }
 
 export const cosmeticName = (id: string) => cosmeticItem(id)?.name ?? id;
@@ -143,48 +180,19 @@ export function lookTitleName(id: string | null | undefined): string | undefined
 }
 
 /**
- * The map chest: a plum chest with a gold band. `ready` has its lid lifted a
- * crack with light spilling out; `opened` stands open and empty; `locked` is
- * shut and dim. Drawn on a 64 x 56 box.
+ * The map chest, from the owner's art (ui/chest, ui/chest-open): shut and dim
+ * before it can open, shut when ready, open after.
  */
 export function ChestArt({ state, size = 56 }: { state: 'locked' | 'ready' | 'opened'; size?: number }) {
-  const id = `c${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
-  const h = (size * 56) / 64;
-  const body = state === 'locked' ? '#4A3A5C' : color.plumDeep;
-  const bodyDark = state === 'locked' ? '#352944' : '#6E2F99';
-  const band = state === 'locked' ? '#8A7A55' : color.mastery;
-  const open = state === 'opened';
   return (
-    <Svg width={size} height={h} viewBox="0 0 64 56">
-      <Defs>
-        <LinearGradient id={id} x1="0" y1="0" x2="0" y2="1">
-          <Stop offset="0" stopColor="#FFF3C4" stopOpacity="0.95" />
-          <Stop offset="1" stopColor={color.mastery} stopOpacity="0" />
-        </LinearGradient>
-      </Defs>
-      {state === 'ready' && <Path d="M14 22 L4 0 L60 0 L50 22 Z" fill={`url(#${id})`} />}
-      {/* Body */}
-      <Rect x="8" y="26" width="48" height="28" rx="4" fill={bodyDark} />
-      <Rect x="8" y="26" width="48" height="24" rx="4" fill={body} />
-      <Rect x="8" y="34" width="48" height="4" fill={band} />
-      {open ? (
-        // The lid thrown back, and the empty inside.
-        <G>
-          <Rect x="11" y="24" width="42" height="6" rx="2" fill="#2A1A3A" />
-          <Path d="M10 24 L14 6 Q32 0 50 6 L54 24 Z" fill={bodyDark} />
-          <Path d="M14 6 Q32 0 50 6" stroke={band} strokeWidth="3" fill="none" />
-        </G>
-      ) : (
-        <G transform={state === 'ready' ? 'rotate(-6 8 26)' : undefined}>
-          <Path d="M8 26 L8 18 Q32 4 56 18 L56 26 Z" fill={body} />
-          <Path d="M8 26 L8 18 Q32 4 56 18 L56 26 Z" fill="none" stroke={bodyDark} strokeWidth="2" />
-          <Rect x="28" y="9" width="8" height="17" fill={band} />
-        </G>
-      )}
-      {/* The clasp */}
-      {!open && <Rect x="27" y="30" width="10" height="11" rx="2" fill={band} stroke={state === 'locked' ? '#5E5340' : color.masteryEdge} strokeWidth="1.5" />}
-      {!open && state === 'locked' && <Circle cx="32" cy="35" r="1.6" fill="#352944" />}
-    </Svg>
+    <View style={{ width: size, height: size, alignItems: 'center', justifyContent: 'center' }}>
+      <Image
+        source={state === 'opened' ? UI_ART['chest-open'] : UI_ART.chest}
+        style={{ width: size, height: size, opacity: state === 'locked' ? 0.45 : 1 }}
+        resizeMode="contain"
+        accessibilityIgnoresInvertColors
+      />
+    </View>
   );
 }
 
@@ -227,8 +235,8 @@ export function BoostChip() {
       accessibilityLabel={`2x XP boost, ${Math.ceil(left / 60000)} minutes left. Open the Locker`}
       onPress={() => router.push('/locker')}
       style={({ pressed }) => [styles.boostChip, pressed && { opacity: 0.8 }]}>
-      <Icon name="xp" tint={color.onMastery} size={iconSize.sm} />
-      <Text style={[type.label, { color: color.onMastery, fontWeight: '800', fontVariant: ['tabular-nums'] }]}>{`2x ${clock(left)}`}</Text>
+      <Icon name="xp" tint={color.onBrand} size={iconSize.sm} />
+      <Text style={[type.label, { color: color.onBrand, fontWeight: '800', fontVariant: ['tabular-nums'] }]}>{`2x ${clock(left)}`}</Text>
     </Pressable>
   );
 }
@@ -238,18 +246,19 @@ export function LockerTile() {
   const { locker } = useProgress().snapshot;
   const left = useBoostLeft();
   const saved = locker.boosts.filter((b) => !b.startedAt).length;
-  const line = left !== null ? `2x XP · ${clock(left)} left` : saved ? `${saved} XP ${saved === 1 ? 'boost' : 'boosts'} saved` : `${locker.cosmetics.length} of 24 collected`;
+  const line = left !== null ? `2x XP · ${clock(left)} left` : saved ? `${saved} XP ${saved === 1 ? 'boost' : 'boosts'}` : null;
   return (
     <Pressable
       testID="open-locker"
       accessibilityRole="button"
-      accessibilityLabel={`Locker: ${line}. Open`}
+      accessibilityLabel={line ? `Locker: ${line}. Open` : 'Locker. Open'}
       onPress={() => router.push('/locker')}
-      style={({ pressed }) => [styles.lockerTile, pressed && { opacity: 0.8 }]}>
-      <ChestArt state="ready" size={48} />
+      style={({ pressed }) => [styles.lockerTile, pressed && { transform: [{ scale: 0.98 }] }]}>
+      <Material rarity="quest" soft />
+      <ChestArt state="ready" size={64} />
       <View style={{ flex: 1, gap: space.xxs }}>
-        <Text style={[type.title, { color: color.text }]}>Locker</Text>
-        <Text style={[type.caption, { color: left !== null ? color.mastery : color.textMuted }]}>{line}</Text>
+        <Text style={[type.h2, { color: color.text }]}>Locker</Text>
+        {line && <Text style={[type.caption, { color: color.brandText, fontWeight: '700' }]}>{line}</Text>}
       </View>
       <Icon name="forward" tint={color.textMuted} size={iconSize.md} />
     </Pressable>
@@ -257,16 +266,6 @@ export function LockerTile() {
 }
 
 const styles = StyleSheet.create({
-  boostChip: { flexDirection: 'row', alignItems: 'center', gap: space.xxs, backgroundColor: color.mastery, borderRadius: radius.pill, paddingHorizontal: space.sm, paddingVertical: space.xxs, minHeight: 32 },
-  lockerTile: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: space.md,
-    backgroundColor: color.surface,
-    borderRadius: radius.md,
-    borderWidth: depth.border,
-    borderBottomWidth: depth.edge,
-    borderColor: color.border,
-    padding: space.md,
-  },
+  boostChip: { flexDirection: 'row', alignItems: 'center', gap: space.xxs, backgroundColor: color.brand, borderRadius: radius.pill, paddingHorizontal: space.sm, paddingVertical: space.xxs, minHeight: 32 },
+  lockerTile: { flexDirection: 'row', alignItems: 'center', gap: space.md, borderRadius: radius.md, paddingVertical: space.md, paddingHorizontal: space.lg, overflow: 'hidden' },
 });
