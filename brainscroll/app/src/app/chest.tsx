@@ -3,6 +3,7 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState, useSyncExternalStore } from 'react';
 import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Svg, { Defs, RadialGradient, Rect, Stop } from 'react-native-svg';
 import { BrainpowerIcon } from '@/components/BrainpowerIcon';
 import { ChestArt, ChestOpening, StyledName } from '@/components/cosmetics';
 import { RARITY, SoftGlow, TitlePlate } from '@/components/rewardsUi';
@@ -174,7 +175,12 @@ export default function ChestScreen() {
               <Animated.View style={chestStyle}>
                 <ChestOpening size={250} onOpen={land} />
               </Animated.View>
-              <Animated.View style={[styles.prize, prizeStyle]}>{prizeArt}</Animated.View>
+              <Animated.View style={[styles.prize, prizeStyle]}>
+                <View>
+                  <PrizeShadow />
+                  {prizeArt}
+                </View>
+              </Animated.View>
             </View>
             <Animated.View style={[{ alignItems: 'center', gap: space.xs }, fadeIn]} testID="chest-reward">
               <Text style={[type.h1, { color: color.text, textAlign: 'center' }]}>{headline}</Text>
@@ -217,7 +223,26 @@ export default function ChestScreen() {
   );
 }
 
+/** A soft dark pool under the prize, so it lifts off the chest. */
+function PrizeShadow() {
+  return (
+    <View pointerEvents="none" style={styles.shadow}>
+      <Svg width="100%" height="100%">
+        <Defs>
+          <RadialGradient id="prizeShadow" cx="50%" cy="50%" r="50%">
+            <Stop offset="0" stopColor="#05080C" stopOpacity={0.95} />
+            <Stop offset="0.5" stopColor="#05080C" stopOpacity={0.8} />
+            <Stop offset="1" stopColor="#05080C" stopOpacity={0} />
+          </RadialGradient>
+        </Defs>
+        <Rect x="0" y="0" width="100%" height="100%" fill="url(#prizeShadow)" />
+      </Svg>
+    </View>
+  );
+}
+
 const styles = StyleSheet.create({
+  shadow: { position: 'absolute', top: -28, bottom: -60, left: -60, right: -60 },
   stage: { width: 300, height: 300, alignItems: 'center', justifyContent: 'center' },
   prize: { position: 'absolute', left: 0, right: 0, top: 0, bottom: 56, alignItems: 'center', justifyContent: 'center' },
   namePill: { backgroundColor: 'rgba(10,14,20,0.82)', borderRadius: 999, paddingHorizontal: space.lg, paddingVertical: space.xs },
