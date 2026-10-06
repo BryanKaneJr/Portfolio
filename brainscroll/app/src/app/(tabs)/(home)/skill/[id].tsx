@@ -5,7 +5,8 @@ import { Body, Card, Emblem, IconButton, Loading, OfflineState, Row, Screen, Ske
 import { chaptersFor, levelMeta } from '@/content';
 import { LevelPath } from '@/components/LevelPath';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
-import { BrainpowerLabel } from '@/components/BrainpowerLabel';
+import { BrainpowerBadge } from '@/components/BrainpowerBadge';
+import { StreakBadge } from '@/components/StreakBadge';
 import { useCurrentSkill } from '@/progress/useCurrentSkill';
 import { useStartLevel } from '@/progress/useStartLevel';
 import { layout, space, type } from '@/theme/tokens';
@@ -130,24 +131,31 @@ export default function SkillMapScreen() {
       scrollRef={scroll}
       onScroll={onScroll}
       header={
-        <Row gap={space.sm}>
-          <IconButton
-            label="Back"
-            icon="back"
-            onPress={() =>
-              // Back (the screen slides away to the right); only a deep link with nothing behind it navigates up.
-              router.canGoBack() ? router.back() : router.navigate(multi ? { pathname: '/subject/[id]', params: { id: skill.subjectId } } : '/')
-            }
-          />
-          <Emblem value={skill.view.level} size="sm" tint={subjectTint(skill.subjectId)} />
-          <View style={{ flex: 1, gap: space.xxs }}>
-            <BrainpowerLabel today={today} />
-            <Title>
-              {skill.name} · Lv. {skill.view.level}
-            </Title>
-          </View>
-          <Stars count={skill.view.stars} />
-        </Row>
+        // Two rows: Back with the same Brainpower and streak chips as Home (owner, 2026-10-06: the map had none), then where you are.
+        <View style={{ gap: space.sm }}>
+          <Row gap={space.sm}>
+            <IconButton
+              label="Back"
+              icon="back"
+              onPress={() =>
+                // Up to the parent, back through the stack when it's there; history back looped skill and region on the web.
+                router.dismissTo(multi ? { pathname: '/subject/[id]', params: { id: skill.subjectId } } : '/')
+              }
+            />
+            <View style={{ flex: 1 }} />
+            <BrainpowerBadge />
+            <StreakBadge />
+          </Row>
+          <Row gap={space.sm}>
+            <Emblem value={skill.view.level} size="sm" tint={subjectTint(skill.subjectId)} />
+            <View style={{ flex: 1 }}>
+              <Title numberOfLines={1}>
+                {skill.name} · Lv. {skill.view.level}
+              </Title>
+            </View>
+            <Stars count={skill.view.stars} />
+          </Row>
+        </View>
       }>
 
       {!next && (
