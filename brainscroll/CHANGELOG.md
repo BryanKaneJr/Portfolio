@@ -3,6 +3,11 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-06: The chest opening
+
+- **Opening a chest is a moment** (owner: "a quick animation of the chest shaking and then have the chest opened image with a glow behind it appear"). Tap Open: the chest rattles, each swing a little wider (about 0.8 s, while the server rolls), then pops open with a springy scale and slow-turning light in the prize's rarity colour behind it, and the prize rises a beat later. With Reduce Motion it skips the rattle.
+- **Fix:** the chest no longer flips to "Already opened" mid-rattle (opening it marks it opened at once; only a chest opened before the visit counts).
+
 ## 2026-10-05: Rings become glows
 
 - **Instead of a ring around the avatar, a glow behind it** (owner: "I like the art we have, what if instead of rings, we did a back glow?"). The avatar art stays exactly as drawn; the glow is soft light in the item's colours spilling past its edge. Plum, Silver, Ocean and Gold are one colour; Flame and Aurora blend three and breathe; Galaxy and Prism bloom in several colours, breathe and slowly turn. Everywhere a ring showed (leagues, the feed, friends, profiles, the Locker, chest prizes). The Locker's tab is "Glows". Ids stay `ring.*`, so nothing changes on the server.
