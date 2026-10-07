@@ -34,7 +34,7 @@ and titles. Boosted XP counts toward the league.
 
 ## XP boosts
 
-- A boost is an item in the Locker until the learner starts it (so a 1-hour
+- A boost waits in Edit profile until the learner starts it (so a 1-hour
   boost isn't wasted when they're out of Brainpower or about to leave).
 - One at a time: starting one while another runs is refused (`BOOST_ACTIVE`).
 - While it runs, a level's first clear pays **2x** its XP. Together with the
@@ -48,7 +48,8 @@ and titles. Boosted XP counts toward the league.
 
 Glows (owner, 2026-10-05: "instead of rings, we did a back glow", to keep the avatar art as it is): a soft light behind the avatar that spills past its edge. Epic and Legendary glows breathe, and Galaxy and Prism turn. They were rings at first, so their ids stay `ring.*` (and `look_ring` on the server).
 
-Drawn in code, no art. Everything owned lives in the **Locker** (Profile),
+Drawn in code, no art. Everything owned lives in **Edit profile** (the
+Locker until owner, 2026-10-07: "move everything from locker to edit profile"),
 where the learner equips one glow, one name style and one title. Others see
 them: the glow behind the avatar and the styled name in leagues, the feed,
 friends and profiles; the title under the name on profiles.
@@ -73,7 +74,7 @@ One title is shown at a time, a chest, earned or quest one.
 
 - **The map:** the chest sits beside the road between the 5th and 6th levels: shut and dim until the 5th is cleared, bobbing and lit when ready, open after.
 - **Opening:** a screen of its own. Open, then the prize: a boost (Start now, or Save for later), +2 Brainpower, or a cosmetic (Wear it, or Later).
-- **The Locker** (Profile): saved boosts with Start (one runs at a time, with its time left), then glows, name styles and titles in tabs, worn with a tap. Items not found yet show dimmed with their tier.
+- **Edit profile** (the pencil on Profile): you as others see you, your username, saved boosts with Start (one runs at a time, with its time left), then glows, name styles and titles in tabs, worn with a tap. Titles include quest titles; one title shows. Items not found yet show dimmed with their tier. Profile shows an XP boosts tile only while there are boosts.
 - **While a boost runs:** a gold "2x" chip with the time left on Home, and "2x XP boost" on Level Complete.
 
 ## Out of scope here

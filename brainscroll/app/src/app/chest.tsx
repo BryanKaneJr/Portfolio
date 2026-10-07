@@ -17,7 +17,7 @@ import { color, layout, space, type } from '@/theme/tokens';
  * road after a chapter's 5th level. Tap Open: the chest rattles harder and
  * harder while the server rolls once, bursts open glowing, then fades away
  * as the prize comes in. A boost can start now or wait in
- * the Locker; a cosmetic can be worn straight away.
+ * Edit profile; a cosmetic can be worn straight away.
  */
 const noop = () => () => {};
 
@@ -186,7 +186,6 @@ export default function ChestScreen() {
         <Animated.View
           pointerEvents={reward && !prizeShown ? 'none' : 'auto'}
           style={[styles.footer, reward ? { opacity: burst, transform: [{ translateY: burst.interpolate({ inputRange: [0, 1], outputRange: [16, 0] }) }] } : null]}>
-          {!reward && opened && <Button variant="secondary" label="See your Locker" onPress={() => router.replace('/locker')} />}
           {reward?.kind === 'boost' && boostId && !done && (
             <>
               <Button testID="start-boost-now" label="Start now" loading={busy} onPress={() => act(() => p.rewards.startBoost(boostId))} />

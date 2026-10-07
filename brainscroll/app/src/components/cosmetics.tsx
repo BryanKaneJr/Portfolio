@@ -160,7 +160,6 @@ export function StyledName({ children, nameStyle, style, numberOfLines = 1, head
   );
 }
 
-/** A name style's swatch for the Locker: "Aa" in that style. */
 /** A name style, shown as its own name written in it ("Gold" in gold). */
 export function NameSwatch({ nameStyle, size = 18 }: { nameStyle: string; size?: number }) {
   return <StyledName nameStyle={nameStyle} style={{ fontSize: size, fontWeight: '800' }}>{cosmeticName(nameStyle)}</StyledName>;
@@ -224,7 +223,7 @@ export function useBoostLeft(): number | null {
   return left > 0 ? left : null;
 }
 
-/** The header chip while a boost runs: "2x XP 12:05". Opens the Locker. */
+/** The header chip while a boost runs: "2x XP 12:05". Opens Edit profile, where boosts live. */
 export function BoostChip() {
   const left = useBoostLeft();
   if (left === null) return null;
@@ -232,8 +231,8 @@ export function BoostChip() {
     <Pressable
       testID="boost-chip"
       accessibilityRole="button"
-      accessibilityLabel={`2x XP boost, ${Math.ceil(left / 60000)} minutes left. Open the Locker`}
-      onPress={() => router.push('/locker')}
+      accessibilityLabel={`2x XP boost, ${Math.ceil(left / 60000)} minutes left. Open`}
+      onPress={() => router.push('/edit-profile')}
       style={({ pressed }) => [styles.boostChip, pressed && { opacity: 0.8 }]}>
       <Icon name="xp" tint={color.onBrand} size={iconSize.sm} />
       <Text style={[type.label, { color: color.onBrand, fontWeight: '800', fontVariant: ['tabular-nums'] }]}>{`2x ${clock(left)}`}</Text>
@@ -241,25 +240,23 @@ export function BoostChip() {
   );
 }
 
-/** Profile's way into the Locker: the chest, and what's waiting in it. */
-export function LockerTile() {
+/** Profile's way to XP boosts waiting to start (in Edit profile), shown only while there are some. */
+export function BoostsTile() {
   const { locker } = useProgress().snapshot;
   const left = useBoostLeft();
   const saved = locker.boosts.filter((b) => !b.startedAt).length;
-  const line = left !== null ? `2x XP · ${clock(left)} left` : saved ? `${saved} XP ${saved === 1 ? 'boost' : 'boosts'}` : null;
+  const line = left !== null ? `2x XP · ${clock(left)} left` : saved ? `${saved} XP ${saved === 1 ? 'boost' : 'boosts'} to start` : null;
+  if (!line) return null;
   return (
     <Pressable
-      testID="open-locker"
+      testID="open-boosts"
       accessibilityRole="button"
-      accessibilityLabel={line ? `Locker: ${line}. Open` : 'Locker. Open'}
-      onPress={() => router.push('/locker')}
+      accessibilityLabel={`${line}. Open`}
+      onPress={() => router.push('/edit-profile')}
       style={({ pressed }) => [styles.lockerTile, pressed && { transform: [{ scale: 0.98 }] }]}>
       <Material rarity="quest" soft />
-      <ChestArt state="ready" size={64} />
-      <View style={{ flex: 1, gap: space.xxs }}>
-        <Text style={[type.h2, { color: color.text }]}>Locker</Text>
-        {line && <Text style={[type.caption, { color: color.brandText, fontWeight: '700' }]}>{line}</Text>}
-      </View>
+      <ChestArt state="opened" size={56} />
+      <Text style={[type.title, { flex: 1, color: color.text }]}>{line}</Text>
       <Icon name="forward" tint={color.textMuted} size={iconSize.md} />
     </Pressable>
   );

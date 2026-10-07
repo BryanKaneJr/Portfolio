@@ -3,7 +3,7 @@ import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { Pressable, View } from 'react-native';
 import { AttributeRow, SubjectRing, type SubjectStat } from '@/components/CharacterSheet';
-import { LockerTile, lookTitleName, StyledName } from '@/components/cosmetics';
+import { BoostsTile, lookTitleName, StyledName } from '@/components/cosmetics';
 import { TitlePlate, titleRarity } from '@/components/rewardsUi';
 import { Avatar } from '@/components/social';
 import { Button, Caption, Card, Eyebrow, GradientFill, IconButton, LevelArt, OfflineState, Row, Screen, StatTile } from '@/components/ui';
@@ -40,7 +40,7 @@ export default function ProfileScreen() {
   const next = trophiesAhead(trophies.map((t) => t.trophyId));
   const title = questData?.equipped.titleQuestId ? questDef(questData.equipped.titleQuestId) : undefined;
   const look = p.snapshot.locker.look;
-  // One title shows: one from the Locker, else a quest's.
+  // One title shows: a chest or Mastery title, else a quest's.
   const titleName = lookTitleName(look.title) ?? title?.titleReward;
   const emblem = questData?.equipped.emblemQuestId ? questDef(questData.equipped.emblemQuestId) : undefined;
   // Your username once it's loaded (what friends see); a first name from the email until then.
@@ -91,7 +91,7 @@ export default function ProfileScreen() {
       </Row>
       </Pressable>
 
-      <LockerTile />
+      <BoostsTile />
 
       <View style={{ gap: space.sm }}>
         <Eyebrow>Trophies</Eyebrow>

@@ -3,6 +3,10 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-07: The Locker moves into Edit profile
+
+- **One place for how you look** (owner: "move everything from locker to edit profile"). Edit profile now holds you as others see you (tap the avatar to change it), your username, XP boosts waiting to start, and the Glows, Name styles and Titles tabs. Quest titles sit in the Titles tab with chest and Mastery titles, and None takes off whichever is worn. The Locker screen is gone: Home's 2x chip opens Edit profile, and Profile shows an XP boosts tile only while there are boosts.
+
 ## 2026-10-06: Map fixes from the first preview
 
 - **Back goes up** (owner: "the back button isn't bringing me back to the subjects list, just goes back and forth"). The skill map's Back goes to its subject (or Home, for a one-skill subject) and the subject's Back goes Home, back through the screens already open when they're there. Before, a map opened straight after a lesson had nothing behind it, so Back opened the subject over the map and the subject's Back returned to the map, round and round.

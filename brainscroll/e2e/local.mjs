@@ -424,10 +424,11 @@ try {
   if (boosted) check((await page.getByTestId('boost-chip').count()) === 1, 'a started boost shows its 2x chip on Home');
   await page.getByRole('tab', { name: /Profile/ }).click();
   await page.waitForTimeout(800);
-  await page.getByTestId('open-locker').click();
+  if (boosted) check((await page.getByTestId('open-boosts').count()) === 1, 'Profile points to the running boost');
+  await exactButton(page, 'Edit profile').click();
   await page.waitForTimeout(1000);
-  const lockerText = await bodyText(page);
-  check(/Glows/.test(lockerText) && /Name styles/.test(lockerText) && /Titles/.test(lockerText) && (!boosted || /XP boost on/.test(lockerText)), 'the Locker lists glows, name styles and titles (and the running boost)');
+  const wardrobe = await bodyText(page);
+  check(/Glows/.test(wardrobe) && /Name styles/.test(wardrobe) && /Titles/.test(wardrobe) && (!boosted || /XP boost on/.test(wardrobe)), 'Edit profile lists glows, name styles and titles (and the running boost)');
 
   // A second skill: opening it on the Skills tab shows its map, but Home keeps the tree last played.
   await home(page);
