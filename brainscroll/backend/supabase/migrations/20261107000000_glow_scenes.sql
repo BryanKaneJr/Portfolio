@@ -10,4 +10,5 @@ update public.cosmetic_items set name = 'Code Rain' where id = 'ring.prism';
 insert into public.cosmetic_items (id, kind, tier, name) values
   ('ring.equations', 'ring', 'epic', 'Equations'),
   ('ring.constellation', 'ring', 'epic', 'Constellation'),
-  ('ring.neural', 'ring', 'legendary', 'Neural Net');
+  ('ring.neural', 'ring', 'legendary', 'Neural Net'),
+  ('ring.music', 'ring', 'legendary', 'Sheet Music');

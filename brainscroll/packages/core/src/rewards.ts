@@ -44,6 +44,7 @@ export const COSMETICS: readonly CosmeticItem[] = [
   { id: 'ring.equations', kind: 'ring', tier: 'epic', name: 'Equations' },
   { id: 'ring.constellation', kind: 'ring', tier: 'epic', name: 'Constellation' },
   { id: 'ring.neural', kind: 'ring', tier: 'legendary', name: 'Neural Net' },
+  { id: 'ring.music', kind: 'ring', tier: 'legendary', name: 'Sheet Music' },
   { id: 'name.plum', kind: 'name_style', tier: 'common', name: 'Plum' },
   { id: 'name.silver', kind: 'name_style', tier: 'common', name: 'Silver' },
   { id: 'name.ocean', kind: 'name_style', tier: 'rare', name: 'Ocean' },

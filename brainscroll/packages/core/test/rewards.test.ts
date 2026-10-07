@@ -52,7 +52,7 @@ const rollFor = (w: Record<ChestRoll, number>, r: ChestRoll) => {
 describe('the cosmetic catalog', () => {
   it('has unique ids: two name styles and titles per tier, and glows weighted to the top', () => {
     expect(new Set(COSMETICS.map((c) => c.id)).size).toBe(COSMETICS.length);
-    const glows = { common: 2, rare: 2, epic: 4, legendary: 3 };
+    const glows = { common: 2, rare: 2, epic: 4, legendary: 4 };
     for (const tier of ['common', 'rare', 'epic', 'legendary'] as const) {
       for (const kind of ['name_style', 'title'] as const) expect(COSMETICS.filter((c) => c.kind === kind && c.tier === tier)).toHaveLength(2);
       expect(COSMETICS.filter((c) => c.kind === 'ring' && c.tier === tier)).toHaveLength(glows[tier]);

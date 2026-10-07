@@ -2,7 +2,7 @@ import { cosmeticItem, masteryTitleName, masteryTitleSkill, RewardError, type Co
 import { useEffect, useId, useMemo, useState, type ReactNode } from 'react';
 import { router } from 'expo-router';
 import { Animated, Easing, Image, Platform, Pressable, StyleSheet, Text, View, type StyleProp, type TextStyle } from 'react-native';
-import Svg, { Circle, Defs, Ellipse, Path, RadialGradient, Stop } from 'react-native-svg';
+import Svg, { Circle, Defs, Ellipse, LinearGradient, Path, RadialGradient, Rect, Stop } from 'react-native-svg';
 import { getSkill } from '@/content';
 import { feedback, useReduceMotion } from '@/theme/feedback';
 import { Material } from '@/components/rewardsUi';
@@ -24,7 +24,7 @@ import { color, iconSize, radius, space, type } from '@/theme/tokens';
  * scene (none under Code Rain); Common and Rare scenes are quiet, Epic and
  * Legendary busy.
  */
-type Scene = 'fireflies' | 'ripple' | 'bubbles' | 'sunburst' | 'embers' | 'aurora' | 'galaxy' | 'code' | 'equations' | 'constellation' | 'neural';
+type Scene = 'fireflies' | 'ripple' | 'bubbles' | 'sunburst' | 'embers' | 'aurora' | 'galaxy' | 'code' | 'equations' | 'constellation' | 'neural' | 'music';
 export const RING_LOOKS: Record<string, { scene: Scene; glow: string | null; ink: string }> = {
   'ring.plum': { scene: 'fireflies', glow: color.plum, ink: '#FFE9A8' },
   'ring.silver': { scene: 'ripple', glow: '#B8C4D0', ink: '#F2F5F9' },
@@ -37,6 +37,7 @@ export const RING_LOOKS: Record<string, { scene: Scene; glow: string | null; ink
   'ring.equations': { scene: 'equations', glow: '#5B3FD6', ink: '#E8E1FF' },
   'ring.constellation': { scene: 'constellation', glow: '#1E3A8A', ink: '#FFFFFF' },
   'ring.neural': { scene: 'neural', glow: '#2B3FBF', ink: '#7CE8FF' },
+  'ring.music': { scene: 'music', glow: '#8A2D7A', ink: '#FFF1D6' },
 };
 
 /** Each name style: its colour, an optional glow, and for legendary ones a second colour it breathes into. */
@@ -58,6 +59,7 @@ export const TIER_INK: Record<CosmeticTier, string> = { common: color.textMuted,
 const SCENE_MIN = 48;
 const MONO = Platform.select({ ios: 'Menlo', android: 'monospace', default: 'monospace' });
 const GLYPHS = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉ0123456789';
+const NOTES = ['♩', '♪', '♫', '♬'];
 const MATHS = ['π', '√', '∑', '∞', 'x²', 'Δ', 'θ', '∫', 'λ', '≈', 'e', '÷', '∂', 'φ'];
 
 /** 0 → 1 over and over, from `delay`, on the native driver; still with Reduce Motion. */
@@ -281,6 +283,64 @@ function NeuralNet({ c, size, ink, active }: { c: number; size: number; ink: str
   );
 }
 
+/** One note gliding left to right along the staff, fading in and out at the circle's edge (Sheet Music). */
+function Note({ y, half, c, glyph, ms, delay, ink, sym, active }: { y: number; half: number; c: number; glyph: number; ms: number; delay: number; ink: string; sym: string; active: boolean }) {
+  const t = useCycle(ms, delay, active);
+  const ramp = 0.2;
+  return (
+    <Animated.Text
+      style={{
+        position: 'absolute',
+        left: c - half - glyph / 2,
+        // The glyph's head sits low in its box: lift it so the head lands on its line or space.
+        top: y - glyph * 0.62,
+        width: glyph,
+        textAlign: 'center',
+        fontSize: glyph,
+        lineHeight: glyph * 1.1,
+        color: ink,
+        textShadowColor: '#FF8BD8',
+        textShadowRadius: 6,
+        opacity: t.interpolate({ inputRange: [0, ramp, 1 - ramp, 1], outputRange: [0, 1, 1, 0] }),
+        transform: [{ translateX: t.interpolate({ inputRange: [0, 1], outputRange: [0, half * 2] }) }],
+      }}>
+      {sym}
+    </Animated.Text>
+  );
+}
+
+/** Sheet Music: a five-line staff across the circle, notes travelling along it behind the avatar. */
+function SheetMusic({ c, size, ink, active }: { c: number; size: number; ink: string; active: boolean }) {
+  const id = `st${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
+  const gap = Math.max(4, size * 0.1);
+  const spread = c * 2;
+  const lines = [-2, -1, 0, 1, 2].map((k) => c + k * gap);
+  const width = (y: number) => Math.sqrt(Math.max(0, c * c - (y - c) * (y - c))) * 0.92;
+  const glyph = gap * 3;
+  return (
+    <>
+      <Svg width={spread} height={spread} style={StyleSheet.absoluteFill}>
+        <Defs>
+          <LinearGradient id={id} x1="0" y1="0" x2="1" y2="0">
+            <Stop offset="0" stopColor={ink} stopOpacity={0} />
+            <Stop offset="0.2" stopColor={ink} stopOpacity={0.55} />
+            <Stop offset="0.8" stopColor={ink} stopOpacity={0.55} />
+            <Stop offset="1" stopColor={ink} stopOpacity={0} />
+          </LinearGradient>
+        </Defs>
+        {lines.map((y, i) => (
+          <Rect key={i} x={c - width(y)} y={y - 0.75} width={width(y) * 2} height={1.5} fill={`url(#${id})`} />
+        ))}
+      </Svg>
+      {Array.from({ length: 12 }, (_, i) => {
+        // On a line or in a space, from the bottom line up to the top one.
+        const y = c + gap * 2 - Math.floor(rand(i, 41) * 9) * (gap / 2);
+        return <Note key={i} y={y} half={width(y)} c={c} glyph={glyph} ms={3400 + rand(i, 42) * 2000} delay={rand(i, 43) * 4000} ink={ink} sym={NOTES[Math.floor(rand(i, 44) * NOTES.length)]!} active={active} />;
+      })}
+    </>
+  );
+}
+
 /** The scene for one glow, `spread` points square, centred on the avatar. */
 function GlowScene({ scene, spread, size, ink, active }: { scene: Scene; spread: number; size: number; ink: string; active: boolean }) {
   const c = spread / 2;
@@ -305,6 +365,7 @@ function GlowScene({ scene, spread, size, ink, active }: { scene: Scene; spread:
   }
   if (scene === 'constellation') return <Constellation c={c} size={size} ink={ink} active={active} />;
   if (scene === 'neural') return <NeuralNet c={c} size={size} ink={ink} active={active} />;
+  if (scene === 'music') return <SheetMusic c={c} size={size} ink={ink} active={active} />;
   if (scene === 'equations')
     return (
       <>
