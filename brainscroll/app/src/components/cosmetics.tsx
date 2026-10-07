@@ -60,6 +60,9 @@ const SCENE_MIN = 48;
 const MONO = Platform.select({ ios: 'Menlo', android: 'monospace', default: 'monospace' });
 const GLYPHS = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉ0123456789';
 const NOTES = ['♩', '♪', '♫', '♬'];
+/** Sheet Music's notes, by half-steps up from the bottom line: neighbours far apart in height. */
+const STAFF_STEPS = [1, 6, 3, 8, 2, 5];
+const NOTE_MS = 7200;
 const MATHS = ['π', '√', '∑', '∞', 'x²', 'Δ', 'θ', '∫', 'λ', '≈', 'e', '÷', '∂', 'φ'];
 
 /** 0 → 1 over and over, from `delay`, on the native driver; still with Reduce Motion. */
@@ -332,10 +335,10 @@ function SheetMusic({ c, size, ink, active }: { c: number; size: number; ink: st
           <Rect key={i} x={c - width(y)} y={y - 0.75} width={width(y) * 2} height={1.5} fill={`url(#${id})`} />
         ))}
       </Svg>
-      {Array.from({ length: 12 }, (_, i) => {
-        // On a line or in a space, from the bottom line up to the top one.
-        const y = c + gap * 2 - Math.floor(rand(i, 41) * 9) * (gap / 2);
-        return <Note key={i} y={y} half={width(y)} c={c} glyph={glyph} ms={3400 + rand(i, 42) * 2000} delay={rand(i, 43) * 4000} ink={ink} sym={NOTES[Math.floor(rand(i, 44) * NOTES.length)]!} active={active} />;
+      {/* One conveyor: the same speed for every note, evenly spaced in time and alternating high and low, so none ever overlap. */}
+      {STAFF_STEPS.map((step, i) => {
+        const y = c + gap * 2 - step * (gap / 2);
+        return <Note key={i} y={y} half={width(c)} c={c} glyph={glyph} ms={NOTE_MS} delay={(i * NOTE_MS) / STAFF_STEPS.length} ink={ink} sym={NOTES[i % NOTES.length]!} active={active} />;
       })}
     </>
   );
