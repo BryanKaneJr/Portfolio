@@ -243,22 +243,56 @@ function ringPoints(n: number, c: number, size: number, seed: number) {
   });
 }
 
-/** Constellation: stars twinkle, lines draw between them one by one, hold, then all fade and draw again. */
+/**
+ * Real constellations (owner, 2026-10-07: "a known constellation, like
+ * Orion's belt"), as fractions of the scene's radius from its middle, kept off
+ * the avatar. Orion lies on its side across the bottom, as it rises, so its
+ * belt shows under the avatar; the Big Dipper and Cassiopeia arc over the top.
+ */
+const SKY: { stars: [number, number][]; links: [number, number][]; bright?: number[] }[] = [
+  {
+    // Orion: Meissa, Betelgeuse, Bellatrix, Alnitak, Alnilam, Mintaka, Saiph, Rigel.
+    stars: [[-0.95, 0.66], [-0.72, 0.5], [-0.68, 0.88], [-0.06, 0.66], [0.04, 0.74], [0.14, 0.82], [0.7, 0.52], [0.72, 0.9]],
+    links: [[0, 1], [0, 2], [1, 3], [2, 5], [3, 4], [4, 5], [3, 6], [5, 7]],
+    // The belt.
+    bright: [3, 4, 5],
+  },
+  {
+    // The Big Dipper: Alkaid, Mizar, Alioth, Megrez, Phecda, Merak, Dubhe.
+    stars: [[-0.95, -0.42], [-0.72, -0.66], [-0.44, -0.78], [-0.12, -0.82], [-0.04, -0.64], [0.38, -0.66], [0.3, -0.94]],
+    links: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 3]],
+  },
+  {
+    // Cassiopeia's W: Caph, Schedar, Navi, Ruchbah, Segin.
+    stars: [[-0.82, -0.5], [-0.42, -0.86], [0, -0.66], [0.4, -0.92], [0.82, -0.56]],
+    links: [[0, 1], [1, 2], [2, 3], [3, 4]],
+  },
+];
+const SKY_MS = 9000;
+
+/** Constellation: one real constellation at a time, its stars appearing and lines drawing in, then on to the next. */
 function Constellation({ c, size, ink, active }: { c: number; size: number; ink: string; active: boolean }) {
-  const t = useCycle(9000, 0, active);
-  const stars = ringPoints(8, c, size, 11);
-  const r = Math.max(1.5, size * 0.022);
-  const step = 0.6 / stars.length;
+  const t = useCycle(SKY_MS * SKY.length, 0, active);
+  const r = Math.max(1.5, size * 0.024);
   return (
     <>
-      {stars.map((p, i) => {
-        const q = stars[(i + 1) % stars.length]!;
-        const from = i * step;
-        return <Link key={`l${i}`} a={p} b={q} ink={ink} thick={Math.max(1, size * 0.008)} opacity={t.interpolate({ inputRange: [0, from, from + step, 0.85, 1], outputRange: [0, 0, 0.55, 0.55, 0] })} />;
+      {SKY.map((sky, k) => {
+        const from = k / SKY.length;
+        const span = 1 / SKY.length;
+        const at = (u: number) => from + u * span;
+        const pts = sky.stars.map(([x, y]) => ({ x: c + x * c, y: c + y * c }));
+        const step = 0.55 / sky.links.length;
+        return (
+          <Animated.View key={k} pointerEvents="none" style={{ position: 'absolute', left: 0, top: 0, right: 0, bottom: 0, opacity: t.interpolate({ inputRange: [0, at(0), at(0.08), at(0.88), at(1), 1].map((v, i, a) => Math.min(1, Math.max(v, i ? a[i - 1]! + 1e-6 : 0))), outputRange: [0, 0, 1, 1, 0, 0] }) }}>
+            {sky.links.map(([a, b], i) => (
+              <Link key={`l${i}`} a={pts[a]!} b={pts[b]!} ink={ink} thick={Math.max(1, size * 0.009)} opacity={t.interpolate({ inputRange: [0, at(0.1 + i * step), at(0.1 + (i + 1) * step), 1].map((v, j, arr) => Math.min(1, Math.max(v, j ? arr[j - 1]! + 1e-6 : 0))), outputRange: [0, 0, 0.6, 0.6] })} />
+            ))}
+            {pts.map((p, i) => (
+              <Twinkle key={`s${i}`} x={p.x} y={p.y} r={r * (sky.bright?.includes(i) ? 1.5 : 0.85 + rand(i + k * 9, 13) * 0.6)} ink={ink} ms={1600 + rand(i + k * 9, 14) * 1600} delay={rand(i + k * 9, 15) * 1500} active={active} />
+            ))}
+          </Animated.View>
+        );
       })}
-      {stars.map((p, i) => (
-        <Twinkle key={`s${i}`} x={p.x} y={p.y} r={r * (0.8 + rand(i, 13) * 0.7)} ink={ink} ms={1600 + rand(i, 14) * 1600} delay={rand(i, 15) * 1500} active={active} />
-      ))}
     </>
   );
 }
