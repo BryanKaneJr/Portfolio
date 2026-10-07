@@ -3,7 +3,7 @@ import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { Pressable, View } from 'react-native';
 import { AttributeRow, SubjectRing, type SubjectStat } from '@/components/CharacterSheet';
-import { BoostsTile, lookTitleName, StyledName } from '@/components/cosmetics';
+import { BoostBars, lookTitleName, StyledName } from '@/components/cosmetics';
 import { TitlePlate, titleRarity } from '@/components/rewardsUi';
 import { Avatar } from '@/components/social';
 import { Button, Caption, Card, Eyebrow, GradientFill, IconButton, LevelArt, OfflineState, Row, Screen, StatTile } from '@/components/ui';
@@ -91,7 +91,7 @@ export default function ProfileScreen() {
       </Row>
       </Pressable>
 
-      <BoostsTile />
+      <BoostBars />
 
       <View style={{ gap: space.sm }}>
         <Eyebrow>Trophies</Eyebrow>

@@ -34,7 +34,7 @@ and titles. Boosted XP counts toward the league.
 
 ## XP boosts
 
-- A boost waits in Edit profile until the learner starts it (so a 1-hour
+- A boost waits on Profile until the learner starts it (so a 1-hour
   boost isn't wasted when they're out of Brainpower or about to leave).
 - One at a time: starting one while another runs is refused (`BOOST_ACTIVE`).
 - While it runs, a level's first clear pays **2x** its XP. Together with the
@@ -74,7 +74,8 @@ One title is shown at a time, a chest, earned or quest one.
 
 - **The map:** the chest sits beside the road between the 5th and 6th levels: shut and dim until the 5th is cleared, bobbing and lit when ready, open after.
 - **Opening:** a screen of its own. Open, then the prize: a boost (Start now, or Save for later), +2 Brainpower, or a cosmetic (Wear it, or Later).
-- **Edit profile** (the pencil on Profile): you as others see you, your username, saved boosts with Start (one runs at a time, with its time left), then glows, name styles and titles in tabs, worn with a tap. Titles include quest titles; one title shows. Items not found yet show dimmed with their tier. Profile shows an XP boosts tile only while there are boosts.
+- **XP boosts on Profile** (owner, 2026-10-07: "just a bar that appears if you have xp boosts available"): a bar for the running boost with its time left, and one per saved boost with Start (one runs at a time). Nothing shows without boosts.
+- **Edit profile** (the pencil on Profile): you as others see you, your username, then glows, name styles and titles in tabs, worn with a tap. Titles include quest titles; one title shows. Items not found yet show dimmed with their tier.
 - **While a boost runs:** a gold "2x" chip with the time left on Home, and "2x XP boost" on Level Complete.
 
 ## Out of scope here

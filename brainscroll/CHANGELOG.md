@@ -5,7 +5,8 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-10-07: The Locker moves into Edit profile
 
-- **One place for how you look** (owner: "move everything from locker to edit profile"). Edit profile now holds you as others see you (tap the avatar to change it), your username, XP boosts waiting to start, and the Glows, Name styles and Titles tabs. Quest titles sit in the Titles tab with chest and Mastery titles, and None takes off whichever is worn. The Locker screen is gone: Home's 2x chip opens Edit profile, and Profile shows an XP boosts tile only while there are boosts.
+- **One place for how you look** (owner: "move everything from locker to edit profile"). Edit profile now holds you as others see you (tap the avatar to change it), your username, and the Glows, Name styles and Titles tabs. Quest titles sit in the Titles tab with chest and Mastery titles, and None takes off whichever is worn. The Locker screen is gone.
+- **XP boosts start from Profile** (owner: "just a bar that appears if you have xp boosts available"): a bar per saved boost with Start, and the running one with its time left. Nothing shows without boosts, and Home's 2x chip opens Profile.
 
 ## 2026-10-06: Map fixes from the first preview
 

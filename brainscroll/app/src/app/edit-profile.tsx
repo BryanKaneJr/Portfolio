@@ -1,9 +1,9 @@
-import { COSMETICS, masteryTitleId, RewardError, SOCIAL_ERROR_TEXT, SocialError, usernameProblem, type CosmeticKind, type Look, type SocialView } from '@brainscroll/core';
+import { COSMETICS, masteryTitleId, SOCIAL_ERROR_TEXT, SocialError, usernameProblem, type CosmeticKind, type Look, type SocialView } from '@brainscroll/core';
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { boostLength, clock, lookTitleName, NameSwatch, StyledName, useBoostLeft } from '@/components/cosmetics';
-import { ItemCard, Material, TitlePlate, titleRarity } from '@/components/rewardsUi';
+import { lookTitleName, NameSwatch, StyledName } from '@/components/cosmetics';
+import { ItemCard, TitlePlate, titleRarity } from '@/components/rewardsUi';
 import { Avatar } from '@/components/social';
 import { Button, Caption, Card, Field, GradientFill, Icon, IconButton, LoadError, Notice, Row, Screen, SkeletonCard, Title } from '@/components/ui';
 import { skills } from '@/content';
@@ -21,11 +21,10 @@ const TABS: { id: Tab; label: string }[] = [
 
 /**
  * Edit profile (owner, 2026-10-01; the Locker moved in 2026-10-07): you as
- * others see you (tap the avatar to change it), your username, XP boosts
- * waiting to start, and a wardrobe of glows, name styles and titles (from map
- * chests, Mastery stars and weekly quests), one of each worn. Each item sits
- * on its rarity's material (components/rewardsUi.tsx); ones not found yet
- * wait in shadow.
+ * others see you (tap the avatar to change it), your username, and a
+ * wardrobe of glows, name styles and titles (from map chests, Mastery stars
+ * and weekly quests), one of each worn. Each item sits on its rarity's
+ * material (components/rewardsUi.tsx); ones not found yet wait in shadow.
  */
 export default function EditProfileScreen() {
   const p = useProgress();
@@ -37,9 +36,7 @@ export default function EditProfileScreen() {
   const [name, setName] = useState('');
   const [nameMessage, setNameMessage] = useState<string | null>(null);
   const [tab, setTab] = useState<Tab>('ring');
-  const [busy, setBusy] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
-  const left = useBoostLeft();
 
   const load = useCallback(() => {
     setFailed(false);
@@ -68,23 +65,20 @@ export default function EditProfileScreen() {
     }
   };
 
-  const run = async (key: string, fn: () => Promise<unknown>) => {
-    setBusy(key);
+  const run = async (fn: () => Promise<unknown>) => {
     setNotice(null);
     try {
       await fn();
       feedback('select');
-    } catch (e) {
-      setNotice(e instanceof RewardError && e.code === 'BOOST_ACTIVE' ? 'One boost at a time.' : 'That didn’t save. Try again.');
-    } finally {
-      setBusy(null);
+    } catch {
+      setNotice('That didn’t save. Try again.');
     }
   };
   const look = locker.look;
   const wear = (kind: CosmeticKind, id: string | null) => {
     const next: Look = { ...look, ...(kind === 'ring' ? { ring: id } : kind === 'name_style' ? { nameStyle: id } : { title: id }) };
     // Wearing a chest or Mastery title takes off a quest title (core setLook); reload so the quest one shows unworn.
-    void run(`${kind}:${id}`, () => p.rewards.setLook(next).then(() => quests.reload()));
+    void run(() => p.rewards.setLook(next).then(() => quests.reload()));
   };
 
   // Quest titles come with quest trophies (live-week clears), as on the Trophies screen. Wearing one takes off a look title.
@@ -93,10 +87,10 @@ export default function EditProfileScreen() {
   const questTitleId = look.title ? null : (data?.equipped.titleQuestId ?? null);
   const wearQuestTitle = (questId: string) => {
     if (!data) return;
-    void run(`quest:${questId}`, () => p.setEquipped({ ...data.equipped, titleQuestId: questId }).then(() => quests.reload()));
+    void run(() => p.setEquipped({ ...data.equipped, titleQuestId: questId }).then(() => quests.reload()));
   };
   const takeOffTitles = () => {
-    void run('title:none', async () => {
+    void run(async () => {
       if (look.title) await p.rewards.setLook({ ...look, title: null });
       if (data?.equipped.titleQuestId) await p.setEquipped({ ...data.equipped, titleQuestId: null });
       await quests.reload();
@@ -104,8 +98,6 @@ export default function EditProfileScreen() {
   };
 
   const owned = new Set(locker.cosmetics);
-  const saved = locker.boosts.filter((b) => !b.startedAt);
-  const running = locker.activeBoost;
   // Mastery titles: one for each skill with a ★.
   const mastery = skills.filter((s) => (progress[s.id]?.stars ?? 0) >= 1).map((s) => masteryTitleId(s.id));
   const questWorn = questTitleId ? questDef(questTitleId) : undefined;
@@ -145,34 +137,6 @@ export default function EditProfileScreen() {
         {nameMessage && <Notice tone="text">{nameMessage}</Notice>}
       </Card>
       {notice && <Notice tone="danger">{notice}</Notice>}
-
-      {(running || saved.length > 0) && (
-        <View style={{ gap: space.sm }}>
-          {running && left !== null && (
-            <View style={styles.boost}>
-              <Material rarity="quest" />
-              <BoostBadge />
-              <View style={{ flex: 1, gap: 2 }}>
-                <Text style={[type.title, { color: color.onBrand }]}>XP boost on</Text>
-                <View style={styles.track}>
-                  <View style={[styles.fill, { width: `${Math.max(4, (left / (running.minutes * 60000)) * 100)}%` }]} />
-                </View>
-              </View>
-              <Text style={[type.numberSm, { color: color.onBrand }]}>{clock(left)}</Text>
-            </View>
-          )}
-          {saved.map((b) => (
-            <View key={b.id} style={styles.boost}>
-              <Material rarity="quest" soft />
-              <BoostBadge />
-              <View style={{ flex: 1 }}>
-                <Text style={[type.title, { color: color.text }]}>{`${boostLength(b.minutes)} XP boost`}</Text>
-              </View>
-              <Button compact label="Start" testID={`start-boost-${b.minutes}`} disabled={left !== null} loading={busy === b.id} onPress={() => run(b.id, () => p.rewards.startBoost(b.id))} />
-            </View>
-          ))}
-        </View>
-      )}
 
       <View style={styles.tabs} accessibilityRole="tablist">
         {TABS.map((t) => (
@@ -240,21 +204,8 @@ export default function EditProfileScreen() {
   );
 }
 
-/** "2x" on a lit disc: an XP boost. */
-function BoostBadge() {
-  return (
-    <View style={styles.badge}>
-      <Text style={[type.title, { color: color.brandEdge, fontWeight: '900' }]}>2x</Text>
-    </View>
-  );
-}
-
 const styles = StyleSheet.create({
   hero: { alignItems: 'center', gap: space.md, marginHorizontal: -layout.gutter, marginTop: -space.lg, paddingTop: space.lg, paddingBottom: space.xl, overflow: 'hidden' },
-  boost: { flexDirection: 'row', alignItems: 'center', gap: space.md, padding: space.md, borderRadius: radius.md, overflow: 'hidden' },
-  badge: { width: 48, height: 48, borderRadius: 24, backgroundColor: color.onBrand, alignItems: 'center', justifyContent: 'center' },
-  track: { height: 6, borderRadius: 3, backgroundColor: 'rgba(255,255,255,0.25)', overflow: 'hidden', marginTop: space.xs },
-  fill: { height: 6, borderRadius: 3, backgroundColor: color.onBrand },
   tabs: { flexDirection: 'row', backgroundColor: color.surface, borderRadius: radius.pill, padding: 4, gap: 4 },
   tab: { flex: 1, minHeight: 40, borderRadius: radius.pill, alignItems: 'center', justifyContent: 'center' },
   tabOn: { backgroundColor: color.surfaceRaised },

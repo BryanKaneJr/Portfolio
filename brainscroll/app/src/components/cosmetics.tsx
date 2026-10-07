@@ -1,12 +1,12 @@
-import { cosmeticItem, masteryTitleName, masteryTitleSkill, type CosmeticTier } from '@brainscroll/core';
+import { cosmeticItem, masteryTitleName, masteryTitleSkill, RewardError, type CosmeticTier } from '@brainscroll/core';
 import { useEffect, useId, useMemo, useState, type ReactNode } from 'react';
 import { router } from 'expo-router';
 import { Animated, Easing, Image, Pressable, StyleSheet, Text, View, type StyleProp, type TextStyle } from 'react-native';
 import Svg, { Circle, Defs, RadialGradient, Stop } from 'react-native-svg';
 import { getSkill } from '@/content';
-import { useReduceMotion } from '@/theme/feedback';
+import { feedback, useReduceMotion } from '@/theme/feedback';
 import { Material } from '@/components/rewardsUi';
-import { Icon } from '@/components/ui';
+import { Button, Icon, Notice } from '@/components/ui';
 import { UI_ART } from '@/components/ui/uiArt';
 import { useProgress } from '@/progress/ProgressProvider';
 import { color, iconSize, radius, space, type } from '@/theme/tokens';
@@ -223,7 +223,7 @@ export function useBoostLeft(): number | null {
   return left > 0 ? left : null;
 }
 
-/** The header chip while a boost runs: "2x XP 12:05". Opens Edit profile, where boosts live. */
+/** The header chip while a boost runs: "2x XP 12:05". Opens Profile, where boosts live. */
 export function BoostChip() {
   const left = useBoostLeft();
   if (left === null) return null;
@@ -232,7 +232,7 @@ export function BoostChip() {
       testID="boost-chip"
       accessibilityRole="button"
       accessibilityLabel={`2x XP boost, ${Math.ceil(left / 60000)} minutes left. Open`}
-      onPress={() => router.push('/edit-profile')}
+      onPress={() => router.navigate('/profile')}
       style={({ pressed }) => [styles.boostChip, pressed && { opacity: 0.8 }]}>
       <Icon name="xp" tint={color.onBrand} size={iconSize.sm} />
       <Text style={[type.label, { color: color.onBrand, fontWeight: '800', fontVariant: ['tabular-nums'] }]}>{`2x ${clock(left)}`}</Text>
@@ -240,31 +240,75 @@ export function BoostChip() {
   );
 }
 
-/** Profile's way to XP boosts waiting to start (in Edit profile), shown only while there are some. */
-export function BoostsTile() {
-  const { locker } = useProgress().snapshot;
+/**
+ * XP boosts on Profile (owner, 2026-10-07: "just a bar that appears if you
+ * have xp boosts available"): the running one with its time left, and each
+ * saved one with Start. Nothing shows without boosts.
+ */
+export function BoostBars() {
+  const p = useProgress();
+  const { locker } = p.snapshot;
   const left = useBoostLeft();
-  const saved = locker.boosts.filter((b) => !b.startedAt).length;
-  const line = left !== null ? `2x XP · ${clock(left)} left` : saved ? `${saved} XP ${saved === 1 ? 'boost' : 'boosts'} to start` : null;
-  if (!line) return null;
+  const [busy, setBusy] = useState<string | null>(null);
+  const [notice, setNotice] = useState<string | null>(null);
+  const saved = locker.boosts.filter((b) => !b.startedAt);
+  const running = locker.activeBoost;
+  if (!(running && left !== null) && saved.length === 0) return null;
+  const start = async (id: string) => {
+    setBusy(id);
+    setNotice(null);
+    try {
+      await p.rewards.startBoost(id);
+      feedback('select');
+    } catch (e) {
+      setNotice(e instanceof RewardError && e.code === 'BOOST_ACTIVE' ? 'One boost at a time.' : 'That didn’t start. Try again.');
+    } finally {
+      setBusy(null);
+    }
+  };
   return (
-    <Pressable
-      testID="open-boosts"
-      accessibilityRole="button"
-      accessibilityLabel={`${line}. Open`}
-      onPress={() => router.push('/edit-profile')}
-      style={({ pressed }) => [styles.lockerTile, pressed && { transform: [{ scale: 0.98 }] }]}>
-      <Material rarity="quest" soft />
-      <ChestArt state="opened" size={56} />
-      <Text style={[type.title, { flex: 1, color: color.text }]}>{line}</Text>
-      <Icon name="forward" tint={color.textMuted} size={iconSize.md} />
-    </Pressable>
+    <View style={{ gap: space.sm }}>
+      {running && left !== null && (
+        <View style={styles.boostBar}>
+          <Material rarity="quest" />
+          <BoostBadge />
+          <View style={{ flex: 1, gap: 2 }}>
+            <Text style={[type.title, { color: color.onBrand }]}>XP boost on</Text>
+            <View style={styles.track}>
+              <View style={[styles.fill, { width: `${Math.max(4, (left / (running.minutes * 60000)) * 100)}%` }]} />
+            </View>
+          </View>
+          <Text style={[type.numberSm, { color: color.onBrand }]}>{clock(left)}</Text>
+        </View>
+      )}
+      {saved.map((b) => (
+        <View key={b.id} style={styles.boostBar}>
+          <Material rarity="quest" soft />
+          <BoostBadge />
+          <Text style={[type.title, { flex: 1, color: color.text }]}>{`${boostLength(b.minutes)} XP boost`}</Text>
+          <Button compact label="Start" testID={`start-boost-${b.minutes}`} disabled={left !== null} loading={busy === b.id} onPress={() => void start(b.id)} />
+        </View>
+      ))}
+      {notice && <Notice tone="danger">{notice}</Notice>}
+    </View>
+  );
+}
+
+/** "2x" on a lit disc: an XP boost. */
+function BoostBadge() {
+  return (
+    <View style={styles.badge}>
+      <Text style={[type.title, { color: color.brandEdge, fontWeight: '900' }]}>2x</Text>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   boostChip: { flexDirection: 'row', alignItems: 'center', gap: space.xxs, backgroundColor: color.brand, borderRadius: radius.pill, paddingHorizontal: space.sm, paddingVertical: space.xxs, minHeight: 32 },
-  lockerTile: { flexDirection: 'row', alignItems: 'center', gap: space.md, borderRadius: radius.md, paddingVertical: space.md, paddingHorizontal: space.lg, overflow: 'hidden' },
+  boostBar: { flexDirection: 'row', alignItems: 'center', gap: space.md, padding: space.md, borderRadius: radius.md, overflow: 'hidden' },
+  badge: { width: 48, height: 48, borderRadius: 24, backgroundColor: color.onBrand, alignItems: 'center', justifyContent: 'center' },
+  track: { height: 6, borderRadius: 3, backgroundColor: 'rgba(255,255,255,0.25)', overflow: 'hidden', marginTop: space.xs },
+  fill: { height: 6, borderRadius: 3, backgroundColor: color.onBrand },
 });
 
 /**

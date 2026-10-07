@@ -39,7 +39,7 @@ The client sends only what the server can't see, as a small allowlisted event se
 | `chapter_review_started` | `skill_id`, `chapter` | Which cleared chapters people go back to (a resumed review counts again) |
 | `chapter_review_completed` | `skill_id`, `chapter`, `quest_credit` | Finished chapter reviews, and whether each counted toward a quest (the skill had no new levels left) |
 | `chest_opened` | `skill_id`, `chapter`, `reward` | Map chests opened and what kind of prize each paid (`boost`, `brainpower` or `cosmetic`) |
-| `boost_started` | `boost` | XP boosts started from the chest or Edit profile (`boost_15`, `boost_30`, `boost_60`), so saved-but-never-used boosts show up |
+| `boost_started` | `boost` | XP boosts started from the chest or Profile (`boost_15`, `boost_30`, `boost_60`), so saved-but-never-used boosts show up |
 | `cosmetic_equipped` | `kind`, `item_id` | Rings, name styles and titles people choose to wear |
 
 **Privacy rules, enforced twice.** The client (`sanitizeEvent`) keeps only declared, typed, flat props, caps strings, and drops anything that looks like an email. The server (`log_events`) rejects unknown names, nested props and oversized props, and caps a learner at 50 events per call and 500 per day. Learners can't read the events table. Events are tied to the auth user id only, never an email. Offline builds send nothing. `EXPO_PUBLIC_ANALYTICS=off` disables tracking in any build. The queue persists on-device, so a reload doesn't lose events.
