@@ -24,7 +24,7 @@ import { color, iconSize, radius, space, type } from '@/theme/tokens';
  * scene (none under Code Rain); Common and Rare scenes are quiet, Epic and
  * Legendary busy.
  */
-type Scene = 'fireflies' | 'ripple' | 'bubbles' | 'sunburst' | 'embers' | 'aurora' | 'galaxy' | 'code';
+type Scene = 'fireflies' | 'ripple' | 'bubbles' | 'sunburst' | 'embers' | 'aurora' | 'galaxy' | 'code' | 'equations' | 'constellation' | 'neural';
 export const RING_LOOKS: Record<string, { scene: Scene; glow: string | null; ink: string }> = {
   'ring.plum': { scene: 'fireflies', glow: color.plum, ink: '#FFE9A8' },
   'ring.silver': { scene: 'ripple', glow: '#B8C4D0', ink: '#F2F5F9' },
@@ -34,6 +34,9 @@ export const RING_LOOKS: Record<string, { scene: Scene; glow: string | null; ink
   'ring.aurora': { scene: 'aurora', glow: '#2BD9A0', ink: '#7CF5C4' },
   'ring.galaxy': { scene: 'galaxy', glow: '#7856FF', ink: '#FFFFFF' },
   'ring.prism': { scene: 'code', glow: null, ink: '#39FF8A' },
+  'ring.equations': { scene: 'equations', glow: '#5B3FD6', ink: '#E8E1FF' },
+  'ring.constellation': { scene: 'constellation', glow: '#1E3A8A', ink: '#FFFFFF' },
+  'ring.neural': { scene: 'neural', glow: '#2B3FBF', ink: '#7CE8FF' },
 };
 
 /** Each name style: its colour, an optional glow, and for legendary ones a second colour it breathes into. */
@@ -55,6 +58,7 @@ export const TIER_INK: Record<CosmeticTier, string> = { common: color.textMuted,
 const SCENE_MIN = 48;
 const MONO = Platform.select({ ios: 'Menlo', android: 'monospace', default: 'monospace' });
 const GLYPHS = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉ0123456789';
+const MATHS = ['π', '√', '∑', '∞', 'x²', 'Δ', 'θ', '∫', 'λ', '≈', 'e', '÷', '∂', 'φ'];
 
 /** 0 → 1 over and over, from `delay`, on the native driver; still with Reduce Motion. */
 function useCycle(ms: number, delay: number, active: boolean) {
@@ -130,6 +134,153 @@ function CodeColumn({ x, half, c, spread, glyph, ms, delay, ink, i, active }: { 
   );
 }
 
+/** A maths symbol drifting up and fading (Equations). */
+function MathSymbol({ x, y, rise, ms, delay, glyph, ink, sym, active }: { x: number; y: number; rise: number; ms: number; delay: number; glyph: number; ink: string; sym: string; active: boolean }) {
+  const t = useCycle(ms, delay, active);
+  return (
+    <Animated.Text
+      style={{
+        position: 'absolute',
+        left: x - glyph,
+        top: y - glyph / 2,
+        width: glyph * 2,
+        textAlign: 'center',
+        fontSize: glyph,
+        lineHeight: glyph * 1.2,
+        fontWeight: '700',
+        color: ink,
+        textShadowColor: '#B57BFF',
+        textShadowRadius: 8,
+        opacity: t.interpolate({ inputRange: [0, 0.2, 0.7, 1], outputRange: [0, 0.95, 0.7, 0] }),
+        transform: [{ translateY: t.interpolate({ inputRange: [0, 1], outputRange: [0, -rise] }) }, { scale: t.interpolate({ inputRange: [0, 0.2, 1], outputRange: [0.7, 1, 1.1] }) }],
+      }}>
+      {sym}
+    </Animated.Text>
+  );
+}
+
+/** A soft twinkle: opacity and size breathe on their own clock. */
+function Twinkle({ x, y, r, ink, ms, delay, active }: { x: number; y: number; r: number; ink: string; ms: number; delay: number; active: boolean }) {
+  const t = useCycle(ms, delay, active);
+  return (
+    <Animated.View
+      style={{
+        position: 'absolute',
+        left: x - r,
+        top: y - r,
+        width: r * 2,
+        height: r * 2,
+        borderRadius: r,
+        backgroundColor: ink,
+        shadowColor: ink,
+        shadowOpacity: 1,
+        shadowRadius: r * 2,
+        opacity: t.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0.45, 1, 0.45] }),
+        transform: [{ scale: t.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0.8, 1.25, 0.8] }) }],
+      }}
+    />
+  );
+}
+
+/** A straight line between two points, as a thin rotated bar (fades with `opacity`). */
+function Link({ a, b, ink, thick, opacity }: { a: { x: number; y: number }; b: { x: number; y: number }; ink: string; thick: number; opacity: Animated.AnimatedInterpolation<number> | number }) {
+  const len = Math.hypot(b.x - a.x, b.y - a.y);
+  const angle = Math.atan2(b.y - a.y, b.x - a.x);
+  return (
+    <Animated.View
+      style={{
+        position: 'absolute',
+        left: (a.x + b.x) / 2 - len / 2,
+        top: (a.y + b.y) / 2 - thick / 2,
+        width: len,
+        height: thick,
+        borderRadius: thick,
+        backgroundColor: ink,
+        opacity,
+        transform: [{ rotate: `${angle}rad` }],
+      }}
+    />
+  );
+}
+
+/** A signal running along one link (Neural Net). */
+function Pulse({ a, b, ms, delay, dot, ink, active }: { a: { x: number; y: number }; b: { x: number; y: number }; ms: number; delay: number; dot: number; ink: string; active: boolean }) {
+  const t = useCycle(ms, delay, active);
+  return (
+    <Animated.View
+      style={{
+        position: 'absolute',
+        left: a.x - dot / 2,
+        top: a.y - dot / 2,
+        width: dot,
+        height: dot,
+        borderRadius: dot / 2,
+        backgroundColor: '#FFFFFF',
+        shadowColor: ink,
+        shadowOpacity: 1,
+        shadowRadius: dot * 1.5,
+        opacity: t.interpolate({ inputRange: [0, 0.05, 0.5, 0.55, 1], outputRange: [0, 1, 1, 0, 0] }),
+        transform: [
+          { translateX: t.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0, b.x - a.x, b.x - a.x] }) },
+          { translateY: t.interpolate({ inputRange: [0, 0.5, 1], outputRange: [0, b.y - a.y, b.y - a.y] }) },
+        ],
+      }}
+    />
+  );
+}
+
+/** Points around the avatar, between its edge and the scene's: the same for a given seed every time. */
+function ringPoints(n: number, c: number, size: number, seed: number) {
+  return Array.from({ length: n }, (_, i) => {
+    const a = (i / n) * Math.PI * 2 + (rand(i, seed) - 0.5) * 0.5;
+    const r = size * 0.62 + rand(i, seed + 1) * (c * 0.92 - size * 0.62);
+    return { x: c + Math.cos(a) * r, y: c + Math.sin(a) * r };
+  });
+}
+
+/** Constellation: stars twinkle, lines draw between them one by one, hold, then all fade and draw again. */
+function Constellation({ c, size, ink, active }: { c: number; size: number; ink: string; active: boolean }) {
+  const t = useCycle(9000, 0, active);
+  const stars = ringPoints(8, c, size, 11);
+  const r = Math.max(1.5, size * 0.022);
+  const step = 0.6 / stars.length;
+  return (
+    <>
+      {stars.map((p, i) => {
+        const q = stars[(i + 1) % stars.length]!;
+        const from = i * step;
+        return <Link key={`l${i}`} a={p} b={q} ink={ink} thick={Math.max(1, size * 0.008)} opacity={t.interpolate({ inputRange: [0, from, from + step, 0.85, 1], outputRange: [0, 0, 0.55, 0.55, 0] })} />;
+      })}
+      {stars.map((p, i) => (
+        <Twinkle key={`s${i}`} x={p.x} y={p.y} r={r * (0.8 + rand(i, 13) * 0.7)} ink={ink} ms={1600 + rand(i, 14) * 1600} delay={rand(i, 15) * 1500} active={active} />
+      ))}
+    </>
+  );
+}
+
+/** Neural Net: nodes around the avatar, joined to their neighbours, with signals running along the links. */
+function NeuralNet({ c, size, ink, active }: { c: number; size: number; ink: string; active: boolean }) {
+  const nodes = ringPoints(10, c, size, 21);
+  const links = nodes.flatMap((p, i) => [
+    [p, nodes[(i + 1) % nodes.length]!],
+    [p, nodes[(i + 2) % nodes.length]!],
+  ]);
+  const dot = Math.max(2.5, size * 0.035);
+  return (
+    <>
+      {links.map(([a, b], i) => (
+        <Link key={`l${i}`} a={a!} b={b!} ink={ink} thick={Math.max(1, size * 0.008)} opacity={i % 2 ? 0.22 : 0.35} />
+      ))}
+      {links.map(([a, b], i) =>
+        i % 3 === 2 ? null : <Pulse key={`p${i}`} a={i % 2 ? b! : a!} b={i % 2 ? a! : b!} ms={1400 + rand(i, 22) * 1400} delay={rand(i, 23) * 2400} dot={dot * 0.8} ink={ink} active={active} />,
+      )}
+      {nodes.map((p, i) => (
+        <Twinkle key={`n${i}`} x={p.x} y={p.y} r={dot * (0.7 + rand(i, 24) * 0.5)} ink={ink} ms={1800 + rand(i, 25) * 1400} delay={rand(i, 26) * 1500} active={active} />
+      ))}
+    </>
+  );
+}
+
 /** The scene for one glow, `spread` points square, centred on the avatar. */
 function GlowScene({ scene, spread, size, ink, active }: { scene: Scene; spread: number; size: number; ink: string; active: boolean }) {
   const c = spread / 2;
@@ -152,6 +303,31 @@ function GlowScene({ scene, spread, size, ink, active }: { scene: Scene; spread:
       </View>
     );
   }
+  if (scene === 'constellation') return <Constellation c={c} size={size} ink={ink} active={active} />;
+  if (scene === 'neural') return <NeuralNet c={c} size={size} ink={ink} active={active} />;
+  if (scene === 'equations')
+    return (
+      <>
+        {Array.from({ length: 10 }, (_, i) => {
+          const side = i % 2 ? 1 : -1;
+          const x = c + side * (size * 0.5 + rand(i, 31) * (c - size * 0.5) * 0.85);
+          return (
+            <MathSymbol
+              key={i}
+              x={x}
+              y={c + spread * 0.25 - rand(i, 32) * spread * 0.2}
+              rise={spread * 0.45}
+              ms={2600 + rand(i, 33) * 1800}
+              delay={rand(i, 34) * 2600}
+              glyph={Math.max(9, size * (0.12 + rand(i, 35) * 0.06))}
+              ink={ink}
+              sym={MATHS[Math.floor(rand(i, 36) * MATHS.length)]!}
+              active={active}
+            />
+          );
+        })}
+      </>
+    );
   if (scene === 'ripple')
     return (
       <>

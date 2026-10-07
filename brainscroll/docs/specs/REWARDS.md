@@ -46,7 +46,7 @@ and titles. Boosted XP counts toward the league.
 
 ## Cosmetics
 
-Glows (owner, 2026-10-05: "instead of rings, we did a back glow", to keep the avatar art as it is): a soft light behind the avatar that spills past its edge, with a small animated scene in it (owner, 2026-10-07: the plain glows were "boring"; Matrix code rain as one of them): Fireflies wander, Ripple rings widen, Bubbles and Embers rise, Sunburst and Galaxy turn, Aurora's ribbons sway, and Code Rain falls in green characters with no backdrop, fading in and out at the circle's edge (owner: "just the code and a fade"). Below 48 points (league rows, the feed) only the light shows, and Reduce Motion holds each scene still. They were rings at first, so their ids stay `ring.*` (and `look_ring` on the server); the 2026-10-07 names replaced Plum, Silver, Ocean, Gold, Flame and Prism.
+Glows (owner, 2026-10-05: "instead of rings, we did a back glow", to keep the avatar art as it is): a soft light behind the avatar that spills past its edge, with a small animated scene in it (owner, 2026-10-07: the plain glows were "boring"; Matrix code rain as one of them): Fireflies wander, Ripple rings widen, Bubbles and Embers rise, Sunburst and Galaxy turn, Aurora's ribbons sway, Equations float maths symbols up both sides, Constellation draws lines between twinkling stars one by one, Neural Net runs signals between glowing nodes, and Code Rain falls in green characters with no backdrop, fading in and out at the circle's edge (owner: "just the code and a fade"). Below 48 points (league rows, the feed) only the light shows, and Reduce Motion holds each scene still. They were rings at first, so their ids stay `ring.*` (and `look_ring` on the server); the 2026-10-07 names replaced Plum, Silver, Ocean, Gold, Flame and Prism.
 
 Drawn in code, no art. Everything owned lives in **Edit profile** (the
 Locker until owner, 2026-10-07: "move everything from locker to edit profile"),
@@ -58,8 +58,8 @@ friends and profiles; the title under the name on profiles.
 |---|---|---|---|
 | Common | Fireflies, Ripple | Plum, Silver | Curious Mind, Bookworm |
 | Rare | Bubbles, Sunburst | Ocean, Gold | Scholar, Night Owl |
-| Epic | Embers, Aurora | Ember, Aurora | Sage, Lucky Star |
-| Legendary | Galaxy, Code Rain | Shimmer (animated), Holo (animated) | Polymath, Living Legend |
+| Epic | Embers, Aurora, Equations, Constellation | Ember, Aurora | Sage, Lucky Star |
+| Legendary | Galaxy, Code Rain, Neural Net | Shimmer (animated), Holo (animated) | Polymath, Living Legend |
 
 **Earned titles** (not in chests, they reward something done):
 - A skill's first Mastery star: "<Skill> Master".
