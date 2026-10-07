@@ -21,10 +21,11 @@ import { color, iconSize, radius, space, type } from '@/theme/tokens';
  * Each glow is a small animated scene behind the avatar (owner, 2026-10-07:
  * "what we have is boring", Matrix code rain as one of them). Ids stay
  * `ring.*` from when these were rings. `glow` is the soft light under the
- * scene; Common and Rare scenes are quiet, Epic and Legendary busy.
+ * scene (none under Code Rain); Common and Rare scenes are quiet, Epic and
+ * Legendary busy.
  */
 type Scene = 'fireflies' | 'ripple' | 'bubbles' | 'sunburst' | 'embers' | 'aurora' | 'galaxy' | 'code';
-export const RING_LOOKS: Record<string, { scene: Scene; glow: string; ink: string }> = {
+export const RING_LOOKS: Record<string, { scene: Scene; glow: string | null; ink: string }> = {
   'ring.plum': { scene: 'fireflies', glow: color.plum, ink: '#FFE9A8' },
   'ring.silver': { scene: 'ripple', glow: '#B8C4D0', ink: '#F2F5F9' },
   'ring.ocean': { scene: 'bubbles', glow: '#2F6BFF', ink: '#9BEBFF' },
@@ -32,7 +33,7 @@ export const RING_LOOKS: Record<string, { scene: Scene; glow: string; ink: strin
   'ring.flame': { scene: 'embers', glow: '#FF5A1F', ink: '#FFD166' },
   'ring.aurora': { scene: 'aurora', glow: '#2BD9A0', ink: '#7CF5C4' },
   'ring.galaxy': { scene: 'galaxy', glow: '#7856FF', ink: '#FFFFFF' },
-  'ring.prism': { scene: 'code', glow: '#0FA958', ink: '#39FF8A' },
+  'ring.prism': { scene: 'code', glow: null, ink: '#39FF8A' },
 };
 
 /** Each name style: its colour, an optional glow, and for legendary ones a second colour it breathes into. */
@@ -98,19 +99,33 @@ function Mote({ x, y, from, to, ms, delay, dot, colorIn, ring, active }: { x: nu
   );
 }
 
-/** A falling column of code (Code Rain). */
-function CodeColumn({ x, spread, glyph, ms, delay, ink, i, active }: { x: number; spread: number; glyph: number; ms: number; delay: number; ink: string; i: number; active: boolean }) {
+/**
+ * A falling column of code (Code Rain). No backdrop or clipping: each
+ * character fades in as it enters the circle and out as it leaves, so the
+ * rain dissolves at the edge (owner, 2026-10-07: "just the code and a fade").
+ */
+function CodeColumn({ x, half, c, spread, glyph, ms, delay, ink, i, active }: { x: number; half: number; c: number; spread: number; glyph: number; ms: number; delay: number; ink: string; i: number; active: boolean }) {
   const t = useCycle(ms, delay, active);
   const n = Math.ceil(spread / glyph) + 2;
-  const chars = Array.from({ length: n }, (_, k) => GLYPHS[Math.floor(rand(i, k) * GLYPHS.length)]!);
   const tall = n * glyph;
+  const travel = spread + tall;
+  const ramp = Math.min(half * 0.5, glyph * 2.5);
   return (
     <Animated.View style={{ position: 'absolute', left: x, top: 0, transform: [{ translateY: t.interpolate({ inputRange: [0, 1], outputRange: [-tall, spread] }) }] }}>
-      {chars.map((c, k) => (
-        <Text key={k} style={{ fontFamily: MONO, fontSize: glyph * 0.9, lineHeight: glyph, color: k === n - 1 ? '#E9FFF1' : ink, opacity: k === n - 1 ? 1 : 0.25 + (0.65 * k) / n, textShadowColor: ink, textShadowRadius: k === n - 1 ? 6 : 0 }}>
-          {c}
-        </Text>
-      ))}
+      {Array.from({ length: n }, (_, k) => {
+        const head = k === n - 1;
+        // When this character's middle crosses the circle's top and bottom in this column.
+        const at = (y: number) => (y - k * glyph - glyph / 2 + tall) / travel;
+        const fade = t.interpolate({ inputRange: [at(c - half), at(c - half + ramp), at(c + half - ramp), at(c + half)], outputRange: [0, 1, 1, 0], extrapolate: 'clamp' });
+        const base = head ? 1 : 0.25 + (0.65 * k) / n;
+        return (
+          <Animated.Text
+            key={k}
+            style={{ fontFamily: MONO, fontSize: glyph * 0.9, lineHeight: glyph, color: head ? '#E9FFF1' : ink, opacity: Animated.multiply(fade, base), textShadowColor: ink, textShadowRadius: head ? 6 : 0 }}>
+            {GLYPHS[Math.floor(rand(i, k) * GLYPHS.length)]}
+          </Animated.Text>
+        );
+      })}
     </Animated.View>
   );
 }
@@ -126,10 +141,14 @@ function GlowScene({ scene, spread, size, ink, active }: { scene: Scene; spread:
     const glyph = Math.max(8, Math.round(size * 0.11));
     const cols = Math.floor(spread / glyph);
     return (
-      <View style={{ position: 'absolute', width: spread, height: spread, borderRadius: c, overflow: 'hidden', backgroundColor: 'rgba(3,20,10,0.75)' }}>
-        {Array.from({ length: cols }, (_, i) => (
-          <CodeColumn key={i} i={i} x={i * glyph + glyph * 0.1} spread={spread} glyph={glyph} ms={2200 + rand(i, 1) * 2600} delay={rand(i, 2) * 2500} ink={ink} active={active} />
-        ))}
+      <View style={{ position: 'absolute', width: spread, height: spread }}>
+        {Array.from({ length: cols }, (_, i) => {
+          const mid = i * glyph + glyph / 2;
+          // The circle's half-height in this column; columns at the very edge are left out.
+          const half = Math.sqrt(Math.max(0, c * c - (mid - c) * (mid - c)));
+          if (half < glyph * 1.5) return null;
+          return <CodeColumn key={i} i={i} x={i * glyph + glyph * 0.1} half={half} c={c} spread={spread} glyph={glyph} ms={2200 + rand(i, 1) * 2600} delay={rand(i, 2) * 2500} ink={ink} active={active} />;
+        })}
       </View>
     );
   }
@@ -271,19 +290,23 @@ export function AvatarGlow({ ring, size, children }: { ring: string; size: numbe
   const spread = Math.round(size * 1.7);
   const c = spread / 2;
   const scene = size >= SCENE_MIN;
+  // Without its scene (small avatars), Code Rain keeps a faint light in its green.
+  const light = look.glow ?? (scene ? null : look.ink);
   return (
     <View style={{ width: size, height: size }}>
       <View pointerEvents="none" style={{ position: 'absolute', left: (size - spread) / 2, top: (size - spread) / 2, width: spread, height: spread }}>
-        <Svg width={spread} height={spread} style={StyleSheet.absoluteFill}>
-          <Defs>
-            <RadialGradient id={id} cx="50%" cy="50%" r="50%">
-              <Stop offset="0" stopColor={look.glow} stopOpacity={0.9} />
-              <Stop offset="0.5" stopColor={look.glow} stopOpacity={0.45} />
-              <Stop offset="1" stopColor={look.glow} stopOpacity={0} />
-            </RadialGradient>
-          </Defs>
-          <Circle cx={c} cy={c} r={c} fill={`url(#${id})`} />
-        </Svg>
+        {light && (
+          <Svg width={spread} height={spread} style={StyleSheet.absoluteFill}>
+            <Defs>
+              <RadialGradient id={id} cx="50%" cy="50%" r="50%">
+                <Stop offset="0" stopColor={light} stopOpacity={0.9} />
+                <Stop offset="0.5" stopColor={light} stopOpacity={0.45} />
+                <Stop offset="1" stopColor={light} stopOpacity={0} />
+              </RadialGradient>
+            </Defs>
+            <Circle cx={c} cy={c} r={c} fill={`url(#${id})`} />
+          </Svg>
+        )}
         {scene && <GlowScene scene={look.scene} spread={spread} size={size} ink={look.ink} active />}
       </View>
       {children}

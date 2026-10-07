@@ -5,7 +5,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-10-07: Glows come alive
 
-- **Every glow is a little animated scene** (owner: "what we have is boring", with Matrix code rain as one idea), drawn in code behind the avatar: Fireflies wander (Common), Ripple rings widen (Common), Bubbles rise (Rare), a Sunburst turns (Rare), Embers rise from a fire glow (Epic), Aurora ribbons sway (Epic), a Galaxy spirals (Legendary), and Code Rain falls in green characters (Legendary). Ids stay; six names change to match (migration `20261107000000_glow_scenes`). Small avatars in lists show only the light, and Reduce Motion holds the scenes still.
+- **Every glow is a little animated scene** (owner: "what we have is boring", with Matrix code rain as one idea), drawn in code behind the avatar: Fireflies wander (Common), Ripple rings widen (Common), Bubbles rise (Rare), a Sunburst turns (Rare), Embers rise from a fire glow (Epic), Aurora ribbons sway (Epic), a Galaxy spirals (Legendary), and Code Rain falls in green characters (Legendary) with no backdrop, each fading in and out at the circle's edge. Ids stay; six names change to match (migration `20261107000000_glow_scenes`). Small avatars in lists show only the light, and Reduce Motion holds the scenes still.
 
 ## 2026-10-07: The Locker moves into Edit profile
 
