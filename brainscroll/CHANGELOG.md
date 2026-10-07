@@ -3,6 +3,12 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-06: Map fixes from the first preview
+
+- **Back goes up** (owner: "the back button isn't bringing me back to the subjects list, just goes back and forth"). The skill map's Back goes to its subject (or Home, for a one-skill subject) and the subject's Back goes Home, back through the screens already open when they're there. Before, a map opened straight after a lesson had nothing behind it, so Back opened the subject over the map and the subject's Back returned to the map, round and round.
+- **Brainpower and the streak on the map** (owner: "there's no brainpower, no streak"). The skill map's top bar is now Back, the skill's name and the same two chips as Home (owner: "just have it say the skill name in smaller font so it doesn't get cut off"); the level square, "Lv. N", the stars and the old "5 / 10 Brainpower" line are gone. A long name wraps to a second line on a small phone instead of being cut.
+- **Bigger chests on the map** (owner: "the chests are too small"): 104 points, up from 60, a little further off the road so they clear the levels, and kept on screen on small phones.
+
 ## 2026-10-06: App preview
 
 - **The app on every branch** (owner: the preview links only ever showed the home page). `npm run app:preview` builds the web app in local mode (offline play, simulated email sign-in with code 123456, nothing sent to a server) for a second Cloudflare Pages project, `brainscroll-app`; once it's set up (`docs/app-preview.md`), each pull request gets a link that opens the app itself.

@@ -1,17 +1,17 @@
 import { Redirect, router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { useWindowDimensions, View, type ScrollView } from 'react-native';
-import { Body, Card, Emblem, IconButton, Loading, OfflineState, Row, Screen, Skeleton, SkeletonCard, Stars, Title } from '@/components/ui';
+import { Text, useWindowDimensions, View, type ScrollView } from 'react-native';
+import { Body, Card, IconButton, Loading, OfflineState, Row, Screen, Skeleton, SkeletonCard } from '@/components/ui';
 import { chaptersFor, levelMeta } from '@/content';
 import { LevelPath } from '@/components/LevelPath';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
-import { BrainpowerLabel } from '@/components/BrainpowerLabel';
+import { BrainpowerBadge } from '@/components/BrainpowerBadge';
+import { StreakBadge } from '@/components/StreakBadge';
 import { useCurrentSkill } from '@/progress/useCurrentSkill';
 import { useStartLevel } from '@/progress/useStartLevel';
-import { layout, space, type } from '@/theme/tokens';
+import { color, layout, space, type } from '@/theme/tokens';
 import { QuestTile } from '@/components/QuestTile';
 import { featuredQuest, useQuests } from '@/progress/useQuests';
-import { subjectTint } from '@/theme/subjectTheme';
 
 /** Completions whose cleared level has already popped on a map, so it pops once, in view. */
 const popped = new WeakSet<object>();
@@ -130,23 +130,21 @@ export default function SkillMapScreen() {
       scrollRef={scroll}
       onScroll={onScroll}
       header={
+        // Back, the skill's name, and the same Brainpower and streak chips as Home (owner, 2026-10-06).
         <Row gap={space.sm}>
           <IconButton
             label="Back"
             icon="back"
             onPress={() =>
-              // Back (the screen slides away to the right); only a deep link with nothing behind it navigates up.
-              router.canGoBack() ? router.back() : router.navigate(multi ? { pathname: '/subject/[id]', params: { id: skill.subjectId } } : '/')
+              // Up to the parent, back through the stack when it's there; history back looped skill and region on the web.
+              router.dismissTo(multi ? { pathname: '/subject/[id]', params: { id: skill.subjectId } } : '/')
             }
           />
-          <Emblem value={skill.view.level} size="sm" tint={subjectTint(skill.subjectId)} />
-          <View style={{ flex: 1, gap: space.xxs }}>
-            <BrainpowerLabel today={today} />
-            <Title>
-              {skill.name} · Lv. {skill.view.level}
-            </Title>
-          </View>
-          <Stars count={skill.view.stars} />
+          <Text accessibilityRole="header" numberOfLines={2} style={[type.bodyStrong, { flex: 1, color: color.text }]}>
+            {skill.name}
+          </Text>
+          <BrainpowerBadge />
+          <StreakBadge />
         </Row>
       }>
 
