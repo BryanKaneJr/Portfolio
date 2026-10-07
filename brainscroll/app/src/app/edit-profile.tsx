@@ -122,7 +122,8 @@ export default function EditProfileScreen() {
       {/* You, as others see you. The avatar opens the picker. */}
       <View style={styles.hero}>
         <GradientFill from={color.profileHeader} to={color.bg} />
-        <Pressable accessibilityRole="button" accessibilityLabel="Your avatar. Change it" onPress={() => router.push('/avatar')} style={({ pressed }) => pressed && { opacity: 0.8 }}>
+        {/* Room for the glow's scene, which spreads past the avatar. */}
+        <Pressable accessibilityRole="button" accessibilityLabel="Your avatar. Change it" onPress={() => router.push('/avatar')} style={({ pressed }) => [{ marginVertical: 48 }, pressed && { opacity: 0.8 }]}>
           <Avatar username={me.username} avatar={me.avatar} ring={look.ring} size={120} />
         </Pressable>
         <Button compact variant="secondary" label="Change avatar" onPress={() => router.push('/avatar')} />

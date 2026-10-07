@@ -33,14 +33,14 @@ export interface CosmeticItem {
 
 /** Everything a chest can hold. Their looks are drawn in the app (components/cosmetics.tsx). */
 export const COSMETICS: readonly CosmeticItem[] = [
-  { id: 'ring.plum', kind: 'ring', tier: 'common', name: 'Plum' },
-  { id: 'ring.silver', kind: 'ring', tier: 'common', name: 'Silver' },
-  { id: 'ring.ocean', kind: 'ring', tier: 'rare', name: 'Ocean' },
-  { id: 'ring.gold', kind: 'ring', tier: 'rare', name: 'Gold' },
-  { id: 'ring.flame', kind: 'ring', tier: 'epic', name: 'Flame' },
+  { id: 'ring.plum', kind: 'ring', tier: 'common', name: 'Fireflies' },
+  { id: 'ring.silver', kind: 'ring', tier: 'common', name: 'Ripple' },
+  { id: 'ring.ocean', kind: 'ring', tier: 'rare', name: 'Bubbles' },
+  { id: 'ring.gold', kind: 'ring', tier: 'rare', name: 'Sunburst' },
+  { id: 'ring.flame', kind: 'ring', tier: 'epic', name: 'Embers' },
   { id: 'ring.aurora', kind: 'ring', tier: 'epic', name: 'Aurora' },
   { id: 'ring.galaxy', kind: 'ring', tier: 'legendary', name: 'Galaxy' },
-  { id: 'ring.prism', kind: 'ring', tier: 'legendary', name: 'Prism' },
+  { id: 'ring.prism', kind: 'ring', tier: 'legendary', name: 'Code Rain' },
   { id: 'name.plum', kind: 'name_style', tier: 'common', name: 'Plum' },
   { id: 'name.silver', kind: 'name_style', tier: 'common', name: 'Silver' },
   { id: 'name.ocean', kind: 'name_style', tier: 'rare', name: 'Ocean' },

@@ -3,6 +3,10 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-07: Glows come alive
+
+- **Every glow is a little animated scene** (owner: "what we have is boring", with Matrix code rain as one idea), drawn in code behind the avatar: Fireflies wander (Common), Ripple rings widen (Common), Bubbles rise (Rare), a Sunburst turns (Rare), Embers rise from a fire glow (Epic), Aurora ribbons sway (Epic), a Galaxy spirals (Legendary), and Code Rain falls in green characters (Legendary). Ids stay; six names change to match (migration `20261107000000_glow_scenes`). Small avatars in lists show only the light, and Reduce Motion holds the scenes still.
+
 ## 2026-10-07: The Locker moves into Edit profile
 
 - **One place for how you look** (owner: "move everything from locker to edit profile"). Edit profile now holds you as others see you (tap the avatar to change it), your username, and the Glows, Name styles and Titles tabs. Quest titles sit in the Titles tab with chest and Mastery titles, and None takes off whichever is worn. The Locker screen is gone.

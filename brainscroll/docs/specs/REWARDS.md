@@ -46,7 +46,7 @@ and titles. Boosted XP counts toward the league.
 
 ## Cosmetics
 
-Glows (owner, 2026-10-05: "instead of rings, we did a back glow", to keep the avatar art as it is): a soft light behind the avatar that spills past its edge. Epic and Legendary glows breathe, and Galaxy and Prism turn. They were rings at first, so their ids stay `ring.*` (and `look_ring` on the server).
+Glows (owner, 2026-10-05: "instead of rings, we did a back glow", to keep the avatar art as it is): a soft light behind the avatar that spills past its edge, with a small animated scene in it (owner, 2026-10-07: the plain glows were "boring"; Matrix code rain as one of them): Fireflies wander, Ripple rings widen, Bubbles and Embers rise, Sunburst and Galaxy turn, Aurora's ribbons sway, and Code Rain falls in green characters. Below 48 points (league rows, the feed) only the light shows, and Reduce Motion holds each scene still. They were rings at first, so their ids stay `ring.*` (and `look_ring` on the server); the 2026-10-07 names replaced Plum, Silver, Ocean, Gold, Flame and Prism.
 
 Drawn in code, no art. Everything owned lives in **Edit profile** (the
 Locker until owner, 2026-10-07: "move everything from locker to edit profile"),
@@ -56,10 +56,10 @@ friends and profiles; the title under the name on profiles.
 
 | Tier | Glows (ids `ring.*`) | Name styles | Titles |
 |---|---|---|---|
-| Common | Plum, Silver | Plum, Silver | Curious Mind, Bookworm |
-| Rare | Ocean, Gold | Ocean, Gold | Scholar, Night Owl |
-| Epic | Flame, Aurora | Ember, Aurora | Sage, Lucky Star |
-| Legendary | Galaxy (animated), Prism (animated) | Shimmer (animated), Holo (animated) | Polymath, Living Legend |
+| Common | Fireflies, Ripple | Plum, Silver | Curious Mind, Bookworm |
+| Rare | Bubbles, Sunburst | Ocean, Gold | Scholar, Night Owl |
+| Epic | Embers, Aurora | Ember, Aurora | Sage, Lucky Star |
+| Legendary | Galaxy, Code Rain | Shimmer (animated), Holo (animated) | Polymath, Living Legend |
 
 **Earned titles** (not in chests, they reward something done):
 - A skill's first Mastery star: "<Skill> Master".
