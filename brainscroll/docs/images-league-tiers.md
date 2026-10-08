@@ -1,6 +1,6 @@
-# League tier images: 7 gems to make
+# League tier images: all 7 gems made
 
-**Status (2026-10-08): to make.** The app draws a simple stand-in for each tier in code (`app/src/components/LeagueTier.tsx`) until these arrive.
+**Status (2026-10-08): made by the owner and in the app** (`app/assets/images/ui/league-*.webp`, 256 px, wired in `app/src/components/ui/uiArt.ts` and shown by `app/src/components/LeagueTier.tsx`).
 
 Leagues come in eight tiers (owner, 2026-10-08: "we just do gems and then crown as the top"). Each tier is one object, so each image is one object: seven gems to make. The top tier, the Crown League, already uses the silver crown set with gems that we have (`art/medieval.crown`; owner: "we just use the crown image we already have"), so the gems should sit well beside it.
 
