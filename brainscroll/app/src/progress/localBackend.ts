@@ -42,6 +42,7 @@ import {
   questBrainpower,
   type DailyAllowance,
   gradeAnswer,
+  COSMETICS,
 } from '@brainscroll/core';
 import { allLevels, getCard, getLevel, levelCount, levelIdOfQuestion, quests as questDefs, trophyCatalog } from '@/content';
 import type { EntitlementView, ProgressBackend, ProgressSnapshot } from './backend';
@@ -286,6 +287,9 @@ export function createLocalBackend(): ProgressBackend {
     async reset() {
       current();
       commit(emptyProgress(new Date(), deviceTimeZone()));
+    },
+    async ownEveryLook() {
+      return lockerView(commit({ ...current(), cosmetics: COSMETICS.map((c) => c.id) }), new Date());
     },
 
     // ── Simulated accounts: the real flow, without credentials ──

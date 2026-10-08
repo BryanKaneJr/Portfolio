@@ -4,6 +4,7 @@ import { AccountCard } from '@/components/AccountCard';
 import { BlockedSettings } from '@/components/BlockedSettings';
 import { DeleteAccount } from '@/components/DeleteAccount';
 import { FeedbackSettings } from '@/components/FeedbackSettings';
+import { PreviewTools } from '@/components/PreviewTools';
 import { PrivacySettings } from '@/components/PrivacySettings';
 import { ReminderSettings } from '@/components/ReminderSettings';
 import { UnlimitedCard } from '@/components/UnlimitedCard';
@@ -16,6 +17,7 @@ import { space } from '@/theme/tokens';
  * lives here, one tap from the bottom of Profile, so Profile stays a
  * character sheet. Plan, sound and haptics, the daily reminder, Private
  * profile, the people you've blocked (to unblock), the account (sign out) and, last, deleting it.
+ * The app preview adds its shortcuts on top (components/PreviewTools.tsx).
  */
 export default function SettingsScreen() {
   const { resetAll } = useProgress();
@@ -30,6 +32,7 @@ export default function SettingsScreen() {
   );
   return (
     <Screen header={header}>
+      <PreviewTools />
       <UnlimitedCard />
       <FeedbackSettings />
       <ReminderSettings />
