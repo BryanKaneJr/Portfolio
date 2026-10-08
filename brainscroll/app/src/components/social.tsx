@@ -3,7 +3,8 @@ import { Animated, Image, Pressable, StyleSheet, Text, View } from 'react-native
 import Svg, { Path } from 'react-native-svg';
 import { AvatarGlow } from '@/components/cosmetics';
 import { TrophyBadge } from '@/components/TrophyBadge';
-import { AVATAR_ART, Caption, Card, DrScroll, GradientFill, Icon, Row, UiArt } from '@/components/ui';
+import { AVATAR_ART, Caption, Card, DrScroll, GradientFill, Icon, Row } from '@/components/ui';
+import { TierEmblem } from '@/components/LeagueTier';
 import { getSkill, trophyCatalog } from '@/content';
 import { usePop } from '@/components/ui/motion';
 import { lift } from '@/theme/subjectTheme';
@@ -59,7 +60,7 @@ export const leagueMemberName = (m: LeagueView['members'][number]) => (m.you ? '
 /**
  * The league as a banner (owner, 2026-10-01: "more fun and premium"), named
  * for your tier (owner, 2026-10-08): a
- * violet gradient card with a trophy (top 3) or medal beside your place, how far
+ * violet gradient card with your league's emblem beside your place, how far
  * the next place is, and the current podium. Each podium spot shows the prize
  * it would win if the week ended now (core leaguePrize, the server's rule:
  * XP this week, and someone behind it), or its XP when it wouldn't. Prizes
@@ -91,7 +92,8 @@ export function LeagueBanner({ league, onPress }: { league: LeagueView; onPress:
       <GradientFill from={lift(color.brand, 0.12)} to={color.brandEdge} rx={radius.lg} />
       <Row gap={space.md}>
         <View style={styles.medalArt}>
-          <UiArt name={leaguePrize(place, league.members.length, me?.weeklyXp ?? 0) ? 'trophy' : 'medal'} size={76} />
+          {/* Your league's emblem (owner, 2026-10-08: "put whatever league they are in, in that box"). */}
+          <TierEmblem tier={league.tier} size={68} />
         </View>
         <View style={{ flex: 1, gap: space.xxs }}>
           <Text style={[type.label, { color: lift(color.brandText, 0.4) }]}>{name.toUpperCase()}</Text>
