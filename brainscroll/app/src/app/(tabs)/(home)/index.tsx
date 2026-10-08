@@ -11,8 +11,6 @@ import { StreakBadge } from '@/components/StreakBadge';
 import { WorldMap, type Region } from '@/components/WorldMap';
 import { levelByNumber, levelMeta, subjects } from '@/content';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
-import { QuestCard } from '@/components/QuestCard';
-import { featuredQuest, useQuests } from '@/progress/useQuests';
 import { useCurrentSkill } from '@/progress/useCurrentSkill';
 import { subjectTint } from '@/theme/subjectTheme';
 import { layout, radius, space } from '@/theme/tokens';
@@ -29,7 +27,6 @@ export default function WorldScreen() {
   const v = useProgressView();
   const current = useCurrentSkill();
   const scroller = useRef<ScrollView>(null);
-  const quests = useQuests();
   // The same scroll view outlives the loading state, and react-native-web only
   // attaches its ref on mount, so the loading screen must pass it too.
   if (!p.ready)
@@ -59,7 +56,6 @@ export default function WorldScreen() {
   const next = nextId ? levelMeta(nextId) : undefined;
   const { today } = v;
   // Nothing started yet: no level cleared and none in progress.
-  const quest = featuredQuest(quests.data);
   const fresh = v.skills.every((k) => k.view.level === 0) && !v.hasOpenLevel;
 
   return (
@@ -92,7 +88,6 @@ export default function WorldScreen() {
           <Button label="Continue" onPress={() => router.push({ pathname: '/skill/[id]', params: { id: current.id } })} />
         </Card>
       )}
-      {quest && <QuestCard quest={quest} />}
       <WorldMap regions={regions} hereId={current?.subjectId} onOpen={openSubject} />
       <ChooseForMe onChoice={() => scroller.current?.scrollToEnd({ animated: true })} />
     </Screen>

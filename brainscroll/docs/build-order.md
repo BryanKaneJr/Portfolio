@@ -22,10 +22,10 @@ A new user can open the app, choose one skill, complete Levels 1–10, earn XP, 
 | 5 | Review & mastery | Concept-level review queue; alternative questions per concept; review never uses allowance (Brainpower) | ✅ `get_review_queue`/`submit_review` + local review sessions, tested |
 | 6 | Daily cap | 5/day enforced server-side; Daily Complete screen; review stays open | ✅ enforced server-side and locally; Daily Complete offers Unlimited quietly. Replaced by Brainpower on 2026-10-02 (refill 5, max 10, 1 per new level; the screen is now Brainpower used up) |
 | 7 | Content tooling | Editor/importer/validator so Levels 11–100 can scale safely | ✅ validator (quality, claims, editorial rules) + importer + Content Admin v1 |
-| 8 | Subscriptions | RevenueCat `unlimited_learning`, restore, expiry | 🟡 built and tested against a sandbox and the webhook path; needs store products, RevenueCat keys and a privacy policy ([subscriptions.md](subscriptions.md)) |
+| 8 | Subscriptions | RevenueCat `unlimited_learning`, restore, expiry | 🟡 built and tested against a sandbox and the webhook path; the privacy policy is published and the RevenueCat iOS key is in `eas.json`; needs the two App Store products ([subscriptions.md](subscriptions.md)) |
 | 9 | Analytics & reporting | Mission-aligned events, content reports, funnel | ✅ built and tested locally; configured once Supabase is connected (`docs/analytics.md`) |
 | 10 | Scale launch content | Flagship to 100, then a second skill of a different shape, then 6–10 trees | ✅ 26 trees, each published to Level 100 (2,600 levels) across six subjects; 16 approved on a sample review and 10 on a full claim review (`content/approvals.json`); see `content/skills/` |
-| 11 | Beta & release | TestFlight/Play testing, QA matrix, store submission | 🟡 EAS profiles, icons, listing and privacy drafts, QA checklist ([release.md](release.md)); needs store accounts |
+| 11 | Beta & release | TestFlight/Play testing, QA matrix, store submission | 🟡 EAS profiles (pointed at the live backend), icons, listing and privacy drafts, QA checklist ([release.md](release.md)); needs the first iPhone build |
 
 ## Critical-path backlog
 
@@ -61,7 +61,7 @@ Dependency order, with where we are today:
 | # | Step | Status |
 | --- | --- | --- |
 | **Core** | | |
-| 1 | Auth / user accounts | 🟡 accounts are required before any progress (Apple, Google, phone, email; no guest mode), account deletion works; Apple/Google/SMS credentials and usernames (post-MVP) are missing |
+| 1 | Auth / user accounts | ✅ accounts are required before any progress (Apple, Google, phone, email; no guest mode), usernames and account deletion work; Apple sign-in is on in Supabase. Google needs its OAuth clients, which an iPhone launch can do without |
 | 2 | Canonical curriculum | ✅ 26 trees published to Level 100 and fact-checked |
 | 3 | Regular 3-question learning levels | ✅ |
 | 4 | Level completion | ✅ exactly-once, server-authoritative |
@@ -97,10 +97,12 @@ Learning streak (derived, never used for fear), Choose for me, an opt-in daily r
 
 ## Up next
 
-The app side is complete for launch; what's left needs accounts, keys or a phone.
+The app and the backend are done. The live Supabase project has every level, the push job runs every 5 minutes, and brainscroll.app serves the home page, the privacy policy, the account-deletion page and invite links. What's left needs the owner's accounts or a phone, in this order ([`release.md`](release.md#whats-left-for-launch)):
 
-1. **Create the staging Supabase project** ([`supabase-setup.md`](supabase-setup.md)), run the migrations and `npm run content:import`, then smoke-test on a real phone.
-2. **Sign-in credentials:** the Apple Services ID and key and the Google OAuth clients, then test the native sheets on a device build ([`accounts.md`](accounts.md)). Add `brainscroll://auth-callback` to the Supabase redirect URLs.
-3. **Store setup for Unlimited:** products, RevenueCat keys and the published privacy policy ([`subscriptions.md`](subscriptions.md), [`privacy-policy.md`](privacy-policy.md)).
-4. **The device QA pass** in [`release.md`](release.md), including VoiceOver and TalkBack.
-5. **Owner content:** quest dates once there's a launch week (`content/quests.json`), the 20 trophy images ([`images-trophies.md`](images-trophies.md)), fuller sounds for the big moments (checkpoint, milestone, mastery; the first pack is in `app/assets/sounds/`), and an editor setting `verified` where they've checked the sources.
+1. **The first iPhone build to TestFlight:** one command, signed in to Expo and Apple.
+2. **The two Unlimited subscriptions in App Store Connect** ([`subscriptions.md`](subscriptions.md)).
+3. **The Apple Team ID** (public), so invite links open the app ([`invite-links.md`](invite-links.md)).
+4. **A few days on TestFlight:** the QA pass in [`release.md`](release.md).
+5. **Launch week:** the quest dates (`content/quests.json`), Supabase Pro, then submit.
+
+Android follows the iPhone launch: the Play Console, Firebase for push and the Android RevenueCat key.

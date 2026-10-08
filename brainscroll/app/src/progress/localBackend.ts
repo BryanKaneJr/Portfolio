@@ -122,6 +122,14 @@ export function createLocalBackend(): ProgressBackend {
     void save(`${PROGRESS_KEY}:${user.userId}`, next);
     return next;
   };
+  /**
+   * Closes last week's league once (its prize and tier move), whichever social
+   * screen is opened first, as the server's finalize job does on its own.
+   */
+  const settleLastWeek = () => {
+    commit(payLastWeek(current(), new Date()));
+    commitSocial(moveLastWeek(social, current(), new Date()));
+  };
 
   async function open(account: DevAccount) {
     user = account;
@@ -326,19 +334,24 @@ export function createLocalBackend(): ProgressBackend {
     // The harness sends nothing anywhere.
     async logEvents() {},
     async social() {
-      return socialView(me(), social, current(), new Date());
+      const id = me();
+      settleLastWeek();
+      return socialView(id, social, current(), new Date());
     },
     async league() {
       const id = me();
-      commit(payLastWeek(current(), new Date()));
-      commitSocial(moveLastWeek(social, current(), new Date()));
+      settleLastWeek();
       return leagueView(id, social, current(), new Date());
     },
     async feed() {
-      return feedView(me(), social, current(), new Date());
+      const id = me();
+      settleLastWeek();
+      return feedView(id, social, current(), new Date());
     },
     async socialProfile(userId) {
-      return profileView(me(), userId, social, current(), new Date());
+      const id = me();
+      settleLastWeek();
+      return profileView(id, userId, social, current(), new Date());
     },
     async setUsername(name) {
       me();

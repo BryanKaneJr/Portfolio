@@ -3,6 +3,16 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-08: Ready for the first iPhone build: config, a year of quests, screenshots
+
+- **Store builds point at the live backend on their own.** `app/eas.json` now carries the Supabase URL and its publishable key (public by design, like the RevenueCat key beside it) for the preview and production profiles, so the first build needs nothing set in EAS.
+- **A year of Weekly Quests.** 44 new quests join the first eight, so there are 52: one for every week of a year, enough to earn Quest Legend. Each pairs five related trees at 5 new levels apiece (The Moon Landing, Age of Dinosaurs, The Renaissance, Survive on Mars, Code Breakers, Kitchen Science and more), every tree turns up in 7 to 13 of them, and each has its own title and emblem from the existing art. Like the first eight, none has a date yet: they wait for the launch week (owner, 2026-09-29).
+- **App Store screenshots** (`store/app-store-iphone-6.9/`, 1290 × 2796): Home, a skill's map, a learning card, Take another look, Level Complete, Profile, Trophies, Social and the league, from a learner's real first week in the app (`e2e/store-shots.mjs`).
+- **The app preview names your league the same everywhere.** Profile could still say Quartz after a week had moved you up, until the league itself was opened; now any social screen closes last week first, as the server does on its own.
+- **Weekly Quests live on the skill map only** (owner: "I don't think the box is necessary on the regular Home Screen. The small one on the map is perfect"). Home's quest card is gone; this week's quest is the tile beside your place on the skill map, which opens it and the Archive. Running out of Brainpower still shows the quest's progress.
+- **The push job sends the league tier wording.** The `send-push` function on the live project still had the old league names; it's redeployed from the repo.
+- **What's left for launch is one short list** (`docs/release.md`, mirrored in `docs/build-order.md`): the first iPhone build, the two App Store subscriptions, the Apple Team ID for invite links, a few days on TestFlight, then launch week. Android follows. Stale notes are gone (usernames are built, the privacy policy is published, the app is version 1.0.0).
+
 ## 2026-10-08: League tiers
 
 - **Leagues come in eight tiers you climb each week** (owner: "apply levels to leagues that they level up or level down in each week"): seven gems and the Crown on top (owner: "we just do gems and then crown as the top", simple objects that are easy to make an image for): the Quartz, Amethyst, Aquamarine, Sapphire, Emerald, Ruby, Diamond and Crown Leagues. Everyone starts in Quartz, and leagues are made within a tier instead of by brain level. When a week ends the top 5 move up and the bottom 3 move down (the owner's pick of the classic rule); a league under 10 moves only its top 3 up and nobody down. Prizes are unchanged.

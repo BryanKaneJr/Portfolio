@@ -127,11 +127,13 @@ try {
     await exactButton(page, 'Pick again').waitFor({ timeout: 5_000 });
     await shot('choose-for-me');
   }
+  // This week's quest, when the catalog has one live today: its tile beside the skill map.
   await home(page);
-  // This week's quest, when the catalog has one live today.
-  const questCard = page.getByRole('button', { name: /^This week’s quest:/ });
-  if (await questCard.count()) {
-    await questCard.click();
+  await page.getByRole('button', { name: 'Continue', exact: true }).click();
+  await page.waitForTimeout(1000);
+  const questTile = page.getByRole('button', { name: /^This week's quest:/ });
+  if (await questTile.count()) {
+    await questTile.click();
     await page.waitForTimeout(800);
     await shot('quest');
     await scrollDown();

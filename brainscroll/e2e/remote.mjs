@@ -12,6 +12,12 @@ page.on('response', async (res) => {
   const body = /\/rpc\/(start_level|get_level_bundles|submit_review)/.test(res.url()) ? await res.text().catch(() => '') : '';
   if (/\/rpc\/submit_review/.test(res.url()) ? /correct_option/.test(body) : /"correct"\s*:|"rationale"\s*:|"explanation"\s*:/.test(body)) leaks.push(res.url());
 });
+/** This week's quest opens from its tile beside your place on the skill map. */
+const openQuest = async (title) => {
+  await questMap(page);
+  await button(page, `This week's quest: ${title}`).click();
+  await page.waitForTimeout(1000);
+};
 try {
   await home(page);
   const first = await bodyText(page);
@@ -190,10 +196,9 @@ try {
        where r.quest_id = 'quest.roman_world'`);
   const questXpBefore = Number(sql('select sum(amount) from public.xp_events'));
   await home(page);
-  const questHome = await bodyText(page);
-  check(/The Roman World/.test(questHome) && /25 \/ 25 new levels/.test(questHome) && /Final Round is open/.test(questHome), 'Home shows this week\'s quest, its progress and the open Final Round');
-  await button(page, 'This week’s quest: The Roman World').click();
-  await page.waitForTimeout(1000);
+  check(!/The Roman World/.test(await bodyText(page)), 'Home has no quest card (owner, 2026-10-08: the map\'s tile is enough)');
+  await openQuest('The Roman World');
+  check(/25 \/ 25/.test(await bodyText(page)) && (await button(page, 'Start the Final Round').count()) === 1, 'the tile beside the skill map opens this week\'s quest, its progress and the open Final Round');
   check(/Ancient Rome[\s\S]*5 \/ 5/.test(await bodyText(page)), 'the quest page lists each skill with its new levels');
   await button(page, 'Start the Final Round').click();
   await exactButton(page, 'Continue').waitFor({ timeout: 10_000 });
@@ -236,9 +241,7 @@ try {
   await page.waitForTimeout(800);
   check((await page.getByLabel('Title: Citizen of Rome', { exact: true }).count()) >= 1, 'Profile shows the chosen title (as its nameplate)');
   // The Archive: an ended quest still pays XP, never a trophy.
-  await home(page);
-  await button(page, 'This week’s quest: The Roman World').click();
-  await page.waitForTimeout(800);
+  await openQuest('The Roman World');
   await button(page, 'See the Archive').click();
   await page.waitForTimeout(800);
   check(/The Archive/.test(await bodyText(page)) && /Not started/.test(await bodyText(page)), 'past quests wait in the Archive');
