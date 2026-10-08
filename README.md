@@ -1,56 +1,62 @@
-# Welcome to your Expo app 👋
+# Cook With That
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Pick the ingredients you want to use, rule out what you don't, and find something good to cook.
+iPhone-first, offline, paid-upfront. No accounts, no server, no API, no subscriptions.
 
-## Get started
+Source of truth: [`docs/What_Should_I_Cook_Build_Plan.md`](docs/What_Should_I_Cook_Build_Plan.md).
 
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## Run it
 
 ```bash
-npm run reset-project
+npm install
+npx expo start        # scan the QR code with the Expo Go app on your iPhone
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Works from Windows: install **Expo Go** from the App Store, make sure the phone and PC are on the
+same Wi-Fi, run `npx expo start`, and scan the QR code with the iPhone camera.
 
-### Other setup steps
+## Checks
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+```bash
+npm run check            # typecheck + content validator + tests
+npm run validate         # recipe/ingredient content gate (fails on any problem)
+npm run coverage-report  # pair/triple ingredient coverage + gaps
+npm test
+```
 
-## Learn more
+## Layout
 
-To learn more about developing your project with Expo, look at the following resources:
+```
+src/app/            screens (Expo Router): index (Find), results, recipe/[id], favorites
+src/components/     Chip, FilterChips, SelectionSummary, RecipeCard
+src/data/           types, ingredient catalog, recipes, labels (all bundled, offline)
+src/logic/          matching engine, sorting, ingredient search, content validator
+src/state/          search-state rules, local storage, app provider
+src/theme/          colors (light/dark), spacing, typography
+scripts/            validate-recipes.ts, coverage-report.ts
+tests/              engine, content and offline-audit tests
+docs/               build plan, ingredient mapping notes
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## Matching rules (summary)
 
-## Join the community
+1. **Avoid** — hard exclusion against every listed ingredient, optional ones included. Never relaxed automatically.
+2. **Meal / Dish type** — hard restrictions, one of each (or Any).
+3. **Use** — AND across *required* ingredients. Optional garnish doesn't count.
+4. Zero exact results → **Close matches**, clearly labelled with what they don't use (2 picks: must use 1; 3+: missing 1, then 2).
+5. More than 30 results → non-blocking "Narrow it down?" with counts that equal what you get after tapping.
 
-Join our community of developers creating universal apps.
+## Status
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- [x] Phase 0 — Expo SDK 57 + TypeScript (strict), Expo Router, theme tokens, Jest
+- [x] Phase 1 — 89-ingredient catalog with aliases, 27 seed recipes, validator, coverage report
+- [x] Phase 2 — deterministic engine + 36 tests (all of plan §11 that can run without a device)
+- [x] Phase 3/4 — Find, Results (exact / close / narrowing / adjust), Recipe (step check-off), Favorites; last search + favorites persist locally
+- [ ] Phase 5 — grow to 30–50 → 120–150 → 250–350 **human-verified** recipes
+- [ ] Phase 6 — polish & accessibility pass on a real iPhone (VoiceOver, large text)
+- [ ] Phase 7 — TestFlight, App Store listing, paid-app setup
+
+**Every seed recipe is an original draft marked "needs culinary review."** Someone must cook/check
+quantities, times and food-safety notes before release.
+
+Bundle ID `com.cookwiththat.app` is a placeholder — change it in `app.json` before creating the App Store record.
