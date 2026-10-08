@@ -58,20 +58,17 @@ A toggle at the top of the home screen switches between **Pick ingredients** and
 
 > Note: the original plan listed pantry tracking as out of scope for v1. This is a deliberate addition: a simple saved list, not inventory or quantities.
 
-## Kitchen staples
+## Kitchen staples (My Pantry only)
 
-On by default: 20 things most kitchens have — salt, pepper, water, vegetable & olive oil, butter, flour,
+On by default: 20 things most kitchens have. Salt, pepper, water, vegetable & olive oil, butter, flour,
 sugar, brown sugar, baking soda, baking powder, vanilla, garlic powder, cinnamon, paprika, oregano, thyme,
 cumin, chili powder, red pepper flakes (`src/data/staples.ts`).
 
-- They drop out of "You'll also need" on cards (shown as "+ staples") and don't hurt ranking.
-- They count as on hand in My Pantry.
-- Recipe pages still list them with amounts, badged **STAPLE**.
-- **Avoid always wins**: avoiding butter still hides every recipe with butter.
+- In **My Pantry** they count as on hand, so users don't have to add them one by one. Recipe pages opened from
+  pantry mode badge them **STAPLE** and leave them out of "Not in your pantry".
+- In **Pick ingredients** mode staples have no effect: results already include recipes regardless of unselected
+  ingredients, so cards and recipe pages list everything the recipe needs.
 - Users can turn the assumption off, remove items, add their own, or reset (Kitchen staples screen).
-
-> Note: the original plan said never assume salt/oil/water/pepper. This is a deliberate product change, kept
-> honest by always listing staples on the recipe page and letting users switch it off.
 
 ## Filters & selections
 
@@ -86,7 +83,7 @@ cumin, chili powder, red pepper flakes (`src/data/staples.ts`).
 - [x] Phase 2 — deterministic engine + 36 tests (all of plan §11 that can run without a device)
 - [x] My pantry mode — saved pantry, can-make list, shuffle, meal/dish narrowing, one-short section (+6 tests)
 - [x] "Most common" suggestions ranked from published recipe-frequency data (docs/ingredient-popularity.md). Screens show search + the top 11 (sized so More options fits on a standard iPhone screen); **More options** opens a full scrollable ingredients screen (pinned search, every ingredient by popularity then category) that works for picking, pantry and staples
-- [x] Dropdown filters, Use/Avoid selections screen, kitchen staples (+6 tests); fixed a startup race where an early tap could be overwritten by the saved-state restore
+- [x] Dropdown filters, Use/Avoid selections screen, kitchen staples (pantry mode only) (+6 tests); fixed a startup race where an early tap could be overwritten by the saved-state restore
 - [x] Phase 3/4 — Find, Results (exact / close / narrowing / adjust), Recipe (step check-off), Favorites; last search + favorites persist locally
 - [ ] Phase 5 — grow to 30–50 → 120–150 → 250–350 **human-verified** recipes
 - [ ] Phase 6 — polish & accessibility pass on a real iPhone (VoiceOver, large text)

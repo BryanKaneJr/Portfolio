@@ -17,7 +17,8 @@ export default function ResultsScreen() {
   const c = useColors();
   const app = useAppState();
   const { search } = app;
-  const result = useMemo(() => runSearch(RECIPES, search, app.staples), [search, app.staples]);
+  // Staples are a My Pantry concept only: here every ingredient a recipe needs is listed.
+  const result = useMemo(() => runSearch(RECIPES, search), [search]);
   const { exact, close, narrowing, tryWithout, blockers } = result;
 
   const hasExact = exact.length > 0;

@@ -128,7 +128,6 @@ export default function FindScreen() {
                 countFor={dishType => countExact(RECIPES, { ...search, dishType })}
               />
             </View>
-            <StaplesLine />
 
             <UseAvoidToggle />
             <IngredientBrowser target="pick" layout="compact" />

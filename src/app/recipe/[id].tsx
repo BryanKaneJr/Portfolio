@@ -30,7 +30,8 @@ export default function RecipeScreen() {
   // In pantry mode, "have" = pantry; otherwise = the ingredients picked to Use.
   const pantryMode = app.homeMode === 'pantry';
   const haveIds = pantryMode ? app.effectivePantry : app.search.useIds;
-  const alsoNeed = additionalRequired(recipe, haveIds, app.staples);
+  const staples = pantryMode ? app.staples : new Set<string>();
+  const alsoNeed = additionalRequired(recipe, haveIds, staples);
   const showNeedBox = pantryMode ? app.pantry.length > 0 : app.search.useIds.length > 0;
   const required = recipe.ingredients.filter(i => !i.optional);
   const optional = recipe.ingredients.filter(i => i.optional);
@@ -45,7 +46,7 @@ export default function RecipeScreen() {
     });
 
   const ingredientLine = (i: (typeof recipe.ingredients)[number], k: number) => {
-    const staple = app.staples.has(i.ingredientId);
+    const staple = staples.has(i.ingredientId);
     const using = (pantryMode ? app.pantry : app.search.useIds).includes(i.ingredientId);
     return (
       <View key={k} style={[styles.ingRow, { borderBottomColor: c.divider }]}>

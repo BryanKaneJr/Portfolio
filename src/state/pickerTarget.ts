@@ -1,10 +1,18 @@
 import type { ChipVariant } from '../components/Chip';
+import { DEFAULT_STAPLE_IDS } from '../data/staples';
 import { useAppState } from './AppState';
 
 /** Which list an ingredient tap edits. */
 export type PickerTarget = 'pick' | 'pantry' | 'staples';
 
 export const isPickerTarget = (v: unknown): v is PickerTarget => v === 'pick' || v === 'pantry' || v === 'staples';
+
+/**
+ * Pick-mode suggestions skip generic basics (oil, flour, butter, spices) — choosing
+ * them as a "Use" ingredient barely narrows anything. Fixed list, independent of the
+ * pantry-only staples setting. They're still reachable via search and More options.
+ */
+const TOO_GENERIC_TO_SUGGEST: ReadonlySet<string> = new Set(DEFAULT_STAPLE_IDS);
 
 export type PickerConfig = {
   variantFor: (id: string) => ChipVariant;
@@ -40,7 +48,7 @@ export function usePickerConfig(target: PickerTarget): PickerConfig {
             : 'Adds to Avoid list',
       stateLabelFor: id => (inUse(id) ? ', in Use list' : inAvoid(id) ? ', in Avoid list' : ''),
       chipHintFor: () => undefined,
-      excludeFromSuggestions: app.staples,
+      excludeFromSuggestions: TOO_GENERIC_TO_SUGGEST,
       placeholder: 'Search ingredients...',
       searchLabel: `Search ingredients to ${mode}`,
     };

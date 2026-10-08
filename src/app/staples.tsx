@@ -8,7 +8,7 @@ import { useColors } from '../theme/colors';
 import { MIN_TOUCH, radius, space } from '../theme/spacing';
 import { type as t } from '../theme/typography';
 
-/** Kitchen staples: things we assume you have, so they don't clutter "You'll also need". */
+/** Kitchen staples: things My Pantry assumes you have, so you don't have to add them one by one. */
 export default function StaplesScreen() {
   const c = useColors();
   const app = useAppState();
@@ -26,8 +26,7 @@ export default function StaplesScreen() {
           <View style={styles.flex}>
             <Text style={[t.heading, { color: c.text }]}>Assume I have kitchen staples</Text>
             <Text style={[t.small, { color: c.textMuted, marginTop: 2 }]}>
-              Staples won’t show under “You’ll also need” and count as on hand in My Pantry. Recipes still list them
-              with amounts.
+              In My Pantry, these count as on hand without adding them. Recipe pages still list them with amounts.
             </Text>
           </View>
           <Switch
@@ -41,8 +40,8 @@ export default function StaplesScreen() {
 
       <Text style={[t.small, styles.note, { color: c.textMuted }]}>
         {on
-          ? `${app.stapleIds.length} staples. Tap to remove anything you don’t usually have, or add your own. Avoiding a staple still hides recipes that use it.`
-          : 'Turned off: every ingredient will be listed as something you need.'}
+          ? `${app.stapleIds.length} staples. Tap to remove anything you don’t usually have, or add your own.`
+          : 'Turned off: My Pantry only counts what you add to your pantry.'}
       </Text>
 
       <View style={!on && styles.dim} pointerEvents={on ? 'auto' : 'none'}>
