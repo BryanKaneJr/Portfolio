@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { avatarIdFor, avatarUnlocked, compareSubjects, hiddenLeagueMember, LEAGUE_TIERS, leagueMove, leaguePrize, movedTier, tierName, leagueWeekStart, ordinal, profileAccess, rarestTrophies, SOCIAL_ERROR_TEXT, USER_REPORT_NOTE_MAX, USER_REPORT_REASONS, usernameProblem, weeklyXp, type XpEvent } from '../src';
+import { avatarIdFor, avatarUnlocked, compareSubjects, hiddenLeagueMember, LEAGUE_TIERS, leagueMove, leaguePrize, movedTier, theTier, tierGem, tierName, leagueWeekStart, ordinal, profileAccess, rarestTrophies, SOCIAL_ERROR_TEXT, USER_REPORT_NOTE_MAX, USER_REPORT_REASONS, usernameProblem, weeklyXp, type XpEvent } from '../src';
 
 // Mirrors backend/tests/social.test.sql.
 describe('leagues', () => {
@@ -9,10 +9,10 @@ describe('leagues', () => {
     expect(leagueWeekStart(new Date('2026-10-12T00:00:00Z'))).toBe('2026-10-12');
   });
 
-  it('climb eight tiers, Scribblers to Dr. Scroll’s Circle', () => {
+  it('climb eight tiers, seven gems and the Crown', () => {
     expect(LEAGUE_TIERS).toHaveLength(8);
-    expect([tierName(1), tierName(4), tierName(8)]).toEqual(['Scribblers', 'Scholars', 'Dr. Scroll’s Circle']);
-    expect([tierName(0), tierName(9)]).toEqual(['Scribblers', 'Dr. Scroll’s Circle']);
+    expect([tierName(1), tierName(4), tierName(8)]).toEqual(['Quartz League', 'Sapphire League', 'Crown League']);
+    expect([tierGem(0), tierGem(9), theTier(2)]).toEqual(['Quartz', 'Crown', 'the Amethyst League']);
     expect([movedTier(1, -1), movedTier(8, 1), movedTier(4, 1), movedTier(4, -1)]).toEqual([1, 8, 5, 3]);
   });
 

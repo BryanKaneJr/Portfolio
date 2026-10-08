@@ -108,8 +108,8 @@ export default function SocialScreen() {
             </Card>
           ) : last?.moved === -1 && last.tier ? (
             // Moving down is said plainly, never as a loss.
-            <Card variant="plain" accessibilityLabel={`A new week: this week you're with ${theTier(last.tier)}`}>
-              <Caption>{`A new week: this week you’re with ${theTier(last.tier)}.`}</Caption>
+            <Card variant="plain" accessibilityLabel={`A new week: this week you're in ${theTier(last.tier)}`}>
+              <Caption>{`A new week: this week you’re in ${theTier(last.tier)}.`}</Caption>
             </Card>
           ) : null}
           <LeagueBanner league={league} onPress={() => router.push('/league')} />

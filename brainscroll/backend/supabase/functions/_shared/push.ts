@@ -22,9 +22,9 @@ export interface ExpoMessage {
 }
 
 /** Mirrors core LEAGUE_TIERS / tierName / theTier (social.ts); a test keeps them equal. */
-export const LEAGUE_TIERS = ['Scribblers', 'Bookworms', 'Apprentices', 'Scholars', 'Sages', 'Professors', 'Luminaries', 'Dr. Scroll’s Circle'] as const;
-export const tierName = (tier: number) => LEAGUE_TIERS[Math.min(LEAGUE_TIERS.length, Math.max(1, Math.round(tier))) - 1]!;
-export const theTier = (tier: number) => (tierName(tier).startsWith('Dr.') ? tierName(tier) : `the ${tierName(tier)}`);
+export const LEAGUE_TIERS = ['Quartz', 'Amethyst', 'Aquamarine', 'Sapphire', 'Emerald', 'Ruby', 'Diamond', 'Crown'] as const;
+export const tierName = (tier: number) => `${LEAGUE_TIERS[Math.min(LEAGUE_TIERS.length, Math.max(1, Math.round(tier))) - 1]!} League`;
+export const theTier = (tier: number) => `the ${tierName(tier)}`;
 
 export function ordinal(n: number): string {
   const s = n % 100 >= 11 && n % 100 <= 13 ? 'th' : (['th', 'st', 'nd', 'rd'][n % 10] ?? 'th');
@@ -71,7 +71,7 @@ export function renderPush(kind: PushKind, items: Record<string, unknown>[]): { 
       if (moved > 0) return { title: `Welcome to ${theTier(tier)}!`, body: `${finish} You moved up a league.`, url: '/league' };
       return {
         title: 'Your league week is over',
-        body: `${finish} ${moved < 0 ? `This week you’re with ${theTier(tier)}.` : 'A new league starts now.'}`,
+        body: `${finish} ${moved < 0 ? `This week you’re in ${theTier(tier)}.` : 'A new league starts now.'}`,
         url: '/league',
       };
     }

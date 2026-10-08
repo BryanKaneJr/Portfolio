@@ -1,7 +1,7 @@
 -- League tiers (owner, 2026-10-08: "apply levels to leagues that they level up
--- or level down in each week", named "much more Dr. Scroll sounding"; core
--- LEAGUE_TIERS). Eight tiers, Scribblers to Dr. Scroll's Circle; everyone starts
--- in the first. Leagues are made within a tier instead of by brain level. When a
+-- or level down in each week"; seven gems "and then crown as the top", core
+-- LEAGUE_TIERS). Eight tiers, the Quartz League up to the Crown League; everyone
+-- starts in Quartz. Leagues are made within a tier instead of by brain level. When a
 -- week ends, the top 5 move up a tier and the bottom 3 move down; a league under
 -- 10 moves only its top 3 up and nobody down (core leagueMove). Moving up takes
 -- XP that week and someone behind you, as a prize does. A learner's tier shows

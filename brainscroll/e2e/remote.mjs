@@ -275,7 +275,7 @@ try {
   await page.getByRole('tab', { name: /Social/ }).click();
   await page.waitForTimeout(1500);
   let social = await bodyText(page);
-  check(/Scribblers/i.test(social) && /Just you so far/.test(social) && /fills up as learners join/.test(social) && !/1st place/.test(social), 'Social joins this week\'s league on the server (with the Scribblers, the first tier); a league of one says it fills up, with no place or prize');
+  check(/Quartz League/i.test(social) && /Just you so far/.test(social) && /fills up as learners join/.test(social) && !/1st place/.test(social), 'Social joins this week\'s league on the server (the Quartz League, the first tier); a league of one says it fills up, with no place or prize');
   check(/You earned the First Level trophy/.test(social), 'the feed shows your own moments, derived on the server');
   check(/^[a-z]+_[a-z]+_\d{4}$/.test(sql(`select username from public.profiles where id = '${learnerId}'`)), 'you get a friendly username');
   check(/^avatar\.[a-z_]+$/.test(sql(`select avatar from public.profiles where id = '${learnerId}'`)), 'the server gave you a random starter avatar');

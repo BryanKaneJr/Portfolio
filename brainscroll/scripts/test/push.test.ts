@@ -20,11 +20,11 @@ test('every kind renders, alone and grouped, with a route to open', () => {
   assert.equal(renderPush('passed', [{ username: 'ana', gap: 260, league_id: 9 }])!.body, '@ana just passed you by 260 XP. A couple of levels could put you back in front.');
   assert.equal(renderPush('league_result', sample('league_result'))!.body, 'You finished 2nd and won 500 XP! A new league starts now.');
   assert.equal(renderPush('league_result', [{ league_id: 9, place: 11, of: 18, prize: 0 }])!.body, 'You finished 11th of 18. A new league starts now.');
-  assert.equal(renderPush('passed', sample('passed'))!.title, 'Scholars', 'a pass is titled with your tier');
+  assert.equal(renderPush('passed', sample('passed'))!.title, 'Sapphire League', 'a pass is titled with your tier');
   const up = renderPush('league_result', [{ league_id: 9, place: 1, of: 18, prize: 1000, moved: 1, tier: 5 }])!;
-  assert.equal(`${up.title} ${up.body}`, 'Welcome to the Sages! You finished 1st and won 1,000 XP! You moved up a league.');
-  assert.equal(renderPush('league_result', [{ league_id: 9, place: 2, of: 18, prize: 500, moved: 1, tier: 8 }])!.title, 'Welcome to Dr. Scroll’s Circle!');
-  assert.equal(renderPush('league_result', [{ league_id: 9, place: 17, of: 18, prize: 0, moved: -1, tier: 3 }])!.body, 'You finished 17th of 18. This week you’re with the Apprentices.');
+  assert.equal(`${up.title} ${up.body}`, 'Welcome to the Emerald League! You finished 1st and won 1,000 XP! You moved up a league.');
+  assert.equal(renderPush('league_result', [{ league_id: 9, place: 2, of: 18, prize: 500, moved: 1, tier: 8 }])!.title, 'Welcome to the Crown League!');
+  assert.equal(renderPush('league_result', [{ league_id: 9, place: 17, of: 18, prize: 0, moved: -1, tier: 3 }])!.body, 'You finished 17th of 18. This week you’re in the Aquamarine League.');
   assert.equal(renderPush('reaction', []), null, 'nothing to say, nothing sent');
 });
 

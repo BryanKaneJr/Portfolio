@@ -1,4 +1,4 @@
-import { leagueMove, leaguePrize, movedTier, ordinal, tierName, type LeagueView } from '@brainscroll/core';
+import { leagueMove, leaguePrize, movedTier, ordinal, tierGem, tierName, type LeagueView } from '@brainscroll/core';
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
@@ -77,8 +77,8 @@ export default function LeagueScreen() {
                   <View style={{ flex: 1, gap: space.xxs }}>
                     <StyledName nameStyle={m.blocked ? null : m.nameStyle} style={[type.body, { color: color.text }]}>{name}</StyledName>
                     {detail ? <Caption>{detail}</Caption> : null}
-                    {move > 0 ? <Caption style={{ color: color.success, fontWeight: '800' }}>{`▲ Up to ${tierName(tier + 1)}`}</Caption> : null}
-                    {move < 0 ? <Caption style={{ color: color.textMuted }}>{`▼ Down to ${tierName(tier - 1)}`}</Caption> : null}
+                    {move > 0 ? <Caption style={{ color: color.success, fontWeight: '800' }}>{`▲ Up to ${tierGem(tier + 1)}`}</Caption> : null}
+                    {move < 0 ? <Caption style={{ color: color.textMuted }}>{`▼ Down to ${tierGem(tier - 1)}`}</Caption> : null}
                   </View>
                   <Body>{`${m.weeklyXp.toLocaleString('en-US')} XP`}</Body>
                 </Pressable>

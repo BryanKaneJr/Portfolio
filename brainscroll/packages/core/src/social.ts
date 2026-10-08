@@ -4,7 +4,7 @@
  *
  * - Leagues run Monday 00:00 UTC to Monday (as quests) with up to
  *   LEAGUE.SIZE learners in the same tier (LEAGUE_TIERS, owner 2026-10-08:
- *   Scribblers up to Dr. Scroll's Circle; everyone starts in the first).
+ *   Quartz up through the gems to Crown; everyone starts in Quartz).
  *   With no league in their tier to join, a learner joins any league still
  *   under LEAGUE.SAFETY_NET_SIZE, nearest tier first (so nobody competes
  *   alone), before a new one starts. Weekly XP is every ledger event in the
@@ -48,14 +48,17 @@ export const LEAGUE = {
 
 /**
  * League tiers, bottom to top (owner, 2026-10-08: tiers you move up and down
- * each week, named "much more Dr. Scroll sounding"). A learner's tier is a
- * number from 1. Mirrors the check on SQL profiles.league_tier.
+ * each week; seven gems "and then crown as the top", each easy to draw as an
+ * icon). A learner's tier is a number from 1. Mirrors the check on SQL
+ * profiles.league_tier.
  */
-export const LEAGUE_TIERS = ['Scribblers', 'Bookworms', 'Apprentices', 'Scholars', 'Sages', 'Professors', 'Luminaries', 'Dr. Scroll’s Circle'] as const;
-/** A tier's name ("Scholars"), for tier 1 to LEAGUE_TIERS.length. */
-export const tierName = (tier: number) => LEAGUE_TIERS[Math.min(LEAGUE_TIERS.length, Math.max(1, Math.round(tier))) - 1]!;
-/** A tier's name in a sentence: "the Scholars", but "Dr. Scroll’s Circle". */
-export const theTier = (tier: number) => (tierName(tier).startsWith('Dr.') ? tierName(tier) : `the ${tierName(tier)}`);
+export const LEAGUE_TIERS = ['Quartz', 'Amethyst', 'Aquamarine', 'Sapphire', 'Emerald', 'Ruby', 'Diamond', 'Crown'] as const;
+/** A tier's gem (or the Crown), for tier 1 to LEAGUE_TIERS.length. */
+export const tierGem = (tier: number) => LEAGUE_TIERS[Math.min(LEAGUE_TIERS.length, Math.max(1, Math.round(tier))) - 1]!;
+/** A tier's league: "Sapphire League". */
+export const tierName = (tier: number) => `${tierGem(tier)} League`;
+/** In a sentence: "the Sapphire League". */
+export const theTier = (tier: number) => `the ${tierName(tier)}`;
 
 /**
  * Where finishing at `place` (1-based) in a league of `size` with `xp` that

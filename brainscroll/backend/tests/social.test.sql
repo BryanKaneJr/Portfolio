@@ -79,7 +79,7 @@ begin
   assert jsonb_array_length(public.get_social() -> 'friends') = 1;
 end $$;
 
--- 4. Leagues: everyone starts in the first tier (Scribblers), so the first learners share one.
+-- 4. Leagues: everyone starts in the first tier (Quartz), so the first learners share one.
 create temp table lg (who text, league bigint);
 grant all on lg to authenticated;
 create function pg_temp.join(c text) returns bigint language plpgsql as $$
@@ -96,12 +96,12 @@ do $$ begin
   assert pg_temp.join('2a') = (select league from lg where who = '2a' limit 1), 'joining again keeps your league';
   assert (public.get_league() ->> 'tier')::int = 1, 'in the first tier';
 end $$;
--- Tiers make leagues, not brain levels: a level-110 learner joins the same Scribblers league.
+-- Tiers make leagues, not brain levels: a level-110 learner joins the same Quartz league.
 select pg_temp.join(c) from unnest(array['3a', '2d', '2e']) c;
 do $$ begin
   assert (select count(distinct league) from lg where who in ('2a', '3a', '2d', '2e')) = 1, 'same tier, same league, whatever the brain level';
 end $$;
--- A Scholar (tier 4) with nobody in their tier, and no league small enough for the safety net: a new league, in their tier ...
+-- A Sapphire learner (tier 4) with nobody in their tier, and no league small enough for the safety net: a new league, in their tier ...
 reset role;
 update public.profiles set league_tier = 4 where id in (pg_temp.uid('3b'), pg_temp.uid('2f'));
 set role authenticated;
@@ -110,12 +110,12 @@ do $$ begin
   assert (select league from lg where who = '3b') <> (select league from lg where who = '2a' limit 1), 'no league in the tier and none small: a new one';
   assert (public.get_league() ->> 'tier')::int = 4, 'named for their tier';
 end $$;
--- ... and the next Scholar joins it.
+-- ... and the next Sapphire learner joins it.
 select pg_temp.join('2f');
 do $$ begin
   assert (select league from lg where who = '2f') = (select league from lg where who = '3b'), 'same tier: same league';
 end $$;
--- The safety net: a Bookworm (tier 2) with no league in their tier joins a small one nearby, and keeps their own tier.
+-- The safety net: an Amethyst learner (tier 2) with no league in their tier joins a small one nearby, and keeps their own tier.
 reset role;
 insert into auth.users (id) values (pg_temp.uid('3c'));
 update public.profiles set league_tier = 2 where id = pg_temp.uid('3c');
@@ -158,11 +158,11 @@ begin
   assert (r -> 'members' -> 0 ->> 'weekly_xp')::int = 0, 'league prizes never count toward the next week';
   -- First of six with XP: up a tier (a league under 10 moves its top 3 up, nobody down).
   assert (r -> 'last_week' ->> 'moved')::int = 1 and (r -> 'last_week' ->> 'tier')::int = 2, format('Bob moves up, got %s', r -> 'last_week');
-  assert (r ->> 'tier')::int = 2, 'and this week he''s with the Bookworms';
+  assert (r ->> 'tier')::int = 2, 'and this week he''s in the Amethyst League';
   r := public.get_league();
   assert (select count(*) from public.xp_events where type = 'LEAGUE_FINISH') = 1, 'paid once';
   reset role;
-  assert (select tier from public.leagues where id = (r ->> 'league_id')::bigint) = 2, 'in a Bookworms league';
+  assert (select tier from public.leagues where id = (r ->> 'league_id')::bigint) = 2, 'in an Amethyst league';
   assert (select params from public.notification_outbox where user_id = pg_temp.uid('2b') and kind = 'league_result')
          @> '{"place": 1, "prize": 1000, "moved": 1, "tier": 2}'::jsonb, 'Monday''s note says he moved up';
   assert (select count(*) from public.league_members where moved = 1) = 1, 'nobody without XP moves up';
@@ -189,7 +189,7 @@ begin
   assert item is not null, format('Bob''s first trophy is in Alice''s feed, got %s', f);
   assert exists (select 1 from jsonb_array_elements(f) x where x -> 'owner' ->> 'username' = 'bob' and x ->> 'kind' = 'league'), 'and his league win';
   assert exists (select 1 from jsonb_array_elements(f) x where x -> 'owner' ->> 'username' = 'bob' and x ->> 'kind' = 'tier' and (x -> 'data' ->> 'tier')::int = 2
-                 and (x -> 'owner' ->> 'league_tier')::int = 2), 'and his move up to the Bookworms';
+                 and (x -> 'owner' ->> 'league_tier')::int = 2), 'and his move up to Amethyst';
   perform public.react(pg_temp.uid('2b'), 'trophy:trophy.first_level', 'heart');
   perform public.react(pg_temp.uid('2b'), 'trophy:trophy.first_level', 'heart');
   select x into item from jsonb_array_elements(public.get_feed()) x where x -> 'owner' ->> 'username' = 'bob' and x ->> 'key' = 'trophy:trophy.first_level';
@@ -422,7 +422,7 @@ declare
   g text;
   t int;
 begin
-  -- Two finished leagues of ten: Sages (tier 5) and Scribblers (tier 1), each member earning less than the one above.
+  -- Two finished leagues of ten: Emerald (tier 5) and Quartz (tier 1), each member earning less than the one above.
   foreach g in array array['5', '6'] loop
     t := case g when '5' then 5 else 1 end;
     update public.profiles set league_tier = t where id in (select pg_temp.uid(g || i) from generate_series(0, 9) i);
@@ -434,9 +434,9 @@ begin
     perform public.finalize_leagues_of(pg_temp.uid(g || '0'));
   end loop;
   assert array(select league_tier from public.profiles where id in (select pg_temp.uid('5' || i) from generate_series(0, 9) i) order by id)
-         = array[6, 6, 6, 6, 6, 5, 5, 4, 4, 4]::smallint[], 'Sages: top 5 up, bottom 3 down';
+         = array[6, 6, 6, 6, 6, 5, 5, 4, 4, 4]::smallint[], 'Emerald: top 5 up, bottom 3 down';
   assert array(select league_tier from public.profiles where id in (select pg_temp.uid('6' || i) from generate_series(0, 9) i) order by id)
-         = array[2, 2, 2, 2, 2, 1, 1, 1, 1, 1]::smallint[], 'Scribblers: nobody goes below the first tier';
+         = array[2, 2, 2, 2, 2, 1, 1, 1, 1, 1]::smallint[], 'Quartz: nobody goes below the first tier';
   assert array(select moved from public.league_members where user_id in (select pg_temp.uid('6' || i) from generate_series(0, 9) i) order by user_id)
          = array[1, 1, 1, 1, 1, 0, 0, 0, 0, 0]::smallint[], 'and the first tier''s bottom three didn''t move';
   assert public.league_move(1, 20, 0) = 0 and public.league_move(20, 20, 0) = -1 and public.league_move(2, 2, 50) = 0, 'mirrors core leagueMove';
