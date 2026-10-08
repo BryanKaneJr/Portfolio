@@ -429,6 +429,22 @@ try {
   await page.waitForTimeout(1000);
   const wardrobe = await bodyText(page);
   check(/Glows/.test(wardrobe) && /Name styles/.test(wardrobe) && /Titles/.test(wardrobe), 'Edit profile lists glows, name styles and titles');
+  // Opened straight from a link (a fresh launch), it waits for the account instead of failing.
+  await page.goto(`${URL}edit-profile`);
+  await page.waitForTimeout(2500);
+  const linked = await bodyText(page);
+  check(/Save username/.test(linked) && !/Couldn.t load/.test(linked), 'Edit profile opened from a link loads');
+  // The app preview's shortcuts (local mode only, docs/app-preview.md): every look to try on.
+  await page.goto(`${URL}settings`);
+  await page.waitForTimeout(2000);
+  check(/Preview only/i.test(await bodyText(page)), 'the preview shows its shortcuts in Settings');
+  await exactButton(page, 'Own every look').click();
+  await page.waitForTimeout(1000);
+  await page.goto(`${URL}edit-profile`);
+  await page.waitForTimeout(2500);
+  await page.getByTestId('wear-ring.music').click();
+  await page.waitForTimeout(1000);
+  check((await page.getByTestId('wear-ring.music').getAttribute('aria-checked')) === 'true', 'Own every look makes every glow wearable (Sheet Music on)');
 
   // A second skill: opening it on the Skills tab shows its map, but Home keeps the tree last played.
   await home(page);

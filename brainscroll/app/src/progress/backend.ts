@@ -115,6 +115,8 @@ export interface ProgressBackend {
   setLook(look: Look): Promise<LockerView>;
   /** Dev only: erase the signed-in learner's progress and keep the account. */
   reset(): Promise<void>;
+  /** The app preview only (local mode, docs/app-preview.md): every glow, name style and title, to try on. */
+  ownEveryLook?(): Promise<LockerView>;
 
   // ── Accounts (docs/accounts.md) ──
   // An account is required before any progress exists. There is no guest or

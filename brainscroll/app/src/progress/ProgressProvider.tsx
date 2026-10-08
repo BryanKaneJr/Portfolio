@@ -1,4 +1,4 @@
-import { AccountError, BRAINPOWER, dayNumber, NO_STREAK, SIGNED_OUT, skillProgressView, type AccountState, type AnswerResult, type Card, type OtpTarget, type SignInMethod, type ContentReportInput, type CompletionSummary, type Level, type ReviewItem, type ReviewResult, type Equipped, type FinalRoundAnswer, type QuestCompletion, type QuestsView, type QuestView, type ChapterReviewResult, type Question, type Look, type LockerView, NO_LOOK } from '@brainscroll/core';
+import { AccountError, BRAINPOWER, dayNumber, NO_STREAK, SIGNED_OUT, skillProgressView, type AccountState, type AnswerResult, type Card, type OtpTarget, type SignInMethod, type ContentReportInput, type CompletionSummary, type Level, type ReviewItem, type ReviewResult, type Equipped, type FinalRoundAnswer, type QuestCompletion, type QuestsView, type QuestView, type ChapterReviewResult, type Question, type Look, type LockerView, NO_LOOK, chestKey, chestLevel, encodeArrangement, expectedLabels, isArrangement } from '@brainscroll/core';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { AppState, Platform } from 'react-native';
 import { clearAnalytics, configureAnalytics, flush as flushAnalytics, track } from '@/analytics/track';
@@ -117,6 +117,8 @@ interface ProgressContextValue {
   setEquipped(next: Equipped): Promise<Equipped>;
   /** Map chests, XP boosts and the look (snapshot.locker updates with each). */
   rewards: RewardsApi;
+  /** Shortcuts for reviewing rewards in the app preview (local mode only; null in real builds). */
+  preview: PreviewApi | null;
   submitReview(item: ReviewItem, optionId: string): Promise<ReviewResult>;
   /** Chapter reviews: see ProgressBackend. Finishing one refreshes XP. */
   startChapterReview(skillId: string, chapter: number): Promise<ChapterReviewSession>;
@@ -195,6 +197,9 @@ async function syncedEntitlement(backend: ProgressBackend): Promise<EntitlementV
   }
 }
 
+/** The right answer to a question, as an answer string (the app preview's shortcut plays with it). */
+const rightAnswer = (q: Question) => (isArrangement(q) ? encodeArrangement(expectedLabels(q)) : (q.options.find((o) => o.correct)?.id ?? ''));
+
 export function ProgressProvider({ children }: { children: ReactNode }) {
   // Created on the client only: static web rendering runs without window/storage.
   const backendRef = useRef<ProgressBackend | null>(null);
@@ -228,6 +233,18 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
     if (!backendRef.current) throw new Error('Progress backend not ready');
     return backendRef.current;
   }, []);
+
+  // Settles once launch has made the backend and entered the stored account. A
+  // screen opened straight from a link mounts (and asks for its data) before then.
+  const [launched] = useState(() => {
+    let done = () => {};
+    const promise = new Promise<void>((resolve) => (done = resolve));
+    return { promise, done };
+  });
+  const backendAfterLaunch = useCallback(async (): Promise<ProgressBackend> => {
+    await launched.promise;
+    return backendOrThrow();
+  }, [launched, backendOrThrow]);
 
   const userIdOrThrow = useCallback((): string => {
     const a = accountRef.current;
@@ -348,8 +365,9 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         setAccount(SIGNED_OUT);
       }
       setReady(true);
+      launched.done();
     })();
-  }, [enter]);
+  }, [enter, launched]);
 
   /** Try the server again after `offline`: reload progress, the plan and whether onboarding is done. */
   const reconnecting$ = useRef(false);
@@ -398,32 +416,32 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   // useQuests) don't refetch on every unrelated update.
   const social = useMemo<SocialApi>(
     () => ({
-      view: () => backendOrThrow().social(),
+      view: async () => (await backendAfterLaunch()).social(),
       async league() {
-        const r = await backendOrThrow().league();
+        const r = await (await backendAfterLaunch()).league();
         // Opening the league pays last week's podium: bring the XP up to date.
         if (r.lastWeek?.xp) await refresh().catch(() => {});
         return r;
       },
-      feed: () => backendOrThrow().feed(),
-      profile: (userId) => backendOrThrow().socialProfile(userId),
-      setUsername: (name) => backendOrThrow().setUsername(name),
-      setAvatar: (avatar) => backendOrThrow().setAvatar(avatar),
-      findUser: (username) => backendOrThrow().findUser(username),
-      sendFriendRequest: (userId) => backendOrThrow().sendFriendRequest(userId),
-      respondFriendRequest: (fromId, accept) => backendOrThrow().respondFriendRequest(fromId, accept),
-      removeFriend: (userId) => backendOrThrow().removeFriend(userId),
-      acceptInvite: (code) => backendOrThrow().acceptInvite(code),
-      blockUser: (userId) => backendOrThrow().blockUser(userId),
-      blocked: () => backendOrThrow().blockedUsers(),
-      unblockUser: (userId) => backendOrThrow().unblockUser(userId),
-      reportUser: (userId, reason, note) => backendOrThrow().reportUser(userId, reason, note),
-      react: (ownerId, itemKey, reaction) => backendOrThrow().react(ownerId, itemKey, reaction),
-      setNotifications: (on) => backendOrThrow().setSocialNotifications(on),
-      setPrivateProfile: (on) => backendOrThrow().setPrivateProfile(on),
-      registerPushToken: (token, platform) => backendOrThrow().registerPushToken(token, platform),
+      feed: async () => (await backendAfterLaunch()).feed(),
+      profile: async (userId) => (await backendAfterLaunch()).socialProfile(userId),
+      setUsername: async (name) => (await backendAfterLaunch()).setUsername(name),
+      setAvatar: async (avatar) => (await backendAfterLaunch()).setAvatar(avatar),
+      findUser: async (username) => (await backendAfterLaunch()).findUser(username),
+      sendFriendRequest: async (userId) => (await backendAfterLaunch()).sendFriendRequest(userId),
+      respondFriendRequest: async (fromId, accept) => (await backendAfterLaunch()).respondFriendRequest(fromId, accept),
+      removeFriend: async (userId) => (await backendAfterLaunch()).removeFriend(userId),
+      acceptInvite: async (code) => (await backendAfterLaunch()).acceptInvite(code),
+      blockUser: async (userId) => (await backendAfterLaunch()).blockUser(userId),
+      blocked: async () => (await backendAfterLaunch()).blockedUsers(),
+      unblockUser: async (userId) => (await backendAfterLaunch()).unblockUser(userId),
+      reportUser: async (userId, reason, note) => (await backendAfterLaunch()).reportUser(userId, reason, note),
+      react: async (ownerId, itemKey, reaction) => (await backendAfterLaunch()).react(ownerId, itemKey, reaction),
+      setNotifications: async (on) => (await backendAfterLaunch()).setSocialNotifications(on),
+      setPrivateProfile: async (on) => (await backendAfterLaunch()).setPrivateProfile(on),
+      registerPushToken: async (token, platform) => (await backendAfterLaunch()).registerPushToken(token, platform),
     }),
-    [backendOrThrow, refresh],
+    [backendAfterLaunch, refresh],
   );
   // The Locker changes in place, so the map, header and Profile see it at once.
   const withLocker = useCallback((locker: LockerView, daily?: ChestOpening['daily']) => {
@@ -458,6 +476,40 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       },
     }),
     [backendOrThrow, withLocker],
+  );
+
+  const preview = useMemo<PreviewApi | null>(
+    () =>
+      BACKEND_KIND !== 'local'
+        ? null
+        : {
+            async clearToChest(skillId) {
+              const b = backendOrThrow();
+              const s = snapshotRef.current;
+              const cleared = s.skills[skillId]?.highestCleared ?? 0;
+              // The first chest not opened yet (chests come in chapter order): ready already, or played up to.
+              let chapter = 1;
+              while (s.locker.chests.includes(chestKey(skillId, chapter))) chapter++;
+              try {
+                for (let n = cleared + 1; n <= chestLevel(chapter); n++) {
+                  const id = levelByNumber(skillId, n)?.id;
+                  if (!id) return { stopped: 'NO_MORE_LEVELS' };
+                  const r = await b.startLevel(id);
+                  if (r.reason !== 'NEW' || !r.level) return { stopped: r.reason };
+                  for (const q of r.level.questions) await b.answerQuestion(r.level, q.id, rightAnswer(q));
+                  await b.completeLevel({ level: r.level, revision: r.revision ?? r.level.revision, idempotencyKey: newIdempotencyKey() });
+                }
+                return { chapter };
+              } finally {
+                await refresh();
+              }
+            },
+            async ownEveryLook() {
+              const locker = await backendOrThrow().ownEveryLook?.();
+              if (locker) withLocker(locker);
+            },
+          },
+    [backendOrThrow, refresh, withLocker],
   );
 
   const quests = useCallback(() => {
@@ -577,6 +629,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         return r;
       },
       rewards,
+      preview,
       async completeQuest(questId) {
         primedQuests.current = null;
         const result = await backendOrThrow().completeQuest(questId);
@@ -675,7 +728,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         await resync();
       },
     }),
-    [ready, error, offline, reconnecting, reconnect, setOffline, snapshot, hasOpenLevel, lastSummary, streakMoment, onboarded, seenTips, account, signInMethods, activeSkillId, entitlement, purchases, refresh, resync, commitSessions, social, rewards, quests, backendOrThrow, userIdOrThrow, enter, signedIn],
+    [ready, error, offline, reconnecting, reconnect, setOffline, snapshot, hasOpenLevel, lastSummary, streakMoment, onboarded, seenTips, account, signInMethods, activeSkillId, entitlement, purchases, refresh, resync, commitSessions, social, rewards, preview, quests, backendOrThrow, userIdOrThrow, enter, signedIn],
   );
 
   return <ProgressContext.Provider value={value}>{children}</ProgressContext.Provider>;
@@ -711,6 +764,17 @@ export interface RewardsApi {
   openChest(skillId: string, chapter: number): Promise<ChestOpening>;
   startBoost(boostId: string): Promise<LockerView>;
   setLook(look: Look): Promise<LockerView>;
+}
+
+export interface PreviewApi {
+  /**
+   * Plays a skill's next levels, every first answer right, through the same
+   * rules as a learner, up to its next unopened chest. Returns that chest's
+   * chapter, or why play stopped (out of Brainpower, say).
+   */
+  clearToChest(skillId: string): Promise<{ chapter: number } | { stopped: string }>;
+  /** Every glow, name style and title, to try on in Edit profile. */
+  ownEveryLook(): Promise<void>;
 }
 
 export interface SocialApi {

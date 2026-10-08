@@ -150,7 +150,9 @@ export function ItemCard({ rarity, label, selected, locked, onPress, testID, chi
     <Pressable
       testID={testID}
       accessibilityRole="radio"
-      accessibilityState={{ selected: !!selected, disabled: !onPress }}
+      // A radio says it's chosen with "checked" (screen readers ignore "selected" on one), as the answer choices do.
+      aria-checked={!!selected}
+      accessibilityState={{ disabled: !onPress }}
       accessibilityLabel={locked ? `${label}, not found yet` : label}
       disabled={!onPress}
       onPress={onPress}

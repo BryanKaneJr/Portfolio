@@ -145,6 +145,7 @@ try {
   await page.waitForTimeout(800);
   await exactButton(page, 'Settings').click();
   await page.waitForTimeout(800);
+  check(!/Preview only/i.test(await bodyText(page)), 'a server build has no preview shortcuts');
   await exactButton(page, 'Unlimited details').click();
   await page.waitForTimeout(800);
   check(/Unlimited is on\.[\s\S]*Renews on/.test(await bodyText(page)), 'the Unlimited screen shows the plan and its renewal date');
