@@ -1,4 +1,4 @@
--- Social: usernames, friends, invites, blocks, leagues (matching, the safety net, prizes),
+-- Social: usernames, friends, invites, blocks, leagues (tiers, the safety net, prizes, moving up and down),
 -- the derived feed and its hearts. Mirrors packages/core/src/social.ts.
 \set ON_ERROR_STOP on
 \set QUIET on
@@ -79,7 +79,7 @@ begin
   assert jsonb_array_length(public.get_social() -> 'friends') = 1;
 end $$;
 
--- 4. Leagues: anyone under brain level 100 is fair game, so the first learners share one.
+-- 4. Leagues: everyone starts in the first tier (Scribblers), so the first learners share one.
 create temp table lg (who text, league bigint);
 grant all on lg to authenticated;
 create function pg_temp.join(c text) returns bigint language plpgsql as $$
@@ -94,28 +94,36 @@ select pg_temp.join(c) from unnest(array['2a', '2b', '2c']) c;
 do $$ begin
   assert (select count(distinct league) from lg) = 1, 'the first three share a league';
   assert pg_temp.join('2a') = (select league from lg where who = '2a' limit 1), 'joining again keeps your league';
+  assert (public.get_league() ->> 'tier')::int = 1, 'in the first tier';
 end $$;
--- The safety net: a level-110 learner with no match still joins a league under 5.
-select pg_temp.join('3a');
+-- Tiers make leagues, not brain levels: a level-110 learner joins the same Scribblers league.
+select pg_temp.join(c) from unnest(array['3a', '2d', '2e']) c;
 do $$ begin
-  assert (select league from lg where who = '3a') = (select league from lg where who = '2a' limit 1), 'safety net: no one starts alone';
+  assert (select count(distinct league) from lg where who in ('2a', '3a', '2d', '2e')) = 1, 'same tier, same league, whatever the brain level';
 end $$;
-select pg_temp.join(c) from unnest(array['2d', '2e']) c;
-do $$ begin
-  assert (select count(distinct league) from lg where who in ('2a', '2d', '2e')) = 1, 'the advanced joiner doesn''t close the beginners'' league';
-end $$;
--- Five or more now: the second advanced learner (115) gets their own league ...
+-- A Scholar (tier 4) with nobody in their tier, and no league small enough for the safety net: a new league, in their tier ...
+reset role;
+update public.profiles set league_tier = 4 where id in (pg_temp.uid('3b'), pg_temp.uid('2f'));
+set role authenticated;
 select pg_temp.join('3b');
 do $$ begin
-  assert (select league from lg where who = '3b') <> (select league from lg where who = '2a' limit 1), 'no match and no small league: a new one';
+  assert (select league from lg where who = '3b') <> (select league from lg where who = '2a' limit 1), 'no league in the tier and none small: a new one';
+  assert (public.get_league() ->> 'tier')::int = 4, 'named for their tier';
 end $$;
--- ... and a learner within 20% of 115 joins it rather than the beginners' league.
-reset role;
-insert into public.user_skill_progress (user_id, skill_id, highest_cleared) values (pg_temp.uid('2f'), 'skill.science.big', 3100);
-set role authenticated;
+-- ... and the next Scholar joins it.
 select pg_temp.join('2f');
 do $$ begin
-  assert (select league from lg where who = '2f') = (select league from lg where who = '3b'), '110 to 115 is within 20%: same league';
+  assert (select league from lg where who = '2f') = (select league from lg where who = '3b'), 'same tier: same league';
+end $$;
+-- The safety net: a Bookworm (tier 2) with no league in their tier joins a small one nearby, and keeps their own tier.
+reset role;
+insert into auth.users (id) values (pg_temp.uid('3c'));
+update public.profiles set league_tier = 2 where id = pg_temp.uid('3c');
+set role authenticated;
+select pg_temp.join('3c');
+do $$ begin
+  assert (select league from lg where who = '3c') = (select league from lg where who = '3b'), 'safety net: no one starts alone';
+  assert (public.get_league() ->> 'tier')::int = 2, 'their league shows their own tier';
 end $$;
 
 -- 5. Weekly XP orders the league. Bob clears a level this week.
@@ -148,8 +156,18 @@ begin
   assert (select count(*) from public.xp_events where type = 'LEAGUE_FINISH') = 1, 'only places with XP are paid';
   assert (r ->> 'league_id')::bigint not in (select league from lg), 'a new week, a new league';
   assert (r -> 'members' -> 0 ->> 'weekly_xp')::int = 0, 'league prizes never count toward the next week';
+  -- First of six with XP: up a tier (a league under 10 moves its top 3 up, nobody down).
+  assert (r -> 'last_week' ->> 'moved')::int = 1 and (r -> 'last_week' ->> 'tier')::int = 2, format('Bob moves up, got %s', r -> 'last_week');
+  assert (r ->> 'tier')::int = 2, 'and this week he''s with the Bookworms';
   r := public.get_league();
   assert (select count(*) from public.xp_events where type = 'LEAGUE_FINISH') = 1, 'paid once';
+  reset role;
+  assert (select tier from public.leagues where id = (r ->> 'league_id')::bigint) = 2, 'in a Bookworms league';
+  assert (select params from public.notification_outbox where user_id = pg_temp.uid('2b') and kind = 'league_result')
+         @> '{"place": 1, "prize": 1000, "moved": 1, "tier": 2}'::jsonb, 'Monday''s note says he moved up';
+  assert (select count(*) from public.league_members where moved = 1) = 1, 'nobody without XP moves up';
+  assert (select count(*) from public.league_members where moved = -1) = 0, 'and nobody moves down in a small league';
+  set role authenticated;
 end $$;
 -- Alice opening Social later doesn't pay again.
 select pg_temp.as_user(pg_temp.uid('2a')::text);
@@ -170,6 +188,8 @@ begin
   select x into item from jsonb_array_elements(f) x where x -> 'owner' ->> 'username' = 'bob' and x ->> 'key' = 'trophy:trophy.first_level';
   assert item is not null, format('Bob''s first trophy is in Alice''s feed, got %s', f);
   assert exists (select 1 from jsonb_array_elements(f) x where x -> 'owner' ->> 'username' = 'bob' and x ->> 'kind' = 'league'), 'and his league win';
+  assert exists (select 1 from jsonb_array_elements(f) x where x -> 'owner' ->> 'username' = 'bob' and x ->> 'kind' = 'tier' and (x -> 'data' ->> 'tier')::int = 2
+                 and (x -> 'owner' ->> 'league_tier')::int = 2), 'and his move up to the Bookworms';
   perform public.react(pg_temp.uid('2b'), 'trophy:trophy.first_level', 'heart');
   perform public.react(pg_temp.uid('2b'), 'trophy:trophy.first_level', 'heart');
   select x into item from jsonb_array_elements(public.get_feed()) x where x -> 'owner' ->> 'username' = 'bob' and x ->> 'key' = 'trophy:trophy.first_level';
@@ -390,6 +410,38 @@ do $$ begin
   perform pg_temp.expect_error($q$ select public.admin_user_reports() $q$, 'permission denied for function admin_user_reports');
   perform pg_temp.expect_error($q$ select count(*) from public.username_terms $q$, 'permission denied for table username_terms');
 end $$;
+
+-- 9d. A full league's week: the top 5 move up a tier and the bottom 3 move down, never past the first or last.
+reset role;
+insert into auth.users (id) select pg_temp.uid('5' || i) from generate_series(0, 9) i;
+insert into auth.users (id) select pg_temp.uid('6' || i) from generate_series(0, 9) i;
+do $$
+declare
+  v_week date := public.league_week_start(now()) - 14;
+  v_l bigint;
+  g text;
+  t int;
+begin
+  -- Two finished leagues of ten: Sages (tier 5) and Scribblers (tier 1), each member earning less than the one above.
+  foreach g in array array['5', '6'] loop
+    t := case g when '5' then 5 else 1 end;
+    update public.profiles set league_tier = t where id in (select pg_temp.uid(g || i) from generate_series(0, 9) i);
+    insert into public.leagues (week_start, tier) values (v_week, t) returning id into v_l;
+    insert into public.league_members (league_id, user_id, week_start, knowledge_level, tier)
+      select v_l, pg_temp.uid(g || i), v_week, 1, t from generate_series(0, 9) i;
+    insert into public.xp_events (user_id, type, amount, reason, idempotency_key, created_at)
+      select pg_temp.uid(g || i), 'DELAYED_RECALL', (10 - i) * 10, 'test', 'tiers:' || i, public.week_start_at(v_week) + interval '1 day' from generate_series(0, 9) i;
+    perform public.finalize_leagues_of(pg_temp.uid(g || '0'));
+  end loop;
+  assert array(select league_tier from public.profiles where id in (select pg_temp.uid('5' || i) from generate_series(0, 9) i) order by id)
+         = array[6, 6, 6, 6, 6, 5, 5, 4, 4, 4]::smallint[], 'Sages: top 5 up, bottom 3 down';
+  assert array(select league_tier from public.profiles where id in (select pg_temp.uid('6' || i) from generate_series(0, 9) i) order by id)
+         = array[2, 2, 2, 2, 2, 1, 1, 1, 1, 1]::smallint[], 'Scribblers: nobody goes below the first tier';
+  assert array(select moved from public.league_members where user_id in (select pg_temp.uid('6' || i) from generate_series(0, 9) i) order by user_id)
+         = array[1, 1, 1, 1, 1, 0, 0, 0, 0, 0]::smallint[], 'and the first tier''s bottom three didn''t move';
+  assert public.league_move(1, 20, 0) = 0 and public.league_move(20, 20, 0) = -1 and public.league_move(2, 2, 50) = 0, 'mirrors core leagueMove';
+end $$;
+set role authenticated;
 
 -- 10. Nothing social is readable directly.
 do $$ begin

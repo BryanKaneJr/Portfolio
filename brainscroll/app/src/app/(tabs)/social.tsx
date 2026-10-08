@@ -1,7 +1,8 @@
-import { DR_SCROLL_FRIEND, drScrollPosts, LEAGUE, ordinal, type FeedReaction } from '@brainscroll/core';
+import { DR_SCROLL_FRIEND, drScrollPosts, LEAGUE, ordinal, theTier, type FeedReaction } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
+import { TierEmblem } from '@/components/LeagueTier';
 import { StyledName } from '@/components/cosmetics';
 import { Avatar, DrScrollPostCard, LeagueBanner, MomentCard } from '@/components/social';
 import { Body, Button, Caption, Card, DrScrollSays, Icon, IconButton, LoadError, Notice, OfflineState, Row, Screen, ScreenHeader, SkeletonCard, Title } from '@/components/ui';
@@ -89,10 +90,26 @@ export default function SocialScreen() {
         </>
       ) : (
         <>
-          {last?.place && last.place <= LEAGUE.PRIZES.length && last.xp ? (
+          {last?.moved === 1 && last.tier ? (
+            // Moving up a tier is the week's headline (owner, 2026-10-08), with any prize under it.
+            <Card variant="reward" accessibilityLabel={`You moved up to ${theTier(last.tier)}${last.xp ? `, and won ${last.xp} XP` : ''}`}>
+              <Row gap={space.md}>
+                <TierEmblem tier={last.tier} size={44} />
+                <View style={{ flex: 1, gap: space.xxs }}>
+                  <Title>{`Welcome to ${theTier(last.tier)}!`}</Title>
+                  <Caption>{last.place && last.xp ? `${ordinal(last.place)} last week: +${last.xp.toLocaleString('en-US')} XP, added to your total.` : 'You moved up a league last week.'}</Caption>
+                </View>
+              </Row>
+            </Card>
+          ) : last?.place && last.place <= LEAGUE.PRIZES.length && last.xp ? (
             <Card variant="reward" accessibilityLabel={`Last week you finished ${ordinal(last.place)} in your league: plus ${last.xp} XP`}>
               <Title>{`Last week: ${ordinal(last.place)} in your league!`}</Title>
               <Caption>{`+${last.xp.toLocaleString('en-US')} XP, added to your total.`}</Caption>
+            </Card>
+          ) : last?.moved === -1 && last.tier ? (
+            // Moving down is said plainly, never as a loss.
+            <Card variant="plain" accessibilityLabel={`A new week: this week you're with ${theTier(last.tier)}`}>
+              <Caption>{`A new week: this week you’re with ${theTier(last.tier)}.`}</Caption>
             </Card>
           ) : null}
           <LeagueBanner league={league} onPress={() => router.push('/league')} />

@@ -113,10 +113,12 @@ try {
   check((await liked()) === before, 'tapping it again takes the like back');
   await page.getByRole('button', { name: /^Like(,|$)/ }).first().click();
   await page.waitForTimeout(500);
-  await page.getByRole('button', { name: /League: you're/ }).click();
+  await page.getByRole('button', { name: /Scribblers: you're/ }).click();
   await page.waitForTimeout(1000);
   social = await bodyText(page);
   check(!/Ranked by XP earned this week/.test(social) && /1,000 XP prize/.test(social) && /250 XP prize/.test(social), 'the standings mark the top 3 prizes, with no rules paragraph');
+  // League tiers (owner, 2026-10-08): everyone starts with the Scribblers; the top 5 are on their way up, and nobody goes below the first tier.
+  check(/Scribblers/.test(social) && (social.match(/Up to Bookworms/g) ?? []).length === 5 && !/Down to/.test(social), 'the league is named for its tier, and the top 5 are marked to move up');
   // The first rival in the standings (early in a week, 1st can be you).
   await page.getByRole('button', { name: /^\d+(st|nd|rd|th): @/ }).first().click();
   await page.waitForTimeout(1000);
@@ -194,7 +196,7 @@ try {
   check(!/@noor/.test(await bodyText(page)), 'blocking leaves their profile');
   await page.getByRole('tab', { name: /Social/ }).click();
   await page.waitForTimeout(1200);
-  await page.getByRole('button', { name: /League: you're/ }).click();
+  await page.getByRole('button', { name: /Scribblers: you're/ }).click();
   await page.waitForTimeout(1000);
   person = await bodyText(page);
   check(/Hidden learner/.test(person) && !/@noor/.test(person), 'a blocked learner is a hidden learner in the standings');
@@ -335,6 +337,7 @@ try {
   await page.getByRole('tab', { name: /Profile/ }).click();
   await page.waitForTimeout(800);
   check((await bodyText(page)).includes('@e2e_learner') && (await exactButton(page, 'Edit profile').count()) === 1, 'Profile shows your username, with the pencil to edit it');
+  check((await page.getByLabel('League: Scribblers').count()) === 1, 'and your league tier under it');
   await exactButton(page, 'Settings').click();
   await page.waitForTimeout(800);
   check(/Unlimited: ∞ Brainpower/.test(await bodyText(page)), 'Settings shows the plan');

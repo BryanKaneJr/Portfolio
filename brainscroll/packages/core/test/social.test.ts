@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { avatarIdFor, avatarUnlocked, compareSubjects, hiddenLeagueMember, leagueFits, leaguePrize, leagueWeekStart, ordinal, profileAccess, rarestTrophies, SOCIAL_ERROR_TEXT, USER_REPORT_NOTE_MAX, USER_REPORT_REASONS, usernameProblem, weeklyXp, type XpEvent } from '../src';
+import { avatarIdFor, avatarUnlocked, compareSubjects, hiddenLeagueMember, LEAGUE_TIERS, leagueMove, leaguePrize, movedTier, tierName, leagueWeekStart, ordinal, profileAccess, rarestTrophies, SOCIAL_ERROR_TEXT, USER_REPORT_NOTE_MAX, USER_REPORT_REASONS, usernameProblem, weeklyXp, type XpEvent } from '../src';
 
 // Mirrors backend/tests/social.test.sql.
 describe('leagues', () => {
@@ -9,11 +9,24 @@ describe('leagues', () => {
     expect(leagueWeekStart(new Date('2026-10-12T00:00:00Z'))).toBe('2026-10-12');
   });
 
-  it('match brain levels within 20%, and anyone under 100 is fair game', () => {
-    expect(leagueFits([1, 40, 99], 2)).toBe(true);
-    expect(leagueFits([1, 40], 110)).toBe(false);
-    expect(leagueFits([110], 115)).toBe(true);
-    expect(leagueFits([110], 140)).toBe(false);
+  it('climb eight tiers, Scribblers to Dr. Scroll’s Circle', () => {
+    expect(LEAGUE_TIERS).toHaveLength(8);
+    expect([tierName(1), tierName(4), tierName(8)]).toEqual(['Scribblers', 'Scholars', 'Dr. Scroll’s Circle']);
+    expect([tierName(0), tierName(9)]).toEqual(['Scribblers', 'Dr. Scroll’s Circle']);
+    expect([movedTier(1, -1), movedTier(8, 1), movedTier(4, 1), movedTier(4, -1)]).toEqual([1, 8, 5, 3]);
+  });
+
+  it('move the top 5 up and the bottom 3 down when a week ends', () => {
+    expect(Array.from({ length: 20 }, (_, i) => leagueMove(i + 1, 20, 100))).toEqual([1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1, -1]);
+    expect(Array.from({ length: 10 }, (_, i) => leagueMove(i + 1, 10, 100))).toEqual([1, 1, 1, 1, 1, 0, 0, -1, -1, -1]);
+    expect(leagueMove(1, 20, 0)).toBe(0); // moving up takes XP that week
+    expect(leagueMove(20, 20, 0)).toBe(-1);
+  });
+
+  it('in a league under 10, move only the top 3 up (with someone behind them) and nobody down', () => {
+    expect(Array.from({ length: 9 }, (_, i) => leagueMove(i + 1, 9, 100))).toEqual([1, 1, 1, 0, 0, 0, 0, 0, 0]);
+    expect([1, 2].map((p) => leagueMove(p, 2, 100))).toEqual([1, 0]);
+    expect(leagueMove(1, 1, 500)).toBe(0); // alone: nobody to beat
   });
 
   it('pay 1,000 / 500 / 250 to the top 3 with XP, in a league bigger than the place', () => {

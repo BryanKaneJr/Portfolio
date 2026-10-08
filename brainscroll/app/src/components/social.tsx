@@ -1,4 +1,4 @@
-import { DR_SCROLL_FRIEND, leagueName, leaguePrize, ordinal, trophyInfo, type FeedItem, type DrScrollPost, type FeedReaction, type LeagueView } from '@brainscroll/core';
+import { DR_SCROLL_FRIEND, leaguePrize, ordinal, theTier, tierName, trophyInfo, type FeedItem, type DrScrollPost, type FeedReaction, type LeagueView } from '@brainscroll/core';
 import { Animated, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import { AvatarGlow } from '@/components/cosmetics';
@@ -57,7 +57,8 @@ export const LEAGUE_OF_ONE = 'Your league fills up as learners join this week.';
 export const leagueMemberName = (m: LeagueView['members'][number]) => (m.you ? 'You' : m.blocked ? 'Hidden learner' : `@${m.username}`);
 
 /**
- * The league as a banner (owner, 2026-10-01: "more fun and premium"): a
+ * The league as a banner (owner, 2026-10-01: "more fun and premium"), named
+ * for your tier (owner, 2026-10-08): a
  * violet gradient card with a trophy (top 3) or medal beside your place, how far
  * the next place is, and the current podium. Each podium spot shows the prize
  * it would win if the week ended now (core leaguePrize, the server's rule:
@@ -69,7 +70,7 @@ export const leagueMemberName = (m: LeagueView['members'][number]) => (m.you ? '
 export function LeagueBanner({ league, onPress }: { league: LeagueView; onPress: () => void }) {
   const place = league.members.findIndex((m) => m.you) + 1;
   const me = league.members[place - 1];
-  const name = leagueName(league.leagueId);
+  const name = tierName(league.tier);
   const ahead = place > 1 ? league.members[place - 2] : undefined;
   const gap = ahead && me ? ahead.weeklyXp - me.weeklyXp + 1 : 0;
   const alone = league.members.length <= 1;
@@ -141,6 +142,8 @@ export function momentLine(item: FeedItem): string {
       return `hit a ${item.data.days}-day streak`;
     case 'league':
       return `finished ${ordinal(item.data.place ?? 1)} in ${item.owner.you ? 'your' : 'their'} league${item.data.xp ? ` (+${item.data.xp.toLocaleString('en-US')} XP)` : ''}`;
+    case 'tier':
+      return `moved up to ${theTier(item.data.tier ?? 1)}`;
   }
 }
 

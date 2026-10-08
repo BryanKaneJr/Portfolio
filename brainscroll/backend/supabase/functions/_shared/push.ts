@@ -21,9 +21,10 @@ export interface ExpoMessage {
   channelId: 'social';
 }
 
-/** Mirrors core LEAGUE_NAMES / leagueName (social.ts); a test keeps them equal. */
-export const LEAGUE_NAMES = ['Owl', 'Comet', 'Atlas', 'Sphinx', 'Nova', 'Falcon', 'Quill', 'Orbit', 'Lantern', 'Compass', 'Prism', 'Summit'] as const;
-export const leagueName = (id: number | string) => `${LEAGUE_NAMES[Number(String(id).replace(/\D/g, '') || 0) % LEAGUE_NAMES.length]} League`;
+/** Mirrors core LEAGUE_TIERS / tierName / theTier (social.ts); a test keeps them equal. */
+export const LEAGUE_TIERS = ['Scribblers', 'Bookworms', 'Apprentices', 'Scholars', 'Sages', 'Professors', 'Luminaries', 'Dr. Scroll’s Circle'] as const;
+export const tierName = (tier: number) => LEAGUE_TIERS[Math.min(LEAGUE_TIERS.length, Math.max(1, Math.round(tier))) - 1]!;
+export const theTier = (tier: number) => (tierName(tier).startsWith('Dr.') ? tierName(tier) : `the ${tierName(tier)}`);
 
 export function ordinal(n: number): string {
   const s = n % 100 >= 11 && n % 100 <= 13 ? 'th' : (['th', 'st', 'nd', 'rd'][n % 10] ?? 'th');
@@ -58,17 +59,19 @@ export function renderPush(kind: PushKind, items: Record<string, unknown>[]): { 
     case 'passed': {
       const gap = num(first.gap);
       const back = gap <= 100 ? 'One level could put you back in front.' : 'A couple of levels could put you back in front.';
-      return { title: leagueName(first.league_id as number), body: `${at(first.username)} just passed you by ${xp(gap)}. ${back}`, url: '/league' };
+      return { title: tierName(num(first.tier) || 1), body: `${at(first.username)} just passed you by ${xp(gap)}. ${back}`, url: '/league' };
     }
     case 'league_result': {
-      const name = leagueName(first.league_id as number);
       const place = num(first.place);
       const prize = num(first.prize);
+      const moved = num(first.moved);
+      const tier = num(first.tier) || 1;
+      const finish = prize > 0 ? `You finished ${ordinal(place)} and won ${xp(prize)}!` : `You finished ${ordinal(place)} of ${num(first.of)}.`;
+      // Moving up is the headline; moving down is said plainly, never as a loss.
+      if (moved > 0) return { title: `Welcome to ${theTier(tier)}!`, body: `${finish} You moved up a league.`, url: '/league' };
       return {
-        title: `${name} is over`,
-        body: prize > 0
-          ? `You finished ${ordinal(place)} and won ${xp(prize)}! A new league starts now.`
-          : `You finished ${ordinal(place)} of ${num(first.of)}. A new league starts now.`,
+        title: 'Your league week is over',
+        body: `${finish} ${moved < 0 ? `This week you’re with ${theTier(tier)}.` : 'A new league starts now.'}`,
         url: '/league',
       };
     }

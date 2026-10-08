@@ -3,6 +3,12 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-08: League tiers
+
+- **Leagues come in eight tiers you climb each week** (owner: "apply levels to leagues that they level up or level down in each week", named "much more Dr. Scroll sounding"): Scribblers, Bookworms, Apprentices, Scholars, Sages, Professors, Luminaries and Dr. Scroll's Circle. Everyone starts with the Scribblers, and leagues are made within a tier instead of by brain level. When a week ends the top 5 move up and the bottom 3 move down (the owner's pick of the classic rule); a league under 10 moves only its top 3 up and nobody down. Prizes are unchanged.
+- **Where it shows:** the league is named for your tier, with its emblem (a hexagon in the tier's colour with its numeral; none is gold). Each standings row says "▲ Up to Bookworms" or "▼ Down to Scribblers" if the week ended now. Your tier sits under your name on Profile and on friends' profiles. Moving up is a feed moment and the week's headline on Social ("Welcome to the Bookworms!"), and Monday's result notification says where you moved. Moving down is said plainly, never as a loss. Migration `20261108000000_league_tiers`; the local preview simulates it too.
+- The build plan's "Weekly Quest comparison among friends" is replaced by this (owner: "is there an easier way ... maybe just show which league they are in").
+
 ## 2026-10-08: Links that load, and preview shortcuts
 
 - **Screens opened straight from a link load.** Edit profile, Avatar and the League showed "Couldn't load this one" (and Profile and Add friends came up without your name) when opened from a link or a reload, because they asked for your profile before launch had entered your account. Friend and profile calls now wait for launch.

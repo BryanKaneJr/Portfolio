@@ -19,7 +19,7 @@ Both follow the same line: the app wants people to come back, but never as a jer
    - a new friendship: whoever didn't make it happen hears "you're friends now";
    - a new heart on a feed moment: the owner hears about it; a heart taken back before the note is sent takes the note with it. Hearts only go on real moments (the owner's last 14 days, as in the feed), so a made-up moment can't queue a note;
    - XP that passes a league mate: they hear about it, at most once a day, and only if they've earned XP that week;
-   - a finished league week: everyone who played hears their place and any prize.
+   - a finished league week: everyone who played hears their place, any prize, and the tier it moved them to ("Welcome to the Bookworms!"; moving down is said plainly: "This week you're with the Apprentices.").
    Notes that stop being true are withdrawn before they go out: a request that's cancelled, declined, accepted or crossed, a heart taken back, and a friendship that ends take their unsent note with them (migration `20261103000000_social_qa_fixes.sql`, `push.test.sql`).
 2. **A cron job calls the `send-push` function** every 5 minutes. It:
    - closes finished league weeks (`finalize_due_leagues`), so results go out on Monday;

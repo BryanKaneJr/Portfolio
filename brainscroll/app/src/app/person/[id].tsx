@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { DrScrollProfile } from '@/components/DrScrollProfile';
 import { StyledName } from '@/components/cosmetics';
+import { TierBadge } from '@/components/LeagueTier';
 import { rarityOfTitleName, TitlePlate } from '@/components/rewardsUi';
 import { Avatar } from '@/components/social';
 import { TrophyBadge } from '@/components/TrophyBadge';
@@ -104,6 +105,7 @@ export default function PersonScreen() {
           <Eyebrow tone="brand">{isYou ? 'You' : them.relation === 'friend' ? 'Friend' : them.relation === 'league' ? 'In your league' : 'Learner'}</Eyebrow>
           <StyledName header nameStyle={them.nameStyle} style={[type.h1, { color: color.text }]}>{`@${them.username}`}</StyledName>
           {them.title ? <View style={{ alignSelf: 'flex-start' }}><TitlePlate name={them.title} rarity={rarityOfTitleName(them.title)} size="sm" /></View> : null}
+          {them.leagueTier && !them.limited ? <TierBadge tier={them.leagueTier} size={20} /> : null}
         </View>
       </Row>
 
