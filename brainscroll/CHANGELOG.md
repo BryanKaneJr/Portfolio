@@ -3,9 +3,10 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
-## 2026-10-08: Ready for the first iPhone build
+## 2026-10-08: Ready for the first iPhone build, and a year of quests
 
 - **Store builds point at the live backend on their own.** `app/eas.json` now carries the Supabase URL and its publishable key (public by design, like the RevenueCat key beside it) for the preview and production profiles, so the first build needs nothing set in EAS.
+- **A year of Weekly Quests.** 44 new quests join the first eight, so there are 52: one for every week of a year, enough to earn Quest Legend. Each pairs five related trees at 5 new levels apiece (The Moon Landing, Age of Dinosaurs, The Renaissance, Survive on Mars, Code Breakers, Kitchen Science and more), every tree turns up in 7 to 13 of them, and each has its own title and emblem from the existing art. Like the first eight, none has a date yet: they wait for the launch week (owner, 2026-09-29).
 - **The push job sends the league tier wording.** The `send-push` function on the live project still had the old league names; it's redeployed from the repo.
 - **What's left for launch is one short list** (`docs/release.md`, mirrored in `docs/build-order.md`): the first iPhone build, the two App Store subscriptions, the Apple Team ID for invite links, a few days on TestFlight, then launch week. Android follows. Stale notes are gone (usernames are built, the privacy policy is published, the app is version 1.0.0).
 
