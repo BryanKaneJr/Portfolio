@@ -27,7 +27,7 @@ npm test
 ## Layout
 
 ```
-src/app/            screens (Expo Router): index (Find), results, recipe/[id], favorites
+src/app/            screens (Expo Router): index (Find / My pantry), results, pantry, pantry-results, recipe/[id], favorites
 src/components/     Chip, FilterChips, SelectionSummary, RecipeCard
 src/data/           types, ingredient catalog, recipes, labels (all bundled, offline)
 src/logic/          matching engine, sorting, ingredient search, content validator
@@ -46,11 +46,24 @@ docs/               build plan, ingredient mapping notes
 4. Zero exact results → **Close matches**, clearly labelled with what they don't use (2 picks: must use 1; 3+: missing 1, then 2).
 5. More than 30 results → non-blocking "Narrow it down?" with counts that equal what you get after tapping.
 
+## My pantry mode
+
+A toggle at the top of the home screen switches between **Pick ingredients** and **My pantry**.
+
+- The pantry is a saved list of ingredients you usually have (stored on the phone only). **Add basics** adds salt, pepper, oils and water in one tap. Basics are never assumed.
+- **Can make** = every *required* ingredient is in the pantry. Optional toppings never block a recipe.
+- The list is shuffled. The order stays put while you browse and changes only when you tap **Shuffle**. Narrow it with Meal / Dish type.
+- Below the list, a separate **One ingredient short** section names the single missing item on each card.
+- Recipe pages opened in pantry mode show ✓ next to pantry items and a "Not in your pantry" box.
+
+> Note: the original plan listed pantry tracking as out of scope for v1. This is a deliberate addition: a simple saved list, not inventory or quantities.
+
 ## Status
 
 - [x] Phase 0 — Expo SDK 57 + TypeScript (strict), Expo Router, theme tokens, Jest
 - [x] Phase 1 — 89-ingredient catalog with aliases, 27 seed recipes, validator, coverage report
 - [x] Phase 2 — deterministic engine + 36 tests (all of plan §11 that can run without a device)
+- [x] My pantry mode — saved pantry, can-make list, shuffle, meal/dish narrowing, one-short section (+6 tests)
 - [x] Phase 3/4 — Find, Results (exact / close / narrowing / adjust), Recipe (step check-off), Favorites; last search + favorites persist locally
 - [ ] Phase 5 — grow to 30–50 → 120–150 → 250–350 **human-verified** recipes
 - [ ] Phase 6 — polish & accessibility pass on a real iPhone (VoiceOver, large text)

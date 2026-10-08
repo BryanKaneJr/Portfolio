@@ -17,6 +17,8 @@ type Props = {
   close?: boolean;
   /** Meal to show in the meta line (the selected one, else the recipe's first). */
   meal?: Meal | null;
+  /** Custom status line (used by pantry mode). */
+  note?: { text: string; tone: 'good' | 'warn' };
 };
 
 export function formatMinutes(min: number): string {
@@ -26,7 +28,7 @@ export function formatMinutes(min: number): string {
   return m ? `${h} hr ${m} min` : `${h} hr`;
 }
 
-export function RecipeCard({ result, onPress, isFavorite, onToggleFavorite, close, meal }: Props) {
+export function RecipeCard({ result, onPress, isFavorite, onToggleFavorite, close, meal, note }: Props) {
   const c = useColors();
   const { recipe, usesIds, missingIds, alsoNeed, totalMinutes } = result;
   const requested = usesIds.length + missingIds.length;
@@ -39,7 +41,7 @@ export function RecipeCard({ result, onPress, isFavorite, onToggleFavorite, clos
     <Pressable
       onPress={onPress}
       accessibilityRole="button"
-      accessibilityLabel={`${recipe.title}. ${meta}.${close ? ` Uses ${usesIds.length} of ${requested}. Doesn't use ${missingIds.map(ingredientName).join(', ')}.` : ''}`}
+      accessibilityLabel={`${recipe.title}. ${meta}.${note ? ` ${note.text}.` : ''}${close ? ` Uses ${usesIds.length} of ${requested}. Doesn't use ${missingIds.map(ingredientName).join(', ')}.` : ''}`}
       style={({ pressed }) => [styles.card, { backgroundColor: c.card, borderColor: c.cardBorder, opacity: pressed ? 0.85 : 1 }]}
     >
       <View style={styles.top}>
@@ -69,6 +71,12 @@ export function RecipeCard({ result, onPress, isFavorite, onToggleFavorite, clos
             <Text style={{ fontWeight: '400' }}> · Doesn't use: </Text>
             {missingIds.map(ingredientName).join(', ')}
           </Text>
+        </View>
+      ) : null}
+
+      {note ? (
+        <View style={[styles.closeBox, { backgroundColor: note.tone === 'good' ? c.herbSoft : c.warnSoft }]}>
+          <Text style={[t.small, { color: note.tone === 'good' ? c.herbText : c.warnText, fontWeight: '700' }]}>{note.text}</Text>
         </View>
       ) : null}
 

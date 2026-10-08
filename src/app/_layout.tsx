@@ -34,6 +34,8 @@ export default function RootLayout() {
             <Stack.Screen name="results" options={{ title: 'Recipes' }} />
             <Stack.Screen name="recipe/[id]" options={{ title: '' }} />
             <Stack.Screen name="favorites" options={{ title: 'Favorites' }} />
+            <Stack.Screen name="pantry" options={{ title: 'My pantry' }} />
+            <Stack.Screen name="pantry-results" options={{ title: 'From your pantry' }} />
           </Stack>
         </ThemeProvider>
       </AppStateProvider>
