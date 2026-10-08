@@ -142,6 +142,7 @@ export default function FindScreen() {
                 (mode === 'use' ? search.useIds : search.avoidIds).includes(id) ? 'Removes it' : mode === 'use' ? 'Adds to Use list' : 'Adds to Avoid list'
               }
               onPick={app.pick}
+              excludeFromSuggestions={app.staples}
             />
           </>
         ) : (

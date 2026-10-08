@@ -46,7 +46,7 @@ export default function PantryScreen() {
         </Pressable>
 
         <IngredientBrowser
-          showPopular={false}
+          excludeFromSuggestions={staples}
           placeholder="Search to add to pantry..."
           searchLabel="Search ingredients to add to your pantry"
           variantFor={id => (pantry.includes(id) || staples.has(id) ? 'use' : 'neutral')}

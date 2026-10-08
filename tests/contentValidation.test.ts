@@ -42,3 +42,17 @@ describe('favorites', () => {
     expect(resolveFavoriteIds('garbage', known)).toEqual([]);
   });
 });
+
+describe('popularity ranking', () => {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const { INGREDIENTS_BY_POPULARITY } = require('../src/data/popularity');
+  test('every ranked ID exists in the catalog and appears once', () => {
+    const known = new Set(INGREDIENTS.map(i => i.id));
+    expect(INGREDIENTS_BY_POPULARITY.filter((id: string) => !known.has(id))).toEqual([]);
+    expect(new Set(INGREDIENTS_BY_POPULARITY).size).toBe(INGREDIENTS_BY_POPULARITY.length);
+  });
+  test('salt, pepper and water are never suggested', () => {
+    expect(INGREDIENTS_BY_POPULARITY).not.toEqual(expect.arrayContaining(['salt']));
+    for (const id of ['salt', 'black_pepper', 'water']) expect(INGREDIENTS_BY_POPULARITY).not.toContain(id);
+  });
+});

@@ -114,18 +114,3 @@ export const INGREDIENTS: Ingredient[] = [
   { id: 'red_pepper_flakes', name: 'Red pepper flakes', category: 'spice', aliases: ['chili flakes', 'crushed red pepper'] },
 ];
 
-/** Shown first under "Popular" on the home screen. */
-export const POPULAR_INGREDIENT_IDS = [
-  'chicken',
-  'eggs',
-  'garlic',
-  'onion',
-  'rice',
-  'pasta',
-  'spinach',
-  'potato',
-  'tomato',
-  'cheddar',
-  'ground_beef',
-  'black_beans',
-];
