@@ -35,7 +35,7 @@ export function questDef(id: string): QuestDef | undefined {
   return questDefs.find((q) => q.id === id);
 }
 
-/** The quest Home shows: this week's, else the learner's active Archive quest. */
+/** The quest to show (the skill map's tile, Brainpower used up): this week's, else the learner's active Archive quest. */
 export function featuredQuest(data: QuestsView | null): QuestView | undefined {
   const now = Date.now();
   const thisWeek = data?.quests.find((q) => Date.parse(q.startsAt) <= now && now < Date.parse(q.endsAt));
