@@ -94,5 +94,5 @@ export const INGREDIENTS_BY_POPULARITY: string[] = [
   'chocolate_chips',
 ];
 
-/** How many suggestions show at first, and how many each "More suggestions" tap adds. */
-export const SUGGESTION_PAGE = 12;
+/** How many "Most common" suggestions show inline before the More options button (sized so the button fits on screen). */
+export const SUGGESTION_PAGE = 11;

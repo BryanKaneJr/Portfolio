@@ -85,7 +85,7 @@ cumin, chili powder, red pepper flakes (`src/data/staples.ts`).
 - [x] Phase 1 — 89-ingredient catalog with aliases, 27 seed recipes, validator, coverage report
 - [x] Phase 2 — deterministic engine + 36 tests (all of plan §11 that can run without a device)
 - [x] My pantry mode — saved pantry, can-make list, shuffle, meal/dish narrowing, one-short section (+6 tests)
-- [x] "Most common" suggestions ranked from published recipe-frequency data (docs/ingredient-popularity.md). Screens show search + the top 12; **More options** opens a full scrollable ingredients screen (pinned search, every ingredient by popularity then category) that works for picking, pantry and staples
+- [x] "Most common" suggestions ranked from published recipe-frequency data (docs/ingredient-popularity.md). Screens show search + the top 11 (sized so More options fits on a standard iPhone screen); **More options** opens a full scrollable ingredients screen (pinned search, every ingredient by popularity then category) that works for picking, pantry and staples
 - [x] Dropdown filters, Use/Avoid selections screen, kitchen staples (+6 tests); fixed a startup race where an early tap could be overwritten by the saved-state restore
 - [x] Phase 3/4 — Find, Results (exact / close / narrowing / adjust), Recipe (step check-off), Favorites; last search + favorites persist locally
 - [ ] Phase 5 — grow to 30–50 → 120–150 → 250–350 **human-verified** recipes
