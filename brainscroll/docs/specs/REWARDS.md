@@ -34,7 +34,7 @@ and titles. Boosted XP counts toward the league.
 
 ## XP boosts
 
-- A boost is an item in the Locker until the learner starts it (so a 1-hour
+- A boost waits on Profile until the learner starts it (so a 1-hour
   boost isn't wasted when they're out of Brainpower or about to leave).
 - One at a time: starting one while another runs is refused (`BOOST_ACTIVE`).
 - While it runs, a level's first clear pays **2x** its XP. Together with the
@@ -46,19 +46,20 @@ and titles. Boosted XP counts toward the league.
 
 ## Cosmetics
 
-Glows (owner, 2026-10-05: "instead of rings, we did a back glow", to keep the avatar art as it is): a soft light behind the avatar that spills past its edge. Epic and Legendary glows breathe, and Galaxy and Prism turn. They were rings at first, so their ids stay `ring.*` (and `look_ring` on the server).
+Glows (owner, 2026-10-05: "instead of rings, we did a back glow", to keep the avatar art as it is): a soft light behind the avatar that spills past its edge, with a small animated scene in it (owner, 2026-10-07: the plain glows were "boring"; Matrix code rain as one of them): Fireflies wander, Ripple rings widen, Bubbles and Embers rise, Sunburst and Galaxy turn, Aurora's ribbons sway, Equations float maths symbols up both sides, Constellation draws real constellations star by star (Orion on its side under the avatar, belt showing, then the Big Dipper and Cassiopeia over the top), Neural Net runs signals between glowing nodes, Sheet Music sends notes riding the waves of a five-line staff behind the avatar, and Code Rain falls in green characters with no backdrop, fading in and out at the circle's edge (owner: "just the code and a fade"). Below 48 points (league rows, the feed) only the light shows, and Reduce Motion holds each scene still. They were rings at first, so their ids stay `ring.*` (and `look_ring` on the server); the 2026-10-07 names replaced Plum, Silver, Ocean, Gold, Flame and Prism.
 
-Drawn in code, no art. Everything owned lives in the **Locker** (Profile),
+Drawn in code, no art. Everything owned lives in **Edit profile** (the
+Locker until owner, 2026-10-07: "move everything from locker to edit profile"),
 where the learner equips one glow, one name style and one title. Others see
 them: the glow behind the avatar and the styled name in leagues, the feed,
 friends and profiles; the title under the name on profiles.
 
 | Tier | Glows (ids `ring.*`) | Name styles | Titles |
 |---|---|---|---|
-| Common | Plum, Silver | Plum, Silver | Curious Mind, Bookworm |
-| Rare | Ocean, Gold | Ocean, Gold | Scholar, Night Owl |
-| Epic | Flame, Aurora | Ember, Aurora | Sage, Lucky Star |
-| Legendary | Galaxy (animated), Prism (animated) | Shimmer (animated), Holo (animated) | Polymath, Living Legend |
+| Common | Fireflies, Ripple | Plum, Silver | Curious Mind, Bookworm |
+| Rare | Bubbles, Sunburst | Ocean, Gold | Scholar, Night Owl |
+| Epic | Embers, Aurora, Equations, Constellation | Ember, Aurora | Sage, Lucky Star |
+| Legendary | Galaxy, Code Rain, Neural Net, Sheet Music | Shimmer (animated), Holo (animated) | Polymath, Living Legend |
 
 **Earned titles** (not in chests, they reward something done):
 - A skill's first Mastery star: "<Skill> Master".
@@ -73,7 +74,8 @@ One title is shown at a time, a chest, earned or quest one.
 
 - **The map:** the chest sits beside the road between the 5th and 6th levels: shut and dim until the 5th is cleared, bobbing and lit when ready, open after.
 - **Opening:** a screen of its own. Open, then the prize: a boost (Start now, or Save for later), +2 Brainpower, or a cosmetic (Wear it, or Later).
-- **The Locker** (Profile): saved boosts with Start (one runs at a time, with its time left), then glows, name styles and titles in tabs, worn with a tap. Items not found yet show dimmed with their tier.
+- **XP boosts on Profile** (owner, 2026-10-07: "just a bar that appears if you have xp boosts available"): a bar for the running boost with its time left, and one per saved boost with Start (one runs at a time). Nothing shows without boosts.
+- **Edit profile** (the pencil on Profile): you as others see you, your username, then glows, name styles and titles in tabs, worn with a tap. Titles include quest titles; one title shows. Items not found yet show dimmed with their tier.
 - **While a boost runs:** a gold "2x" chip with the time left on Home, and "2x XP boost" on Level Complete.
 
 ## Out of scope here

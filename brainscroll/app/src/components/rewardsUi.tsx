@@ -90,7 +90,7 @@ export function RarityLabel({ rarity }: { rarity: Rarity }) {
 /**
  * A title as a nameplate: the rarity's material, a lit edge, and the title in
  * spaced capitals between two small marks. `size` lg is the prize and the
- * Locker's preview; md sits under a name.
+ * Edit profile's preview; md sits under a name.
  */
 export function TitlePlate({ name, rarity, size = 'md' }: { name: string; rarity: Rarity; size?: 'sm' | 'md' | 'lg' }) {
   const r = RARITY[rarity];
@@ -132,7 +132,7 @@ export function SoftGlow({ rarity, size = 300 }: { rarity: Rarity; size?: number
 }
 
 /**
- * One thing in the Locker: its art on the rarity's material, the name under it,
+ * One thing in Edit profile's wardrobe: its art on the rarity's material, the name under it,
  * a check when worn. Locked ones keep their shape in shadow with a lock.
  */
 export function ItemCard({ rarity, label, selected, locked, onPress, testID, children, span = 'third' }: {

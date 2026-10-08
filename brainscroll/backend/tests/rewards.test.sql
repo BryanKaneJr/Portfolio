@@ -39,7 +39,7 @@ grant execute on function pg_temp.err(text) to authenticated;
 
 -- 1. The catalog matches core COSMETICS (also checked by rewards-sync.test.ts).
 do $$ begin
-  assert (select count(*) from public.cosmetic_items) = 24, 'eight rings, eight name styles, eight titles';
+  assert (select count(*) from public.cosmetic_items) = 28, 'twelve glows, eight name styles, eight titles';
   assert (select sum(value::int) from jsonb_each_text((select chest_loot from public.app_settings))) = 100, 'weights total 100';
 end $$;
 

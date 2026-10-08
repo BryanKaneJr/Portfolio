@@ -3,6 +3,15 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-07: Glows come alive
+
+- **Every glow is a little animated scene** (owner: "what we have is boring", with Matrix code rain as one idea), drawn in code behind the avatar: Fireflies wander (Common), Ripple rings widen (Common), Bubbles rise (Rare), a Sunburst turns (Rare), Embers rise from a fire glow (Epic), Aurora ribbons sway (Epic), a Galaxy spirals (Legendary), and Code Rain falls in green characters (Legendary) with no backdrop, each fading in and out at the circle's edge. Three new glows join the chests (owner: "they all sound more premium"): Equations (Epic, maths symbols floating up), Constellation (Epic: real constellations drawn star by star, Orion on its side under the avatar with its belt showing, then the Big Dipper and Cassiopeia over the top; owner: "a known constellation, like orions belt") and Neural Net (Legendary, signals running between glowing nodes), then Sheet Music (Legendary; owner: "musical notes travelling through behind like on a music sheet"), notes riding a five-line staff that waves across the circle (owner: "like wave? Instead of pure straight lines? And have the notes follow the waves"), at one steady pace and gliding smoothly between pixels on the web (owner: "they vibrate up and down while they move"), evenly spaced and alternating high and low so they never pile up (owner: "spread out enough that they dont sit on top of each other"). Ids stay; six names change to match, and the new ones are added (migration `20261107000000_glow_scenes`). Small avatars in lists show only the light, and Reduce Motion holds the scenes still.
+
+## 2026-10-07: The Locker moves into Edit profile
+
+- **One place for how you look** (owner: "move everything from locker to edit profile"). Edit profile now holds you as others see you (tap the avatar to change it), your username, and the Glows, Name styles and Titles tabs. Quest titles sit in the Titles tab with chest and Mastery titles, and None takes off whichever is worn. The Locker screen is gone.
+- **XP boosts start from Profile** (owner: "just a bar that appears if you have xp boosts available"): a bar per saved boost with Start, and the running one with its time left. Nothing shows without boosts, and Home's 2x chip opens Profile.
+
 ## 2026-10-06: Map fixes from the first preview
 
 - **Back goes up** (owner: "the back button isn't bringing me back to the subjects list, just goes back and forth"). The skill map's Back goes to its subject (or Home, for a one-skill subject) and the subject's Back goes Home, back through the screens already open when they're there. Before, a map opened straight after a lesson had nothing behind it, so Back opened the subject over the map and the subject's Back returned to the map, round and round.
