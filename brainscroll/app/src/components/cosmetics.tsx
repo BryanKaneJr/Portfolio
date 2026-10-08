@@ -65,6 +65,13 @@ const STAFF_STEPS = [1, 6, 3, 8, 2, 5];
 const NOTE_MS = 7200;
 const MATHS = ['π', '√', '∑', '∞', 'x²', 'Δ', 'θ', '∫', 'λ', '≈', 'e', '÷', '∂', 'φ'];
 
+/**
+ * On the web, a moving glyph is redrawn each frame with its baseline snapped to
+ * a whole pixel, so a slow note or symbol steps and shakes. On its own layer it
+ * is drawn once and glides between pixels (native layers already do).
+ */
+const GLIDE = (Platform.OS === 'web' ? { willChange: 'transform' } : {}) as TextStyle;
+
 /** 0 → 1 over and over, from `delay`, on the native driver; still with Reduce Motion. */
 function useCycle(ms: number, delay: number, active: boolean) {
   const reduce = useReduceMotion();
@@ -156,6 +163,7 @@ function MathSymbol({ x, y, rise, ms, delay, glyph, ink, sym, active }: { x: num
         color: ink,
         textShadowColor: '#B57BFF',
         textShadowRadius: 8,
+        ...GLIDE,
         opacity: t.interpolate({ inputRange: [0, 0.2, 0.7, 1], outputRange: [0, 0.95, 0.7, 0] }),
         transform: [{ translateY: t.interpolate({ inputRange: [0, 1], outputRange: [0, -rise] }) }, { scale: t.interpolate({ inputRange: [0, 0.2, 1], outputRange: [0.7, 1, 1.1] }) }],
       }}>
@@ -344,6 +352,7 @@ function Note({ y, half, c, glyph, ms, delay, ink, sym, rise, active }: { y: num
         color: ink,
         textShadowColor: '#FF8BD8',
         textShadowRadius: 6,
+        ...GLIDE,
         opacity: t.interpolate({ inputRange: [0, ramp, 1 - ramp, 1], outputRange: [0, 1, 1, 0] }),
         transform: [{ translateX: t.interpolate({ inputRange: [0, 1], outputRange: [0, half * 2] }) }, { translateY: t.interpolate({ inputRange: RIDE, outputRange: rise }) }],
       }}>
