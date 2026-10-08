@@ -2,7 +2,7 @@ import { cosmeticItem, masteryTitleName, masteryTitleSkill, RewardError, type Co
 import { useEffect, useId, useMemo, useState, type ReactNode } from 'react';
 import { router } from 'expo-router';
 import { Animated, Easing, Image, Platform, Pressable, StyleSheet, Text, View, type StyleProp, type TextStyle } from 'react-native';
-import Svg, { Circle, Defs, Ellipse, LinearGradient, Path, RadialGradient, Rect, Stop } from 'react-native-svg';
+import Svg, { Circle, Defs, Ellipse, LinearGradient, Path, RadialGradient, Stop } from 'react-native-svg';
 import { getSkill } from '@/content';
 import { feedback, useReduceMotion } from '@/theme/feedback';
 import { Material } from '@/components/rewardsUi';
@@ -320,8 +320,14 @@ function NeuralNet({ c, size, ink, active }: { c: number; size: number; ink: str
   );
 }
 
-/** One note gliding left to right along the staff, fading in and out at the circle's edge (Sheet Music). */
-function Note({ y, half, c, glyph, ms, delay, ink, sym, active }: { y: number; half: number; c: number; glyph: number; ms: number; delay: number; ink: string; sym: string; active: boolean }) {
+/** Sheet Music's staff waves this many times across the circle, rising and falling this many gaps. */
+const WAVES = 1.25;
+const SWELL = 1.1;
+/** Where along its run (0 → 1) the staff's wave is sampled for a note to ride it. */
+const RIDE = Array.from({ length: 25 }, (_, i) => i / 24);
+
+/** One note riding the wavy staff left to right, fading in and out at the circle's edge (Sheet Music). */
+function Note({ y, half, c, glyph, ms, delay, ink, sym, rise, active }: { y: number; half: number; c: number; glyph: number; ms: number; delay: number; ink: string; sym: string; rise: number[]; active: boolean }) {
   const t = useCycle(ms, delay, active);
   const ramp = 0.2;
   return (
@@ -339,20 +345,27 @@ function Note({ y, half, c, glyph, ms, delay, ink, sym, active }: { y: number; h
         textShadowColor: '#FF8BD8',
         textShadowRadius: 6,
         opacity: t.interpolate({ inputRange: [0, ramp, 1 - ramp, 1], outputRange: [0, 1, 1, 0] }),
-        transform: [{ translateX: t.interpolate({ inputRange: [0, 1], outputRange: [0, half * 2] }) }],
+        transform: [{ translateX: t.interpolate({ inputRange: [0, 1], outputRange: [0, half * 2] }) }, { translateY: t.interpolate({ inputRange: RIDE, outputRange: rise }) }],
       }}>
       {sym}
     </Animated.Text>
   );
 }
 
-/** Sheet Music: a five-line staff across the circle, notes travelling along it behind the avatar. */
+/** Sheet Music: a five-line staff waving across the circle, notes riding its waves behind the avatar. */
 function SheetMusic({ c, size, ink, active }: { c: number; size: number; ink: string; active: boolean }) {
   const id = `st${useId().replace(/[^a-zA-Z0-9]/g, '')}`;
   const gap = Math.max(4, size * 0.1);
   const spread = c * 2;
-  const lines = [-2, -1, 0, 1, 2].map((k) => c + k * gap);
-  const width = (y: number) => Math.sqrt(Math.max(0, c * c - (y - c) * (y - c))) * 0.92;
+  const half = Math.sqrt(Math.max(0, c * c - gap * gap * 4)) * 0.92;
+  // The wave's rise at x: every line (and every note) shares it, so the staff moves as one ribbon.
+  const wave = (x: number) => Math.sin(((x - (c - half)) / (half * 2)) * WAVES * Math.PI * 2) * gap * SWELL;
+  const path = (y: number) =>
+    RIDE.map((u, i) => {
+      const x = c - half + u * half * 2;
+      return `${i ? 'L' : 'M'}${x.toFixed(1)} ${(y + wave(x)).toFixed(1)}`;
+    }).join(' ');
+  const rise = RIDE.map((u) => wave(c - half + u * half * 2));
   const glyph = gap * 3;
   return (
     <>
@@ -365,14 +378,14 @@ function SheetMusic({ c, size, ink, active }: { c: number; size: number; ink: st
             <Stop offset="1" stopColor={ink} stopOpacity={0} />
           </LinearGradient>
         </Defs>
-        {lines.map((y, i) => (
-          <Rect key={i} x={c - width(y)} y={y - 0.75} width={width(y) * 2} height={1.5} fill={`url(#${id})`} />
+        {[-2, -1, 0, 1, 2].map((k) => (
+          <Path key={k} d={path(c + k * gap)} fill="none" stroke={`url(#${id})`} strokeWidth={1.5} strokeLinejoin="round" />
         ))}
       </Svg>
       {/* One conveyor: the same speed for every note, evenly spaced in time and alternating high and low, so none ever overlap. */}
       {STAFF_STEPS.map((step, i) => {
         const y = c + gap * 2 - step * (gap / 2);
-        return <Note key={i} y={y} half={width(c)} c={c} glyph={glyph} ms={NOTE_MS} delay={(i * NOTE_MS) / STAFF_STEPS.length} ink={ink} sym={NOTES[i % NOTES.length]!} active={active} />;
+        return <Note key={i} y={y} half={half} c={c} glyph={glyph} ms={NOTE_MS} delay={(i * NOTE_MS) / STAFF_STEPS.length} ink={ink} sym={NOTES[i % NOTES.length]!} rise={rise} active={active} />;
       })}
     </>
   );
