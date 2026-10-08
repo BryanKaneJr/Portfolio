@@ -1,7 +1,8 @@
-import { DR_SCROLL_FRIEND, drScrollPosts, LEAGUE, ordinal, type FeedReaction } from '@brainscroll/core';
+import { DR_SCROLL_FRIEND, drScrollPosts, LEAGUE, ordinal, theTier, type FeedReaction } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
+import { TierEmblem } from '@/components/LeagueTier';
 import { StyledName } from '@/components/cosmetics';
 import { Avatar, DrScrollPostCard, LeagueBanner, MomentCard } from '@/components/social';
 import { Body, Button, Caption, Card, DrScrollSays, Icon, IconButton, LoadError, Notice, OfflineState, Row, Screen, ScreenHeader, SkeletonCard, Title } from '@/components/ui';
@@ -20,6 +21,8 @@ export default function SocialScreen() {
   const { view, league, feed, failed, reload, setFeed } = useSocial();
   const userId = p.account?.status === 'signed_in' ? p.account.userId : undefined;
   const [met, meet] = useMetDrScroll(userId);
+  // Last week's note (moved up, a podium, or a new league) shows until it's tapped once (owner, 2026-10-08).
+  const [lastSeen, seeLast] = useSeen(userId, LAST_WEEK_KEY, league?.lastWeek?.weekStart);
   // A friend request being answered, and what went wrong if it didn't go through (the card stays).
   const [answering, setAnswering] = useState<{ id: string; accept: boolean } | null>(null);
   const [requestError, setRequestError] = useState<{ id: string; text: string } | null>(null);
@@ -62,7 +65,7 @@ export default function SocialScreen() {
   // You and your friends, by this week's XP.
   const me = league?.members.find((m) => m.you);
   const circle = view && me ? [...view.friends, { ...me, username: view.me.username, avatar: view.me.avatar }].sort((a, b) => b.weeklyXp - a.weeklyXp) : [];
-  const last = league?.lastWeek;
+  const last = lastSeen === false ? league?.lastWeek : undefined;
 
   return (
     <Screen>
@@ -89,10 +92,26 @@ export default function SocialScreen() {
         </>
       ) : (
         <>
-          {last?.place && last.place <= LEAGUE.PRIZES.length && last.xp ? (
-            <Card variant="reward" accessibilityLabel={`Last week you finished ${ordinal(last.place)} in your league: plus ${last.xp} XP`}>
+          {last?.moved === 1 && last.tier ? (
+            // Moving up a tier is the week's headline (owner, 2026-10-08), with any prize under it.
+            <Card variant="reward" onPress={seeLast} accessibilityLabel={`You moved up to ${theTier(last.tier)}${last.xp ? `, and won ${last.xp} XP` : ''}. Tap to close`}>
+              <Row gap={space.md}>
+                <TierEmblem tier={last.tier} size={44} />
+                <View style={{ flex: 1, gap: space.xxs }}>
+                  <Title>{`Welcome to ${theTier(last.tier)}!`}</Title>
+                  <Caption>{last.place && last.xp ? `${ordinal(last.place)} last week: +${last.xp.toLocaleString('en-US')} XP, added to your total.` : 'You moved up a league last week.'}</Caption>
+                </View>
+              </Row>
+            </Card>
+          ) : last?.place && last.place <= LEAGUE.PRIZES.length && last.xp ? (
+            <Card variant="reward" onPress={seeLast} accessibilityLabel={`Last week you finished ${ordinal(last.place)} in your league: plus ${last.xp} XP. Tap to close`}>
               <Title>{`Last week: ${ordinal(last.place)} in your league!`}</Title>
               <Caption>{`+${last.xp.toLocaleString('en-US')} XP, added to your total.`}</Caption>
+            </Card>
+          ) : last?.moved === -1 && last.tier ? (
+            // Moving down is said plainly, never as a loss.
+            <Card variant="plain" onPress={seeLast} accessibilityLabel={`A new week: this week you're in ${theTier(last.tier)}. Tap to close`}>
+              <Caption>{`A new week: this week you’re in ${theTier(last.tier)}.`}</Caption>
             </Card>
           ) : null}
           <LeagueBanner league={league} onPress={() => router.push('/league')} />
@@ -220,6 +239,33 @@ function useMetDrScroll(userId: string | undefined): [boolean | undefined, () =>
   return [met, meet];
 }
 const MET_KEY = 'bs.drscroll.met';
+
+/**
+ * Whether this account has tapped away `value` (here, last week's note, by
+ * its week) on this device. Undefined while it loads, so nothing flashes.
+ */
+function useSeen(userId: string | undefined, name: string, value: string | undefined): [boolean | undefined, () => void] {
+  const [seen, setSeen] = useState<string | null | undefined>(undefined);
+  const key = userId ? `${name}:${userId}` : undefined;
+  useEffect(() => {
+    if (!key) return;
+    let live = true;
+    load<string>(key).then(
+      (v) => live && setSeen(v ?? null),
+      () => live && setSeen(null),
+    );
+    return () => {
+      live = false;
+    };
+  }, [key]);
+  const see = () => {
+    if (!value) return;
+    setSeen(value);
+    if (key) void save(key, value);
+  };
+  return [seen === undefined ? undefined : seen === value, see];
+}
+const LAST_WEEK_KEY = 'bs.league.last-week-seen';
 
 const styles = StyleSheet.create({
   row: { flexDirection: 'row', alignItems: 'center', gap: space.md, paddingVertical: space.sm, paddingHorizontal: space.lg },

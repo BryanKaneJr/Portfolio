@@ -382,23 +382,34 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
     logEvents,
     reportContent,
     async social() {
-      const r = await rpc<{ me: { id: string; username: string; invite_code: string; avatar: string | null; social_notifications?: boolean; private_profile?: boolean }; friends: RawCard[]; incoming: RawCard[]; outgoing: RawCard[] }>('get_social');
+      const r = await rpc<{ me: { id: string; username: string; invite_code: string; avatar: string | null; social_notifications?: boolean; private_profile?: boolean; league_tier?: number }; friends: RawCard[]; incoming: RawCard[]; outgoing: RawCard[] }>('get_social');
       return {
-        me: { id: r.me.id, username: r.me.username, inviteCode: r.me.invite_code, ...(r.me.avatar ? { avatar: r.me.avatar } : {}), socialNotifications: r.me.social_notifications !== false, privateProfile: r.me.private_profile === true },
+        me: { id: r.me.id, username: r.me.username, inviteCode: r.me.invite_code, ...(r.me.avatar ? { avatar: r.me.avatar } : {}), socialNotifications: r.me.social_notifications !== false, privateProfile: r.me.private_profile === true, leagueTier: r.me.league_tier ?? 1 },
         friends: r.friends.map(card),
         incoming: r.incoming.map(card),
         outgoing: r.outgoing.map(card),
       };
     },
     async league(): Promise<LeagueView> {
-      const r = await rpc<{ league_id: number; week_start: string; ends_at: string; members: (RawCard & { you: boolean; blocked: boolean })[]; last_week: { week_start: string; place: string | null; xp: number | null } | null }>('get_league');
+      const r = await rpc<{ league_id: number; tier?: number; week_start: string; ends_at: string; members: (RawCard & { you: boolean; blocked: boolean })[]; last_week: { week_start: string; place: string | null; xp: number | null; moved?: number | null; tier?: number | null } | null }>('get_league');
+      const last = r.last_week;
       return {
         leagueId: String(r.league_id),
+        tier: r.tier ?? 1,
         weekStart: r.week_start,
         endsAt: r.ends_at,
         // Someone blocked either way comes without an id, name or avatar: just their place and XP.
         members: r.members.map((m, i) => (m.blocked ? hiddenLeagueMember(i, m.weekly_xp) : { ...card(m), you: m.you, blocked: false })),
-        ...(r.last_week ? { lastWeek: { weekStart: r.last_week.week_start, place: placeFromReason(r.last_week.place), xp: r.last_week.xp ?? undefined } } : {}),
+        ...(last
+          ? {
+              lastWeek: {
+                weekStart: last.week_start,
+                place: placeFromReason(last.place),
+                xp: last.xp ?? undefined,
+                ...(last.moved != null ? { moved: Math.sign(last.moved) as -1 | 0 | 1, tier: last.tier ?? undefined } : {}),
+              },
+            }
+          : {}),
       };
     },
     async feed(): Promise<FeedItem[]> {
@@ -416,6 +427,7 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
           days: i.data.days,
           place: placeFromReason(i.data.reason),
           xp: i.data.xp,
+          tier: i.data.tier,
         },
         reactions: i.reactions,
         ...(i.mine ? { mine: i.mine } : {}),
@@ -731,6 +743,7 @@ interface RawCard {
   ring?: string | null;
   name_style?: string | null;
   title?: string | null;
+  league_tier?: number | null;
 }
 const card = (r: RawCard): SocialCard => ({
   id: r.id,
@@ -741,6 +754,7 @@ const card = (r: RawCard): SocialCard => ({
   ring: r.ring ?? null,
   nameStyle: r.name_style ?? null,
   title: r.title ?? null,
+  ...(r.league_tier ? { leagueTier: r.league_tier } : {}),
 });
 
 const REWARD_ERRORS = new Set<string>(['CHEST_NOT_FOUND', 'CHEST_LOCKED', 'CHEST_OPENED', 'BOOST_NOT_FOUND', 'BOOST_USED', 'BOOST_ACTIVE', 'NOT_OWNED'] satisfies RewardErrorCode[]);
@@ -782,7 +796,7 @@ interface RawFeedItem {
   kind: FeedKind;
   key: string;
   at: string;
-  data: { trophy_id?: string; name?: string; skill_id?: string; chapter?: number; days?: number; reason?: string; xp?: number };
+  data: { trophy_id?: string; name?: string; skill_id?: string; chapter?: number; days?: number; reason?: string; xp?: number; tier?: number };
   reactions: FeedItem['reactions'];
   mine: FeedItem['mine'] | null;
 }

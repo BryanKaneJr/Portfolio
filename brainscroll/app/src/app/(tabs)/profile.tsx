@@ -4,6 +4,7 @@ import { useCallback, useState } from 'react';
 import { Pressable, View } from 'react-native';
 import { AttributeRow, SubjectRing, type SubjectStat } from '@/components/CharacterSheet';
 import { BoostBars, lookTitleName, StyledName } from '@/components/cosmetics';
+import { TierBadge } from '@/components/LeagueTier';
 import { TitlePlate, titleRarity } from '@/components/rewardsUi';
 import { Avatar } from '@/components/social';
 import { Button, Caption, Card, Eyebrow, GradientFill, IconButton, LevelArt, OfflineState, Row, Screen, StatTile } from '@/components/ui';
@@ -76,6 +77,7 @@ export default function ProfileScreen() {
           <StyledName header nameStyle={look.nameStyle} style={[type.h1, { color: color.text, flexShrink: 1 }]}>{me ? `@${me.username}` : fallbackName}</StyledName>
         </Row>
         {titleName ? <TitlePlate name={titleName} rarity={look.title ? titleRarity(look.title) : 'quest'} /> : null}
+        {me ? <TierBadge tier={me.leagueTier} /> : null}
       </View>
       </View>
 

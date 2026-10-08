@@ -1,9 +1,10 @@
-import { DR_SCROLL_FRIEND, leagueName, leaguePrize, ordinal, trophyInfo, type FeedItem, type DrScrollPost, type FeedReaction, type LeagueView } from '@brainscroll/core';
+import { DR_SCROLL_FRIEND, leaguePrize, ordinal, theTier, tierName, trophyInfo, type FeedItem, type DrScrollPost, type FeedReaction, type LeagueView } from '@brainscroll/core';
 import { Animated, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import { AvatarGlow } from '@/components/cosmetics';
 import { TrophyBadge } from '@/components/TrophyBadge';
-import { AVATAR_ART, Caption, Card, DrScroll, GradientFill, Icon, Row, UiArt } from '@/components/ui';
+import { AVATAR_ART, Caption, Card, DrScroll, GradientFill, Icon, Row } from '@/components/ui';
+import { TierEmblem } from '@/components/LeagueTier';
 import { getSkill, trophyCatalog } from '@/content';
 import { usePop } from '@/components/ui/motion';
 import { lift } from '@/theme/subjectTheme';
@@ -57,8 +58,9 @@ export const LEAGUE_OF_ONE = 'Your league fills up as learners join this week.';
 export const leagueMemberName = (m: LeagueView['members'][number]) => (m.you ? 'You' : m.blocked ? 'Hidden learner' : `@${m.username}`);
 
 /**
- * The league as a banner (owner, 2026-10-01: "more fun and premium"): a
- * violet gradient card with a trophy (top 3) or medal beside your place, how far
+ * The league as a banner (owner, 2026-10-01: "more fun and premium"), named
+ * for your tier (owner, 2026-10-08): a
+ * violet gradient card with your league's emblem beside your place, how far
  * the next place is, and the current podium. Each podium spot shows the prize
  * it would win if the week ended now (core leaguePrize, the server's rule:
  * XP this week, and someone behind it), or its XP when it wouldn't. Prizes
@@ -69,7 +71,7 @@ export const leagueMemberName = (m: LeagueView['members'][number]) => (m.you ? '
 export function LeagueBanner({ league, onPress }: { league: LeagueView; onPress: () => void }) {
   const place = league.members.findIndex((m) => m.you) + 1;
   const me = league.members[place - 1];
-  const name = leagueName(league.leagueId);
+  const name = tierName(league.tier);
   const ahead = place > 1 ? league.members[place - 2] : undefined;
   const gap = ahead && me ? ahead.weeklyXp - me.weeklyXp + 1 : 0;
   const alone = league.members.length <= 1;
@@ -90,7 +92,8 @@ export function LeagueBanner({ league, onPress }: { league: LeagueView; onPress:
       <GradientFill from={lift(color.brand, 0.12)} to={color.brandEdge} rx={radius.lg} />
       <Row gap={space.md}>
         <View style={styles.medalArt}>
-          <UiArt name={leaguePrize(place, league.members.length, me?.weeklyXp ?? 0) ? 'trophy' : 'medal'} size={76} />
+          {/* Your league's emblem (owner, 2026-10-08: "put whatever league they are in, in that box"). */}
+          <TierEmblem tier={league.tier} size={68} />
         </View>
         <View style={{ flex: 1, gap: space.xxs }}>
           <Text style={[type.label, { color: lift(color.brandText, 0.4) }]}>{name.toUpperCase()}</Text>
@@ -141,6 +144,8 @@ export function momentLine(item: FeedItem): string {
       return `hit a ${item.data.days}-day streak`;
     case 'league':
       return `finished ${ordinal(item.data.place ?? 1)} in ${item.owner.you ? 'your' : 'their'} league${item.data.xp ? ` (+${item.data.xp.toLocaleString('en-US')} XP)` : ''}`;
+    case 'tier':
+      return `moved up to ${theTier(item.data.tier ?? 1)}`;
   }
 }
 

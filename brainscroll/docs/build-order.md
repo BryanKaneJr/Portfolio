@@ -31,7 +31,7 @@ A new user can open the app, choose one skill, complete Levels 1–10, earn XP, 
 
 | # | Task | Done means | Status |
 | --- | --- | --- | --- |
-| 1 | Repo + environments | App boots in development; staging backend exists | 🟡 app + Supabase mode ready; staging project not yet created |
+| 1 | Repo + environments | App boots in development; staging backend exists | ✅ app + Supabase mode; staging project live |
 | 2 | Migrations + ID rules | Fresh DB can be recreated reliably | ✅ `npm run test:db` |
 | 3 | Content JSON validator | Malformed levels fail before import | ✅ `npm run validate:content` |
 | 4 | 10 golden levels | Real content available as canonical seed data | ✅ fact-checked; the human `verified` flag waits on an editor |
@@ -87,9 +87,9 @@ Dependency order, with where we are today:
 | 22 | Archive / archived quests | ✅ (2026-09-29) |
 | 23 | Quest analytics | ✅ |
 | **Social integration** | | |
-| 24 | Friend progress display | ⬜ needs the friend graph |
-| 25 | Weekly Quest comparison among friends | ⬜ |
-| 26 | Quest activity in friend profiles | ⬜ |
+| 24 | Friend progress display | ✅ friend profiles compare every subject side by side (2026-10-01) |
+| 25 | Weekly Quest comparison among friends | ↪ replaced by league tiers (owner, 2026-10-08): friends' tiers show on their profiles |
+| 26 | Quest activity in friend profiles | ↪ replaced: quest trophies already show on profiles and in the feed |
 
 ## Also built beyond the blueprint
 

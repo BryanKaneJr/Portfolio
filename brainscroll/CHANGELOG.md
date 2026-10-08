@@ -3,6 +3,14 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-08: League tiers
+
+- **Leagues come in eight tiers you climb each week** (owner: "apply levels to leagues that they level up or level down in each week"): seven gems and the Crown on top (owner: "we just do gems and then crown as the top", simple objects that are easy to make an image for): the Quartz, Amethyst, Aquamarine, Sapphire, Emerald, Ruby, Diamond and Crown Leagues. Everyone starts in Quartz, and leagues are made within a tier instead of by brain level. When a week ends the top 5 move up and the bottom 3 move down (the owner's pick of the classic rule); a league under 10 moves only its top 3 up and nobody down. Prizes are unchanged.
+- **Where it shows:** the league is named for your tier, with its emblem: the owner's gem art (one cut in seven colours, `ui/league-*.webp`); the Crown League uses the silver crown set with gems that we already have (owner: "we just use the crown image we already have"). None is gold. Each standings row says "▲ Up to Amethyst" or "▼ Down to Quartz" if the week ended now. Your tier sits under your name on Profile and on friends' profiles. Moving up is a feed moment and the week's headline on Social ("Welcome to the Amethyst League!"), and Monday's result notification says where you moved. Moving down is said plainly, never as a loss. Migration `20261108000000_league_tiers`; the local preview simulates it too.
+- **The league banner on Social shows your league's emblem** in place of the medal (owner: "put whatever league they are in, in that box"), and last week's note ("Welcome to the Amethyst League!", a podium, or a new league) goes away once you tap it (owner: "should dissapear after they click it"), remembered per account on the device.
+- The image brief for the seven gem emblems is `docs/images-league-tiers.md`; the owner made them the same day (owner: "do you have an .md i could use to make the images").
+- The build plan's "Weekly Quest comparison among friends" is replaced by this (owner: "is there an easier way ... maybe just show which league they are in").
+
 ## 2026-10-08: Links that load, and preview shortcuts
 
 - **Screens opened straight from a link load.** Edit profile, Avatar and the League showed "Couldn't load this one" (and Profile and Add friends came up without your name) when opened from a link or a reload, because they asked for your profile before launch had entered your account. Friend and profile calls now wait for launch.

@@ -1,20 +1,23 @@
-import { leagueName, leaguePrize, ordinal, type LeagueView } from '@brainscroll/core';
+import { leagueMove, leaguePrize, movedTier, ordinal, tierGem, tierName, type LeagueView } from '@brainscroll/core';
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { StyledName } from '@/components/cosmetics';
+import { TierEmblem } from '@/components/LeagueTier';
 import { Avatar, LEAGUE_OF_ONE, leagueDaysLeft, leagueMemberName } from '@/components/social';
 import { Body, Caption, Card, Eyebrow, IconButton, LoadError, Row, Screen, SkeletonCard, Title } from '@/components/ui';
 import { useProgress } from '@/progress/ProgressProvider';
 import { color, space, type } from '@/theme/tokens';
 
 /**
- * The league's standings this week (owner, 2026-10-01): up to 20 learners at
- * about your brain level, ranked by XP earned since Monday. The top 3 win
- * 1,000 / 500 / 250 XP when the week ends, by the server's rule (core
+ * The league's standings this week (owner, 2026-10-01): up to 20 learners in
+ * your tier (owner, 2026-10-08), ranked by XP earned since Monday. The top 3
+ * win 1,000 / 500 / 250 XP when the week ends, by the server's rule (core
  * leaguePrize): only with XP that week, and only with someone behind them.
- * Someone blocked either way is a "Hidden learner": a place and XP, no name.
- * Prize places are violet, not gold (gold means mastery).
+ * Each row says if the week would move them up or down a tier if it ended
+ * now (core leagueMove; never past the first or last tier). Someone blocked
+ * either way is a "Hidden learner": a place and XP, no name. Prize places
+ * are violet, not gold (gold means mastery); moving down is a quiet grey.
  */
 export default function LeagueScreen() {
   const p = useProgress();
@@ -37,8 +40,9 @@ export default function LeagueScreen() {
       <IconButton label="Back" icon="back" onPress={() => (router.canGoBack() ? router.back() : router.navigate('/social'))} />
       <View style={{ flex: 1, gap: space.xxs }}>
         <Eyebrow>{league ? leagueDaysLeft(league.endsAt) : 'This week'}</Eyebrow>
-        <Title>{league ? leagueName(league.leagueId) : 'Your league'}</Title>
+        <Title>{league ? tierName(league.tier) : 'Your league'}</Title>
       </View>
+      {league && <TierEmblem tier={league.tier} size={36} />}
     </Row>
   );
   if (failed && !league) return <LoadError layout="screen" onRetry={load} onBack={() => (router.canGoBack() ? router.back() : router.replace('/'))} />;
@@ -55,6 +59,9 @@ export default function LeagueScreen() {
               const place = i + 1;
               // What this place would win if the week ended now: the server's rule, with their real XP.
               const prize = leaguePrize(place, league.members.length, m.weeklyXp);
+              // Where the week would move them if it ended now, from their own tier (a safety-net joiner may differ).
+              const tier = m.leagueTier ?? league.tier;
+              const move = movedTier(tier, leagueMove(place, league.members.length, m.weeklyXp)) - tier;
               const name = leagueMemberName(m);
               const detail = [m.blocked ? null : `Brain Lv. ${m.knowledgeLevel}`, prize ? `${prize.toLocaleString('en-US')} XP prize` : null].filter(Boolean).join(' · ');
               return (
@@ -62,7 +69,7 @@ export default function LeagueScreen() {
                   key={m.id}
                   disabled={m.blocked}
                   accessibilityRole="button"
-                  accessibilityLabel={`${ordinal(place)}: ${name}${m.blocked ? '' : `, brain level ${m.knowledgeLevel}`}, ${m.weeklyXp} XP this week${prize ? `, in line for ${prize} XP` : ''}`}
+                  accessibilityLabel={`${ordinal(place)}: ${name}${m.blocked ? '' : `, brain level ${m.knowledgeLevel}`}, ${m.weeklyXp} XP this week${prize ? `, in line for ${prize} XP` : ''}${move > 0 ? ', moving up' : move < 0 ? ', moving down' : ''}`}
                   onPress={() => router.push({ pathname: '/person/[id]', params: { id: m.id } })}
                   style={({ pressed }) => [styles.row, i > 0 && styles.divided, m.you && { backgroundColor: color.brandSoft }, pressed && { opacity: 0.8 }]}>
                   <Body style={{ width: 36, ...(prize ? { color: color.brandText, fontWeight: '800' } : null) }}>{ordinal(place)}</Body>
@@ -70,6 +77,8 @@ export default function LeagueScreen() {
                   <View style={{ flex: 1, gap: space.xxs }}>
                     <StyledName nameStyle={m.blocked ? null : m.nameStyle} style={[type.body, { color: color.text }]}>{name}</StyledName>
                     {detail ? <Caption>{detail}</Caption> : null}
+                    {move > 0 ? <Caption style={{ color: color.success, fontWeight: '800' }}>{`▲ Up to ${tierGem(tier + 1)}`}</Caption> : null}
+                    {move < 0 ? <Caption style={{ color: color.textMuted }}>{`▼ Down to ${tierGem(tier - 1)}`}</Caption> : null}
                   </View>
                   <Body>{`${m.weeklyXp.toLocaleString('en-US')} XP`}</Body>
                 </Pressable>

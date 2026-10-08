@@ -4,11 +4,13 @@ import {
   hiddenLeagueMember,
   LEGENDARY_AVATARS,
   learningStreak,
+  leagueMove,
   leaguePrize,
   leagueWeekEnd,
   leagueWeekStart,
   knowledgeLevel,
   milestoneTrophies,
+  movedTier,
   placeFromReason,
   profileAccess,
   SocialError,
@@ -52,6 +54,10 @@ export interface LocalSocialState {
   /** `${ownerId}|${itemKey}` → your reaction. */
   reactions: Record<string, FeedReaction>;
   seeded?: boolean;
+  /** Your league tier (core LEAGUE_TIERS, from 1; the simulated league shares it). */
+  leagueTier?: number;
+  /** Where each finished week moved you, oldest first (as SQL league_members.moved). */
+  moves?: { weekStart: string; moved: number; tier: number; at: string }[];
 }
 export const emptyLocalSocial = (): LocalSocialState => ({ friends: [], outgoing: [], incoming: [], blocked: [], reactions: {} });
 
@@ -93,8 +99,11 @@ const starterAvatar = (id: string) => avatarIdFor(skills[hash(`${id}:avatar`) % 
 /** Simulated learners wear a starter avatar each, like everyone. */
 const simAvatar = (sim: Sim) => starterAvatar(sim.id);
 
-function simCard(sim: Sim, state: ProgressState, now: Date): SocialCard {
-  return { id: sim.id, username: sim.username, avatar: simAvatar(sim), knowledgeLevel: Math.max(1, myLevel(state) + sim.levelOffset), weeklyXp: simWeeklyXp(sim, leagueWeekStart(now), now) };
+const tierOf = (social: LocalSocialState) => social.leagueTier ?? 1;
+
+/** A simulated learner: in your league, so in your tier. */
+function simCard(sim: Sim, social: LocalSocialState, state: ProgressState, now: Date): SocialCard {
+  return { id: sim.id, username: sim.username, avatar: simAvatar(sim), knowledgeLevel: Math.max(1, myLevel(state) + sim.levelOffset), weeklyXp: simWeeklyXp(sim, leagueWeekStart(now), now), leagueTier: tierOf(social) };
 }
 
 function myCard(userId: string, social: LocalSocialState, state: ProgressState, now: Date): SocialCard {
@@ -107,6 +116,7 @@ function myCard(userId: string, social: LocalSocialState, state: ProgressState, 
     ring: state.look?.ring ?? null,
     nameStyle: state.look?.nameStyle ?? null,
     title: myTitle(state),
+    leagueTier: tierOf(social),
   };
 }
 
@@ -141,9 +151,9 @@ export function ensureIdentity(userId: string, social: LocalSocialState): LocalS
 }
 
 export function socialView(userId: string, social: LocalSocialState, state: ProgressState, now: Date): SocialView {
-  const cards = (ids: string[]) => ids.flatMap((id) => (simById(id) ? [simCard(simById(id)!, state, now)] : []));
+  const cards = (ids: string[]) => ids.flatMap((id) => (simById(id) ? [simCard(simById(id)!, social, state, now)] : []));
   return {
-    me: { id: userId, username: social.username!, inviteCode: social.inviteCode!, ...(social.avatar ? { avatar: social.avatar } : {}), socialNotifications: social.socialNotifications !== false, privateProfile: social.privateProfile === true },
+    me: { id: userId, username: social.username!, inviteCode: social.inviteCode!, ...(social.avatar ? { avatar: social.avatar } : {}), socialNotifications: social.socialNotifications !== false, privateProfile: social.privateProfile === true, leagueTier: tierOf(social) },
     friends: cards(social.friends).sort((a, b) => b.weeklyXp - a.weeklyXp),
     incoming: cards(social.incoming),
     outgoing: cards(social.outgoing),
@@ -155,7 +165,7 @@ export function leagueView(userId: string, social: LocalSocialState, state: Prog
   const weekStart = leagueWeekStart(now);
   const members = [
     { ...myCard(userId, social, state, now), you: true, blocked: false },
-    ...SIMS.map((s) => ({ ...simCard(s, state, now), you: false, blocked: social.blocked.includes(s.id) })),
+    ...SIMS.map((s) => ({ ...simCard(s, social, state, now), you: false, blocked: social.blocked.includes(s.id) })),
   ]
     .sort((a, b) => b.weeklyXp - a.weeklyXp || (a.you ? -1 : b.you ? 1 : a.id.localeCompare(b.id)))
     // As the server: someone you blocked keeps their place and XP, but nothing says who they are.
@@ -163,15 +173,41 @@ export function leagueView(userId: string, social: LocalSocialState, state: Prog
   const last = state.xpEvents.filter((e) => e.type === 'LEAGUE_FINISH').at(-1);
   const lastWeekStart = leagueWeekStart(new Date(Date.parse(`${weekStart}T00:00:00Z`) - DAY));
   const played = Date.parse(state.createdAt) < Date.parse(`${weekStart}T00:00:00Z`);
+  const move = social.moves?.find((m) => m.weekStart === lastWeekStart);
   return {
     leagueId: String(Math.floor(Date.parse(`${weekStart}T00:00:00Z`) / (7 * DAY))),
+    tier: tierOf(social),
     weekStart,
     endsAt: leagueWeekEnd(weekStart).toISOString(),
     members,
     ...(played
-      ? { lastWeek: { weekStart: lastWeekStart, ...(last && last.idempotencyKey === `league_finish:${lastWeekStart}` ? { place: placeFromReason(last.reason), xp: last.amount } : {}) } }
+      ? {
+          lastWeek: {
+            weekStart: lastWeekStart,
+            ...(last && last.idempotencyKey === `league_finish:${lastWeekStart}` ? { place: placeFromReason(last.reason), xp: last.amount } : {}),
+            ...(move ? { moved: Math.sign(move.moved) as -1 | 0 | 1, tier: move.tier } : {}),
+          },
+        }
       : {}),
   };
+}
+
+/** Your place in last week's simulated league (you and every simulated learner). */
+function lastWeekPlace(state: ProgressState, lastWeekStart: string) {
+  const mine = weeklyXp(state.xpEvents, lastWeekStart);
+  const end = leagueWeekEnd(lastWeekStart);
+  return { mine, place: 1 + SIMS.filter((s) => simWeeklyXp(s, lastWeekStart, end) > mine).length };
+}
+
+/** Moves you up or down a tier for last week's finish, once (as the server's finalize_leagues_of). */
+export function moveLastWeek(social: LocalSocialState, state: ProgressState, now: Date): LocalSocialState {
+  const weekStart = leagueWeekStart(now);
+  const lastWeekStart = leagueWeekStart(new Date(Date.parse(`${weekStart}T00:00:00Z`) - DAY));
+  if (Date.parse(state.createdAt) >= Date.parse(`${weekStart}T00:00:00Z`) || social.moves?.some((m) => m.weekStart === lastWeekStart)) return social;
+  const { mine, place } = lastWeekPlace(state, lastWeekStart);
+  const from = tierOf(social);
+  const tier = movedTier(from, leagueMove(place, SIMS.length + 1, mine));
+  return { ...social, leagueTier: tier, moves: [...(social.moves ?? []), { weekStart: lastWeekStart, moved: tier - from, tier, at: now.toISOString() }] };
 }
 
 /** Pays last week's podium into your ledger, once (as the server's finalize_leagues_of). */
@@ -180,9 +216,7 @@ export function payLastWeek(state: ProgressState, now: Date): ProgressState {
   const lastWeekStart = leagueWeekStart(new Date(Date.parse(`${weekStart}T00:00:00Z`) - DAY));
   const key = `league_finish:${lastWeekStart}`;
   if (Date.parse(state.createdAt) >= Date.parse(`${weekStart}T00:00:00Z`) || state.xpEvents.some((e) => e.idempotencyKey === key)) return state;
-  const mine = weeklyXp(state.xpEvents, lastWeekStart);
-  const end = leagueWeekEnd(lastWeekStart);
-  const place = 1 + SIMS.filter((s) => simWeeklyXp(s, lastWeekStart, end) > mine).length;
+  const { mine, place } = lastWeekPlace(state, lastWeekStart);
   const amount = leaguePrize(place, SIMS.length + 1, mine);
   if (!amount) return state;
   return { ...state, xpEvents: [...state.xpEvents, { type: 'LEAGUE_FINISH', amount, reason: `league week ${lastWeekStart}: place ${place}`, idempotencyKey: key, at: now.toISOString() }] };
@@ -206,6 +240,8 @@ function myMoments(userId: string, social: LocalSocialState, state: ProgressStat
     if ((STREAK_FEED_MILESTONES as readonly number[]).includes(run) && Date.parse(at) >= since) items.push({ owner, kind: 'streak', key: `streak:${run}:${day}`, at, data: { days: run } });
   });
   for (const e of state.xpEvents) if (e.type === 'LEAGUE_FINISH' && Date.parse(e.at) >= since) items.push({ owner, kind: 'league', key: `league:${e.idempotencyKey}`, at: e.at, data: { place: placeFromReason(e.reason), xp: e.amount } });
+  // Moving up a tier (moving down is never a moment).
+  for (const m of social.moves ?? []) if (m.moved > 0 && Date.parse(m.at) >= since) items.push({ owner, kind: 'tier', key: `tier:${m.weekStart}`, at: m.at, data: { tier: m.tier } });
   return items;
 }
 
@@ -213,7 +249,7 @@ const SIM_TROPHIES = ['trophy.chapter_one', 'trophy.warming_up', 'trophy.curious
 
 /** A simulated learner's moments: about one every other day. */
 function simMoments(sim: Sim, social: LocalSocialState, state: ProgressState, now: Date): Omit<FeedItem, 'reactions' | 'mine'>[] {
-  const owner = { ...simCard(sim, state, now), you: false, friend: social.friends.includes(sim.id) };
+  const owner = { ...simCard(sim, social, state, now), you: false, friend: social.friends.includes(sim.id) };
   const today = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
   const items: Omit<FeedItem, 'reactions' | 'mine'>[] = [];
   for (let d = 0; d < 14; d++) {
@@ -277,7 +313,7 @@ export function profileView(userId: string, targetId: string, social: LocalSocia
     : null;
   if (!sim || !access) throw new SocialError('USER_NOT_FOUND');
   const h = hash(sim.id);
-  const card = simCard(sim, state, now);
+  const card = simCard(sim, social, state, now);
   if (access.limited) return { id: sim.id, username: sim.username, avatar: simAvatar(sim), knowledgeLevel: 0, weeklyXp: 0, ...access, totalXp: 0, streak: { current: 0, longest: 0 }, trophies: [], skills: {} };
   const picked = [0, 1, 2, 3].map((k) => skills[(h >>> (k * 3)) % skills.length]!.id);
   return {
@@ -292,13 +328,13 @@ export function profileView(userId: string, targetId: string, social: LocalSocia
 
 export function findSim(username: string, social: LocalSocialState, state: ProgressState, now: Date): SocialCard | null {
   const sim = SIMS.find((s) => s.username === username.trim().toLowerCase());
-  return sim && !social.blocked.includes(sim.id) ? simCard(sim, state, now) : null;
+  return sim && !social.blocked.includes(sim.id) ? simCard(sim, social, state, now) : null;
 }
 
 export function inviteSim(code: string, social: LocalSocialState, state: ProgressState, now: Date): { social: LocalSocialState; card: SocialCard } {
   const sim = SIMS.find((s) => s.inviteCode === code.trim().toUpperCase());
   if (!sim || social.blocked.includes(sim.id)) throw new SocialError('INVITE_NOT_FOUND');
-  return { social: befriend(social, sim.id), card: simCard(sim, state, now) };
+  return { social: befriend(social, sim.id), card: simCard(sim, social, state, now) };
 }
 
 /** The simulated learners you've blocked, for Settings (mirrors SQL get_blocked). */

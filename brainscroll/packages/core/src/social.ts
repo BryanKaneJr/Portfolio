@@ -3,14 +3,18 @@
  * launch. Mirrors backend/supabase/migrations/20261022000000_social.sql.
  *
  * - Leagues run Monday 00:00 UTC to Monday (as quests) with up to
- *   LEAGUE.SIZE learners, matched by brain (knowledge) level: within 20% of
- *   each other, and anyone under Level 100 is fair game. With no match, a
- *   learner joins a league still under LEAGUE.SAFETY_NET_SIZE (so nobody
- *   competes alone) before a new one starts. Weekly XP is every ledger event
- *   in the week except league prizes.
+ *   LEAGUE.SIZE learners in the same tier (LEAGUE_TIERS, owner 2026-10-08:
+ *   Quartz up through the gems to Crown; everyone starts in Quartz).
+ *   With no league in their tier to join, a learner joins any league still
+ *   under LEAGUE.SAFETY_NET_SIZE, nearest tier first (so nobody competes
+ *   alone), before a new one starts. Weekly XP is every ledger event in the
+ *   week except league prizes.
  * - When the week ends the top 3 earn LEAGUE.PRIZES (1,000 / 500 / 250: an
  *   owner exception to "nothing dwarfs a level"). Place k pays only in a
- *   league of more than k learners, and only with XP that week.
+ *   league of more than k learners, and only with XP that week. Learners
+ *   then move up or down a tier (`leagueMove`): the top 5 up and the bottom
+ *   3 down; a league under 10 moves its top 3 up and nobody down
+ *   (migration 20261108000000_league_tiers.sql).
  * - The feed shows the last 14 days of moments from you, your friends and
  *   your league mates: trophies, chapters finished, streak milestones and
  *   league podiums. The only reaction is a heart; there are no comments or
@@ -28,15 +32,47 @@ import { usernameBlocked } from './usernameFilter';
 export const LEAGUE = {
   /** Most learners in a league (app_settings.league_size). */
   SIZE: 20,
-  /** A learner with no level match joins a league still under this size (app_settings.league_min_size). */
+  /** A learner with no league in their tier joins one still under this size (app_settings.league_min_size). */
   SAFETY_NET_SIZE: 5,
-  /** Brain levels in a league stay within this ratio of each other... */
-  LEVEL_BAND: 1.2,
-  /** ...unless everyone is under this level: then anyone is fair game. */
-  OPEN_BELOW: 100,
   /** XP for 1st, 2nd and 3rd when a week ends (app_settings.league_prize_1..3). */
   PRIZES: [1000, 500, 250],
+  /** When a week ends, this many at the top move up a tier (app_settings.league_promote)... */
+  PROMOTE: 5,
+  /** ...and this many at the bottom move down (app_settings.league_demote)... */
+  DEMOTE: 3,
+  /** ...in a league of at least this many (app_settings.league_small_size). */
+  SMALL_LEAGUE: 10,
+  /** A smaller league moves only its top few up, and nobody down (app_settings.league_promote_small). */
+  PROMOTE_SMALL: 3,
 } as const;
+
+/**
+ * League tiers, bottom to top (owner, 2026-10-08: tiers you move up and down
+ * each week; seven gems "and then crown as the top", each easy to draw as an
+ * icon). A learner's tier is a number from 1. Mirrors the check on SQL
+ * profiles.league_tier.
+ */
+export const LEAGUE_TIERS = ['Quartz', 'Amethyst', 'Aquamarine', 'Sapphire', 'Emerald', 'Ruby', 'Diamond', 'Crown'] as const;
+/** A tier's gem (or the Crown), for tier 1 to LEAGUE_TIERS.length. */
+export const tierGem = (tier: number) => LEAGUE_TIERS[Math.min(LEAGUE_TIERS.length, Math.max(1, Math.round(tier))) - 1]!;
+/** A tier's league: "Sapphire League". */
+export const tierName = (tier: number) => `${tierGem(tier)} League`;
+/** In a sentence: "the Sapphire League". */
+export const theTier = (tier: number) => `the ${tierName(tier)}`;
+
+/**
+ * Where finishing at `place` (1-based) in a league of `size` with `xp` that
+ * week moves a learner: up a tier (1), down (-1) or nowhere (0). Moving up
+ * takes XP that week and someone behind you, as a prize does. Mirrors SQL
+ * league_move; the tier itself stops at the top and bottom (`movedTier`).
+ */
+export function leagueMove(place: number, size: number, xp: number): -1 | 0 | 1 {
+  if (size < LEAGUE.SMALL_LEAGUE) return place <= LEAGUE.PROMOTE_SMALL && size > place && xp > 0 ? 1 : 0;
+  if (place <= LEAGUE.PROMOTE) return xp > 0 ? 1 : 0;
+  return place > size - LEAGUE.DEMOTE ? -1 : 0;
+}
+/** The tier a move lands in, never past the first or the last. */
+export const movedTier = (tier: number, move: number) => Math.min(LEAGUE_TIERS.length, Math.max(1, tier + move));
 
 /** Streak lengths that make a feed moment. Mirrors SQL streak_feed_milestones(). */
 export const STREAK_FEED_MILESTONES = [3, 7, 14, 21, 30, 50, 75, 100, 150, 200, 250, 300, 365, 500, 750, 1000] as const;
@@ -62,21 +98,11 @@ export function weeklyXp(events: readonly XpEvent[], weekStart: string): number 
   return events.filter((e) => e.type !== 'LEAGUE_FINISH' && Date.parse(e.at) >= from && Date.parse(e.at) < to).reduce((n, e) => n + e.amount, 0);
 }
 
-/** Whether a learner at `level` fits a league whose (matched) members are at `levels`. */
-export function leagueFits(levels: readonly number[], level: number): boolean {
-  const all = [...levels, level];
-  const max = Math.max(...all);
-  return max < LEAGUE.OPEN_BELOW || max <= LEAGUE.LEVEL_BAND * Math.min(...all);
-}
-
 /** XP for finishing at `place` (1-based) in a league of `size` with `xp` that week. */
 export function leaguePrize(place: number, size: number, xp: number): number {
   return place <= LEAGUE.PRIZES.length && xp > 0 && size > place ? LEAGUE.PRIZES[place - 1]! : 0;
 }
 
-const LEAGUE_NAMES = ['Owl', 'Comet', 'Atlas', 'Sphinx', 'Nova', 'Falcon', 'Quill', 'Orbit', 'Lantern', 'Compass', 'Prism', 'Summit'] as const;
-/** A league's display name ("Comet League"), from its id. */
-export const leagueName = (id: number | string) => `${LEAGUE_NAMES[Number(String(id).replace(/\D/g, '') || 0) % LEAGUE_NAMES.length]} League`;
 
 /** "1st", "2nd", "3rd", "4th"... */
 export function ordinal(n: number): string {
@@ -199,11 +225,13 @@ export interface SocialCard {
   ring?: string | null;
   nameStyle?: string | null;
   title?: string | null;
+  /** Their league tier (LEAGUE_TIERS, from 1). */
+  leagueTier?: number;
 }
 
 export interface SocialView {
   /** socialNotifications: friend and league push notifications are on (default on; the server sends them). privateProfile: only friends and league mates see your profile (default off). */
-  me: { id: string; username: string; inviteCode: string; avatar?: string; socialNotifications: boolean; privateProfile: boolean };
+  me: { id: string; username: string; inviteCode: string; avatar?: string; socialNotifications: boolean; privateProfile: boolean; leagueTier: number };
   friends: SocialCard[];
   incoming: SocialCard[];
   outgoing: SocialCard[];
@@ -211,21 +239,23 @@ export interface SocialView {
 
 export interface LeagueView {
   leagueId: string;
+  /** The learner's tier this week: the league is named after it. */
+  tier: number;
   weekStart: string;
   endsAt: string;
   /** Ranked by this week's XP. */
   members: (SocialCard & { you: boolean; blocked: boolean })[];
-  /** How the learner's last league week ended: their place, and the prize if any. */
-  lastWeek?: { weekStart: string; place?: number; xp?: number };
+  /** How the learner's last league week ended: their place, the prize if any, and the tier it moved them to. */
+  lastWeek?: { weekStart: string; place?: number; xp?: number; moved?: -1 | 0 | 1; tier?: number };
 }
 
-export type FeedKind = 'trophy' | 'chapter' | 'streak' | 'league';
+export type FeedKind = 'trophy' | 'chapter' | 'streak' | 'league' | 'tier';
 export interface FeedItem {
   owner: SocialCard & { you: boolean; friend: boolean };
   kind: FeedKind;
   key: string;
   at: string;
-  data: { trophyId?: string; name?: string; skillId?: string; chapter?: number; days?: number; place?: number; xp?: number };
+  data: { trophyId?: string; name?: string; skillId?: string; chapter?: number; days?: number; place?: number; xp?: number; tier?: number };
   reactions: Partial<Record<FeedReaction, number>>;
   mine?: FeedReaction;
 }
