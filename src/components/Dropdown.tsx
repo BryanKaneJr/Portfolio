@@ -44,7 +44,10 @@ export function Dropdown<T extends string>({ label, anyLabel, options, labels, v
         accessibilityRole="radio"
         accessibilityState={{ selected }}
         accessibilityLabel={`${text}${n !== undefined ? `, ${n} recipes` : ''}`}
-        style={({ pressed }) => [styles.row, { borderBottomColor: c.divider, backgroundColor: pressed ? c.divider : 'transparent' }]}
+        style={({ pressed }) => [
+          styles.row,
+          { borderBottomColor: c.divider, backgroundColor: pressed ? c.divider : 'transparent' },
+        ]}
       >
         <Text style={[t.body, { color: c.text, flex: 1, fontWeight: selected ? '700' : '400' }]}>{text}</Text>
         {n !== undefined ? <Text style={[t.small, { color: c.textMuted, marginRight: space.md }]}>{n}</Text> : null}
@@ -78,7 +81,12 @@ export function Dropdown<T extends string>({ label, anyLabel, options, labels, v
       </Pressable>
 
       <Modal visible={open} transparent animationType="slide" onRequestClose={() => setOpen(false)}>
-        <Pressable style={styles.backdrop} onPress={() => setOpen(false)} accessibilityLabel="Close" accessibilityRole="button" />
+        <Pressable
+          style={styles.backdrop}
+          onPress={() => setOpen(false)}
+          accessibilityLabel="Close"
+          accessibilityRole="button"
+        />
         <SafeAreaView edges={['bottom']} style={[styles.sheet, { backgroundColor: c.card }]}>
           <View style={[styles.grabber, { backgroundColor: c.chipBorder }]} />
           <View style={styles.sheetHead}>
@@ -113,9 +121,20 @@ const styles = StyleSheet.create({
   },
   caret: { fontSize: 16, marginLeft: space.sm },
   backdrop: { flex: 1, backgroundColor: 'rgba(0,0,0,0.35)' },
-  sheet: { borderTopLeftRadius: radius.lg + 4, borderTopRightRadius: radius.lg + 4, paddingBottom: space.md, maxHeight: '75%' },
+  sheet: {
+    borderTopLeftRadius: radius.lg + 4,
+    borderTopRightRadius: radius.lg + 4,
+    paddingBottom: space.md,
+    maxHeight: '75%',
+  },
   grabber: { width: 40, height: 5, borderRadius: 3, alignSelf: 'center', marginTop: space.sm },
-  sheetHead: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: space.lg, paddingTop: space.md, paddingBottom: space.sm },
+  sheetHead: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: space.lg,
+    paddingTop: space.md,
+    paddingBottom: space.sm,
+  },
   done: { minHeight: MIN_TOUCH, justifyContent: 'center' },
   list: { paddingHorizontal: space.lg },
   row: { flexDirection: 'row', alignItems: 'center', minHeight: 52, borderBottomWidth: StyleSheet.hairlineWidth },

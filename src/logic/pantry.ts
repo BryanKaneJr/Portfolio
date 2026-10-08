@@ -70,7 +70,12 @@ export type PantrySearch = {
   oneShort: PantryResult[];
 };
 
-export function searchPantry(recipes: Recipe[], pantryIds: string[], filters: PantryFilters, seed: number): PantrySearch {
+export function searchPantry(
+  recipes: Recipe[],
+  pantryIds: string[],
+  filters: PantryFilters,
+  seed: number,
+): PantrySearch {
   if (pantryIds.length === 0) return { canMake: [], oneShort: [] };
   const pantry = new Set(pantryIds);
   const canMake: PantryResult[] = [];
@@ -99,7 +104,9 @@ export function countCanMake(recipes: Recipe[], pantryIds: string[], filters: Pa
 export function pantryFacetCounts(recipes: Recipe[], pantryIds: string[], filters: PantryFilters) {
   const pantry = new Set(pantryIds);
   const base = recipes.filter(r => missingFromPantry(r, pantry).length === 0);
-  const meal = (m: Meal) => base.filter(r => r.meals.includes(m) && (!filters.dishType || r.dishTypes.includes(filters.dishType))).length;
-  const dish = (d: DishType) => base.filter(r => r.dishTypes.includes(d) && (!filters.meal || r.meals.includes(filters.meal))).length;
+  const meal = (m: Meal) =>
+    base.filter(r => r.meals.includes(m) && (!filters.dishType || r.dishTypes.includes(filters.dishType))).length;
+  const dish = (d: DishType) =>
+    base.filter(r => r.dishTypes.includes(d) && (!filters.meal || r.meals.includes(filters.meal))).length;
   return { meal, dish };
 }

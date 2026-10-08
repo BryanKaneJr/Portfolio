@@ -16,13 +16,18 @@ export default function StaplesScreen() {
   const set = new Set(app.stapleIds);
 
   return (
-    <ScrollView style={{ backgroundColor: c.bg }} contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
+    <ScrollView
+      style={{ backgroundColor: c.bg }}
+      contentContainerStyle={styles.scroll}
+      keyboardShouldPersistTaps="handled"
+    >
       <View style={[styles.card, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
         <View style={styles.switchRow}>
           <View style={styles.flex}>
             <Text style={[t.heading, { color: c.text }]}>Assume I have kitchen staples</Text>
             <Text style={[t.small, { color: c.textMuted, marginTop: 2 }]}>
-              Staples won’t show under “You’ll also need” and count as on hand in My Pantry. Recipes still list them with amounts.
+              Staples won’t show under “You’ll also need” and count as on hand in My Pantry. Recipes still list them
+              with amounts.
             </Text>
           </View>
           <Switch
@@ -58,16 +63,8 @@ export default function StaplesScreen() {
               />
             ))}
         </View>
-        <Text style={[t.label, styles.sectionLabel, { color: c.textMuted, marginTop: space.xl }]}>Add more</Text>
-        <IngredientBrowser
-          showPopular={false}
-          placeholder="Search to add a staple..."
-          searchLabel="Search ingredients to add as a staple"
-          variantFor={id => (set.has(id) ? 'use' : 'neutral')}
-          stateLabelFor={id => (set.has(id) ? ', assumed staple' : '')}
-          hintFor={id => (set.has(id) ? 'Stops assuming you have it' : 'Assumes you always have it')}
-          onPick={app.toggleStaple}
-        />
+        <Text style={[t.label, styles.sectionLabel, { color: c.textMuted, marginTop: space.xl }]}>Add a staple</Text>
+        <IngredientBrowser target="staples" layout="compact" />
       </View>
 
       <Pressable onPress={app.resetStaples} accessibilityRole="button" style={styles.reset}>

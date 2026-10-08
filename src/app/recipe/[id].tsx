@@ -53,8 +53,8 @@ export default function RecipeScreen() {
         <Text style={[t.body, { color: c.text, flex: 1 }]}>
           {i.displayName}
           {i.preparation ? <Text style={{ color: c.textMuted }}>, {i.preparation}</Text> : null}
-          {using ? <Text style={{ color: c.herbText, fontWeight: '700' }}>  ✓</Text> : null}
-          {staple ? <Text style={[styles.badge, { color: c.textMuted }]}>  STAPLE</Text> : null}
+          {using ? <Text style={{ color: c.herbText, fontWeight: '700' }}> ✓</Text> : null}
+          {staple ? <Text style={[styles.badge, { color: c.textMuted }]}> STAPLE</Text> : null}
         </Text>
       </View>
     );
@@ -112,7 +112,9 @@ export default function RecipeScreen() {
 
         {showNeedBox && alsoNeed.length > 0 ? (
           <View style={[styles.need, { backgroundColor: c.warnSoft }]}>
-            <Text style={[t.bodyStrong, { color: c.warnText }]}>{pantryMode ? 'Not in your pantry' : "You'll also need"}</Text>
+            <Text style={[t.bodyStrong, { color: c.warnText }]}>
+              {pantryMode ? 'Not in your pantry' : "You'll also need"}
+            </Text>
             <Text style={[t.body, { color: c.warnText }]}>{alsoNeed.map(i => i.displayName).join(', ')}</Text>
           </View>
         ) : null}
@@ -163,17 +165,35 @@ const styles = StyleSheet.create({
   missing: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: space.xl },
   headerFav: { minWidth: MIN_TOUCH, minHeight: MIN_TOUCH, alignItems: 'center', justifyContent: 'center' },
   scroll: { padding: space.lg, paddingBottom: space.xxl * 2 },
-  stats: { flexDirection: 'row', borderWidth: 1, borderRadius: radius.lg, paddingVertical: space.md, marginTop: space.lg },
+  stats: {
+    flexDirection: 'row',
+    borderWidth: 1,
+    borderRadius: radius.lg,
+    paddingVertical: space.md,
+    marginTop: space.lg,
+  },
   stat: { flex: 1, alignItems: 'center' },
   tags: { flexDirection: 'row', flexWrap: 'wrap', gap: space.sm, marginTop: space.md },
   tag: { borderRadius: radius.pill, paddingHorizontal: space.md, paddingVertical: 4 },
   h2: { marginTop: space.xl, marginBottom: space.sm },
-  ingRow: { flexDirection: 'row', gap: space.md, paddingVertical: space.sm + 2, borderBottomWidth: StyleSheet.hairlineWidth },
+  ingRow: {
+    flexDirection: 'row',
+    gap: space.md,
+    paddingVertical: space.sm + 2,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
   qty: { width: 104, fontWeight: '600' },
   badge: { fontSize: 11, fontWeight: '700', letterSpacing: 0.6 },
   optLabel: { marginTop: space.lg, marginBottom: 2 },
   need: { borderRadius: radius.md, padding: space.md, marginTop: space.lg, gap: 4 },
-  step: { flexDirection: 'row', gap: space.md, borderWidth: 1, borderRadius: radius.md, padding: space.md, marginBottom: space.sm },
+  step: {
+    flexDirection: 'row',
+    gap: space.md,
+    borderWidth: 1,
+    borderRadius: radius.md,
+    padding: space.md,
+    marginBottom: space.sm,
+  },
   stepNum: { width: 30, height: 30, borderRadius: 15, alignItems: 'center', justifyContent: 'center' },
   stepNumText: { color: '#fff', fontWeight: '800', fontSize: 15 },
   stepText: { flex: 1, fontSize: 18, lineHeight: 27 },

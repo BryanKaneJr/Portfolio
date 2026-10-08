@@ -1,4 +1,12 @@
-import { DISH_TYPES, MEALS, type DishType, type Meal, type Recipe, type RecipeIngredient, type SearchState } from '../data/types';
+import {
+  DISH_TYPES,
+  MEALS,
+  type DishType,
+  type Meal,
+  type Recipe,
+  type RecipeIngredient,
+  type SearchState,
+} from '../data/types';
 import { compareResults } from './sortRecipes';
 
 /**
@@ -48,7 +56,10 @@ export function matchingRequestedIngredients(recipe: Recipe, useIds: string[]): 
 }
 
 export function isExactMatch(recipe: Recipe, state: SearchState): boolean {
-  return matchesHardFilters(recipe, state) && matchingRequestedIngredients(recipe, state.useIds).length === state.useIds.length;
+  return (
+    matchesHardFilters(recipe, state) &&
+    matchingRequestedIngredients(recipe, state.useIds).length === state.useIds.length
+  );
 }
 
 /** Ingredient IDs the user is assumed to keep on hand (salt, oil, flour…). Empty = assume nothing. */
@@ -77,7 +88,11 @@ export function splitRequired(
 }
 
 /** Required ingredients beyond `haveIds`, excluding assumed staples. */
-export function additionalRequired(recipe: Recipe, haveIds: string[], staples: Staples = NO_STAPLES): RecipeIngredient[] {
+export function additionalRequired(
+  recipe: Recipe,
+  haveIds: string[],
+  staples: Staples = NO_STAPLES,
+): RecipeIngredient[] {
   return splitRequired(recipe, haveIds, staples).extras;
 }
 
@@ -134,8 +149,7 @@ export function findCloseMatches(recipes: Recipe[], state: SearchState, staples:
 }
 
 export type NarrowSuggestion =
-  | { facet: 'meal'; value: Meal; count: number }
-  | { facet: 'dishType'; value: DishType; count: number };
+  { facet: 'meal'; value: Meal; count: number } | { facet: 'dishType'; value: DishType; count: number };
 
 /**
  * Up to 3 Meal/Dish-type filters that would reduce a broad (> 30) result set.

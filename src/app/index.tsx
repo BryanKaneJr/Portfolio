@@ -6,6 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Chip } from '../components/Chip';
 import { Dropdown } from '../components/Dropdown';
 import { IngredientBrowser } from '../components/IngredientBrowser';
+import { UseAvoidToggle } from '../components/UseAvoidToggle';
 import { RECIPES, ingredientName } from '../data/catalog';
 import { DISH_TYPE_LABELS, MEAL_LABELS } from '../data/labels';
 import { DISH_TYPES, MEALS } from '../data/types';
@@ -40,25 +41,39 @@ export default function FindScreen() {
       ? 'No exact matches · See options'
       : `${browsing ? 'Browse' : 'See'} ${count} ${count === 1 ? 'recipe' : 'recipes'}`;
   const pantryLabel =
-    pantry.length === 0 ? 'Set up my pantry' : canMake === 0 ? 'Nothing yet · See what’s close' : `Show ${canMake} I can make`;
+    pantry.length === 0
+      ? 'Set up my pantry'
+      : canMake === 0
+        ? 'Nothing yet · See what’s close'
+        : `Show ${canMake} I can make`;
 
   return (
     <SafeAreaView style={[styles.flex, { backgroundColor: c.bg }]} edges={['top', 'left', 'right']}>
-      <ScrollView style={styles.flex} contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled" keyboardDismissMode="on-drag">
+      <ScrollView
+        style={styles.flex}
+        contentContainerStyle={styles.scroll}
+        keyboardShouldPersistTaps="handled"
+        keyboardDismissMode="on-drag"
+      >
         <View style={styles.header}>
           <View style={styles.flex}>
             <Text style={[t.display, { color: c.text }]} accessibilityRole="header">
               Cook With That
             </Text>
             <Text style={[t.body, { color: c.textMuted }]}>
-              {homeMode === 'pick' ? "Pick what you'd like to use." : 'Recipes you can make with what you keep on hand.'}
+              {homeMode === 'pick'
+                ? "Pick what you'd like to use."
+                : 'Recipes you can make with what you keep on hand.'}
             </Text>
           </View>
           <Pressable
             onPress={() => router.push('/favorites')}
             accessibilityRole="button"
             accessibilityLabel={`Favorites, ${app.favorites.length} saved`}
-            style={({ pressed }) => [styles.favBtn, { borderColor: c.chipBorder, backgroundColor: c.card, opacity: pressed ? 0.7 : 1 }]}
+            style={({ pressed }) => [
+              styles.favBtn,
+              { borderColor: c.chipBorder, backgroundColor: c.card, opacity: pressed ? 0.7 : 1 },
+            ]}
           >
             <Text style={{ color: c.primary, fontSize: 17 }}>♥</Text>
             <Text style={[t.small, { color: c.text, fontWeight: '600' }]}>Favorites</Text>
@@ -66,7 +81,10 @@ export default function FindScreen() {
         </View>
 
         {/* Top-level mode toggle */}
-        <View style={[styles.modeToggle, { borderColor: c.chipBorder, backgroundColor: c.card }]} accessibilityRole="tablist">
+        <View
+          style={[styles.modeToggle, { borderColor: c.chipBorder, backgroundColor: c.card }]}
+          accessibilityRole="tablist"
+        >
           {(
             [
               ['pick', 'Pick ingredients'],
@@ -112,38 +130,8 @@ export default function FindScreen() {
             </View>
             <StaplesLine />
 
-            <View style={[styles.segment, { backgroundColor: c.divider }]} accessibilityRole="tablist">
-              {(['use', 'avoid'] as const).map(m => {
-                const on = mode === m;
-                const fg = m === 'use' ? c.herbText : c.avoidText;
-                return (
-                  <Pressable
-                    key={m}
-                    onPress={() => app.setMode(m)}
-                    accessibilityRole="tab"
-                    accessibilityState={{ selected: on }}
-                    accessibilityLabel={m === 'use' ? 'Use these: tapped ingredients must be in the recipe' : 'Avoid these: hide recipes with tapped ingredients'}
-                    style={[styles.segBtn, on && { backgroundColor: c.card, borderColor: m === 'use' ? c.herb : c.avoid }]}
-                  >
-                    <Text style={[t.bodyStrong, { color: on ? fg : c.textMuted }]}>{m === 'use' ? '✓ Use these' : '⊘ Avoid these'}</Text>
-                  </Pressable>
-                );
-              })}
-            </View>
-            <Text style={[t.small, styles.modeHint, { color: c.textMuted }]}>
-              {mode === 'use' ? 'Recipes must include every ingredient you tap.' : 'Recipes with any of these are hidden.'}
-            </Text>
-
-            <IngredientBrowser
-              searchLabel={`Search ingredients to ${mode}`}
-              variantFor={id => (search.useIds.includes(id) ? 'use' : search.avoidIds.includes(id) ? 'avoid' : 'neutral')}
-              stateLabelFor={id => (search.useIds.includes(id) ? ', in Use list' : search.avoidIds.includes(id) ? ', in Avoid list' : '')}
-              hintFor={id =>
-                (mode === 'use' ? search.useIds : search.avoidIds).includes(id) ? 'Removes it' : mode === 'use' ? 'Adds to Use list' : 'Adds to Avoid list'
-              }
-              onPick={app.pick}
-              excludeFromSuggestions={app.staples}
-            />
+            <UseAvoidToggle />
+            <IngredientBrowser target="pick" layout="compact" />
           </>
         ) : (
           <>
@@ -174,21 +162,37 @@ export default function FindScreen() {
                 <Text style={[t.heading, { color: c.text, flex: 1 }]}>
                   Your pantry{pantry.length ? ` · ${pantry.length} ${pantry.length === 1 ? 'item' : 'items'}` : ''}
                 </Text>
-                <Pressable onPress={() => router.push('/pantry')} accessibilityRole="button" accessibilityLabel="Edit pantry" hitSlop={8} style={styles.editBtn}>
+                <Pressable
+                  onPress={() => router.push('/pantry')}
+                  accessibilityRole="button"
+                  accessibilityLabel="Edit pantry"
+                  hitSlop={8}
+                  style={styles.editBtn}
+                >
                   <Text style={[t.bodyStrong, { color: c.primary }]}>{pantry.length ? 'Edit' : 'Set up'}</Text>
                 </Pressable>
               </View>
               {pantry.length === 0 ? (
                 <Text style={[t.body, { color: c.textMuted }]}>
-                  Save the ingredients you usually have and we’ll show recipes you can make without shopping. Kitchen staples are already assumed.
+                  Save the ingredients you usually have and we’ll show recipes you can make without shopping. Kitchen
+                  staples are already assumed.
                 </Text>
               ) : (
                 <View style={styles.wrap}>
                   {pantry.slice(0, PANTRY_PREVIEW).map(id => (
-                    <Chip key={id} small variant="use" label={ingredientName(id)} onPress={() => router.push('/pantry')} accessibilityHint="Opens pantry editor" />
+                    <Chip
+                      key={id}
+                      small
+                      variant="use"
+                      label={ingredientName(id)}
+                      onPress={() => router.push('/pantry')}
+                      accessibilityHint="Opens pantry editor"
+                    />
                   ))}
                   {pantry.length > PANTRY_PREVIEW ? (
-                    <Text style={[t.small, styles.more, { color: c.textMuted }]}>+{pantry.length - PANTRY_PREVIEW} more</Text>
+                    <Text style={[t.small, styles.more, { color: c.textMuted }]}>
+                      +{pantry.length - PANTRY_PREVIEW} more
+                    </Text>
                   ) : null}
                 </View>
               )}
@@ -221,11 +225,15 @@ export default function FindScreen() {
             </Pressable>
           ) : null}
           <Pressable
-            onPress={() => router.push(homeMode === 'pick' ? '/results' : pantry.length ? '/pantry-results' : '/pantry')}
+            onPress={() =>
+              router.push(homeMode === 'pick' ? '/results' : pantry.length ? '/pantry-results' : '/pantry')
+            }
             accessibilityRole="button"
             style={({ pressed }) => [styles.primary, { backgroundColor: c.primary, opacity: pressed ? 0.85 : 1 }]}
           >
-            <Text style={[t.bodyStrong, { color: c.primaryText, fontSize: 17 }]}>{homeMode === 'pick' ? pickLabel : pantryLabel}</Text>
+            <Text style={[t.bodyStrong, { color: c.primaryText, fontSize: 17 }]}>
+              {homeMode === 'pick' ? pickLabel : pantryLabel}
+            </Text>
           </Pressable>
         </View>
       </SafeAreaView>
@@ -246,7 +254,11 @@ function SelectionButton({ kind, ids }: { kind: 'use' | 'avoid'; ids: string[] }
       accessibilityLabel={`${use ? 'Use' : 'Avoid'} list, ${ids.length} ${ids.length === 1 ? 'ingredient' : 'ingredients'}${names.length ? `: ${names.join(', ')}` : ''}. Open`}
       style={({ pressed }) => [
         styles.selBtn,
-        { backgroundColor: use ? c.herbSoft : c.avoidSoft, borderColor: use ? c.herb : c.avoid, opacity: pressed ? 0.75 : 1 },
+        {
+          backgroundColor: use ? c.herbSoft : c.avoidSoft,
+          borderColor: use ? c.herb : c.avoid,
+          opacity: pressed ? 0.75 : 1,
+        },
       ]}
     >
       <View style={styles.selTop}>
@@ -272,13 +284,19 @@ function StaplesLine() {
     <Pressable
       onPress={() => router.push('/staples')}
       accessibilityRole="button"
-      accessibilityLabel={app.assumeStaples ? `Assuming ${n} kitchen staples like salt, oil and butter. Edit` : 'Kitchen staples are not assumed. Edit'}
+      accessibilityLabel={
+        app.assumeStaples
+          ? `Assuming ${n} kitchen staples like salt, oil and butter. Edit`
+          : 'Kitchen staples are not assumed. Edit'
+      }
       style={styles.staples}
       hitSlop={6}
     >
       <Text style={[t.small, { color: c.textMuted }]}>
-        {app.assumeStaples ? `Assuming you have ${n} kitchen staples (salt, oil, butter…)` : 'Kitchen staples not assumed'}
-        <Text style={{ color: c.primary, fontWeight: '700' }}>  Edit</Text>
+        {app.assumeStaples
+          ? `Assuming you have ${n} kitchen staples (salt, oil, butter…)`
+          : 'Kitchen staples not assumed'}
+        <Text style={{ color: c.primary, fontWeight: '700' }}> Edit</Text>
       </Text>
     </Pressable>
   );
@@ -288,27 +306,80 @@ const styles = StyleSheet.create({
   dropdowns: { flexDirection: 'row', gap: space.sm, marginHorizontal: space.lg, marginTop: space.lg },
   staples: { marginHorizontal: space.lg, marginTop: space.sm, minHeight: 28, justifyContent: 'center' },
   selRow: { flexDirection: 'row', gap: space.sm },
-  selBtn: { flex: 1, borderWidth: 1.5, borderRadius: radius.md, paddingHorizontal: space.md, paddingVertical: space.sm, minHeight: 58, gap: 2 },
+  selBtn: {
+    flex: 1,
+    borderWidth: 1.5,
+    borderRadius: radius.md,
+    paddingHorizontal: space.md,
+    paddingVertical: space.sm,
+    minHeight: 58,
+    gap: 2,
+  },
   selTop: { flexDirection: 'row', alignItems: 'center', gap: space.sm },
-  badge: { minWidth: 22, height: 22, borderRadius: 11, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 6 },
+  badge: {
+    minWidth: 22,
+    height: 22,
+    borderRadius: 11,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 6,
+  },
   badgeText: { fontSize: 13, fontWeight: '800' },
   chev: { marginLeft: 'auto', fontSize: 22, fontWeight: '600', marginTop: -3 },
   flex: { flex: 1 },
   scroll: { paddingBottom: space.xxl },
-  header: { flexDirection: 'row', alignItems: 'flex-start', paddingHorizontal: space.lg, paddingTop: space.md, gap: space.md },
-  favBtn: { flexDirection: 'row', alignItems: 'center', gap: 6, minHeight: MIN_TOUCH, paddingHorizontal: space.md, borderRadius: radius.pill, borderWidth: 1 },
-  modeToggle: { flexDirection: 'row', marginHorizontal: space.lg, marginTop: space.lg, borderRadius: radius.pill, borderWidth: 1, padding: 4 },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    paddingHorizontal: space.lg,
+    paddingTop: space.md,
+    gap: space.md,
+  },
+  favBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    minHeight: MIN_TOUCH,
+    paddingHorizontal: space.md,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+  },
+  modeToggle: {
+    flexDirection: 'row',
+    marginHorizontal: space.lg,
+    marginTop: space.lg,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    padding: 4,
+  },
   modeBtn: { flex: 1, minHeight: MIN_TOUCH, borderRadius: radius.pill, alignItems: 'center', justifyContent: 'center' },
-  segment: { flexDirection: 'row', marginHorizontal: space.lg, marginTop: space.xl, borderRadius: radius.md, padding: 4 },
-  segBtn: { flex: 1, minHeight: MIN_TOUCH, alignItems: 'center', justifyContent: 'center', borderRadius: radius.sm + 2, borderWidth: 2, borderColor: 'transparent' },
   modeHint: { paddingHorizontal: space.lg, marginTop: space.sm },
-  pantryCard: { marginHorizontal: space.lg, marginTop: space.xl, borderWidth: 1, borderRadius: radius.lg, padding: space.lg, gap: space.md },
+  pantryCard: {
+    marginHorizontal: space.lg,
+    marginTop: space.xl,
+    borderWidth: 1,
+    borderRadius: radius.lg,
+    padding: space.lg,
+    gap: space.md,
+  },
   pantryTop: { flexDirection: 'row', alignItems: 'center' },
   editBtn: { minHeight: 32, minWidth: MIN_TOUCH, alignItems: 'flex-end', justifyContent: 'center' },
   wrap: { flexDirection: 'row', flexWrap: 'wrap', gap: space.xs + 2, alignItems: 'center' },
   more: { marginLeft: space.xs },
-  footer: { borderTopWidth: StyleSheet.hairlineWidth, paddingHorizontal: space.lg, paddingTop: space.sm, paddingBottom: space.sm },
+  footer: {
+    borderTopWidth: StyleSheet.hairlineWidth,
+    paddingHorizontal: space.lg,
+    paddingTop: space.sm,
+    paddingBottom: space.sm,
+  },
   actions: { flexDirection: 'row', alignItems: 'center', gap: space.md, marginTop: space.sm },
   clearBtn: { minHeight: MIN_TOUCH, justifyContent: 'center', paddingHorizontal: space.xs },
-  primary: { flex: 1, minHeight: 52, borderRadius: radius.md, alignItems: 'center', justifyContent: 'center', paddingHorizontal: space.md },
+  primary: {
+    flex: 1,
+    minHeight: 52,
+    borderRadius: radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: space.md,
+  },
 });

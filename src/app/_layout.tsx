@@ -40,6 +40,7 @@ export default function RootLayout() {
               <Stack.Screen name="pantry-results" options={{ title: 'From your pantry' }} />
               <Stack.Screen name="selections" options={{ title: 'Your ingredients' }} />
               <Stack.Screen name="staples" options={{ title: 'Kitchen staples' }} />
+              <Stack.Screen name="ingredients" options={{ title: 'All ingredients' }} />
             </Stack>
           </ReadyGate>
         </ThemeProvider>

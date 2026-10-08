@@ -36,13 +36,19 @@ export function isEmptySearch(state: SearchState): boolean {
 }
 
 /** Drop IDs that no longer exist in the catalog (e.g. restored from an older version). */
-export function sanitizeSearch(raw: unknown, knownIds: Set<string>, meals: readonly string[], dishTypes: readonly string[]): SearchState {
+export function sanitizeSearch(
+  raw: unknown,
+  knownIds: Set<string>,
+  meals: readonly string[],
+  dishTypes: readonly string[],
+): SearchState {
   const obj = (raw && typeof raw === 'object' ? raw : {}) as Record<string, unknown>;
   const ids = (v: unknown) =>
     Array.isArray(v) ? [...new Set(v.filter((x): x is string => typeof x === 'string' && knownIds.has(x)))] : [];
   const useIds = ids(obj.useIds);
   const avoidIds = ids(obj.avoidIds).filter(id => !useIds.includes(id));
   const meal = typeof obj.meal === 'string' && meals.includes(obj.meal) ? (obj.meal as Meal) : null;
-  const dishType = typeof obj.dishType === 'string' && dishTypes.includes(obj.dishType) ? (obj.dishType as DishType) : null;
+  const dishType =
+    typeof obj.dishType === 'string' && dishTypes.includes(obj.dishType) ? (obj.dishType as DishType) : null;
   return { meal, dishType, useIds, avoidIds };
 }

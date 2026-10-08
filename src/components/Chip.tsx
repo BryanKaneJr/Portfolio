@@ -58,7 +58,9 @@ export function Chip({
       ]}
     >
       <View style={styles.row}>
-        {icon ? <Text style={[styles.label, small && styles.smallLabel, styles.bold, { color: palette.fg }]}>{icon}</Text> : null}
+        {icon ? (
+          <Text style={[styles.label, small && styles.smallLabel, styles.bold, { color: palette.fg }]}>{icon}</Text>
+        ) : null}
         <Text
           style={[
             styles.label,
@@ -71,8 +73,10 @@ export function Chip({
         >
           {label}
         </Text>
-        {hint ? <Text style={[styles.hint, { color: variant === 'filterOn' ? palette.fg : c.textMuted }]}> {hint}</Text> : null}
-        {removable ? <Text style={[styles.x, { color: palette.fg }]}>  ×</Text> : null}
+        {hint ? (
+          <Text style={[styles.hint, { color: variant === 'filterOn' ? palette.fg : c.textMuted }]}> {hint}</Text>
+        ) : null}
+        {removable ? <Text style={[styles.x, { color: palette.fg }]}> ×</Text> : null}
       </View>
     </Pressable>
   );

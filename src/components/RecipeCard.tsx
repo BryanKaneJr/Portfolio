@@ -33,7 +33,11 @@ export function RecipeCard({ result, onPress, isFavorite, onToggleFavorite, clos
   const { recipe, usesIds, missingIds, alsoNeed, totalMinutes } = result;
   const requested = usesIds.length + missingIds.length;
   const metaMeal = meal && recipe.meals.includes(meal) ? meal : recipe.meals[0];
-  const meta = [formatMinutes(totalMinutes), MEAL_LABELS[metaMeal], recipe.dishTypes[0] && DISH_TYPE_LABELS[recipe.dishTypes[0]]]
+  const meta = [
+    formatMinutes(totalMinutes),
+    MEAL_LABELS[metaMeal],
+    recipe.dishTypes[0] && DISH_TYPE_LABELS[recipe.dishTypes[0]],
+  ]
     .filter(Boolean)
     .join(' · ');
 
@@ -42,7 +46,10 @@ export function RecipeCard({ result, onPress, isFavorite, onToggleFavorite, clos
       onPress={onPress}
       accessibilityRole="button"
       accessibilityLabel={`${recipe.title}. ${meta}.${note ? ` ${note.text}.` : ''}${close ? ` Uses ${usesIds.length} of ${requested}. Doesn't use ${missingIds.map(ingredientName).join(', ')}.` : ''}`}
-      style={({ pressed }) => [styles.card, { backgroundColor: c.card, borderColor: c.cardBorder, opacity: pressed ? 0.85 : 1 }]}
+      style={({ pressed }) => [
+        styles.card,
+        { backgroundColor: c.card, borderColor: c.cardBorder, opacity: pressed ? 0.85 : 1 },
+      ]}
     >
       <View style={styles.top}>
         <View style={{ flex: 1 }}>
@@ -53,10 +60,14 @@ export function RecipeCard({ result, onPress, isFavorite, onToggleFavorite, clos
           onPress={onToggleFavorite}
           hitSlop={10}
           accessibilityRole="button"
-          accessibilityLabel={isFavorite ? `Remove ${recipe.title} from favorites` : `Save ${recipe.title} to favorites`}
+          accessibilityLabel={
+            isFavorite ? `Remove ${recipe.title} from favorites` : `Save ${recipe.title} to favorites`
+          }
           style={styles.heart}
         >
-          <Text style={[styles.heartText, { color: isFavorite ? c.primary : c.textMuted }]}>{isFavorite ? '♥' : '♡'}</Text>
+          <Text style={[styles.heartText, { color: isFavorite ? c.primary : c.textMuted }]}>
+            {isFavorite ? '♥' : '♡'}
+          </Text>
         </Pressable>
       </View>
 
@@ -76,7 +87,9 @@ export function RecipeCard({ result, onPress, isFavorite, onToggleFavorite, clos
 
       {note ? (
         <View style={[styles.closeBox, { backgroundColor: note.tone === 'good' ? c.herbSoft : c.warnSoft }]}>
-          <Text style={[t.small, { color: note.tone === 'good' ? c.herbText : c.warnText, fontWeight: '700' }]}>{note.text}</Text>
+          <Text style={[t.small, { color: note.tone === 'good' ? c.herbText : c.warnText, fontWeight: '700' }]}>
+            {note.text}
+          </Text>
         </View>
       ) : null}
 
@@ -104,5 +117,11 @@ const styles = StyleSheet.create({
   heartText: { fontSize: 24 },
   line: { marginTop: space.xs + 2 },
   bold: { fontWeight: '700' },
-  closeBox: { marginTop: space.sm, paddingHorizontal: space.sm + 2, paddingVertical: space.xs + 2, borderRadius: radius.sm, alignSelf: 'flex-start' },
+  closeBox: {
+    marginTop: space.sm,
+    paddingHorizontal: space.sm + 2,
+    paddingVertical: space.xs + 2,
+    borderRadius: radius.sm,
+    alignSelf: 'flex-start',
+  },
 });

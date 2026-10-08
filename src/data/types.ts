@@ -1,22 +1,7 @@
-export const INGREDIENT_CATEGORIES = [
-  'produce',
-  'protein',
-  'dairy',
-  'grain',
-  'pantry',
-  'spice',
-] as const;
+export const INGREDIENT_CATEGORIES = ['produce', 'protein', 'dairy', 'grain', 'pantry', 'spice'] as const;
 export type IngredientCategory = (typeof INGREDIENT_CATEGORIES)[number];
 
-export const MEALS = [
-  'breakfast',
-  'lunch',
-  'dinner',
-  'dessert',
-  'appetizer',
-  'snack',
-  'side',
-] as const;
+export const MEALS = ['breakfast', 'lunch', 'dinner', 'dessert', 'appetizer', 'snack', 'side'] as const;
 export type Meal = (typeof MEALS)[number];
 
 export const DISH_TYPES = [

@@ -18,7 +18,6 @@ import { addIngredient, removeIngredient, sanitizeSearch, type PickMode } from '
 
 export type HomeMode = 'pick' | 'pantry';
 
-
 type AppState = {
   ready: boolean;
   search: SearchState;
@@ -90,7 +89,8 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       setPantry(resolveFavoriteIds(p, KNOWN_INGREDIENTS));
       const pr = (prefs && typeof prefs === 'object' ? prefs : {}) as Record<string, unknown>;
       if (pr.homeMode === 'pantry' || pr.homeMode === 'pick') setHomeMode(pr.homeMode);
-      if (typeof pr.pantryMeal === 'string' && (MEALS as readonly string[]).includes(pr.pantryMeal)) setPantryMeal(pr.pantryMeal as Meal);
+      if (typeof pr.pantryMeal === 'string' && (MEALS as readonly string[]).includes(pr.pantryMeal))
+        setPantryMeal(pr.pantryMeal as Meal);
       if (typeof pr.pantryDishType === 'string' && (DISH_TYPES as readonly string[]).includes(pr.pantryDishType))
         setPantryDishType(pr.pantryDishType as DishType);
       if (typeof pr.assumeStaples === 'boolean') setAssumeStaples(pr.assumeStaples);
@@ -119,7 +119,10 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
     if (loaded.current) savePrefs({ homeMode, pantryMeal, pantryDishType, assumeStaples, stapleIds });
   }, [homeMode, pantryMeal, pantryDishType, assumeStaples, stapleIds]);
 
-  const staples = useMemo<ReadonlySet<string>>(() => new Set(assumeStaples ? stapleIds : []), [assumeStaples, stapleIds]);
+  const staples = useMemo<ReadonlySet<string>>(
+    () => new Set(assumeStaples ? stapleIds : []),
+    [assumeStaples, stapleIds],
+  );
   const effectivePantry = useMemo(() => [...new Set([...pantry, ...staples])], [pantry, staples]);
 
   const pick = useCallback(
@@ -169,7 +172,22 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       staples,
       effectivePantry,
     }),
-    [ready, search, mode, pick, favorites, homeMode, pantry, pantryMeal, pantryDishType, shuffleSeed, assumeStaples, stapleIds, staples, effectivePantry],
+    [
+      ready,
+      search,
+      mode,
+      pick,
+      favorites,
+      homeMode,
+      pantry,
+      pantryMeal,
+      pantryDishType,
+      shuffleSeed,
+      assumeStaples,
+      stapleIds,
+      staples,
+      effectivePantry,
+    ],
   );
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;

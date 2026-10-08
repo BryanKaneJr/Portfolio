@@ -56,10 +56,15 @@ export default function SelectionsScreen() {
             {list.map((id, i) => {
               const ing = ingredientIndex.byId.get(id);
               return (
-                <View key={id} style={[styles.row, i > 0 && { borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: c.divider }]}>
+                <View
+                  key={id}
+                  style={[styles.row, i > 0 && { borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: c.divider }]}
+                >
                   <View style={styles.flex}>
                     <Text style={[t.bodyStrong, { color: c.text }, !use && styles.strike]}>{ingredientName(id)}</Text>
-                    {ing ? <Text style={[t.small, { color: c.textMuted }]}>{CATEGORY_LABELS[ing.category]}</Text> : null}
+                    {ing ? (
+                      <Text style={[t.small, { color: c.textMuted }]}>{CATEGORY_LABELS[ing.category]}</Text>
+                    ) : null}
                   </View>
                   <Pressable
                     onPress={() => app.moveIngredient(id, use ? 'avoid' : 'use')}
@@ -95,7 +100,10 @@ export default function SelectionsScreen() {
           <Pressable
             onPress={() => (router.canGoBack() ? router.back() : router.replace('/'))}
             accessibilityRole="button"
-            style={({ pressed }) => [styles.secondary, { borderColor: c.chipBorder, backgroundColor: c.card, opacity: pressed ? 0.75 : 1 }]}
+            style={({ pressed }) => [
+              styles.secondary,
+              { borderColor: c.chipBorder, backgroundColor: c.card, opacity: pressed ? 0.75 : 1 },
+            ]}
           >
             <Text style={[t.bodyStrong, { color: c.text }]}>Add more</Text>
           </Pressable>
@@ -124,11 +132,29 @@ const styles = StyleSheet.create({
   card: { borderWidth: 1, borderRadius: radius.lg, paddingHorizontal: space.md },
   row: { flexDirection: 'row', alignItems: 'center', gap: space.sm, minHeight: 60, paddingVertical: space.sm },
   strike: { textDecorationLine: 'line-through' },
-  moveBtn: { minHeight: 36, borderWidth: 1, borderRadius: radius.pill, paddingHorizontal: space.md, justifyContent: 'center' },
+  moveBtn: {
+    minHeight: 36,
+    borderWidth: 1,
+    borderRadius: radius.pill,
+    paddingHorizontal: space.md,
+    justifyContent: 'center',
+  },
   removeBtn: { width: MIN_TOUCH, height: MIN_TOUCH, alignItems: 'center', justifyContent: 'center' },
   x: { fontSize: 26, fontWeight: '400', marginTop: -2 },
-  footer: { borderTopWidth: StyleSheet.hairlineWidth, paddingHorizontal: space.lg, paddingTop: space.sm, paddingBottom: space.sm },
+  footer: {
+    borderTopWidth: StyleSheet.hairlineWidth,
+    paddingHorizontal: space.lg,
+    paddingTop: space.sm,
+    paddingBottom: space.sm,
+  },
   actions: { flexDirection: 'row', gap: space.sm },
-  secondary: { minHeight: 52, borderWidth: 1.5, borderRadius: radius.md, paddingHorizontal: space.lg, alignItems: 'center', justifyContent: 'center' },
+  secondary: {
+    minHeight: 52,
+    borderWidth: 1.5,
+    borderRadius: radius.md,
+    paddingHorizontal: space.lg,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   primary: { flex: 1, minHeight: 52, borderRadius: radius.md, alignItems: 'center', justifyContent: 'center' },
 });

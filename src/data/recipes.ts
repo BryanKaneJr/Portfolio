@@ -10,7 +10,12 @@ import type { Recipe, RecipeIngredient } from './types';
  */
 
 /** Required ingredient. */
-const r = (ingredientId: string, displayName: string, quantityText: string, preparation?: string): RecipeIngredient => ({
+const r = (
+  ingredientId: string,
+  displayName: string,
+  quantityText: string,
+  preparation?: string,
+): RecipeIngredient => ({
   ingredientId,
   displayName,
   quantityText,
@@ -19,7 +24,12 @@ const r = (ingredientId: string, displayName: string, quantityText: string, prep
 });
 
 /** Optional ingredient (garnish, topping, serve-with). */
-const opt = (ingredientId: string, displayName: string, quantityText: string, preparation?: string): RecipeIngredient => ({
+const opt = (
+  ingredientId: string,
+  displayName: string,
+  quantityText: string,
+  preparation?: string,
+): RecipeIngredient => ({
   ...r(ingredientId, displayName, quantityText, preparation),
   optional: true,
 });

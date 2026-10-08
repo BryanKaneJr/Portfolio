@@ -27,7 +27,10 @@ export default function ResultsScreen() {
   const edit = () => (router.canGoBack() ? router.back() : router.replace('/'));
   const open = (id: string) => router.push({ pathname: '/recipe/[id]', params: { id } });
 
-  const filtersLine = [search.meal ? MEAL_LABELS[search.meal] : 'Any meal', search.dishType ? DISH_TYPE_LABELS[search.dishType] : 'Any type'].join(' · ');
+  const filtersLine = [
+    search.meal ? MEAL_LABELS[search.meal] : 'Any meal',
+    search.dishType ? DISH_TYPE_LABELS[search.dishType] : 'Any type',
+  ].join(' · ');
 
   const header = (
     <View>
@@ -35,7 +38,13 @@ export default function ResultsScreen() {
       <View style={[styles.panel, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
         <View style={styles.panelTop}>
           <Text style={[t.small, { color: c.textMuted, flex: 1 }]}>{filtersLine}</Text>
-          <Pressable onPress={edit} accessibilityRole="button" accessibilityLabel="Edit ingredients and filters" style={styles.editBtn} hitSlop={8}>
+          <Pressable
+            onPress={edit}
+            accessibilityRole="button"
+            accessibilityLabel="Edit ingredients and filters"
+            style={styles.editBtn}
+            hitSlop={8}
+          >
             <Text style={[t.bodyStrong, { color: c.primary }]}>Edit</Text>
           </Pressable>
         </View>
@@ -65,7 +74,9 @@ export default function ResultsScreen() {
       {!hasExact ? (
         <View style={styles.noResults}>
           <Text style={[t.heading, { color: c.text }]}>
-            {search.useIds.length > 0 ? 'No recipes match every ingredient you chose.' : 'No recipes fit these filters.'}
+            {search.useIds.length > 0
+              ? 'No recipes match every ingredient you chose.'
+              : 'No recipes fit these filters.'}
           </Text>
 
           {tryWithout.length > 0 ? (
@@ -92,21 +103,38 @@ export default function ResultsScreen() {
                 Close matches
               </Text>
               <Text style={[t.small, { color: c.textMuted }]}>
-                These skip {result.closeMaxMissing > 1 ? 'one or two' : 'one'} of your ingredients — shown on each card. They're not substitutions.
+                These skip {result.closeMaxMissing > 1 ? 'one or two' : 'one'} of your ingredients — shown on each card.
+                They're not substitutions.
               </Text>
             </View>
           ) : (
             <View style={styles.adjust}>
               <Text style={[t.body, { color: c.textMuted }]}>
                 {search.useIds.length > 0 ? 'Nothing close with these filters.' : 'Try loosening a filter.'}
-                {blockers.avoid && !blockers.meal && !blockers.dishType ? ' Your Avoid list is hiding every match.' : ''}
+                {blockers.avoid && !blockers.meal && !blockers.dishType
+                  ? ' Your Avoid list is hiding every match.'
+                  : ''}
               </Text>
-              {search.meal ? <AdjustButton label={`Show any meal (not just ${MEAL_LABELS[search.meal]})`} helps={blockers.meal} onPress={() => app.setMeal(null)} /> : null}
-              {search.dishType ? (
-                <AdjustButton label={`Show any dish type (not just ${DISH_TYPE_LABELS[search.dishType]})`} helps={blockers.dishType} onPress={() => app.setDishType(null)} />
+              {search.meal ? (
+                <AdjustButton
+                  label={`Show any meal (not just ${MEAL_LABELS[search.meal]})`}
+                  helps={blockers.meal}
+                  onPress={() => app.setMeal(null)}
+                />
               ) : null}
-              {search.useIds.length > 0 ? <AdjustButton label="Remove an ingredient" helps={blockers.ingredients} onPress={edit} /> : null}
-              {search.avoidIds.length > 0 ? <AdjustButton label="Clear avoided ingredients" helps={blockers.avoid} onPress={app.clearAvoid} /> : null}
+              {search.dishType ? (
+                <AdjustButton
+                  label={`Show any dish type (not just ${DISH_TYPE_LABELS[search.dishType]})`}
+                  helps={blockers.dishType}
+                  onPress={() => app.setDishType(null)}
+                />
+              ) : null}
+              {search.useIds.length > 0 ? (
+                <AdjustButton label="Remove an ingredient" helps={blockers.ingredients} onPress={edit} />
+              ) : null}
+              {search.avoidIds.length > 0 ? (
+                <AdjustButton label="Clear avoided ingredients" helps={blockers.avoid} onPress={app.clearAvoid} />
+              ) : null}
             </View>
           )}
         </View>
@@ -145,7 +173,10 @@ function AdjustButton({ label, onPress, helps }: { label: string; onPress: () =>
       onPress={onPress}
       accessibilityRole="button"
       accessibilityHint={helps ? 'This would show recipes' : undefined}
-      style={({ pressed }) => [styles.adjustBtn, { borderColor: helps ? c.primary : c.chipBorder, backgroundColor: c.card, opacity: pressed ? 0.7 : 1 }]}
+      style={({ pressed }) => [
+        styles.adjustBtn,
+        { borderColor: helps ? c.primary : c.chipBorder, backgroundColor: c.card, opacity: pressed ? 0.7 : 1 },
+      ]}
     >
       <Text style={[t.bodyStrong, { color: helps ? c.primary : c.text }]}>{label}</Text>
       {helps ? <Text style={[t.small, { color: c.textMuted }]}>Shows recipes</Text> : null}
@@ -164,5 +195,12 @@ const styles = StyleSheet.create({
   tryRow: { gap: space.sm },
   closeHead: { borderTopWidth: StyleSheet.hairlineWidth, paddingTop: space.md, gap: 4 },
   adjust: { gap: space.sm },
-  adjustBtn: { minHeight: MIN_TOUCH + 4, borderWidth: 1.5, borderRadius: radius.md, paddingHorizontal: space.md, paddingVertical: space.sm, justifyContent: 'center' },
+  adjustBtn: {
+    minHeight: MIN_TOUCH + 4,
+    borderWidth: 1.5,
+    borderRadius: radius.md,
+    paddingHorizontal: space.md,
+    paddingVertical: space.sm,
+    justifyContent: 'center',
+  },
 });

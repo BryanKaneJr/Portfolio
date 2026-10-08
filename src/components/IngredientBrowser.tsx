@@ -1,15 +1,17 @@
+import { router } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
 import { INGREDIENTS, ingredientIndex } from '../data/catalog';
-import { INGREDIENTS_BY_POPULARITY, SUGGESTION_PAGE } from '../data/popularity';
 import { CATEGORY_LABELS } from '../data/labels';
+import { INGREDIENTS_BY_POPULARITY, SUGGESTION_PAGE } from '../data/popularity';
 import { INGREDIENT_CATEGORIES, type Ingredient } from '../data/types';
 import { searchIngredients } from '../logic/normalizeIngredient';
+import { usePickerConfig, type PickerTarget } from '../state/pickerTarget';
 import { useColors } from '../theme/colors';
 import { MIN_TOUCH, radius, space } from '../theme/spacing';
 import { type as t } from '../theme/typography';
-import { Chip, type ChipVariant } from './Chip';
+import { Chip } from './Chip';
 
 const BY_CATEGORY = INGREDIENT_CATEGORIES.map(cat => ({
   cat,
@@ -18,55 +20,45 @@ const BY_CATEGORY = INGREDIENT_CATEGORIES.map(cat => ({
 const RANKED = INGREDIENTS_BY_POPULARITY.map(id => ingredientIndex.byId.get(id)).filter((i): i is Ingredient => !!i);
 
 type Props = {
-  /** How each ingredient chip should look right now. */
-  variantFor: (id: string) => ChipVariant;
-  onPick: (id: string) => void;
-  /** Accessibility hint for a chip, e.g. "Adds to Use list". */
-  hintFor: (id: string) => string;
-  /** Extra words for the chip's accessibility label, e.g. ", in pantry". */
-  stateLabelFor?: (id: string) => string;
-  /** Small muted hint after the name, e.g. "staple". */
-  chipHintFor?: (id: string) => string | undefined;
-  placeholder?: string;
-  searchLabel: string;
-  showPopular?: boolean;
-  /** Hidden from "Most common" (e.g. assumed staples — no point suggesting salt). */
-  excludeFromSuggestions?: ReadonlySet<string>;
+  target: PickerTarget;
+  /**
+   * compact: search + the top suggestions + a "More options" button that opens the full screen.
+   * full:    search + every suggestion + all ingredients grouped by category (the full screen).
+   */
+  layout: 'compact' | 'full';
+  /** Render the search box (the full screen renders its own sticky one). */
+  query?: string;
+  onQueryChange?: (q: string) => void;
+  hideSearch?: boolean;
 };
 
-/** Search box + Popular + category groups. One tap per ingredient, no extra screens. */
-export function IngredientBrowser({
-  variantFor,
-  onPick,
-  hintFor,
-  stateLabelFor,
-  chipHintFor,
-  placeholder = 'Search ingredients...',
-  searchLabel,
-  showPopular = true,
-  excludeFromSuggestions,
-}: Props) {
+export function IngredientBrowser({ target, layout, query: controlledQuery, onQueryChange, hideSearch }: Props) {
   const c = useColors();
-  const [query, setQuery] = useState('');
-  const [shown, setShown] = useState(SUGGESTION_PAGE);
-  const suggestions = useMemo(() => RANKED.filter(i => !excludeFromSuggestions?.has(i.id)), [excludeFromSuggestions]);
-  const visible = suggestions.slice(0, shown);
-  const canShowMore = shown < suggestions.length;
+  const cfg = usePickerConfig(target);
+  const [localQuery, setLocalQuery] = useState('');
+  const query = controlledQuery ?? localQuery;
+  const setQuery = onQueryChange ?? setLocalQuery;
+
+  const suggestions = useMemo(
+    () => RANKED.filter(i => !cfg.excludeFromSuggestions.has(i.id)),
+    [cfg.excludeFromSuggestions],
+  );
   const hits = useMemo(() => searchIngredients(ingredientIndex, query), [query]);
+  const visible = layout === 'compact' ? suggestions.slice(0, SUGGESTION_PAGE) : suggestions;
 
   const chip = (ing: Ingredient, hint?: string) => {
-    const v = variantFor(ing.id);
+    const v = cfg.variantFor(ing.id);
     return (
       <Chip
         key={ing.id}
         label={ing.name}
-        hint={hint ?? chipHintFor?.(ing.id)}
+        hint={hint ?? cfg.chipHintFor(ing.id)}
         variant={v}
         selected={v !== 'neutral'}
-        accessibilityLabel={`${ing.name}${stateLabelFor?.(ing.id) ?? ''}`}
-        accessibilityHint={hintFor(ing.id)}
+        accessibilityLabel={`${ing.name}${cfg.stateLabelFor(ing.id)}`}
+        accessibilityHint={cfg.hintFor(ing.id)}
         onPress={() => {
-          onPick(ing.id);
+          cfg.onPick(ing.id);
           if (query) setQuery('');
         }}
       />
@@ -75,21 +67,9 @@ export function IngredientBrowser({
 
   return (
     <View>
-      <View style={[styles.searchBox, { backgroundColor: c.card, borderColor: c.chipBorder }]}>
-        <Text style={{ color: c.textMuted, fontSize: 16 }}>⌕</Text>
-        <TextInput
-          value={query}
-          onChangeText={setQuery}
-          placeholder={placeholder}
-          placeholderTextColor={c.textMuted}
-          style={[styles.input, { color: c.text }]}
-          autoCorrect={false}
-          autoCapitalize="none"
-          returnKeyType="done"
-          clearButtonMode="while-editing"
-          accessibilityLabel={searchLabel}
-        />
-      </View>
+      {hideSearch ? null : (
+        <SearchBox value={query} onChange={setQuery} placeholder={cfg.placeholder} label={cfg.searchLabel} />
+      )}
 
       {query.trim() ? (
         <View style={styles.section}>
@@ -108,50 +88,70 @@ export function IngredientBrowser({
         </View>
       ) : (
         <>
-          {showPopular ? (
-            <View style={styles.section}>
-              <Text style={[t.label, styles.sectionLabel, { color: c.textMuted }]}>Most common</Text>
-              <View style={styles.wrap}>{visible.map(i => chip(i))}</View>
-              <View style={styles.moreRow}>
-                {canShowMore ? (
-                  <Pressable
-                    onPress={() => setShown(n => n + SUGGESTION_PAGE)}
-                    accessibilityRole="button"
-                    accessibilityLabel="More suggestions"
-                    style={({ pressed }) => [
-                      styles.moreBtn,
-                      { borderColor: c.chipBorder, backgroundColor: c.card, opacity: pressed ? 0.7 : 1 },
-                    ]}
-                  >
-                    <Text style={[t.bodyStrong, { color: c.primary }]}>More suggestions</Text>
-                    <Text style={[t.small, { color: c.textMuted }]}>
-                      {' '}
-                      +{Math.min(SUGGESTION_PAGE, suggestions.length - shown)}
-                    </Text>
-                  </Pressable>
-                ) : null}
-                {shown > SUGGESTION_PAGE ? (
-                  <Pressable
-                    onPress={() => setShown(SUGGESTION_PAGE)}
-                    accessibilityRole="button"
-                    style={styles.fewerBtn}
-                    hitSlop={6}
-                  >
-                    <Text style={[t.bodyStrong, { color: c.textMuted }]}>Show fewer</Text>
-                  </Pressable>
-                ) : null}
-              </View>
-            </View>
-          ) : null}
-          <Text style={[t.label, styles.allLabel, { color: c.textMuted }]}>All ingredients</Text>
-          {BY_CATEGORY.map(({ cat, items }) => (
-            <View key={cat} style={styles.section}>
-              <Text style={[t.label, styles.sectionLabel, { color: c.textMuted }]}>{CATEGORY_LABELS[cat]}</Text>
-              <View style={styles.wrap}>{items.map(i => chip(i))}</View>
-            </View>
-          ))}
+          <View style={styles.section}>
+            <Text style={[t.label, styles.sectionLabel, { color: c.textMuted }]}>Most common</Text>
+            <View style={styles.wrap}>{visible.map(i => chip(i))}</View>
+            {layout === 'compact' ? (
+              <Pressable
+                onPress={() => router.push({ pathname: '/ingredients', params: { for: target } })}
+                accessibilityRole="button"
+                accessibilityLabel="More options"
+                accessibilityHint="Opens every ingredient to scroll through"
+                style={({ pressed }) => [
+                  styles.moreBtn,
+                  { borderColor: c.chipBorder, backgroundColor: c.card, opacity: pressed ? 0.7 : 1 },
+                ]}
+              >
+                <Text style={[t.bodyStrong, { color: c.primary }]}>More options</Text>
+                <Text style={[t.small, { color: c.textMuted }]}> {INGREDIENTS.length} ingredients ›</Text>
+              </Pressable>
+            ) : null}
+          </View>
+
+          {layout === 'full'
+            ? BY_CATEGORY.map(({ cat, items }) => (
+                <View key={cat} style={styles.section}>
+                  <Text style={[t.label, styles.sectionLabel, { color: c.textMuted }]}>{CATEGORY_LABELS[cat]}</Text>
+                  <View style={styles.wrap}>{items.map(i => chip(i))}</View>
+                </View>
+              ))
+            : null}
         </>
       )}
+    </View>
+  );
+}
+
+export function SearchBox({
+  value,
+  onChange,
+  placeholder,
+  label,
+  autoFocus,
+}: {
+  value: string;
+  onChange: (q: string) => void;
+  placeholder: string;
+  label: string;
+  autoFocus?: boolean;
+}) {
+  const c = useColors();
+  return (
+    <View style={[styles.searchBox, { backgroundColor: c.card, borderColor: c.chipBorder }]}>
+      <Text style={{ color: c.textMuted, fontSize: 16 }}>⌕</Text>
+      <TextInput
+        value={value}
+        onChangeText={onChange}
+        placeholder={placeholder}
+        placeholderTextColor={c.textMuted}
+        style={[styles.input, { color: c.text }]}
+        autoCorrect={false}
+        autoCapitalize="none"
+        autoFocus={autoFocus}
+        returnKeyType="done"
+        clearButtonMode="while-editing"
+        accessibilityLabel={label}
+      />
     </View>
   );
 }
@@ -173,16 +173,15 @@ const styles = StyleSheet.create({
   sectionLabel: { marginBottom: space.sm },
   wrap: { flexDirection: 'row', flexWrap: 'wrap', gap: space.sm },
   noIng: { gap: space.xs },
-  moreRow: { flexDirection: 'row', alignItems: 'center', gap: space.md, marginTop: space.md },
   moreBtn: {
     flexDirection: 'row',
     alignItems: 'center',
-    minHeight: MIN_TOUCH,
+    justifyContent: 'center',
+    minHeight: MIN_TOUCH + 4,
     borderWidth: 1.5,
-    borderRadius: radius.pill,
+    borderRadius: radius.md,
     paddingHorizontal: space.lg,
+    marginTop: space.md,
   },
-  fewerBtn: { minHeight: MIN_TOUCH, justifyContent: 'center' },
-  allLabel: { marginTop: space.xl, marginHorizontal: space.lg, fontSize: 13 },
   textBtn: { minHeight: MIN_TOUCH, justifyContent: 'center', alignSelf: 'flex-start' },
 });

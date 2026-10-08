@@ -20,7 +20,13 @@ export default function PantryResultsScreen() {
   const app = useAppState();
   const filters = { meal: app.pantryMeal, dishType: app.pantryDishType };
   const { canMake, oneShort } = useMemo(
-    () => searchPantry(RECIPES, app.effectivePantry, { meal: app.pantryMeal, dishType: app.pantryDishType }, app.shuffleSeed),
+    () =>
+      searchPantry(
+        RECIPES,
+        app.effectivePantry,
+        { meal: app.pantryMeal, dishType: app.pantryDishType },
+        app.shuffleSeed,
+      ),
     [app.effectivePantry, app.pantryMeal, app.pantryDishType, app.shuffleSeed],
   );
 
@@ -49,7 +55,13 @@ export default function PantryResultsScreen() {
             From your pantry · {app.pantry.length} {app.pantry.length === 1 ? 'item' : 'items'}
             {app.assumeStaples ? ' + staples' : ''}
           </Text>
-          <Pressable onPress={() => router.push('/pantry')} accessibilityRole="button" accessibilityLabel="Edit pantry" hitSlop={8} style={styles.linkBtn}>
+          <Pressable
+            onPress={() => router.push('/pantry')}
+            accessibilityRole="button"
+            accessibilityLabel="Edit pantry"
+            hitSlop={8}
+            style={styles.linkBtn}
+          >
             <Text style={[t.bodyStrong, { color: c.primary }]}>Edit pantry</Text>
           </Pressable>
         </View>
@@ -81,7 +93,10 @@ export default function PantryResultsScreen() {
           onPress={app.reshuffle}
           accessibilityRole="button"
           accessibilityLabel="Shuffle the list"
-          style={({ pressed }) => [styles.shuffle, { borderColor: c.chipBorder, backgroundColor: c.card, opacity: pressed ? 0.7 : 1 }]}
+          style={({ pressed }) => [
+            styles.shuffle,
+            { borderColor: c.chipBorder, backgroundColor: c.card, opacity: pressed ? 0.7 : 1 },
+          ]}
         >
           <Text style={[t.bodyStrong, { color: c.text }]}>⤮ Shuffle</Text>
         </Pressable>
@@ -93,7 +108,9 @@ export default function PantryResultsScreen() {
             {filtered ? 'Nothing you can fully make with these filters.' : 'Nothing you can fully make yet.'}
           </Text>
           <Text style={[t.body, { color: c.textMuted }]}>
-            {filtered ? 'Try Any meal or Any type, or add a few more pantry items.' : 'Add a few more pantry items — eggs, onions, garlic and cheese unlock a lot.'}
+            {filtered
+              ? 'Try Any meal or Any type, or add a few more pantry items.'
+              : 'Add a few more pantry items — eggs, onions, garlic and cheese unlock a lot.'}
           </Text>
           {filtered ? (
             <Pressable
@@ -131,7 +148,14 @@ export default function PantryResultsScreen() {
             </View>
           ) : (
             <RecipeCard
-              result={{ recipe: item.res.recipe, usesIds: [], missingIds: [], alsoNeed: [], staplesUsed: [], totalMinutes: item.res.totalMinutes }}
+              result={{
+                recipe: item.res.recipe,
+                usesIds: [],
+                missingIds: [],
+                alsoNeed: [],
+                staplesUsed: [],
+                totalMinutes: item.res.totalMinutes,
+              }}
               meal={app.pantryMeal}
               note={
                 item.short
@@ -156,8 +180,23 @@ const styles = StyleSheet.create({
   panelTop: { flexDirection: 'row', alignItems: 'center' },
   linkBtn: { minHeight: 32, minWidth: MIN_TOUCH, alignItems: 'flex-end', justifyContent: 'center' },
   filters: { flexDirection: 'row', gap: space.sm, marginTop: space.md },
-  shuffle: { alignSelf: 'flex-start', minHeight: MIN_TOUCH, borderWidth: 1.5, borderRadius: radius.pill, paddingHorizontal: space.lg, justifyContent: 'center', marginTop: space.md },
+  shuffle: {
+    alignSelf: 'flex-start',
+    minHeight: MIN_TOUCH,
+    borderWidth: 1.5,
+    borderRadius: radius.pill,
+    paddingHorizontal: space.lg,
+    justifyContent: 'center',
+    marginTop: space.md,
+  },
   empty: { gap: space.sm, marginTop: space.lg },
-  adjustBtn: { minHeight: MIN_TOUCH + 4, borderWidth: 1.5, borderRadius: radius.md, paddingHorizontal: space.md, justifyContent: 'center', marginTop: space.xs },
+  adjustBtn: {
+    minHeight: MIN_TOUCH + 4,
+    borderWidth: 1.5,
+    borderRadius: radius.md,
+    paddingHorizontal: space.md,
+    justifyContent: 'center',
+    marginTop: space.xs,
+  },
   sectionHead: { borderTopWidth: StyleSheet.hairlineWidth, paddingTop: space.lg, gap: 4, marginTop: space.sm },
 });

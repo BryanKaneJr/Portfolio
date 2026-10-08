@@ -19,7 +19,9 @@ export default function FavoritesScreen() {
     return (
       <View style={[styles.empty, { backgroundColor: c.bg }]}>
         <Text style={{ fontSize: 40, color: c.primary }}>♡</Text>
-        <Text style={[t.body, { color: c.textMuted, textAlign: 'center' }]}>Tap the heart on any recipe to save it here.</Text>
+        <Text style={[t.body, { color: c.textMuted, textAlign: 'center' }]}>
+          Tap the heart on any recipe to save it here.
+        </Text>
       </View>
     );
   }

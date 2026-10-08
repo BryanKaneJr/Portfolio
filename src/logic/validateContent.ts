@@ -44,8 +44,10 @@ export function validateContent(ingredients: Ingredient[], recipes: Recipe[]): V
     for (const d of rec.dishTypes ?? []) if (!DISH_TYPES.includes(d)) add(where, `invalid dish type "${d}"`);
     if (new Set(rec.dishTypes).size !== rec.dishTypes.length) add(where, 'duplicate dish type tag');
 
-    if (!Number.isInteger(rec.prepMinutes) || rec.prepMinutes < 0 || rec.prepMinutes > 24 * 60) add(where, 'implausible prepMinutes');
-    if (!Number.isInteger(rec.cookMinutes) || rec.cookMinutes < 0 || rec.cookMinutes > 24 * 60) add(where, 'implausible cookMinutes');
+    if (!Number.isInteger(rec.prepMinutes) || rec.prepMinutes < 0 || rec.prepMinutes > 24 * 60)
+      add(where, 'implausible prepMinutes');
+    if (!Number.isInteger(rec.cookMinutes) || rec.cookMinutes < 0 || rec.cookMinutes > 24 * 60)
+      add(where, 'implausible cookMinutes');
     if (rec.prepMinutes + rec.cookMinutes <= 0) add(where, 'total time must be > 0');
     if (!Number.isInteger(rec.servings) || rec.servings < 1 || rec.servings > 100) add(where, 'implausible servings');
 

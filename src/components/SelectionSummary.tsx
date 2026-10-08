@@ -20,7 +20,9 @@ export function SelectionSummary({ useIds, avoidIds, onRemove, wrap }: Props) {
   const c = useColors();
   const row = (kind: 'use' | 'avoid', list: string[]) => (
     <View style={styles.line}>
-      <Text style={[t.label, styles.tag, { color: kind === 'use' ? c.herbText : c.avoidText }]}>{kind === 'use' ? 'Use' : 'Avoid'}</Text>
+      <Text style={[t.label, styles.tag, { color: kind === 'use' ? c.herbText : c.avoidText }]}>
+        {kind === 'use' ? 'Use' : 'Avoid'}
+      </Text>
       {list.length === 0 ? (
         <Text style={[t.small, { color: c.textMuted }]}>{kind === 'use' ? 'Nothing yet' : 'Nothing'}</Text>
       ) : (

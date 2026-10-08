@@ -27,7 +27,7 @@ npm test
 ## Layout
 
 ```
-src/app/            screens (Expo Router): index (Find / My pantry), results, selections, staples, pantry, pantry-results, recipe/[id], favorites
+src/app/            screens (Expo Router): index (Find / My pantry), results, ingredients (More options), selections, staples, pantry, pantry-results, recipe/[id], favorites
 src/components/     Chip, Dropdown, IngredientBrowser, SelectionSummary, RecipeCard
 src/data/           types, ingredient catalog, recipes, labels (all bundled, offline)
 src/logic/          matching engine, sorting, ingredient search, content validator
@@ -85,7 +85,7 @@ cumin, chili powder, red pepper flakes (`src/data/staples.ts`).
 - [x] Phase 1 — 89-ingredient catalog with aliases, 27 seed recipes, validator, coverage report
 - [x] Phase 2 — deterministic engine + 36 tests (all of plan §11 that can run without a device)
 - [x] My pantry mode — saved pantry, can-make list, shuffle, meal/dish narrowing, one-short section (+6 tests)
-- [x] "Most common" suggestions ranked from published recipe-frequency data (docs/ingredient-popularity.md) with a More suggestions button
+- [x] "Most common" suggestions ranked from published recipe-frequency data (docs/ingredient-popularity.md). Screens show search + the top 12; **More options** opens a full scrollable ingredients screen (pinned search, every ingredient by popularity then category) that works for picking, pantry and staples
 - [x] Dropdown filters, Use/Avoid selections screen, kitchen staples (+6 tests); fixed a startup race where an early tap could be overwritten by the saved-state restore
 - [x] Phase 3/4 — Find, Results (exact / close / narrowing / adjust), Recipe (step check-off), Favorites; last search + favorites persist locally
 - [ ] Phase 5 — grow to 30–50 → 120–150 → 250–350 **human-verified** recipes
