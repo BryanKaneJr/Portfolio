@@ -78,9 +78,9 @@ export const INGREDIENTS: Ingredient[] = [
   { id: 'oats', name: 'Oats', category: 'grain', aliases: ['rolled oats', 'oatmeal', 'old-fashioned oats'] },
 
   // ── Canned & pantry ────────────────────────────────────────
-  { id: 'olive_oil', name: 'Olive oil', category: 'pantry', aliases: [], basic: true },
-  { id: 'vegetable_oil', name: 'Vegetable oil', category: 'pantry', aliases: ['neutral oil', 'canola oil'], basic: true },
-  { id: 'water', name: 'Water', category: 'pantry', aliases: [], basic: true },
+  { id: 'olive_oil', name: 'Olive oil', category: 'pantry', aliases: [] },
+  { id: 'vegetable_oil', name: 'Vegetable oil', category: 'pantry', aliases: ['neutral oil', 'canola oil'] },
+  { id: 'water', name: 'Water', category: 'pantry', aliases: [] },
   { id: 'chicken_broth', name: 'Chicken broth', category: 'pantry', aliases: ['chicken stock'] },
   { id: 'vegetable_broth', name: 'Vegetable broth', category: 'pantry', aliases: ['vegetable stock', 'veggie broth'] },
   { id: 'canned_tomatoes', name: 'Canned tomatoes', category: 'pantry', aliases: ['diced tomatoes', 'crushed tomatoes', 'tinned tomatoes'] },
@@ -101,8 +101,8 @@ export const INGREDIENTS: Ingredient[] = [
   { id: 'chocolate_chips', name: 'Chocolate chips', category: 'pantry', aliases: ['semisweet chocolate chips'] },
 
   // ── Spices & condiments ────────────────────────────────────
-  { id: 'salt', name: 'Salt', category: 'spice', aliases: ['kosher salt'], basic: true },
-  { id: 'black_pepper', name: 'Black pepper', category: 'spice', aliases: ['pepper', 'ground pepper'], basic: true },
+  { id: 'salt', name: 'Salt', category: 'spice', aliases: ['kosher salt'] },
+  { id: 'black_pepper', name: 'Black pepper', category: 'spice', aliases: ['pepper', 'ground pepper'] },
   { id: 'garlic_powder', name: 'Garlic powder', category: 'spice', aliases: [] },
   { id: 'chili_powder', name: 'Chili powder', category: 'spice', aliases: [] },
   { id: 'cumin', name: 'Cumin', category: 'spice', aliases: ['ground cumin'] },

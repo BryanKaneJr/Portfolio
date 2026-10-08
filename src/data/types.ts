@@ -38,8 +38,6 @@ export type Ingredient = {
   category: IngredientCategory;
   /** Ordinary synonyms only (scallion / green onion). Never substitutions. */
   aliases: string[];
-  /** Marked "Basics" in the UI. Never treated as already owned. */
-  basic?: boolean;
 };
 
 export type RecipeIngredient = {

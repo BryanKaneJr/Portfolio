@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { formatMinutes } from '../../components/RecipeCard';
-import { ingredientIndex, recipesById } from '../../data/catalog';
+import { recipesById } from '../../data/catalog';
 import { DISH_TYPE_LABELS, MEAL_LABELS } from '../../data/labels';
 import { additionalRequired } from '../../logic/matchRecipes';
 import { useAppState } from '../../state/AppState';
@@ -29,8 +29,9 @@ export default function RecipeScreen() {
   const fav = app.isFavorite(recipe.id);
   // In pantry mode, "have" = pantry; otherwise = the ingredients picked to Use.
   const pantryMode = app.homeMode === 'pantry';
-  const haveIds = pantryMode ? app.pantry : app.search.useIds;
-  const alsoNeed = additionalRequired(recipe, haveIds);
+  const haveIds = pantryMode ? app.effectivePantry : app.search.useIds;
+  const alsoNeed = additionalRequired(recipe, haveIds, app.staples);
+  const showNeedBox = pantryMode ? app.pantry.length > 0 : app.search.useIds.length > 0;
   const required = recipe.ingredients.filter(i => !i.optional);
   const optional = recipe.ingredients.filter(i => i.optional);
   const tags = [...recipe.meals.map(m => MEAL_LABELS[m]), ...recipe.dishTypes.map(d => DISH_TYPE_LABELS[d])];
@@ -44,8 +45,8 @@ export default function RecipeScreen() {
     });
 
   const ingredientLine = (i: (typeof recipe.ingredients)[number], k: number) => {
-    const basic = ingredientIndex.byId.get(i.ingredientId)?.basic;
-    const using = haveIds.includes(i.ingredientId);
+    const staple = app.staples.has(i.ingredientId);
+    const using = (pantryMode ? app.pantry : app.search.useIds).includes(i.ingredientId);
     return (
       <View key={k} style={[styles.ingRow, { borderBottomColor: c.divider }]}>
         <Text style={[t.body, styles.qty, { color: c.text }]}>{i.quantityText}</Text>
@@ -53,7 +54,7 @@ export default function RecipeScreen() {
           {i.displayName}
           {i.preparation ? <Text style={{ color: c.textMuted }}>, {i.preparation}</Text> : null}
           {using ? <Text style={{ color: c.herbText, fontWeight: '700' }}>  ✓</Text> : null}
-          {basic ? <Text style={[styles.badge, { color: c.textMuted }]}>  BASIC</Text> : null}
+          {staple ? <Text style={[styles.badge, { color: c.textMuted }]}>  STAPLE</Text> : null}
         </Text>
       </View>
     );
@@ -109,13 +110,13 @@ export default function RecipeScreen() {
           </>
         ) : null}
 
-        {haveIds.length > 0 && alsoNeed.length > 0 ? (
+        {showNeedBox && alsoNeed.length > 0 ? (
           <View style={[styles.need, { backgroundColor: c.warnSoft }]}>
             <Text style={[t.bodyStrong, { color: c.warnText }]}>{pantryMode ? 'Not in your pantry' : "You'll also need"}</Text>
             <Text style={[t.body, { color: c.warnText }]}>{alsoNeed.map(i => i.displayName).join(', ')}</Text>
           </View>
         ) : null}
-        {pantryMode && haveIds.length > 0 && alsoNeed.length === 0 ? (
+        {pantryMode && showNeedBox && alsoNeed.length === 0 ? (
           <View style={[styles.need, { backgroundColor: c.herbSoft }]}>
             <Text style={[t.bodyStrong, { color: c.herbText }]}>✓ Your pantry covers every required ingredient</Text>
           </View>

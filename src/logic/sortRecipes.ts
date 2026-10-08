@@ -3,7 +3,7 @@ import type { RecipeResult } from './matchRecipes';
 /**
  * Stable, predictable ranking (build plan §7). Not personalised.
  *  1. Fewest missing requested ingredients (0 for exact results)
- *  2. Fewest additional required ingredients
+ *  2. Fewest additional required ingredients (assumed kitchen staples don't count)
  *  3. Shortest total time
  *  4. Title A→Z, then ID
  */

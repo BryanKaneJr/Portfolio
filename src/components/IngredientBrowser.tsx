@@ -25,6 +25,8 @@ type Props = {
   hintFor: (id: string) => string;
   /** Extra words for the chip's accessibility label, e.g. ", in pantry". */
   stateLabelFor?: (id: string) => string;
+  /** Small muted hint after the name, e.g. "staple". */
+  chipHintFor?: (id: string) => string | undefined;
   placeholder?: string;
   searchLabel: string;
   showPopular?: boolean;
@@ -36,6 +38,7 @@ export function IngredientBrowser({
   onPick,
   hintFor,
   stateLabelFor,
+  chipHintFor,
   placeholder = 'Search ingredients...',
   searchLabel,
   showPopular = true,
@@ -50,7 +53,7 @@ export function IngredientBrowser({
       <Chip
         key={ing.id}
         label={ing.name}
-        hint={hint}
+        hint={hint ?? chipHintFor?.(ing.id)}
         variant={v}
         selected={v !== 'neutral'}
         accessibilityLabel={`${ing.name}${stateLabelFor?.(ing.id) ?? ''}`}

@@ -17,7 +17,7 @@ export default function ResultsScreen() {
   const c = useColors();
   const app = useAppState();
   const { search } = app;
-  const result = useMemo(() => runSearch(RECIPES, search), [search]);
+  const result = useMemo(() => runSearch(RECIPES, search, app.staples), [search, app.staples]);
   const { exact, close, narrowing, tryWithout, blockers } = result;
 
   const hasExact = exact.length > 0;

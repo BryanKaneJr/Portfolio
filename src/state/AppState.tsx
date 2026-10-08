@@ -1,6 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 
 import { INGREDIENTS, RECIPES } from '../data/catalog';
+import { DEFAULT_STAPLE_IDS } from '../data/staples';
 import { DISH_TYPES, EMPTY_SEARCH, MEALS, type DishType, type Meal, type SearchState } from '../data/types';
 import {
   loadFavorites,
@@ -17,8 +18,6 @@ import { addIngredient, removeIngredient, sanitizeSearch, type PickMode } from '
 
 export type HomeMode = 'pick' | 'pantry';
 
-/** Ingredients offered by the one-tap "Add basics" button (added explicitly, never assumed). */
-export const BASIC_IDS = INGREDIENTS.filter(i => i.basic).map(i => i.id);
 
 type AppState = {
   ready: boolean;
@@ -30,6 +29,9 @@ type AppState = {
   setMeal: (m: Meal | null) => void;
   setDishType: (d: DishType | null) => void;
   clearAvoid: () => void;
+  clearUse: () => void;
+  /** Put an ingredient in Use or Avoid (moves it if it's in the other list). */
+  moveIngredient: (id: string, to: PickMode) => void;
   clearAll: () => void;
   favorites: string[];
   isFavorite: (recipeId: string) => boolean;
@@ -47,6 +49,16 @@ type AppState = {
   /** Seed for the shuffled pantry list; changes only when the user taps Shuffle. */
   shuffleSeed: number;
   reshuffle: () => void;
+  /** Kitchen staples setting. */
+  assumeStaples: boolean;
+  setAssumeStaples: (on: boolean) => void;
+  stapleIds: string[];
+  toggleStaple: (id: string) => void;
+  resetStaples: () => void;
+  /** Staples currently in effect (empty when the setting is off). */
+  staples: ReadonlySet<string>;
+  /** Pantry plus assumed staples — what pantry mode treats as on hand. */
+  effectivePantry: string[];
 };
 
 const Ctx = createContext<AppState | null>(null);
@@ -64,6 +76,8 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
   const [pantryMeal, setPantryMeal] = useState<Meal | null>(null);
   const [pantryDishType, setPantryDishType] = useState<DishType | null>(null);
   const [shuffleSeed, setShuffleSeed] = useState(() => Math.floor(Math.random() * 1e9));
+  const [assumeStaples, setAssumeStaples] = useState(true);
+  const [stapleIds, setStapleIds] = useState<string[]>(DEFAULT_STAPLE_IDS);
   const loaded = useRef(false);
 
   // Restore last selection + favorites from local storage.
@@ -79,6 +93,8 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       if (typeof pr.pantryMeal === 'string' && (MEALS as readonly string[]).includes(pr.pantryMeal)) setPantryMeal(pr.pantryMeal as Meal);
       if (typeof pr.pantryDishType === 'string' && (DISH_TYPES as readonly string[]).includes(pr.pantryDishType))
         setPantryDishType(pr.pantryDishType as DishType);
+      if (typeof pr.assumeStaples === 'boolean') setAssumeStaples(pr.assumeStaples);
+      if (Array.isArray(pr.stapleIds)) setStapleIds(resolveFavoriteIds(pr.stapleIds, KNOWN_INGREDIENTS));
       loaded.current = true;
       setReady(true);
     });
@@ -100,8 +116,11 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
   }, [pantry]);
 
   useEffect(() => {
-    if (loaded.current) savePrefs({ homeMode, pantryMeal, pantryDishType });
-  }, [homeMode, pantryMeal, pantryDishType]);
+    if (loaded.current) savePrefs({ homeMode, pantryMeal, pantryDishType, assumeStaples, stapleIds });
+  }, [homeMode, pantryMeal, pantryDishType, assumeStaples, stapleIds]);
+
+  const staples = useMemo<ReadonlySet<string>>(() => new Set(assumeStaples ? stapleIds : []), [assumeStaples, stapleIds]);
+  const effectivePantry = useMemo(() => [...new Set([...pantry, ...staples])], [pantry, staples]);
 
   const pick = useCallback(
     (id: string) =>
@@ -124,6 +143,8 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       setMeal: meal => setSearch(s => ({ ...s, meal })),
       setDishType: dishType => setSearch(s => ({ ...s, dishType })),
       clearAvoid: () => setSearch(s => ({ ...s, avoidIds: [] })),
+      clearUse: () => setSearch(s => ({ ...s, useIds: [] })),
+      moveIngredient: (id, to) => setSearch(s => addIngredient(s, id, to)),
       clearAll: () => setSearch(EMPTY_SEARCH),
       favorites,
       isFavorite: id => favorites.includes(id),
@@ -140,8 +161,15 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       setPantryDishType,
       shuffleSeed,
       reshuffle: () => setShuffleSeed(s => (s + 1 + Math.floor(Math.random() * 1e9)) % 2147483647),
+      assumeStaples,
+      setAssumeStaples,
+      stapleIds,
+      toggleStaple: id => setStapleIds(list => (list.includes(id) ? list.filter(x => x !== id) : [...list, id])),
+      resetStaples: () => setStapleIds(DEFAULT_STAPLE_IDS),
+      staples,
+      effectivePantry,
     }),
-    [ready, search, mode, pick, favorites, homeMode, pantry, pantryMeal, pantryDishType, shuffleSeed],
+    [ready, search, mode, pick, favorites, homeMode, pantry, pantryMeal, pantryDishType, shuffleSeed, assumeStaples, stapleIds, staples, effectivePantry],
   );
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;

@@ -32,7 +32,7 @@ export default function FavoritesScreen() {
       ItemSeparatorComponent={() => <View style={{ height: space.md }} />}
       renderItem={({ item }) => (
         <RecipeCard
-          result={{ ...toResult(item, []), alsoNeed: [] }}
+          result={{ ...toResult(item, []), alsoNeed: [], staplesUsed: [] }}
           onPress={() => router.push({ pathname: '/recipe/[id]', params: { id: item.id } })}
           isFavorite
           onToggleFavorite={() => app.toggleFavorite(item.id)}

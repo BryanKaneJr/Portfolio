@@ -86,10 +86,11 @@ export function RecipeCard({ result, onPress, isFavorite, onToggleFavorite, clos
           {usesIds.map(ingredientName).join(', ')}
         </Text>
       ) : null}
-      {alsoNeed.length > 0 ? (
+      {alsoNeed.length > 0 || result.staplesUsed.length > 0 ? (
         <Text style={[t.small, styles.line, { color: c.textMuted }]} numberOfLines={3}>
           <Text style={[styles.bold, { color: c.text }]}>You'll also need: </Text>
-          {alsoNeed.map(i => ingredientName(i.ingredientId)).join(', ')}
+          {alsoNeed.length > 0 ? alsoNeed.map(i => ingredientName(i.ingredientId)).join(', ') : 'nothing else'}
+          {result.staplesUsed.length > 0 ? <Text style={{ fontStyle: 'italic' }}> + staples</Text> : null}
         </Text>
       ) : null}
     </Pressable>

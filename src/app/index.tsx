@@ -4,9 +4,8 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Chip } from '../components/Chip';
-import { FilterChips } from '../components/FilterChips';
+import { Dropdown } from '../components/Dropdown';
 import { IngredientBrowser } from '../components/IngredientBrowser';
-import { SelectionSummary } from '../components/SelectionSummary';
 import { RECIPES, ingredientName } from '../data/catalog';
 import { DISH_TYPE_LABELS, MEAL_LABELS } from '../data/labels';
 import { DISH_TYPES, MEALS } from '../data/types';
@@ -25,11 +24,13 @@ export default function FindScreen() {
   const app = useAppState();
   const { search, mode, homeMode, pantry } = app;
 
+  const { effectivePantry } = app;
   const count = useMemo(() => countExact(RECIPES, search), [search]);
   const canMake = useMemo(
-    () => countCanMake(RECIPES, pantry, { meal: app.pantryMeal, dishType: app.pantryDishType }),
-    [pantry, app.pantryMeal, app.pantryDishType],
+    () => countCanMake(RECIPES, effectivePantry, { meal: app.pantryMeal, dishType: app.pantryDishType }),
+    [effectivePantry, app.pantryMeal, app.pantryDishType],
   );
+  const pantryFilters = { meal: app.pantryMeal, dishType: app.pantryDishType };
   const empty = isEmptySearch(search);
   const browsing = search.useIds.length === 0 && search.avoidIds.length === 0;
 
@@ -89,8 +90,27 @@ export default function FindScreen() {
 
         {homeMode === 'pick' ? (
           <>
-            <FilterChips label="Meal" anyLabel="Any meal" options={MEALS} labels={MEAL_LABELS} value={search.meal} onChange={app.setMeal} />
-            <FilterChips label="Dish type" anyLabel="Any type" options={DISH_TYPES} labels={DISH_TYPE_LABELS} value={search.dishType} onChange={app.setDishType} small />
+            <View style={styles.dropdowns}>
+              <Dropdown
+                label="Meal"
+                anyLabel="Any meal"
+                options={MEALS}
+                labels={MEAL_LABELS}
+                value={search.meal}
+                onChange={app.setMeal}
+                countFor={meal => countExact(RECIPES, { ...search, meal })}
+              />
+              <Dropdown
+                label="Dish type"
+                anyLabel="Any type"
+                options={DISH_TYPES}
+                labels={DISH_TYPE_LABELS}
+                value={search.dishType}
+                onChange={app.setDishType}
+                countFor={dishType => countExact(RECIPES, { ...search, dishType })}
+              />
+            </View>
+            <StaplesLine />
 
             <View style={[styles.segment, { backgroundColor: c.divider }]} accessibilityRole="tablist">
               {(['use', 'avoid'] as const).map(m => {
@@ -126,16 +146,27 @@ export default function FindScreen() {
           </>
         ) : (
           <>
-            <FilterChips label="Meal" anyLabel="Any meal" options={MEALS} labels={MEAL_LABELS} value={app.pantryMeal} onChange={app.setPantryMeal} />
-            <FilterChips
-              label="Dish type"
-              anyLabel="Any type"
-              options={DISH_TYPES}
-              labels={DISH_TYPE_LABELS}
-              value={app.pantryDishType}
-              onChange={app.setPantryDishType}
-              small
-            />
+            <View style={styles.dropdowns}>
+              <Dropdown
+                label="Meal"
+                anyLabel="Any meal"
+                options={MEALS}
+                labels={MEAL_LABELS}
+                value={app.pantryMeal}
+                onChange={app.setPantryMeal}
+                countFor={meal => countCanMake(RECIPES, effectivePantry, { ...pantryFilters, meal })}
+              />
+              <Dropdown
+                label="Dish type"
+                anyLabel="Any type"
+                options={DISH_TYPES}
+                labels={DISH_TYPE_LABELS}
+                value={app.pantryDishType}
+                onChange={app.setPantryDishType}
+                countFor={dishType => countCanMake(RECIPES, effectivePantry, { ...pantryFilters, dishType })}
+              />
+            </View>
+            <StaplesLine />
 
             <View style={[styles.pantryCard, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
               <View style={styles.pantryTop}>
@@ -148,7 +179,7 @@ export default function FindScreen() {
               </View>
               {pantry.length === 0 ? (
                 <Text style={[t.body, { color: c.textMuted }]}>
-                  Save the ingredients you usually have — including basics like salt and oil — and we’ll show recipes you can make without shopping.
+                  Save the ingredients you usually have and we’ll show recipes you can make without shopping. Kitchen staples are already assumed.
                 </Text>
               ) : (
                 <View style={styles.wrap}>
@@ -170,7 +201,12 @@ export default function FindScreen() {
 
       {/* Sticky footer */}
       <SafeAreaView edges={['bottom']} style={[styles.footer, { backgroundColor: c.bg, borderTopColor: c.divider }]}>
-        {homeMode === 'pick' ? <SelectionSummary useIds={search.useIds} avoidIds={search.avoidIds} onRemove={app.remove} /> : null}
+        {homeMode === 'pick' ? (
+          <View style={styles.selRow}>
+            <SelectionButton kind="use" ids={search.useIds} />
+            <SelectionButton kind="avoid" ids={search.avoidIds} />
+          </View>
+        ) : null}
         <View style={styles.actions}>
           {homeMode === 'pick' ? (
             <Pressable
@@ -196,7 +232,66 @@ export default function FindScreen() {
   );
 }
 
+/** Footer button: "✓ USE 3 — Chicken, Garlic…" → opens the full selections screen. */
+function SelectionButton({ kind, ids }: { kind: 'use' | 'avoid'; ids: string[] }) {
+  const c = useColors();
+  const use = kind === 'use';
+  const fg = use ? c.herbText : c.avoidText;
+  const names = ids.map(ingredientName);
+  return (
+    <Pressable
+      onPress={() => router.push({ pathname: '/selections', params: { focus: kind } })}
+      accessibilityRole="button"
+      accessibilityLabel={`${use ? 'Use' : 'Avoid'} list, ${ids.length} ${ids.length === 1 ? 'ingredient' : 'ingredients'}${names.length ? `: ${names.join(', ')}` : ''}. Open`}
+      style={({ pressed }) => [
+        styles.selBtn,
+        { backgroundColor: use ? c.herbSoft : c.avoidSoft, borderColor: use ? c.herb : c.avoid, opacity: pressed ? 0.75 : 1 },
+      ]}
+    >
+      <View style={styles.selTop}>
+        <Text style={[t.label, { color: fg }]}>{use ? '✓ Use' : '⊘ Avoid'}</Text>
+        <View style={[styles.badge, { backgroundColor: use ? c.herb : c.avoid }]}>
+          <Text style={[styles.badgeText, { color: c.card }]}>{ids.length}</Text>
+        </View>
+        <Text style={[styles.chev, { color: fg }]}>›</Text>
+      </View>
+      <Text style={[t.small, { color: fg }]} numberOfLines={1}>
+        {names.length ? names.join(', ') : use ? 'Nothing yet' : 'Nothing'}
+      </Text>
+    </Pressable>
+  );
+}
+
+/** "Assuming 20 kitchen staples · Edit" */
+function StaplesLine() {
+  const c = useColors();
+  const app = useAppState();
+  const n = app.stapleIds.length;
+  return (
+    <Pressable
+      onPress={() => router.push('/staples')}
+      accessibilityRole="button"
+      accessibilityLabel={app.assumeStaples ? `Assuming ${n} kitchen staples like salt, oil and butter. Edit` : 'Kitchen staples are not assumed. Edit'}
+      style={styles.staples}
+      hitSlop={6}
+    >
+      <Text style={[t.small, { color: c.textMuted }]}>
+        {app.assumeStaples ? `Assuming you have ${n} kitchen staples (salt, oil, butter…)` : 'Kitchen staples not assumed'}
+        <Text style={{ color: c.primary, fontWeight: '700' }}>  Edit</Text>
+      </Text>
+    </Pressable>
+  );
+}
+
 const styles = StyleSheet.create({
+  dropdowns: { flexDirection: 'row', gap: space.sm, marginHorizontal: space.lg, marginTop: space.lg },
+  staples: { marginHorizontal: space.lg, marginTop: space.sm, minHeight: 28, justifyContent: 'center' },
+  selRow: { flexDirection: 'row', gap: space.sm },
+  selBtn: { flex: 1, borderWidth: 1.5, borderRadius: radius.md, paddingHorizontal: space.md, paddingVertical: space.sm, minHeight: 58, gap: 2 },
+  selTop: { flexDirection: 'row', alignItems: 'center', gap: space.sm },
+  badge: { minWidth: 22, height: 22, borderRadius: 11, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 6 },
+  badgeText: { fontSize: 13, fontWeight: '800' },
+  chev: { marginLeft: 'auto', fontSize: 22, fontWeight: '600', marginTop: -3 },
   flex: { flex: 1 },
   scroll: { paddingBottom: space.xxl },
   header: { flexDirection: 'row', alignItems: 'flex-start', paddingHorizontal: space.lg, paddingTop: space.md, gap: space.md },

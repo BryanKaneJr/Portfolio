@@ -51,20 +51,34 @@ export function isExactMatch(recipe: Recipe, state: SearchState): boolean {
   return matchesHardFilters(recipe, state) && matchingRequestedIngredients(recipe, state.useIds).length === state.useIds.length;
 }
 
+/** Ingredient IDs the user is assumed to keep on hand (salt, oil, flour…). Empty = assume nothing. */
+export type Staples = ReadonlySet<string>;
+const NO_STAPLES: Staples = new Set();
+
 /**
- * Required ingredient lines that are NOT covered by the user's Use list.
- * Basics (salt, oil, water…) are included — never assumed to be on hand.
+ * Required ingredient lines that are NOT covered by the user's Use list, split into
+ * real extras and assumed kitchen staples (one entry per canonical ID).
  */
-export function additionalRequired(recipe: Recipe, useIds: string[]): RecipeIngredient[] {
-  const use = new Set(useIds);
+export function splitRequired(
+  recipe: Recipe,
+  haveIds: string[],
+  staples: Staples = NO_STAPLES,
+): { extras: RecipeIngredient[]; staples: RecipeIngredient[] } {
+  const have = new Set(haveIds);
   const seen = new Set<string>();
-  const out: RecipeIngredient[] = [];
+  const extras: RecipeIngredient[] = [];
+  const stapleLines: RecipeIngredient[] = [];
   for (const ing of recipe.ingredients) {
-    if (ing.optional || use.has(ing.ingredientId) || seen.has(ing.ingredientId)) continue;
+    if (ing.optional || have.has(ing.ingredientId) || seen.has(ing.ingredientId)) continue;
     seen.add(ing.ingredientId);
-    out.push(ing);
+    (staples.has(ing.ingredientId) ? stapleLines : extras).push(ing);
   }
-  return out;
+  return { extras, staples: stapleLines };
+}
+
+/** Required ingredients beyond `haveIds`, excluding assumed staples. */
+export function additionalRequired(recipe: Recipe, haveIds: string[], staples: Staples = NO_STAPLES): RecipeIngredient[] {
+  return splitRequired(recipe, haveIds, staples).extras;
 }
 
 export type RecipeResult = {
@@ -73,38 +87,42 @@ export type RecipeResult = {
   usesIds: string[];
   /** Requested Use IDs this recipe does NOT use. Always empty for exact results. */
   missingIds: string[];
-  /** Required ingredients beyond the Use list (one entry per canonical ID). */
+  /** Required ingredients beyond the Use list, excluding assumed staples. */
   alsoNeed: RecipeIngredient[];
+  /** Required ingredients covered only by the assumed kitchen staples. */
+  staplesUsed: RecipeIngredient[];
   totalMinutes: number;
 };
 
-export function toResult(recipe: Recipe, useIds: string[]): RecipeResult {
+export function toResult(recipe: Recipe, useIds: string[], staples: Staples = NO_STAPLES): RecipeResult {
   const usesIds = matchingRequestedIngredients(recipe, useIds);
   const usesSet = new Set(usesIds);
+  const split = splitRequired(recipe, useIds, staples);
   return {
     recipe,
     usesIds,
     missingIds: useIds.filter(id => !usesSet.has(id)),
-    alsoNeed: additionalRequired(recipe, useIds),
+    alsoNeed: split.extras,
+    staplesUsed: split.staples,
     totalMinutes: totalMinutes(recipe),
   };
 }
 
-export function findExactMatches(recipes: Recipe[], state: SearchState): RecipeResult[] {
+export function findExactMatches(recipes: Recipe[], state: SearchState, staples: Staples = NO_STAPLES): RecipeResult[] {
   return recipes
     .filter(r => isExactMatch(r, state))
-    .map(r => toResult(r, state.useIds))
+    .map(r => toResult(r, state.useIds, staples))
     .sort(compareResults);
 }
 
 /** Close matches — only when there are zero exact results and ≥1 Use ingredient. */
-export function findCloseMatches(recipes: Recipe[], state: SearchState): RecipeResult[] {
+export function findCloseMatches(recipes: Recipe[], state: SearchState, staples: Staples = NO_STAPLES): RecipeResult[] {
   const n = state.useIds.length;
   if (n < 2) return []; // 1 ingredient: missing it means no meaningful overlap.
 
   const candidates = recipes
     .filter(r => matchesHardFilters(r, state))
-    .map(r => toResult(r, state.useIds))
+    .map(r => toResult(r, state.useIds, staples))
     .filter(res => res.missingIds.length > 0 && res.usesIds.length >= 1);
 
   const allowedMissing = (max: number) => candidates.filter(c => c.missingIds.length <= max);
@@ -197,8 +215,8 @@ export type SearchResult = {
 
 const NO_BLOCKERS: Blockers = { meal: false, dishType: false, avoid: false, ingredients: false };
 
-export function runSearch(recipes: Recipe[], state: SearchState): SearchResult {
-  const exact = findExactMatches(recipes, state);
+export function runSearch(recipes: Recipe[], state: SearchState, staples: Staples = NO_STAPLES): SearchResult {
+  const exact = findExactMatches(recipes, state, staples);
   if (exact.length > 0) {
     return {
       exact,
@@ -209,7 +227,7 @@ export function runSearch(recipes: Recipe[], state: SearchState): SearchResult {
       blockers: NO_BLOCKERS,
     };
   }
-  const close = state.useIds.length > 0 ? findCloseMatches(recipes, state) : [];
+  const close = state.useIds.length > 0 ? findCloseMatches(recipes, state, staples) : [];
   return {
     exact,
     close,

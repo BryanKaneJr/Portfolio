@@ -2,12 +2,12 @@ import { router, Stack } from 'expo-router';
 import { useMemo } from 'react';
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { FilterChips } from '../components/FilterChips';
+import { Dropdown } from '../components/Dropdown';
 import { RecipeCard } from '../components/RecipeCard';
 import { RECIPES } from '../data/catalog';
 import { DISH_TYPE_LABELS, MEAL_LABELS } from '../data/labels';
 import { DISH_TYPES, MEALS } from '../data/types';
-import { searchPantry, type PantryResult } from '../logic/pantry';
+import { countCanMake, searchPantry, type PantryResult } from '../logic/pantry';
 import { useAppState } from '../state/AppState';
 import { useColors } from '../theme/colors';
 import { MIN_TOUCH, radius, space } from '../theme/spacing';
@@ -20,8 +20,8 @@ export default function PantryResultsScreen() {
   const app = useAppState();
   const filters = { meal: app.pantryMeal, dishType: app.pantryDishType };
   const { canMake, oneShort } = useMemo(
-    () => searchPantry(RECIPES, app.pantry, { meal: app.pantryMeal, dishType: app.pantryDishType }, app.shuffleSeed),
-    [app.pantry, app.pantryMeal, app.pantryDishType, app.shuffleSeed],
+    () => searchPantry(RECIPES, app.effectivePantry, { meal: app.pantryMeal, dishType: app.pantryDishType }, app.shuffleSeed),
+    [app.effectivePantry, app.pantryMeal, app.pantryDishType, app.shuffleSeed],
   );
 
   const rows: Row[] = [
@@ -47,6 +47,7 @@ export default function PantryResultsScreen() {
         <View style={styles.panelTop}>
           <Text style={[t.small, { color: c.textMuted, flex: 1 }]}>
             From your pantry · {app.pantry.length} {app.pantry.length === 1 ? 'item' : 'items'}
+            {app.assumeStaples ? ' + staples' : ''}
           </Text>
           <Pressable onPress={() => router.push('/pantry')} accessibilityRole="button" accessibilityLabel="Edit pantry" hitSlop={8} style={styles.linkBtn}>
             <Text style={[t.bodyStrong, { color: c.primary }]}>Edit pantry</Text>
@@ -55,8 +56,24 @@ export default function PantryResultsScreen() {
       </View>
 
       <View style={styles.filters}>
-        <FilterChips label="Meal" anyLabel="Any meal" options={MEALS} labels={MEAL_LABELS} value={app.pantryMeal} onChange={app.setPantryMeal} small />
-        <FilterChips label="Dish type" anyLabel="Any type" options={DISH_TYPES} labels={DISH_TYPE_LABELS} value={app.pantryDishType} onChange={app.setPantryDishType} small />
+        <Dropdown
+          label="Meal"
+          anyLabel="Any meal"
+          options={MEALS}
+          labels={MEAL_LABELS}
+          value={app.pantryMeal}
+          onChange={app.setPantryMeal}
+          countFor={meal => countCanMake(RECIPES, app.effectivePantry, { ...filters, meal })}
+        />
+        <Dropdown
+          label="Dish type"
+          anyLabel="Any type"
+          options={DISH_TYPES}
+          labels={DISH_TYPE_LABELS}
+          value={app.pantryDishType}
+          onChange={app.setPantryDishType}
+          countFor={dishType => countCanMake(RECIPES, app.effectivePantry, { ...filters, dishType })}
+        />
       </View>
 
       {canMake.length > 1 ? (
@@ -76,7 +93,7 @@ export default function PantryResultsScreen() {
             {filtered ? 'Nothing you can fully make with these filters.' : 'Nothing you can fully make yet.'}
           </Text>
           <Text style={[t.body, { color: c.textMuted }]}>
-            {filtered ? 'Try Any meal or Any type, or add a few more pantry items.' : 'Add a few more pantry items — basics like salt, oil and butter unlock a lot.'}
+            {filtered ? 'Try Any meal or Any type, or add a few more pantry items.' : 'Add a few more pantry items — eggs, onions, garlic and cheese unlock a lot.'}
           </Text>
           {filtered ? (
             <Pressable
@@ -114,7 +131,7 @@ export default function PantryResultsScreen() {
             </View>
           ) : (
             <RecipeCard
-              result={{ recipe: item.res.recipe, usesIds: [], missingIds: [], alsoNeed: [], totalMinutes: item.res.totalMinutes }}
+              result={{ recipe: item.res.recipe, usesIds: [], missingIds: [], alsoNeed: [], staplesUsed: [], totalMinutes: item.res.totalMinutes }}
               meal={app.pantryMeal}
               note={
                 item.short
@@ -138,7 +155,7 @@ const styles = StyleSheet.create({
   panel: { borderWidth: 1, borderRadius: radius.lg, padding: space.md },
   panelTop: { flexDirection: 'row', alignItems: 'center' },
   linkBtn: { minHeight: 32, minWidth: MIN_TOUCH, alignItems: 'flex-end', justifyContent: 'center' },
-  filters: { marginHorizontal: -space.lg },
+  filters: { flexDirection: 'row', gap: space.sm, marginTop: space.md },
   shuffle: { alignSelf: 'flex-start', minHeight: MIN_TOUCH, borderWidth: 1.5, borderRadius: radius.pill, paddingHorizontal: space.lg, justifyContent: 'center', marginTop: space.md },
   empty: { gap: space.sm, marginTop: space.lg },
   adjustBtn: { minHeight: MIN_TOUCH + 4, borderWidth: 1.5, borderRadius: radius.md, paddingHorizontal: space.md, justifyContent: 'center', marginTop: space.xs },
