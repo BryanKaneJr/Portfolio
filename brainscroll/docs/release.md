@@ -94,7 +94,7 @@ Run `npm run check`, `npm run test:db`, `npm run e2e` and `npm run e2e:remote`: 
 
 ## What's left for launch
 
-Done already: the Supabase project (it serves as production: every level imported, the push job running every 5 minutes, the latest functions deployed), the RevenueCat iOS key, the site with the privacy policy, account deletion and invite pages, and drafts of the listing copy and the privacy answers.
+Done already: the Supabase project (it serves as production: every level imported, the push job running every 5 minutes, the latest functions deployed), the RevenueCat iOS key, the site with the privacy policy, account deletion and invite pages, the App Store screenshots (`store/app-store-iphone-6.9/`), and drafts of the listing copy and the privacy answers.
 
 iPhone first, in this order:
 

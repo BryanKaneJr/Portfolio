@@ -121,20 +121,21 @@ Use the App Store description above, with two changes:
 
 ## Screenshots
 
-Suggested set (6.9" iPhone, and a phone for Play), in this order:
+**The iPhone set is made:** `store/app-store-iphone-6.9/`, nine PNGs at 1290 × 2796, which App Store Connect takes for the 6.9" display (and uses for the smaller iPhones). Upload them in their file order:
 
 1. Home: every subject, and what's up next.
-2. A skill's map.
+2. Astronomy's map, with a chapter's chest.
 3. A learning card with a Key idea.
-4. A question with "Take another look".
-5. Level Complete with a level up.
-6. The profile: your subjects and Knowledge Level.
-7. The Trophies screen (the gold greatest trophies on top, earned trophies below).
-8. A share card (a streak or a gold trophy), which shows sharing in one frame.
+4. A missed question with "Take another look".
+5. Level Complete: XP, the streak, trophies earned and a level up.
+6. The profile: Knowledge Level, streak and league.
+7. The Trophies screen.
+8. Social: the league and friends.
+9. The league's standings.
 
-For 7 and 8, use an account that has earned a few trophies, so the shelf isn't empty.
+They're the real app with real content: a learner's first week, played by `e2e/store-shots.mjs` on a moved clock (Level 1 by hand, then each day the app preview's "Clear to the next chest" with every answer right and the chest opened), and one more level today with a miss. The league's other players are the preview's simulated learners, as in the app preview. To take them again after a design change: `SHOT_OUT=store/app-store-iphone-6.9 bash e2e/run.sh store-shots`.
 
-Use real content from the app; no mock-up claims. `npm run screens` saves every screen as a phone-size PNG (`SHOT_W=430 SHOT_H=932` for App Store sizes) as a starting point; it uses the web build, so check the frames against a real device. Captions, if any, follow the same honesty rules as the copy above.
+Google Play wants a phone set too (for example 1080 × 2160: `SHOT_W=360 SHOT_H=720` with `npm run screens`), once there's an Android build. No captions, so there's nothing to keep honest beyond the app itself.
 
 ## Review notes (App Review / Play app access)
 
