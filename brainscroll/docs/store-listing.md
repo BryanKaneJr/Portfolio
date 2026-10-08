@@ -82,7 +82,7 @@ learn,trivia,history,science,facts,education,art,astronomy,rome,geography,study,
 Welcome to BrainScroll: 26 skill trees and 2,600 levels, Dr. Scroll, unlimited review, trophies you can share, and Brainpower that refills free every day.
 ```
 
-The app's version is `0.1.0` in `app/app.json`. Set it to `1.0.0` (or whatever you choose) before the first store build.
+The app's version is `1.0.0` in `app/app.json`; EAS numbers each build itself.
 
 ### Categories
 

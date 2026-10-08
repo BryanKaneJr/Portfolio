@@ -3,6 +3,12 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-08: Ready for the first iPhone build
+
+- **Store builds point at the live backend on their own.** `app/eas.json` now carries the Supabase URL and its publishable key (public by design, like the RevenueCat key beside it) for the preview and production profiles, so the first build needs nothing set in EAS.
+- **The push job sends the league tier wording.** The `send-push` function on the live project still had the old league names; it's redeployed from the repo.
+- **What's left for launch is one short list** (`docs/release.md`, mirrored in `docs/build-order.md`): the first iPhone build, the two App Store subscriptions, the Apple Team ID for invite links, a few days on TestFlight, then launch week. Android follows. Stale notes are gone (usernames are built, the privacy policy is published, the app is version 1.0.0).
+
 ## 2026-10-08: League tiers
 
 - **Leagues come in eight tiers you climb each week** (owner: "apply levels to leagues that they level up or level down in each week"): seven gems and the Crown on top (owner: "we just do gems and then crown as the top", simple objects that are easy to make an image for): the Quartz, Amethyst, Aquamarine, Sapphire, Emerald, Ruby, Diamond and Crown Leagues. Everyone starts in Quartz, and leagues are made within a tier instead of by brain level. When a week ends the top 5 move up and the bottom 3 move down (the owner's pick of the classic rule); a league under 10 moves only its top 3 up and nobody down. Prizes are unchanged.

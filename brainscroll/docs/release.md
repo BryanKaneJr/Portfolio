@@ -14,11 +14,11 @@ App identifiers: `app.brainscroll` on both platforms (`app/app.json`). Change th
 
 ## Environment variables
 
-Set these in EAS (expo.dev → project → Environment variables) for the `preview` and `production` environments. All are public build-time values; never put a secret key in the app.
+The store builds already carry every value they need in `app/eas.json`, so there's nothing to set in EAS. Anything set in EAS (expo.dev → project → Environment variables) adds to these. All are public build-time values; never put a secret key in the app.
 
 | Variable | Value |
 | --- | --- |
-| `EXPO_PUBLIC_SUPABASE_URL` / `EXPO_PUBLIC_SUPABASE_ANON_KEY` | Your Supabase project (`npm run supabase:check` validates them) |
+| `EXPO_PUBLIC_SUPABASE_URL` / `EXPO_PUBLIC_SUPABASE_ANON_KEY` | Already set in `eas.json` (preview and production) to the live project and its publishable key, which is public by design. `npm run supabase:check` validates them |
 | `EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID` / `EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID` | Google sign-in (optional; Google is hidden without them) |
 | `EXPO_PUBLIC_REVENUECAT_IOS_KEY` / `EXPO_PUBLIC_REVENUECAT_ANDROID_KEY` | RevenueCat public SDK keys. The iOS one is set in `eas.json` (public, safe to ship); add the Android one there when the Play app exists |
 | `EXPO_PUBLIC_PRIVACY_URL` | Already set in `eas.json` to `https://brainscroll.app/privacy`, the policy the site publishes from `docs/privacy-policy.md` (required by both stores) |
@@ -92,12 +92,23 @@ Run `npm run check`, `npm run test:db`, `npm run e2e` and `npm run e2e:remote`: 
 - **The reviewer's progress lives in production.** Their account, levels, answers, reports and analytics events are real rows in the production database. That's harmless: it's one account, and the admin insights only flag anything once 20 learners have seen it. If you'd rather keep the numbers clean, delete the account after review (sign in, Profile → Settings → Delete account).
 - **Unlimited during review (decide before submitting).** Apple and Google reviewers buy with sandbox or test accounts against your production build. BrainScroll's production server ignores sandbox purchases (`allow_sandbox_purchases = false` and no `ALLOW_SANDBOX_PURCHASES` secret, see `subscriptions.md`), so a reviewer's purchase would succeed in the store sheet but Brainpower would stay limited (no ∞). That looks like a broken purchase and is a common rejection reason. Options: turn both switches on in production for the review window and off again after approval (a sandbox purchase can then lift the cap for any learner who has a sandbox account, which is rare), or grant Unlimited to the review account by hand. Pick one and match the review notes to it.
 
-## Still needed from you
+## What's left for launch
 
-1. Apple Developer Program and Google Play Console accounts.
-2. A Supabase production project (and a staging one for testing).
-3. RevenueCat, the store products and the webhook ([`subscriptions.md`](subscriptions.md)).
-4. The site's `SITE_*` details set so the privacy policy publishes complete at `https://brainscroll.app/privacy` ([`invite-links.md`](invite-links.md)). The policy itself is reviewed (2026-10-03); a legal review is still worth having. The **Support URL** for both listings is `https://brainscroll.app`: its footer shows `SITE_CONTACT_EMAIL`.
-5. Screenshots and final listing copy ([`store-listing.md`](store-listing.md)).
-6. A review sign-in: a dedicated test Google account, entered in App Store Connect (App Review Information) and Play Console (App access), never in this repo. Also decide how reviewers see Unlimited work. See [App review sign-in](#app-review-sign-in).
-7. The App Privacy, Data safety and age rating answers ([`store-privacy.md`](store-privacy.md)), including its "Confirm" items, and the account-deletion web page for Google Play: `https://brainscroll.app/delete-account`.
+Done already: the Supabase project (it serves as production: every level imported, the push job running every 5 minutes, the latest functions deployed), the RevenueCat iOS key, the site with the privacy policy, account deletion and invite pages, and drafts of the listing copy and the privacy answers.
+
+iPhone first, in this order:
+
+1. **The first build to TestFlight.** On a computer, from `brainscroll/app`: `npx eas-cli@latest build --profile production --platform ios --auto-submit`. It asks you to sign in to Expo and to your Apple Developer account, then creates the certificates, the App Store Connect record and the push key (answer yes), and sends the build to TestFlight.
+2. **The two subscriptions** in App Store Connect, with the week-long free trial, and the Paid Apps agreement, tax and banking ([`subscriptions.md`](subscriptions.md)). Skip any part that's already done.
+3. **The Apple Team ID** (developer.apple.com → Account → Membership details; 10 characters, public). Add it to the site as `APPLE_TEAM_ID` and invite links open the app ([`invite-links.md`](invite-links.md)).
+4. **A few days on TestFlight:** the QA checklist above, on your iPhone.
+5. **Launch week:**
+   - give the Weekly Quests their dates (`content/quests.json`, one Monday each) and import;
+   - mark the skills and subjects `published` in `content/` (they're still `draft`; nothing in the app reads it, but an import without `--publish-drafts` copies it);
+   - move Supabase to Pro (free projects pause after a quiet week);
+   - decide how reviewers see Unlimited ([App review sign-in](#app-review-sign-in)), then turn sandbox purchases off once approved;
+   - answer App Privacy and the age rating from [`store-privacy.md`](store-privacy.md), and submit.
+
+Reviewers can sign in with their own Apple ID. A test Google account is only needed once Google sign-in is on.
+
+**Android, after the iPhone launch:** a Play Console account, Firebase for push ([`notifications.md`](notifications.md)), the Android RevenueCat key in `eas.json`, and the SHA-256 fingerprint for invite links.

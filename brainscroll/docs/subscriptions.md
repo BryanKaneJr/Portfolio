@@ -41,7 +41,7 @@ sync-entitlement (Edge Function) ──asks──▶ RevenueCat REST API        
 
 These need your accounts; none of it can be done from the repo.
 
-1. **Privacy policy (launch blocker).** Publish one and set `EXPO_PUBLIC_PRIVACY_URL`. Apple rejects subscription apps without it. Terms default to Apple's standard EULA; set `EXPO_PUBLIC_TERMS_URL` to use your own.
+1. **Privacy policy:** done. It's published at `https://brainscroll.app/privacy` and `EXPO_PUBLIC_PRIVACY_URL` is set in `eas.json`. Terms default to Apple's standard EULA; set `EXPO_PUBLIC_TERMS_URL` to use your own.
 2. **App Store Connect**: create a subscription group "Unlimited" with two auto-renewable subscriptions, product ids `unlimited_monthly` ($4.99) and `unlimited_annual` ($39.99). Add the Paid Apps agreement, tax and banking. Create an App Store Connect API key for RevenueCat.
 3. **Google Play Console**: create subscriptions `unlimited_monthly` and `unlimited_annual` with one base plan each. Link a service account for RevenueCat.
 4. **RevenueCat** (app.revenuecat.com):

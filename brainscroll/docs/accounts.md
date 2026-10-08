@@ -128,4 +128,4 @@ These don't block anything above.
 1. **Apple/Google credentials.** Someone with the Apple Developer and Google Cloud accounts must create them. (No SMS provider is needed while phone sign-in is off.)
 2. **Country picker for phone numbers.** Today the learner types the country code (`+1 …`). A picker that pre-fills it from the device region would cut friction.
 3. **Google and Apple button branding.** The Apple button uses Apple's native component on iOS. The Google button is a styled BrainScroll button. Google's branding guidelines prefer their logo mark, so decide before launch.
-4. **Usernames** are needed for friends (post-MVP, see `social-expansion.md`), not for signing in.
+4. **Usernames** are built (friends find each other by username); they aren't part of signing in.
