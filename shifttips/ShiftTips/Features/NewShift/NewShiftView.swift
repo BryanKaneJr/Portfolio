@@ -16,6 +16,7 @@ struct NewShiftView: View {
     @State private var confirmStartOver = false
     @State private var editingRules = false
     @State private var pickingDate = false
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     var body: some View {
         @Bindable var store = store
@@ -397,14 +398,23 @@ struct NewShiftView: View {
 
     private func summaryBar(live: ShiftForm.Live, readiness: ShiftForm.Readiness) -> some View {
         let pool = live.outcome.headlineCents
+        // At accessibility text sizes the label sits over the amount, so
+        // neither has to break.
+        let stacked = dynamicTypeSize.isAccessibilitySize
+        let totalLayout = stacked
+            ? AnyLayout(VStackLayout(alignment: .leading, spacing: 2))
+            : AnyLayout(HStackLayout(alignment: .firstTextBaseline))
         return VStack(spacing: 12) {
-            HStack(alignment: .firstTextBaseline) {
+            totalLayout {
                 SectionLabel(store.form.mode == .pool ? "Distributing" : "Tipping out")
-                Spacer()
+                if !stacked { Spacer() }
                 MoneyText(cents: pool, font: .display(.title2))
                     .foregroundStyle(Theme.ink)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.6)
                     .accessibilityIdentifier("distributingAmount")
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
             .accessibilityElement(children: .combine)
 
             if store.isFormSaved {

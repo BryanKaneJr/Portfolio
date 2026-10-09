@@ -10,6 +10,7 @@ struct ReviewSplitView: View {
     @State private var changedSinceLastReview = false
     @State private var confirmZeroPool = false
     @State private var savedCount = 0
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     var body: some View {
         let saved = store.shift(id: store.form.id)
@@ -61,6 +62,9 @@ struct ReviewSplitView: View {
 
     @ViewBuilder
     private func bottomBar(saved: FinishedShift?, readiness: ShiftForm.Readiness, outcome: ShiftOutcome) -> some View {
+        // Side by side, or stacked at accessibility text sizes.
+        let stacked = dynamicTypeSize.isAccessibilitySize
+        let buttons = stacked ? AnyLayout(VStackLayout(spacing: 10)) : AnyLayout(HStackLayout(spacing: 10))
         VStack(spacing: 12) {
             if saved != nil {
                 HStack(spacing: 10) {
@@ -72,12 +76,12 @@ struct ReviewSplitView: View {
                 }
                 .accessibilityElement(children: .combine)
                 .accessibilityIdentifier("savedLabel")
-                HStack(spacing: 10) {
+                buttons {
                     ShareLink(item: ShareSummary.text(for: outcome)) {
                         Text("Share")
                     }
                     .buttonStyle(SecondaryButtonStyle())
-                    .frame(maxWidth: 130)
+                    .frame(maxWidth: stacked ? .infinity : 130)
                     Button("Start Next Shift") {
                         store.startNewShift()
                         router.popToRoot()
@@ -86,10 +90,10 @@ struct ReviewSplitView: View {
                     .accessibilityIdentifier("startNextShift")
                 }
             } else {
-                HStack(spacing: 10) {
+                buttons {
                     Button("Edit") { dismiss() }
                         .buttonStyle(SecondaryButtonStyle())
-                        .frame(maxWidth: 110)
+                        .frame(maxWidth: stacked ? .infinity : 110)
                     Button("Save Shift") {
                         if outcome.headlineCents == 0 {
                             confirmZeroPool = true
