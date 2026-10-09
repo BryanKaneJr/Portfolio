@@ -134,14 +134,17 @@ export function Stars({ count, size = 18 }: { count: number; size?: number }) {
 }
 
 /** A compact labeled number for secondary stats on progression screens. */
-export function StatTile({ label, value, tone = 'text', icon, art }: { label: string; value: string | number; tone?: 'text' | 'brand' | 'success' | 'mastery' | 'streak'; icon?: IconName; art?: UiArtName }) {
+/** `compact`: three to a row with long values (#89,405): narrower padding, and the value shrinks rather than wraps. */
+export function StatTile({ label, value, tone = 'text', icon, art, compact }: { label: string; value: string | number; tone?: 'text' | 'brand' | 'success' | 'mastery' | 'streak'; icon?: IconName; art?: UiArtName; compact?: boolean }) {
   const c = { text: color.text, brand: color.brandText, success: color.success, mastery: color.mastery, streak: color.streak }[tone];
   return (
-    <View style={styles.tile} accessible accessibilityLabel={`${label}: ${value}`}>
+    <View style={[styles.tile, compact && { paddingHorizontal: space.xs }]} accessible accessibilityLabel={`${label}: ${value}`}>
       <Text style={[type.label, { color: color.textMuted, textAlign: 'center' }]}>{label}</Text>
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: space.sm }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: compact ? space.xs : space.sm, maxWidth: '100%' }}>
         {art ? <UiArt name={art} size={iconSize.lg} /> : icon && <Icon name={icon} tint={tone === 'text' ? color.textMuted : c} size={iconSize.md} />}
-        <Text style={[type.numberSm, { color: c }]}>{value}</Text>
+        <Text numberOfLines={compact ? 1 : undefined} adjustsFontSizeToFit={compact} minimumFontScale={0.7} style={[type.numberSm, { color: c, flexShrink: 1 }]}>
+          {value}
+        </Text>
       </View>
     </View>
   );
