@@ -1,4 +1,4 @@
-import { DR_SCROLL_FRIEND, drScrollPosts, LEAGUE, ordinal, theTier, type FeedReaction } from '@brainscroll/core';
+import { DR_SCROLL_FRIEND, drScrollPosts, friendLeaderboard, LEAGUE, ordinal, theTier, type FeedReaction } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
@@ -173,18 +173,19 @@ export default function SocialScreen() {
             </Card>
           ) : (
             <View style={{ gap: space.sm }}>
-              <Title>This week with friends</Title>
+              <Title>Friend leaderboard</Title>
               <Card variant="plain" style={{ paddingVertical: space.xs, paddingHorizontal: 0, gap: 0 }}>
-                {circle.map((f, i) => {
+                {/* This week's top 5, or the top 4 and then you at your place (owner, 2026-10-09). */}
+                {friendLeaderboard(circle, me?.id).map(({ row: f, place }, i) => {
                   const you = f.id === me?.id;
                   return (
                     <Pressable
                       key={f.id}
                       accessibilityRole="button"
-                      accessibilityLabel={`${ordinal(i + 1)}: ${you ? 'you' : `@${f.username}`}, ${f.weeklyXp} XP this week`}
+                      accessibilityLabel={`${ordinal(place)}: ${you ? 'you' : `@${f.username}`}, ${f.weeklyXp} XP this week`}
                       onPress={() => openPerson(f.id)}
                       style={({ pressed }) => [styles.row, i > 0 && styles.divided, you && { backgroundColor: color.brandSoft }, pressed && { opacity: 0.8 }]}>
-                      <Caption style={{ width: 28 }}>{ordinal(i + 1)}</Caption>
+                      <Caption style={{ width: 36 }}>{ordinal(place)}</Caption>
                       <Avatar username={f.username} avatar={f.avatar} ring={f.ring} size={32} />
                       <View style={{ flex: 1 }}>
                         <StyledName nameStyle={f.nameStyle} style={[type.body, { color: color.text }]}>{you ? 'You' : `@${f.username}`}</StyledName>

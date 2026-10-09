@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { avatarIdFor, avatarUnlocked, compareSubjects, hiddenLeagueMember, LEAGUE_TIERS, leagueMove, leaguePrize, movedTier, theTier, tierGem, tierName, leagueWeekStart, ordinal, profileAccess, rarestTrophies, SOCIAL_ERROR_TEXT, USER_REPORT_NOTE_MAX, USER_REPORT_REASONS, usernameProblem, weeklyXp, type XpEvent } from '../src';
+import { avatarIdFor, avatarUnlocked, compareSubjects, friendLeaderboard, hiddenLeagueMember, LEAGUE_TIERS, leagueMove, leaguePrize, movedTier, theTier, tierGem, tierName, leagueWeekStart, ordinal, profileAccess, rarestTrophies, SOCIAL_ERROR_TEXT, USER_REPORT_NOTE_MAX, USER_REPORT_REASONS, usernameProblem, weeklyXp, type XpEvent } from '../src';
 
 // Mirrors backend/tests/social.test.sql.
 describe('leagues', () => {
@@ -44,6 +44,26 @@ describe('leagues', () => {
 
   it('says places as people do', () => {
     expect([1, 2, 3, 4, 11, 12, 13, 21, 22].map(ordinal)).toEqual(['1st', '2nd', '3rd', '4th', '11th', '12th', '13th', '21st', '22nd']);
+  });
+});
+
+describe('friend leaderboard', () => {
+  const ranked = (n: number) => Array.from({ length: n }, (_, i) => ({ id: `u${i + 1}` }));
+  const shown = (n: number, me: string) => friendLeaderboard(ranked(n), me).map((r) => `${r.place}:${r.row.id}`);
+
+  it('shows everyone when there are five or fewer', () => {
+    expect(shown(3, 'u2')).toEqual(['1:u1', '2:u2', '3:u3']);
+    expect(shown(5, 'u5')).toEqual(['1:u1', '2:u2', '3:u3', '4:u4', '5:u5']);
+  });
+
+  it('shows the top 5 while you are in them', () => {
+    expect(shown(12, 'u1')).toEqual(['1:u1', '2:u2', '3:u3', '4:u4', '5:u5']);
+    expect(shown(12, 'u5')).toEqual(['1:u1', '2:u2', '3:u3', '4:u4', '5:u5']);
+  });
+
+  it('shows the top 4 and then you at your place when you are further down', () => {
+    expect(shown(12, 'u6')).toEqual(['1:u1', '2:u2', '3:u3', '4:u4', '6:u6']);
+    expect(shown(12, 'u10')).toEqual(['1:u1', '2:u2', '3:u3', '4:u4', '10:u10']);
   });
 });
 

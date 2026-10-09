@@ -104,6 +104,21 @@ export function leaguePrize(place: number, size: number, xp: number): number {
 }
 
 
+/** Rows on Social's friend leaderboard (owner, 2026-10-09). */
+export const FRIEND_BOARD_ROWS = 5;
+
+/**
+ * Social's friend leaderboard, from you and your friends ranked by this week's
+ * XP: the top 5, or, when you're further down, the top 4 and then you at your
+ * place ("10th"). Each row keeps its place in the whole ranking.
+ */
+export function friendLeaderboard<T extends { id: string }>(ranked: readonly T[], meId: string | undefined): { row: T; place: number }[] {
+  const rows = ranked.map((row, i) => ({ row, place: i + 1 }));
+  const mine = rows.findIndex((r) => r.row.id === meId);
+  if (mine < FRIEND_BOARD_ROWS) return rows.slice(0, FRIEND_BOARD_ROWS);
+  return [...rows.slice(0, FRIEND_BOARD_ROWS - 1), rows[mine]!];
+}
+
 /** "1st", "2nd", "3rd", "4th"... */
 export function ordinal(n: number): string {
   const s = n % 100 >= 11 && n % 100 <= 13 ? 'th' : (['th', 'st', 'nd', 'rd'][n % 10] ?? 'th');

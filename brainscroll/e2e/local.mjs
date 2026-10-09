@@ -128,7 +128,7 @@ try {
   check(/Friend requests[\s\S]*@priya/.test(social), 'friend requests show at the top');
   await exactButton(page, 'Accept').click();
   await page.waitForTimeout(1000);
-  check(/This week with friends[\s\S]*@priya/.test(await bodyText(page)), 'accepting makes a friend, ranked by this week\'s XP with you');
+  check(/Friend leaderboard[\s\S]*@priya/.test(await bodyText(page)), 'accepting makes a friend, ranked by this week\'s XP with you');
   const liked = async () => page.getByRole('button', { name: /^Liked/ }).count();
   const before = await liked();
   await page.getByRole('button', { name: /^Like(,|$)/ }).first().click();

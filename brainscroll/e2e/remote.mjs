@@ -311,7 +311,7 @@ try {
   check(/You and @old_pal are friends now/.test(await bodyText(page)) && sql(`select count(*) from public.friendships where user_id = '${learnerId}'`) === '1', 'an invite code makes friends at once, both ways');
   await page.goBack();
   await page.waitForTimeout(1000);
-  check(/This week with friends[\s\S]*@old_pal/.test(await bodyText(page)), 'friends appear ranked by this week\'s XP');
+  check(/Friend leaderboard[\s\S]*@old_pal/.test(await bodyText(page)), 'friends appear ranked by this week\'s XP');
 
   // Profiles: public by default, with a Private profile switch (owner, 2026-10-03). Opened cold they wait for the account.
   await coldLoad(page, errors, `${URL}person/00000000-0000-0000-0000-0000000000f1`);

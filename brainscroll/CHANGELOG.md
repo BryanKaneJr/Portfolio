@@ -5,6 +5,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-10-09: First TestFlight fixes
 
+- **Social's friend list is the Friend leaderboard, five rows at most** (owner): this week's top 5, or, when you're further down, the top 4 and then you at your place ("10th"). Core `friendLeaderboard` decides it, with its own test.
 - **An Unlimited tile on the skill map** (owner: "an unlimited box if the user doesn't have unlimited, same design as the quest one"): Unlimited's gold brain over "Unlimited", beside the road opposite the week's quest, for free learners only; a tap opens the Unlimited screen (`paywall_viewed` from `map`). The two tiles now share one design (`MapTile`).
 - **The App Store screenshots are the owner's own**, taken on an iPhone with the TestFlight build: nine at 1320 × 2868, two learning cards third and fourth (the 6.9" size) in `store/app-store-iphone-6.9/`, in upload order, replacing the web-made set (`docs/store-listing.md`).
 - **Lesson screens that fit don't rubber-band** (owner, still seeing the page move while reordering on the first build): with no bounce when a card fits the screen, a drag on an order tile can't move the page even in the instant before the scroll lock lands. Long cards still scroll and bounce at the ends.
