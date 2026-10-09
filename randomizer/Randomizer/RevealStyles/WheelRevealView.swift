@@ -145,7 +145,7 @@ private struct WheelFace: View {
                 label.rotate(by: .degrees(sector.mid - 90))
                 let arcWidth = radius * 0.62 * sector.span * .pi / 180
                 if showNames, arcWidth >= 13 {
-                    let fontSize = min(17, max(10, min(arcWidth * 0.55, radius * 0.09)))
+                    let fontSize = min(18, max(10, min(arcWidth * 0.55, radius * 0.11)))
                     let maxChars = max(3, Int(radius * 0.6 / (fontSize * 0.6)))
                     let text = Text(Self.truncated(sector.member.name, to: maxChars))
                         .font(.system(size: fontSize, weight: .bold, design: .rounded))

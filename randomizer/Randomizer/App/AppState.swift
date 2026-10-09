@@ -86,12 +86,20 @@ final class AppState {
         persist()
     }
 
+    nonisolated static let newListTitle = "New list"
+
     @discardableResult
-    func createList(title: String = "New list") -> DrawList {
+    func createList(title: String = AppState.newListTitle) -> DrawList {
         let list = DrawList(title: title)
         lists.append(list)
         persist()
         return list
+    }
+
+    /// Drops a list made with New List and left without a name or entries.
+    func discardIfUntouched(_ id: UUID) {
+        guard let list = list(id), list.entries.isEmpty, list.title == Self.newListTitle, list.activeResults.isEmpty else { return }
+        delete(id)
     }
 
     func delete(_ id: UUID) {

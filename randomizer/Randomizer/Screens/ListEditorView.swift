@@ -113,7 +113,10 @@ struct ListEditorView: View {
             titleDraft = list.title
             if list.entries.isEmpty { focus = .newEntry }
         }
-        .onDisappear(perform: commitTitle)
+        .onDisappear {
+            commitTitle()
+            appState.discardIfUntouched(listID)
+        }
     }
 
     // MARK: Sections
