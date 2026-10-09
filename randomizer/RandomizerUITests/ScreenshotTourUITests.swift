@@ -91,6 +91,17 @@ final class ScreenshotTourUITests: XCTestCase {
         app.buttons["settingsDoneButton"].tap()
     }
 
+    /// The draw screen with repeats allowed at a large Dynamic Type size.
+    @MainActor
+    func testLargeTextDrawScreen() {
+        let app = XCUIApplication.randomizer(seed: "league", style: "wheel", mode: "customWeighted", removal: "off", open: "draw")
+        app.launchArguments += ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryXXXL"]
+        app.launch()
+        XCTAssertTrue(app.drawButton.waitForExistence(timeout: 10))
+        XCTAssertTrue(app.removalToggle.isHittable)
+        snap("15-large-text-draw")
+    }
+
     /// The first-run screen a new customer sees.
     @MainActor
     func testFirstRunScreens() {
