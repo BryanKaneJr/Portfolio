@@ -719,12 +719,12 @@ export function useBoostLeft(): number | null {
  * "players need to know how much time they have left"). Opens Profile, where
  * boosts live.
  */
-export function BoostChip({ centered }: { centered?: boolean }) {
+export function BoostChip({ centered, testID = 'boost-chip' }: { centered?: boolean; testID?: string }) {
   const left = useBoostLeft();
   if (left === null) return null;
   return (
     <Pressable
-      testID="boost-chip"
+      testID={testID}
       accessibilityRole="button"
       accessibilityLabel={`2x XP boost, ${Math.ceil(left / 60000)} minutes left. Open`}
       onPress={() => router.navigate('/profile')}

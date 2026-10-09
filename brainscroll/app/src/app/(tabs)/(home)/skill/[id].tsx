@@ -149,7 +149,7 @@ export default function SkillMapScreen() {
             <StreakBadge />
           </Row>
           {/* A running XP boost's time left, centered under the bar (owner, 2026-10-09: players need to see it). */}
-          <BoostChip centered />
+          <BoostChip centered testID="boost-chip-map" />
         </>
       }>
 

@@ -543,6 +543,8 @@ try {
   await profile();
   await button(page, 'Delete account').click();
   check(/permanently deletes your account/.test(await bodyText(page)), 'deletion explains what will be lost before confirming');
+  check(await button(page, 'Delete permanently').isDisabled(), 'and stays shut until DELETE is typed (owner, 2026-10-09)');
+  await field(page, 'Type DELETE to confirm').fill('delete');
   await button(page, 'Delete permanently').click();
   await page.waitForTimeout(1200);
   check(/Continue with email/i.test(await bodyText(page)), 'after deletion the app is back at the sign-in screen');
