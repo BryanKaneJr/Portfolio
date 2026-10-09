@@ -1,18 +1,25 @@
+import type { IngredientCategory } from '../../src/data/types';
+
 /**
  * Reviewed mappings from imported ingredient names to catalog IDs (scripts/import only).
  *
  * Keys are normalized names (lowercase, no punctuation; see normalizeText). Values:
  *  - a catalog ID, or several when one source line names two things ("salt and pepper");
- *  - `null`: a real ingredient with no catalog entry yet. Recipes that need it stay blocked
- *    and the import report counts how many recipes each one would unlock.
- *  - `'=other name'`: the same thing as another key (spelling variants), so the report counts them together.
+ *  - `{ add: category }`: a real ingredient the catalog doesn't have yet. Owner rule (2026-10-09):
+ *    when a recipe we import needs one, the catalog gains it, so `import:draft` writes the entry
+ *    to src/data/ingredients.ts (id from the key, `name` if the key isn't the display name);
+ *  - `'=other key'`: a spelling variant of another key. It becomes an alias of that entry;
+ *  - `null`: too vague to index ("cheese", "vinegar"). The recipe stays blocked until the editor
+ *    names the specific food in the draft;
  *  - `false`: not an ingredient at all (equipment listed under Ingredients); the line is dropped.
  *
  * Same rules as the catalog (docs/ingredient-mappings.md): same food in another form or
  * name only. Never map a substitution (bouillon is not broth, cayenne is not chili powder,
- * tomato sauce is not tomatoes). When unsure, use null and decide in the catalog.
+ * tomato sauce is not tomatoes). A food that differs gets its own `{ add }` entry instead.
  */
-export const INGREDIENT_MAP: Record<string, string | string[] | null | false> = {
+export type MapTarget = string | string[] | null | false | { add: IngredientCategory; name?: string };
+
+export const INGREDIENT_MAP: Record<string, MapTarget> = {
   // ── Two catalog items on one line ──
   'salt and pepper': ['salt', 'black_pepper'],
   'salt and black pepper': ['salt', 'black_pepper'],
@@ -106,45 +113,81 @@ export const INGREDIENT_MAP: Record<string, string | string[] | null | false> = 
   'bacon rashers': 'bacon',
   'sweet butter': 'butter', // old name for unsalted butter
   oranges: '=orange',
-  orange: null,
-  'maple syrup': null,
+  orange: { add: 'produce' },
+  'maple syrup': { add: 'pantry' },
   thermos: false,
   'whole milk': 'milk',
   'cold whole milk': 'milk',
-  'frozen spinach': null, // cooks differently from fresh; decide in the catalog
+  'frozen spinach': { add: 'produce' }, // cooks differently from fresh baby spinach
+  'cooking spray': 'vegetable_oil', // oil in a spray can
+  'chilli flakes': 'red_pepper_flakes',
+  'mashed bananas': 'banana',
+  'golden delicious apples': 'apple', // the recipe names the variety
+  'granny smith apples': 'apple',
+  'whipped cream': 'heavy_cream', // whipped in the recipe
+  broth: null, // chicken, beef or vegetable? The recipe must say
+  grease: null, // which fat?
 
-  // ── Spelling variants of one missing ingredient (counted together in the report) ──
+  // ── Reviewed ingredients the catalog gains when a recipe needs them, with their spelling variants ──
   'bay leaves': '=bay leaf',
   bayleaf: '=bay leaf',
-  'bay leaf': null,
+  'bay leaf': { add: 'spice' },
   'ground nutmeg': '=nutmeg',
-  nutmeg: null,
+  nutmeg: { add: 'spice' },
   cayenne: '=cayenne pepper',
-  'powdered sugar': null,
+  'powdered sugar': { add: 'pantry' },
   'icing sugar': '=powdered sugar',
   'confectioners sugar': '=powdered sugar',
   'powdered white sugar': '=powdered sugar',
-  cornstarch: null,
+  cornstarch: { add: 'pantry' },
   cornflour: '=cornstarch', // UK name for cornstarch
   'corn starch': '=cornstarch',
-  'active dry yeast': null,
-  'dry yeast': '=active dry yeast',
-  'instant yeast': null,
-  yogurt: null,
+  yeast: { add: 'pantry' }, // active dry or instant; the recipe names which
+  'active dry yeast': '=yeast',
+  'dry yeast': '=yeast',
+  'instant yeast': '=yeast',
+  yogurt: { add: 'dairy', name: 'Plain yogurt' }, // Greek yogurt stays separate
   'plain yogurt': '=yogurt',
   'natural yogurt': '=yogurt',
-  leek: null,
+  leek: { add: 'produce' },
   leeks: '=leek',
   coriander: null, // leaves (cilantro) or seed: the recipe must say
-  'ground coriander': null,
-  'dill weed': '=dill',
-  dill: null,
+  'ground coriander': { add: 'spice' },
+  'dill weed': '=dried dill',
+  'dried dill': { add: 'spice' },
+  dill: { add: 'produce', name: 'Fresh dill' },
   'panko breadcrumbs': '=bread crumbs',
   panko: '=bread crumbs',
   chilli: '=chili pepper',
   'chilli pepper': '=chili pepper',
-  'chili pepper': null,
+  'chili pepper': null, // which chili? The recipe must say
   cheese: null, // which cheese? The editor names it or the recipe stays out
+  ham: { add: 'protein' },
+  'smoked ham': '=ham',
+  corn: { add: 'produce' }, // kernels, fresh or frozen
+  'frozen corn': '=corn',
+  'corn kernels': '=corn',
+  'sweet corn': '=corn',
+  'pecorino romano': { add: 'dairy', name: 'Pecorino Romano' },
+  pecorino: '=pecorino romano',
+  lentils: { add: 'protein' }, // brown or green, dried
+  'brown lentils': '=lentils',
+  'green lentils': '=lentils',
+  'red lentils': { add: 'protein' }, // cook to a purée, so not interchangeable with brown or green
+  'dried red lentils': '=red lentils',
+  walnuts: { add: 'pantry' },
+  'seasoned salt': { add: 'spice' },
+  'season salt': '=seasoned salt',
+  'seasoning salt': '=seasoned salt',
+  rosemary: { add: 'spice' }, // fresh or dried, like thyme
+  'dried rosemary': '=rosemary',
+  'rosemary leaves': '=rosemary',
+  'white vinegar': { add: 'pantry' },
+  'distilled white vinegar': '=white vinegar',
+  'marinara sauce': { add: 'pantry' },
+  marinara: '=marinara sauce',
+  'pasta sauce': '=marinara sauce',
+  'ground ginger': { add: 'spice' }, // the catalog's ginger is fresh root
 
   // ── Not ingredients ──
   thermometer: false,
@@ -156,39 +199,39 @@ export const INGREDIENT_MAP: Record<string, string | string[] | null | false> = 
   toothpicks: false,
   skewers: false,
 
-  // ── Kept out on purpose (look alike, different food) ──
-  'rice vinegar': null,
-  'tomato sauce': null,
-  'chicken bouillon': null,
-  'bouillon cube': null,
-  'cayenne pepper': null,
-  'pepper jack': null,
-  'bread crumbs': null,
+  // ── Look alike, different food: each gets its own entry, never an existing ID ──
+  'rice vinegar': { add: 'pantry' },
+  'tomato sauce': { add: 'pantry' },
+  'chicken bouillon': { add: 'pantry' },
+  'bouillon cube': null, // which flavor?
+  'cayenne pepper': { add: 'spice' },
+  'pepper jack': { add: 'dairy', name: 'Pepper Jack' },
+  'bread crumbs': { add: 'grain' },
   breadcrumbs: '=bread crumbs',
-  peanuts: null,
-  'butternut squash': null,
-  peppercorns: null, // whole, not ground pepper
+  peanuts: { add: 'pantry' },
+  'butternut squash': { add: 'produce' },
+  peppercorns: { add: 'spice' }, // whole, not ground pepper
   'black peppercorns': '=peppercorns',
-  'cumin seeds': null, // whole, not ground cumin
-  'cinnamon sticks': null,
-  'dried basil': null, // the catalog's basil is fresh
-  'dark soy sauce': null,
-  'condensed milk': null,
+  'cumin seeds': { add: 'spice' }, // whole, not ground cumin
+  'cinnamon sticks': { add: 'spice' },
+  'dried basil': { add: 'spice' }, // the catalog's basil is fresh
+  'dark soy sauce': { add: 'pantry' },
+  'condensed milk': { add: 'pantry', name: 'Sweetened condensed milk' },
   'sweetened condensed milk': '=condensed milk',
-  'evaporated milk': null,
-  'tomato puree': null,
-  'bomba rice': null,
-  'whole wheat flour': null,
-  'bread flour': null,
+  'evaporated milk': { add: 'pantry' },
+  'tomato puree': { add: 'pantry' },
+  'bomba rice': { add: 'grain', name: 'Paella rice' },
+  'whole wheat flour': { add: 'grain' },
+  'bread flour': { add: 'grain' },
   beef: null, // which cut?
-  vinegar: null,
-  buttermilk: null,
-  'coconut cream': null,
-  'cream of tartar': null,
-  'onion powder': null,
-  'garlic salt': null,
-  'brown rice': null,
-  'arborio rice': null, // risotto needs it; plain long-grain won't work
-  'sweet potato noodles': null,
-  'lemon pepper': null,
+  vinegar: null, // which vinegar?
+  buttermilk: { add: 'dairy' },
+  'coconut cream': { add: 'pantry' },
+  'cream of tartar': { add: 'pantry' },
+  'onion powder': { add: 'spice' },
+  'garlic salt': { add: 'spice' },
+  'brown rice': { add: 'grain' },
+  'arborio rice': { add: 'grain' }, // risotto needs it; plain long-grain won't work
+  'sweet potato noodles': { add: 'grain' },
+  'lemon pepper': { add: 'spice', name: 'Lemon pepper seasoning' },
 };

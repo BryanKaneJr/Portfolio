@@ -2,7 +2,7 @@ import type { IngredientIndex } from '../../src/logic/normalizeIngredient';
 import { DEFAULT_STAPLE_IDS } from '../../src/data/staples';
 import { INGREDIENTS_BY_POPULARITY } from '../../src/data/popularity';
 import type { SourceDef } from './sources';
-import type { Candidate } from './types';
+import type { CatalogAddition, Candidate } from './types';
 
 /** Single-quoted TS string literal (double quotes when that avoids escapes, like Prettier). */
 export function q(text: string): string {
@@ -99,7 +99,33 @@ export function draftOrder(candidates: Candidate[]): Candidate[] {
     const ids = new Set(c.ingredients.filter(i => !i.optional).flatMap(i => i.ids));
     let s = 0;
     for (const id of ids) if (!STAPLES.has(id)) s += Math.max(0, 70 - (RANK.get(id) ?? 70)) / 70;
-    return s - c.todo.length * 0.25;
+    // Fewer new catalog ingredients first: each one is a new chip in the picker.
+    return s - c.todo.length * 0.25 - c.adds.length * 0.5;
   };
   return [...candidates].sort((a, b) => score(b) - score(a) || a.key.localeCompare(b.key));
+}
+
+export const CATALOG_SECTION = '  // ── Added for imported recipes (reviewed in scripts/import/ingredient-map.ts) ──';
+
+/**
+ * Append catalog entries to the INGREDIENTS array source (src/data/ingredients.ts), under one
+ * section so additions stay easy to review. IDs already present are skipped.
+ */
+export function addToCatalogSource(
+  text: string,
+  additions: CatalogAddition[],
+): { text: string; added: CatalogAddition[] } {
+  const added = additions.filter(
+    (a, i) => additions.findIndex(b => b.id === a.id) === i && !new RegExp(`id: '${a.id}'`).test(text),
+  );
+  if (!added.length) return { text, added };
+  const end = text.lastIndexOf('];');
+  if (end < 0) throw new Error('INGREDIENTS array not found');
+  const entries = added.map(
+    a =>
+      `  { id: ${q(a.id)}, name: ${q(a.name)}, category: ${q(a.category)}, aliases: [${a.aliases.map(q).join(', ')}] },`,
+  );
+  const head = text.slice(0, end).replace(/\n*$/, '\n');
+  const section = text.includes(CATALOG_SECTION) ? [] : ['', CATALOG_SECTION];
+  return { text: `${head}${[...section, ...entries].join('\n')}\n${text.slice(end)}`, added };
 }

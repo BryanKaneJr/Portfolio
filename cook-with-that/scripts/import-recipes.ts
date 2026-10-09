@@ -4,6 +4,7 @@
  *   npm run import:stage -- based-cooking           fetch the pinned snapshot, parse, map, write the report
  *   npm run import:draft -- based-cooking --next 10  append the next 10 ready recipes as drafts
  *   npm run import:draft -- based-cooking chili tacos  append these source keys as drafts
+ *   npm run import:catalog -- "ground ginger"        add a reviewed ingredient to the catalog by hand
  *
  * Drafts land in src/data/imported/<file> with source metadata filled in and TODO markers
  * where an editor must decide (times, descriptions, quantities). `npm run validate` fails
@@ -14,7 +15,8 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 import { INGREDIENTS, RECIPES } from '../src/data/catalog';
 import { buildIngredientIndex } from '../src/logic/normalizeIngredient';
-import { draftOrder, draftRecipeCode, recipeId } from './import/draft';
+import { addToCatalogSource, draftOrder, draftRecipeCode, recipeId } from './import/draft';
+import { catalogAddition } from './import/mapIngredient';
 import { SOURCES, type SourceDef } from './import/sources';
 import { stageRecipe, stageReport } from './import/stage';
 import type { Candidate } from './import/types';
@@ -96,7 +98,7 @@ function runDraft(name: string, source: SourceDef, args: string[]) {
       if (excluded) fail(`${c.key} is excluded: ${'reason' in excluded ? excluded.reason : ''}`);
     }
   }
-  if (!picked.length) fail('nothing left to draft: add catalog ingredients (see the report) or name keys');
+  if (!picked.length) fail('nothing left to draft: review more ingredient names (see the report) or name keys');
 
   const index = buildIngredientIndex(INGREDIENTS);
   const ids = new Set(RECIPES.map(r => r.id));
@@ -115,12 +117,42 @@ function runDraft(name: string, source: SourceDef, args: string[]) {
   const end = text.lastIndexOf('];');
   if (start < 0 || end < start) fail(`can't find "${marker.trim()}" … "];" in ${source.file}`);
   writeFileSync(file, `${text.slice(0, end)}${blocks.join('\n')}\n${text.slice(end)}`);
+
+  // Owner rule: a recipe we import brings any reviewed ingredient the catalog lacks.
+  const catalogFile = join(ROOT, 'src', 'data', 'ingredients.ts');
+  const catalog = addToCatalogSource(
+    readFileSync(catalogFile, 'utf8'),
+    picked.flatMap(c => c.adds),
+  );
+  if (catalog.added.length) writeFileSync(catalogFile, catalog.text);
+
   console.log(`✓ Drafted ${picked.length} recipe(s) into src/data/imported/${source.file}:`);
   for (const c of picked) console.log(`  - ${c.key}${c.todo.length ? `  (to do: ${c.todo.join(', ')})` : ''}`);
-  console.log('Edit them, then run `npm run validate`.');
+  if (catalog.added.length) {
+    console.log(`✓ Added ${catalog.added.length} ingredient(s) to src/data/ingredients.ts (check name and category):`);
+    for (const a of catalog.added) console.log(`  - ${a.id} (${a.category}): ${a.name}`);
+  }
+  console.log('Edit them, then run `npm run check`.');
+}
+
+/** Editor fix-ups: add reviewed `{ add }` ingredients to the catalog by key ("ground ginger"). */
+function runCatalog(keys: string[]) {
+  if (!keys.length) fail('name reviewed ingredient keys from scripts/import/ingredient-map.ts');
+  const additions = keys.map(
+    k => catalogAddition(k) ?? fail(`"${k}" isn't a reviewed { add } entry in ingredient-map.ts`),
+  );
+  const catalogFile = join(ROOT, 'src', 'data', 'ingredients.ts');
+  const catalog = addToCatalogSource(readFileSync(catalogFile, 'utf8'), additions);
+  writeFileSync(catalogFile, catalog.text);
+  console.log(`✓ Added ${catalog.added.length} ingredient(s) to src/data/ingredients.ts`);
+  for (const a of catalog.added) console.log(`  - ${a.id} (${a.category}): ${a.name}`);
 }
 
 const [command, name, ...rest] = process.argv.slice(2);
+if (command === 'catalog') {
+  runCatalog([name, ...rest].filter((k): k is string => !!k));
+  process.exit(0);
+}
 const source = SOURCES[name ?? ''];
 if (!source) fail(`usage: import-recipes <stage|draft> <${Object.keys(SOURCES).join('|')}> […]`);
 if (command === 'stage') runStage(name, source);

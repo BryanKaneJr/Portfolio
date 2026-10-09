@@ -4,9 +4,9 @@ import { INGREDIENTS } from '../src/data/ingredients';
 import { RECIPES } from '../src/data/recipes';
 import { buildIngredientIndex, normalizeText, unlistedStepIngredients } from '../src/logic/normalizeIngredient';
 import { validateContent } from '../src/logic/validateContent';
-import { draftRecipeCode, q, recipeId } from '../scripts/import/draft';
+import { addToCatalogSource, CATALOG_SECTION, draftRecipeCode, q, recipeId } from '../scripts/import/draft';
 import { INGREDIENT_MAP } from '../scripts/import/ingredient-map';
-import { mapIngredient } from '../scripts/import/mapIngredient';
+import { catalogAddition, mapIngredient } from '../scripts/import/mapIngredient';
 import { parseIngredientLine } from '../scripts/import/parseIngredientLine';
 import { parseBasedCooking, parseMinutes } from '../scripts/import/sources/basedCooking';
 import { SOURCES } from '../scripts/import/sources';
@@ -14,6 +14,13 @@ import { stageRecipe, unlockOrder } from '../scripts/import/stage';
 import { recipe } from './fixtures';
 
 const index = buildIngredientIndex(INGREDIENTS);
+/** The catalog without anything import drafts have added, so these tests don't depend on what was imported. */
+const ADDED = new Set(
+  Object.keys(INGREDIENT_MAP)
+    .map(k => catalogAddition(k)?.id)
+    .filter(Boolean),
+);
+const baseIndex = buildIngredientIndex(INGREDIENTS.filter(i => !ADDED.has(i.id)));
 const ids = (name: string) => {
   const m = mapIngredient(index, name);
   return m.status === 'mapped' ? m.ids : m.status;
@@ -62,16 +69,21 @@ describe('ingredient mapping', () => {
     expect(ids('garlic powder')).toEqual(['garlic_powder']);
     expect(ids('peanut butter')).toEqual(['peanut_butter']);
     expect(ids('chicken broth')).toEqual(['chicken_broth']);
-    for (const name of [
-      'rice vinegar',
-      'tomato sauce',
-      'cayenne pepper',
-      'butternut squash',
-      'chicken bouillon',
-      'bread crumbs',
-    ]) {
-      expect(ids(name)).not.toEqual(expect.arrayContaining([expect.any(String)]));
-    }
+    const never: [string, string][] = [
+      ['rice vinegar', 'rice'],
+      ['tomato sauce', 'tomato'],
+      ['cayenne pepper', 'black_pepper'],
+      ['butternut squash', 'butter'],
+      ['chicken bouillon', 'chicken_broth'],
+      ['bread crumbs', 'bread'],
+      ['ground ginger', 'ginger'],
+      ['peppercorns', 'black_pepper'],
+    ];
+    for (const [name, wrong] of never)
+      for (const idx of [index, baseIndex]) {
+        const m = mapIngredient(idx, name);
+        expect([name, m.status === 'mapped' && m.ids.includes(wrong)]).toEqual([name, false]);
+      }
   });
 
   test('a word match is only ever a suggestion', () => {
@@ -82,22 +94,26 @@ describe('ingredient mapping', () => {
     });
   });
 
-  test('variants count as one missing ingredient; equipment is dropped', () => {
-    expect(mapIngredient(index, 'bay leaves')).toEqual({ status: 'not_in_catalog', key: 'bay leaf' });
+  test('variants count as one missing ingredient; once added, the catalog answers; equipment is dropped', () => {
+    expect(mapIngredient(baseIndex, 'bay leaves')).toEqual({
+      status: 'missing',
+      key: 'bay leaf',
+      addition: { id: 'bay_leaf', name: 'Bay leaf', category: 'spice', aliases: ['bay leaves', 'bayleaf'] },
+    });
+    expect(ids('bay leaves')).toEqual(ADDED.has('bay_leaf') && index.byId.has('bay_leaf') ? ['bay_leaf'] : 'missing');
+    expect(mapIngredient(index, 'cheese')).toEqual({ status: 'ambiguous', key: 'cheese' });
     expect(mapIngredient(index, 'Thermometer').status).toBe('not_ingredient');
   });
 
-  test('every reviewed mapping points at a real catalog ID or another reviewed key', () => {
+  test('every reviewed mapping points at a real catalog ID, another reviewed key, or a new entry', () => {
     const known = new Set(INGREDIENTS.map(i => i.id));
     for (const [key, target] of Object.entries(INGREDIENT_MAP)) {
       expect(normalizeText(key)).toBe(key);
       if (typeof target === 'string' && target.startsWith('=')) {
         const to = target.slice(1);
-        expect([key, Object.prototype.hasOwnProperty.call(INGREDIENT_MAP, to) || !!index.byTerm.get(to)]).toEqual([
-          key,
-          true,
-        ]);
-      } else if (target) {
+        const resolves = Object.prototype.hasOwnProperty.call(INGREDIENT_MAP, to) || !!index.byTerm.get(to);
+        expect([key, resolves]).toEqual([key, true]);
+      } else if (typeof target === 'string' || Array.isArray(target)) {
         for (const id of Array.isArray(target) ? target : [target]) expect([key, known.has(id)]).toEqual([key, true]);
       }
     }
@@ -106,9 +122,21 @@ describe('ingredient mapping', () => {
   test('a reviewed mapping never contradicts the catalog', () => {
     for (const [key, target] of Object.entries(INGREDIENT_MAP)) {
       const catalogId = index.byTerm.get(key);
-      if (catalogId && typeof target === 'string' && !target.startsWith('='))
-        expect([key, target]).toEqual([key, catalogId]);
+      if (!catalogId) continue;
+      if (typeof target === 'string' && !target.startsWith('=')) expect([key, target]).toEqual([key, catalogId]);
+      // A key the catalog already knows can only be a new entry if it *is* that entry (added by an earlier draft).
+      if (target && typeof target === 'object' && !Array.isArray(target))
+        expect([key, catalogId]).toEqual([key, catalogAddition(key)!.id]);
+      if (target === null || target === false) expect([key, 'shadowed by the catalog']).toEqual([key, 'ok']);
     }
+  });
+
+  test('adding every reviewed ingredient at once keeps the catalog valid', () => {
+    const known = new Set(INGREDIENTS.map(i => i.id));
+    const additions = Object.keys(INGREDIENT_MAP)
+      .map(catalogAddition)
+      .filter((a): a is NonNullable<typeof a> => !!a && !known.has(a.id));
+    expect(validateContent([...INGREDIENTS, ...additions], [])).toEqual([]);
   });
 });
 
@@ -228,10 +256,34 @@ describe('drafting', () => {
     expect(code).toContain('TODO: write original directions');
   });
 
-  test('greedy unlock order picks the ingredient that frees the most recipes', () => {
+  test('drafting adds reviewed ingredients to the catalog once, under one section', () => {
+    const nutmeg = catalogAddition('nutmeg')!;
+    const bay = catalogAddition('bay leaf')!;
+    const src =
+      "export const INGREDIENTS: Ingredient[] = [\n  { id: 'salt', name: 'Salt', category: 'spice', aliases: [] },\n];\n";
+    const once = addToCatalogSource(src, [nutmeg, bay, nutmeg]);
+    expect(once.added.map(a => a.id)).toEqual(['nutmeg', 'bay_leaf']);
+    expect(once.text).toContain(CATALOG_SECTION);
+    expect(once.text).toContain(
+      "  { id: 'bay_leaf', name: 'Bay leaf', category: 'spice', aliases: ['bay leaves', 'bayleaf'] },\n];",
+    );
+    const twice = addToCatalogSource(once.text, [bay]);
+    expect(twice.added).toEqual([]);
+    expect(twice.text).toBe(once.text);
+  });
+
+  test('a recipe needing a reviewed ingredient is draftable and lists what the catalog gains', () => {
+    const raw = { ...parseBasedCooking('x', SAMPLE), ingredientLines: ['4 slices bread', 'a pinch of ground nutmeg'] };
+    const c = stageRecipe(baseIndex, raw);
+    expect(c.blocked).toEqual([]);
+    expect(c.adds.map(a => a.id)).toEqual(['nutmeg']);
+    expect(c.ingredients[1].ids).toEqual(['nutmeg']);
+  });
+
+  test('greedy review order picks the name that frees the most recipes', () => {
     const c = (key: string, missing: string[]) => ({
       ...stageRecipe(index, parseBasedCooking(key, SAMPLE)),
-      blocked: missing.map(k => ({ kind: 'not_in_catalog' as const, key: k })),
+      blocked: missing.map(k => ({ kind: 'unmapped' as const, key: k })),
     });
     expect(
       unlockOrder([c('a', ['nutmeg']), c('b', ['nutmeg']), c('c', ['dill', 'nutmeg']), c('d', ['leek'])], 2),

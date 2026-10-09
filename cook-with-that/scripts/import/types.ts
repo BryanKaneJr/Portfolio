@@ -1,4 +1,4 @@
-import type { DishType, Meal } from '../../src/data/types';
+import type { DishType, IngredientCategory, Meal } from '../../src/data/types';
 
 /** One recipe as a source adapter reads it: free text, nothing mapped yet. */
 export type RawRecipe = {
@@ -27,8 +27,18 @@ export type StagedIngredient = {
   optional: boolean;
 };
 
+/** A catalog entry the draft step creates for a reviewed ingredient the catalog doesn't have yet. */
+export type CatalogAddition = {
+  id: string;
+  name: string;
+  category: IngredientCategory;
+  aliases: string[];
+};
+
 export type BlockReason =
-  | { kind: 'not_in_catalog'; key: string }
+  /** Reviewed, but too vague to index ("cheese", "vinegar"): the editor names the specific food. */
+  | { kind: 'ambiguous'; key: string }
+  /** Nobody has reviewed this wording yet (scripts/import/ingredient-map.ts). */
   | { kind: 'unmapped'; key: string; suggestion?: string }
   | { kind: 'excluded'; reason: string }
   | { kind: 'no_ingredients' }
@@ -51,6 +61,8 @@ export type Candidate = {
   dishTypes: DishType[];
   /** Hard blockers: the recipe can't be imported until these are fixed. */
   blocked: BlockReason[];
+  /** Ingredients the catalog gains when this recipe is drafted (owner rule: add what a recipe needs). */
+  adds: CatalogAddition[];
   /** Fields the editor must fill in or check (quantities, times, meal tag…). */
   todo: string[];
 };
