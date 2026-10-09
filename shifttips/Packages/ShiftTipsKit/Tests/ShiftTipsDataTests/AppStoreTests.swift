@@ -43,6 +43,42 @@ import ShiftTipsCore
         #expect(store.form.tipsText.isEmpty)
     }
 
+    @Test func tipOutRulesLiveOnTheCrewAndShiftsSaveAsTipOuts() {
+        let storage = MemoryStorage()
+        let store = makeStore(storage)
+        store.saveCrew(Crew(name: "Bar", employees: [Employee(name: "Ava", role: "Server"), Employee(name: "Jo", role: "Busser")]))
+        store.setMode(.tipOut)
+        #expect(store.form.mode == .tipOut)
+        let rule = TipOutRule(fromRole: "Server", toRole: "Busser", basis: .tips, rateBasisPoints: 1000)
+        store.setTipOutRules([rule])
+        #expect(store.crews[0].tipOutRules == [rule])
+        #expect(storage.library?.crews[0].tipOutRules == [rule])
+
+        store.form.rows[0].tipsText = "250"
+        store.form.rows[1].hoursText = "5"
+        guard case .saved(let shift) = store.finishShift() else { Issue.record("not saved"); return }
+        #expect(shift.outcome.mode == .tipOut)
+        #expect(shift.outcome.tipOut?.people.map(\.netCents) == [22500, 2500])
+        #expect(shift.outcome.headlineCents == 2500)
+
+        // The next shift stays in Tip Out with the crew's rules.
+        store.startNewShift()
+        #expect(store.form.mode == .tipOut)
+        #expect(store.form.tipOutRules == [rule])
+        #expect(store.form.rows.allSatisfy { $0.tipsText.isEmpty })
+    }
+
+    @Test func switchingModeSwapsTheExample() {
+        let store = makeStore()
+        store.loadExample()
+        #expect(store.form.mode == .pool)
+        store.setMode(.tipOut)
+        #expect(store.form.isExample)
+        #expect(store.form.mode == .tipOut)
+        #expect(!store.form.tipOutRules.isEmpty)
+        #expect(store.form.readiness(store.form.live) == .ready)
+    }
+
     @Test func finishingSavesAFrozenSnapshotOnce() {
         let storage = MemoryStorage()
         let store = makeStore(storage)
@@ -54,7 +90,7 @@ import ShiftTipsCore
             Issue.record("Expected the shift to save")
             return
         }
-        #expect(shift.result.allocations.map(\.totalCents) == [10000, 5000, 0])
+        #expect(shift.outcome.pool?.allocations.map(\.totalCents) == [10000, 5000, 0])
         #expect(shift.finishedAt == Date(timeIntervalSince1970: 1_791_500_000))
         #expect(store.isFormSaved)
 
@@ -153,7 +189,7 @@ import ShiftTipsCore
         store.form.tipsText = "300"
         guard case .saved(let copy) = store.finishShift() else { Issue.record("copy not saved"); return }
         #expect(copy.duplicatedFrom == original.id)
-        #expect(copy.result.allocations.map(\.totalCents) == [20000, 10000, 0])
+        #expect(copy.outcome.pool?.allocations.map(\.totalCents) == [20000, 10000, 0])
         #expect(store.shift(id: original.id) == original)
         #expect(store.shiftsNewestFirst.map(\.id) == [copy.id, original.id])
     }

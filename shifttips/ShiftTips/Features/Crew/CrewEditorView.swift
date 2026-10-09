@@ -77,6 +77,16 @@ struct CrewEditorView: View {
                 }
 
                 Section {
+                    NavigationLink {
+                        TipOutRulesEditor(rules: $crew.tipOutRules, roles: crew.roles)
+                    } label: {
+                        LabeledContent("Tip-out rules", value: crew.tipOutRules.isEmpty ? "None" : "\(crew.tipOutRules.count)")
+                    }
+                } footer: {
+                    Text("Used when a shift is in Tip Out mode, like \u{201C}Server \u{2192} Busser: 2% of sales.\u{201D} Roles come from each person's role label.")
+                }
+
+                Section {
                     Text(PolicyCopy.disclaimer)
                         .font(.footnote)
                         .foregroundStyle(Theme.inkSecondary)
@@ -161,6 +171,7 @@ struct EmployeeSummaryRow: View {
         var parts: [String] = []
         if let role = employee.role, !role.isEmpty { parts.append(role) }
         parts.append("\(Points.format(units: employee.pointsUnits)) pt")
+        if employee.role == nil || employee.role?.isEmpty == true { parts.append("No role") }
         if employee.eligibility != .eligible { parts.append(employee.eligibility.title) }
         return parts.joined(separator: " \u{00B7} ")
     }

@@ -16,12 +16,10 @@ struct ShiftDetailView: View {
         if let shift = store.shift(id: shiftId) {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    SplitHeader(result: shift.result, savedAt: shift.finishedAt)
                     if let sourceId = shift.duplicatedFrom, let source = store.shift(id: sourceId) {
                         Banner(.info, "Duplicated from the shift on \(source.draft.title).")
                     }
-                    BreakdownList(result: shift.result)
-                    AllocationNote()
+                    OutcomeView(outcome: shift.outcome, savedAt: shift.finishedAt)
                     VStack(spacing: 10) {
                         Button("Duplicate as New Shift") {
                             if store.form.hasEnteredValues && !store.isFormSaved {
@@ -43,7 +41,7 @@ struct ShiftDetailView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    ShareMenu(result: shift.result, shift: shift)
+                    ShareMenu(outcome: shift.outcome, shift: shift)
                 }
             }
             .alert("Delete this shift?", isPresented: $confirmDelete) {

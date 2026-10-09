@@ -74,17 +74,20 @@ import Testing
 @Suite struct CSVTests {
     @Test func oneRowPerPersonAndTotalsMatchTheSnapshot() {
         let form = ShiftForm.example(day: Fixture.day, method: .hours)
-        let shift = FinishedShift(id: form.id, finishedAt: Date(timeIntervalSince1970: 1_791_500_000), result: form.calculation.result)
+        let shift = FinishedShift(id: form.id, finishedAt: Date(timeIntervalSince1970: 1_791_500_000), outcome: .pool(form.calculation.result))
         let csv = CSVExporter.csv(for: [shift])
         let lines = csv.split(separator: "\r\n").map(String.init)
         #expect(lines.count == 1 + 6)
-        #expect(lines[0].hasPrefix("Shift ID,Shift date,Shift label,Split method,Person,"))
+        #expect(lines[0].hasPrefix("Shift ID,Shift date,Shift label,Mode,Split method,Person,"))
         #expect(lines[1].contains(",Ava,Server,Yes,In pool,Eligible for pool,7:30,450,1,24,,,113.37,,,472.38,"))
         #expect(lines[6].contains(",Lee,Manager,No,Owner/manager,\"Owner, manager or supervisor\",9:00,540,1,0,,,0.00,,,472.38,"))
         // The CSV's per-person totals add back to the pool.
+        // Read the column by its heading, counting from the end (an earlier
+        // cell is quoted and holds a comma).
+        let fromEnd = CSVExporter.headers.count - CSVExporter.headers.firstIndex(of: "Total allocated (USD)")!
         let totals = lines.dropFirst().map { line -> Int64 in
             let cell = line.split(separator: ",", omittingEmptySubsequences: false)
-            return try! Money.parse(String(cell[cell.count - 5])).get()
+            return try! Money.parse(String(cell[cell.count - fromEnd])).get()
         }
         #expect(totals.reduce(0, +) == 47238)
     }
@@ -103,7 +106,7 @@ import Testing
         let crew = Crew(name: "Dinner", employees: [Employee(name: "Ava"), Employee(name: "Lee", eligibility: .managerSupervisorOwner)])
         var form = ShiftForm(day: Fixture.day, method: .equal, crew: crew)
         form.tipsText = "100.01"
-        let shift = FinishedShift(id: form.id, finishedAt: Date(timeIntervalSince1970: 1_791_500_000), result: form.calculation.result)
+        let shift = FinishedShift(id: form.id, finishedAt: Date(timeIntervalSince1970: 1_791_500_000), outcome: .pool(form.calculation.result))
         return Library(crews: [crew], shifts: [shift], settings: AppSettings(defaultMethod: .equal, activeCrewId: crew.id, hasSeenWelcome: true))
     }
 
@@ -135,13 +138,20 @@ import Testing
     }
 
     @Test func rejectsTamperedAmounts() throws {
+        func tamper(_ library: inout Library, _ change: (inout SplitResult) -> Void) {
+            guard case .pool(var result) = library.shifts[0].outcome else { return }
+            change(&result)
+            library.shifts[0].outcome = .pool(result)
+        }
         var library = sampleLibrary()
-        library.shifts[0].result.allocations[0].totalCents += 1
+        tamper(&library) { $0.allocations[0].totalCents += 1 }
         #expect(throws: BackupError.self) { try BackupCodec.decode(encoded(library)) }
 
         var shuffled = sampleLibrary()
-        shuffled.shifts[0].result.allocations[0].totalCents += 1
-        shuffled.shifts[0].result.allocations[1].totalCents -= 1 // still adds up, but isn't the split
+        tamper(&shuffled) {
+            $0.allocations[0].totalCents += 1
+            $0.allocations[1].totalCents -= 1 // still adds up, but isn't the split
+        }
         #expect(throws: BackupError.self) { try BackupCodec.decode(encoded(shuffled)) }
     }
 

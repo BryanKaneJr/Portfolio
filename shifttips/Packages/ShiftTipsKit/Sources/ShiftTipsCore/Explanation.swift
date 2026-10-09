@@ -130,3 +130,86 @@ public enum Explainer {
         return (Int64(q), Int64(r))
     }
 }
+
+// MARK: - Tip Out
+
+extension Explainer {
+    /// The working behind one person's tip-outs: what they collected, each
+    /// tip-out with its base and percentage, what they keep, and their share
+    /// of each pot.
+    public static func explain(_ person: TipOutPerson, in result: TipOutResult) -> Explanation {
+        guard let participant = result.draft.participants.first(where: { $0.id == person.participantId }) else {
+            return Explanation(summary: "", lines: [])
+        }
+        guard person.status.takesPart else {
+            return Explanation(summary: reason(for: person.status, participant: participant), lines: [])
+        }
+        let name = participant.name
+        var lines: [Explanation.Line] = []
+        var sentences: [String] = []
+
+        if person.status.pays {
+            let tips = person.tipsCents ?? 0
+            lines.append(.init(label: "Tips collected", value: Money.format(tips)))
+            for payment in person.payments {
+                let base = payment.basis == .tips ? "tips" : "\(Money.format(payment.baseCents)) \(payment.basis.phrase)"
+                let label = "To \(payment.toRole): \(Percent.format(basisPoints: payment.rateBasisPoints)) of \(base)"
+                var value = "-" + Money.format(payment.cents)
+                if payment.cents != payment.fullCents { value += " (was \(Money.format(payment.fullCents)))" }
+                lines.append(.init(label: label, value: value))
+            }
+            lines.append(.init(label: "Keeps", value: Money.format(person.keptCents)))
+            sentences.append("\(name) collected \(Money.format(tips)) in tips and tipped out \(Money.format(person.paidCents)), keeping \(Money.format(person.keptCents)).")
+            if person.capped {
+                sentences.append("Their tip-outs came to more than their tips, so each was reduced in proportion to total exactly \(Money.format(tips)).")
+            }
+        }
+
+        if person.status.receives {
+            for receipt in person.receipts {
+                let label = "From the \(receipt.role) pot: \(Hours.format(minutes: receipt.minutes)) of \(Hours.format(minutes: receipt.potMinutes))"
+                lines.append(.init(label: label, value: "+" + Money.format(receipt.cents)))
+                if receipt.roundingCents > 0 {
+                    lines.append(.init(label: "Rounding", value: roundingText(receipt.roundingCents)))
+                }
+                let share = percentText(weight: receipt.minutes, total: receipt.potMinutes)
+                sentences.append("\(name) worked \(Hours.format(minutes: receipt.minutes)) of the \(Hours.format(minutes: receipt.potMinutes)) the \(receipt.role) pot is shared by, so gets \(share) of its \(Money.format(receipt.potCents)).")
+            }
+        }
+
+        if person.status == .paysAndReceives {
+            lines.append(.init(label: "Net", value: Money.format(person.netCents)))
+        } else if person.status == .receives {
+            lines.append(.init(label: "Receives", value: Money.format(person.receivedCents)))
+        }
+        return Explanation(summary: sentences.joined(separator: " "), lines: lines)
+    }
+
+    public static func reason(for status: TipOutStatus, participant: ShiftParticipant) -> String {
+        let name = participant.name
+        switch status {
+        case .pays, .receives, .paysAndReceives:
+            return "\(name) takes part in this shift's tip-outs."
+        case .noRule:
+            return "No tip-out rule applies to \(participant.role ?? "their role") on this shift."
+        case .noRole:
+            return "\(name) has no role, so no tip-out rule can apply. Give them a role on the crew."
+        case .leftOut:
+            return "\(name) was left out of this shift's tip-outs."
+        case .notEligible:
+            return "\(name) is marked not eligible, so they don't pay or receive tip-outs."
+        case .managerSupervisorOwner:
+            return "\(name) is marked as an owner, manager or supervisor. ShiftTips never includes them in tip-outs."
+        }
+    }
+
+    /// Why a rule wasn't used this shift, or nil if it was.
+    public static func skippedNote(for rule: TipOutRule, status: TipOutRuleOutcome.Status) -> String? {
+        switch status {
+        case .applied: nil
+        case .noPayers: "Not used: no \(rule.fromRole.trimmingSpaces()) on this shift."
+        case .noRecipients: "Not taken: no \(rule.toRole.trimmingSpaces()) on this shift."
+        case .invalid: "Not used: \(rule.problem?.message ?? "the rule is incomplete.")"
+        }
+    }
+}

@@ -10,7 +10,7 @@ final class PDFReportRendererTests: XCTestCase {
 
     func testExampleShiftFitsOnePageAndReconciles() throws {
         let result = ShiftForm.example(day: day, method: .hours).calculation.result
-        let document = try XCTUnwrap(PDFDocument(data: PDFReportRenderer.render(result, savedAt: nil)))
+        let document = try XCTUnwrap(PDFDocument(data: PDFReportRenderer.render(.pool(result), savedAt: nil)))
         XCTAssertEqual(document.pageCount, 1)
         let text = try XCTUnwrap(document.string)
         XCTAssertTrue(text.contains("Tip pool breakdown"))
@@ -28,10 +28,21 @@ final class PDFReportRendererTests: XCTestCase {
         form.cardText = "50.02"
         let result = form.calculation.result
         XCTAssertTrue(result.reconciles)
-        let text = try XCTUnwrap(PDFDocument(data: PDFReportRenderer.render(result, savedAt: Date()))?.string)
+        let text = try XCTUnwrap(PDFDocument(data: PDFReportRenderer.render(.pool(result), savedAt: Date()))?.string)
         XCTAssertTrue(text.contains("CASH"))
         XCTAssertTrue(text.contains("CARD"))
         XCTAssertTrue(text.contains("$150.03"))
+    }
+
+    func testTipOutReportShowsPotsRulesAndReconciliation() throws {
+        let result = ShiftForm.example(day: day, mode: .tipOut, method: .hours).tipOutCalculation.result
+        XCTAssertTrue(result.reconciles)
+        let text = try XCTUnwrap(PDFDocument(data: PDFReportRenderer.render(.tipOut(result), savedAt: nil))?.string)
+        XCTAssertTrue(text.contains("Tip-out breakdown"))
+        XCTAssertTrue(text.contains("Tipped out $183.96, received $183.96, $0.00 left over"))
+        XCTAssertTrue(text.contains("Busser: $75.91"))
+        XCTAssertTrue(text.contains("Server \u{2192} Busser: 2% of sales"))
+        XCTAssertTrue(text.contains("$322.30"))
     }
 
     func testLongCrewsContinueOnMorePages() throws {
@@ -43,7 +54,7 @@ final class PDFReportRendererTests: XCTestCase {
         }
         let result = form.calculation.result
         XCTAssertTrue(result.reconciles)
-        let document = try XCTUnwrap(PDFDocument(data: PDFReportRenderer.render(result, savedAt: nil)))
+        let document = try XCTUnwrap(PDFDocument(data: PDFReportRenderer.render(.pool(result), savedAt: nil)))
         XCTAssertGreaterThan(document.pageCount, 1)
         let text = try XCTUnwrap(document.string)
         XCTAssertTrue(text.contains("Person 80"))

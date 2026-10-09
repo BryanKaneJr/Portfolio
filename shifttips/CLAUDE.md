@@ -12,11 +12,12 @@ Read [`docs/build-plan.md`](docs/build-plan.md) before changing behavior; it is 
 
 - **Money is integer cents, time is integer minutes, points are integer thousandths.** Never use `Double`, `Float` or `Decimal` for money, weights or allocation, including in parsing and formatting.
 - **Every split reconciles to the cent.** `PoolCalculator.calculate` asserts it; `SplitResult.reconciles` checks cash, card and total. Leftover cents go by largest remainder, ties by roster order. Keep the plan's worked cases in `PoolCalculatorTests` passing exactly.
+- **Tip Out follows the plan's section 5E.** Tip-outs come only from what each person collected themselves, round to the nearest cent, never exceed the tips collected (proportional cap by largest remainder), and each role's pot splits by minutes. `TipOutPlan` decides who pays, who receives and which fields show; the engine and `ShiftForm` must both use it. Keep `TipOutCalculatorTests.theExampleShiftWorksOutToTheCent` passing exactly.
 - **Saved shifts are frozen.** Never recalculate, migrate or edit a `FinishedShift`'s amounts. Changing the arithmetic or status rules means bumping `PoolCalculator.engineVersion`, and old shifts keep showing their stored numbers.
 - **Eligibility is never inferred.** Role labels are labels. `managerSupervisorOwner` never receives, with no override; moving anyone to `eligible` needs the separate confirmation in `EmployeeEditorView`.
 - **Allocation, not payment.** Don't add copy, exports or features that imply money was paid, taxes withheld, or legal compliance checked. No automatic deductions.
 - **Offline only.** No network code, SDKs, analytics or accounts. Links to official guidance open in Safari and are the only exception.
-- **Raw values are stored.** Don't rename the raw values of `SplitMethod`, `Eligibility`, `ParticipationStatus` or `Appearance`, or Codable keys, without a backup schema version bump and a migration.
+- **Raw values are stored.** Don't rename the raw values of `ShiftMode`, `SplitMethod`, `TipOutBasis`, `Eligibility`, `ParticipationStatus`, `TipOutStatus` or `Appearance`, or Codable keys, without a backup schema version bump and a migration. New fields decode with defaults (`decodeIfPresent`) so older data still loads.
 - **Imports validate everything before changing anything.** A bad backup must leave the library untouched.
 - **No em dashes (U+2014)** in ShiftTips copy, docs or comments; CI checks `*.swift` and `*.md`. Rewrite the sentence rather than substituting another dash.
 

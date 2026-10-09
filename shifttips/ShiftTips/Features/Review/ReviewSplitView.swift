@@ -13,13 +13,12 @@ struct ReviewSplitView: View {
 
     var body: some View {
         let saved = store.shift(id: store.form.id)
-        let calculation = store.form.calculation
-        let result = saved?.result ?? calculation.result
-        let readiness = store.form.readiness(calculation)
+        let live = store.form.live
+        let outcome = saved?.outcome ?? live.outcome
+        let readiness = store.form.readiness(live)
 
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                SplitHeader(result: result, savedAt: saved?.finishedAt)
                 if saved == nil {
                     if changedSinceLastReview {
                         Banner(.info, "You changed the inputs since your last review. These amounts are recalculated.")
@@ -28,24 +27,20 @@ struct ReviewSplitView: View {
                         Banner(.warning, message)
                     }
                 }
-                if result.draft.pool.totalCents == 0 {
-                    Banner(.warning, "The pool is $0.00, so everyone is allocated $0.00.")
-                }
-                BreakdownList(result: result)
-                AllocationNote()
+                OutcomeView(outcome: outcome, savedAt: saved?.finishedAt)
             }
             .padding(16)
         }
         .background(Theme.background.ignoresSafeArea())
-        .navigationTitle(saved == nil ? "Review Split" : "Shift Saved")
+        .navigationTitle(saved == nil ? (outcome.mode == .pool ? "Review Split" : "Review Tip-Outs") : "Shift Saved")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                ShareMenu(result: result, shift: saved)
+                ShareMenu(outcome: outcome, shift: saved)
             }
         }
         .safeAreaInset(edge: .bottom) {
-            bottomBar(saved: saved, readiness: readiness, result: result)
+            bottomBar(saved: saved, readiness: readiness, outcome: outcome)
         }
         .onAppear {
             let draft = store.form.draft
@@ -55,7 +50,7 @@ struct ReviewSplitView: View {
         .confirmationDialog("Save a $0.00 shift?", isPresented: $confirmZeroPool, titleVisibility: .visible) {
             Button("Save $0.00 Shift") { save() }
         } message: {
-            Text("Everyone in the pool is allocated $0.00.")
+            Text(outcome.mode == .pool ? "Everyone in the pool is allocated $0.00." : "Nothing is tipped out on this shift.")
         }
         .sensoryFeedback(trigger: savedCount) { _, _ in
             store.settings.hapticsEnabled ? .success : nil
@@ -63,7 +58,7 @@ struct ReviewSplitView: View {
     }
 
     @ViewBuilder
-    private func bottomBar(saved: FinishedShift?, readiness: ShiftForm.Readiness, result: SplitResult) -> some View {
+    private func bottomBar(saved: FinishedShift?, readiness: ShiftForm.Readiness, outcome: ShiftOutcome) -> some View {
         VStack(spacing: 10) {
             if saved != nil {
                 Label("Saved to History", systemImage: "checkmark.circle.fill")
@@ -71,7 +66,7 @@ struct ReviewSplitView: View {
                     .foregroundStyle(Theme.positive)
                     .accessibilityIdentifier("savedLabel")
                 HStack(spacing: 10) {
-                    ShareLink(item: ShareSummary.text(for: result)) {
+                    ShareLink(item: ShareSummary.text(for: outcome)) {
                         Text("Share Breakdown")
                     }
                     .buttonStyle(SecondaryButtonStyle())
@@ -88,7 +83,7 @@ struct ReviewSplitView: View {
                         .buttonStyle(SecondaryButtonStyle())
                         .frame(maxWidth: 120)
                     Button("Save Shift") {
-                        if result.draft.pool.totalCents == 0 {
+                        if outcome.headlineCents == 0 {
                             confirmZeroPool = true
                         } else {
                             save()

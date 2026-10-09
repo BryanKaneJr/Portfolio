@@ -42,6 +42,27 @@ final class ShiftTipsUITests: XCTestCase {
         attachScreenshot(app, "4 History")
     }
 
+    /// Tip Out: the example chain of rules, reviewed and saved.
+    func testTipOutExampleReviewAndSave() {
+        let app = launch()
+        app.buttons["mode-tipOut"].tap()
+        app.buttons["tryExample"].tap()
+        attachScreenshot(app, "5 Tip Out (example)")
+
+        let review = app.buttons["reviewSplit"]
+        XCTAssertTrue(review.waitForExistence(timeout: 5))
+        XCTAssertEqual(review.label, "Review Tip-Outs")
+        review.tap()
+
+        let reconciliation = element(in: app, labelContaining: "Tipped out $183.96")
+        XCTAssertTrue(reconciliation.waitForExistence(timeout: 5))
+        XCTAssertTrue(reconciliation.label.contains("$0.00 left over"))
+        attachScreenshot(app, "6 Review Tip-Outs")
+
+        app.buttons["saveShift"].tap()
+        XCTAssertTrue(element(in: app, labelContaining: "Saved to History").waitForExistence(timeout: 5))
+    }
+
     /// The Review button explains what's missing instead of letting a
     /// broken split through.
     func testMissingTipsBlocksReview() {

@@ -5,7 +5,7 @@ import ShiftTipsCore
 /// Share a split as text, a PDF report, or (once saved) a CSV row set.
 /// Everything is generated on the device.
 struct ShareMenu: View {
-    let result: SplitResult
+    let outcome: ShiftOutcome
     /// The saved shift, when there is one. CSV needs its saved time.
     let shift: FinishedShift?
     @State private var file: SharedFile?
@@ -13,7 +13,7 @@ struct ShareMenu: View {
 
     var body: some View {
         Menu {
-            ShareLink(item: ShareSummary.text(for: result)) {
+            ShareLink(item: ShareSummary.text(for: outcome)) {
                 Label("Share as Text", systemImage: "text.alignleft")
             }
             Button {
@@ -45,8 +45,9 @@ struct ShareMenu: View {
     }
 
     private func sharePDF() {
-        let data = PDFReportRenderer.render(result, savedAt: shift?.finishedAt)
-        let name = BackupCodec.safeFileName("ShiftTips \(result.draft.day.isoString) \(result.draft.label ?? "")", ext: "pdf")
+        let data = PDFReportRenderer.render(outcome, savedAt: shift?.finishedAt)
+        let draft = outcome.draft
+        let name = BackupCodec.safeFileName("ShiftTips \(draft.day.isoString) \(draft.label ?? "")", ext: "pdf")
         share(data, named: name)
     }
 

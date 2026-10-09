@@ -147,7 +147,7 @@ import Testing
 
     @Test func duplicatingAShiftReproducesItsSplitAsANewShift() {
         let original = ShiftForm.example(day: Fixture.day, method: .weightedHours)
-        let saved = FinishedShift(id: original.id, finishedAt: Date(timeIntervalSince1970: 0), result: original.calculation.result)
+        let saved = FinishedShift(id: original.id, finishedAt: Date(timeIntervalSince1970: 0), outcome: .pool(original.calculation.result))
         let copy = ShiftForm.duplicating(saved, day: CalendarDay(year: 2026, month: 10, day: 9))
         #expect(copy.id != original.id)
         #expect(copy.duplicatedFrom == original.id)

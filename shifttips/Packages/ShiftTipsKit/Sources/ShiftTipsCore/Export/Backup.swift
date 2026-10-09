@@ -145,16 +145,31 @@ public enum BackupCodec {
     static func validate(_ shift: FinishedShift) throws(BackupError) {
         let title = shift.draft.title
         guard shift.engineVersion <= PoolCalculator.engineVersion else { throw .newerVersion }
-        let result = shift.result
-        guard result.allocations.map(\.participantId) == result.draft.participants.map(\.id) else {
-            throw .damaged("The shift on \(title) has mismatched people and amounts.")
-        }
-        guard result.reconciles else {
-            throw .damaged("The shift on \(title) doesn't add up to its pool.")
-        }
-        let recalculated = PoolCalculator.calculate(result.draft)
-        guard !recalculated.isBlocked, recalculated.result == result else {
-            throw .damaged("The amounts saved for \(title) don't match its inputs.")
+        switch shift.outcome {
+        case .pool(let result):
+            guard result.draft.mode == .pool,
+                  result.allocations.map(\.participantId) == result.draft.participants.map(\.id) else {
+                throw .damaged("The shift on \(title) has mismatched people and amounts.")
+            }
+            guard result.reconciles else {
+                throw .damaged("The shift on \(title) doesn't add up to its pool.")
+            }
+            let recalculated = PoolCalculator.calculate(result.draft)
+            guard !recalculated.isBlocked, recalculated.result == result else {
+                throw .damaged("The amounts saved for \(title) don't match its inputs.")
+            }
+        case .tipOut(let result):
+            guard result.draft.mode == .tipOut,
+                  result.people.map(\.participantId) == result.draft.participants.map(\.id) else {
+                throw .damaged("The shift on \(title) has mismatched people and amounts.")
+            }
+            guard result.reconciles else {
+                throw .damaged("The tip-outs on \(title) don't add up.")
+            }
+            let recalculated = TipOutCalculator.calculate(result.draft)
+            guard !recalculated.isBlocked, recalculated.result == result else {
+                throw .damaged("The amounts saved for \(title) don't match its inputs.")
+            }
         }
     }
 

@@ -13,11 +13,12 @@ struct NewShiftView: View {
     @State private var addingPerson = false
     @State private var infoRow: ShiftForm.Row?
     @State private var confirmStartOver = false
+    @State private var editingRules = false
 
     var body: some View {
         @Bindable var store = store
-        let calculation = store.form.calculation
-        let readiness = store.form.readiness(calculation)
+        let live = store.form.live
+        let readiness = store.form.readiness(live)
 
         ScrollViewReader { proxy in
             ScrollView {
@@ -29,10 +30,29 @@ struct NewShiftView: View {
                         exampleBanner
                     }
                     Group {
-                        TipsCard(form: $store.form, focus: $focus)
-                        crewSection
-                        MethodPicker(method: $store.form.method)
-                        peopleSection(calculation)
+                        ModePicker(mode: store.form.mode) { mode in
+                            focus = nil
+                            withAnimation { store.setMode(mode) }
+                        }
+                        switch live {
+                        case .pool(let calculation):
+                            TipsCard(form: $store.form, focus: $focus)
+                            crewSection
+                            MethodPicker(method: $store.form.method)
+                            peopleSection(calculation)
+                        case .tipOut(let calculation):
+                            crewSection
+                            TipOutRulesCard(
+                                rules: store.form.tipOutRules,
+                                statuses: store.form.tipOutPlan.ruleStatuses,
+                                crewName: store.form.crewName,
+                                onEdit: {
+                                    focus = nil
+                                    editingRules = true
+                                }
+                            )
+                            tipOutPeopleSection(calculation)
+                        }
                     }
                     .disabled(store.isFormSaved)
                 }
@@ -48,7 +68,7 @@ struct NewShiftView: View {
         }
         .background(Theme.background.ignoresSafeArea())
         .safeAreaInset(edge: .bottom) {
-            summaryBar(calculation: calculation, readiness: readiness)
+            summaryBar(live: live, readiness: readiness)
         }
         .navigationTitle("ShiftTips")
         .toolbar { toolbar }
@@ -59,12 +79,15 @@ struct NewShiftView: View {
             CrewEditorView(item: item)
         }
         .sheet(isPresented: $addingPerson) {
-            AddPersonSheet(showsPoints: store.form.method.usesPoints) { name, role, points in
+            AddPersonSheet(showsPoints: store.form.mode == .pool && store.form.method.usesPoints) { name, role, points in
                 _ = store.form.addOneOff(name: name, role: role, pointsUnits: points)
             }
         }
         .sheet(item: $infoRow) { row in
             EligibilityInfoSheet(name: row.name, eligibility: row.eligibility)
+        }
+        .sheet(isPresented: $editingRules) {
+            TipOutRulesSheet(rules: store.form.tipOutRules, roles: knownRoles)
         }
         .confirmationDialog("Start over?", isPresented: $confirmStartOver, titleVisibility: .visible) {
             Button("Clear This Shift", role: .destructive) {
@@ -232,13 +255,70 @@ struct NewShiftView: View {
         }
     }
 
+    private func tipOutPeopleSection(_ calculation: TipOutCalculation) -> some View {
+        @Bindable var store = store
+        let people = Dictionary(uniqueKeysWithValues: calculation.result.people.map { ($0.participantId, $0) })
+        let plan = store.form.tipOutPlan
+        let taking = calculation.result.takingPartCount
+
+        return VStack(alignment: .leading, spacing: 10) {
+            if !store.form.rows.isEmpty {
+                HStack {
+                    SectionLabel("PEOPLE")
+                    Spacer()
+                    Text(taking == 1 ? "1 in tip-outs" : "\(taking) in tip-outs")
+                        .font(.footnote)
+                        .foregroundStyle(Theme.inkSecondary)
+                }
+            }
+            ForEach($store.form.rows) { $row in
+                TipOutParticipantRow(
+                    row: $row,
+                    person: people[row.id],
+                    bases: plan.bases(forRole: row.role),
+                    focus: $focus,
+                    onToggle: { store.form.setIncluded(!row.included, rowId: row.id) },
+                    onInfo: { infoRow = row },
+                    onRemove: {
+                        focus = nil
+                        let id = row.id
+                        withAnimation { store.form.removeRow(id: id) }
+                    }
+                )
+            }
+            if !store.form.rows.isEmpty || !store.crews.isEmpty {
+                Button {
+                    focus = nil
+                    addingPerson = true
+                } label: {
+                    Label("Add someone for this shift", systemImage: "person.badge.plus")
+                        .font(.subheadline.weight(.semibold))
+                        .frame(maxWidth: .infinity, minHeight: 44)
+                }
+                .buttonStyle(.borderless)
+            }
+        }
+    }
+
+    /// Roles for the rule editor's menu: the crew's, this shift's, and the
+    /// rules' own.
+    private var knownRoles: [String] {
+        var roles = store.form.knownRoles
+        if let crewId = store.form.crewId, let crew = store.crew(id: crewId) {
+            for role in crew.roles where !roles.contains(where: { TipOutRule.roleKey($0) == TipOutRule.roleKey(role) }) {
+                roles.append(role)
+            }
+        }
+        return roles
+    }
+
     // MARK: - Bottom bar
 
-    private func summaryBar(calculation: ShiftCalculation, readiness: ShiftForm.Readiness) -> some View {
-        let pool = calculation.draft.pool.totalCents
+    private func summaryBar(live: ShiftForm.Live, readiness: ShiftForm.Readiness) -> some View {
+        let pool = live.outcome.headlineCents
         return VStack(spacing: 10) {
             HStack(alignment: .firstTextBaseline) {
-                Text("Distributing")
+                Text(store.form.mode == .pool ? "Distributing" : "Tipping out")
                     .font(.subheadline)
                     .foregroundStyle(Theme.inkSecondary)
                 Spacer()
@@ -251,7 +331,7 @@ struct NewShiftView: View {
                 Button("Open Saved Split") { router.path.append(.review) }
                     .buttonStyle(SecondaryButtonStyle())
             } else if readiness.isReady {
-                Button("Review Split") {
+                Button(store.form.mode == .pool ? "Review Split" : "Review Tip-Outs") {
                     focus = nil
                     router.path.append(.review)
                 }

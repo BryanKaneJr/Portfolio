@@ -142,16 +142,45 @@ public final class AppStore {
 
     // MARK: - The current shift
 
-    /// A blank shift for today with the active crew, keeping the split
+    /// A blank shift for today with the active crew, keeping the mode, split
     /// method and cash and card choice from the last one.
     public func startNewShift() {
-        form = ShiftForm(
+        let previous = form
+        var next = ShiftForm(
             day: today,
-            method: form.isExample ? library.settings.defaultMethod : form.method,
-            splitCashAndCard: form.isExample ? false : form.splitCashAndCard,
+            mode: previous.mode,
+            method: previous.isExample ? library.settings.defaultMethod : previous.method,
+            splitCashAndCard: previous.isExample ? false : previous.splitCashAndCard,
             crew: activeCrew
         )
+        if activeCrew == nil && !previous.isExample {
+            next.tipOutRules = previous.tipOutRules
+        }
+        form = next
         lastReviewedDraft = nil
+    }
+
+    /// Switches the shift between Tip Pool and Tip Out. Typed values are
+    /// kept for when it's switched back. The example swaps to the other
+    /// mode's example.
+    public func setMode(_ mode: ShiftMode) {
+        guard mode != form.mode, !isFormSaved else { return }
+        if form.isExample {
+            form = ShiftForm.example(day: today, mode: mode, method: form.method)
+        } else {
+            form.mode = mode
+        }
+        lastReviewedDraft = nil
+    }
+
+    /// Sets the shift's tip-out rules, and the crew's too when the shift has
+    /// one, so the next shift starts with them.
+    public func setTipOutRules(_ rules: [TipOutRule]) {
+        form.tipOutRules = rules
+        if let crewId = form.crewId, let index = library.crews.firstIndex(where: { $0.id == crewId }) {
+            library.crews[index].tipOutRules = rules
+            persistLibrary()
+        }
     }
 
     /// When the app comes back on a later day: a shift with nothing typed
@@ -166,7 +195,7 @@ public final class AppStore {
     }
 
     public func loadExample() {
-        form = ShiftForm.example(day: today, method: form.method)
+        form = ShiftForm.example(day: today, mode: form.mode, method: form.method)
         lastReviewedDraft = nil
     }
 
@@ -187,13 +216,14 @@ public final class AppStore {
     @discardableResult
     public func finishShift() -> FinishOutcome {
         if let existing = shift(id: form.id) { return .alreadySaved(existing) }
-        let calculation = form.calculation
-        if case .blocked(let reason) = form.readiness(calculation) { return .blocked(reason) }
-        guard calculation.result.reconciles else { return .blocked("Check the numbers entered") }
+        let live = form.live
+        if case .blocked(let reason) = form.readiness(live) { return .blocked(reason) }
+        let outcome = live.outcome
+        guard outcome.reconciles else { return .blocked("Check the numbers entered") }
 
         // Whole seconds, so the saved time survives the JSON round trip.
         let finishedAt = Date(timeIntervalSince1970: now().timeIntervalSince1970.rounded(.down))
-        let shift = FinishedShift(id: form.id, finishedAt: finishedAt, result: calculation.result, duplicatedFrom: form.duplicatedFrom)
+        let shift = FinishedShift(id: form.id, finishedAt: finishedAt, outcome: outcome, duplicatedFrom: form.duplicatedFrom)
         library.shifts.append(shift)
         persistLibrary()
         return .saved(shift)

@@ -51,6 +51,7 @@ The answer must be legible immediately, with no spreadsheet or external calculat
 - Employee: name, optional role label, default points/weight, eligible-for-pool toggle.
 - Shift: date, optional label, total pooled tips (one combined amount), selected employees, hours worked.
 - **Three core split methods:** Equal, By Hours, Hours x Points.
+- **Tip Out mode** (owner decision, 2026-10-09): a second mode next to Tip Pool, where each person keeps their own tips and pays house-rule percentages of their own tips or sales to support roles. See section 5E.
 - Optional separate cash-tip and card-tip amount fields; together they equal the full pool.
 - Automatic precise allocations and explanatory breakdown.
 - Recalculate instantly when values change; a separate "Finish Shift" action freezes a snapshot.
@@ -62,11 +63,11 @@ The answer must be legible immediately, with no spreadsheet or external calculat
 ### Out of scope for v1.0
 
 - POS, payroll, banking, credit card processing, Venmo, payment transfers.
-- Automatic credit card processing fee deductions or sales-based tip-out policies.
+- Automatic credit card processing fee deductions. (Sales-based tip-outs moved into v1.0 with Tip Out mode, section 5E.)
 - Staff accounts, invitations, collaboration, network sync, real-time team dashboards.
 - OCR, photo receipt scanning, AI, chatbots, tax estimators, employer compliance checks.
 - Clock-in/clock-out time-tracking or schedule integration (manual shift duration only).
-- Complex cross-role contribution/recipient tip-out transfers.
+- Tip-outs taken from tip-outs someone received (each tip-out is only ever a percentage of what that person collected themselves), and splitting a role's tip-outs by anything other than hours.
 - Analytics dashboards, recurring subscriptions, advanced permissions, multi-location organizations.
 - Optional cash denomination / making-change solver (can be explored after launch).
 
@@ -104,6 +105,19 @@ Example: 8-hour server with 1.0 points => 8 effective hours; 6-hour bartender wi
 - If a participant is explicitly flagged by the user as an owner/manager/supervisor, disable pooled participation and display a short explanation with a link to the official guidance. Do not provide a confirmation override that allows participation in the pool.
 - If the user changes a person's status from owner/manager/supervisor to eligible, require a separate deliberate edit of the eligibility setting and explain that the software cannot determine legal status. Do not use a role label alone to change eligibility.
 - Separately earned direct tips for service the manager alone performed are outside this app's pooled calculation. Eligibility flags are user-managed; the tool cannot verify legal status.
+
+### E. Tip Out mode (owner decision, 2026-10-09)
+
+Tip Out ships in v1.0 as its own mode, offered after Tip Pool on the New Shift screen.
+
+- **Rules** belong to the crew (copied into each shift): "everyone in role A pays N% of their own tips, sales, food sales or bar sales to role B". Percentages are integer basis points (2.5% = 250), up to 100%.
+- **Inputs:** people who pay enter the tips they collected (and the sales their rules use); people who receive enter hours.
+- **Each tip-out** is the percentage of the person's own amount, rounded to the nearest cent (half a cent rounds up). Tip-outs are never taken from tip-outs received, so a bartender who receives from servers and pays a barback pays only from their own tips.
+- **Never more than the tips collected:** if someone's tip-outs add up to more than their tips (possible with sales-based rules), each is reduced in proportion, by largest remainder, so they total exactly the tips. The breakdown says so.
+- **Pots:** everything paid to a role is one pot, split among that role's people by minutes worked with the same largest-remainder method as Tip Pool.
+- **Skipped rules:** a rule whose paying or receiving role has nobody on the shift isn't taken, and the breakdown says why.
+- **Eligibility:** owners, managers, supervisors and anyone marked not eligible neither pay nor receive tip-outs. Role labels decide which rule applies, never eligibility.
+- **Reconciliation:** "Tipped out $X, received $X, $0.00 left over", and every person's tips = kept + tipped out.
 
 ## 6. The mathematical contract: exact to the cent
 

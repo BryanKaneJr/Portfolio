@@ -2,7 +2,12 @@
 
 > **Close the shift. Split every cent. Share a clear breakdown.**
 
-ShiftTips is a paid, offline iPhone app that settles a shared tip pool at the end of a shift. Pick the crew, type the pooled tips and each person's hours, choose the workplace's method (Equal, By Hours, or Hours × Points), and see exactly what everyone is allocated, to the cent. Save it, share a text or PDF breakdown, and do it again tomorrow without retyping the team.
+ShiftTips is a paid, offline iPhone app that settles tips at the end of a shift, two ways:
+
+- **Tip Pool:** pick the crew, type the pooled tips and each person's hours, choose the workplace's method (Equal, By Hours, or Hours × Points), and see exactly what everyone is allocated, to the cent.
+- **Tip Out:** each server or bartender keeps their own tips and pays the house's percentages (of their tips, sales, food sales or bar sales) to support roles like bussers, runners, hosts and barbacks, who share each role's pot by hours.
+
+Save it, share a text or PDF breakdown, and do it again tomorrow without retyping the team.
 
 No account, no server, no network calls, no analytics, no subscription. The full product spec is [`docs/build-plan.md`](docs/build-plan.md); if the code disagrees with it, the code is wrong.
 
@@ -41,6 +46,7 @@ UI tests launch the app with `-ui-testing`, which uses in-memory storage, so the
 - **Cash and card** are split independently with the same weights and order; cash, card and combined totals each reconcile.
 - **Hours input.** `7.5`, `7:30` and `7h 30m` all mean 450 minutes. Decimal hours (up to two decimals) round to the nearest minute (`7.33` is 7h 20m) and are always echoed back.
 - **Live but never stale.** The screen recomputes from the typed text on every change. If someone is missing hours, the people who can be paid share the pool (so the total still reconciles), the row says "Needs hours", and Review stays blocked until it's fixed.
+- **Tip Out.** Each rule is "role A pays N% of their own tips or sales to role B". Each tip-out rounds to the nearest cent (half up), is taken only from what that person collected (never from tip-outs they received), and a person's tip-outs never exceed their tips: if they would, each is reduced in proportion by largest remainder. Everything paid to a role is one pot, split among that role's people by minutes with the same largest-remainder method. A rule with nobody to pay or receive on the shift is skipped and noted. The breakdown reconciles as "Tipped out $X, received $X, $0.00 left over". The full spec is in the plan, section 5E.
 - **Frozen history.** A saved shift stores copies of every name, role, hours, points, status and cent, plus the engine version. It's never recalculated; changing it means duplicating it into a new shift. Saving uses the draft's id, so a double tap can't save twice.
 
 ## Decisions
@@ -61,6 +67,7 @@ Following the build plan's phases (section 11):
 - [x] Phase 2: New Shift and Review, live calculation, Try Example, blocked and invalid states (built; needs a run on a real device)
 - [x] Phase 3: saved crews, eligibility, frozen shifts, History, duplicate, delete with confirmation
 - [x] Phase 4: text summary, multipage PDF, CSV, JSON backup and import (merge or replace)
+- [x] Tip Out mode (added to v1.0 by the owner, 2026-10-09): crew rules, per-person tips and sales, pots by hours, caps, reviews, exports
 - [ ] Phase 5: polish and usability tests on real iPhones, including timing a repeat closeout, VoiceOver, large text and five real closers
 - [ ] Phase 6: App Store launch (checklist below)
 
@@ -80,4 +87,4 @@ Without a Mac, a GitHub Actions macOS job can archive and upload to TestFlight o
 
 ## Non-goals (v1.0)
 
-POS, payroll or payments; card-fee or withholding deductions; accounts, sync or collaboration; OCR, AI or tax estimates; clock-in tracking; tip-out transfers between roles; currencies other than USD. See the plan, section 4.
+POS, payroll or payments; card-fee or withholding deductions; accounts, sync or collaboration; OCR, AI or tax estimates; clock-in tracking; tip-outs taken from tip-outs received; currencies other than USD. See the plan, section 4.

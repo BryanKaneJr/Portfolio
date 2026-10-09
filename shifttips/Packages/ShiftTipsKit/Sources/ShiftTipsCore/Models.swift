@@ -90,11 +90,35 @@ public struct Crew: Codable, Hashable, Identifiable, Sendable {
     public var id: UUID
     public var name: String
     public var employees: [Employee]
+    /// The house's tip-out rules, used when a shift is in Tip Out mode.
+    public var tipOutRules: [TipOutRule]
 
-    public init(id: UUID = UUID(), name: String, employees: [Employee] = []) {
+    public init(id: UUID = UUID(), name: String, employees: [Employee] = [], tipOutRules: [TipOutRule] = []) {
         self.id = id
         self.name = name
         self.employees = employees
+        self.tipOutRules = tipOutRules
+    }
+
+    /// Each distinct role label on the crew, in crew order.
+    public var roles: [String] {
+        var seen = Set<String>()
+        var result: [String] = []
+        for employee in employees {
+            guard let role = employee.role, let key = TipOutRule.roleKey(role), !seen.contains(key) else { continue }
+            seen.insert(key)
+            result.append(role.trimmingSpaces())
+        }
+        return result
+    }
+
+    public init(from decoder: Decoder) throws {
+        enum Keys: String, CodingKey { case id, name, employees, tipOutRules }
+        let c = try decoder.container(keyedBy: Keys.self)
+        id = try c.decode(UUID.self, forKey: .id)
+        name = try c.decode(String.self, forKey: .name)
+        employees = try c.decode([Employee].self, forKey: .employees)
+        tipOutRules = try c.decodeIfPresent([TipOutRule].self, forKey: .tipOutRules) ?? []
     }
 }
 
@@ -240,6 +264,13 @@ public struct ShiftParticipant: Codable, Hashable, Identifiable, Sendable {
     public var eligibility: Eligibility
     public var minutesWorked: Int64
     public var pointsUnits: Int64
+    /// Tip Out mode: the tips this person collected themselves. Nil when
+    /// not entered.
+    public var tipsCents: Int64?
+    /// Tip Out mode: this person's own sales, for sales-based rules.
+    public var salesCents: Int64?
+    public var foodSalesCents: Int64?
+    public var barSalesCents: Int64?
 
     public init(
         id: UUID = UUID(),
@@ -249,7 +280,11 @@ public struct ShiftParticipant: Codable, Hashable, Identifiable, Sendable {
         included: Bool = true,
         eligibility: Eligibility = .eligible,
         minutesWorked: Int64 = 0,
-        pointsUnits: Int64 = Limits.defaultPointsUnits
+        pointsUnits: Int64 = Limits.defaultPointsUnits,
+        tipsCents: Int64? = nil,
+        salesCents: Int64? = nil,
+        foodSalesCents: Int64? = nil,
+        barSalesCents: Int64? = nil
     ) {
         self.id = id
         self.employeeId = employeeId
@@ -259,6 +294,20 @@ public struct ShiftParticipant: Codable, Hashable, Identifiable, Sendable {
         self.eligibility = eligibility
         self.minutesWorked = minutesWorked
         self.pointsUnits = pointsUnits
+        self.tipsCents = tipsCents
+        self.salesCents = salesCents
+        self.foodSalesCents = foodSalesCents
+        self.barSalesCents = barSalesCents
+    }
+
+    /// The amount a tip-out rule is a percentage of.
+    public func amount(for basis: TipOutBasis) -> Int64? {
+        switch basis {
+        case .tips: tipsCents
+        case .sales: salesCents
+        case .foodSales: foodSalesCents
+        case .barSales: barSalesCents
+        }
     }
 
     /// "Ava (Server)" or "Ava".
@@ -276,9 +325,15 @@ public struct ShiftDraft: Codable, Hashable, Identifiable, Sendable {
     public var label: String?
     public var crewId: UUID?
     public var crewName: String?
+    /// Tip Pool or Tip Out.
+    public var mode: ShiftMode
+    /// Tip Pool: how the pool is divided.
     public var method: SplitMethod
+    /// Tip Pool: the money being divided.
     public var pool: TipPool
     public var participants: [ShiftParticipant]
+    /// Tip Out: the rules in force for this shift (a copy of the crew's).
+    public var tipOutRules: [TipOutRule]
 
     public init(
         id: UUID = UUID(),
@@ -286,18 +341,37 @@ public struct ShiftDraft: Codable, Hashable, Identifiable, Sendable {
         label: String? = nil,
         crewId: UUID? = nil,
         crewName: String? = nil,
+        mode: ShiftMode = .pool,
         method: SplitMethod,
         pool: TipPool,
-        participants: [ShiftParticipant]
+        participants: [ShiftParticipant],
+        tipOutRules: [TipOutRule] = []
     ) {
         self.id = id
         self.day = day
         self.label = label
         self.crewId = crewId
         self.crewName = crewName
+        self.mode = mode
         self.method = method
         self.pool = pool
         self.participants = participants
+        self.tipOutRules = tipOutRules
+    }
+
+    public init(from decoder: Decoder) throws {
+        enum Keys: String, CodingKey { case id, day, label, crewId, crewName, mode, method, pool, participants, tipOutRules }
+        let c = try decoder.container(keyedBy: Keys.self)
+        id = try c.decode(UUID.self, forKey: .id)
+        day = try c.decode(CalendarDay.self, forKey: .day)
+        label = try c.decodeIfPresent(String.self, forKey: .label)
+        crewId = try c.decodeIfPresent(UUID.self, forKey: .crewId)
+        crewName = try c.decodeIfPresent(String.self, forKey: .crewName)
+        mode = try c.decodeIfPresent(ShiftMode.self, forKey: .mode) ?? .pool
+        method = try c.decode(SplitMethod.self, forKey: .method)
+        pool = try c.decode(TipPool.self, forKey: .pool)
+        participants = try c.decode([ShiftParticipant].self, forKey: .participants)
+        tipOutRules = try c.decodeIfPresent([TipOutRule].self, forKey: .tipOutRules) ?? []
     }
 
     /// "Thu, Oct 8, 2026 · Dinner".

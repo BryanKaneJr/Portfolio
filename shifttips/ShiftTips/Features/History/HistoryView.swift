@@ -107,7 +107,6 @@ struct HistoryRow: View {
     let shift: FinishedShift
 
     var body: some View {
-        let result = shift.result
         HStack(alignment: .center, spacing: 12) {
             VStack(alignment: .leading, spacing: 3) {
                 Text(shift.day.mediumText)
@@ -118,7 +117,7 @@ struct HistoryRow: View {
                     .foregroundStyle(Theme.inkSecondary)
             }
             Spacer()
-            MoneyText(cents: result.draft.pool.totalCents, font: .headline)
+            MoneyText(cents: shift.outcome.headlineCents, font: .headline)
                 .foregroundStyle(Theme.ink)
         }
         .padding(.vertical, 4)
@@ -126,11 +125,11 @@ struct HistoryRow: View {
     }
 
     private var subtitle: String {
-        let result = shift.result
+        let outcome = shift.outcome
         var parts: [String] = []
-        if let label = result.draft.label { parts.append(label) }
-        parts.append(result.draft.method.title)
-        parts.append(result.receivingCount == 1 ? "1 person" : "\(result.receivingCount) people")
+        if let label = outcome.draft.label { parts.append(label) }
+        parts.append(outcome.mode == .pool ? outcome.draft.method.title : "Tip Out")
+        parts.append(outcome.peopleCount == 1 ? "1 person" : "\(outcome.peopleCount) people")
         return parts.joined(separator: " \u{00B7} ")
     }
 }
