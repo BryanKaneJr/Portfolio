@@ -261,12 +261,13 @@ enum PDFReportRenderer {
             pageNumber += 1
             y = Layout.margin
             // Masthead: the wordmark, and what this document is and isn't.
-            let mark = NSAttributedString(string: "SHIFTTIPS", attributes: [
-                .font: UIFont.systemFont(ofSize: 10, weight: .black, width: .expanded),
-                .foregroundColor: Self.ink,
-                .kern: 0.5,
-            ])
-            mark.draw(at: CGPoint(x: Layout.margin, y: y))
+            let markFont = UIFont.systemFont(ofSize: 10, weight: .black, width: .expanded)
+            let shift = NSAttributedString(string: "SHIFT", attributes: [.font: markFont, .foregroundColor: Self.ink])
+            let tips = NSAttributedString(string: "TIPS", attributes: [.font: markFont, .foregroundColor: Self.ink])
+            shift.draw(at: CGPoint(x: Layout.margin, y: y))
+            let tipsX = Layout.margin + ceil(shift.size().width) + 1
+            fill(CGRect(x: tipsX, y: y - 1, width: ceil(tips.size().width) + 4, height: markFont.lineHeight + 2), Self.highlight)
+            tips.draw(at: CGPoint(x: tipsX + 2, y: y))
             text("ALLOCATION, NOT PAYMENT", at: y + 1, font: Self.mono(7.5, .semibold), color: Self.gray, alignment: .right, singleLine: true)
             y += 16
             fill(CGRect(x: Layout.margin, y: y, width: Layout.contentWidth, height: 1.5), Self.ink)
