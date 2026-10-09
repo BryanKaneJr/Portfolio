@@ -10,12 +10,12 @@ This is research, not legal advice: get a lawyer's read before launch if anythin
 | # | Source | License | Size | Effort | Risk | Verdict |
 |---|---|---|---|---|---|---|
 | 1 | [Based Cooking](#1-based-cooking) | Unlicense (public domain dedication) | 440 recipes | Medium: an editorial pass on each recipe, plus catalog growth | Low | **Use now.** Pipeline built; 9 imported |
-| 2 | [US federal recipes](#2-us-federal-recipes) (USDA MyPlate Kitchen, NIH/NHLBI) | Public domain in the US if written by federal staff; third-party recipes vary | Hundreds | Medium: a per-recipe provenance check | Low for federal-authored recipes | **Use, recipe by recipe** |
+| 2 | [US federal recipes](#2-us-federal-recipes): VA, NHLBI, then MyPlate Kitchen (archived) | Public domain unless a recipe credits an outside source | VA ~275, NHLBI ~200–250, MyPlate ~150–320 federal-written | Medium: PDF/HTML readers, plus a check of each recipe's credit line | Low for federal-authored recipes | **Use next, recipe by recipe.** Modern US recipes, the best fit after Based Cooking |
 | 3 | [HowToCook](#3-howtocook) | Unlicense; contributors certify their recipes as public domain | 372 recipes (Chinese) | High: translation, plus Chinese pantry ingredients | Low; exclude the 64 that cite references | Later, for a Chinese home-cooking set |
 | 4 | [Project Gutenberg cookbooks](#4-project-gutenberg-cookbooks) | Public domain in the US (published before 1931) | Thousands | High: archaic measures, no oven temperatures | Low in the US; check other countries | Ideas plus text to adapt; strip all Project Gutenberg branding |
 | 5 | [Wikibooks Cookbook](#5-wikibooks-cookbook) | CC BY-SA 4.0 / GFDL | ~3,600 recipes | Same as writing originals | **High if the text is bundled** | **Facts and ideas only.** Never ship its wording |
 | 6 | [fossrecipes](#6-small-cc0-sets) | CC0 1.0 | 21 recipes | Low | Low | Optional quick add |
-| ✗ | [Not usable](#not-usable) | TheMealDB, scraped datasets, NC-licensed books, Cookpad | | | | **Don't use** |
+| ✗ | [Not usable](#not-usable) | TheMealDB, scraped datasets, NC-licensed books, Cookpad, Food Hero and other non-federal "government" recipe sites | | | | **Don't use** (Food Hero only with written permission) |
 
 **Coverage reality check.** The current catalog has only 89 ingredients. Today only 22 of Based
 Cooking's 440 recipes map to it in full; the other 406 each need at least one ingredient we don't carry.
@@ -28,14 +28,19 @@ The import report's greedy list shows how adding ingredients unlocks recipes:
 These counts are a lower bound: some blocking "ingredients" are parsing noise that review cleans up.
 Many of the unlocked recipes are niche (cocktails, preserves, regional dishes), so for this app Based
 Cooking realistically yields **about 60–120 good recipes**. Reaching 250–350 takes three streams:
-Based Cooking, federal recipes, and **original recipes written for the app**. Wikibooks and the old
+Based Cooking, federal recipes (VA and NHLBI alone are roughly 400 public-domain candidates, but they
+share the catalog problem and lean healthy and low-sodium), and **original recipes written for the
+app**. Wikibooks and the old
 cookbooks can serve the originals as idea and fact sources, steered by `npm run coverage-report` gaps.
 
 ## Ground rules (apply to every source)
 
 - **Facts are free, expression isn't.** US Copyright Office, Circular 33: *"A mere listing of
-  ingredients or contents, or a simple set of directions, is uncopyrightable."* Written directions
-  with "substantial literary expression", headnotes and photos are protected. An original recipe built
+  ingredients or contents, or a simple set of directions, is uncopyrightable."* Its FAQ adds: *"where a
+  recipe or formula is accompanied by substantial literary expression in the form of an explanation or
+  directions, or when there is a collection of recipes as in a cookbook, there may be a basis for
+  copyright protection."* (Fact sheet FL-122 is retired.) Written directions, headnotes and photos
+  are protected. An original recipe built
   from an idea or an ingredient list owes nothing to the source, provided we don't paraphrase its
   wording closely or copy its selection wholesale.
 - **CC licenses and the App Store don't mix, including plain CC BY.** CC 4.0 §2(a)(5)(C): *"You may
@@ -85,17 +90,49 @@ publicdomainrecipes.com and foss.cooking are near-identical copies that add one 
 
 ## 2. US federal recipes
 
-*Verification in progress: this section will be completed with quoted terms.*
+Works by federal employees as part of their jobs have no US copyright (17 U.S.C. §105). But federal
+sites also host recipes contributed by states, universities, industry groups and magazines. **Every
+recipe's own credit line decides.** §105 is US law only, and other countries could in principle
+protect a US government work; the practical risk is low. Leave out every photo, and never use agency
+names or logos in a way that implies endorsement. A plain per-recipe credit ("Source: U.S. Department
+of Veterans Affairs") satisfies what each agency asks for.
 
-- **Status:** works written by US federal employees as part of their jobs have no US copyright
-  (17 U.S.C. §105). Federal recipe sites also carry recipes contributed by outside groups: MyPlate
-  Kitchen's About page says *"Some recipes featured in MyPlate Kitchen have been developed by…"*. Those
-  third-party recipes stay copyrighted unless the page says otherwise, so **check every recipe's own
-  source line**.
-- **Fit:** modern US home cooking with °F temperatures and cup/tbsp measures, a strong match for the app.
-- **Caveats:** §105 is US law only, so another country could in principle treat a US government work as
-  copyrighted. Photos are often third-party; don't take them. Don't imply USDA or NIH endorsement, and
-  don't use their logos.
+**VA Nutrition and Food Services** (nutrition.va.gov): the safest stream.
+- VA copyright policy: *"Pursuant to federal law, government-produced materials appearing on this and
+  other VA websites are not copyright protected."*
+- About 275 one-recipe PDFs plus about 8 cookbook PDFs. Modern home cooking with US units, numbered
+  steps, prep and cook times, and nutrition data.
+- Each PDF has a footer credit. Exclude recipes marked "Adapted from" (about 14% of a 56-recipe
+  sample: pinchofyum.com, Cooking Light, Cookie and Kate, The Kitchn, SparkPeople). Recipes with no
+  credit, or "Submitted by" a VA dietitian, are fine.
+- Needs a PDF reader adapter. There is no structured data.
+
+**NHLBI** (nhlbi.nih.gov): heart-healthy and low-sodium.
+- *"Unless noted otherwise, information posted on the NHLBI website within the nhlbi.nih.gov domain is
+  in the public domain."* It asks that content *"not be used in any direct or indirect product
+  endorsement or advertising"* and suggests the credit *"Source: National Heart, Lung, and Blood
+  Institute; National Institutes of Health; U.S. Department of Health and Human Services."* The
+  "Keep the Beat™" name and the logos need permission.
+- 54 recipes on the website, each naming its NHLBI cookbook. The cookbook PDFs (*Deliciously Healthy
+  Dinners*, 75 recipes; *Family Meals*, 40+) bring the total to about 200–250 unique recipes.
+- Caveat: contracted chefs wrote many of the cookbook recipes, so §105 doesn't strictly cover them.
+  NHLBI still publishes them as public domain, which is a reasonable basis. Cookbook photos are by a
+  commercial studio; skip them.
+
+**USDA MyPlate Kitchen**: large, but mostly not federal, and now archived.
+- USDA retired MyPlate.gov on 2026-01-07 (it redirects to RealFood.gov, which has no recipes). That
+  date comes from secondary sources; USDA hasn't formally confirmed it. Access is now only through
+  Internet Archive captures (1,072 recipes listed on 2025-12-31).
+- Each recipe has a "Source:" field. In a sample of 78, only about 20% were federal (USDA 12%,
+  NHLBI/HHS 8%). About 59% came from states, extensions or local programs (Food Hero, SNAP-Ed), and
+  about 19% from industry groups. Use only the federal ones; the NHLBI ones overlap with the stream
+  above. Its About page says direct use *"required to include proper attribution and do not serve as an
+  endorsement by USDA"*.
+- The structured data on each page lacks ingredients and steps, so the reader has to parse the HTML.
+
+**USDA Team Nutrition, *Recipes for Healthy Kids: Cookbook for Homes***: about 30 family-size recipes,
+and *"All are welcome to download these materials and make copies."* They came from contest entries,
+and it's unconfirmed whether contestants assigned rights to USDA. Check that before using them.
 
 ## 3. HowToCook
 
@@ -161,5 +198,16 @@ https://github.com/Anduin2017/HowToCook. About 102k stars and actively maintaine
 - **Uncertain Unlicense repos:** skoenig/kochbuch (some text looks pasted from Chefkoch),
   clarklab/chowdown (one recipe "scanned from" a blog; images from Flickr), Koha cookbook (README says
   CC0, LICENSE says GPL).
+- **Food Hero** (Oregon State University, about 520 recipes, with good structured data): *"Copyright ©
+  Oregon State University"* and no reuse terms. SNAP funding doesn't make it public domain. Usable only
+  with written permission (food.hero@oregonstate.edu), which may be worth asking for. This also rules
+  out the many MyPlate recipes credited to Food Hero.
+- **CDC Million Hearts recipes:** developed and tested by EatingWell, so they're EatingWell content.
+  **ICN Child Nutrition Recipe Box:** all rights reserved, and mostly 25–100 servings.
+- **Other governments:** UK Healthier Families / Better Health (*"must not use any part of the content
+  … for commercial purposes without obtaining a licence"*, even though the main NHS site is under the
+  OGL). Canada's Food Guide (no commercial redistribution without written permission). Australia's
+  Eat For Health, healthdirect and LiveLighter (non-commercial terms or all rights reserved; partly
+  unverified because the sites blocked access).
 - **Wikidata** (CC0) has no quantities or directions. It's useful later for dish names and
   ingredient links, not recipes.

@@ -82,7 +82,9 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
    ingredients. `docs/import-reports/based-cooking.md` ranks the additions that unblock the most recipes (nutmeg, bay
    leaf, cayenne, yeast, yogurt, powdered sugar, bread crumbs, mayonnaise, maple syrup, cornstarch …). Each addition is
    a product decision: also consider `popularity.ts` / `staples.ts`. Confirm the list with the owner first.
-2. Keep importing Based Cooking in batches of 5–15 (realistic yield about 60–120 good recipes), then federal recipes
-   recipe by recipe (see the sources doc). Fill the rest with originals aimed at `npm run coverage-report` gaps.
+2. Keep importing Based Cooking in batches of 5–15 (realistic yield about 60–120 good recipes). Next source: VA
+   (nutrition.va.gov, ~275 PDFs; skip "Adapted from" ones) and NHLBI (~200–250), both public domain. This needs a PDF
+   reader in `scripts/import/sources/`. MyPlate.gov was retired in Jan 2026: archive only, ~20% federal. Fill the rest
+   with originals aimed at `npm run coverage-report` gaps.
 3. Before release: an acknowledgements screen built from `RECIPE_COLLECTIONS` (not legally required for public
    domain, but courteous), and culinary review of every recipe.
