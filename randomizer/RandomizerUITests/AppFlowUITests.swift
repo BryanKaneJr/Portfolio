@@ -70,7 +70,11 @@ final class AppFlowUITests: XCTestCase {
         XCTAssertTrue(app.buttons["pasteNamesButton"].waitForExistence(timeout: 10))
         app.buttons["pasteNamesButton"].tap()
         let editor = app.textViews["pasteTextEditor"]
-        XCTAssertTrue(editor.waitForExistence(timeout: 5))
+        if !editor.waitForExistence(timeout: 5) {
+            snap("debug-paste-sheet-missing")
+            XCTFail("Paste sheet didn't open:\n\(app.debugDescription)")
+            return
+        }
         editor.tap()
         editor.typeText("Pizza\n\n  Tacos  \nSushi\nPizza")
         XCTAssertEqual(app.staticTexts["pastePreviewCount"].label, "4 names will be added")
