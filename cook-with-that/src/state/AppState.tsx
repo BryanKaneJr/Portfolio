@@ -14,6 +14,7 @@ import {
   savePantry,
   savePrefs,
 } from './favoritesStorage';
+import { defaultUnitSystem, UNIT_SYSTEMS, type UnitSystem } from '../logic/units';
 import { addIngredient, removeIngredient, sanitizeSearch, type PickMode } from './searchState';
 
 export type HomeMode = 'pick' | 'pantry';
@@ -58,7 +59,19 @@ type AppState = {
   staples: ReadonlySet<string>;
   /** Pantry plus assumed staples — what pantry mode treats as on hand. */
   effectivePantry: string[];
+  /** US cups/°F or metric grams/°C on recipe pages (Settings). */
+  units: UnitSystem;
+  setUnits: (u: UnitSystem) => void;
 };
+
+/** The phone's locale, for the first-launch units default. Hermes and the web both expose Intl. */
+function deviceLocale(): string | undefined {
+  try {
+    return Intl.DateTimeFormat().resolvedOptions().locale;
+  } catch {
+    return undefined;
+  }
+}
 
 const Ctx = createContext<AppState | null>(null);
 
@@ -77,6 +90,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
   const [shuffleSeed, setShuffleSeed] = useState(() => Math.floor(Math.random() * 1e9));
   const [assumeStaples, setAssumeStaples] = useState(true);
   const [stapleIds, setStapleIds] = useState<string[]>(DEFAULT_STAPLE_IDS);
+  const [units, setUnits] = useState<UnitSystem>(() => defaultUnitSystem(deviceLocale()));
   const loaded = useRef(false);
 
   // Restore last selection + favorites from local storage.
@@ -95,6 +109,8 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
         setPantryDishType(pr.pantryDishType as DishType);
       if (typeof pr.assumeStaples === 'boolean') setAssumeStaples(pr.assumeStaples);
       if (Array.isArray(pr.stapleIds)) setStapleIds(resolveFavoriteIds(pr.stapleIds, KNOWN_INGREDIENTS));
+      if (typeof pr.units === 'string' && (UNIT_SYSTEMS as readonly string[]).includes(pr.units))
+        setUnits(pr.units as UnitSystem);
       loaded.current = true;
       setReady(true);
     });
@@ -116,8 +132,8 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
   }, [pantry]);
 
   useEffect(() => {
-    if (loaded.current) savePrefs({ homeMode, pantryMeal, pantryDishType, assumeStaples, stapleIds });
-  }, [homeMode, pantryMeal, pantryDishType, assumeStaples, stapleIds]);
+    if (loaded.current) savePrefs({ homeMode, pantryMeal, pantryDishType, assumeStaples, stapleIds, units });
+  }, [homeMode, pantryMeal, pantryDishType, assumeStaples, stapleIds, units]);
 
   const staples = useMemo<ReadonlySet<string>>(
     () => new Set(assumeStaples ? stapleIds : []),
@@ -171,6 +187,8 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       resetStaples: () => setStapleIds(DEFAULT_STAPLE_IDS),
       staples,
       effectivePantry,
+      units,
+      setUnits,
     }),
     [
       ready,
@@ -187,6 +205,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       stapleIds,
       staples,
       effectivePantry,
+      units,
     ],
   );
 

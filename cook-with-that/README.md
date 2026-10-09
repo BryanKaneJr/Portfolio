@@ -34,10 +34,10 @@ Recipes from openly licensed collections (public domain only, so far) are import
 ## Layout
 
 ```
-src/app/            screens (Expo Router): index (Find / My pantry), results, ingredients (More options), selections, staples, pantry, pantry-results, recipe/[id], favorites
+src/app/            screens (Expo Router): index (Find / My pantry), results, ingredients (More options), selections, staples, settings, pantry, pantry-results, recipe/[id], favorites
 src/components/     Chip, Dropdown, IngredientBrowser, SelectionSummary, RecipeCard
 src/data/           types, ingredient catalog, recipes (seed + imported/), collections, labels (all bundled, offline)
-src/logic/          matching engine, sorting, ingredient search, content validator
+src/logic/          matching engine, sorting, ingredient search, content validator, US/metric units
 src/state/          search-state rules, local storage, app provider
 src/theme/          colors (light/dark), spacing, typography
 scripts/            validate-recipes.ts, coverage-report.ts, import-recipes.ts (+ import/: parser, mapper, source readers)
@@ -76,6 +76,14 @@ cumin, chili powder, red pepper flakes (`src/data/staples.ts`).
 - In **Pick ingredients** mode staples have no effect: results already include recipes regardless of unselected
   ingredients, so cards and recipe pages list everything the recipe needs.
 - Users can turn the assumption off, remove items, add their own, or reset (Kitchen staples screen).
+
+## Units (Settings)
+
+The gear on the home screen opens **Settings**, where **Units** switches recipe pages between **US** (as written:
+cups, ounces, °F) and **Metric**. Metric weighs solids where we know a cup's weight (2 cups flour → 250 g), gives
+liquids in ml, keeps tsp/tbsp, shows US cans as the usual tin (15 oz → 400 g), gives ovens the UK way
+("175°C (155°C fan, gas 4)") and lengths in cm. The first launch picks US or metric from the phone's region.
+Conversion is display-only (`src/logic/units.ts`); recipes are still written in US units.
 
 ## Filters & selections
 

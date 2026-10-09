@@ -70,13 +70,25 @@ export default function FindScreen() {
             onPress={() => router.push('/favorites')}
             accessibilityRole="button"
             accessibilityLabel={`Favorites, ${app.favorites.length} saved`}
+            hitSlop={4}
             style={({ pressed }) => [
-              styles.favBtn,
+              styles.iconBtn,
               { borderColor: c.chipBorder, backgroundColor: c.card, opacity: pressed ? 0.7 : 1 },
             ]}
           >
-            <Text style={{ color: c.primary, fontSize: 17 }}>♥</Text>
-            <Text style={[t.small, { color: c.text, fontWeight: '600' }]}>Favorites</Text>
+            <Text style={{ color: c.primary, fontSize: 19 }}>♥</Text>
+          </Pressable>
+          <Pressable
+            onPress={() => router.push('/settings')}
+            accessibilityRole="button"
+            accessibilityLabel="Settings"
+            hitSlop={4}
+            style={({ pressed }) => [
+              styles.iconBtn,
+              { borderColor: c.chipBorder, backgroundColor: c.card, opacity: pressed ? 0.7 : 1 },
+            ]}
+          >
+            <Text style={{ color: c.text, fontSize: 20 }}>{'\u2699\uFE0E'}</Text>
           </Pressable>
         </View>
 
@@ -334,14 +346,13 @@ const styles = StyleSheet.create({
     paddingTop: space.md,
     gap: space.md,
   },
-  favBtn: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-    minHeight: MIN_TOUCH,
-    paddingHorizontal: space.md,
-    borderRadius: radius.pill,
+  iconBtn: {
+    width: MIN_TOUCH,
+    height: MIN_TOUCH,
+    borderRadius: MIN_TOUCH / 2,
     borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   modeToggle: {
     flexDirection: 'row',

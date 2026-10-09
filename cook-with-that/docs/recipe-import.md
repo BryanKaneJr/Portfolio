@@ -39,7 +39,10 @@ One batch is one commit. Keep batches small (5–15) so each can be reviewed.
   is the one exception, and the test skips water.
 - **Exact heat, times and doneness.** Give oven temperatures in °F with °C, convert gas marks, and add
   safe internal temperatures for meat (ground beef 160°F / 71°C, poultry 165°F / 74°C).
-- **US units first**, with metric in parentheses where the source gave it.
+- **US units first**, with metric in parentheses where the source gave it. The Metric setting converts
+  everything else on the fly (`src/logic/units.ts`) and prefers your parenthetical metric figure. If
+  `npm run check` reports a US unit left over in metric mode, reword it ("1 cup of the X" is fine) or
+  add the ingredient's weight per cup to `GRAMS_PER_CUP`.
 - **Write a description** in the house style: one short, practical sentence.
 - **Tag meals and dish types.** The guesses come from the source's tags and title, so check them.
 - **Set realistic times**, including chilling or resting.

@@ -37,18 +37,26 @@ Hard rules (from the plan, still in force):
    `scripts/import/ingredient-map.ts` (`{ add: category }`), and `import:draft` adds it to `src/data/ingredients.ts`.
    Never alias a different food to an existing ID to avoid adding one. New items aren't "Most common" suggestions unless
    they're on the published frequency lists (corn and orange were; they sit below the 11 inline chips).
+8. **Units setting** (owner, 2026-10-09: "a toggle in settings that changes to metric or whatever those British guys
+   do"). Settings (gear on home, `src/app/settings.tsx`) → **US / Metric**. Recipes stay authored in US units; metric is
+   display-only (`src/logic/units.ts`): grams for solids with a known cup weight (`GRAMS_PER_CUP`), ml for liquids,
+   tsp/tbsp unchanged, US cans → tin sizes, oven temps as "175°C (155°C fan, gas 4)", inches → cm, and the author's own
+   metric ("1 lb (450 g)") wins. First launch defaults from the device region (US and territories, Liberia, Myanmar →
+   US; everyone else metric). `tests/units.test.ts` fails if any recipe leaves a US unit in metric mode. To fit the gear
+   without changing the header height (decision 3's sizing), Favorites became a round ♥ button like it.
 
 ## Layout
 ```
-src/app/         index (home, both modes), results, ingredients (More options), selections, staples,
+src/app/         index (home, both modes), results, ingredients (More options), selections, staples, settings,
                  pantry, pantry-results, recipe/[id], favorites, _layout (ReadyGate waits for storage restore)
 src/components/  Chip, Dropdown, IngredientBrowser (compact|full), UseAvoidToggle, SelectionSummary, RecipeCard
 src/data/        types, ingredients (113, with aliases), recipes (27 seed + imported/), collections, recipeBuilders,
                  staples, popularity, labels, catalog
-src/logic/       matchRecipes (engine), pantry, sortRecipes, normalizeIngredient (search/aliases), validateContent
+src/logic/       matchRecipes (engine), pantry, sortRecipes, normalizeIngredient (search/aliases), validateContent,
+                 units (US/metric display)
 src/state/       AppState (context + AsyncStorage persistence), searchState, pickerTarget, favoritesStorage
 scripts/         validate-recipes.ts, coverage-report.ts, import-recipes.ts + import/ (parser, mapper, source readers)
-tests/           89 Jest tests: engine, pantry, staples, content validation, import pipeline, offline audit
+tests/           135 Jest tests: engine, pantry, staples, content validation, import pipeline, units, offline audit
 ```
 
 ## Commands

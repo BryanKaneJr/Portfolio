@@ -3,9 +3,10 @@ import { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { formatMinutes } from '../../components/RecipeCard';
-import { recipesById } from '../../data/catalog';
+import { ingredientIndex, recipesById } from '../../data/catalog';
 import { DISH_TYPE_LABELS, MEAL_LABELS } from '../../data/labels';
 import { additionalRequired } from '../../logic/matchRecipes';
+import { displayQuantity, displayStep } from '../../logic/units';
 import { useAppState } from '../../state/AppState';
 import { useColors } from '../../theme/colors';
 import { MIN_TOUCH, radius, space } from '../../theme/spacing';
@@ -50,7 +51,9 @@ export default function RecipeScreen() {
     const using = (pantryMode ? app.pantry : app.search.useIds).includes(i.ingredientId);
     return (
       <View key={k} style={[styles.ingRow, { borderBottomColor: c.divider }]}>
-        <Text style={[t.body, styles.qty, { color: c.text }]}>{i.quantityText}</Text>
+        <Text style={[t.body, styles.qty, { color: c.text }]}>
+          {displayQuantity(i.quantityText, app.units, i.ingredientId, i.displayName)}
+        </Text>
         <Text style={[t.body, { color: c.text, flex: 1 }]}>
           {i.displayName}
           {i.preparation ? <Text style={{ color: c.textMuted }}>, {i.preparation}</Text> : null}
@@ -129,7 +132,8 @@ export default function RecipeScreen() {
           Steps
         </Text>
         <Text style={[t.small, { color: c.textMuted, marginBottom: space.sm }]}>Tap a step to check it off.</Text>
-        {recipe.steps.map((s, n) => {
+        {recipe.steps.map((raw, n) => {
+          const s = displayStep(raw, app.units, ingredientIndex);
           const isDone = done.has(n);
           return (
             <Pressable

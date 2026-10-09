@@ -41,6 +41,7 @@ export default function RootLayout() {
               <Stack.Screen name="selections" options={{ title: 'Your ingredients' }} />
               <Stack.Screen name="staples" options={{ title: 'Kitchen staples' }} />
               <Stack.Screen name="ingredients" options={{ title: 'All ingredients' }} />
+              <Stack.Screen name="settings" options={{ title: 'Settings' }} />
             </Stack>
           </ReadyGate>
         </ThemeProvider>

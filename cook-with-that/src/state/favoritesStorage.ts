@@ -41,6 +41,6 @@ const PREFS_KEY = 'cwt:prefs:v1';
 /** Pantry = canonical ingredient IDs the user says they usually have. */
 export const loadPantry = () => readJson(PANTRY_KEY);
 export const savePantry = (ids: string[]) => writeJson(PANTRY_KEY, ids);
-/** Small UI prefs: which home mode was last used, pantry meal/dish filters. */
+/** Small UI prefs: which home mode was last used, pantry meal/dish filters, staples, units. */
 export const loadPrefs = () => readJson(PREFS_KEY);
 export const savePrefs = (prefs: unknown) => writeJson(PREFS_KEY, prefs);
