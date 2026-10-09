@@ -3,6 +3,13 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-09: A full test pass
+
+- **Everything green before the first build:** `npm run check` (typecheck, lint, copy, 251 unit tests, 2,600 levels validated), all 17 database suites, the local e2e (136 checks) and the remote e2e against the real migrations (112 checks).
+- **Every tree plays:** a new sweep (`bash e2e/run.sh sweep`) opens each of the 26 skills' maps and plays Level 1 with a miss, failing on any page error, console error or failed request. All 26 pass.
+- **The smallest iPhone checked screen by screen** (`npm run screens` at 375 × 667): nothing cut off or broken; long learning cards scroll under their picture, as decided on 2026-10-03.
+- **The live backend is quiet:** no errors in its logs over a day, and the push job's runs all succeed.
+
 ## 2026-10-08: Ready for the first iPhone build: config, a year of quests, screenshots
 
 - **Store builds point at the live backend on their own.** `app/eas.json` now carries the Supabase URL and its publishable key (public by design, like the RevenueCat key beside it) for the preview and production profiles, so the first build needs nothing set in EAS.

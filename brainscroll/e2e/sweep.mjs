@@ -26,6 +26,7 @@ page.on('response', (r) => r.status() >= 400 && problems.push(`HTTP ${r.status()
 const topUp = () =>
   page.evaluate(() => {
     const k = Object.keys(localStorage).find((key) => key.startsWith('brainscroll.progress.v2:'));
+    if (!k) return; // saved from the first level on; a new account starts with 5
     const s = JSON.parse(localStorage.getItem(k));
     s.brainpower = { balance: 10, asOf: new Date().toLocaleDateString('en-CA', { timeZone: s.timeZone }) };
     localStorage.setItem(k, JSON.stringify(s));
