@@ -38,6 +38,7 @@ extension XCUIApplication {
     }
 }
 
+@MainActor
 extension XCTestCase {
     /// Flips a SwiftUI toggle by tapping the switch at its trailing edge.
     func flip(_ toggle: XCUIElement) {

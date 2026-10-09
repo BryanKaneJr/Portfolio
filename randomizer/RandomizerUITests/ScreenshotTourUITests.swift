@@ -7,6 +7,7 @@ final class ScreenshotTourUITests: XCTestCase {
         continueAfterFailure = true
     }
 
+    @MainActor
     func testScreenshotTour() {
         let app = XCUIApplication.randomizer(seed: "tour", speed: "fast")
         app.launch()
@@ -89,6 +90,7 @@ final class ScreenshotTourUITests: XCTestCase {
     }
 
     /// The first-run screen a new customer sees.
+    @MainActor
     func testFirstRunScreens() {
         let app = XCUIApplication.randomizer(speed: "fast")
         app.launch()

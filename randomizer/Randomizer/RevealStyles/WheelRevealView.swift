@@ -96,95 +96,98 @@ private struct WheelFace: View {
 
     var body: some View {
         Canvas { context, size in
-            let outer = min(size.width, size.height) / 2
-            let rim = outer * 0.075
-            let radius = outer - rim
-            let center = CGPoint(x: size.width / 2, y: size.height / 2)
-
-            // Rim with marquee lights.
-            let rimPath = Path(ellipseIn: CGRect(x: center.x - outer, y: center.y - outer, width: outer * 2, height: outer * 2))
-            context.fill(rimPath, with: .color(Theme.surfaceRaised))
-            let bulbs = 24
-            for index in 0..<bulbs {
-                let angle = Double(index) / Double(bulbs) * 2 * .pi
-                let point = CGPoint(x: center.x + cos(angle) * (outer - rim / 2), y: center.y + sin(angle) * (outer - rim / 2))
-                let lit: Bool
-                if spinning {
-                    lit = (index + Int(time * 12)) % 2 == 0
-                } else {
-                    lit = highlightID != nil || index % 2 == 0
-                }
-                let bulb = Path(ellipseIn: CGRect(x: point.x - rim * 0.22, y: point.y - rim * 0.22, width: rim * 0.44, height: rim * 0.44))
-                context.fill(bulb, with: .color(lit ? Theme.caution : Theme.caution.opacity(0.25)))
-            }
-
-            var wheel = context
-            wheel.translateBy(x: center.x, y: center.y)
-            wheel.rotate(by: .degrees(rotation))
-            let showNames = sectors.count <= WheelGeometry.labelLimit
-
-            for (index, sector) in sectors.enumerated() {
-                let dimmed = highlightID != nil && sector.member.id != highlightID
-                var path = Path()
-                path.move(to: .zero)
-                path.addArc(
-                    center: .zero,
-                    radius: radius,
-                    startAngle: .degrees(sector.start - 90),
-                    endAngle: .degrees(sector.end - 90),
-                    clockwise: false
-                )
-                path.closeSubpath()
-                let color = Theme.paletteColor(index, count: sectors.count)
-                wheel.fill(path, with: .color(dimmed ? color.opacity(0.35) : color))
-                if sectors.count > 1 {
-                    wheel.stroke(path, with: .color(Theme.background.opacity(0.5)), lineWidth: 1.5)
-                }
-
-                var label = wheel
-                label.rotate(by: .degrees(sector.mid - 90))
-                let arcWidth = radius * 0.62 * sector.span * .pi / 180
-                if showNames, arcWidth >= 13 {
-                    let fontSize = min(18, max(10, min(arcWidth * 0.55, radius * 0.11)))
-                    let maxChars = max(3, Int(radius * 0.6 / (fontSize * 0.6)))
-                    let text = Text(Self.truncated(sector.member.name, to: maxChars))
-                        .font(.system(size: fontSize, weight: .bold, design: .rounded))
-                        .foregroundStyle(Theme.onPalette.opacity(dimmed ? 0.55 : 1))
-                    label.draw(text, at: CGPoint(x: radius * 0.6, y: 0), anchor: .center)
-                } else if arcWidth >= 8 {
-                    let text = Text("\(sector.member.listIndex + 1)")
-                        .font(.system(size: min(12, arcWidth * 0.7), weight: .bold, design: .rounded))
-                        .foregroundStyle(Theme.onPalette.opacity(dimmed ? 0.55 : 1))
-                    label.draw(text, at: CGPoint(x: radius * 0.84, y: 0), anchor: .center)
-                }
-            }
-
-            if let highlightID, let sector = sectors.first(where: { $0.member.id == highlightID }), sectors.count > 1 {
-                var path = Path()
-                path.move(to: .zero)
-                path.addArc(
-                    center: .zero,
-                    radius: radius,
-                    startAngle: .degrees(sector.start - 90),
-                    endAngle: .degrees(sector.end - 90),
-                    clockwise: false
-                )
-                path.closeSubpath()
-                wheel.stroke(path, with: .color(.white), lineWidth: 4)
-            }
-
-            // Hub.
-            let hub = radius * 0.17
-            let hubPath = Path(ellipseIn: CGRect(x: center.x - hub, y: center.y - hub, width: hub * 2, height: hub * 2))
-            context.fill(hubPath, with: .color(Theme.background))
-            context.stroke(hubPath, with: .color(Theme.accent), lineWidth: 4)
-            let dot = hub * 0.3
-            context.fill(
-                Path(ellipseIn: CGRect(x: center.x - dot, y: center.y - dot, width: dot * 2, height: dot * 2)),
-                with: .color(Theme.accent)
-            )
+            draw(in: &context, size: size)
         }
         .shadow(color: .black.opacity(0.35), radius: 18, y: 10)
+    }
+
+    private func draw(in context: inout GraphicsContext, size: CGSize) {
+        let outer: CGFloat = min(size.width, size.height) / 2
+        let rim: CGFloat = outer * 0.075
+        let radius: CGFloat = outer - rim
+        let center = CGPoint(x: size.width / 2, y: size.height / 2)
+        drawRim(in: &context, center: center, outer: outer, rim: rim)
+
+        var wheel = context
+        wheel.translateBy(x: center.x, y: center.y)
+        wheel.rotate(by: .degrees(rotation))
+        for (index, sector) in sectors.enumerated() {
+            drawSector(sector, index: index, in: &wheel, radius: radius)
+        }
+        if let highlightID, sectors.count > 1, let sector = sectors.first(where: { $0.member.id == highlightID }) {
+            wheel.stroke(Self.sectorPath(sector, radius: radius), with: .color(.white), lineWidth: 4)
+        }
+        drawHub(in: &context, center: center, radius: radius)
+    }
+
+    private func drawRim(in context: inout GraphicsContext, center: CGPoint, outer: CGFloat, rim: CGFloat) {
+        let rimRect = CGRect(x: center.x - outer, y: center.y - outer, width: outer * 2, height: outer * 2)
+        context.fill(Path(ellipseIn: rimRect), with: .color(Theme.surfaceRaised))
+        let bulbs = 24
+        let ring: CGFloat = outer - rim / 2
+        let bulbRadius: CGFloat = rim * 0.22
+        let step = Int(time * 12)
+        for index in 0..<bulbs {
+            let angle = Double(index) / Double(bulbs) * 2 * Double.pi
+            let x: CGFloat = center.x + CGFloat(cos(angle)) * ring
+            let y: CGFloat = center.y + CGFloat(sin(angle)) * ring
+            let lit: Bool = spinning ? (index + step) % 2 == 0 : (highlightID != nil || index % 2 == 0)
+            let bulb = Path(ellipseIn: CGRect(x: x - bulbRadius, y: y - bulbRadius, width: bulbRadius * 2, height: bulbRadius * 2))
+            let color: Color = lit ? Theme.caution : Theme.caution.opacity(0.25)
+            context.fill(bulb, with: .color(color))
+        }
+    }
+
+    private func drawSector(_ sector: WheelGeometry.Sector, index: Int, in wheel: inout GraphicsContext, radius: CGFloat) {
+        let dimmed: Bool = highlightID != nil && sector.member.id != highlightID
+        let path = Self.sectorPath(sector, radius: radius)
+        let base: Color = Theme.paletteColor(index, count: sectors.count)
+        wheel.fill(path, with: .color(dimmed ? base.opacity(0.35) : base))
+        if sectors.count > 1 {
+            wheel.stroke(path, with: .color(Theme.background.opacity(0.5)), lineWidth: 1.5)
+        }
+
+        var label = wheel
+        label.rotate(by: .degrees(sector.mid - 90))
+        let arcWidth: CGFloat = radius * 0.62 * CGFloat(sector.span * Double.pi / 180)
+        let ink: Color = Theme.onPalette.opacity(dimmed ? 0.55 : 1)
+        if sectors.count <= WheelGeometry.labelLimit, arcWidth >= 13 {
+            let fontSize: CGFloat = min(18, max(10, min(arcWidth * 0.55, radius * 0.11)))
+            let maxChars = max(3, Int(radius * 0.6 / (fontSize * 0.6)))
+            let text = Text(Self.truncated(sector.member.name, to: maxChars))
+                .font(.system(size: fontSize, weight: .bold, design: .rounded))
+                .foregroundStyle(ink)
+            label.draw(text, at: CGPoint(x: radius * 0.6, y: 0), anchor: .center)
+        } else if arcWidth >= 8 {
+            let fontSize: CGFloat = min(12, arcWidth * 0.7)
+            let text = Text("\(sector.member.listIndex + 1)")
+                .font(.system(size: fontSize, weight: .bold, design: .rounded))
+                .foregroundStyle(ink)
+            label.draw(text, at: CGPoint(x: radius * 0.84, y: 0), anchor: .center)
+        }
+    }
+
+    private func drawHub(in context: inout GraphicsContext, center: CGPoint, radius: CGFloat) {
+        let hub: CGFloat = radius * 0.17
+        let hubPath = Path(ellipseIn: CGRect(x: center.x - hub, y: center.y - hub, width: hub * 2, height: hub * 2))
+        context.fill(hubPath, with: .color(Theme.background))
+        context.stroke(hubPath, with: .color(Theme.accent), lineWidth: 4)
+        let dot: CGFloat = hub * 0.3
+        context.fill(Path(ellipseIn: CGRect(x: center.x - dot, y: center.y - dot, width: dot * 2, height: dot * 2)), with: .color(Theme.accent))
+    }
+
+    private static func sectorPath(_ sector: WheelGeometry.Sector, radius: CGFloat) -> Path {
+        var path = Path()
+        path.move(to: .zero)
+        path.addArc(
+            center: .zero,
+            radius: radius,
+            startAngle: .degrees(sector.start - 90),
+            endAngle: .degrees(sector.end - 90),
+            clockwise: false
+        )
+        path.closeSubpath()
+        return path
     }
 
     static func truncated(_ name: String, to limit: Int) -> String {

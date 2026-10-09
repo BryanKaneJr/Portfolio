@@ -57,19 +57,23 @@ struct BallsRevealView: View {
     /// Balls resting in a heap at the bottom of the drum.
     private func restPositions(count: Int, layout: Layout) -> [CGPoint] {
         var positions: [CGPoint] = []
-        let r = layout.ballRadius
-        let inner = layout.drumRadius - r - 2
+        let r: Double = layout.ballRadius
+        let inner: Double = layout.drumRadius - r - 2
+        let centerX = Double(layout.drumCenter.x)
+        let centerY = Double(layout.drumCenter.y)
+        let pitch: Double = r * 2.05
         var row = 0
         while positions.count < count, row < 20 {
-            let y = layout.drumCenter.y + inner - Double(row) * r * 1.75
-            let dy = y - layout.drumCenter.y
-            let halfWidth = max(0, (inner * inner - dy * dy).squareRoot())
-            let capacity = max(1, Int((halfWidth * 2) / (r * 2.05)) + 1)
+            let dy: Double = inner - Double(row) * r * 1.75
+            let y: Double = centerY + dy
+            let halfWidth: Double = max(0.0, (inner * inner - dy * dy).squareRoot())
+            let capacity = max(1, Int(halfWidth * 2 / pitch) + 1)
             let take = min(capacity, count - positions.count)
-            let span = Double(take - 1) * r * 2.05
-            let offset = row % 2 == 0 ? 0 : r * 0.4
+            let span: Double = Double(take - 1) * pitch
+            let offset: Double = row % 2 == 0 ? 0 : r * 0.4
             for index in 0..<take {
-                positions.append(CGPoint(x: layout.drumCenter.x - span / 2 + Double(index) * r * 2.05 + offset, y: y))
+                let x: Double = centerX - span / 2 + Double(index) * pitch + offset
+                positions.append(CGPoint(x: x, y: y))
             }
             row += 1
         }
@@ -99,10 +103,12 @@ struct BallsRevealView: View {
     }
 
     private func tumbling(_ path: BallPath, time: Double, layout: Layout) -> CGPoint {
-        let reach = layout.drumRadius - layout.ballRadius - 2
-        let distance = reach * (0.2 + 0.8 * abs(sin(path.pulse * time + path.phase)))
-        let angle = path.angle + path.spin * time
-        return CGPoint(x: layout.drumCenter.x + cos(angle) * distance, y: layout.drumCenter.y + sin(angle) * distance)
+        let reach: Double = layout.drumRadius - layout.ballRadius - 2
+        let distance: Double = reach * (0.2 + 0.8 * abs(sin(path.pulse * time + path.phase)))
+        let angle: Double = path.angle + path.spin * time
+        let x: Double = Double(layout.drumCenter.x) + cos(angle) * distance
+        let y: Double = Double(layout.drumCenter.y) + sin(angle) * distance
+        return CGPoint(x: x, y: y)
     }
 
     // MARK: Drawing
@@ -209,7 +215,8 @@ struct BallsRevealView: View {
     }
 
     private func mix(_ a: CGPoint, _ b: CGPoint, _ amount: Double) -> CGPoint {
-        CGPoint(x: a.x + (b.x - a.x) * amount, y: a.y + (b.y - a.y) * amount)
+        let t = CGFloat(amount)
+        return CGPoint(x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t)
     }
 
     /// Up to 20 balls in list order, always including the winner.

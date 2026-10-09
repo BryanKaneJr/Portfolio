@@ -9,6 +9,7 @@ final class RemovalToggleUITests: XCTestCase {
 
     /// Release blockers 9 and 10: every reveal style and odds mode shows the
     /// toggle before a draw, during the reveal and on the result, and it works.
+    @MainActor
     func testToggleIsVisibleAndWorksInEveryRevealStyleAndOddsMode() {
         for style in ["wheel", "reel", "lotteryBalls", "mysteryCard"] {
             for mode in ["equal", "customWeighted", "reverseStandings"] {
@@ -40,6 +41,7 @@ final class RemovalToggleUITests: XCTestCase {
     }
 
     /// Release blocker 10: presenter (full-screen) mode keeps the toggle.
+    @MainActor
     func testToggleStaysVisibleInPresenterMode() {
         let app = XCUIApplication.randomizer(seed: "league", style: "wheel", mode: "equal", open: "draw")
         app.launch()
@@ -63,6 +65,7 @@ final class RemovalToggleUITests: XCTestCase {
     /// Release blockers 11 and 12: OFF disables the unique order with an
     /// explanation while normal draws work; ON enables it, and the order
     /// holds every entry exactly once.
+    @MainActor
     func testUniqueDraftOrderNeedsRemovalOn() {
         let app = XCUIApplication.randomizer(seed: "league", style: "mysteryCard", mode: "reverseStandings", removal: "off", open: "draw")
         app.launch()
@@ -105,6 +108,7 @@ final class RemovalToggleUITests: XCTestCase {
     }
 
     /// Release blockers 5, 6 and 7 through the footer buttons.
+    @MainActor
     func testUndoAndRestoreFromTheFooter() {
         let app = XCUIApplication.randomizer(seed: "league", style: "reel", mode: "equal", open: "draw", speed: "instant")
         app.launch()
@@ -135,6 +139,7 @@ final class RemovalToggleUITests: XCTestCase {
     }
 
     /// Rapid taps make one draw, never extra winners.
+    @MainActor
     func testDoubleTapDrawsOnce() {
         let app = XCUIApplication.randomizer(seed: "league", style: "wheel", mode: "equal", open: "draw", speed: "standard")
         app.launch()
@@ -149,6 +154,7 @@ final class RemovalToggleUITests: XCTestCase {
     }
 
     /// Drawing every entry leads to restore and new-session choices, not a dead button.
+    @MainActor
     func testEmptyPoolOffersRestoreAndNewSession() {
         let app = XCUIApplication.randomizer(seed: "league", style: "lotteryBalls", mode: "equal", open: "draw", speed: "instant")
         app.launch()

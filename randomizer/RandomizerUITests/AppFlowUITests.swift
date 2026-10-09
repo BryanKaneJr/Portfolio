@@ -6,6 +6,7 @@ final class AppFlowUITests: XCTestCase {
     }
 
     /// A first-time user draws from the sample within 15 seconds.
+    @MainActor
     func testFirstRunSampleDrawsWithinSeconds() {
         let app = XCUIApplication.randomizer()
         app.launch()
@@ -20,6 +21,7 @@ final class AppFlowUITests: XCTestCase {
 
     /// Phase 2 and release blocker 8: a new list, its toggle, pool and
     /// results survive the app being quit and reopened.
+    @MainActor
     func testNewListSurvivesRelaunch() {
         let store = UUID().uuidString
         var app = XCUIApplication.randomizer(store: store)
@@ -56,6 +58,7 @@ final class AppFlowUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["lastDrawName"].exists, "The last result is still there")
     }
 
+    @MainActor
     func testPasteNamesShowsAPreviewFirst() {
         let app = XCUIApplication.randomizer()
         app.launch()
