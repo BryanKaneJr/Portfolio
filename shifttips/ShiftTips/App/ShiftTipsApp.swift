@@ -80,6 +80,7 @@ struct RootView: View {
                 }
         }
         .tint(Theme.ink)
+        .environment(\.hapticsEnabled, store.settings.hapticsEnabled)
         .preferredColorScheme(store.settings.appearance.colorScheme)
         .onAppear {
             store.refreshForToday()

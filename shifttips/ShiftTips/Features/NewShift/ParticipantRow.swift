@@ -149,6 +149,7 @@ struct IncludeControl: View {
     let noun: String
     let onToggle: () -> Void
     let onInfo: () -> Void
+    @Environment(\.hapticsEnabled) private var hapticsEnabled
 
     var body: some View {
         if row.eligibility.canParticipate {
@@ -161,6 +162,9 @@ struct IncludeControl: View {
             .accessibilityLabel("\(row.name) in \(noun)")
             .accessibilityValue(row.included ? "Included" : "Left out")
             .accessibilityHint(row.included ? "Double tap to leave out of this shift" : "Double tap to include in this shift")
+            .sensoryFeedback(trigger: row.included) { _, _ in
+                hapticsEnabled ? .selection : nil
+            }
         } else {
             Button(action: onInfo) {
                 Image(systemName: "lock.fill")

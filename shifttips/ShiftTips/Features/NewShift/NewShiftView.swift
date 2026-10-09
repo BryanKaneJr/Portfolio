@@ -121,9 +121,6 @@ struct NewShiftView: View {
         } message: {
             Text("The tips and hours you've entered for this shift will be cleared.")
         }
-        .sensoryFeedback(trigger: store.form.rows.filter(\.included).count) { _, _ in
-            store.settings.hapticsEnabled ? .selection : nil
-        }
     }
 
     // MARK: - Header

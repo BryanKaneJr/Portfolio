@@ -1,6 +1,21 @@
 import SwiftUI
 import ShiftTipsCore
 
+// MARK: - Haptics
+
+private struct HapticsEnabledKey: EnvironmentKey {
+    static let defaultValue = true
+}
+
+extension EnvironmentValues {
+    /// The Haptics setting, set once at the root so components can tick
+    /// without reaching for the store.
+    var hapticsEnabled: Bool {
+        get { self[HapticsEnabledKey.self] }
+        set { self[HapticsEnabledKey.self] = newValue }
+    }
+}
+
 // MARK: - Labels and rules
 
 /// A small monospaced label, optionally numbered: "01  TIPS TO SPLIT".
@@ -384,6 +399,7 @@ struct SegmentedTabs<Value: Hashable>: View {
     let onSelect: (Value) -> Void
     @Namespace private var namespace
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.hapticsEnabled) private var hapticsEnabled
 
     init(
         _ options: [Value],
@@ -445,6 +461,9 @@ struct SegmentedTabs<Value: Hashable>: View {
                 .strokeBorder(Theme.ink, lineWidth: 1.5)
         }
         .animation(reduceMotion ? nil : .snappy(duration: 0.25), value: selection)
+        .sensoryFeedback(trigger: selection) { _, _ in
+            hapticsEnabled ? .selection : nil
+        }
     }
 }
 
