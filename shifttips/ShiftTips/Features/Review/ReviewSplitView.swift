@@ -1,0 +1,109 @@
+import SwiftUI
+import ShiftTipsCore
+import ShiftTipsData
+
+/// The full split before saving, then the saved snapshot after.
+struct ReviewSplitView: View {
+    @Environment(AppStore.self) private var store
+    @Environment(Router.self) private var router
+    @Environment(\.dismiss) private var dismiss
+    @State private var changedSinceLastReview = false
+    @State private var confirmZeroPool = false
+    @State private var savedCount = 0
+
+    var body: some View {
+        let saved = store.shift(id: store.form.id)
+        let live = store.form.live
+        let outcome = saved?.outcome ?? live.outcome
+        let readiness = store.form.readiness(live)
+
+        ScrollView {
+            VStack(alignment: .leading, spacing: 16) {
+                if saved == nil {
+                    if changedSinceLastReview {
+                        Banner(.info, "You changed the inputs since your last review. These amounts are recalculated.")
+                    }
+                    if case .blocked(let message) = readiness {
+                        Banner(.warning, message)
+                    }
+                }
+                OutcomeView(outcome: outcome, savedAt: saved?.finishedAt)
+            }
+            .padding(16)
+        }
+        .background(Theme.background.ignoresSafeArea())
+        .navigationTitle(saved == nil ? (outcome.mode == .pool ? "Review Split" : "Review Tip-Outs") : "Shift Saved")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                ShareMenu(outcome: outcome, shift: saved)
+            }
+        }
+        .safeAreaInset(edge: .bottom) {
+            bottomBar(saved: saved, readiness: readiness, outcome: outcome)
+        }
+        .onAppear {
+            let draft = store.form.draft
+            changedSinceLastReview = store.lastReviewedDraft != nil && store.lastReviewedDraft != draft
+            store.lastReviewedDraft = draft
+        }
+        .confirmationDialog("Save a $0.00 shift?", isPresented: $confirmZeroPool, titleVisibility: .visible) {
+            Button("Save $0.00 Shift") { save() }
+        } message: {
+            Text(outcome.mode == .pool ? "Everyone in the pool is allocated $0.00." : "Nothing is tipped out on this shift.")
+        }
+        .sensoryFeedback(trigger: savedCount) { _, _ in
+            store.settings.hapticsEnabled ? .success : nil
+        }
+    }
+
+    @ViewBuilder
+    private func bottomBar(saved: FinishedShift?, readiness: ShiftForm.Readiness, outcome: ShiftOutcome) -> some View {
+        VStack(spacing: 10) {
+            if saved != nil {
+                Label("Saved to History", systemImage: "checkmark.circle.fill")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(Theme.positive)
+                    .accessibilityIdentifier("savedLabel")
+                HStack(spacing: 10) {
+                    ShareLink(item: ShareSummary.text(for: outcome)) {
+                        Text("Share Breakdown")
+                    }
+                    .buttonStyle(SecondaryButtonStyle())
+                    Button("Start Next Shift") {
+                        store.startNewShift()
+                        router.popToRoot()
+                    }
+                    .buttonStyle(PrimaryButtonStyle())
+                    .accessibilityIdentifier("startNextShift")
+                }
+            } else {
+                HStack(spacing: 10) {
+                    Button("Edit") { dismiss() }
+                        .buttonStyle(SecondaryButtonStyle())
+                        .frame(maxWidth: 120)
+                    Button("Save Shift") {
+                        if outcome.headlineCents == 0 {
+                            confirmZeroPool = true
+                        } else {
+                            save()
+                        }
+                    }
+                    .buttonStyle(PrimaryButtonStyle())
+                    .disabled(!readiness.isReady)
+                    .accessibilityIdentifier("saveShift")
+                }
+            }
+        }
+        .padding(.horizontal, 16)
+        .padding(.top, 12)
+        .padding(.bottom, 8)
+        .background(.bar)
+    }
+
+    private func save() {
+        if case .saved = store.finishShift() {
+            savedCount += 1
+        }
+    }
+}
