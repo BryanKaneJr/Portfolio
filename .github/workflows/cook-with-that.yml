@@ -1,0 +1,25 @@
+name: Cook With That
+
+on:
+  push:
+    paths: ['cook-with-that/**', '.github/workflows/cook-with-that.yml']
+  pull_request:
+    paths: ['cook-with-that/**', '.github/workflows/cook-with-that.yml']
+
+defaults:
+  run:
+    working-directory: cook-with-that
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: cook-with-that/package-lock.json
+      - run: npm ci
+      - name: Typecheck, content validation, tests
+        run: npm run check
