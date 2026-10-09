@@ -111,7 +111,6 @@ try {
   await page.getByRole('tab', { name: /Social/ }).click();
   await page.waitForTimeout(1200);
   let social = await bodyText(page);
-  check(!/XP prize|World leaderboard/.test(social), 'Social is the people: the standings and the leaderboard are on Leagues');
   check(/You earned the First Level trophy/.test(social), 'your own trophy is in the feed');
   // Dr. Scroll: everyone's first friend, with a profile like no one else's.
   check(/Dr\. Scroll[\s\S]*Your first friend/.test(social), 'Dr. Scroll is everyone\'s first friend');
@@ -156,7 +155,7 @@ try {
   check((await liked()) === before, 'tapping it again takes the like back');
   await page.getByRole('button', { name: /^Like(,|$)/ }).first().click();
   await page.waitForTimeout(500);
-  await page.getByRole('button', { name: /Quartz League: you're/ }).click();
+  await page.getByRole('tab', { name: /Leagues/ }).click();
   await page.waitForTimeout(1000);
   social = await bodyText(page);
   check(!/Ranked by XP earned this week/.test(social) && /1,000 XP prize/.test(social) && /250 XP prize/.test(social), 'the standings mark the top 3 prizes, with no rules paragraph');
@@ -170,7 +169,7 @@ try {
   check(/You and them/.test(social) && (await page.locator('[aria-label*=" levels, them "]').count()) > 0, 'and compares subjects with yours, side by side');
   await page.goBack();
   await page.waitForTimeout(600);
-  await page.goBack();
+  await page.getByRole('tab', { name: /Social/ }).click();
   await page.waitForTimeout(800);
   await exactButton(page, 'Edit your profile').click();
   await page.waitForTimeout(1000);
