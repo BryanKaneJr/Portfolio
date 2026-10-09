@@ -5,6 +5,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-10-09: First TestFlight fixes
 
+- **Lesson screens that fit don't rubber-band** (owner, still seeing the page move while reordering on the first build): with no bounce when a card fits the screen, a drag on an order tile can't move the page even in the instant before the scroll lock lands. Long cards still scroll and bounce at the ends.
 - **Order questions hold the page still** (owner, on the first TestFlight build: "the whole screen scrolls while you're trying to drag things in place"). A tile now drags from anywhere on it, not just its grip, and the lesson stops scrolling the moment a finger is on the list; a tap still picks two tiles to swap. The instruction reads "Slide a tile up or down, or tap two to swap them."
 - **Deleting an account asks you to type DELETE** (owner: "shouldnt it say, type delete or something?"). The Delete permanently button stays off until the word is typed, in any case; Keep my account clears it.
 - **Invite links work for friends without the app.** Cloudflare answered every `/invite/CODE` with a redirect to `/invite`, which dropped the code, so the page said "This invite link looks incomplete". The site now rewrites to `/invite`, keeping the code in the address.

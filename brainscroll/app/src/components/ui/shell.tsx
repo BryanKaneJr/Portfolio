@@ -127,7 +127,9 @@ export function LessonShell({
         <ProgressBar value={progress} size="lesson" label="Lesson progress" grow fill={barFill} />
         {right ?? <View style={{ width: layout.minTouch }} />}
       </View>
-      <ScrollView ref={scrollRef} key={contentKey} scrollEnabled={!scrollLocked} contentContainerStyle={styles.lessonScroll}>
+      {/* No rubber band when a card fits the screen: a drag on an order question's tile can't move the page
+          even in the moment before the scroll lock lands (owner, 2026-10-09). Long cards still scroll and bounce. */}
+      <ScrollView ref={scrollRef} key={contentKey} scrollEnabled={!scrollLocked} alwaysBounceVertical={false} contentContainerStyle={styles.lessonScroll}>
         <View style={styles.column} ref={contentRef}>
           <SlideIn style={{ gap: space.lg }}>
             {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
