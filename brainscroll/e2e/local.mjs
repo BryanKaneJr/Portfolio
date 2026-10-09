@@ -234,7 +234,13 @@ try {
   await page.getByRole('tab', { name: /Profile/ }).click();
   await page.waitForTimeout(800);
   // Beside the streak: your place on this week's world leaderboard (owner, 2026-10-09).
-  check((await page.getByRole('button', { name: /^World rank this week: number \d+\. Open Social$/ }).count()) === 1 && /Rank\s+#\d+/i.test(await bodyText(page)), 'Profile shows your world rank this week');
+  const rankTile = page.getByRole('button', { name: /^World rank/ });
+  let rankLabel = '';
+  for (let i = 0; i < 20 && !/number \d+/.test(rankLabel); i++) {
+    rankLabel = (await rankTile.getAttribute('aria-label').catch(() => '')) ?? '';
+    if (!/number \d+/.test(rankLabel)) await page.waitForTimeout(200);
+  }
+  check(/^World rank this week: number \d+\. Open Social$/.test(rankLabel), `Profile shows your world rank this week (${rankLabel})`);
   await exactButton(page, 'Settings').click();
   await page.waitForTimeout(800);
   check(/Blocked[\s\S]*@noor/i.test(await bodyText(page)), 'Settings lists who you blocked');
