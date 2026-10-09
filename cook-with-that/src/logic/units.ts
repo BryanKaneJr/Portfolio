@@ -67,6 +67,12 @@ const GRAMS_PER_CUP: Record<string, number> = {
   tomato_paste: 260,
   applesauce: 245,
   arugula: 20,
+  gruyere: 100,
+  popcorn_kernels: 210,
+  pinto_beans: 170,
+  cannellini_beans: 170,
+  mayonnaise: 220,
+  tahini: 240,
   banana: 225, // mashed
   apple: 110, // sliced
   carrot: 130,
