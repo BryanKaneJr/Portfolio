@@ -232,7 +232,7 @@ public enum PoolCalculator {
 
     private static func inRange(_ draft: ShiftDraft) -> Bool {
         let pool = draft.pool
-        let amounts = [pool.totalCents, pool.cashCents ?? 0, pool.cardCents ?? 0]
+        let amounts: [Int64] = [pool.totalCents, pool.cashCents ?? 0, pool.cardCents ?? 0]
         guard amounts.allSatisfy({ (0...Limits.maxPoolCents).contains($0) }) else { return false }
         return draft.participants.allSatisfy {
             (0...Limits.maxMinutes).contains($0.minutesWorked)

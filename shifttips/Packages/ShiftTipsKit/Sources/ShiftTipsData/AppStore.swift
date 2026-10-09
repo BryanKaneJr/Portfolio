@@ -126,10 +126,14 @@ public final class AppStore {
         }
     }
 
-    /// Makes `id` the crew new shifts start with and loads it now.
+    /// Makes `id` the crew new shifts start with and loads it now. The
+    /// example's made-up people, or a shift that's already saved, make way
+    /// for a fresh shift instead of mixing with the crew.
     public func selectCrew(id: UUID?) {
         updateSettings { $0.activeCrewId = id }
-        if let id, let crew = crew(id: id) {
+        if form.isExample || isFormSaved {
+            startNewShift()
+        } else if let id, let crew = crew(id: id) {
             form.apply(crew: crew)
         } else {
             form.removeCrew()

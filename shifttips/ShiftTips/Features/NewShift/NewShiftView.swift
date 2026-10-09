@@ -60,7 +60,7 @@ struct NewShiftView: View {
         }
         .sheet(isPresented: $addingPerson) {
             AddPersonSheet(showsPoints: store.form.method.usesPoints) { name, role, points in
-                store.form.addOneOff(name: name, role: role, pointsUnits: points)
+                _ = store.form.addOneOff(name: name, role: role, pointsUnits: points)
             }
         }
         .sheet(item: $infoRow) { row in

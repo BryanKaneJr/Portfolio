@@ -32,6 +32,17 @@ import ShiftTipsCore
         #expect(store.form.rows.map(\.name) == ["Ava", "Marco", "Lee"])
     }
 
+    @Test func choosingACrewReplacesTheExample() {
+        let store = makeStore()
+        store.saveCrew(crew())
+        store.loadExample()
+        #expect(store.form.rows.count == 6)
+        store.selectCrew(id: store.crews[0].id)
+        #expect(!store.form.isExample)
+        #expect(store.form.rows.map(\.name) == ["Ava", "Marco", "Lee"])
+        #expect(store.form.tipsText.isEmpty)
+    }
+
     @Test func finishingSavesAFrozenSnapshotOnce() {
         let storage = MemoryStorage()
         let store = makeStore(storage)
