@@ -14,6 +14,7 @@ Read `docs/product-rules.md` before changing anything that touches progression, 
 - `npm run supabase:check`: validate the app's Supabase URL/key (never a secret key) and, with network, probe the project read-only. See `docs/supabase-setup.md`.
 - `npm run insights:pull`: pull aggregate learner insights and open content reports from Supabase (service key) into `admin/.data/` for the admin. See `docs/analytics.md`.
 - `npm run app:preview`: the web app in local mode for Cloudflare Pages (`app/dist-preview`), the preview on every branch. See `docs/app-preview.md`.
+- `npm run app:update -- "what changed"`: send the app's code and images to the store builds as an instant update (EAS Update), bundled with `app/eas.json`'s production values and checked before it publishes. Never a plain `eas update`. Native changes need a build with a higher `version`. See `docs/release.md`.
 - `npm run site:build`: build the invite site (`site/src` → `site/dist`) with the Universal Link / App Link files, from public IDs in the environment. See `docs/invite-links.md`.
 - `npm run admin`: the local Content Admin (http://127.0.0.1:4321). It browses, edits, validates and previews levels in `content/` and controls draft/published (see `admin/README.md`).
 - `npm run app`: Expo dev server. In `app/`, use `npx expo install <pkg>` to add dependencies (it picks SDK-compatible versions). See `app/AGENTS.md`.

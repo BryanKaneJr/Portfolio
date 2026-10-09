@@ -11,6 +11,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 - **Invite links open the app on iPhone.** The Apple team id (`X3837877NX`) came out of the first TestFlight build's provisioning profile, so the site now publishes the file iPhones check before opening the app for `/invite/*` links; nothing for the owner to look up.
 - **A shared invite looks like BrainScroll** (owner: "how do we get the app icon to appear when they share an invite"). On iPhone the link goes to the share sheet as a link, not text, so the sheet and Messages show the invite page's icon, title and picture.
 - **"Earn more Brainpower" reads cleanly at any text size** (owner's screenshot: "Trophi es", "Chapte r"): one line per way with its icon, in place of five squeezed columns.
+- **Instant updates** (owner: yes to adding them before the rebuild). Builds from now on take code and image fixes without a new build or App Review: `npm run app:update -- "what changed"` bundles with the store build's own settings, checks the bundle talks to Supabase, and publishes it; phones pick it up the next time the app opens. Native changes still need a build, with a higher version so old builds never get code they can't run.
 - **The XP boost timer is front and center** (owner: "players need to know how much time they have left"): "2x XP 12:05", ticking each second, sits in the middle of Home's top bar and under the skill map's, while a boost runs.
 
 ## 2026-10-09: A full test pass

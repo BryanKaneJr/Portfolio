@@ -14,7 +14,7 @@ App identifiers: `app.brainscroll` on both platforms (`app/app.json`). Change th
 
 ## Environment variables
 
-The store builds already carry every value they need in `app/eas.json`, so there's nothing to set in EAS. Anything set in EAS (expo.dev → project → Environment variables) adds to these. All are public build-time values; never put a secret key in the app.
+The store builds already carry every value they need in `app/eas.json`, so there's nothing to set in EAS. Add any new value there too (preview and production), not only on expo.dev: [instant updates](#instant-updates-no-new-build) bundle from `eas.json`, so a value kept only on expo.dev would reach builds but not updates. All are public build-time values; never put a secret key in the app.
 
 | Variable | Value |
 | --- | --- |
@@ -48,6 +48,21 @@ npx eas-cli@latest submit --profile production --platform android   # to Play Co
 ```
 
 The first iOS build creates the app record, certificates and profiles for you (EAS asks for your Apple Developer login). For Google Play, upload the first build by hand in the Play Console and create a service account key for later `eas submit` runs.
+
+## Instant updates (no new build)
+
+Store and TestFlight builds check for an update each time they open (`expo-updates`, the `production` channel). To send a change to the app's code or images to every phone without a new build or App Review, from `brainscroll/` after `git pull` and `npm install`, signed in to Expo:
+
+```sh
+npm run app:update -- "Fix the order question drag"
+```
+
+It bundles with the store build's values from `eas.json`, checks the bundle talks to Supabase, and publishes. A phone downloads it the next time the app opens and runs it the time after (close and reopen twice to see it at once). Never run a plain `eas update`: it bundles without the `eas.json` values and would send every phone the offline test harness.
+
+- **What needs a build instead:** a new native package, a config plugin, or a change to `app/app.json` or `app/app.config.ts`. Raise `version` in `app/app.json` first (1.0.0 to 1.0.1): the runtime version follows it, so phones on an older build never get code they can't run.
+- **Apple's rule:** updates may fix bugs and improve the app; a change to what the app is goes through review.
+- **Undo:** from `brainscroll/app`, `npx eas-cli@latest update:roll-back-to-embedded --channel production --message "Roll back"` returns every phone to the code inside its build. Or fix it and publish again.
+- Builds from before 2026-10-09 don't have updates; the build after PR #41 is the first that does.
 
 ## Before each release: QA checklist
 
@@ -98,7 +113,7 @@ Done already: the Supabase project (it serves as production: every level importe
 
 iPhone first, in this order:
 
-1. **The first build to TestFlight.** On a computer, from `brainscroll/app`: `npx eas-cli@latest build --profile production --platform ios --auto-submit`. It asks you to sign in to Expo and to your Apple Developer account, then creates the certificates, the App Store Connect record and the push key (answer yes), and sends the build to TestFlight.
+1. ~~**The first build to TestFlight**~~ done (2026-10-09). One more build carries the first round's fixes and [instant updates](#instant-updates-no-new-build); after it, most fixes go out with `npm run app:update`. On a computer, from `brainscroll/app`: `npx eas-cli@latest build --profile production --platform ios --auto-submit`.
 2. **The two subscriptions** in App Store Connect, with the week-long free trial, and the Paid Apps agreement, tax and banking ([`subscriptions.md`](subscriptions.md)). Skip any part that's already done.
 3. ~~**The Apple Team ID**~~ done: `X3837877NX`, read from the first TestFlight build and set in `scripts/site-build.ts`, so invite links open the app ([`invite-links.md`](invite-links.md)). Apple fetches the link file when the app is installed, so it can take a reinstall or a day to start working.
 4. **A few days on TestFlight:** the QA checklist above, on your iPhone.
