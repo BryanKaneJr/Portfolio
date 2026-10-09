@@ -84,7 +84,7 @@ A character only works if he looks like the same person in every image.
 | Image ID | Pose | Used for |
 | --- | --- | --- |
 | `mascot.checkpoint` | Holding a clipboard with a big check mark | Checkpoint levels |
-| `mascot.review` | Holding a small stack of cards | Review tab |
+| `mascot.review` | Holding a small stack of cards | Practice tab |
 | `mascot.mastery` | Holding up a gold star, beaming (the only gold) | Mastery Challenge, mastery moments |
 | `mascot.go-outside` | Walking away, looking back and waving goodbye | Brainpower used up (formerly Daily Knowledge Complete; "go touch grass") |
 | `mascot.sleeping` | Standing asleep, eyes closed, head tilted | "Come back tomorrow", empty states |
@@ -206,13 +206,13 @@ Each fixed place in the app is a **spot** with a stable ID. Screens ask for a sp
 | `level-complete.lucky-drop` | `cupcake-sneak` | Level Complete when a perfect level dropped a lucky +1 Brainpower (a mastery star still wins) |
 | `review-complete` | `clapping` | Review Complete screen |
 | `daily-complete` | `go-outside` | Brainpower used up: "Go touch grass." Takes turns, one a day, with paddling-pool, sun-reflector, tea-pinky, yoga-wobble, bee-hello and giant-sandwich |
-| `review.empty` | `sleeping` | Review tab when nothing is due. Takes turns with tea-pinky and sandwich |
+| `review.empty` | `sleeping` | Practice tab when nothing is due. Takes turns with tea-pinky and sandwich |
 | `loading` | `waiting` | Loading a level or the review queue (after a short delay). Takes turns with coffee-jitter, book-tower and spaghetti |
 | `error.load` | `tangled` | A level or screen that could not load (never about account or payment data). Takes turns with stuck-jar and storm-umbrella |
 | `level.locked` | `thinking` | Opening a level that is not unlocked yet |
 | `home.start` | `pointing` | Home, before any level is started: points to a first subject or Choose for me |
 | `home.path` | `reading` | Home: beside the level path. On a skill's map he wears that skill's costume (`SKILL_GUIDE_POSE` in core: a telescope on Astronomy, a toga on Rome, a map on World Geography, a piggy bank on How Money Works, an easel on Art History, a laptop on Everyday Technology); `reading` is the fallback |
-| `review.ready` | `review` | Review tab when concepts are due |
+| `review.ready` | `review` | Practice tab when concepts are due |
 | `map.rest` | (per chapter) | Skill map: every chapter you've finished has Dr. Scroll goofing off by the road in its right-hand pocket, a different everyday pose per chapter with no repeats within 20 chapters (`mapRestPose`). In the chapter you're in he wears the skill's costume and takes turns, one a day, among the skill's actions (`mapGuidePose`) |
 | `not-found` | `tangled` | A link to something that does not exist. Takes turns with pigeon-head and tiny-hat |
 
@@ -246,7 +246,7 @@ A spot can play a short animation instead of its still pose: `DrScrollSays anima
 - **He doesn't repeat himself (owner, 2026-10-01):** every moment that comes round again (Level Complete for each outcome, mastery and replays, Brainpower used up, and Review when cards are due) has at least 10 lines in `DR_SCROLL_SAYINGS`. `drScrollSaying` steps through them by level number or by day, so the next level or the next day always gets a different line. A test holds the minimum. One-off moments (his introduction, the first-time tips) keep a single line.
 - **Onboarding intro:** the first onboarding screen after sign-in is Dr. Scroll saying hello (screenshot: `docs/ui/dr-scroll-intro.png`), then pick a skill, then the deal.
 
-- **Reactions:** a small thumbs-up or kind shrug beside answer feedback, and one line on Level Complete, Brainpower used up and the empty Review tab.
+- **Reactions:** a small thumbs-up or kind shrug beside answer feedback, and one line on Level Complete, Brainpower used up and the empty review card on Practice.
 - **One-time tips** (`DrScrollTip`): first question, first miss, first checkpoint and first review. Each shows once per account and can be dismissed. Tips are the one place he appears before an answer, because they explain how the app works.
 
 - **Card asides:** a learning card can carry `mascot: { pose, line }` (calm poses only, no new facts, at most one per level), used as a teaching move: what to keep, what not to memorize, a common mix-up, or a connection. Rules in `docs/content-guide.md` under "Dr. Scroll asides". Astronomy Level 1's fact card has the first one.

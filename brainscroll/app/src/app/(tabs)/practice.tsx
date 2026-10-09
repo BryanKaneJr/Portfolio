@@ -2,18 +2,20 @@ import { dayNumber, drScrollSaying, REVIEW_SESSION_MAX_QUESTIONS, type ReviewIte
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Body, Button, Caption, Card, DrScrollSays, Icon, LoadError, Loading, Numeral, OfflineState, Row, Screen, ScreenHeader, SkeletonCard, StateBlock, UiArt } from '@/components/ui';
+import { Body, Button, Caption, Card, DrScrollSays, Icon, LoadError, Loading, Numeral, OfflineState, Row, Screen, ScreenHeader, SkeletonCard, StateBlock, Title, UiArt } from '@/components/ui';
 import { ChapterReviews } from '@/components/ChapterReviews';
+import { SkillList } from '@/components/SkillList';
 import { getConcept } from '@/content';
 import { useProgress } from '@/progress/ProgressProvider';
 import { color, iconSize, radius, space } from '@/theme/tokens';
 
 /**
- * Review belongs to the learning system, not an inbox to empty. One calm card:
- * what's ready and a way in. Below it, any cleared chapter to go back over.
- * It never uses the daily allowance and stays open after 5/5.
+ * Practice (owner, 2026-10-09: Review and Skills in one tab). Review belongs to
+ * the learning system, not an inbox to empty: one calm card, what's ready and a
+ * way in. Then your skills, and any cleared chapter to go back over. It never
+ * uses the daily allowance and stays open after 5/5.
  */
-export default function ReviewScreen() {
+export default function PracticeScreen() {
   const { reviewQueue, refresh, ready, offline, reconnect, reconnecting } = useProgress();
   const [queue, setQueue] = useState<ReviewItem[] | null>(null);
   // A failed load is its own state: never shown as "caught up".
@@ -51,7 +53,7 @@ export default function ReviewScreen() {
   const preview = (queue ?? []).slice(0, 4);
   return (
     <Screen>
-      <ScreenHeader eyebrow="Memory" title="Review" />
+      <ScreenHeader eyebrow="Review and skills" title="Practice" />
       {failed ? (
         <LoadError
           retrying={retrying}
@@ -96,6 +98,10 @@ export default function ReviewScreen() {
           secondary={{ label: 'Learn something new', onPress: () => router.navigate('/') }}
         />
       )}
+      <View style={{ gap: space.sm }}>
+        <Title>Your skills</Title>
+        <SkillList />
+      </View>
       {queue !== null && !failed && <ChapterReviews />}
     </Screen>
   );

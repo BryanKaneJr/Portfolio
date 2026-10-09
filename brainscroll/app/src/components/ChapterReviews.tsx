@@ -7,7 +7,7 @@ import { useProgress } from '@/progress/ProgressProvider';
 import { color, iconSize, space } from '@/theme/tokens';
 
 /**
- * The Review tab's second half: go back over any chapter you've cleared,
+ * Practice's last part: go back over any chapter you've cleared,
  * whenever you like. One question per level, up to XP.CHAPTER_REVIEW_MAX each
  * time. Once a skill has nothing new left for the learner, its chapter
  * reviews count toward Weekly Quests, and the skill says so.

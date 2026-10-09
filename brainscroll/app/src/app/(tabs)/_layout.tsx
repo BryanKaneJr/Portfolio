@@ -12,11 +12,9 @@ import { color, depth, fw, radius, space } from '@/theme/tokens';
  */
 const TAB_ART = {
   home: require('../../../assets/images/ui/welcome.webp'),
-  // A star: what mastering a skill earns (owner, 2026-10-01: the up arrow was too plain).
-  skills: require('../../../assets/images/ui/mastery-star.webp'),
   // A medal: your league (owner, 2026-10-01).
-  social: require('../../../assets/images/ui/medal.webp'),
-  review: require('../../../assets/images/ui/review.webp'),
+  league: require('../../../assets/images/ui/medal.webp'),
+  practice: require('../../../assets/images/ui/review.webp'),
   profile: require('../../../assets/images/ui/profile.webp'),
 } satisfies Record<string, ImageSourcePropType>;
 
@@ -29,6 +27,16 @@ function icon(art: ImageSourcePropType) {
       </View>
     );
   };
+}
+
+/** Social: two people facing each other, drawn from Profile's figure (no new art). */
+function SocialIcon({ focused }: { focused: boolean }) {
+  return (
+    <View style={[tabStyles.box, focused && tabStyles.active, { flexDirection: 'row' }]} accessible={false} aria-hidden importantForAccessibility="no-hide-descendants">
+      <Image source={TAB_ART.profile} style={[tabStyles.person, !focused && tabStyles.dim]} resizeMode="contain" />
+      <Image source={TAB_ART.profile} style={[tabStyles.person, { marginLeft: -space.xs, transform: [{ scaleX: -1 }] }, !focused && tabStyles.dim]} resizeMode="contain" />
+    </View>
+  );
 }
 
 /** The tab icon's box: fixed, so the active outline is the same size on every tab. */
@@ -44,6 +52,7 @@ const tabStyles = StyleSheet.create({
   box: { ...TAB_BOX, borderRadius: radius.md, alignItems: 'center', justifyContent: 'center', borderWidth: depth.border, borderColor: 'transparent' },
   active: { backgroundColor: color.brandSoft, borderColor: color.brandLine },
   art: { width: 30, height: 30 },
+  person: { width: 24, height: 24 },
   // Dimmed, not grey: the art keeps its colour, just quieter than the active tab.
   dim: { opacity: 0.5 },
 });
@@ -52,9 +61,10 @@ const tabStyles = StyleSheet.create({
 const tabLabel = { marginTop: space.xs, fontSize: 11, lineHeight: 14, ...fw('700'), textAlign: 'center' } as const;
 
 /**
- * Five destinations, left to right: Skills, Review, Home, Social and Profile (owner, 2026-10-01: Home in the
- * centre). Home stays the first screen and where Back lands. Learning launches from Home or a skill, and the
- * tab bar disappears inside lessons (they're stack screens).
+ * Five destinations, left to right: Practice, Leagues, Home, Social and Profile (owner, 2026-10-01: Home in
+ * the centre; 2026-10-09: Practice is Review with your skills, and Leagues holds the league, the week's quest
+ * and the world leaderboard). Home stays the first screen and where Back lands. Learning launches from Home
+ * or a skill, and the tab bar disappears inside lessons (they're stack screens).
  */
 export default function TabLayout() {
   const insets = useSafeAreaInsets();
@@ -83,10 +93,10 @@ export default function TabLayout() {
           </Text>
         ),
       }}>
-      <Tabs.Screen name="skills" options={{ title: 'Skills', tabBarIcon: icon(TAB_ART.skills) }} />
-      <Tabs.Screen name="review" options={{ title: 'Review', tabBarIcon: icon(TAB_ART.review) }} />
+      <Tabs.Screen name="practice" options={{ title: 'Practice', tabBarIcon: icon(TAB_ART.practice) }} />
+      <Tabs.Screen name="league" options={{ title: 'Leagues', tabBarIcon: icon(TAB_ART.league) }} />
       <Tabs.Screen name="(home)" options={{ title: 'Home', tabBarIcon: icon(TAB_ART.home) }} />
-      <Tabs.Screen name="social" options={{ title: 'Social', tabBarIcon: icon(TAB_ART.social) }} />
+      <Tabs.Screen name="social" options={{ title: 'Social', tabBarIcon: SocialIcon }} />
       <Tabs.Screen name="profile" options={{ title: 'Profile', tabBarIcon: icon(TAB_ART.profile) }} />
     </Tabs>
   );

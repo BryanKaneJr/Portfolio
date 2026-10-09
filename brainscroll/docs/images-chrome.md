@@ -2,7 +2,7 @@
 
 **Status (2026-10-01): not made yet.** The app uses stand-ins from the existing UI set until these exist:
 
-- **Tab bar:** Home uses `ui/welcome`, Skills `ui/mastery-star`, Review `ui/review` and Profile `ui/profile` (`app/src/app/(tabs)/_layout.tsx`).
+- **Tab bar:** Home uses `ui/welcome`, Practice `ui/review`, Leagues `ui/medal` and Profile `ui/profile`; Social is two of Profile's figures facing each other (`app/src/app/(tabs)/_layout.tsx`).
 - **Path scene:** Dr. Scroll at his large size beside the road.
 
 These are the highest-impact pieces of art left for the "premium" feel: they show on every screen (the tab bar) or on the main screen (the path).

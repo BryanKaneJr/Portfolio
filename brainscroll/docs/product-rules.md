@@ -136,7 +136,7 @@ A regular level answered perfectly on the first try awards **+100 XP**. **Nothin
 
 Owner, 2026-09-29: "you can go back and review any chapter you want", and "I'm okay with reviewing being used for xp farms. Just diminish the xp return. Most you get from a review is the minimum from a regular lesson." Owner, 2026-09-30: "Make review 30xp max instead of 15."
 
-- **Any cleared chapter, any time,** from the Review tab. A chapter is cleared once its tenth level is (Level 10, 20, ...).
+- **Any cleared chapter, any time,** from the Practice tab. A chapter is cleared once its tenth level is (Level 10, 20, ...).
 - **One question per level** of the chapter (ten), rotating to the level's next question with each review of that chapter. No cards up front: it's recall.
 - **Graded like a level.** The first attempt is recorded once; a miss shows the source cards and must be corrected; the review finishes when every question is resolved. Leaving keeps your place.
 - **XP: at most 30** (was 15 until 2026-09-30), scaled by first tries and rounded. A first try doesn't count as right if that question was checked by replaying its level since the review started (security review, 2026-09-30). Repeating a chapter pays again: farming is allowed, the return is just small.
@@ -168,7 +168,7 @@ These are the guardrails. The design lives in [`social-expansion.md`](social-exp
 
 ## Never build (before launch)
 
-Social ships before launch (owner, 2026-10-01; CURRENT_PRODUCT_DECISIONS §22): friends, weekly leagues (in eight tiers you move up and down each week, owner 2026-10-08), a world leaderboard of total XP that never resets (a small card on Social that opens the top 50; owner, 2026-10-09) and a feed of moments with hearts (owner, 2026-10-03; Dr. Scroll reactions before). Challenges and the rest of the [Social + Rewards expansion](social-expansion.md) stay later. Everything below stays out of the core loop.
+Social ships before launch (owner, 2026-10-01; CURRENT_PRODUCT_DECISIONS §22): friends, weekly leagues (in eight tiers you move up and down each week, owner 2026-10-08), a world leaderboard of total XP that never resets (a small card on the Leagues tab that opens the top 50; owner, 2026-10-09) and a feed of moments with hearts (owner, 2026-10-03; Dr. Scroll reactions before). Challenges and the rest of the [Social + Rewards expansion](social-expansion.md) stay later. Everything below stays out of the core loop.
 
 
 Guest or anonymous play · social posts, comments, followers, clans, messaging · leaderboards that reward time or speed · avatars, equipment, currencies other than Brainpower, shops · live AI tutor as a core dependency · user-generated lessons · web/desktop learning clients · 201–300 prestige content · recommendation ML · custom billing · microservices · streak punishment or fake urgency.

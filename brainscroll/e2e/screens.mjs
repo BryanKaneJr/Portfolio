@@ -198,20 +198,20 @@ try {
     localStorage.setItem(k, JSON.stringify(s));
   });
   await home(page);
-  await page.getByRole('tab', { name: /Review/ }).click();
-  await shot('review-tab');
+  await page.getByRole('tab', { name: /Practice/ }).click();
+  await shot('practice-tab');
   await button(page, 'Start review').click();
   await page.waitForTimeout(600);
   if (await checkButton(page).count()) {
     await page.getByRole('radio').first().click();
     await shot('review-question');
   }
-  // Going back over a cleared chapter: the Review tab's second half, a question, and the finish.
+  // Going back over a cleared chapter: the end of Practice, a question, and the finish.
   await home(page);
-  await page.getByRole('tab', { name: /Review/ }).click();
+  await page.getByRole('tab', { name: /Practice/ }).click();
   await page.waitForTimeout(800);
   await scrollDown();
-  await shot('review-tab-chapters');
+  await shot('practice-tab-chapters');
   await page.getByRole('button', { name: /^Review Astronomy, Chapter 1:/ }).click();
   await page.waitForTimeout(800);
   // The second choice, so playReview's first pick changes it (a second tap on a fill in the blank's chip takes it back out).
@@ -220,8 +220,9 @@ try {
   await playReview(page);
   await shot('chapter-review-complete');
   await home(page);
-  await page.getByRole('tab', { name: /Skills/ }).click();
-  await shot('skills-tab');
+  await page.getByRole('tab', { name: /Leagues/ }).click();
+  await page.waitForTimeout(1200);
+  await shot('leagues-tab');
   await home(page);
   const history = page.getByRole('button', { name: /^Open History/ });
   if (await history.count()) {
@@ -250,7 +251,7 @@ try {
   await shot('settings');
   await scrollDown();
   await shot('settings-lower');
-  // Social: the league banner and feed, the standings, a league mate's profile, adding friends.
+  // Social: the feed, then the standings on Leagues, a league mate's profile, adding friends.
   await home(page);
   await page.getByRole('tab', { name: /Social/ }).click();
   await page.waitForTimeout(1500);
@@ -275,7 +276,7 @@ try {
   await page.getByRole('button', { name: /^Like(,|$)/ }).first().click();
   await page.waitForTimeout(500);
   await shot('social-react');
-  await page.getByRole('button', { name: /League: you're/ }).click();
+  await page.getByRole('tab', { name: /Leagues/ }).click();
   await page.waitForTimeout(1200);
   await shot('league');
   await page.getByRole('button', { name: /^1st: / }).click();
@@ -285,7 +286,7 @@ try {
   await shot('person-compare');
   await page.goBack();
   await page.waitForTimeout(600);
-  await page.goBack();
+  await page.getByRole('tab', { name: /Social/ }).click();
   await page.waitForTimeout(800);
   await exactButton(page, 'Add friends').first().click();
   await page.waitForTimeout(1000);
