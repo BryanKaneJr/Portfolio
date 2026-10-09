@@ -434,6 +434,47 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   pickles: { add: 'pantry' }, // jarred cucumber pickles; relish is separate
   'dill pickles': '=pickles',
 
+  // ── Reviewed by parallel import worker nhlbi-merge ──
+  'low sodium chicken broth': 'chicken_broth',
+  'low sodium vegetable broth': 'vegetable_broth',
+  'low sodium chicken broth or vegetable broth': null, // which broth? The editor picks one
+  'low sodium chickpeas': 'chickpeas',
+  'low sodium red kidney beans': 'kidney_beans',
+  'no salt added tomato paste': 'tomato_paste',
+  'no salt added tomato sauce': '=tomato sauce',
+  'no salt added pasta sauce': '=marinara sauce',
+  'chunky tomato sauce': null, // canned tomato sauce or jarred pasta sauce? The editor names it
+  'spinach or arugula': null, // the editor picks one
+  'fat free sour cream': 'sour_cream',
+  'reduced fat mayonnaise': '=mayonnaise',
+  'light mayonnaise': '=mayonnaise',
+  '99 percent lean ground turkey': 'ground_turkey',
+  '99 percent fat free ground turkey': 'ground_turkey',
+  'whole wheat penne pasta': 'pasta',
+  'whole wheat angel hair pasta': 'pasta',
+  'shell pasta': 'pasta',
+  'instant brown rice': 'brown_rice', // parboiled brown rice: same grain, faster cooking
+  'white mushrooms': 'mushroom',
+  'portabella mushroom': 'mushroom', // the same species as button and cremini, grown larger
+  'pearl onions': 'onion', // small onions, used whole
+  'nonstick cooking spray': 'vegetable_oil', // like 'cooking spray'
+  'hot pepper flakes': 'red_pepper_flakes',
+  'ground cayenne pepper': '=cayenne pepper',
+  'packed brown sugar': 'brown_sugar',
+  'dried dill weed': '=dried dill',
+  'evaporated skim milk': '=evaporated milk',
+  'golden raisins': '=raisins',
+  'golden seedless raisins': '=raisins',
+  'anise seed': { add: 'spice' },
+  'anise seeds': '=anise seed',
+  capers: { add: 'pantry' },
+  'green olives': { add: 'pantry' },
+  'hamburger buns': { add: 'grain' },
+  'whole wheat hamburger buns': '=hamburger buns',
+  'pita bread': { add: 'grain' },
+  pita: '=pita bread',
+  'whole wheat pita': '=pita bread',
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,

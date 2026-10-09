@@ -6,17 +6,20 @@
  *   npm run import:draft -- based-cooking chili tacos  append these source keys as drafts
  *   npm run import:catalog -- "ground ginger"        add a reviewed ingredient to the catalog by hand
  *
+ * A source's snapshot is either a pinned git commit (fetched into .import-cache/) or a file
+ * committed under content/import/ by that source's fetch script (npm run import:fetch-nhlbi).
+ *
  * Drafts land in src/data/imported/<file> with source metadata filled in and TODO markers
  * where an editor must decide (times, descriptions, quantities). `npm run validate` fails
  * until every TODO is resolved, so nothing half-edited can ship.
  */
-import { execFileSync } from 'child_process';
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 import { INGREDIENTS, RECIPES } from '../src/data/catalog';
 import { buildIngredientIndex } from '../src/logic/normalizeIngredient';
 import { addToCatalogSource, draftOrder, draftRecipeCode, recipeId } from './import/draft';
 import { catalogAddition } from './import/mapIngredient';
+import { describeSnapshot, openSnapshot } from './import/snapshot';
 import { SOURCES, type SourceDef } from './import/sources';
 import { stageRecipe, stageReport } from './import/stage';
 import type { Candidate } from './import/types';
@@ -29,25 +32,18 @@ function fail(message: string): never {
   process.exit(1);
 }
 
-/** Shallow fetch of exactly the pinned commit. Network is fine here: only the app (src/) must stay offline. */
-function checkout(name: string, source: SourceDef): string {
-  const dir = join(CACHE, name);
-  const git = (...args: string[]) =>
-    execFileSync('git', ['-C', dir, ...args], { stdio: 'pipe' })
-      .toString()
-      .trim();
-  if (existsSync(join(dir, '.git')) && git('rev-parse', 'HEAD') === source.repo.commit) return dir;
-  mkdirSync(dir, { recursive: true });
-  if (!existsSync(join(dir, '.git'))) git('init', '-q');
-  console.log(`Fetching ${source.repo.url} @ ${source.repo.commit.slice(0, 10)}…`);
-  git('fetch', '-q', '--depth', '1', source.repo.url, source.repo.commit);
-  git('checkout', '-q', '--force', 'FETCH_HEAD');
-  return dir;
+/** The pinned snapshot's location: a checkout of the commit (shallow-fetched on first use) or the committed file. */
+function snapshot(name: string, source: SourceDef): string {
+  try {
+    return openSnapshot(source.snapshot, { root: ROOT, cacheDir: join(CACHE, name) });
+  } catch (err) {
+    return fail(`${name}: ${err instanceof Error ? err.message : String(err)}`);
+  }
 }
 
 function stage(name: string, source: SourceDef): Candidate[] {
   const index = buildIngredientIndex(INGREDIENTS);
-  const raws = source.read(checkout(name, source));
+  const raws = source.read(snapshot(name, source));
   for (const key of Object.keys(source.exclude))
     if (!raws.some(r => r.key === key)) console.warn(`  ⚠ exclude list names "${key}", which isn't in the snapshot`);
   const excludeReason = (raw: (typeof raws)[number]) =>
@@ -65,7 +61,7 @@ function runStage(name: string, source: SourceDef) {
   const candidates = stage(name, source);
   const reportDir = join(ROOT, 'docs', 'import-reports');
   mkdirSync(reportDir, { recursive: true });
-  const header = `Source: ${source.repo.url.replace(/\.git$/, '')} at \`${source.repo.commit}\`.\n`;
+  const header = `Source: ${describeSnapshot(source.snapshot)}.\n`;
   const report = stageReport(name, candidates, importedKeys(source.collection)).replace(
     'Do not edit by hand.\n',
     `Do not edit by hand.\n\n${header}`,

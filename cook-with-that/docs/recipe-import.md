@@ -10,16 +10,19 @@ npm run import:stage -- based-cooking            # fetch the pinned snapshot, pa
 npm run import:draft -- based-cooking --next 10  # append the next 10 ready recipes as drafts
 npm run import:draft -- based-cooking chili tacos  # or name the source keys you want
 npm run import:catalog -- "ground ginger"        # add a reviewed ingredient by hand while editing
-# edit the drafts in src/data/imported/basedCooking.ts
+npm run import:stage -- nhlbi                    # same loop for NHLBI, from its committed snapshot
+# edit the drafts in src/data/imported/basedCooking.ts (or nhlbi.ts)
 npm run check                                    # typecheck + validate + tests: must pass before committing
 ```
 
 One batch is one commit. Keep batches small (5–15) so each can be reviewed.
 
-1. **Stage** fetches exactly the commit pinned in `scripts/import/sources/index.ts` into `.import-cache/`
-   (git-ignored), reads every entry, parses each ingredient line and maps it to a catalog ID. It writes
-   `docs/import-reports/<source>.md`. That report has counts, a greedy "review these names next" list, the
-   catalog additions waiting on a draft, and every name that blocks a recipe.
+1. **Stage** reads the snapshot pinned in `scripts/import/sources/index.ts`: for a git source it fetches
+   exactly that commit into `.import-cache/` (git-ignored); for a file source it reads the committed file
+   (`content/import/nhlbi/recipes.json`). It reads every entry, parses each ingredient line and maps it
+   to a catalog ID. It writes `docs/import-reports/<source>.md`. That report has counts, a greedy
+   "review these names next" list, the catalog additions waiting on a draft, and every name that blocks
+   a recipe.
 2. **Draft** appends recipes in the `src/data/recipes.ts` format, with `source` metadata filled in
    (license, collection, original key, title and author). Wherever an editor must decide, it leaves
    `TODO` markers: missing quantities, times, descriptions and meal tags. It also leaves
@@ -125,8 +128,16 @@ alone: the staples list is the owner's.
 2. Add the collection to `RECIPE_COLLECTIONS` in `src/data/collections.ts`, with its exact license
    string and a credit line. Its `home` takes no `https://`, because `src/` must stay URL-free.
 3. Write a reader in `scripts/import/sources/` that returns `RawRecipe[]`, and register it in
-   `scripts/import/sources/index.ts`. Give it a pinned commit, an `exclude` list for entries with
-   doubtful provenance, and a `textPolicy`:
+   `scripts/import/sources/index.ts`. Give it a pinned `snapshot`, an `exclude` list for entries with
+   doubtful provenance, and a `textPolicy`. The snapshot is one of:
+   - **`{ kind: 'git', url, commit }`:** a repository pinned at one commit (Based Cooking). Stage fetches
+     it into `.import-cache/`, and the reader gets the checkout directory.
+   - **`{ kind: 'file', path }`:** a file committed under `content/import/<source>/`, for a site with no
+     repository (NHLBI). A fetch script in `scripts/import/` writes it (`npm run import:fetch-nhlbi`),
+     a README next to it records the fetch date, license quote and exclusions, and the reader gets the
+     file's path. Stage and draft never touch the network for these.
+
+   The text policy is one of:
    - **`reuse`:** public domain, CC0 or Unlicense. The source's wording can be kept and edited.
    - **`rewrite`:** ingredient lists and ideas only. Drafts get placeholder steps that must be written
      fresh, so the source's wording never lands in the app.

@@ -8,7 +8,16 @@ import { addToCatalogSource, CATALOG_SECTION, draftRecipeCode, q, recipeId } fro
 import { INGREDIENT_MAP } from '../scripts/import/ingredient-map';
 import { catalogAddition, mapIngredient } from '../scripts/import/mapIngredient';
 import { parseIngredientLine } from '../scripts/import/parseIngredientLine';
+import { describeSnapshot, openSnapshot } from '../scripts/import/snapshot';
 import { parseBasedCooking, parseMinutes } from '../scripts/import/sources/basedCooking';
+import {
+  listRecipeSlugs,
+  nhlbiRawRecipe,
+  normalizeNhlbiLine,
+  parseNhlbiPage,
+  parseNhlbiSnapshot,
+  type NhlbiEntry,
+} from '../scripts/import/sources/nhlbi';
 import { SOURCES } from '../scripts/import/sources';
 import { stageRecipe, unlockOrder } from '../scripts/import/stage';
 import { recipe } from './fixtures';
@@ -232,6 +241,166 @@ describe('based.cooking reader', () => {
     expect(stageRecipe(index, raw, { exclude: 'credits a third-party original' }).blocked).toEqual([
       { kind: 'excluded', reason: 'credits a third-party original' },
     ]);
+  });
+});
+
+describe('source snapshots', () => {
+  const ROOT = join(__dirname, '..');
+  const at = (snapshot: Parameters<typeof openSnapshot>[0]) =>
+    openSnapshot(snapshot, { root: ROOT, cacheDir: join(ROOT, '.import-cache', 'unused') });
+
+  test('a git snapshot is a pinned commit; a file snapshot is a committed path', () => {
+    expect(SOURCES['based-cooking'].snapshot).toEqual({
+      kind: 'git',
+      url: 'https://github.com/LukeSmithxyz/based.cooking.git',
+      commit: '9d4a31a040eedd61e4fb608cb0c114ff9a7c4dd2',
+    });
+    expect(describeSnapshot(SOURCES['based-cooking'].snapshot)).toBe(
+      'https://github.com/LukeSmithxyz/based.cooking at `9d4a31a040eedd61e4fb608cb0c114ff9a7c4dd2`',
+    );
+    expect(SOURCES.nhlbi.snapshot).toEqual({ kind: 'file', path: 'content/import/nhlbi/recipes.json' });
+    expect(describeSnapshot(SOURCES.nhlbi.snapshot)).toBe('the committed snapshot `content/import/nhlbi/recipes.json`');
+  });
+
+  test('a file snapshot opens to its path without any network, and must exist inside the project', () => {
+    expect(at({ kind: 'file', path: 'content/import/nhlbi/recipes.json' })).toBe(
+      join(ROOT, 'content', 'import', 'nhlbi', 'recipes.json'),
+    );
+    expect(() => at({ kind: 'file', path: 'content/import/missing.json' })).toThrow(/missing/);
+    expect(() => at({ kind: 'file', path: '../outside.json' })).toThrow(/inside/);
+    expect(() => at({ kind: 'file', path: '/etc/hosts' })).toThrow(/relative/);
+  });
+
+  test('every file-snapshot source reads its committed snapshot into clean raw recipes', () => {
+    for (const [name, source] of Object.entries(SOURCES)) {
+      if (source.snapshot.kind !== 'file') continue;
+      const raws = source.read(at(source.snapshot));
+      expect([name, raws.length > 0]).toEqual([name, true]);
+      expect(new Set(raws.map(r => r.key)).size).toBe(raws.length);
+      for (const key of Object.keys(source.exclude))
+        expect([name, key, raws.some(r => r.key === key)]).toEqual([name, key, true]);
+      for (const r of raws) {
+        expect([r.key, /^[a-z]+:\/\//.test(r.location)]).toEqual([r.key, false]);
+        expect([r.key, r.ingredientLines.length > 0 && r.steps.length > 0]).toEqual([r.key, true]);
+      }
+    }
+  });
+});
+
+const NHLBI_PAGE = `<html><body><nav>Home</nav>
+<article  class="node node--type-recipe node--view-mode-full" data-title="Garlic Toast">
+<div class="grid-col-12"><h1>
+<span>Garlic Toast &amp; Herbs</span>
+</h1></div>
+<div class="grid-col-12"><div class="clearfix text-formatted field field--name-body field__item"><p><strong>Crisp and quick.</strong></p><p>Recipe Source: <em>Deliciously Healthy Dinners</em></p><h2>Ingredients</h2><p>For toast:</p><ul><li>4 slices whole-wheat bread</li><li>1½ C low-sodium chicken broth</li></ul><p>For topping:</p><ul><li>2 Tbsp olive oil</li><li>For garnish:<ul><li>1 Tbsp fresh parsley, rinsed, dried, and chopped</li></ul></li></ul><h2>Directions</h2><ol><li>Preheat oven to 400 &deg;F.</li><li>Brush the bread with oil, and bake for 8&ndash;10 minutes.</li></ol><p><strong>Tip:</strong> Serve warm.</p><h2>Recipe Video</h2><div class="embed-video-container"><div><iframe src="https://www.youtube.com/embed/x"></iframe></div></div></div></div>
+<div class="grid-col-12"><table class="cooking-facts"><tbody>
+<tr><th>Prep Time</th><td><div class="field field--name-field-prep-time">5 minutes</div></td></tr>
+<tr><th>Cook Time</th><td><div class="field field--name-field-cook-time">1 hour 5 minutes</div></td></tr>
+<tr><th>Yields</th><td><div class="field field--name-field-yields">4 servings</div></td></tr>
+<tr><th>Serving Size</th><td><div class="field field--name-field-serving-size">1 slice</div></td></tr>
+</tbody></table></div>
+</article></body></html>`;
+
+describe('NHLBI reader', () => {
+  const url = 'https://www.nhlbi.nih.gov/health/heart-healthy-living/healthy-foods/healthy-eating-recipes/garlic-toast';
+  const entry = parseNhlbiPage('garlic-toast', url, NHLBI_PAGE, '2026-10-09');
+
+  test('parses a recipe page: headnote, source line, grouped lists, tips and cooking facts', () => {
+    expect(entry).toEqual({
+      key: 'garlic-toast',
+      url,
+      title: 'Garlic Toast & Herbs',
+      description: 'Crisp and quick.',
+      recipeSource: 'Deliciously Healthy Dinners',
+      servings: 4,
+      servingSize: '1 slice',
+      prepMinutes: 5,
+      cookMinutes: 65,
+      ingredientLines: [
+        '4 slices whole-wheat bread',
+        '1½ C low-sodium chicken broth',
+        '2 Tbsp olive oil',
+        '1 Tbsp fresh parsley, rinsed, dried, and chopped',
+      ],
+      steps: ['Preheat oven to 400 °F.', 'Brush the bread with oil, and bake for 8–10 minutes.'],
+      tips: ['Serve warm.'],
+      fetchedAt: '2026-10-09',
+    });
+  });
+
+  test('a page without its "Recipe Source:" line or lists fails loudly', () => {
+    expect(() => parseNhlbiPage('x', url, NHLBI_PAGE.replace(/<p>Recipe Source:.*?<\/p>/, ''), 'd')).toThrow(
+      /Recipe Source/,
+    );
+    expect(() => parseNhlbiPage('x', url, NHLBI_PAGE.replace(/<ol>.*?<\/ol>/, ''), 'd')).toThrow(/directions/);
+    expect(() => parseNhlbiPage('x', url, '<html></html>', 'd')).toThrow(/article/);
+  });
+
+  test('a yield that is not a plain serving count is kept as text', () => {
+    const page = NHLBI_PAGE.replace('4 servings', '2 quarts');
+    const e = parseNhlbiPage('x', url, page, 'd');
+    expect([e.servings, e.yields]).toEqual([undefined, '2 quarts']);
+  });
+
+  test('listing pages give recipe slugs once each, in order', () => {
+    const listing =
+      '<a href="/health/heart-healthy-living/healthy-foods/healthy-eating-recipes/b-soup">B</a>' +
+      '<a href="/health/heart-healthy-living/healthy-foods/healthy-eating-recipes/a-salad">A</a>' +
+      '<a href="https://www.nhlbi.nih.gov/health/heart-healthy-living/healthy-foods/healthy-eating-recipes/b-soup">B</a>' +
+      '<a href="/health/heart-healthy-living/healthy-foods/healthy-eating-recipes?page=1">next</a>';
+    expect(listRecipeSlugs(listing)).toEqual(['b-soup', 'a-salad']);
+  });
+
+  test('NHLBI\'s bare "C" means cups, and "boneless, skinless" stays one name', () => {
+    expect(normalizeNhlbiLine('1½ C green bell pepper, rinsed and chopped')).toBe(
+      '1½ cups green bell pepper, rinsed and chopped',
+    );
+    expect(normalizeNhlbiLine('¼ C onion, chopped')).toBe('¼ cup onion, chopped');
+    expect(normalizeNhlbiLine('1 C chili sauce')).toBe('1 cup chili sauce');
+    expect(normalizeNhlbiLine('2–3 C water')).toBe('2–3 cups water');
+    expect(normalizeNhlbiLine('12 oz boneless, skinless chicken breast')).toBe(
+      '12 oz boneless skinless chicken breast',
+    );
+    expect(normalizeNhlbiLine('Cooking spray')).toBe('Cooking spray');
+    expect(normalizeNhlbiLine('1 can (15 oz) Cannellini beans')).toBe('1 can (15 oz) Cannellini beans');
+  });
+
+  test('snapshot entries become raw recipes with a scheme-free location and parseable lines', () => {
+    const raw = nhlbiRawRecipe(entry);
+    expect(raw).toEqual({
+      key: 'garlic-toast',
+      title: 'Garlic Toast & Herbs',
+      description: 'Crisp and quick.',
+      location: 'nhlbi.nih.gov/health/heart-healthy-living/healthy-foods/healthy-eating-recipes/garlic-toast',
+      ingredientLines: [
+        '4 slices whole-wheat bread',
+        '1½ cups low-sodium chicken broth',
+        '2 Tbsp olive oil',
+        '1 Tbsp fresh parsley, rinsed, dried, and chopped',
+      ],
+      steps: entry.steps,
+      servings: 4,
+      prepMinutes: 5,
+      cookMinutes: 65,
+      tags: [],
+    });
+    const c = stageRecipe(index, raw);
+    expect(c.ingredients.map(i => [i.quantityText, i.ids])).toEqual([
+      ['4 slices', expect.any(Array)],
+      ['1 1/2 cups', ['chicken_broth']],
+      ['2 Tbsp', ['olive_oil']],
+      ['1 Tbsp', ['parsley']],
+    ]);
+  });
+
+  test('the snapshot reader rejects malformed files', () => {
+    const ok: NhlbiEntry = { ...entry };
+    expect(parseNhlbiSnapshot(JSON.stringify([ok]))).toEqual([ok]);
+    expect(() => parseNhlbiSnapshot('{}')).toThrow(/array/);
+    expect(() => parseNhlbiSnapshot(JSON.stringify([{ ...ok, steps: 'x' }]))).toThrow(/entry 0/);
+    expect(() => parseNhlbiSnapshot(JSON.stringify([ok, ok]))).toThrow(/twice/);
+    const { tips: _tips, ...noTips } = ok;
+    expect(parseNhlbiSnapshot(JSON.stringify([noTips]))[0].tips).toEqual([]);
   });
 });
 

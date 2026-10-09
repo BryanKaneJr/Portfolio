@@ -283,4 +283,13 @@ export const INGREDIENTS: Ingredient[] = [
   },
   { id: 'brewed_coffee', name: 'Brewed coffee', category: 'pantry', aliases: ['strong coffee'] },
   { id: 'beef_bouillon', name: 'Beef bouillon', category: 'pantry', aliases: ['beef bouillon cube'] },
+  { id: 'raisins', name: 'Raisins', category: 'pantry', aliases: ['golden raisins', 'golden seedless raisins'] },
+  { id: 'capers', name: 'Capers', category: 'pantry', aliases: [] },
+  { id: 'green_olives', name: 'Green olives', category: 'pantry', aliases: [] },
+  { id: 'red_wine', name: 'Red wine', category: 'pantry', aliases: ['dry red wine'] },
+  { id: 'anise_seed', name: 'Anise seed', category: 'spice', aliases: ['anise seeds'] },
+  { id: 'dried_dill', name: 'Dried dill', category: 'spice', aliases: ['dill weed', 'dried dill weed'] },
+  { id: 'hamburger_buns', name: 'Hamburger buns', category: 'grain', aliases: ['whole wheat hamburger buns'] },
+  { id: 'pita_bread', name: 'Pita bread', category: 'grain', aliases: ['pita', 'whole wheat pita'] },
+  { id: 'allspice', name: 'Allspice', category: 'spice', aliases: ['ground allspice'] },
 ];

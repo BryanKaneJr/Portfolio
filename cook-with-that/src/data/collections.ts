@@ -19,4 +19,12 @@ export const RECIPE_COLLECTIONS: Record<string, RecipeCollection> = {
     credit:
       'Some recipes are adapted from Based Cooking (based.cooking), whose authors released them into the public domain.',
   },
+  nhlbi: {
+    name: 'NHLBI',
+    license: 'Public domain (US government work)',
+    home: 'nhlbi.nih.gov',
+    // The citation NHLBI asks for. Never its logos or the "Keep the Beat" name, and never anything implying endorsement.
+    credit:
+      'Source: National Heart, Lung, and Blood Institute; National Institutes of Health; U.S. Department of Health and Human Services.',
+  },
 };

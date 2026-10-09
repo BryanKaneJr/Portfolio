@@ -10,7 +10,7 @@ This is research, not legal advice: get a lawyer's read before launch if anythin
 | # | Source | License | Size | Effort | Risk | Verdict |
 |---|---|---|---|---|---|---|
 | 1 | [Based Cooking](#1-based-cooking) | Unlicense (public domain dedication) | 440 recipes | Medium: an editorial pass on each recipe, plus ingredient review | Low | **Use now.** Pipeline built; 28 imported |
-| 2 | [US federal recipes](#2-us-federal-recipes): VA, NHLBI, then MyPlate Kitchen (archived) | Public domain unless a recipe credits an outside source | VA ~275, NHLBI ~200–250, MyPlate ~150–320 federal-written | Medium: PDF/HTML readers, plus a check of each recipe's credit line | Low for federal-authored recipes | **Use next, recipe by recipe.** Modern US recipes, the best fit after Based Cooking |
+| 2 | [US federal recipes](#2-us-federal-recipes): VA, NHLBI, then MyPlate Kitchen (archived) | Public domain unless a recipe credits an outside source | VA ~275, NHLBI ~200–250, MyPlate ~150–320 federal-written | Medium: PDF/HTML readers, plus a check of each recipe's credit line | Low for federal-authored recipes | **Use, recipe by recipe.** NHLBI web snapshot built; 14 imported. VA next |
 | 3 | [HowToCook](#3-howtocook) | Unlicense; contributors certify their recipes as public domain | 372 recipes (Chinese) | High: translation, plus Chinese pantry ingredients | Low; exclude the 64 that cite references | Later, for a Chinese home-cooking set |
 | 4 | [Project Gutenberg cookbooks](#4-project-gutenberg-cookbooks) | Public domain in the US (published before 1931) | Thousands | High: archaic measures, no oven temperatures | Low in the US; check other countries | Ideas plus text to adapt; strip all Project Gutenberg branding |
 | 5 | [Wikibooks Cookbook](#5-wikibooks-cookbook) | CC BY-SA 4.0 / GFDL | ~3,600 recipes | Same as writing originals | **High if the text is bundled** | **Facts and ideas only.** Never ship its wording |
@@ -120,6 +120,11 @@ of Veterans Affairs") satisfies what each agency asks for.
 - Caveat: contracted chefs wrote many of the cookbook recipes, so §105 doesn't strictly cover them.
   NHLBI still publishes them as public domain, which is a reasonable basis. Cookbook photos are by a
   commercial studio; skip them.
+- **Status (2026-10-09):** the 54 web recipes are snapshotted in `content/import/nhlbi/recipes.json`
+  (`npm run import:fetch-nhlbi`; fetch date, policy quotes and provenance check in the README beside
+  it). All 54 name an NHLBI publication and none credits an outside source, so none is excluded.
+  14 imported (`src/data/imported/nhlbi.ts`), with the credit line above in `RECIPE_COLLECTIONS`. The
+  cookbook PDFs (about 150–200 more recipes) still need a PDF reader.
 
 **USDA MyPlate Kitchen**: large, but mostly not federal, and now archived.
 - USDA retired MyPlate.gov on 2026-01-07 (it redirects to RealFood.gov, which has no recipes). That

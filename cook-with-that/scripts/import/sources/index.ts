@@ -1,5 +1,7 @@
+import type { Snapshot } from '../snapshot';
 import type { RawRecipe } from '../types';
 import { readBasedCooking } from './basedCooking';
+import { readNhlbi } from './nhlbi';
 
 export type SourceDef = {
   /** Key in RECIPE_COLLECTIONS (src/data/collections.ts). */
@@ -16,9 +18,10 @@ export type SourceDef = {
   exclude: Record<string, string>;
   /** Contributors whose pages we won't import at all, by credited name, with the reason. */
   excludeAuthors?: Record<string, string>;
-  /** Pinned snapshot, so a report or draft can always be reproduced. */
-  repo: { url: string; commit: string };
-  read(checkout: string): RawRecipe[];
+  /** Pinned snapshot, so a report or draft can always be reproduced: a git commit or a committed file. */
+  snapshot: Snapshot;
+  /** Read the snapshot: a checkout directory for `git`, the file's absolute path for `file`. */
+  read(location: string): RawRecipe[];
 };
 
 export const SOURCES: Record<string, SourceDef> = {
@@ -36,12 +39,6 @@ export const SOURCES: Record<string, SourceDef> = {
       'beef-tips': 'derived from a YouTube video',
       'gumbo-shrimp-and-sausage': 'derived from a YouTube video',
       'shrimp-and-grits': 'derived from a YouTube video',
-    },
-    // Several of this contributor's pages turned out to be copies of commercial recipes (Food.com, Dairy
-    // Farmers of Canada, HelloFresh, SparkPeople), so none of their pages can rely on the waiver.
-    excludeAuthors: {
-      'Joel Maxuel':
-        'pages copied from commercial recipe sites (Food.com, Dairy Farmers of Canada, HelloFresh, SparkPeople)',
       'perfect-potato-salad':
         'copied from Dairy Farmers of Canada\'s "Perfect Potato Salad" (2017 Milk Calendar); the steps match its text word for word',
       'one-pot-chicken-tetrazzini':
@@ -114,10 +111,30 @@ export const SOURCES: Record<string, SourceDef> = {
       'yibin-burning-noodles':
         'chili oil and noodle recipe closely follows the Chinese Cooking Demystified video (also credited as the source by themalamarket.com); not confirmed word for word',
     },
-    repo: {
+    // Several of this contributor's pages turned out to be copies of commercial recipes (Food.com, Dairy
+    // Farmers of Canada, HelloFresh, SparkPeople), so none of their pages can rely on the waiver.
+    excludeAuthors: {
+      'Joel Maxuel':
+        'pages copied from commercial recipe sites (Food.com, Dairy Farmers of Canada, HelloFresh, SparkPeople)',
+    },
+    snapshot: {
+      kind: 'git',
       url: 'https://github.com/LukeSmithxyz/based.cooking.git',
       commit: '9d4a31a040eedd61e4fb608cb0c114ff9a7c4dd2',
     },
     read: readBasedCooking,
+  },
+  nhlbi: {
+    collection: 'nhlbi',
+    exportName: 'NHLBI_RECIPES',
+    file: 'nhlbi.ts',
+    // US government work, released as public domain (content/import/nhlbi/README.md).
+    textPolicy: 'reuse',
+    // Every page fetched on 2026-10-09 credits an NHLBI publication and carries no outside credit or copyright
+    // notice. A page that does (now or after a refetch) goes here.
+    exclude: {},
+    // Written by `npm run import:fetch-nhlbi`; the site has no repository to pin.
+    snapshot: { kind: 'file', path: 'content/import/nhlbi/recipes.json' },
+    read: readNhlbi,
   },
 };
