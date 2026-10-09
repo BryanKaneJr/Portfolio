@@ -8,7 +8,8 @@ import type { ImageSourcePropType } from 'react-native';
  * not a currency). share waits for a share feature. Tried and cut as not
  * premium enough where they sat (2026-09-29): level-up, target, calendar-day,
  * bell, sound-on and sound-off (their files stay in the folder). The tab bar
- * uses welcome, medal, review and profile directly (app/(tabs)/_layout.tsx).
+ * uses welcome, medal, review and profile directly, and Social the level
+ * art money.handshake (app/(tabs)/_layout.tsx).
  */
 export const UI_ART = {
   'streak-flame': require('../../../assets/images/ui/streak-flame.webp'),

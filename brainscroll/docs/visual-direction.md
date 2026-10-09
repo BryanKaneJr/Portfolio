@@ -34,7 +34,7 @@ Only one bright accent should dominate a screen. Glow is a reward effect, not de
 ## Feel
 
 - Rounded but not bubbly: 14–20 px radii and large touch targets.
-- **Five tabs, left to right: Practice, Leagues, Home, Social, Profile** (Home in the centre, owner 2026-10-01; Practice and Leagues, owner 2026-10-09). Learning launches from Home or a skill tree.
+- **Five tabs, left to right: Practice, Leagues, Home, Social, Profile** (Home in the centre, owner 2026-10-01; Practice and Leagues, owner 2026-10-09), shown as big icons with no words under them. Learning launches from Home or a skill tree.
 - Motion has a purpose. Feedback takes 150–250 ms, while mastery moments can breathe longer. Respect reduce-motion.
 - Reward progress, not screen time. Scrolling alone never looks like achievement.
 - The RPG layer is a stat system: **no swords, parchment, treasure chests or fantasy cosplay.**
