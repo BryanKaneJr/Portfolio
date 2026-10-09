@@ -322,6 +322,32 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   ricotta: { add: 'dairy' },
   'ricotta cheese': '=ricotta',
 
+  // ── Reviewed by parallel import worker bc3 ──
+  'soya sauce': 'soy_sauce', // British/Canadian spelling
+  'sweet italian sausage': 'sausage',
+  'celery stalk': 'celery',
+  'celery stalks': 'celery',
+  'whole kernel corn': 'corn', // canned kernels: the same food as frozen
+  'pork shoulder steaks': '=pork shoulder', // shoulder cut into steaks
+  'pineapple juice': { add: 'pantry' }, // canned or bottled juice
+  quinoa: { add: 'grain' },
+  pesto: { add: 'pantry', name: 'Basil pesto' }, // jarred or homemade
+  'basil pesto': '=pesto',
+  'italian seasoning': { add: 'spice' }, // dried herb blend; not oregano alone
+  'herbes de provence': { add: 'spice', name: 'Herbes de Provence' },
+  'herbs de provence': '=herbes de provence',
+  'cream style corn': { add: 'pantry', name: 'Cream-style corn' }, // canned; not corn kernels
+  'creamed corn': '=cream style corn',
+  'chipotle peppers in adobo': { add: 'pantry', name: 'Chipotle peppers in adobo' }, // canned
+  'chipotle peppers in adobo sauce': '=chipotle peppers in adobo',
+  'chipotles in adobo': '=chipotle peppers in adobo',
+  'canned pumpkin': { add: 'pantry', name: 'Canned pumpkin' }, // plain purée, not pie filling
+  'pumpkin puree': '=canned pumpkin',
+  pumpkin: null, // fresh pumpkin or canned purée? They cook differently; the recipe must say
+  edam: { add: 'dairy', name: 'Edam' },
+  'edam cheese': '=edam',
+  'creme fraiche': { add: 'dairy', name: 'Crème fraîche' }, // not sour cream
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,

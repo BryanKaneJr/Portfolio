@@ -42,6 +42,16 @@ export const SOURCES: Record<string, SourceDef> = {
     excludeAuthors: {
       'Joel Maxuel':
         'pages copied from commercial recipe sites (Food.com, Dairy Farmers of Canada, HelloFresh, SparkPeople)',
+      'perfect-potato-salad':
+        'copied from Dairy Farmers of Canada\'s "Perfect Potato Salad" (2017 Milk Calendar); the steps match its text word for word',
+      'one-pot-chicken-tetrazzini':
+        'copied from Dairy Farmers of Canada\'s "One-Pot Chicken Tetrazzini" (2017 Milk Calendar), Boursin and all',
+      'panang-style-beef-curry':
+        'copied from a HelloFresh recipe card (Panang-Style Beef Curry, hellofresh.ca); "mild curry paste, red curry base" steps match',
+      'red-lentil-dahl':
+        'doubtful; steps closely track a published "Red Lentil Dhal" (SparkPeople) and the same contributor copied the three pages above',
+      'newfoundland-cod-chowder':
+        'doubtful; reads like published magazine copy ("Drain off all but 1 tbsp. fat from saucepan"), not found online, same contributor as the copied pages above',
     },
     repo: {
       url: 'https://github.com/LukeSmithxyz/based.cooking.git',
