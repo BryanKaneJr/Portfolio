@@ -23,7 +23,7 @@ test('builds the invite site with both verification files and the store links', 
     const invite = readFileSync(join(out, 'invite.html'), 'utf8');
     assert.ok(invite.includes('href="https://apps.apple.com/app/id1"') && invite.includes('details?id=app.brainscroll'));
     assert.ok(!invite.includes('{{'), 'every placeholder is filled');
-    assert.match(readFileSync(join(out, '_redirects'), 'utf8'), /^\/invite\/\*\s+\/invite\.html\s+200$/m);
+    assert.match(readFileSync(join(out, '_redirects'), 'utf8'), /^\/invite\/\*\s+\/invite\s+200$/m);
     assert.match(readFileSync(join(out, '_headers'), 'utf8'), /apple-app-site-association\n\s+Content-Type: application\/json/);
     assert.ok(existsSync(join(out, 'dr-scroll.webp')) && existsSync(join(out, 'style.css')));
   } finally {

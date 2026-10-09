@@ -108,7 +108,9 @@ export function buildSite(srcDir: string, outDir: string, c: SiteConfig, policyM
     written.push('.well-known/assetlinks.json');
   }
   // Cloudflare Pages and Netlify read these two: every /invite/CODE serves the invite page.
-  writeFileSync(join(outDir, '_redirects'), '/invite/*  /invite.html  200\n');
+  // The rewrite names the page without ".html": Cloudflare answers a rewrite to /invite.html with a 308 to
+  // /invite, which dropped the code from the address and showed every invite as incomplete (2026-10-09).
+  writeFileSync(join(outDir, '_redirects'), '/invite/*  /invite  200\n');
   writeFileSync(
     join(outDir, '_headers'),
     [
