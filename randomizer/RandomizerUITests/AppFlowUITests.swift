@@ -64,6 +64,9 @@ final class AppFlowUITests: XCTestCase {
         let app = XCUIApplication.randomizer()
         app.launch()
         app.buttons["newListButton"].tap()
+        // An empty list focuses "Add a name"; let the keyboard finish rising
+        // so the button isn't tapped mid-layout.
+        XCTAssertTrue(app.keyboards.firstMatch.waitForExistence(timeout: 10))
         XCTAssertTrue(app.buttons["pasteNamesButton"].waitForExistence(timeout: 10))
         app.buttons["pasteNamesButton"].tap()
         let editor = app.textViews["pasteTextEditor"]

@@ -68,6 +68,13 @@ Built in the plan's order: engine and tests first, then lists, a working draw sc
 - [x] App icon, launch background, privacy manifest, export-compliance key
 - [x] Screenshot tour UI test for App Store images
 
+## How it was verified
+
+- 75 RandomizerCore unit tests, run with `swift test` on Linux and macOS in CI.
+- 12 UI tests on an iOS 26.2 simulator (iPhone 16 Pro) in CI, including the toggle in all 12 style and odds-mode combinations, presenter mode, draft order rules, undo/restore, double taps, the empty pool, first run, relaunch persistence and paste.
+- Every main screen reviewed from the screenshot tour (normal and XXXL text). Fixes from that review: the repeats-allowed control row, reel neighbours below the winner, the mystery card stripe, history row wrapping, the editor's bottom bar.
+- Not yet run on a physical iPhone; haptics and sound output need a device check.
+
 ## Choices the plan left open
 
 - **Engine as a local Swift package** (`RandomizerCore`): it keeps the engine separate from the views and lets its tests run anywhere with `swift test`.

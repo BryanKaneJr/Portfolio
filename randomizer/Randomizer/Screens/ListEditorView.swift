@@ -251,7 +251,7 @@ struct ListEditorView: View {
         .padding(.horizontal, 16)
         .padding(.top, 10)
         .padding(.bottom, 6)
-        .background(Theme.background.opacity(0.96).ignoresSafeArea())
+        .background(Theme.background.ignoresSafeArea())
     }
 
     // MARK: Actions
