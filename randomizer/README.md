@@ -76,6 +76,14 @@ randomizer/
   docs/                      build plan, checklist, store listing
 ```
 
+## Known limitations
+
+- Verified on the iOS 26 simulator in CI (iPhone 16 Pro), not yet on a physical iPhone. Haptics don't run in the simulator, and sounds aren't checked by the automated tests.
+- iPhone, portrait, dark mode only. iPad layouts and landscape are not built.
+- Dynamic Type is checked up to the XXXL text size; the accessibility sizes beyond that aren't tuned yet.
+- New session clears the current results (after a confirmation). There is no archive of past sessions.
+- Before submitting: set your signing team, confirm the name and trademark are available, and capture 6.9" screenshots on a Pro Max simulator.
+
 ## Fairness
 
 Every result comes from `SelectionEngine`, which draws a ticket with `Int.random(in:using:)` from `SystemRandomNumberGenerator` and maps it onto the eligible entries' weights. The outcome, the odds at that moment and any removal are saved together before the reveal plays. Reveal styles only animate that saved outcome. It is a recreational picker, not a regulated lottery or certified prize-draw service.
