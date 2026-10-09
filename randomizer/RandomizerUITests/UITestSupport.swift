@@ -29,6 +29,10 @@ extension XCUIApplication {
     var drawButton: XCUIElement { buttons["drawButton"] }
     var eligibleSummary: String { staticTexts["eligibleSummary"].label }
 
+    func exampleCard(_ title: String) -> XCUIElement {
+        buttons.matching(NSPredicate(format: "identifier == 'exampleCard' AND label CONTAINS %@", title)).firstMatch
+    }
+
     func listCard(_ title: String) -> XCUIElement {
         buttons.matching(NSPredicate(format: "identifier == 'listCard' AND label CONTAINS %@", title)).firstMatch
     }

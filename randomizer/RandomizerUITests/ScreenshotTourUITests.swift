@@ -14,8 +14,8 @@ final class ScreenshotTourUITests: XCTestCase {
         XCTAssertTrue(app.buttons["newListButton"].waitForExistence(timeout: 10))
         snap("01-home")
 
-        // Spin Wheel, repeats allowed.
-        app.listCard("Dinner Choices").tap()
+        // Spin Wheel: what's for dinner, repeats allowed.
+        app.listCard("What's for Dinner?").tap()
         XCTAssertTrue(app.drawButton.waitForExistence(timeout: 5))
         snap("02-wheel-ready")
         app.drawButton.tap()
@@ -23,55 +23,52 @@ final class ScreenshotTourUITests: XCTestCase {
         snap("03-wheel-result")
         app.goBack()
 
-        // Name Reel, classroom with no repeats.
-        app.listCard("Period 3").tap()
+        // Name Reel: the next contestant, nobody called twice.
+        app.listCard("Next Contestant").tap()
         XCTAssertTrue(app.drawButton.waitForExistence(timeout: 5))
         app.drawButton.tap()
         waitForResult(app)
         snap("04-reel-result")
         app.goBack()
 
-        // Lottery Balls with custom weights, and the odds sheet.
-        app.listCard("Team Raffle").tap()
+        // Lottery Balls: the fantasy draft lottery, its odds and a unique order.
+        app.listCard("Fantasy Draft Lottery").tap()
         XCTAssertTrue(app.drawButton.waitForExistence(timeout: 5))
-        app.drawButton.tap()
-        waitForResult(app)
-        snap("05-balls-result")
+        snap("05-balls-ready")
         app.buttons["drawViewOddsButton"].tap()
         XCTAssertTrue(app.buttons["oddsDoneButton"].waitForExistence(timeout: 5))
         snap("06-odds")
         app.buttons["oddsDoneButton"].tap()
         XCTAssertTrue(app.buttons["oddsDoneButton"].waitForNonExistence(timeout: 5))
-        app.goBack()
-
-        // Mystery Reveal with Reverse Standings, then a unique draft order.
-        app.listCard("Friday Fantasy Draft").tap()
-        XCTAssertTrue(app.drawButton.waitForExistence(timeout: 5))
-        snap("07-mystery-ready")
         app.buttons["draftOrderButton"].tap()
         XCTAssertTrue(app.buttons["Generate unique order"].waitForExistence(timeout: 5))
         app.buttons["Generate unique order"].tap()
         XCTAssertTrue(app.buttons["revealNextPickButton"].waitForExistence(timeout: 10))
-        app.buttons["revealNextPickButton"].tap()
         let revealed = app.descendants(matching: .any).matching(identifier: "draftSlotRevealed")
+        app.buttons["revealNextPickButton"].tap()
         wait(for: [expectation(for: NSPredicate(format: "count == 1"), evaluatedWith: revealed)], timeout: 10)
         app.buttons["revealNextPickButton"].tap()
         wait(for: [expectation(for: NSPredicate(format: "count == 2"), evaluatedWith: revealed)], timeout: 10)
-        snap("08-draft-reveal")
+        snap("07-draft-reveal")
         app.buttons["revealAllButton"].tap()
         XCTAssertTrue(app.staticTexts["allPicksRevealed"].waitForExistence(timeout: 5))
-        snap("09-draft-complete")
+        snap("08-draft-complete")
         app.goBack()
 
         XCTAssertTrue(app.staticTexts["allSelectedMessage"].waitForExistence(timeout: 5))
-        snap("10-all-selected")
+        snap("09-all-selected")
         app.buttons["historyButton"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
         XCTAssertTrue(app.buttons["historyDoneButton"].waitForExistence(timeout: 5))
-        snap("11-history")
+        snap("10-history")
         app.buttons["historyDoneButton"].tap()
         XCTAssertTrue(app.buttons["historyDoneButton"].waitForNonExistence(timeout: 5))
 
         app.buttons["exhaustedRestoreButton"].tap()
+        XCTAssertTrue(app.drawButton.waitForExistence(timeout: 5))
+        app.drawButton.tap()
+        waitForResult(app)
+        snap("11-balls-result")
+        sleep(1)
         app.openDrawMenu()
         XCTAssertTrue(app.buttons["Presenter mode"].waitForExistence(timeout: 5))
         app.buttons["Presenter mode"].tap()
@@ -87,9 +84,18 @@ final class ScreenshotTourUITests: XCTestCase {
         app.goBack()
         app.goBack()
 
+        // Mystery Reveal with custom weights.
+        app.listCard("Prize Raffle").tap()
+        XCTAssertTrue(app.drawButton.waitForExistence(timeout: 5))
+        snap("14-mystery-ready")
+        app.drawButton.tap()
+        waitForResult(app)
+        snap("15-mystery-result")
+        app.goBack()
+
         app.buttons["settingsButton"].tap()
         XCTAssertTrue(app.buttons["settingsDoneButton"].waitForExistence(timeout: 5))
-        snap("14-settings")
+        snap("16-settings")
         app.buttons["settingsDoneButton"].tap()
     }
 
@@ -101,7 +107,7 @@ final class ScreenshotTourUITests: XCTestCase {
         app.launch()
         XCTAssertTrue(app.drawButton.waitForExistence(timeout: 10))
         XCTAssertTrue(app.removalToggle.isHittable)
-        snap("15-large-text-draw")
+        snap("17-large-text-draw")
     }
 
     /// The first-run screen a new customer sees.
@@ -109,9 +115,9 @@ final class ScreenshotTourUITests: XCTestCase {
     func testFirstRunScreens() {
         let app = XCUIApplication.randomizer(speed: "fast")
         app.launch()
-        XCTAssertTrue(app.buttons["tryDrawButton"].waitForExistence(timeout: 10))
+        XCTAssertTrue(app.exampleCard("What's for Dinner?").waitForExistence(timeout: 10))
         snap("00-first-run")
-        app.buttons["tryDrawButton"].tap()
+        app.exampleCard("What's for Dinner?").tap()
         XCTAssertTrue(app.drawButton.waitForExistence(timeout: 10))
         app.drawButton.tap()
         waitForResult(app)

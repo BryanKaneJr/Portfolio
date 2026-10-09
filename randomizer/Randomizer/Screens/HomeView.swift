@@ -1,7 +1,8 @@
 import SwiftUI
 import RandomizerCore
 
-/// Saved lists, a first-run sample you can draw from in seconds, and New List.
+/// Saved lists, three ready-made examples you can draw from in seconds,
+/// and New List.
 struct HomeView: View {
     @Environment(AppState.self) private var appState
     @Binding var path: [Route]
@@ -17,12 +18,10 @@ struct HomeView: View {
                 if let notice = appState.storeNotice {
                     noticeBanner(notice)
                 }
-                if appState.userLists.isEmpty, let sample = appState.sampleList {
-                    TryItCard(
-                        list: sample,
-                        onTry: { path.showDraw(sample.id) },
-                        onCreate: createList
-                    )
+                if appState.userLists.isEmpty, !appState.exampleLists.isEmpty {
+                    examplesSection(title: "Try an example", subtitle: "Tap one to draw right away.") { list in
+                        exampleCard(list)
+                    }
                 }
                 Button(action: createList) {
                     Label("New List", systemImage: "plus")
@@ -32,14 +31,14 @@ struct HomeView: View {
 
                 if !appState.userLists.isEmpty {
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("Your lists")
-                            .font(Theme.rounded(.headline, weight: .semibold))
-                            .foregroundStyle(Theme.textSecondary)
+                        sectionTitle("Your lists")
                         ForEach(appState.userLists) { list in
                             listCard(list)
                         }
-                        if let sample = appState.sampleList {
-                            listCard(sample)
+                    }
+                    if !appState.exampleLists.isEmpty {
+                        examplesSection(title: "Examples", subtitle: nil) { list in
+                            listCard(list)
                         }
                     }
                 }
@@ -137,6 +136,44 @@ struct HomeView: View {
         .padding(.vertical, 24)
     }
 
+    private func sectionTitle(_ text: String) -> some View {
+        Text(text)
+            .font(Theme.rounded(.headline, weight: .semibold))
+            .foregroundStyle(Theme.textSecondary)
+            .accessibilityAddTraits(.isHeader)
+    }
+
+    private func examplesSection<Card: View>(
+        title: String,
+        subtitle: String?,
+        @ViewBuilder card: @escaping (DrawList) -> Card
+    ) -> some View {
+        VStack(alignment: .leading, spacing: 12) {
+            VStack(alignment: .leading, spacing: 2) {
+                sectionTitle(title)
+                if let subtitle {
+                    Text(subtitle)
+                        .font(.footnote)
+                        .foregroundStyle(Theme.textTertiary)
+                }
+            }
+            ForEach(appState.exampleLists) { list in
+                card(list)
+            }
+        }
+    }
+
+    private func exampleCard(_ list: DrawList) -> some View {
+        Button {
+            path.showDraw(list.id)
+        } label: {
+            ExampleCard(list: list)
+        }
+        .buttonStyle(.plain)
+        .accessibilityIdentifier("exampleCard")
+        .contextMenu { listActions(list) }
+    }
+
     private func listCard(_ list: DrawList) -> some View {
         Button {
             open(list)
@@ -145,28 +182,31 @@ struct HomeView: View {
         }
         .buttonStyle(.plain)
         .accessibilityIdentifier("listCard")
-        .contextMenu {
-            Button {
-                path.showEditor(list.id)
-            } label: {
-                Label("Edit list", systemImage: "pencil")
-            }
-            Button {
-                renameText = list.title
-                renaming = list
-            } label: {
-                Label("Rename", systemImage: "character.cursor.ibeam")
-            }
-            Button {
-                appState.duplicate(list.id)
-            } label: {
-                Label("Duplicate", systemImage: "plus.square.on.square")
-            }
-            Button(role: .destructive) {
-                deleting = list
-            } label: {
-                Label("Delete", systemImage: "trash")
-            }
+        .contextMenu { listActions(list) }
+    }
+
+    @ViewBuilder
+    private func listActions(_ list: DrawList) -> some View {
+        Button {
+            path.showEditor(list.id)
+        } label: {
+            Label("Edit list", systemImage: "pencil")
+        }
+        Button {
+            renameText = list.title
+            renaming = list
+        } label: {
+            Label("Rename", systemImage: "character.cursor.ibeam")
+        }
+        Button {
+            appState.duplicate(list.id)
+        } label: {
+            Label("Duplicate", systemImage: "plus.square.on.square")
+        }
+        Button(role: .destructive) {
+            deleting = list
+        } label: {
+            Label("Delete", systemImage: "trash")
         }
     }
 
@@ -192,47 +232,45 @@ struct HomeView: View {
     }
 }
 
-/// First-run hero: draw from the sample right away, or start your own.
-private struct TryItCard: View {
+/// A built-in example: its reveal style drawn small, what it's for, and
+/// the first few entries. One tap opens the draw screen.
+private struct ExampleCard: View {
     let list: DrawList
-    let onTry: () -> Void
-    let onCreate: () -> Void
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            HStack(spacing: 14) {
-                MiniWheel(count: list.entries.count)
-                    .frame(width: 64, height: 64)
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Try it now")
-                        .font(Theme.rounded(.caption, weight: .bold))
-                        .foregroundStyle(Theme.accent)
-                        .textCase(.uppercase)
-                    Text(list.title)
-                        .font(Theme.rounded(.title2, weight: .bold))
-                        .foregroundStyle(Theme.textPrimary)
-                    Text(list.entries.map(\.name).joined(separator: " · "))
-                        .font(.subheadline)
-                        .foregroundStyle(Theme.textSecondary)
-                        .lineLimit(2)
-                }
+        HStack(spacing: 14) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .fill(Theme.accentSoft)
+                RevealStyleIcon(style: list.revealStyle)
+                    .scaleEffect(0.9)
             }
-            HStack(spacing: 10) {
-                Button(action: onTry) {
-                    Label("Try a draw", systemImage: "sparkles")
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(SecondaryButtonStyle(tint: .white, fill: Theme.accentDeep))
-                .accessibilityIdentifier("tryDrawButton")
-                Button(action: onCreate) {
-                    Text("Create my list")
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(SecondaryButtonStyle())
-                .accessibilityIdentifier("createMyListButton")
+            .frame(width: 64, height: 64)
+
+            VStack(alignment: .leading, spacing: 3) {
+                Text(list.revealStyle.title)
+                    .font(Theme.rounded(.caption, weight: .bold))
+                    .foregroundStyle(Theme.accent)
+                    .textCase(.uppercase)
+                Text(list.title)
+                    .font(Theme.rounded(.title3, weight: .bold))
+                    .foregroundStyle(Theme.textPrimary)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
+                Text(list.entries.prefix(4).map(\.name).joined(separator: " \u{00B7} ") + (list.entries.count > 4 ? " \u{2026}" : ""))
+                    .font(.subheadline)
+                    .foregroundStyle(Theme.textSecondary)
+                    .lineLimit(1)
             }
+            Spacer(minLength: 0)
+            Image(systemName: "play.circle.fill")
+                .font(.title)
+                .foregroundStyle(Theme.accent)
         }
-        .card(padding: 18)
+        .card(padding: 14)
+        .contentShape(Rectangle())
+        .accessibilityElement(children: .combine)
+        .accessibilityHint("Opens the draw screen")
     }
 }
 
@@ -258,7 +296,7 @@ struct ListCard: View {
                         .foregroundStyle(Theme.textPrimary)
                         .lineLimit(1)
                     if list.isSample {
-                        Tag(text: "Sample", tint: Theme.caution)
+                        Tag(text: "Example", tint: Theme.caution)
                     }
                 }
                 Text(detail)

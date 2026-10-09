@@ -8,7 +8,32 @@ final class SessionManagerTests: XCTestCase {
 
     func testNewListDefaultsToRemovalOn() {
         XCTAssertTrue(DrawList(title: "New").removeAfterSelection)
-        XCTAssertTrue(SampleLists.dinner().removeAfterSelection)
+    }
+
+    func testExamplesShowOffEachRevealStyle() throws {
+        let examples = SampleLists.examples(now: Fixtures.now)
+        XCTAssertEqual(examples.map(\.title), ["What's for Dinner?", "Fantasy Draft Lottery", "Next Contestant"])
+        XCTAssertEqual(examples.map(\.revealStyle), [.wheel, .lotteryBalls, .reel])
+        XCTAssertTrue(examples.allSatisfy(\.isSample))
+        XCTAssertEqual(Set(examples.map(\.id)).count, 3)
+
+        let dinner = examples[0]
+        XCTAssertFalse(dinner.removeAfterSelection, "Dinner can come up twice")
+        XCTAssertEqual(dinner.oddsMode, .equal)
+        XCTAssertEqual(dinner.entries.prefix(5).map(\.name), ["Italian", "Chinese", "Mexican", "Burgers", "Pizza"])
+
+        var draft = examples[1]
+        XCTAssertEqual(draft.entries.count, 10)
+        XCTAssertEqual(draft.oddsMode, .reverseStandings)
+        XCTAssertEqual(OddsCalculator.rows(for: draft).map(\.weight), Array((1...10).reversed()))
+        XCTAssertEqual(draft.entries.first?.name, "Matt's Marauders")
+        XCTAssertEqual(draft.draftOrderAvailability, .available)
+        XCTAssertEqual(try draft.generateDraftOrder(using: &rng).results.count, 10)
+
+        let contestants = examples[2]
+        XCTAssertTrue(contestants.removeAfterSelection, "Everyone gets called once")
+        XCTAssertEqual(contestants.entries.prefix(7).map(\.name), ["Bryan", "Anthony", "Jayna", "Joe", "James", "Cassey", "Brandon"])
+        XCTAssertNil(contestants.startProblem)
     }
 
     func testToggle1_OffKeepsWinnerEligible() throws {

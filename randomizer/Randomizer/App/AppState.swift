@@ -40,7 +40,7 @@ final class AppState {
         }
         let needsSample = !seeded
         if needsSample {
-            loadedLists.insert(SampleLists.dinner(), at: 0)
+            loadedLists.insert(contentsOf: SampleLists.examples(), at: 0)
         }
         self.repository = repository
         self.didSeedSample = true
@@ -65,8 +65,9 @@ final class AppState {
         lists.first { $0.id == id }
     }
 
-    var sampleList: DrawList? {
-        lists.first(where: \.isSample)
+    /// Built-in examples not yet kept, in their original order.
+    var exampleLists: [DrawList] {
+        lists.filter(\.isSample)
     }
 
     /// The person's own lists, most recently used first.
@@ -116,7 +117,7 @@ final class AppState {
         return copy
     }
 
-    /// The sample becomes an ordinary list.
+    /// An example becomes one of the person's own lists.
     func keepSample(_ id: UUID) {
         update(id) { $0.isSample = false }
     }

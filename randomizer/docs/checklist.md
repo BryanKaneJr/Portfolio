@@ -30,7 +30,7 @@ Built in the plan's order: engine and tests first, then lists, a working draw sc
 
 ## Phase 2: lists
 
-- [x] Home with saved lists, first-run sample (Try a draw / Create my list), rename, duplicate, delete
+- [x] Home with saved lists and three built-in examples (dinner wheel, fantasy draft lottery, next contestant reel); rename, duplicate, delete
 - [x] Add one at a time, paste many with a preview, 200-entry limit with feedback
 - [x] Reorder (drag), swipe to delete, clear with confirmation
 - [x] Duplicate-name warning; each entry stays its own participant

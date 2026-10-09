@@ -8,7 +8,8 @@ The full product spec is [`docs/build-plan.md`](docs/build-plan.md). What was bu
 
 ## What it does
 
-- **Saved lists** with a first-run sample you can draw from in seconds. Add names one by one or paste up to 200 at once.
+- **Three built-in examples** to try in seconds: What's for Dinner? (Spin Wheel, repeats allowed), Fantasy Draft Lottery (Lottery Balls, ten teams with Reverse Standings odds) and Next Contestant (Name Reel, everyone called once). Keep, edit or delete them like any list.
+- **Saved lists:** add names one by one or paste up to 200 at once.
 - **Three odds modes:** Equal Odds, custom Weights (0 to 1,000) and a Reverse Standings preset for fantasy drafts (N down to 1). Every entry shows its weight and its live chance.
 - **Four reveal styles** on top of one draw engine. The winner is chosen and saved before the animation starts; every reveal can be skipped and falls back to a fade with Reduce Motion.
 - **Remove after selection** sits in the sticky footer of every draw screen. On: winners leave the pool for the session. Off: repeats are possible. Restore removed and Undo last draw are always one tap away.

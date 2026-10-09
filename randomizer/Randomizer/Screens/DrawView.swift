@@ -185,7 +185,7 @@ struct DrawView: View {
 
     private var sampleBanner: some View {
         HStack(spacing: 10) {
-            Text("This is a sample list.")
+            Text("This is an example list.")
                 .font(.footnote)
                 .foregroundStyle(Theme.textSecondary)
             Spacer(minLength: 0)

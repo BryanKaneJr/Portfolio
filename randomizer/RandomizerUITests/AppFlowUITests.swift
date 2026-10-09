@@ -5,19 +5,24 @@ final class AppFlowUITests: XCTestCase {
         continueAfterFailure = false
     }
 
-    /// A first-time user draws from the sample within 15 seconds.
+    /// A first-time user sees three examples and draws from one within
+    /// 15 seconds.
     @MainActor
-    func testFirstRunSampleDrawsWithinSeconds() {
+    func testFirstRunExampleDrawsWithinSeconds() {
         let app = XCUIApplication.randomizer()
         app.launch()
         let start = Date()
-        XCTAssertTrue(app.buttons["tryDrawButton"].waitForExistence(timeout: 10))
-        app.buttons["tryDrawButton"].tap()
+        let dinner = app.exampleCard("What's for Dinner?")
+        XCTAssertTrue(dinner.waitForExistence(timeout: 10))
+        XCTAssertTrue(app.exampleCard("Fantasy Draft Lottery").exists)
+        XCTAssertTrue(app.exampleCard("Next Contestant").exists)
+        dinner.tap()
         XCTAssertTrue(app.drawButton.waitForExistence(timeout: 10))
         app.drawButton.tap()
         waitForResult(app)
         XCTAssertLessThan(Date().timeIntervalSince(start), 15)
-        XCTAssertTrue(app.buttons["keepSampleButton"].exists, "Offer to keep or replace the sample")
+        XCTAssertEqual(app.eligibleSummary, "8 eligible of 8 entries", "Dinner allows repeats")
+        XCTAssertTrue(app.buttons["keepSampleButton"].exists, "Offer to keep the example or make your own")
     }
 
     /// Phase 2 and release blocker 8: a new list, its toggle, pool and

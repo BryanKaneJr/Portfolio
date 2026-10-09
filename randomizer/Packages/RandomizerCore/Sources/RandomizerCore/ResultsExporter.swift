@@ -50,17 +50,59 @@ public enum ResultsExporter {
     }
 }
 
+/// The ready-made examples a new customer sees on Home, one per reveal
+/// style that tells its own story. Each can be tried at once, then kept,
+/// edited, duplicated or deleted like any list.
 public enum SampleLists {
-    /// The first-run list: something anyone can draw from in seconds.
+    public static func examples(now: Date = Date()) -> [DrawList] {
+        [dinner(now: now), draftLottery(now: now), contestants(now: now)]
+    }
+
+    /// Spin Wheel, equal odds, repeats allowed: dinner can come up twice.
     public static func dinner(now: Date = Date()) -> DrawList {
         DrawList(
-            title: "Dinner tonight",
-            entries: ["Pizza", "Tacos", "Burgers", "Sushi"].map { DrawEntry(name: $0) },
+            title: "What's for Dinner?",
+            entries: ["Italian", "Chinese", "Mexican", "Burgers", "Pizza", "Sushi", "Thai", "BBQ"]
+                .map { DrawEntry(name: $0) },
             oddsMode: .equal,
             revealStyle: .wheel,
+            removeAfterSelection: false,
+            isSample: true,
+            createdAt: now
+        )
+    }
+
+    /// Lottery Balls with Reverse Standings: ten teams, worst finish first,
+    /// ready for a weighted draft order.
+    public static func draftLottery(now: Date = Date()) -> DrawList {
+        DrawList(
+            title: "Fantasy Draft Lottery",
+            entries: draftTeams.map { DrawEntry(name: $0) },
+            oddsMode: .reverseStandings,
+            revealStyle: .lotteryBalls,
             removeAfterSelection: true,
             isSample: true,
             createdAt: now
         )
     }
+
+    /// Name Reel, a game-show style call: everyone gets called once.
+    public static func contestants(now: Date = Date()) -> DrawList {
+        DrawList(
+            title: "Next Contestant",
+            entries: ["Bryan", "Anthony", "Jayna", "Joe", "James", "Cassey", "Brandon", "Maria", "Tyler", "Nicole"]
+                .map { DrawEntry(name: $0) },
+            oddsMode: .equal,
+            revealStyle: .reel,
+            removeAfterSelection: true,
+            isSample: true,
+            createdAt: now
+        )
+    }
+
+    /// Last season's finish, worst to best.
+    public static let draftTeams = [
+        "Matt's Marauders", "Joey's Giants", "Jimmy's Juggernauts", "Danny's Dynasty", "Chris's Crushers",
+        "Mike's Mayhem", "Nick's Night Owls", "Tony's Tornadoes", "Steve's Stampede", "Kyle's Kodiaks",
+    ]
 }

@@ -24,9 +24,16 @@ enum UITestSeeds {
                 state.launchRoutes = [.draw(list.id)]
             }
         case "tour":
-            for list in tour() {
-                insert(list, into: state)
+            // The built-in examples, kept as the person's own lists (so no
+            // example banner in screenshots), plus a Mystery Reveal raffle.
+            let now = Date()
+            for (offset, example) in state.exampleLists.enumerated() {
+                state.update(example.id) {
+                    $0.isSample = false
+                    $0.lastUsedAt = now.addingTimeInterval(-Double(offset) * 3_600)
+                }
             }
+            insert(prizeRaffle(now: now), into: state)
         default:
             break
         }
@@ -59,42 +66,16 @@ enum UITestSeeds {
         return list
     }
 
-    static func tour() -> [DrawList] {
-        let now = Date()
-        var draft = league(style: .mysteryCard, mode: .reverseStandings, removal: true)
-        draft.lastUsedAt = now
-
-        let students = [
-            "Ava", "Ben", "Chloe", "Diego", "Emma", "Farah", "Gabe", "Hana", "Isaac", "Jade",
-            "Kai", "Leo", "Maya", "Noah", "Olive", "Priya", "Quinn", "Ruby", "Sam", "Theo",
-        ]
-        var classroom = DrawList(
-            title: "Period 3",
-            entries: students.map { DrawEntry(name: $0) },
-            oddsMode: .equal,
-            revealStyle: .reel,
-            removeAfterSelection: true
-        )
-        classroom.lastUsedAt = now.addingTimeInterval(-3_600)
-
-        var dinner = DrawList(
-            title: "Dinner Choices",
-            entries: ["Pizza", "Tacos", "Sushi", "Burgers", "Ramen", "Curry"].map { DrawEntry(name: $0) },
-            oddsMode: .equal,
-            revealStyle: .wheel,
-            removeAfterSelection: false
-        )
-        dinner.lastUsedAt = now.addingTimeInterval(-7_200)
-
+    static func prizeRaffle(now: Date) -> DrawList {
         var raffle = DrawList(
-            title: "Team Raffle",
+            title: "Prize Raffle",
             entries: [("Alex", 3), ("Jordan", 2), ("Alex", 1), ("Riley", 4), ("Casey", 2), ("Morgan", 1), ("Taylor", 2), ("Jamie", 1)]
                 .map { DrawEntry(name: $0.0, weight: $0.1) },
             oddsMode: .customWeighted,
-            revealStyle: .lotteryBalls,
+            revealStyle: .mysteryCard,
             removeAfterSelection: true
         )
         raffle.lastUsedAt = now.addingTimeInterval(-86_400)
-        return [draft, classroom, dinner, raffle]
+        return raffle
     }
 }
