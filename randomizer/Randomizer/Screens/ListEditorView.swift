@@ -13,6 +13,7 @@ struct ListEditorView: View {
     @State private var confirmClear = false
     @State private var reordering = false
     @State private var addMessage: String?
+    @State private var keyboardVisible = false
     @FocusState private var focus: Field?
 
     private enum Field: Hashable {
@@ -75,6 +76,7 @@ struct ListEditorView: View {
             .listRowBackground(Theme.surface)
         }
         .themedList()
+        .scrollDismissesKeyboard(.interactively)
         .environment(\.editMode, .constant(reordering ? .active : .inactive))
         .navigationTitle("Edit list")
         .navigationBarTitleDisplayMode(.inline)
@@ -94,7 +96,17 @@ struct ListEditorView: View {
             }
         }
         .safeAreaInset(edge: .bottom) {
-            startBar(list)
+            // While typing, the bar would float over the rows above the
+            // keyboard and can't be used anyway, so it steps aside.
+            if !keyboardVisible {
+                startBar(list)
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
+            keyboardVisible = true
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
+            keyboardVisible = false
         }
         .sheet(isPresented: $showingPaste) {
             PasteNamesSheet(listID: listID)

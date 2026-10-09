@@ -39,6 +39,10 @@ final class AppFlowUITests: XCTestCase {
             add.tap()
             add.typeText("\(name)\n")
         }
+        // Start Drawing steps aside while the keyboard is up.
+        XCTAssertFalse(app.buttons["startDrawingButton"].exists)
+        app.buttons["Done"].firstMatch.tap()
+        XCTAssertTrue(app.buttons["startDrawingButton"].waitForExistence(timeout: 5))
         app.buttons["startDrawingButton"].tap()
 
         XCTAssertTrue(app.removalToggle.waitForExistence(timeout: 5))
