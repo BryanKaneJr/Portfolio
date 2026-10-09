@@ -7,7 +7,7 @@ import { RecipeCard } from '../components/RecipeCard';
 import { SelectionSummary } from '../components/SelectionSummary';
 import { RECIPES, ingredientName } from '../data/catalog';
 import { DISH_TYPE_LABELS, MEAL_LABELS } from '../data/labels';
-import { runSearch, type RecipeResult } from '../logic/matchRecipes';
+import { countExact, runSearch, type RecipeResult } from '../logic/matchRecipes';
 import { useAppState } from '../state/AppState';
 import { useColors } from '../theme/colors';
 import { MIN_TOUCH, radius, space } from '../theme/spacing';
@@ -27,6 +27,20 @@ export default function ResultsScreen() {
 
   const edit = () => (router.canGoBack() ? router.back() : router.replace('/'));
   const open = (id: string) => router.push({ pathname: '/recipe/[id]', params: { id } });
+
+  // Use ingredients no recipe needs (catalog items that are only optional extras, or not used yet).
+  const neverNeeded = hasExact
+    ? []
+    : search.useIds.filter(id => countExact(RECIPES, { meal: null, dishType: null, useIds: [id], avoidIds: [] }) === 0);
+  const single = search.useIds.length === 1 ? search.useIds[0] : null;
+  const noCloseText =
+    search.useIds.length === 0
+      ? 'Try loosening a filter.'
+      : neverNeeded.length > 0
+        ? ''
+        : single
+          ? `No recipe with ${ingredientName(single)} fits these filters.`
+          : 'Nothing close with these filters.';
 
   const filtersLine = [
     search.meal ? MEAL_LABELS[search.meal] : 'Any meal',
@@ -63,7 +77,7 @@ export default function ResultsScreen() {
                 small
                 label={s.facet === 'meal' ? MEAL_LABELS[s.value] : DISH_TYPE_LABELS[s.value]}
                 hint={`(${s.count})`}
-                accessibilityLabel={`Show only ${s.facet === 'meal' ? MEAL_LABELS[s.value] : DISH_TYPE_LABELS[s.value]}, ${s.count} recipes`}
+                accessibilityLabel={`Show only ${s.facet === 'meal' ? MEAL_LABELS[s.value] : DISH_TYPE_LABELS[s.value]}, ${s.count} ${s.count === 1 ? 'recipe' : 'recipes'}`}
                 onPress={() => (s.facet === 'meal' ? app.setMeal(s.value) : app.setDishType(s.value))}
               />
             ))}
@@ -79,6 +93,11 @@ export default function ResultsScreen() {
               ? 'No recipes match every ingredient you chose.'
               : 'No recipes fit these filters.'}
           </Text>
+          {neverNeeded.length > 0 ? (
+            <Text style={[t.body, { color: c.textMuted }]}>
+              No recipe needs {joinNames(neverNeeded.map(ingredientName))} yet.
+            </Text>
+          ) : null}
 
           {tryWithout.length > 0 ? (
             <View style={styles.tryRow}>
@@ -90,7 +109,7 @@ export default function ResultsScreen() {
                     small
                     label={ingredientName(tw.ingredientId)}
                     hint={`→ ${tw.count} ${tw.count === 1 ? 'recipe' : 'recipes'}`}
-                    accessibilityLabel={`Remove ${ingredientName(tw.ingredientId)} from Use list. Shows ${tw.count} recipes`}
+                    accessibilityLabel={`Remove ${ingredientName(tw.ingredientId)} from Use list. Shows ${tw.count} ${tw.count === 1 ? 'recipe' : 'recipes'}`}
                     onPress={() => app.remove(tw.ingredientId)}
                   />
                 ))}
@@ -110,12 +129,14 @@ export default function ResultsScreen() {
             </View>
           ) : (
             <View style={styles.adjust}>
-              <Text style={[t.body, { color: c.textMuted }]}>
-                {search.useIds.length > 0 ? 'Nothing close with these filters.' : 'Try loosening a filter.'}
-                {blockers.avoid && !blockers.meal && !blockers.dishType
-                  ? ' Your Avoid list is hiding every match.'
-                  : ''}
-              </Text>
+              {noCloseText || (blockers.avoid && !blockers.meal && !blockers.dishType) ? (
+                <Text style={[t.body, { color: c.textMuted }]}>
+                  {noCloseText}
+                  {blockers.avoid && !blockers.meal && !blockers.dishType
+                    ? `${noCloseText ? ' ' : ''}Your Avoid list is hiding every match.`
+                    : ''}
+                </Text>
+              ) : null}
               {search.meal ? (
                 <AdjustButton
                   label={`Show any meal (not just ${MEAL_LABELS[search.meal]})`}
@@ -130,7 +151,13 @@ export default function ResultsScreen() {
                   onPress={() => app.setDishType(null)}
                 />
               ) : null}
-              {search.useIds.length > 0 ? (
+              {single ? (
+                <AdjustButton
+                  label={`Remove ${ingredientName(single)}`}
+                  helps={blockers.ingredients}
+                  onPress={() => app.remove(single)}
+                />
+              ) : search.useIds.length > 0 ? (
                 <AdjustButton label="Remove an ingredient" helps={blockers.ingredients} onPress={edit} />
               ) : null}
               {search.avoidIds.length > 0 ? (
@@ -165,6 +192,11 @@ export default function ResultsScreen() {
       />
     </>
   );
+}
+
+/** "Lentils", "Lentils or Capers", "Lentils, Capers or Walnuts". */
+function joinNames(names: string[]): string {
+  return names.length <= 1 ? (names[0] ?? '') : `${names.slice(0, -1).join(', ')} or ${names[names.length - 1]}`;
 }
 
 function AdjustButton({ label, onPress, helps }: { label: string; onPress: () => void; helps: boolean }) {

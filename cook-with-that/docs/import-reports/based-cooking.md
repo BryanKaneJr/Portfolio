@@ -91,7 +91,7 @@ never applied automatically.
 | frozen orange juice concentrate | 2 | 0 | unreviewed | orange |
 | fruit of your choice | 2 | 2 | unreviewed |  |
 | onion or garlic | 2 | 0 | unreviewed | garlic |
-| pecorino romano or parmigiano reggiano | 2 | 0 | unreviewed | pecorino_romano |
+| pecorino romano or parmigiano reggiano | 2 | 0 | unreviewed | parmesan |
 | red chilies | 2 | 0 | unreviewed |  |
 | seasoning | 2 | 0 | too vague |  |
 | servings shortcrust pastry | 2 | 1 | unreviewed |  |
@@ -166,7 +166,7 @@ never applied automatically.
 | baby spinach leaves | 1 | 0 | unreviewed | spinach |
 | bag coleslaw mix | 1 | 1 | unreviewed | coleslaw_mix |
 | bag of brown sugar | 1 | 0 | unreviewed | brown_sugar |
-| baguette loaf | 1 | 0 | unreviewed |  |
+| baguette loaf | 1 | 0 | unreviewed | bread |
 | baker s ammonium | 1 | 0 | unreviewed |  |
 | baking paper square 7x7cm | 1 | 0 | unreviewed |  |
 | banana leaves | 1 | 0 | unreviewed | banana |
@@ -243,7 +243,7 @@ never applied automatically.
 | bulk italian style pork sausage | 1 | 0 | unreviewed | sausage |
 | burrito sized tortilla | 1 | 0 | unreviewed | tortillas |
 | butter 50 g | 1 | 0 | unreviewed | butter |
-| butter and sunflower oil | 1 | 0 | unreviewed | butter |
+| butter and sunflower oil | 1 | 0 | unreviewed | vegetable_oil |
 | butter or 3 tablespoons of oil | 1 | 1 | unreviewed | butter |
 | butter or ghee | 1 | 0 | unreviewed | butter |
 | butter originally | 1 | 0 | unreviewed | butter |
@@ -292,7 +292,7 @@ never applied automatically.
 | chili powder or 1 3 teaspoon each oregano | 1 | 0 | unreviewed | chili_powder |
 | chili sauce | 1 | 1 | unreviewed |  |
 | chilis | 1 | 0 | unreviewed |  |
-| chilli flakes or | 1 | 0 | unreviewed |  |
+| chilli flakes or | 1 | 0 | unreviewed | red_pepper_flakes |
 | chilli powder 1 tbsp | 1 | 0 | unreviewed |  |
 | chilli powder or hungarian smoked paprika | 1 | 0 | unreviewed | paprika |
 | chinese 5 spice | 1 | 0 | unreviewed |  |
@@ -328,7 +328,7 @@ never applied automatically.
 | concentrated tomato paste | 1 | 0 | unreviewed | tomato_paste |
 | concentrated tomato puree | 1 | 0 | unreviewed | tomato_puree |
 | container of barbecue rub | 1 | 0 | unreviewed |  |
-| cooked fusilli noodles or small square flat noodles | 1 | 0 | unreviewed |  |
+| cooked fusilli noodles or small square flat noodles | 1 | 0 | unreviewed | pasta |
 | cooked white or brown rice | 1 | 0 | unreviewed | brown_rice |
 | cooked white rice | 1 | 0 | unreviewed | rice |
 | cooking cream | 1 | 0 | unreviewed | heavy_cream |
@@ -341,7 +341,7 @@ never applied automatically.
 | corn flour consider that not all corns are suitable for polenta | 1 | 1 | unreviewed | flour |
 | corn oil | 1 | 0 | unreviewed | corn |
 | couple of champignon shrooms | 1 | 0 | unreviewed |  |
-| couple white bread loaves store bought breadcrumbs also suffice | 1 | 0 | unreviewed | bread_crumbs |
+| couple white bread loaves store bought breadcrumbs also suffice | 1 | 0 | unreviewed | bread |
 | cranberries | 1 | 0 | unreviewed |  |
 | cranberries raisins coconut nuts | 1 | 1 | unreviewed | raisins |
 | cream 4dl 1 1 2 cups | 1 | 0 | unreviewed | heavy_cream |
@@ -399,7 +399,7 @@ never applied automatically.
 | english muffins or toast | 1 | 0 | unreviewed | english_muffins |
 | enough flour to make a soft pliable dough | 1 | 0 | unreviewed | flour |
 | enough frank s redhot sauce to marinate and top dress | 1 | 0 | unreviewed |  |
-| fat free yoghurt | 1 | 0 | unreviewed |  |
+| fat free yoghurt | 1 | 0 | unreviewed | yogurt |
 | fat milk | 1 | 0 | unreviewed | milk |
 | fat or salad oil | 1 | 0 | unreviewed |  |
 | fed sourdough starter | 1 | 0 | unreviewed | bread |
@@ -526,7 +526,6 @@ never applied automatically.
 | instant dry yeast | 1 | 0 | unreviewed | yeast |
 | instant yeast or 1 25 4 tsp active dry yeast | 1 | 0 | unreviewed | yeast |
 | italian breadcrumbs | 1 | 1 | unreviewed | bread_crumbs |
-| italian parsley | 1 | 0 | unreviewed | parsley |
 | italian plum tomatoes | 1 | 0 | unreviewed | tomato |
 | jalapeno or serrano chilies | 1 | 0 | unreviewed | jalapeno |
 | jam or marmalade | 1 | 0 | unreviewed |  |
@@ -544,7 +543,7 @@ never applied automatically.
 | kalamon kalamata olives | 1 | 0 | unreviewed |  |
 | kale | 1 | 0 | unreviewed |  |
 | katsuobushi | 1 | 0 | unreviewed |  |
-| kefir if not available sour yoghurt or buttermilk about 150 300 ml per serving | 1 | 0 | unreviewed |  |
+| kefir if not available sour yoghurt or buttermilk about 150 300 ml per serving | 1 | 0 | unreviewed | yogurt |
 | kefir or 1 kvass | 1 | 0 | unreviewed |  |
 | kidney beans or fresh | 1 | 0 | unreviewed | kidney_beans |
 | kombucha scoby | 1 | 0 | unreviewed |  |
@@ -578,8 +577,8 @@ never applied automatically.
 | lt of fresh cream | 1 | 0 | unreviewed | heavy_cream |
 | luke warm water | 1 | 1 | unreviewed | water |
 | macadamia nut | 1 | 0 | unreviewed |  |
-| macaroni elbow | 1 | 0 | unreviewed |  |
-| macaroni elbows | 1 | 0 | unreviewed |  |
+| macaroni elbow | 1 | 0 | unreviewed | pasta |
+| macaroni elbows | 1 | 0 | unreviewed | pasta |
 | mace mace is a dried flower originating from the nutmeg plant use no more than 3 strands of this flower | 1 | 0 | unreviewed | nutmeg |
 | majoran | 1 | 0 | unreviewed |  |
 | malt vinegar | 1 | 1 | unreviewed |  |
@@ -619,7 +618,7 @@ never applied automatically.
 | mushrooms i reccommend shitake | 1 | 0 | unreviewed | mushroom |
 | mussels | 1 | 0 | unreviewed |  |
 | mustard 2tbsp | 1 | 0 | unreviewed | mustard |
-| mustard oil sunflower oil | 1 | 0 | unreviewed | mustard |
+| mustard oil sunflower oil | 1 | 0 | unreviewed | vegetable_oil |
 | mustard seeds | 1 | 0 | unreviewed | mustard |
 | nashville hot chicken seasoning | 1 | 0 | unreviewed | chicken |
 | no knead pizza dough | 1 | 0 | unreviewed | pizza_dough |
@@ -776,7 +775,7 @@ never applied automatically.
 | scallions white and green separated | 1 | 0 | unreviewed | green_onion |
 | scamorza cheese | 1 | 0 | unreviewed |  |
 | scotch bonnet chili | 1 | 0 | unreviewed |  |
-| sea salt by cabbage weight | 1 | 1 | unreviewed | cabbage |
+| sea salt by cabbage weight | 1 | 1 | unreviewed | salt |
 | seafood | 1 | 1 | unreviewed |  |
 | seasoning salt and pepper with cayenne or paprika | 1 | 0 | unreviewed | seasoned_salt |
 | seaweed | 1 | 0 | unreviewed |  |
@@ -863,7 +862,6 @@ never applied automatically.
 | sweet pototoes | 1 | 1 | unreviewed |  |
 | sweet relish | 1 | 0 | unreviewed |  |
 | sweet yellow onion | 1 | 0 | unreviewed | onion |
-| sweetcorn | 1 | 0 | unreviewed |  |
 | sweetener sugar | 1 | 0 | unreviewed | sugar |
 | swiss chard | 1 | 0 | unreviewed |  |
 | swiss cheese | 1 | 0 | unreviewed |  |
@@ -980,7 +978,6 @@ never applied automatically.
 | x seasoned meat package beef | 1 | 0 | unreviewed |  |
 | x small cans chicken noodle soup | 1 | 0 | unreviewed | chicken |
 | yellow peppers per person | 1 | 0 | unreviewed |  |
-| yoghurt | 1 | 0 | unreviewed |  |
 | your favorite melty cheese | 1 | 0 | unreviewed |  |
 | yucatan style tomato sauce or chiltomate | 1 | 0 | unreviewed | tomato_sauce |
 | yukon gold potatoes | 1 | 0 | unreviewed | potato |

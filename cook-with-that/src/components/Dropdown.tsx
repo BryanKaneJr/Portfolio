@@ -43,7 +43,7 @@ export function Dropdown<T extends string>({ label, anyLabel, options, labels, v
         onPress={() => choose(v)}
         accessibilityRole="radio"
         accessibilityState={{ selected }}
-        accessibilityLabel={`${text}${n !== undefined ? `, ${n} recipes` : ''}`}
+        accessibilityLabel={`${text}${n !== undefined ? `, ${n} ${n === 1 ? 'recipe' : 'recipes'}` : ''}`}
         style={({ pressed }) => [
           styles.row,
           { borderBottomColor: c.divider, backgroundColor: pressed ? c.divider : 'transparent' },

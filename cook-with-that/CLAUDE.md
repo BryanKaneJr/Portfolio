@@ -55,11 +55,12 @@ src/app/         index (home, both modes), results, ingredients (More options), 
 src/components/  Chip, Dropdown, IngredientBrowser (compact|full), UseAvoidToggle, SelectionSummary, RecipeCard
 src/data/        types, ingredients (202, with aliases), recipes (27 seed + imported/), collections, recipeBuilders,
                  staples, popularity, labels, catalog
-src/logic/       matchRecipes (engine), pantry, sortRecipes, normalizeIngredient (search/aliases), validateContent,
-                 units (US/metric display)
+src/logic/       matchRecipes (engine), pantry, sortRecipes, normalizeIngredient (search: aliases, plurals, typos),
+                 validateContent, units (US/metric display)
 src/state/       AppState (context + AsyncStorage persistence), searchState, pickerTarget, favoritesStorage
 scripts/         validate-recipes.ts, coverage-report.ts, import-recipes.ts + import/ (parser, mapper, source readers)
-tests/           Jest: engine, pantry, staples, content validation, import pipeline, units, taglines, offline audit
+tests/           Jest: engine, pantry, staples, content validation, import pipeline, units, taglines, offline audit,
+                 searchAudit (randomized invariants over the real library + catalog-wide search checks)
 ```
 
 ## Commands
@@ -79,6 +80,15 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
 - All 124 recipes are drafts marked "needs culinary review" (validator warns): 27 originals, 83 adapted from Based
   Cooking and 14 from NHLBI (both public domain). 69% of common 2-ingredient picks find an exact match (21% of triples).
 - Bundle ID `com.cookwiththat.app` is a placeholder.
+- **Search and filters audited (2026-10-09, before growing the catalog further).** `tests/searchAudit.test.ts` runs
+  1,500 random searches and 500 random pantries against the real library and checks every rule above longhand
+  (it was confirmed to catch deliberately broken engine code). The engine was correct. Fixed: ingredient search missed
+  plurals ("eggplants", "berry"), misspellings ("brocoli", "parmesean"), describing words ("unsalted butter",
+  "extra virgin olive oil") and everyday/British names (sea salt, caster sugar, lemon juice, macaroni, egg whites,
+  streaky bacon, yoghurt); see "How search reads what people type" in `docs/ingredient-mappings.md`. Aliases are
+  also trusted by the importer as the same food, so only add true synonyms. The results page now says "No recipe
+  needs Walnuts yet" for a Use ingredient that's only optional (8 catalog items: lentils, walnuts, capers…) and offers
+  "Remove Walnuts" directly.
 
 ## Phase 5 so far: sources and import pipeline (2026-10-08)
 - **Sources reviewed:** `docs/recipe-sources.md` (ranked, with quoted licenses). Bundle only public domain, CC0 or
@@ -103,8 +113,17 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
   excluded, each with its reason, in `scripts/import/sources/index.ts`.
 
 ## NEXT TASK
+0. **Avoid groups: waiting on the owner (asked 2026-10-09).** Avoid works per ingredient, so typing "pork" and
+   avoiding what it finds (pork chops, pork shoulder, pork sausage) still shows 13 recipes with bacon, ham, pancetta
+   or prosciutto. The same gap exists for fish (8 recipes: salmon, tuna, Worcestershire), shellfish (4), chicken
+   broth for vegetarians (7), egg inside mayonnaise (3) and nuts (peanut butter, pesto). Proposal: Avoid-only
+   groups (All pork, All fish, Shellfish, All meat, Nuts, Dairy, Eggs) that search shows first, each listing what it
+   covers, including foods made from it (broth, mayonnaise, pesto). Every new catalog item would then need a group
+   tag, which is why it matters before adding more ingredients. Also proposed: a short note on the Avoid list that it
+   isn't allergy-safe (the plan rules out allergen certification). Don't build it until the owner answers.
 1. **Culinary review** is now the biggest gap: 124 drafts, none cooked or checked. Release needs every recipe reviewed
-   (quantities, times, food safety). Consider a review checklist or a sign-off field per recipe.
+   (quantities, times, food safety). Consider a review checklist or a sign-off field per recipe. Include tags: 15
+   recipes have no dish type (pancakes, guacamole, hummus, baked fries…), so any Dish type filter hides them.
 2. **More recipes, same way:** Based Cooking has 30 ready to draft and 264 waiting on ingredient-name review
    (`docs/import-reports/based-cooking.md`); NHLBI has 40 more in its snapshot (`docs/import-reports/nhlbi.md`; the
    worker's picks for next: turkey and beef meatballs, 20-minute chicken Creole). Parallel workers worked well: give
