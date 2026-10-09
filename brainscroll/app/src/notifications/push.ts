@@ -33,9 +33,20 @@ export async function pushToken(): Promise<string | null> {
 
 export const pushPlatform = (): 'ios' | 'android' | null => (Platform.OS === 'ios' || Platform.OS === 'android' ? Platform.OS : null);
 
-/** Calls back when the OS rotates this device's token. */
+/**
+ * Calls back when the OS rotates this device's token. On iPhone, fetching the
+ * token (pushToken) fires the same event with the same token, so only a token
+ * that differs from the last one counts: calling back on every event made
+ * register, fetch, event, register loop without end (the first TestFlight build
+ * sent about 317,000 registrations from one phone in a day; 2026-10-09).
+ */
 export function onTokenRotated(cb: () => void): () => void {
-  const sub = Notifications.addPushTokenListener(() => cb());
+  let last: string | null = null;
+  const sub = Notifications.addPushTokenListener(({ data }) => {
+    const next = String(data);
+    if (last !== null && next !== last) cb();
+    last = next;
+  });
   return () => sub.remove();
 }
 

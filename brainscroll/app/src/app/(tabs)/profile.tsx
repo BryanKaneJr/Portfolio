@@ -24,7 +24,6 @@ import { color, layout, space, type } from '@/theme/tokens';
  */
 export default function ProfileScreen() {
   const p = useProgress();
-  const { account } = p;
   const v = useProgressView();
   const { social } = p;
   const [me, setMe] = useState<SocialView['me'] | null>(null);
@@ -44,8 +43,6 @@ export default function ProfileScreen() {
   // One title shows: a chest or Mastery title, else a quest's.
   const titleName = lookTitleName(look.title) ?? title?.titleReward;
   const emblem = questData?.equipped.emblemQuestId ? questDef(questData.equipped.emblemQuestId) : undefined;
-  // Your username once it's loaded (what friends see); a first name from the email until then.
-  const fallbackName = account?.status !== 'signed_in' ? 'Learner' : account.email && !account.email.endsWith('privaterelay.appleid.com') ? capitalize(account.email.split('@')[0]) : 'Learner';
   // Every subject is an attribute, even before its first skill ships.
   const stats: SubjectStat[] = subjects.map((sub) => {
     const skills = v.skills.filter((s) => s.subjectId === sub.id);
@@ -74,7 +71,9 @@ export default function ProfileScreen() {
         <SubjectRing stats={stats} knowledge={v.knowledgeLevel} center={me ? <Avatar username={me.username} avatar={me.avatar} ring={look.ring} size={176} /> : undefined} />
         <Row gap={space.sm}>
           {emblem ? <LevelArt art={emblem.art} size={40} /> : null}
-          <StyledName header nameStyle={look.nameStyle} style={[type.h1, { color: color.text, flexShrink: 1 }]}>{me ? `@${me.username}` : fallbackName}</StyledName>
+          {/* Only ever your username (what friends see, and what Edit profile changes), never a name from
+              your email (owner, 2026-10-09). A blank line holds its place while it loads. */}
+          <StyledName header nameStyle={look.nameStyle} style={[type.h1, { color: color.text, flexShrink: 1 }]}>{me ? `@${me.username}` : '\u00a0'}</StyledName>
         </Row>
         {titleName ? <TitlePlate name={titleName} rarity={look.title ? titleRarity(look.title) : 'quest'} /> : null}
         {me ? <TierBadge tier={me.leagueTier} /> : null}
@@ -144,4 +143,3 @@ export default function ProfileScreen() {
   );
 }
 
-const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);

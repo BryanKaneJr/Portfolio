@@ -16,10 +16,18 @@ export function PushSync() {
 
   useEffect(() => {
     if (!PUSH_SUPPORTED || !userId) return;
+    // One at a time: a registration never starts another while it runs.
+    let running = false;
     const register = async () => {
-      const platform = pushPlatform();
-      const token = await pushToken();
-      if (token && platform) await social.registerPushToken(token, platform).catch(() => {});
+      if (running) return;
+      running = true;
+      try {
+        const platform = pushPlatform();
+        const token = await pushToken();
+        if (token && platform) await social.registerPushToken(token, platform).catch(() => {});
+      } finally {
+        running = false;
+      }
     };
     void register();
     const app = AppState.addEventListener('change', (s) => s === 'active' && void register());
