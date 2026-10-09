@@ -392,17 +392,10 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
       };
     },
     async worldBoard(): Promise<WorldBoardView> {
-      const r = await rpc<{ week_start: string; ranked: number; rows: (RawCard & { place: number; you: boolean; friend: boolean; hidden: boolean })[] }>('get_world_board');
-      return {
-        weekStart: r.week_start,
-        ranked: r.ranked,
-        // A hidden row comes without an id, name or avatar: just its place and XP.
-        rows: r.rows.map((w) =>
-          w.hidden
-            ? { id: `hidden-${w.place}`, username: '', knowledgeLevel: 0, weeklyXp: w.weekly_xp, place: w.place, you: false, friend: false, hidden: true }
-            : { ...card(w), place: w.place, you: w.you, friend: w.friend, hidden: false },
-        ),
-      };
+      type Raw = RawCard & { place: number | null; total_xp: number; you: boolean; friend: boolean };
+      const r = await rpc<{ ranked: number; rows: Raw[]; you: Raw }>('get_world_board');
+      const row = (w: Raw) => ({ ...card(w), totalXp: w.total_xp, you: w.you, friend: w.friend });
+      return { ranked: r.ranked, rows: r.rows.map((w) => ({ ...row(w), place: w.place ?? 0 })), you: { ...row(r.you), place: r.you.place } };
     },
     async league(): Promise<LeagueView> {
       const r = await rpc<{ league_id: number; tier?: number; week_start: string; ends_at: string; members: (RawCard & { you: boolean; blocked: boolean })[]; last_week: { week_start: string; place: string | null; xp: number | null; moved?: number | null; tier?: number | null } | null }>('get_league');

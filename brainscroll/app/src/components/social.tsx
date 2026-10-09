@@ -1,4 +1,4 @@
-import { DR_SCROLL_FRIEND, leaguePrize, ordinal, theTier, tierName, trophyInfo, type FeedItem, type DrScrollPost, type FeedReaction, type LeagueView } from '@brainscroll/core';
+import { DR_SCROLL_FRIEND, leaguePrize, ordinal, theTier, tierName, trophyInfo, WORLD_BOARD, type FeedItem, type DrScrollPost, type FeedReaction, type LeagueView, type WorldBoardView } from '@brainscroll/core';
 import { Animated, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import { AvatarGlow } from '@/components/cosmetics';
@@ -123,6 +123,38 @@ export function LeagueBanner({ league, onPress }: { league: LeagueView; onPress:
         </View>
       )}
     </Pressable>
+  );
+}
+
+/**
+ * The world leaderboard on Social, kept small (owner, 2026-10-09: "a clean
+ * display and small"): the top 3's avatars, your place by total XP of all
+ * time, and a tap opens the top 50 (app/src/app/leaderboard.tsx).
+ */
+export function WorldBoardCard({ board, onPress }: { board: WorldBoardView; onPress: () => void }) {
+  const place = board.you.place;
+  const of = board.ranked.toLocaleString('en-US');
+  return (
+    <Card
+      variant="raised"
+      onPress={onPress}
+      accessibilityLabel={`World leaderboard: ${place ? `you're ${ordinal(place)} of ${of} by total XP` : 'no place yet. Earn XP to get one'}. Open the top ${WORLD_BOARD.TOP}`}>
+      <Row gap={space.md}>
+        <View style={{ flexDirection: 'row' }}>
+          {board.rows.slice(0, WORLD_BOARD.PREVIEW).map((r, i) => (
+            <View key={r.id} style={{ marginLeft: i > 0 ? -space.sm : 0, zIndex: WORLD_BOARD.PREVIEW - i }}>
+              <Avatar username={r.username} avatar={r.avatar} size={32} />
+            </View>
+          ))}
+        </View>
+        <View style={{ flex: 1, gap: space.xxs }}>
+          <Text style={[type.bodyStrong, { color: color.text }]}>World leaderboard</Text>
+          <Caption>{place ? `All time · ${of} learners` : 'Earn XP to get a place'}</Caption>
+        </View>
+        {place ? <Text style={[type.h2, { color: color.text }]}>{`#${place.toLocaleString('en-US')}`}</Text> : null}
+        <Icon name="forward" tint={color.textMuted} size={iconSize.sm} />
+      </Row>
+    </Card>
   );
 }
 

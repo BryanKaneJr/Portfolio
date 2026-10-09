@@ -27,7 +27,7 @@ export default function ProfileScreen() {
   const v = useProgressView();
   const { social } = p;
   const [me, setMe] = useState<SocialView['me'] | null>(null);
-  // Your place on this week's world leaderboard (owner, 2026-10-09), null until you've XP this week.
+  // Your place on the world leaderboard, all time (owner, 2026-10-09), null until your first XP.
   const [rank, setRank] = useState<number | null | undefined>(undefined);
   useFocusEffect(
     useCallback(() => {
@@ -36,10 +36,7 @@ export default function ProfileScreen() {
         () => {},
       );
       social.worldBoard().then(
-        (b) => {
-          const you = b.rows.find((r) => r.you);
-          setRank(you && you.weeklyXp > 0 ? you.place : null);
-        },
+        (b) => setRank(b.you.place),
         () => {},
       );
     }, [social]),
@@ -105,8 +102,8 @@ export default function ProfileScreen() {
         <Pressable
           style={{ flex: 1 }}
           accessibilityRole="button"
-          accessibilityLabel={rank ? `World rank this week: number ${rank}. Open Social` : rank === null ? 'World rank: none yet this week. Open Social' : 'World rank. Open Social'}
-          onPress={() => router.navigate('/social')}>
+          accessibilityLabel={rank ? `World rank: number ${rank}. Open the world leaderboard` : rank === null ? 'World rank: none yet. Open the world leaderboard' : 'World rank. Open the world leaderboard'}
+          onPress={() => router.push('/leaderboard')}>
           <StatTile compact label="Rank" value={rank ? `#${rank.toLocaleString('en-US')}` : rank === null ? 'None yet' : ' '} tone={rank ? 'brand' : 'text'} icon="geography" />
         </Pressable>
       </Row>

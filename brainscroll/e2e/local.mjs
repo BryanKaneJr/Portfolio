@@ -128,9 +128,16 @@ try {
   check(/Friend requests[\s\S]*@priya/.test(social), 'friend requests show at the top');
   await exactButton(page, 'Accept').click();
   await page.waitForTimeout(1000);
-  check(/World leaderboard[\s\S]*@priya\s+Friend\b/.test(await bodyText(page)), 'accepting makes a friend, marked on the world leaderboard at their place');
-  const worldRows = await page.getByRole('button', { name: / in the world: / }).count();
-  check(worldRows >= 3 && worldRows <= 10 && (await page.getByRole('button', { name: / in the world: you,/ }).count()) === 1, `the world leaderboard is ten rows at most, with you among them (${worldRows})`);
+  // The world leaderboard is one small card (owner, 2026-10-09); it opens the top 50, all time.
+  const boardCard = page.getByRole('button', { name: /^World leaderboard: you're \d+\w\w of \d+ by total XP\. Open the top 50$/ });
+  check((await boardCard.count()) === 1 && !/@priya\s+Friend\b/.test(await bodyText(page)), 'Social shows the world leaderboard as one small card');
+  await boardCard.click();
+  await page.waitForTimeout(1000);
+  check(/@priya\s+Friend\b/.test(await bodyText(page)), 'accepting makes a friend, marked on the world leaderboard at their place');
+  const worldRows = await page.getByRole('button', { name: / XP\. Open the profile$/ }).count();
+  check(worldRows >= 3 && worldRows <= 50 && (await page.getByRole('button', { name: /^\d+\w\w: you, / }).count()) === 1, `the world leaderboard opened is the top 50 at most, with you among them (${worldRows})`);
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.waitForTimeout(800);
   const liked = async () => page.getByRole('button', { name: /^Liked/ }).count();
   const before = await liked();
   await page.getByRole('button', { name: /^Like(,|$)/ }).first().click();
@@ -231,16 +238,21 @@ try {
   await page.goBack();
   await page.waitForTimeout(1000);
   check(!/@noor/.test(await bodyText(page)), 'and nowhere on Social, the league banner included');
+  await page.getByRole('button', { name: /^World leaderboard:/ }).click();
+  await page.waitForTimeout(1000);
+  check(!/@noor/.test(await bodyText(page)), 'or on the world leaderboard');
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.waitForTimeout(800);
   await page.getByRole('tab', { name: /Profile/ }).click();
   await page.waitForTimeout(800);
-  // Beside the streak: your place on this week's world leaderboard (owner, 2026-10-09).
+  // Beside the streak: your place on the world leaderboard, all time (owner, 2026-10-09).
   const rankTile = page.getByRole('button', { name: /^World rank/ });
   let rankLabel = '';
   for (let i = 0; i < 20 && !/number \d+/.test(rankLabel); i++) {
     rankLabel = (await rankTile.getAttribute('aria-label').catch(() => '')) ?? '';
     if (!/number \d+/.test(rankLabel)) await page.waitForTimeout(200);
   }
-  check(/^World rank this week: number \d+\. Open Social$/.test(rankLabel), `Profile shows your world rank this week (${rankLabel})`);
+  check(/^World rank: number \d+\. Open the world leaderboard$/.test(rankLabel), `Profile shows your world rank (${rankLabel})`);
   await exactButton(page, 'Settings').click();
   await page.waitForTimeout(800);
   check(/Blocked[\s\S]*@noor/i.test(await bodyText(page)), 'Settings lists who you blocked');

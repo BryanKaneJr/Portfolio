@@ -1,10 +1,10 @@
 import { DR_SCROLL_FRIEND, drScrollPosts, LEAGUE, ordinal, theTier, type FeedReaction } from '@brainscroll/core';
 import { router } from 'expo-router';
-import { Fragment, useEffect, useMemo, useState } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { useEffect, useMemo, useState } from 'react';
+import { Pressable, View } from 'react-native';
 import { TierEmblem } from '@/components/LeagueTier';
 import { StyledName } from '@/components/cosmetics';
-import { Avatar, DrScrollPostCard, LeagueBanner, MomentCard } from '@/components/social';
+import { Avatar, DrScrollPostCard, LeagueBanner, MomentCard, WorldBoardCard } from '@/components/social';
 import { Body, Button, Caption, Card, DrScrollSays, Icon, IconButton, LoadError, Notice, OfflineState, Row, Screen, ScreenHeader, SkeletonCard, Title } from '@/components/ui';
 import { useProgress } from '@/progress/ProgressProvider';
 import { load, save } from '@/progress/storage';
@@ -13,8 +13,8 @@ import { color, iconSize, space, type } from '@/theme/tokens';
 
 /**
  * Social (owner, 2026-10-01): your league as a banner on top (tap for the
- * standings), this week's XP against your friends, then the feed of moments
- * from friends and league mates, with hearts.
+ * standings), a small world leaderboard card under it (tap for the top 50),
+ * then the feed of moments from friends and league mates, with hearts.
  */
 export default function SocialScreen() {
   const p = useProgress();
@@ -112,6 +112,7 @@ export default function SocialScreen() {
             </Card>
           ) : null}
           <LeagueBanner league={league} onPress={() => router.push('/league')} />
+          {board && <WorldBoardCard board={board} onPress={() => router.push('/leaderboard')} />}
 
           {view.incoming.length > 0 && (
             <View style={{ gap: space.sm }}>
@@ -161,42 +162,6 @@ export default function SocialScreen() {
                 <Icon name="forward" tint={color.mastery} size={iconSize.sm} />
               </Row>
             </Card>
-          )}
-
-          {board && board.rows.length > 0 && (
-            <View style={{ gap: space.sm }}>
-              <Title>World leaderboard</Title>
-              <Card variant="plain" style={{ paddingVertical: space.xs, paddingHorizontal: 0, gap: 0 }}>
-                {/* This week's top 3, your friends and you: ten rows at most (owner, 2026-10-09; core worldBoardPlaces). */}
-                {board.rows.map((r, i) => {
-                  const skipped = i > 0 && r.place > board.rows[i - 1]!.place + 1;
-                  const name = r.you ? 'You' : r.hidden ? 'Hidden learner' : `@${r.username}`;
-                  return (
-                    <Fragment key={r.id}>
-                      {skipped && (
-                        <View style={styles.skipped} accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
-                          <Caption center>···</Caption>
-                        </View>
-                      )}
-                      <Pressable
-                        accessibilityRole="button"
-                        accessibilityLabel={`${ordinal(r.place)} in the world: ${r.you ? 'you' : name}${r.friend ? ', your friend' : ''}, ${r.weeklyXp} XP this week`}
-                        disabled={r.hidden}
-                        onPress={() => openPerson(r.id)}
-                        style={({ pressed }) => [styles.row, i > 0 && !skipped && styles.divided, r.you && { backgroundColor: color.brandSoft }, pressed && { opacity: 0.8 }]}>
-                        <Caption style={{ width: 40 }}>{ordinal(r.place)}</Caption>
-                        <Avatar username={r.hidden ? '?' : r.username} avatar={r.hidden ? undefined : r.avatar} ring={r.hidden ? null : r.ring} size={32} />
-                        <View style={{ flex: 1 }}>
-                          <StyledName nameStyle={r.hidden ? null : r.nameStyle} style={[type.body, { color: color.text }]}>{name}</StyledName>
-                          {r.friend && <Caption>Friend</Caption>}
-                        </View>
-                        <Body>{`${r.weeklyXp.toLocaleString('en-US')} XP`}</Body>
-                      </Pressable>
-                    </Fragment>
-                  );
-                })}
-              </Card>
-            </View>
           )}
 
           {view.friends.length === 0 && (
@@ -275,10 +240,3 @@ function useSeen(userId: string | undefined, name: string, value: string | undef
   return [seen === undefined ? undefined : seen === value, see];
 }
 const LAST_WEEK_KEY = 'bs.league.last-week-seen';
-
-const styles = StyleSheet.create({
-  row: { flexDirection: 'row', alignItems: 'center', gap: space.md, paddingVertical: space.sm, paddingHorizontal: space.lg },
-  divided: { borderTopWidth: 1, borderTopColor: color.border },
-  // Places left out between two rows.
-  skipped: { paddingVertical: space.xxs, borderTopWidth: 1, borderTopColor: color.border },
-});

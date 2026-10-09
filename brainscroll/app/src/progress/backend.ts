@@ -168,7 +168,7 @@ export interface ProgressBackend {
   league(): Promise<LeagueView>;
   /** The last 14 days of moments from you, your friends and your league mates. */
   feed(): Promise<FeedItem[]>;
-  /** This week's world leaderboard: ten rows (core worldBoardPlaces). */
+  /** The world leaderboard: the top 50 by total XP, all time, and your own row (core WORLD_BOARD). */
   worldBoard(): Promise<WorldBoardView>;
   /** Anyone's profile (`limited` when it's private and you're not a friend or league mate). Throws SocialError USER_NOT_FOUND when blocked or unknown. */
   socialProfile(userId: string): Promise<SocialProfile>;
