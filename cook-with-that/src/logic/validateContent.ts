@@ -1,3 +1,4 @@
+import { RECIPE_COLLECTIONS, type RecipeCollection } from '../data/collections';
 import { DISH_TYPES, INGREDIENT_CATEGORIES, MEALS, type Ingredient, type Recipe } from '../data/types';
 import { normalizeText } from './normalizeIngredient';
 
@@ -7,7 +8,11 @@ export type ValidationIssue = { where: string; message: string };
  * Content gate. Anything returned here must be fixed before the data ships —
  * broken recipes are blocked at build time, never shown as broken cards.
  */
-export function validateContent(ingredients: Ingredient[], recipes: Recipe[]): ValidationIssue[] {
+export function validateContent(
+  ingredients: Ingredient[],
+  recipes: Recipe[],
+  collections: Record<string, RecipeCollection> = RECIPE_COLLECTIONS,
+): ValidationIssue[] {
   const issues: ValidationIssue[] = [];
   const add = (where: string, message: string) => issues.push({ where, message });
 
@@ -31,6 +36,7 @@ export function validateContent(ingredients: Ingredient[], recipes: Recipe[]): V
 
   // ── Recipes ──
   const recipeIds = new Set<string>();
+  const originsSeen = new Map<string, string>();
   for (const rec of recipes) {
     const where = `recipe:${rec.id || '(no id)'}`;
     if (!/^[a-z0-9-]+$/.test(rec.id)) add(where, 'id must be lowercase kebab-case');
@@ -38,6 +44,7 @@ export function validateContent(ingredients: Ingredient[], recipes: Recipe[]): V
     recipeIds.add(rec.id);
     if (!rec.title?.trim()) add(where, 'missing title');
     if (!rec.description?.trim()) add(where, 'missing description');
+    if (/\b(tbd|todo|lorem)\b/i.test(`${rec.title} ${rec.description}`)) add(where, 'placeholder title/description');
     if (!rec.meals?.length) add(where, 'needs at least one meal tag');
     for (const m of rec.meals ?? []) if (!MEALS.includes(m)) add(where, `invalid meal "${m}"`);
     if (new Set(rec.meals).size !== rec.meals.length) add(where, 'duplicate meal tag');
@@ -82,6 +89,18 @@ export function validateContent(ingredients: Ingredient[], recipes: Recipe[]): V
     if (!rec.source || !['original', 'licensed'].includes(rec.source.type)) add(where, 'missing/invalid source type');
     if (!rec.source?.note?.trim()) add(where, 'missing source note');
     if (rec.source?.type === 'licensed' && !rec.source.license?.trim()) add(where, 'licensed recipe needs a license');
+    const origin = rec.source?.origin;
+    if (origin) {
+      const collection = collections[origin.collection];
+      if (!collection) add(where, `unknown source collection "${origin.collection}"`);
+      else if (rec.source.license !== collection.license)
+        add(where, `license must read "${collection.license}" for ${origin.collection} recipes`);
+      if (!origin.key?.trim() || !origin.title?.trim()) add(where, 'source origin needs the original key and title');
+      const sameOrigin = `${origin.collection}/${origin.key}`;
+      if (originsSeen.has(sameOrigin))
+        add(where, `imports ${sameOrigin} again (already "${originsSeen.get(sameOrigin)}")`);
+      originsSeen.set(sameOrigin, rec.id);
+    } else if (rec.source?.type === 'licensed') add(where, 'licensed recipe needs its origin (collection, key, title)');
   }
 
   return issues;

@@ -75,3 +75,28 @@ export function searchIngredients(index: IngredientIndex, query: string, limit =
   scored.sort((a, b) => a.score - b.score || a.hit.ingredient.name.localeCompare(b.hit.ingredient.name));
   return scored.slice(0, limit).map(s => s.hit);
 }
+
+/**
+ * Catalog ingredients a recipe's steps name but its ingredient list doesn't
+ * ("fry in butter" with no butter listed). Avoid filters on the list, so an
+ * unlisted ingredient would slip past it. Longest names win, so "garlic powder"
+ * isn't read as garlic. Water is skipped: nobody avoids it, and pasta water isn't listed.
+ */
+export function unlistedStepIngredients(
+  index: IngredientIndex,
+  steps: string[],
+  listedIds: Iterable<string>,
+): { id: string; term: string }[] {
+  const listed = new Set(listedIds);
+  const terms = [...index.byTerm.entries()].sort((a, b) => b[0].length - a[0].length);
+  const found = new Map<string, string>();
+  for (const step of steps) {
+    let text = ` ${normalizeText(step)} `;
+    for (const [term, id] of terms) {
+      if (!text.includes(` ${term} `)) continue;
+      if (id !== 'water' && !listed.has(id) && !found.has(id)) found.set(id, term);
+      text = text.split(` ${term} `).join('  ');
+    }
+  }
+  return [...found].map(([id, term]) => ({ id, term }));
+}

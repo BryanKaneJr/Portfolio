@@ -36,10 +36,23 @@ export type RecipeIngredient = {
   optional: boolean;
 };
 
+/** Where an imported recipe came from: enough to credit it and to find the original again. */
+export type RecipeOrigin = {
+  /** Key in RECIPE_COLLECTIONS (src/data/collections.ts). */
+  collection: string;
+  /** The entry's stable key inside that collection (e.g. its file name). */
+  key: string;
+  /** Title and author as the collection credits them. */
+  title: string;
+  author?: string;
+};
+
 export type RecipeSource = {
   type: 'original' | 'licensed';
   note: string;
   license?: string;
+  /** Set on every recipe imported from an outside collection. */
+  origin?: RecipeOrigin;
 };
 
 export type Recipe = {

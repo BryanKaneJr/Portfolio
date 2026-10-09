@@ -1,4 +1,6 @@
-import type { Recipe, RecipeIngredient } from './types';
+import { IMPORTED_RECIPES } from './imported';
+import { opt, r } from './recipeBuilders';
+import type { Recipe } from './types';
 
 /**
  * Seed recipe library (Phase 1).
@@ -9,34 +11,9 @@ import type { Recipe, RecipeIngredient } from './types';
  * release. Do not paste in directions from blogs or other sites.
  */
 
-/** Required ingredient. */
-const r = (
-  ingredientId: string,
-  displayName: string,
-  quantityText: string,
-  preparation?: string,
-): RecipeIngredient => ({
-  ingredientId,
-  displayName,
-  quantityText,
-  ...(preparation ? { preparation } : {}),
-  optional: false,
-});
-
-/** Optional ingredient (garnish, topping, serve-with). */
-const opt = (
-  ingredientId: string,
-  displayName: string,
-  quantityText: string,
-  preparation?: string,
-): RecipeIngredient => ({
-  ...r(ingredientId, displayName, quantityText, preparation),
-  optional: true,
-});
-
 const DRAFT = { type: 'original', note: 'Original draft for Cook With That — needs culinary review' } as const;
 
-export const RECIPES: Recipe[] = [
+const SEED_RECIPES: Recipe[] = [
   {
     id: 'garlic-chicken-spinach-skillet',
     title: 'Garlic Chicken & Spinach Skillet',
@@ -809,3 +786,6 @@ export const RECIPES: Recipe[] = [
     source: DRAFT,
   },
 ];
+
+/** The shipped library: hand-written seed recipes, then everything imported from open collections (src/data/imported). */
+export const RECIPES: Recipe[] = [...SEED_RECIPES, ...IMPORTED_RECIPES];
