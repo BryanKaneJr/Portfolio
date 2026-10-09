@@ -6,12 +6,12 @@ Source: https://github.com/LukeSmithxyz/based.cooking at `9d4a31a040eedd61e4fb60
 
 - Recipes read: 440
 - Already imported: 28
-- Ready to draft: 25
-  - every ingredient already in the catalog: 19
-  - adds at least one reviewed ingredient to the catalog when drafted: 6
+- Ready to draft: 35
+  - every ingredient already in the catalog: 21
+  - adds at least one reviewed ingredient to the catalog when drafted: 14
 - Excluded (provenance doubts, see the source definition): 7
 - Missing ingredients or steps in the source: 5
-- Waiting on ingredient review: 375
+- Waiting on ingredient review: 365
 
 ## Review next
 
@@ -20,36 +20,36 @@ the rows above it were resolved in `scripts/import/ingredient-map.ts`.
 
 | # | Name | Recipes unblocked | Running total |
 |---|---|---|---|
-| 1 | cheese | 2 | 2 |
-| 2 | mayonnaise | 0 | 2 |
-| 3 | raisins | 1 | 3 |
-| 4 | vinegar | 1 | 4 |
-| 5 | fruit of your choice | 2 | 6 |
-| 6 | chili pepper | 0 | 6 |
-| 7 | dijon mustard | 0 | 6 |
-| 8 | ketchup | 0 | 6 |
-| 9 | worcestershire sauce | 0 | 6 |
-| 10 | chives | 0 | 6 |
-| 11 | finely | 1 | 7 |
-| 12 | eggplant | 1 | 8 |
-| 13 | beef | 0 | 8 |
-| 14 | mustard | 0 | 8 |
-| 15 | servings shortcrust pastry | 1 | 9 |
-| 16 | spoon olive oil | 1 | 10 |
-| 17 | cabbage | 0 | 10 |
-| 18 | mint | 0 | 10 |
-| 19 | cleaned rabbits | 1 | 11 |
-| 20 | cod fillets | 1 | 12 |
-| 21 | pineapple chunks | 1 | 13 |
-| 22 | turmeric | 0 | 13 |
-| 23 | coconut oil | 0 | 13 |
-| 24 | popcorn kernels | 1 | 14 |
-| 25 | chocolate | 1 | 15 |
-| 26 | broth | 1 | 16 |
-| 27 | cloves | 0 | 16 |
-| 28 | radishes | 0 | 16 |
-| 29 | prepared horseradish | 1 | 17 |
-| 30 | salt spoonful of salt | 1 | 18 |
+| 1 | cheese | 3 | 3 |
+| 2 | vinegar | 1 | 4 |
+| 3 | chili pepper | 0 | 4 |
+| 4 | fruit of your choice | 2 | 6 |
+| 5 | beef | 0 | 6 |
+| 6 | finely | 1 | 7 |
+| 7 | servings shortcrust pastry | 1 | 8 |
+| 8 | cleaned rabbits | 1 | 9 |
+| 9 | broth | 1 | 10 |
+| 10 | pineapple juice | 1 | 11 |
+| 11 | popcorn kernels | 1 | 12 |
+| 12 | chocolate | 1 | 13 |
+| 13 | coriander | 0 | 13 |
+| 14 | 40 a b v spirit cachaca is the main one | 1 | 14 |
+| 15 | 50 70 dark chocolate chips or semi sweet milk chocolate chips | 1 | 15 |
+| 16 | 95 abv grain alcohol | 1 | 16 |
+| 17 | any berries | 1 | 17 |
+| 18 | as much bacon as you want | 1 | 18 |
+| 19 | assam tea | 1 | 19 |
+| 20 | bag coleslaw mix | 1 | 20 |
+| 21 | bananas the riper | 1 | 21 |
+| 22 | bit of grease | 1 | 22 |
+| 23 | black tea | 1 | 23 |
+| 24 | blended blueberries | 1 | 24 |
+| 25 | boiled potatoes in there skin | 1 | 25 |
+| 26 | buckwheat flour | 1 | 26 |
+| 27 | butter or 3 tablespoons of oil | 1 | 27 |
+| 28 | cheese use a cheese that is mid aged | 1 | 28 |
+| 29 | chickpeas garbanzo beans | 1 | 29 |
+| 30 | chili sauce | 1 | 30 |
 
 ## Catalog additions waiting on a draft
 
@@ -57,9 +57,22 @@ Reviewed ingredients the catalog lacks. Drafting a recipe that needs one adds it
 
 | ID | Name | Category | Ready recipes that need it |
 |---|---|---|---|
-| yogurt | Plain yogurt | dairy | 3 |
+| yogurt | Plain yogurt | dairy | 4 |
 | bread_flour | Bread flour | grain | 2 |
+| mayonnaise | Mayonnaise | spice | 2 |
+| chili_garlic_sauce | Chili garlic sauce | spice | 1 |
+| eggplant | Eggplant | produce | 1 |
 | ground_coriander | Ground coriander | spice | 1 |
+| peanuts | Peanuts | pantry | 1 |
+| pineapple | Pineapple | produce | 1 |
+| prepared_horseradish | Prepared horseradish | spice | 1 |
+| radish | Radish | produce | 1 |
+| raisins | Raisins | pantry | 1 |
+| red_lentils | Red lentils | protein | 1 |
+| ricotta | Ricotta | dairy | 1 |
+| sweet_chili_sauce | Sweet chili sauce | spice | 1 |
+| tomato_sauce | Tomato sauce | pantry | 1 |
+| turmeric | Turmeric | spice | 1 |
 
 ## Every blocking name
 
@@ -69,125 +82,41 @@ never applied automatically.
 
 | Name | Blocks | Only blocker | Status | Suggestion |
 |---|---|---|---|---|
-| cheese | 12 | 2 | too vague |  |
-| mayonnaise | 9 | 0 | unreviewed |  |
-| worcestershire sauce | 9 | 0 | unreviewed |  |
-| mustard | 8 | 0 | unreviewed |  |
+| cheese | 12 | 3 | too vague |  |
 | chili pepper | 7 | 0 | too vague |  |
-| dijon mustard | 7 | 0 | unreviewed |  |
-| ketchup | 7 | 0 | unreviewed |  |
 | beef | 6 | 0 | too vague |  |
-| cabbage | 6 | 0 | unreviewed |  |
 | finely | 6 | 1 | unreviewed |  |
-| raisins | 6 | 1 | unreviewed |  |
-| star anise | 6 | 0 | unreviewed |  |
 | vinegar | 6 | 1 | too vague |  |
-| chives | 5 | 0 | unreviewed |  |
 | coriander | 5 | 0 | too vague |  |
-| garam masala | 5 | 0 | unreviewed |  |
-| mint | 5 | 0 | unreviewed |  |
-| radishes | 5 | 0 | unreviewed |  |
-| turmeric | 5 | 0 | unreviewed |  |
-| cloves | 4 | 0 | unreviewed |  |
-| coconut oil | 4 | 0 | unreviewed |  |
-| shallots | 4 | 0 | unreviewed |  |
-| white wine | 4 | 0 | unreviewed |  |
-| almonds | 3 | 0 | unreviewed |  |
-| beef stock | 3 | 0 | unreviewed |  |
-| beer | 3 | 0 | unreviewed |  |
-| eggplant | 3 | 1 | unreviewed |  |
-| ground cloves | 3 | 0 | unreviewed |  |
-| ground pork | 3 | 0 | unreviewed |  |
-| hoisin sauce | 3 | 0 | unreviewed |  |
-| marjoram | 3 | 0 | unreviewed |  |
-| miso paste | 3 | 0 | unreviewed |  |
-| pork belly | 3 | 0 | unreviewed |  |
-| puff pastry | 3 | 0 | unreviewed |  |
 | quarter of a pound of powdered white sugar | 3 | 0 | unreviewed | powdered_sugar |
 | quarter of a pound of sugar | 3 | 0 | unreviewed | sugar |
 | tea spoonful of rose water | 3 | 0 | unreviewed | water |
 | thinly | 3 | 0 | unreviewed |  |
-| allspice | 2 | 0 | unreviewed |  |
-| an onion | 2 | 0 | unreviewed | onion |
-| apple cider vinegar | 2 | 0 | unreviewed | apple |
-| arugula | 2 | 0 | unreviewed |  |
-| bean sprouts | 2 | 0 | unreviewed |  |
 | bechamel | 2 | 0 | unreviewed |  |
-| beef broth | 2 | 0 | unreviewed |  |
 | bone in | 2 | 0 | unreviewed |  |
-| bouillon | 2 | 0 | unreviewed |  |
+| bouillon | 2 | 0 | too vague |  |
 | brewer s yeast | 2 | 0 | unreviewed | yeast |
 | broth | 2 | 1 | too vague |  |
-| cannellini beans | 2 | 0 | unreviewed |  |
-| cardamom seeds | 2 | 0 | unreviewed |  |
-| cauliflower | 2 | 0 | unreviewed |  |
 | cheese of choice | 2 | 0 | unreviewed |  |
-| chili garlic sauce | 2 | 0 | unreviewed | garlic |
-| chocolate | 2 | 1 | unreviewed |  |
-| chuck roast | 2 | 0 | unreviewed |  |
+| chocolate | 2 | 1 | too vague |  |
 | citric acid | 2 | 0 | unreviewed |  |
-| clams | 2 | 0 | unreviewed |  |
 | cleaned rabbits | 2 | 1 | unreviewed |  |
-| cocoa powder | 2 | 0 | unreviewed |  |
-| cod fillets | 2 | 0 | unreviewed |  |
+| cloves | 2 | 0 | too vague |  |
 | condiments of your choice parsley | 2 | 0 | unreviewed | parsley |
-| curcuma | 2 | 0 | unreviewed |  |
-| dark chocolate | 2 | 0 | unreviewed |  |
-| elbow macaroni | 2 | 0 | unreviewed |  |
-| fennel seeds | 2 | 0 | unreviewed |  |
-| fish sauce | 2 | 0 | unreviewed |  |
-| fish stock | 2 | 0 | unreviewed |  |
 | frozen orange juice concentrate | 2 | 0 | unreviewed | orange |
 | fruit of your choice | 2 | 2 | unreviewed |  |
-| lard | 2 | 0 | unreviewed |  |
-| lemon peel | 2 | 0 | unreviewed | lemon |
-| liquid smoke | 2 | 0 | unreviewed |  |
-| mustard powder | 2 | 0 | unreviewed |  |
 | onion or garlic | 2 | 0 | unreviewed | garlic |
-| oyster sauce | 2 | 0 | unreviewed |  |
-| pancetta | 2 | 0 | unreviewed |  |
-| pecans | 2 | 0 | unreviewed |  |
-| pecorino romano cheese | 2 | 0 | unreviewed | pecorino_romano |
 | pecorino romano or parmigiano reggiano | 2 | 0 | unreviewed | pecorino_romano |
-| pineapple chunks | 2 | 1 | unreviewed |  |
-| pineapple juice | 2 | 0 | unreviewed |  |
-| plum tomatoes | 2 | 0 | unreviewed | tomato |
+| pineapple juice | 2 | 1 | unreviewed |  |
 | popcorn kernels | 2 | 1 | unreviewed |  |
-| pork mince | 2 | 0 | unreviewed |  |
-| pork shoulder | 2 | 0 | unreviewed |  |
-| prepared horseradish | 2 | 0 | unreviewed |  |
 | red chilies | 2 | 0 | unreviewed |  |
 | red chilli | 2 | 0 | unreviewed |  |
-| red wine | 2 | 0 | unreviewed |  |
-| ricotta | 2 | 0 | unreviewed |  |
-| romaine lettuce | 2 | 0 | unreviewed |  |
-| rye flour | 2 | 0 | unreviewed | flour |
-| saffron threads | 2 | 0 | unreviewed |  |
-| sage | 2 | 0 | unreviewed |  |
-| salt spoonful of salt | 2 | 1 | unreviewed | salt |
-| sazon | 2 | 0 | unreviewed |  |
-| seasoning | 2 | 0 | unreviewed |  |
+| seasoning | 2 | 0 | too vague |  |
 | servings shortcrust pastry | 2 | 1 | unreviewed |  |
-| sesame | 2 | 0 | unreviewed |  |
-| shallot | 2 | 0 | unreviewed |  |
-| smoked salmon | 2 | 0 | unreviewed | salmon |
-| spoon olive oil | 2 | 1 | unreviewed | olive_oil |
-| squash | 2 | 0 | unreviewed |  |
-| sriracha | 2 | 0 | unreviewed |  |
-| stick of butter | 2 | 0 | unreviewed | butter |
-| sugar snap peas | 2 | 0 | unreviewed | sugar |
-| sunflower seeds | 2 | 0 | unreviewed |  |
-| sweet chili sauce | 2 | 0 | unreviewed |  |
-| sweet onion | 2 | 0 | unreviewed | onion |
+| squash | 2 | 0 | too vague |  |
 | sweet vermouth | 2 | 0 | unreviewed |  |
-| tahini | 2 | 0 | unreviewed |  |
-| thumb of ginger | 2 | 0 | unreviewed | ginger |
-| twigs of thyme | 2 | 0 | unreviewed | thyme |
 | vanilla sugar | 2 | 0 | unreviewed | vanilla |
-| virgin olive oil | 2 | 0 | unreviewed | olive_oil |
-| white pepper | 2 | 0 | unreviewed | black_pepper |
-| white pepper powder | 2 | 0 | unreviewed | black_pepper |
-| wine | 2 | 0 | unreviewed |  |
+| wine | 2 | 0 | too vague |  |
 | 00 flour | 1 | 0 | unreviewed | flour |
 | 00 or 0 flour | 1 | 0 | unreviewed | flour |
 | 1 liter of milk | 1 | 0 | unreviewed | milk |
@@ -260,8 +189,6 @@ never applied automatically.
 | asparagus | 1 | 0 | unreviewed |  |
 | assam tea | 1 | 1 | unreviewed |  |
 | assorted lettuce | 1 | 0 | unreviewed |  |
-| aubergine | 1 | 0 | unreviewed |  |
-| aubergines | 1 | 0 | unreviewed |  |
 | baby back rib racks | 1 | 0 | unreviewed |  |
 | baby corn | 1 | 0 | unreviewed | corn |
 | baby spinach leaves | 1 | 0 | unreviewed | spinach |
@@ -269,7 +196,7 @@ never applied automatically.
 | bacon cubes | 1 | 0 | unreviewed | bacon |
 | bacon lardon | 1 | 0 | unreviewed | bacon |
 | bacon slices | 1 | 0 | unreviewed | bacon |
-| bag coleslaw mix | 1 | 0 | unreviewed |  |
+| bag coleslaw mix | 1 | 1 | unreviewed |  |
 | bag of brown sugar | 1 | 0 | unreviewed | brown_sugar |
 | baguette loaf | 1 | 0 | unreviewed |  |
 | baker s ammonium | 1 | 0 | unreviewed |  |
@@ -313,7 +240,7 @@ never applied automatically.
 | black pepper freshly grounded | 1 | 0 | unreviewed | black_pepper |
 | black pepper pods | 1 | 0 | unreviewed | black_pepper |
 | black pepper powder | 1 | 0 | unreviewed | black_pepper |
-| black tea | 1 | 0 | unreviewed |  |
+| black tea | 1 | 1 | unreviewed |  |
 | blended blueberries | 1 | 1 | unreviewed | berries |
 | block of extra firm tofu | 1 | 0 | unreviewed | tofu |
 | block of feta | 1 | 0 | unreviewed | feta |
@@ -322,7 +249,7 @@ never applied automatically.
 | blood sausages | 1 | 0 | unreviewed | sausage |
 | boiled eggs | 1 | 0 | unreviewed | eggs |
 | boiled herbs e g spinach | 1 | 0 | unreviewed | spinach |
-| boiled potatoes in there skin | 1 | 0 | unreviewed | potato |
+| boiled potatoes in there skin | 1 | 1 | unreviewed | potato |
 | boiled sausage or boiled chicken meat | 1 | 0 | unreviewed | chicken |
 | bolognese sauce or about 1 litre worth of store bought sauce | 1 | 0 | unreviewed |  |
 | boneless | 1 | 0 | unreviewed |  |
@@ -359,7 +286,7 @@ never applied automatically.
 | burrito sized tortilla | 1 | 0 | unreviewed | tortillas |
 | butter 50 g | 1 | 0 | unreviewed | butter |
 | butter and sunflower oil | 1 | 0 | unreviewed | butter |
-| butter or 3 tablespoons of oil | 1 | 0 | unreviewed | butter |
+| butter or 3 tablespoons of oil | 1 | 1 | unreviewed | butter |
 | butter or ghee | 1 | 0 | unreviewed | butter |
 | butter originally | 1 | 0 | unreviewed | butter |
 | butter per chicken breast | 1 | 0 | unreviewed | chicken |
@@ -381,8 +308,6 @@ never applied automatically.
 | capers | 1 | 0 | unreviewed |  |
 | caraway | 1 | 0 | unreviewed |  |
 | caraway seeds | 1 | 0 | unreviewed |  |
-| cardamom | 1 | 0 | unreviewed |  |
-| cardamom pods | 1 | 0 | unreviewed |  |
 | cassia bark | 1 | 0 | unreviewed |  |
 | cassis juice | 1 | 0 | unreviewed |  |
 | cayenne pepper or hot sauce | 1 | 0 | unreviewed | cayenne_pepper |
@@ -423,7 +348,7 @@ never applied automatically.
 | chile piquin | 1 | 0 | unreviewed |  |
 | chili or bell peppers | 1 | 0 | unreviewed | bell_pepper |
 | chili powder or 1 3 teaspoon each oregano | 1 | 0 | unreviewed | chili_powder |
-| chili sauce | 1 | 0 | unreviewed |  |
+| chili sauce | 1 | 1 | unreviewed |  |
 | chilis | 1 | 0 | unreviewed |  |
 | chilli flakes or | 1 | 0 | unreviewed |  |
 | chilli powder | 1 | 0 | unreviewed |  |
@@ -442,7 +367,6 @@ never applied automatically.
 | chorizo sausage | 1 | 0 | unreviewed | sausage |
 | chourico negro or firm type of blood sausage | 1 | 0 | unreviewed | sausage |
 | chuck steak | 1 | 0 | unreviewed |  |
-| cider vinegar | 1 | 0 | unreviewed |  |
 | cilantro coriander | 1 | 0 | unreviewed | cilantro |
 | cinamon bark | 1 | 0 | unreviewed |  |
 | cinnamom stick | 1 | 0 | unreviewed |  |
@@ -456,7 +380,6 @@ never applied automatically.
 | cloves not garlic cloves | 1 | 0 | unreviewed | garlic |
 | cm ginger | 1 | 0 | unreviewed | ginger |
 | cm piece of ginger | 1 | 0 | unreviewed | ginger |
-| cocoa | 1 | 0 | unreviewed |  |
 | coconut | 1 | 1 | unreviewed |  |
 | coconut flour | 1 | 0 | unreviewed | flour |
 | coffee | 1 | 0 | unreviewed |  |
@@ -483,7 +406,7 @@ never applied automatically.
 | corn oil | 1 | 0 | unreviewed | corn |
 | couple of champignon shrooms | 1 | 0 | unreviewed |  |
 | couple white bread loaves store bought breadcrumbs also suffice | 1 | 0 | unreviewed | bread_crumbs |
-| cracked wheat | 1 | 0 | unreviewed |  |
+| cracked wheat | 1 | 1 | unreviewed |  |
 | cranberries | 1 | 0 | unreviewed |  |
 | cranberries raisins coconut nuts | 1 | 1 | unreviewed |  |
 | cream 4dl 1 1 2 cups | 1 | 0 | unreviewed | heavy_cream |
@@ -499,7 +422,7 @@ never applied automatically.
 | crunchy finishing salt | 1 | 0 | unreviewed | salt |
 | cubed cooked chicken | 1 | 0 | unreviewed | chicken |
 | cubed stewing beef chuck | 1 | 0 | unreviewed |  |
-| cubes chicken bouillon | 1 | 0 | unreviewed | chicken |
+| cubes chicken bouillon | 1 | 1 | unreviewed | chicken |
 | cubes ice | 1 | 0 | unreviewed |  |
 | cubes of brown sugar | 1 | 0 | unreviewed | brown_sugar |
 | cubes paneer | 1 | 0 | unreviewed |  |
@@ -549,7 +472,6 @@ never applied automatically.
 | egg or 2 egg yolks | 1 | 0 | unreviewed | eggs |
 | egg wash | 1 | 0 | unreviewed | eggs |
 | egg whites separated from the yolks above | 1 | 0 | unreviewed | eggs |
-| eggplants | 1 | 0 | unreviewed |  |
 | eggs 1 egg per 500g chicken | 1 | 0 | unreviewed | chicken |
 | eggs 5 | 1 | 0 | unreviewed | eggs |
 | eggs to coat the bread | 1 | 0 | unreviewed | bread |
@@ -645,7 +567,6 @@ never applied automatically.
 | gr of cheese | 1 | 0 | unreviewed |  |
 | grain of choice e g rye | 1 | 0 | unreviewed |  |
 | granulated garlic | 1 | 0 | unreviewed | garlic |
-| green cabbage | 1 | 0 | unreviewed |  |
 | green cabbage cut into ribbons | 1 | 0 | unreviewed |  |
 | green cardamom | 1 | 0 | unreviewed |  |
 | green chilli | 1 | 0 | unreviewed |  |
@@ -659,7 +580,6 @@ never applied automatically.
 | ground spices i like to use cumin | 1 | 0 | unreviewed | cumin |
 | ground sumac | 1 | 0 | unreviewed |  |
 | ground tumeric | 1 | 0 | unreviewed |  |
-| ground turmeric | 1 | 1 | unreviewed |  |
 | gruyere cheese | 1 | 0 | unreviewed |  |
 | guanciale or smoked pancetta cleaned and | 1 | 0 | unreviewed |  |
 | guanciale preferably or bacon 3 5oz | 1 | 0 | unreviewed | bacon |
@@ -681,7 +601,7 @@ never applied automatically.
 | heinz chili sauce | 1 | 0 | unreviewed |  |
 | hemp hearts | 1 | 0 | unreviewed |  |
 | herbes de provence | 1 | 0 | unreviewed |  |
-| herbes de provence basil | 1 | 0 | unreviewed | basil |
+| herbes de provence basil | 1 | 1 | unreviewed | basil |
 | herbs and spices fennel seeds | 1 | 0 | unreviewed |  |
 | herbs de provence | 1 | 0 | unreviewed |  |
 | herbs de provence or dried parsley | 1 | 0 | unreviewed | parsley |
@@ -692,14 +612,12 @@ never applied automatically.
 | hint of chilli powder spicy option hint of sugar | 1 | 0 | unreviewed | sugar |
 | hokkaido pumpkin 1 2 piece | 1 | 0 | unreviewed |  |
 | honey or brown sugar | 1 | 0 | unreviewed | brown_sugar |
-| horseradish | 1 | 0 | unreviewed |  |
 | hot brewed coffee | 1 | 0 | unreviewed |  |
 | hot broth | 1 | 0 | unreviewed |  |
-| hot coffee | 1 | 0 | unreviewed |  |
+| hot coffee | 1 | 1 | unreviewed |  |
 | hot cooked basmati rice | 1 | 0 | unreviewed | rice |
 | hot pepper sauce | 1 | 0 | unreviewed | black_pepper |
 | hot red pepper | 1 | 0 | unreviewed | bell_pepper |
-| hot sauce | 1 | 0 | unreviewed |  |
 | hungarian paprika or regular paprika | 1 | 0 | unreviewed | paprika |
 | i ve found that pre shredded cheese doesn t taste as good as shredding it right before cooking | 1 | 0 | unreviewed |  |
 | if you don t have pre grated cheese | 1 | 0 | unreviewed |  |
@@ -709,7 +627,7 @@ never applied automatically.
 | inch thick boneless pork shoulder steaks | 1 | 0 | unreviewed |  |
 | instant dry yeast | 1 | 0 | unreviewed | yeast |
 | instant yeast or 1 25 4 tsp active dry yeast | 1 | 0 | unreviewed | yeast |
-| italian breadcrumbs | 1 | 0 | unreviewed | bread_crumbs |
+| italian breadcrumbs | 1 | 1 | unreviewed | bread_crumbs |
 | italian parsley | 1 | 0 | unreviewed | parsley |
 | italian plum tomatoes | 1 | 0 | unreviewed | tomato |
 | italian seasoning | 1 | 0 | unreviewed |  |
@@ -772,24 +690,21 @@ never applied automatically.
 | lt of fresh cream | 1 | 0 | unreviewed | heavy_cream |
 | luke warm water | 1 | 1 | unreviewed | water |
 | macadamia nut | 1 | 0 | unreviewed |  |
-| macaroni | 1 | 0 | unreviewed |  |
 | macaroni elbow | 1 | 0 | unreviewed |  |
 | macaroni elbows | 1 | 0 | unreviewed |  |
 | mace mace is a dried flower originating from the nutmeg plant use no more than 3 strands of this flower | 1 | 0 | unreviewed | nutmeg |
 | majoran | 1 | 0 | unreviewed |  |
-| malt vinegar | 1 | 0 | unreviewed |  |
+| malt vinegar | 1 | 1 | unreviewed |  |
 | margarine | 1 | 0 | unreviewed |  |
 | marjoram and cumin | 1 | 0 | unreviewed | cumin |
 | mascarpone | 1 | 0 | unreviewed |  |
 | massaman curry paste | 1 | 0 | unreviewed |  |
 | matcha powder | 1 | 0 | unreviewed |  |
-| mayo | 1 | 0 | unreviewed |  |
 | mayo and mustard | 1 | 0 | unreviewed |  |
-| mayonaise | 1 | 1 | unreviewed |  |
 | mayonnaise in squirt bottle | 1 | 0 | unreviewed |  |
-| mayonnese or aioli | 1 | 0 | unreviewed |  |
+| mayonnese or aioli | 1 | 1 | unreviewed |  |
 | mealy floury potatoes | 1 | 0 | unreviewed | potato |
-| meat | 1 | 0 | unreviewed |  |
+| meat | 1 | 1 | unreviewed |  |
 | med ground beef | 1 | 0 | unreviewed | ground_beef |
 | melty cheese | 1 | 0 | unreviewed |  |
 | metal strainer wide enough to act as a lid | 1 | 0 | unreviewed |  |
@@ -815,7 +730,7 @@ never applied automatically.
 | mixed toasted | 1 | 0 | unreviewed |  |
 | mixed vegetables carrots | 1 | 0 | unreviewed | carrot |
 | more mozzarella and parmesan for fans of cheese | 1 | 0 | unreviewed | mozzarella |
-| moroccan spice blend | 1 | 0 | unreviewed |  |
+| moroccan spice blend | 1 | 1 | unreviewed |  |
 | most cheeses are fine | 1 | 0 | unreviewed |  |
 | msg | 1 | 0 | unreviewed |  |
 | mug whole milk | 1 | 0 | unreviewed | milk |
@@ -919,7 +834,6 @@ never applied automatically.
 | pig s ear | 1 | 0 | unreviewed |  |
 | pinches of cilantro | 1 | 0 | unreviewed | cilantro |
 | pinches of oats | 1 | 0 | unreviewed | oats |
-| pineapple | 1 | 0 | unreviewed |  |
 | pinto beans | 1 | 0 | unreviewed |  |
 | piripiri | 1 | 0 | unreviewed |  |
 | pitted black olives | 1 | 0 | unreviewed |  |
@@ -935,7 +849,7 @@ never applied automatically.
 | pork loin or ribs cut into 5 cm pieces | 1 | 0 | unreviewed |  |
 | pork loin with ribs | 1 | 0 | unreviewed |  |
 | pork meat | 1 | 0 | unreviewed |  |
-| pork meat sausage meat | 1 | 0 | unreviewed | sausage |
+| pork meat sausage meat | 1 | 1 | unreviewed | sausage |
 | pork ribs | 1 | 0 | unreviewed |  |
 | pork sausage | 1 | 0 | unreviewed | sausage |
 | pork tenderloin | 1 | 0 | unreviewed |  |
@@ -951,14 +865,14 @@ never applied automatically.
 | potatoes yukon gold preferred | 1 | 0 | unreviewed | potato |
 | powder vanilla | 1 | 0 | unreviewed | vanilla |
 | powdered garlic | 1 | 0 | unreviewed | garlic |
-| powdered sweet pepper | 1 | 0 | unreviewed | bell_pepper |
+| powdered sweet pepper | 1 | 1 | unreviewed | bell_pepper |
 | pre shelled peanuts | 1 | 1 | unreviewed |  |
 | precooked corn flour | 1 | 0 | unreviewed | flour |
 | precooked thick wheat noodles | 1 | 0 | unreviewed |  |
 | prepared water | 1 | 0 | unreviewed | water |
 | pressed garlic clove | 1 | 0 | unreviewed | garlic |
 | prosciutto | 1 | 0 | unreviewed |  |
-| pumpkin | 1 | 0 | unreviewed |  |
+| pumpkin | 1 | 1 | unreviewed |  |
 | qts water | 1 | 0 | unreviewed | water |
 | quark | 1 | 0 | unreviewed |  |
 | quarter of a pound of | 1 | 0 | unreviewed |  |
@@ -970,9 +884,8 @@ never applied automatically.
 | quarter of a pound of rice | 1 | 0 | unreviewed | rice |
 | quick cooking tapioca | 1 | 1 | unreviewed |  |
 | quinoa | 1 | 0 | unreviewed |  |
-| rab meat | 1 | 0 | unreviewed |  |
+| rab meat | 1 | 1 | unreviewed |  |
 | rabbit | 1 | 0 | unreviewed |  |
-| radish | 1 | 0 | unreviewed |  |
 | ramen noodles | 1 | 0 | unreviewed |  |
 | raspberry jam | 1 | 0 | unreviewed |  |
 | really whatever you like | 1 | 0 | unreviewed |  |
@@ -989,12 +902,10 @@ never applied automatically.
 | reynold s oven bag | 1 | 0 | unreviewed |  |
 | rice flour or any other flour | 1 | 0 | unreviewed | flour |
 | rice noodles | 1 | 0 | unreviewed | rice |
-| ricotta cheese | 1 | 1 | unreviewed |  |
 | risotto rice arborio | 1 | 0 | unreviewed | rice |
 | roasted cashews | 1 | 0 | unreviewed |  |
 | roasted flax seed | 1 | 0 | unreviewed |  |
 | roasted rapeseed oil caizi you or chinese peanut oil | 1 | 0 | unreviewed |  |
-| roma tomatoes | 1 | 0 | unreviewed | tomato |
 | rosemary dried should be fine | 1 | 1 | unreviewed | rosemary |
 | rosemary or thyme | 1 | 0 | unreviewed | rosemary |
 | roughly | 1 | 0 | unreviewed |  |
@@ -1002,7 +913,6 @@ never applied automatically.
 | rubbed sage | 1 | 0 | unreviewed |  |
 | rye or whole wheat flour | 1 | 0 | unreviewed | flour |
 | sachet 4g 0 14 oz baker s yeast | 1 | 0 | unreviewed | yeast |
-| saffron | 1 | 0 | unreviewed |  |
 | sage or oregano or thyme | 1 | 1 | unreviewed | oregano |
 | sake | 1 | 0 | unreviewed |  |
 | salad leaves | 1 | 0 | unreviewed |  |
@@ -1030,7 +940,7 @@ never applied automatically.
 | scallions white and green separated | 1 | 0 | unreviewed | green_onion |
 | scamorza cheese | 1 | 0 | unreviewed |  |
 | scotch bonnet chili | 1 | 0 | unreviewed |  |
-| sea salt by cabbage weight | 1 | 0 | unreviewed | salt |
+| sea salt by cabbage weight | 1 | 1 | unreviewed | salt |
 | seafood | 1 | 1 | unreviewed |  |
 | seasoning salt and pepper with cayenne or paprika | 1 | 0 | unreviewed | seasoned_salt |
 | seaweed | 1 | 0 | unreviewed |  |
@@ -1038,7 +948,6 @@ never applied automatically.
 | self raising flour | 1 | 1 | unreviewed | flour |
 | serving easy pizza sauce | 1 | 0 | unreviewed |  |
 | serving wholemeal wheat flour pizza dough | 1 | 0 | unreviewed | flour |
-| sesame seeds | 1 | 0 | unreviewed |  |
 | sesame seeds as a garnish | 1 | 0 | unreviewed |  |
 | set honey | 1 | 0 | unreviewed | honey |
 | shallots 2 | 1 | 0 | unreviewed |  |
@@ -1061,7 +970,7 @@ never applied automatically.
 | slow cooker | 1 | 0 | unreviewed |  |
 | smoked bacon 250g 1 2lb | 1 | 0 | unreviewed | bacon |
 | smoked duck breast skin on | 1 | 0 | unreviewed |  |
-| smoked paprika garlic blend | 1 | 0 | unreviewed | paprika |
+| smoked paprika garlic blend | 1 | 1 | unreviewed | paprika |
 | snow peas | 1 | 0 | unreviewed | peas |
 | soaked seeds and grains | 1 | 0 | unreviewed |  |
 | soft bread crumb | 1 | 0 | unreviewed | bread |
@@ -1101,7 +1010,7 @@ never applied automatically.
 | sriacha in squirt bottle | 1 | 0 | unreviewed |  |
 | sriracha hot sauce | 1 | 0 | unreviewed |  |
 | sriracha sauce | 1 | 0 | unreviewed |  |
-| st augur blue cheese | 1 | 0 | unreviewed |  |
+| st augur blue cheese | 1 | 1 | unreviewed |  |
 | stale bread | 1 | 0 | unreviewed | bread |
 | starch flour | 1 | 0 | unreviewed | flour |
 | starchy pasta water | 1 | 0 | unreviewed | pasta |
@@ -1123,7 +1032,7 @@ never applied automatically.
 | summer squash | 1 | 0 | unreviewed |  |
 | sushi rice | 1 | 0 | unreviewed | rice |
 | swede | 1 | 0 | unreviewed |  |
-| swedish falukorv | 1 | 0 | unreviewed |  |
+| swedish falukorv | 1 | 1 | unreviewed |  |
 | sweet and or spicy italian sausage | 1 | 0 | unreviewed | sausage |
 | sweet and spicy red pepper | 1 | 0 | unreviewed | bell_pepper |
 | sweet bell pepper | 1 | 0 | unreviewed | bell_pepper |
@@ -1169,7 +1078,7 @@ never applied automatically.
 | tea spoonful of mixed spice | 1 | 0 | unreviewed |  |
 | tea spoons of baking powder | 1 | 0 | unreviewed | baking_powder |
 | teapsoon nutmeg | 1 | 1 | unreviewed | nutmeg |
-| teensy bit of sugar | 1 | 0 | unreviewed | sugar |
+| teensy bit of sugar | 1 | 1 | unreviewed | sugar |
 | thai red curry paste | 1 | 0 | unreviewed |  |
 | the darkest rye bread you can find | 1 | 0 | unreviewed | bread |
 | the following options are traditional but can be substituted with any desired toppings | 1 | 0 | unreviewed |  |
@@ -1205,7 +1114,7 @@ never applied automatically.
 | tumeric powder | 1 | 0 | unreviewed |  |
 | tuna 100 grams of | 1 | 0 | unreviewed | canned_tuna |
 | turkey | 1 | 0 | unreviewed |  |
-| turkish spice blend | 1 | 0 | unreviewed |  |
+| turkish spice blend | 1 | 1 | unreviewed |  |
 | turmeric powder | 1 | 0 | unreviewed |  |
 | turmeric powder 1 4 tbsp | 1 | 0 | unreviewed |  |
 | unbleached all purpose flour | 1 | 0 | unreviewed | flour |
@@ -1214,7 +1123,7 @@ never applied automatically.
 | uncooked pasta | 1 | 0 | unreviewed | pasta |
 | unseasoned breadcrumbs | 1 | 0 | unreviewed | bread_crumbs |
 | unsweetened | 1 | 0 | unreviewed |  |
-| up to 1 3 cup water | 1 | 0 | unreviewed | water |
+| up to 1 3 cup water | 1 | 1 | unreviewed | water |
 | vanilla bean | 1 | 0 | unreviewed | vanilla |
 | vanilla bean mark | 1 | 0 | unreviewed | vanilla |
 | veal cutlets | 1 | 1 | unreviewed |  |
@@ -1223,7 +1132,7 @@ never applied automatically.
 | venison | 1 | 0 | unreviewed |  |
 | vermicelli | 1 | 0 | unreviewed |  |
 | vinegar or lemon juice | 1 | 0 | unreviewed | lemon |
-| virgin coconut oil | 1 | 0 | unreviewed |  |
+| virgin coconut oil | 1 | 1 | unreviewed |  |
 | virgin olive oil 1 4 cup | 1 | 0 | unreviewed | olive_oil |
 | virgin olive oil or lard | 1 | 0 | unreviewed | olive_oil |
 | walnut kernels 2 tablespoons | 1 | 0 | unreviewed |  |
@@ -1242,7 +1151,6 @@ never applied automatically.
 | whipped butter | 1 | 0 | unreviewed | butter |
 | whisky | 1 | 0 | unreviewed |  |
 | white | 1 | 0 | unreviewed |  |
-| white beans | 1 | 0 | unreviewed |  |
 | white cannelini beans with their juice | 1 | 0 | unreviewed |  |
 | white coverture chocolate | 1 | 0 | unreviewed |  |
 | white onion without skin cut | 1 | 0 | unreviewed | onion |
@@ -1258,7 +1166,7 @@ never applied automatically.
 | worcestershire sauce or teriyaki sauce | 1 | 0 | unreviewed |  |
 | worchestershire sauce | 1 | 0 | unreviewed |  |
 | worchestershire sauce or something similar | 1 | 0 | unreviewed |  |
-| wraps | 1 | 0 | unreviewed |  |
+| wraps | 1 | 1 | unreviewed |  |
 | x 14 5oz cans of | 1 | 0 | unreviewed |  |
 | x 400g tinned | 1 | 0 | unreviewed |  |
 | x 400g tins | 1 | 0 | unreviewed |  |
@@ -1267,7 +1175,6 @@ never applied automatically.
 | x seasoned meat package beef | 1 | 0 | unreviewed |  |
 | x small cans chicken noodle soup | 1 | 0 | unreviewed | chicken |
 | yellow curry | 1 | 0 | unreviewed |  |
-| yellow mustard | 1 | 0 | unreviewed |  |
 | yellow peppers per person | 1 | 0 | unreviewed |  |
 | yibin chili oil | 1 | 0 | unreviewed |  |
 | yoghurt | 1 | 0 | unreviewed |  |

@@ -87,10 +87,10 @@ describe('ingredient mapping', () => {
   });
 
   test('a word match is only ever a suggestion', () => {
-    expect(mapIngredient(index, 'apple cider vinegar')).toEqual({
+    expect(mapIngredient(index, 'rice noodles')).toEqual({
       status: 'unmapped',
-      key: 'apple cider vinegar',
-      suggestion: 'apple',
+      key: 'rice noodles',
+      suggestion: 'rice',
     });
   });
 
