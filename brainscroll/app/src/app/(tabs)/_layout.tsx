@@ -5,20 +5,19 @@ import { useReduceMotion } from '@/theme/feedback';
 import { color, depth, radius } from '@/theme/tokens';
 
 /**
- * Illustrated tab icons (owner, 2026-10-01: colourful icons in the chrome,
- * using the art we have until a dedicated set exists), big and without words
+ * Illustrated tab icons (owner, 2026-10-01: colourful icons in the chrome;
+ * 2026-10-09: a dedicated set, ui/tab-*.webp), big and without words
  * (owner, 2026-10-09: "the icons are informative enough"). The active tab is
  * full colour in an outlined pill; the others sit dimmed, so where you are
  * reads at a glance.
  */
 const TAB_ART = {
-  home: require('../../../assets/images/ui/welcome.webp'),
-  // A medal: your league (owner, 2026-10-01).
-  league: require('../../../assets/images/ui/medal.webp'),
+  // The owner's tab set (2026-10-09: a house, the league medal, clinking mugs and a profile); Practice keeps the review cards.
+  home: require('../../../assets/images/ui/tab-home.webp'),
+  league: require('../../../assets/images/ui/tab-leagues.webp'),
   practice: require('../../../assets/images/ui/review.webp'),
-  // A handshake: your friends (owner, 2026-10-09; the How Money Works level art).
-  social: require('../../../assets/images/art/money.handshake.webp'),
-  profile: require('../../../assets/images/ui/profile.webp'),
+  social: require('../../../assets/images/ui/tab-social.webp'),
+  profile: require('../../../assets/images/ui/tab-profile.webp'),
 } satisfies Record<string, ImageSourcePropType>;
 
 function icon(art: ImageSourcePropType) {
