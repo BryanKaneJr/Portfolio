@@ -393,6 +393,47 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   'pinto beans': { add: 'protein' },
   'chilli powder': 'chili_powder', // UK spelling of the same blend
 
+  // ── Reviewed by parallel import worker bc4 ──
+  'extra firm tofu': 'tofu',
+  'firm tofu': 'tofu',
+  'pork sausage': 'sausage', // bulk or link pork sausage
+  'oregano leaves': 'oregano', // dried leaf oregano
+  'worchestershire sauce': '=worcestershire sauce', // common misspelling
+  lamb: null, // which cut? Ground, shoulder or leg: the recipe must say
+  'ground lamb': { add: 'protein' },
+  'minced lamb': '=ground lamb',
+  'lamb mince': '=ground lamb',
+  'sirloin steak': { add: 'protein' }, // tender enough to slice thin and sear quickly
+  'beef sirloin': '=sirloin steak',
+  sirloin: '=sirloin steak',
+  'canned sardines': { add: 'protein' }, // fresh sardines cook differently
+  'tinned sardines': '=canned sardines',
+  'sardines in oil': '=canned sardines',
+  'red chili': { add: 'produce', name: 'Fresh red chili' }, // Fresno or similar; jalapeño is separate
+  'red chilli': '=red chili',
+  'fresh red chili': '=red chili',
+  'red chili pepper': '=red chili',
+  passata: '=tomato puree', // strained tomatoes, sold as tomato purée in the US
+  'tomato passata': '=tomato puree',
+  'caraway seeds': { add: 'spice' }, // not cumin
+  caraway: '=caraway seeds',
+  'old bay seasoning': { add: 'spice', name: 'Old Bay seasoning' }, // the US seafood seasoning blend
+  'old bay': '=old bay seasoning',
+  'beef bouillon': { add: 'pantry' }, // cube, granules or paste; beef broth is separate
+  'beef bouillon cube': '=beef bouillon',
+  'better than bouillon': null, // which flavor?
+  mascarpone: { add: 'dairy' },
+  'mascarpone cheese': '=mascarpone',
+  ladyfingers: { add: 'pantry' }, // crisp savoiardi biscuits, store-bought
+  'lady fingers': '=ladyfingers',
+  savoiardi: '=ladyfingers',
+  'savoiardi biscuits': '=ladyfingers',
+  'brewed coffee': { add: 'pantry' },
+  'strong coffee': '=brewed coffee',
+  coffee: null, // brewed, instant or ground beans? The recipe must say
+  pickles: { add: 'pantry' }, // jarred cucumber pickles; relish is separate
+  'dill pickles': '=pickles',
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,

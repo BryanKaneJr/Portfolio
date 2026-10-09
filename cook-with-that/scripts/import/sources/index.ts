@@ -88,6 +88,31 @@ export const SOURCES: Record<string, SourceDef> = {
         "intro copied from Wikipedia's Erwtensoep article (CC BY-SA); method closely tracks published Dutch pea soup recipes (e.g. Cooksister)",
       'diannes-southwest-salad':
         'suspected, not confirmed: named for another cook and written in packaged-mix magazine style; a 2005 Southern Living layered cornbread salad has a near-identical Southwest variation',
+      'shrimp-and-chicken-jambalaya': 'contributor joel-maxuel: several pages copied from commercial recipe sites',
+      'smoked-salmon-pasta-primavera': 'contributor joel-maxuel: several pages copied from commercial recipe sites',
+      'smoked-salmon-quiche': 'contributor joel-maxuel: several pages copied from commercial recipe sites',
+      'spicy-kung-pao-style-chicken': 'contributor joel-maxuel: several pages copied from commercial recipe sites',
+      'spinach-rice-casserole': 'contributor joel-maxuel: several pages copied from commercial recipe sites',
+      tabouleh: 'contributor joel-maxuel: several pages copied from commercial recipe sites',
+      'tofu-and-cashew-chow-mein': 'contributor joel-maxuel: several pages copied from commercial recipe sites',
+      'turkish-red-lentil-soup': 'contributor joel-maxuel: several pages copied from commercial recipe sites',
+      'turkish-style-spiced-chicken': 'contributor joel-maxuel: several pages copied from commercial recipe sites',
+      'turmeric-flatbread': 'contributor joel-maxuel: several pages copied from commercial recipe sites',
+      'winter-risotto': 'contributor joel-maxuel: several pages copied from commercial recipe sites',
+      'zaatar-chicken-bulgur-bowls': 'contributor joel-maxuel: several pages copied from commercial recipe sites',
+      'simple-chicken-curry':
+        'the page\'s original version (based.cooking commit 3c5ac9f) said "adapted from" Cooking Classy\'s chicken curry; the credit was later dropped, the copy stayed',
+      tuhu: "the page's original version credits Tasting History with Max Miller (YouTube video) as the recipe's source",
+      'spicy-sausage-pasta':
+        'the contributor says "I found it in a newspaper"; wording reads like the published original',
+      tajine: "intro sentence and recipe match diversivore.com's Tajine Maadnous (a sponsored post), word for word",
+      'ukrainian-borscht':
+        "method copied from Natasha's Kitchen's classic borscht (mirrors label it adapted from there); intro is Wikipedia text",
+      'spaghetti-alla-puttanesca':
+        'same quantities as a published Italian recipe (Dissapore: 320 g spaghetti, 800 g pelati, 25 g anchovies, 10 g capers, 100 g Gaeta olives); blurb reads as translated magazine copy',
+      'sand-tarts': 'author is credited as "Pennsylvania Dutch Cooking", a published cookbook',
+      'yibin-burning-noodles':
+        'chili oil and noodle recipe closely follows the Chinese Cooking Demystified video (also credited as the source by themalamarket.com); not confirmed word for word',
     },
     repo: {
       url: 'https://github.com/LukeSmithxyz/based.cooking.git',

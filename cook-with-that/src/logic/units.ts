@@ -73,6 +73,7 @@ const GRAMS_PER_CUP: Record<string, number> = {
   cannellini_beans: 170,
   mayonnaise: 220,
   tahini: 240,
+  yogurt: 245,
   banana: 225, // mashed
   apple: 110, // sliced
   carrot: 130,
