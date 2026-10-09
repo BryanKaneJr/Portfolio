@@ -1,0 +1,523 @@
+import type { IngredientCategory } from '../../src/data/types';
+
+/**
+ * Reviewed mappings from imported ingredient names to catalog IDs (scripts/import only).
+ *
+ * Keys are normalized names (lowercase, no punctuation; see normalizeText). Values:
+ *  - a catalog ID, or several when one source line names two things ("salt and pepper");
+ *  - `{ add: category }`: a real ingredient the catalog doesn't have yet. Owner rule (2026-10-09):
+ *    when a recipe we import needs one, the catalog gains it, so `import:draft` writes the entry
+ *    to src/data/ingredients.ts (id from the key, `name` if the key isn't the display name);
+ *  - `'=other key'`: a spelling variant of another key. It becomes an alias of that entry;
+ *  - `null`: too vague to index ("cheese", "vinegar"). The recipe stays blocked until the editor
+ *    names the specific food in the draft;
+ *  - `false`: not an ingredient at all (equipment listed under Ingredients); the line is dropped.
+ *
+ * Same rules as the catalog (docs/ingredient-mappings.md): same food in another form or
+ * name only. Never map a substitution (bouillon is not broth, cayenne is not chili powder,
+ * tomato sauce is not tomatoes). A food that differs gets its own `{ add }` entry instead.
+ */
+export type MapTarget = string | string[] | null | false | { add: IngredientCategory; name?: string };
+
+export const INGREDIENT_MAP: Record<string, MapTarget> = {
+  // ── Two catalog items on one line ──
+  'salt and pepper': ['salt', 'black_pepper'],
+  'salt and black pepper': ['salt', 'black_pepper'],
+  'salt pepper': ['salt', 'black_pepper'],
+
+  // ── Same food, other wording ──
+  'all purpose flour': 'flour',
+  'ap flour': 'flour',
+  'white flour': 'flour',
+  'unsalted butter': 'butter',
+  'salted butter': 'butter',
+  'extra virgin olive oil': 'olive_oil',
+  evoo: 'olive_oil',
+  oil: 'vegetable_oil',
+  'cooking oil': 'vegetable_oil',
+  'sunflower oil': 'vegetable_oil',
+  'rapeseed oil': 'vegetable_oil',
+  'egg yolk': 'eggs',
+  'egg yolks': 'eggs',
+  'egg white': 'eggs',
+  'egg whites': 'eggs',
+  'yellow onions': 'onion',
+  'red onions': 'onion',
+  'white onions': 'onion',
+  'clove garlic': 'garlic',
+  'cloves garlic': 'garlic',
+  'cloves of garlic': 'garlic',
+  'clove of garlic': 'garlic',
+  'garlic minced': 'garlic',
+  'lemon juice': 'lemon',
+  'juice of 1 lemon': 'lemon',
+  'lemon zest': 'lemon',
+  'lime juice': 'lime',
+  'lime zest': 'lime',
+  'ground black pepper': 'black_pepper',
+  'sea salt': 'salt',
+  'table salt': 'salt',
+  'fine salt': 'salt',
+  'caster sugar': 'sugar',
+  'light brown sugar': 'brown_sugar',
+  'dark brown sugar': 'brown_sugar',
+  'chicken stock': 'chicken_broth',
+  'vegetable stock': 'vegetable_broth',
+  'grated parmesan': 'parmesan',
+  'parmigiano reggiano': 'parmesan',
+  'sharp cheddar': 'cheddar',
+  'shredded cheddar': 'cheddar',
+  'cooked rice': 'rice',
+  'long grain rice': 'rice',
+  'basmati rice': 'rice',
+  'beef mince': 'ground_beef',
+  'minced meat': null, // beef, pork or a mix: the recipe must say which
+  'whipping cream': 'heavy_cream',
+  'heavy whipping cream': 'heavy_cream',
+  'pure vanilla extract': 'vanilla',
+  'vanilla essence': 'vanilla',
+  'old fashioned rolled oats': 'oats',
+  'spring onion': 'green_onion',
+  'wheat flour': 'flour', // European usage: plain flour. Whole wheat is separate.
+  'plain flour': 'flour',
+  'basil leaves': 'basil',
+  'fresh basil leaves': 'basil',
+  'jalapeno pepper': 'jalapeno',
+  'jalapeno peppers': 'jalapeno',
+  'green bell pepper': 'bell_pepper',
+  'red bell pepper': 'bell_pepper',
+  'yellow bell pepper': 'bell_pepper',
+  'ground beef meat': 'ground_beef',
+  'lean ground beef': 'ground_beef',
+  'light soy sauce': 'soy_sauce',
+  'low sodium soy sauce': 'soy_sauce',
+  'warm water': 'water',
+  'lukewarm water': 'water',
+  'hot water': 'water',
+  'cold water': 'water',
+  'boiling water': 'water',
+  'ice water': 'water',
+  'coarse salt': 'salt',
+  'fine sea salt': 'salt',
+  'dry oregano': 'oregano',
+  'cinnamon powder': 'cinnamon',
+  'paprika powder': 'paprika',
+  'sweet paprika': 'paprika',
+  'cooked chickpeas': 'chickpeas',
+  'canned chickpeas': 'chickpeas',
+  'butter or margarine': 'butter',
+  'lard or butter': 'butter',
+  'butter or lard': 'butter',
+  'bacon strips': 'bacon',
+  'rashers of bacon': 'bacon',
+  'bacon rashers': 'bacon',
+  'sweet butter': 'butter', // old name for unsalted butter
+  oranges: '=orange',
+  orange: { add: 'produce' },
+  'maple syrup': { add: 'pantry' },
+  thermos: false,
+  'whole milk': 'milk',
+  'cold whole milk': 'milk',
+  'frozen spinach': { add: 'produce' }, // cooks differently from fresh baby spinach
+  'cooking spray': 'vegetable_oil', // oil in a spray can
+  'chilli flakes': 'red_pepper_flakes',
+  'mashed bananas': 'banana',
+  'golden delicious apples': 'apple', // the recipe names the variety
+  'granny smith apples': 'apple',
+  'whipped cream': 'heavy_cream', // whipped in the recipe
+  broth: null, // chicken, beef or vegetable? The recipe must say
+  grease: null, // which fat?
+
+  // ── Reviewed ingredients the catalog gains when a recipe needs them, with their spelling variants ──
+  'bay leaves': '=bay leaf',
+  bayleaf: '=bay leaf',
+  'bay leaf': { add: 'spice' },
+  'ground nutmeg': '=nutmeg',
+  nutmeg: { add: 'spice' },
+  cayenne: '=cayenne pepper',
+  'powdered sugar': { add: 'pantry' },
+  'icing sugar': '=powdered sugar',
+  'confectioners sugar': '=powdered sugar',
+  'powdered white sugar': '=powdered sugar',
+  cornstarch: { add: 'pantry' },
+  cornflour: '=cornstarch', // UK name for cornstarch
+  'corn starch': '=cornstarch',
+  yeast: { add: 'pantry' }, // active dry or instant; the recipe names which
+  'active dry yeast': '=yeast',
+  'dry yeast': '=yeast',
+  'instant yeast': '=yeast',
+  yogurt: { add: 'dairy', name: 'Plain yogurt' }, // Greek yogurt stays separate
+  'plain yogurt': '=yogurt',
+  'natural yogurt': '=yogurt',
+  leek: { add: 'produce' },
+  leeks: '=leek',
+  coriander: null, // leaves (cilantro) or seed: the recipe must say
+  'ground coriander': { add: 'spice' },
+  'dill weed': '=dried dill',
+  'dried dill': { add: 'spice' },
+  dill: { add: 'produce', name: 'Fresh dill' },
+  'panko breadcrumbs': '=bread crumbs',
+  panko: '=bread crumbs',
+  chilli: '=chili pepper',
+  'chilli pepper': '=chili pepper',
+  'chili pepper': null, // which chili? The recipe must say
+  cheese: null, // which cheese? The editor names it or the recipe stays out
+  ham: { add: 'protein' },
+  'smoked ham': '=ham',
+  corn: { add: 'produce' }, // kernels, fresh or frozen
+  'frozen corn': '=corn',
+  'corn kernels': '=corn',
+  'sweet corn': '=corn',
+  'pecorino romano': { add: 'dairy', name: 'Pecorino Romano' },
+  pecorino: '=pecorino romano',
+  lentils: { add: 'protein' }, // brown or green, dried
+  'brown lentils': '=lentils',
+  'green lentils': '=lentils',
+  'red lentils': { add: 'protein' }, // cook to a purée, so not interchangeable with brown or green
+  'dried red lentils': '=red lentils',
+  walnuts: { add: 'pantry' },
+  'seasoned salt': { add: 'spice' },
+  'season salt': '=seasoned salt',
+  'seasoning salt': '=seasoned salt',
+  rosemary: { add: 'spice' }, // fresh or dried, like thyme
+  'dried rosemary': '=rosemary',
+  'rosemary leaves': '=rosemary',
+  'white vinegar': { add: 'pantry' },
+  'distilled white vinegar': '=white vinegar',
+  'marinara sauce': { add: 'pantry' },
+  marinara: '=marinara sauce',
+  'pasta sauce': '=marinara sauce',
+  'ground ginger': { add: 'spice' }, // the catalog's ginger is fresh root
+
+  // ── Pre-reviewed 2026-10-09 for the parallel import (most frequent unreviewed names) ──
+  // Condiments sit with spices ("Spices & Condiments"); cooking sauces, oils, nuts and sweeteners in pantry.
+  mayonnaise: { add: 'spice' },
+  mayo: '=mayonnaise',
+  mayonaise: '=mayonnaise',
+  ketchup: { add: 'spice' },
+  mustard: { add: 'spice', name: 'Yellow mustard' }, // prepared; Dijon and powder are separate
+  'yellow mustard': '=mustard',
+  'dijon mustard': { add: 'spice' },
+  dijon: '=dijon mustard',
+  'mustard powder': { add: 'spice' },
+  'dry mustard': '=mustard powder',
+  'worcestershire sauce': { add: 'spice' },
+  worcestershire: '=worcestershire sauce',
+  sriracha: { add: 'spice' },
+  'hot sauce': { add: 'spice' },
+  'chili garlic sauce': { add: 'spice' },
+  'sweet chili sauce': { add: 'spice' },
+  'prepared horseradish': { add: 'spice' },
+  horseradish: '=prepared horseradish',
+  'hoisin sauce': { add: 'pantry' },
+  hoisin: '=hoisin sauce',
+  'fish sauce': { add: 'pantry' },
+  'oyster sauce': { add: 'pantry' },
+  'miso paste': { add: 'pantry' },
+  miso: '=miso paste',
+  tahini: { add: 'pantry' },
+  'liquid smoke': { add: 'pantry' },
+  'coconut oil': { add: 'pantry' },
+  'apple cider vinegar': { add: 'pantry' },
+  'cider vinegar': '=apple cider vinegar',
+  'white wine': { add: 'pantry' },
+  'dry white wine': '=white wine',
+  'red wine': { add: 'pantry' },
+  'dry red wine': '=red wine',
+  wine: null, // red or white?
+  beer: { add: 'pantry' },
+  'beef broth': { add: 'pantry' },
+  'beef stock': '=beef broth',
+  'fish stock': { add: 'pantry' },
+  bouillon: null, // which flavor?
+  raisins: { add: 'pantry' },
+  almonds: { add: 'pantry' },
+  pecans: { add: 'pantry' },
+  'sunflower seeds': { add: 'pantry' },
+  'sesame seeds': { add: 'pantry' },
+  sesame: '=sesame seeds',
+  'cocoa powder': { add: 'pantry' },
+  cocoa: '=cocoa powder',
+  'dark chocolate': { add: 'pantry' },
+  chocolate: null, // dark, milk or chips? The recipe must say
+  lard: { add: 'pantry' },
+  'puff pastry': { add: 'grain' },
+  'rye flour': { add: 'grain' },
+  'elbow macaroni': 'pasta',
+  macaroni: 'pasta',
+  'virgin olive oil': 'olive_oil',
+  'spoon olive oil': 'olive_oil',
+  'stick of butter': 'butter',
+  'sticks of butter': 'butter',
+  'salt spoonful of salt': 'salt',
+  'an onion': 'onion',
+  'sweet onion': 'onion',
+  'plum tomatoes': 'tomato', // a fresh variety; canned is canned_tomatoes
+  'roma tomatoes': 'tomato',
+  'lemon peel': 'lemon',
+  'thumb of ginger': 'ginger',
+  'twigs of thyme': 'thyme',
+  'sprigs of thyme': 'thyme',
+  'fresh thyme': 'thyme',
+  'pecorino romano cheese': '=pecorino romano',
+  cabbage: { add: 'produce' },
+  'green cabbage': '=cabbage',
+  'red cabbage': { add: 'produce' },
+  radish: { add: 'produce' },
+  radishes: '=radish',
+  chives: { add: 'produce' },
+  mint: { add: 'produce', name: 'Fresh mint' },
+  'mint leaves': '=mint',
+  shallot: { add: 'produce' },
+  shallots: '=shallot',
+  eggplant: { add: 'produce' },
+  aubergine: '=eggplant',
+  arugula: { add: 'produce' },
+  rocket: '=arugula',
+  'bean sprouts': { add: 'produce' },
+  cauliflower: { add: 'produce' },
+  'romaine lettuce': { add: 'produce' },
+  romaine: '=romaine lettuce',
+  'sugar snap peas': { add: 'produce' },
+  pineapple: { add: 'produce' },
+  'pineapple chunks': '=pineapple',
+  squash: null, // butternut, acorn or summer? The recipe must say
+  sage: { add: 'spice' }, // fresh or dried, like thyme and rosemary
+  marjoram: { add: 'spice' },
+  'star anise': { add: 'spice' },
+  'garam masala': { add: 'spice' },
+  turmeric: { add: 'spice' },
+  'ground turmeric': '=turmeric',
+  curcuma: '=turmeric',
+  cloves: null, // garlic cloves or the spice? The recipe must say
+  'whole cloves': { add: 'spice' },
+  'ground cloves': { add: 'spice' },
+  allspice: { add: 'spice' },
+  'ground allspice': '=allspice',
+  cardamom: { add: 'spice' },
+  'cardamom seeds': '=cardamom',
+  'cardamom pods': '=cardamom',
+  'fennel seeds': { add: 'spice' },
+  saffron: { add: 'spice' },
+  'saffron threads': '=saffron',
+  'white pepper': { add: 'spice' },
+  'white pepper powder': '=white pepper',
+  'ground white pepper': '=white pepper',
+  sazon: { add: 'spice', name: 'Sazón seasoning' },
+  seasoning: null, // which?
+  'ground pork': { add: 'protein' },
+  'pork mince': '=ground pork',
+  'minced pork': '=ground pork',
+  'pork belly': { add: 'protein' },
+  'pork shoulder': { add: 'protein' },
+  'chuck roast': { add: 'protein', name: 'Beef chuck roast' },
+  'beef chuck roast': '=chuck roast',
+  cod: { add: 'protein' },
+  'cod fillets': '=cod',
+  clams: { add: 'protein' },
+  'smoked salmon': { add: 'protein' }, // not interchangeable with fresh salmon
+  pancetta: { add: 'protein' },
+  'cannellini beans': { add: 'protein' },
+  'white beans': '=cannellini beans',
+  ricotta: { add: 'dairy' },
+  'ricotta cheese': '=ricotta',
+
+  // ── Reviewed by parallel import worker bc3 ──
+  'soya sauce': 'soy_sauce', // British/Canadian spelling
+  'sweet italian sausage': 'sausage',
+  'celery stalk': 'celery',
+  'celery stalks': 'celery',
+  'whole kernel corn': 'corn', // canned kernels: the same food as frozen
+  'pork shoulder steaks': '=pork shoulder', // shoulder cut into steaks
+  'pineapple juice': { add: 'pantry' }, // canned or bottled juice
+  quinoa: { add: 'grain' },
+  pesto: { add: 'pantry', name: 'Basil pesto' }, // jarred or homemade
+  'basil pesto': '=pesto',
+  'italian seasoning': { add: 'spice' }, // dried herb blend; not oregano alone
+  'herbes de provence': { add: 'spice', name: 'Herbes de Provence' },
+  'herbs de provence': '=herbes de provence',
+  'cream style corn': { add: 'pantry', name: 'Cream-style corn' }, // canned; not corn kernels
+  'creamed corn': '=cream style corn',
+  'chipotle peppers in adobo': { add: 'pantry', name: 'Chipotle peppers in adobo' }, // canned
+  'chipotle peppers in adobo sauce': '=chipotle peppers in adobo',
+  'chipotles in adobo': '=chipotle peppers in adobo',
+  'canned pumpkin': { add: 'pantry', name: 'Canned pumpkin' }, // plain purée, not pie filling
+  'pumpkin puree': '=canned pumpkin',
+  pumpkin: null, // fresh pumpkin or canned purée? They cook differently; the recipe must say
+  edam: { add: 'dairy', name: 'Edam' },
+  'edam cheese': '=edam',
+  'creme fraiche': { add: 'dairy', name: 'Crème fraîche' }, // not sour cream
+
+  // ── Reviewed by parallel import worker bc1-merge ──
+  'bacon cubes': 'bacon', // diced bacon or lardons
+  wraps: 'tortillas', // large flour tortillas sold as "wraps"
+  'tortilla wraps': 'tortillas',
+  'white bread': 'bread',
+  'broccoli florets': 'broccoli',
+  'chicken strips': 'chicken', // breast cut into strips, or tenderloins
+  'chicken tenders': 'chicken',
+  'chicken tenderloins': 'chicken',
+  'powdered garlic': 'garlic_powder',
+  'hungarian paprika': 'paprika', // sweet Hungarian paprika is ordinary paprika
+  jalepeno: 'jalapeno', // common misspelling
+  'chinese rice vinegar': '=rice vinegar',
+  gruyere: { add: 'dairy', name: 'Gruyère' },
+  'gruyere cheese': '=gruyere',
+  applesauce: { add: 'pantry' },
+  'apple sauce': '=applesauce',
+  'half and half': { add: 'dairy', name: 'Half-and-half' }, // not milk and not cream
+  'clam juice': { add: 'pantry' }, // bottled; chopped clams are `clams`
+  'flank steak': { add: 'protein' },
+  prosciutto: { add: 'protein' },
+  'dried parsley': { add: 'spice' }, // the catalog's parsley is fresh
+  'parsley flakes': '=dried parsley',
+  'wood chips': false, // fuel for the grill
+
+  // ── Reviewed by parallel import worker bc2-merge ──
+  'coleslaw mix': { add: 'produce' }, // bagged shredded cabbage and carrot, not plain cabbage
+  'saltine crackers': { add: 'grain' },
+  saltines: '=saltine crackers',
+  'pizza dough': { add: 'grain' },
+  'pork chops': { add: 'protein' },
+  'pork chop': '=pork chops',
+  porkchops: '=pork chops',
+  cornichons: { add: 'pantry' }, // small pickled gherkins, sold in jars
+  gherkins: '=cornichons',
+  baguette: 'bread', // a kind of bread, like sourdough
+  'popcorn kernels': { add: 'grain' }, // unpopped
+  'english muffins': { add: 'grain' },
+  'english muffin': '=english muffins',
+  'canadian bacon': { add: 'protein' }, // cured pork loin; not streaky bacon, not ham
+  'imitation crab': { add: 'protein' }, // surimi; not real crab meat
+  'crab sticks': '=imitation crab',
+  'pinto beans': { add: 'protein' },
+  'chilli powder': 'chili_powder', // UK spelling of the same blend
+
+  // ── Reviewed by parallel import worker bc4 ──
+  'extra firm tofu': 'tofu',
+  'firm tofu': 'tofu',
+  'pork sausage': 'sausage', // bulk or link pork sausage
+  'oregano leaves': 'oregano', // dried leaf oregano
+  'worchestershire sauce': '=worcestershire sauce', // common misspelling
+  lamb: null, // which cut? Ground, shoulder or leg: the recipe must say
+  'ground lamb': { add: 'protein' },
+  'minced lamb': '=ground lamb',
+  'lamb mince': '=ground lamb',
+  'sirloin steak': { add: 'protein' }, // tender enough to slice thin and sear quickly
+  'beef sirloin': '=sirloin steak',
+  sirloin: '=sirloin steak',
+  'canned sardines': { add: 'protein' }, // fresh sardines cook differently
+  'tinned sardines': '=canned sardines',
+  'sardines in oil': '=canned sardines',
+  'red chili': { add: 'produce', name: 'Fresh red chili' }, // Fresno or similar; jalapeño is separate
+  'red chilli': '=red chili',
+  'fresh red chili': '=red chili',
+  'red chili pepper': '=red chili',
+  passata: '=tomato puree', // strained tomatoes, sold as tomato purée in the US
+  'tomato passata': '=tomato puree',
+  'caraway seeds': { add: 'spice' }, // not cumin
+  caraway: '=caraway seeds',
+  'old bay seasoning': { add: 'spice', name: 'Old Bay seasoning' }, // the US seafood seasoning blend
+  'old bay': '=old bay seasoning',
+  'beef bouillon': { add: 'pantry' }, // cube, granules or paste; beef broth is separate
+  'beef bouillon cube': '=beef bouillon',
+  'better than bouillon': null, // which flavor?
+  mascarpone: { add: 'dairy' },
+  'mascarpone cheese': '=mascarpone',
+  ladyfingers: { add: 'pantry' }, // crisp savoiardi biscuits, store-bought
+  'lady fingers': '=ladyfingers',
+  savoiardi: '=ladyfingers',
+  'savoiardi biscuits': '=ladyfingers',
+  'brewed coffee': { add: 'pantry' },
+  'strong coffee': '=brewed coffee',
+  coffee: null, // brewed, instant or ground beans? The recipe must say
+  pickles: { add: 'pantry' }, // jarred cucumber pickles; relish is separate
+  'dill pickles': '=pickles',
+
+  // ── Reviewed by parallel import worker nhlbi-merge ──
+  'low sodium chicken broth': 'chicken_broth',
+  'low sodium vegetable broth': 'vegetable_broth',
+  'low sodium chicken broth or vegetable broth': null, // which broth? The editor picks one
+  'low sodium chickpeas': 'chickpeas',
+  'low sodium red kidney beans': 'kidney_beans',
+  'no salt added tomato paste': 'tomato_paste',
+  'no salt added tomato sauce': '=tomato sauce',
+  'no salt added pasta sauce': '=marinara sauce',
+  'chunky tomato sauce': null, // canned tomato sauce or jarred pasta sauce? The editor names it
+  'spinach or arugula': null, // the editor picks one
+  'fat free sour cream': 'sour_cream',
+  'reduced fat mayonnaise': '=mayonnaise',
+  'light mayonnaise': '=mayonnaise',
+  '99 percent lean ground turkey': 'ground_turkey',
+  '99 percent fat free ground turkey': 'ground_turkey',
+  'whole wheat penne pasta': 'pasta',
+  'whole wheat angel hair pasta': 'pasta',
+  'shell pasta': 'pasta',
+  'instant brown rice': 'brown_rice', // parboiled brown rice: same grain, faster cooking
+  'white mushrooms': 'mushroom',
+  'portabella mushroom': 'mushroom', // the same species as button and cremini, grown larger
+  'pearl onions': 'onion', // small onions, used whole
+  'nonstick cooking spray': 'vegetable_oil', // like 'cooking spray'
+  'hot pepper flakes': 'red_pepper_flakes',
+  'ground cayenne pepper': '=cayenne pepper',
+  'packed brown sugar': 'brown_sugar',
+  'dried dill weed': '=dried dill',
+  'evaporated skim milk': '=evaporated milk',
+  'golden raisins': '=raisins',
+  'golden seedless raisins': '=raisins',
+  'anise seed': { add: 'spice' },
+  'anise seeds': '=anise seed',
+  capers: { add: 'pantry' },
+  'green olives': { add: 'pantry' },
+  'hamburger buns': { add: 'grain' },
+  'whole wheat hamburger buns': '=hamburger buns',
+  'pita bread': { add: 'grain' },
+  pita: '=pita bread',
+  'whole wheat pita': '=pita bread',
+
+  // ── Not ingredients ──
+  thermometer: false,
+  cheesecloth: false,
+  'cheese recipient': false,
+  'kitchen twine': false,
+  'parchment paper': false,
+  'baking paper': false,
+  toothpicks: false,
+  skewers: false,
+
+  // ── Look alike, different food: each gets its own entry, never an existing ID ──
+  'rice vinegar': { add: 'pantry' },
+  'tomato sauce': { add: 'pantry' },
+  'chicken bouillon': { add: 'pantry' },
+  'bouillon cube': null, // which flavor?
+  'cayenne pepper': { add: 'spice' },
+  'pepper jack': { add: 'dairy', name: 'Pepper Jack' },
+  'bread crumbs': { add: 'grain' },
+  breadcrumbs: '=bread crumbs',
+  peanuts: { add: 'pantry' },
+  'butternut squash': { add: 'produce' },
+  peppercorns: { add: 'spice' }, // whole, not ground pepper
+  'black peppercorns': '=peppercorns',
+  'cumin seeds': { add: 'spice' }, // whole, not ground cumin
+  'cinnamon sticks': { add: 'spice' },
+  'dried basil': { add: 'spice' }, // the catalog's basil is fresh
+  'dark soy sauce': { add: 'pantry' },
+  'condensed milk': { add: 'pantry', name: 'Sweetened condensed milk' },
+  'sweetened condensed milk': '=condensed milk',
+  'evaporated milk': { add: 'pantry' },
+  'tomato puree': { add: 'pantry' },
+  'bomba rice': { add: 'grain', name: 'Paella rice' },
+  'whole wheat flour': { add: 'grain' },
+  'bread flour': { add: 'grain' },
+  beef: null, // which cut?
+  vinegar: null, // which vinegar?
+  buttermilk: { add: 'dairy' },
+  'coconut cream': { add: 'pantry' },
+  'cream of tartar': { add: 'pantry' },
+  'onion powder': { add: 'spice' },
+  'garlic salt': { add: 'spice' },
+  'brown rice': { add: 'grain' },
+  'arborio rice': { add: 'grain' }, // risotto needs it; plain long-grain won't work
+  'sweet potato noodles': { add: 'grain' },
+  'lemon pepper': { add: 'spice', name: 'Lemon pepper seasoning' },
+};
