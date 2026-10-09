@@ -60,6 +60,13 @@ const GRAMS_PER_CUP: Record<string, number> = {
   parsley: 60,
   cilantro: 60,
   basil: 25,
+  quinoa: 170,
+  red_lentils: 190,
+  arborio_rice: 200,
+  pineapple: 165,
+  tomato_paste: 260,
+  applesauce: 245,
+  arugula: 20,
   banana: 225, // mashed
   apple: 110, // sliced
   carrot: 130,
@@ -331,7 +338,7 @@ function stepIngredient(index: IngredientIndex | undefined, after: string): stri
 }
 
 /**
- * Step text in the chosen system. US returns it untouched.
+ * Step text, or an ingredient's name or preparation note, in the chosen system. US returns it untouched.
  * Temperatures: "350°F (175°C)" → "175°C (155°C fan, gas 4)" for ovens, "74°C" for doneness.
  * Lengths: "a 9-by-13-inch pan" → "a 23 × 33 cm pan". Cups: "1/2 cup of the pasta water" →
  * "120 ml of the pasta water"; "1/4 cup of the sugar" → "50 g of the sugar". "12-cup muffin tin" stays.

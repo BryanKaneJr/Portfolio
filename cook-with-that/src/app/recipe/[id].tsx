@@ -55,8 +55,10 @@ export default function RecipeScreen() {
           {displayQuantity(i.quantityText, app.units, i.ingredientId, i.displayName)}
         </Text>
         <Text style={[t.body, { color: c.text, flex: 1 }]}>
-          {i.displayName}
-          {i.preparation ? <Text style={{ color: c.textMuted }}>, {i.preparation}</Text> : null}
+          {displayStep(i.displayName, app.units)}
+          {i.preparation ? (
+            <Text style={{ color: c.textMuted }}>, {displayStep(i.preparation, app.units, ingredientIndex)}</Text>
+          ) : null}
           {using ? <Text style={{ color: c.herbText, fontWeight: '700' }}> ✓</Text> : null}
           {staple ? <Text style={[styles.badge, { color: c.textMuted }]}> STAPLE</Text> : null}
         </Text>

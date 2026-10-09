@@ -128,6 +128,17 @@ describe('the whole library in metric', () => {
     expect(left).toEqual([]);
   });
 
+  test('no US measures are left in ingredient names or preparation notes', () => {
+    const left = RECIPES.flatMap(r =>
+      r.ingredients
+        .flatMap(i => [i.displayName, i.preparation ?? ''])
+        .map(t => displayStep(t, 'metric', ingredientIndex))
+        .filter(t => IMPERIAL.test(t))
+        .map(t => `${r.id}: ${t}`),
+    );
+    expect(left).toEqual([]);
+  });
+
   test('US mode never changes a recipe', () => {
     for (const r of RECIPES) {
       for (const i of r.ingredients) expect(displayQuantity(i.quantityText, 'us', i.ingredientId)).toBe(i.quantityText);
