@@ -100,7 +100,7 @@ iPhone first, in this order:
 
 1. **The first build to TestFlight.** On a computer, from `brainscroll/app`: `npx eas-cli@latest build --profile production --platform ios --auto-submit`. It asks you to sign in to Expo and to your Apple Developer account, then creates the certificates, the App Store Connect record and the push key (answer yes), and sends the build to TestFlight.
 2. **The two subscriptions** in App Store Connect, with the week-long free trial, and the Paid Apps agreement, tax and banking ([`subscriptions.md`](subscriptions.md)). Skip any part that's already done.
-3. **The Apple Team ID** (developer.apple.com → Account → Membership details; 10 characters, public). Add it to the site as `APPLE_TEAM_ID` and invite links open the app ([`invite-links.md`](invite-links.md)).
+3. ~~**The Apple Team ID**~~ done: `X3837877NX`, read from the first TestFlight build and set in `scripts/site-build.ts`, so invite links open the app ([`invite-links.md`](invite-links.md)). Apple fetches the link file when the app is installed, so it can take a reinstall or a day to start working.
 4. **A few days on TestFlight:** the QA checklist above, on your iPhone.
 5. **Launch week:**
    - give the Weekly Quests their dates (`content/quests.json`, one Monday each) and import;

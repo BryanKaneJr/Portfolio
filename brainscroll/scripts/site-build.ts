@@ -6,7 +6,8 @@
  *
  * None is a secret. Set them in the host's environment (Cloudflare Pages),
  * not in the repo: the last four are the owner's details for the privacy
- * policy. The host builds site/dist on every push.
+ * policy. The host builds site/dist on every push. The Apple team id has a
+ * default below, since it's printed in every signed build anyway.
  */
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -16,7 +17,10 @@ import { buildSite, siteConfigFromEnv, siteWarnings } from './lib/site';
 const repo = join(dirname(fileURLToPath(import.meta.url)), '..');
 const app = JSON.parse(readFileSync(join(repo, 'app', 'app.json'), 'utf8')) as { expo: { ios: { bundleIdentifier: string }; android: { package: string } } };
 if (app.expo.ios.bundleIdentifier !== app.expo.android.package) throw new Error('The iOS bundle id and Android package differ: update scripts/lib/site.ts to take both.');
-const config = siteConfigFromEnv(process.env, app.expo.ios.bundleIdentifier);
+// The Apple team that signs BrainScroll (from the TestFlight build's provisioning profile, 2026-10-09). It's public:
+// every signed build and the apple-app-site-association file carry it. APPLE_TEAM_ID in the host's environment wins.
+const APPLE_TEAM_ID = 'X3837877NX';
+const config = siteConfigFromEnv({ APPLE_TEAM_ID, ...process.env }, app.expo.ios.bundleIdentifier);
 const written = buildSite(join(repo, 'site', 'src'), join(repo, 'site', 'dist'), config, readFileSync(join(repo, 'docs', 'privacy-policy.md'), 'utf8'));
 for (const w of siteWarnings(config)) console.warn(`warning  ${w}`);
 console.log(`Built site/dist: ${written.join(', ')}`);
