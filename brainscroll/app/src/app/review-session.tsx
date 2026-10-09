@@ -62,7 +62,7 @@ export default function ReviewSessionScreen() {
   }, [p.ready, attempt]);
 
   // Opened with no history behind it (a deep link, a refresh): back means the Review tab.
-  const back = () => (router.canGoBack() ? router.back() : router.replace('/review'));
+  const back = () => (router.canGoBack() ? router.back() : router.replace('/practice'));
   // Refresh Home/Review counts once the session is over.
   const finish = () => {
     void p.refresh();

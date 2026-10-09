@@ -29,7 +29,7 @@ export default function LeaderboardScreen() {
   }, [social]);
   useFocusEffect(load);
 
-  const back = () => (router.canGoBack() ? router.back() : router.navigate('/social'));
+  const back = () => (router.canGoBack() ? router.back() : router.navigate('/league'));
   const header = (
     <Row gap={space.sm}>
       <IconButton label="Back" icon="back" onPress={back} />

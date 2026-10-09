@@ -1,28 +1,28 @@
 import { Tabs } from 'expo-router';
-import { Image, StyleSheet, Text, View, type ImageSourcePropType } from 'react-native';
+import { Image, StyleSheet, View, type ImageSourcePropType } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useReduceMotion } from '@/theme/feedback';
-import { color, depth, fw, radius, space } from '@/theme/tokens';
+import { color, depth, radius } from '@/theme/tokens';
 
 /**
- * Illustrated tab icons (owner, 2026-10-01: colourful icons in the chrome,
- * using the UI art we have until a dedicated set exists). The active tab is
+ * Illustrated tab icons (owner, 2026-10-01: colourful icons in the chrome;
+ * 2026-10-09: a dedicated set, ui/tab-*.webp), big and without words
+ * (owner, 2026-10-09: "the icons are informative enough"). The active tab is
  * full colour in an outlined pill; the others sit dimmed, so where you are
  * reads at a glance.
  */
 const TAB_ART = {
-  home: require('../../../assets/images/ui/welcome.webp'),
-  // A star: what mastering a skill earns (owner, 2026-10-01: the up arrow was too plain).
-  skills: require('../../../assets/images/ui/mastery-star.webp'),
-  // A medal: your league (owner, 2026-10-01).
-  social: require('../../../assets/images/ui/medal.webp'),
-  review: require('../../../assets/images/ui/review.webp'),
-  profile: require('../../../assets/images/ui/profile.webp'),
+  // The owner's tab set (2026-10-09: a house, the league medal, clinking mugs and a profile); Practice keeps the review cards.
+  home: require('../../../assets/images/ui/tab-home.webp'),
+  league: require('../../../assets/images/ui/tab-leagues.webp'),
+  practice: require('../../../assets/images/ui/review.webp'),
+  social: require('../../../assets/images/ui/tab-social.webp'),
+  profile: require('../../../assets/images/ui/tab-profile.webp'),
 } satisfies Record<string, ImageSourcePropType>;
 
 function icon(art: ImageSourcePropType) {
   return function TabIcon({ focused }: { focused: boolean }) {
-    // The tab's label names it; the icon is decoration.
+    // The tab's name is its accessibility label; the icon is decoration.
     return (
       <View style={[tabStyles.box, focused && tabStyles.active]} accessible={false} aria-hidden importantForAccessibility="no-hide-descendants">
         <Image source={art} style={[tabStyles.art, !focused && tabStyles.dim]} resizeMode="contain" />
@@ -32,29 +32,24 @@ function icon(art: ImageSourcePropType) {
 }
 
 /** The tab icon's box: fixed, so the active outline is the same size on every tab. */
-const TAB_BOX = { width: 52, height: 36 } as const;
-/**
- * Tab bar height above the home indicator: the box, its label and breathing
- * room, with space for the label to grow to its 1.3× cap at large text sizes
- * (at 72 a grown label lost its bottom).
- */
-const TAB_BAR = 78;
+const TAB_BOX = { width: 64, height: 50 } as const;
+/** Tab bar height above the home indicator: the box and breathing room (no labels). */
+const TAB_BAR = 66;
 
 const tabStyles = StyleSheet.create({
   box: { ...TAB_BOX, borderRadius: radius.md, alignItems: 'center', justifyContent: 'center', borderWidth: depth.border, borderColor: 'transparent' },
   active: { backgroundColor: color.brandSoft, borderColor: color.brandLine },
-  art: { width: 30, height: 30 },
-  // Dimmed, not grey: the art keeps its colour, just quieter than the active tab.
-  dim: { opacity: 0.5 },
+  art: { width: 40, height: 40 },
+  // Dimmed, not grey: the art keeps its colour, just quieter than the active tab
+  // (0.65: at 0.5 the darker icons went muddy on the dark bar; owner, 2026-10-09).
+  dim: { opacity: 0.65 },
 });
 
-// No letter spacing: on iOS it makes a one-line label measure short, so "Skills" showed as "Skil…".
-const tabLabel = { marginTop: space.xs, fontSize: 11, lineHeight: 14, ...fw('700'), textAlign: 'center' } as const;
-
 /**
- * Five destinations, left to right: Skills, Review, Home, Social and Profile (owner, 2026-10-01: Home in the
- * centre). Home stays the first screen and where Back lands. Learning launches from Home or a skill, and the
- * tab bar disappears inside lessons (they're stack screens).
+ * Five destinations, left to right: Practice, Leagues, Home, Social and Profile (owner, 2026-10-01: Home in
+ * the centre; 2026-10-09: Practice is Review with your skills, and Leagues holds the league, the week's quest
+ * and the world leaderboard). Home stays the first screen and where Back lands. Learning launches from Home
+ * or a skill, and the tab bar disappears inside lessons (they're stack screens).
  */
 export default function TabLayout() {
   const insets = useSafeAreaInsets();
@@ -71,23 +66,18 @@ export default function TabLayout() {
         animation: reduce ? 'none' : 'shift',
         tabBarActiveTintColor: color.brandText,
         tabBarInactiveTintColor: color.textMuted,
-        tabBarStyle: { backgroundColor: color.bg, borderTopColor: color.border, height: TAB_BAR + insets.bottom, paddingTop: space.sm, borderTopWidth: depth.border },
+        tabBarStyle: { backgroundColor: color.bg, borderTopColor: color.border, height: TAB_BAR + insets.bottom, paddingTop: 0, borderTopWidth: depth.border },
+        // The icon sits in the middle of the bar (the item's own top padding was for the label below it).
+        tabBarItemStyle: { paddingVertical: 0, justifyContent: 'center' },
         tabBarIconStyle: TAB_BOX,
-        // Tab labels are the one place below the type scale: the platform's own tab-label size, in sentence case.
-        // They grow with the OS text size up to 1.3×, which still fits the fixed bar; iOS's own
-        // tab bars do the same (a long press shows the Large Content Viewer).
-        tabBarLabel: ({ color: tint, children }) => (
-          // Shrinks a little rather than cutting the word short, at large text sizes too.
-          <Text maxFontSizeMultiplier={1.3} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.8} style={[tabLabel, { color: tint, minWidth: TAB_BOX.width + space.lg }]}>
-            {children}
-          </Text>
-        ),
+        // No words under the icons (owner, 2026-10-09). Each tab keeps its name for screen readers.
+        tabBarShowLabel: false,
       }}>
-      <Tabs.Screen name="skills" options={{ title: 'Skills', tabBarIcon: icon(TAB_ART.skills) }} />
-      <Tabs.Screen name="review" options={{ title: 'Review', tabBarIcon: icon(TAB_ART.review) }} />
-      <Tabs.Screen name="(home)" options={{ title: 'Home', tabBarIcon: icon(TAB_ART.home) }} />
-      <Tabs.Screen name="social" options={{ title: 'Social', tabBarIcon: icon(TAB_ART.social) }} />
-      <Tabs.Screen name="profile" options={{ title: 'Profile', tabBarIcon: icon(TAB_ART.profile) }} />
+      <Tabs.Screen name="practice" options={{ title: 'Practice', tabBarAccessibilityLabel: 'Practice', tabBarIcon: icon(TAB_ART.practice) }} />
+      <Tabs.Screen name="league" options={{ title: 'Leagues', tabBarAccessibilityLabel: 'Leagues', tabBarIcon: icon(TAB_ART.league) }} />
+      <Tabs.Screen name="(home)" options={{ title: 'Home', tabBarAccessibilityLabel: 'Home', tabBarIcon: icon(TAB_ART.home) }} />
+      <Tabs.Screen name="social" options={{ title: 'Social', tabBarAccessibilityLabel: 'Social', tabBarIcon: icon(TAB_ART.social) }} />
+      <Tabs.Screen name="profile" options={{ title: 'Profile', tabBarAccessibilityLabel: 'Profile', tabBarIcon: icon(TAB_ART.profile) }} />
     </Tabs>
   );
 }

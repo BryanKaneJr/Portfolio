@@ -1,17 +1,15 @@
-import { DR_SCROLL_FRIEND, leaguePrize, ordinal, theTier, tierName, trophyInfo, WORLD_BOARD, type FeedItem, type DrScrollPost, type FeedReaction, type LeagueView, type WorldBoardView } from '@brainscroll/core';
+import { DR_SCROLL_FRIEND, ordinal, theTier, trophyInfo, WORLD_BOARD, type FeedItem, type DrScrollPost, type FeedReaction, type LeagueView, type WorldBoardView } from '@brainscroll/core';
 import { Animated, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import { AvatarGlow } from '@/components/cosmetics';
 import { TrophyBadge } from '@/components/TrophyBadge';
-import { AVATAR_ART, Caption, Card, DrScroll, GradientFill, Icon, Row } from '@/components/ui';
-import { TierEmblem } from '@/components/LeagueTier';
+import { AVATAR_ART, Caption, Card, DrScroll, Icon, Row } from '@/components/ui';
 import { getSkill, trophyCatalog } from '@/content';
 import { usePop } from '@/components/ui/motion';
-import { lift } from '@/theme/subjectTheme';
-import { color, depth, elevation, iconSize, radius, space, type } from '@/theme/tokens';
+import { color, iconSize, space, type } from '@/theme/tokens';
 
 /**
- * Social building blocks (owner, 2026-10-01): avatars, the league banner and
+ * Social building blocks (owner, 2026-10-01): avatars, the world leaderboard card and
  * the feed's moments with their hearts. There are no photos:
  * a learner wears an avatar from the set (a starter at random from sign-up).
  */
@@ -56,75 +54,6 @@ export const LEAGUE_OF_ONE = 'Your league fills up as learners join this week.';
 
 /** How a league row is named: you, a hidden learner (blocked either way), or their username. */
 export const leagueMemberName = (m: LeagueView['members'][number]) => (m.you ? 'You' : m.blocked ? 'Hidden learner' : `@${m.username}`);
-
-/**
- * The league as a banner (owner, 2026-10-01: "more fun and premium"), named
- * for your tier (owner, 2026-10-08): a
- * violet gradient card with your league's emblem beside your place, how far
- * the next place is, and the current podium. Each podium spot shows the prize
- * it would win if the week ended now (core leaguePrize, the server's rule:
- * XP this week, and someone behind it), or its XP when it wouldn't. Prizes
- * are white, never gold: gold means mastery. A league of one (nobody matched
- * yet) says it fills up as learners join, with no place or podium to win.
- * Tap for the standings.
- */
-export function LeagueBanner({ league, onPress }: { league: LeagueView; onPress: () => void }) {
-  const place = league.members.findIndex((m) => m.you) + 1;
-  const me = league.members[place - 1];
-  const name = tierName(league.tier);
-  const ahead = place > 1 ? league.members[place - 2] : undefined;
-  const gap = ahead && me ? ahead.weeklyXp - me.weeklyXp + 1 : 0;
-  const alone = league.members.length <= 1;
-  const podium = alone ? [] : league.members.slice(0, 3);
-  const chase = alone ? LEAGUE_OF_ONE : place === 1 ? 'You’re leading. Hold on to it!' : ahead ? `${gap.toLocaleString('en-US')} XP to pass ${ahead.blocked ? 'the next place' : `@${ahead.username}`}` : '';
-  // Kept whole ("2 days left", "451 XP"), so a narrow phone never breaks a number from its unit.
-  const xpLine = `${(me?.weeklyXp ?? 0).toLocaleString('en-US')}\u00a0XP this week · ${leagueDaysLeft(league.endsAt).replace(/ /g, '\u00a0')}`;
-  return (
-    <Pressable
-      accessibilityRole="button"
-      accessibilityLabel={
-        alone
-          ? `${name}: ${chase} ${me?.weeklyXp ?? 0} XP this week. ${leagueDaysLeft(league.endsAt)}. Open your league`
-          : `${name}: you're ${ordinal(place)} of ${league.members.length} with ${me?.weeklyXp ?? 0} XP this week. ${chase}. ${leagueDaysLeft(league.endsAt)}. Open the standings`
-      }
-      onPress={onPress}
-      style={({ pressed }) => [styles.banner, pressed && { transform: [{ translateY: 2 }], borderBottomWidth: 2 }]}>
-      <GradientFill from={lift(color.brand, 0.12)} to={color.brandEdge} rx={radius.lg} />
-      <Row gap={space.md}>
-        <View style={styles.medalArt}>
-          {/* Your league's emblem (owner, 2026-10-08: "put whatever league they are in, in that box"). */}
-          <TierEmblem tier={league.tier} size={68} />
-        </View>
-        <View style={{ flex: 1, gap: space.xxs }}>
-          <Text style={[type.label, { color: lift(color.brandText, 0.4) }]}>{name.toUpperCase()}</Text>
-          <Text style={[type.h2, { color: color.onBrand }]}>{alone ? 'Just you so far' : `${ordinal(place)} place`}</Text>
-          <Text style={[type.caption, { color: lift(color.brandText, 0.55) }]}>{xpLine}</Text>
-          {chase ? <Text style={[type.caption, { color: color.onBrand, fontWeight: '800' }]}>{chase}</Text> : null}
-        </View>
-        <Icon name="forward" tint={color.onBrand} size={iconSize.md} />
-      </Row>
-      {podium.length > 0 && (
-        <View style={styles.podium}>
-          {podium.map((m, i) => {
-            const prize = leaguePrize(i + 1, league.members.length, m.weeklyXp);
-            return (
-              // Stacked and centred, so each spot gets a third of the banner for its name.
-              <View key={m.id} style={styles.podiumSpot}>
-                <Avatar username={m.blocked ? '?' : m.username} avatar={m.blocked ? undefined : m.avatar} ring={m.blocked ? null : m.ring} size={34} />
-                <Text numberOfLines={1} style={[type.caption, { color: color.onBrand, fontWeight: '800', textAlign: 'center', alignSelf: 'stretch' }]}>
-                  {leagueMemberName(m)}
-                </Text>
-                <Text numberOfLines={1} style={[type.meta, { color: prize ? color.onBrand : lift(color.brandText, 0.55), fontWeight: prize ? '800' : undefined }]}>
-                  {prize ? `+${prize.toLocaleString("en-US")} XP` : `${m.weeklyXp.toLocaleString("en-US")} XP`}
-                </Text>
-              </View>
-            );
-          })}
-        </View>
-      )}
-    </Pressable>
-  );
-}
 
 /**
  * The world leaderboard on Social, kept small (owner, 2026-10-09: "a clean
@@ -298,8 +227,4 @@ const HEART = 'M12 20.6l-1.3-1.2C6 15.2 3 12.4 3 9a4.5 4.5 0 0 1 4.5-4.5c1.7 0 3
 const styles = StyleSheet.create({
   trophyName: { color: color.mastery, fontWeight: '800' },
   heart: { alignItems: 'center', paddingVertical: space.xxs },
-  banner: { borderRadius: radius.lg, padding: space.lg, gap: space.md, borderWidth: depth.border, borderBottomWidth: depth.edge, borderColor: color.brandEdge, overflow: 'hidden', ...elevation.raised },
-  medalArt: { width: 76, height: 76, alignItems: 'center', justifyContent: 'center' },
-  podium: { flexDirection: 'row', gap: space.sm, paddingTop: space.md, borderTopWidth: 1, borderTopColor: 'rgba(255,255,255,0.18)' },
-  podiumSpot: { flex: 1, alignItems: 'center', gap: space.xxs },
 });

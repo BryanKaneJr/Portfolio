@@ -99,15 +99,18 @@ try {
   await page.waitForTimeout(1000);
   check((await page.getByRole('button', { name: /^First Level\. Share$/ }).count()) === 1, 'and the tag is gone on the next visit');
 
-  // Social (owner, 2026-10-01): the league banner, the feed and its hearts, friends and profiles.
+  // Leagues (owner, 2026-10-09: its own tab): the standings, the week's quest and the world leaderboard.
   // In local play the league is simulated; your own row and moments are real.
   await home(page);
+  await page.getByRole('tab', { name: /Leagues/ }).click();
+  await page.waitForTimeout(1200);
+  const leagues = await bodyText(page);
+  check(/Quartz League/.test(leagues) && /\d+ days? left|Last day/i.test(leagues) && /1,000 XP prize/.test(leagues) && (await page.getByRole('button', { name: /^\d+\w\w: You, / }).count()) === 1,
+    `Leagues opens on the standings: your tier, the days left, the prizes and your row`);
+  // Social (owner, 2026-10-01): the feed and its hearts, friends and profiles.
   await page.getByRole('tab', { name: /Social/ }).click();
   await page.waitForTimeout(1200);
   let social = await bodyText(page);
-  check(/League/i.test(social) && /\d+(st|nd|rd|th) place/.test(social) && /XP this week/.test(social) && /XP to pass @|You’re leading/.test(social) && /\+1,000 XP[\s\S]*\+500 XP[\s\S]*\+250 XP/.test(social),
-    // Early in a league week the simulated rivals have little XP yet, so you can be leading.
-    'Social opens on the league banner: your place, your XP, how far the next place is (or that you lead), and the podium with its prizes');
   check(/You earned the First Level trophy/.test(social), 'your own trophy is in the feed');
   // Dr. Scroll: everyone's first friend, with a profile like no one else's.
   check(/Dr\. Scroll[\s\S]*Your first friend/.test(social), 'Dr. Scroll is everyone\'s first friend');
@@ -128,9 +131,11 @@ try {
   check(/Friend requests[\s\S]*@priya/.test(social), 'friend requests show at the top');
   await exactButton(page, 'Accept').click();
   await page.waitForTimeout(1000);
-  // The world leaderboard is one small card (owner, 2026-10-09); it opens the top 50, all time.
+  // The world leaderboard is one small card on Leagues (owner, 2026-10-09); it opens the top 50, all time.
+  await page.getByRole('tab', { name: /Leagues/ }).click();
+  await page.waitForTimeout(1000);
   const boardCard = page.getByRole('button', { name: /^World leaderboard: you're \d+\w\w of \d+ by total XP\. Open the top 50$/ });
-  check((await boardCard.count()) === 1 && !/@priya\s+Friend\b/.test(await bodyText(page)), 'Social shows the world leaderboard as one small card');
+  check((await boardCard.count()) === 1 && !/@priya\s+Friend\b/.test(await bodyText(page)), 'Leagues shows the world leaderboard as one small card');
   await boardCard.click();
   await page.waitForTimeout(1000);
   check(/@priya\s+Friend\b/.test(await bodyText(page)), 'accepting makes a friend, marked on the world leaderboard at their place');
@@ -138,6 +143,8 @@ try {
   check(worldRows >= 3 && worldRows <= 50 && (await page.getByRole('button', { name: /^\d+\w\w: you, / }).count()) === 1, `the world leaderboard opened is the top 50 at most, with you among them (${worldRows})`);
   await page.getByRole('button', { name: 'Back', exact: true }).click();
   await page.waitForTimeout(800);
+  await page.getByRole('tab', { name: /Social/ }).click();
+  await page.waitForTimeout(1000);
   const liked = async () => page.getByRole('button', { name: /^Liked/ }).count();
   const before = await liked();
   await page.getByRole('button', { name: /^Like(,|$)/ }).first().click();
@@ -148,7 +155,7 @@ try {
   check((await liked()) === before, 'tapping it again takes the like back');
   await page.getByRole('button', { name: /^Like(,|$)/ }).first().click();
   await page.waitForTimeout(500);
-  await page.getByRole('button', { name: /Quartz League: you're/ }).click();
+  await page.getByRole('tab', { name: /Leagues/ }).click();
   await page.waitForTimeout(1000);
   social = await bodyText(page);
   check(!/Ranked by XP earned this week/.test(social) && /1,000 XP prize/.test(social) && /250 XP prize/.test(social), 'the standings mark the top 3 prizes, with no rules paragraph');
@@ -162,7 +169,7 @@ try {
   check(/You and them/.test(social) && (await page.locator('[aria-label*=" levels, them "]').count()) > 0, 'and compares subjects with yours, side by side');
   await page.goBack();
   await page.waitForTimeout(600);
-  await page.goBack();
+  await page.getByRole('tab', { name: /Social/ }).click();
   await page.waitForTimeout(800);
   await exactButton(page, 'Edit your profile').click();
   await page.waitForTimeout(1000);
@@ -229,20 +236,18 @@ try {
   await exactButton(page, 'Block').last().click();
   await page.waitForTimeout(1500);
   check(!/@noor/.test(await bodyText(page)), 'blocking leaves their profile');
-  await page.getByRole('tab', { name: /Social/ }).click();
+  await page.getByRole('tab', { name: /Leagues/ }).click();
   await page.waitForTimeout(1200);
-  await page.getByRole('button', { name: /Quartz League: you're/ }).click();
-  await page.waitForTimeout(1000);
   person = await bodyText(page);
   check(/Hidden learner/.test(person) && !/@noor/.test(person), 'a blocked learner is a hidden learner in the standings');
-  await page.goBack();
-  await page.waitForTimeout(1000);
-  check(!/@noor/.test(await bodyText(page)), 'and nowhere on Social, the league banner included');
   await page.getByRole('button', { name: /^World leaderboard:/ }).click();
   await page.waitForTimeout(1000);
-  check(!/@noor/.test(await bodyText(page)), 'or on the world leaderboard');
+  check(!/@noor/.test(await bodyText(page)), 'and isn\'t on the world leaderboard');
   await page.getByRole('button', { name: 'Back', exact: true }).click();
   await page.waitForTimeout(800);
+  await page.getByRole('tab', { name: /Social/ }).click();
+  await page.waitForTimeout(1200);
+  check(!/@noor/.test(await bodyText(page)), 'or anywhere on Social');
   await page.getByRole('tab', { name: /Profile/ }).click();
   await page.waitForTimeout(800);
   // Beside the streak: your place on the world leaderboard, all time (owner, 2026-10-09).
@@ -418,9 +423,10 @@ try {
   });
   await home(page);
   check(!/refresh/i.test(await bodyText(page)) && (await button(page, 'Start review').count()) === 0, 'review never appears on the World Map (it lives in its tab)');
-  await page.getByRole('tab', { name: /Review/ }).click();
+  await page.getByRole('tab', { name: /Practice/ }).click();
   await page.waitForTimeout(800);
-  check(/ready to refresh/.test(await bodyText(page)), 'the Review tab shows what is ready (and settles: no refresh loop)');
+  check(/ready to refresh/.test(await bodyText(page)), 'Practice shows what is ready to review (and settles: no refresh loop)');
+  check(/Your skills/.test(await bodyText(page)) && (await page.getByRole('button', { name: /^Open Astronomy, level \d+/ }).count()) === 1, 'and the skills you\'re leveling (owner, 2026-10-09: Skills folded into Practice)');
   await button(page, 'Start review').click();
   await page.waitForTimeout(500);
   const corrected = await playReview(page);
@@ -433,9 +439,9 @@ try {
 
   // Chapter reviews: any cleared chapter, any time, for a little XP.
   await home(page);
-  await page.getByRole('tab', { name: /Review/ }).click();
+  await page.getByRole('tab', { name: /Practice/ }).click();
   await page.waitForTimeout(800);
-  check(/Go back over a chapter/i.test(await bodyText(page)) && !/Counts toward quests/.test(await bodyText(page)), 'the Review tab offers cleared chapters (no quest credit while new levels remain)');
+  check(/Go back over a chapter/i.test(await bodyText(page)) && !/Counts toward quests/.test(await bodyText(page)), 'Practice offers cleared chapters (no quest credit while new levels remain)');
   await page.getByRole('button', { name: /^Review Astronomy, Chapter 1:/ }).click();
   await page.waitForTimeout(500);
   check(/Astronomy · Chapter 1, Level 1 · 1 of 10/.test(await bodyText(page)), 'a chapter review asks one question from each of its ten levels');
@@ -505,12 +511,12 @@ try {
   await page.waitForTimeout(1000);
   check((await page.getByTestId('wear-ring.music').getAttribute('aria-checked')) === 'true', 'Own every look makes every glow wearable (Sheet Music on)');
 
-  // A second skill: opening it on the Skills tab shows its map, but Home keeps the tree last played.
+  // A second skill: opening it from the World Map shows its map, but Home keeps the tree last played.
   await home(page);
-  await page.getByRole('tab', { name: /Skills/ }).click();
+  await page.getByRole('button', { name: /^Open History/ }).first().click();
   await page.waitForTimeout(600);
   // Browsing a skill doesn't change Home's "Up next": only playing does (owner, 2026-10-01).
-  await button(page, 'Open Ancient Rome').click();
+  await page.getByRole('button', { name: /^Open Ancient Rome/ }).first().click();
   await page.waitForTimeout(800);
   check((await bodyText(page)).includes('Founding and the Kings'), 'opening a skill shows it as a map of chapters');
   await home(page);

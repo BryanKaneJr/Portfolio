@@ -57,7 +57,7 @@ export default function ChapterReviewScreen() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [skillId, chapter, p.ready, load]);
 
-  const leave = () => (router.canGoBack() ? router.back() : router.navigate('/review'));
+  const leave = () => (router.canGoBack() ? router.back() : router.navigate('/practice'));
   const skillName = skillId ? (getSkill(skillId)?.name ?? '') : '';
   const chapterTitle = skillId ? chaptersFor(skillId).find((c) => c.number === chapter)?.title : undefined;
 

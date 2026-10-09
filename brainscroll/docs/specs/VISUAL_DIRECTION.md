@@ -60,7 +60,7 @@ Use a deep, calm base with a restrained luminous layer. Think premium reading ap
 
 - **Fast hierarchy.** A user should know what to do within a second: continue, answer, level up, or review.
 
-- **Shallow navigation. Five tabs, left to right: Skills, Review, Home, Social, Profile (owner, 2026-10-01: Social added before launch, Home in the centre). Learning launches from Home or a skill tree rather than becoming a separate maze of tabs. Weekly Knowledge Quests surface as a small tile beside the skill map (owner, 2026-10-08: no Home card), not a tab of their own.**
+- **Shallow navigation. Five tabs, left to right: Practice, Leagues, Home, Social, Profile (owner, 2026-10-01: Social added before launch, Home in the centre; 2026-10-09: Review and Skills became Practice, and the league, the week's quest and the world leaderboard moved to Leagues). Learning launches from Home or a skill tree rather than becoming a separate maze of tabs. Weekly Knowledge Quests show on Leagues and as a small tile beside the skill map (owner, 2026-10-08: no Home card).**
 
 - **Motion with purpose. Buttons depress, XP counts up, progress settles, and unlocks glow. Normal navigation stays quiet so reward moments keep their impact.**
 

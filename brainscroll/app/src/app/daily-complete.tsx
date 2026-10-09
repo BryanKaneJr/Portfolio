@@ -106,7 +106,7 @@ export default function DailyCompleteScreen() {
         </View>
       </ScrollView>
       <View style={{ paddingHorizontal: layout.gutter, paddingBottom: Math.max(insets.bottom, space.lg), gap: space.sm, width: '100%', maxWidth: layout.readingWidth + 2 * layout.gutter, alignSelf: 'center' }}>
-        <Button variant="secondary" label="Review what I learned" onPress={() => router.replace('/review')} />
+        <Button variant="secondary" label="Review what I learned" onPress={() => router.replace('/practice')} />
         <Button variant="ghost" label="Come back tomorrow" onPress={() => router.dismissTo('/')} />
       </View>
     </SafeAreaView>

@@ -79,7 +79,7 @@ Dr. Scroll, a cute, round old genius in a tweed jacket and violet bow tie, has 2
 | `technology.gears` | Two interlocking gears | How the World Works subject |
 | `object.book` | **existing.** Orange book (open works too) | Sign-in screen |
 | `plant.tree` | **existing.** Green tree | Brainpower used up, formerly Daily Knowledge Complete ("go outside") |
-| `ui.review` | Stack of cards with a circular refresh arrow | Review tab |
+| `ui.review` | Stack of cards with a circular refresh arrow | Practice tab |
 | `ui.mastery-star` | Gold star with a soft halo | Mastery moments |
 
 The two skills reuse level images: Astronomy uses `object.telescope`, Ancient Rome uses `rome.colosseum`.

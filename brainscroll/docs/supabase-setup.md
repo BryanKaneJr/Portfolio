@@ -108,6 +108,6 @@ The sign-in screen shows a method only when it is in `EXPO_PUBLIC_SIGN_IN_METHOD
 | Opening a level | `start_level(level_id)` returns eligibility plus the published bundle |
 | Finishing a level | `complete_level(level_id, revision, answers, idempotency_key)` returns the authoritative summary |
 | Home / Daily Complete | `get_daily_status()` |
-| Review tab | `get_review_queue(limit)`, then `get_level_bundles(ids)`, then `submit_review(question_id, option_id)` per answer |
+| Practice tab (review) | `get_review_queue(limit)`, then `get_level_bundles(ids)`, then `submit_review(question_id, option_id)` per answer |
 | After sign-in | `update_profile(timezone)` and `get_progress()` |
 | Profile → Settings → Delete account | `delete_my_account()` |

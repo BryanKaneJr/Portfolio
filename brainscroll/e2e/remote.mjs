@@ -163,9 +163,9 @@ try {
   // Review: make everything due.
   sql(`update public.review_queue set due_at = now() - interval '1 minute'`);
   await home(page);
-  await page.getByRole('tab', { name: /Review/ }).click();
+  await page.getByRole('tab', { name: /Practice/ }).click();
   await page.waitForTimeout(1000);
-  check(/ready to refresh/.test(await bodyText(page)), 'due concepts from the server show in the Review tab');
+  check(/ready to refresh/.test(await bodyText(page)), 'due concepts from the server show on Practice');
   const seenBefore = Number(sql('select sum(seen_count) from public.user_concept_mastery'));
   await button(page, 'Start review').click();
   await checkButton(page).waitFor({ timeout: 10_000 });
@@ -251,7 +251,7 @@ try {
        select '${learnerId}', 'skill.history.ancient_rome', max(number) from public.levels where skill_id = 'skill.history.ancient_rome' and status = 'published'
        on conflict (user_id, skill_id) do update set highest_cleared = excluded.highest_cleared`);
   await home(page);
-  await page.getByRole('tab', { name: /Review/ }).click();
+  await page.getByRole('tab', { name: /Practice/ }).click();
   await page.waitForTimeout(1000);
   check(/Counts toward quests/.test(await bodyText(page)), 'a skill with nothing new left says its chapter reviews count toward quests');
   await page.getByRole('button', { name: /^Review Ancient Rome, Chapter 1:/ }).click();
@@ -275,10 +275,14 @@ try {
   sql(`update public.profiles set username = 'study_buddy' where id = '00000000-0000-0000-0000-0000000000f1'`);
   sql(`update public.profiles set username = 'old_pal', invite_code = 'PAL12345' where id = '00000000-0000-0000-0000-0000000000f2'`);
   await home(page);
+  await page.getByRole('tab', { name: /Leagues/ }).click();
+  await page.waitForTimeout(1500);
+  const leagues = await bodyText(page);
+  check(/Quartz League/i.test(leagues) && /fills up as learners join/.test(leagues) && !/XP prize/.test(leagues), 'Leagues joins this week\'s league on the server (the Quartz League, the first tier); a league of one says it fills up, with no prize');
+  check(/This week’s quest[\s\S]*The Roman World/.test(leagues) && (await exactButton(page, 'See the Archive').count()) === 1, 'Leagues shows this week\'s quest, and the Archive once a week has passed');
   await page.getByRole('tab', { name: /Social/ }).click();
   await page.waitForTimeout(1500);
   let social = await bodyText(page);
-  check(/Quartz League/i.test(social) && /Just you so far/.test(social) && /fills up as learners join/.test(social) && !/1st place/.test(social), 'Social joins this week\'s league on the server (the Quartz League, the first tier); a league of one says it fills up, with no place or prize');
   check(/You earned the First Level trophy/.test(social), 'the feed shows your own moments, derived on the server');
   check(/^[a-z]+_[a-z]+_\d{4}$/.test(sql(`select username from public.profiles where id = '${learnerId}'`)), 'you get a friendly username');
   check(/^avatar\.[a-z_]+$/.test(sql(`select avatar from public.profiles where id = '${learnerId}'`)), 'the server gave you a random starter avatar');
@@ -312,6 +316,8 @@ try {
   // A friend with XP has a place on the world leaderboard (opened from its card on Social).
   sql(`insert into public.xp_events (user_id, type, amount, idempotency_key) values ('00000000-0000-0000-0000-0000000000f2', 'QUEST_COMPLETE', 40, 'e2e:old_pal')`);
   await page.goBack();
+  await page.waitForTimeout(1000);
+  await page.getByRole('tab', { name: /Leagues/ }).click();
   await page.waitForTimeout(1000);
   await page.getByRole('button', { name: /^World leaderboard:/ }).click();
   await page.waitForTimeout(1500);
