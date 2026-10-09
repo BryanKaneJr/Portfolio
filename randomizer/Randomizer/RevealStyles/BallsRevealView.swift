@@ -124,7 +124,7 @@ struct BallsRevealView: View {
             x: layout.slot.x - chuteWidth / 2,
             y: layout.slot.y,
             width: chuteWidth,
-            height: max(0, layout.drumCenter.y - layout.drumRadius - layout.slot.y + 6)
+            height: max(0.0, Double(layout.drumCenter.y) - layout.drumRadius - Double(layout.slot.y) + 6)
         ), cornerRadius: chuteWidth / 2)
         context.fill(chute, with: .color(Theme.surface))
         context.stroke(chute, with: .color(Theme.accent.opacity(0.35)), lineWidth: 2)
