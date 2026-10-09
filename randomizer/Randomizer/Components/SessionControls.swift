@@ -1,61 +1,73 @@
 import SwiftUI
 
-/// "Remove after selection", with Restore removed and Undo last draw beside
-/// it. This one component sits in the sticky footer of every draw screen:
-/// all four reveal styles, all three odds modes, single and batch draws,
-/// the result view, presenter mode and the draft order reveal. It must
-/// never move into Settings.
-struct RemovalToggleFooter: View {
+/// The "Remove" switch (Remove after selection): ON, each winner leaves
+/// the pool for the session; OFF, repeats are possible. It sits at the
+/// bottom right of every draw screen (all reveal styles and odds modes,
+/// the result, presenter mode and the draft order reveal), affects future
+/// draws only, and only the person ever flips it.
+struct RemoveToggle: View {
     @Binding var isOn: Bool
+
+    var body: some View {
+        Toggle(isOn: $isOn) {
+            Text("Remove")
+                .font(Theme.rounded(.subheadline, weight: .semibold))
+                .foregroundStyle(isOn ? Theme.textPrimary : Theme.textSecondary)
+        }
+        .fixedSize()
+        .tint(Theme.accent)
+        .accessibilityLabel("Remove after selection")
+        .accessibilityHint(isOn
+            ? "On: winners leave the pool. Affects future draws only."
+            : "Off: repeats are possible. Affects future draws only.")
+        .accessibilityIdentifier("removeAfterSelectionToggle")
+    }
+}
+
+/// Undo and Restore chips, shown only when there is something to undo or
+/// restore.
+struct SessionActions: View {
     let removedCount: Int
     let canUndo: Bool
+    var showsRestore = true
     let onRestoreAll: () -> Void
     let onChooseRestore: () -> Void
     let onUndo: () -> Void
 
-    var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Toggle(isOn: $isOn) {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("Remove after selection")
-                        .font(Theme.rounded(.headline, weight: .bold))
-                        .foregroundStyle(Theme.textPrimary)
-                    Text(isOn ? "Winners leave the pool for this session" : "Winners stay in. Repeats possible")
-                        .font(.caption)
-                        .foregroundStyle(isOn ? Theme.textSecondary : Theme.caution)
-                }
-            }
-            .tint(Theme.accent)
-            .accessibilityIdentifier("removeAfterSelectionToggle")
-            .accessibilityHint("Applies to future draws only.")
+    var isEmpty: Bool {
+        !canUndo && !(showsRestore && removedCount > 0)
+    }
 
-            HStack(spacing: 8) {
-                if removedCount > 0 {
-                    Menu {
-                        Button(action: onRestoreAll) {
-                            Label("Restore all \(removedCount)", systemImage: "arrow.uturn.backward.circle")
-                        }
-                        Button(action: onChooseRestore) {
-                            Label("Choose entries\u{2026}", systemImage: "checklist")
-                        }
-                    } label: {
-                        Label("Restore removed (\(removedCount))", systemImage: "arrow.uturn.backward.circle")
-                            .font(Theme.rounded(.footnote, weight: .semibold))
-                            .foregroundStyle(Theme.accent)
-                            .padding(.horizontal, 12)
-                            .frame(minHeight: 36)
-                            .background(Capsule().fill(Theme.accent.opacity(0.16)))
-                    }
-                    .accessibilityIdentifier("restoreRemovedButton")
-                }
+    var body: some View {
+        HStack(spacing: 8) {
+            if canUndo {
                 Button(action: onUndo) {
-                    Label("Undo last draw", systemImage: "arrow.uturn.left")
+                    Label("Undo", systemImage: "arrow.uturn.left")
                 }
                 .buttonStyle(ChipButtonStyle(tint: Theme.textPrimary))
-                .disabled(!canUndo)
+                .accessibilityLabel("Undo last draw")
                 .accessibilityIdentifier("undoLastDrawButton")
-                Spacer(minLength: 0)
             }
+            if showsRestore, removedCount > 0 {
+                Menu {
+                    Button(action: onRestoreAll) {
+                        Label("Restore all \(removedCount)", systemImage: "arrow.uturn.backward.circle")
+                    }
+                    Button(action: onChooseRestore) {
+                        Label("Choose entries\u{2026}", systemImage: "checklist")
+                    }
+                } label: {
+                    Label("Restore \(removedCount)", systemImage: "arrow.uturn.backward.circle")
+                        .font(Theme.rounded(.footnote, weight: .semibold))
+                        .foregroundStyle(Theme.accent)
+                        .padding(.horizontal, 12)
+                        .frame(minHeight: 36)
+                        .background(Capsule().fill(Theme.accent.opacity(0.16)))
+                }
+                .accessibilityLabel("Restore removed, \(removedCount)")
+                .accessibilityIdentifier("restoreRemovedButton")
+            }
+            Spacer(minLength: 0)
         }
     }
 }

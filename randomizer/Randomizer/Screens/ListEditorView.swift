@@ -71,7 +71,7 @@ struct ListEditorView: View {
             } header: {
                 Text("Reveal style")
             } footer: {
-                Text("Only changes how the result is shown. Odds, entries and Remove after selection stay the same.")
+                Text("Only changes how the result is shown. Odds, entries and the Remove setting stay the same.")
             }
             .listRowBackground(Theme.surface)
         }

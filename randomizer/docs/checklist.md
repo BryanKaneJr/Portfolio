@@ -4,9 +4,11 @@ Built in the plan's order: engine and tests first, then lists, a working draw sc
 
 ## Non-negotiable: Remove after selection
 
+Shown as a compact **Remove** switch at the bottom right of the draw screen (owner decision, 2026-10-09).
+
 | Requirement | Where | Test |
 | --- | --- | --- |
-| Visible, interactive toggle on every draw screen, all 4 styles x 3 odds modes | `RemovalToggleFooter` in `DrawView`'s sticky footer | UI `testToggleIsVisibleAndWorksInEveryRevealStyleAndOddsMode` |
+| Visible, interactive toggle on every draw screen, all 4 styles x 3 odds modes | `RemoveToggle` at the bottom right of `DrawView`'s sticky footer | UI `testToggleIsVisibleAndWorksInEveryRevealStyleAndOddsMode` |
 | Visible before a draw, while revealing, on the result | same footer, never hidden by state | same |
 | Visible in presenter (full-screen) mode | `DrawView` presenter mode keeps the footer | UI `testToggleStaysVisibleInPresenterMode` |
 | Also on the draft order reveal | `DraftOrderView` footer | UI `testUniqueDraftOrderNeedsRemovalOn` |
@@ -17,7 +19,7 @@ Built in the plan's order: engine and tests first, then lists, a working draw sc
 | Restore removed (all or chosen) | footer menu, `RestoreRemovedSheet` | Core `testToggle5_...`, UI `testUndoAndRestoreFromTheFooter` |
 | Undo last draw restores only what that draw removed | `undoLastDraw` | Core `testToggle6_...`, `testToggle7_...`, `testUndoDoesNotTouchAnEntryRestoredSinceItsDraw` |
 | Saved per list, default ON, restored on reopen | `DrawList.removeAfterSelection` | Core `testNewListDefaultsToRemovalOn`, `testToggle8_...`; UI `testNewListSurvivesRelaunch` |
-| Unique draft order requires ON, explained, never silently overridden | `draftOrderAvailability` | Core `testToggle11_...`, `testToggle12_...`; UI `testUniqueDraftOrderNeedsRemovalOn` |
+| Unique draft order requires ON; with it OFF, Draft order asks before turning it on (Cancel keeps it off) | `draftOrderAvailability`, the "Turn on Remove?" prompt | Core `testToggle11_...`, `testToggle12_...`; UI `testUniqueDraftOrderNeedsRemovalOn` |
 
 ## Phase 1: engine
 
@@ -39,8 +41,8 @@ Built in the plan's order: engine and tests first, then lists, a working draw sc
 ## Phase 3: draw screen
 
 - [x] Eligible count and odds mode summary, View odds sheet with weights, chances and bars
-- [x] Sticky footer: toggle, Restore removed, Undo last draw, Draw, winners per draw, Draft order
-- [x] Single and multi-winner draws; "Repeats possible" label when OFF
+- [x] Sticky footer: Draw, winners per draw, Draft order and the Remove switch; Undo and Restore chips when they apply
+- [x] Single and multi-winner draws; repeats possible when Remove is off
 - [x] "All entries have been selected" with Restore removed / Start new session, never a dead button
 - [x] History in draw order with time and draw-time chance; edited-session label after undo; New session
 - [x] Share results as text or image

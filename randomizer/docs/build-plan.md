@@ -2,6 +2,8 @@
 > "DrawMode" replaced by the shipping name **Randomizer: Spin & Reveal** (home screen name: Randomizer).
 > Where the implementation made a choice the plan left open, [`checklist.md`](checklist.md) says so.
 >
+> **Owner decision (2026-10-09):** the removal control is a compact switch labeled **Remove** at the bottom right of the draw screen, not the large "Remove after selection" banner this plan describes. It is still on every draw screen and never changes by itself. With Remove off, Draft order asks to turn it on instead of showing a disabled button with an explanation.
+>
 > **Owner decision (2026-10-09):** no disclaimer copy anywhere. Where this plan says the preset is "not official" or the app is "not a regulated lottery", that is guidance on what not to claim, not text to show. Don't add disclaimers to the app, shared results or the store listing.
 
 # Randomizer - Complete iOS Build Plan

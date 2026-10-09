@@ -12,7 +12,7 @@ The full product spec is [`docs/build-plan.md`](docs/build-plan.md). What was bu
 - **Saved lists:** add names one by one or paste up to 200 at once.
 - **Three odds modes:** Equal Odds, custom Weights (0 to 1,000) and a Reverse Standings preset for fantasy drafts (N down to 1). Every entry shows its weight and its live chance.
 - **Four reveal styles** on top of one draw engine. The winner is chosen and saved before the animation starts; every reveal can be skipped and falls back to a fade with Reduce Motion.
-- **Remove after selection** sits in the sticky footer of every draw screen. On: winners leave the pool for the session. Off: repeats are possible. Restore removed and Undo last draw are always one tap away.
+- **Remove** is a small switch at the bottom right of every draw screen. On: winners leave the pool for the session. Off: repeats are possible. Undo and Restore appear as small chips when there's something to undo or restore.
 - **Several winners per tap**, unique or with repeats, revealed one by one.
 - **Unique draft orders** (with removal on), revealed from the last pick to the first or the other way round.
 - **History** with the chance each winner had at the moment of the draw, New session, and sharing as text or an image.
@@ -68,7 +68,7 @@ randomizer/
     App/                     app entry, AppState (saves before every reveal), preferences, UI-test seeds
     Screens/                 Home, list editor, paste, odds, draw, history, draft order, settings
     RevealStyles/            RevealStage + wheel, reel, balls, mystery card
-    Components/              Remove after selection footer, share card
+    Components/              Remove switch, Undo/Restore chips, share card
     Design/                  colors, type, button styles
     Services/                sounds, haptics
     Resources/               asset catalog, sounds, privacy manifest

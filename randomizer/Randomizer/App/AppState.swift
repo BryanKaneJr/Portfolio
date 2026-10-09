@@ -179,7 +179,7 @@ extension DrawError {
         case .countExceedsPool(let available):
             return "Only \(available) can be drawn at once right now."
         case .uniqueOrderRequiresRemoval:
-            return "Turn on Remove after selection to generate a unique draft order."
+            return "Turn on Remove to generate a unique draft order."
         case .notEnoughForOrder:
             return "A draft order needs at least two eligible entries."
         case .internalInvariantFailure:

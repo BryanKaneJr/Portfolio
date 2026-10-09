@@ -14,7 +14,7 @@ struct RevealSession: Equatable {
 }
 
 /// The heart of the app: who's eligible, the reveal, the result, and a
-/// sticky footer with Remove after selection and the Draw button.
+/// sticky footer with the Draw button and the Remove switch.
 struct DrawView: View {
     let listID: UUID
     @Binding var path: [Route]
@@ -29,6 +29,7 @@ struct DrawView: View {
     @State private var showingRestore = false
     @State private var showingLegend = false
     @State private var confirmDraftOrder = false
+    @State private var askToTurnOnRemove = false
     @State private var confirmNewSession = false
     @State private var errorMessage: String?
     @State private var toast: String?
@@ -107,6 +108,15 @@ struct DrawView: View {
             Button("View odds first") { showingOdds = true }
         } message: {
             Text("Everyone eligible gets exactly one pick. Higher weights tend to pick earlier, with no guarantee. The order is saved before any reveal.")
+        }
+        .alert("Turn on Remove?", isPresented: $askToTurnOnRemove) {
+            Button("Cancel", role: .cancel) {}
+            Button("Turn On") {
+                appState.update(listID) { $0.setRemoveAfterSelection(true) }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) { confirmDraftOrder = true }
+            }
+        } message: {
+            Text("A draft order gives everyone exactly one pick, so each pick has to leave the pool.")
         }
         .confirmationDialog("Start a new session?", isPresented: $confirmNewSession, titleVisibility: .visible) {
             Button("New session", role: .destructive, action: startNewSession)
@@ -298,25 +308,33 @@ struct DrawView: View {
     // MARK: Footer
 
     private func controlFooter(_ list: DrawList) -> some View {
-        VStack(spacing: 12) {
-            RemovalToggleFooter(
-                isOn: Binding(
+        let actions = SessionActions(
+            removedCount: list.removedEntries.count,
+            canUndo: list.canUndo,
+            showsRestore: list.eligibleCount > 0,
+            onRestoreAll: restoreAll,
+            onChooseRestore: { showingRestore = true },
+            onUndo: undo
+        )
+        return VStack(spacing: 10) {
+            if !actions.isEmpty {
+                actions
+            }
+            drawControls(list)
+            HStack(spacing: 8) {
+                if isReadyToDraw(list) {
+                    BatchCountControl(count: $batchCount, maximum: list.maxBatchCount)
+                    draftOrderButton(list)
+                }
+                Spacer(minLength: 0)
+                RemoveToggle(isOn: Binding(
                     get: { list.removeAfterSelection },
                     set: { isOn in appState.update(listID) { $0.setRemoveAfterSelection(isOn) } }
-                ),
-                removedCount: list.removedEntries.count,
-                canUndo: list.canUndo,
-                onRestoreAll: restoreAll,
-                onChooseRestore: { showingRestore = true },
-                onUndo: undo
-            )
-            Rectangle()
-                .fill(Theme.stroke)
-                .frame(height: 1)
-            drawControls(list)
+                ))
+            }
         }
         .padding(.horizontal, 16)
-        .padding(.top, 14)
+        .padding(.top, 12)
         .padding(.bottom, 8)
         .background {
             UnevenRoundedRectangle(topLeadingRadius: 26, topTrailingRadius: 26, style: .continuous)
@@ -327,6 +345,12 @@ struct DrawView: View {
                 }
                 .ignoresSafeArea(edges: .bottom)
         }
+    }
+
+    /// The ordinary Draw state (not mid-batch, not out of entries).
+    private func isReadyToDraw(_ list: DrawList) -> Bool {
+        let midBatch = session?.hasMore == true && driver.phase == .landed
+        return !midBatch && list.eligibleCount > 0
     }
 
     @ViewBuilder
@@ -345,52 +369,34 @@ struct DrawView: View {
         } else if list.eligibleCount == 0 {
             exhaustedPanel(list)
         } else {
-            VStack(spacing: 10) {
-                Button {
-                    draw(list)
-                } label: {
-                    Label(batchCount > 1 ? "Draw \(batchCount)" : "Draw", systemImage: "sparkles")
-                }
-                .buttonStyle(PrimaryButtonStyle())
-                .disabled(driver.phase.isAnimating)
-                .accessibilityIdentifier("drawButton")
-
-                HStack(spacing: 8) {
-                    BatchCountControl(count: $batchCount, maximum: list.maxBatchCount)
-                    if !list.removeAfterSelection {
-                        Tag(text: "Repeats possible", systemImage: "repeat", tint: Theme.caution)
-                            .fixedSize()
-                            .accessibilityIdentifier("repeatsPossibleLabel")
-                    }
-                    Spacer(minLength: 0)
-                    if list.removeAfterSelection {
-                        draftOrderButton(list)
-                    }
-                }
-                if !list.removeAfterSelection, let why = list.draftOrderAvailability.explanation {
-                    HStack(spacing: 10) {
-                        draftOrderButton(list)
-                        Text(why)
-                            .font(.caption)
-                            .foregroundStyle(Theme.textSecondary)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .accessibilityIdentifier("draftOrderExplanation")
-                    }
-                }
+            Button {
+                draw(list)
+            } label: {
+                Label(batchCount > 1 ? "Draw \(batchCount)" : "Draw", systemImage: "sparkles")
             }
+            .buttonStyle(PrimaryButtonStyle())
+            .disabled(driver.phase.isAnimating)
+            .accessibilityIdentifier("drawButton")
         }
     }
 
+    /// With Remove off, the order can't be unique; ask before turning it on
+    /// rather than ever flipping it behind the person's back.
     private func draftOrderButton(_ list: DrawList) -> some View {
         Button {
-            confirmDraftOrder = true
+            if list.draftOrderAvailability == .requiresRemoval {
+                askToTurnOnRemove = true
+            } else {
+                confirmDraftOrder = true
+            }
         } label: {
             Label("Draft order", systemImage: "list.number")
                 .lineLimit(1)
                 .fixedSize()
         }
         .buttonStyle(ChipButtonStyle())
-        .disabled(list.draftOrderAvailability != .available || driver.phase.isAnimating)
+        .disabled(list.draftOrderAvailability == .notEnoughEntries || driver.phase.isAnimating)
+        .accessibilityHint(list.removeAfterSelection ? "Gives everyone eligible exactly one pick." : "Needs Remove on.")
         .accessibilityIdentifier("draftOrderButton")
     }
 

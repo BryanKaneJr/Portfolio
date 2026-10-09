@@ -54,7 +54,7 @@ public enum DraftOrderAvailability: Equatable, Sendable {
         case .available:
             return nil
         case .requiresRemoval:
-            return "Turn on Remove after selection to generate a unique draft order."
+            return "Turn on Remove to generate a unique draft order."
         case .notEnoughEntries:
             return "A draft order needs at least two eligible entries."
         }

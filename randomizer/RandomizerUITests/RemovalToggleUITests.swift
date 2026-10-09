@@ -31,7 +31,6 @@ final class RemovalToggleUITests: XCTestCase {
 
                 flip(toggle)
                 XCTAssertEqual(toggle.value as? String, "0", "Toggle operational: \(context)")
-                XCTAssertTrue(app.staticTexts["Repeats possible"].exists, context)
                 app.drawButton.tap()
                 waitForResult(app)
                 XCTAssertEqual(app.eligibleSummary, "7 eligible of 8 entries", "OFF keeps the winner: \(context)")
@@ -62,9 +61,9 @@ final class RemovalToggleUITests: XCTestCase {
         XCTAssertEqual(app.removalToggle.value as? String, "0")
     }
 
-    /// Release blockers 11 and 12: OFF disables the unique order with an
-    /// explanation while normal draws work; ON enables it, and the order
-    /// holds every entry exactly once.
+    /// Release blockers 11 and 12: with Remove off a unique order isn't
+    /// generated and normal draws still work; Remove only turns on by the
+    /// person's own tap, and the order then holds every entry exactly once.
     @MainActor
     func testUniqueDraftOrderNeedsRemovalOn() {
         let app = XCUIApplication.randomizer(seed: "league", style: "mysteryCard", mode: "reverseStandings", removal: "off", open: "draw")
@@ -72,20 +71,23 @@ final class RemovalToggleUITests: XCTestCase {
 
         let draftOrder = app.buttons["draftOrderButton"]
         XCTAssertTrue(draftOrder.waitForExistence(timeout: 10))
-        XCTAssertFalse(draftOrder.isEnabled)
-        XCTAssertTrue(app.staticTexts["Turn on Remove after selection to generate a unique draft order."].exists)
-
         app.drawButton.tap()
         waitForResult(app)
         XCTAssertEqual(app.eligibleSummary, "8 eligible of 8 entries")
-        XCTAssertEqual(app.removalToggle.value as? String, "0", "Never switched on behind your back")
-
-        flip(app.removalToggle)
-        XCTAssertTrue(draftOrder.isEnabled)
-        XCTAssertFalse(app.staticTexts["Turn on Remove after selection to generate a unique draft order."].exists)
 
         draftOrder.tap()
+        let ask = app.alerts["Turn on Remove?"]
+        XCTAssertTrue(ask.waitForExistence(timeout: 5))
+        ask.buttons["Cancel"].tap()
+        XCTAssertTrue(ask.waitForNonExistence(timeout: 5))
+        XCTAssertEqual(app.removalToggle.value as? String, "0", "Never switched on behind your back")
+        XCTAssertFalse(app.buttons["Generate unique order"].exists)
+
+        draftOrder.tap()
+        XCTAssertTrue(ask.waitForExistence(timeout: 5))
+        ask.buttons["Turn On"].tap()
         XCTAssertTrue(app.buttons["Generate unique order"].waitForExistence(timeout: 5))
+        XCTAssertEqual(app.removalToggle.value as? String, "1")
         app.buttons["Generate unique order"].tap()
         XCTAssertTrue(app.buttons["revealNextPickButton"].waitForExistence(timeout: 10))
         XCTAssertTrue(app.removalToggle.exists, "The draft reveal keeps the toggle")

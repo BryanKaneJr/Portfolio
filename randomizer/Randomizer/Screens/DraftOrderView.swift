@@ -36,7 +36,7 @@ struct DraftOrderView: View {
             ContentUnavailableView(
                 "No draft order",
                 systemImage: "list.number",
-                description: Text("Generate one from the draw screen with Remove after selection on. Undoing an order removes it.")
+                description: Text("Generate one from the draw screen with Remove on. Undoing an order removes it.")
             )
             .background(Theme.background.ignoresSafeArea())
         }
@@ -162,24 +162,22 @@ struct DraftOrderView: View {
     }
 
     private func footer(_ list: DrawList, order: [DrawResult]) -> some View {
-        VStack(spacing: 12) {
-            RemovalToggleFooter(
-                isOn: Binding(
-                    get: { list.removeAfterSelection },
-                    set: { isOn in appState.update(listID) { $0.setRemoveAfterSelection(isOn) } }
-                ),
-                removedCount: list.removedEntries.count,
-                canUndo: list.canUndo,
-                onRestoreAll: { appState.update(listID) { $0.restoreAllRemoved() } },
-                onChooseRestore: { showingRestore = true },
-                onUndo: {
-                    driver.reset()
-                    revealingIndex = nil
-                    revealed = 0
-                    appState.update(listID) { $0.undoLastDraw() }
-                }
-            )
-            Rectangle().fill(Theme.stroke).frame(height: 1)
+        let actions = SessionActions(
+            removedCount: list.removedEntries.count,
+            canUndo: list.canUndo,
+            onRestoreAll: { appState.update(listID) { $0.restoreAllRemoved() } },
+            onChooseRestore: { showingRestore = true },
+            onUndo: {
+                driver.reset()
+                revealingIndex = nil
+                revealed = 0
+                appState.update(listID) { $0.undoLastDraw() }
+            }
+        )
+        return VStack(spacing: 10) {
+            if !actions.isEmpty {
+                actions
+            }
             if revealed < order.count {
                 Button {
                     revealNext(list, order: order)
@@ -189,25 +187,37 @@ struct DraftOrderView: View {
                 .buttonStyle(PrimaryButtonStyle())
                 .disabled(driver.phase.isAnimating)
                 .accessibilityIdentifier("revealNextPickButton")
-                Button("Reveal all") {
-                    revealingIndex = order.count - 1
-                    revealed = order.count
-                    driver.showLanded()
-                }
-                .font(Theme.rounded(.footnote, weight: .semibold))
-                .accessibilityIdentifier("revealAllButton")
             } else {
                 Text("All \(order.count) picks revealed")
                     .font(Theme.rounded(.headline, weight: .bold))
+                    .frame(minHeight: 44)
                     .accessibilityIdentifier("allPicksRevealed")
-                Button {
-                    driver.reset()
-                    revealingIndex = nil
-                    revealed = 0
-                } label: {
-                    Label("Replay the reveal", systemImage: "arrow.counterclockwise")
+            }
+            HStack(spacing: 8) {
+                if revealed < order.count {
+                    Button("Reveal all") {
+                        revealingIndex = order.count - 1
+                        revealed = order.count
+                        driver.showLanded()
+                    }
+                    .buttonStyle(ChipButtonStyle())
+                    .accessibilityIdentifier("revealAllButton")
+                } else {
+                    Button {
+                        driver.reset()
+                        revealingIndex = nil
+                        revealed = 0
+                    } label: {
+                        Label("Replay", systemImage: "arrow.counterclockwise")
+                    }
+                    .buttonStyle(ChipButtonStyle())
+                    .accessibilityLabel("Replay the reveal")
                 }
-                .buttonStyle(SecondaryButtonStyle())
+                Spacer(minLength: 0)
+                RemoveToggle(isOn: Binding(
+                    get: { list.removeAfterSelection },
+                    set: { isOn in appState.update(listID) { $0.setRemoveAfterSelection(isOn) } }
+                ))
             }
         }
         .padding(.horizontal, 16)

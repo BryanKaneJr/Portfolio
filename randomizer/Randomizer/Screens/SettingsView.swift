@@ -40,8 +40,8 @@ struct SettingsView: View {
                         "The winner is chosen and saved before any animation plays. Skipping, closing the app or switching styles never changes it."
                     )
                     infoRow(
-                        "Remove after selection",
-                        "On: winners leave the pool for this session. Off: winners stay in and can repeat. Set it per list on the draw screen."
+                        "Remove",
+                        "On: winners leave the pool for this session. Off: winners stay in and can repeat. It's the switch at the bottom right of the draw screen, saved per list."
                     )
                     infoRow(
                         "Weights are relative",

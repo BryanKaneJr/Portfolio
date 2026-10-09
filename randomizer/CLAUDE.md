@@ -12,8 +12,8 @@ Read [`docs/build-plan.md`](docs/build-plan.md) before changing behavior. It is 
 
 - **One draw engine.** Every winner comes from `SelectionEngine` via `DrawList.draw` / `generateDraftOrder`. Reveal views never choose, re-roll or influence a result.
 - **Commit before the show.** `AppState.draw` mutates the list (results, draw-time odds, removal) and saves it before returning; the reveal only animates that outcome. Skipping, switching style mid-reveal or a force quit must never draw again.
-- **Remove after selection is always on the draw screen.** `RemovalToggleFooter` is the one component, used in the sticky footer of `DrawView` (every style, mode, batch, result, presenter mode) and `DraftOrderView`. Never move it into Settings, hide it, or change its value for the person. It affects future draws only.
-- A unique draft order requires the toggle ON; when OFF, the button is disabled with the explanation from `DraftOrderAvailability`, and normal draws stay available.
+- **Remove (Remove after selection) is always on the draw screen**, as a compact "Remove" switch at the bottom right of the sticky footer (owner, 2026-10-09: small, not a big banner). `RemoveToggle` is the one component, used in `DrawView` (every style, mode, batch, result, presenter mode) and `DraftOrderView`. Never move it into Settings, hide it, or change its value for the person. It affects future draws only. Undo and Restore are small chips that appear only when there's something to undo or restore.
+- A unique draft order requires Remove ON. With it OFF, tapping Draft order asks "Turn on Remove?" (Cancel leaves it off; Turn On is the person's explicit choice); normal draws stay available.
 - Identity is the UUID, never the name. Duplicate names are separate participants.
 - History is a snapshot: `DrawResult` keeps the name and the numerator/denominator from the moment of the draw. Edits never rewrite it.
 - Odds shown are the real odds: wheel sectors are proportional to weight; percentages never round a nonzero chance to 0% or a sub-certain one to 100%.

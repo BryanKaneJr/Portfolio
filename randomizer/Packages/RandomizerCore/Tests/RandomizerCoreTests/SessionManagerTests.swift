@@ -134,7 +134,7 @@ final class SessionManagerTests: XCTestCase {
         XCTAssertEqual(list.draftOrderAvailability, .requiresRemoval)
         XCTAssertEqual(
             list.draftOrderAvailability.explanation,
-            "Turn on Remove after selection to generate a unique draft order."
+            "Turn on Remove to generate a unique draft order."
         )
         XCTAssertThrowsError(try list.generateDraftOrder(using: &rng)) {
             XCTAssertEqual($0 as? DrawError, .uniqueOrderRequiresRemoval)
