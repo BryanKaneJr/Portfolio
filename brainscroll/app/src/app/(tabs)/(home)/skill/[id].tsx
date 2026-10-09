@@ -12,6 +12,7 @@ import { useCurrentSkill } from '@/progress/useCurrentSkill';
 import { useStartLevel } from '@/progress/useStartLevel';
 import { color, layout, space, type } from '@/theme/tokens';
 import { QuestTile } from '@/components/QuestTile';
+import { UnlimitedTile } from '@/components/UnlimitedTile';
 import { featuredQuest, useQuests } from '@/progress/useQuests';
 
 /** Completions whose cleared level has already popped on a map, so it pops once, in view. */
@@ -181,6 +182,7 @@ export default function SkillMapScreen() {
               justCleared={justCleared}
               mascot={here}
               aside={here && quest ? <QuestTile quest={quest} /> : undefined}
+              asideRight={here ? <UnlimitedTile /> : undefined}
               teaser={false}
               onCurrent={here ? setStopY : undefined}
               onOpen={startLevel}

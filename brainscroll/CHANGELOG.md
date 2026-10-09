@@ -5,6 +5,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-10-09: First TestFlight fixes
 
+- **An Unlimited tile on the skill map** (owner: "an unlimited box if the user doesn't have unlimited, same design as the quest one"): Unlimited's gold brain over "Unlimited", beside the road opposite the week's quest, for free learners only; a tap opens the Unlimited screen (`paywall_viewed` from `map`). The two tiles now share one design (`MapTile`).
 - **The App Store screenshots are the owner's own**, taken on an iPhone with the TestFlight build: nine at 1320 × 2868, two learning cards third and fourth (the 6.9" size) in `store/app-store-iphone-6.9/`, in upload order, replacing the web-made set (`docs/store-listing.md`).
 - **Lesson screens that fit don't rubber-band** (owner, still seeing the page move while reordering on the first build): with no bounce when a card fits the screen, a drag on an order tile can't move the page even in the instant before the scroll lock lands. Long cards still scroll and bounce at the ends.
 - **Order questions hold the page still** (owner, on the first TestFlight build: "the whole screen scrolls while you're trying to drag things in place"). A tile now drags from anywhere on it, not just its grip, and the lesson stops scrolling the moment a finger is on the list; a tap still picks two tiles to swap. The instruction reads "Slide a tile up or down, or tap two to swap them."

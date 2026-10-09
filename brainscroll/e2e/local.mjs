@@ -273,6 +273,13 @@ try {
   await page.goto(`${URL}skill/skill.science.astronomy`);
   await page.waitForTimeout(1500);
   check((await button(page, 'Start Level 2').count()) > 0 && errors.length === errorsBefore, `a deep link to a skill map opens it without page errors ${errors.slice(errorsBefore).join('; ')}`);
+  // A free learner's map has an Unlimited tile beside the road, opposite the quest's (owner, 2026-10-09).
+  check((await button(page, 'Unlimited: ∞ Brainpower').count()) === 1, 'a free learner sees the Unlimited tile on the skill map');
+  await button(page, 'Unlimited: ∞ Brainpower').click();
+  await page.waitForTimeout(800);
+  check(/\/unlimited/.test(page.url()) && /Keep leveling today\./.test(await bodyText(page)), 'and the tile opens Unlimited');
+  await page.goBack();
+  await page.waitForTimeout(800);
 
   // Leaving a level partway: Dr. Scroll checks first, and the level starts over next time.
   await questMap(page);
@@ -336,6 +343,7 @@ try {
       await page.waitForTimeout(1000);
       check((await page.getByRole('button', { name: 'Unlimited Brainpower. Open' }).count()) === 1, 'with Unlimited, Brainpower is ∞ (beside the streak)');
       await questMap(page);
+      check((await button(page, 'Unlimited: ∞ Brainpower').count()) === 0, 'with Unlimited, the map has no Unlimited tile');
       await button(page, `Start Level ${n}`).click();
     } else {
       await button(page, `Next: Level ${n}`).click();

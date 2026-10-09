@@ -149,7 +149,7 @@ Concept strength runs from 0 to 5. A first attempt that's right adds one step an
 
 ## Pricing (launch hypotheses)
 
-$4.99/month, $39.99/year, one entitlement: `unlimited_learning`. The paywall only appears when Brainpower is used up or when the user explicitly opens it (Profile). **It never interrupts a lesson.** Always say it plainly: *"All knowledge can be unlocked free over time."*
+$4.99/month, $39.99/year, one entitlement: `unlimited_learning`. The paywall only appears when Brainpower is used up or when the user explicitly opens it (Profile, or the Unlimited tile beside a skill map's road for free learners, owner 2026-10-09). **It never interrupts a lesson.** Always say it plainly: *"All knowledge can be unlocked free over time."*
 
 ## Weekly Knowledge Quests (post-MVP)
 
