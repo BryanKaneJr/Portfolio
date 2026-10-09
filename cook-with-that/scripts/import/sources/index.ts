@@ -66,6 +66,28 @@ export const SOURCES: Record<string, SourceDef> = {
         'Food52 recipe by ChefJune (1 whole chicken cut into 10 pieces, 4 shallots, 1 cup red wine vinegar, 1 cup crème fraîche, serves 6)',
       coleslaw:
         'says it\'s "a coleslaw recipe that I got from a chili restaurant in my neighborhood", so it credits an outside original',
+      'easy-chicken-and-rice-casserole': 'contributor joel-maxuel: several pages copied from commercial recipe sites',
+      'egyptian-lentils': 'contributor joel-maxuel: several pages copied from commercial recipe sites',
+      'exotic-ginger-cumin-chicken': 'contributor joel-maxuel: several pages copied from commercial recipe sites',
+      fajitas: 'contributor joel-maxuel: several pages copied from commercial recipe sites',
+      'fall-vegetable-and-chickpea-curry':
+        'contributor joel-maxuel: several pages copied from commercial recipe sites (this one is the Dairy Farmers of Canada / Alberta Milk recipe)',
+      'greek-salad':
+        'contributor joel-maxuel: several pages copied from commercial recipe sites (ingredient wording matches a published Greek salad verbatim: "pitted black olives (preferably brine-cured), coarsely chopped")',
+      'gypsy-soup':
+        "contributor joel-maxuel: several pages copied from commercial recipe sites (this one is Mollie Katzen's Gypsy Soup, Moosewood Cookbook)",
+      'hakka-style-meatballs':
+        'contributor joel-maxuel: several pages copied from commercial recipe sites (this one is a HelloFresh Canada recipe card)',
+      'honey-sriracha-chicken-thighs':
+        "close paraphrase of Crunch Time Kitchen's Honey Sriracha Chicken Thighs (Nick Evans, 2019): same ingredients, cold-skillet method and wording",
+      'hoisin-tofu-and-broccoli':
+        "derived from Omnivore's Cookbook's Tofu and Broccoli (Maggie Zhu, 2020): same quantities, zip-top-bag marinade and sauce, uncredited",
+      'lemon-and-oregano-chicken-traybake':
+        'copy of BBC Good Food\'s Lemon & oregano chicken traybake (same ingredients, timings and "220C/200C fan/gas 7")',
+      erwtensoep:
+        "intro copied from Wikipedia's Erwtensoep article (CC BY-SA); method closely tracks published Dutch pea soup recipes (e.g. Cooksister)",
+      'diannes-southwest-salad':
+        'suspected, not confirmed: named for another cook and written in packaged-mix magazine style; a 2005 Southern Living layered cornbread salad has a near-identical Southwest variation',
     },
     repo: {
       url: 'https://github.com/LukeSmithxyz/based.cooking.git',

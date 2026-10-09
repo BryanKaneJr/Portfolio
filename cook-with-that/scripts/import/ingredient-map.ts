@@ -373,6 +373,26 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   'parsley flakes': '=dried parsley',
   'wood chips': false, // fuel for the grill
 
+  // ── Reviewed by parallel import worker bc2-merge ──
+  'coleslaw mix': { add: 'produce' }, // bagged shredded cabbage and carrot, not plain cabbage
+  'saltine crackers': { add: 'grain' },
+  saltines: '=saltine crackers',
+  'pizza dough': { add: 'grain' },
+  'pork chops': { add: 'protein' },
+  'pork chop': '=pork chops',
+  porkchops: '=pork chops',
+  cornichons: { add: 'pantry' }, // small pickled gherkins, sold in jars
+  gherkins: '=cornichons',
+  baguette: 'bread', // a kind of bread, like sourdough
+  'popcorn kernels': { add: 'grain' }, // unpopped
+  'english muffins': { add: 'grain' },
+  'english muffin': '=english muffins',
+  'canadian bacon': { add: 'protein' }, // cured pork loin; not streaky bacon, not ham
+  'imitation crab': { add: 'protein' }, // surimi; not real crab meat
+  'crab sticks': '=imitation crab',
+  'pinto beans': { add: 'protein' },
+  'chilli powder': 'chili_powder', // UK spelling of the same blend
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,
