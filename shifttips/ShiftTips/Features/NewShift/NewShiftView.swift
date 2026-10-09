@@ -133,7 +133,9 @@ struct NewShiftView: View {
 
     private var exampleBanner: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Banner(.info, "This is an example with made-up people. Try changing the tips, hours or method. Nothing here is added to your crews.")
+            Banner(.info, store.form.mode == .pool
+                ? "This is an example with made-up people. Try changing the tips, hours or method. Nothing here is added to your crews."
+                : "This is an example with made-up people and rules. Try changing the amounts, hours or rules. Nothing here is added to your crews.")
             Button("Clear Example") {
                 focus = nil
                 store.startNewShift()
