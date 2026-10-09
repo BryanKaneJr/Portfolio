@@ -44,6 +44,9 @@ Hard rules (from the plan, still in force):
    metric ("1 lb (450 g)") wins. First launch defaults from the device region (US and territories, Liberia, Myanmar →
    US; everyone else metric). `tests/units.test.ts` fails if any recipe leaves a US unit in metric mode. To fit the gear
    without changing the header height (decision 3's sizing), Favorites became a round ♥ button like it.
+9. **Taglines** (owner, 2026-10-09: "I like the tagline under the recipe name too. Let's keep that going."). Every recipe's
+   `description` is a fresh, concrete one-liner (40–130 chars, no hype, no "!"). Style guide: `docs/recipe-import.md`
+   "Taglines"; `tests/taglines.test.ts` enforces it.
 
 ## Layout
 ```
@@ -56,7 +59,7 @@ src/logic/       matchRecipes (engine), pantry, sortRecipes, normalizeIngredient
                  units (US/metric display)
 src/state/       AppState (context + AsyncStorage persistence), searchState, pickerTarget, favoritesStorage
 scripts/         validate-recipes.ts, coverage-report.ts, import-recipes.ts + import/ (parser, mapper, source readers)
-tests/           135 Jest tests: engine, pantry, staples, content validation, import pipeline, units, offline audit
+tests/           Jest: engine, pantry, staples, content validation, import pipeline, units, taglines, offline audit
 ```
 
 ## Commands

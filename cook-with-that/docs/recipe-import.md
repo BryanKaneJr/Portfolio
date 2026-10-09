@@ -43,7 +43,7 @@ One batch is one commit. Keep batches small (5–15) so each can be reviewed.
   everything else on the fly (`src/logic/units.ts`) and prefers your parenthetical metric figure. If
   `npm run check` reports a US unit left over in metric mode, reword it ("1 cup of the X" is fine) or
   add the ingredient's weight per cup to `GRAMS_PER_CUP`.
-- **Write a description** in the house style: one short, practical sentence.
+- **Write the tagline** (`description`) in the house style; see "Taglines" below.
 - **Tag meals and dish types.** The guesses come from the source's tags and title, so check them.
 - **Set realistic times**, including chilling or resting.
 - **Leave out the source's chatter**: "Enjoy!", anecdotes, links to other pages.
@@ -54,6 +54,28 @@ One batch is one commit. Keep batches small (5–15) so each can be reviewed.
 - **Keep `needs culinary review`** in the source note until someone has cooked or checked it.
 - **Keep the `from(...)` origin unchanged.** It's how we credit the original and find it again.
   `validateContent` rejects a second import of the same original.
+
+## Taglines
+
+The line under each recipe title is part of the product (owner, 2026-10-09: "I like the tagline under the
+recipe name too. Let's keep that going."). Write a fresh one for every recipe; never paste the source's
+intro. `tests/taglines.test.ts` enforces the shape.
+
+- **One concrete sentence**, 40–130 characters: what the dish is, plus the one thing that makes it worth
+  cooking (texture, a technique, speed, an occasion). A short second sentence is fine: "Ready in ten minutes."
+- **Name real things:** ingredients, textures, methods. "Golden chicken bites with garlicky wilted spinach
+  and a shower of Parmesan." beats "A tasty chicken dish."
+- **No hype or filler:** no "!", "delicious", "tasty", "amazing", "perfect" or "this recipe". End with a
+  period. No two recipes share a tagline.
+- **A colon works for foreign or unfamiliar names:** "Italian egg-drop soup: beaten eggs stirred into
+  simmering broth until they set into soft ribbons."
+
+Good ones from the library:
+- "Soft cinnamon apples under a buttery oat crumble."
+- "Crisp, cheesy quesadillas with spiced black beans. A great pantry dinner."
+- "A double-crust apple pie whose cinnamon filling is cooked down first, so it never turns soupy."
+- "Rome's three-ingredient pasta: spaghetti tossed with Pecorino Romano and toasted cracked peppercorns
+  into a creamy sauce."
 
 ## Ingredient mapping and catalog growth
 
