@@ -121,18 +121,19 @@ Use the App Store description above, with two changes:
 
 ## Screenshots
 
-**The iPhone set is made:** `store/app-store-iphone-6.9/`, eight PNGs at 1320 × 2868, taken by the owner on an iPhone with the TestFlight build (2026-10-09). That's the 6.9" display size, which App Store Connect also uses for the smaller iPhones. Upload them in their file order:
+**The iPhone set is made:** `store/app-store-iphone-6.9/`, nine PNGs at 1320 × 2868, taken by the owner on an iPhone with the TestFlight build (2026-10-09). That's the 6.9" display size, which App Store Connect also uses for the smaller iPhones. Upload them in their file order:
 
 1. Home: every subject, and what's up next.
 2. Astronomy's map.
-3. A missed fill-in-the-blank with "Take another look".
-4. Level Complete: a perfect level, its XP and a level up.
-5. Social: the league and this week with friends.
-6. The profile: the subject ring, Knowledge Level and league.
-7. Brainpower used up for the day, with Unlimited and ways to earn more.
-8. The Brainpower sheet.
+3. A learning card: Ancient Greece's five eras as a timeline, with Dr. Scroll's tip.
+4. A missed fill-in-the-blank with "Take another look".
+5. Level Complete: a perfect level, its XP and a level up.
+6. Social: the league and this week with friends.
+7. The profile: the subject ring, Knowledge Level and league.
+8. Brainpower used up for the day, with Unlimited and ways to earn more.
+9. The Brainpower sheet.
 
-The league and the friends in 5 are the screenshot test learners; removing them at launch (`docs/release.md`) doesn't change the uploaded images. A learning card is the one core screen not in the set; take one on the phone (any card with a Key idea) if there's room for a ninth. The web-made set (`SHOT_OUT=store/app-store-iphone-6.9 bash e2e/run.sh store-shots`, 1290 × 2796) can still be made after a design change, but it replaces these.
+The league and the friends in 6 are the screenshot test learners; removing them at launch (`docs/release.md`) doesn't change the uploaded images. The web-made set (`SHOT_OUT=store/app-store-iphone-6.9 bash e2e/run.sh store-shots`, 1290 × 2796) can still be made after a design change, but it replaces these.
 
 Google Play wants a phone set too (for example 1080 × 2160: `SHOT_W=360 SHOT_H=720` with `npm run screens`), once there's an Android build. No captions, so there's nothing to keep honest beyond the app itself.
 
