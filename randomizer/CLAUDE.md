@@ -5,7 +5,7 @@ Read [`docs/build-plan.md`](docs/build-plan.md) before changing behavior. It is 
 ## Commands
 
 - `cd Packages/RandomizerCore && swift test`: the draw engine, odds, session rules and storage. Runs on macOS and Linux. Run it before every commit that touches the package.
-- In Xcode, open `Randomizer.xcodeproj`, scheme **Randomizer**, Cmd+U: the package tests plus the UI tests on a simulator.
+- In Xcode, open `Randomizer.xcodeproj`: scheme **Randomizer** + Cmd+U runs the UI tests on a simulator; scheme **RandomizerCore** + Cmd+U runs the package tests.
 - CI (`.github/workflows/randomizer.yml`) runs both, and uploads `randomizer-screens` (PNG screenshots from `ScreenshotTourUITests`) and `randomizer-logs`.
 
 ## Invariants

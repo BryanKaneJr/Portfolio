@@ -11,7 +11,7 @@ struct ReelRevealView: View {
 
     var body: some View {
         let items = Self.items(pool: pool, winnerID: winnerID, token: token)
-        let restIndex = winnerID == nil ? Double(min(items.count - 1, 2)) : Double(items.count - 1)
+        let restIndex = winnerID == nil ? Double(min(items.count - 1, 2)) : Double(RevealTiming.reelItemCount - 1)
         TimelineView(.animation(minimumInterval: nil, paused: !phase.isAnimating)) { timeline in
             let t = phase.progress(at: timeline.date)
             let position = phase.isAnimating ? restIndex * Easing.out(t, power: RevealTiming.reelPower) : restIndex
@@ -63,29 +63,41 @@ struct ReelRevealView: View {
         }
     }
 
-    /// Filler names in a cosmetic order, ending on the winner. Idle, it's
-    /// just the pool.
+    /// Filler names in a cosmetic order with the winner at index
+    /// `reelItemCount - 1` and a few names after it, so the window always
+    /// has neighbours. Idle, it's just the pool.
     static func items(pool: [PoolMember], winnerID: UUID?, token: UUID) -> [PoolMember] {
         guard !pool.isEmpty else { return [] }
         guard let winnerID, let winner = pool.first(where: { $0.id == winnerID }) else {
             return Array(pool.prefix(7))
         }
+        let total = RevealTiming.reelItemCount + trailing
         guard pool.count > 1 else {
-            return Array(repeating: winner, count: RevealTiming.reelItemCount)
+            return Array(repeating: winner, count: total)
         }
+        let winnerIndex = RevealTiming.reelItemCount - 1
         var random = CosmeticRandom(token)
         var items: [PoolMember] = []
-        items.reserveCapacity(RevealTiming.reelItemCount)
-        while items.count < RevealTiming.reelItemCount - 1 {
-            let candidate = pool[Int(random.next() % UInt64(pool.count))]
-            // Avoid the same name twice in a row and a decoy right before the winner.
-            if candidate.id == items.last?.id { continue }
-            if items.count == RevealTiming.reelItemCount - 2, candidate.id == winner.id { continue }
-            items.append(candidate)
+        items.reserveCapacity(total)
+        while items.count < total {
+            if items.count == winnerIndex {
+                items.append(winner)
+                continue
+            }
+            // No name twice in a row, and no decoy of the winner right
+            // beside it; relax rather than loop when the pool is tiny.
+            var options = pool.filter { $0.id != items.last?.id }
+            if abs(items.count - winnerIndex) == 1 {
+                let withoutWinner = options.filter { $0.id != winner.id }
+                if !withoutWinner.isEmpty { options = withoutWinner }
+            }
+            if options.isEmpty { options = pool }
+            items.append(options[Int(random.next() % UInt64(options.count))])
         }
-        items.append(winner)
         return items
     }
+
+    private static let trailing = 3
 }
 
 private struct ReelArrow: View {

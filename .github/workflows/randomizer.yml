@@ -45,6 +45,12 @@ jobs:
           print(runtime, device["name"], file=sys.stderr)
           ')
           echo "SIM_UDID=$UDID" >> "$GITHUB_ENV"
+          # Boot now so the first UI test doesn't race a cold simulator.
+          xcrun simctl boot "$UDID" || true
+          xcrun simctl bootstatus "$UDID" -b
+      - name: Draw engine tests (macOS)
+        working-directory: randomizer/Packages/RandomizerCore
+        run: swift test 2>&1 | grep -E "error|failed|Executed .* tests" | tail -20; exit ${PIPESTATUS[0]}
       - name: Build for testing
         run: |
           xcodebuild build-for-testing \

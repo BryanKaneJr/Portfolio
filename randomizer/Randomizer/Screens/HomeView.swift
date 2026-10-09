@@ -265,6 +265,12 @@ struct ListCard: View {
                     .font(.footnote)
                     .foregroundStyle(Theme.textSecondary)
                     .lineLimit(1)
+                if let used = list.lastUsedAt {
+                    Text("Used \(used.formatted(.relative(presentation: .named)))")
+                        .font(.caption)
+                        .foregroundStyle(Theme.textTertiary)
+                        .lineLimit(1)
+                }
                 if list.hasActiveSession {
                     Text(sessionLine)
                         .font(.caption)
@@ -283,11 +289,7 @@ struct ListCard: View {
     }
 
     private var detail: String {
-        var parts = ["\(list.entries.count) \(list.entries.count == 1 ? "entry" : "entries")", list.revealStyle.title]
-        if let used = list.lastUsedAt {
-            parts.append("Used \(used.formatted(.relative(presentation: .named)))")
-        }
-        return parts.joined(separator: " · ")
+        "\(list.entries.count) \(list.entries.count == 1 ? "entry" : "entries") · \(list.revealStyle.title)"
     }
 
     private var sessionLine: String {

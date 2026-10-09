@@ -155,12 +155,7 @@ private struct HistoryRow: View {
                 Text(result.nameSnapshot)
                     .font(Theme.rounded(.body, weight: .semibold))
                     .foregroundStyle(Theme.textPrimary)
-                HStack(spacing: 6) {
-                    Text(result.drawnAt.formatted(date: .omitted, time: .standard))
-                    if showOdds {
-                        Text("\u{00B7} \(result.chanceText) chance (\(result.numeratorWeight) of \(result.totalEligibleWeight))")
-                    }
-                }
+                Text(detailLine)
                 .font(.caption.monospacedDigit())
                 .foregroundStyle(Theme.textSecondary)
             }
@@ -171,5 +166,11 @@ private struct HistoryRow: View {
         }
         .accessibilityElement(children: .combine)
         .accessibilityIdentifier("historyRow")
+    }
+
+    private var detailLine: String {
+        let time = result.drawnAt.formatted(date: .omitted, time: .standard)
+        guard showOdds else { return time }
+        return "\(time) \u{00B7} \(result.chanceText) chance (weight \(result.numeratorWeight) of \(result.totalEligibleWeight))"
     }
 }

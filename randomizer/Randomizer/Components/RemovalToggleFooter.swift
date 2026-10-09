@@ -68,6 +68,7 @@ struct BatchCountControl: View {
     var body: some View {
         HStack(spacing: 2) {
             Text("Winners")
+                .lineLimit(1)
                 .font(.caption.weight(.semibold))
                 .foregroundStyle(Theme.textSecondary)
                 .padding(.leading, 10)
@@ -99,6 +100,7 @@ struct BatchCountControl: View {
         .font(.subheadline.weight(.bold))
         .foregroundStyle(Theme.textPrimary)
         .background(Capsule().fill(Theme.surfaceRaised))
+        .fixedSize()
     }
 }
 

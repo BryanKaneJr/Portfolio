@@ -110,7 +110,7 @@ struct ListEditorView: View {
             Text("Past results keep the names they were drawn with.")
         }
         .onAppear {
-            titleDraft = list.title
+            titleDraft = list.title == AppState.newListTitle ? "" : list.title
             if list.entries.isEmpty { focus = .newEntry }
         }
         .onDisappear {
@@ -271,11 +271,8 @@ struct ListEditorView: View {
     }
 
     private func commitTitle() {
-        guard let list = appState.list(listID) else { return }
-        if NameRules.cleanTitle(titleDraft) == nil {
-            titleDraft = list.title
-            return
-        }
+        guard appState.list(listID) != nil else { return }
+        guard NameRules.cleanTitle(titleDraft) != nil else { return }
         try? appState.update(listID) { try $0.rename(to: titleDraft) }
     }
 }

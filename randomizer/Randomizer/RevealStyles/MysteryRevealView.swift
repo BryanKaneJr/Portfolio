@@ -104,31 +104,29 @@ private struct CardFront: View {
     let member: PoolMember?
 
     var body: some View {
-        RoundedRectangle(cornerRadius: 26, style: .continuous)
-            .fill(Theme.surfaceRaised)
-            .overlay(alignment: .top) {
-                UnevenRoundedRectangle(topLeadingRadius: 26, topTrailingRadius: 26, style: .continuous)
-                    .fill(Theme.paletteColor(member?.listIndex ?? 0))
-                    .frame(height: 18)
+        ZStack(alignment: .top) {
+            Theme.surfaceRaised
+            Theme.paletteColor(member?.listIndex ?? 0)
+                .frame(height: 16)
+            VStack(spacing: 10) {
+                Image(systemName: "sparkles")
+                    .font(.title)
+                    .foregroundStyle(Theme.caution)
+                Text(member?.name ?? "")
+                    .font(.system(size: 36, weight: .heavy, design: .rounded))
+                    .foregroundStyle(Theme.textPrimary)
+                    .multilineTextAlignment(.center)
+                    .lineLimit(3)
+                    .minimumScaleFactor(0.35)
+                    .padding(.horizontal, 18)
             }
-            .overlay {
-                VStack(spacing: 10) {
-                    Image(systemName: "sparkles")
-                        .font(.title)
-                        .foregroundStyle(Theme.caution)
-                    Text(member?.name ?? "")
-                        .font(.system(size: 36, weight: .heavy, design: .rounded))
-                        .foregroundStyle(Theme.textPrimary)
-                        .multilineTextAlignment(.center)
-                        .lineLimit(3)
-                        .minimumScaleFactor(0.35)
-                        .padding(.horizontal, 18)
-                }
-            }
-            .overlay {
-                RoundedRectangle(cornerRadius: 26, style: .continuous)
-                    .strokeBorder(Theme.accent, lineWidth: 3)
-            }
-            .shadow(color: Theme.accent.opacity(0.45), radius: 24, y: 10)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        .clipShape(RoundedRectangle(cornerRadius: 26, style: .continuous))
+        .overlay {
+            RoundedRectangle(cornerRadius: 26, style: .continuous)
+                .strokeBorder(Theme.accent, lineWidth: 3)
+        }
+        .shadow(color: Theme.accent.opacity(0.45), radius: 24, y: 10)
     }
 }

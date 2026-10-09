@@ -359,27 +359,39 @@ struct DrawView: View {
                     BatchCountControl(count: $batchCount, maximum: list.maxBatchCount)
                     if !list.removeAfterSelection {
                         Tag(text: "Repeats possible", systemImage: "repeat", tint: Theme.caution)
+                            .fixedSize()
                             .accessibilityIdentifier("repeatsPossibleLabel")
                     }
                     Spacer(minLength: 0)
-                    Button {
-                        confirmDraftOrder = true
-                    } label: {
-                        Label("Draft order", systemImage: "list.number")
+                    if list.removeAfterSelection {
+                        draftOrderButton(list)
                     }
-                    .buttonStyle(ChipButtonStyle())
-                    .disabled(list.draftOrderAvailability != .available || driver.phase.isAnimating)
-                    .accessibilityIdentifier("draftOrderButton")
                 }
-                if list.draftOrderAvailability == .requiresRemoval, let why = list.draftOrderAvailability.explanation {
-                    Text(why)
-                        .font(.caption)
-                        .foregroundStyle(Theme.textSecondary)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .accessibilityIdentifier("draftOrderExplanation")
+                if !list.removeAfterSelection, let why = list.draftOrderAvailability.explanation {
+                    HStack(spacing: 10) {
+                        draftOrderButton(list)
+                        Text(why)
+                            .font(.caption)
+                            .foregroundStyle(Theme.textSecondary)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .accessibilityIdentifier("draftOrderExplanation")
+                    }
                 }
             }
         }
+    }
+
+    private func draftOrderButton(_ list: DrawList) -> some View {
+        Button {
+            confirmDraftOrder = true
+        } label: {
+            Label("Draft order", systemImage: "list.number")
+                .lineLimit(1)
+                .fixedSize()
+        }
+        .buttonStyle(ChipButtonStyle())
+        .disabled(list.draftOrderAvailability != .available || driver.phase.isAnimating)
+        .accessibilityIdentifier("draftOrderButton")
     }
 
     @ViewBuilder

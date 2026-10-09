@@ -36,6 +36,14 @@ extension XCUIApplication {
     func goBack() {
         navigationBars.buttons.element(boundBy: 0).tap()
     }
+
+    /// Opens the draw screen's toolbar menu. iOS 26 groups toolbar items in
+    /// a way XCUITest can't scroll to, so tap its centre directly.
+    func openDrawMenu() {
+        let menu = buttons["drawMenu"]
+        XCTAssertTrue(menu.waitForExistence(timeout: 10))
+        menu.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+    }
 }
 
 @MainActor

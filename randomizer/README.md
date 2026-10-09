@@ -34,8 +34,8 @@ The app stores its lists in `Application Support/Randomizer/randomizer_store_v1.
 
 | What | How | Covers |
 | --- | --- | --- |
-| Draw engine, odds, session rules, storage | `cd Packages/RandomizerCore && swift test` (macOS or Linux), or Cmd+U in Xcode | Every probability, toggle and persistence acceptance test in the build plan, plus a 120,000-draw frequency check |
-| UI tests | Cmd+U in Xcode on an iPhone simulator | The toggle in all 4 styles x 3 odds modes and presenter mode, draft order rules, undo/restore, double taps, empty pool, first run, relaunch persistence, paste |
+| Draw engine, odds, session rules, storage | `cd Packages/RandomizerCore && swift test` (macOS or Linux), or pick the **RandomizerCore** scheme in Xcode and press Cmd+U | Every probability, toggle and persistence acceptance test in the build plan, plus a 120,000-draw frequency check |
+| UI tests | **Randomizer** scheme, Cmd+U on an iPhone simulator | The toggle in all 4 styles x 3 odds modes and presenter mode, draft order rules, undo/restore, double taps, empty pool, first run, relaunch persistence, paste |
 | Screenshot tour | `ScreenshotTourUITests` (part of Cmd+U) | Saves every main screen as an attachment; with `SCREENSHOT_DIR` set, also as PNGs |
 
 From the command line:
@@ -48,7 +48,7 @@ xcodebuild test -project Randomizer.xcodeproj -scheme Randomizer \
 
 To save screenshots as files, prefix the command with `TEST_RUNNER_SCREENSHOT_DIR="$PWD/screens"` (the folder must exist). Use a Pro Max simulator for full-size App Store images.
 
-CI (`.github/workflows/randomizer.yml`) runs the engine tests on Linux, then builds the app and runs every test on an iOS simulator. Each run uploads the screenshots as the `randomizer-screens` artifact.
+CI (`.github/workflows/randomizer.yml`) runs the engine tests on Linux and macOS, then builds the app and runs the UI tests on an iOS simulator. Each run uploads the screenshots as the `randomizer-screens` artifact.
 
 ### Testing by hand on a simulator
 

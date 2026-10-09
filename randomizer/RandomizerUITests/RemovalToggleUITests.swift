@@ -45,8 +45,8 @@ final class RemovalToggleUITests: XCTestCase {
     func testToggleStaysVisibleInPresenterMode() {
         let app = XCUIApplication.randomizer(seed: "league", style: "wheel", mode: "equal", open: "draw")
         app.launch()
-        XCTAssertTrue(app.buttons["drawMenu"].waitForExistence(timeout: 10))
-        app.buttons["drawMenu"].tap()
+        app.openDrawMenu()
+        XCTAssertTrue(app.buttons["Presenter mode"].waitForExistence(timeout: 5))
         app.buttons["Presenter mode"].tap()
         XCTAssertTrue(app.buttons["exitPresenterButton"].waitForExistence(timeout: 5))
         XCTAssertTrue(app.removalToggle.isHittable)
@@ -85,6 +85,7 @@ final class RemovalToggleUITests: XCTestCase {
         XCTAssertFalse(app.staticTexts["Turn on Remove after selection to generate a unique draft order."].exists)
 
         draftOrder.tap()
+        XCTAssertTrue(app.buttons["Generate unique order"].waitForExistence(timeout: 5))
         app.buttons["Generate unique order"].tap()
         XCTAssertTrue(app.buttons["revealNextPickButton"].waitForExistence(timeout: 10))
         XCTAssertTrue(app.removalToggle.exists, "The draft reveal keeps the toggle")
@@ -127,6 +128,7 @@ final class RemovalToggleUITests: XCTestCase {
         waitForResult(app)
         XCTAssertEqual(app.eligibleSummary, "6 eligible of 8 entries")
         app.buttons["restoreRemovedButton"].tap()
+        XCTAssertTrue(app.buttons["Restore all 2"].waitForExistence(timeout: 5))
         app.buttons["Restore all 2"].tap()
         XCTAssertEqual(app.eligibleSummary, "8 eligible of 8 entries")
 
@@ -147,7 +149,7 @@ final class RemovalToggleUITests: XCTestCase {
         app.drawButton.doubleTap()
         waitForResult(app)
         XCTAssertEqual(app.eligibleSummary, "7 eligible of 8 entries")
-        app.buttons["historyButton"].tap()
+        app.buttons["historyButton"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
         let rows = app.descendants(matching: .any).matching(identifier: "historyRow")
         XCTAssertTrue(rows.firstMatch.waitForExistence(timeout: 5))
         XCTAssertEqual(rows.count, 1)
