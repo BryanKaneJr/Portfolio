@@ -121,6 +121,7 @@ iPhone first, in this order:
    - give the Weekly Quests their dates (`content/quests.json`, one Monday each) and import;
    - mark the skills and subjects `published` in `content/` (they're still `draft`; nothing in the app reads it, but an import without `--publish-drafts` copies it);
    - move Supabase to Pro (free projects pause after a quiet week);
+   - remove the ten screenshot test learners (stargazer_ana and the rest, added 2026-10-09 to fill @bryan's league, friends and feed; they can't sign in). In the Supabase SQL editor: `delete from auth.users where raw_app_meta_data ->> 'brainscroll_test' = 'true';` takes everything of theirs with them;
    - decide how reviewers see Unlimited ([App review sign-in](#app-review-sign-in)), then turn sandbox purchases off once approved;
    - answer App Privacy and the age rating from [`store-privacy.md`](store-privacy.md), and submit.
 
