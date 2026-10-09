@@ -40,8 +40,9 @@ const tabStyles = StyleSheet.create({
   box: { ...TAB_BOX, borderRadius: radius.md, alignItems: 'center', justifyContent: 'center', borderWidth: depth.border, borderColor: 'transparent' },
   active: { backgroundColor: color.brandSoft, borderColor: color.brandLine },
   art: { width: 40, height: 40 },
-  // Dimmed, not grey: the art keeps its colour, just quieter than the active tab.
-  dim: { opacity: 0.5 },
+  // Dimmed, not grey: the art keeps its colour, just quieter than the active tab
+  // (0.65: at 0.5 the darker icons went muddy on the dark bar; owner, 2026-10-09).
+  dim: { opacity: 0.65 },
 });
 
 /**
