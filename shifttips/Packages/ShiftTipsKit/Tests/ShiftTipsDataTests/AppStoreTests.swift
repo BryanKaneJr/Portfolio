@@ -101,6 +101,22 @@ import ShiftTipsCore
         #expect(store.form.day == CalendarDay(year: 2026, month: 10, day: 8))
     }
 
+    @Test func aNewDayMovesAnUntouchedShiftButNotATypedOne() {
+        let storage = MemoryStorage()
+        let yesterday = CalendarDay(year: 2026, month: 10, day: 7)
+        storage.form = ShiftForm(day: yesterday, method: .equal)
+        let store = makeStore(storage)
+        store.refreshForToday()
+        #expect(store.form.day == CalendarDay(year: 2026, month: 10, day: 8))
+
+        var typed = ShiftForm(day: yesterday, method: .equal)
+        typed.tipsText = "10"
+        storage.form = typed
+        let other = makeStore(storage)
+        other.refreshForToday()
+        #expect(other.form.day == yesterday)
+    }
+
     @Test func formSurvivesARelaunch() {
         let storage = MemoryStorage()
         let store = makeStore(storage)

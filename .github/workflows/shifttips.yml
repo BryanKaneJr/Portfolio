@@ -1,0 +1,74 @@
+name: ShiftTips
+
+on:
+  push:
+    paths: ['shifttips/**', '.github/workflows/shifttips.yml']
+  pull_request:
+    paths: ['shifttips/**', '.github/workflows/shifttips.yml']
+
+defaults:
+  run:
+    working-directory: shifttips
+
+jobs:
+  engine:
+    name: Engine tests (Linux)
+    runs-on: ubuntu-latest
+    container: swift:6.2
+    steps:
+      - uses: actions/checkout@v4
+      - name: No em dashes in ShiftTips copy
+        run: |
+          if grep -rn --include='*.swift' --include='*.md' $'\xe2\x80\x94' . ; then
+            echo "Rewrite these without em dashes." && exit 1
+          fi
+      - name: ShiftTipsKit tests
+        run: swift test --package-path Packages/ShiftTipsKit
+
+  ios:
+    name: iOS build and tests
+    runs-on: macos-15
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Xcode version
+        run: xcodebuild -version
+      - name: ShiftTipsKit tests (macOS)
+        run: swift test --package-path Packages/ShiftTipsKit
+      - name: Pick an iPhone simulator
+        id: sim
+        run: |
+          UDID=$(xcrun simctl list devices available -j | python3 -c '
+          import json, re, sys
+          best = None
+          for runtime, devices in json.load(sys.stdin)["devices"].items():
+              m = re.search(r"iOS-(\d+)-(\d+)", runtime)
+              if not m:
+                  continue
+              version = (int(m.group(1)), int(m.group(2)))
+              for d in devices:
+                  if d.get("isAvailable") and d["name"].startswith("iPhone"):
+                      if best is None or version > best[0]:
+                          best = (version, d["udid"], d["name"])
+          print(best[1])
+          ')
+          echo "udid=$UDID" >> "$GITHUB_OUTPUT"
+          xcrun simctl list devices | grep "$UDID"
+      - name: Build, unit tests and UI tests
+        run: |
+          set -o pipefail
+          xcodebuild test \
+            -project ShiftTips.xcodeproj \
+            -scheme ShiftTips \
+            -destination "id=${{ steps.sim.outputs.udid }}" \
+            -resultBundlePath build/ShiftTips.xcresult \
+            -parallel-testing-enabled NO \
+            CODE_SIGNING_ALLOWED=NO \
+            -quiet
+      - name: Upload test results and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ShiftTips-test-results
+          path: shifttips/build/ShiftTips.xcresult
+          if-no-files-found: ignore

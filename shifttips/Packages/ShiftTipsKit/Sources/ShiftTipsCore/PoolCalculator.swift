@@ -84,6 +84,17 @@ public struct SplitResult: Codable, Hashable, Sendable {
     public var rows: [(participant: ShiftParticipant, allocation: Allocation)] {
         zip(draft.participants, allocations).map { ($0, $1) }
     }
+
+    /// The same pairs as `rows`, as an identifiable type for lists.
+    public var entries: [Entry] {
+        zip(draft.participants, allocations).map { Entry(participant: $0, allocation: $1) }
+    }
+
+    public struct Entry: Hashable, Identifiable, Sendable {
+        public let participant: ShiftParticipant
+        public let allocation: Allocation
+        public var id: UUID { participant.id }
+    }
 }
 
 /// Something that stops a split or needs a second look.

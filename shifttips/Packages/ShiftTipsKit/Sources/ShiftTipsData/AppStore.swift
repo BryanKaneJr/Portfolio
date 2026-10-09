@@ -150,6 +150,17 @@ public final class AppStore {
         lastReviewedDraft = nil
     }
 
+    /// When the app comes back on a later day: a shift with nothing typed
+    /// moves to today, and an already saved one makes way for a new shift.
+    public func refreshForToday() {
+        guard form.day != today else { return }
+        if isFormSaved {
+            startNewShift()
+        } else if !form.hasEnteredValues {
+            form.day = today
+        }
+    }
+
     public func loadExample() {
         form = ShiftForm.example(day: today, method: form.method)
         lastReviewedDraft = nil
