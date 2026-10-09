@@ -1,6 +1,6 @@
 import { router } from 'expo-router';
 import { BrainpowerIcon } from '@/components/BrainpowerIcon';
-import { MapTile } from '@/components/MapTile';
+import { MAP_TILE_ART, MapTile } from '@/components/MapTile';
 import { useProgress } from '@/progress/ProgressProvider';
 
 /**
@@ -14,7 +14,7 @@ export function UnlimitedTile() {
   if (account?.status !== 'signed_in' || entitlement.active) return null;
   return (
     <MapTile
-      art={<BrainpowerIcon size={60} state="unlimited" />}
+      art={<BrainpowerIcon size={MAP_TILE_ART} state="unlimited" />}
       band="Unlimited"
       label="Unlimited: ∞ Brainpower for new levels. Opens Unlimited."
       onPress={() => router.push({ pathname: '/unlimited', params: { from: 'map' } })}

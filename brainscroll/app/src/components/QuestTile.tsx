@@ -1,7 +1,7 @@
 import type { QuestView } from '@brainscroll/core';
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { MapTile } from '@/components/MapTile';
+import { MAP_TILE_ART, MapTile } from '@/components/MapTile';
 import { LevelArt } from '@/components/ui';
 import { questDef } from '@/progress/useQuests';
 
@@ -33,7 +33,7 @@ export function QuestTile({ quest }: { quest: QuestView }) {
   const band = done ? 'Done' : `${days} ${days === 1 ? 'day' : 'days'}`;
   return (
     <MapTile
-      art={<LevelArt art={def.art} size={60} />}
+      art={<LevelArt art={def.art} size={MAP_TILE_ART} />}
       band={band}
       done={done}
       label={`This week's quest: ${def.title}. ${done ? 'Finished.' : `${band} left in its week.`} Open the quest.`}

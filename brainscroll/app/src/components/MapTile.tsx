@@ -7,6 +7,9 @@ import { color, depth, fw, radius, space } from '@/theme/tokens';
  * over a coloured band. They stack down the left of the road (UnlimitedTile,
  * then the week's QuestTile), so they share this one design.
  */
+/** The picture's size in a tile (owner, 2026-10-09: "a slight hair smaller"). */
+export const MAP_TILE_ART = 52;
+
 export function MapTile({ art, band, done, label, onPress }: { art: ReactNode; band: string; done?: boolean; label: string; onPress: () => void }) {
   return (
     <Pressable
@@ -26,7 +29,7 @@ export function MapTile({ art, band, done, label, onPress }: { art: ReactNode; b
 
 const styles = StyleSheet.create({
   tile: {
-    width: 84,
+    width: 76,
     borderRadius: radius.md,
     backgroundColor: color.surfaceRaised,
     borderWidth: depth.border,
@@ -39,5 +42,5 @@ const styles = StyleSheet.create({
   art: { alignItems: 'center', paddingTop: space.sm, paddingBottom: space.xs },
   band: { backgroundColor: color.brand, paddingVertical: space.xxs, alignItems: 'center' },
   doneBand: { backgroundColor: color.success },
-  label: { ...fw('800'), fontSize: 14, color: color.onBrand },
+  label: { ...fw('800'), fontSize: 13, color: color.onBrand },
 });
