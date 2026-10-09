@@ -12,8 +12,11 @@
 
 ## How it was mapped
 - pork → sausage / bacon; beef → ground beef; cheese → cheddar; chiles → jalapeño; turkey → ground turkey.
-- Ingredients not in the catalog yet (orange, corn, almonds, mayonnaise, lamb, beets, fennel) are skipped. Add them to
-  the catalog and ranking when recipes use them.
+- Ingredients not in the catalog yet (almonds, mayonnaise, lamb, beets, fennel) are skipped. Add them to
+  the catalog and ranking when recipes use them. Corn and orange joined with imported recipes (2026-10-09); they sit
+  at the top of the second tier and next to lemon, below the 11 inline suggestions, so the home screen is unchanged.
+- Other ingredients added for imported recipes (nutmeg, bay leaf, yeast…) aren't ranked: they're reachable through
+  search and More options, grouped by category, which is where pantry and spice items belong.
 - Salt, pepper and water are never suggested, because choosing them as a "Use" ingredient narrows nothing.
 - Assumed kitchen staples (butter, olive oil, flour, sugar…) are filtered out at display time. They only appear when
   the user turns staples off.

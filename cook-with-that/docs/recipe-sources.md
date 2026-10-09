@@ -9,7 +9,7 @@ This is research, not legal advice: get a lawyer's read before launch if anythin
 
 | # | Source | License | Size | Effort | Risk | Verdict |
 |---|---|---|---|---|---|---|
-| 1 | [Based Cooking](#1-based-cooking) | Unlicense (public domain dedication) | 440 recipes | Medium: an editorial pass on each recipe, plus catalog growth | Low | **Use now.** Pipeline built; 9 imported |
+| 1 | [Based Cooking](#1-based-cooking) | Unlicense (public domain dedication) | 440 recipes | Medium: an editorial pass on each recipe, plus ingredient review | Low | **Use now.** Pipeline built; 28 imported |
 | 2 | [US federal recipes](#2-us-federal-recipes): VA, NHLBI, then MyPlate Kitchen (archived) | Public domain unless a recipe credits an outside source | VA ~275, NHLBI ~200–250, MyPlate ~150–320 federal-written | Medium: PDF/HTML readers, plus a check of each recipe's credit line | Low for federal-authored recipes | **Use next, recipe by recipe.** Modern US recipes, the best fit after Based Cooking |
 | 3 | [HowToCook](#3-howtocook) | Unlicense; contributors certify their recipes as public domain | 372 recipes (Chinese) | High: translation, plus Chinese pantry ingredients | Low; exclude the 64 that cite references | Later, for a Chinese home-cooking set |
 | 4 | [Project Gutenberg cookbooks](#4-project-gutenberg-cookbooks) | Public domain in the US (published before 1931) | Thousands | High: archaic measures, no oven temperatures | Low in the US; check other countries | Ideas plus text to adapt; strip all Project Gutenberg branding |
@@ -17,9 +17,10 @@ This is research, not legal advice: get a lawyer's read before launch if anythin
 | 6 | [fossrecipes](#6-small-cc0-sets) | CC0 1.0 | 21 recipes | Low | Low | Optional quick add |
 | ✗ | [Not usable](#not-usable) | TheMealDB, scraped datasets, NC-licensed books, Cookpad, Food Hero and other non-federal "government" recipe sites | | | | **Don't use** (Food Hero only with written permission) |
 
-**Coverage reality check.** The current catalog has only 89 ingredients. Today only 22 of Based
-Cooking's 440 recipes map to it in full; the other 406 each need at least one ingredient we don't carry.
-The import report's greedy list shows how adding ingredients unlocks recipes:
+**Coverage reality check.** When this review started, the catalog had 89 ingredients, and only 22 of
+Based Cooking's 440 recipes mapped to it in full. Since 2026-10-09 the catalog grows as imported recipes
+need it (owner rule), so the limit is now reviewing each recipe's ingredient wording. This greedy list,
+from the first review, showed how adding ingredients unlocks recipes:
 
 | Catalog ingredients added | 10 | 25 | 50 | 100 | 150 | 200 |
 |---|---|---|---|---|---|---|
@@ -84,9 +85,10 @@ publicdomainrecipes.com and foss.cooking are near-identical copies that add one 
   The 11 "Miss Leslie" recipes are transcribed from Eliza Leslie's 1832/1857 books (public domain).
 - **Don't bundle `data/authors/`**: it holds email and donation addresses. The importer reads only the
   display name.
-- **Status:** pinned at commit `9d4a31a0`. 9 recipes imported (Spanish tortilla, menemen, Irish potato
-  casserole, cheesy pasta bake, banana pancakes, blueberry muffins, Southern biscuits, hamburger
-  patties, brown butter cinnamon sugar biscuits), and 13 more map in full today.
+- **Status:** pinned at commit `9d4a31a0`. 28 recipes imported in two batches; see
+  `docs/import-reports/based-cooking.md` for what's ready and what waits on ingredient review.
+  spatchcock-chicken was skipped: its wording reads like magazine copy, and a web search found no
+  other source but couldn't rule one out either.
 
 ## 2. US federal recipes
 

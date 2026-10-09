@@ -11,8 +11,9 @@
  *    are the most common non-pantry items.
  * *
  * Mapping notes: "pork" → sausage/bacon, "beef" → ground beef, "cheese" → cheddar,
- * "chiles" → jalapeño. Items with no catalog entry yet (orange, corn, almonds, lamb…)
- * are skipped. Salt, pepper and water are left out entirely — picking them as a
+ * "chiles" → jalapeño. Items with no catalog entry yet (almonds, lamb…) are skipped;
+ * corn and orange joined the catalog with imported recipes and sit in the second tier,
+ * below the 11 inline suggestions. Salt, pepper and water are left out entirely — picking them as a
  * "Use" ingredient narrows nothing. Assumed kitchen staples are filtered out at
  * display time, so butter/olive oil/flour/sugar only appear when staples are off.
  *
@@ -38,6 +39,7 @@ export const INGREDIENTS_BY_POPULARITY: string[] = [
   'potato',
   'carrot',
   // ── Second tier ──────────────────────────────────────────
+  'corn',
   'bacon',
   'green_onion',
   'soy_sauce',
@@ -45,6 +47,7 @@ export const INGREDIENTS_BY_POPULARITY: string[] = [
   'ground_turkey',
   'shrimp',
   'lemon',
+  'orange',
   'bell_pepper',
   'sausage',
   'parmesan',

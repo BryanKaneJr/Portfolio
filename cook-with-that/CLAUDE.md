@@ -32,18 +32,23 @@ Hard rules (from the plan, still in force):
    ingredient to come up with ideas." They're still reachable via search / More options (e.g. to Avoid butter).
 5. Meal and Dish type are **dropdown buttons** (bottom sheet with recipe counts per option), not chip rows.
 6. Home footer has **✓ Use / ⊘ Avoid buttons** that open `src/app/selections.tsx` (move between lists, remove, clear).
+7. **Imported recipes grow the catalog** (owner, 2026-10-09: "add ingredients that are missing from our catalogue when a
+   recipe includes one we don't have"). A missing ingredient never blocks an import: review its wording once in
+   `scripts/import/ingredient-map.ts` (`{ add: category }`), and `import:draft` adds it to `src/data/ingredients.ts`.
+   Never alias a different food to an existing ID to avoid adding one. New items aren't "Most common" suggestions unless
+   they're on the published frequency lists (corn and orange were; they sit below the 11 inline chips).
 
 ## Layout
 ```
 src/app/         index (home, both modes), results, ingredients (More options), selections, staples,
                  pantry, pantry-results, recipe/[id], favorites, _layout (ReadyGate waits for storage restore)
 src/components/  Chip, Dropdown, IngredientBrowser (compact|full), UseAvoidToggle, SelectionSummary, RecipeCard
-src/data/        types, ingredients (89, with aliases), recipes (27 seed + imported/), collections, recipeBuilders,
+src/data/        types, ingredients (113, with aliases), recipes (27 seed + imported/), collections, recipeBuilders,
                  staples, popularity, labels, catalog
 src/logic/       matchRecipes (engine), pantry, sortRecipes, normalizeIngredient (search/aliases), validateContent
 src/state/       AppState (context + AsyncStorage persistence), searchState, pickerTarget, favoritesStorage
 scripts/         validate-recipes.ts, coverage-report.ts, import-recipes.ts + import/ (parser, mapper, source readers)
-tests/           86 Jest tests: engine, pantry, staples, content validation, import pipeline, offline audit
+tests/           89 Jest tests: engine, pantry, staples, content validation, import pipeline, offline audit
 ```
 
 ## Commands
@@ -52,15 +57,15 @@ npm install
 npx expo start          # Expo Go on iPhone (same Wi-Fi), scan QR
 npm run check           # tsc + content validator + jest. Run before calling anything done
 npm run coverage-report # which common ingredient pairs/triples have no recipes
-npm run import:stage -- based-cooking   # / import:draft: see docs/recipe-import.md
+npm run import:stage -- based-cooking   # / import:draft / import:catalog: see docs/recipe-import.md
 ```
 Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned docs; `npx expo install` for native deps).
 
 ## Current status
 - Phases 0–4 of the plan done, plus the features above. Verified via Expo web export + Playwright at iPhone sizes;
   **never yet run on a physical iPhone**: do that early.
-- All 36 recipes are drafts marked "needs culinary review" (validator warns): 27 originals and 9 adapted from Based
-  Cooking (public domain). Coverage is still thin: 45% of common 2-ingredient picks find an exact match.
+- All 55 recipes are drafts marked "needs culinary review" (validator warns): 27 originals and 28 adapted from Based
+  Cooking (public domain). Coverage is still thin: 47% of common 2-ingredient picks find an exact match.
 - Bundle ID `com.cookwiththat.app` is a placeholder.
 
 ## Phase 5 so far: sources and import pipeline (2026-10-08)
@@ -75,16 +80,17 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
 - **Guards:** `validateContent` checks each origin's collection and license against `src/data/collections.ts` and
   rejects a second import of the same original. Tests fail on any TODO/NaN left in `src/data/imported/`, and on a
   step that uses a catalog ingredient the list leaves out (it would slip past Avoid).
-- **First batch:** 9 Based Cooking recipes, 36 in all. Exact matches for common 2-ingredient pairs went from 35% to 45%.
+- **Batches:** 9 Based Cooking recipes on 2026-10-08, then 19 more on 2026-10-09 (mains, soups, sides and desserts),
+  which added 24 ingredients to the catalog. 55 recipes in all. Exact matches for common 2-ingredient pairs: 35% → 47%.
 
 ## NEXT TASK
-1. **Grow the ingredient catalog.** It's the bottleneck: only 22 of Based Cooking's 440 recipes map to the 89
-   ingredients. `docs/import-reports/based-cooking.md` ranks the additions that unblock the most recipes (nutmeg, bay
-   leaf, cayenne, yeast, yogurt, powdered sugar, bread crumbs, mayonnaise, maple syrup, cornstarch …). Each addition is
-   a product decision: also consider `popularity.ts` / `staples.ts`. Confirm the list with the owner first.
-2. Keep importing Based Cooking in batches of 5–15 (realistic yield about 60–120 good recipes). Next source: VA
-   (nutrition.va.gov, ~275 PDFs; skip "Adapted from" ones) and NHLBI (~200–250), both public domain. This needs a PDF
-   reader in `scripts/import/sources/`. MyPlate.gov was retired in Jan 2026: archive only, ~20% federal. Fill the rest
-   with originals aimed at `npm run coverage-report` gaps.
+1. **Keep importing Based Cooking** in batches of 15–20. The bottleneck is now reviewing ingredient wording, not the
+   catalog: 375 recipes wait on names nobody has reviewed. `docs/import-reports/based-cooking.md` lists them in the
+   order that unblocks the most recipes. Pick recipes that fill `npm run coverage-report` gaps (chicken/eggs/rice/
+   pasta/potato pairs, salads, sandwiches), and skip niche ones (drinks, preserves, cocktails). Realistic total yield:
+   about 60–120 good recipes. Skip anything whose wording reads like magazine copy (spatchcock-chicken was skipped).
+2. Next source: VA (nutrition.va.gov, ~275 PDFs; skip "Adapted from" ones) and NHLBI (~200–250), both public domain.
+   This needs a PDF reader in `scripts/import/sources/`. MyPlate.gov was retired in Jan 2026: archive only, ~20% federal.
+   Fill the rest with originals aimed at coverage gaps.
 3. Before release: an acknowledgements screen built from `RECIPE_COLLECTIONS` (not legally required for public
    domain, but courteous), and culinary review of every recipe.

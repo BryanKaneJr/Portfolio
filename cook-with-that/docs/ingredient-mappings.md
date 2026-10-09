@@ -13,7 +13,11 @@ detail page. These are the deliberate broad mappings — anything not listed her
 | `rice` | cooked white/jasmine/long-grain | Recipe states cooked vs. raw. |
 | `bread` | sandwich bread, whole-grain, rolls | Recipe names the bread. |
 | `chicken_broth` | chicken broth / stock | Broccoli Cheddar Soup lists "chicken or vegetable broth" and is indexed as `chicken_broth`, so it is hidden when someone avoids chicken broth. |
-| `berries` | blueberries, strawberries, raspberries | Only used as optional toppings so far. |
+| `berries` | blueberries, strawberries, raspberries | Recipe names the berry. |
+| `apple` | any variety (Golden Delicious, Granny Smith) | Recipe names the variety. |
+| `corn` | fresh ears, frozen or canned kernels | Recipe says which. |
+| `yeast` | active dry, instant | Recipe names the type; the two swap with small technique changes. |
+| `rosemary` | fresh or dried | Like `thyme`: woody herbs are used either way. (Basil is not: `basil` is fresh, `dried_basil` separate.) |
 
 ## Kept deliberately separate (never aliases)
 - `garlic` vs `garlic_powder`
@@ -22,5 +26,14 @@ detail page. These are the deliberate broad mappings — anything not listed her
 - `lemon` (fresh) — bottled juice is not an alias
 - `olive_oil` vs `vegetable_oil` vs `sesame_oil`
 - `chicken_broth` vs `vegetable_broth`
+- `ginger` (fresh root) vs `ground_ginger`
+- `black_pepper` (ground) vs `peppercorns` (whole); `cayenne_pepper` vs `chili_powder`
+- `rice` (white) vs `brown_rice` vs `arborio_rice`
+- `canned_tomatoes` vs `marinara_sauce` vs `tomato_sauce`
+- `parmesan` vs `pecorino_romano`
+- `lentils` (brown/green) vs `red_lentils`
+
+Ingredients added for imported recipes are reviewed in `scripts/import/ingredient-map.ts` first, and the same rules apply
+there (see `docs/recipe-import.md`).
 
 The validator fails if any name/alias belongs to two ingredients.

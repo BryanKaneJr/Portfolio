@@ -94,8 +94,9 @@ cumin, chili powder, red pepper flakes (`src/data/staples.ts`).
 - [x] Phase 3/4 — Find, Results (exact / close / narrowing / adjust), Recipe (step check-off), Favorites; last search + favorites persist locally
 - [ ] Phase 5 — grow to 30–50 → 120–150 → 250–350 **human-verified** recipes
   - [x] Source review (`docs/recipe-sources.md`) and import pipeline (`docs/recipe-import.md`)
-  - [x] First batch: 9 recipes adapted from Based Cooking (public domain), 36 in all
-  - [ ] Grow the ingredient catalog (the import report ranks what unblocks the most recipes)
+  - [x] 28 recipes adapted from Based Cooking (public domain) in two batches, 55 in all
+  - [x] Imports grow the ingredient catalog as recipes need it (89 → 113 ingredients)
+  - [ ] Review more ingredient wording to unblock the rest (the import report ranks it)
 - [ ] Phase 6 — polish & accessibility pass on a real iPhone (VoiceOver, large text)
 - [ ] Phase 7 — TestFlight, App Store listing, paid-app setup
 
