@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dating App — Admin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { color-scheme: light dark; --pri: #e0245e; --bg: #fafafa; --card: #fff; --text: #222; --muted: #666; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #121216; --card: #1e1e24; --text: #f0f0f0; --muted: #999; } }
+  body { margin: 0; font-family: -apple-system, system-ui, sans-serif; background: var(--bg); color: var(--text); }
+  header { padding: 16px 24px; background: var(--card); border-bottom: 1px solid rgba(0,0,0,0.1); display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  header h1 { margin: 0; font-size: 20px; color: var(--pri); }
+  header input { flex: 1; min-width: 200px; padding: 8px 12px; border: 1px solid rgba(0,0,0,0.15); border-radius: 8px; background: transparent; color: inherit; }
+  header button { padding: 8px 16px; border: 0; background: var(--pri); color: white; border-radius: 8px; cursor: pointer; }
+  main { padding: 24px; max-width: 1100px; margin: 0 auto; }
+  section { background: var(--card); border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+  section h2 { margin: 0 0 12px; font-size: 16px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px; border-bottom: 1px solid rgba(0,0,0,0.08); }
+  th { color: var(--muted); font-weight: 500; }
+  .btn { padding: 4px 10px; border: 1px solid var(--pri); color: var(--pri); background: transparent; border-radius: 6px; cursor: pointer; font-size: 12px; }
+  .btn.danger { border-color: #c33; color: #c33; }
+  .empty { color: var(--muted); padding: 16px; text-align: center; }
+  .status { padding: 8px 12px; border-radius: 8px; background: #fee; color: #900; margin-bottom: 12px; font-size: 13px; }
+  .status.ok { background: #efe; color: #060; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Admin</h1>
+  <input id="token" type="password" placeholder="Paste admin JWT (users.is_admin = true)">
+  <input id="search" type="text" placeholder="Search users">
+  <button id="load">Load</button>
+</header>
+<main>
+  <div id="status" class="status">Paste an admin JWT to load data.</div>
+  <section>
+    <h2>Open Reports</h2>
+    <div id="reports"><div class="empty">No data.</div></div>
+  </section>
+  <section>
+    <h2>Users</h2>
+    <div id="users"><div class="empty">No data.</div></div>
+  </section>
+</main>
+<script>
+  const $ = (id) => document.getElementById(id);
+  const status = (msg, ok = false) => { $('status').textContent = msg; $('status').className = 'status' + (ok ? ' ok' : ''); };
+
+  const api = async (path, opts = {}) => {
+    const token = $('token').value.trim();
+    if (!token) throw new Error('token_required');
+    const res = await fetch(path, {
+      ...opts,
+      headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json', ...(opts.headers || {}) },
+    });
+    if (!res.ok) throw new Error('http_' + res.status);
+    return res.json();
+  };
+
+  const renderReports = (rows) => {
+    if (!rows.length) { $('reports').innerHTML = '<div class="empty">No open reports.</div>'; return; }
+    $('reports').innerHTML = '<table><thead><tr><th>Reporter</th><th>Target</th><th>Reason</th><th></th></tr></thead><tbody>' +
+      rows.map(r => `<tr>
+        <td>${escapeHtml(r.reporter_name)}</td>
+        <td>${r.target_user ? 'user:' + r.target_user.slice(0,8) : 'story:' + r.target_story.slice(0,8)}</td>
+        <td>${escapeHtml(r.reason)}</td>
+        <td>
+          <button class="btn" data-resolve="${r.id}">Resolve</button>
+          ${r.target_story ? `<button class="btn danger" data-story="${r.target_story}">Remove Story</button>` : ''}
+          ${r.target_user ? `<button class="btn danger" data-ban="${r.target_user}">Ban User</button>` : ''}
+        </td>
+      </tr>`).join('') + '</tbody></table>';
+  };
+
+  const renderUsers = (rows) => {
+    if (!rows.length) { $('users').innerHTML = '<div class="empty">No users.</div>'; return; }
+    $('users').innerHTML = '<table><thead><tr><th>Name</th><th>Age</th><th>Premium</th><th>Banned</th><th></th></tr></thead><tbody>' +
+      rows.map(u => `<tr>
+        <td>${escapeHtml(u.name)}</td>
+        <td>${u.age}</td>
+        <td>${u.is_premium ? 'Yes' : 'No'}</td>
+        <td>${u.is_banned ? 'Yes' : 'No'}</td>
+        <td>${u.is_banned
+            ? `<button class="btn" data-unban="${u.id}">Unban</button>`
+            : `<button class="btn danger" data-ban="${u.id}">Ban</button>`}</td>
+      </tr>`).join('') + '</tbody></table>';
+  };
+
+  const escapeHtml = (s) => String(s || '').replace(/[&<>"']/g, c =>
+    ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+
+  const load = async () => {
+    try {
+      const [reports, users] = await Promise.all([
+        api('/admin/reports'),
+        api('/admin/users?q=' + encodeURIComponent($('search').value)),
+      ]);
+      renderReports(reports); renderUsers(users);
+      status(`Loaded ${users.length} users, ${reports.length} open reports.`, true);
+    } catch (e) { status('Load failed: ' + e.message); }
+  };
+
+  document.addEventListener('click', async (e) => {
+    const t = e.target;
+    try {
+      if (t.dataset.ban)     { await api(`/admin/users/${t.dataset.ban}/ban`,     { method: 'POST' }); load(); }
+      if (t.dataset.unban)   { await api(`/admin/users/${t.dataset.unban}/unban`, { method: 'POST' }); load(); }
+      if (t.dataset.resolve) { await api(`/admin/reports/${t.dataset.resolve}/resolve`, { method: 'POST' }); load(); }
+      if (t.dataset.story)   { await api(`/admin/stories/${t.dataset.story}`,    { method: 'DELETE' }); load(); }
+    } catch (err) { status('Action failed: ' + err.message); }
+  });
+
+  $('load').addEventListener('click', load);
+  $('search').addEventListener('keydown', (e) => { if (e.key === 'Enter') load(); });
+</script>
+</body>
+</html>
