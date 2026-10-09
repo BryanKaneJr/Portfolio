@@ -52,6 +52,20 @@ export const SOURCES: Record<string, SourceDef> = {
         'doubtful; steps closely track a published "Red Lentil Dhal" (SparkPeople) and the same contributor copied the three pages above',
       'newfoundland-cod-chowder':
         'doubtful; reads like published magazine copy ("Drain off all but 1 tbsp. fat from saucepan"), not found online, same contributor as the copied pages above',
+      'chicken-tikka-masala':
+        'copied from Taste of Home\'s slow-cooker "Chicken Tikka Masala" (same ingredient list; "combine the first 13 ingredients" wording)',
+      'chicken-biscuit-potpie':
+        'Taste of Home\'s "Chicken Biscuit Potpie" (credited there to Dorothy Smith); same ingredients and directions',
+      'cheddar-crusted-chicken':
+        'HelloFresh Canada meal-kit card "Cheddar-Crusted Chicken" (Smoked Paprika-Garlic Blend, same mayo-and-panko method wording)',
+      'colcannon-bake':
+        'directions match published copy word for word ("Drain and allow to steam dry for a minute or two"), e.g. Celiac Disease Foundation\'s "Colcannon Bake"',
+      'bean-salad':
+        'same ingredient list and method as the SparkPeople "Three Bean Salad" posted by another user (CARLEY053106)',
+      'chicken-in-red-wine-vinegar-sauce':
+        'Food52 recipe by ChefJune (1 whole chicken cut into 10 pieces, 4 shallots, 1 cup red wine vinegar, 1 cup crème fraîche, serves 6)',
+      coleslaw:
+        'says it\'s "a coleslaw recipe that I got from a chili restaurant in my neighborhood", so it credits an outside original',
     },
     repo: {
       url: 'https://github.com/LukeSmithxyz/based.cooking.git',

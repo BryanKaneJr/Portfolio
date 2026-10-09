@@ -348,6 +348,31 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   'edam cheese': '=edam',
   'creme fraiche': { add: 'dairy', name: 'Crème fraîche' }, // not sour cream
 
+  // ── Reviewed by parallel import worker bc1-merge ──
+  'bacon cubes': 'bacon', // diced bacon or lardons
+  wraps: 'tortillas', // large flour tortillas sold as "wraps"
+  'tortilla wraps': 'tortillas',
+  'white bread': 'bread',
+  'broccoli florets': 'broccoli',
+  'chicken strips': 'chicken', // breast cut into strips, or tenderloins
+  'chicken tenders': 'chicken',
+  'chicken tenderloins': 'chicken',
+  'powdered garlic': 'garlic_powder',
+  'hungarian paprika': 'paprika', // sweet Hungarian paprika is ordinary paprika
+  jalepeno: 'jalapeno', // common misspelling
+  'chinese rice vinegar': '=rice vinegar',
+  gruyere: { add: 'dairy', name: 'Gruyère' },
+  'gruyere cheese': '=gruyere',
+  applesauce: { add: 'pantry' },
+  'apple sauce': '=applesauce',
+  'half and half': { add: 'dairy', name: 'Half-and-half' }, // not milk and not cream
+  'clam juice': { add: 'pantry' }, // bottled; chopped clams are `clams`
+  'flank steak': { add: 'protein' },
+  prosciutto: { add: 'protein' },
+  'dried parsley': { add: 'spice' }, // the catalog's parsley is fresh
+  'parsley flakes': '=dried parsley',
+  'wood chips': false, // fuel for the grill
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,
