@@ -50,7 +50,12 @@ function stage(name: string, source: SourceDef): Candidate[] {
   const raws = source.read(checkout(name, source));
   for (const key of Object.keys(source.exclude))
     if (!raws.some(r => r.key === key)) console.warn(`  ⚠ exclude list names "${key}", which isn't in the snapshot`);
-  return raws.map(raw => stageRecipe(index, raw, { exclude: source.exclude[raw.key], library: RECIPES }));
+  const excludeReason = (raw: (typeof raws)[number]) =>
+    source.exclude[raw.key] ??
+    (raw.author && source.excludeAuthors?.[raw.author]
+      ? `${raw.author}: ${source.excludeAuthors[raw.author]}`
+      : undefined);
+  return raws.map(raw => stageRecipe(index, raw, { exclude: excludeReason(raw), library: RECIPES }));
 }
 
 const importedKeys = (collection: string) =>

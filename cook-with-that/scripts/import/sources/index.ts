@@ -14,6 +14,8 @@ export type SourceDef = {
   textPolicy: 'reuse' | 'rewrite';
   /** Entries we won't import, with the reason (e.g. the page credits a third-party original). */
   exclude: Record<string, string>;
+  /** Contributors whose pages we won't import at all, by credited name, with the reason. */
+  excludeAuthors?: Record<string, string>;
   /** Pinned snapshot, so a report or draft can always be reproduced. */
   repo: { url: string; commit: string };
   read(checkout: string): RawRecipe[];
@@ -34,6 +36,12 @@ export const SOURCES: Record<string, SourceDef> = {
       'beef-tips': 'derived from a YouTube video',
       'gumbo-shrimp-and-sausage': 'derived from a YouTube video',
       'shrimp-and-grits': 'derived from a YouTube video',
+    },
+    // Several of this contributor's pages turned out to be copies of commercial recipes (Food.com, Dairy
+    // Farmers of Canada, HelloFresh, SparkPeople), so none of their pages can rely on the waiver.
+    excludeAuthors: {
+      'Joel Maxuel':
+        'pages copied from commercial recipe sites (Food.com, Dairy Farmers of Canada, HelloFresh, SparkPeople)',
     },
     repo: {
       url: 'https://github.com/LukeSmithxyz/based.cooking.git',
