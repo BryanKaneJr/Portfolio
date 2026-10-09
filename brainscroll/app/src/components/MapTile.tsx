@@ -4,8 +4,8 @@ import { color, depth, fw, radius, space } from '@/theme/tokens';
 
 /**
  * A small square tile beside a skill's map road, after Duolingo's: a picture
- * over a coloured band. The week's quest sits on one side (QuestTile) and
- * Unlimited on the other (UnlimitedTile), so they share this one design.
+ * over a coloured band. They stack down the left of the road (UnlimitedTile,
+ * then the week's QuestTile), so they share this one design.
  */
 export function MapTile({ art, band, done, label, onPress }: { art: ReactNode; band: string; done?: boolean; label: string; onPress: () => void }) {
   return (

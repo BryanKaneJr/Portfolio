@@ -283,7 +283,7 @@ try {
   await page.goto(`${URL}skill/skill.science.astronomy`);
   await page.waitForTimeout(1500);
   check((await button(page, 'Start Level 2').count()) > 0 && errors.length === errorsBefore, `a deep link to a skill map opens it without page errors ${errors.slice(errorsBefore).join('; ')}`);
-  // A free learner's map has an Unlimited tile beside the road, opposite the quest's (owner, 2026-10-09).
+  // A free learner's map has an Unlimited tile at the top of the tile column, left of the road (owner, 2026-10-09).
   check((await button(page, 'Unlimited: ∞ Brainpower').count()) === 1, 'a free learner sees the Unlimited tile on the skill map');
   await button(page, 'Unlimited: ∞ Brainpower').click();
   await page.waitForTimeout(800);

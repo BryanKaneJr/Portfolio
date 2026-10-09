@@ -65,7 +65,6 @@ export function LevelPath({
   onCurrent,
   onOpen,
   aside,
-  asideRight,
   live = true,
   chestsOpened,
   onChest,
@@ -87,10 +86,11 @@ export function LevelPath({
   /** Where the next level's waypoint sits, from the top of this component, so a screen can scroll it into view. */
   onCurrent?: (y: number) => void;
   onOpen: (levelId: string) => void;
-  /** Pinned beside the top of the road, on the left (this week's quest tile). */
+  /**
+   * Tiles stacked down the left of the road from its top (Unlimited, then this
+   * week's quest; owner, 2026-10-09). A tile that renders nothing takes no room.
+   */
   aside?: React.ReactNode;
-  /** The same on the right (the Unlimited tile, for free learners). */
-  asideRight?: React.ReactNode;
   /**
    * False draws only the banner and an empty map of the right height (a
    * chapter far off screen): the waypoints, road, art and Dr. Scroll are most
@@ -180,8 +180,7 @@ export function LevelPath({
             />
           );
         })}
-        {aside && points[0] && <View style={{ position: 'absolute', left: 0, top: Math.max(points[0].y - 48, 0) }}>{aside}</View>}
-        {asideRight && points[0] && <View style={{ position: 'absolute', right: 0, top: Math.max(points[0].y - 48, 0) }}>{asideRight}</View>}
+        {aside && points[0] && <View style={{ position: 'absolute', left: 0, top: Math.max(points[0].y - 48, 0), gap: space.sm }}>{aside}</View>}
         {mascot && points[6] && (
           // Big beside the road, like a character in the scene (owner, 2026-10-01).
           <DrScroll spot="home.path" pose={mapGuidePose(skillId, dayNumber(new Date(), Intl.DateTimeFormat().resolvedOptions().timeZone))} size="lg" style={{ position: 'absolute', left: Math.min(width * POCKETS[1].x - 84, width - 168), top: points[6].y - 96 }} />

@@ -29,7 +29,7 @@ export default function SkillMapScreen() {
   const v = useProgressView();
   const current = useCurrentSkill();
   const startLevel = useStartLevel();
-  // This week's quest, as a tile beside the road (QuestTile shows it only while live).
+  // This week's quest, as a tile down the left of the road (QuestTile shows it only while live).
   const quest = featuredQuest(useQuests().data);
   const scroll = useRef<ScrollView>(null);
   const [pathY, setPathY] = useState<number | null>(null);
@@ -181,8 +181,14 @@ export default function SkillMapScreen() {
               dailyComplete={today.dailyComplete}
               justCleared={justCleared}
               mascot={here}
-              aside={here && quest ? <QuestTile quest={quest} /> : undefined}
-              asideRight={here ? <UnlimitedTile /> : undefined}
+              aside={
+                here ? (
+                  <>
+                    <UnlimitedTile />
+                    {quest && <QuestTile quest={quest} />}
+                  </>
+                ) : undefined
+              }
               teaser={false}
               onCurrent={here ? setStopY : undefined}
               onOpen={startLevel}
