@@ -22,8 +22,8 @@ struct StylePickerView: View {
                 }
                 .padding(.bottom, 4)
 
-                ForEach(Array(TipStyle.allCases.enumerated()), id: \.element) { position, style in
-                    StyleCard(style: style, number: position + 1, isCurrent: style == current) { onPick(style) }
+                ForEach(TipStyle.allCases, id: \.self) { style in
+                    StyleCard(style: style, isCurrent: style == current) { onPick(style) }
                 }
 
                 Text("These are common starting points, not recommendations. Set every number to match your workplace's own policy. " + PolicyCopy.disclaimer)
@@ -42,7 +42,6 @@ struct StylePickerView: View {
 
 struct StyleCard: View {
     let style: TipStyle
-    let number: Int
     let isCurrent: Bool
     let onPick: () -> Void
 
@@ -50,10 +49,6 @@ struct StyleCard: View {
         Button(action: onPick) {
             VStack(alignment: .leading, spacing: 12) {
                 HStack(alignment: .firstTextBaseline, spacing: 12) {
-                    Text(number < 10 ? "0\(number)" : "\(number)")
-                        .font(.mono(.subheadline, weight: .bold))
-                        .foregroundStyle(Theme.inkTertiary)
-                        .accessibilityHidden(true)
                     Text(style.title)
                         .font(.display(.title3, weight: .bold))
                         .foregroundStyle(Theme.ink)

@@ -34,7 +34,7 @@ struct WelcomeView: View {
                     .padding(.top, 20)
 
                     VStack(alignment: .leading, spacing: 12) {
-                        SectionHeader("How does your team split tips?", index: "01")
+                        SectionHeader("How does your team split tips?")
                         ExperienceOption(
                             experience: .simple,
                             detail: "Add who worked and their hours. Tips are shared by hours. Nothing else to set up.",

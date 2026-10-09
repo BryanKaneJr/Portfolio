@@ -18,49 +18,39 @@ extension EnvironmentValues {
 
 // MARK: - Labels and rules
 
-/// A small monospaced label, optionally numbered: "01  TIPS TO SPLIT".
-/// Pass natural-case text; it's set in capitals on screen and read as
-/// written by VoiceOver.
+/// A small monospaced label: "TIPS TO SPLIT". Pass natural-case text;
+/// it's set in capitals on screen and read as written by VoiceOver.
 struct SectionLabel: View {
     let text: String
-    var index: String?
 
-    init(_ text: String, index: String? = nil) {
+    init(_ text: String) {
         self.text = text
-        self.index = index
     }
 
     var body: some View {
-        HStack(alignment: .firstTextBaseline, spacing: 10) {
-            if let index {
-                Text(index).foregroundStyle(Theme.inkTertiary)
-            }
-            Text(text.uppercased()).foregroundStyle(Theme.inkSecondary)
-        }
-        .font(.mono(.caption, weight: .semibold))
-        .tracking(1)
-        .accessibilityElement(children: .ignore)
-        .accessibilityLabel(text)
-        .accessibilityAddTraits(.isHeader)
+        Text(text.uppercased())
+            .font(.mono(.caption, weight: .semibold))
+            .tracking(1)
+            .foregroundStyle(Theme.inkSecondary)
+            .accessibilityLabel(text)
+            .accessibilityAddTraits(.isHeader)
     }
 }
 
-/// A numbered section's head: the label, and anything that acts on the
-/// section at the right.
+/// A section's head: the label, and anything that acts on the section at
+/// the right.
 struct SectionHeader<Trailing: View>: View {
     let title: String
-    var index: String?
     let trailing: Trailing
 
-    init(_ title: String, index: String? = nil, @ViewBuilder trailing: () -> Trailing) {
+    init(_ title: String, @ViewBuilder trailing: () -> Trailing) {
         self.title = title
-        self.index = index
         self.trailing = trailing()
     }
 
     var body: some View {
         HStack(alignment: .center, spacing: 8) {
-            SectionLabel(title, index: index)
+            SectionLabel(title)
                 .padding(.vertical, 6)
             Spacer(minLength: 8)
             trailing
@@ -70,8 +60,8 @@ struct SectionHeader<Trailing: View>: View {
 }
 
 extension SectionHeader where Trailing == EmptyView {
-    init(_ title: String, index: String? = nil) {
-        self.init(title, index: index) { EmptyView() }
+    init(_ title: String) {
+        self.init(title) { EmptyView() }
     }
 }
 

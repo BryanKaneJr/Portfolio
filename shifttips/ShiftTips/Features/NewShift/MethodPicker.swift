@@ -5,11 +5,10 @@ import ShiftTipsCore
 /// wrap rather than truncate at big text sizes.
 struct MethodPicker: View {
     @Binding var method: SplitMethod
-    var number: String?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            SectionHeader("Split method", index: number)
+            SectionHeader("Split method")
             SegmentedTabs(
                 SplitMethod.allCases,
                 selection: method,

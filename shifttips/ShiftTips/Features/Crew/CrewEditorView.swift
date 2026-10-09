@@ -59,7 +59,7 @@ struct CrewEditorView: View {
                         .foregroundStyle(Theme.ink)
                         .accessibilityIdentifier("crewName")
                 } header: {
-                    SectionLabel("Crew name", index: "01")
+                    SectionLabel("Crew name")
                 }
                 .ledgerRows()
 
@@ -90,7 +90,7 @@ struct CrewEditorView: View {
                                 .accessibilityLabel(rule.spokenSummary)
                         }
                     } header: {
-                        SectionLabel("Make it yours: tip-outs", index: "04")
+                        SectionLabel("Make it yours: tip-outs")
                     } footer: {
                         LedgerFootnote("Match each rule to your house policy. Roles match people's role labels above.")
                     }
@@ -218,7 +218,7 @@ struct CrewEditorView: View {
                 .tint(Theme.ink)
             }
         } header: {
-            SectionLabel("Tip style", index: "02")
+            SectionLabel("Tip style")
         } footer: {
             LedgerFootnote("Every new shift with this crew starts this way. You can still change a single shift.")
         }
@@ -254,7 +254,7 @@ struct CrewEditorView: View {
             .accessibilityIdentifier("addPerson")
         } header: {
             HStack {
-                SectionLabel(crew.employees.count == 1 ? "People, 1" : "People, \(crew.employees.count)", index: isAdvanced ? "03" : "02")
+                SectionLabel(crew.employees.count == 1 ? "People, 1" : "People, \(crew.employees.count)")
                 Spacer()
                 if crew.employees.count > 1 {
                     EditButton()
@@ -276,7 +276,7 @@ struct CrewEditorView: View {
                 }
             }
         } header: {
-            SectionLabel("Make it yours: points by role", index: "04")
+            SectionLabel("Make it yours: points by role")
         } footer: {
             LedgerFootnote("Each role's points go to everyone in it, and to people you add later. You can still change one person's points on their page.")
         }

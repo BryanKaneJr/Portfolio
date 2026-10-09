@@ -2,11 +2,11 @@
 
 ShiftTips settles money at the end of a long shift, usually in a dim back room. It should feel calm, sure and friendly, like a well-made receipt in a soft folder: warm paper, rounded white cards, big rounded numbers, monospaced figures like a printed slip, and one plain yellow for the next step and the result.
 
-This is a mix of the app's first look (rounded cards, the dark tips card, a rounded number face) and a printed-receipt look (numbered small-caps labels, monospaced figures, the receipt slip and its stamp). It deliberately avoids the generic app look of gradients, glows, sparkles and pastel everything, and it avoids sharp, pointy shapes.
+This is a mix of the app's first look (rounded cards, the dark tips card, a rounded number face) and a printed-receipt look (small-caps labels, monospaced figures, the receipt slip and its stamp). It deliberately avoids the generic app look of gradients, glows, sparkles and pastel everything, and it avoids sharp, pointy shapes.
 
 ## Principles
 
-1. **Soft shapes, clear structure.** Rounded corners everywhere (continuous curves), round checks, pill tabs and tags. Structure comes from numbered section labels and hairlines inside cards, not from heavy outlines.
+1. **Soft shapes, clear structure.** Rounded corners everywhere (continuous curves), round checks, pill tabs and tags. Structure comes from small-caps section labels and hairlines inside cards, not from heavy outlines. Sections aren't numbered.
 2. **One yellow.** Yellow marks the one thing to do next (the primary button) and the result that matters (Reconciled, the total, the wordmark, the focus ring on the tips card). Use it nowhere else, so it keeps its meaning.
 3. **Numbers are the headline.** The pool, the total and each person's share are the biggest type on their screens, in SF Pro Rounded. Labels and details step well back, in small monospaced capitals.
 4. **The receipt is the reward.** Every result prints on a receipt slip with a scalloped bottom edge, dotted rules, a double-ruled TOTAL and, once saved, a SAVED stamp.
@@ -23,7 +23,7 @@ All tokens live in `ShiftTips/DesignSystem/Theme.swift`. Text pairs meet WCAG AA
 | `sunken` | `#E9E8E2` | `#262626` | Fields, secondary buttons, the segmented track. |
 | `ink` | `#141414` | `#F2F1EC` | Text, the chosen segment, checks, the tint. |
 | `inkSecondary` | `#5C5B56` | `#A6A5A0` | Labels, details, footnotes. |
-| `inkTertiary` | `#8A8984` | `#75746F` | Placeholders and section numbers. Never the only carrier of information. |
+| `inkTertiary` | `#8A8984` | `#75746F` | Placeholders and decoration. Never the only carrier of information. |
 | `onInk` | `#F2F1EC` | `#0D0D0D` | Text on an ink fill. |
 | `rule` | `#DEDDD6` | `#2E2E2C` | Hairlines between rows. |
 | `highlight` | `#FFD60A` | `#FFD60A` | The yellow. A fill only, always with ink on it. |
@@ -47,7 +47,7 @@ Labels are passed in natural case and set in capitals on screen; VoiceOver reads
 All in `ShiftTips/DesignSystem/`.
 
 - `card()`: a rounded white card (`Theme.cardCorner`). Groups of rows share one card with hairlines between them.
-- `SectionHeader`: a numbered label ("01  TIPS TO SPLIT") and anything that acts on the section, like "Edit Crew". Screens are a stack of these, `Theme.sectionSpacing` apart.
+- `SectionHeader`: a small-caps label ("TIPS TO SPLIT") and anything that acts on the section, like "Edit Crew". Screens are a stack of these, `Theme.sectionSpacing` apart.
 - `PrimaryButtonStyle`: the yellow button. One per screen. `SecondaryButtonStyle`: soft gray. `PendingButtonStyle`: dashed, for "here's what's still missing"; tapping it goes there. `TextButtonStyle`: underlined words.
 - `SegmentedTabs`: a soft gray track with the chosen option in an ink pill that slides.
 - `SelectionMark`: a round check (many on) or round radio (one on). `CheckboxToggleStyle` uses it.

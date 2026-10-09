@@ -25,7 +25,6 @@ struct NewShiftView: View {
         // With no saved crew and nothing entered, the first step leads the
         // screen and the crew section steps aside.
         let firstRun = store.crews.isEmpty && store.form.rows.isEmpty
-        let crewOffset = firstRun ? 0 : 1
 
         ScrollViewReader { proxy in
             ScrollView {
@@ -50,29 +49,28 @@ struct NewShiftView: View {
                     Group {
                         switch live {
                         case .pool(let calculation):
-                            TipsCard(form: $store.form, focus: $focus, allowsCashAndCard: !store.isSimple, number: number(1))
+                            TipsCard(form: $store.form, focus: $focus, allowsCashAndCard: !store.isSimple)
                             if !firstRun {
-                                crewSection(number: number(2))
+                                crewSection
                             }
                             if !store.isSimple {
-                                MethodPicker(method: $store.form.method, number: number(2 + crewOffset))
+                                MethodPicker(method: $store.form.method)
                             }
-                            peopleSection(calculation, number: number((store.isSimple ? 2 : 3) + crewOffset))
+                            peopleSection(calculation)
                         case .tipOut(let calculation):
                             if !firstRun {
-                                crewSection(number: number(1))
+                                crewSection
                             }
                             TipOutRulesCard(
                                 rules: store.form.tipOutRules,
                                 statuses: store.form.tipOutPlan.ruleStatuses,
                                 crewName: store.form.crewName,
-                                sectionNumber: number(1 + crewOffset),
                                 onEdit: {
                                     focus = nil
                                     editingRules = true
                                 }
                             )
-                            tipOutPeopleSection(calculation, number: number(2 + crewOffset))
+                            tipOutPeopleSection(calculation)
                         }
                     }
                     .disabled(store.isFormSaved)
@@ -221,14 +219,9 @@ struct NewShiftView: View {
         .card()
     }
 
-    /// "01", "02"...
-    private func number(_ value: Int) -> String {
-        value < 10 ? "0\(value)" : "\(value)"
-    }
-
-    private func crewSection(number: String) -> some View {
+    private var crewSection: some View {
         VStack(alignment: .leading, spacing: 4) {
-            SectionHeader("Crew", index: number) {
+            SectionHeader("Crew") {
                 if let crewId = store.form.crewId, let crew = store.crew(id: crewId) {
                     Button("Edit Crew") { editingCrew = .edit(crew) }
                         .buttonStyle(TextButtonStyle())
@@ -281,7 +274,7 @@ struct NewShiftView: View {
         return store.crews.isEmpty ? "No saved crew" : "Choose a crew"
     }
 
-    private func peopleSection(_ calculation: ShiftCalculation, number: String) -> some View {
+    private func peopleSection(_ calculation: ShiftCalculation) -> some View {
         @Bindable var store = store
         let allocations = Dictionary(uniqueKeysWithValues: calculation.allocations.map { ($0.participantId, $0) })
         let inPool = store.form.rows.filter(\.isInPool).count
@@ -289,7 +282,7 @@ struct NewShiftView: View {
 
         return VStack(alignment: .leading, spacing: 10) {
             if !store.form.rows.isEmpty {
-                SectionHeader("People", index: number) {
+                SectionHeader("People") {
                     Text(inPool == 1 ? "1 in pool" : "\(inPool) in pool")
                         .font(.mono(.caption, weight: .semibold))
                         .foregroundStyle(Theme.inkSecondary)
@@ -327,7 +320,7 @@ struct NewShiftView: View {
         }
     }
 
-    private func tipOutPeopleSection(_ calculation: TipOutCalculation, number: String) -> some View {
+    private func tipOutPeopleSection(_ calculation: TipOutCalculation) -> some View {
         @Bindable var store = store
         let people = Dictionary(uniqueKeysWithValues: calculation.result.people.map { ($0.participantId, $0) })
         let plan = store.form.tipOutPlan
@@ -335,7 +328,7 @@ struct NewShiftView: View {
 
         return VStack(alignment: .leading, spacing: 10) {
             if !store.form.rows.isEmpty {
-                SectionHeader("People", index: number) {
+                SectionHeader("People") {
                     Text(taking == 1 ? "1 in tip-outs" : "\(taking) in tip-outs")
                         .font(.mono(.caption, weight: .semibold))
                         .foregroundStyle(Theme.inkSecondary)

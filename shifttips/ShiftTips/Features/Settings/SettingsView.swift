@@ -161,7 +161,7 @@ struct SettingsView: View {
                     .foregroundStyle(Theme.ink)
             }
         } header: {
-            SectionLabel("Crews", index: "02")
+            SectionLabel("Crews")
         } footer: {
             LedgerFootnote(store.crews.isEmpty ? "Save the people you work with so each shift starts with them." : "New shifts start with the checked crew.")
         }
@@ -186,7 +186,7 @@ struct SettingsView: View {
             }
             .padding(.vertical, 6)
         } header: {
-            SectionLabel("How you split tips", index: "01")
+            SectionLabel("How you split tips")
         } footer: {
             LedgerFootnote("Switching never deletes anything. Each crew keeps its Advanced setup while you use Simple.")
         }
@@ -201,7 +201,7 @@ struct SettingsView: View {
                     .foregroundStyle(Theme.ink)
             }
         } header: {
-            SectionLabel("Money", index: "03")
+            SectionLabel("Money")
         } footer: {
             LedgerFootnote("ShiftTips 1.0 works in US dollars only, to the cent.")
         }
@@ -233,7 +233,7 @@ struct SettingsView: View {
             ))
             .tint(Theme.ink)
         } header: {
-            SectionLabel("Appearance", index: "04")
+            SectionLabel("Appearance")
         }
         .ledgerRows()
     }
@@ -268,7 +268,7 @@ struct SettingsView: View {
                     .foregroundStyle(Theme.danger)
             }
         } header: {
-            SectionLabel("Your data", index: "05")
+            SectionLabel("Your data")
         } footer: {
             LedgerFootnote("Everything stays on this iPhone. ShiftTips has no account and no server, and never sends your data anywhere. Back up to Files to keep a copy.")
         }
@@ -290,7 +290,7 @@ struct SettingsView: View {
                     .foregroundStyle(Theme.inkSecondary)
             }
         } header: {
-            SectionLabel("About", index: "06")
+            SectionLabel("About")
         }
         .foregroundStyle(Theme.ink)
         .ledgerRows()

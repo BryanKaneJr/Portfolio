@@ -8,12 +8,11 @@ struct TipsCard: View {
     var focus: FocusState<ShiftForm.Field?>.Binding
     /// Simple hides the separate cash and card amounts.
     var allowsCashAndCard = true
-    var number: String?
     @ScaledMetric(relativeTo: .largeTitle) private var heroSize: CGFloat = 52
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            SectionHeader("Tips to split", index: number)
+            SectionHeader("Tips to split")
 
             VStack(alignment: .leading, spacing: 14) {
                 if form.splitCashAndCard {

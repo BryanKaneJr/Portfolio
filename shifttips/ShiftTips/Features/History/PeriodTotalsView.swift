@@ -68,7 +68,7 @@ struct PeriodTotalsView: View {
 
     private var periodSection: some View {
         VStack(alignment: .leading, spacing: 14) {
-            SectionHeader("Pay period", index: "01")
+            SectionHeader("Pay period")
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
                     ForEach(PeriodPreset.allCases, id: \.self) { option in
@@ -117,7 +117,7 @@ struct PeriodTotalsView: View {
 
     private func totalSection(_ summary: PeriodSummary) -> some View {
         VStack(alignment: .leading, spacing: 14) {
-            SectionHeader("Total to people", index: "02")
+            SectionHeader("Total to people")
             VStack(alignment: .leading, spacing: 12) {
                 MoneyText(cents: summary.totalCents, font: .display(.largeTitle))
                     .foregroundStyle(Theme.ink)
@@ -138,7 +138,7 @@ struct PeriodTotalsView: View {
     @ViewBuilder
     private func peopleSection(_ summary: PeriodSummary) -> some View {
         VStack(alignment: .leading, spacing: 10) {
-            SectionHeader("People", index: "03") {
+            SectionHeader("People") {
                 Text(summary.people.count == 1 ? "1 PERSON" : "\(summary.people.count) PEOPLE")
                     .font(.mono(.caption, weight: .semibold))
                     .foregroundStyle(Theme.inkSecondary)

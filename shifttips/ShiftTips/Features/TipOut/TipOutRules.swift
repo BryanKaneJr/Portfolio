@@ -8,12 +8,11 @@ struct TipOutRulesCard: View {
     let rules: [TipOutRule]
     let statuses: [TipOutRuleOutcome.Status]
     let crewName: String?
-    var sectionNumber: String?
     let onEdit: () -> Void
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            SectionHeader("Tip-out rules", index: sectionNumber) {
+            SectionHeader("Tip-out rules") {
                 if !rules.isEmpty {
                     Button("Edit Rules", action: onEdit)
                         .buttonStyle(TextButtonStyle())
@@ -227,14 +226,14 @@ struct TipOutRuleEditor: View {
                     RoleField(placeholder: "e.g. Server", text: $fromRole, roles: roles)
                         .accessibilityIdentifier("ruleFromRole")
                 } header: {
-                    SectionLabel("Who pays", index: "01")
+                    SectionLabel("Who pays")
                 }
                 .ledgerRows()
                 Section {
                     RoleField(placeholder: "e.g. Busser", text: $toRole, roles: roles)
                         .accessibilityIdentifier("ruleToRole")
                 } header: {
-                    SectionLabel("Who receives", index: "02")
+                    SectionLabel("Who receives")
                 }
                 .ledgerRows()
                 Section {
@@ -259,7 +258,7 @@ struct TipOutRuleEditor: View {
                     .pickerStyle(.menu)
                     .tint(Theme.ink)
                 } header: {
-                    SectionLabel("How much", index: "03")
+                    SectionLabel("How much")
                 } footer: {
                     LedgerFootnote(preview)
                 }

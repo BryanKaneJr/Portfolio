@@ -33,7 +33,7 @@ struct EmployeeEditorView: View {
                     .focused($nameFocused)
                     .accessibilityIdentifier("employeeName")
             } header: {
-                SectionLabel("Name", index: "01")
+                SectionLabel("Name")
             }
             .ledgerRows()
 
@@ -45,7 +45,7 @@ struct EmployeeEditorView: View {
                 )
                 .accessibilityIdentifier("employeeRole")
             } header: {
-                SectionLabel("Role", index: "02")
+                SectionLabel("Role")
             } footer: {
                 LedgerFootnote(showsPoints
                      ? "Tip-out rules and role points match people by role. A role never decides who is in the pool."
@@ -75,7 +75,7 @@ struct EmployeeEditorView: View {
                             .foregroundStyle(Theme.warning)
                     }
                 } header: {
-                    SectionLabel("Points", index: "03")
+                    SectionLabel("Points")
                 } footer: {
                     LedgerFootnote("Used only by Hours \u{00D7} Points. Set from your workplace's own policy.")
                 }
@@ -101,7 +101,7 @@ struct EmployeeEditorView: View {
                 .labelsHidden()
                 .tint(Theme.ink)
             } header: {
-                SectionLabel("Pool eligibility", index: showsPoints ? "04" : "03")
+                SectionLabel("Pool eligibility")
             } footer: {
                 eligibilityFooter
                     .font(.footnote)
