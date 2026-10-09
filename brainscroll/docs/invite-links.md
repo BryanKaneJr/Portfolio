@@ -33,7 +33,7 @@ The home page was going to be made in Canva, but Canva's generator left out all 
 Every value below is public; none is a secret.
 
 1. **Find the four values:**
-   - `APPLE_TEAM_ID`: developer.apple.com → Account → Membership details → Team ID (10 characters).
+   - `APPLE_TEAM_ID`: already in the repo (`X3837877NX`, read from the first TestFlight build's provisioning profile, 2026-10-09; `scripts/site-build.ts`). Set it in the host only to override it.
    - `ANDROID_CERT_SHA256`: Play Console → your app → Test and release → App integrity → App signing key certificate → SHA-256 fingerprint. If you also install EAS builds outside Play, add the upload key's fingerprint too, comma-separated (`eas credentials` shows it).
    - `APP_STORE_URL` and `PLAY_STORE_URL`: the store listing links. Until the app is live, leave them out: the page says "coming soon".
 2. **The site (Cloudflare Pages, free):**

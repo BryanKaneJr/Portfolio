@@ -62,11 +62,13 @@ export default function WorldScreen() {
     <Screen
       scrollRef={scroller}
       header={
-        // Three stat chips (owner, 2026-10-03): the Knowledge Level on the left, Brainpower and the streak on the right.
+        // Three stat chips (owner, 2026-10-03): the Knowledge Level on the left, Brainpower and the streak on the right;
+        // a running XP boost's time left in the middle (owner, 2026-10-09: "front and center").
         <Row gap={space.sm}>
           <LevelBadge />
           <View style={{ flex: 1 }} />
           <BoostChip />
+          <View style={{ flex: 1 }} />
           <BrainpowerBadge />
           <StreakBadge />
         </Row>

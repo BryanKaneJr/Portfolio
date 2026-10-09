@@ -403,6 +403,10 @@ try {
   check((await page.getByRole('button', { name: 'Chapter 1 chest, opened' }).count()) === 1, 'the chest stays open on the road');
   await home(page);
   check((await page.getByTestId('boost-chip').count()) === 1, 'Home shows the running boost');
+  const chip = (await page.getByTestId('boost-chip').innerText()).replace(/\s+/g, ' ').trim();
+  check(/2x XP \d+:\d\d/i.test(chip), `as "2x XP" and its time left (${chip})`);
+  await questMap(page);
+  check((await page.getByTestId('boost-chip-map').count()) === 1, 'and the skill map shows it too, under its bar (owner, 2026-10-09)');
   await page.getByRole('tab', { name: /Profile/ }).click();
   await page.waitForTimeout(800);
 
@@ -436,6 +440,8 @@ try {
   await profile();
   await button(page, 'Delete account').click();
   check(/permanently deletes your account/.test(await bodyText(page)), 'deletion explains what will be lost before confirming');
+  check(await button(page, 'Delete permanently').isDisabled(), 'and stays shut until DELETE is typed (owner, 2026-10-09)');
+  await field(page, 'Type DELETE to confirm').fill('delete');
   await button(page, 'Delete permanently').click();
   await page.waitForTimeout(1500);
   check(/Continue with phone/i.test(await bodyText(page)), 'after deletion the app is back at the sign-in screen');

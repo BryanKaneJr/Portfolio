@@ -41,7 +41,33 @@ try {
   await page.waitForTimeout(600);
 
   const l1Texts = [];
-  const reinforced = await playLevel(page, { pick: (i) => (i === 0 ? 'wrong' : 'right'), texts: l1Texts });
+  // Order questions drag from anywhere on a tile, and the lesson holds still meanwhile (owner, 2026-10-09: on a phone the page scrolled under the drag).
+  let dragged = false;
+  const dragCheck = async () => {
+    const labels = async () => Promise.all((await page.getByTestId('order-tile').all()).map(async (t) => ((await t.getAttribute('aria-label')) ?? '').split(',')[0]));
+    const before = await labels();
+    // How each container around the question scrolls: the lesson's own scroll view is the one that can.
+    const overflows = () => page.evaluate(() => {
+      const out = [];
+      for (let n = document.querySelector('[data-testid="order-question"]'); n; n = n.parentElement) out.push(getComputedStyle(n).overflowY);
+      return out;
+    });
+    const free = await overflows();
+    const box = await page.getByTestId('order-tile').first().boundingBox();
+    await page.mouse.move(box.x + box.width * 0.4, box.y + box.height / 2);
+    await page.mouse.down();
+    for (let k = 1; k <= 10; k++) await page.mouse.move(box.x + box.width * 0.4, box.y + box.height / 2 + (box.height * 1.3 * k) / 10);
+    const during = await overflows();
+    const held = free.some((o, k) => (o === 'auto' || o === 'scroll') && during[k] === 'hidden');
+    await page.mouse.up();
+    await page.waitForTimeout(300);
+    const after = await labels();
+    dragged = after[1] === before[0] && after[0] === before[1];
+    check(dragged, `an order tile drags from its middle, not just its grip (${before.join(' / ')} → ${after.join(' / ')})`);
+    check(held, 'and the lesson stops scrolling while it drags');
+  };
+  const reinforced = await playLevel(page, { pick: (i) => (i === 0 ? 'wrong' : 'right'), texts: l1Texts, onOrder: dragCheck });
+  check(dragged, 'Level 1 has an order question to drag');
   check(reinforced > 0, 'a missed question shows "Take another look" and must be answered correctly');
   const TIP_QUESTION = 'Pick one, then tap Check.';
   const TIP_MISS = 'Missing one costs you nothing.';
@@ -517,6 +543,8 @@ try {
   await profile();
   await button(page, 'Delete account').click();
   check(/permanently deletes your account/.test(await bodyText(page)), 'deletion explains what will be lost before confirming');
+  check(await button(page, 'Delete permanently').isDisabled(), 'and stays shut until DELETE is typed (owner, 2026-10-09)');
+  await field(page, 'Type DELETE to confirm').fill('delete');
   await button(page, 'Delete permanently').click();
   await page.waitForTimeout(1200);
   check(/Continue with email/i.test(await bodyText(page)), 'after deletion the app is back at the sign-in screen');

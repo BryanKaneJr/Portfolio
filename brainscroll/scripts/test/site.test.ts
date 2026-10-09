@@ -23,7 +23,7 @@ test('builds the invite site with both verification files and the store links', 
     const invite = readFileSync(join(out, 'invite.html'), 'utf8');
     assert.ok(invite.includes('href="https://apps.apple.com/app/id1"') && invite.includes('details?id=app.brainscroll'));
     assert.ok(!invite.includes('{{'), 'every placeholder is filled');
-    assert.match(readFileSync(join(out, '_redirects'), 'utf8'), /^\/invite\/\*\s+\/invite\.html\s+200$/m);
+    assert.match(readFileSync(join(out, '_redirects'), 'utf8'), /^\/invite\/\*\s+\/invite\s+200$/m);
     assert.match(readFileSync(join(out, '_headers'), 'utf8'), /apple-app-site-association\n\s+Content-Type: application\/json/);
     assert.ok(existsSync(join(out, 'dr-scroll.webp')) && existsSync(join(out, 'style.css')));
   } finally {
@@ -62,7 +62,7 @@ test('publishes the privacy policy and the deletion page, with the owner details
     const privacy = readFileSync(join(out, 'privacy.html'), 'utf8');
     assert.match(privacy, /<h1>BrainScroll Privacy Policy<\/h1>/, 'the title loses "(draft)"');
     assert.ok(!privacy.includes('Draft for the owner'), "the editor's note isn't published");
-    assert.ok(privacy.includes('operated by Test Co, 1 Test St') && privacy.includes('href="mailto:privacy@example.com"') && privacy.includes('October 10, 2026'));
+    assert.ok(privacy.includes('operated by Test Co, 1 Test St') && privacy.includes('<!--email_off--><a href="mailto:privacy@example.com">privacy@example.com</a><!--/email_off-->') && privacy.includes('October 10, 2026'));
     assert.ok(!privacy.includes('{{'), 'every placeholder is filled');
     assert.match(privacy, /<h2>What we collect<\/h2>/);
     const del = readFileSync(join(out, 'delete-account.html'), 'utf8');

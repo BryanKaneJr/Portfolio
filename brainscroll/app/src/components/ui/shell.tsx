@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode, type Ref } from 'react';
+import { createContext, useContext, useEffect, useRef, useState, type ReactNode, type Ref } from 'react';
 import { Platform, ScrollView, StyleSheet, TextInput, useWindowDimensions, View, type TextInputProps } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { color, depth, layout, radius, space, type } from '@/theme/tokens';
@@ -58,6 +58,14 @@ export function ScreenHeader({ eyebrow, title, right }: { eyebrow?: string; titl
 }
 
 /**
+ * Locks the lesson's scrolling while a child drags something (an order
+ * question's tile): on a phone the scroll view would otherwise move the page
+ * under the finger at the same time (owner, 2026-10-09).
+ */
+const ScrollLock = createContext<(locked: boolean) => void>(() => {});
+export const useLessonScrollLock = () => useContext(ScrollLock);
+
+/**
  * The lesson shell used by levels and review. Learning mode is quiet:
  *   top:    close, a prominent progress bar, one small context line, one quiet utility
  *   middle: the content at reading width, nothing else competing
@@ -105,6 +113,7 @@ export function LessonShell({
   const insets = useSafeAreaInsets();
   const { height } = useWindowDimensions();
   const { onFocus, contentRef, footerRef } = useKeepFocus();
+  const [scrollLocked, setScrollLocked] = useState(false);
   const tint =
     footerTone === 'success'
       ? { backgroundColor: color.successTint, borderTopColor: color.successLine }
@@ -118,11 +127,11 @@ export function LessonShell({
         <ProgressBar value={progress} size="lesson" label="Lesson progress" grow fill={barFill} />
         {right ?? <View style={{ width: layout.minTouch }} />}
       </View>
-      <ScrollView ref={scrollRef} key={contentKey} contentContainerStyle={styles.lessonScroll}>
+      <ScrollView ref={scrollRef} key={contentKey} scrollEnabled={!scrollLocked} contentContainerStyle={styles.lessonScroll}>
         <View style={styles.column} ref={contentRef}>
           <SlideIn style={{ gap: space.lg }}>
             {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-            {children}
+            <ScrollLock.Provider value={setScrollLocked}>{children}</ScrollLock.Provider>
           </SlideIn>
         </View>
       </ScrollView>

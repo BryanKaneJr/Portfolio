@@ -101,7 +101,7 @@ The app and the backend are done. The live Supabase project has every level, the
 
 1. **The first iPhone build to TestFlight:** one command, signed in to Expo and Apple.
 2. **The two Unlimited subscriptions in App Store Connect** ([`subscriptions.md`](subscriptions.md)).
-3. **The Apple Team ID** (public), so invite links open the app ([`invite-links.md`](invite-links.md)).
+3. ~~**The Apple Team ID**~~ done (read from the first build; invite links open the app).
 4. **A few days on TestFlight:** the QA pass in [`release.md`](release.md).
 5. **Launch week:** the quest dates (`content/quests.json`), Supabase Pro, then submit.
 

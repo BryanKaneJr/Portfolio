@@ -3,6 +3,21 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-09: First TestFlight fixes
+
+- **Order questions hold the page still** (owner, on the first TestFlight build: "the whole screen scrolls while you're trying to drag things in place"). A tile now drags from anywhere on it, not just its grip, and the lesson stops scrolling the moment a finger is on the list; a tap still picks two tiles to swap. The instruction reads "Slide a tile up or down, or tap two to swap them."
+- **Deleting an account asks you to type DELETE** (owner: "shouldnt it say, type delete or something?"). The Delete permanently button stays off until the word is typed, in any case; Keep my account clears it.
+- **Invite links work for friends without the app.** Cloudflare answered every `/invite/CODE` with a redirect to `/invite`, which dropped the code, so the page said "This invite link looks incomplete". The site now rewrites to `/invite`, keeping the code in the address.
+- **Invite links open the app on iPhone.** The Apple team id (`X3837877NX`) came out of the first TestFlight build's provisioning profile, so the site now publishes the file iPhones check before opening the app for `/invite/*` links; nothing for the owner to look up.
+- **The contact email shows on the site again** (owner: "i cant even get the email to appear"). Cloudflare's email obfuscation swapped it for "[email protected]" plus a script to swap it back, and the pages' security policy blocks that script, so the privacy policy, account deletion and home pages showed no address. The site now marks the address so Cloudflare leaves it alone.
+- **A shared invite looks like BrainScroll** (owner: "how do we get the app icon to appear when they share an invite"). On iPhone the link goes to the share sheet as a link, not text, so the sheet and Messages show the invite page's icon, title and picture.
+- **"Earn more Brainpower" reads cleanly at any text size** (owner's screenshot: "Trophi es", "Chapte r"): one line per way with its icon, in place of five squeezed columns.
+- **The app no longer floods the server with notification sign-ups.** On iPhone, fetching the push token also fires the "token changed" event with the same token, and the app answered that event by registering again, which fetched the token again: a loop for as long as the app was open (about 317,000 registrations from the owner's phone in a day, found in the server logs). Only a token that really changed counts now, and one registration runs at a time.
+- **Profile shows your username, never a name from your email** (owner: Profile said a name from the Apple email while Edit profile had the generated username). Until the username loads, the line stays blank.
+- **Ten test learners for the App Store screenshots** (owner: "add like 10 test accounts so they appear in the league and the feed"), in the live database only: they share @bryan's league this week, five are his friends, and their two weeks of levels fill the feed with chapters, streaks, trophies and hearts. They can't sign in, and removing them is on the launch-week list (`docs/release.md`).
+- **Instant updates** (owner: yes to adding them before the rebuild). Builds from now on take code and image fixes without a new build or App Review: `npm run app:update -- "what changed"` bundles with the store build's own settings, checks the bundle talks to Supabase, and publishes it; phones pick it up the next time the app opens. Native changes still need a build, with a higher version so old builds never get code they can't run.
+- **The XP boost timer is front and center** (owner: "players need to know how much time they have left"): "2x XP 12:05", ticking each second, sits in the middle of Home's top bar and under the skill map's, while a boost runs.
+
 ## 2026-10-09: A full test pass
 
 - **Everything green before the first build:** `npm run check` (typecheck, lint, copy, 251 unit tests, 2,600 levels validated), all 17 database suites, the local e2e (136 checks) and the remote e2e against the real migrations (112 checks).

@@ -86,7 +86,14 @@ export default function AddFriendsScreen() {
       }
       return;
     }
-    await Share.share({ message: `Learn with me on BrainScroll! I'm @${view.me.username}. Tap to be friends: ${link} (or enter my code ${view.me.inviteCode} in Social).` }).catch(() => {});
+    const hello = `Learn with me on BrainScroll! I'm @${view.me.username}.`;
+    const code = `(or enter my code ${view.me.inviteCode} in Social)`;
+    // iOS: the link goes as a link, so the share sheet and Messages show the invite page's icon, title and
+    // picture instead of a plain text bubble (owner, 2026-10-09). Android's sheet takes text only.
+    await (Platform.OS === 'ios'
+      ? Share.share({ message: `${hello} Tap the link to be friends ${code}.`, url: link })
+      : Share.share({ message: `${hello} Tap to be friends: ${link} ${code}.` })
+    ).catch(() => {});
   };
 
   return (
