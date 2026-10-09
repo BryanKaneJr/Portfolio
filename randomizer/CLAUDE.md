@@ -19,6 +19,7 @@ Read [`docs/build-plan.md`](docs/build-plan.md) before changing behavior. It is 
 - Odds shown are the real odds: wheel sectors are proportional to weight; percentages never round a nonzero chance to 0% or a sub-certain one to 100%.
 - Local only: no network calls, accounts, analytics or third-party SDKs. Lists live in `Application Support/Randomizer/randomizer_store_v1.json` (atomic writes, previous save kept as a backup, unreadable files set aside, never deleted).
 - Keep the core package Foundation-only so its tests keep running on Linux.
+- **No disclaimer copy** (owner, 2026-10-09). Don't add "not official", "illustrative preset", "not a lottery/gambling" or similar apologetic lines to the app, shared results or store listing. Reverse Standings is simply inspired by a popular draft format. Still never use real league or TV-show names, logos or artwork.
 
 ## Layout
 

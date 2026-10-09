@@ -1,6 +1,8 @@
 > **Source of truth for product behavior.** This is the build plan the app was built from, with the working title
 > "DrawMode" replaced by the shipping name **Randomizer: Spin & Reveal** (home screen name: Randomizer).
 > Where the implementation made a choice the plan left open, [`checklist.md`](checklist.md) says so.
+>
+> **Owner decision (2026-10-09):** no disclaimer copy anywhere. Where this plan says the preset is "not official" or the app is "not a regulated lottery", that is guidance on what not to claim, not text to show. Don't add disclaimers to the app, shared results or the store listing.
 
 # Randomizer - Complete iOS Build Plan
 

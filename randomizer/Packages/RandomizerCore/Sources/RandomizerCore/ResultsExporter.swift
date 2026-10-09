@@ -45,7 +45,6 @@ public enum ResultsExporter {
             lines.append(line)
         }
         lines.append("")
-        lines.append("Weighted draft-order randomizer. Not an official league lottery.")
         lines.append("Drawn with \(AppInfo.name)")
         return lines.joined(separator: "\n")
     }

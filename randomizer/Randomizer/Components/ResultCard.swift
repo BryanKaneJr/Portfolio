@@ -111,8 +111,7 @@ enum ShareRenderer {
         return image(
             title: title,
             subtitle: "Draft order \u{00B7} \(date)",
-            lines: lines,
-            footnote: "Weighted draft-order randomizer. Not an official league lottery."
+            lines: lines
         )
     }
 }

@@ -86,4 +86,4 @@ randomizer/
 
 ## Fairness
 
-Every result comes from `SelectionEngine`, which draws a ticket with `Int.random(in:using:)` from `SystemRandomNumberGenerator` and maps it onto the eligible entries' weights. The outcome, the odds at that moment and any removal are saved together before the reveal plays. Reveal styles only animate that saved outcome. It is a recreational picker, not a regulated lottery or certified prize-draw service.
+Every result comes from `SelectionEngine`, which draws a ticket with `Int.random(in:using:)` from `SystemRandomNumberGenerator` and maps it onto the eligible entries' weights. The outcome, the odds at that moment and any removal are saved together before the reveal plays. Reveal styles only animate that saved outcome.

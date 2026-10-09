@@ -156,7 +156,6 @@ final class ListEditingTests: XCTestCase {
         let lines = text.components(separatedBy: "\n")
         XCTAssertEqual(lines[0], "League: draft order")
         XCTAssertEqual(lines[1], "Pick 1: \(outcome.results[0].nameSnapshot) (\(outcome.results[0].chanceText) chance at that pick)")
-        XCTAssertTrue(text.contains("Not an official league lottery."))
         XCTAssertTrue(text.hasSuffix("Drawn with Randomizer: Spin & Reveal"))
 
         let results = ResultsExporter.resultsText(title: "League", results: list.activeResults, sessionEdited: true, includeChances: false)

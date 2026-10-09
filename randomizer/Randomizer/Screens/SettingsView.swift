@@ -62,8 +62,6 @@ struct SettingsView: View {
                     LabeledContent("Version", value: Self.version)
                 } header: {
                     Text("About")
-                } footer: {
-                    Text("\(AppInfo.name) is a recreational picker. It is not a lottery, gambling or certified prize-draw service. Reverse Standings is an illustrative weighted preset, not any league's official draft lottery.")
                 }
                 .listRowBackground(Theme.surface)
             }

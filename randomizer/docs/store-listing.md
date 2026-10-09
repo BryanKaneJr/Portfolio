@@ -11,7 +11,7 @@ Everything here describes the shipped v1 truthfully. Check name and trademark av
 | Subtitle (30 max) | Wheels, lotteries & draft picks |
 | Category | Utilities (secondary: Entertainment) |
 | Price | One-time paid download, $4.99 suggested (test $4.99 vs $6.99). No in-app purchases. |
-| Age rating | 4+ (no gambling: no money, prizes or payments are handled by the app) |
+| Age rating | 4+ |
 | Bundle ID | `com.bryankanejr.randomizer` (change in the Xcode target if you use another prefix) |
 
 ## Promotional text (170 max)
@@ -47,8 +47,6 @@ MADE FOR REAL USE
 - Share results as text or an image
 - Works offline. No account, no ads, no tracking.
 
-Randomizer is a recreational picker. It is not a lottery, gambling or certified prize-draw service. Reverse Standings is an illustrative weighted preset, not any league's official draft lottery.
-
 ## Keywords (100 max)
 
 random,picker,wheel,spinner,draft,lottery,raffle,name,decide,choose,generator,classroom,fantasy,team
@@ -74,6 +72,6 @@ App Store wants 6.9" (1320 x 2868) or 6.5" (1284 x 2778) screenshots. Run the to
 
 Suggested privacy policy text: "Randomizer doesn't collect, store or send any personal data. Your lists and results are saved only on your device and leave it only when you choose to share them."
 
-## Avoid in marketing
+## Trademarks
 
-"Official NBA lottery", "certified fair", "guaranteed unbiased gambling draw", any league or TV show names or artwork.
+Keep real league names, team logos and TV-show branding out of the screenshots and copy; App Review rejects third-party marks (guideline 5.2). Describing the draft format itself is fine.
