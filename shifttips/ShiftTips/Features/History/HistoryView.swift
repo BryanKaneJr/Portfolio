@@ -20,6 +20,17 @@ struct HistoryView: View {
                 )
             } else {
                 List {
+                    Section {
+                        NavigationLink(value: Route.totals) {
+                            Label("Totals by Person", systemImage: "person.2")
+                                .font(.body.weight(.semibold))
+                                .foregroundStyle(Theme.ink)
+                        }
+                        .accessibilityHint("Each person's tips for a pay period")
+                        .accessibilityIdentifier("totalsByPerson")
+                    } footer: {
+                        Text("Add up a week, two weeks or a month for payroll.")
+                    }
                     ForEach(monthGroups(shifts), id: \.title) { group in
                         Section(group.title) {
                             ForEach(group.shifts) { shift in

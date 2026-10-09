@@ -33,7 +33,9 @@ No account, no server, no network calls, no analytics, no subscription. The full
 swift test --package-path Packages/ShiftTipsKit
 ```
 
-**CI:** `.github/workflows/shifttips.yml` runs the engine tests on Linux, then on a macOS runner runs them again, builds the app, and runs the unit and UI tests on a simulator. The UI-test screenshots are in the `ShiftTips-test-results` artifact (open the `.xcresult` in Xcode).
+**CI:** `.github/workflows/shifttips.yml` runs the engine tests on Linux, then on a macOS runner runs them again, builds the app, runs the unit and UI tests on a simulator, and builds the Release configuration unsigned. The UI-test screenshots are in the `ShiftTips-test-results` artifact (open the `.xcresult` in Xcode).
+
+**TestFlight:** `.github/workflows/shifttips-testflight.yml` archives, signs (with an App Store Connect API key) and uploads, started by hand from the Actions tab. See [`docs/testflight.md`](docs/testflight.md).
 
 UI tests launch the app with `-ui-testing`, which uses in-memory storage, so they never touch real data. Add `-show-welcome` to see first-launch onboarding.
 
@@ -68,6 +70,8 @@ Following the build plan's phases (section 11):
 - [x] Phase 3: saved crews, eligibility, frozen shifts, History, duplicate, delete with confirmation
 - [x] Phase 4: text summary, multipage PDF, CSV, JSON backup and import (merge or replace)
 - [x] Tip Out mode (added to v1.0 by the owner, 2026-10-09): crew rules, per-person tips and sales, pots by hours, caps, reviews, exports
+- [x] Totals by Person (added to v1.0 by the owner, 2026-10-09): each person's tips for a pay period across both modes, from History, as text or CSV
+- [x] TestFlight from GitHub Actions, no Mac needed (setup: [`docs/testflight.md`](docs/testflight.md))
 - [ ] Phase 5: polish and usability tests on real iPhones, including timing a repeat closeout, VoiceOver, large text and five real closers
 - [ ] Phase 6: App Store launch (checklist below)
 
@@ -81,9 +85,8 @@ Following the build plan's phases (section 11):
 - [ ] **Icon.** The current icon is a generated placeholder (`ShiftTips/Assets.xcassets/AppIcon.appiconset`).
 - [ ] **Screenshots** from the real app with real arithmetic (the UI tests' screenshots are a starting point).
 - [ ] **Price.** Plan hypothesis: $5.99 to $7.99.
-- [ ] TestFlight on a physical iPhone, then the airplane-mode pass from the plan.
-
-Without a Mac, a GitHub Actions macOS job can archive and upload to TestFlight once an App Store Connect API key and signing are set up as repository secrets. That job isn't set up yet.
+- [ ] TestFlight on a physical iPhone, then the airplane-mode pass from the plan. No Mac needed: follow [`docs/testflight.md`](docs/testflight.md), then run the **ShiftTips TestFlight** workflow.
+- [x] Privacy manifest (`ShiftTips/PrivacyInfo.xcprivacy`): no tracking, no data collected.
 
 ## Non-goals (v1.0)
 

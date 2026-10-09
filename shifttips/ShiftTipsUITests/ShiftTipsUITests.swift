@@ -40,6 +40,11 @@ final class ShiftTipsUITests: XCTestCase {
         // Amounts are read to VoiceOver as words.
         XCTAssertTrue(element(in: app, labelContaining: "472 dollars and 38 cents").waitForExistence(timeout: 5))
         attachScreenshot(app, "4 History")
+
+        // This week's totals include today's example shift.
+        app.buttons["totalsByPerson"].tap()
+        XCTAssertTrue(element(in: app, labelContaining: "113 dollars and 37 cents").waitForExistence(timeout: 5))
+        attachScreenshot(app, "7 Totals by Person")
     }
 
     /// Tip Out: the example chain of rules, reviewed and saved.

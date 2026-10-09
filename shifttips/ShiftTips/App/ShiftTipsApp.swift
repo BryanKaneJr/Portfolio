@@ -44,6 +44,7 @@ enum Route: Hashable {
     case review
     case history
     case shift(UUID)
+    case totals
 }
 
 @Observable
@@ -70,6 +71,7 @@ struct RootView: View {
                     case .review: ReviewSplitView()
                     case .history: HistoryView()
                     case .shift(let id): ShiftDetailView(shiftId: id)
+                    case .totals: PeriodTotalsView()
                     }
                 }
         }

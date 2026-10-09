@@ -51,6 +51,7 @@ The answer must be legible immediately, with no spreadsheet or external calculat
 - Employee: name, optional role label, default points/weight, eligible-for-pool toggle.
 - Shift: date, optional label, total pooled tips (one combined amount), selected employees, hours worked.
 - **Three core split methods:** Equal, By Hours, Hours x Points.
+- **Totals by Person** (owner decision, 2026-10-09): from History, each person's tips across the saved shifts in a pay period (this week, last week, last 2 weeks, this month, last month or custom), both modes, shared as text or CSV for payroll. A plain report from frozen snapshots, not an analytics dashboard.
 - **Tip Out mode** (owner decision, 2026-10-09): a second mode next to Tip Pool, where each person keeps their own tips and pays house-rule percentages of their own tips or sales to support roles. See section 5E.
 - Optional separate cash-tip and card-tip amount fields; together they equal the full pool.
 - Automatic precise allocations and explanatory breakdown.
