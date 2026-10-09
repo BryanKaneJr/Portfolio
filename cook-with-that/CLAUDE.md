@@ -38,11 +38,12 @@ Hard rules (from the plan, still in force):
 src/app/         index (home, both modes), results, ingredients (More options), selections, staples,
                  pantry, pantry-results, recipe/[id], favorites, _layout (ReadyGate waits for storage restore)
 src/components/  Chip, Dropdown, IngredientBrowser (compact|full), UseAvoidToggle, SelectionSummary, RecipeCard
-src/data/        types, ingredients (89, with aliases), recipes (27 seed), staples, popularity, labels, catalog
+src/data/        types, ingredients (89, with aliases), recipes (27 seed + imported/), collections, recipeBuilders,
+                 staples, popularity, labels, catalog
 src/logic/       matchRecipes (engine), pantry, sortRecipes, normalizeIngredient (search/aliases), validateContent
 src/state/       AppState (context + AsyncStorage persistence), searchState, pickerTarget, favoritesStorage
-scripts/         validate-recipes.ts, coverage-report.ts
-tests/           50 Jest tests: engine, pantry, staples, content validation, offline audit
+scripts/         validate-recipes.ts, coverage-report.ts, import-recipes.ts + import/ (parser, mapper, source readers)
+tests/           86 Jest tests: engine, pantry, staples, content validation, import pipeline, offline audit
 ```
 
 ## Commands
@@ -51,37 +52,37 @@ npm install
 npx expo start          # Expo Go on iPhone (same Wi-Fi), scan QR
 npm run check           # tsc + content validator + jest. Run before calling anything done
 npm run coverage-report # which common ingredient pairs/triples have no recipes
+npm run import:stage -- based-cooking   # / import:draft: see docs/recipe-import.md
 ```
 Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned docs; `npx expo install` for native deps).
 
 ## Current status
 - Phases 0–4 of the plan done, plus the features above. Verified via Expo web export + Playwright at iPhone sizes;
   **never yet run on a physical iPhone**: do that early.
-- All 27 recipes are original drafts marked "needs culinary review" (validator warns). Coverage is thin: about a third of
-  common 2-ingredient picks find an exact match.
+- All 36 recipes are drafts marked "needs culinary review" (validator warns): 27 originals and 9 adapted from Based
+  Cooking (public domain). Coverage is still thin: 45% of common 2-ingredient picks find an exact match.
 - Bundle ID `com.cookwiththat.app` is a placeholder.
 
-## NEXT TASK: find open / free-to-distribute recipe sources (Phase 5)
-Goal: grow to ~250–350 recipes we're legally allowed to bundle in a **paid, offline App Store app**. For each source,
-confirm commercial use, redistribution inside an app binary, attribution and share-alike duties, and App Store compatibility.
+## Phase 5 so far: sources and import pipeline (2026-10-08)
+- **Sources reviewed:** `docs/recipe-sources.md` (ranked, with quoted licenses). Bundle only public domain, CC0 or
+  Unlicense text, or text we wrote. **No CC-licensed text, not even CC BY:** CC 4.0 forbids "effective technological
+  measures", and CC's own wiki says App Store FairPlay may violate that. Wikibooks is for facts and ideas only.
+  TheMealDB and the scraped datasets are out.
+- **Pipeline:** `docs/recipe-import.md`. Run `npm run import:stage -- based-cooking` (pinned snapshot → report in
+  `docs/import-reports/`), then `npm run import:draft -- based-cooking --next N` (drafts land in `src/data/imported/`
+  with `source.origin` filled in and TODO markers). Edit the drafts by hand, then run `npm run check`.
+  Reviewed ingredient wording lives in `scripts/import/ingredient-map.ts` (never a substitution).
+- **Guards:** `validateContent` checks each origin's collection and license against `src/data/collections.ts` and
+  rejects a second import of the same original. Tests fail on any TODO/NaN left in `src/data/imported/`, and on a
+  step that uses a catalog ingredient the list leaves out (it would slip past Avoid).
+- **First batch:** 9 Based Cooking recipes, 36 in all. Exact matches for common 2-ingredient pairs went from 35% to 45%.
 
-Findings so far (verify before relying on them):
-- **US copyright:** a mere listing of ingredients isn't protected. Substantial literary expression (written directions,
-  headnotes, photos) is. Safest strategy remains: use ideas/ingredient lists as inspiration and **write original directions**,
-  then human-review. Copyright Office fact sheet FL-122 "Recipes"; NYC Bar guide:
-  https://www.nycbar.org/wp-content/uploads/2023/05/20221024-SecretIngredientsHowtoProtectRecipes_FINAL_22.6.6.pdf
-- **based.cooking**: README says "This website and all its content is in the public domain" and contributors waive
-  ownership. Likely usable as-is; confirm the LICENSE file and count the recipes. https://github.com/slendidev/based.cooking
-- **Wikibooks Cookbook**: CC BY-SA 4.0 (a dataset dump exists: huggingface.co/datasets/gossminn/wikibooks-cookbook). Usable
-  with attribution, but share-alike applies to adapted text and CC BY-SA 4.0 restricts "effective technological measures".
-  Check App Store DRM compatibility before bundling. Quality varies.
-- **RecipeNLG / Recipe1M / Food.com / Epicurious datasets**: scraped from commercial sites, research or non-commercial use.
-  **Don't bundle.**
-- **USDA MyPlate Kitchen** (and other US-gov recipe sites: NIH/NHLBI, SNAP-Ed): federal works are generally public domain,
-  but some recipes are contributed by third parties. Confirm per-recipe. Not yet verified.
-- **TheMealDB**: terms not yet checked. It's an API (the app can't call APIs), so only usable if the license allows bundling.
-- Other ideas to check: Project Gutenberg cookbooks (pre-1929, public domain; needs modernized quantities and our own
-  rewrite), other CC0 or Unlicense recipe repos on GitHub.
-
-Deliverable the owner wants next: a short ranked list of usable sources (license, size, effort, risk), then an import
-pipeline into `src/data/recipes.ts` format with `source` metadata filled in, running `npm run validate` after each batch.
+## NEXT TASK
+1. **Grow the ingredient catalog.** It's the bottleneck: only 22 of Based Cooking's 440 recipes map to the 89
+   ingredients. `docs/import-reports/based-cooking.md` ranks the additions that unblock the most recipes (nutmeg, bay
+   leaf, cayenne, yeast, yogurt, powdered sugar, bread crumbs, mayonnaise, maple syrup, cornstarch …). Each addition is
+   a product decision: also consider `popularity.ts` / `staples.ts`. Confirm the list with the owner first.
+2. Keep importing Based Cooking in batches of 5–15 (realistic yield about 60–120 good recipes), then federal recipes
+   recipe by recipe (see the sources doc). Fill the rest with originals aimed at `npm run coverage-report` gaps.
+3. Before release: an acknowledgements screen built from `RECIPE_COLLECTIONS` (not legally required for public
+   domain, but courteous), and culinary review of every recipe.

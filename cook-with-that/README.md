@@ -24,18 +24,25 @@ npm run coverage-report  # pair/triple ingredient coverage + gaps
 npm test
 ```
 
+## Importing recipes
+
+Recipes from openly licensed collections (public domain only, so far) are imported with
+`npm run import:stage` / `npm run import:draft`, then edited by hand. See
+[`docs/recipe-sources.md`](docs/recipe-sources.md) for which sources are allowed and why, and
+[`docs/recipe-import.md`](docs/recipe-import.md) for the workflow.
+
 ## Layout
 
 ```
 src/app/            screens (Expo Router): index (Find / My pantry), results, ingredients (More options), selections, staples, pantry, pantry-results, recipe/[id], favorites
 src/components/     Chip, Dropdown, IngredientBrowser, SelectionSummary, RecipeCard
-src/data/           types, ingredient catalog, recipes, labels (all bundled, offline)
+src/data/           types, ingredient catalog, recipes (seed + imported/), collections, labels (all bundled, offline)
 src/logic/          matching engine, sorting, ingredient search, content validator
 src/state/          search-state rules, local storage, app provider
 src/theme/          colors (light/dark), spacing, typography
-scripts/            validate-recipes.ts, coverage-report.ts
+scripts/            validate-recipes.ts, coverage-report.ts, import-recipes.ts (+ import/: parser, mapper, source readers)
 tests/              engine, content and offline-audit tests
-docs/               build plan, ingredient mapping notes
+docs/               build plan, ingredient mapping notes, recipe sources, import guide + reports
 ```
 
 ## Matching rules (summary)
@@ -86,10 +93,13 @@ cumin, chili powder, red pepper flakes (`src/data/staples.ts`).
 - [x] Dropdown filters, Use/Avoid selections screen, kitchen staples (pantry mode only) (+6 tests); fixed a startup race where an early tap could be overwritten by the saved-state restore
 - [x] Phase 3/4 — Find, Results (exact / close / narrowing / adjust), Recipe (step check-off), Favorites; last search + favorites persist locally
 - [ ] Phase 5 — grow to 30–50 → 120–150 → 250–350 **human-verified** recipes
+  - [x] Source review (`docs/recipe-sources.md`) and import pipeline (`docs/recipe-import.md`)
+  - [x] First batch: 9 recipes adapted from Based Cooking (public domain), 36 in all
+  - [ ] Grow the ingredient catalog (the import report ranks what unblocks the most recipes)
 - [ ] Phase 6 — polish & accessibility pass on a real iPhone (VoiceOver, large text)
 - [ ] Phase 7 — TestFlight, App Store listing, paid-app setup
 
-**Every seed recipe is an original draft marked "needs culinary review."** Someone must cook/check
+**Every recipe is a draft marked "needs culinary review"** (seed recipes are originals; imported ones are adapted). Someone must cook/check
 quantities, times and food-safety notes before release.
 
 Bundle ID `com.cookwiththat.app` is a placeholder — change it in `app.json` before creating the App Store record.
