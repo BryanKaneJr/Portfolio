@@ -61,7 +61,7 @@ export function QuestionCard({
       <View style={{ gap: space.sm }}>
         <Eyebrow tone={recall ? 'success' : 'brand'}>{recall ? 'Recall · from an earlier level' : PURPOSE[question.purpose]}</Eyebrow>
         {!blank && <H2>{question.prompt}</H2>}
-        {question.kind !== 'mcq' && <Body muted>{question.kind === 'match' ? 'Tap one on each side to pair them.' : 'Drag the handles, or tap two to swap them.'}</Body>}
+        {question.kind !== 'mcq' && <Body muted>{question.kind === 'match' ? 'Tap one on each side to pair them.' : 'Slide a tile up or down, or tap two to swap them.'}</Body>}
       </View>
 
       {question.kind === 'order' ? (

@@ -713,8 +713,13 @@ export function useBoostLeft(): number | null {
   return left > 0 ? left : null;
 }
 
-/** The header chip while a boost runs: "2x XP 12:05". Opens Profile, where boosts live. */
-export function BoostChip() {
+/**
+ * The header chip while a boost runs: "2x XP 12:05", ticking every second, in
+ * the middle of Home's bar and under the skill map's (owner, 2026-10-09:
+ * "players need to know how much time they have left"). Opens Profile, where
+ * boosts live.
+ */
+export function BoostChip({ centered }: { centered?: boolean }) {
   const left = useBoostLeft();
   if (left === null) return null;
   return (
@@ -723,9 +728,9 @@ export function BoostChip() {
       accessibilityRole="button"
       accessibilityLabel={`2x XP boost, ${Math.ceil(left / 60000)} minutes left. Open`}
       onPress={() => router.navigate('/profile')}
-      style={({ pressed }) => [styles.boostChip, pressed && { opacity: 0.8 }]}>
+      style={({ pressed }) => [styles.boostChip, centered && { alignSelf: 'center' }, pressed && { opacity: 0.8 }]}>
       <Icon name="xp" tint={color.onBrand} size={iconSize.sm} />
-      <Text style={[type.label, { color: color.onBrand, fontWeight: '800', fontVariant: ['tabular-nums'] }]}>{`2x ${clock(left)}`}</Text>
+      <Text style={[type.label, { color: color.onBrand, fontWeight: '800', fontVariant: ['tabular-nums'] }]}>{`2x XP ${clock(left)}`}</Text>
     </Pressable>
   );
 }

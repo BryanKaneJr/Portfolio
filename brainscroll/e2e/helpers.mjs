@@ -232,15 +232,23 @@ export async function answerStep(page, firstPick, onMiss) {
   await page.waitForTimeout(150);
 }
 
-/** `texts`, if given, collects the page text at every question step (for checking what was shown). */
-export async function playLevel(page, { pick = () => 0, doubleTapComplete = false, texts } = {}) {
+/**
+ * `texts`, if given, collects the page text at every question step (for checking what was shown).
+ * `onOrder`, if given, runs once when the first order question opens (before it's answered).
+ */
+export async function playLevel(page, { pick = () => 0, doubleTapComplete = false, texts, onOrder } = {}) {
   let q = 0;
   let reinforced = 0;
   let missedThis = false;
+  let orderSeen = false;
   for (let step = 0; step < 80; step++) {
     await page.waitForTimeout(150);
     if (await checkButton(page).count()) {
       if (texts) texts.push(await bodyText(page));
+      if (onOrder && !orderSeen && (await page.getByTestId('order-question').count())) {
+        orderSeen = true;
+        await onOrder();
+      }
       await answerStep(
         page,
         () => {

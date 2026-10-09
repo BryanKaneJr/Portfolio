@@ -3,6 +3,11 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-09: First TestFlight fixes
+
+- **Order questions hold the page still** (owner, on the first TestFlight build: "the whole screen scrolls while you're trying to drag things in place"). A tile now drags from anywhere on it, not just its grip, and the lesson stops scrolling the moment a finger is on the list; a tap still picks two tiles to swap. The instruction reads "Slide a tile up or down, or tap two to swap them."
+- **The XP boost timer is front and center** (owner: "players need to know how much time they have left"): "2x XP 12:05", ticking each second, sits in the middle of Home's top bar and under the skill map's, while a boost runs.
+
 ## 2026-10-09: A full test pass
 
 - **Everything green before the first build:** `npm run check` (typecheck, lint, copy, 251 unit tests, 2,600 levels validated), all 17 database suites, the local e2e (136 checks) and the remote e2e against the real migrations (112 checks).

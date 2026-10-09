@@ -6,6 +6,7 @@ import { chaptersFor, levelMeta } from '@/content';
 import { LevelPath } from '@/components/LevelPath';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { BrainpowerBadge } from '@/components/BrainpowerBadge';
+import { BoostChip } from '@/components/cosmetics';
 import { StreakBadge } from '@/components/StreakBadge';
 import { useCurrentSkill } from '@/progress/useCurrentSkill';
 import { useStartLevel } from '@/progress/useStartLevel';
@@ -131,21 +132,25 @@ export default function SkillMapScreen() {
       onScroll={onScroll}
       header={
         // Back, the skill's name, and the same Brainpower and streak chips as Home (owner, 2026-10-06).
-        <Row gap={space.sm}>
-          <IconButton
-            label="Back"
-            icon="back"
-            onPress={() =>
-              // Up to the parent, back through the stack when it's there; history back looped skill and region on the web.
-              router.dismissTo(multi ? { pathname: '/subject/[id]', params: { id: skill.subjectId } } : '/')
-            }
-          />
-          <Text accessibilityRole="header" numberOfLines={2} style={[type.bodyStrong, { flex: 1, color: color.text }]}>
-            {skill.name}
-          </Text>
-          <BrainpowerBadge />
-          <StreakBadge />
-        </Row>
+        <>
+          <Row gap={space.sm}>
+            <IconButton
+              label="Back"
+              icon="back"
+              onPress={() =>
+                // Up to the parent, back through the stack when it's there; history back looped skill and region on the web.
+                router.dismissTo(multi ? { pathname: '/subject/[id]', params: { id: skill.subjectId } } : '/')
+              }
+            />
+            <Text accessibilityRole="header" numberOfLines={2} style={[type.bodyStrong, { flex: 1, color: color.text }]}>
+              {skill.name}
+            </Text>
+            <BrainpowerBadge />
+            <StreakBadge />
+          </Row>
+          {/* A running XP boost's time left, centered under the bar (owner, 2026-10-09: players need to see it). */}
+          <BoostChip centered />
+        </>
       }>
 
       {!next && (

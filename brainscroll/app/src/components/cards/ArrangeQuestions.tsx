@@ -1,7 +1,7 @@
 import { encodeArrangement, shuffledLabels, type Question } from '@brainscroll/core';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Animated, PanResponder, Platform, Pressable, StyleSheet, Text, View, type LayoutChangeEvent, type ViewStyle } from 'react-native';
-import { Icon } from '@/components/ui';
+import { Icon, useLessonScrollLock } from '@/components/ui';
 import type { AttemptView } from '@/progress/ProgressProvider';
 import { feedback } from '@/theme/feedback';
 import { color, depth, fw, radius, space, type } from '@/theme/tokens';
@@ -48,8 +48,9 @@ const tileKeys = (labels: readonly string[]) => {
 // ─── Order ──────────────────────────────────────────────────────────────────
 
 /**
- * Put in order: drag a tile by its handle, or tap two tiles to swap them
- * (owner: "drag with tap as backup"). Screen readers use the tile's Move up
+ * Put in order: slide a tile up or down (anywhere on it; the page holds still
+ * while you do, owner 2026-10-09), or tap two tiles to swap them (owner: "drag
+ * with tap as backup"). Screen readers use the tile's Move up
  * and Move down actions, and on the web the arrow keys move the focused tile.
  * The two ends are named above and below the list.
  */
@@ -64,6 +65,9 @@ export function OrderQuestion({ question: q, attempts, busy, onSelect }: { quest
   const [heights, setHeights] = useState<number[]>([]);
   const [dy] = useState(() => new Animated.Value(0));
   const keys = tileKeys(arr);
+  // The lesson holds still while a finger is on the list, so a drag never scrolls the page too.
+  const lockScroll = useLessonScrollLock();
+  useEffect(() => () => lockScroll(false), [lockScroll]);
   // Where a tile dragged `drag` points from `from` would land: past the middle of each row it crosses.
   const targetFor = (from: number, drag: number) => {
     const h = (k: number) => heights[k] || heights[from] || 1;
@@ -108,16 +112,17 @@ export function OrderQuestion({ question: q, attempts, busy, onSelect }: { quest
     setPicked(null);
   };
 
-  // One responder per handle; refs keep it reading the current arrangement.
+  // One responder per tile: a tap stays a tap (swap), and an up or down slide anywhere on the tile drags it.
   const responders = useMemo(
     () =>
       q.items.map((_, i) =>
         PanResponder.create({
-          onStartShouldSetPanResponder: () => !locked,
-          onMoveShouldSetPanResponder: () => !locked,
+          onStartShouldSetPanResponder: () => false,
+          onMoveShouldSetPanResponder: (_e, g) => !locked && Math.abs(g.dy) > 4 && Math.abs(g.dy) > Math.abs(g.dx),
           // Once a drag starts, the lesson's scroll view mustn't take it over.
           onPanResponderTerminationRequest: () => false,
           onPanResponderGrant: () => {
+            lockScroll(true);
             setPicked(null);
             dy.setValue(0);
             setDrag({ from: i, to: i });
@@ -128,6 +133,7 @@ export function OrderQuestion({ question: q, attempts, busy, onSelect }: { quest
             setDrag((d) => (d && d.to !== to ? { ...d, to } : d));
           },
           onPanResponderRelease: (_e, g) => {
+            lockScroll(false);
             const to = targetFor(i, g.dy);
             setDrag(null);
             dy.setValue(0);
@@ -140,6 +146,7 @@ export function OrderQuestion({ question: q, attempts, busy, onSelect }: { quest
             }
           },
           onPanResponderTerminate: () => {
+            lockScroll(false);
             setDrag(null);
             dy.setValue(0);
           },
@@ -147,7 +154,7 @@ export function OrderQuestion({ question: q, attempts, busy, onSelect }: { quest
       ),
     // Rebuilt when what they read changes; none of it changes mid-drag (the order is only committed on release).
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [q.items, arr, locked, heights, onSelect, dy],
+    [q.items, arr, locked, heights, onSelect, dy, lockScroll],
   );
 
   // While dragging, the tiles between the start and the target step aside (by the dragged tile's height).
@@ -181,13 +188,18 @@ export function OrderQuestion({ question: q, attempts, busy, onSelect }: { quest
   return (
     <View testID="order-question" style={{ gap: space.sm }}>
       <End label={q.first} />
-      <View style={{ gap: ROW_GAP }}>
+      <View
+        style={{ gap: ROW_GAP }}
+        onTouchStart={() => !locked && lockScroll(true)}
+        onTouchEnd={() => lockScroll(false)}
+        onTouchCancel={() => lockScroll(false)}>
         {arr.map((label, i) => {
           const dragging = drag?.from === i;
           const state = resolved ? 'correct' : wrong.has(i) ? 'wrong' : picked === i || dragging ? 'picked' : 'idle';
           return (
             <Animated.View
               key={keys[i]}
+              {...(locked ? null : responders[i]!.panHandlers)}
               onLayout={(e: LayoutChangeEvent) => {
                 const h = e.nativeEvent.layout.height + ROW_GAP;
                 setHeights((hs) => (hs[i] === h ? hs : Object.assign([...hs], { [i]: h })));
@@ -218,8 +230,8 @@ export function OrderQuestion({ question: q, attempts, busy, onSelect }: { quest
                 </View>
                 <Text style={[styles.label, state === 'wrong' && { color: color.danger }]}>{label}</Text>
                 {!locked && (
-                  // The drag handle: grab it and slide.
-                  <View {...responders[i]!.panHandlers} hitSlop={8} style={styles.handle} aria-hidden accessible={false}>
+                  // The grip says it moves; the whole tile drags.
+                  <View style={styles.handle} aria-hidden accessible={false}>
                     <Icon name="grip" tint={color.textMuted} size={22} />
                   </View>
                 )}
