@@ -137,7 +137,7 @@ extension OddsMode {
         case .customWeighted:
             return "Weights are relative chances, not fixed percentages. A weight of 0 keeps an entry out of draws."
         case .reverseStandings:
-            return "Order entries from worst finish (top) to best. The worst gets the most weight. An illustrative fantasy preset, not any league's official lottery."
+            return "Order entries from worst finish (top) to best. The worst gets the most weight."
         }
     }
 }
