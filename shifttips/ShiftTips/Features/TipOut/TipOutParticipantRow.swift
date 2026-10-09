@@ -55,7 +55,7 @@ struct TipOutParticipantRow: View {
 
     private var detailText: String {
         var parts: [String] = []
-        if let role = row.role, !role.isEmpty { parts.append(role.uppercased()) }
+        if let role = row.role, !role.isEmpty { parts.append(role) }
         switch status {
         case .pays: parts.append("Tips out")
         case .receives: parts.append("Receives by hours")
@@ -67,7 +67,7 @@ struct TipOutParticipantRow: View {
         case .managerSupervisorOwner: parts.append("Owner or manager, never in tip-outs")
         }
         if row.isOneOff { parts.append("This shift only") }
-        return parts.joined(separator: " \u{00B7} ")
+        return parts.joined(separator: " \u{00B7} ").uppercased()
     }
 
     @ViewBuilder

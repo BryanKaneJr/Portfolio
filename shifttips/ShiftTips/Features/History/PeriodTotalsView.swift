@@ -315,6 +315,6 @@ struct PersonTotalRow: View {
         if let role = person.role, !role.isEmpty { parts.append(role.uppercased()) }
         parts.append(person.shiftCount == 1 ? "1 shift" : "\(person.shiftCount) shifts")
         if person.isOneOff { parts.append("Added per shift") }
-        return parts.joined(separator: " \u{00B7} ")
+        return parts.joined(separator: " \u{00B7} ").uppercased()
     }
 }

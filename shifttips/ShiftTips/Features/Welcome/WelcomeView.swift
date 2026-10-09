@@ -37,13 +37,11 @@ struct WelcomeView: View {
                         SectionHeader("How does your team split tips?", index: "01")
                         ExperienceOption(
                             experience: .simple,
-                            number: "A",
                             detail: "Add who worked and their hours. Tips are shared by hours. Nothing else to set up.",
                             isSelected: choice == .simple
                         ) { choice = .simple }
                         ExperienceOption(
                             experience: .advanced,
-                            number: "B",
                             detail: "Pools by role points, tip-outs to bussers and the bar, cash and card. Pick the style closest to yours, then make every number match.",
                             isSelected: choice == .advanced
                         ) { choice = .advanced }
@@ -107,7 +105,6 @@ struct WelcomeView: View {
 /// radio, its border heavier when chosen.
 struct ExperienceOption: View {
     let experience: Experience
-    let number: String
     let detail: String
     let isSelected: Bool
     let onSelect: () -> Void
@@ -118,15 +115,9 @@ struct ExperienceOption: View {
                 CheckSquare(isOn: isSelected, kind: .radio)
                     .padding(.top, 2)
                 VStack(alignment: .leading, spacing: 6) {
-                    HStack(alignment: .firstTextBaseline, spacing: 8) {
-                        Text(experience.title)
-                            .font(.display(.title3, weight: .bold))
-                            .foregroundStyle(Theme.ink)
-                        Text(number)
-                            .font(.mono(.caption, weight: .semibold))
-                            .foregroundStyle(Theme.inkTertiary)
-                            .accessibilityHidden(true)
-                    }
+                    Text(experience.title)
+                        .font(.display(.title3, weight: .bold))
+                        .foregroundStyle(Theme.ink)
                     Text(detail)
                         .font(.subheadline)
                         .foregroundStyle(Theme.inkSecondary)

@@ -325,10 +325,8 @@ struct SettingsView: View {
         do {
             let summary = try store.importBackup(data, mode: mode)
             notice = Notice(title: "Backup Imported", message: summary.message)
-        } catch let error as BackupError {
-            notice = Notice(title: "Not Imported", message: error.message)
         } catch {
-            notice = Notice(title: "Not Imported", message: "ShiftTips couldn't import that file.")
+            notice = Notice(title: "Not Imported", message: error.message)
         }
     }
 

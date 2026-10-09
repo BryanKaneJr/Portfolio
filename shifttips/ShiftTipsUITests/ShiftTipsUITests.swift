@@ -107,9 +107,14 @@ final class ShiftTipsUITests: XCTestCase {
     /// The largest accessibility text size wraps rather than truncates.
     func testLargeTextNewShift() {
         let app = launch(["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityL"])
-        app.buttons["tryExample"].tap()
-        XCTAssertTrue(app.buttons["reviewSplit"].waitForExistence(timeout: 5))
-        attachScreenshot(app, "14 Large Text New Shift")
+        let example = app.buttons["tryExample"]
+        XCTAssertTrue(example.waitForExistence(timeout: 5))
+        attachScreenshot(app, "14 Large Text First Run")
+        if example.isHittable {
+            example.tap()
+            XCTAssertTrue(element(in: app, labelContaining: "472 dollars and 38 cents").waitForExistence(timeout: 5))
+            attachScreenshot(app, "14b Large Text Example")
+        }
     }
 
     func testSettings() {

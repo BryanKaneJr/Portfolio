@@ -21,6 +21,10 @@ struct NewShiftView: View {
         @Bindable var store = store
         let live = store.form.live
         let readiness = store.form.readiness(live)
+        // With no saved crew and nothing entered, the first step leads the
+        // screen and the crew section steps aside.
+        let firstRun = store.crews.isEmpty && store.form.rows.isEmpty
+        let crewOffset = firstRun ? 0 : 1
 
         ScrollViewReader { proxy in
             ScrollView {
@@ -31,6 +35,8 @@ struct NewShiftView: View {
                             savedBanner
                         } else if store.form.isExample {
                             exampleBanner
+                        } else if firstRun {
+                            startHere
                         }
                         if !store.isSimple {
                             ModePicker(mode: store.form.mode) { mode in
@@ -43,25 +49,29 @@ struct NewShiftView: View {
                     Group {
                         switch live {
                         case .pool(let calculation):
-                            TipsCard(form: $store.form, focus: $focus, allowsCashAndCard: !store.isSimple, number: "01")
-                            crewSection(number: "02")
-                            if !store.isSimple {
-                                MethodPicker(method: $store.form.method, number: "03")
+                            TipsCard(form: $store.form, focus: $focus, allowsCashAndCard: !store.isSimple, number: number(1))
+                            if !firstRun {
+                                crewSection(number: number(2))
                             }
-                            peopleSection(calculation, number: store.isSimple ? "03" : "04")
+                            if !store.isSimple {
+                                MethodPicker(method: $store.form.method, number: number(2 + crewOffset))
+                            }
+                            peopleSection(calculation, number: number((store.isSimple ? 2 : 3) + crewOffset))
                         case .tipOut(let calculation):
-                            crewSection(number: "01")
+                            if !firstRun {
+                                crewSection(number: number(1))
+                            }
                             TipOutRulesCard(
                                 rules: store.form.tipOutRules,
                                 statuses: store.form.tipOutPlan.ruleStatuses,
                                 crewName: store.form.crewName,
-                                sectionNumber: "02",
+                                sectionNumber: number(1 + crewOffset),
                                 onEdit: {
                                     focus = nil
                                     editingRules = true
                                 }
                             )
-                            tipOutPeopleSection(calculation, number: "03")
+                            tipOutPeopleSection(calculation, number: number(2 + crewOffset))
                         }
                     }
                     .disabled(store.isFormSaved)
@@ -190,67 +200,82 @@ struct NewShiftView: View {
 
     // MARK: - Sections
 
-    @ViewBuilder
-    private func crewSection(number: String) -> some View {
-        if store.crews.isEmpty && store.form.rows.isEmpty {
-            VStack(alignment: .leading, spacing: 14) {
-                SectionHeader("Crew", index: number)
-                Text("Save your crew once and every shift starts with them. Then it's just tips and hours.")
-                    .font(.title3)
-                    .foregroundStyle(Theme.ink)
-                    .fixedSize(horizontal: false, vertical: true)
-                Button("Add Your Crew") { editingCrew = .new }
-                    .buttonStyle(PrimaryButtonStyle())
-                Button("Try an Example") { store.loadExample() }
-                    .buttonStyle(SecondaryButtonStyle())
-                    .accessibilityIdentifier("tryExample")
+    /// First run: save a crew, or try the example. Boxed in ink, because
+    /// it's the one thing to do before anything else on this screen works.
+    private var startHere: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            SectionLabel("Start here")
+            Text("Save your crew once and every shift starts with them. Then it's just tips and hours.")
+                .font(.title3)
+                .foregroundStyle(Theme.ink)
+                .fixedSize(horizontal: false, vertical: true)
+            Button("Add Your Crew") { editingCrew = .new }
+                .buttonStyle(PrimaryButtonStyle())
+            Button("Try an Example") {
+                focus = nil
+                store.loadExample()
             }
-        } else {
-            VStack(alignment: .leading, spacing: 4) {
-                SectionHeader("Crew", index: number) {
-                    if let crewId = store.form.crewId, let crew = store.crew(id: crewId) {
-                        Button("Edit Crew") { editingCrew = .edit(crew) }
-                            .buttonStyle(TextButtonStyle())
-                    }
+            .buttonStyle(SecondaryButtonStyle())
+            .accessibilityIdentifier("tryExample")
+        }
+        .padding(16)
+        .background(Theme.surface, in: RoundedRectangle(cornerRadius: Theme.corner))
+        .overlay {
+            RoundedRectangle(cornerRadius: Theme.corner)
+                .strokeBorder(Theme.ink, lineWidth: 1.5)
+        }
+    }
+
+    /// "01", "02"...
+    private func number(_ value: Int) -> String {
+        value < 10 ? "0\(value)" : "\(value)"
+    }
+
+    private func crewSection(number: String) -> some View {
+        VStack(alignment: .leading, spacing: 4) {
+            SectionHeader("Crew", index: number) {
+                if let crewId = store.form.crewId, let crew = store.crew(id: crewId) {
+                    Button("Edit Crew") { editingCrew = .edit(crew) }
+                        .buttonStyle(TextButtonStyle())
                 }
-                Menu {
-                    ForEach(store.crews) { crew in
-                        Button {
-                            store.selectCrew(id: crew.id)
-                        } label: {
-                            if crew.id == store.form.crewId {
-                                Label(crew.name, systemImage: "checkmark")
-                            } else {
-                                Text(crew.name)
-                            }
+            }
+            Menu {
+                ForEach(store.crews) { crew in
+                    Button {
+                        store.selectCrew(id: crew.id)
+                    } label: {
+                        if crew.id == store.form.crewId {
+                            Label(crew.name, systemImage: "checkmark")
+                        } else {
+                            Text(crew.name)
                         }
                     }
-                    Divider()
-                    Button {
-                        editingCrew = .new
-                    } label: {
-                        Label("New Crew", systemImage: "plus")
-                    }
-                } label: {
-                    HStack(alignment: .firstTextBaseline, spacing: 8) {
-                        Text(crewTitle)
-                            .font(.display(.title2, weight: .bold))
-                            .foregroundStyle(Theme.ink)
-                            .multilineTextAlignment(.leading)
-                        Image(systemName: "chevron.down")
-                            .font(.subheadline.weight(.heavy))
-                            .foregroundStyle(Theme.inkSecondary)
-                    }
-                    .frame(minHeight: 44, alignment: .leading)
-                    .contentShape(Rectangle())
                 }
-                .accessibilityLabel("Crew: \(crewTitle)")
-                .accessibilityHint("Choose which saved crew this shift uses")
-                if !store.isSimple, let crewId = store.form.crewId, let crew = store.crew(id: crewId) {
-                    Text("Starts as \(crew.setupTitle)")
-                        .font(.mono(.caption))
+                Divider()
+                Button {
+                    editingCrew = .new
+                } label: {
+                    Label("New Crew", systemImage: "plus")
+                }
+            } label: {
+                HStack(alignment: .firstTextBaseline, spacing: 8) {
+                    Text(crewTitle)
+                        .font(.display(.title2, weight: .bold))
+                        .foregroundStyle(Theme.ink)
+                        .multilineTextAlignment(.leading)
+                    Image(systemName: "chevron.down")
+                        .font(.subheadline.weight(.heavy))
                         .foregroundStyle(Theme.inkSecondary)
                 }
+                .frame(minHeight: 44, alignment: .leading)
+                .contentShape(Rectangle())
+            }
+            .accessibilityLabel("Crew: \(crewTitle)")
+            .accessibilityHint("Choose which saved crew this shift uses")
+            if !store.isSimple, let crewId = store.form.crewId, let crew = store.crew(id: crewId) {
+                Text("Starts as \(crew.setupTitle)")
+                    .font(.mono(.caption))
+                    .foregroundStyle(Theme.inkSecondary)
             }
         }
     }

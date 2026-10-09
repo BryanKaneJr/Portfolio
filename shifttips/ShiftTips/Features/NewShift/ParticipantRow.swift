@@ -48,14 +48,14 @@ struct ParticipantRow: View {
 
     private var detailText: String? {
         var parts: [String] = []
-        if let role = row.role, !role.isEmpty { parts.append(role.uppercased()) }
+        if let role = row.role, !role.isEmpty { parts.append(role) }
         switch row.eligibility {
         case .managerSupervisorOwner: parts.append("Owner or manager, never in pool")
         case .notEligible: parts.append("Not eligible for pool")
         case .eligible: if !row.included { parts.append("Left out") }
         }
         if row.isOneOff { parts.append("This shift only") }
-        return parts.isEmpty ? nil : parts.joined(separator: " \u{00B7} ")
+        return parts.isEmpty ? nil : parts.joined(separator: " \u{00B7} ").uppercased()
     }
 
     @ViewBuilder
