@@ -18,7 +18,7 @@ struct ReviewSplitView: View {
         let readiness = store.form.readiness(live)
 
         ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
+            VStack(alignment: .leading, spacing: 14) {
                 if saved == nil {
                     if changedSinceLastReview {
                         Banner(.info, "You changed the inputs since your last review. These amounts are recalculated.")
@@ -29,9 +29,11 @@ struct ReviewSplitView: View {
                 }
                 OutcomeView(outcome: outcome, savedAt: saved?.finishedAt)
             }
-            .padding(16)
+            .padding(.horizontal, 16)
+            .padding(.top, 8)
+            .padding(.bottom, 24)
         }
-        .background(Theme.background.ignoresSafeArea())
+        .background { Theme.background.ignoresSafeArea() }
         .navigationTitle(saved == nil ? (outcome.mode == .pool ? "Review Split" : "Review Tip-Outs") : "Shift Saved")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -39,7 +41,7 @@ struct ReviewSplitView: View {
                 ShareMenu(outcome: outcome, shift: saved)
             }
         }
-        .safeAreaInset(edge: .bottom) {
+        .safeAreaInset(edge: .bottom, spacing: 0) {
             bottomBar(saved: saved, readiness: readiness, outcome: outcome)
         }
         .onAppear {
@@ -59,17 +61,23 @@ struct ReviewSplitView: View {
 
     @ViewBuilder
     private func bottomBar(saved: FinishedShift?, readiness: ShiftForm.Readiness, outcome: ShiftOutcome) -> some View {
-        VStack(spacing: 10) {
+        VStack(spacing: 12) {
             if saved != nil {
-                Label("Saved to History", systemImage: "checkmark.circle.fill")
-                    .font(.subheadline.weight(.semibold))
-                    .foregroundStyle(Theme.positive)
-                    .accessibilityIdentifier("savedLabel")
+                HStack(spacing: 10) {
+                    IconChip(kind: .success)
+                    Text("Saved to History")
+                        .font(.display(.subheadline, weight: .bold))
+                        .foregroundStyle(Theme.ink)
+                    Spacer()
+                }
+                .accessibilityElement(children: .combine)
+                .accessibilityIdentifier("savedLabel")
                 HStack(spacing: 10) {
                     ShareLink(item: ShareSummary.text(for: outcome)) {
-                        Text("Share Breakdown")
+                        Text("Share")
                     }
                     .buttonStyle(SecondaryButtonStyle())
+                    .frame(maxWidth: 130)
                     Button("Start Next Shift") {
                         store.startNewShift()
                         router.popToRoot()
@@ -81,7 +89,7 @@ struct ReviewSplitView: View {
                 HStack(spacing: 10) {
                     Button("Edit") { dismiss() }
                         .buttonStyle(SecondaryButtonStyle())
-                        .frame(maxWidth: 120)
+                        .frame(maxWidth: 110)
                     Button("Save Shift") {
                         if outcome.headlineCents == 0 {
                             confirmZeroPool = true
@@ -98,7 +106,8 @@ struct ReviewSplitView: View {
         .padding(.horizontal, 16)
         .padding(.top, 12)
         .padding(.bottom, 8)
-        .background(.bar)
+        .background { Theme.background.ignoresSafeArea() }
+        .overlay(alignment: .top) { Rule(color: Theme.ink, weight: 1) }
     }
 
     private func save() {

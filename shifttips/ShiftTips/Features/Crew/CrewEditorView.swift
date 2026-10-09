@@ -51,12 +51,17 @@ struct CrewEditorView: View {
 
     var body: some View {
         NavigationStack {
-            Form {
-                Section("Crew name") {
+            List {
+                Section {
                     TextField("e.g. Thursday Dinner", text: $crew.name)
                         .textInputAutocapitalization(.words)
+                        .font(.display(.title3, weight: .bold))
+                        .foregroundStyle(Theme.ink)
                         .accessibilityIdentifier("crewName")
+                } header: {
+                    SectionLabel("Crew name", index: "01")
                 }
+                .ledgerRows()
 
                 if isAdvanced {
                     styleSection
@@ -73,20 +78,23 @@ struct CrewEditorView: View {
                         NavigationLink {
                             TipOutRulesEditor(rules: $crew.tipOutRules, roles: ruleRoles)
                         } label: {
-                            LabeledContent("Tip-out rules", value: crew.tipOutRules.isEmpty ? "None yet" : "\(crew.tipOutRules.count)")
+                            LabeledContent("Tip-out rules") {
+                                Text(crew.tipOutRules.isEmpty ? "None yet" : "\(crew.tipOutRules.count)")
+                                    .font(.mono(.body, weight: .semibold))
+                            }
                         }
                         .accessibilityIdentifier("crewTipOutRules")
                         ForEach(crew.tipOutRules) { rule in
-                            Text(rule.summary)
-                                .font(.footnote)
-                                .foregroundStyle(Theme.inkSecondary)
+                            RuleLine(rule: rule)
+                                .accessibilityElement(children: .ignore)
                                 .accessibilityLabel(rule.spokenSummary)
                         }
                     } header: {
-                        Text("Make it yours: tip-outs")
+                        SectionLabel("Make it yours: tip-outs", index: "04")
                     } footer: {
-                        Text("Match each rule to your house policy. Roles match people's role labels above.")
+                        LedgerFootnote("Match each rule to your house policy. Roles match people's role labels above.")
                     }
+                    .ledgerRows()
                 }
 
                 Section {
@@ -94,15 +102,19 @@ struct CrewEditorView: View {
                         .font(.footnote)
                         .foregroundStyle(Theme.inkSecondary)
                 }
+                .ledgerRows()
 
                 if !isNew {
                     Section {
                         Button("Delete Crew", role: .destructive) { confirmDelete = true }
+                            .foregroundStyle(Theme.danger)
                     } footer: {
-                        Text("Saved shifts keep their own copy of everyone, so deleting a crew never changes History.")
+                        LedgerFootnote("Saved shifts keep their own copy of everyone, so deleting a crew never changes History.")
                     }
+                    .ledgerRows()
                 }
             }
+            .ledgerList()
             .navigationTitle(isNew ? "New Crew" : "Edit Crew")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -172,38 +184,45 @@ struct CrewEditorView: View {
 
     private var styleSection: some View {
         Section {
-            if let style = crew.style {
-                VStack(alignment: .leading, spacing: 4) {
-                    Label(style.title, systemImage: style.icon)
-                        .font(.headline)
+            VStack(alignment: .leading, spacing: 6) {
+                if let style = crew.style {
+                    Text(style.title)
+                        .font(.display(.title3, weight: .bold))
                         .foregroundStyle(Theme.ink)
                     Text(style.summary)
                         .font(.footnote)
                         .foregroundStyle(Theme.inkSecondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                } else {
+                    Text("Choose the style closest to how this team splits tips. You can change every number after.")
+                        .foregroundStyle(Theme.ink)
                 }
-                .padding(.vertical, 2)
-            } else {
-                Text("Choose the style closest to how this team splits tips. You can change every number after.")
-                    .foregroundStyle(Theme.ink)
+                Button(crew.style == nil ? "Choose a Style" : "Change Style") { choosingStyle = true }
+                    .buttonStyle(TextButtonStyle())
+                    .accessibilityIdentifier("chooseStyle")
             }
-            Button(crew.style == nil ? "Choose a Style" : "Change Style") { choosingStyle = true }
-                .accessibilityIdentifier("chooseStyle")
+            .padding(.top, 4)
             Picker("Tips are", selection: $crew.mode) {
                 Text("Pooled").tag(ShiftMode.pool)
                 Text("Tipped out").tag(ShiftMode.tipOut)
             }
+            .pickerStyle(.menu)
+            .tint(Theme.ink)
             if crew.mode == .pool {
                 Picker("Pool split", selection: $crew.method) {
                     ForEach(SplitMethod.allCases, id: \.self) { method in
                         Text(method.title).tag(method)
                     }
                 }
+                .pickerStyle(.menu)
+                .tint(Theme.ink)
             }
         } header: {
-            Text("Tip style")
+            SectionLabel("Tip style", index: "02")
         } footer: {
-            Text("Every new shift with this crew starts this way. You can still change a single shift.")
+            LedgerFootnote("Every new shift with this crew starts this way. You can still change a single shift.")
         }
+        .ledgerRows()
     }
 
     private var peopleSection: some View {
@@ -228,21 +247,25 @@ struct CrewEditorView: View {
             Button {
                 addingPerson = true
             } label: {
-                Label("Add Person", systemImage: "person.badge.plus")
+                Label("Add Person", systemImage: "plus")
+                    .font(.body.weight(.semibold))
+                    .foregroundStyle(Theme.ink)
             }
             .accessibilityIdentifier("addPerson")
         } header: {
             HStack {
-                Text("People")
+                SectionLabel(crew.employees.count == 1 ? "People, 1" : "People, \(crew.employees.count)", index: isAdvanced ? "03" : "02")
                 Spacer()
                 if crew.employees.count > 1 {
                     EditButton()
-                        .font(.footnote)
+                        .font(.footnote.weight(.semibold))
+                        .foregroundStyle(Theme.ink)
                 }
             }
         } footer: {
-            Text("This order is the order on every shift. If two shares tie exactly, the leftover cent goes to whoever is higher on the list.")
+            LedgerFootnote("This order is the order on every shift. If two shares tie exactly, the leftover cent goes to whoever is higher on the list.")
         }
+        .ledgerRows()
     }
 
     private var rolePointsSection: some View {
@@ -253,10 +276,11 @@ struct CrewEditorView: View {
                 }
             }
         } header: {
-            Text("Make it yours: points by role")
+            SectionLabel("Make it yours: points by role", index: "04")
         } footer: {
-            Text("Each role's points go to everyone in it, and to people you add later. You can still change one person's points on their page.")
+            LedgerFootnote("Each role's points go to everyone in it, and to people you add later. You can still change one person's points on their page.")
         }
+        .ledgerRows()
     }
 
     // MARK: - Helpers
@@ -313,13 +337,17 @@ struct RolePointsRow: View {
     var body: some View {
         HStack {
             Text(role)
+                .foregroundStyle(Theme.ink)
             Spacer()
             TextField("1", text: $text)
                 .keyboardType(.decimalPad)
                 .multilineTextAlignment(.trailing)
+                .font(.mono(.body, weight: .semibold))
+                .foregroundStyle(Theme.ink)
                 .frame(width: 72)
                 .accessibilityLabel("Points for \(role)")
-            Text("pts")
+            Text("PTS")
+                .font(.mono(.caption2, weight: .bold))
                 .foregroundStyle(Theme.inkSecondary)
         }
         .onAppear { text = Points.format(units: units ?? Limits.defaultPointsUnits) }
@@ -336,12 +364,13 @@ struct EmployeeSummaryRow: View {
     var showsPoints = true
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 2) {
+        VStack(alignment: .leading, spacing: 3) {
             Text(employee.name.isEmpty ? "Unnamed" : employee.name)
+                .font(.body.weight(.semibold))
                 .foregroundStyle(employee.name.isEmpty ? Theme.warning : Theme.ink)
             if !details.isEmpty {
                 Text(details)
-                    .font(.footnote)
+                    .font(.mono(.caption))
                     .foregroundStyle(Theme.inkSecondary)
             }
         }
@@ -351,7 +380,7 @@ struct EmployeeSummaryRow: View {
     private var details: String {
         var parts: [String] = []
         if let role = employee.role, !role.isEmpty {
-            parts.append(role)
+            parts.append(role.uppercased())
         } else if showsPoints {
             parts.append("No role")
         }

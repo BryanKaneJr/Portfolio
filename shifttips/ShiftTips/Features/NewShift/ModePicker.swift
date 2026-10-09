@@ -1,33 +1,20 @@
 import SwiftUI
 import ShiftTipsCore
 
-/// Tip Pool | Tip Out, at the top of New Shift.
+/// Tip Pool | Tip Out, at the top of New Shift in Advanced.
 struct ModePicker: View {
     let mode: ShiftMode
     let onChange: (ShiftMode) -> Void
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            HStack(spacing: 4) {
-                ForEach(ShiftMode.allCases, id: \.self) { option in
-                    let selected = option == mode
-                    Button {
-                        onChange(option)
-                    } label: {
-                        Text(option.title)
-                            .font(.subheadline.weight(.semibold))
-                            .frame(maxWidth: .infinity, minHeight: 44)
-                            .foregroundStyle(selected ? Theme.onHero : Theme.ink)
-                            .background(selected ? Theme.hero : Color.clear, in: RoundedRectangle(cornerRadius: 11, style: .continuous))
-                            .contentShape(Rectangle())
-                    }
-                    .buttonStyle(.plain)
-                    .accessibilityAddTraits(selected ? .isSelected : [])
-                    .accessibilityIdentifier("mode-\(option.rawValue)")
-                }
-            }
-            .padding(4)
-            .background(Theme.surface, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+            SegmentedTabs(
+                ShiftMode.allCases,
+                selection: mode,
+                title: { $0.title },
+                identifier: { "mode-\($0.rawValue)" },
+                onSelect: onChange
+            )
             Text(mode.summary)
                 .font(.footnote)
                 .foregroundStyle(Theme.inkSecondary)

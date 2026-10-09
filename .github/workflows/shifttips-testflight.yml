@@ -29,6 +29,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Use Xcode 26
+        # App Store Connect only accepts builds made with Xcode 26 or later.
+        run: |
+          XCODE=$(python3 -c 'import glob, re; apps = glob.glob("/Applications/Xcode_26*.app"); print(max(apps, key=lambda p: [int(n) for n in re.findall(r"\d+", p)]) if apps else "")')
+          if [ -z "$XCODE" ]; then echo "::error::No Xcode 26 on this runner." && exit 1; fi
+          echo "DEVELOPER_DIR=$XCODE/Contents/Developer" >> "$GITHUB_ENV"
+
       - name: Check the secrets are set
         run: |
           missing=""

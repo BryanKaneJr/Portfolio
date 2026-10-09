@@ -1,44 +1,31 @@
 import SwiftUI
 import ShiftTipsCore
 
-/// The top of a tip-out: the total tipped out and the line proving every
-/// cent tipped out reached someone.
+/// The top of a tip-out's slip: the total tipped out and the line proving
+/// every cent tipped out reached someone.
 struct TipOutHeader: View {
     let result: TipOutResult
     var savedAt: Date?
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text(result.draft.title)
-                .font(.subheadline.weight(.semibold))
-                .foregroundStyle(Theme.inkSecondary)
-            MoneyText(cents: result.tippedOutCents, font: .system(.largeTitle, design: .rounded).weight(.bold))
+        VStack(alignment: .leading, spacing: 12) {
+            SlipTitle(
+                kind: result.takingPartCount == 1 ? "Tip Out \u{00B7} 1 person" : "Tip Out \u{00B7} \(result.takingPartCount) people",
+                title: result.draft.title,
+                savedAt: savedAt
+            )
+            MoneyText(cents: result.tippedOutCents, font: .display(.largeTitle))
                 .foregroundStyle(Theme.ink)
             Text("Tipped out from \(Money.format(result.collectedCents)) in tips")
                 .font(.subheadline)
                 .monospacedDigit()
                 .foregroundStyle(Theme.inkSecondary)
-            Text(result.takingPartCount == 1 ? "Tip Out \u{00B7} 1 person" : "Tip Out \u{00B7} \(result.takingPartCount) people")
-                .font(.subheadline)
-                .foregroundStyle(Theme.inkSecondary)
-            HStack(alignment: .top, spacing: 8) {
-                Image(systemName: result.reconciles ? "checkmark.seal.fill" : "exclamationmark.triangle.fill")
-                    .foregroundStyle(result.reconciles ? Theme.positive : Theme.warning)
-                    .accessibilityHidden(true)
-                Text("Tipped out \(Money.format(result.tippedOutCents)) \u{00B7} received \(Money.format(result.receivedCents)) \u{00B7} \(Money.format(result.leftOverCents)) left over")
-                    .font(.subheadline.weight(.semibold))
-                    .monospacedDigit()
-                    .foregroundStyle(result.reconciles ? Theme.positive : Theme.warning)
-            }
-            .accessibilityElement(children: .combine)
-            .accessibilityIdentifier("reconciliationLine")
-            if let savedAt {
-                Text("Saved \(savedAt.formatted(date: .abbreviated, time: .shortened))")
-                    .font(.footnote)
-                    .foregroundStyle(Theme.inkSecondary)
-            }
+            DashedRule()
+            ReconciliationLine(
+                reconciles: result.reconciles,
+                text: "Tipped out \(Money.format(result.tippedOutCents)) \u{00B7} received \(Money.format(result.receivedCents)) \u{00B7} \(Money.format(result.leftOverCents)) left over"
+            )
         }
-        .card(padding: 18)
     }
 }
 
@@ -53,30 +40,34 @@ struct TipOutBreakdown: View {
         let outside = entries.filter { !$0.person.status.takesPart }
         let capped = entries.filter { $0.person.capped }
 
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 0) {
             if !result.pots.isEmpty {
-                SectionLabel("POTS")
-                VStack(alignment: .leading, spacing: 10) {
-                    ForEach(result.pots, id: \.role) { pot in
-                        HStack(alignment: .firstTextBaseline) {
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text(pot.role)
-                                    .font(.body.weight(.semibold))
-                                Text(potDetail(pot))
-                                    .font(.footnote)
-                                    .foregroundStyle(Theme.inkSecondary)
-                            }
-                            Spacer()
-                            MoneyText(cents: pot.cents, font: .headline)
+                SlipColumns(title: "Pots", trailing: "Shared")
+                ForEach(result.pots, id: \.role) { pot in
+                    HStack(alignment: .firstTextBaseline, spacing: 10) {
+                        VStack(alignment: .leading, spacing: 3) {
+                            Text(pot.role)
+                                .font(.body.weight(.semibold))
+                                .foregroundStyle(Theme.ink)
+                            Text(potDetail(pot))
+                                .font(.mono(.caption))
+                                .foregroundStyle(Theme.inkSecondary)
                         }
-                        .accessibilityElement(children: .combine)
+                        Spacer(minLength: 8)
+                        MoneyText(cents: pot.cents, font: .mono(.body, weight: .bold))
+                            .foregroundStyle(Theme.ink)
+                    }
+                    .padding(.vertical, 10)
+                    .accessibilityElement(children: .combine)
+                    if pot.role != result.pots.last?.role {
+                        DashedRule()
                     }
                 }
-                .card()
+                SlipTotal(label: "Tipped out", cents: result.tippedOutCents)
+                    .padding(.bottom, 16)
             }
 
-            SectionLabel(taking.count == 1 ? "PEOPLE (1)" : "PEOPLE (\(taking.count))")
-                .padding(.top, 6)
+            SlipColumns(title: taking.count == 1 ? "People, 1" : "People, \(taking.count)", trailing: "Ends with")
             ForEach(taking) { entry in
                 TipOutBreakdownRow(
                     entry: entry,
@@ -88,47 +79,58 @@ struct TipOutBreakdown: View {
                         }
                     }
                 )
-            }
-
-            ForEach(capped) { entry in
-                Banner(.warning, "\(entry.participant.name)'s tip-outs came to more than the \(Money.format(entry.person.tipsCents ?? 0)) in tips they collected, so each was reduced in proportion.")
-            }
-
-            SectionLabel("RULES")
-                .padding(.top, 6)
-            VStack(alignment: .leading, spacing: 8) {
-                ForEach(Array(result.draft.tipOutRules.enumerated()), id: \.element.id) { index, rule in
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(rule.summary)
-                            .font(.subheadline.weight(.semibold))
-                        if index < result.rules.count, let note = Explainer.skippedNote(for: rule, status: result.rules[index].status) {
-                            Text(note)
-                                .font(.caption)
-                                .foregroundStyle(Theme.inkSecondary)
-                        }
-                    }
-                    .accessibilityElement(children: .combine)
-                    .accessibilityLabel(rule.spokenSummary)
+                if entry.id != taking.last?.id {
+                    DashedRule()
                 }
             }
-            .card()
+
+            if !capped.isEmpty {
+                VStack(alignment: .leading, spacing: 10) {
+                    ForEach(capped) { entry in
+                        Banner(.warning, "\(entry.participant.name)'s tip-outs came to more than the \(Money.format(entry.person.tipsCents ?? 0)) in tips they collected, so each was reduced in proportion.")
+                    }
+                }
+                .padding(.vertical, 12)
+            }
+
+            SlipColumns(title: "Rules", trailing: nil)
+                .padding(.top, 16)
+            ForEach(Array(result.draft.tipOutRules.enumerated()), id: \.element.id) { position, rule in
+                VStack(alignment: .leading, spacing: 3) {
+                    RuleLine(rule: rule)
+                    if position < result.rules.count, let note = Explainer.skippedNote(for: rule, status: result.rules[position].status) {
+                        Text(note)
+                            .font(.caption)
+                            .foregroundStyle(Theme.inkSecondary)
+                    }
+                }
+                .padding(.vertical, 10)
+                .accessibilityElement(children: .combine)
+                .accessibilityLabel(rule.spokenSummary)
+                if position < result.draft.tipOutRules.count - 1 {
+                    DashedRule()
+                }
+            }
 
             if !outside.isEmpty {
-                SectionLabel("NOT IN TIP-OUTS")
-                    .padding(.top, 6)
-                VStack(alignment: .leading, spacing: 8) {
-                    ForEach(outside) { entry in
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text(entry.participant.name)
-                                .font(.body.weight(.semibold))
-                            Text(Explainer.reason(for: entry.person.status, participant: entry.participant))
-                                .font(.footnote)
-                                .foregroundStyle(Theme.inkSecondary)
-                        }
-                        .accessibilityElement(children: .combine)
+                SlipColumns(title: "Not in tip-outs", trailing: nil)
+                    .padding(.top, 16)
+                ForEach(outside) { entry in
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text(entry.participant.name)
+                            .font(.body.weight(.semibold))
+                            .foregroundStyle(Theme.ink)
+                        Text(Explainer.reason(for: entry.person.status, participant: entry.participant))
+                            .font(.footnote)
+                            .foregroundStyle(Theme.inkSecondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    .padding(.vertical, 10)
+                    .accessibilityElement(children: .combine)
+                    if entry.id != outside.last?.id {
+                        DashedRule()
                     }
                 }
-                .card()
             }
         }
     }
@@ -147,31 +149,28 @@ struct TipOutBreakdownRow: View {
 
     var body: some View {
         let person = entry.person
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 0) {
             Button(action: toggle) {
-                HStack(alignment: .center, spacing: 10) {
+                HStack(alignment: .firstTextBaseline, spacing: 10) {
                     VStack(alignment: .leading, spacing: 3) {
                         Text(entry.participant.name)
                             .font(.body.weight(.semibold))
                             .foregroundStyle(Theme.ink)
                         Text(detail)
-                            .font(.footnote)
+                            .font(.mono(.caption))
                             .foregroundStyle(Theme.inkSecondary)
                     }
                     Spacer(minLength: 8)
-                    VStack(alignment: .trailing, spacing: 1) {
-                        Text(person.status == .pays ? "Keeps" : (person.status == .receives ? "Receives" : "Net"))
-                            .font(.caption)
+                    VStack(alignment: .trailing, spacing: 2) {
+                        Text(person.status == .pays ? "KEEPS" : (person.status == .receives ? "RECEIVES" : "NET"))
+                            .font(.mono(.caption2, weight: .semibold))
                             .foregroundStyle(Theme.inkSecondary)
-                        MoneyText(cents: person.status == .receives ? person.receivedCents : person.netCents, font: .headline)
+                        MoneyText(cents: person.status == .receives ? person.receivedCents : person.netCents, font: .mono(.body, weight: .bold))
                             .foregroundStyle(Theme.ink)
                     }
-                    Image(systemName: "chevron.down")
-                        .font(.caption.weight(.semibold))
-                        .foregroundStyle(Theme.inkSecondary)
-                        .rotationEffect(.degrees(isExpanded ? 180 : 0))
-                        .accessibilityHidden(true)
+                    ExpandChevron(isExpanded: isExpanded)
                 }
+                .padding(.vertical, 12)
                 .contentShape(Rectangle())
             }
             .buttonStyle(.plain)
@@ -180,37 +179,16 @@ struct TipOutBreakdownRow: View {
 
             if isExpanded {
                 let explanation = Explainer.explain(person, in: result)
-                VStack(alignment: .leading, spacing: 10) {
-                    Text(explanation.summary)
-                        .font(.footnote)
-                        .foregroundStyle(Theme.ink)
-                    Grid(alignment: .leading, horizontalSpacing: 12, verticalSpacing: 6) {
-                        ForEach(Array(explanation.lines.enumerated()), id: \.offset) { _, line in
-                            GridRow {
-                                Text(line.label)
-                                    .foregroundStyle(Theme.inkSecondary)
-                                Text(line.value)
-                                    .monospacedDigit()
-                                    .foregroundStyle(Theme.ink)
-                                    .gridColumnAlignment(.trailing)
-                                    .frame(maxWidth: .infinity, alignment: .trailing)
-                            }
-                            .font(.footnote)
-                            .accessibilityElement(children: .combine)
-                        }
-                    }
-                }
-                .padding(12)
-                .background(Theme.surfaceMuted, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                WorkingView(summary: explanation.summary, lines: explanation.lines.map { ($0.label, $0.value) })
+                    .padding(.bottom, 12)
             }
         }
-        .card(padding: 14)
     }
 
     private var detail: String {
         let person = entry.person
         var parts: [String] = []
-        if let role = entry.participant.role, !role.isEmpty { parts.append(role) }
+        if let role = entry.participant.role, !role.isEmpty { parts.append(role.uppercased()) }
         if person.status.pays {
             parts.append("tips \(Money.format(person.tipsCents ?? 0))")
             parts.append("out \(Money.format(person.paidCents))")
@@ -223,13 +201,13 @@ struct TipOutBreakdownRow: View {
     }
 }
 
-/// Either kind of saved or live result, header first.
+/// Either kind of saved or live result, printed on one receipt slip.
 struct OutcomeView: View {
     let outcome: ShiftOutcome
     var savedAt: Date?
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: 20) {
             switch outcome {
             case .pool(let result):
                 SplitHeader(result: result, savedAt: savedAt)
@@ -246,5 +224,6 @@ struct OutcomeView: View {
             }
             AllocationNote()
         }
+        .receiptSlip()
     }
 }

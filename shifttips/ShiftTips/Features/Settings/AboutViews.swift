@@ -7,13 +7,18 @@ private struct AboutPage<Content: View>: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 18) {
+            VStack(alignment: .leading, spacing: 28) {
+                Text(title)
+                    .font(.display(.title))
+                    .foregroundStyle(Theme.ink)
+                    .accessibilityAddTraits(.isHeader)
                 content
             }
+            .foregroundStyle(Theme.ink)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(20)
         }
-        .background(Theme.background.ignoresSafeArea())
+        .background { Theme.background.ignoresSafeArea() }
         .navigationTitle(title)
         .navigationBarTitleDisplayMode(.inline)
     }
@@ -24,12 +29,11 @@ private struct AboutSection: View {
     let text: String
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Text(title)
-                .font(.headline)
-                .accessibilityAddTraits(.isHeader)
+        VStack(alignment: .leading, spacing: 8) {
+            SectionHeader(title)
             Text(text)
                 .foregroundStyle(Theme.ink)
+                .fixedSize(horizontal: false, vertical: true)
         }
     }
 }
@@ -50,18 +54,19 @@ struct HowItWorksView: View {
 struct TipRulesView: View {
     var body: some View {
         AboutPage(title: "Tip Pooling Rules") {
-            Text(PolicyCopy.disclaimer)
-                .font(.headline)
+            Banner(.info, PolicyCopy.disclaimer)
             AboutSection(title: "Your policy, your rules", text: "Tip pooling is regulated and the rules vary by place. ShiftTips doesn't know who may take part where you work, and a role label never decides it. You choose each person's eligibility and points from your workplace's policy.")
             AboutSection(title: "Owners, managers and supervisors", text: PolicyCopy.managersNote)
             AboutSection(title: "No deductions", text: "ShiftTips never subtracts card fees, withholding or anything else. It splits exactly the amount you enter. Service charges aren't the same as tips; check how your workplace treats them.")
             AboutSection(title: "Allocation, not payment", text: PolicyCopy.allocationNote)
-            VStack(alignment: .leading, spacing: 10) {
-                Text("US Department of Labor guidance")
-                    .font(.headline)
+            VStack(alignment: .leading, spacing: 4) {
+                SectionHeader("US Department of Labor guidance")
                 Link("Fact Sheet #15: Tipped employees", destination: PolicyCopy.factSheet15)
+                    .buttonStyle(TextButtonStyle())
                 Link("Fact Sheet #15B: Managers, supervisors and tips", destination: PolicyCopy.factSheet15B)
+                    .buttonStyle(TextButtonStyle())
                 Link("Tips under the FLSA", destination: PolicyCopy.tipRegulations)
+                    .buttonStyle(TextButtonStyle())
                 Text("State and local rules can be more protective. These links open in your browser.")
                     .font(.footnote)
                     .foregroundStyle(Theme.inkSecondary)

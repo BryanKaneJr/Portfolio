@@ -20,58 +20,21 @@ struct PeriodTotalsView: View {
 
     var body: some View {
         let summary = PeriodTotals.summarize(store.library.shifts, from: from, through: through)
-        List {
-            Section {
-                Picker("Period", selection: presetBinding) {
-                    ForEach(PeriodPreset.allCases, id: \.self) { preset in
-                        Text(preset.title).tag(Optional(preset))
-                    }
-                    Text("Custom").tag(PeriodPreset?.none)
-                }
-                DatePicker("From", selection: fromBinding, displayedComponents: .date)
-                DatePicker("Through", selection: throughBinding, in: from.date()..., displayedComponents: .date)
-            } footer: {
-                Text("Adds up every saved shift dated in this period, Tip Pool and Tip Out.")
-            }
-
-            Section {
-                LabeledContent("Saved shifts", value: "\(summary.shiftCount)")
-                LabeledContent("Pool allocations", value: Money.format(summary.poolCents))
-                LabeledContent("Tipped out", value: Money.format(summary.tippedOutCents))
-                LabeledContent("Total to people", value: Money.format(summary.totalCents))
-                    .fontWeight(.semibold)
-            }
-            .monospacedDigit()
-
-            if summary.people.isEmpty {
-                Section {
-                    Text("No saved shifts in this period.")
-                        .foregroundStyle(Theme.inkSecondary)
-                }
-            } else {
-                Section("People") {
-                    ForEach(summary.people) { person in
-                        PersonTotalRow(
-                            person: person,
-                            isExpanded: expanded.contains(person.id),
-                            toggle: {
-                                withAnimation(.snappy) {
-                                    if expanded.contains(person.id) { expanded.remove(person.id) } else { expanded.insert(person.id) }
-                                }
-                            }
-                        )
-                    }
-                }
-            }
-
-            Section {
+        ScrollView {
+            VStack(alignment: .leading, spacing: Theme.sectionSpacing) {
+                periodSection
+                totalSection(summary)
+                peopleSection(summary)
                 Text("Totals of saved calculations, not a record of payment. Crew members are matched across shifts even if renamed; people added for one shift are matched by name. Tip Out totals include the tips people kept as well as tip-outs they received.")
                     .font(.footnote)
                     .foregroundStyle(Theme.inkSecondary)
+                    .fixedSize(horizontal: false, vertical: true)
             }
+            .padding(.horizontal, 20)
+            .padding(.top, 8)
+            .padding(.bottom, 28)
         }
-        .scrollContentBackground(.hidden)
-        .background(Theme.background.ignoresSafeArea())
+        .background { Theme.background.ignoresSafeArea() }
         .navigationTitle("Totals by Person")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -100,6 +63,100 @@ struct PeriodTotalsView: View {
             Button("OK") { problem = nil }
         } message: {
             Text(problem ?? "")
+        }
+    }
+
+    private var periodSection: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            SectionHeader("Pay period", index: "01")
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8) {
+                    ForEach(PeriodPreset.allCases, id: \.self) { option in
+                        PeriodChip(title: option.title, isSelected: preset == option) {
+                            presetBinding.wrappedValue = option
+                        }
+                    }
+                    PeriodChip(title: "Custom", isSelected: preset == nil) {
+                        preset = nil
+                    }
+                }
+            }
+            .accessibilityElement(children: .contain)
+            .accessibilityLabel("Period")
+            VStack(spacing: 0) {
+                dateRow("From", selection: fromBinding, range: nil)
+                Rule()
+                dateRow("Through", selection: throughBinding, range: from.date()...)
+            }
+            .overlay(alignment: .top) { Rule() }
+            .overlay(alignment: .bottom) { Rule() }
+            Text("Adds up every saved shift dated in this period, Tip Pool and Tip Out.")
+                .font(.footnote)
+                .foregroundStyle(Theme.inkSecondary)
+        }
+    }
+
+    private func dateRow(_ title: String, selection: Binding<Date>, range: PartialRangeFrom<Date>?) -> some View {
+        HStack {
+            Text(title.uppercased())
+                .font(.mono(.caption, weight: .semibold))
+                .tracking(1)
+                .foregroundStyle(Theme.inkSecondary)
+            Spacer()
+            if let range {
+                DatePicker(title, selection: selection, in: range, displayedComponents: .date)
+                    .labelsHidden()
+            } else {
+                DatePicker(title, selection: selection, displayedComponents: .date)
+                    .labelsHidden()
+            }
+        }
+        .frame(minHeight: 52)
+    }
+
+    private func totalSection(_ summary: PeriodSummary) -> some View {
+        VStack(alignment: .leading, spacing: 14) {
+            SectionHeader("Total to people", index: "02")
+            MoneyText(cents: summary.totalCents, font: .display(.largeTitle))
+                .foregroundStyle(Theme.ink)
+            HStack(alignment: .top, spacing: 0) {
+                StatCell(title: "Saved shifts", value: "\(summary.shiftCount)")
+                Rectangle().fill(Theme.rule).frame(width: 1).accessibilityHidden(true)
+                StatCell(title: "Pool", value: Money.format(summary.poolCents))
+                Rectangle().fill(Theme.rule).frame(width: 1).accessibilityHidden(true)
+                StatCell(title: "Tipped out", value: Money.format(summary.tippedOutCents))
+            }
+            .fixedSize(horizontal: false, vertical: true)
+            .overlay(alignment: .top) { Rule() }
+        }
+    }
+
+    @ViewBuilder
+    private func peopleSection(_ summary: PeriodSummary) -> some View {
+        VStack(alignment: .leading, spacing: 0) {
+            SectionHeader("People", index: "03") {
+                Text(summary.people.count == 1 ? "1 PERSON" : "\(summary.people.count) PEOPLE")
+                    .font(.mono(.caption, weight: .semibold))
+                    .foregroundStyle(Theme.inkSecondary)
+            }
+            if summary.people.isEmpty {
+                Text("No saved shifts in this period.")
+                    .foregroundStyle(Theme.inkSecondary)
+                    .padding(.vertical, 12)
+            } else {
+                ForEach(summary.people) { person in
+                    PersonTotalRow(
+                        person: person,
+                        isExpanded: expanded.contains(person.id),
+                        toggle: {
+                            withAnimation(.snappy) {
+                                if expanded.contains(person.id) { expanded.remove(person.id) } else { expanded.insert(person.id) }
+                            }
+                        }
+                    )
+                    Rule()
+                }
+            }
         }
     }
 
@@ -148,32 +205,78 @@ struct PeriodTotalsView: View {
     }
 }
 
+/// One preset period, as a chip.
+struct PeriodChip: View {
+    let title: String
+    let isSelected: Bool
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            Text(title)
+                .font(.subheadline.weight(.semibold))
+                .padding(.horizontal, 14)
+                .frame(minHeight: 40)
+                .foregroundStyle(isSelected ? Theme.onInk : Theme.ink)
+                .background(isSelected ? Theme.ink : Color.clear, in: RoundedRectangle(cornerRadius: Theme.corner))
+                .overlay {
+                    RoundedRectangle(cornerRadius: Theme.corner)
+                        .strokeBorder(Theme.ink, lineWidth: 1.5)
+                }
+                .padding(.vertical, 2)
+                .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .accessibilityAddTraits(isSelected ? .isSelected : [])
+    }
+}
+
+/// A figure with a small label over it.
+struct StatCell: View {
+    let title: String
+    let value: String
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text(title.uppercased())
+                .font(.mono(.caption2, weight: .semibold))
+                .foregroundStyle(Theme.inkSecondary)
+            Text(value)
+                .font(.mono(.subheadline, weight: .bold))
+                .foregroundStyle(Theme.ink)
+                .minimumScaleFactor(0.8)
+                .lineLimit(1)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.horizontal, 10)
+        .padding(.vertical, 10)
+        .accessibilityElement(children: .combine)
+    }
+}
+
 struct PersonTotalRow: View {
     let person: PersonTotal
     let isExpanded: Bool
     let toggle: () -> Void
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 0) {
             Button(action: toggle) {
-                HStack(spacing: 10) {
-                    VStack(alignment: .leading, spacing: 2) {
+                HStack(alignment: .firstTextBaseline, spacing: 10) {
+                    VStack(alignment: .leading, spacing: 3) {
                         Text(person.name)
                             .font(.body.weight(.semibold))
                             .foregroundStyle(Theme.ink)
                         Text(subtitle)
-                            .font(.footnote)
+                            .font(.mono(.caption))
                             .foregroundStyle(Theme.inkSecondary)
                     }
                     Spacer(minLength: 8)
-                    MoneyText(cents: person.totalCents, font: .headline)
+                    MoneyText(cents: person.totalCents, font: .mono(.body, weight: .bold))
                         .foregroundStyle(Theme.ink)
-                    Image(systemName: "chevron.down")
-                        .font(.caption.weight(.semibold))
-                        .foregroundStyle(Theme.inkSecondary)
-                        .rotationEffect(.degrees(isExpanded ? 180 : 0))
-                        .accessibilityHidden(true)
+                    ExpandChevron(isExpanded: isExpanded)
                 }
+                .padding(.vertical, 12)
                 .contentShape(Rectangle())
             }
             .buttonStyle(.plain)
@@ -181,34 +284,35 @@ struct PersonTotalRow: View {
             .accessibilityHint(isExpanded ? "Hides the breakdown" : "Shows the breakdown")
 
             if isExpanded {
-                VStack(spacing: 6) {
-                    if person.poolCents != 0 {
-                        LabeledContent("Pool allocations", value: Money.format(person.poolCents))
-                        if person.poolCashCents != 0 || person.poolCardCents != 0 {
-                            LabeledContent("  Cash", value: Money.format(person.poolCashCents))
-                            LabeledContent("  Card", value: Money.format(person.poolCardCents))
-                        }
-                    }
-                    if person.tipsCollectedCents != 0 || person.tippedOutCents != 0 {
-                        LabeledContent("Tips collected", value: Money.format(person.tipsCollectedCents))
-                        LabeledContent("Tipped out", value: "-" + Money.format(person.tippedOutCents))
-                    }
-                    if person.receivedCents != 0 {
-                        LabeledContent("Tip-outs received", value: "+" + Money.format(person.receivedCents))
-                    }
-                    LabeledContent("Total", value: Money.format(person.totalCents))
-                        .fontWeight(.semibold)
-                }
-                .font(.footnote)
-                .monospacedDigit()
+                WorkingView(summary: "Across \(person.shiftCount == 1 ? "1 saved shift" : "\(person.shiftCount) saved shifts") in this period.", lines: lines)
+                    .padding(.bottom, 12)
             }
         }
-        .padding(.vertical, 2)
+    }
+
+    private var lines: [(String, String)] {
+        var lines: [(String, String)] = []
+        if person.poolCents != 0 {
+            lines.append(("Pool allocations", Money.format(person.poolCents)))
+            if person.poolCashCents != 0 || person.poolCardCents != 0 {
+                lines.append(("  Cash", Money.format(person.poolCashCents)))
+                lines.append(("  Card", Money.format(person.poolCardCents)))
+            }
+        }
+        if person.tipsCollectedCents != 0 || person.tippedOutCents != 0 {
+            lines.append(("Tips collected", Money.format(person.tipsCollectedCents)))
+            lines.append(("Tipped out", "-" + Money.format(person.tippedOutCents)))
+        }
+        if person.receivedCents != 0 {
+            lines.append(("Tip-outs received", "+" + Money.format(person.receivedCents)))
+        }
+        lines.append(("Total", Money.format(person.totalCents)))
+        return lines
     }
 
     private var subtitle: String {
         var parts: [String] = []
-        if let role = person.role, !role.isEmpty { parts.append(role) }
+        if let role = person.role, !role.isEmpty { parts.append(role.uppercased()) }
         parts.append(person.shiftCount == 1 ? "1 shift" : "\(person.shiftCount) shifts")
         if person.isOneOff { parts.append("Added per shift") }
         return parts.joined(separator: " \u{00B7} ")

@@ -10,18 +10,20 @@ struct StylePickerView: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 14) {
-                VStack(alignment: .leading, spacing: 6) {
+            VStack(alignment: .leading, spacing: 16) {
+                VStack(alignment: .leading, spacing: 8) {
                     Text("Which sounds most like your team?")
-                        .font(.title2.weight(.bold))
+                        .font(.display(.title2))
                         .foregroundStyle(Theme.ink)
+                        .fixedSize(horizontal: false, vertical: true)
                     Text("Pick the closest one. Next, you'll make every number match how you actually do it.")
                         .foregroundStyle(Theme.inkSecondary)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
                 .padding(.bottom, 4)
 
-                ForEach(TipStyle.allCases) { style in
-                    StyleCard(style: style, isCurrent: style == current) { onPick(style) }
+                ForEach(Array(TipStyle.allCases.enumerated()), id: \.element) { position, style in
+                    StyleCard(style: style, number: position + 1, isCurrent: style == current) { onPick(style) }
                 }
 
                 Text("These are common starting points, not recommendations. Set every number to match your workplace's own policy. " + PolicyCopy.disclaimer)
@@ -29,9 +31,10 @@ struct StylePickerView: View {
                     .foregroundStyle(Theme.inkSecondary)
                     .padding(.top, 4)
             }
-            .padding(16)
+            .padding(.horizontal, 20)
+            .padding(.vertical, 16)
         }
-        .background(Theme.background.ignoresSafeArea())
+        .background { Theme.background.ignoresSafeArea() }
         .navigationTitle("Tip Style")
         .navigationBarTitleDisplayMode(.inline)
     }
@@ -39,83 +42,93 @@ struct StylePickerView: View {
 
 struct StyleCard: View {
     let style: TipStyle
+    let number: Int
     let isCurrent: Bool
     let onPick: () -> Void
 
     var body: some View {
         Button(action: onPick) {
-            VStack(alignment: .leading, spacing: 10) {
-                HStack(alignment: .firstTextBaseline, spacing: 10) {
-                    Image(systemName: style.icon)
-                        .font(.title3)
-                        .foregroundStyle(Theme.accent)
-                        .frame(width: 28)
+            VStack(alignment: .leading, spacing: 12) {
+                HStack(alignment: .firstTextBaseline, spacing: 12) {
+                    Text(number < 10 ? "0\(number)" : "\(number)")
+                        .font(.mono(.subheadline, weight: .bold))
+                        .foregroundStyle(Theme.inkTertiary)
                         .accessibilityHidden(true)
                     Text(style.title)
-                        .font(.headline)
+                        .font(.display(.title3, weight: .bold))
                         .foregroundStyle(Theme.ink)
-                    Spacer()
+                        .multilineTextAlignment(.leading)
+                    Spacer(minLength: 4)
                     if isCurrent {
-                        Text("Current")
-                            .font(.caption.weight(.semibold))
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 3)
-                            .foregroundStyle(Theme.accent)
-                            .background(Theme.accentSoft, in: Capsule())
+                        Tag("Current", style: .highlight)
                     }
                 }
                 Text(style.summary)
                     .font(.subheadline)
                     .foregroundStyle(Theme.ink)
                     .multilineTextAlignment(.leading)
-                Text("Sounds like you if \(style.soundsLike)")
-                    .font(.subheadline)
-                    .foregroundStyle(Theme.inkSecondary)
-                    .multilineTextAlignment(.leading)
-                VStack(alignment: .leading, spacing: 3) {
-                    Text("STARTS WITH")
-                        .font(.caption2.weight(.semibold))
-                        .tracking(0.8)
+                    .fixedSize(horizontal: false, vertical: true)
+                VStack(alignment: .leading, spacing: 4) {
+                    SectionLabel("Sounds like you if")
+                    Text(style.soundsLike)
+                        .font(.subheadline)
                         .foregroundStyle(Theme.inkSecondary)
+                        .multilineTextAlignment(.leading)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                VStack(alignment: .leading, spacing: 6) {
+                    SectionLabel("Starts with")
                     ForEach(style.setupLines, id: \.self) { line in
-                        Text(line)
-                            .font(.caption)
-                            .foregroundStyle(Theme.ink)
-                            .multilineTextAlignment(.leading)
+                        HStack(alignment: .firstTextBaseline, spacing: 8) {
+                            Text("+")
+                                .font(.mono(.caption, weight: .bold))
+                                .foregroundStyle(Theme.inkSecondary)
+                                .accessibilityHidden(true)
+                            Text(line)
+                                .font(.mono(.caption))
+                                .foregroundStyle(Theme.ink)
+                                .multilineTextAlignment(.leading)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
                     }
                 }
-                .padding(10)
+                .padding(12)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .background(Theme.surfaceMuted, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                .overlay {
+                    RoundedRectangle(cornerRadius: Theme.corner)
+                        .strokeBorder(Theme.inkTertiary, style: StrokeStyle(lineWidth: 1, dash: [3, 3]))
+                }
                 Text("Common in: \(style.commonIn)")
                     .font(.caption)
                     .foregroundStyle(Theme.inkSecondary)
+                    .multilineTextAlignment(.leading)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(16)
-            .background(Theme.surface, in: RoundedRectangle(cornerRadius: Theme.corner, style: .continuous))
-            .overlay(
-                RoundedRectangle(cornerRadius: Theme.corner, style: .continuous)
-                    .stroke(isCurrent ? Theme.accent : Color.clear, lineWidth: 2)
-            )
+            .background(Theme.surface, in: RoundedRectangle(cornerRadius: Theme.corner))
+            .overlay {
+                RoundedRectangle(cornerRadius: Theme.corner)
+                    .strokeBorder(isCurrent ? Theme.ink : Theme.rule, lineWidth: isCurrent ? 2 : 1)
+            }
             .contentShape(Rectangle())
         }
-        .buttonStyle(.plain)
+        .buttonStyle(StyleCardPress())
         .accessibilityElement(children: .combine)
         .accessibilityHint("Sets up your crew this way. You can change every number next.")
         .accessibilityIdentifier("style-\(style.rawValue)")
     }
 }
 
-extension TipStyle {
-    var icon: String {
-        switch self {
-        case .equalPool: "equal.circle.fill"
-        case .hoursPool: "clock.fill"
-        case .pointsPool: "chart.bar.fill"
-        case .tipOutOfTips: "arrow.triangle.branch"
-        case .tipOutOfSales: "receipt.fill"
-        }
+/// Cards press in with an ink edge, like a key.
+private struct StyleCardPress: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .overlay {
+                RoundedRectangle(cornerRadius: Theme.corner)
+                    .strokeBorder(Theme.ink, lineWidth: configuration.isPressed ? 2 : 0)
+            }
+            .scaleEffect(configuration.isPressed ? 0.99 : 1)
+            .animation(.easeOut(duration: 0.1), value: configuration.isPressed)
     }
 }
 

@@ -27,7 +27,7 @@ struct SettingsView: View {
 
     var body: some View {
         NavigationStack {
-            Form {
+            List {
                 experienceSection
                 crewsSection
                 moneySection
@@ -35,11 +35,13 @@ struct SettingsView: View {
                 dataSection
                 aboutSection
             }
+            .ledgerList()
             .navigationTitle("Crew & Settings")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Done") { dismiss() }
+                        .fontWeight(.semibold)
                 }
             }
             .sheet(item: $editingCrew) { item in
@@ -115,32 +117,34 @@ struct SettingsView: View {
     private var crewsSection: some View {
         Section {
             ForEach(store.crews) { crew in
-                HStack(spacing: 12) {
+                let active = crew.id == store.settings.activeCrewId
+                HStack(spacing: 4) {
                     Button {
                         store.selectCrew(id: crew.id)
                     } label: {
-                        Image(systemName: crew.id == store.settings.activeCrewId ? "checkmark.circle.fill" : "circle")
-                            .font(.title3)
-                            .foregroundStyle(crew.id == store.settings.activeCrewId ? Theme.accent : Theme.inkSecondary)
+                        CheckSquare(isOn: active, kind: .radio)
                             .frame(width: 44, height: 44)
+                            .contentShape(Rectangle())
                     }
                     .buttonStyle(.borderless)
                     .accessibilityLabel("Use \(crew.name) for new shifts")
-                    .accessibilityAddTraits(crew.id == store.settings.activeCrewId ? .isSelected : [])
+                    .accessibilityAddTraits(active ? .isSelected : [])
 
                     Button {
                         editingCrew = .edit(crew)
                     } label: {
                         HStack {
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text(crew.name).foregroundStyle(Theme.ink)
+                            VStack(alignment: .leading, spacing: 3) {
+                                Text(crew.name)
+                                    .font(.body.weight(.semibold))
+                                    .foregroundStyle(Theme.ink)
                                 Text(crewDetail(crew))
-                                    .font(.footnote)
+                                    .font(.mono(.caption))
                                     .foregroundStyle(Theme.inkSecondary)
                             }
                             Spacer()
                             Image(systemName: "chevron.right")
-                                .font(.footnote.weight(.semibold))
+                                .font(.footnote.weight(.bold))
                                 .foregroundStyle(Theme.inkSecondary)
                         }
                         .contentShape(Rectangle())
@@ -153,42 +157,55 @@ struct SettingsView: View {
                 editingCrew = .new
             } label: {
                 Label("Add Crew", systemImage: "plus")
+                    .font(.body.weight(.semibold))
+                    .foregroundStyle(Theme.ink)
             }
         } header: {
-            Text("Crews")
+            SectionLabel("Crews", index: "02")
         } footer: {
-            Text(store.crews.isEmpty ? "Save the people you work with so each shift starts with them." : "New shifts start with the checked crew.")
+            LedgerFootnote(store.crews.isEmpty ? "Save the people you work with so each shift starts with them." : "New shifts start with the checked crew.")
         }
+        .ledgerRows()
     }
 
     private var experienceSection: some View {
         Section {
-            Picker("How you split tips", selection: Binding(
-                get: { store.settings.experience },
-                set: { setExperience($0) }
-            )) {
-                ForEach(Experience.allCases, id: \.self) { experience in
-                    Text(experience.title).tag(experience)
-                }
+            VStack(alignment: .leading, spacing: 10) {
+                SegmentedTabs(
+                    Experience.allCases,
+                    selection: store.settings.experience,
+                    title: { $0.title },
+                    identifier: { "experience-setting-\($0.rawValue)" },
+                    onSelect: { setExperience($0) }
+                )
+                .accessibilityIdentifier("experiencePicker")
+                Text(store.settings.experience.summary)
+                    .font(.footnote)
+                    .foregroundStyle(Theme.inkSecondary)
+                    .fixedSize(horizontal: false, vertical: true)
             }
-            .pickerStyle(.segmented)
-            .accessibilityIdentifier("experiencePicker")
-            Text(store.settings.experience.summary)
-                .font(.footnote)
-                .foregroundStyle(Theme.inkSecondary)
+            .padding(.vertical, 6)
         } header: {
-            Text("How you split tips")
+            SectionLabel("How you split tips", index: "01")
         } footer: {
-            Text("Switching never deletes anything. Each crew keeps its Advanced setup while you use Simple.")
+            LedgerFootnote("Switching never deletes anything. Each crew keeps its Advanced setup while you use Simple.")
         }
+        .ledgerRows()
     }
 
     private var moneySection: some View {
         Section {
-            LabeledContent("Currency", value: "US dollars (USD)")
+            LabeledContent("Currency") {
+                Text("USD")
+                    .font(.mono(.body, weight: .semibold))
+                    .foregroundStyle(Theme.ink)
+            }
+        } header: {
+            SectionLabel("Money", index: "03")
         } footer: {
-            Text("ShiftTips 1.0 works in US dollars only, to the cent.")
+            LedgerFootnote("ShiftTips 1.0 works in US dollars only, to the cent.")
         }
+        .ledgerRows()
     }
 
     private func setExperience(_ experience: Experience) {
@@ -199,7 +216,7 @@ struct SettingsView: View {
     }
 
     private var appearanceSection: some View {
-        Section("Appearance") {
+        Section {
             Picker("Theme", selection: Binding(
                 get: { store.settings.appearance },
                 set: { appearance in store.updateSettings { $0.appearance = appearance } }
@@ -208,11 +225,17 @@ struct SettingsView: View {
                     Text(appearance.title).tag(appearance)
                 }
             }
+            .pickerStyle(.menu)
+            .tint(Theme.ink)
             Toggle("Haptics", isOn: Binding(
                 get: { store.settings.hapticsEnabled },
                 set: { enabled in store.updateSettings { $0.hapticsEnabled = enabled } }
             ))
+            .tint(Theme.ink)
+        } header: {
+            SectionLabel("Appearance", index: "04")
         }
+        .ledgerRows()
     }
 
     private var dataSection: some View {
@@ -242,24 +265,35 @@ struct SettingsView: View {
                 confirmDeleteAll = true
             } label: {
                 Label("Delete All Data", systemImage: "trash")
+                    .foregroundStyle(Theme.danger)
             }
         } header: {
-            Text("Your data")
+            SectionLabel("Your data", index: "05")
         } footer: {
-            Text("Everything stays on this iPhone. ShiftTips has no account and no server, and never sends your data anywhere. Back up to Files to keep a copy.")
+            LedgerFootnote("Everything stays on this iPhone. ShiftTips has no account and no server, and never sends your data anywhere. Back up to Files to keep a copy.")
         }
+        .foregroundStyle(Theme.ink)
+        .ledgerRows()
     }
 
     private var aboutSection: some View {
-        Section("About") {
+        Section {
             NavigationLink("How the Split Works") { HowItWorksView() }
             NavigationLink("Tip Pooling Rules") { TipRulesView() }
             NavigationLink("Privacy") { PrivacyView() }
             if let email = AppInfo.supportEmail, let url = URL(string: "mailto:\(email)") {
                 Link("Contact Support", destination: url)
             }
-            LabeledContent("Version", value: AppInfo.version)
+            LabeledContent("Version") {
+                Text(AppInfo.version)
+                    .font(.mono(.body))
+                    .foregroundStyle(Theme.inkSecondary)
+            }
+        } header: {
+            SectionLabel("About", index: "06")
         }
+        .foregroundStyle(Theme.ink)
+        .ledgerRows()
     }
 
     private func crewDetail(_ crew: Crew) -> String {

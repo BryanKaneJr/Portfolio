@@ -5,7 +5,8 @@ Read [`docs/build-plan.md`](docs/build-plan.md) before changing behavior; it is 
 ## Commands (run from `shifttips/`)
 
 - `swift test --package-path Packages/ShiftTipsKit`: all engine, parser, form, export, backup and store tests. Runs on Linux. Run it before every commit.
-- The iOS app (SwiftUI views, PDF renderer, UI tests) only builds with Xcode on macOS. Without a Mac, push and read the `ShiftTips` GitHub Actions run (`.github/workflows/shifttips.yml`), which builds the app and runs its unit and UI tests on a simulator.
+- The iOS app (SwiftUI views, PDF renderer, UI tests) only builds with Xcode 26 on macOS. Without a Mac, push and read the `ShiftTips` GitHub Actions run (`.github/workflows/shifttips.yml`), which builds the app and runs its unit and UI tests on a simulator. Its `ShiftTips-test-results` artifact has screenshots (light, dark, large text) for checking the design.
+- `swiftc -parse` on the app's Swift files catches syntax errors on Linux before pushing.
 - New Swift files: put them in the right folder. The Xcode project uses folder-synced groups, so never edit `project.pbxproj` just to add a file.
 
 ## Invariants
@@ -24,7 +25,8 @@ Read [`docs/build-plan.md`](docs/build-plan.md) before changing behavior; it is 
 
 ## UI
 
-- Build with `Theme` colors and the button styles in `DesignSystem/`. Colors carry meaning only alongside an icon or words.
+- Follow [`docs/design.md`](docs/design.md) ("highlighter on a receipt"): ink on paper, `Font.display` for headlines and big amounts, `Font.mono` for figures and labels, hairline rules instead of cards, and the highlighter only for the primary action and the result. No shadows, gradients, pastel tints or rounded inset cards.
+- Build with `Theme` tokens and the components in `DesignSystem/` (`SectionHeader`, the button styles, `SegmentedTabs`, `CheckSquare`, `fieldBox()`, `Tag`, `receiptSlip()`, `ledgerList()`). Colors carry meaning only alongside an icon or words.
 - Amounts use `MoneyText` (tabular figures, spoken as words for VoiceOver).
 - Keep tap targets at least 44pt and let text wrap at large Dynamic Type sizes.
 - UI tests find elements by `accessibilityIdentifier`; keep those stable.

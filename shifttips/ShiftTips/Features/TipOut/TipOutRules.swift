@@ -8,45 +8,65 @@ struct TipOutRulesCard: View {
     let rules: [TipOutRule]
     let statuses: [TipOutRuleOutcome.Status]
     let crewName: String?
+    var sectionNumber: String?
     let onEdit: () -> Void
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack {
-                SectionLabel("TIP-OUT RULES")
-                Spacer()
+        VStack(alignment: .leading, spacing: 0) {
+            SectionHeader("Tip-out rules", index: sectionNumber) {
                 if !rules.isEmpty {
                     Button("Edit Rules", action: onEdit)
-                        .font(.subheadline.weight(.semibold))
-                        .frame(minHeight: 44)
+                        .buttonStyle(TextButtonStyle())
                         .accessibilityIdentifier("editTipOutRules")
                 }
             }
             if rules.isEmpty {
-                Text("Add your house rules, like \u{201C}Server \u{2192} Busser: 2% of sales.\u{201D}" + (crewName.map { " They're saved with \($0)." } ?? ""))
-                    .foregroundStyle(Theme.ink)
-                Button("Add Tip-Out Rules", action: onEdit)
-                    .buttonStyle(PrimaryButtonStyle())
-                    .accessibilityIdentifier("addTipOutRules")
+                VStack(alignment: .leading, spacing: 14) {
+                    Text("Add your house rules, like \u{201C}Server \u{2192} Busser: 2% of sales.\u{201D}" + (crewName.map { " They're saved with \($0)." } ?? ""))
+                        .foregroundStyle(Theme.ink)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Button("Add Tip-Out Rules", action: onEdit)
+                        .buttonStyle(PrimaryButtonStyle())
+                        .accessibilityIdentifier("addTipOutRules")
+                }
+                .padding(.top, 8)
             } else {
-                ForEach(rules.indices, id: \.self) { index in
-                    let rule = rules[index]
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(rule.summary)
-                            .font(.subheadline.weight(.semibold))
-                            .foregroundStyle(Theme.ink)
-                        if index < statuses.count, let note = Explainer.skippedNote(for: rule, status: statuses[index]) {
+                ForEach(rules.indices, id: \.self) { position in
+                    let rule = rules[position]
+                    VStack(alignment: .leading, spacing: 3) {
+                        RuleLine(rule: rule)
+                        if position < statuses.count, let note = Explainer.skippedNote(for: rule, status: statuses[position]) {
                             Text(note)
                                 .font(.caption)
                                 .foregroundStyle(Theme.inkSecondary)
                         }
                     }
+                    .padding(.vertical, 10)
                     .accessibilityElement(children: .combine)
                     .accessibilityLabel(rule.spokenSummary)
+                    Rule()
                 }
             }
         }
-        .card()
+    }
+}
+
+/// "Server → Busser" with "2% of sales" set like a price.
+struct RuleLine: View {
+    let rule: TipOutRule
+
+    var body: some View {
+        HStack(alignment: .firstTextBaseline, spacing: 10) {
+            Text("\(rule.fromRole.trimmingCharacters(in: .whitespaces)) \u{2192} \(rule.toRole.trimmingCharacters(in: .whitespaces))")
+                .font(.body.weight(.semibold))
+                .foregroundStyle(Theme.ink)
+                .multilineTextAlignment(.leading)
+            Spacer(minLength: 8)
+            Text("\(Percent.format(basisPoints: rule.rateBasisPoints)) of \(rule.basis.phrase)")
+                .font(.mono(.subheadline, weight: .medium))
+                .foregroundStyle(Theme.ink)
+                .multilineTextAlignment(.trailing)
+        }
     }
 }
 
@@ -102,22 +122,24 @@ struct TipOutRulesEditor: View {
     }
 
     var body: some View {
-        Form {
+        List {
             Section {
                 ForEach(rules) { rule in
                     Button {
                         editing = .edit(rule)
                     } label: {
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text(rule.summary)
-                                .foregroundStyle(Theme.ink)
+                        VStack(alignment: .leading, spacing: 3) {
+                            RuleLine(rule: rule)
                             if let problem = rule.problem {
                                 Text(problem.message)
                                     .font(.footnote)
                                     .foregroundStyle(Theme.warning)
                             }
                         }
+                        .padding(.vertical, 4)
+                        .contentShape(Rectangle())
                     }
+                    .buttonStyle(.plain)
                     .accessibilityLabel(rule.spokenSummary)
                     .accessibilityHint("Edit this rule")
                 }
@@ -128,26 +150,33 @@ struct TipOutRulesEditor: View {
                     editing = .new
                 } label: {
                     Label("Add Rule", systemImage: "plus")
+                        .font(.body.weight(.semibold))
+                        .foregroundStyle(Theme.ink)
                 }
                 .accessibilityIdentifier("addTipOutRule")
             } header: {
                 HStack {
-                    Text("Rules")
+                    SectionLabel("Rules")
                     Spacer()
                     if rules.count > 1 {
-                        EditButton().font(.footnote)
+                        EditButton()
+                            .font(.footnote.weight(.semibold))
+                            .foregroundStyle(Theme.ink)
                     }
                 }
             } footer: {
-                Text("A rule takes a percentage of what each person in the paying role collected themselves: their own tips or sales, never tip-outs they received. Everything paid to a role is shared among its people by hours worked. Nobody tips out more than the tips they collected." + (savedWith.map { " Rules are saved with \($0)." } ?? ""))
+                LedgerFootnote("A rule takes a percentage of what each person in the paying role collected themselves: their own tips or sales, never tip-outs they received. Everything paid to a role is shared among its people by hours worked. Nobody tips out more than the tips they collected." + (savedWith.map { " Rules are saved with \($0)." } ?? ""))
             }
+            .ledgerRows()
 
             Section {
                 Text(PolicyCopy.disclaimer)
                     .font(.footnote)
                     .foregroundStyle(Theme.inkSecondary)
             }
+            .ledgerRows()
         }
+        .ledgerList()
         .navigationTitle("Tip-Out Rules")
         .navigationBarTitleDisplayMode(.inline)
         .sheet(item: $editing) { item in
@@ -187,41 +216,57 @@ struct TipOutRuleEditor: View {
 
     var body: some View {
         NavigationStack {
-            Form {
-                Section("Who pays") {
+            List {
+                Section {
                     RoleField(placeholder: "e.g. Server", text: $fromRole, roles: roles)
                         .accessibilityIdentifier("ruleFromRole")
+                } header: {
+                    SectionLabel("Who pays", index: "01")
                 }
-                Section("Who receives") {
+                .ledgerRows()
+                Section {
                     RoleField(placeholder: "e.g. Busser", text: $toRole, roles: roles)
                         .accessibilityIdentifier("ruleToRole")
+                } header: {
+                    SectionLabel("Who receives", index: "02")
                 }
+                .ledgerRows()
                 Section {
-                    HStack {
+                    HStack(alignment: .firstTextBaseline, spacing: 6) {
                         TextField("2", text: $percentText)
                             .keyboardType(.decimalPad)
+                            .font(.display(.title))
+                            .monospacedDigit()
+                            .foregroundStyle(Theme.ink)
                             .accessibilityLabel("Percentage")
                             .accessibilityIdentifier("rulePercent")
                         Text("%")
+                            .font(.display(.title))
                             .foregroundStyle(Theme.inkSecondary)
+                            .accessibilityHidden(true)
                     }
                     Picker("Of their", selection: $basis) {
                         ForEach(TipOutBasis.allCases, id: \.self) { basis in
                             Text(basis.phrase).tag(basis)
                         }
                     }
+                    .pickerStyle(.menu)
+                    .tint(Theme.ink)
                 } header: {
-                    Text("How much")
+                    SectionLabel("How much", index: "03")
                 } footer: {
-                    Text(preview)
+                    LedgerFootnote(preview)
                 }
+                .ledgerRows()
                 if let problem {
                     Section {
                         Label(problem, systemImage: "exclamationmark.triangle.fill")
                             .foregroundStyle(Theme.warning)
                     }
+                    .ledgerRows()
                 }
             }
+            .ledgerList()
             .navigationTitle(original == nil ? "New Rule" : "Edit Rule")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

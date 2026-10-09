@@ -2,8 +2,9 @@ import SwiftUI
 import ShiftTipsCore
 import ShiftTipsData
 
-/// The screen the app opens on: tips, crew, method, people, and a sticky
-/// bar that says what's being distributed and what's still missing.
+/// The screen the app opens on: the shift's date as the headline, then
+/// numbered sections (tips, crew, method, people) and a dock that says
+/// what's being distributed and what's still missing.
 struct NewShiftView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
@@ -14,6 +15,7 @@ struct NewShiftView: View {
     @State private var infoRow: ShiftForm.Row?
     @State private var confirmStartOver = false
     @State private var editingRules = false
+    @State private var pickingDate = false
 
     var body: some View {
         @Bindable var store = store
@@ -22,47 +24,51 @@ struct NewShiftView: View {
 
         ScrollViewReader { proxy in
             ScrollView {
-                VStack(alignment: .leading, spacing: 18) {
-                    header
-                    if store.isFormSaved {
-                        savedBanner
-                    } else if store.form.isExample {
-                        exampleBanner
-                    }
-                    Group {
+                VStack(alignment: .leading, spacing: Theme.sectionSpacing) {
+                    VStack(alignment: .leading, spacing: 18) {
+                        header
+                        if store.isFormSaved {
+                            savedBanner
+                        } else if store.form.isExample {
+                            exampleBanner
+                        }
                         if !store.isSimple {
                             ModePicker(mode: store.form.mode) { mode in
                                 focus = nil
-                                withAnimation { store.setMode(mode) }
+                                withAnimation(.snappy) { store.setMode(mode) }
                             }
+                            .disabled(store.isFormSaved)
                         }
+                    }
+                    Group {
                         switch live {
                         case .pool(let calculation):
-                            TipsCard(form: $store.form, focus: $focus, allowsCashAndCard: !store.isSimple)
-                            crewSection
+                            TipsCard(form: $store.form, focus: $focus, allowsCashAndCard: !store.isSimple, number: "01")
+                            crewSection(number: "02")
                             if !store.isSimple {
-                                MethodPicker(method: $store.form.method)
+                                MethodPicker(method: $store.form.method, number: "03")
                             }
-                            peopleSection(calculation)
+                            peopleSection(calculation, number: store.isSimple ? "03" : "04")
                         case .tipOut(let calculation):
-                            crewSection
+                            crewSection(number: "01")
                             TipOutRulesCard(
                                 rules: store.form.tipOutRules,
                                 statuses: store.form.tipOutPlan.ruleStatuses,
                                 crewName: store.form.crewName,
+                                sectionNumber: "02",
                                 onEdit: {
                                     focus = nil
                                     editingRules = true
                                 }
                             )
-                            tipOutPeopleSection(calculation)
+                            tipOutPeopleSection(calculation, number: "03")
                         }
                     }
                     .disabled(store.isFormSaved)
                 }
-                .padding(.horizontal, 16)
-                .padding(.top, 4)
-                .padding(.bottom, 24)
+                .padding(.horizontal, 20)
+                .padding(.top, 8)
+                .padding(.bottom, 28)
             }
             .scrollDismissesKeyboard(.interactively)
             .onChange(of: focus) { _, field in
@@ -70,11 +76,12 @@ struct NewShiftView: View {
                 withAnimation { proxy.scrollTo(field, anchor: .center) }
             }
         }
-        .background(Theme.background.ignoresSafeArea())
-        .safeAreaInset(edge: .bottom) {
+        .background { Theme.background.ignoresSafeArea() }
+        .safeAreaInset(edge: .bottom, spacing: 0) {
             summaryBar(live: live, readiness: readiness)
         }
         .navigationTitle("ShiftTips")
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar { toolbar }
         .sheet(isPresented: $showSettings) {
             SettingsView()
@@ -93,6 +100,9 @@ struct NewShiftView: View {
         .sheet(isPresented: $editingRules) {
             TipOutRulesSheet(rules: store.form.tipOutRules, roles: knownRoles)
         }
+        .sheet(isPresented: $pickingDate) {
+            ShiftDateSheet(day: $store.form.day)
+        }
         .confirmationDialog("Start over?", isPresented: $confirmStartOver, titleVisibility: .visible) {
             Button("Clear This Shift", role: .destructive) {
                 focus = nil
@@ -101,28 +111,58 @@ struct NewShiftView: View {
         } message: {
             Text("The tips and hours you've entered for this shift will be cleared.")
         }
+        .sensoryFeedback(trigger: store.form.rows.filter(\.included).count) { _, _ in
+            store.settings.hapticsEnabled ? .selection : nil
+        }
     }
 
-    // MARK: - Sections
+    // MARK: - Header
 
+    /// The date, big, as the screen's headline, and the shift's label.
     private var header: some View {
         @Bindable var store = store
-        return HStack(spacing: 12) {
-            DatePicker(
-                "Shift date",
-                selection: Binding(get: { store.form.day.date() }, set: { store.form.day = CalendarDay($0) }),
-                displayedComponents: .date
-            )
-            .labelsHidden()
-            TextField("Label, e.g. Dinner", text: $store.form.label)
+        return VStack(alignment: .leading, spacing: 6) {
+            HStack(spacing: 8) {
+                SectionLabel("Shift")
+                if store.form.day == store.today {
+                    Tag("Today", style: .muted)
+                }
+            }
+            Button {
+                focus = nil
+                pickingDate = true
+            } label: {
+                HStack(alignment: .firstTextBaseline, spacing: 10) {
+                    Text(dayTitle)
+                        .font(.display(.largeTitle))
+                        .foregroundStyle(Theme.ink)
+                        .multilineTextAlignment(.leading)
+                    Image(systemName: "chevron.down")
+                        .font(.headline.weight(.heavy))
+                        .foregroundStyle(Theme.inkSecondary)
+                        .accessibilityHidden(true)
+                }
+                .frame(minHeight: 44)
+                .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel("Shift date, \(store.form.day.longText)")
+            .accessibilityHint("Changes the date")
+            .accessibilityIdentifier("shiftDate")
+
+            TextField("Add a label, like Dinner", text: $store.form.label)
                 .textInputAutocapitalization(.words)
-                .font(.subheadline)
-                .padding(.horizontal, 12)
-                .frame(minHeight: 40)
-                .background(Theme.surface, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                .font(.body)
+                .foregroundStyle(Theme.ink)
+                .padding(.vertical, 10)
+                .overlay(alignment: .bottom) { Rule(color: Theme.inkTertiary) }
                 .accessibilityLabel("Shift label")
         }
         .disabled(store.isFormSaved)
+    }
+
+    private var dayTitle: String {
+        store.form.day.date().formatted(.dateTime.weekday(.abbreviated).month(.abbreviated).day())
     }
 
     private var savedBanner: some View {
@@ -136,7 +176,7 @@ struct NewShiftView: View {
     }
 
     private var exampleBanner: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 12) {
             Banner(.info, store.form.mode == .pool
                 ? "This is an example with made-up people. Try changing the tips, hours or method. Nothing here is added to your crews."
                 : "This is an example with made-up people and rules. Try changing the amounts, hours or rules. Nothing here is added to your crews.")
@@ -148,22 +188,31 @@ struct NewShiftView: View {
         }
     }
 
+    // MARK: - Sections
+
     @ViewBuilder
-    private var crewSection: some View {
+    private func crewSection(number: String) -> some View {
         if store.crews.isEmpty && store.form.rows.isEmpty {
-            VStack(alignment: .leading, spacing: 12) {
-                SectionLabel("CREW")
-                Text("Save your crew once and every shift starts with them. Just add tips and hours.")
+            VStack(alignment: .leading, spacing: 14) {
+                SectionHeader("Crew", index: number)
+                Text("Save your crew once and every shift starts with them. Then it's just tips and hours.")
+                    .font(.title3)
                     .foregroundStyle(Theme.ink)
+                    .fixedSize(horizontal: false, vertical: true)
                 Button("Add Your Crew") { editingCrew = .new }
                     .buttonStyle(PrimaryButtonStyle())
                 Button("Try an Example") { store.loadExample() }
                     .buttonStyle(SecondaryButtonStyle())
                     .accessibilityIdentifier("tryExample")
             }
-            .card()
         } else {
-            HStack(alignment: .center, spacing: 12) {
+            VStack(alignment: .leading, spacing: 4) {
+                SectionHeader("Crew", index: number) {
+                    if let crewId = store.form.crewId, let crew = store.crew(id: crewId) {
+                        Button("Edit Crew") { editingCrew = .edit(crew) }
+                            .buttonStyle(TextButtonStyle())
+                    }
+                }
                 Menu {
                     ForEach(store.crews) { crew in
                         Button {
@@ -183,32 +232,24 @@ struct NewShiftView: View {
                         Label("New Crew", systemImage: "plus")
                     }
                 } label: {
-                    VStack(alignment: .leading, spacing: 2) {
-                        SectionLabel("CREW")
-                        HStack(spacing: 4) {
-                            Text(crewTitle)
-                                .font(.headline)
-                                .foregroundStyle(Theme.ink)
-                                .multilineTextAlignment(.leading)
-                            Image(systemName: "chevron.up.chevron.down")
-                                .font(.caption.weight(.semibold))
-                                .foregroundStyle(Theme.inkSecondary)
-                        }
-                        if !store.isSimple, let crewId = store.form.crewId, let crew = store.crew(id: crewId) {
-                            Text("Starts as: \(crew.setupTitle)")
-                                .font(.caption)
-                                .foregroundStyle(Theme.inkSecondary)
-                        }
+                    HStack(alignment: .firstTextBaseline, spacing: 8) {
+                        Text(crewTitle)
+                            .font(.display(.title2, weight: .bold))
+                            .foregroundStyle(Theme.ink)
+                            .multilineTextAlignment(.leading)
+                        Image(systemName: "chevron.down")
+                            .font(.subheadline.weight(.heavy))
+                            .foregroundStyle(Theme.inkSecondary)
                     }
-                    .frame(minHeight: 44)
+                    .frame(minHeight: 44, alignment: .leading)
+                    .contentShape(Rectangle())
                 }
                 .accessibilityLabel("Crew: \(crewTitle)")
                 .accessibilityHint("Choose which saved crew this shift uses")
-                Spacer()
-                if let crewId = store.form.crewId, let crew = store.crew(id: crewId) {
-                    Button("Edit Crew") { editingCrew = .edit(crew) }
-                        .font(.subheadline.weight(.semibold))
-                        .frame(minHeight: 44)
+                if !store.isSimple, let crewId = store.form.crewId, let crew = store.crew(id: crewId) {
+                    Text("Starts as \(crew.setupTitle)")
+                        .font(.mono(.caption))
+                        .foregroundStyle(Theme.inkSecondary)
                 }
             }
         }
@@ -220,19 +261,17 @@ struct NewShiftView: View {
         return store.crews.isEmpty ? "No saved crew" : "Choose a crew"
     }
 
-    private func peopleSection(_ calculation: ShiftCalculation) -> some View {
+    private func peopleSection(_ calculation: ShiftCalculation, number: String) -> some View {
         @Bindable var store = store
         let allocations = Dictionary(uniqueKeysWithValues: calculation.allocations.map { ($0.participantId, $0) })
         let inPool = store.form.rows.filter(\.isInPool).count
         let tipsEntered = (try? store.form.parsedPool().get()) != nil
 
-        return VStack(alignment: .leading, spacing: 10) {
+        return VStack(alignment: .leading, spacing: 0) {
             if !store.form.rows.isEmpty {
-                HStack {
-                    SectionLabel("PEOPLE")
-                    Spacer()
+                SectionHeader("People", index: number) {
                     Text(inPool == 1 ? "1 in pool" : "\(inPool) in pool")
-                        .font(.footnote)
+                        .font(.mono(.caption, weight: .semibold))
                         .foregroundStyle(Theme.inkSecondary)
                 }
             }
@@ -251,34 +290,25 @@ struct NewShiftView: View {
                         withAnimation { store.form.removeRow(id: id) }
                     }
                 )
+                Rule()
             }
             if !store.form.rows.isEmpty || !store.crews.isEmpty {
-                Button {
-                    focus = nil
-                    addingPerson = true
-                } label: {
-                    Label("Add someone for this shift", systemImage: "person.badge.plus")
-                        .font(.subheadline.weight(.semibold))
-                        .frame(maxWidth: .infinity, minHeight: 44)
-                }
-                .buttonStyle(.borderless)
+                addSomeoneButton
             }
         }
     }
 
-    private func tipOutPeopleSection(_ calculation: TipOutCalculation) -> some View {
+    private func tipOutPeopleSection(_ calculation: TipOutCalculation, number: String) -> some View {
         @Bindable var store = store
         let people = Dictionary(uniqueKeysWithValues: calculation.result.people.map { ($0.participantId, $0) })
         let plan = store.form.tipOutPlan
         let taking = calculation.result.takingPartCount
 
-        return VStack(alignment: .leading, spacing: 10) {
+        return VStack(alignment: .leading, spacing: 0) {
             if !store.form.rows.isEmpty {
-                HStack {
-                    SectionLabel("PEOPLE")
-                    Spacer()
+                SectionHeader("People", index: number) {
                     Text(taking == 1 ? "1 in tip-outs" : "\(taking) in tip-outs")
-                        .font(.footnote)
+                        .font(.mono(.caption, weight: .semibold))
                         .foregroundStyle(Theme.inkSecondary)
                 }
             }
@@ -296,19 +326,37 @@ struct NewShiftView: View {
                         withAnimation { store.form.removeRow(id: id) }
                     }
                 )
+                Rule()
             }
             if !store.form.rows.isEmpty || !store.crews.isEmpty {
-                Button {
-                    focus = nil
-                    addingPerson = true
-                } label: {
-                    Label("Add someone for this shift", systemImage: "person.badge.plus")
-                        .font(.subheadline.weight(.semibold))
-                        .frame(maxWidth: .infinity, minHeight: 44)
-                }
-                .buttonStyle(.borderless)
+                addSomeoneButton
             }
         }
+    }
+
+    /// An empty slot at the end of the list, drawn dashed.
+    private var addSomeoneButton: some View {
+        Button {
+            focus = nil
+            addingPerson = true
+        } label: {
+            HStack(spacing: 8) {
+                Image(systemName: "plus")
+                    .font(.subheadline.weight(.heavy))
+                    .accessibilityHidden(true)
+                Text("Add someone for this shift")
+                    .font(.subheadline.weight(.semibold))
+            }
+            .foregroundStyle(Theme.ink)
+            .frame(maxWidth: .infinity, minHeight: 50)
+            .overlay {
+                RoundedRectangle(cornerRadius: Theme.corner)
+                    .strokeBorder(Theme.inkSecondary, style: StrokeStyle(lineWidth: 1, dash: [4, 3]))
+            }
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .padding(.top, 16)
     }
 
     /// Roles for the rule editor's menu: the crew's, this shift's, and the
@@ -323,17 +371,16 @@ struct NewShiftView: View {
         return roles
     }
 
-    // MARK: - Bottom bar
+    // MARK: - Dock
 
     private func summaryBar(live: ShiftForm.Live, readiness: ShiftForm.Readiness) -> some View {
         let pool = live.outcome.headlineCents
-        return VStack(spacing: 10) {
+        return VStack(spacing: 12) {
             HStack(alignment: .firstTextBaseline) {
-                Text(store.form.mode == .pool ? "Distributing" : "Tipping out")
-                    .font(.subheadline)
-                    .foregroundStyle(Theme.inkSecondary)
+                SectionLabel(store.form.mode == .pool ? "Distributing" : "Tipping out")
                 Spacer()
-                MoneyText(cents: pool, font: .title3.weight(.bold))
+                MoneyText(cents: pool, font: .display(.title2))
+                    .foregroundStyle(Theme.ink)
                     .accessibilityIdentifier("distributingAmount")
             }
             .accessibilityElement(children: .combine)
@@ -357,23 +404,27 @@ struct NewShiftView: View {
                 .accessibilityIdentifier("reviewSplit")
             }
         }
-        .padding(.horizontal, 16)
+        .padding(.horizontal, 20)
         .padding(.top, 12)
         .padding(.bottom, 8)
-        .background(.bar)
+        .background { Theme.background.ignoresSafeArea() }
+        .overlay(alignment: .top) { Rule(color: Theme.ink, weight: 1) }
     }
 
     // MARK: - Toolbar
 
     @ToolbarContentBuilder
     private var toolbar: some ToolbarContent {
+        ToolbarItem(placement: .principal) {
+            Wordmark()
+        }
         ToolbarItem(placement: .topBarLeading) {
             Menu {
                 Button {
                     focus = nil
                     store.loadExample()
                 } label: {
-                    Label("Try an Example", systemImage: "wand.and.stars")
+                    Label("Try an Example", systemImage: "play")
                 }
                 Button(role: .destructive) {
                     confirmStartOver = true
@@ -382,7 +433,8 @@ struct NewShiftView: View {
                 }
                 .disabled(!store.form.hasEnteredValues || store.isFormSaved)
             } label: {
-                Image(systemName: "ellipsis.circle")
+                Image(systemName: "ellipsis")
+                    .fontWeight(.semibold)
             }
             .accessibilityLabel("More")
         }
@@ -392,6 +444,7 @@ struct NewShiftView: View {
                 router.path.append(.history)
             } label: {
                 Image(systemName: "clock.arrow.circlepath")
+                    .fontWeight(.semibold)
             }
             .accessibilityLabel("History")
             .accessibilityIdentifier("historyButton")
@@ -402,8 +455,10 @@ struct NewShiftView: View {
                 showSettings = true
             } label: {
                 Image(systemName: "gearshape")
+                    .fontWeight(.semibold)
             }
             .accessibilityLabel("Crew and settings")
+            .accessibilityIdentifier("settingsButton")
         }
         ToolbarItemGroup(placement: .keyboard) {
             Button("Next") {
@@ -414,5 +469,42 @@ struct NewShiftView: View {
             Button("Done") { focus = nil }
                 .fontWeight(.semibold)
         }
+    }
+}
+
+/// Picks the shift's date on a full calendar.
+struct ShiftDateSheet: View {
+    @Binding var day: CalendarDay
+    @Environment(\.dismiss) private var dismiss
+
+    var body: some View {
+        NavigationStack {
+            VStack(alignment: .leading, spacing: 12) {
+                Text(day.longText)
+                    .font(.display(.title3, weight: .bold))
+                    .foregroundStyle(Theme.ink)
+                Rule(color: Theme.ink, weight: 1)
+                DatePicker(
+                    "Shift date",
+                    selection: Binding(get: { day.date() }, set: { day = CalendarDay($0) }),
+                    displayedComponents: .date
+                )
+                .datePickerStyle(.graphical)
+                .labelsHidden()
+                .tint(Theme.ink)
+                Spacer(minLength: 0)
+            }
+            .padding(20)
+            .background { Theme.background.ignoresSafeArea() }
+            .navigationTitle("Shift Date")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Done") { dismiss() }
+                        .fontWeight(.semibold)
+                }
+            }
+        }
+        .presentationDetents([.large])
     }
 }

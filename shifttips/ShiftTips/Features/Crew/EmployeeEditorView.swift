@@ -24,13 +24,18 @@ struct EmployeeEditorView: View {
     @FocusState private var nameFocused: Bool
 
     var body: some View {
-        Form {
-            Section("Name") {
+        List {
+            Section {
                 TextField("Name", text: $employee.name)
                     .textInputAutocapitalization(.words)
+                    .font(.display(.title3, weight: .bold))
+                    .foregroundStyle(Theme.ink)
                     .focused($nameFocused)
                     .accessibilityIdentifier("employeeName")
+            } header: {
+                SectionLabel("Name", index: "01")
             }
+            .ledgerRows()
 
             Section {
                 RoleField(
@@ -40,12 +45,13 @@ struct EmployeeEditorView: View {
                 )
                 .accessibilityIdentifier("employeeRole")
             } header: {
-                Text("Role")
+                SectionLabel("Role", index: "02")
             } footer: {
-                Text(showsPoints
+                LedgerFootnote(showsPoints
                      ? "Tip-out rules and role points match people by role. A role never decides who is in the pool."
                      : "Optional. A label only; it never decides who is in the pool.")
             }
+            .ledgerRows()
 
             if showsPoints {
                 Section {
@@ -60,6 +66,8 @@ struct EmployeeEditorView: View {
                         }
                     ))
                     .keyboardType(.decimalPad)
+                    .font(.mono(.body, weight: .semibold))
+                    .foregroundStyle(Theme.ink)
                     .accessibilityLabel("Points")
                     if let error = pointsError {
                         Text(error)
@@ -67,10 +75,11 @@ struct EmployeeEditorView: View {
                             .foregroundStyle(Theme.warning)
                     }
                 } header: {
-                    Text("Points")
+                    SectionLabel("Points", index: "03")
                 } footer: {
-                    Text("Used only by Hours \u{00D7} Points. Set from your workplace's own policy.")
+                    LedgerFootnote("Used only by Hours \u{00D7} Points. Set from your workplace's own policy.")
                 }
+                .ledgerRows()
             }
 
             Section {
@@ -90,12 +99,17 @@ struct EmployeeEditorView: View {
                 }
                 .pickerStyle(.inline)
                 .labelsHidden()
+                .tint(Theme.ink)
             } header: {
-                Text("Pool eligibility")
+                SectionLabel("Pool eligibility", index: showsPoints ? "04" : "03")
             } footer: {
                 eligibilityFooter
+                    .font(.footnote)
+                    .foregroundStyle(Theme.inkSecondary)
             }
+            .ledgerRows()
         }
+        .ledgerList()
         .onAppear {
             pointsText = Points.format(units: employee.pointsUnits)
             if focusName { nameFocused = true }

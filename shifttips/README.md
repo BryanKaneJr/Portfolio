@@ -21,11 +21,13 @@ No account, no server, no network calls, no analytics, no subscription. The full
 | [`ShiftTips/`](ShiftTips) | The SwiftUI app: New Shift, Review, History, Crew, Settings, Welcome; the PDF renderer and share sheet. |
 | [`ShiftTipsTests/`](ShiftTipsTests) | App-hosted tests for what only runs on iOS (the PDF report). |
 | [`ShiftTipsUITests/`](ShiftTipsUITests) | XCUITests: example shift, review, save, history; blocked review; first launch. They save screenshots into the test results. |
-| `ShiftTips.xcodeproj` | Xcode 16 project using folder-synced groups: **add Swift files to a folder and they're in the target, no project edits.** |
+| `ShiftTips.xcodeproj` | Xcode project using folder-synced groups: **add Swift files to a folder and they're in the target, no project edits.** |
+| [`docs/design.md`](docs/design.md) | The design language, "highlighter on a receipt": colors, type, components. |
+| `tools/make_icon.py` | Draws the app icon. |
 
 ## Building
 
-**On a Mac (Xcode 16 or later):** open `ShiftTips.xcodeproj`, pick an iPhone simulator, Run. For a device, set your team under Signing & Capabilities.
+**On a Mac (Xcode 26 or later, which App Store Connect requires):** open `ShiftTips.xcodeproj`, pick an iPhone simulator, Run. For a device, set your team under Signing & Capabilities.
 
 **Engine tests anywhere Swift 6 runs (including Linux):**
 
@@ -33,7 +35,7 @@ No account, no server, no network calls, no analytics, no subscription. The full
 swift test --package-path Packages/ShiftTipsKit
 ```
 
-**CI:** `.github/workflows/shifttips.yml` runs the engine tests on Linux, then on a macOS runner runs them again, builds the app, runs the unit and UI tests on a simulator, and builds the Release configuration unsigned. The UI-test screenshots are in the `ShiftTips-test-results` artifact (open the `.xcresult` in Xcode).
+**CI:** `.github/workflows/shifttips.yml` runs the engine tests on Linux, then on a macOS runner with Xcode 26 runs them again, builds the app, runs the unit and UI tests on a simulator, and builds the Release configuration unsigned. The UI-test screenshots (light, dark and large text) are in the `ShiftTips-test-results` artifact (open the `.xcresult` in Xcode).
 
 **TestFlight:** `.github/workflows/shifttips-testflight.yml` archives, signs (with an App Store Connect API key) and uploads, started by hand from the Actions tab. See [`docs/testflight.md`](docs/testflight.md).
 
@@ -59,6 +61,7 @@ UI tests launch the app with `-ui-testing`, which uses in-memory storage, so the
 - **Eligibility is the user's call.** Role labels never decide it. Owners, managers and supervisors never receive and have no override; making anyone eligible again needs a separate confirmation that ShiftTips can't determine legal status.
 - **Allocation, not payment.** Every breakdown, PDF and summary says so.
 - **App target is Swift 5 language mode; the package is Swift 6.** The package (where the logic is) gets full strict concurrency checking; the UI layer stays simple.
+- **One look, "highlighter on a receipt".** Ink on paper, wide heavy numbers, monospaced figures, hairline rules, and a single fluorescent highlighter for the next step and the result. System fonts only. See [`docs/design.md`](docs/design.md).
 
 ## Where we are
 
@@ -73,6 +76,7 @@ Following the build plan's phases (section 11):
 - [x] Simple and Advanced (added to v1.0 by the owner, 2026-10-09): Simple is people, hours, tips; Advanced picks a tipping style per crew and makes it editable (plan 5F)
 - [x] Totals by Person (added to v1.0 by the owner, 2026-10-09): each person's tips for a pay period across both modes, from History, as text or CSV
 - [x] TestFlight from GitHub Actions, no Mac needed (setup: [`docs/testflight.md`](docs/testflight.md))
+- [x] Visual design: one style across the app, PDF and icon ([`docs/design.md`](docs/design.md))
 - [ ] Phase 5: polish and usability tests on real iPhones, including timing a repeat closeout, VoiceOver, large text and five real closers
 - [ ] Phase 6: App Store launch (checklist below)
 
@@ -83,7 +87,7 @@ Following the build plan's phases (section 11):
 - [ ] **Signing.** Set `DEVELOPMENT_TEAM` in the project (or in Xcode).
 - [ ] **Support contact.** Set `AppInfo.supportEmail` in `ShiftTips/App/ShiftTipsApp.swift`; the Settings row appears once it's set.
 - [ ] **Privacy policy and support page.** A static page is enough. App Privacy answer: no data collected.
-- [ ] **Icon.** The current icon is a generated placeholder (`ShiftTips/Assets.xcassets/AppIcon.appiconset`).
+- [ ] **Icon.** A receipt with its total highlighted, drawn by `tools/make_icon.py`. Check it on a home screen before launch; regenerate if the colors change.
 - [ ] **Screenshots** from the real app with real arithmetic (the UI tests' screenshots are a starting point).
 - [ ] **Price.** Plan hypothesis: $5.99 to $7.99.
 - [ ] TestFlight on a physical iPhone, then the airplane-mode pass from the plan. No Mac needed: follow [`docs/testflight.md`](docs/testflight.md), then run the **ShiftTips TestFlight** workflow.

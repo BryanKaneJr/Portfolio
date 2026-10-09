@@ -1,7 +1,7 @@
 import SwiftUI
 import ShiftTipsCore
 
-/// One person on the New Shift screen: in or out of the pool, their hours
+/// One line of the crew on New Shift: in or out of the pool, their hours
 /// and points when the method uses them, and their live amount.
 struct ParticipantRow: View {
     @Binding var row: ShiftForm.Row
@@ -16,78 +16,41 @@ struct ParticipantRow: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            HStack(alignment: .center, spacing: 12) {
-                includeControl
-                VStack(alignment: .leading, spacing: 2) {
+            HStack(alignment: .center, spacing: 10) {
+                IncludeControl(row: row, noun: "pool", onToggle: onToggle, onInfo: onInfo)
+                VStack(alignment: .leading, spacing: 3) {
                     Text(row.name)
                         .font(.body.weight(.semibold))
                         .foregroundStyle(row.isInPool ? Theme.ink : Theme.inkSecondary)
-                    subtitle
+                    if let detail = detailText {
+                        Text(detail)
+                            .font(.mono(.caption))
+                            .foregroundStyle(Theme.inkSecondary)
+                    }
+                    if row.isOneOff {
+                        RemoveOneOffButton(name: row.name, action: onRemove)
+                    }
                 }
                 Spacer(minLength: 8)
                 amount
             }
             if row.isInPool && method.usesHours {
-                HStack(alignment: .top, spacing: 12) {
+                HStack(alignment: .top, spacing: 10) {
                     hoursField
                     if method.usesPoints { pointsField }
                     Spacer(minLength: 0)
                 }
-                .padding(.leading, 56)
+                .padding(.leading, 54)
             }
         }
-        .padding(14)
-        .background(Theme.surface, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+        .padding(.vertical, 12)
     }
 
-    @ViewBuilder
-    private var includeControl: some View {
-        if row.eligibility.canParticipate {
-            Button(action: onToggle) {
-                Image(systemName: row.included ? "checkmark.circle.fill" : "circle")
-                    .font(.title2)
-                    .foregroundStyle(row.included ? Theme.accent : Theme.inkSecondary)
-                    .frame(width: 44, height: 44)
-                    .contentShape(Rectangle())
-            }
-            .buttonStyle(.plain)
-            .accessibilityLabel("\(row.name) in pool")
-            .accessibilityValue(row.included ? "In pool" : "Left out")
-            .accessibilityHint(row.included ? "Double tap to leave out of this shift" : "Double tap to include in this shift")
-        } else {
-            Button(action: onInfo) {
-                Image(systemName: "lock.fill")
-                    .font(.title3)
-                    .foregroundStyle(Theme.inkSecondary)
-                    .frame(width: 44, height: 44)
-                    .contentShape(Rectangle())
-            }
-            .buttonStyle(.plain)
-            .accessibilityLabel("\(row.name) can't be in the pool. Learn why")
-        }
-    }
-
-    private var subtitle: some View {
-        HStack(spacing: 6) {
-            if let text = subtitleText {
-                Text(text)
-                    .font(.footnote)
-                    .foregroundStyle(Theme.inkSecondary)
-            }
-            if row.isOneOff {
-                Button("Remove", action: onRemove)
-                    .font(.footnote.weight(.semibold))
-                    .buttonStyle(.borderless)
-                    .accessibilityLabel("Remove \(row.name) from this shift")
-            }
-        }
-    }
-
-    private var subtitleText: String? {
+    private var detailText: String? {
         var parts: [String] = []
-        if let role = row.role, !role.isEmpty { parts.append(role) }
+        if let role = row.role, !role.isEmpty { parts.append(role.uppercased()) }
         switch row.eligibility {
-        case .managerSupervisorOwner: parts.append("Owner/manager, never in pool")
+        case .managerSupervisorOwner: parts.append("Owner or manager, never in pool")
         case .notEligible: parts.append("Not eligible for pool")
         case .eligible: if !row.included { parts.append("Left out") }
         }
@@ -101,35 +64,35 @@ struct ParticipantRow: View {
             switch allocation.status {
             case .receiving:
                 MoneyText(cents: allocation.totalCents)
+                    .foregroundStyle(Theme.ink)
             case .needsHours, .needsPoints:
-                Text(allocation.status.shortText)
-                    .font(.footnote.weight(.semibold))
-                    .foregroundStyle(Theme.warning)
+                Tag(allocation.status.shortText, style: .warning)
             case .leftOut, .notEligible, .managerSupervisorOwner:
-                Text("Not in pool")
-                    .font(.footnote)
-                    .foregroundStyle(Theme.inkSecondary)
+                Tag("Not in pool", style: .muted)
             }
         }
     }
 
     private var hoursField: some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text("Hours")
-                .font(.caption)
-                .foregroundStyle(Theme.inkSecondary)
-            TextField("Hours", text: $row.hoursText, prompt: Text("0"))
-                .keyboardType(.decimalPad)
-                .font(.body.monospacedDigit())
-                .padding(.horizontal, 10)
-                .frame(width: 88, height: 44)
-                .background(Theme.surfaceMuted, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
-                .focused(focus, equals: .hours(row.id))
-                .id(ShiftForm.Field.hours(row.id))
-                .accessibilityLabel("Hours for \(row.name)")
-                .accessibilityValue(hoursHint.text)
+            HStack(spacing: 6) {
+                TextField("Hours", text: $row.hoursText, prompt: Text("0").foregroundStyle(Theme.inkTertiary))
+                    .keyboardType(.decimalPad)
+                    .font(.mono(.body, weight: .medium))
+                    .foregroundStyle(Theme.ink)
+                    .focused(focus, equals: .hours(row.id))
+                    .accessibilityLabel("Hours for \(row.name)")
+                    .accessibilityValue(hoursHint.text)
+                Text("HRS")
+                    .font(.mono(.caption2, weight: .bold))
+                    .foregroundStyle(Theme.inkSecondary)
+                    .accessibilityHidden(true)
+            }
+            .fieldBox(focused: focus.wrappedValue == .hours(row.id), error: hoursHint.isError)
+            .frame(width: 116)
+            .id(ShiftForm.Field.hours(row.id))
             Text(hoursHint.text)
-                .font(.caption)
+                .font(.mono(.caption))
                 .foregroundStyle(hoursHint.isError ? Theme.warning : Theme.inkSecondary)
                 .accessibilityHidden(true)
         }
@@ -137,21 +100,24 @@ struct ParticipantRow: View {
 
     private var pointsField: some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text("Points")
-                .font(.caption)
-                .foregroundStyle(Theme.inkSecondary)
-            TextField("Points", text: $row.pointsText, prompt: Text("1"))
-                .keyboardType(.decimalPad)
-                .font(.body.monospacedDigit())
-                .padding(.horizontal, 10)
-                .frame(width: 72, height: 44)
-                .background(Theme.surfaceMuted, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
-                .focused(focus, equals: .points(row.id))
-                .id(ShiftForm.Field.points(row.id))
-                .accessibilityLabel("Points for \(row.name)")
+            HStack(spacing: 6) {
+                TextField("Points", text: $row.pointsText, prompt: Text("1").foregroundStyle(Theme.inkTertiary))
+                    .keyboardType(.decimalPad)
+                    .font(.mono(.body, weight: .medium))
+                    .foregroundStyle(Theme.ink)
+                    .focused(focus, equals: .points(row.id))
+                    .accessibilityLabel("Points for \(row.name)")
+                Text("PTS")
+                    .font(.mono(.caption2, weight: .bold))
+                    .foregroundStyle(Theme.inkSecondary)
+                    .accessibilityHidden(true)
+            }
+            .fieldBox(focused: focus.wrappedValue == .points(row.id), error: pointsError != nil)
+            .frame(width: 100)
+            .id(ShiftForm.Field.points(row.id))
             if let error = pointsError {
                 Text(error)
-                    .font(.caption)
+                    .font(.mono(.caption))
                     .foregroundStyle(Theme.warning)
             }
         }
@@ -172,5 +138,56 @@ struct ParticipantRow: View {
         case .success, .failure(.empty): return nil
         case .failure(let error): return error.message
         }
+    }
+}
+
+/// The square at the start of a person's line: a check for in or out of
+/// this shift, or a dashed lock for someone who can't take part.
+struct IncludeControl: View {
+    let row: ShiftForm.Row
+    /// "pool" or "tip-outs", for VoiceOver.
+    let noun: String
+    let onToggle: () -> Void
+    let onInfo: () -> Void
+
+    var body: some View {
+        if row.eligibility.canParticipate {
+            Button(action: onToggle) {
+                CheckSquare(isOn: row.included)
+                    .frame(width: 44, height: 44)
+                    .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel("\(row.name) in \(noun)")
+            .accessibilityValue(row.included ? "Included" : "Left out")
+            .accessibilityHint(row.included ? "Double tap to leave out of this shift" : "Double tap to include in this shift")
+        } else {
+            Button(action: onInfo) {
+                Image(systemName: "lock.fill")
+                    .font(.system(size: 11, weight: .bold))
+                    .foregroundStyle(Theme.inkSecondary)
+                    .frame(width: 24, height: 24)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 3)
+                            .strokeBorder(Theme.inkSecondary, style: StrokeStyle(lineWidth: 1.5, dash: [3, 2]))
+                    }
+                    .frame(width: 44, height: 44)
+                    .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel("\(row.name) can't take part in the \(noun). Learn why")
+        }
+    }
+}
+
+/// Takes someone added for one shift back off it.
+struct RemoveOneOffButton: View {
+    let name: String
+    let action: () -> Void
+
+    var body: some View {
+        Button("Remove", action: action)
+            .buttonStyle(TextButtonStyle())
+            .accessibilityLabel("Remove \(name) from this shift")
     }
 }

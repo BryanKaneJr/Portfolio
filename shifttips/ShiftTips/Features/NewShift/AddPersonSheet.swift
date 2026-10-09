@@ -14,31 +14,41 @@ struct AddPersonSheet: View {
 
     var body: some View {
         NavigationStack {
-            Form {
+            List {
                 Section {
                     TextField("Name", text: $name)
                         .textInputAutocapitalization(.words)
+                        .font(.display(.title3, weight: .bold))
+                        .foregroundStyle(Theme.ink)
                         .focused($nameFocused)
                         .accessibilityIdentifier("oneOffName")
                     TextField("Role (optional)", text: $role)
                         .textInputAutocapitalization(.words)
+                        .foregroundStyle(Theme.ink)
+                } header: {
+                    SectionLabel("This shift only")
                 } footer: {
-                    Text("Added to this shift only. They won't join your saved crew.")
+                    LedgerFootnote("Added to this shift only. They won't join your saved crew.")
                 }
+                .ledgerRows()
                 if showsPoints {
                     Section {
                         TextField("Points", text: $pointsText)
                             .keyboardType(.decimalPad)
+                            .font(.mono(.body, weight: .semibold))
+                            .foregroundStyle(Theme.ink)
                         if let error = pointsError {
                             Text(error).foregroundStyle(Theme.warning)
                         }
                     } header: {
-                        Text("Points")
+                        SectionLabel("Points")
                     } footer: {
-                        Text("From your workplace's policy. Everyone starts at 1.")
+                        LedgerFootnote("From your workplace's policy. Everyone starts at 1.")
                     }
+                    .ledgerRows()
                 }
             }
+            .ledgerList()
             .navigationTitle("Add Someone")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

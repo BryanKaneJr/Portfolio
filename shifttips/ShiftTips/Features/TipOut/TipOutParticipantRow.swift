@@ -18,19 +18,28 @@ struct TipOutParticipantRow: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            HStack(alignment: .center, spacing: 12) {
-                includeControl
-                VStack(alignment: .leading, spacing: 2) {
+            HStack(alignment: .center, spacing: 10) {
+                IncludeControl(row: row, noun: "tip-outs", onToggle: onToggle, onInfo: onInfo)
+                VStack(alignment: .leading, spacing: 3) {
                     Text(row.name)
                         .font(.body.weight(.semibold))
                         .foregroundStyle(status.takesPart ? Theme.ink : Theme.inkSecondary)
-                    subtitle
+                    Text(detailText)
+                        .font(.mono(.caption))
+                        .foregroundStyle(status == .noRole ? Theme.warning : Theme.inkSecondary)
+                    if row.isOneOff {
+                        RemoveOneOffButton(name: row.name, action: onRemove)
+                    }
                 }
                 Spacer(minLength: 8)
                 amount
             }
             if !bases.isEmpty || status.receives {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 100), spacing: 10, alignment: .leading)], alignment: .leading, spacing: 10) {
+                LazyVGrid(
+                    columns: [GridItem(.adaptive(minimum: 120), spacing: 10, alignment: .leading)],
+                    alignment: .leading,
+                    spacing: 10
+                ) {
                     ForEach(bases, id: \.self) { basis in
                         moneyField(basis)
                     }
@@ -38,56 +47,15 @@ struct TipOutParticipantRow: View {
                         hoursField
                     }
                 }
+                .padding(.leading, 54)
             }
         }
-        .padding(14)
-        .background(Theme.surface, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+        .padding(.vertical, 12)
     }
 
-    @ViewBuilder
-    private var includeControl: some View {
-        if row.eligibility.canParticipate {
-            Button(action: onToggle) {
-                Image(systemName: row.included ? "checkmark.circle.fill" : "circle")
-                    .font(.title2)
-                    .foregroundStyle(row.included ? Theme.accent : Theme.inkSecondary)
-                    .frame(width: 44, height: 44)
-                    .contentShape(Rectangle())
-            }
-            .buttonStyle(.plain)
-            .accessibilityLabel("\(row.name) in tip-outs")
-            .accessibilityValue(row.included ? "Included" : "Left out")
-            .accessibilityHint(row.included ? "Double tap to leave out of this shift" : "Double tap to include in this shift")
-        } else {
-            Button(action: onInfo) {
-                Image(systemName: "lock.fill")
-                    .font(.title3)
-                    .foregroundStyle(Theme.inkSecondary)
-                    .frame(width: 44, height: 44)
-                    .contentShape(Rectangle())
-            }
-            .buttonStyle(.plain)
-            .accessibilityLabel("\(row.name) can't take part in tip-outs. Learn why")
-        }
-    }
-
-    private var subtitle: some View {
-        HStack(spacing: 6) {
-            Text(subtitleText)
-                .font(.footnote)
-                .foregroundStyle(status == .noRole ? Theme.warning : Theme.inkSecondary)
-            if row.isOneOff {
-                Button("Remove", action: onRemove)
-                    .font(.footnote.weight(.semibold))
-                    .buttonStyle(.borderless)
-                    .accessibilityLabel("Remove \(row.name) from this shift")
-            }
-        }
-    }
-
-    private var subtitleText: String {
+    private var detailText: String {
         var parts: [String] = []
-        if let role = row.role, !role.isEmpty { parts.append(role) }
+        if let role = row.role, !role.isEmpty { parts.append(role.uppercased()) }
         switch status {
         case .pays: parts.append("Tips out")
         case .receives: parts.append("Receives by hours")
@@ -96,7 +64,7 @@ struct TipOutParticipantRow: View {
         case .noRole: parts.append("Needs a role for tip-outs")
         case .leftOut: parts.append("Left out")
         case .notEligible: parts.append("Not eligible")
-        case .managerSupervisorOwner: parts.append("Owner/manager, never in tip-outs")
+        case .managerSupervisorOwner: parts.append("Owner or manager, never in tip-outs")
         }
         if row.isOneOff { parts.append("This shift only") }
         return parts.joined(separator: " \u{00B7} ")
@@ -106,82 +74,87 @@ struct TipOutParticipantRow: View {
     private var amount: some View {
         if let person, status.takesPart {
             if status.pays && (try? row.amount(for: .tips).get()) == nil {
-                needs("Needs tips")
+                Tag("Needs tips", style: .warning)
             } else if status.receives && ((try? row.minutes.get()) ?? 0) <= 0 {
-                needs("Needs hours")
+                Tag("Needs hours", style: .warning)
             } else {
-                VStack(alignment: .trailing, spacing: 1) {
-                    Text(status == .pays ? "Keeps" : (status == .receives ? "Receives" : "Net"))
-                        .font(.caption)
+                VStack(alignment: .trailing, spacing: 2) {
+                    Text(status == .pays ? "KEEPS" : (status == .receives ? "RECEIVES" : "NET"))
+                        .font(.mono(.caption2, weight: .semibold))
                         .foregroundStyle(Theme.inkSecondary)
                     MoneyText(cents: status == .receives ? person.receivedCents : person.netCents)
+                        .foregroundStyle(Theme.ink)
                 }
                 .accessibilityElement(children: .combine)
             }
         }
     }
 
-    private func needs(_ text: String) -> some View {
-        Text(text)
-            .font(.footnote.weight(.semibold))
-            .foregroundStyle(Theme.warning)
-    }
-
     private func moneyField(_ basis: TipOutBasis) -> some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text(basis.title)
-                .font(.caption)
+            Text(basis.title.uppercased())
+                .font(.mono(.caption2, weight: .semibold))
                 .foregroundStyle(Theme.inkSecondary)
+                .accessibilityHidden(true)
             TextField(
                 basis.title,
                 text: dollarBinding(Binding(get: { row.text(for: basis) }, set: { row.setText($0, for: basis) })),
-                prompt: Text("$0")
+                prompt: Text("$0").foregroundStyle(Theme.inkTertiary)
             )
             .keyboardType(.decimalPad)
-            .font(.body.monospacedDigit())
-            .padding(.horizontal, 10)
-            .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
-            .background(Theme.surfaceMuted, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+            .font(.mono(.body, weight: .medium))
+            .foregroundStyle(Theme.ink)
             .focused(focus, equals: .amount(row.id, basis))
+            .fieldBox(focused: focus.wrappedValue == .amount(row.id, basis), error: amountError(basis) != nil)
             .id(ShiftForm.Field.amount(row.id, basis))
             .accessibilityLabel("\(basis.title) for \(row.name)")
             .accessibilityIdentifier("\(basis.rawValue)-\(row.name)")
-            if case .failure(let error) = row.amount(for: basis), error != .empty {
-                Text(error.message)
-                    .font(.caption)
+            if let error = amountError(basis) {
+                Text(error)
+                    .font(.mono(.caption))
                     .foregroundStyle(Theme.warning)
             }
         }
     }
 
+    private func amountError(_ basis: TipOutBasis) -> String? {
+        if case .failure(let error) = row.amount(for: basis), error != .empty { return error.message }
+        return nil
+    }
+
     private var hoursField: some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text("Hours")
-                .font(.caption)
+            Text("HOURS")
+                .font(.mono(.caption2, weight: .semibold))
                 .foregroundStyle(Theme.inkSecondary)
-            TextField("Hours", text: $row.hoursText, prompt: Text("0"))
+                .accessibilityHidden(true)
+            TextField("Hours", text: $row.hoursText, prompt: Text("0").foregroundStyle(Theme.inkTertiary))
                 .keyboardType(.decimalPad)
-                .font(.body.monospacedDigit())
-                .padding(.horizontal, 10)
-                .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
-                .background(Theme.surfaceMuted, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                .font(.mono(.body, weight: .medium))
+                .foregroundStyle(Theme.ink)
                 .focused(focus, equals: .hours(row.id))
+                .fieldBox(focused: focus.wrappedValue == .hours(row.id), error: hoursIsError)
                 .id(ShiftForm.Field.hours(row.id))
                 .accessibilityLabel("Hours for \(row.name)")
             switch row.minutes {
             case .success(let minutes):
                 Text(Hours.format(minutes: minutes))
-                    .font(.caption)
+                    .font(.mono(.caption))
                     .foregroundStyle(Theme.inkSecondary)
             case .failure(.empty):
                 Text("e.g. 7.5")
-                    .font(.caption)
+                    .font(.mono(.caption))
                     .foregroundStyle(Theme.inkSecondary)
             case .failure(let error):
                 Text(error.message)
-                    .font(.caption)
+                    .font(.mono(.caption))
                     .foregroundStyle(Theme.warning)
             }
         }
+    }
+
+    private var hoursIsError: Bool {
+        if case .failure(let error) = row.minutes, error != .empty { return true }
+        return false
     }
 }

@@ -13,26 +13,27 @@ struct HistoryView: View {
         let shifts = store.shiftsNewestFirst
         Group {
             if shifts.isEmpty {
-                ContentUnavailableView(
-                    "No Saved Shifts",
-                    systemImage: "clock",
-                    description: Text("Shifts you save are kept here, on this iPhone.")
-                )
+                EmptyHistory()
             } else {
                 List {
                     Section {
                         NavigationLink(value: Route.totals) {
-                            Label("Totals by Person", systemImage: "person.2")
-                                .font(.body.weight(.semibold))
-                                .foregroundStyle(Theme.ink)
+                            VStack(alignment: .leading, spacing: 3) {
+                                Text("Totals by Person")
+                                    .font(.display(.headline, weight: .bold))
+                                    .foregroundStyle(Theme.ink)
+                                Text("Add up a week, two weeks or a month for payroll.")
+                                    .font(.footnote)
+                                    .foregroundStyle(Theme.inkSecondary)
+                            }
+                            .padding(.vertical, 6)
                         }
                         .accessibilityHint("Each person's tips for a pay period")
                         .accessibilityIdentifier("totalsByPerson")
-                    } footer: {
-                        Text("Add up a week, two weeks or a month for payroll.")
                     }
+                    .ledgerRows()
                     ForEach(monthGroups(shifts), id: \.title) { group in
-                        Section(group.title) {
+                        Section {
                             ForEach(group.shifts) { shift in
                                 NavigationLink(value: Route.shift(shift.id)) {
                                     HistoryRow(shift: shift)
@@ -43,17 +44,27 @@ struct HistoryView: View {
                                     } label: {
                                         Label("Delete", systemImage: "trash")
                                     }
-                                    .tint(.red)
+                                    .tint(Theme.danger)
                                 }
                             }
+                        } header: {
+                            HStack {
+                                SectionLabel(group.title)
+                                Spacer()
+                                Text(group.shifts.count == 1 ? "1 SHIFT" : "\(group.shifts.count) SHIFTS")
+                                    .font(.mono(.caption, weight: .semibold))
+                                    .foregroundStyle(Theme.inkSecondary)
+                            }
                         }
+                        .ledgerRows()
                     }
                 }
-                .scrollContentBackground(.hidden)
+                .ledgerList()
             }
         }
-        .background(Theme.background.ignoresSafeArea())
+        .background { Theme.background.ignoresSafeArea() }
         .navigationTitle("History")
+        .navigationBarTitleDisplayMode(.large)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Button {
@@ -118,29 +129,78 @@ struct HistoryRow: View {
     let shift: FinishedShift
 
     var body: some View {
-        HStack(alignment: .center, spacing: 12) {
+        HStack(alignment: .center, spacing: 14) {
+            VStack(spacing: 0) {
+                Text(shift.day.day < 10 ? "0\(shift.day.day)" : "\(shift.day.day)")
+                    .font(.display(.title2))
+                    .foregroundStyle(Theme.ink)
+                Text(shift.day.date().formatted(.dateTime.weekday(.abbreviated)).uppercased())
+                    .font(.mono(.caption2, weight: .bold))
+                    .foregroundStyle(Theme.inkSecondary)
+            }
+            .frame(minWidth: 48)
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(shift.day.longText)
             VStack(alignment: .leading, spacing: 3) {
-                Text(shift.day.mediumText)
+                Text(title)
                     .font(.body.weight(.semibold))
                     .foregroundStyle(Theme.ink)
                 Text(subtitle)
-                    .font(.footnote)
+                    .font(.mono(.caption))
                     .foregroundStyle(Theme.inkSecondary)
             }
-            Spacer()
-            MoneyText(cents: shift.outcome.headlineCents, font: .headline)
+            Spacer(minLength: 8)
+            MoneyText(cents: shift.outcome.headlineCents, font: .mono(.body, weight: .bold))
                 .foregroundStyle(Theme.ink)
         }
-        .padding(.vertical, 4)
+        .padding(.vertical, 6)
         .accessibilityElement(children: .combine)
+    }
+
+    private var title: String {
+        if let label = shift.outcome.draft.label, !label.isEmpty { return label }
+        return shift.outcome.mode == .pool ? ShiftMode.pool.title : ShiftMode.tipOut.title
     }
 
     private var subtitle: String {
         let outcome = shift.outcome
         var parts: [String] = []
-        if let label = outcome.draft.label { parts.append(label) }
-        parts.append(outcome.mode == .pool ? outcome.draft.method.title : "Tip Out")
+        parts.append(outcome.mode == .pool ? outcome.draft.method.title : ShiftMode.tipOut.title)
         parts.append(outcome.peopleCount == 1 ? "1 person" : "\(outcome.peopleCount) people")
-        return parts.joined(separator: " \u{00B7} ")
+        return parts.joined(separator: " \u{00B7} ").uppercased()
+    }
+}
+
+/// History before anything's saved: an empty ledger.
+struct EmptyHistory: View {
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 14) {
+                SectionHeader("Nothing saved yet")
+                Text("Shifts you save are kept here, on this iPhone, exactly as they were saved.")
+                    .font(.title3)
+                    .foregroundStyle(Theme.ink)
+                    .fixedSize(horizontal: false, vertical: true)
+                VStack(spacing: 0) {
+                    ForEach(0..<3, id: \.self) { _ in
+                        HStack(spacing: 14) {
+                            RoundedRectangle(cornerRadius: 2)
+                                .fill(Theme.rule)
+                                .frame(width: 36, height: 30)
+                            VStack(alignment: .leading, spacing: 6) {
+                                RoundedRectangle(cornerRadius: 2).fill(Theme.rule).frame(width: 120, height: 10)
+                                RoundedRectangle(cornerRadius: 2).fill(Theme.rule).frame(width: 80, height: 8)
+                            }
+                            Spacer()
+                            RoundedRectangle(cornerRadius: 2).fill(Theme.rule).frame(width: 64, height: 12)
+                        }
+                        .padding(.vertical, 14)
+                        DashedRule()
+                    }
+                }
+                .accessibilityHidden(true)
+            }
+            .padding(20)
+        }
     }
 }

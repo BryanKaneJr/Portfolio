@@ -13,33 +13,37 @@ struct WelcomeView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(alignment: .leading, spacing: 24) {
-                    VStack(alignment: .leading, spacing: 10) {
-                        Image(systemName: "dollarsign.circle.fill")
-                            .font(.system(size: 56))
-                            .foregroundStyle(Theme.accent)
-                            .accessibilityHidden(true)
-                        Text("ShiftTips")
-                            .font(.largeTitle.weight(.bold))
-                        Text("Close the shift. Split every cent. Share a clear breakdown.")
-                            .font(.title3)
+                VStack(alignment: .leading, spacing: Theme.sectionSpacing) {
+                    VStack(alignment: .leading, spacing: 18) {
+                        Wordmark(style: .headline)
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Close the shift.")
+                            Text("Split every cent.")
+                                .foregroundStyle(Theme.onHighlight)
+                                .highlighted()
+                            Text("Share a clear breakdown.")
+                        }
+                        .font(.display(.largeTitle))
+                        .foregroundStyle(Theme.ink)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .accessibilityElement(children: .combine)
+                        Text("Exact to the cent, on this iPhone only. No account, no server.")
+                            .font(.body)
                             .foregroundStyle(Theme.inkSecondary)
                     }
-                    .padding(.top, 24)
+                    .padding(.top, 20)
 
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("How does your team split tips?")
-                            .font(.title3.weight(.bold))
-                            .accessibilityAddTraits(.isHeader)
+                        SectionHeader("How does your team split tips?", index: "01")
                         ExperienceOption(
                             experience: .simple,
-                            icon: "person.2.fill",
+                            number: "A",
                             detail: "Add who worked and their hours. Tips are shared by hours. Nothing else to set up.",
                             isSelected: choice == .simple
                         ) { choice = .simple }
                         ExperienceOption(
                             experience: .advanced,
-                            icon: "slider.horizontal.3",
+                            number: "B",
                             detail: "Pools by role points, tip-outs to bussers and the bar, cash and card. Pick the style closest to yours, then make every number match.",
                             isSelected: choice == .advanced
                         ) { choice = .advanced }
@@ -77,16 +81,17 @@ struct WelcomeView: View {
                             store.setExperience(choice)
                             dismiss()
                         }
-                        .frame(minHeight: 44)
+                        .buttonStyle(TextButtonStyle())
                     }
 
                     Text(PolicyCopy.disclaimer)
                         .font(.footnote)
                         .foregroundStyle(Theme.inkSecondary)
                 }
-                .padding(24)
+                .padding(.horizontal, 24)
+                .padding(.bottom, 24)
             }
-            .background(Theme.background.ignoresSafeArea())
+            .background { Theme.background.ignoresSafeArea() }
             .toolbar(.hidden, for: .navigationBar)
         }
         .onAppear { choice = store.settings.experience }
@@ -98,10 +103,11 @@ struct WelcomeView: View {
     }
 }
 
-/// One of the two ways to use ShiftTips, as a selectable card.
+/// One of the two ways to use ShiftTips: a bordered block with a square
+/// radio, its border heavier when chosen.
 struct ExperienceOption: View {
     let experience: Experience
-    let icon: String
+    let number: String
     let detail: String
     let isSelected: Bool
     let onSelect: () -> Void
@@ -109,33 +115,33 @@ struct ExperienceOption: View {
     var body: some View {
         Button(action: onSelect) {
             HStack(alignment: .top, spacing: 14) {
-                Image(systemName: icon)
-                    .font(.title3)
-                    .foregroundStyle(Theme.accent)
-                    .frame(width: 32)
-                    .accessibilityHidden(true)
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(experience.title)
-                        .font(.headline)
-                        .foregroundStyle(Theme.ink)
+                CheckSquare(isOn: isSelected, kind: .radio)
+                    .padding(.top, 2)
+                VStack(alignment: .leading, spacing: 6) {
+                    HStack(alignment: .firstTextBaseline, spacing: 8) {
+                        Text(experience.title)
+                            .font(.display(.title3, weight: .bold))
+                            .foregroundStyle(Theme.ink)
+                        Text(number)
+                            .font(.mono(.caption, weight: .semibold))
+                            .foregroundStyle(Theme.inkTertiary)
+                            .accessibilityHidden(true)
+                    }
                     Text(detail)
                         .font(.subheadline)
                         .foregroundStyle(Theme.inkSecondary)
                         .multilineTextAlignment(.leading)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
-                Spacer(minLength: 8)
-                Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
-                    .font(.title2)
-                    .foregroundStyle(isSelected ? Theme.accent : Theme.inkSecondary)
-                    .accessibilityHidden(true)
+                Spacer(minLength: 0)
             }
             .padding(16)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(Theme.surface, in: RoundedRectangle(cornerRadius: Theme.corner, style: .continuous))
-            .overlay(
-                RoundedRectangle(cornerRadius: Theme.corner, style: .continuous)
-                    .stroke(isSelected ? Theme.accent : Color.clear, lineWidth: 2)
-            )
+            .background(Theme.surface, in: RoundedRectangle(cornerRadius: Theme.corner))
+            .overlay {
+                RoundedRectangle(cornerRadius: Theme.corner)
+                    .strokeBorder(isSelected ? Theme.ink : Theme.rule, lineWidth: isSelected ? 2 : 1)
+            }
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)

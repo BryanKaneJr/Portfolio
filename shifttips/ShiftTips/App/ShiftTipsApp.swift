@@ -8,6 +8,7 @@ struct ShiftTipsApp: App {
     @State private var router = Router()
 
     init() {
+        Chrome.apply()
         _store = State(initialValue: Self.makeStore())
     }
 
@@ -20,8 +21,8 @@ struct ShiftTipsApp: App {
     }
 
     /// Real storage on device; throwaway memory storage for UI tests
-    /// (launched with `-ui-testing`, plus `-advanced` or `-show-welcome`),
-    /// so tests never touch real data.
+    /// (launched with `-ui-testing`, plus `-advanced`, `-show-welcome` or
+    /// `-dark`), so tests never touch real data.
     @MainActor
     private static func makeStore() -> AppStore {
         let arguments = ProcessInfo.processInfo.arguments
@@ -29,6 +30,7 @@ struct ShiftTipsApp: App {
             var library = Library()
             library.settings.hasSeenWelcome = !arguments.contains("-show-welcome")
             library.settings.experience = arguments.contains("-advanced") ? .advanced : .simple
+            if arguments.contains("-dark") { library.settings.appearance = .dark }
             return AppStore(storage: MemoryStorage(library: library))
         }
         do {
@@ -77,7 +79,7 @@ struct RootView: View {
                     }
                 }
         }
-        .tint(Theme.accent)
+        .tint(Theme.ink)
         .preferredColorScheme(store.settings.appearance.colorScheme)
         .onAppear {
             store.refreshForToday()

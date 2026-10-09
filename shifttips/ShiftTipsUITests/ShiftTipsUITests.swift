@@ -75,7 +75,51 @@ final class ShiftTipsUITests: XCTestCase {
         XCTAssertTrue(app.buttons["reviewSplit"].waitForExistence(timeout: 5))
         XCTAssertFalse(app.buttons["mode-tipOut"].exists)
         XCTAssertFalse(app.buttons["method-equal"].exists)
-        XCTAssertFalse(app.switches["splitCashCardToggle"].exists)
+        XCTAssertFalse(app.descendants(matching: .any)["splitCashCardToggle"].exists)
+    }
+
+    /// Advanced shows the mode, method and cash-and-card controls.
+    func testAdvancedShowsItsControls() {
+        let app = launch(["-advanced"])
+        app.buttons["tryExample"].tap()
+        XCTAssertTrue(app.buttons["reviewSplit"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.buttons["mode-tipOut"].exists)
+        XCTAssertTrue(app.buttons["method-equal"].exists)
+        XCTAssertTrue(app.descendants(matching: .any)["splitCashCardToggle"].exists)
+        app.buttons["method-weightedHours"].tap()
+        attachScreenshot(app, "10 Advanced, Hours x Points")
+    }
+
+    /// Dark mode, for design review: New Shift, Review and the saved slip.
+    func testDarkModeScreens() {
+        let app = launch(["-advanced", "-dark"])
+        app.buttons["tryExample"].tap()
+        XCTAssertTrue(app.buttons["reviewSplit"].waitForExistence(timeout: 5))
+        attachScreenshot(app, "11 Dark New Shift")
+        app.buttons["reviewSplit"].tap()
+        XCTAssertTrue(element(in: app, labelContaining: "Allocated $472.38 of $472.38").waitForExistence(timeout: 5))
+        attachScreenshot(app, "12 Dark Review")
+        app.buttons["saveShift"].tap()
+        XCTAssertTrue(element(in: app, labelContaining: "Saved to History").waitForExistence(timeout: 5))
+        attachScreenshot(app, "13 Dark Saved")
+    }
+
+    /// The largest accessibility text size wraps rather than truncates.
+    func testLargeTextNewShift() {
+        let app = launch(["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityL"])
+        app.buttons["tryExample"].tap()
+        XCTAssertTrue(app.buttons["reviewSplit"].waitForExistence(timeout: 5))
+        attachScreenshot(app, "14 Large Text New Shift")
+    }
+
+    func testSettings() {
+        let app = launch(["-advanced"])
+        app.buttons["settingsButton"].tap()
+        XCTAssertTrue(app.buttons["Add Crew"].waitForExistence(timeout: 5))
+        attachScreenshot(app, "15 Settings")
+        app.buttons["Add Crew"].tap()
+        XCTAssertTrue(app.textFields["crewName"].waitForExistence(timeout: 5))
+        attachScreenshot(app, "16 New Crew")
     }
 
     /// Advanced from the welcome: pick a style, land in the crew editor
