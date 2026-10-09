@@ -33,8 +33,12 @@ extension XCUIApplication {
         buttons.matching(NSPredicate(format: "identifier == 'listCard' AND label CONTAINS %@", title)).firstMatch
     }
 
+    /// Taps the navigation bar's back button by coordinate (iOS 26 nav bar
+    /// buttons can refuse XCUITest's scroll-to-visible).
     func goBack() {
-        navigationBars.buttons.element(boundBy: 0).tap()
+        let back = navigationBars.buttons.element(boundBy: 0)
+        XCTAssertTrue(back.waitForExistence(timeout: 5))
+        back.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
     }
 
     /// Opens the draw screen's toolbar menu. iOS 26 groups toolbar items in

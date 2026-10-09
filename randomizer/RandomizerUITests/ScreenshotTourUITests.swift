@@ -41,6 +41,7 @@ final class ScreenshotTourUITests: XCTestCase {
         XCTAssertTrue(app.buttons["oddsDoneButton"].waitForExistence(timeout: 5))
         snap("06-odds")
         app.buttons["oddsDoneButton"].tap()
+        XCTAssertTrue(app.buttons["oddsDoneButton"].waitForNonExistence(timeout: 5))
         app.goBack()
 
         // Mystery Reveal with Reverse Standings, then a unique draft order.
@@ -68,6 +69,7 @@ final class ScreenshotTourUITests: XCTestCase {
         XCTAssertTrue(app.buttons["historyDoneButton"].waitForExistence(timeout: 5))
         snap("11-history")
         app.buttons["historyDoneButton"].tap()
+        XCTAssertTrue(app.buttons["historyDoneButton"].waitForNonExistence(timeout: 5))
 
         app.buttons["exhaustedRestoreButton"].tap()
         app.openDrawMenu()
