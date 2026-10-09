@@ -47,6 +47,10 @@ Hard rules (from the plan, still in force):
 9. **Taglines** (owner, 2026-10-09: "I like the tagline under the recipe name too. Let's keep that going."). Every recipe's
    `description` is a fresh, concrete one-liner (40–130 chars, no hype, no "!"). Style guide: `docs/recipe-import.md`
    "Taglines"; `tests/taglines.test.ts` enforces it.
+10. **No Avoid groups; the cook checks for allergens** (owner, 2026-10-09: "no thats on the person making the food.
+   maybe in settings?"). Avoid stays per ingredient: avoiding pork chops doesn't hide bacon, and avoiding chicken
+   doesn't hide chicken broth. Don't add food groups or "contains" tags. Instead, Settings has an **Allergies** note
+   saying Avoid only sees listed ingredients and the cook must check labels. Keep that note off the Avoid list itself.
 
 ## Layout
 ```
@@ -113,14 +117,6 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
   excluded, each with its reason, in `scripts/import/sources/index.ts`.
 
 ## NEXT TASK
-0. **Avoid groups: waiting on the owner (asked 2026-10-09).** Avoid works per ingredient, so typing "pork" and
-   avoiding what it finds (pork chops, pork shoulder, pork sausage) still shows 13 recipes with bacon, ham, pancetta
-   or prosciutto. The same gap exists for fish (8 recipes: salmon, tuna, Worcestershire), shellfish (4), chicken
-   broth for vegetarians (7), egg inside mayonnaise (3) and nuts (peanut butter, pesto). Proposal: Avoid-only
-   groups (All pork, All fish, Shellfish, All meat, Nuts, Dairy, Eggs) that search shows first, each listing what it
-   covers, including foods made from it (broth, mayonnaise, pesto). Every new catalog item would then need a group
-   tag, which is why it matters before adding more ingredients. Also proposed: a short note on the Avoid list that it
-   isn't allergy-safe (the plan rules out allergen certification). Don't build it until the owner answers.
 1. **Culinary review** is now the biggest gap: 124 drafts, none cooked or checked. Release needs every recipe reviewed
    (quantities, times, food safety). Consider a review checklist or a sign-off field per recipe. Include tags: 15
    recipes have no dish type (pancakes, guacamole, hummus, baked fries…), so any Dish type filter hides them.

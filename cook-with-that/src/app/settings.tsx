@@ -82,6 +82,16 @@ export default function SettingsScreen() {
         </View>
         <Text style={[styles.chev, { color: c.textMuted }]}>›</Text>
       </Pressable>
+
+      {/* Owner decision 10: checking for allergens is the cook's job; the app says so here, not on the Avoid list. */}
+      <Text style={[t.label, styles.sectionLabel, { color: c.textMuted, marginTop: space.xl }]}>Allergies</Text>
+      <View style={[styles.card, { backgroundColor: c.card, borderColor: c.cardBorder }]}>
+        <Text style={[t.body, { color: c.text }]}>
+          Avoid hides recipes that list that ingredient. It doesn’t know what’s inside packaged foods like broth,
+          mayonnaise or sauces, or that bacon is pork. If you’re cooking for someone with an allergy, check every
+          ingredient and label yourself.
+        </Text>
+      </View>
     </ScrollView>
   );
 }
