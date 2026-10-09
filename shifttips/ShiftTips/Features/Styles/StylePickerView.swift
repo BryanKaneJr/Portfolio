@@ -94,10 +94,7 @@ struct StyleCard: View {
                 }
                 .padding(12)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .overlay {
-                    RoundedRectangle(cornerRadius: Theme.corner)
-                        .strokeBorder(Theme.inkTertiary, style: StrokeStyle(lineWidth: 1, dash: [3, 3]))
-                }
+                .background(Theme.sunken.opacity(0.6), in: RoundedRectangle(cornerRadius: 12, style: .continuous))
                 Text("Common in: \(style.commonIn)")
                     .font(.caption)
                     .foregroundStyle(Theme.inkSecondary)
@@ -105,10 +102,10 @@ struct StyleCard: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(16)
-            .background(Theme.surface, in: RoundedRectangle(cornerRadius: Theme.corner))
+            .background(Theme.surface, in: RoundedRectangle(cornerRadius: Theme.cardCorner, style: .continuous))
             .overlay {
-                RoundedRectangle(cornerRadius: Theme.corner)
-                    .strokeBorder(isCurrent ? Theme.ink : Theme.rule, lineWidth: isCurrent ? 2 : 1)
+                RoundedRectangle(cornerRadius: Theme.cardCorner, style: .continuous)
+                    .strokeBorder(Theme.ink, lineWidth: isCurrent ? 2 : 0)
             }
             .contentShape(Rectangle())
         }
@@ -119,12 +116,12 @@ struct StyleCard: View {
     }
 }
 
-/// Cards press in with an ink edge, like a key.
+/// Cards press in a touch, with an ink edge.
 private struct StyleCardPress: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .overlay {
-                RoundedRectangle(cornerRadius: Theme.corner)
+                RoundedRectangle(cornerRadius: Theme.cardCorner, style: .continuous)
                     .strokeBorder(Theme.ink, lineWidth: configuration.isPressed ? 2 : 0)
             }
             .scaleEffect(configuration.isPressed ? 0.99 : 1)

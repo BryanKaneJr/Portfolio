@@ -45,8 +45,8 @@ struct SectionLabel: View {
     }
 }
 
-/// A numbered section's head: a full-width ink rule, the label, and
-/// anything that acts on the section at the right.
+/// A numbered section's head: the label, and anything that acts on the
+/// section at the right.
 struct SectionHeader<Trailing: View>: View {
     let title: String
     var index: String?
@@ -59,15 +59,13 @@ struct SectionHeader<Trailing: View>: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Rule(color: Theme.ink, weight: 1)
-            HStack(alignment: .center, spacing: 8) {
-                SectionLabel(title, index: index)
-                    .padding(.vertical, 8)
-                Spacer(minLength: 8)
-                trailing
-            }
+        HStack(alignment: .center, spacing: 8) {
+            SectionLabel(title, index: index)
+                .padding(.vertical, 6)
+            Spacer(minLength: 8)
+            trailing
         }
+        .padding(.horizontal, 4)
     }
 }
 
@@ -132,33 +130,38 @@ struct MoneyText: View {
 }
 
 extension View {
-    /// A highlighter stroke behind the number that matters. Decoration
-    /// only: the number and its label carry the meaning.
+    /// A yellow mark behind the number that matters. Decoration only: the
+    /// number and its label carry the meaning.
     func highlighted() -> some View {
-        padding(.horizontal, 4)
-            .background(Theme.highlight, in: Rectangle())
+        padding(.horizontal, 6)
+            .padding(.vertical, 1)
+            .background(Theme.highlight, in: RoundedRectangle(cornerRadius: 6, style: .continuous))
     }
 }
 
 // MARK: - The receipt
 
-/// Paper with a torn, zigzag bottom edge.
+/// Paper with rounded top corners and a scalloped bottom edge.
 struct ReceiptShape: Shape {
-    var toothWidth: CGFloat = 12
-    var toothDepth: CGFloat = 6
+    var cornerRadius: CGFloat = Theme.cardCorner
+    /// The radius of each scallop.
+    var scallop: CGFloat = 7
 
     func path(in rect: CGRect) -> Path {
         var path = Path()
-        let bottom = rect.maxY - toothDepth
-        path.move(to: CGPoint(x: rect.minX, y: rect.minY))
-        path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
+        let r = min(cornerRadius, rect.width / 2)
+        let bottom = rect.maxY - scallop
+        path.move(to: CGPoint(x: rect.minX, y: rect.minY + r))
+        path.addArc(center: CGPoint(x: rect.minX + r, y: rect.minY + r), radius: r, startAngle: .degrees(180), endAngle: .degrees(270), clockwise: false)
+        path.addLine(to: CGPoint(x: rect.maxX - r, y: rect.minY))
+        path.addArc(center: CGPoint(x: rect.maxX - r, y: rect.minY + r), radius: r, startAngle: .degrees(270), endAngle: .degrees(360), clockwise: false)
         path.addLine(to: CGPoint(x: rect.maxX, y: bottom))
-        let count = max(1, Int((rect.width / toothWidth).rounded()))
-        let step = rect.width / CGFloat(count)
-        for tooth in 0..<count {
-            let right = rect.maxX - CGFloat(tooth) * step
-            path.addLine(to: CGPoint(x: right - step / 2, y: rect.maxY))
-            path.addLine(to: CGPoint(x: right - step, y: bottom))
+        // Half circles bulging down, right to left.
+        let count = max(1, Int((rect.width / (scallop * 2)).rounded()))
+        let width = rect.width / CGFloat(count)
+        for scallopIndex in 0..<count {
+            let right = rect.maxX - CGFloat(scallopIndex) * width
+            path.addArc(center: CGPoint(x: right - width / 2, y: bottom), radius: width / 2, startAngle: .degrees(0), endAngle: .degrees(180), clockwise: false)
         }
         path.closeSubpath()
         return path
@@ -170,10 +173,9 @@ extension View {
     func receiptSlip() -> some View {
         padding(.horizontal, 18)
             .padding(.top, 20)
-            .padding(.bottom, 28)
+            .padding(.bottom, 30)
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(Theme.surface, in: ReceiptShape())
-            .overlay(ReceiptShape().stroke(Theme.rule, lineWidth: 1))
     }
 }
 
@@ -192,10 +194,10 @@ struct SavedStamp: View {
                 .font(.mono(.caption2, weight: .semibold))
         }
         .foregroundStyle(Theme.ink)
-        .padding(.horizontal, 8)
+        .padding(.horizontal, 10)
         .padding(.vertical, 5)
-        .overlay(RoundedRectangle(cornerRadius: 3).strokeBorder(Theme.ink, lineWidth: 2))
-        .rotationEffect(.degrees(-6))
+        .overlay(RoundedRectangle(cornerRadius: 8, style: .continuous).strokeBorder(Theme.ink, lineWidth: 2))
+        .rotationEffect(.degrees(-5))
         .scaleEffect(landed || reduceMotion ? 1 : 1.7)
         .opacity(landed || reduceMotion ? 1 : 0)
         .onAppear {
@@ -208,8 +210,8 @@ struct SavedStamp: View {
 
 // MARK: - Notes, tags, checks
 
-/// A note in the flow of a screen. The words carry the meaning; the chip
-/// and edge only reinforce it.
+/// A note in the flow of a screen. The words carry the meaning; the
+/// round chip and the tint only reinforce it.
 struct Banner: View {
     enum Kind {
         case info, warning, success
@@ -233,17 +235,21 @@ struct Banner: View {
                 .fixedSize(horizontal: false, vertical: true)
         }
         .padding(14)
-        .background(Theme.surface, in: RoundedRectangle(cornerRadius: Theme.corner))
-        .overlay {
-            RoundedRectangle(cornerRadius: Theme.corner)
-                .strokeBorder(kind == .warning ? Theme.warning : Theme.rule, lineWidth: 1)
-        }
+        .background(fill, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
         .accessibilityElement(children: .combine)
+    }
+
+    private var fill: Color {
+        switch kind {
+        case .info: Theme.surface
+        case .warning: Theme.warningSoft
+        case .success: Theme.highlightSoft
+        }
     }
 }
 
-/// The square that starts a note: ink for information, warning for a
-/// problem, the highlighter for done.
+/// The round chip that starts a note: ink for information, warning for a
+/// problem, yellow for done.
 struct IconChip: View {
     let kind: Banner.Kind
     @ScaledMetric(relativeTo: .subheadline) private var size: CGFloat = 22
@@ -253,11 +259,7 @@ struct IconChip: View {
             .font(.system(size: size * 0.5, weight: .black))
             .foregroundStyle(foreground)
             .frame(width: size, height: size)
-            .background(fill, in: RoundedRectangle(cornerRadius: 3))
-            .overlay {
-                RoundedRectangle(cornerRadius: 3)
-                    .strokeBorder(kind == .success ? Theme.highlightEdge : Color.clear, lineWidth: 1)
-            }
+            .background(fill, in: Circle())
             .accessibilityHidden(true)
     }
 
@@ -286,7 +288,7 @@ struct IconChip: View {
     }
 }
 
-/// A short status in capitals, like a stamp on a ticket.
+/// A short status in small capitals, in a pill.
 struct Tag: View {
     enum Style {
         case outline, highlight, warning, muted
@@ -304,11 +306,11 @@ struct Tag: View {
         Text(text.uppercased())
             .font(.mono(.caption2, weight: .bold))
             .tracking(0.6)
-            .padding(.horizontal, 6)
+            .padding(.horizontal, 8)
             .padding(.vertical, 3)
             .foregroundStyle(foreground)
-            .background(style == .highlight ? Theme.highlight : Color.clear, in: RoundedRectangle(cornerRadius: 2))
-            .overlay(RoundedRectangle(cornerRadius: 2).strokeBorder(edge, lineWidth: 1))
+            .background(fill, in: Capsule())
+            .overlay(Capsule().strokeBorder(style == .outline ? Theme.ink : Color.clear, lineWidth: 1))
             .accessibilityLabel(text)
     }
 
@@ -321,18 +323,18 @@ struct Tag: View {
         }
     }
 
-    private var edge: Color {
+    private var fill: Color {
         switch style {
-        case .outline: Theme.ink
-        case .highlight: Theme.highlightEdge
-        case .warning: Theme.warning
-        case .muted: Theme.inkTertiary
+        case .outline: Color.clear
+        case .highlight: Theme.highlight
+        case .warning: Theme.warningSoft
+        case .muted: Theme.sunken
         }
     }
 }
 
-/// A square check (many can be on) or a square radio (one is on).
-struct CheckSquare: View {
+/// A round check (many can be on) or a round radio (one is on).
+struct SelectionMark: View {
     enum Kind {
         case check, radio
     }
@@ -343,20 +345,20 @@ struct CheckSquare: View {
 
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 3)
+            Circle()
                 .fill(isOn && kind == .check ? Theme.ink : Color.clear)
-            RoundedRectangle(cornerRadius: 3)
+            Circle()
                 .strokeBorder(isOn ? Theme.ink : Theme.inkSecondary, lineWidth: 1.5)
             if isOn {
                 switch kind {
                 case .check:
                     Image(systemName: "checkmark")
-                        .font(.system(size: size * 0.55, weight: .black))
+                        .font(.system(size: size * 0.48, weight: .bold))
                         .foregroundStyle(Theme.onInk)
                 case .radio:
-                    RoundedRectangle(cornerRadius: 1.5)
+                    Circle()
                         .fill(Theme.ink)
-                        .padding(size * 0.25)
+                        .padding(size * 0.26)
                 }
             }
         }
@@ -365,14 +367,14 @@ struct CheckSquare: View {
     }
 }
 
-/// A checkbox toggle: a check square and its label in one 44pt row.
+/// A checkbox toggle: a round check and its label in one 44pt row.
 struct CheckboxToggleStyle: ToggleStyle {
     func makeBody(configuration: Configuration) -> some View {
         Button {
             configuration.isOn.toggle()
         } label: {
             HStack(spacing: 12) {
-                CheckSquare(isOn: configuration.isOn)
+                SelectionMark(isOn: configuration.isOn)
                 configuration.label
                     .foregroundStyle(Theme.ink)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -388,8 +390,8 @@ struct CheckboxToggleStyle: ToggleStyle {
 
 // MARK: - Inputs
 
-/// Choose one of a few: an ink-bordered strip whose chosen segment is
-/// filled with ink.
+/// Choose one of a few: a soft gray track with the chosen option in an
+/// ink pill that slides.
 struct SegmentedTabs<Value: Hashable>: View {
     let options: [Value]
     let selection: Value
@@ -419,14 +421,8 @@ struct SegmentedTabs<Value: Hashable>: View {
 
     var body: some View {
         HStack(spacing: 0) {
-            ForEach(Array(options.enumerated()), id: \.offset) { index, option in
+            ForEach(options, id: \.self) { option in
                 let selected = option == selection
-                if index > 0 {
-                    Rectangle()
-                        .fill(Theme.ink)
-                        .frame(width: 1.5)
-                        .accessibilityHidden(true)
-                }
                 Button {
                     onSelect(option)
                 } label: {
@@ -441,7 +437,7 @@ struct SegmentedTabs<Value: Hashable>: View {
                         .foregroundStyle(selected ? Theme.onInk : Theme.ink)
                         .background {
                             if selected {
-                                Rectangle()
+                                RoundedRectangle(cornerRadius: Theme.corner - 3, style: .continuous)
                                     .fill(Theme.ink)
                                     .matchedGeometryEffect(id: "selection", in: namespace)
                             }
@@ -454,12 +450,8 @@ struct SegmentedTabs<Value: Hashable>: View {
                 .accessibilityIdentifier(identifier(option))
             }
         }
-        .fixedSize(horizontal: false, vertical: true)
-        .clipShape(RoundedRectangle(cornerRadius: Theme.corner))
-        .overlay {
-            RoundedRectangle(cornerRadius: Theme.corner)
-                .strokeBorder(Theme.ink, lineWidth: 1.5)
-        }
+        .padding(3)
+        .background(Theme.sunken, in: RoundedRectangle(cornerRadius: Theme.corner, style: .continuous))
         .animation(reduceMotion ? nil : .snappy(duration: 0.25), value: selection)
         .sensoryFeedback(trigger: selection) { _, _ in
             hapticsEnabled ? .selection : nil
@@ -467,8 +459,8 @@ struct SegmentedTabs<Value: Hashable>: View {
     }
 }
 
-/// A text field's box: white with a gray edge, ink when focused, the
-/// warning color when what's typed can't be used.
+/// A text field's box: filled soft gray, outlined in ink when focused and
+/// in the warning color when what's typed can't be used.
 struct FieldBox: ViewModifier {
     var isFocused = false
     var isError = false
@@ -477,13 +469,10 @@ struct FieldBox: ViewModifier {
         content
             .padding(.horizontal, 12)
             .frame(minHeight: 44)
-            .background(Theme.surface, in: RoundedRectangle(cornerRadius: Theme.corner))
+            .background(Theme.sunken, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
             .overlay {
-                RoundedRectangle(cornerRadius: Theme.corner)
-                    .strokeBorder(
-                        isError ? Theme.warning : (isFocused ? Theme.ink : Theme.inkTertiary),
-                        lineWidth: isFocused || isError ? 1.5 : 1
-                    )
+                RoundedRectangle(cornerRadius: 12, style: .continuous)
+                    .strokeBorder(isError ? Theme.warning : (isFocused ? Theme.ink : Color.clear), lineWidth: 1.5)
             }
     }
 }
@@ -493,10 +482,10 @@ extension View {
         modifier(FieldBox(isFocused: focused, isError: error))
     }
 
-    /// Lists and forms as a ledger: full-width rows on the paper, hairline
-    /// rules, no rounded cards. Pair with `ledgerRows()` on each section.
+    /// Lists and forms on the paper: rounded white groups with hairlines
+    /// between rows. Pair with `ledgerRows()` on each section.
     func ledgerList() -> some View {
-        listStyle(.grouped)
+        listStyle(.insetGrouped)
             .scrollContentBackground(.hidden)
             .background { Theme.background.ignoresSafeArea() }
     }
@@ -523,18 +512,18 @@ struct LedgerFootnote: View {
     }
 }
 
-/// "SHIFT" and a highlighted "TIPS".
+/// "SHIFT" and "TIPS" on yellow.
 struct Wordmark: View {
     var style: Font.TextStyle = .subheadline
 
     var body: some View {
-        HStack(spacing: 1) {
+        HStack(spacing: 2) {
             Text("SHIFT")
                 .foregroundStyle(Theme.ink)
             Text("TIPS")
                 .foregroundStyle(Theme.onHighlight)
-                .padding(.horizontal, 3)
-                .background(Theme.highlight, in: Rectangle())
+                .padding(.horizontal, 4)
+                .background(Theme.highlight, in: RoundedRectangle(cornerRadius: 5, style: .continuous))
         }
         .font(.display(style, weight: .black))
         .accessibilityElement(children: .ignore)

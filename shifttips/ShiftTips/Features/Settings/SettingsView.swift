@@ -122,7 +122,7 @@ struct SettingsView: View {
                     Button {
                         store.selectCrew(id: crew.id)
                     } label: {
-                        CheckSquare(isOn: active, kind: .radio)
+                        SelectionMark(isOn: active, kind: .radio)
                             .frame(width: 44, height: 44)
                             .contentShape(Rectangle())
                     }

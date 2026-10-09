@@ -182,22 +182,24 @@ struct EmptyHistory: View {
                     .foregroundStyle(Theme.ink)
                     .fixedSize(horizontal: false, vertical: true)
                 VStack(spacing: 0) {
-                    ForEach(0..<3, id: \.self) { _ in
+                    ForEach(0..<3, id: \.self) { index in
                         HStack(spacing: 14) {
-                            RoundedRectangle(cornerRadius: 2)
-                                .fill(Theme.rule)
-                                .frame(width: 36, height: 30)
+                            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                .fill(Theme.sunken)
+                                .frame(width: 36, height: 32)
                             VStack(alignment: .leading, spacing: 6) {
-                                RoundedRectangle(cornerRadius: 2).fill(Theme.rule).frame(width: 120, height: 10)
-                                RoundedRectangle(cornerRadius: 2).fill(Theme.rule).frame(width: 80, height: 8)
+                                Capsule().fill(Theme.sunken).frame(width: 120, height: 10)
+                                Capsule().fill(Theme.sunken).frame(width: 80, height: 8)
                             }
                             Spacer()
-                            RoundedRectangle(cornerRadius: 2).fill(Theme.rule).frame(width: 64, height: 12)
+                            Capsule().fill(Theme.sunken).frame(width: 64, height: 12)
                         }
                         .padding(.vertical, 14)
-                        DashedRule()
+                        if index < 2 { Rule() }
                     }
                 }
+                .padding(.horizontal, 16)
+                .background(Theme.surface, in: RoundedRectangle(cornerRadius: Theme.cardCorner, style: .continuous))
                 .accessibilityHidden(true)
             }
             .padding(20)

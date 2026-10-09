@@ -88,11 +88,12 @@ struct PeriodTotalsView: View {
                 Rule()
                 dateRow("Through", selection: throughBinding, range: from.date()...)
             }
-            .overlay(alignment: .top) { Rule() }
-            .overlay(alignment: .bottom) { Rule() }
+            .padding(.horizontal, 16)
+            .background(Theme.surface, in: RoundedRectangle(cornerRadius: Theme.cardCorner, style: .continuous))
             Text("Adds up every saved shift dated in this period, Tip Pool and Tip Out.")
                 .font(.footnote)
                 .foregroundStyle(Theme.inkSecondary)
+                .padding(.horizontal, 4)
         }
     }
 
@@ -117,23 +118,26 @@ struct PeriodTotalsView: View {
     private func totalSection(_ summary: PeriodSummary) -> some View {
         VStack(alignment: .leading, spacing: 14) {
             SectionHeader("Total to people", index: "02")
-            MoneyText(cents: summary.totalCents, font: .display(.largeTitle))
-                .foregroundStyle(Theme.ink)
-            HStack(alignment: .top, spacing: 0) {
-                StatCell(title: "Saved shifts", value: "\(summary.shiftCount)")
-                Rectangle().fill(Theme.rule).frame(width: 1).accessibilityHidden(true)
-                StatCell(title: "Pool", value: Money.format(summary.poolCents))
-                Rectangle().fill(Theme.rule).frame(width: 1).accessibilityHidden(true)
-                StatCell(title: "Tipped out", value: Money.format(summary.tippedOutCents))
+            VStack(alignment: .leading, spacing: 12) {
+                MoneyText(cents: summary.totalCents, font: .display(.largeTitle))
+                    .foregroundStyle(Theme.ink)
+                HStack(alignment: .top, spacing: 0) {
+                    StatCell(title: "Saved shifts", value: "\(summary.shiftCount)")
+                    Rectangle().fill(Theme.rule).frame(width: 1).accessibilityHidden(true)
+                    StatCell(title: "Pool", value: Money.format(summary.poolCents))
+                    Rectangle().fill(Theme.rule).frame(width: 1).accessibilityHidden(true)
+                    StatCell(title: "Tipped out", value: Money.format(summary.tippedOutCents))
+                }
+                .fixedSize(horizontal: false, vertical: true)
+                .overlay(alignment: .top) { Rule() }
             }
-            .fixedSize(horizontal: false, vertical: true)
-            .overlay(alignment: .top) { Rule() }
+            .card()
         }
     }
 
     @ViewBuilder
     private func peopleSection(_ summary: PeriodSummary) -> some View {
-        VStack(alignment: .leading, spacing: 0) {
+        VStack(alignment: .leading, spacing: 10) {
             SectionHeader("People", index: "03") {
                 Text(summary.people.count == 1 ? "1 PERSON" : "\(summary.people.count) PEOPLE")
                     .font(.mono(.caption, weight: .semibold))
@@ -142,20 +146,26 @@ struct PeriodTotalsView: View {
             if summary.people.isEmpty {
                 Text("No saved shifts in this period.")
                     .foregroundStyle(Theme.inkSecondary)
-                    .padding(.vertical, 12)
+                    .card()
             } else {
-                ForEach(summary.people) { person in
-                    PersonTotalRow(
-                        person: person,
-                        isExpanded: expanded.contains(person.id),
-                        toggle: {
-                            withAnimation(.snappy) {
-                                if expanded.contains(person.id) { expanded.remove(person.id) } else { expanded.insert(person.id) }
+                VStack(spacing: 0) {
+                    ForEach(summary.people) { person in
+                        PersonTotalRow(
+                            person: person,
+                            isExpanded: expanded.contains(person.id),
+                            toggle: {
+                                withAnimation(.snappy) {
+                                    if expanded.contains(person.id) { expanded.remove(person.id) } else { expanded.insert(person.id) }
+                                }
                             }
+                        )
+                        if person.id != summary.people.last?.id {
+                            Rule()
                         }
-                    )
-                    Rule()
+                    }
                 }
+                .padding(.horizontal, 16)
+                .background(Theme.surface, in: RoundedRectangle(cornerRadius: Theme.cardCorner, style: .continuous))
             }
         }
     }
@@ -218,11 +228,7 @@ struct PeriodChip: View {
                 .padding(.horizontal, 14)
                 .frame(minHeight: 40)
                 .foregroundStyle(isSelected ? Theme.onInk : Theme.ink)
-                .background(isSelected ? Theme.ink : Color.clear, in: RoundedRectangle(cornerRadius: Theme.corner))
-                .overlay {
-                    RoundedRectangle(cornerRadius: Theme.corner)
-                        .strokeBorder(Theme.ink, lineWidth: 1.5)
-                }
+                .background(isSelected ? Theme.ink : Theme.surface, in: Capsule())
                 .padding(.vertical, 2)
                 .contentShape(Rectangle())
         }
@@ -249,7 +255,7 @@ struct StatCell: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal, 10)
-        .padding(.vertical, 10)
+        .padding(.top, 12)
         .accessibilityElement(children: .combine)
     }
 }

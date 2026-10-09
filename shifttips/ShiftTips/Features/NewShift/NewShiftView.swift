@@ -162,8 +162,10 @@ struct NewShiftView: View {
                 .textInputAutocapitalization(.words)
                 .font(.body)
                 .foregroundStyle(Theme.ink)
-                .padding(.vertical, 10)
-                .overlay(alignment: .bottom) { Rule(color: Theme.inkTertiary) }
+                .padding(.horizontal, 14)
+                .frame(minHeight: 46)
+                .background(Theme.surface, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                .padding(.top, 4)
                 .accessibilityLabel("Shift label")
         }
         .disabled(store.isFormSaved)
@@ -198,8 +200,8 @@ struct NewShiftView: View {
 
     // MARK: - Sections
 
-    /// First run: save a crew, or try the example. Boxed in ink, because
-    /// it's the one thing to do before anything else on this screen works.
+    /// First run: save a crew, or try the example, before anything else on
+    /// this screen can work.
     private var startHere: some View {
         VStack(alignment: .leading, spacing: 12) {
             SectionLabel("Start here")
@@ -216,12 +218,7 @@ struct NewShiftView: View {
             .buttonStyle(SecondaryButtonStyle())
             .accessibilityIdentifier("tryExample")
         }
-        .padding(16)
-        .background(Theme.surface, in: RoundedRectangle(cornerRadius: Theme.corner))
-        .overlay {
-            RoundedRectangle(cornerRadius: Theme.corner)
-                .strokeBorder(Theme.ink, lineWidth: 1.5)
-        }
+        .card()
     }
 
     /// "01", "02"...
@@ -290,7 +287,7 @@ struct NewShiftView: View {
         let inPool = store.form.rows.filter(\.isInPool).count
         let tipsEntered = (try? store.form.parsedPool().get()) != nil
 
-        return VStack(alignment: .leading, spacing: 0) {
+        return VStack(alignment: .leading, spacing: 10) {
             if !store.form.rows.isEmpty {
                 SectionHeader("People", index: number) {
                     Text(inPool == 1 ? "1 in pool" : "\(inPool) in pool")
@@ -298,22 +295,31 @@ struct NewShiftView: View {
                         .foregroundStyle(Theme.inkSecondary)
                 }
             }
-            ForEach($store.form.rows) { $row in
-                ParticipantRow(
-                    row: $row,
-                    allocation: allocations[row.id],
-                    method: store.form.method,
-                    showAmounts: tipsEntered,
-                    focus: $focus,
-                    onToggle: { store.form.setIncluded(!row.included, rowId: row.id) },
-                    onInfo: { infoRow = row },
-                    onRemove: {
-                        focus = nil
-                        let id = row.id
-                        withAnimation { store.form.removeRow(id: id) }
+            if !store.form.rows.isEmpty {
+                VStack(spacing: 0) {
+                    ForEach($store.form.rows) { $row in
+                        ParticipantRow(
+                            row: $row,
+                            allocation: allocations[row.id],
+                            method: store.form.method,
+                            showAmounts: tipsEntered,
+                            focus: $focus,
+                            onToggle: { store.form.setIncluded(!row.included, rowId: row.id) },
+                            onInfo: { infoRow = row },
+                            onRemove: {
+                                focus = nil
+                                let id = row.id
+                                withAnimation { store.form.removeRow(id: id) }
+                            }
+                        )
+                        if row.id != store.form.rows.last?.id {
+                            Rule()
+                                .padding(.leading, 54)
+                        }
                     }
-                )
-                Rule()
+                }
+                .padding(.horizontal, 14)
+                .background(Theme.surface, in: RoundedRectangle(cornerRadius: Theme.cardCorner, style: .continuous))
             }
             if !store.form.rows.isEmpty || !store.crews.isEmpty {
                 addSomeoneButton
@@ -327,7 +333,7 @@ struct NewShiftView: View {
         let plan = store.form.tipOutPlan
         let taking = calculation.result.takingPartCount
 
-        return VStack(alignment: .leading, spacing: 0) {
+        return VStack(alignment: .leading, spacing: 10) {
             if !store.form.rows.isEmpty {
                 SectionHeader("People", index: number) {
                     Text(taking == 1 ? "1 in tip-outs" : "\(taking) in tip-outs")
@@ -335,21 +341,30 @@ struct NewShiftView: View {
                         .foregroundStyle(Theme.inkSecondary)
                 }
             }
-            ForEach($store.form.rows) { $row in
-                TipOutParticipantRow(
-                    row: $row,
-                    person: people[row.id],
-                    bases: plan.bases(forRole: row.role),
-                    focus: $focus,
-                    onToggle: { store.form.setIncluded(!row.included, rowId: row.id) },
-                    onInfo: { infoRow = row },
-                    onRemove: {
-                        focus = nil
-                        let id = row.id
-                        withAnimation { store.form.removeRow(id: id) }
+            if !store.form.rows.isEmpty {
+                VStack(spacing: 0) {
+                    ForEach($store.form.rows) { $row in
+                        TipOutParticipantRow(
+                            row: $row,
+                            person: people[row.id],
+                            bases: plan.bases(forRole: row.role),
+                            focus: $focus,
+                            onToggle: { store.form.setIncluded(!row.included, rowId: row.id) },
+                            onInfo: { infoRow = row },
+                            onRemove: {
+                                focus = nil
+                                let id = row.id
+                                withAnimation { store.form.removeRow(id: id) }
+                            }
+                        )
+                        if row.id != store.form.rows.last?.id {
+                            Rule()
+                                .padding(.leading, 54)
+                        }
                     }
-                )
-                Rule()
+                }
+                .padding(.horizontal, 14)
+                .background(Theme.surface, in: RoundedRectangle(cornerRadius: Theme.cardCorner, style: .continuous))
             }
             if !store.form.rows.isEmpty || !store.crews.isEmpty {
                 addSomeoneButton
@@ -373,13 +388,12 @@ struct NewShiftView: View {
             .foregroundStyle(Theme.ink)
             .frame(maxWidth: .infinity, minHeight: 50)
             .overlay {
-                RoundedRectangle(cornerRadius: Theme.corner)
+                RoundedRectangle(cornerRadius: Theme.corner, style: .continuous)
                     .strokeBorder(Theme.inkSecondary, style: StrokeStyle(lineWidth: 1, dash: [4, 3]))
             }
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
-        .padding(.top, 16)
     }
 
     /// Roles for the rule editor's menu: the crew's, this shift's, and the
@@ -440,7 +454,7 @@ struct NewShiftView: View {
         .padding(.top, 12)
         .padding(.bottom, 8)
         .background { Theme.background.ignoresSafeArea() }
-        .overlay(alignment: .top) { Rule(color: Theme.ink, weight: 1) }
+        .overlay(alignment: .top) { Rule() }
     }
 
     // MARK: - Toolbar
@@ -515,7 +529,7 @@ struct ShiftDateSheet: View {
                 Text(day.longText)
                     .font(.display(.title3, weight: .bold))
                     .foregroundStyle(Theme.ink)
-                Rule(color: Theme.ink, weight: 1)
+                Rule()
                 DatePicker(
                     "Shift date",
                     selection: Binding(get: { day.date() }, set: { day = CalendarDay($0) }),

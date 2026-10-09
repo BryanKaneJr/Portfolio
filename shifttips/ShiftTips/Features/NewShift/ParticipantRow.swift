@@ -141,7 +141,7 @@ struct ParticipantRow: View {
     }
 }
 
-/// The square at the start of a person's line: a check for in or out of
+/// The circle at the start of a person's line: a check for in or out of
 /// this shift, or a dashed lock for someone who can't take part.
 struct IncludeControl: View {
     let row: ShiftForm.Row
@@ -154,7 +154,7 @@ struct IncludeControl: View {
     var body: some View {
         if row.eligibility.canParticipate {
             Button(action: onToggle) {
-                CheckSquare(isOn: row.included)
+                SelectionMark(isOn: row.included)
                     .frame(width: 44, height: 44)
                     .contentShape(Rectangle())
             }
@@ -172,7 +172,7 @@ struct IncludeControl: View {
                     .foregroundStyle(Theme.inkSecondary)
                     .frame(width: 24, height: 24)
                     .overlay {
-                        RoundedRectangle(cornerRadius: 3)
+                        Circle()
                             .strokeBorder(Theme.inkSecondary, style: StrokeStyle(lineWidth: 1.5, dash: [3, 2]))
                     }
                     .frame(width: 44, height: 44)

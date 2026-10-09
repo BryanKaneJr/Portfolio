@@ -85,14 +85,10 @@ struct ReconciliationLine: View {
                     .font(.mono(.caption2, weight: .bold))
                     .tracking(0.6)
             }
-            .padding(.horizontal, 7)
+            .padding(.horizontal, 9)
             .padding(.vertical, 4)
             .foregroundStyle(reconciles ? Theme.onHighlight : Theme.warning)
-            .background(reconciles ? Theme.highlight : Color.clear, in: RoundedRectangle(cornerRadius: 2))
-            .overlay {
-                RoundedRectangle(cornerRadius: 2)
-                    .strokeBorder(reconciles ? Theme.highlightEdge : Theme.warning, lineWidth: 1)
-            }
+            .background(reconciles ? Theme.highlight : Theme.warningSoft, in: Capsule())
             Text(text)
                 .font(.mono(.footnote, weight: .semibold))
                 .foregroundStyle(reconciles ? Theme.ink : Theme.warning)
@@ -187,12 +183,12 @@ struct SlipColumns: View {
                         .accessibilityHidden(true)
                 }
             }
-            Rule(color: Theme.ink, weight: 1)
+            Rule()
         }
     }
 }
 
-/// The double-ruled TOTAL line, with the highlighter on the amount.
+/// The double-ruled TOTAL line, with the amount on yellow.
 struct SlipTotal: View {
     var label = "Total"
     let cents: Int64

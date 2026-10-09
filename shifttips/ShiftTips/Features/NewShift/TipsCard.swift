@@ -1,64 +1,78 @@
 import SwiftUI
 import ShiftTipsCore
 
-/// The pooled tips, typed big and left-aligned on the page over an ink
-/// rule, with optional separate cash and card amounts.
+/// The pooled tips, typed big on the dark tips card, with optional
+/// separate cash and card amounts.
 struct TipsCard: View {
     @Binding var form: ShiftForm
     var focus: FocusState<ShiftForm.Field?>.Binding
     /// Simple hides the separate cash and card amounts.
     var allowsCashAndCard = true
     var number: String?
-    @ScaledMetric(relativeTo: .largeTitle) private var heroSize: CGFloat = 50
+    @ScaledMetric(relativeTo: .largeTitle) private var heroSize: CGFloat = 52
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 14) {
-            SectionHeader("Tips to split", index: number) {
-                Text("USD")
-                    .font(.mono(.caption, weight: .semibold))
-                    .foregroundStyle(Theme.inkTertiary)
-                    .accessibilityHidden(true)
-            }
+        VStack(alignment: .leading, spacing: 10) {
+            SectionHeader("Tips to split", index: number)
 
-            if form.splitCashAndCard {
-                amountRow("Cash", text: $form.cashText, field: .cash)
-                amountRow("Card", text: $form.cardText, field: .card)
-                HStack(alignment: .firstTextBaseline) {
-                    SectionLabel("Total pool")
-                    Spacer()
-                    Text(totalText)
-                        .font(.display(.title2))
+            VStack(alignment: .leading, spacing: 14) {
+                if form.splitCashAndCard {
+                    amountRow("Cash", text: $form.cashText, field: .cash)
+                    amountRow("Card", text: $form.cardText, field: .card)
+                    Rectangle()
+                        .fill(Theme.onHeroSecondary.opacity(0.35))
+                        .frame(height: 1)
+                        .accessibilityHidden(true)
+                    HStack(alignment: .firstTextBaseline) {
+                        Text("TOTAL POOL")
+                            .font(.mono(.caption, weight: .semibold))
+                            .tracking(1)
+                            .foregroundStyle(Theme.onHeroSecondary)
+                        Spacer()
+                        Text(totalText)
+                            .font(.display(.title2))
+                            .monospacedDigit()
+                            .foregroundStyle(Theme.onHero)
+                    }
+                    .accessibilityElement(children: .combine)
+                } else {
+                    HStack(alignment: .firstTextBaseline) {
+                        TextField(
+                            "Pooled tips",
+                            text: dollarBinding($form.tipsText),
+                            prompt: Text("$0.00").foregroundStyle(Theme.onHeroSecondary)
+                        )
+                        .font(.system(size: heroSize, weight: .heavy, design: .rounded))
                         .monospacedDigit()
-                        .foregroundStyle(Theme.ink)
+                        .foregroundStyle(Theme.onHero)
+                        .tint(Theme.highlight)
+                        .keyboardType(.decimalPad)
+                        .focused(focus, equals: .tips)
+                        .id(ShiftForm.Field.tips)
+                        .accessibilityLabel("Pooled tips")
+                        .accessibilityIdentifier("tipsField")
+                        Text("USD")
+                            .font(.mono(.caption, weight: .semibold))
+                            .foregroundStyle(Theme.onHeroSecondary)
+                            .accessibilityHidden(true)
+                    }
                 }
-                .padding(.top, 2)
-                .accessibilityElement(children: .combine)
-            } else {
-                VStack(alignment: .leading, spacing: 0) {
-                    TextField(
-                        "Pooled tips",
-                        text: dollarBinding($form.tipsText),
-                        prompt: Text("$0.00").foregroundStyle(Theme.inkTertiary)
-                    )
-                    .font(.system(size: heroSize, weight: .heavy).width(.expanded))
-                    .monospacedDigit()
-                    .foregroundStyle(Theme.ink)
-                    .keyboardType(.decimalPad)
-                    .focused(focus, equals: .tips)
-                    .padding(.bottom, 4)
-                    .id(ShiftForm.Field.tips)
-                    .accessibilityLabel("Pooled tips")
-                    .accessibilityIdentifier("tipsField")
-                    Rule(color: errorText == nil ? Theme.ink : Theme.warning, weight: focus.wrappedValue == .tips ? 3 : 1.5)
-                        .animation(.snappy(duration: 0.2), value: focus.wrappedValue == .tips)
-                }
-            }
 
-            if let error = errorText {
-                Label(error, systemImage: "exclamationmark.triangle.fill")
-                    .font(.footnote.weight(.semibold))
-                    .foregroundStyle(Theme.warning)
+                if let error = errorText {
+                    Label(error, systemImage: "exclamationmark.triangle.fill")
+                        .font(.footnote.weight(.semibold))
+                        .foregroundStyle(Theme.highlight)
+                }
             }
+            .padding(20)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Theme.hero, in: RoundedRectangle(cornerRadius: Theme.cardCorner + 4, style: .continuous))
+            .overlay {
+                // A yellow ring while typing the tips.
+                RoundedRectangle(cornerRadius: Theme.cardCorner + 4, style: .continuous)
+                    .strokeBorder(Theme.highlight, lineWidth: focus.wrappedValue == .tips ? 2 : 0)
+            }
+            .animation(.snappy(duration: 0.2), value: focus.wrappedValue == .tips)
 
             if allowsCashAndCard {
                 Toggle(isOn: Binding(get: { form.splitCashAndCard }, set: { form.setSplitCashAndCard($0) })) {
@@ -66,6 +80,7 @@ struct TipsCard: View {
                         .font(.subheadline)
                 }
                 .toggleStyle(CheckboxToggleStyle())
+                .padding(.horizontal, 4)
                 .accessibilityIdentifier("splitCashCardToggle")
             }
         }
@@ -75,18 +90,24 @@ struct TipsCard: View {
         HStack(spacing: 12) {
             Text(title.uppercased())
                 .font(.mono(.subheadline, weight: .semibold))
-                .foregroundStyle(Theme.inkSecondary)
+                .foregroundStyle(Theme.onHeroSecondary)
                 .frame(width: 56, alignment: .leading)
                 .accessibilityHidden(true)
-            TextField(title, text: dollarBinding(text), prompt: Text("$0.00").foregroundStyle(Theme.inkTertiary))
+            TextField(title, text: dollarBinding(text), prompt: Text("$0.00").foregroundStyle(Theme.onHeroSecondary))
                 .font(.display(.title))
                 .monospacedDigit()
-                .foregroundStyle(Theme.ink)
+                .foregroundStyle(Theme.onHero)
+                .tint(Theme.highlight)
                 .multilineTextAlignment(.trailing)
                 .keyboardType(.decimalPad)
                 .focused(focus, equals: field)
-                .padding(.vertical, 6)
-                .fieldBox(focused: focus.wrappedValue == field)
+                .padding(.horizontal, 12)
+                .frame(minHeight: 52)
+                .background(Theme.heroField, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                .overlay {
+                    RoundedRectangle(cornerRadius: 12, style: .continuous)
+                        .strokeBorder(Theme.highlight, lineWidth: focus.wrappedValue == field ? 2 : 0)
+                }
                 .id(field)
                 .accessibilityLabel("\(title) tips")
         }

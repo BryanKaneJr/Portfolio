@@ -211,11 +211,11 @@ enum PDFReportRenderer {
         private var bottomLimit: CGFloat { Layout.page.height - Layout.margin - Layout.footerHeight }
 
         // The app's look, in print: ink, hairlines, monospaced figures and
-        // the highlighter behind the line that proves the split.
-        private static let ink = UIColor(hex: 0x0E0E0E)
-        private static let gray = UIColor(hex: 0x5A5A56)
-        private static let hairline = UIColor(hex: 0xD3D3CE)
-        private static let highlight = UIColor(hex: 0xD4FF3A)
+        // the yellow behind the line that proves the split.
+        private static let ink = UIColor(hex: 0x141414)
+        private static let gray = UIColor(hex: 0x5C5B56)
+        private static let hairline = UIColor(hex: 0xDEDDD6)
+        private static let highlight = UIColor(hex: 0xFFD60A)
 
         private static func mono(_ size: CGFloat, _ weight: UIFont.Weight = .regular) -> UIFont {
             .monospacedSystemFont(ofSize: size, weight: weight)
@@ -261,12 +261,12 @@ enum PDFReportRenderer {
             pageNumber += 1
             y = Layout.margin
             // Masthead: the wordmark, and what this document is and isn't.
-            let markFont = UIFont.systemFont(ofSize: 10, weight: .black, width: .expanded)
+            let markFont = UIFont.rounded(ofSize: 10.5, weight: .black)
             let shift = NSAttributedString(string: "SHIFT", attributes: [.font: markFont, .foregroundColor: Self.ink])
             let tips = NSAttributedString(string: "TIPS", attributes: [.font: markFont, .foregroundColor: Self.ink])
             shift.draw(at: CGPoint(x: Layout.margin, y: y))
             let tipsX = Layout.margin + ceil(shift.size().width) + 1
-            fill(CGRect(x: tipsX, y: y - 1, width: ceil(tips.size().width) + 4, height: markFont.lineHeight + 2), Self.highlight)
+            fill(CGRect(x: tipsX, y: y - 1, width: ceil(tips.size().width) + 4, height: markFont.lineHeight + 2), Self.highlight, radius: 3)
             tips.draw(at: CGPoint(x: tipsX + 2, y: y))
             text("ALLOCATION, NOT PAYMENT", at: y + 1, font: Self.mono(7.5, .semibold), color: Self.gray, alignment: .right, singleLine: true)
             y += 16
@@ -281,7 +281,7 @@ enum PDFReportRenderer {
         }
 
         private mutating func drawHeader() {
-            y += text(report.title, at: y, font: .systemFont(ofSize: 22, weight: .heavy, width: .expanded), color: Self.ink) + 2
+            y += text(report.title, at: y, font: .rounded(ofSize: 24, weight: .heavy), color: Self.ink) + 2
             y += text(report.subtitle, at: y, font: .systemFont(ofSize: 11), color: Self.gray) + 14
             for (label, value) in report.facts {
                 text(label.uppercased(), at: y + 1, font: Self.mono(8, .semibold), color: Self.gray)
@@ -291,8 +291,8 @@ enum PDFReportRenderer {
             y += 10
             let font = Self.mono(10, .bold)
             let width = min(Layout.contentWidth, ceil(NSAttributedString(string: report.reconciliation, attributes: [.font: font]).size().width) + 12)
-            fill(CGRect(x: Layout.margin, y: y - 3, width: width, height: font.lineHeight + 6), report.reconciles ? Self.highlight : UIColor(hex: 0xFBE3D6))
-            y += text(report.reconciliation, at: y, x: Layout.margin + 6, width: Layout.contentWidth - 6, font: font, color: report.reconciles ? Self.ink : UIColor(hex: 0x9E4300)) + 18
+            fill(CGRect(x: Layout.margin, y: y - 3, width: width, height: font.lineHeight + 6), report.reconciles ? Self.highlight : UIColor(hex: 0xFBEBDA), radius: 5)
+            y += text(report.reconciliation, at: y, x: Layout.margin + 6, width: Layout.contentWidth - 6, font: font, color: report.reconciles ? Self.ink : UIColor(hex: 0x9A4400)) + 18
         }
 
         private mutating func drawTableHeader() {
@@ -335,9 +335,13 @@ enum PDFReportRenderer {
             y += Layout.rowHeight
         }
 
-        private func fill(_ rect: CGRect, _ color: UIColor) {
+        private func fill(_ rect: CGRect, _ color: UIColor, radius: CGFloat = 0) {
             color.setFill()
-            UIRectFill(rect)
+            if radius > 0 {
+                UIBezierPath(roundedRect: rect, cornerRadius: radius).fill()
+            } else {
+                UIRectFill(rect)
+            }
         }
 
         private func dashedLine(at y: CGFloat) {

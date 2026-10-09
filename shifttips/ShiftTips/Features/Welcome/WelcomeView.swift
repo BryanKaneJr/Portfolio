@@ -101,8 +101,8 @@ struct WelcomeView: View {
     }
 }
 
-/// One of the two ways to use ShiftTips: a bordered block with a square
-/// radio, its border heavier when chosen.
+/// One of the two ways to use ShiftTips: a card with a radio, outlined in
+/// ink when chosen.
 struct ExperienceOption: View {
     let experience: Experience
     let detail: String
@@ -112,7 +112,7 @@ struct ExperienceOption: View {
     var body: some View {
         Button(action: onSelect) {
             HStack(alignment: .top, spacing: 14) {
-                CheckSquare(isOn: isSelected, kind: .radio)
+                SelectionMark(isOn: isSelected, kind: .radio)
                     .padding(.top, 2)
                 VStack(alignment: .leading, spacing: 6) {
                     Text(experience.title)
@@ -128,10 +128,10 @@ struct ExperienceOption: View {
             }
             .padding(16)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(Theme.surface, in: RoundedRectangle(cornerRadius: Theme.corner))
+            .background(Theme.surface, in: RoundedRectangle(cornerRadius: Theme.cardCorner, style: .continuous))
             .overlay {
-                RoundedRectangle(cornerRadius: Theme.corner)
-                    .strokeBorder(isSelected ? Theme.ink : Theme.rule, lineWidth: isSelected ? 2 : 1)
+                RoundedRectangle(cornerRadius: Theme.cardCorner, style: .continuous)
+                    .strokeBorder(Theme.ink, lineWidth: isSelected ? 2 : 0)
             }
             .contentShape(Rectangle())
         }

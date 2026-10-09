@@ -22,7 +22,7 @@ No account, no server, no network calls, no analytics, no subscription. The full
 | [`ShiftTipsTests/`](ShiftTipsTests) | App-hosted tests for what only runs on iOS (the PDF report). |
 | [`ShiftTipsUITests/`](ShiftTipsUITests) | XCUITests: example shift, review, save, history; blocked review; first launch. They save screenshots into the test results. |
 | `ShiftTips.xcodeproj` | Xcode project using folder-synced groups: **add Swift files to a folder and they're in the target, no project edits.** |
-| [`docs/design.md`](docs/design.md) | The design language, "highlighter on a receipt": colors, type, components. |
+| [`docs/design.md`](docs/design.md) | The design language, "a receipt, softened": colors, type, components. |
 | `tools/make_icon.py` | Draws the app icon. |
 
 ## Building
@@ -61,7 +61,7 @@ UI tests launch the app with `-ui-testing`, which uses in-memory storage, so the
 - **Eligibility is the user's call.** Role labels never decide it. Owners, managers and supervisors never receive and have no override; making anyone eligible again needs a separate confirmation that ShiftTips can't determine legal status.
 - **Allocation, not payment.** Every breakdown, PDF and summary says so.
 - **App target is Swift 5 language mode; the package is Swift 6.** The package (where the logic is) gets full strict concurrency checking; the UI layer stays simple.
-- **One look, "highlighter on a receipt".** Ink on paper, wide heavy numbers, monospaced figures, hairline rules, and a single fluorescent highlighter for the next step and the result. System fonts only. See [`docs/design.md`](docs/design.md).
+- **One look, "a receipt, softened".** Rounded white cards on warm paper, big rounded numbers, monospaced figures and labels, results printed on a receipt slip, and a single yellow for the next step and the result. System fonts only. See [`docs/design.md`](docs/design.md).
 
 ## Where we are
 
@@ -87,7 +87,7 @@ Following the build plan's phases (section 11):
 - [ ] **Signing.** Set `DEVELOPMENT_TEAM` in the project (or in Xcode).
 - [ ] **Support contact.** Set `AppInfo.supportEmail` in `ShiftTips/App/ShiftTipsApp.swift`; the Settings row appears once it's set.
 - [ ] **Privacy policy and support page.** A static page is enough. App Privacy answer: no data collected.
-- [ ] **Icon.** A receipt with its total highlighted, drawn by `tools/make_icon.py`. Check it on a home screen before launch; regenerate if the colors change.
+- [ ] **Icon.** A receipt with its total highlighted yellow, drawn by `tools/make_icon.py`. Check it on a home screen before launch; regenerate if the colors change.
 - [ ] **Screenshots** from the real app with real arithmetic (the UI tests' screenshots are a starting point).
 - [ ] **Price.** Plan hypothesis: $5.99 to $7.99.
 - [ ] TestFlight on a physical iPhone, then the airplane-mode pass from the plan. No Mac needed: follow [`docs/testflight.md`](docs/testflight.md), then run the **ShiftTips TestFlight** workflow.

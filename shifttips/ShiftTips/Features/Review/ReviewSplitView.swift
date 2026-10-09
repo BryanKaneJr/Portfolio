@@ -111,7 +111,7 @@ struct ReviewSplitView: View {
         .padding(.top, 12)
         .padding(.bottom, 8)
         .background { Theme.background.ignoresSafeArea() }
-        .overlay(alignment: .top) { Rule(color: Theme.ink, weight: 1) }
+        .overlay(alignment: .top) { Rule() }
     }
 
     private func save() {

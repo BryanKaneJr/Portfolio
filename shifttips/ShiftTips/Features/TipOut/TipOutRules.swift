@@ -12,7 +12,7 @@ struct TipOutRulesCard: View {
     let onEdit: () -> Void
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
+        VStack(alignment: .leading, spacing: 10) {
             SectionHeader("Tip-out rules", index: sectionNumber) {
                 if !rules.isEmpty {
                     Button("Edit Rules", action: onEdit)
@@ -29,23 +29,29 @@ struct TipOutRulesCard: View {
                         .buttonStyle(PrimaryButtonStyle())
                         .accessibilityIdentifier("addTipOutRules")
                 }
-                .padding(.top, 8)
+                .card()
             } else {
-                ForEach(rules.indices, id: \.self) { position in
-                    let rule = rules[position]
-                    VStack(alignment: .leading, spacing: 3) {
-                        RuleLine(rule: rule)
-                        if position < statuses.count, let note = Explainer.skippedNote(for: rule, status: statuses[position]) {
-                            Text(note)
-                                .font(.caption)
-                                .foregroundStyle(Theme.inkSecondary)
+                VStack(spacing: 0) {
+                    ForEach(rules.indices, id: \.self) { position in
+                        let rule = rules[position]
+                        VStack(alignment: .leading, spacing: 3) {
+                            RuleLine(rule: rule)
+                            if position < statuses.count, let note = Explainer.skippedNote(for: rule, status: statuses[position]) {
+                                Text(note)
+                                    .font(.caption)
+                                    .foregroundStyle(Theme.inkSecondary)
+                            }
+                        }
+                        .padding(.vertical, 12)
+                        .accessibilityElement(children: .combine)
+                        .accessibilityLabel(rule.spokenSummary)
+                        if position < rules.count - 1 {
+                            Rule()
                         }
                     }
-                    .padding(.vertical, 10)
-                    .accessibilityElement(children: .combine)
-                    .accessibilityLabel(rule.spokenSummary)
-                    Rule()
                 }
+                .padding(.horizontal, 16)
+                .background(Theme.surface, in: RoundedRectangle(cornerRadius: Theme.cardCorner, style: .continuous))
             }
         }
     }
