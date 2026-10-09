@@ -76,14 +76,18 @@ struct SessionActions: View {
 struct BatchCountControl: View {
     @Binding var count: Int
     let maximum: Int
+    /// Narrow footers drop the "Winners" word and keep the stepper.
+    var showsLabel = true
 
     var body: some View {
         HStack(spacing: 2) {
-            Text("Winners")
-                .lineLimit(1)
-                .font(.caption.weight(.semibold))
-                .foregroundStyle(Theme.textSecondary)
-                .padding(.leading, 10)
+            if showsLabel {
+                Text("Winners")
+                    .lineLimit(1)
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(Theme.textSecondary)
+                    .padding(.leading, 10)
+            }
             Button {
                 count = max(1, count - 1)
             } label: {

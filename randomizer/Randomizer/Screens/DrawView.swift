@@ -323,14 +323,29 @@ struct DrawView: View {
             drawControls(list)
             HStack(spacing: 8) {
                 if isReadyToDraw(list) {
-                    BatchCountControl(count: $batchCount, maximum: list.maxBatchCount)
-                    draftOrderButton(list)
+                    // Remove always keeps its full size; the left side
+                    // steps down until it fits the phone's width.
+                    ViewThatFits(in: .horizontal) {
+                        HStack(spacing: 8) {
+                            BatchCountControl(count: $batchCount, maximum: list.maxBatchCount)
+                            draftOrderButton(list, compact: false)
+                        }
+                        HStack(spacing: 8) {
+                            BatchCountControl(count: $batchCount, maximum: list.maxBatchCount, showsLabel: false)
+                            draftOrderButton(list, compact: false)
+                        }
+                        HStack(spacing: 8) {
+                            BatchCountControl(count: $batchCount, maximum: list.maxBatchCount, showsLabel: false)
+                            draftOrderButton(list, compact: true)
+                        }
+                    }
                 }
                 Spacer(minLength: 0)
                 RemoveToggle(isOn: Binding(
                     get: { list.removeAfterSelection },
                     set: { isOn in appState.update(listID) { $0.setRemoveAfterSelection(isOn) } }
                 ))
+                .layoutPriority(1)
             }
         }
         .padding(.horizontal, 16)
@@ -382,7 +397,7 @@ struct DrawView: View {
 
     /// With Remove off, the order can't be unique; ask before turning it on
     /// rather than ever flipping it behind the person's back.
-    private func draftOrderButton(_ list: DrawList) -> some View {
+    private func draftOrderButton(_ list: DrawList, compact: Bool) -> some View {
         Button {
             if list.draftOrderAvailability == .requiresRemoval {
                 askToTurnOnRemove = true
@@ -390,9 +405,14 @@ struct DrawView: View {
                 confirmDraftOrder = true
             }
         } label: {
-            Label("Draft order", systemImage: "list.number")
-                .lineLimit(1)
-                .fixedSize()
+            if compact {
+                Image(systemName: "list.number")
+                    .accessibilityLabel("Draft order")
+            } else {
+                Label("Draft order", systemImage: "list.number")
+                    .lineLimit(1)
+                    .fixedSize()
+            }
         }
         .buttonStyle(ChipButtonStyle())
         .disabled(list.draftOrderAvailability == .notEnoughEntries || driver.phase.isAnimating)

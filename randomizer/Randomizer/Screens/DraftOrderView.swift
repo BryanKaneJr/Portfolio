@@ -218,6 +218,7 @@ struct DraftOrderView: View {
                     get: { list.removeAfterSelection },
                     set: { isOn in appState.update(listID) { $0.setRemoveAfterSelection(isOn) } }
                 ))
+                .layoutPriority(1)
             }
         }
         .padding(.horizontal, 16)
