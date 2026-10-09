@@ -110,6 +110,8 @@ public enum Appearance: String, Codable, CaseIterable, Hashable, Sendable {
 }
 
 public struct AppSettings: Codable, Hashable, Sendable {
+    /// Simple or Advanced.
+    public var experience: Experience
     public var defaultMethod: SplitMethod
     public var appearance: Appearance
     public var hapticsEnabled: Bool
@@ -118,12 +120,14 @@ public struct AppSettings: Codable, Hashable, Sendable {
     public var hasSeenWelcome: Bool
 
     public init(
+        experience: Experience = .simple,
         defaultMethod: SplitMethod = .hours,
         appearance: Appearance = .system,
         hapticsEnabled: Bool = true,
         activeCrewId: UUID? = nil,
         hasSeenWelcome: Bool = false
     ) {
+        self.experience = experience
         self.defaultMethod = defaultMethod
         self.appearance = appearance
         self.hapticsEnabled = hapticsEnabled
@@ -133,9 +137,10 @@ public struct AppSettings: Codable, Hashable, Sendable {
 
     // Tolerates keys added in later versions being absent.
     public init(from decoder: Decoder) throws {
-        enum Keys: String, CodingKey { case defaultMethod, appearance, hapticsEnabled, activeCrewId, hasSeenWelcome }
+        enum Keys: String, CodingKey { case experience, defaultMethod, appearance, hapticsEnabled, activeCrewId, hasSeenWelcome }
         let c = try decoder.container(keyedBy: Keys.self)
         let defaults = AppSettings()
+        experience = try c.decodeIfPresent(Experience.self, forKey: .experience) ?? defaults.experience
         defaultMethod = try c.decodeIfPresent(SplitMethod.self, forKey: .defaultMethod) ?? defaults.defaultMethod
         appearance = try c.decodeIfPresent(Appearance.self, forKey: .appearance) ?? defaults.appearance
         hapticsEnabled = try c.decodeIfPresent(Bool.self, forKey: .hapticsEnabled) ?? defaults.hapticsEnabled

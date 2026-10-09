@@ -5,6 +5,8 @@ import ShiftTipsCore
 struct TipsCard: View {
     @Binding var form: ShiftForm
     var focus: FocusState<ShiftForm.Field?>.Binding
+    /// Simple hides the separate cash and card amounts.
+    var allowsCashAndCard = true
     @ScaledMetric(relativeTo: .largeTitle) private var heroSize: CGFloat = 46
 
     var body: some View {
@@ -51,12 +53,14 @@ struct TipsCard: View {
                     .foregroundStyle(Theme.onHero)
             }
 
-            Toggle(isOn: Binding(get: { form.splitCashAndCard }, set: { form.setSplitCashAndCard($0) })) {
-                Text("Separate cash & card")
-                    .font(.subheadline)
+            if allowsCashAndCard {
+                Toggle(isOn: Binding(get: { form.splitCashAndCard }, set: { form.setSplitCashAndCard($0) })) {
+                    Text("Separate cash & card")
+                        .font(.subheadline)
+                }
+                .tint(Theme.accent)
+                .accessibilityIdentifier("splitCashCardToggle")
             }
-            .tint(Theme.accent)
-            .accessibilityIdentifier("splitCashCardToggle")
         }
         .padding(20)
         .foregroundStyle(Theme.onHero)

@@ -92,12 +92,32 @@ public struct Crew: Codable, Hashable, Identifiable, Sendable {
     public var employees: [Employee]
     /// The house's tip-out rules, used when a shift is in Tip Out mode.
     public var tipOutRules: [TipOutRule]
+    /// Advanced: the style this crew's setup started from.
+    public var style: TipStyle?
+    /// Advanced: how new shifts with this crew start.
+    public var mode: ShiftMode
+    public var method: SplitMethod
+    /// Advanced: points by role for Hours x Points.
+    public var rolePoints: [RolePoints]
 
-    public init(id: UUID = UUID(), name: String, employees: [Employee] = [], tipOutRules: [TipOutRule] = []) {
+    public init(
+        id: UUID = UUID(),
+        name: String,
+        employees: [Employee] = [],
+        tipOutRules: [TipOutRule] = [],
+        style: TipStyle? = nil,
+        mode: ShiftMode = .pool,
+        method: SplitMethod = .hours,
+        rolePoints: [RolePoints] = []
+    ) {
         self.id = id
         self.name = name
         self.employees = employees
         self.tipOutRules = tipOutRules
+        self.style = style
+        self.mode = mode
+        self.method = method
+        self.rolePoints = rolePoints
     }
 
     /// Each distinct role label on the crew, in crew order.
@@ -113,12 +133,16 @@ public struct Crew: Codable, Hashable, Identifiable, Sendable {
     }
 
     public init(from decoder: Decoder) throws {
-        enum Keys: String, CodingKey { case id, name, employees, tipOutRules }
+        enum Keys: String, CodingKey { case id, name, employees, tipOutRules, style, mode, method, rolePoints }
         let c = try decoder.container(keyedBy: Keys.self)
         id = try c.decode(UUID.self, forKey: .id)
         name = try c.decode(String.self, forKey: .name)
         employees = try c.decode([Employee].self, forKey: .employees)
         tipOutRules = try c.decodeIfPresent([TipOutRule].self, forKey: .tipOutRules) ?? []
+        style = try c.decodeIfPresent(TipStyle.self, forKey: .style)
+        mode = try c.decodeIfPresent(ShiftMode.self, forKey: .mode) ?? .pool
+        method = try c.decodeIfPresent(SplitMethod.self, forKey: .method) ?? .hours
+        rolePoints = try c.decodeIfPresent([RolePoints].self, forKey: .rolePoints) ?? []
     }
 }
 

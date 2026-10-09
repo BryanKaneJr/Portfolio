@@ -30,15 +30,19 @@ struct NewShiftView: View {
                         exampleBanner
                     }
                     Group {
-                        ModePicker(mode: store.form.mode) { mode in
-                            focus = nil
-                            withAnimation { store.setMode(mode) }
+                        if !store.isSimple {
+                            ModePicker(mode: store.form.mode) { mode in
+                                focus = nil
+                                withAnimation { store.setMode(mode) }
+                            }
                         }
                         switch live {
                         case .pool(let calculation):
-                            TipsCard(form: $store.form, focus: $focus)
+                            TipsCard(form: $store.form, focus: $focus, allowsCashAndCard: !store.isSimple)
                             crewSection
-                            MethodPicker(method: $store.form.method)
+                            if !store.isSimple {
+                                MethodPicker(method: $store.form.method)
+                            }
                             peopleSection(calculation)
                         case .tipOut(let calculation):
                             crewSection
@@ -188,6 +192,11 @@ struct NewShiftView: View {
                                 .multilineTextAlignment(.leading)
                             Image(systemName: "chevron.up.chevron.down")
                                 .font(.caption.weight(.semibold))
+                                .foregroundStyle(Theme.inkSecondary)
+                        }
+                        if !store.isSimple, let crewId = store.form.crewId, let crew = store.crew(id: crewId) {
+                            Text("Starts as: \(crew.setupTitle)")
+                                .font(.caption)
                                 .foregroundStyle(Theme.inkSecondary)
                         }
                     }

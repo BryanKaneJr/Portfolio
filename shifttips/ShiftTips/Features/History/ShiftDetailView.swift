@@ -21,6 +21,7 @@ struct ShiftDetailView: View {
                     }
                     OutcomeView(outcome: shift.outcome, savedAt: shift.finishedAt)
                     VStack(spacing: 10) {
+                        let canDuplicate = !store.isSimple || shift.isSimpleCompatible
                         Button("Duplicate as New Shift") {
                             if store.form.hasEnteredValues && !store.isFormSaved {
                                 confirmReplace = true
@@ -29,6 +30,13 @@ struct ShiftDetailView: View {
                             }
                         }
                         .buttonStyle(SecondaryButtonStyle())
+                        .disabled(!canDuplicate)
+                        if !canDuplicate {
+                            Text("This shift used Advanced settings. Switch to Advanced in Settings to duplicate it.")
+                                .font(.footnote)
+                                .foregroundStyle(Theme.inkSecondary)
+                                .multilineTextAlignment(.center)
+                        }
                         Button("Delete Shift", role: .destructive) { confirmDelete = true }
                             .frame(minHeight: 44)
                     }

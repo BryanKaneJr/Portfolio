@@ -10,7 +10,16 @@ import ShiftTipsCore
 struct EmployeeEditorView: View {
     @Binding var employee: Employee
     var focusName = false
+    /// Advanced shows points; Simple splits by hours only.
+    var showsPoints = true
+    /// Quick picks for the role, so names match the crew's rules.
+    var roleSuggestions: [String] = TipStyle.commonRoles
+    /// The crew's points by role: picking a role gives its points, until
+    /// points are typed here.
+    var rolePoints: [RolePoints] = []
+
     @State private var pointsText = ""
+    @State private var pointsEdited = false
     @State private var confirmEligible = false
     @FocusState private var nameFocused: Bool
 
@@ -24,30 +33,44 @@ struct EmployeeEditorView: View {
             }
 
             Section {
-                TextField("e.g. Server", text: Binding(
-                    get: { employee.role ?? "" },
-                    set: { employee.role = $0 }
-                ))
-                .textInputAutocapitalization(.words)
+                RoleField(
+                    placeholder: "e.g. Server",
+                    text: Binding(get: { employee.role ?? "" }, set: { setRole($0) }),
+                    roles: roleSuggestions
+                )
+                .accessibilityIdentifier("employeeRole")
             } header: {
-                Text("Role (optional)")
+                Text("Role")
             } footer: {
-                Text("A label only. It never decides who is in the pool.")
+                Text(showsPoints
+                     ? "Tip-out rules and role points match people by role. A role never decides who is in the pool."
+                     : "Optional. A label only; it never decides who is in the pool.")
             }
 
-            Section {
-                TextField("1", text: $pointsText)
+            if showsPoints {
+                Section {
+                    TextField("1", text: Binding(
+                        get: { pointsText },
+                        set: { text in
+                            pointsText = text
+                            pointsEdited = true
+                            if case .success(let units) = Points.parse(text), units >= Limits.minPointsUnits {
+                                employee.pointsUnits = units
+                            }
+                        }
+                    ))
                     .keyboardType(.decimalPad)
                     .accessibilityLabel("Points")
-                if let error = pointsError {
-                    Text(error)
-                        .font(.footnote)
-                        .foregroundStyle(Theme.warning)
+                    if let error = pointsError {
+                        Text(error)
+                            .font(.footnote)
+                            .foregroundStyle(Theme.warning)
+                    }
+                } header: {
+                    Text("Points")
+                } footer: {
+                    Text("Used only by Hours \u{00D7} Points. Set from your workplace's own policy.")
                 }
-            } header: {
-                Text("Points")
-            } footer: {
-                Text("Used only by Hours \u{00D7} Points. Everyone starts at 1 point; set points from your workplace's own policy.")
             }
 
             Section {
@@ -77,17 +100,20 @@ struct EmployeeEditorView: View {
             pointsText = Points.format(units: employee.pointsUnits)
             if focusName { nameFocused = true }
         }
-        .onChange(of: pointsText) { _, text in
-            if case .success(let units) = Points.parse(text), units >= Limits.minPointsUnits {
-                employee.pointsUnits = units
-            }
-        }
         .alert("Mark as eligible?", isPresented: $confirmEligible) {
             Button("Mark Eligible") { employee.eligibility = .eligible }
             Button("Cancel", role: .cancel) {}
         } message: {
             Text("ShiftTips can't determine legal status. Only mark \(employee.name.isEmpty ? "this person" : employee.name) eligible if your workplace policy and the tip pooling rules where you work allow it.")
         }
+    }
+
+    private func setRole(_ role: String) {
+        employee.role = role
+        guard !pointsEdited, let key = TipOutRule.roleKey(role),
+              let units = rolePoints.first(where: { TipOutRule.roleKey($0.role) == key })?.pointsUnits else { return }
+        employee.pointsUnits = units
+        pointsText = Points.format(units: units)
     }
 
     @ViewBuilder

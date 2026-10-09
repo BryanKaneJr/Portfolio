@@ -2,7 +2,7 @@
 
 > **Close the shift. Split every cent. Share a clear breakdown.**
 
-ShiftTips is a paid, offline iPhone app that settles tips at the end of a shift, two ways:
+ShiftTips is a paid, offline iPhone app that settles tips at the end of a shift. **Simple** (the default) is just people, hours and tips, shared by hours. **Advanced** starts from the tipping style closest to the team's (equal pool, hours pool, points pool, tip-out by % of tips or of sales) and lets every number be changed. Underneath, there are two ways to share:
 
 - **Tip Pool:** pick the crew, type the pooled tips and each person's hours, choose the workplace's method (Equal, By Hours, or Hours × Points), and see exactly what everyone is allocated, to the cent.
 - **Tip Out:** each server or bartender keeps their own tips and pays the house's percentages (of their tips, sales, food sales or bar sales) to support roles like bussers, runners, hosts and barbacks, who share each role's pot by hours.
@@ -70,6 +70,7 @@ Following the build plan's phases (section 11):
 - [x] Phase 3: saved crews, eligibility, frozen shifts, History, duplicate, delete with confirmation
 - [x] Phase 4: text summary, multipage PDF, CSV, JSON backup and import (merge or replace)
 - [x] Tip Out mode (added to v1.0 by the owner, 2026-10-09): crew rules, per-person tips and sales, pots by hours, caps, reviews, exports
+- [x] Simple and Advanced (added to v1.0 by the owner, 2026-10-09): Simple is people, hours, tips; Advanced picks a tipping style per crew and makes it editable (plan 5F)
 - [x] Totals by Person (added to v1.0 by the owner, 2026-10-09): each person's tips for a pay period across both modes, from History, as text or CSV
 - [x] TestFlight from GitHub Actions, no Mac needed (setup: [`docs/testflight.md`](docs/testflight.md))
 - [ ] Phase 5: polish and usability tests on real iPhones, including timing a repeat closeout, VoiceOver, large text and five real closers

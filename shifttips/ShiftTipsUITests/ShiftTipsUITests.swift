@@ -49,7 +49,7 @@ final class ShiftTipsUITests: XCTestCase {
 
     /// Tip Out: the example chain of rules, reviewed and saved.
     func testTipOutExampleReviewAndSave() {
-        let app = launch()
+        let app = launch(["-advanced"])
         app.buttons["mode-tipOut"].tap()
         app.buttons["tryExample"].tap()
         attachScreenshot(app, "5 Tip Out (example)")
@@ -66,6 +66,33 @@ final class ShiftTipsUITests: XCTestCase {
 
         app.buttons["saveShift"].tap()
         XCTAssertTrue(element(in: app, labelContaining: "Saved to History").waitForExistence(timeout: 5))
+    }
+
+    /// Simple shows tips, people and hours only.
+    func testSimpleHidesAdvancedControls() {
+        let app = launch()
+        app.buttons["tryExample"].tap()
+        XCTAssertTrue(app.buttons["reviewSplit"].waitForExistence(timeout: 5))
+        XCTAssertFalse(app.buttons["mode-tipOut"].exists)
+        XCTAssertFalse(app.buttons["method-equal"].exists)
+        XCTAssertFalse(app.switches["splitCashCardToggle"].exists)
+    }
+
+    /// Advanced from the welcome: pick a style, land in the crew editor
+    /// set up that way.
+    func testAdvancedWelcomeLeadsToStyles() {
+        let app = launch(["-show-welcome"])
+        let advanced = app.buttons["experience-advanced"]
+        XCTAssertTrue(advanced.waitForExistence(timeout: 5))
+        advanced.tap()
+        app.buttons["chooseMyStyle"].tap()
+        let points = app.buttons["style-pointsPool"]
+        XCTAssertTrue(points.waitForExistence(timeout: 5))
+        attachScreenshot(app, "8 Tip Styles")
+        points.tap()
+        XCTAssertTrue(app.textFields["crewName"].waitForExistence(timeout: 5))
+        XCTAssertTrue(element(in: app, labelContaining: "Points pool").exists)
+        attachScreenshot(app, "9 New Crew, Points pool")
     }
 
     /// The Review button explains what's missing instead of letting a

@@ -273,6 +273,20 @@ public struct ShiftForm: Codable, Hashable, Sendable {
         isExample = false
     }
 
+    /// Simple: one pool, shared by hours, one tips amount. Anything typed
+    /// for other modes stays in the form, unused.
+    public mutating func makeSimple() {
+        mode = .pool
+        method = .hours
+        setSplitCashAndCard(false)
+    }
+
+    /// Advanced: start the way the crew is set up to work.
+    public mutating func useSetup(of crew: Crew) {
+        mode = crew.mode
+        method = crew.method
+    }
+
     /// Drops the crew's people (one-off people stay).
     public mutating func removeCrew() {
         rows.removeAll { !$0.isOneOff }

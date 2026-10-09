@@ -20,13 +20,15 @@ struct ShiftTipsApp: App {
     }
 
     /// Real storage on device; throwaway memory storage for UI tests
-    /// (launched with `-ui-testing`), so tests never touch real data.
+    /// (launched with `-ui-testing`, plus `-advanced` or `-show-welcome`),
+    /// so tests never touch real data.
     @MainActor
     private static func makeStore() -> AppStore {
         let arguments = ProcessInfo.processInfo.arguments
         if arguments.contains("-ui-testing") {
             var library = Library()
             library.settings.hasSeenWelcome = !arguments.contains("-show-welcome")
+            library.settings.experience = arguments.contains("-advanced") ? .advanced : .simple
             return AppStore(storage: MemoryStorage(library: library))
         }
         do {

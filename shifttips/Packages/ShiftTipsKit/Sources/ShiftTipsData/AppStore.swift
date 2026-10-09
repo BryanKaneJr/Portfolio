@@ -46,8 +46,42 @@ public final class AppStore {
         library = loaded
         let today = CalendarDay(now(), calendar: calendar)
         let activeCrew = loaded.crews.first { $0.id == loaded.settings.activeCrewId }
-        form = (try? storage.loadForm()) ?? ShiftForm(day: today, method: loaded.settings.defaultMethod, crew: activeCrew)
+        if let saved = try? storage.loadForm() {
+            form = saved
+        } else {
+            var fresh = ShiftForm(day: today, method: loaded.settings.defaultMethod, crew: activeCrew)
+            Self.shape(&fresh, experience: loaded.settings.experience, crew: activeCrew)
+            form = fresh
+        }
         storageProblem = problem
+    }
+
+    /// Simple: one pool by hours. Advanced: the crew's setup, when there is
+    /// a crew.
+    private static func shape(_ form: inout ShiftForm, experience: Experience, crew: Crew?) {
+        switch experience {
+        case .simple: form.makeSimple()
+        case .advanced: if let crew { form.useSetup(of: crew) }
+        }
+    }
+
+    private func shapeForm(crew: Crew?) {
+        guard !isFormSaved else { return }
+        Self.shape(&form, experience: library.settings.experience, crew: crew)
+    }
+
+    public var isSimple: Bool { library.settings.experience == .simple }
+
+    /// Switches between Simple and Advanced. The shift on screen follows;
+    /// anything typed for Advanced stays in it, unused, and nothing about a
+    /// crew's Advanced setup is lost.
+    public func setExperience(_ experience: Experience) {
+        updateSettings { $0.experience = experience }
+        if form.isExample && experience == .simple && form.mode != .pool {
+            form = ShiftForm.example(day: today, mode: .pool, method: .hours)
+            return
+        }
+        shapeForm(crew: form.crewId.flatMap(crew(id:)))
     }
 
     // MARK: - Reading
@@ -108,8 +142,10 @@ public final class AppStore {
         persistLibrary()
         if form.crewId == crew.id {
             form.apply(crew: crew)
+            shapeForm(crew: crew)
         } else if form.crewId == nil && !form.isExample && form.rows.isEmpty && library.settings.activeCrewId == crew.id {
             form.apply(crew: crew)
+            shapeForm(crew: crew)
         }
     }
 
@@ -135,6 +171,7 @@ public final class AppStore {
             startNewShift()
         } else if let id, let crew = crew(id: id) {
             form.apply(crew: crew)
+            shapeForm(crew: crew)
         } else {
             form.removeCrew()
         }
@@ -156,6 +193,7 @@ public final class AppStore {
         if activeCrew == nil && !previous.isExample {
             next.tipOutRules = previous.tipOutRules
         }
+        Self.shape(&next, experience: library.settings.experience, crew: activeCrew)
         form = next
         lastReviewedDraft = nil
     }
@@ -195,7 +233,9 @@ public final class AppStore {
     }
 
     public func loadExample() {
-        form = ShiftForm.example(day: today, mode: form.mode, method: form.method)
+        form = isSimple
+            ? ShiftForm.example(day: today, mode: .pool, method: .hours)
+            : ShiftForm.example(day: today, mode: form.mode, method: form.method)
         lastReviewedDraft = nil
     }
 
@@ -273,6 +313,7 @@ public final class AppStore {
         library.settings.hasSeenWelcome = true
         persistLibrary()
         form = ShiftForm(day: today, method: library.settings.defaultMethod)
+        shapeForm(crew: nil)
         lastReviewedDraft = nil
     }
 

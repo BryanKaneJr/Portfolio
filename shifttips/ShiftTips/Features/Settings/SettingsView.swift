@@ -14,6 +14,10 @@ struct SettingsView: View {
     @State private var notice: Notice?
     @State private var confirmDeleteAll = false
     @State private var csvFile: SharedFile?
+    /// A crew to choose a style for after switching to Advanced.
+    @State private var stylingCrew: Crew?
+    /// The crew to open for "make it yours" once the style sheet closes.
+    @State private var editAfterStyle: Crew?
 
     struct Notice: Identifiable {
         let id = UUID()
@@ -24,8 +28,9 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             Form {
+                experienceSection
                 crewsSection
-                splittingSection
+                moneySection
                 appearanceSection
                 dataSection
                 aboutSection
@@ -39,6 +44,27 @@ struct SettingsView: View {
             }
             .sheet(item: $editingCrew) { item in
                 CrewEditorView(item: item)
+            }
+            .sheet(item: $stylingCrew, onDismiss: {
+                if let crew = editAfterStyle {
+                    editAfterStyle = nil
+                    editingCrew = .edit(crew)
+                }
+            }) { crew in
+                NavigationStack {
+                    StylePickerView(current: crew.style) { style in
+                        var updated = crew
+                        updated.adopt(style)
+                        store.saveCrew(updated)
+                        editAfterStyle = updated
+                        stylingCrew = nil
+                    }
+                    .toolbar {
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button("Not Now") { stylingCrew = nil }
+                        }
+                    }
+                }
             }
             .sheet(item: $csvFile) { file in
                 ActivityView(items: [file.url])
@@ -108,7 +134,7 @@ struct SettingsView: View {
                         HStack {
                             VStack(alignment: .leading, spacing: 2) {
                                 Text(crew.name).foregroundStyle(Theme.ink)
-                                Text(crew.employees.count == 1 ? "1 person" : "\(crew.employees.count) people")
+                                Text(crewDetail(crew))
                                     .font(.footnote)
                                     .foregroundStyle(Theme.inkSecondary)
                             }
@@ -135,21 +161,40 @@ struct SettingsView: View {
         }
     }
 
-    private var splittingSection: some View {
+    private var experienceSection: some View {
         Section {
-            Picker("Default method", selection: Binding(
-                get: { store.settings.defaultMethod },
-                set: { method in store.updateSettings { $0.defaultMethod = method } }
+            Picker("How you split tips", selection: Binding(
+                get: { store.settings.experience },
+                set: { setExperience($0) }
             )) {
-                ForEach(SplitMethod.allCases, id: \.self) { method in
-                    Text(method.title).tag(method)
+                ForEach(Experience.allCases, id: \.self) { experience in
+                    Text(experience.title).tag(experience)
                 }
             }
-            LabeledContent("Currency", value: "US dollars (USD)")
+            .pickerStyle(.segmented)
+            .accessibilityIdentifier("experiencePicker")
+            Text(store.settings.experience.summary)
+                .font(.footnote)
+                .foregroundStyle(Theme.inkSecondary)
         } header: {
-            Text("Splitting")
+            Text("How you split tips")
         } footer: {
-            Text("ShiftTips 1.0 works in US dollars only, to the cent. The method you last used carries over to your next shift.")
+            Text("Switching never deletes anything. Each crew keeps its Advanced setup while you use Simple.")
+        }
+    }
+
+    private var moneySection: some View {
+        Section {
+            LabeledContent("Currency", value: "US dollars (USD)")
+        } footer: {
+            Text("ShiftTips 1.0 works in US dollars only, to the cent.")
+        }
+    }
+
+    private func setExperience(_ experience: Experience) {
+        store.setExperience(experience)
+        if experience == .advanced, let crew = store.activeCrew, crew.style == nil {
+            stylingCrew = crew
         }
     }
 
@@ -215,6 +260,11 @@ struct SettingsView: View {
             }
             LabeledContent("Version", value: AppInfo.version)
         }
+    }
+
+    private func crewDetail(_ crew: Crew) -> String {
+        let people = crew.employees.count == 1 ? "1 person" : "\(crew.employees.count) people"
+        return store.isSimple ? people : "\(people) \u{00B7} \(crew.setupTitle)"
     }
 
     // MARK: - Actions

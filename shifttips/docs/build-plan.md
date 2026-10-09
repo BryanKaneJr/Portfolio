@@ -51,6 +51,7 @@ The answer must be legible immediately, with no spreadsheet or external calculat
 - Employee: name, optional role label, default points/weight, eligible-for-pool toggle.
 - Shift: date, optional label, total pooled tips (one combined amount), selected employees, hours worked.
 - **Three core split methods:** Equal, By Hours, Hours x Points.
+- **Simple and Advanced** (owner decision, 2026-10-09; section 5F): Simple is always people, hours, tips, shared by hours. Advanced offers the common tipping styles as editable starting points.
 - **Totals by Person** (owner decision, 2026-10-09): from History, each person's tips across the saved shifts in a pay period (this week, last week, last 2 weeks, this month, last month or custom), both modes, shared as text or CSV for payroll. A plain report from frozen snapshots, not an analytics dashboard.
 - **Tip Out mode** (owner decision, 2026-10-09): a second mode next to Tip Pool, where each person keeps their own tips and pays house-rule percentages of their own tips or sales to support roles. See section 5E.
 - Optional separate cash-tip and card-tip amount fields; together they equal the full pool.
@@ -119,6 +120,13 @@ Tip Out ships in v1.0 as its own mode, offered after Tip Pool on the New Shift s
 - **Skipped rules:** a rule whose paying or receiving role has nobody on the shift isn't taken, and the breakdown says why.
 - **Eligibility:** owners, managers, supervisors and anyone marked not eligible neither pay nor receive tip-outs. Role labels decide which rule applies, never eligibility.
 - **Reconciliation:** "Tipped out $X, received $X, $0.00 left over", and every person's tips = kept + tipped out.
+
+### F. Simple and Advanced (owner decision, 2026-10-09)
+
+- **Simple** (the default): list who worked and their hours, enter the tips, and everyone's share follows hours worked. No modes, methods, points, rules or cash and card on screen. Eligibility (owners and managers never receive) still applies.
+- **Advanced**: each crew has a tip style. The person picks the style that sounds most like their team, then edits every number ("make it yours"): pooled or tipped out, the pool split, points by role, and tip-out rules. New shifts start the crew's way; a single shift can still be changed.
+- **Styles** (common starting points, labeled as not recommendations): Equal pool; Hours pool; Points pool (server and bartender 1, busser, runner, host and barback 0.5); Tip-out, % of tips (busser 10%, bartender 5%, runner 5%, host 3% of server tips; barback 15% of bartender tips); Tip-out, % of sales (busser 2% of sales, bartender 5% of bar sales, runner 2% of food sales, host 1% of sales; barback 15% of bartender tips).
+- The welcome screen asks which fits; Settings switches anytime. Switching never deletes a crew's Advanced setup.
 
 ## 6. The mathematical contract: exact to the cent
 

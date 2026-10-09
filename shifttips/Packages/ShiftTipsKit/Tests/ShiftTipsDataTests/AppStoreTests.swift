@@ -7,7 +7,8 @@ import ShiftTipsCore
 @Suite struct AppStoreTests {
     let clock = Date(timeIntervalSince1970: 1_791_500_000.75)
 
-    func makeStore(_ storage: MemoryStorage = MemoryStorage()) -> AppStore {
+    /// Most tests exercise the full feature set, which is Advanced.
+    func makeStore(_ storage: MemoryStorage = MemoryStorage(library: Library(settings: AppSettings(experience: .advanced)))) -> AppStore {
         var calendar = Calendar(identifier: .gregorian)
         calendar.timeZone = TimeZone(identifier: "America/New_York")!
         let now = clock
@@ -32,6 +33,63 @@ import ShiftTipsCore
         #expect(store.form.rows.map(\.name) == ["Ava", "Marco", "Lee"])
     }
 
+    @Test func simpleIsTheDefaultAndAlwaysPoolsByHours() {
+        let storage = MemoryStorage()
+        let store = makeStore(storage)
+        #expect(store.isSimple)
+        var crew = Crew(name: "Bar", employees: [Employee(name: "Ava", role: "Server"), Employee(name: "Jo", role: "Busser")])
+        crew.adopt(.tipOutOfSales)
+        store.saveCrew(crew)
+        #expect(store.form.mode == .pool)
+        #expect(store.form.method == .hours)
+
+        store.form.setSplitCashAndCard(true)
+        store.form.cashText = "60"
+        store.form.cardText = "40"
+        store.startNewShift()
+        #expect(store.form.mode == .pool && store.form.method == .hours && !store.form.splitCashAndCard)
+
+        // The example is always the hours pool in Simple.
+        store.loadExample()
+        #expect(store.form.mode == .pool && store.form.method == .hours)
+    }
+
+    @Test func switchingExperienceFollowsTheCrewWithoutLosingAnything() {
+        let storage = MemoryStorage()
+        let store = makeStore(storage)
+        var crew = Crew(name: "Floor", employees: [Employee(name: "Ava", role: "Server"), Employee(name: "Jo", role: "Busser")])
+        crew.adopt(.pointsPool)
+        store.saveCrew(crew)
+        store.form.tipsText = "100"
+        store.form.rows[0].hoursText = "5"
+
+        store.setExperience(.advanced)
+        #expect(store.form.method == .weightedHours)
+        #expect(store.form.rows[1].pointsText == "0.5")
+
+        store.form.setSplitCashAndCard(true)
+        store.setExperience(.simple)
+        #expect(store.form.method == .hours)
+        #expect(!store.form.splitCashAndCard)
+        #expect(store.form.tipsText == "100")
+        #expect(store.form.rows[0].hoursText == "5")
+        #expect(store.crews[0].method == .weightedHours)
+        #expect(storage.library?.settings.experience == .simple)
+    }
+
+    @Test func advancedNewShiftsStartTheCrewsWay() {
+        let store = makeStore()
+        var crew = Crew(name: "Bar", employees: [Employee(name: "Ava", role: "Server"), Employee(name: "Jo", role: "Busser")])
+        crew.adopt(.tipOutOfTips)
+        store.saveCrew(crew)
+        #expect(store.form.mode == .tipOut)
+        #expect(store.form.tipOutRules.count == 5)
+        // A one-shift change doesn't stick to the next shift.
+        store.setMode(.pool)
+        store.startNewShift()
+        #expect(store.form.mode == .tipOut)
+    }
+
     @Test func choosingACrewReplacesTheExample() {
         let store = makeStore()
         store.saveCrew(crew())
@@ -44,10 +102,9 @@ import ShiftTipsCore
     }
 
     @Test func tipOutRulesLiveOnTheCrewAndShiftsSaveAsTipOuts() {
-        let storage = MemoryStorage()
+        let storage = MemoryStorage(library: Library(settings: AppSettings(experience: .advanced)))
         let store = makeStore(storage)
-        store.saveCrew(Crew(name: "Bar", employees: [Employee(name: "Ava", role: "Server"), Employee(name: "Jo", role: "Busser")]))
-        store.setMode(.tipOut)
+        store.saveCrew(Crew(name: "Bar", employees: [Employee(name: "Ava", role: "Server"), Employee(name: "Jo", role: "Busser")], mode: .tipOut))
         #expect(store.form.mode == .tipOut)
         let rule = TipOutRule(fromRole: "Server", toRole: "Busser", basis: .tips, rateBasisPoints: 1000)
         store.setTipOutRules([rule])
@@ -61,7 +118,7 @@ import ShiftTipsCore
         #expect(shift.outcome.tipOut?.people.map(\.netCents) == [22500, 2500])
         #expect(shift.outcome.headlineCents == 2500)
 
-        // The next shift stays in Tip Out with the crew's rules.
+        // The next shift starts the crew's way: Tip Out, with its rules.
         store.startNewShift()
         #expect(store.form.mode == .tipOut)
         #expect(store.form.tipOutRules == [rule])
@@ -80,7 +137,7 @@ import ShiftTipsCore
     }
 
     @Test func finishingSavesAFrozenSnapshotOnce() {
-        let storage = MemoryStorage()
+        let storage = MemoryStorage(library: Library(settings: AppSettings(experience: .advanced)))
         let store = makeStore(storage)
         store.saveCrew(crew())
         store.form.method = .hours
@@ -165,7 +222,7 @@ import ShiftTipsCore
     }
 
     @Test func formSurvivesARelaunch() {
-        let storage = MemoryStorage()
+        let storage = MemoryStorage(library: Library(settings: AppSettings(experience: .advanced)))
         let store = makeStore(storage)
         store.saveCrew(crew())
         store.form.tipsText = "47"
@@ -227,7 +284,7 @@ import ShiftTipsCore
     }
 
     @Test func saveFailuresAreReportedNotSwallowed() {
-        let storage = MemoryStorage()
+        let storage = MemoryStorage(library: Library(settings: AppSettings(experience: .advanced)))
         let store = makeStore(storage)
         storage.failSaves = true
         store.saveCrew(crew())
@@ -237,7 +294,7 @@ import ShiftTipsCore
     }
 
     @Test func deleteAllDataClearsEverything() {
-        let storage = MemoryStorage()
+        let storage = MemoryStorage(library: Library(settings: AppSettings(experience: .advanced)))
         let store = makeStore(storage)
         store.saveCrew(crew())
         store.form.method = .hours
