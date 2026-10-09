@@ -27,6 +27,7 @@ import {
   type SocialCard,
   type SocialErrorCode,
   type SocialProfile,
+  type WorldBoardView,
   RewardError,
   type ChestReward,
   type CosmeticTier,
@@ -388,6 +389,19 @@ export function createRemoteBackend(url: string, anonKey: string): ProgressBacke
         friends: r.friends.map(card),
         incoming: r.incoming.map(card),
         outgoing: r.outgoing.map(card),
+      };
+    },
+    async worldBoard(): Promise<WorldBoardView> {
+      const r = await rpc<{ week_start: string; ranked: number; rows: (RawCard & { place: number; you: boolean; friend: boolean; hidden: boolean })[] }>('get_world_board');
+      return {
+        weekStart: r.week_start,
+        ranked: r.ranked,
+        // A hidden row comes without an id, name or avatar: just its place and XP.
+        rows: r.rows.map((w) =>
+          w.hidden
+            ? { id: `hidden-${w.place}`, username: '', knowledgeLevel: 0, weeklyXp: w.weekly_xp, place: w.place, you: false, friend: false, hidden: true }
+            : { ...card(w), place: w.place, you: w.you, friend: w.friend, hidden: false },
+        ),
       };
     },
     async league(): Promise<LeagueView> {

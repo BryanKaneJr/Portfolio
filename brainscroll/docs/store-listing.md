@@ -129,7 +129,7 @@ Use the App Store description above, with two changes:
 4. A learning card with a Key idea: Ancient Egypt's peaks and valleys.
 5. A missed fill-in-the-blank with "Take another look".
 6. Level Complete: a perfect level, its XP and a level up.
-7. Social: the league and the friend leaderboard (taken before it was renamed from "This week with friends").
+7. Social: the league and the friends box (taken before the world leaderboard replaced it; retake it once that's on the phone).
 8. The profile: the subject ring, Knowledge Level and league.
 9. Brainpower used up for the day, with Unlimited and ways to earn more.
 

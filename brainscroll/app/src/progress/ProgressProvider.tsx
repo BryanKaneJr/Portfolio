@@ -424,6 +424,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
         return r;
       },
       feed: async () => (await backendAfterLaunch()).feed(),
+      worldBoard: async () => (await backendAfterLaunch()).worldBoard(),
       profile: async (userId) => (await backendAfterLaunch()).socialProfile(userId),
       setUsername: async (name) => (await backendAfterLaunch()).setUsername(name),
       setAvatar: async (avatar) => (await backendAfterLaunch()).setAvatar(avatar),
@@ -781,6 +782,7 @@ export interface SocialApi {
   view: ProgressBackend['social'];
   league: ProgressBackend['league'];
   feed: ProgressBackend['feed'];
+  worldBoard: ProgressBackend['worldBoard'];
   profile: ProgressBackend['socialProfile'];
   setUsername: ProgressBackend['setUsername'];
   setAvatar: ProgressBackend['setAvatar'];

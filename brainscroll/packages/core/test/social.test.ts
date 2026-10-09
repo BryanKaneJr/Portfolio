@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { avatarIdFor, avatarUnlocked, compareSubjects, friendLeaderboard, hiddenLeagueMember, LEAGUE_TIERS, leagueMove, leaguePrize, movedTier, theTier, tierGem, tierName, leagueWeekStart, ordinal, profileAccess, rarestTrophies, SOCIAL_ERROR_TEXT, USER_REPORT_NOTE_MAX, USER_REPORT_REASONS, usernameProblem, weeklyXp, type XpEvent } from '../src';
+import { avatarIdFor, avatarUnlocked, compareSubjects, hiddenLeagueMember, LEAGUE_TIERS, leagueMove, leaguePrize, movedTier, theTier, tierGem, tierName, leagueWeekStart, ordinal, profileAccess, rarestTrophies, SOCIAL_ERROR_TEXT, USER_REPORT_NOTE_MAX, USER_REPORT_REASONS, usernameProblem, weeklyXp, worldBoardPlaces, type XpEvent } from '../src';
 
 // Mirrors backend/tests/social.test.sql.
 describe('leagues', () => {
@@ -47,23 +47,29 @@ describe('leagues', () => {
   });
 });
 
-describe('friend leaderboard', () => {
-  const ranked = (n: number) => Array.from({ length: n }, (_, i) => ({ id: `u${i + 1}` }));
-  const shown = (n: number, me: string) => friendLeaderboard(ranked(n), me).map((r) => `${r.place}:${r.row.id}`);
-
-  it('shows everyone when there are five or fewer', () => {
-    expect(shown(3, 'u2')).toEqual(['1:u1', '2:u2', '3:u3']);
-    expect(shown(5, 'u5')).toEqual(['1:u1', '2:u2', '3:u3', '4:u4', '5:u5']);
+// Mirrors backend/tests/world-board.test.sql.
+describe('world leaderboard', () => {
+  it('shows everyone when ten or fewer have XP', () => {
+    expect(worldBoardPlaces(1, 1, [])).toEqual([1]);
+    expect(worldBoardPlaces(6, 4, [2])).toEqual([1, 2, 3, 4, 5, 6]);
   });
 
-  it('shows the top 5 while you are in them', () => {
-    expect(shown(12, 'u1')).toEqual(['1:u1', '2:u2', '3:u3', '4:u4', '5:u5']);
-    expect(shown(12, 'u5')).toEqual(['1:u1', '2:u2', '3:u3', '4:u4', '5:u5']);
+  it('keeps the top 3 and you, then your friends nearest your place', () => {
+    expect(worldBoardPlaces(500, 120, [400, 90, 130, 5, 118])).toEqual([1, 2, 3, 5, 90, 118, 119, 120, 130, 400]);
   });
 
-  it('shows the top 4 and then you at your place when you are further down', () => {
-    expect(shown(12, 'u6')).toEqual(['1:u1', '2:u2', '3:u3', '4:u4', '6:u6']);
-    expect(shown(12, 'u10')).toEqual(['1:u1', '2:u2', '3:u3', '4:u4', '10:u10']);
+  it('keeps only the nearest friends when there are many', () => {
+    expect(worldBoardPlaces(500, 100, [10, 20, 30, 40, 50, 60, 70, 80, 90, 99, 101])).toEqual([1, 2, 3, 60, 70, 80, 90, 99, 100, 101]);
+  });
+
+  it('fills with the places around you, above first, then the top', () => {
+    expect(worldBoardPlaces(500, 50, [])).toEqual([1, 2, 3, 47, 48, 49, 50, 51, 52, 53]);
+    expect(worldBoardPlaces(12, 12, [])).toEqual([1, 2, 3, 6, 7, 8, 9, 10, 11, 12]);
+    expect(worldBoardPlaces(500, 2, [])).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  });
+
+  it('puts you last when you have no XP yet (one after the last place)', () => {
+    expect(worldBoardPlaces(41, 41, [7])).toEqual([1, 2, 3, 7, 36, 37, 38, 39, 40, 41]);
   });
 });
 

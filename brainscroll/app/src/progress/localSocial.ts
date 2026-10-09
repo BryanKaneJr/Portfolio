@@ -18,6 +18,7 @@ import {
   totalCleared,
   usernameBlocked,
   weeklyXp,
+  worldBoardPlaces,
   type BlockedLearner,
   type FeedItem,
   type FeedReaction,
@@ -26,6 +27,7 @@ import {
   type SocialCard,
   type SocialProfile,
   type SocialView,
+  type WorldBoardView,
   shownTitle,
 } from '@brainscroll/core';
 import { quests, skills, trophyCatalog } from '@/content';
@@ -189,6 +191,32 @@ export function leagueView(userId: string, social: LocalSocialState, state: Prog
           },
         }
       : {}),
+  };
+}
+
+/**
+ * This week's world leaderboard in the harness: the simulated learners are the
+ * whole world. Mirrors SQL get_world_board: everyone with XP has a place (ties
+ * to you, then by id), you come one after the last place with none yet, the
+ * rows are core worldBoardPlaces, and someone you blocked keeps a nameless row.
+ */
+export function worldBoardView(userId: string, social: LocalSocialState, state: ProgressState, now: Date): WorldBoardView {
+  const mine = myCard(userId, social, state, now);
+  const ranked = [mine, ...SIMS.map((s) => simCard(s, social, state, now))]
+    .filter((c) => c.weeklyXp > 0)
+    .sort((a, b) => b.weeklyXp - a.weeklyXp || (a.id === userId ? -1 : b.id === userId ? 1 : a.id.localeCompare(b.id)));
+  const all = ranked.some((c) => c.id === userId) ? ranked : [...ranked, mine];
+  const myPlace = all.findIndex((c) => c.id === userId) + 1;
+  const friendPlaces = all.flatMap((c, i) => (social.friends.includes(c.id) ? [i + 1] : []));
+  return {
+    weekStart: leagueWeekStart(now),
+    ranked: ranked.length,
+    rows: worldBoardPlaces(all.length, myPlace, friendPlaces).map((place) => {
+      const c = all[place - 1]!;
+      return social.blocked.includes(c.id)
+        ? { id: `hidden-${place}`, username: '', knowledgeLevel: 0, weeklyXp: c.weeklyXp, place, you: false, friend: false, hidden: true }
+        : { ...c, place, you: c.id === userId, friend: social.friends.includes(c.id), hidden: false };
+    }),
   };
 }
 

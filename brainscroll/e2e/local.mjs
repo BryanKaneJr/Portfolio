@@ -128,7 +128,9 @@ try {
   check(/Friend requests[\s\S]*@priya/.test(social), 'friend requests show at the top');
   await exactButton(page, 'Accept').click();
   await page.waitForTimeout(1000);
-  check(/Friend leaderboard[\s\S]*@priya/.test(await bodyText(page)), 'accepting makes a friend, ranked by this week\'s XP with you');
+  check(/World leaderboard[\s\S]*@priya\s+Friend\b/.test(await bodyText(page)), 'accepting makes a friend, marked on the world leaderboard at their place');
+  const worldRows = await page.getByRole('button', { name: / in the world: / }).count();
+  check(worldRows >= 3 && worldRows <= 10 && (await page.getByRole('button', { name: / in the world: you,/ }).count()) === 1, `the world leaderboard is ten rows at most, with you among them (${worldRows})`);
   const liked = async () => page.getByRole('button', { name: /^Liked/ }).count();
   const before = await liked();
   await page.getByRole('button', { name: /^Like(,|$)/ }).first().click();

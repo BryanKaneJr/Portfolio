@@ -104,19 +104,29 @@ export function leaguePrize(place: number, size: number, xp: number): number {
 }
 
 
-/** Rows on Social's friend leaderboard (owner, 2026-10-09). */
-export const FRIEND_BOARD_ROWS = 5;
+/** Social's world leaderboard (owner, 2026-10-09): ten rows, the first three places always among them. */
+export const WORLD_BOARD = { ROWS: 10, TOP: 3 } as const;
 
 /**
- * Social's friend leaderboard, from you and your friends ranked by this week's
- * XP: the top 5, or, when you're further down, the top 4 and then you at your
- * place ("10th"). Each row keeps its place in the whole ranking.
+ * Which places this week's world leaderboard shows, in order. Everyone with XP
+ * this week has a place (1 = the most XP); `mine` is yours (one after the last
+ * place when you have none yet), and `friendPlaces` your friends'. Ten rows at
+ * most: the top 3 and you, then the friends nearest your place, then the
+ * places nearest yours (above first). Mirrors SQL world_board_places.
  */
-export function friendLeaderboard<T extends { id: string }>(ranked: readonly T[], meId: string | undefined): { row: T; place: number }[] {
-  const rows = ranked.map((row, i) => ({ row, place: i + 1 }));
-  const mine = rows.findIndex((r) => r.row.id === meId);
-  if (mine < FRIEND_BOARD_ROWS) return rows.slice(0, FRIEND_BOARD_ROWS);
-  return [...rows.slice(0, FRIEND_BOARD_ROWS - 1), rows[mine]!];
+export function worldBoardPlaces(total: number, mine: number, friendPlaces: readonly number[]): number[] {
+  const shown = new Set<number>();
+  const add = (p: number) => {
+    if (shown.size < WORLD_BOARD.ROWS && p >= 1 && p <= total) shown.add(p);
+  };
+  for (let p = 1; p <= WORLD_BOARD.TOP; p++) add(p);
+  add(mine);
+  [...friendPlaces].sort((a, b) => Math.abs(a - mine) - Math.abs(b - mine) || a - b).forEach(add);
+  for (let d = 1; d < total && shown.size < WORLD_BOARD.ROWS; d++) {
+    add(mine - d);
+    add(mine + d);
+  }
+  return [...shown].sort((a, b) => a - b);
 }
 
 /** "1st", "2nd", "3rd", "4th"... */
@@ -250,6 +260,23 @@ export interface SocialView {
   friends: SocialCard[];
   incoming: SocialCard[];
   outgoing: SocialCard[];
+}
+
+/** One row of this week's world leaderboard: a place, and who holds it. */
+export type WorldBoardRow = SocialCard & {
+  place: number;
+  you: boolean;
+  friend: boolean;
+  /** Blocked either way, or a private profile outside your friends and league: a place and XP, no name. */
+  hidden: boolean;
+};
+
+export interface WorldBoardView {
+  weekStart: string;
+  /** How many learners have XP this week. */
+  ranked: number;
+  /** In place order; places can skip (a gap between rows). */
+  rows: WorldBoardRow[];
 }
 
 export interface LeagueView {

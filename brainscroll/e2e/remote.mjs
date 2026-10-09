@@ -309,9 +309,11 @@ try {
   await exactButton(page, 'Find').click();
   await page.waitForTimeout(1000);
   check(/You and @old_pal are friends now/.test(await bodyText(page)) && sql(`select count(*) from public.friendships where user_id = '${learnerId}'`) === '1', 'an invite code makes friends at once, both ways');
+  // A friend with XP this week has a place on the world leaderboard.
+  sql(`insert into public.xp_events (user_id, type, amount, idempotency_key) values ('00000000-0000-0000-0000-0000000000f2', 'QUEST_COMPLETE', 40, 'e2e:old_pal')`);
   await page.goBack();
   await page.waitForTimeout(1000);
-  check(/Friend leaderboard[\s\S]*@old_pal/.test(await bodyText(page)), 'friends appear ranked by this week\'s XP');
+  check(/World leaderboard[\s\S]*@old_pal\s+Friend\b/.test(await bodyText(page)), 'friends appear on the world leaderboard at their place, from the server');
 
   // Profiles: public by default, with a Private profile switch (owner, 2026-10-03). Opened cold they wait for the account.
   await coldLoad(page, errors, `${URL}person/00000000-0000-0000-0000-0000000000f1`);

@@ -168,7 +168,7 @@ These are the guardrails. The design lives in [`social-expansion.md`](social-exp
 
 ## Never build (before launch)
 
-Social ships before launch (owner, 2026-10-01; CURRENT_PRODUCT_DECISIONS §22): friends, weekly leagues (in eight tiers you move up and down each week, owner 2026-10-08) and a feed of moments with hearts (owner, 2026-10-03; Dr. Scroll reactions before). Challenges and the rest of the [Social + Rewards expansion](social-expansion.md) stay later. Everything below stays out of the core loop.
+Social ships before launch (owner, 2026-10-01; CURRENT_PRODUCT_DECISIONS §22): friends, weekly leagues (in eight tiers you move up and down each week, owner 2026-10-08), a weekly world leaderboard of ten rows (the top 3, your friends and you; owner, 2026-10-09) and a feed of moments with hearts (owner, 2026-10-03; Dr. Scroll reactions before). Challenges and the rest of the [Social + Rewards expansion](social-expansion.md) stay later. Everything below stays out of the core loop.
 
 
 Guest or anonymous play · social posts, comments, followers, clans, messaging · leaderboards that reward time or speed · avatars, equipment, currencies other than Brainpower, shops · live AI tutor as a core dependency · user-generated lessons · web/desktop learning clients · 201–300 prestige content · recommendation ML · custom billing · microservices · streak punishment or fake urgency.

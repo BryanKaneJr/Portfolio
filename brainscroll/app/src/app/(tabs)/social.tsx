@@ -1,6 +1,6 @@
-import { DR_SCROLL_FRIEND, drScrollPosts, friendLeaderboard, LEAGUE, ordinal, theTier, type FeedReaction } from '@brainscroll/core';
+import { DR_SCROLL_FRIEND, drScrollPosts, LEAGUE, ordinal, theTier, type FeedReaction } from '@brainscroll/core';
 import { router } from 'expo-router';
-import { useEffect, useMemo, useState } from 'react';
+import { Fragment, useEffect, useMemo, useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { TierEmblem } from '@/components/LeagueTier';
 import { StyledName } from '@/components/cosmetics';
@@ -18,7 +18,7 @@ import { color, iconSize, space, type } from '@/theme/tokens';
  */
 export default function SocialScreen() {
   const p = useProgress();
-  const { view, league, feed, failed, reload, setFeed } = useSocial();
+  const { view, league, feed, board, failed, reload, setFeed } = useSocial();
   const userId = p.account?.status === 'signed_in' ? p.account.userId : undefined;
   const [met, meet] = useMetDrScroll(userId);
   // Last week's note (moved up, a podium, or a new league) shows until it's tapped once (owner, 2026-10-08).
@@ -62,9 +62,6 @@ export default function SocialScreen() {
     p.social.react(ownerId, key, reaction).catch(() => void reload());
   };
 
-  // You and your friends, by this week's XP.
-  const me = league?.members.find((m) => m.you);
-  const circle = view && me ? [...view.friends, { ...me, username: view.me.username, avatar: view.me.avatar }].sort((a, b) => b.weeklyXp - a.weeklyXp) : [];
   const last = lastSeen === false ? league?.lastWeek : undefined;
 
   return (
@@ -166,36 +163,47 @@ export default function SocialScreen() {
             </Card>
           )}
 
-          {view.friends.length === 0 ? (
-            <Card variant="plain" style={{ gap: space.md }}>
-              <DrScrollSays spot="social.empty" animation="wave-point" size="md" lines={['Learning is better with company. Bring a friend and see who learns more this week.']} />
-              <Button label="Add friends" onPress={() => router.push('/add-friends')} />
-            </Card>
-          ) : (
+          {board && board.rows.length > 0 && (
             <View style={{ gap: space.sm }}>
-              <Title>Friend leaderboard</Title>
+              <Title>World leaderboard</Title>
               <Card variant="plain" style={{ paddingVertical: space.xs, paddingHorizontal: 0, gap: 0 }}>
-                {/* This week's top 5, or the top 4 and then you at your place (owner, 2026-10-09). */}
-                {friendLeaderboard(circle, me?.id).map(({ row: f, place }, i) => {
-                  const you = f.id === me?.id;
+                {/* This week's top 3, your friends and you: ten rows at most (owner, 2026-10-09; core worldBoardPlaces). */}
+                {board.rows.map((r, i) => {
+                  const skipped = i > 0 && r.place > board.rows[i - 1]!.place + 1;
+                  const name = r.you ? 'You' : r.hidden ? 'Hidden learner' : `@${r.username}`;
                   return (
-                    <Pressable
-                      key={f.id}
-                      accessibilityRole="button"
-                      accessibilityLabel={`${ordinal(place)}: ${you ? 'you' : `@${f.username}`}, ${f.weeklyXp} XP this week`}
-                      onPress={() => openPerson(f.id)}
-                      style={({ pressed }) => [styles.row, i > 0 && styles.divided, you && { backgroundColor: color.brandSoft }, pressed && { opacity: 0.8 }]}>
-                      <Caption style={{ width: 36 }}>{ordinal(place)}</Caption>
-                      <Avatar username={f.username} avatar={f.avatar} ring={f.ring} size={32} />
-                      <View style={{ flex: 1 }}>
-                        <StyledName nameStyle={f.nameStyle} style={[type.body, { color: color.text }]}>{you ? 'You' : `@${f.username}`}</StyledName>
-                      </View>
-                      <Body>{`${f.weeklyXp.toLocaleString('en-US')} XP`}</Body>
-                    </Pressable>
+                    <Fragment key={r.id}>
+                      {skipped && (
+                        <View style={styles.skipped} accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
+                          <Caption center>···</Caption>
+                        </View>
+                      )}
+                      <Pressable
+                        accessibilityRole="button"
+                        accessibilityLabel={`${ordinal(r.place)} in the world: ${r.you ? 'you' : name}${r.friend ? ', your friend' : ''}, ${r.weeklyXp} XP this week`}
+                        disabled={r.hidden}
+                        onPress={() => openPerson(r.id)}
+                        style={({ pressed }) => [styles.row, i > 0 && !skipped && styles.divided, r.you && { backgroundColor: color.brandSoft }, pressed && { opacity: 0.8 }]}>
+                        <Caption style={{ width: 40 }}>{ordinal(r.place)}</Caption>
+                        <Avatar username={r.hidden ? '?' : r.username} avatar={r.hidden ? undefined : r.avatar} ring={r.hidden ? null : r.ring} size={32} />
+                        <View style={{ flex: 1 }}>
+                          <StyledName nameStyle={r.hidden ? null : r.nameStyle} style={[type.body, { color: color.text }]}>{name}</StyledName>
+                          {r.friend && <Caption>Friend</Caption>}
+                        </View>
+                        <Body>{`${r.weeklyXp.toLocaleString('en-US')} XP`}</Body>
+                      </Pressable>
+                    </Fragment>
                   );
                 })}
               </Card>
             </View>
+          )}
+
+          {view.friends.length === 0 && (
+            <Card variant="plain" style={{ gap: space.md }}>
+              <DrScrollSays spot="social.empty" animation="wave-point" size="md" lines={['Learning is better with company. Bring a friend and see who learns more this week.']} />
+              <Button label="Add friends" onPress={() => router.push('/add-friends')} />
+            </Card>
           )}
 
           <View style={{ gap: space.sm }}>
@@ -271,4 +279,6 @@ const LAST_WEEK_KEY = 'bs.league.last-week-seen';
 const styles = StyleSheet.create({
   row: { flexDirection: 'row', alignItems: 'center', gap: space.md, paddingVertical: space.sm, paddingHorizontal: space.lg },
   divided: { borderTopWidth: 1, borderTopColor: color.border },
+  // Places left out between two rows.
+  skipped: { paddingVertical: space.xxs, borderTopWidth: 1, borderTopColor: color.border },
 });
