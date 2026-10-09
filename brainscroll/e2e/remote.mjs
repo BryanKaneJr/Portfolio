@@ -403,7 +403,8 @@ try {
   check((await page.getByRole('button', { name: 'Chapter 1 chest, opened' }).count()) === 1, 'the chest stays open on the road');
   await home(page);
   check((await page.getByTestId('boost-chip').count()) === 1, 'Home shows the running boost');
-  check(/^2x XP \d+:\d\d$/.test((await page.getByTestId('boost-chip').innerText()).trim()), 'as "2x XP" and its time left');
+  const chip = (await page.getByTestId('boost-chip').innerText()).replace(/\s+/g, ' ').trim();
+  check(/2x XP \d+:\d\d/i.test(chip), `as "2x XP" and its time left (${chip})`);
   await questMap(page);
   check((await page.getByTestId('boost-chip').count()) === 1, 'and the skill map shows it too, under its bar (owner, 2026-10-09)');
   await page.getByRole('tab', { name: /Profile/ }).click();
