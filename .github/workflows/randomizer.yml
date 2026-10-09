@@ -1,0 +1,85 @@
+name: Randomizer
+
+on:
+  push:
+    paths: ['randomizer/**', '.github/workflows/randomizer.yml']
+  pull_request:
+    paths: ['randomizer/**', '.github/workflows/randomizer.yml']
+  workflow_dispatch:
+
+jobs:
+  core:
+    name: Draw engine tests (Linux)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: randomizer/Packages/RandomizerCore
+    steps:
+      - uses: actions/checkout@v4
+      - run: swift --version
+      - run: swift test
+
+  ios:
+    name: iOS app build, UI tests and screenshots
+    runs-on: macos-15
+    timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: randomizer
+    steps:
+      - uses: actions/checkout@v4
+      - name: Toolchain
+        run: |
+          xcodebuild -version
+          mkdir -p build screens
+      - name: Pick an iPhone simulator
+        run: |
+          UDID=$(xcrun simctl list devices available -j | python3 -c '
+          import json, sys
+          devices = json.load(sys.stdin)["devices"]
+          phones = [(runtime, d) for runtime, ds in devices.items() if "iOS" in runtime for d in ds if d["name"].startswith("iPhone")]
+          preferred = [p for p in phones if "Pro" in p[1]["name"] and "Max" not in p[1]["name"]] or phones
+          preferred.sort(key=lambda p: p[0])
+          runtime, device = preferred[-1]
+          print(device["udid"])
+          print(runtime, device["name"], file=sys.stderr)
+          ')
+          echo "SIM_UDID=$UDID" >> "$GITHUB_ENV"
+      - name: Build for testing
+        run: |
+          xcodebuild build-for-testing \
+            -project Randomizer.xcodeproj -scheme Randomizer \
+            -destination "id=$SIM_UDID" -derivedDataPath build/DerivedData \
+            CODE_SIGNING_ALLOWED=NO > build/build.log 2>&1 || {
+              grep -E "error:|fatal" build/build.log | sort -u | head -150
+              tail -60 build/build.log
+              exit 1
+            }
+          echo "Warnings in Randomizer sources:"
+          grep -E "warning:" build/build.log | grep "/randomizer/" | sort -u | head -80 || true
+      - name: Unit and UI tests
+        run: |
+          TEST_RUNNER_SCREENSHOT_DIR="$PWD/screens" xcodebuild test-without-building \
+            -project Randomizer.xcodeproj -scheme Randomizer \
+            -destination "id=$SIM_UDID" -derivedDataPath build/DerivedData \
+            -resultBundlePath build/Tests.xcresult \
+            CODE_SIGNING_ALLOWED=NO > build/test.log 2>&1 || {
+              grep -E "error:|failed|Failing tests|\) failed" build/test.log | sort -u | head -150
+              tail -80 build/test.log
+              exit 1
+            }
+          grep -E "Test Suite .*(passed|failed)|Executed [0-9]+ tests" build/test.log | tail -30
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: randomizer-screens
+          path: randomizer/screens
+          if-no-files-found: ignore
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: randomizer-logs
+          path: randomizer/build/*.log
+          if-no-files-found: ignore
