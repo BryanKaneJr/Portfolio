@@ -1,4 +1,4 @@
-import type { BlockedLearner, UserReportReason, FeedItem, FeedReaction, LeagueView, SocialCard, SocialProfile, SocialView, AccountState, AnalyticsEvent, ChapterReviewResult, Equipped, OtpTarget, SignInMethod, AnswerResult, Card, ContentReportInput, CompletionSummary, DailyAllowance, FinalRoundAnswer, Level, Question, QuestCompletion, QuestsView, QuestView, ReviewItem, ReviewResult, StartReason, Streak, ChestReward, LockerView, Look } from '@brainscroll/core';
+import type { BlockedLearner, UserReportReason, FeedItem, FeedReaction, LeagueView, SocialCard, SocialProfile, SocialView, WorldBoardView, AccountState, AnalyticsEvent, ChapterReviewResult, Equipped, OtpTarget, SignInMethod, AnswerResult, Card, ContentReportInput, CompletionSummary, DailyAllowance, FinalRoundAnswer, Level, Question, QuestCompletion, QuestsView, QuestView, ReviewItem, ReviewResult, StartReason, Streak, ChestReward, LockerView, Look } from '@brainscroll/core';
 
 /**
  * Where progress lives. `remote` calls the Supabase RPCs, which are
@@ -168,6 +168,8 @@ export interface ProgressBackend {
   league(): Promise<LeagueView>;
   /** The last 14 days of moments from you, your friends and your league mates. */
   feed(): Promise<FeedItem[]>;
+  /** The world leaderboard: the top 50 by total XP, all time, and your own row (core WORLD_BOARD). */
+  worldBoard(): Promise<WorldBoardView>;
   /** Anyone's profile (`limited` when it's private and you're not a friend or league mate). Throws SocialError USER_NOT_FOUND when blocked or unknown. */
   socialProfile(userId: string): Promise<SocialProfile>;
   setUsername(name: string): Promise<string>;

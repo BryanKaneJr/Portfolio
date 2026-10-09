@@ -47,6 +47,7 @@ describe('leagues', () => {
   });
 });
 
+// Mirrors backend/tests/world-board.test.sql.
 describe('profiles', () => {
   it('show the rarest trophies first', () => {
     const ids = ['trophy.first_level', 'trophy.streak_30', 'trophy.mastery_astronomy', 'trophy.century', 'trophy.streak_7'];

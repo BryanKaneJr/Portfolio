@@ -18,6 +18,7 @@ import {
   totalCleared,
   usernameBlocked,
   weeklyXp,
+  WORLD_BOARD,
   type BlockedLearner,
   type FeedItem,
   type FeedReaction,
@@ -26,6 +27,7 @@ import {
   type SocialCard,
   type SocialProfile,
   type SocialView,
+  type WorldBoardView,
   shownTitle,
 } from '@brainscroll/core';
 import { quests, skills, trophyCatalog } from '@/content';
@@ -93,6 +95,9 @@ function simWeeklyXp(sim: Sim, weekStart: string, now: Date): number {
   const share = Math.min(1, Math.max(0, (now.getTime() - start) / (7 * DAY)));
   return Math.round((150 + (hash(`${sim.id}:${weekStart}`) % 1800)) * share);
 }
+
+/** A simulated learner's total XP, all time (their profile and the world leaderboard agree). */
+const simTotalXp = (sim: Sim) => 2_000 + (hash(sim.id) % 20_000);
 
 /** A starter avatar: a tree's, picked at random (by id, so it's stable). Mirrors SQL random_starter_avatar. */
 const starterAvatar = (id: string) => avatarIdFor(skills[hash(`${id}:avatar`) % skills.length]!.id);
@@ -189,6 +194,26 @@ export function leagueView(userId: string, social: LocalSocialState, state: Prog
           },
         }
       : {}),
+  };
+}
+
+/**
+ * The world leaderboard in the harness: the simulated learners are the whole
+ * world. Mirrors SQL get_world_board: everyone with XP has a place by total
+ * XP, all time (ties to you, then by id); the top WORLD_BOARD.TOP rows without
+ * anyone you blocked; and your own row, with no place before your first XP.
+ */
+export function worldBoardView(userId: string, social: LocalSocialState, state: ProgressState, now: Date): WorldBoardView {
+  const mine = { ...myCard(userId, social, state, now), totalXp: state.xpEvents.reduce((n, e) => n + e.amount, 0) };
+  const ranked = [mine, ...SIMS.map((s) => ({ ...simCard(s, social, state, now), totalXp: simTotalXp(s) }))]
+    .filter((c) => c.totalXp > 0)
+    .sort((a, b) => b.totalXp - a.totalXp || (a.id === userId ? -1 : b.id === userId ? 1 : a.id.localeCompare(b.id)));
+  const row = (c: SocialCard & { totalXp: number }, place: number) => ({ ...c, place, you: c.id === userId, friend: social.friends.includes(c.id) });
+  const myPlace = ranked.findIndex((c) => c.id === userId) + 1;
+  return {
+    ranked: ranked.length,
+    rows: ranked.slice(0, WORLD_BOARD.TOP).flatMap((c, i) => (social.blocked.includes(c.id) ? [] : [row(c, i + 1)])),
+    you: { ...row(mine, myPlace), place: myPlace || null },
   };
 }
 
@@ -319,7 +344,7 @@ export function profileView(userId: string, targetId: string, social: LocalSocia
   return {
     ...card,
     ...access,
-    totalXp: 2_000 + (h % 20_000),
+    totalXp: simTotalXp(sim),
     streak: { current: 1 + (h % 30), longest: 10 + (h % 60) },
     trophies: SIM_TROPHIES.filter((_, k) => (h >>> k) % 2).map((trophyId, k) => ({ trophyId, earnedAt: new Date(now.getTime() - (k + 1) * 3 * DAY).toISOString() })),
     skills: Object.fromEntries(picked.map((id, k) => [id, 1 + ((h >>> (k * 5)) % (card.knowledgeLevel * 3))])),

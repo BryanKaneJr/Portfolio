@@ -27,10 +27,16 @@ export default function ProfileScreen() {
   const v = useProgressView();
   const { social } = p;
   const [me, setMe] = useState<SocialView['me'] | null>(null);
+  // Your place on the world leaderboard, all time (owner, 2026-10-09), null until your first XP.
+  const [rank, setRank] = useState<number | null | undefined>(undefined);
   useFocusEffect(
     useCallback(() => {
       social.view().then(
         (s) => setMe(s.me),
+        () => {},
+      );
+      social.worldBoard().then(
+        (b) => setRank(b.you.place),
         () => {},
       );
     }, [social]),
@@ -85,12 +91,22 @@ export default function ProfileScreen() {
         <StatTile label="Skills" value={v.skills.filter((s) => s.view.level > 0).length} icon="skills" />
         <StatTile label="Stars" value={stars} tone={stars > 0 ? 'mastery' : 'text'} icon="star" art={stars > 0 ? 'mastery-star' : undefined} />
       </Row>
-      <Pressable accessibilityRole="button" accessibilityLabel={`Learning streak: ${v.streak.current} ${v.streak.current === 1 ? 'day' : 'days'}, longest ${v.streak.longest}. Open`} onPress={() => router.push('/streak')}>
+      {/* Streak, longest and world rank, three across (owner, 2026-10-09): days go without "days" to fit; the flame says it. */}
       <Row gap={space.sm} style={{ alignItems: 'stretch' }}>
-        <StatTile label="Streak" value={`${v.streak.current} ${v.streak.current === 1 ? 'day' : 'days'}`} tone={v.streak.today ? 'streak' : 'text'} art={v.streak.current > 0 && !v.streak.today ? 'streak-ember' : 'streak-flame'} />
-        <StatTile label="Longest" value={`${v.streak.longest} ${v.streak.longest === 1 ? 'day' : 'days'}`} art="streak-flame" />
+        <Pressable style={{ flex: 2 }} accessibilityRole="button" accessibilityLabel={`Learning streak: ${v.streak.current} ${v.streak.current === 1 ? 'day' : 'days'}, longest ${v.streak.longest}. Open`} onPress={() => router.push('/streak')}>
+          <Row gap={space.sm} style={{ alignItems: 'stretch', flex: 1 }}>
+            <StatTile compact label="Streak" value={v.streak.current} tone={v.streak.today ? 'streak' : 'text'} art={v.streak.current > 0 && !v.streak.today ? 'streak-ember' : 'streak-flame'} />
+            <StatTile compact label="Longest" value={v.streak.longest} art="streak-flame" />
+          </Row>
+        </Pressable>
+        <Pressable
+          style={{ flex: 1 }}
+          accessibilityRole="button"
+          accessibilityLabel={rank ? `World rank: number ${rank}. Open the world leaderboard` : rank === null ? 'World rank: none yet. Open the world leaderboard' : 'World rank. Open the world leaderboard'}
+          onPress={() => router.push('/leaderboard')}>
+          <StatTile compact label="Rank" value={rank ? `#${rank.toLocaleString('en-US')}` : rank === null ? 'None yet' : ' '} tone={rank ? 'brand' : 'text'} icon="geography" />
+        </Pressable>
       </Row>
-      </Pressable>
 
       <BoostBars />
 

@@ -104,6 +104,13 @@ export function leaguePrize(place: number, size: number, xp: number): number {
 }
 
 
+/**
+ * Social's world leaderboard (owner, 2026-10-09): everyone with XP, ranked by
+ * total XP of all time (it never resets). Social shows the top 3 and your
+ * place; opened, the top 50. Mirrors SQL get_world_board.
+ */
+export const WORLD_BOARD = { TOP: 50, PREVIEW: 3 } as const;
+
 /** "1st", "2nd", "3rd", "4th"... */
 export function ordinal(n: number): string {
   const s = n % 100 >= 11 && n % 100 <= 13 ? 'th' : (['th', 'st', 'nd', 'rd'][n % 10] ?? 'th');
@@ -235,6 +242,23 @@ export interface SocialView {
   friends: SocialCard[];
   incoming: SocialCard[];
   outgoing: SocialCard[];
+}
+
+/** One row of the world leaderboard: a place, who holds it, and their total XP. */
+export type WorldBoardRow = SocialCard & {
+  place: number;
+  totalXp: number;
+  you: boolean;
+  friend: boolean;
+};
+
+export interface WorldBoardView {
+  /** How many learners have XP (so a place). */
+  ranked: number;
+  /** The top places in order (WORLD_BOARD.TOP at most). Anyone blocked either way is left out, so places can skip. */
+  rows: WorldBoardRow[];
+  /** Your own row, wherever you are: no place before your first XP. */
+  you: Omit<WorldBoardRow, 'place'> & { place: number | null };
 }
 
 export interface LeagueView {

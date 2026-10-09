@@ -128,7 +128,16 @@ try {
   check(/Friend requests[\s\S]*@priya/.test(social), 'friend requests show at the top');
   await exactButton(page, 'Accept').click();
   await page.waitForTimeout(1000);
-  check(/This week with friends[\s\S]*@priya/.test(await bodyText(page)), 'accepting makes a friend, ranked by this week\'s XP with you');
+  // The world leaderboard is one small card (owner, 2026-10-09); it opens the top 50, all time.
+  const boardCard = page.getByRole('button', { name: /^World leaderboard: you're \d+\w\w of \d+ by total XP\. Open the top 50$/ });
+  check((await boardCard.count()) === 1 && !/@priya\s+Friend\b/.test(await bodyText(page)), 'Social shows the world leaderboard as one small card');
+  await boardCard.click();
+  await page.waitForTimeout(1000);
+  check(/@priya\s+Friend\b/.test(await bodyText(page)), 'accepting makes a friend, marked on the world leaderboard at their place');
+  const worldRows = await page.getByRole('button', { name: / XP\. Open the profile$/ }).count();
+  check(worldRows >= 3 && worldRows <= 50 && (await page.getByRole('button', { name: /^\d+\w\w: you, / }).count()) === 1, `the world leaderboard opened is the top 50 at most, with you among them (${worldRows})`);
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.waitForTimeout(800);
   const liked = async () => page.getByRole('button', { name: /^Liked/ }).count();
   const before = await liked();
   await page.getByRole('button', { name: /^Like(,|$)/ }).first().click();
@@ -229,8 +238,21 @@ try {
   await page.goBack();
   await page.waitForTimeout(1000);
   check(!/@noor/.test(await bodyText(page)), 'and nowhere on Social, the league banner included');
+  await page.getByRole('button', { name: /^World leaderboard:/ }).click();
+  await page.waitForTimeout(1000);
+  check(!/@noor/.test(await bodyText(page)), 'or on the world leaderboard');
+  await page.getByRole('button', { name: 'Back', exact: true }).click();
+  await page.waitForTimeout(800);
   await page.getByRole('tab', { name: /Profile/ }).click();
   await page.waitForTimeout(800);
+  // Beside the streak: your place on the world leaderboard, all time (owner, 2026-10-09).
+  const rankTile = page.getByRole('button', { name: /^World rank/ });
+  let rankLabel = '';
+  for (let i = 0; i < 20 && !/number \d+/.test(rankLabel); i++) {
+    rankLabel = (await rankTile.getAttribute('aria-label').catch(() => '')) ?? '';
+    if (!/number \d+/.test(rankLabel)) await page.waitForTimeout(200);
+  }
+  check(/^World rank: number \d+\. Open the world leaderboard$/.test(rankLabel), `Profile shows your world rank (${rankLabel})`);
   await exactButton(page, 'Settings').click();
   await page.waitForTimeout(800);
   check(/Blocked[\s\S]*@noor/i.test(await bodyText(page)), 'Settings lists who you blocked');
@@ -273,6 +295,13 @@ try {
   await page.goto(`${URL}skill/skill.science.astronomy`);
   await page.waitForTimeout(1500);
   check((await button(page, 'Start Level 2').count()) > 0 && errors.length === errorsBefore, `a deep link to a skill map opens it without page errors ${errors.slice(errorsBefore).join('; ')}`);
+  // A free learner's map has an Unlimited tile at the top of the tile column, left of the road (owner, 2026-10-09).
+  check((await button(page, 'Unlimited: ∞ Brainpower').count()) === 1, 'a free learner sees the Unlimited tile on the skill map');
+  await button(page, 'Unlimited: ∞ Brainpower').click();
+  await page.waitForTimeout(800);
+  check(/\/unlimited/.test(page.url()) && /Keep leveling today\./.test(await bodyText(page)), 'and the tile opens Unlimited');
+  await page.goBack();
+  await page.waitForTimeout(800);
 
   // Leaving a level partway: Dr. Scroll checks first, and the level starts over next time.
   await questMap(page);
@@ -336,6 +365,7 @@ try {
       await page.waitForTimeout(1000);
       check((await page.getByRole('button', { name: 'Unlimited Brainpower. Open' }).count()) === 1, 'with Unlimited, Brainpower is ∞ (beside the streak)');
       await questMap(page);
+      check((await button(page, 'Unlimited: ∞ Brainpower').count()) === 0, 'with Unlimited, the map has no Unlimited tile');
       await button(page, `Start Level ${n}`).click();
     } else {
       await button(page, `Next: Level ${n}`).click();

@@ -4,7 +4,7 @@ import { Toggle } from '@/components/FeedbackSettings';
 import { useProgress } from '@/progress/ProgressProvider';
 import { space } from '@/theme/tokens';
 
-const DETAIL = 'Only friends and people in your league see your levels, XP and trophies. Everyone else sees your username and avatar.';
+const DETAIL = 'Only friends and people in your league see your levels, XP and trophies on your profile. Everyone sees your username and avatar, and your total XP on the world leaderboard.';
 
 /**
  * Settings: Private profile (owner, 2026-10-03). Profiles are public by

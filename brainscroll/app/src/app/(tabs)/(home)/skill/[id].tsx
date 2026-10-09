@@ -12,6 +12,7 @@ import { useCurrentSkill } from '@/progress/useCurrentSkill';
 import { useStartLevel } from '@/progress/useStartLevel';
 import { color, layout, space, type } from '@/theme/tokens';
 import { QuestTile } from '@/components/QuestTile';
+import { UnlimitedTile } from '@/components/UnlimitedTile';
 import { featuredQuest, useQuests } from '@/progress/useQuests';
 
 /** Completions whose cleared level has already popped on a map, so it pops once, in view. */
@@ -28,7 +29,7 @@ export default function SkillMapScreen() {
   const v = useProgressView();
   const current = useCurrentSkill();
   const startLevel = useStartLevel();
-  // This week's quest, as a tile beside the road (QuestTile shows it only while live).
+  // This week's quest, as a tile down the left of the road (QuestTile shows it only while live).
   const quest = featuredQuest(useQuests().data);
   const scroll = useRef<ScrollView>(null);
   const [pathY, setPathY] = useState<number | null>(null);
@@ -180,7 +181,14 @@ export default function SkillMapScreen() {
               dailyComplete={today.dailyComplete}
               justCleared={justCleared}
               mascot={here}
-              aside={here && quest ? <QuestTile quest={quest} /> : undefined}
+              aside={
+                here ? (
+                  <>
+                    <UnlimitedTile />
+                    {quest && <QuestTile quest={quest} />}
+                  </>
+                ) : undefined
+              }
               teaser={false}
               onCurrent={here ? setStopY : undefined}
               onOpen={startLevel}

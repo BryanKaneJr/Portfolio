@@ -27,7 +27,7 @@ The client sends only what the server can't see, as a small allowlisted event se
 | `daily_complete_seen` | `used`, `cap` | How often learners run out of Brainpower (the Brainpower used up screen; `used` is that day's new levels, `cap` the Brainpower capacity, 10) |
 | `sign_in_started` / `sign_in_completed` | `method` (`apple`, `google`, `phone`, `email`) | Sign-in funnel: which methods learners pick and finish. Never the email or number itself |
 | `report_opened` | `object_type` | Report form usage |
-| `paywall_viewed` | `from` (`daily_complete`, `profile`) | How often Unlimited is seen, and from where |
+| `paywall_viewed` | `from` (`daily_complete`, `profile`, `map`) | How often Unlimited is seen, and from where |
 | `purchase_started` / `subscription_started` | `plan` (`monthly`, `annual`) | Plan chosen, and purchases that turned Unlimited on. Never prices, receipts or store ids |
 | `purchase_restored` | `found` | Restore purchases, and whether Unlimited came back |
 | `choose_for_me_started` | `skill_id`, `kind` (`new`, `resume`), `picks` | Starts from Choose For Me, and how many offers it took ("Pick again") |

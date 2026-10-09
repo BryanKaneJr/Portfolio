@@ -35,7 +35,7 @@ export default function UnlimitedScreen() {
   const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
-    track('paywall_viewed', { from: from === 'profile' ? 'profile' : 'daily_complete' });
+    track('paywall_viewed', { from: from === 'profile' || from === 'map' ? from : 'daily_complete' });
   }, [from]);
 
   useEffect(() => {
