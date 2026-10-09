@@ -53,7 +53,7 @@ Hard rules (from the plan, still in force):
 src/app/         index (home, both modes), results, ingredients (More options), selections, staples, settings,
                  pantry, pantry-results, recipe/[id], favorites, _layout (ReadyGate waits for storage restore)
 src/components/  Chip, Dropdown, IngredientBrowser (compact|full), UseAvoidToggle, SelectionSummary, RecipeCard
-src/data/        types, ingredients (113, with aliases), recipes (27 seed + imported/), collections, recipeBuilders,
+src/data/        types, ingredients (202, with aliases), recipes (27 seed + imported/), collections, recipeBuilders,
                  staples, popularity, labels, catalog
 src/logic/       matchRecipes (engine), pantry, sortRecipes, normalizeIngredient (search/aliases), validateContent,
                  units (US/metric display)
@@ -68,15 +68,16 @@ npm install
 npx expo start          # Expo Go on iPhone (same Wi-Fi), scan QR
 npm run check           # tsc + content validator + jest. Run before calling anything done
 npm run coverage-report # which common ingredient pairs/triples have no recipes
-npm run import:stage -- based-cooking   # / import:draft / import:catalog: see docs/recipe-import.md
+npm run import:stage -- based-cooking   # or nhlbi; then import:draft / import:catalog: see docs/recipe-import.md
+NODE_USE_ENV_PROXY=1 npm run import:fetch-nhlbi   # refetch the NHLBI snapshot (content/import/nhlbi/)
 ```
 Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned docs; `npx expo install` for native deps).
 
 ## Current status
 - Phases 0–4 of the plan done, plus the features above. Verified via Expo web export + Playwright at iPhone sizes;
   **never yet run on a physical iPhone**: do that early.
-- All 55 recipes are drafts marked "needs culinary review" (validator warns): 27 originals and 28 adapted from Based
-  Cooking (public domain). Coverage is still thin: 47% of common 2-ingredient picks find an exact match.
+- All 124 recipes are drafts marked "needs culinary review" (validator warns): 27 originals, 83 adapted from Based
+  Cooking and 14 from NHLBI (both public domain). 69% of common 2-ingredient picks find an exact match (21% of triples).
 - Bundle ID `com.cookwiththat.app` is a placeholder.
 
 ## Phase 5 so far: sources and import pipeline (2026-10-08)
@@ -91,17 +92,24 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
 - **Guards:** `validateContent` checks each origin's collection and license against `src/data/collections.ts` and
   rejects a second import of the same original. Tests fail on any TODO/NaN left in `src/data/imported/`, and on a
   step that uses a catalog ingredient the list leaves out (it would slip past Avoid).
-- **Batches:** 9 Based Cooking recipes on 2026-10-08, then 19 more on 2026-10-09 (mains, soups, sides and desserts),
-  which added 24 ingredients to the catalog. 55 recipes in all. Exact matches for common 2-ingredient pairs: 35% → 47%.
+- **Batches:** 9 Based Cooking recipes on 2026-10-08, 19 more on 2026-10-09, then a parallel run the same day: four
+  workers took alphabetical slices of Based Cooking (58 recipes) and one added **NHLBI** as a second source (14 recipes;
+  a source can now be a committed snapshot file, see `scripts/import/snapshot.ts`). 124 recipes, 202 ingredients.
+  Exact matches for common 2-ingredient pairs: 35% → 47% → 69%.
+- **Provenance is the real risk in Based Cooking.** Workers traced ~25 pages to commercial recipes (Food.com, Taste of
+  Home, HelloFresh, BBC Good Food, Dairy Farmers of Canada…). One contributor copied so often that all their pages are
+  excluded (`excludeAuthors`), and 3 earlier imports were removed. Some pages dropped an "adapted from" credit in a later
+  edit, so check the page's **git history**, not just the snapshot (a full clone of based.cooking does it). 58 pages are
+  excluded, each with its reason, in `scripts/import/sources/index.ts`.
 
 ## NEXT TASK
-1. **Keep importing Based Cooking** in batches of 15–20. The bottleneck is now reviewing ingredient wording, not the
-   catalog: 375 recipes wait on names nobody has reviewed. `docs/import-reports/based-cooking.md` lists them in the
-   order that unblocks the most recipes. Pick recipes that fill `npm run coverage-report` gaps (chicken/eggs/rice/
-   pasta/potato pairs, salads, sandwiches), and skip niche ones (drinks, preserves, cocktails). Realistic total yield:
-   about 60–120 good recipes. Skip anything whose wording reads like magazine copy (spatchcock-chicken was skipped).
-2. Next source: VA (nutrition.va.gov, ~275 PDFs; skip "Adapted from" ones) and NHLBI (~200–250), both public domain.
-   This needs a PDF reader in `scripts/import/sources/`. MyPlate.gov was retired in Jan 2026: archive only, ~20% federal.
-   Fill the rest with originals aimed at coverage gaps.
-3. Before release: an acknowledgements screen built from `RECIPE_COLLECTIONS` (not legally required for public
-   domain, but courteous), and culinary review of every recipe.
+1. **Culinary review** is now the biggest gap: 124 drafts, none cooked or checked. Release needs every recipe reviewed
+   (quantities, times, food safety). Consider a review checklist or a sign-off field per recipe.
+2. **More recipes, same way:** Based Cooking has 30 ready to draft and 264 waiting on ingredient-name review
+   (`docs/import-reports/based-cooking.md`); NHLBI has 40 more in its snapshot (`docs/import-reports/nhlbi.md`; the
+   worker's picks for next: turkey and beef meatballs, 20-minute chicken Creole). Parallel workers worked well: give
+   each a disjoint slice and merge their handoff files (recipes, map entries, catalog keys, excludes) one at a time.
+   Before importing a Based Cooking page, check its git history for removed credits.
+3. Next source: VA (nutrition.va.gov, ~275 PDFs; skip "Adapted from" ones), which needs a PDF reader.
+4. Before release: an acknowledgements screen built from `RECIPE_COLLECTIONS` (NHLBI asks for its credit line; Based
+   Cooking needs none). Optional: British ingredient names in metric mode (plain flour, courgette, coriander).

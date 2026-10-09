@@ -102,9 +102,9 @@ Conversion is display-only (`src/logic/units.ts`); recipes are still written in 
 - [x] Phase 3/4 — Find, Results (exact / close / narrowing / adjust), Recipe (step check-off), Favorites; last search + favorites persist locally
 - [ ] Phase 5 — grow to 30–50 → 120–150 → 250–350 **human-verified** recipes
   - [x] Source review (`docs/recipe-sources.md`) and import pipeline (`docs/recipe-import.md`)
-  - [x] 28 recipes adapted from Based Cooking (public domain) in two batches, 55 in all
-  - [x] Imports grow the ingredient catalog as recipes need it (89 → 113 ingredients)
-  - [ ] Review more ingredient wording to unblock the rest (the import report ranks it)
+  - [x] 83 recipes adapted from Based Cooking and 14 from NHLBI (both public domain), 124 in all
+  - [x] Imports grow the ingredient catalog as recipes need it (89 → 202 ingredients)
+  - [ ] Culinary review of every recipe; more imports (the import reports rank what's next)
 - [ ] Phase 6 — polish & accessibility pass on a real iPhone (VoiceOver, large text)
 - [ ] Phase 7 — TestFlight, App Store listing, paid-app setup
 
