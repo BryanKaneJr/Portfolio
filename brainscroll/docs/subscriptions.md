@@ -26,6 +26,7 @@ sync-entitlement (Edge Function) ──asks──▶ RevenueCat REST API        
 ## Where the learner meets it
 
 - **Brainpower used up** (formerly Daily Knowledge Complete): after the ways to earn more Brainpower, a quiet Unlimited card ("∞ Brainpower: keep leveling today") opens the Unlimited screen. It never interrupts a lesson.
+- **The Brainpower screen** (tap the brain): a Buy Unlimited button under the daily refill and the most you can hold (owner, 2026-10-10).
 - **Profile → Settings → Plan**: the learner's own way in, and the plan's status once it's on.
 - **The Unlimited screen** (`app/src/app/unlimited.tsx`) says what stays free, shows the two plans with the store's localized prices, and carries restore, manage, the auto-renewal terms and the Terms / Privacy links the App Store requires.
 

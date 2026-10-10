@@ -463,6 +463,12 @@ try {
   await page.waitForTimeout(800);
   const bpScreen = await bodyText(page);
   check(/of 10 Brainpower/.test(bpScreen) && /Earn more/i.test(bpScreen) && /refill to 5/.test(bpScreen), 'tapping the brain opens Brainpower: the balance, the refill and how to earn more');
+  // Owner, 2026-10-10: "I want a Buy Unlimited button on it".
+  await exactButton(page, 'Buy Unlimited').click();
+  await page.waitForTimeout(800);
+  check(/\/unlimited/.test(page.url()) && /Keep leveling today\./.test(await bodyText(page)), 'and its Buy Unlimited button opens Unlimited');
+  await page.goBack();
+  await page.waitForTimeout(800);
   await exactButton(page, 'Close').click();
   await page.waitForTimeout(500);
   await page.getByRole('tab', { name: /Profile/ }).click();
