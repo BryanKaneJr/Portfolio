@@ -318,7 +318,9 @@ export function ChapterHeader({ skillId, chapter }: { skillId: string; chapter: 
       style={[styles.banner, { backgroundColor: tint.base, borderBottomColor: tint.edge }]}>
       <View style={{ flex: 1, gap: space.xxs }}>
         <Eyebrow style={{ color: tint.ink, opacity: 0.8 }}>{`Chapter ${chapter.number}`}</Eyebrow>
-        <Title numberOfLines={1} adjustsFontSizeToFit style={{ color: tint.ink }}>
+        {/* A fixed size: iOS drew an auto-shrunk title tiny on a map's first open, until it scrolled (owner, 2026-10-10).
+            Nunito Bold 18 fits 32 characters on the narrowest phones (375 pt); the two longer titles get 17. */}
+        <Title numberOfLines={1} style={{ color: tint.ink, ...(chapter.title.length > 32 ? { fontSize: 17 } : null) }}>
           {chapter.title}
         </Title>
       </View>
