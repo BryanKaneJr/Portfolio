@@ -5,6 +5,7 @@ Concise record of completed work. Newest first. Product rules live in `docs/spec
 
 ## 2026-10-10: Weekly Quests scheduled; instant updates fit
 
+- **The map's Start callout no longer covers the Unlimited tile** (owner: "the unlimited square box is being overtaken by the level box"): the fixed-width callout over a chapter's first level was centred on it, so it ran into the tiles' column (worse on smaller phones). Level with the tiles, it now starts just right of them, its tail still pointing at the level.
 - **Instant updates fit again:** the first `npm run app:update` was refused (EAS takes at most 1,000 files per update, and the app had 1,046). Level art now ships four images to a file: `npm run art:sync` packs `app/assets/images/art/` into sheets in `art-sheets/` (an image keeps its sheet from run to run, so new art adds sheets and leaves the rest alone) and `LevelArt` shows one cell. The app loads only its five Nunito weights instead of all 16. That's 466 files on iOS and 470 on Android, with room for some 2,000 more images; every picture was checked against its original (no visible change). `app:update` now counts the files before uploading and stops with a plain message if a platform is over.
 - **All 52 Weekly Quests have dates** (owner: "let's just include them", one week each): The Roman World from Monday 12 October 2026, then one quest a week through October 2027 (`content/quests.json`), so a quest is live through App Store review and from launch on. The store listing's Weekly Quests section goes in.
 

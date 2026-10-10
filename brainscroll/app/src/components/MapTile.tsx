@@ -9,6 +9,8 @@ import { color, depth, fw, radius, space } from '@/theme/tokens';
  */
 /** The picture's size in a tile (owner, 2026-10-09: "a slight hair smaller"). */
 export const MAP_TILE_ART = 52;
+/** A tile's width; the map's Start callout keeps clear of the column (LevelPath). */
+export const MAP_TILE_WIDTH = 76;
 
 export function MapTile({ art, band, done, label, onPress }: { art: ReactNode; band: string; done?: boolean; label: string; onPress: () => void }) {
   return (
@@ -29,7 +31,7 @@ export function MapTile({ art, band, done, label, onPress }: { art: ReactNode; b
 
 const styles = StyleSheet.create({
   tile: {
-    width: 76,
+    width: MAP_TILE_WIDTH,
     borderRadius: radius.md,
     backgroundColor: color.surfaceRaised,
     borderWidth: depth.border,

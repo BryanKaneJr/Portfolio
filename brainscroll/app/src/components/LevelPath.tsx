@@ -1,5 +1,6 @@
 import { CHEST, chestKey, dayNumber, mapGuidePose, mapRestPose, MASTERY_BAND_SIZE, RECAP_OPENING } from '@brainscroll/core';
 import { ChestArt } from '@/components/cosmetics';
+import { MAP_TILE_WIDTH } from '@/components/MapTile';
 import { useEffect, useId, useState } from 'react';
 import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { ClipPath, Defs, Path, Polygon } from 'react-native-svg';
@@ -103,6 +104,8 @@ export function LevelPath({
   onChest?: (chapter: number) => void;
 }) {
   const [width, setWidth] = useState(340);
+  // The tiles' column (Unlimited, the quest): until it's measured, as tall as the map, so the callout starts clear of it.
+  const [asideBox, setAsideBox] = useState<{ width: number; height: number }>({ width: MAP_TILE_WIDTH, height: Infinity });
   // The skill's subject colour (theme/subjectTheme.ts).
   const tint = skillTint(skillId, skills);
   const subjectId = skills.find((s) => s.id === skillId)?.subjectId;
@@ -181,7 +184,11 @@ export function LevelPath({
             />
           );
         })}
-        {aside && <View style={{ position: 'absolute', left: 0, top: 0, gap: space.sm }}>{aside}</View>}
+        {aside && (
+          <View onLayout={(e) => setAsideBox(e.nativeEvent.layout)} style={{ position: 'absolute', left: 0, top: 0, gap: space.sm }}>
+            {aside}
+          </View>
+        )}
         {mascot && points[6] && (
           // Big beside the road, like a character in the scene (owner, 2026-10-01).
           <DrScroll spot="home.path" pose={mapGuidePose(skillId, dayNumber(new Date(), Intl.DateTimeFormat().resolvedOptions().timeZone))} size="lg" style={{ position: 'absolute', left: Math.min(width * POCKETS[1].x - 84, width - 168), top: points[6].y - 96 }} />
@@ -221,6 +228,7 @@ export function LevelPath({
                   x={x}
                   bottom={y - size / 2 - 14}
                   width={width}
+                  clear={aside ? asideBox : undefined}
                 />
               )}
               <View style={{ position: 'absolute', left: x - size / 2, top: y - size / 2 }}>
@@ -487,16 +495,19 @@ function Floating({ art, fogged, phase, style }: { art: string; fogged: boolean;
 }
 
 /** The bouncing "Start" callout above the next level, with its title. */
-function StartBubble({ label, title, x, bottom, width, tint }: { label: string; title: string; x: number; bottom: number; width: number; tint: SubjectTint }) {
+function StartBubble({ label, title, x, bottom, width, tint, clear }: { label: string; title: string; x: number; bottom: number; width: number; tint: SubjectTint; clear?: { width: number; height: number } }) {
   const bob = useLoop(950, { easing: ease.sway });
   const w = 210;
-  const left = Math.min(Math.max(x - w / 2, 0), width - w);
+  const top = bottom - 64;
+  // Beside the tiles in the map's top-left corner, not over them (owner, 2026-10-10): its tail still points at the level.
+  const min = clear && top < clear.height ? clear.width + space.sm : 0;
+  const left = Math.min(Math.max(x - w / 2, min), width - w);
   return (
     <Animated.View
       importantForAccessibility="no-hide-descendants"
       accessibilityElementsHidden
       aria-hidden
-      style={[styles.bubble, { width: w, left, bottom: undefined, top: bottom - 64, transform: [{ translateY: bob.interpolate({ inputRange: [0, 1], outputRange: [0, -6] }) }] }]}>
+      style={[styles.bubble, { width: w, left, bottom: undefined, top, transform: [{ translateY: bob.interpolate({ inputRange: [0, 1], outputRange: [0, -6] }) }] }]}>
       {/* A fixed-width callout at a fixed height above its waypoint: text grows a little, never out of the bubble. */}
       <Text maxFontSizeMultiplier={1.3} style={[type.label, { color: tint.text, textAlign: 'center' }]}>
         {label}
