@@ -2,7 +2,7 @@
 // sign-in before anything (phone, email, Google OAuth), server-graded
 // completion, exactly-once XP, live content revisions, server-side
 // Brainpower, review, progress that survives a reinstall, and account deletion.
-import { questMap, CHAPTER_REVIEW_MAX, CURVE, REVIEW_XP, answerStep, bodyText, button, check, checkButton, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, sql, sqlUntil, URL, coldLoad } from './helpers.mjs';
+import { questMap, CHAPTER_REVIEW_MAX, CURVE, REVIEW_XP, answerStep, bodyText, settledText, button, check, checkButton, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, sql, sqlUntil, URL, coldLoad } from './helpers.mjs';
 
 const { browser, page, errors } = await launch();
 // Every level bundle the app receives must be free of answer keys, and review
@@ -18,6 +18,9 @@ const openQuest = async (title) => {
   await button(page, `This week's quest: ${title}`).click();
   await page.waitForTimeout(1000);
 };
+// The real quest schedule is in the imported content: unschedule it, so no live quest's Brainpower
+// lands mid-run. The quest section below gives two quests their weeks.
+sql(`update public.quests set starts_at = null, ends_at = null where starts_at is not null`);
 try {
   await home(page);
   const first = await bodyText(page);
@@ -171,7 +174,7 @@ try {
   await checkButton(page).waitFor({ timeout: 10_000 });
   check(true, 'the review session loads questions from the server');
   const corrected = await playReview(page);
-  const reviewXp = (await bodyText(page)).match(/\+(\d+) XP/)?.[1];
+  const reviewXp = (await settledText(page)).match(/\+(\d+) XP/)?.[1];
   check(Number(sql('select sum(seen_count) from public.user_concept_mastery')) > seenBefore, 'review answers update mastery on the server');
   const firstRight = Number(sql('select count(*) from public.user_review_attempts where first_attempt_correct'));
   check(reviewXp === sql(`select coalesce(sum(amount), 0) from public.xp_events where type = 'DELAYED_RECALL'`) && Number(reviewXp) === REVIEW_XP * firstRight,
@@ -185,7 +188,7 @@ try {
 
   // Weekly Quests: this week's quest from the real catalog, its 25 levels seeded as done (0 XP, so totals stay honest),
   // then the Final Round and the trophy through the UI.
-  // Quests ship unscheduled (TBD): give one this week and one last week.
+  // Unscheduled above: give one this week and one last week.
   sql(`update public.quests set starts_at = (date_trunc('week', now() at time zone 'UTC') - interval '7 days') at time zone 'UTC',
          ends_at = date_trunc('week', now() at time zone 'UTC') at time zone 'UTC' where id = 'quest.how_we_think'`);
   sql(`update public.quests set starts_at = date_trunc('week', now() at time zone 'UTC') at time zone 'UTC',
@@ -257,7 +260,7 @@ try {
   await page.getByRole('button', { name: /^Review Ancient Rome, Chapter 1:/ }).click();
   await checkButton(page).waitFor({ timeout: 10_000 });
   await playReview(page);
-  const ct = await bodyText(page);
+  const ct = await settledText(page);
   const [, cright, ctotal] = ct.match(/(\d+) \/ (\d+) right first time/) ?? [];
   const cxp = ct.match(/\+(\d+) XP[\s\S]*?\d+ \/ \d+ right first time/)?.[1] ?? '0';
   check(/Chapter review complete/i.test(ct) && ctotal === '10' && Number(cxp) === Math.round((CHAPTER_REVIEW_MAX * Number(cright)) / 10) && /counts toward a Weekly Quest/.test(ct),

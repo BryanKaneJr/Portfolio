@@ -3,6 +3,10 @@
 Concise record of completed work. Newest first. Product rules live in `docs/specs/` (`CURRENT_PRODUCT_DECISIONS.md` wins over older wording).
 
 
+## 2026-10-10: Weekly Quests scheduled
+
+- **All 52 Weekly Quests have dates** (owner: "let's just include them", one week each): The Roman World from Monday 12 October 2026, then one quest a week through October 2027 (`content/quests.json`), so a quest is live through App Store review and from launch on. The store listing's Weekly Quests section goes in.
+
 ## 2026-10-09: First TestFlight fixes
 
 - **New tabs: Practice · Leagues · Home · Social · Profile** (owner: "moving leagues and quests to their own tab", and the Skills tab "kind of is redundant because of the home tab"). **Practice** is Review and Skills in one: what's ready to review, then your skills (the ones you're leveling, highest first; starting a new one is Home's), then chapters to go back over. **Leagues** has last week's note, your league's standings right on the tab (no banner to tap), this week's quest as a card (with the Archive once a week has passed) and the world leaderboard card. **Social** is the people: friend requests, Dr. Scroll and the feed. The tab bar is icons only, bigger, with no words under them (owner: "the icons are informative enough"; screen readers still hear each tab's name): with the owner's new tab set: a house for Home, a medal for Leagues, clinking mugs for Social and a new profile figure (Practice keeps its review cards; `ui/tab-*.webp`, 256 px from the owner's 1024 px art). `/league` is now the tab, so league push notifications still land there; the quest screens moved out of Home's stack so they open over any tab.
