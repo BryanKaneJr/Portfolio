@@ -57,7 +57,7 @@ Store and TestFlight builds check for an update each time they open (`expo-updat
 npm run app:update -- "Fix the order question drag"
 ```
 
-It bundles with the store build's values from `eas.json`, checks the bundle talks to Supabase, and publishes. A phone downloads it the next time the app opens and runs it the time after (close and reopen twice to see it at once). Never run a plain `eas update`: it bundles without the `eas.json` values and would send every phone the offline test harness.
+It bundles with the store build's values from `eas.json`, checks the bundle talks to Supabase and has at most 1,000 files per platform (EAS's limit for one update; level art ships four images to a file for this), and publishes. A phone downloads it the next time the app opens and runs it the time after (close and reopen twice to see it at once). Never run a plain `eas update`: it bundles without the `eas.json` values and would send every phone the offline test harness.
 
 - **What needs a build instead:** a new native package, a config plugin, or a change to `app/app.json` or `app/app.config.ts`. Raise `version` in `app/app.json` first (1.0.0 to 1.0.1): the runtime version follows it, so phones on an older build never get code they can't run.
 - **Apple's rule:** updates may fix bugs and improve the app; a change to what the app is goes through review.

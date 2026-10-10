@@ -655,7 +655,7 @@ And from the shared table: `chem.molecule`, `chem.crystal`.
 Every level already knows its image: the `art` field on each level and syllabus entry is the image ID from this list (all 1,600 levels are filled in).
 
 1. Save the finished image as `app/assets/images/art/<image ID>.png` (or `.webp`), e.g. `astronomy.mars.png`. Transparent background, 1024 × 1024.
-2. Run `npm run art:sync` from `brainscroll/`. It regenerates the app's image registry; `npm run check` fails if you forget.
+2. Run `npm run art:sync` from `brainscroll/`. It packs new or changed images four to a sheet in `app/assets/images/art-sheets/` and regenerates the app's image registry; `npm run check` fails if you forget. (Sheets, because an instant update carries at most 1,000 files. Images keep their sheet from run to run, so new art adds sheets and leaves the rest alone.)
 3. That's it: every level using that ID shows it at the top of the lesson and on Home's "Continue learning" card. Levels whose image isn't made yet simply show none.
 
 Dr. Scroll's images are wired separately; see [`mascot.md`](mascot.md), "Spots".
