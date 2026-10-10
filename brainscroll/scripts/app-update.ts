@@ -65,6 +65,17 @@ for (const platform of ['ios', 'android']) {
   }
 }
 console.log('Checked: both bundles carry the store build\'s Supabase settings.');
+
+// EAS refuses an update of more than 1,000 files per platform, after uploading the bundles.
+const EAS_ASSET_LIMIT = 1000;
+const meta = JSON.parse(readFileSync(join(dist, 'metadata.json'), 'utf8')) as { fileMetadata: Record<string, { assets: unknown[] }> };
+const counts = Object.entries(meta.fileMetadata).map(([platform, m]) => [platform, m.assets.length] as const);
+console.log(`Files: ${counts.map(([p, n]) => `${p} ${n}`).join(', ')} (EAS takes up to ${EAS_ASSET_LIMIT} each).`);
+const over = counts.filter(([, n]) => n > EAS_ASSET_LIMIT);
+if (over.length) {
+  console.error(`Too many files for one update (${over.map(([p, n]) => `${p} ${n}`).join(', ')}); nothing was published. Level art goes through npm run art:sync, four images to a file; look for other new images or fonts.`);
+  process.exit(1);
+}
 if (dryRun) process.exit(0);
 
 // npm sets npm_execpath to npm-cli.js; npx-cli.js sits beside it.
