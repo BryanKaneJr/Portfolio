@@ -8,19 +8,25 @@ import { ProgressBar } from './progress';
 import { Eyebrow, H1 } from './text';
 
 /** Tab screens: safe area, gutters, generous vertical rhythm, centered on wide screens. */
-export function Screen({ children, tone = 'default', scrollRef, header, topColor, onScroll }: {
+export function Screen({ children, tone = 'default', scrollRef, header, overlay, topColor, onScroll }: {
   children: ReactNode;
   tone?: 'default' | 'reward';
   scrollRef?: Ref<ScrollView>;
   /** Pinned above the scrolling content, so it's always in view. */
   header?: ReactNode;
   /**
+   * Pinned over the top of the scrolling content, in its column, as the
+   * content scrolls underneath (the skill map's tiles). Taps elsewhere reach
+   * the content.
+   */
+  overlay?: ReactNode;
+  /**
    * For a screen whose content opens on a band of colour (Profile's header):
    * the same colour fills the status bar and island area above it, and what
    * a pull-down reveals, so the band reaches the very top of the phone.
    */
   topColor?: string;
-  /** How far the content has scrolled, a few times a second (the skill map draws chapters as they come near). */
+  /** How far the content has scrolled, every frame or so (the skill map draws chapters as they come near, and names the one at the top). */
   onScroll?: (y: number) => void;
 }) {
   const bg = tone === 'reward' ? color.bgDeep : color.bg;
@@ -31,15 +37,24 @@ export function Screen({ children, tone = 'default', scrollRef, header, topColor
           <View style={[styles.column, { gap: space.md }]}>{header}</View>
         </View>
       )}
-      <ScrollView
-        ref={scrollRef}
-        style={topColor ? { backgroundColor: bg } : undefined}
-        contentContainerStyle={styles.scroll}
-        onScroll={onScroll ? (e) => onScroll(e.nativeEvent.contentOffset.y) : undefined}
-        scrollEventThrottle={onScroll ? 100 : undefined}>
-        {topColor && <View pointerEvents="none" style={[styles.overscroll, { backgroundColor: topColor }]} />}
-        <View style={styles.column}>{children}</View>
-      </ScrollView>
+      <View style={{ flex: 1 }}>
+        <ScrollView
+          ref={scrollRef}
+          style={topColor ? { backgroundColor: bg } : undefined}
+          contentContainerStyle={styles.scroll}
+          onScroll={onScroll ? (e) => onScroll(e.nativeEvent.contentOffset.y) : undefined}
+          scrollEventThrottle={onScroll ? 16 : undefined}>
+          {topColor && <View pointerEvents="none" style={[styles.overscroll, { backgroundColor: topColor }]} />}
+          <View style={styles.column}>{children}</View>
+        </ScrollView>
+        {overlay && (
+          <View pointerEvents="box-none" style={[StyleSheet.absoluteFill, styles.overlay]}>
+            <View pointerEvents="box-none" style={styles.column}>
+              {overlay}
+            </View>
+          </View>
+        )}
+      </View>
     </SafeAreaView>
   );
 }
@@ -204,6 +219,8 @@ const styles = StyleSheet.create({
   overscroll: { position: 'absolute', left: 0, right: 0, top: -1000, height: 1000 },
   scroll: { paddingHorizontal: layout.gutter, paddingTop: space.lg, paddingBottom: space.xxxl },
   column: { width: '100%', maxWidth: layout.readingWidth, alignSelf: 'center', gap: space.lg },
+  // Lined up with the scroll's own padding, so the overlay starts where the content does.
+  overlay: { paddingHorizontal: layout.gutter, paddingTop: space.lg },
   header: { flexDirection: 'row', alignItems: 'flex-end', gap: space.md, marginBottom: space.xs },
   topBar: { flexDirection: 'row', alignItems: 'center', gap: space.sm, paddingHorizontal: space.sm, height: layout.topBarHeight },
   lessonScroll: { paddingHorizontal: layout.gutter, paddingTop: space.xl, paddingBottom: space.xxl },

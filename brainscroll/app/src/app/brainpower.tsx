@@ -12,6 +12,7 @@ import { color, layout, space } from '@/theme/tokens';
  * Brainpower, opened from the brain on the World Map: the balance big on
  * the brain, what it's for, when it refills and how to earn more. Built like
  * the streak screen. One meaning: Brainpower lets you learn something new.
+ * Free learners get a Buy Unlimited button under the refill and the cap.
  */
 export default function BrainpowerScreen() {
   const { today } = useProgressView();
@@ -37,7 +38,7 @@ export default function BrainpowerScreen() {
           {unlimited
             ? 'Learn as many new levels as you like.'
             : n > 0
-              ? `Each new level uses 1. Reviews, replays and wrong answers never do.`
+              ? 'Each new level uses 1.'
               : 'You’re out for now. Earn more below, or come back tomorrow.'}
         </Body>
         {!unlimited && (
@@ -46,6 +47,8 @@ export default function BrainpowerScreen() {
               <StatTile label="Daily refill" value={`${today.brainpowerRefill}`} tone="brand" />
               <StatTile label="Most you can hold" value={`${today.brainpowerMax}`} />
             </Row>
+            {/* Unlimited, right under what the free amounts are (owner, 2026-10-10: "a Buy Unlimited button"). */}
+            <Button label="Buy Unlimited" style={{ alignSelf: 'stretch' }} onPress={() => router.push({ pathname: '/unlimited', params: { from: 'brainpower' } })} />
             <Card variant="quiet" style={{ alignSelf: 'stretch', gap: space.md }}>
               <Eyebrow tone="brand">Earn more</Eyebrow>
               <BrainpowerWays />
@@ -58,11 +61,6 @@ export default function BrainpowerScreen() {
           </>
         )}
       </ScrollView>
-      {!unlimited && n === 0 && (
-        <View style={{ padding: layout.gutter }}>
-          <Button variant="secondary" label="See Unlimited" onPress={() => router.push({ pathname: '/unlimited', params: { from: 'brainpower' } })} />
-        </View>
-      )}
     </SafeAreaView>
   );
 }

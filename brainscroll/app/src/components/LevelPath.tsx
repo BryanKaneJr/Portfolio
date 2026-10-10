@@ -1,10 +1,9 @@
-import { CHEST, chestKey, dayNumber, mapGuidePose, mapRestPose, MASTERY_BAND_SIZE, RECAP_OPENING } from '@brainscroll/core';
+import { CHEST, chestKey, dayNumber, mapGuidePose, mapRestPose, MASTERY_BAND_SIZE } from '@brainscroll/core';
 import { ChestArt } from '@/components/cosmetics';
-import { MAP_TILE_WIDTH } from '@/components/MapTile';
 import { useEffect, useId, useState } from 'react';
 import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { ClipPath, Defs, Path, Polygon } from 'react-native-svg';
-import { Caption, DrScroll, Eyebrow, Gleams, Icon, type IconName, LevelArt, Title, ease, useLoop, usePop } from '@/components/ui';
+import { DrScroll, Eyebrow, Gleams, Icon, type IconName, LevelArt, Title, ease, useLoop, usePop } from '@/components/ui';
 import { chapterFor, levelByNumber, skills, type Chapter } from '@/content';
 import { sceneryArt } from '@/content/scenery';
 import { skillTint, type SubjectTint } from '@/theme/subjectTheme';
@@ -65,7 +64,7 @@ export function LevelPath({
   teaser = true,
   onCurrent,
   onOpen,
-  aside,
+  inset = 0,
   live = true,
   chestsOpened,
   onChest,
@@ -88,13 +87,13 @@ export function LevelPath({
   onCurrent?: (y: number) => void;
   onOpen: (levelId: string) => void;
   /**
-   * Tiles stacked down the left of the map, right under the chapter banner
-   * (Unlimited, then this week's quest; owner, 2026-10-09). A tile that
-   * renders nothing takes no room.
+   * Room kept clear down the map's left edge, for the tiles pinned there as it
+   * scrolls (Unlimited, this week's quest: the skill screen's overlay). The
+   * road, its pictures and the Start callout all stay right of it.
    */
-  aside?: React.ReactNode;
+  inset?: number;
   /**
-   * False draws only the banner and an empty map of the right height (a
+   * False draws only an empty map of the right height (a
    * chapter far off screen): the waypoints, road, art and Dr. Scroll are most
    * of the skill map's cost, so they come in as a chapter nears the screen.
    */
@@ -104,8 +103,9 @@ export function LevelPath({
   onChest?: (chapter: number) => void;
 }) {
   const [width, setWidth] = useState(340);
-  // The tiles' column (Unlimited, the quest): until it's measured, as tall as the map, so the callout starts clear of it.
-  const [asideBox, setAsideBox] = useState<{ width: number; height: number }>({ width: MAP_TILE_WIDTH, height: Infinity });
+  // Everything on the map lays out in the room right of the inset.
+  const room0 = width - inset;
+  const across = (share: number) => inset + room0 * share;
   // The skill's subject colour (theme/subjectTheme.ts).
   const tint = skillTint(skillId, skills);
   const subjectId = skills.find((s) => s.id === skillId)?.subjectId;
@@ -122,7 +122,7 @@ export function LevelPath({
   const current = numbers.findIndex((n) => stateOf(n) === 'current');
   const room = (i: number) => (current > 0 && i >= current ? CALLOUT : 0);
   const top = current === 0 ? TOP : TOP_PLAIN;
-  const points = numbers.map((_, i) => ({ x: width / 2 + SWAY[i % SWAY.length]!, y: top + i * ROW + ROW / 2 + room(i) }));
+  const points = numbers.map((_, i) => ({ x: across(0.5) + SWAY[i % SWAY.length]!, y: top + i * ROW + ROW / 2 + room(i) }));
   const height = top + numbers.length * ROW + space.xl + room(numbers.length - 1);
   const [mapY, setMapY] = useState<number | null>(null);
   const currentY = current >= 0 ? points[current]!.y : null;
@@ -149,8 +149,6 @@ export function LevelPath({
 
   return (
     <View style={{ gap: space.lg }}>
-      <ChapterBanner chapter={chapter} first={first} last={last} level={level} tint={tint} />
-
       <View
         style={{ height }}
         onLayout={(e) => {
@@ -180,22 +178,17 @@ export function LevelPath({
               art={art}
               fogged={stateOf(n!) === 'locked'}
               phase={pocket.index}
-              style={{ left: width * pocket.x - SCENERY / 2, top: at.y - SCENERY / 2 }}
+              style={{ left: across(pocket.x) - SCENERY / 2, top: at.y - SCENERY / 2 }}
             />
           );
         })}
-        {aside && (
-          <View onLayout={(e) => setAsideBox(e.nativeEvent.layout)} style={{ position: 'absolute', left: 0, top: 0, gap: space.sm }}>
-            {aside}
-          </View>
-        )}
         {mascot && points[6] && (
           // Big beside the road, like a character in the scene (owner, 2026-10-01).
-          <DrScroll spot="home.path" pose={mapGuidePose(skillId, dayNumber(new Date(), Intl.DateTimeFormat().resolvedOptions().timeZone))} size="lg" style={{ position: 'absolute', left: Math.min(width * POCKETS[1].x - 84, width - 168), top: points[6].y - 96 }} />
+          <DrScroll spot="home.path" pose={mapGuidePose(skillId, dayNumber(new Date(), Intl.DateTimeFormat().resolvedOptions().timeZone))} size="lg" style={{ position: 'absolute', left: Math.min(across(POCKETS[1].x) - 84, width - 168), top: points[6].y - 96 }} />
         )}
         {restPose && points[6] && (
           // A finished chapter: he stayed behind, goofing off by the road.
-          <DrScroll spot="map.rest" pose={restPose} size="lg" style={{ position: 'absolute', left: Math.min(width * POCKETS[1].x - 84, width - 168), top: points[6].y - 96 }} />
+          <DrScroll spot="map.rest" pose={restPose} size="lg" style={{ position: 'absolute', left: Math.min(across(POCKETS[1].x) - 84, width - 168), top: points[6].y - 96 }} />
         )}
 
         {chestState && (
@@ -228,7 +221,7 @@ export function LevelPath({
                   x={x}
                   bottom={y - size / 2 - 14}
                   width={width}
-                  clear={aside ? asideBox : undefined}
+                  inset={inset}
                 />
               )}
               <View style={{ position: 'absolute', left: x - size / 2, top: y - size / 2 }}>
@@ -309,36 +302,45 @@ function MapChest({ state, x, y, label, onPress }: { state: 'locked' | 'ready' |
 }
 
 /**
- * The chapter's banner: which chapter, which levels, its title, and one line
- * of what it means (the first line of its checkpoint recap). A solid slab in
- * the subject's colour with a chunky edge (owner, 2026-10-01: big blocks of
- * colour, like a unit header), ink chosen for contrast on it.
+ * The chapter header pinned under the skill map's top bar (owner, 2026-10-10:
+ * like Duolingo's unit header): it names the chapter at the top of the map
+ * and turns into the next one as that chapter scrolls up to it. Just the
+ * chapter and its title, in a slab of the subject's colour with a chunky
+ * edge, ink chosen for contrast; one line, so it never changes height.
  */
-function ChapterBanner({ chapter, first, last, level, tint }: { chapter?: Chapter; first?: number; last?: number; level: number; tint: SubjectTint }) {
-  const lo = first ?? chapter?.levels[0] ?? 1;
-  const hi = last ?? chapter?.levels[1] ?? lo + 9;
-  const meaning = chapter?.learned?.[0];
+export function ChapterHeader({ skillId, chapter }: { skillId: string; chapter: Chapter }) {
+  const tint = skillTint(skillId, skills);
   return (
-    <View style={[styles.banner, { backgroundColor: tint.base, borderBottomColor: tint.edge }]}>
-      <View style={[styles.bannerIcon, { backgroundColor: tint.ink === '#FFFFFF' ? 'rgba(255,255,255,0.18)' : 'rgba(13,23,27,0.12)' }]}>
-        <Icon name="map" tint={tint.ink} size={iconSize.lg} />
-      </View>
+    <View
+      accessible
+      accessibilityRole="header"
+      accessibilityLabel={`Chapter ${chapter.number}: ${chapter.title}`}
+      style={[styles.banner, { backgroundColor: tint.base, borderBottomColor: tint.edge }]}>
       <View style={{ flex: 1, gap: space.xxs }}>
-        <Eyebrow style={{ color: tint.ink, opacity: 0.8 }}>
-          Chapter {chapter?.number ?? Math.ceil(lo / 10)} · Levels {lo}–{hi}
-        </Eyebrow>
-        {chapter && <Title style={{ color: tint.ink }}>{chapter.title}</Title>}
-        {meaning && <Caption style={{ color: tint.ink, opacity: 0.85 }}>{knows(meaning, level >= hi, hi)}</Caption>}
+        <Eyebrow style={{ color: tint.ink, opacity: 0.8 }}>{`Chapter ${chapter.number}`}</Eyebrow>
+        <Title numberOfLines={1} adjustsFontSizeToFit style={{ color: tint.ink }}>
+          {chapter.title}
+        </Title>
       </View>
     </View>
   );
 }
 
-/** "You know how …" / "By Level 20, you'll know why …" from a recap line that opens with How, Why, What… */
-function knows(line: string, cleared: boolean, by: number) {
-  const phrase = RECAP_OPENING.test(line) ? line.charAt(0).toLowerCase() + line.slice(1) : null;
-  if (cleared) return phrase ? `You know ${phrase}` : `You know: ${line}`;
-  return phrase ? `By Level ${by}, you'll know ${phrase}` : `By Level ${by}: ${line}`;
+/** Where a chapter begins on the map: its title between two rules, right of the pinned tiles. */
+export function ChapterDivider({ chapter, inset = 0 }: { chapter: Chapter; inset?: number }) {
+  return (
+    <View
+      accessible
+      accessibilityRole="header"
+      accessibilityLabel={`Chapter ${chapter.number}: ${chapter.title}`}
+      style={[styles.divider, { marginLeft: inset }]}>
+      <View style={styles.rule} />
+      <Text maxFontSizeMultiplier={1.3} numberOfLines={1} style={[type.bodyStrong, { color: color.textMuted, flexShrink: 1 }]}>
+        {chapter.title}
+      </Text>
+      <View style={styles.rule} />
+    </View>
+  );
 }
 
 /**
@@ -495,13 +497,12 @@ function Floating({ art, fogged, phase, style }: { art: string; fogged: boolean;
 }
 
 /** The bouncing "Start" callout above the next level, with its title. */
-function StartBubble({ label, title, x, bottom, width, tint, clear }: { label: string; title: string; x: number; bottom: number; width: number; tint: SubjectTint; clear?: { width: number; height: number } }) {
+function StartBubble({ label, title, x, bottom, width, tint, inset }: { label: string; title: string; x: number; bottom: number; width: number; tint: SubjectTint; inset: number }) {
   const bob = useLoop(950, { easing: ease.sway });
   const w = 210;
   const top = bottom - 64;
-  // Beside the tiles in the map's top-left corner, not over them (owner, 2026-10-10): its tail still points at the level.
-  const min = clear && top < clear.height ? clear.width + space.sm : 0;
-  const left = Math.min(Math.max(x - w / 2, min), width - w);
+  // Right of the pinned tiles, never under them (owner, 2026-10-10): its tail still points at the level.
+  const left = Math.min(Math.max(x - w / 2, inset), width - w);
   return (
     <Animated.View
       importantForAccessibility="no-hide-descendants"
@@ -531,7 +532,8 @@ const styles = StyleSheet.create({
     paddingVertical: space.md,
     paddingHorizontal: space.lg,
   },
-  bannerIcon: { width: 40, height: 40, borderRadius: 12, alignItems: 'center', justifyContent: 'center' },
+  divider: { flexDirection: 'row', alignItems: 'center', gap: space.md, paddingVertical: space.sm },
+  rule: { flex: 1, height: depth.line, backgroundColor: color.border },
   center: { alignItems: 'center', justifyContent: 'center' },
   badge: { position: 'absolute', right: 2, bottom: 4, width: 24, height: 24, borderRadius: 12, alignItems: 'center', justifyContent: 'center' },
   bossLabel: { color: color.textMuted, textAlign: 'center', marginTop: space.xs },

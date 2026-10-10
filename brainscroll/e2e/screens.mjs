@@ -148,7 +148,7 @@ try {
   await page.getByRole('button', { name: 'Continue', exact: true }).click();
   await page.waitForTimeout(1000);
   await shot('skill-map');
-  // The chapter banner sits above the next level, which the map scrolls to.
+  // The map scrolls to the next level, under the pinned chapter header.
   await page.mouse.move(width / 2, height / 2);
   for (let i = 0; i < 12; i++) await page.mouse.wheel(0, -600);
   await page.waitForTimeout(400);

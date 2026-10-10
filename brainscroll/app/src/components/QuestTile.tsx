@@ -3,7 +3,7 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { MAP_TILE_ART, MapTile } from '@/components/MapTile';
 import { LevelArt } from '@/components/ui';
-import { questDef } from '@/progress/useQuests';
+import { isLive, questDef } from '@/progress/useQuests';
 
 const DAY = 86_400_000;
 
@@ -26,8 +26,7 @@ export function QuestTile({ quest }: { quest: QuestView }) {
   // The time when the map opened: a day count doesn't need to tick while you look at it.
   const [now] = useState(Date.now);
   const def = questDef(quest.id);
-  const live = Date.parse(quest.startsAt) <= now && now < Date.parse(quest.endsAt);
-  if (!def || !live) return null;
+  if (!def || !isLive(quest, now)) return null;
   const done = quest.state === 'completed' && quest.liveClear;
   const days = questDaysLeft(quest.endsAt, now);
   const band = done ? 'Done' : `${days} ${days === 1 ? 'day' : 'days'}`;
