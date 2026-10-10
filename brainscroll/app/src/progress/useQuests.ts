@@ -42,6 +42,11 @@ export function featuredQuest(data: QuestsView | null): QuestView | undefined {
   return thisWeek ?? data?.quests.find((q) => q.state === 'archive' && q.active);
 }
 
+/** Its week is on now (the skill map's quest tile shows only then). */
+export function isLive(q: QuestView, now = Date.now()): boolean {
+  return Date.parse(q.startsAt) <= now && now < Date.parse(q.endsAt);
+}
+
 /** Its week is over: it's in the Archive (finished or not). */
 export function isPast(q: QuestView): boolean {
   return Date.parse(q.endsAt) <= Date.now();

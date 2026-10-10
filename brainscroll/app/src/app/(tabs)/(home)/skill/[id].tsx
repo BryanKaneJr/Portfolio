@@ -3,7 +3,8 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Text, useWindowDimensions, View, type ScrollView } from 'react-native';
 import { Body, Card, IconButton, Loading, OfflineState, Row, Screen, Skeleton, SkeletonCard } from '@/components/ui';
 import { chaptersFor, levelMeta } from '@/content';
-import { LevelPath } from '@/components/LevelPath';
+import { ChapterDivider, ChapterHeader, LevelPath } from '@/components/LevelPath';
+import { MAP_TILE_WIDTH } from '@/components/MapTile';
 import { useProgress, useProgressView } from '@/progress/ProgressProvider';
 import { BrainpowerBadge } from '@/components/BrainpowerBadge';
 import { BoostChip } from '@/components/cosmetics';
@@ -13,7 +14,7 @@ import { useStartLevel } from '@/progress/useStartLevel';
 import { color, layout, space, type } from '@/theme/tokens';
 import { QuestTile } from '@/components/QuestTile';
 import { UnlimitedTile } from '@/components/UnlimitedTile';
-import { featuredQuest, useQuests } from '@/progress/useQuests';
+import { featuredQuest, isLive, useQuests } from '@/progress/useQuests';
 
 /** Completions whose cleared level has already popped on a map, so it pops once, in view. */
 const popped = new WeakSet<object>();
@@ -21,7 +22,11 @@ const popped = new WeakSet<object>();
 /**
  * A skill's map: every chapter's level path, opened scrolled to the next level
  * (it bounces). The pinned bar says where you are and leads back to the World
- * Map (or the subject's region). Due reviews are offered on the World Map.
+ * Map (or the subject's region); under it, the chapter at the top of the map,
+ * which turns into the next one as that chapter scrolls up (owner, 2026-10-10,
+ * like Duolingo's unit header). The tiles (Unlimited, this week's quest) stay
+ * pinned down the left as the map scrolls, and the map keeps clear of them.
+ * Due reviews are offered on the World Map.
  */
 export default function SkillMapScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -29,8 +34,9 @@ export default function SkillMapScreen() {
   const v = useProgressView();
   const current = useCurrentSkill();
   const startLevel = useStartLevel();
-  // This week's quest, as a tile down the left of the road (QuestTile shows it only while live).
+  // This week's quest, as a tile pinned down the left of the map (QuestTile shows it only while live).
   const quest = featuredQuest(useQuests().data);
+  const tiles = !p.entitlement.active || (!!quest && isLive(quest));
   const scroll = useRef<ScrollView>(null);
   const [pathY, setPathY] = useState<number | null>(null);
   const [stopY, setStopY] = useState<number | null>(null);
@@ -48,12 +54,21 @@ export default function SkillMapScreen() {
     const near = Object.entries(spans.current).filter(([, s]) => s.y < to && s.y + s.h > from).map(([n]) => Number(n));
     setLive((prev) => (near.every((n) => prev.has(n)) ? prev : new Set([...prev, ...near])));
   }, [screenH]);
+  // The chapter named in the pinned header: the last one whose start has scrolled up to it.
+  const [atTop, setAtTop] = useState<number | null>(null);
+  const firstChapter = useRef<number | null>(null);
+  const pickChapter = useCallback((y: number) => {
+    let n = firstChapter.current;
+    for (const [k, s] of Object.entries(spans.current)) if (s.y <= y && (n === null || Number(k) > n)) n = Number(k);
+    setAtTop((prev) => (prev === n ? prev : n));
+  }, []);
   const onScroll = useCallback(
     (y: number) => {
       scrollY.current = y;
       reveal();
+      pickChapter(y);
     },
-    [reveal],
+    [reveal, pickChapter],
   );
   // Layout only records where chapters are: drawing follows scrolling (the
   // open-at-your-level scroll included), so chapters far above aren't drawn
@@ -124,6 +139,10 @@ export default function SkillMapScreen() {
 
   const focus = next?.number ?? Math.max(skill.view.level, 1);
   const chapters = chaptersFor(skill.id);
+  firstChapter.current = chapters[0]?.number ?? null;
+  // Until the map has scrolled, the header names the chapter it opens on (the one you're in).
+  const topChapter = chapters.find((c) => c.number === atTop) ?? chapters.find((c) => focus >= c.levels[0] && focus <= c.levels[1]) ?? chapters[0];
+  const inset = tiles ? MAP_TILE_WIDTH + space.sm : 0;
   // A subject with several skills goes back to its region; otherwise straight to the World Map.
   const multi = v.skills.filter((k) => k.subjectId === skill.subjectId).length > 1;
 
@@ -151,17 +170,26 @@ export default function SkillMapScreen() {
           </Row>
           {/* A running XP boost's time left, centered under the bar (owner, 2026-10-09: players need to see it). */}
           <BoostChip centered testID="boost-chip-map" />
+          {topChapter && <ChapterHeader skillId={skill.id} chapter={topChapter} />}
         </>
+      }
+      overlay={
+        tiles ? (
+          <View pointerEvents="box-none" style={{ alignSelf: 'flex-start', gap: space.sm }}>
+            <UnlimitedTile />
+            {quest && <QuestTile quest={quest} />}
+          </View>
+        ) : undefined
       }>
 
       {!next && (
-        <Card state="completed">
+        <Card state="completed" style={{ marginLeft: inset }}>
           <Body muted>You’ve cleared every published level. More are on the way.</Body>
         </Card>
       )}
 
-      {/* The whole skill as one map: each chapter's banner sits where that chapter begins. */}
-      {chapters.map((c) => {
+      {/* The whole skill as one map: each chapter after the first opens with its title. */}
+      {chapters.map((c, i) => {
         const here = focus >= c.levels[0] && focus <= c.levels[1];
         // The chapter you're in and its neighbours draw straight away.
         const nearFocus = Math.abs(c.levels[0] - (focus - ((focus - 1) % 10))) <= 10;
@@ -173,6 +201,7 @@ export default function SkillMapScreen() {
               onChapterLayout(c.number, y, height);
               if (here) setPathY(y);
             }}>
+            {i > 0 && <ChapterDivider chapter={c} inset={inset} />}
             <LevelPath
               skillId={skill.id}
               chapter={c}
@@ -181,14 +210,7 @@ export default function SkillMapScreen() {
               dailyComplete={today.dailyComplete}
               justCleared={justCleared}
               mascot={here}
-              aside={
-                here ? (
-                  <>
-                    <UnlimitedTile />
-                    {quest && <QuestTile quest={quest} />}
-                  </>
-                ) : undefined
-              }
+              inset={inset}
               teaser={false}
               onCurrent={here ? setStopY : undefined}
               onOpen={startLevel}
