@@ -59,7 +59,7 @@ Subscriptions renew automatically unless cancelled at least 24 hours before the 
 
 *(about 2,930 characters)*
 
-**Weekly Quests:** if quests are scheduled at launch, add this section after the trophies one; if not, leave it out until they are (never describe a feature learners can't see):
+**Weekly Quests:** quests are scheduled from 12 October 2026, so add this section after the trophies one. If the schedule is ever cleared, take it out (never describe a feature learners can't see):
 
 ```
 WEEKLY QUESTS

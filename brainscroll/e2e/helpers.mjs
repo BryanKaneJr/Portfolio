@@ -317,6 +317,20 @@ export async function playReview(page) {
 }
 
 /** Reads "First try: x / n" and the settled "+N XP" from the Level Complete screen. */
+/** The page's text once any "+N XP" count-up has stopped (polls until it holds; a screen with none returns at once). */
+export async function settledText(page) {
+  let t = await bodyText(page);
+  let last = t.match(/\+(\d+) XP/)?.[1];
+  for (let waited = 0, steady = 0; last !== undefined && waited < 8_000 && steady < 2; waited += 400) {
+    await page.waitForTimeout(400);
+    t = await bodyText(page);
+    const now = t.match(/\+(\d+) XP/)?.[1];
+    steady = now === last ? steady + 1 : 0;
+    last = now;
+  }
+  return t;
+}
+
 export async function completionFacts(page) {
   // A checkpoint's recap is a screen of its own: read it once "You know this
   // now." has landed, then Continue to the result.

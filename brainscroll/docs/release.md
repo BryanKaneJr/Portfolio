@@ -118,7 +118,7 @@ iPhone first, in this order:
 3. ~~**The Apple Team ID**~~ done: `X3837877NX`, read from the first TestFlight build and set in `scripts/site-build.ts`, so invite links open the app ([`invite-links.md`](invite-links.md)). Apple fetches the link file when the app is installed, so it can take a reinstall or a day to start working.
 4. **A few days on TestFlight:** the QA checklist above, on your iPhone.
 5. **Launch week:**
-   - give the Weekly Quests their dates (`content/quests.json`, one Monday each) and import;
+   - the Weekly Quests are dated (all 52, one a week from Monday 12 October 2026; owner 2026-10-10) and on the live project; to move them, shift the dates in `content/quests.json` and import;
    - mark the skills and subjects `published` in `content/` (they're still `draft`; nothing in the app reads it, but an import without `--publish-drafts` copies it);
    - move Supabase to Pro (free projects pause after a quiet week);
    - remove the ten screenshot test learners (stargazer_ana and the rest, added 2026-10-09 to fill @bryan's league, friends and feed; they can't sign in). In the Supabase SQL editor: `delete from auth.users where raw_app_meta_data ->> 'brainscroll_test' = 'true';` takes everything of theirs with them;

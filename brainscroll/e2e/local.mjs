@@ -1,11 +1,14 @@
 // Development harness (no Supabase, simulated accounts): sign-in first, onboarding,
 // a full chapter, resume, persistence, first-day cap, review, and progress that
 // belongs to the account (sign out, a second account, deletion).
-import { questMap, CHAPTER_REVIEW_MAX, CHECKPOINT_CURVE, CURVE, REVIEW_XP, rightPositions, bodyText, button, check, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, URL, coldLoad } from './helpers.mjs';
+import { questMap, CHAPTER_REVIEW_MAX, CHECKPOINT_CURVE, CURVE, REVIEW_XP, rightPositions, bodyText, settledText, button, check, completionFacts, exactButton, field, home, launch, onboard, playLevel, playReview, signIn, URL, coldLoad } from './helpers.mjs';
 
 const progressKeys = (page) => page.evaluate(() => Object.keys(localStorage).filter((k) => k.startsWith('brainscroll.progress.')));
 
 const { browser, page, errors } = await launch();
+// The quests are dated from 12 October 2026: set the page's date to the week before, so no quest's
+// Brainpower lands mid-run whatever week this runs in. Only the date moves; time and timers run normally.
+await page.clock.setSystemTime(new Date('2026-10-07T12:00:00Z'));
 try {
   await home(page);
   const first = await bodyText(page);
@@ -430,7 +433,7 @@ try {
   await button(page, 'Start review').click();
   await page.waitForTimeout(500);
   const corrected = await playReview(page);
-  const t = await bodyText(page);
+  const t = await settledText(page);
   check(/REVIEW COMPLETE/i.test(t), `a review session completes once every item is resolved (${corrected} corrected)`);
   // No first-try right: no "+0 XP" numeral, just the count.
   const [, xp = '0', right, total] = t.match(/(?:\+(\d+) XP[\s\S]*?)?(\d+) \/ (\d+) right first time/) ?? [];
@@ -446,7 +449,7 @@ try {
   await page.waitForTimeout(500);
   check(/Astronomy · Chapter 1, Level 1 · 1 of 10/.test(await bodyText(page)), 'a chapter review asks one question from each of its ten levels');
   const chapterCorrected = await playReview(page);
-  const ct = await bodyText(page);
+  const ct = await settledText(page);
   const [, cright, ctotal] = ct.match(/(\d+) \/ (\d+) right first time/) ?? [];
   const cxp = ct.match(/\+(\d+) XP[\s\S]*?\d+ \/ \d+ right first time/)?.[1] ?? '0';
   check(/Chapter review complete/i.test(ct) && ctotal === '10' && Number(cxp) === Math.round((CHAPTER_REVIEW_MAX * Number(cright)) / 10),
