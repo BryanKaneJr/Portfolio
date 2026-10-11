@@ -55,7 +55,7 @@ export function MenuPanel({ tab }: { tab: MenuTab }) {
     { key: 'diplomacy', label: 'Diplomacy' },
     { key: 'economy', label: 'Realm' },
     { key: 'colonies', label: 'Colonies', badge: Math.max(0, freeColonists(s, s.player)) },
-    { key: 'missions', label: 'Ambitions', badge: missionsReady },
+    { key: 'missions', label: 'Missions', badge: missionsReady },
     { key: 'ledger', label: 'Ledger' },
     { key: 'settings', label: 'Settings' },
   ];
@@ -196,11 +196,11 @@ function Diplomacy() {
       </Section>
       {coalition ? (
         <Card style={{ marginTop: 10, borderColor: C.red }}>
-          <T v="h3">A league stands against you</T>
+          <T v="h3">A coalition stands against you</T>
           <T v="small">{coalition.members.map(nationName).join(', ')} will defend each other if you attack any of them, and may strike first. Let your Threat fade.</T>
         </Card>
       ) : null}
-      {myCoalition ? <T v="small" style={{ marginTop: 8 }}>You are in the league against {nationName(myCoalition.target)}.</T> : null}
+      {myCoalition ? <T v="small" style={{ marginTop: 8 }}>You are in the coalition against {nationName(myCoalition.target)}.</T> : null}
       <Section title="Relations">
         <Line label="Overlord" value={me.overlord ? `${nationName(me.overlord)} (${me.subjectType === 'union' ? 'personal union' : 'vassal'})` : 'none'} />
         <Line label="Allies" value={alliesOf(s, p).map(nationName).join(', ') || 'none'} />
@@ -304,7 +304,7 @@ function Realm() {
         {nextEra ? (
           avail > me.era ? (
             <>
-              <T v="small">The {nextEra.name} has begun: {nextEra.inf.name}, {nextEra.cav.name}{nextEra.art ? `, ${nextEra.art.name}` : ''}, better morale and room for another decree. Armies stay weaker until you pay for it.</T>
+              <T v="small">The {nextEra.name} has begun: {nextEra.inf.name}, {nextEra.cav.name}{nextEra.art ? `, ${nextEra.art.name}` : ''}, better morale and a new policy slot. Armies stay weaker until you pay for it.</T>
               <Btn style={{ marginTop: 6 }} label={`Adopt the ${nextEra.name} (${techCost(s, p, me.era + 1)} gold)`} disabled={me.gold < techCost(s, p, me.era + 1)} onPress={() => st.run(adoptEra)} />
             </>
           ) : (
@@ -314,14 +314,14 @@ function Realm() {
           <T v="small">You live in the final era.</T>
         )}
       </Section>
-      <Section title={`Decrees (${me.policies.length}/${me.era})`}>
+      <Section title={`Policies (${me.policies.length}/${me.era})`}>
         {me.policies.map(id => (
           <View key={id} style={styles.policy}>
             <Text style={styles.rowTitle}>{POLICY[id].name}</Text>
             <Text style={styles.rowSub}>{modLines(POLICY[id].mods).map(m => m.text).join(', ')}</Text>
           </View>
         ))}
-        <T v="tiny" style={{ marginBottom: 6 }}>One decree per era. You may replace one per era for −1 order.</T>
+        <T v="tiny" style={{ marginBottom: 6 }}>One policy per era. You may swap one per era for −1 order.</T>
         {POLICIES.filter(pol => !me.policies.includes(pol.id)).map(pol => {
           const locked = pol.era > me.era;
           const slotFree = me.policies.length < me.era;
@@ -335,7 +335,7 @@ function Realm() {
               <Text style={[styles.rowSub, { color: C.inkSoft }]}>{modLines(pol.mods).map(m => m.text).join(', ')}</Text>
               {!locked ? (
                 slotFree ? (
-                  <Btn small style={{ marginTop: 6 }} label="Issue" onPress={() => st.run(x => choosePolicy(x, pol.id))} />
+                  <Btn small style={{ marginTop: 6 }} label="Adopt" onPress={() => st.run(x => choosePolicy(x, pol.id))} />
                 ) : policyPick === pol.id ? (
                   <Row gap={6} style={{ marginTop: 6, flexWrap: 'wrap' }}>
                     {me.policies.map(old => (
@@ -356,19 +356,19 @@ function Realm() {
         {me.faith === 'catholic' ? <T v="tiny">Spend Papal Favor from a nation’s sheet (excommunication) or a region’s sheet (a claim on heretics’ land).</T> : null}
       </Section>
       <Section title="All modifiers" right={<Btn small tone="ghost" label={showMods ? 'Hide' : 'Show'} onPress={() => setShowMods(v => !v)} />}>
-        {showMods ? <ModifiersList nation={p} /> : <T v="tiny">Traits, decrees and events that change your numbers.</T>}
+        {showMods ? <ModifiersList nation={p} /> : <T v="tiny">Traits, policies and events that change your numbers.</T>}
       </Section>
     </View>
   );
 }
 
-// ---------------------------------------------------------------- ambitions (missions internally)
+// ---------------------------------------------------------------- missions
 
 function Missions() {
   const st = useStore();
   const s = st.state!;
   const list = missionsFor(s.player);
-  if (!list.length) return <Empty text="No ambitions." />;
+  if (!list.length) return <Empty text="No missions." />;
   const order = { ready: 0, active: 1, locked: 2, done: 3 };
   const sorted = [...list].sort((a, b) => order[missionState(s, s.player, a)] - order[missionState(s, s.player, b)]);
   return (

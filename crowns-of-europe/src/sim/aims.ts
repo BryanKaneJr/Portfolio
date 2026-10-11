@@ -2,16 +2,16 @@
  * What each crown wants, so the AI behaves roughly as history did: France wants the English off the continent,
  * Castile wants Granada, Muscovy wants the Russian lands. Wanted land comes from two places: historical aims
  * (content/aims.json, each with optional years; AI crowns only) and the land named in the goals of a crown's open
- * ambitions (missions). The AI forges claims on it, prefers wars against whoever holds it, asks for it first at
+ * missions. The AI forges claims on it, prefers wars against whoever holds it, asks for it first at
  * the peace table and thinks less of the holder. Old friendships and enmities (bonds) colour opinion both ways.
  */
 import { AIMS, BONDS, MISSIONS, REGION } from './content';
 import type { AimDef, BondDef, Condition, GameState, MissionDef, NationId, RegionId } from './types';
 import { yearOf } from './util';
 
-/** How much a crown wants land named by a historical aim, and by an open ambition's goal. */
+/** How much a crown wants land named by a historical aim, and by an open mission's goal. */
 export const AIM_WEIGHT = 2;
-export const AMBITION_WEIGHT = 1;
+export const MISSION_WEIGHT = 1;
 
 const inYears = (s: GameState, x: { from?: number; until?: number }) => {
   const y = yearOf(s.day);
@@ -43,11 +43,11 @@ function goalRegions(c: Condition, out: Set<RegionId>): void {
   else if (k === 'controls') out.add(v as RegionId);
 }
 
-// Rebuilt when the day or the crown's finished ambitions change, so it never depends on when it was first asked.
+// Rebuilt when the day or the crown's finished missions change, so it never depends on when it was first asked.
 const cache = new WeakMap<GameState, Map<NationId, { key: string; wanted: Map<RegionId, number> }>>();
 
 /**
- * Region → how much `n` wants it (AIM_WEIGHT or AMBITION_WEIGHT). Includes land it already holds: callers ask
+ * Region → how much `n` wants it (AIM_WEIGHT or MISSION_WEIGHT). Includes land it already holds: callers ask
  * about land held by someone else (`wantsFrom`).
  */
 export function wantedRegions(s: GameState, n: NationId): Map<RegionId, number> {
@@ -63,7 +63,7 @@ export function wantedRegions(s: GameState, n: NationId): Map<RegionId, number> 
       if (nat.missionsDone.includes(m.id) || !m.requires.every(r => nat.missionsDone.includes(r))) continue;
       const goal = new Set<RegionId>();
       goalRegions(m.goal, goal);
-      for (const r of goal) if (REGION[r]) wanted.set(r, Math.max(wanted.get(r) ?? 0, AMBITION_WEIGHT));
+      for (const r of goal) if (REGION[r]) wanted.set(r, Math.max(wanted.get(r) ?? 0, MISSION_WEIGHT));
     }
     for (const a of activeAims(s, n)) for (const r of a.regions) wanted.set(r, AIM_WEIGHT);
   }
@@ -72,7 +72,7 @@ export function wantedRegions(s: GameState, n: NationId): Map<RegionId, number> 
 }
 
 /** Land `n` wants that `holder` (or one of its subjects) holds now, most wanted first. */
-export function wantsFrom(s: GameState, n: NationId, holder: NationId, minWeight = AMBITION_WEIGHT): RegionId[] {
+export function wantsFrom(s: GameState, n: NationId, holder: NationId, minWeight = MISSION_WEIGHT): RegionId[] {
   const out: [RegionId, number][] = [];
   for (const [r, w] of wantedRegions(s, n)) if (w >= minWeight && holds(s, holder, r) && !holds(s, n, r)) out.push([r, w]);
   return out.sort((a, b) => b[1] - a[1] || s.regions[b[0]].dev - s.regions[a[0]].dev).map(x => x[0]);

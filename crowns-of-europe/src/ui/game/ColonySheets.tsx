@@ -114,7 +114,7 @@ export function WildSheet({ id }: { id: string }) {
             {def.good ? ` Once founded, its ${GOOD_NAME[def.good].toLowerCase()} pays you on top of taxes.` : ''}
           </T>
           <View style={{ gap: 6, marginTop: 8 }}>
-            <Btn icon="ship" label="Start a colony" sub={`${COLONY_COST} gold, then ${COLONY_UPKEEP} gold/mo · uses a charter`} disabled={!!blocked} onPress={() => st.run(x => colonize(x, id))} testID="colonize" />
+            <Btn icon="ship" label="Start a colony" sub={`${COLONY_COST} gold, then ${COLONY_UPKEEP} gold/mo · uses a colonist`} disabled={!!blocked} onPress={() => st.run(x => colonize(x, id))} testID="colonize" />
             {blocked ? <T v="tiny">{blocked}</T> : null}
             {!coastal ? <T v="tiny">Inland: you can only settle here from a region of yours next door.</T> : null}
           </View>
@@ -132,7 +132,7 @@ export function WildSheet({ id }: { id: string }) {
   );
 }
 
-/** Realm menu tab: charters, colonies being settled, the New World and expeditions. */
+/** Realm menu tab: colonists, colonies being settled, the New World and expeditions. */
 export function ColoniesTab() {
   const st = useStore();
   const s = st.state!;
@@ -148,7 +148,7 @@ export function ColoniesTab() {
       {!s.discovery ? (
         <Section title="The western ocean">
           <T v="small">
-            Nobody in Europe knows what lies across the Atlantic. Fund an expedition and you may find a New World first: renown, and an extra colonial charter for 30 years. If nobody does, the way west
+            Nobody in Europe knows what lies across the Atlantic. Fund an expedition and you may find a New World first: renown, and an extra colonist for 30 years. If nobody does, the way west
             becomes common knowledge in {DISCOVERY_YEAR}.
           </T>
           <View style={{ marginTop: 8, gap: 6 }}>
@@ -162,10 +162,10 @@ export function ColoniesTab() {
           The New World was found on {formatDate(s.discovery.day)}{s.discovery.by ? ` by ${nationName(s.discovery.by)}` : ''}. Tap a pale, uncolonized region on the map to settle it.
         </T>
       )}
-      <Section title="Colonial charters" right={<Pill text={`${settling.length} / ${total} in use`} color={total ? C.greenSoft : C.parchment2} />}>
-        {sources.length ? sources.map(p => <Line key={p.label} label={p.label} value={signed(p.value)} />) : <Empty text="You have no charters yet." />}
+      <Section title="Colonists" right={<Pill text={`${settling.length} / ${total} busy`} color={total ? C.greenSoft : C.parchment2} />}>
+        {sources.length ? sources.map(p => <Line key={p.label} label={p.label} value={signed(p.value)} />) : <Empty text="You have no colonists yet." />}
         <T v="tiny" style={{ marginTop: 4 }}>
-          Each charter settles one colony at a time. Get them from the Chartered Companies decree (era 3), from being first to the New World, from events and ambitions, and from era 3 if
+          Each colonist settles one colony at a time. Get them from the Overseas Charters policy (era 3), from being first to the New World, from events and missions, and from era 3 if
           your realm is large (30+ prosperity) and has an ocean coast.
         </T>
       </Section>

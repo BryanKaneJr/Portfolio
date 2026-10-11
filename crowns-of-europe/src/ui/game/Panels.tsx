@@ -75,7 +75,7 @@ export function BreakdownPanel({ what }: { what: 'gold' | 'manpower' | 'stabilit
         <T v="h2">{fmt(n.manpower)} men</T>
         <Line label="Maximum" value={fmt(maxManpower(s, s.player))} />
         <Line label="Recovery per month" value={`+${fmt(manpowerRecovery(s, s.player))}`} tone="good" />
-        <T v="small" style={{ marginTop: 8 }}>Levies are the men your realm can call up. Each regiment needs 1,000 to raise and draws on them to refill its losses. The maximum is 3,000 plus 400 per point of prosperity (half for regions not yet integrated). War weariness slows recovery. Mercenaries need no levies.</T>
+        <T v="small" style={{ marginTop: 8 }}>Levies are the men your realm can call up. Each regiment needs 1,000 to raise and draws on them to refill its losses. The maximum is 3,000 plus 400 per point of prosperity (half for regions not yet integrated). War exhaustion slows recovery. Mercenaries need no levies.</T>
       </Panel>
     );
   }
@@ -93,7 +93,7 @@ export function BreakdownPanel({ what }: { what: 'gold' | 'manpower' | 'stabilit
     return (
       <Panel title="Renown" onClose={close}>
         <T v="h2">{fmt(n.prestige)} / 100</T>
-        <T v="small">Renown is your crown’s good name. It comes from winning battles and wars, ambitions and events, and fades by 1% a month. Every 5 renown adds +1 to how others see you, and high renown makes Threat fade faster.</T>
+        <T v="small">Renown is your crown’s good name. It comes from winning battles and wars, missions and events, and fades by 1% a month. Every 5 renown adds +1 to how others see you, and high renown makes Threat fade faster.</T>
       </Panel>
     );
   }
@@ -107,9 +107,9 @@ export function BreakdownPanel({ what }: { what: 'gold' | 'manpower' | 'stabilit
   return (
     <Panel title="Threat" onClose={close}>
       <T v="h2">{fmt(n.threat)}</T>
-      <T v="small">Taking land raises your Threat (claimed land counts less). Nearby nations, and those of another faith, feel it most. When three or more feel 40+ Threat, they form a league that joins any war you start against a member, and may attack you. Threat fades slowly, faster with high renown.</T>
+      <T v="small">Taking land raises your Threat (claimed land counts less). Nearby nations, and those of another faith, feel it most. When three or more feel 40+ Threat, they form a coalition that joins any war you start against a member, and may attack you. Threat fades slowly, faster with high renown.</T>
       {c ? (
-        <Section title="League against you">
+        <Section title="Coalition against you">
           {c.members.map(m => (
             <Line key={m} label={nationName(m)} value="member" tone="bad" />
           ))}

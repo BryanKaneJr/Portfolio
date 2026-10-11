@@ -384,7 +384,7 @@ function aiDiplomacy(s: GameState, nat: Nation): void {
   }
 }
 
-/** Forge a claim on land the crown wants (aims, ambitions) next to its own, as the player can. */
+/** Forge a claim on land the crown wants (aims, missions) next to its own, as the player can. */
 function aiClaims(s: GameState, nat: Nation): void {
   const n = nat.id;
   if (nat.fabricating || nat.overlord || nat.gold < FABRICATE_COST + reserve(s, nat) * 0.5 || !chance(s, 0.25)) return;

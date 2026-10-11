@@ -73,7 +73,7 @@ export function opinionBreakdown(s: GameState, from: NationId, to: NationId): Re
   if (warBetween(s, from, to)) add('At war', -100);
   else if (hasTruce(s, from, to)) add('Recent war', -25);
   const c = coalitionAgainst(s, to);
-  if (c?.members.includes(from)) add('In a league against them', -25);
+  if (c?.members.includes(from)) add('Coalition against them', -25);
   if (b.prestige >= 10) add('Renown', b.prestige / 5);
   const mods = nationMods(s, to).opinion;
   if (mods) add('Reputation', mods);

@@ -96,6 +96,6 @@ export const MAP_MODES: { key: MapMode; label: string; help: string }[] = [
   { key: 'development', label: 'Prosperity', help: 'Darker regions are richer: more taxes, levies and supply.' },
   { key: 'faith', label: 'Faith', help: 'Catholic (gold), Orthodox (blue), Muslim (green), Protestant (purple), native beliefs (brown).' },
   { key: 'diplomatic', label: 'Diplomatic', help: 'How others see you: allies blue, enemies red, opinion from green to red.' },
-  { key: 'threat', label: 'Threat', help: 'How threatened each nation feels by you. Deep red nations may join a league against you.' },
+  { key: 'threat', label: 'Threat', help: 'How threatened each nation feels by you. Deep red nations may join a coalition against you.' },
   { key: 'goods', label: 'Exports', help: 'What each overseas region sends home: silver and gold pay most, then ivory, sugar, tobacco, cocoa, dyes, furs, fish and grain.' },
 ];

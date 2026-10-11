@@ -31,17 +31,12 @@ and the condition/effect language below. The schema lives in `src/sim/dsl.ts` an
   | manpower | **levies** |
   | stability | **order** (−3 to +3, written "order +2") |
   | prestige | **renown** |
-  | coalition | **league** |
   | war score | **leverage** |
   | force limit | **army limit** |
   | core, `addCore`, `coreCost` | **integrated** / **integrate** |
-  | colonists | **charters** (the slot); the people are **settlers** |
   | trade good, `good` | **export** |
-  | war exhaustion | **war weariness** |
-  | policy | **decree** (issue a decree) |
-  | mission | **ambition** |
   | stack wipe | annihilated |
-  | Threat, Claim, Era, Papal Favor | unchanged: they are ours already |
+  | Threat, Claim, Era, Papal Favor, coalition, colonists, war exhaustion, policy, mission | unchanged |
 
 - **Plain English, short.** Event text is 2-4 sentences (max 420 characters). Titles max 42 characters. Choice
   buttons max 60 characters and start with a verb ("Pay the ransom", "Let them rot").
@@ -225,7 +220,7 @@ Each major nation has 6-10 missions in a short tree (at most 3 branches; `requir
 nation). The `generic` set is used by every nation without its own. Mission titles are at most 36 characters. A mission is claimable once its requirements
 are done and its goal is true; the player taps "Complete" to collect the reward.
 
-Missions (shown to the player as ambitions) also steer the AI: the regions named in an open mission's goal
+Missions also steer the AI: the regions named in an open mission's goal
 (`owns`, `ownsAny`, `controls`) are land that nation wants (see aims below), so write goals for the land a crown
 historically went after.
 
@@ -237,7 +232,7 @@ historically went after.
 ```
 
 An **aim** is land an AI crown wants while the years fit (`from` inclusive, `until` exclusive, both optional) and
-it lacks some of the regions. The player's nation ignores aims (it has ambitions). Wanted land, from aims (weight 2)
+it lacks some of the regions. The player's nation ignores aims (it has missions). Wanted land, from aims (weight 2)
 and from open missions (weight 1), makes the AI forge claims on it when it borders it, prefer wars against whoever
 holds it (higher score, 15% less strength needed), demand it first in peace deals, and think less of the holder
 (−12 −8 per region held, at most −40, aims only). A **bond** gives both crowns +25 (friends) or −25 (foes) opinion

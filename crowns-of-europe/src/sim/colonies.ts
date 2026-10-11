@@ -96,7 +96,7 @@ export function discoverNewWorld(s: GameState, by: NationId | null): void {
     invalidateMods();
   }
   const who = by ? `${NATION[by].name}’s expedition has` : 'Pilots and fishermen have';
-  log(s, 'colony', `${who} found land across the Atlantic: a New World! Settlers can now sail west.`, { important: true, nation: by ?? undefined });
+  log(s, 'colony', `${who} found land across the Atlantic: a New World! Colonists can now sail west.`, { important: true, nation: by ?? undefined });
   if (!s.pendingEvents.some(e => e.event === 'new_world')) s.pendingEvents.push({ event: 'new_world', nation: s.player, day: s.day });
   requestPause(s, 'event');
 }
@@ -129,8 +129,8 @@ export function canColonize(s: GameState, n: NationId, r: RegionId): string | nu
   if (!reg || reg.owner) return 'Only uncolonized land can be settled.';
   if (!charted(s, r)) return 'These lands are uncharted.';
   if (reg.colony) return reg.colony.by === n ? 'Your settlers are already here.' : `${NATION[reg.colony.by]?.name ?? 'Someone'} is already settling here.`;
-  if (isNativeNation(n)) return 'Your people do not found colonies.';
-  if (freeColonists(s, n) <= 0) return colonistsOf(s, n) ? 'All your charters are in use.' : 'You have no colonial charter yet (see the Colonies tab of the Realm menu).';
+  if (isNativeNation(n)) return 'Your people do not send colonists.';
+  if (freeColonists(s, n) <= 0) return colonistsOf(s, n) ? 'All your colonists are busy.' : 'You have no colonists yet (see the Colonies tab of the Realm menu).';
   const coastal = MAP_REGION[r].seas.length > 0;
   const nextToOwn = GRAPH[r].some(e => (e.kind === 'land' || e.kind === 'strait') && s.regions[e.to]?.owner === n);
   if (!nextToOwn && !(coastal && hasOceanCoast(s, n))) return coastal ? 'You need a coast on the open ocean to send settlers.' : 'Inland: settle a neighbouring region first.';
@@ -165,7 +165,7 @@ export function settlerGrowth(s: GameState, r: Region): ColonistPart[] {
   if (GRAPH[r.id].some(e => (e.kind === 'land' || e.kind === 'strait') && s.regions[e.to]?.owner === c.by)) out.push({ label: 'Next to your land', value: 3 });
   const base = out.reduce((t, p) => t + p.value, 0);
   const m = nationMods(s, c.by).settlerGrowth;
-  if (m) out.push({ label: 'Traits, decrees and modifiers', value: Math.round(base * m * 10) / 10 });
+  if (m) out.push({ label: 'Traits, policies and modifiers', value: Math.round(base * m * 10) / 10 });
   let left = base * (1 + m);
   if (r.natives > 0) {
     const cut = left * (1 - Math.max(0.5, 1 - 0.07 * r.natives));

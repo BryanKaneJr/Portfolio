@@ -27,7 +27,7 @@ export function unrestBreakdown(s: GameState, r: Region): UnrestPart[] {
     add('Different faith', 3 - tolerant);
   }
   if (!isCored(r)) add('Recently conquered', 2);
-  add('War weariness', nat.warExhaustion / 4);
+  add('War exhaustion', nat.warExhaustion / 4);
   add('Order', -nat.stability * 0.75);
   add('Modifiers', nationMods(s, r.owner).unrest);
   if (r.converting) add('Conversion under way', 2);

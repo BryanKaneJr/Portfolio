@@ -285,7 +285,7 @@ export function adoptEra(s: GameState): Result {
   if (!pay(s, cost)) return no(`Adopting the new era costs ${cost} gold.`);
   nat.era++;
   invalidateMods();
-  return ok(`You enter the ${UNITS.eras[nat.era - 1].name}: better troops and room for another decree.`);
+  return ok(`You enter the ${UNITS.eras[nat.era - 1].name}: better troops and a new policy slot.`);
 }
 
 export function takeLoan(s: GameState): Result {
@@ -307,20 +307,20 @@ export function repayLoan(s: GameState): Result {
 export function choosePolicy(s: GameState, id: string, replace?: string): Result {
   const nat = me(s);
   const p = POLICY[id];
-  if (!p) return no('Unknown decree.');
+  if (!p) return no('Unknown policy.');
   if (p.era > nat.era) return no(`${p.name} needs era ${p.era}.`);
   if (nat.policies.includes(id)) return no('Already adopted.');
   if (replace) {
     if (!nat.policies.includes(replace)) return no('Nothing to replace.');
-    if (nat.policySwappedEra === nat.era) return no('You can only replace a decree once per era.');
+    if (nat.policySwappedEra === nat.era) return no('You can only swap a policy once per era.');
     nat.policies = nat.policies.filter(x => x !== replace);
     nat.policySwappedEra = nat.era;
     nat.stability = clamp(nat.stability - 1, -3, 3);
-  } else if (nat.policies.length >= nat.era) return no('You have as many decrees as your era allows. Replace one instead.');
+  } else if (nat.policies.length >= nat.era) return no('All policy slots are full. Swap one instead.');
   nat.policies.push(id);
   if (id === 'tax_reform') nat.modifiers.push({ id: 'tax_reform_unrest', name: 'Tax Reform grumbling', mods: { unrest: 1 }, until: s.day + months(60) });
   invalidateMods();
-  return ok(`Decree issued: ${p.name}${replace ? ' (order −1)' : ''}.`);
+  return ok(`Policy adopted: ${p.name}${replace ? ' (order −1)' : ''}.`);
 }
 
 // ---------------------------------------------------------------- navy
@@ -362,7 +362,7 @@ export function colonize(s: GameState, region: string): Result {
 export function abandonPlayerColony(s: GameState, region: string): Result {
   const why = abandonColony(s, s.player, region);
   if (why) return no(why);
-  return ok(`Your settlers leave ${regionName(region)}. The charter is free again.`);
+  return ok(`Your settlers leave ${regionName(region)}. The colonist is free again.`);
 }
 
 export function fundExpedition(s: GameState): Result {
@@ -480,7 +480,7 @@ export function playerAnswerEvent(s: GameState, index: number, choice: number): 
 }
 
 export function playerCompleteMission(s: GameState, id: string): Result {
-  return completeMission(s, s.player, id) ? ok('Ambition achieved!') : no('Not ready yet.');
+  return completeMission(s, s.player, id) ? ok('Mission complete!') : no('Not ready yet.');
 }
 
 export function requestSanction(s: GameState, region: string): Result {

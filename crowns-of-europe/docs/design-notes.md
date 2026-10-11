@@ -16,7 +16,7 @@ here.
 3. **Egypt, the Levant, the Caucasus, Mesopotamia and West Africa are in (added on request).** The doc scopes the
    map to Europe, Anatolia and the North African coast; 27 more regions add the Mamluk Sultanate (an AI-only
    major), the Aq Qoyunlu and Qara Qoyunlu, Georgia, Jolof, Mali and Songhai, and an uncolonized Guinea coast
-   (Arguin to the Gold Coast) that anyone with a colonial charter can settle from 1444, as Portugal did. Persia,
+   (Arguin to the Gold Coast) that anyone with a free colonist can settle from 1444, as Portugal did. Persia,
    Arabia, the Sahara and the African interior stay off-map wilderness.
 4. **The New World is in (added after the first build, on request).** Only the eastern side of the Americas,
    in 46 coarse regions (a whole captaincy or colony each), plus the Atlantic islands and Iceland. The west of
@@ -26,7 +26,7 @@ here.
    - Discovery: the Americas are uncharted (no movement, fog on the map) until a crown with an ocean coast funds
      an expedition (from 1470, 100 gold, 8 months; the AI odds rise through the 1480s) or 1500 arrives.
    - Colonists: Portugal's Navigators trait, being first to the New World (30 years), Castile's Council of the
-     Indies, the Chartered Companies decree (era 3) and, from era 3, big realms (30+ development) with an ocean coast.
+     Indies, the Overseas Charters policy (era 3) and, from era 3, big realms (30+ development) with an ocean coast.
      Few colonists in the 1500s keep the race Iberian at first; England, France and the Netherlands join later.
    - Colonies: 30 gold, then 1 gold a month; 9 settlers a month (+3 next to your land, policy +20%), slowed by
      natives (−7% per thousand, at most half), by being inland (−45%) and by every New World region you already
@@ -49,12 +49,12 @@ here.
    20-minute tutorial. Portugal and Castile are marked "recommended for your first campaign".
 9. **Audio is not in yet** (no assets). Haptics fire on selections and orders.
 10. **Our own words for the numbers.** The doc borrowed the genre's usual names; the game says prosperity,
-    levies, order, renown, league, leverage, army limit, integrated, charters/settlers, exports, war weariness,
-    decrees and ambitions instead, explained in a "Words used in this game" list on the How to Play page. The
+    levies, order, renown, leverage, army limit, integrated and exports instead (coalition, colonists, war
+    exhaustion, policies and missions keep their names), explained in a "Words used in this game" list on the How to Play page. The
     code and the tables below keep the old names (see the glossary in `content-guide.md`).
 11. **AI crowns follow history, loosely.** Each AI crown wants land: from its historical aims (`aims.json`,
     e.g. France wants Normandy, Gascony and Calais back; the Ottomans want Constantinople, then the Balkans, then
-    the islands) and from the goals of its open ambitions. It forges claims on wanted land next to its own, likes
+    the islands) and from the goals of its open missions. It forges claims on wanted land next to its own, likes
     wars against the holder better, asks for that land first at the peace table and dislikes the holder. Old
     friendships and enmities (the Auld Alliance, Poland and the Order) add ±25 opinion. Nothing is scripted: a
     weak France still loses, and a strong England may keep Normandy. The nation sheet shows what a crown wants.

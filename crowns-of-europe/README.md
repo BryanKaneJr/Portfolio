@@ -22,8 +22,8 @@ bundled and works in airplane mode.
 - **73 nations** at 11 November 1444: 14 majors and 8 harder picks are playable, each with a real ruler, a
   national trait, an AI personality and a mission tree. The Mamluk Sultanate and 46 AI minors fill in the Empire,
   Italy, the Balkans, the steppe, the Middle East and West Africa (Jolof, Mali, Songhai), and four New World peoples (Aztec Empire, Maya, K’iche’, Haudenosaunee) hold their homelands.
-- **The New World:** uncharted until an expedition finds it (from 1470) or 1500 arrives. Colonial charters (from
-  Portugal's navigators, being first across, Castile's Council of the Indies, the Chartered Companies decree and
+- **The New World:** uncharted until an expedition finds it (from 1470) or 1500 arrives. Colonists (from
+  Portugal's navigators, being first across, Castile's Council of the Indies, the Overseas Charters policy and
   era 3) settle uncolonized land; a colony grows to 1,000 settlers while natives slow it and may attack it, and
   troops keep it safe. Every New World region has an export (silver, gold, sugar, tobacco, cocoa, dyes, furs,
   fish, grain) that pays its owner. One fleet of transports carries an army across the ocean; the open Atlantic

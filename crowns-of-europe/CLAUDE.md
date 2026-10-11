@@ -21,9 +21,9 @@ a Mercator map, light tutorial, no audio yet).
   condition/effect language. A new condition or effect goes in `src/sim/dsl.ts` (schema), `src/sim/events.ts`
   (implementation), `docs/content-guide.md` and `tests/events.test.ts` (sample). `npm run validate` must pass.
 - **Original text only.** No other game's wording, art or mechanic names. Player-facing text says prosperity,
-  levies, order, renown, league, leverage, army limit, integrated, charters/settlers, exports, war weariness,
-  decree, ambition (plus Threat, Claim, Era); the code keeps the old names (`dev`, `manpower`, `stability`,
-  `prestige`, `missions`...). `scripts/check-terms.ts` (in `npm run validate`) enforces it; the glossary is in
+  levies, order, renown, leverage, army limit, integrated and exports (alongside Threat, Claim, Era, coalition,
+  colonists, war exhaustion, policy and mission); the code keeps the old names (`dev`, `manpower`, `stability`,
+  `prestige`...). `scripts/check-terms.ts` (in `npm run validate`) enforces it; the glossary is in
   `docs/content-guide.md` and the in-game one in `ui/game/Help.tsx`.
 - **Every number is explainable.** If you add a number to the UI, make it tappable or give it a line that says
   why (see the opinion, unrest, income and war score breakdowns).

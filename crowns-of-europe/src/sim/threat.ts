@@ -92,7 +92,7 @@ function updateCoalitions(s: GameState): void {
   for (const c of s.coalitions) c.members = c.members.filter(m => s.nations[m]?.alive && perceivedThreat(s, m, c.target) >= COALITION_LEAVE);
   const before = s.coalitions.map(c => c.target);
   s.coalitions = s.coalitions.filter(c => c.members.length >= 2 && s.nations[c.target]?.alive);
-  for (const t of before) if (!s.coalitions.some(c => c.target === t) && involvesPlayer(s, t)) log(s, 'diplomacy', 'The league against you has dissolved.', { important: true });
+  for (const t of before) if (!s.coalitions.some(c => c.target === t) && involvesPlayer(s, t)) log(s, 'diplomacy', 'The coalition against you has dissolved.', { important: true });
 
   for (const target of aliveNations(s)) {
     if (target.threat < 25 || isNativeNation(target.id)) continue;
@@ -110,12 +110,12 @@ function updateCoalitions(s: GameState): void {
       if (candidates.length < 3) continue;
       c = { target: target.id, members: [], formed: s.day };
       s.coalitions.push(c);
-      log(s, 'diplomacy', `A league forms against ${nationName(target.id)}: ${candidates.map(m => nationName(m.id)).join(', ')}.`, {
+      log(s, 'diplomacy', `A coalition forms against ${nationName(target.id)}: ${candidates.map(m => nationName(m.id)).join(', ')}.`, {
         nation: target.id,
         important: involvesPlayer(s, target.id, ...candidates.map(m => m.id)),
       });
     } else if (candidates.length && involvesPlayer(s, target.id)) {
-      log(s, 'diplomacy', `${candidates.map(m => nationName(m.id)).join(', ')} join${candidates.length === 1 ? 's' : ''} the league against you.`, { important: true });
+      log(s, 'diplomacy', `${candidates.map(m => nationName(m.id)).join(', ')} join${candidates.length === 1 ? 's' : ''} the coalition against you.`, { important: true });
     }
     for (const m of candidates) if (!c.members.includes(m.id)) c.members.push(m.id);
   }

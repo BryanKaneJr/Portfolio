@@ -29,7 +29,7 @@ const MOD_LABEL: Record<keyof Modifiers, [string, 'pct' | 'flat', boolean]> = {
   navalPower: ['fleet strength', 'pct', true],
   threatDecay: ['Threat decay per month', 'flat', true],
   threatGain: ['Threat gained', 'pct', false],
-  colonists: ['colonial charters', 'flat', true],
+  colonists: ['colonists', 'flat', true],
   settlerGrowth: ['settler growth', 'pct', true],
   opinion: ['opinion of you', 'flat', true],
   diplomacy: ['diplomatic reputation', 'flat', true],
@@ -77,7 +77,7 @@ export function effectLines(e: Effect): ModLine[] {
     case 'papalFavor':
       return L(`Papal Favor ${sgn(v)}`, v > 0);
     case 'warExhaustion':
-      return L(`War weariness ${sgn(v)}`, v < 0);
+      return L(`War exhaustion ${sgn(v)}`, v < 0);
     case 'addClaim':
       return L(`Claim on ${regs(v)}`);
     case 'addCore':
@@ -234,7 +234,7 @@ export function conditionText(c: Condition): string {
     case 'shipsAtLeast':
       return `Have ${v} ships`;
     case 'hasPolicy':
-      return `Issue the ${POLICY[v]?.name ?? v} decree`;
+      return `Adopt the ${POLICY[v]?.name ?? v} policy`;
     case 'regionFaith':
       return `${reg(v.region)} is ${v.faith}`;
     case 'faithRegionsAtLeast':
@@ -270,7 +270,7 @@ export function conditionText(c: Condition): string {
   }
 }
 
-/** Split a goal into checkable parts for the ambitions list. */
+/** Split a goal into checkable parts for the mission list. */
 export function goalParts(c: Condition): Condition[] {
   return 'all' in c ? c.all : [c];
 }
