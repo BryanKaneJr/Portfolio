@@ -2,7 +2,7 @@ import SwiftUI
 
 @main
 @MainActor
-struct RandomizerApp: App {
+struct DraftLotteryApp: App {
     @State private var appState: AppState
 
     init() {

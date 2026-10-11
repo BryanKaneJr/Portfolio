@@ -2,77 +2,115 @@ import XCTest
 @testable import RandomizerCore
 
 final class OddsCalculatorTests: XCTestCase {
-    func testEqualOddsWithFourEntriesAreExactlyAQuarter() {
-        let list = Fixtures.list(["A", "B", "C", "D"])
-        for entry in list.entries {
-            XCTAssertEqual(list.probability(of: entry.id), 0.25)
-            XCTAssertEqual(list.chanceText(of: entry.id), "25%")
-        }
+    func testStandingsWeightsForEightAreEightDownToOne() {
+        XCTAssertEqual(OddsCalculator.reverseStandingsWeights(count: 8), [8, 7, 6, 5, 4, 3, 2, 1])
+        XCTAssertEqual(OddsCalculator.reverseStandingsWeights(count: 0), [])
+        let league = Fixtures.league(Fixtures.teams(8))
+        let rows = OddsCalculator.rows(for: league)
+        XCTAssertEqual(rows.map(\.weight), [8, 7, 6, 5, 4, 3, 2, 1])
+        XCTAssertEqual(rows.map(\.standing), Array(1...8))
+        XCTAssertEqual(rows[0].chanceText, "22.22%")
+        XCTAssertEqual(rows[7].chanceText, "2.78%")
+        XCTAssertTrue(rows.allSatisfy { $0.status == .inLottery })
     }
 
-    func testEqualModeIgnoresStoredWeights() {
-        let list = Fixtures.list(["A", "B"], weights: [0, 900], mode: .equal)
-        XCTAssertEqual(list.eligibleCount, 2)
-        XCTAssertEqual(list.probability(of: list.entries[0].id), 0.5)
+    /// Only the lottery's teams get weight, counted down from the size of
+    /// the lottery, not the league.
+    func testStandingsWeightsCountOnlyLotteryTeams() {
+        let league = Fixtures.league(Fixtures.teams(10), lotteryTeams: 6)
+        let rows = OddsCalculator.rows(for: league)
+        XCTAssertEqual(rows.map(\.weight), [6, 5, 4, 3, 2, 1, 0, 0, 0, 0])
+        XCTAssertEqual(rows.prefix(6).map(\.status), Array(repeating: .inLottery, count: 6))
+        XCTAssertEqual(rows.suffix(4).map(\.status), Array(repeating: .notInLottery, count: 4))
+        XCTAssertEqual(rows[0].chanceText, "28.57%")
+        XCTAssertEqual(rows[0].denominator, 21)
+        XCTAssertEqual(rows[6].chanceText, "0%")
+        XCTAssertEqual(league.totalLotteryWeight, 21)
+    }
+
+    func testEqualOddsIgnoreStoredWeights() {
+        let league = Fixtures.league(["A", "B", "C", "D"], weights: [0, 900, 3, 3], mode: .equal)
+        XCTAssertEqual(OddsCalculator.rows(for: league).map(\.chanceText), ["25%", "25%", "25%", "25%"])
+        XCTAssertEqual(league.lotteryCandidates.count, 4)
     }
 
     func testCustomWeightsGiveExactShares() {
-        let list = Fixtures.list(["A", "B", "C", "D"], weights: [40, 30, 20, 10], mode: .customWeighted)
-        let rows = OddsCalculator.rows(for: list)
+        let league = Fixtures.league(["A", "B", "C", "D"], weights: [40, 30, 20, 10], mode: .customWeighted)
+        let rows = OddsCalculator.rows(for: league)
         XCTAssertEqual(rows.map(\.probability), [0.4, 0.3, 0.2, 0.1])
         XCTAssertEqual(rows.map(\.chanceText), ["40%", "30%", "20%", "10%"])
-        XCTAssertEqual(rows.map(\.weight), [40, 30, 20, 10])
     }
 
-    func testRemovingTheHeaviestEntryRenormalises() throws {
-        var list = Fixtures.list(["A", "B", "C", "D"], weights: [40, 30, 20, 10], mode: .customWeighted)
-        list.removedEntryIDs.insert(Fixtures.id("A", in: list))
-        let rows = OddsCalculator.rows(for: list)
-        XCTAssertEqual(rows[0].status, .removed)
+    func testWeightZeroInsideTheLotteryHasNoChance() {
+        let league = Fixtures.league(["A", "B", "C"], weights: [0, 1, 3], mode: .customWeighted)
+        let rows = OddsCalculator.rows(for: league)
+        XCTAssertEqual(rows[0].status, .noChance)
         XCTAssertEqual(rows[0].chanceText, "0%")
-        XCTAssertEqual(rows[1].numerator, 30)
-        XCTAssertEqual(rows[1].denominator, 60)
-        XCTAssertEqual(rows.dropFirst().map(\.chanceText), ["50%", "33.33%", "16.67%"])
-        XCTAssertEqual(rows[2].probability, 20.0 / 60.0, accuracy: 1e-12)
+        XCTAssertEqual(league.lotteryCandidates.count, 2)
+        XCTAssertEqual(league.firstPickChanceText(of: league.teams[2].id), "75%")
     }
 
-    func testReverseStandingsForEightIsEightDownToOne() {
-        XCTAssertEqual(OddsCalculator.reverseStandingsWeights(count: 8), [8, 7, 6, 5, 4, 3, 2, 1])
-        XCTAssertEqual(OddsCalculator.reverseStandingsWeights(count: 0), [])
-        let list = Fixtures.list((1...8).map { "Team \($0)" }, mode: .reverseStandings)
-        let rows = OddsCalculator.rows(for: list)
-        XCTAssertEqual(rows.map(\.weight), [8, 7, 6, 5, 4, 3, 2, 1])
-        XCTAssertEqual(rows.map(\.rank), Array(1...8))
-        XCTAssertEqual(rows[0].chanceText, "22.22%")
-        XCTAssertEqual(rows[7].chanceText, "2.78%")
+    func testCustomWeightsOutsideTheLotteryDontCount() {
+        let league = Fixtures.league(["A", "B", "C"], weights: [1, 1, 500], mode: .customWeighted, lotteryTeams: 2)
+        let rows = OddsCalculator.rows(for: league)
+        XCTAssertEqual(rows.map(\.chanceText), ["50%", "50%", "0%"])
+        XCTAssertEqual(rows[2].status, .notInLottery)
     }
 
-    func testReverseStandingsWeightsStayFixedAfterRemoval() {
-        var list = Fixtures.list((1...8).map { "Team \($0)" }, mode: .reverseStandings)
-        list.removedEntryIDs.insert(list.entries[0].id)
-        let rows = OddsCalculator.rows(for: list)
-        // The worst team is out; the others keep their preset weights and
-        // their chances renormalise over 28.
-        XCTAssertEqual(rows.dropFirst().map(\.weight), [7, 6, 5, 4, 3, 2, 1])
-        XCTAssertEqual(rows[1].denominator, 28)
-        XCTAssertEqual(rows[1].chanceText, "25%")
+    // MARK: Top-N chances
+
+    func testTopPickChancesForThreeTeamsTakingTwo() throws {
+        // A: 3/6 + 2/6 * 3/4 + 1/6 * 3/5 = 0.85, and so on.
+        let chances = try XCTUnwrap(OddsCalculator.topPickProbabilities(weights: [3, 2, 1], picks: 2))
+        XCTAssertEqual(chances[0], 0.85, accuracy: 1e-12)
+        XCTAssertEqual(chances[1], 11.0 / 15.0, accuracy: 1e-12)
+        XCTAssertEqual(chances[2], 5.0 / 12.0, accuracy: 1e-12)
     }
 
-    func testWeightZeroIsExcludedNotRemoved() {
-        let list = Fixtures.list(["A", "B", "C"], weights: [0, 1, 3], mode: .customWeighted)
-        let rows = OddsCalculator.rows(for: list)
-        XCTAssertEqual(rows[0].status, .excluded)
-        XCTAssertEqual(rows[0].chanceText, "0%")
-        XCTAssertEqual(list.excludedEntries.map(\.name), ["A"])
-        XCTAssertEqual(list.eligibleCount, 2)
-        XCTAssertTrue(list.removedEntryIDs.isEmpty)
+    /// The well-known 14-team lottery that draws the top four picks with
+    /// 140, 140, 140, 125 ... 5 combinations: the worst three each land a
+    /// top-four pick 52.14% of the time, the 14th 2.41%.
+    func testTopPickChancesMatchAWellKnownFourteenTeamTable() throws {
+        let weights = [140, 140, 140, 125, 105, 90, 75, 60, 45, 30, 20, 15, 10, 5]
+        let chances = try XCTUnwrap(OddsCalculator.topPickProbabilities(weights: weights, picks: 4))
+        let percents = chances.map { ($0 * 10_000).rounded() / 100 }
+        XCTAssertEqual(percents, [52.14, 52.14, 52.14, 48.08, 42.12, 37.23, 31.96, 26.31, 20.28, 13.88, 9.41, 7.12, 4.79, 2.41])
+        XCTAssertEqual(chances.reduce(0, +), 4, accuracy: 1e-9)
     }
 
-    func testOddsFollowEligibleEntriesNotAllSaved() {
-        var list = Fixtures.list(["A", "B", "C", "D", "E"])
-        list.removedEntryIDs = [list.entries[0].id, list.entries[1].id]
-        XCTAssertEqual(list.eligibleCount, 3)
-        XCTAssertEqual(list.chanceText(of: list.entries[4].id), "33.33%")
+    func testTopPickChancesAlwaysSumToThePicksDrawn() throws {
+        var rng = SeededGenerator(seed: 31)
+        for _ in 0..<20 {
+            let count = Int.random(in: 3...12, using: &rng)
+            let weights = (0..<count).map { _ in Int.random(in: 0...50, using: &rng) }
+            let active = weights.filter { $0 > 0 }.count
+            let picks = Int.random(in: 1...count, using: &rng)
+            let chances = try XCTUnwrap(OddsCalculator.topPickProbabilities(weights: weights, picks: picks))
+            XCTAssertEqual(chances.reduce(0, +), Double(min(picks, active)), accuracy: 1e-9)
+            for (weight, chance) in zip(weights, chances) where weight == 0 {
+                XCTAssertEqual(chance, 0)
+            }
+        }
+    }
+
+    func testTopPickChancesCanDeclineHugeTables() {
+        let weights = Array(repeating: 1, count: 32)
+        XCTAssertNil(OddsCalculator.topPickProbabilities(weights: weights, picks: 16))
+        XCTAssertNotNil(OddsCalculator.topPickProbabilities(weights: weights, picks: 3))
+        // Every team drawn is certain, and needs no table.
+        XCTAssertEqual(OddsCalculator.topPickProbabilities(weights: weights, picks: 32), Array(repeating: 1, count: 32))
+    }
+
+    func testRowsShowTopNChancesOnlyWhenContested() {
+        let topFour = Fixtures.league(Fixtures.teams(10), lotteryTeams: 6, drawnPicks: 4)
+        let rows = OddsCalculator.rows(for: topFour)
+        XCTAssertTrue(topFour.drawnPicksAreContested)
+        XCTAssertEqual(rows.prefix(6).compactMap(\.drawnPickChanceText), ["88.76%", "84.56%", "78.19%", "68.11%", "51.66%", "28.72%"])
+        XCTAssertTrue(rows.suffix(4).allSatisfy { $0.drawnPickProbability == nil })
+
+        let everyPick = Fixtures.league(Fixtures.teams(10), lotteryTeams: 6)
+        XCTAssertFalse(everyPick.drawnPicksAreContested)
+        XCTAssertTrue(OddsCalculator.rows(for: everyPick).allSatisfy { $0.drawnPickProbability == nil })
     }
 
     func testPercentFormatting() {
@@ -92,30 +130,25 @@ final class OddsCalculatorTests: XCTestCase {
         XCTAssertEqual(OddsCalculator.formatPercent(numerator: 1, denominator: 0), "0%")
     }
 
-    func testRevealStyleNeverChangesOddsOrPool() {
-        var list = Fixtures.list(["A", "B", "C", "D"], weights: [40, 30, 20, 10], mode: .customWeighted)
-        list.removedEntryIDs.insert(list.entries[1].id)
-        let before = OddsCalculator.rows(for: list)
-        let pool = list.eligibleCandidates
+    func testRevealStyleNeverChangesOdds() {
+        let league = Fixtures.league(["A", "B", "C", "D"], weights: [40, 30, 20, 10], mode: .customWeighted, drawnPicks: 2)
+        let before = OddsCalculator.rows(for: league)
         for style in RevealStyle.allCases {
-            var copy = list
+            var copy = league
             copy.setRevealStyle(style, now: Fixtures.now)
             XCTAssertEqual(OddsCalculator.rows(for: copy), before)
-            XCTAssertEqual(copy.eligibleCandidates, pool)
-            XCTAssertEqual(copy.removeAfterSelection, list.removeAfterSelection)
-            XCTAssertEqual(copy.removedEntryIDs, list.removedEntryIDs)
-            XCTAssertEqual(copy.entries, list.entries)
-            XCTAssertEqual(copy.oddsMode, list.oddsMode)
+            XCTAssertEqual(copy.lotteryCandidates, league.lotteryCandidates)
+            XCTAssertEqual(copy.teams, league.teams)
         }
     }
 
-    func testMaximumConfigurationDoesNotOverflow() {
-        let list = Fixtures.list(
-            (1...Limits.maxEntries).map { "E\($0)" },
-            weights: Array(repeating: Limits.maxWeight, count: Limits.maxEntries),
+    func testMaximumLeagueDoesNotOverflow() {
+        let league = Fixtures.league(
+            Fixtures.teams(Limits.maxTeams),
+            weights: Array(repeating: Limits.maxWeight, count: Limits.maxTeams),
             mode: .customWeighted
         )
-        XCTAssertEqual(list.totalEligibleWeight, 200_000)
-        XCTAssertEqual(list.chanceText(of: list.entries[0].id), "0.5%")
+        XCTAssertEqual(league.totalLotteryWeight, 32_000)
+        XCTAssertEqual(league.firstPickChanceText(of: league.teams[0].id), "3.13%")
     }
 }

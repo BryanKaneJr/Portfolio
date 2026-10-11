@@ -2,7 +2,7 @@ import SwiftUI
 import UIKit
 
 /// Colour and type tokens. Dark-first: a warm near-black base, one electric
-/// violet accent, and a bright palette kept for wheel sectors and balls.
+/// violet accent, and a bright palette kept for lottery balls.
 enum Theme {
     static let background = Color(red: 0.075, green: 0.063, blue: 0.055)
     static let surface = Color(red: 0.122, green: 0.106, blue: 0.094)
@@ -39,16 +39,11 @@ enum Theme {
         Color(red: 1.0, green: 0.561, blue: 0.671),
     ]
 
-    /// Colour for an item at `index`; never repeats on neighbours, including
-    /// the last and first sector of a wheel.
-    static func paletteColor(_ index: Int, count: Int? = nil) -> Color {
+    /// Colour for the team at `index` (its finish, 0-based); neighbours
+    /// never share a colour.
+    static func paletteColor(_ index: Int) -> Color {
         let size = palette.count
-        var slot = ((index % size) + size) % size
-        // The last sector would match the first one it touches.
-        if let count, count > 2, index == count - 1, slot == 0 {
-            slot = size / 2
-        }
-        return palette[slot]
+        return palette[((index % size) + size) % size]
     }
 
     static func rounded(_ style: Font.TextStyle, weight: Font.Weight = .regular) -> Font {

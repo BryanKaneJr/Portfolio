@@ -2,49 +2,49 @@ import Foundation
 import Observation
 import RandomizerCore
 
-/// Holds every saved list and writes the store after each change. Draws go
-/// through here so the outcome is saved before any reveal animation starts:
-/// a force quit mid-spin finds the result already in history and never
+/// Holds every saved league and writes the store after each change. The
+/// lottery runs through here so the draft order is saved before any reveal
+/// plays: a force quit mid-reveal finds the order already saved and never
 /// draws again.
 @Observable
 @MainActor
 final class AppState {
-    private(set) var lists: [DrawList]
+    private(set) var leagues: [League]
     /// Shown once on Home when the store had to recover.
     private(set) var storeNotice: String?
     private(set) var saveFailed = false
     /// Screens to open at launch (UI tests and screenshots only).
     var launchRoutes: [Route] = []
 
-    private let repository: ListRepository?
+    private let repository: LeagueRepository?
     @ObservationIgnored private var didSeedSample: Bool
 
-    init(repository: ListRepository?) {
-        var loadedLists: [DrawList] = []
+    init(repository: LeagueRepository?) {
+        var loaded: [League] = []
         var seeded = false
         var notice: String?
         if let repository {
             let (document, outcome) = repository.load()
-            loadedLists = document.lists
+            loaded = document.leagues
             seeded = document.didSeedSample
             switch outcome {
             case .recoveredFromBackup:
-                notice = "Your latest save couldn't be read, so Randomizer restored the one before it."
+                notice = "Your latest save couldn't be read, so the one before it was restored."
             case .resetAfterUnreadableData:
-                notice = "Your saved lists couldn't be read. The damaged file was kept on this iPhone."
+                notice = "Your saved leagues couldn't be read. The damaged file was kept on this iPhone."
             case .fresh, .loaded:
                 break
             }
         } else {
-            notice = "Randomizer can't save on this device right now. Draws still work."
+            notice = "Leagues can't be saved on this device right now. The lottery still works."
         }
         let needsSample = !seeded
         if needsSample {
-            loadedLists.insert(contentsOf: SampleLists.examples(), at: 0)
+            loaded.insert(SampleLeague.make(), at: 0)
         }
         self.repository = repository
         self.didSeedSample = true
-        self.lists = loadedLists
+        self.leagues = loaded
         self.storeNotice = notice
         if needsSample {
             persist()
@@ -55,69 +55,75 @@ final class AppState {
         if LaunchOptions.isUITesting {
             return UITestSeeds.makeState()
         }
-        let repository = (try? ListRepository.defaultDirectory()).map { ListRepository(directory: $0) }
+        let repository = (try? LeagueRepository.defaultDirectory()).map { LeagueRepository(directory: $0) }
         return AppState(repository: repository)
     }
 
     // MARK: Reading
 
-    func list(_ id: UUID) -> DrawList? {
-        lists.first { $0.id == id }
+    func league(_ id: UUID) -> League? {
+        leagues.first { $0.id == id }
     }
 
-    /// Built-in examples not yet kept, in their original order.
-    var exampleLists: [DrawList] {
-        lists.filter(\.isSample)
+    /// The sample league, until it's kept or deleted.
+    var sampleLeague: League? {
+        leagues.first(where: \.isSample)
     }
 
-    /// The person's own lists, most recently used first.
-    var userLists: [DrawList] {
-        lists.filter { !$0.isSample }.sorted { ($0.lastUsedAt ?? $0.updatedAt) > ($1.lastUsedAt ?? $1.updatedAt) }
+    /// The person's own leagues, most recently used first.
+    var userLeagues: [League] {
+        leagues.filter { !$0.isSample }.sorted { ($0.lastUsedAt ?? $0.updatedAt) > ($1.lastUsedAt ?? $1.updatedAt) }
     }
 
     // MARK: Changing
 
-    /// Applies a change to one list and saves, unless nothing changed.
-    func update(_ id: UUID, _ change: (inout DrawList) throws -> Void) rethrows {
-        guard let index = lists.firstIndex(where: { $0.id == id }) else { return }
-        var copy = lists[index]
+    /// Applies a change to one league and saves, unless nothing changed.
+    func update(_ id: UUID, _ change: (inout League) throws -> Void) rethrows {
+        guard let index = leagues.firstIndex(where: { $0.id == id }) else { return }
+        var copy = leagues[index]
         try change(&copy)
-        guard copy != lists[index] else { return }
-        lists[index] = copy
+        guard copy != leagues[index] else { return }
+        leagues[index] = copy
         persist()
     }
 
-    nonisolated static let newListTitle = "New list"
+    nonisolated static let newLeagueTitle = "New league"
 
     @discardableResult
-    func createList(title: String = AppState.newListTitle) -> DrawList {
-        let list = DrawList(title: title)
-        lists.append(list)
+    func createLeague(title: String = AppState.newLeagueTitle) -> League {
+        let league = League(title: title)
+        leagues.append(league)
         persist()
-        return list
+        return league
     }
 
-    /// Drops a list made with New List and left without a name or entries.
+    /// Adds a fully built league (UI test seeds).
+    func insert(_ league: League) {
+        leagues.append(league)
+        persist()
+    }
+
+    /// Drops a league made with New League and left without a name or teams.
     func discardIfUntouched(_ id: UUID) {
-        guard let list = list(id), list.entries.isEmpty, list.title == Self.newListTitle, list.activeResults.isEmpty else { return }
+        guard let league = league(id), league.teams.isEmpty, league.title == Self.newLeagueTitle, league.latestRun == nil else { return }
         delete(id)
     }
 
     func delete(_ id: UUID) {
-        lists.removeAll { $0.id == id }
+        leagues.removeAll { $0.id == id }
         persist()
     }
 
     @discardableResult
-    func duplicate(_ id: UUID) -> DrawList? {
-        guard let original = list(id) else { return nil }
+    func duplicate(_ id: UUID) -> League? {
+        guard let original = league(id) else { return nil }
         let copy = original.duplicated(title: "\(original.title) copy")
-        lists.append(copy)
+        leagues.append(copy)
         persist()
         return copy
     }
 
-    /// An example becomes one of the person's own lists.
+    /// The sample becomes one of the person's own leagues.
     func keepSample(_ id: UUID) {
         update(id) { $0.isSample = false }
     }
@@ -126,32 +132,24 @@ final class AppState {
         storeNotice = nil
     }
 
-    // MARK: Drawing
+    // MARK: The lottery
 
-    /// Draws, commits and saves in one step, then hands back the outcome
-    /// for the reveal. The animation only ever shows this outcome.
-    func draw(_ id: UUID, count: Int) throws -> DrawOutcome {
-        guard let index = lists.firstIndex(where: { $0.id == id }) else { throw DrawError.noEligibleEntries }
-        var copy = lists[index]
-        let outcome = try copy.draw(count: count)
-        lists[index] = copy
+    /// Runs the lottery, records the order as the latest run and saves, in
+    /// one step. Reveals only ever show this saved order.
+    @discardableResult
+    func runLottery(_ id: UUID) throws -> LotteryRun {
+        guard let index = leagues.firstIndex(where: { $0.id == id }) else { throw DrawError.notEnoughTeams }
+        var copy = leagues[index]
+        let run = try copy.runLottery()
+        leagues[index] = copy
         persist()
-        return outcome
-    }
-
-    func generateDraftOrder(_ id: UUID) throws -> DrawOutcome {
-        guard let index = lists.firstIndex(where: { $0.id == id }) else { throw DrawError.noEligibleEntries }
-        var copy = lists[index]
-        let outcome = try copy.generateDraftOrder()
-        lists[index] = copy
-        persist()
-        return outcome
+        return run
     }
 
     private func persist() {
         guard let repository else { return }
         do {
-            try repository.save(StoreDocument(lists: lists, didSeedSample: didSeedSample))
+            try repository.save(StoreDocument(leagues: leagues, didSeedSample: didSeedSample))
             saveFailed = false
         } catch {
             saveFailed = true
@@ -172,16 +170,12 @@ enum LaunchOptions {
 extension DrawError {
     var message: String {
         switch self {
-        case .noEligibleEntries:
-            return "No entries can be drawn right now."
-        case .invalidCount:
-            return "Choose at least one winner."
-        case .countExceedsPool(let available):
-            return "Only \(available) can be drawn at once right now."
-        case .uniqueOrderRequiresRemoval:
-            return "Turn on Remove to generate a unique draft order."
-        case .notEnoughForOrder:
-            return "A draft order needs at least two eligible entries."
+        case .notEnoughTeams:
+            return "Add at least two teams to run the lottery."
+        case .noLotteryChances:
+            return "Give at least one lottery team a chance above 0."
+        case .invalidCount, .countExceedsPool:
+            return "Check the lottery format and try again."
         case .internalInvariantFailure:
             return "Something went wrong. Nothing was drawn."
         }

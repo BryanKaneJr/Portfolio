@@ -1,10 +1,10 @@
 import SwiftUI
 import RandomizerCore
 
-/// Numbered balls tumble in a drum, then the winning ball rises out of it.
-/// Simple 2D paths, no physics. The balls are presentation only: the odds
-/// above the stage are what count, and the winner was drawn before the
-/// first bounce.
+/// Numbered balls (one per team, numbered by finish) tumble in a drum,
+/// then the drawn team's ball rises out of it. Simple 2D paths, no physics.
+/// The balls are presentation only: the odds table is what counts, and the
+/// pick was drawn and saved before the first bounce.
 struct BallsRevealView: View {
     let pool: [PoolMember]
     let winnerID: UUID?
@@ -219,7 +219,7 @@ struct BallsRevealView: View {
         return CGPoint(x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t)
     }
 
-    /// Up to 20 balls in list order, always including the winner.
+    /// Up to 20 balls in standings order, always including the drawn team.
     static func balls(pool: [PoolMember], winnerID: UUID?) -> [PoolMember] {
         guard pool.count > maxBalls else { return pool }
         guard let winnerID, let winner = pool.first(where: { $0.id == winnerID }) else {

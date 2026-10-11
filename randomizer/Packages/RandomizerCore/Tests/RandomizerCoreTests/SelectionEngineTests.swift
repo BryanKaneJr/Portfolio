@@ -43,17 +43,17 @@ final class SelectionEngineTests: XCTestCase {
         }
     }
 
-    func testNoEligibleEntriesThrows() {
+    func testNoChancesThrows() {
         var rng = SeededGenerator(seed: 2)
         XCTAssertThrowsError(try SelectionEngine.selectWinner([], using: &rng)) {
-            XCTAssertEqual($0 as? DrawError, .noEligibleEntries)
+            XCTAssertEqual($0 as? DrawError, .noLotteryChances)
         }
         XCTAssertThrowsError(try SelectionEngine.selectWinner(candidates([0, 0]), using: &rng)) {
-            XCTAssertEqual($0 as? DrawError, .noEligibleEntries)
+            XCTAssertEqual($0 as? DrawError, .noLotteryChances)
         }
     }
 
-    func testSingleEligibleEntryAlwaysWins() throws {
+    func testSingleTeamWithAChanceAlwaysWins() throws {
         var rng = SeededGenerator(seed: 3)
         let pool = candidates([0, 7, 0])
         for _ in 0..<200 {
@@ -63,42 +63,33 @@ final class SelectionEngineTests: XCTestCase {
         }
     }
 
-    func testSequenceWithoutReplacementIsUnique() throws {
+    func testSequenceIsUnique() throws {
         var rng = SeededGenerator(seed: 4)
         let pool = candidates(Array(repeating: 1, count: 10))
         for _ in 0..<200 {
-            let picks = try SelectionEngine.selectSequence(pool, count: 6, withReplacement: false, using: &rng)
+            let picks = try SelectionEngine.selectSequence(pool, count: 6, using: &rng)
             XCTAssertEqual(Set(picks.map(\.id)).count, 6)
             // Each pick's denominator shrinks as the pool does.
             XCTAssertEqual(picks.map(\.totalEligibleWeight), [10, 9, 8, 7, 6, 5])
         }
     }
 
-    func testSequenceWithoutReplacementCannotExceedPool() {
+    func testSequenceCannotExceedPool() {
         var rng = SeededGenerator(seed: 5)
-        XCTAssertThrowsError(try SelectionEngine.selectSequence(candidates([1, 1, 0]), count: 3, withReplacement: false, using: &rng)) {
+        XCTAssertThrowsError(try SelectionEngine.selectSequence(candidates([1, 1, 0]), count: 3, using: &rng)) {
             XCTAssertEqual($0 as? DrawError, .countExceedsPool(available: 2))
         }
-        XCTAssertThrowsError(try SelectionEngine.selectSequence(candidates([1]), count: 0, withReplacement: true, using: &rng)) {
+        XCTAssertThrowsError(try SelectionEngine.selectSequence(candidates([1]), count: 0, using: &rng)) {
             XCTAssertEqual($0 as? DrawError, .invalidCount)
         }
     }
 
-    func testSequenceWithReplacementAllowsRepeats() throws {
-        var rng = SeededGenerator(seed: 6)
-        let pool = candidates([1, 1])
-        let picks = try SelectionEngine.selectSequence(pool, count: 20, withReplacement: true, using: &rng)
-        XCTAssertEqual(picks.count, 20)
-        XCTAssertLessThan(Set(picks.map(\.id)).count, picks.count, "20 picks from 2 entries must repeat")
-        XCTAssertTrue(picks.allSatisfy { $0.totalEligibleWeight == 2 })
-    }
-
-    func testUniqueOrderIsAPermutationOfPositiveWeights() throws {
+    func testFullSequenceIsAPermutationOfPositiveWeights() throws {
         var rng = SeededGenerator(seed: 8)
         let pool = candidates([8, 7, 6, 5, 4, 3, 2, 1, 0])
         let expected = Set(pool.filter { $0.weight > 0 }.map(\.id))
         for _ in 0..<500 {
-            let order = try SelectionEngine.uniqueOrder(pool, using: &rng)
+            let order = try SelectionEngine.selectSequence(pool, count: 8, using: &rng)
             XCTAssertEqual(order.count, 8)
             XCTAssertEqual(Set(order.map(\.id)), expected)
         }
@@ -106,7 +97,7 @@ final class SelectionEngineTests: XCTestCase {
 
     /// Sanity check, not a proof: 120,000 draws at 40/30/20/10 land within
     /// 1 percentage point of the configured shares (about 6.6 standard
-    /// errors for the 40% entry), and pass a chi-square test at p = 0.001.
+    /// errors for the 40% team), and pass a chi-square test at p = 0.001.
     func testObservedFrequenciesMatchWeights() throws {
         var rng = SystemRandomNumberGenerator()
         let weights = [40, 30, 20, 10]
@@ -127,10 +118,11 @@ final class SelectionEngineTests: XCTestCase {
         XCTAssertLessThan(chiSquare, 16.27)
     }
 
-    func testSystemGeneratorConvenienceWorks() throws {
+    func testSystemGeneratorWorks() throws {
+        var rng = SystemRandomNumberGenerator()
         let pool = candidates([1, 2, 3])
-        let pick = try SelectionEngine.selectWinner(pool)
+        let pick = try SelectionEngine.selectWinner(pool, using: &rng)
         XCTAssertTrue(pool.contains { $0.id == pick.id })
-        XCTAssertEqual(try SelectionEngine.selectSequence(pool, count: 3, withReplacement: false).count, 3)
+        XCTAssertEqual(try SelectionEngine.selectSequence(pool, count: 3, using: &rng).count, 3)
     }
 }

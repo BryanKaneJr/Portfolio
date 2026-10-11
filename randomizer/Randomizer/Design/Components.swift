@@ -113,10 +113,8 @@ struct Tag: View {
 extension RevealStyle {
     var systemImage: String {
         switch self {
-        case .wheel: return "circle.circle"
-        case .reel: return "text.line.first.and.arrowtriangle.forward"
         case .lotteryBalls: return "circle.grid.2x2.fill"
-        case .mysteryCard: return "questionmark.square.fill"
+        case .cardFlip: return "rectangle.portrait.fill"
         }
     }
 }
@@ -124,21 +122,44 @@ extension RevealStyle {
 extension OddsMode {
     var systemImage: String {
         switch self {
+        case .reverseStandings: return "list.number"
         case .equal: return "equal.circle"
         case .customWeighted: return "slider.horizontal.3"
-        case .reverseStandings: return "list.number"
         }
     }
 
     var explanation: String {
         switch self {
-        case .equal:
-            return "Every eligible entry has the same chance."
-        case .customWeighted:
-            return "Weights are relative chances, not fixed percentages. A weight of 0 keeps an entry out of draws."
         case .reverseStandings:
-            return "Order entries from worst finish (top) to best. The worst gets the most weight."
+            return "The worst finish gets the most chances. With 6 lottery teams the worst has 6, the next 5, down to 1."
+        case .equal:
+            return "Every lottery team has the same chance."
+        case .customWeighted:
+            return "Set each lottery team's chances. They're relative: 140 against 70 is twice the chance. A team at 0 picks by standings."
         }
+    }
+}
+
+/// A team's finish as a small lottery ball: the number on its ball.
+struct StandingBadge: View {
+    let standing: Int
+    var size: CGFloat = 30
+
+    var body: some View {
+        ZStack {
+            Circle()
+                .fill(Theme.paletteColor(standing - 1))
+            Circle()
+                .fill(.white)
+                .padding(size * 0.2)
+            Text("\(standing)")
+                .font(.system(size: size * 0.36, weight: .heavy, design: .rounded))
+                .monospacedDigit()
+                .foregroundStyle(Theme.onPalette)
+                .minimumScaleFactor(0.5)
+        }
+        .frame(width: size, height: size)
+        .accessibilityHidden(true)
     }
 }
 

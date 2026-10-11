@@ -2,11 +2,10 @@ import SwiftUI
 
 enum Route: Hashable {
     case editor(UUID)
-    case draw(UUID)
-    case draftOrder(UUID)
+    case lottery(UUID)
 }
 
-/// One shallow navigation stack: Home, then a list's editor or draw screen.
+/// One shallow navigation stack: Home, then a league's lottery or editor.
 struct RootView: View {
     @Environment(AppState.self) private var appState
     @State private var path: [Route] = []
@@ -17,11 +16,9 @@ struct RootView: View {
                 .navigationDestination(for: Route.self) { route in
                     switch route {
                     case .editor(let id):
-                        ListEditorView(listID: id, path: $path)
-                    case .draw(let id):
-                        DrawView(listID: id, path: $path)
-                    case .draftOrder(let id):
-                        DraftOrderView(listID: id)
+                        LeagueEditorView(leagueID: id, path: $path)
+                    case .lottery(let id):
+                        LotteryView(leagueID: id, path: $path)
                     }
                 }
         }
@@ -35,13 +32,13 @@ struct RootView: View {
 }
 
 extension Array where Element == Route {
-    /// Opens a list's draw screen, going back to it if it's already open.
-    mutating func showDraw(_ id: UUID) {
-        if let index = lastIndex(of: .draw(id)) {
+    /// Opens a league's lottery, going back to it if it's already open.
+    mutating func showLottery(_ id: UUID) {
+        if let index = lastIndex(of: .lottery(id)) {
             removeSubrange((index + 1)...)
         } else {
             if last == .editor(id) { removeLast() }
-            append(.draw(id))
+            append(.lottery(id))
         }
     }
 

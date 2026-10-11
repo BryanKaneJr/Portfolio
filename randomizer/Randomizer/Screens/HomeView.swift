@@ -1,15 +1,14 @@
 import SwiftUI
 import RandomizerCore
 
-/// Saved lists, three ready-made examples you can draw from in seconds,
-/// and New List.
+/// Your leagues, the sample league you can run in seconds, and New League.
 struct HomeView: View {
     @Environment(AppState.self) private var appState
     @Binding var path: [Route]
     @State private var showingSettings = false
-    @State private var renaming: DrawList?
+    @State private var renaming: League?
     @State private var renameText = ""
-    @State private var deleting: DrawList?
+    @State private var deleting: League?
 
     var body: some View {
         ScrollView {
@@ -18,32 +17,34 @@ struct HomeView: View {
                 if let notice = appState.storeNotice {
                     noticeBanner(notice)
                 }
-                if appState.userLists.isEmpty, !appState.exampleLists.isEmpty {
-                    examplesSection(title: "Try an example", subtitle: "Tap one to draw right away.") { list in
-                        exampleCard(list)
+                if appState.userLeagues.isEmpty, let sample = appState.sampleLeague {
+                    VStack(alignment: .leading, spacing: 12) {
+                        sectionTitle("Try it with a sample league")
+                        sampleCard(sample)
                     }
                 }
-                Button(action: createList) {
-                    Label("New List", systemImage: "plus")
+                Button(action: createLeague) {
+                    Label("New League", systemImage: "plus")
                 }
                 .buttonStyle(PrimaryButtonStyle())
-                .accessibilityIdentifier("newListButton")
+                .accessibilityIdentifier("newLeagueButton")
 
-                if !appState.userLists.isEmpty {
+                if !appState.userLeagues.isEmpty {
                     VStack(alignment: .leading, spacing: 12) {
-                        sectionTitle("Your lists")
-                        ForEach(appState.userLists) { list in
-                            listCard(list)
+                        sectionTitle("Your leagues")
+                        ForEach(appState.userLeagues) { league in
+                            leagueCard(league)
                         }
                     }
-                    if !appState.exampleLists.isEmpty {
-                        examplesSection(title: "Examples", subtitle: nil) { list in
-                            listCard(list)
+                    if let sample = appState.sampleLeague {
+                        VStack(alignment: .leading, spacing: 12) {
+                            sectionTitle("Sample")
+                            leagueCard(sample)
                         }
                     }
                 }
 
-                if appState.lists.isEmpty {
+                if appState.leagues.isEmpty {
                     emptyState
                 }
             }
@@ -66,8 +67,8 @@ struct HomeView: View {
         .sheet(isPresented: $showingSettings) {
             SettingsView()
         }
-        .alert("Rename list", isPresented: renameBinding) {
-            TextField("List name", text: $renameText)
+        .alert("Rename league", isPresented: renameBinding) {
+            TextField("League name", text: $renameText)
             Button("Cancel", role: .cancel) {}
             Button("Save") {
                 if let renaming {
@@ -80,22 +81,28 @@ struct HomeView: View {
             isPresented: deleteBinding,
             titleVisibility: .visible
         ) {
-            Button("Delete list", role: .destructive) {
+            Button("Delete league", role: .destructive) {
                 if let deleting { appState.delete(deleting.id) }
             }
         } message: {
-            Text("Its entries, weights and results are removed from this iPhone.")
+            Text("Its teams, odds and draft order are removed from this iPhone.")
         }
     }
 
     private var header: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text("Randomizer")
-                .font(.system(size: 40, weight: .heavy, design: .rounded))
-                .foregroundStyle(Theme.textPrimary)
-            Text("Spin & Reveal")
-                .font(Theme.rounded(.title3, weight: .semibold))
-                .foregroundStyle(Theme.accentGradient)
+        HStack(alignment: .center, spacing: 14) {
+            BallCluster()
+                .frame(width: 52, height: 52)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(AppInfo.name)
+                    .font(.system(size: 36, weight: .heavy, design: .rounded))
+                    .foregroundStyle(Theme.textPrimary)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.7)
+                Text("For your fantasy league")
+                    .font(Theme.rounded(.headline, weight: .semibold))
+                    .foregroundStyle(Theme.accentGradient)
+            }
         }
         .padding(.top, 4)
         .accessibilityElement(children: .combine)
@@ -122,12 +129,11 @@ struct HomeView: View {
 
     private var emptyState: some View {
         VStack(spacing: 12) {
-            Image(systemName: "circle.circle")
-                .font(.system(size: 48))
-                .foregroundStyle(Theme.accent)
-            Text("No lists yet")
+            BallCluster()
+                .frame(width: 56, height: 56)
+            Text("No leagues yet")
                 .font(Theme.rounded(.title3, weight: .bold))
-            Text("Make a list of people or things, then spin, reel, roll or reveal a winner.")
+            Text("Add your league's teams in last season's order, pick a lottery format, and run it live.")
                 .font(.subheadline)
                 .foregroundStyle(Theme.textSecondary)
                 .multilineTextAlignment(.center)
@@ -143,84 +149,64 @@ struct HomeView: View {
             .accessibilityAddTraits(.isHeader)
     }
 
-    private func examplesSection<Card: View>(
-        title: String,
-        subtitle: String?,
-        @ViewBuilder card: @escaping (DrawList) -> Card
-    ) -> some View {
-        VStack(alignment: .leading, spacing: 12) {
-            VStack(alignment: .leading, spacing: 2) {
-                sectionTitle(title)
-                if let subtitle {
-                    Text(subtitle)
-                        .font(.footnote)
-                        .foregroundStyle(Theme.textTertiary)
-                }
-            }
-            ForEach(appState.exampleLists) { list in
-                card(list)
-            }
-        }
-    }
-
-    private func exampleCard(_ list: DrawList) -> some View {
+    private func sampleCard(_ league: League) -> some View {
         Button {
-            path.showDraw(list.id)
+            path.showLottery(league.id)
         } label: {
-            ExampleCard(list: list)
+            SampleCard(league: league)
         }
         .buttonStyle(.plain)
-        .accessibilityIdentifier("exampleCard")
-        .contextMenu { listActions(list) }
+        .accessibilityIdentifier("sampleLeagueCard")
+        .contextMenu { leagueActions(league) }
     }
 
-    private func listCard(_ list: DrawList) -> some View {
+    private func leagueCard(_ league: League) -> some View {
         Button {
-            open(list)
+            open(league)
         } label: {
-            ListCard(list: list)
+            LeagueCard(league: league)
         }
         .buttonStyle(.plain)
-        .accessibilityIdentifier("listCard")
-        .contextMenu { listActions(list) }
+        .accessibilityIdentifier("leagueCard")
+        .contextMenu { leagueActions(league) }
     }
 
     @ViewBuilder
-    private func listActions(_ list: DrawList) -> some View {
+    private func leagueActions(_ league: League) -> some View {
         Button {
-            path.showEditor(list.id)
+            path.showEditor(league.id)
         } label: {
-            Label("Edit list", systemImage: "pencil")
+            Label("Edit league", systemImage: "pencil")
         }
         Button {
-            renameText = list.title
-            renaming = list
+            renameText = league.title
+            renaming = league
         } label: {
             Label("Rename", systemImage: "character.cursor.ibeam")
         }
         Button {
-            appState.duplicate(list.id)
+            appState.duplicate(league.id)
         } label: {
             Label("Duplicate", systemImage: "plus.square.on.square")
         }
         Button(role: .destructive) {
-            deleting = list
+            deleting = league
         } label: {
             Label("Delete", systemImage: "trash")
         }
     }
 
-    private func open(_ list: DrawList) {
-        if list.startProblem == nil {
-            path.showDraw(list.id)
+    private func open(_ league: League) {
+        if league.runProblem == nil || league.latestRun != nil {
+            path.showLottery(league.id)
         } else {
-            path.showEditor(list.id)
+            path.showEditor(league.id)
         }
     }
 
-    private func createList() {
-        let list = appState.createList()
-        path.append(.editor(list.id))
+    private func createLeague() {
+        let league = appState.createLeague()
+        path.append(.editor(league.id))
     }
 
     private var renameBinding: Binding<Bool> {
@@ -232,32 +218,32 @@ struct HomeView: View {
     }
 }
 
-/// A built-in example: its reveal style drawn small, what it's for, and
-/// the first few entries. One tap opens the draw screen.
-private struct ExampleCard: View {
-    let list: DrawList
+/// The sample league: its format and first few teams. One tap opens its
+/// lottery.
+private struct SampleCard: View {
+    let league: League
 
     var body: some View {
         HStack(spacing: 14) {
             ZStack {
                 RoundedRectangle(cornerRadius: 16, style: .continuous)
                     .fill(Theme.accentSoft)
-                RevealStyleIcon(style: list.revealStyle)
-                    .scaleEffect(0.9)
+                BallCluster()
+                    .padding(10)
             }
             .frame(width: 64, height: 64)
 
             VStack(alignment: .leading, spacing: 3) {
-                Text(list.revealStyle.title)
+                Text("\(league.teams.count) teams \u{00B7} \(league.lotteryTeams) in the lottery")
                     .font(Theme.rounded(.caption, weight: .bold))
                     .foregroundStyle(Theme.accent)
                     .textCase(.uppercase)
-                Text(list.title)
+                Text(league.title)
                     .font(Theme.rounded(.title3, weight: .bold))
                     .foregroundStyle(Theme.textPrimary)
                     .lineLimit(1)
                     .minimumScaleFactor(0.8)
-                Text(list.entries.prefix(4).map(\.name).joined(separator: " \u{00B7} ") + (list.entries.count > 4 ? " \u{2026}" : ""))
+                Text(league.teams.prefix(3).map(\.name).joined(separator: " \u{00B7} ") + (league.teams.count > 3 ? " \u{2026}" : ""))
                     .font(.subheadline)
                     .foregroundStyle(Theme.textSecondary)
                     .lineLimit(1)
@@ -270,47 +256,43 @@ private struct ExampleCard: View {
         .card(padding: 14)
         .contentShape(Rectangle())
         .accessibilityElement(children: .combine)
-        .accessibilityHint("Opens the draw screen")
+        .accessibilityHint("Opens the lottery")
     }
 }
 
-/// A saved list at a glance: name, size, reveal style and last use.
-struct ListCard: View {
-    let list: DrawList
+/// A saved league at a glance: name, size, format and the latest run.
+struct LeagueCard: View {
+    let league: League
 
     var body: some View {
         HStack(spacing: 14) {
             ZStack {
                 RoundedRectangle(cornerRadius: 14, style: .continuous)
                     .fill(Theme.accentSoft)
-                Image(systemName: list.revealStyle.systemImage)
-                    .font(.title3.weight(.semibold))
+                Text("\(league.teams.count)")
+                    .font(Theme.rounded(.title3, weight: .heavy))
+                    .monospacedDigit()
                     .foregroundStyle(Theme.accent)
             }
             .frame(width: 48, height: 48)
+            .accessibilityLabel("\(league.teams.count) teams")
 
             VStack(alignment: .leading, spacing: 4) {
                 HStack(spacing: 6) {
-                    Text(list.title)
+                    Text(league.title)
                         .font(Theme.rounded(.headline, weight: .bold))
                         .foregroundStyle(Theme.textPrimary)
                         .lineLimit(1)
-                    if list.isSample {
-                        Tag(text: "Example", tint: Theme.caution)
+                    if league.isSample {
+                        Tag(text: "Sample", tint: Theme.caution)
                     }
                 }
                 Text(detail)
                     .font(.footnote)
                     .foregroundStyle(Theme.textSecondary)
                     .lineLimit(1)
-                if let used = list.lastUsedAt {
-                    Text("Used \(used.formatted(.relative(presentation: .named)))")
-                        .font(.caption)
-                        .foregroundStyle(Theme.textTertiary)
-                        .lineLimit(1)
-                }
-                if list.hasActiveSession {
-                    Text(sessionLine)
+                if let run = league.latestRun {
+                    Text(runLine(run))
                         .font(.caption)
                         .foregroundStyle(Theme.accent)
                         .lineLimit(1)
@@ -327,39 +309,13 @@ struct ListCard: View {
     }
 
     private var detail: String {
-        "\(list.entries.count) \(list.entries.count == 1 ? "entry" : "entries") · \(list.revealStyle.title)"
+        guard league.teams.count >= Limits.minTeams else { return "Add teams to run the lottery" }
+        let lottery = league.lotteryTeams == league.teams.count ? "Every team in the lottery" : "Worst \(league.lotteryTeams) in the lottery"
+        return "\(lottery) \u{00B7} \(league.oddsMode.shortTitle) odds"
     }
 
-    private var sessionLine: String {
-        let draws = list.activeResults.count
-        let removed = list.removedEntryIDs.count
-        var parts = ["\(draws) drawn"]
-        if removed > 0 { parts.append("\(removed) removed") }
-        return parts.joined(separator: " · ")
-    }
-}
-
-/// A tiny static wheel used as an icon.
-struct MiniWheel: View {
-    let count: Int
-
-    var body: some View {
-        Canvas { context, size in
-            let n = max(count, 2)
-            let radius = min(size.width, size.height) / 2
-            let center = CGPoint(x: size.width / 2, y: size.height / 2)
-            for index in 0..<n {
-                let start = Angle.degrees(Double(index) / Double(n) * 360 - 90)
-                let end = Angle.degrees(Double(index + 1) / Double(n) * 360 - 90)
-                var path = Path()
-                path.move(to: center)
-                path.addArc(center: center, radius: radius, startAngle: start, endAngle: end, clockwise: false)
-                path.closeSubpath()
-                context.fill(path, with: .color(Theme.paletteColor(index, count: n)))
-            }
-            let hub = Path(ellipseIn: CGRect(x: center.x - radius * 0.22, y: center.y - radius * 0.22, width: radius * 0.44, height: radius * 0.44))
-            context.fill(hub, with: .color(Theme.background))
-        }
-        .accessibilityHidden(true)
+    private func runLine(_ run: LotteryRun) -> String {
+        let state = run.isFullyRevealed ? "order set" : "reveal in progress"
+        return "Run #\(run.number) \u{00B7} \(state) \u{00B7} \(run.ranAt.formatted(.relative(presentation: .named)))"
     }
 }

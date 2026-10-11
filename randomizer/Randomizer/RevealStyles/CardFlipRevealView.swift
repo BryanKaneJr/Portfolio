@@ -1,8 +1,9 @@
 import SwiftUI
 import RandomizerCore
 
-/// A face-down card trembles, glows, then flips to show the winner.
-struct MysteryRevealView: View {
+/// A face-down team card trembles, glows, then flips to show who got the
+/// pick.
+struct CardFlipRevealView: View {
     let pool: [PoolMember]
     let winnerID: UUID?
     let phase: StagePhase
@@ -108,10 +109,10 @@ private struct CardFront: View {
             Theme.surfaceRaised
             Theme.paletteColor(member?.listIndex ?? 0)
                 .frame(height: 16)
-            VStack(spacing: 10) {
-                Image(systemName: "sparkles")
-                    .font(.title)
-                    .foregroundStyle(Theme.caution)
+            VStack(spacing: 12) {
+                if let member {
+                    StandingBadge(standing: member.listIndex + 1)
+                }
                 Text(member?.name ?? "")
                     .font(.system(size: 36, weight: .heavy, design: .rounded))
                     .foregroundStyle(Theme.textPrimary)

@@ -1,8 +1,7 @@
 import SwiftUI
 import RandomizerCore
 
-/// Sound, haptics, animation speed and how draws work. The removal toggle
-/// is deliberately not here: it lives on every draw screen.
+/// Sound, haptics, animation speed and how the lottery works.
 struct SettingsView: View {
     @AppStorage(PreferenceKey.sound) private var soundOn = true
     @AppStorage(PreferenceKey.haptics) private var hapticsOn = true
@@ -17,7 +16,7 @@ struct SettingsView: View {
                         .accessibilityIdentifier("soundToggle")
                     Toggle("Haptics", isOn: $hapticsOn)
                         .accessibilityIdentifier("hapticsToggle")
-                    Picker("Animation speed", selection: $speed) {
+                    Picker("Reveal speed", selection: $speed) {
                         ForEach(AnimationSpeed.allCases) { speed in
                             Text(speed.title).tag(speed.rawValue)
                         }
@@ -30,22 +29,26 @@ struct SettingsView: View {
                 }
                 .listRowBackground(Theme.surface)
 
-                Section("How draws work") {
+                Section("How the lottery works") {
                     infoRow(
-                        "One fair engine",
-                        "Every reveal style shows a result picked by the same engine, using your iPhone's secure random number generator and the odds you can see."
+                        "Lottery teams",
+                        "The worst finishers are in the lottery. You choose how many: every team, or just the ones that missed the playoffs."
                     )
                     infoRow(
-                        "Picked before the show",
-                        "The winner is chosen and saved before any animation plays. Skipping, closing the app or switching styles never changes it."
+                        "Drawn picks",
+                        "The lottery draws the top picks one at a time. Each drawn team leaves the drum, so everyone else's chance at the next pick goes up. Lottery teams it doesn't draw pick next, worst first; then everyone else by standings."
                     )
                     infoRow(
-                        "Remove",
-                        "On: winners leave the pool for this session. Off: winners stay in and can repeat. It's the switch at the bottom right of the draw screen, saved per list."
+                        "Fair draw",
+                        "Picks are drawn by your iPhone's secure random number generator, using exactly the odds in the odds table."
                     )
                     infoRow(
-                        "Weights are relative",
-                        "A chance is an entry's weight divided by the total weight of everyone still eligible, so chances rise as others are removed."
+                        "Drawn before the reveal",
+                        "The whole order is drawn and saved the moment you run the lottery. The balls and cards only show it, and skipping or closing the app never changes it."
+                    )
+                    infoRow(
+                        "Every run counts",
+                        "Running the lottery again replaces the order and bumps the run number (Run #2), which shows on everything you share."
                     )
                 }
                 .listRowBackground(Theme.surface)
@@ -53,7 +56,7 @@ struct SettingsView: View {
                 Section("Privacy") {
                     infoRow(
                         "Stays on this iPhone",
-                        "No account, no ads, no tracking and no internet needed. Your lists leave the device only when you share them."
+                        "No account, no ads, no tracking and no internet needed. Your leagues leave the device only when you share a draft order."
                     )
                 }
                 .listRowBackground(Theme.surface)

@@ -10,6 +10,7 @@ struct ShareLine: Identifiable {
 }
 
 /// The image people share: built on device, never uploaded anywhere.
+/// Percentages are each drawn pick's chance at the moment it was drawn.
 struct ResultCardView: View {
     let title: String
     let subtitle: String
@@ -21,7 +22,7 @@ struct ResultCardView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 18) {
             HStack(spacing: 10) {
-                MiniWheel(count: 8)
+                BallCluster()
                     .frame(width: 30, height: 30)
                 Text(AppInfo.name)
                     .font(.system(size: 15, weight: .bold, design: .rounded))
@@ -90,28 +91,43 @@ enum ShareRenderer {
         return Image(uiImage: uiImage)
     }
 
-    static func resultsImage(for list: DrawList) -> Image? {
-        let lines = list.activeResults.map {
-            ShareLine(position: "\($0.ordinal).", name: $0.nameSnapshot, detail: "\($0.chanceText) chance")
+    /// The full order, pick 1 first, with the run number on it.
+    static func runImage(title: String, run: LotteryRun) -> Image? {
+        let lines = run.picks.sorted { $0.pick < $1.pick }.map {
+            ShareLine(position: "#\($0.pick)", name: $0.teamName, detail: $0.wasDrawn ? $0.chanceText : "Standings")
         }
-        let date = (list.activeResults.first?.drawnAt ?? Date()).formatted(date: .abbreviated, time: .shortened)
-        return image(
-            title: list.title,
-            subtitle: "Results \u{00B7} \(date)",
-            lines: lines,
-            footnote: list.sessionEdited ? "Edited session: a draw was undone." : nil
-        )
-    }
-
-    static func draftOrderImage(title: String, picks: [DrawResult]) -> Image? {
-        let lines = picks.sorted { $0.positionInAction < $1.positionInAction }.map {
-            ShareLine(position: "#\($0.positionInAction)", name: $0.nameSnapshot, detail: nil)
-        }
-        let date = (picks.first?.drawnAt ?? Date()).formatted(date: .abbreviated, time: .shortened)
+        let date = run.ranAt.formatted(date: .abbreviated, time: .shortened)
         return image(
             title: title,
-            subtitle: "Draft order \u{00B7} \(date)",
-            lines: lines
+            subtitle: "Draft order \u{00B7} Run #\(run.number) \u{00B7} \(date)",
+            lines: lines,
+            footnote: ResultsExporter.formatLine(run)
         )
+    }
+}
+
+/// Three overlapping lottery balls, the app's mark.
+struct BallCluster: View {
+    var body: some View {
+        GeometryReader { proxy in
+            let size = min(proxy.size.width, proxy.size.height) * 0.62
+            ZStack {
+                ball(Theme.paletteColor(0), size: size)
+                    .offset(x: -size * 0.32, y: size * 0.18)
+                ball(Theme.paletteColor(5), size: size)
+                    .offset(x: size * 0.32, y: size * 0.18)
+                ball(Theme.paletteColor(2), size: size)
+                    .offset(y: -size * 0.24)
+            }
+            .frame(width: proxy.size.width, height: proxy.size.height)
+        }
+        .accessibilityHidden(true)
+    }
+
+    private func ball(_ color: Color, size: CGFloat) -> some View {
+        Circle()
+            .fill(color)
+            .overlay(Circle().fill(.white).padding(size * 0.28))
+            .frame(width: size, height: size)
     }
 }

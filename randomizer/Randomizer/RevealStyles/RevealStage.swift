@@ -2,8 +2,8 @@ import SwiftUI
 import RandomizerCore
 
 /// Where a reveal is. Reveal views are pure functions of the pool, the
-/// already chosen winner and this phase, so skipping, switching style
-/// mid-spin or coming back to the screen can never change the result.
+/// already drawn team and this phase, so skipping, switching style
+/// mid-reveal or coming back to the screen can never change a pick.
 enum StagePhase: Equatable {
     case idle
     case animating(start: Date, duration: Double)
@@ -55,9 +55,9 @@ enum Easing {
     }
 }
 
-/// Decoration-only randomness (a wheel's landing spot inside the winning
-/// sector, the reel's filler order, ball paths). Seeded from the reveal so
-/// a reveal always looks the same; it never influences who wins.
+/// Decoration-only randomness (ball paths, rattle timing). Seeded from the
+/// reveal so a reveal always looks the same; it never influences who gets
+/// a pick.
 struct CosmeticRandom: RandomNumberGenerator {
     private var state: UInt64
 
@@ -91,14 +91,10 @@ struct RevealStage: View {
 
     var body: some View {
         switch style {
-        case .wheel:
-            WheelRevealView(pool: pool, winnerID: winnerID, phase: phase, token: token)
-        case .reel:
-            ReelRevealView(pool: pool, winnerID: winnerID, phase: phase, token: token)
         case .lotteryBalls:
             BallsRevealView(pool: pool, winnerID: winnerID, phase: phase, token: token)
-        case .mysteryCard:
-            MysteryRevealView(pool: pool, winnerID: winnerID, phase: phase, token: token)
+        case .cardFlip:
+            CardFlipRevealView(pool: pool, winnerID: winnerID, phase: phase, token: token)
         }
     }
 }
@@ -109,43 +105,18 @@ enum RevealTiming {
         if reduceMotion || speed == .instant { return 0 }
         let standard: Double
         switch style {
-        case .wheel: standard = 4.6
-        case .reel: standard = 3.8
         case .lotteryBalls: standard = 4.2
-        case .mysteryCard: standard = 3.2
+        case .cardFlip: standard = 3.2
         }
         return speed == .fast ? standard * 0.45 : standard
     }
 
-    static func wheelSpins(for duration: Double) -> Double {
-        duration < 3 ? 3 : 5
-    }
-
-    /// Names the reel scrolls through, ending on the winner.
-    static let reelItemCount = 34
-
-    static let wheelPower = 4.0
-    static let reelPower = 4.0
-
-    /// Tick sounds that follow what's on screen: slowing for the wheel and
-    /// reel, a rattle for the balls, a quickening drumroll for the card.
+    /// Sounds that follow what's on screen: a rattle for the balls, a
+    /// quickening drumroll for the card.
     static func ticks(for style: RevealStyle, duration: Double, poolCount: Int, token: UUID) -> (SoundEffect, [Double]) {
         guard duration > 0 else { return (.tick, []) }
         var times: [Double] = []
         switch style {
-        case .wheel:
-            let crossings = Int((wheelSpins(for: duration) + 0.5) * Double(max(poolCount, 2)))
-            let count = min(crossings, 70)
-            times = (1..<count).map { k in
-                duration * Easing.inverseOut(Double(k) / Double(count), power: wheelPower)
-            }
-            return (.tick, spaced(times, minimumGap: 0.045))
-        case .reel:
-            let count = reelItemCount - 1
-            times = (1...count).map { k in
-                duration * Easing.inverseOut(Double(k) / Double(count), power: reelPower)
-            }
-            return (.tick, spaced(times, minimumGap: 0.045))
         case .lotteryBalls:
             var random = CosmeticRandom(token)
             var t = 0.05
@@ -154,7 +125,7 @@ enum RevealTiming {
                 t += 0.06 + random.unit() * 0.12
             }
             return (.clack, times)
-        case .mysteryCard:
+        case .cardFlip:
             var t = 0.0
             var gap = 0.26
             while t < duration * 0.62 {
@@ -165,19 +136,11 @@ enum RevealTiming {
             return (.tick, times)
         }
     }
-
-    private static func spaced(_ times: [Double], minimumGap: Double) -> [Double] {
-        var result: [Double] = []
-        for time in times where time - (result.last ?? -1) >= minimumGap {
-            result.append(time)
-        }
-        return result
-    }
 }
 
 /// Runs one reveal at a time: start, skip, land. Landing is driven by a
 /// timer here, not by the animation, so a skipped or interrupted reveal
-/// still lands on the same committed result.
+/// still lands on the same saved pick.
 @Observable
 @MainActor
 final class RevealDriver {
@@ -206,14 +169,14 @@ final class RevealDriver {
         }
     }
 
-    /// Jumps straight to the result that was already drawn.
+    /// Jumps straight to the pick that was already drawn.
     func skip() {
         guard phase.isAnimating else { return }
         landingTask?.cancel()
         land()
     }
 
-    /// Lands without playing anything (Show all, Reveal all).
+    /// Lands without playing anything (Reveal all, coming back mid-reveal).
     func showLanded() {
         landingTask?.cancel()
         SoundPlayer.shared.stopSchedule()

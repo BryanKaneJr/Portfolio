@@ -22,31 +22,38 @@ struct SeededGenerator: RandomNumberGenerator {
 enum Fixtures {
     static let now = Date(timeIntervalSinceReferenceDate: 800_000_000)
 
-    static func list(
+    /// Teams in standings order, worst first.
+    static func league(
         _ names: [String],
         weights: [Int]? = nil,
-        mode: OddsMode = .equal,
-        removeAfterSelection: Bool = true
-    ) -> DrawList {
-        let entries = names.enumerated().map { index, name in
-            DrawEntry(name: name, weight: weights?[index] ?? 1)
+        mode: OddsMode = .reverseStandings,
+        lotteryTeams: Int? = nil,
+        drawnPicks: Int? = nil
+    ) -> League {
+        let teams = names.enumerated().map { index, name in
+            Team(name: name, weight: weights?[index] ?? 1)
         }
-        return DrawList(
-            title: "Test",
-            entries: entries,
+        return League(
+            title: "Test League",
+            teams: teams,
             oddsMode: mode,
-            removeAfterSelection: removeAfterSelection,
+            lotteryTeamCount: lotteryTeams,
+            drawnPickCount: drawnPicks,
             createdAt: now
         )
     }
 
-    static func id(_ name: String, in list: DrawList) -> UUID {
-        list.entries.first { $0.name == name }!.id
+    static func teams(_ count: Int) -> [String] {
+        (1...count).map { "Team \($0)" }
+    }
+
+    static func id(_ name: String, in league: League) -> UUID {
+        league.teams.first { $0.name == name }!.id
     }
 
     static func temporaryDirectory() -> URL {
         let url = FileManager.default.temporaryDirectory
-            .appendingPathComponent("RandomizerCoreTests-\(UUID().uuidString)", isDirectory: true)
+            .appendingPathComponent("DraftLotteryCoreTests-\(UUID().uuidString)", isDirectory: true)
         try? FileManager.default.createDirectory(at: url, withIntermediateDirectories: true)
         return url
     }

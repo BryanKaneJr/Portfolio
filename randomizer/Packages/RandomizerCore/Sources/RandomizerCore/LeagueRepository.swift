@@ -1,28 +1,28 @@
 import Foundation
 
-/// The single versioned file that holds every saved list.
+/// The single versioned file that holds every saved league.
 public struct StoreDocument: Codable, Equatable, Sendable {
     public static let currentSchemaVersion = 1
 
     public var schemaVersion: Int
-    public var lists: [DrawList]
-    /// The first-run sample is created once, so deleting it sticks.
+    public var leagues: [League]
+    /// The sample league is created once, so deleting it sticks.
     public var didSeedSample: Bool
 
-    public init(lists: [DrawList] = [], didSeedSample: Bool = false) {
+    public init(leagues: [League] = [], didSeedSample: Bool = false) {
         schemaVersion = StoreDocument.currentSchemaVersion
-        self.lists = lists
+        self.leagues = leagues
         self.didSeedSample = didSeedSample
     }
 
     private enum CodingKeys: String, CodingKey {
-        case schemaVersion, lists, didSeedSample
+        case schemaVersion, leagues, didSeedSample
     }
 
     public init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: CodingKeys.self)
         schemaVersion = try c.decode(Int.self, forKey: .schemaVersion)
-        lists = try c.decodeIfPresent([DrawList].self, forKey: .lists) ?? []
+        leagues = try c.decodeIfPresent([League].self, forKey: .leagues) ?? []
         didSeedSample = try c.decodeIfPresent(Bool.self, forKey: .didSeedSample) ?? true
     }
 }
@@ -44,9 +44,9 @@ public enum StoreLoadOutcome: Equatable, Sendable {
 /// file atomically (temporary file + rename), so a crash mid-write leaves
 /// either the old or the new file, and an unreadable file falls back to the
 /// previous save. Unreadable files are renamed aside, never deleted.
-public final class ListRepository: @unchecked Sendable {
-    public static let fileName = "randomizer_store_v1.json"
-    public static let backupFileName = "randomizer_store_v1.backup.json"
+public final class LeagueRepository: @unchecked Sendable {
+    public static let fileName = "draft_lottery_store_v1.json"
+    public static let backupFileName = "draft_lottery_store_v1.backup.json"
 
     public let directory: URL
     private let fileManager: FileManager
@@ -63,7 +63,7 @@ public final class ListRepository: @unchecked Sendable {
             appropriateFor: nil,
             create: true
         )
-        return base.appendingPathComponent("Randomizer", isDirectory: true)
+        return base.appendingPathComponent("DraftLottery", isDirectory: true)
     }
 
     public var storeURL: URL { directory.appendingPathComponent(Self.fileName) }

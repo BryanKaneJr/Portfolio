@@ -1,21 +1,22 @@
 import SwiftUI
 import RandomizerCore
 
-/// Paste many names, one per line, with a preview before anything is added.
+/// Paste a league's teams, one per line in last season's finish (worst
+/// first), with a preview before anything is added.
 struct PasteNamesSheet: View {
-    let listID: UUID
+    let leagueID: UUID
     @Environment(AppState.self) private var appState
     @Environment(\.dismiss) private var dismiss
     @State private var text = ""
     @FocusState private var editorFocused: Bool
 
     var body: some View {
-        let existing = appState.list(listID)?.entries.count ?? 0
+        let existing = appState.league(leagueID)?.teams.count ?? 0
         let parsed = NameRules.parsePaste(text, existingCount: existing)
 
         NavigationStack {
             VStack(alignment: .leading, spacing: 14) {
-                Text("One name per line. Blank lines are skipped.")
+                Text("One team per line, worst finish first. Blank lines and standings numbers are skipped.")
                     .font(.subheadline)
                     .foregroundStyle(Theme.textSecondary)
 
@@ -26,7 +27,7 @@ struct PasteNamesSheet: View {
                         .padding(8)
                         .accessibilityIdentifier("pasteTextEditor")
                     if text.isEmpty {
-                        Text("Pizza\nTacos\nSushi")
+                        Text("Matt's Marauders\nJoey's Giants\nJimmy's Juggernauts")
                             .foregroundStyle(Theme.textTertiary)
                             .padding(.horizontal, 13)
                             .padding(.vertical, 16)
@@ -52,7 +53,7 @@ struct PasteNamesSheet: View {
             }
             .padding(16)
             .background(Theme.background.ignoresSafeArea())
-            .navigationTitle("Paste names")
+            .navigationTitle("Paste teams")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -60,7 +61,7 @@ struct PasteNamesSheet: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button(parsed.names.isEmpty ? "Add" : "Add \(parsed.names.count)") {
-                        appState.update(listID) { $0.addEntries(named: parsed.names) }
+                        appState.update(leagueID) { $0.addTeams(named: parsed.names) }
                         dismiss()
                     }
                     .disabled(parsed.names.isEmpty)
@@ -76,11 +77,11 @@ struct PasteNamesSheet: View {
     private func preview(_ parsed: PasteParseResult) -> some View {
         if !parsed.names.isEmpty || parsed.overLimit > 0 {
             VStack(alignment: .leading, spacing: 6) {
-                Text("\(parsed.names.count) \(parsed.names.count == 1 ? "name" : "names") will be added")
+                Text("\(parsed.names.count) \(parsed.names.count == 1 ? "team" : "teams") will be added")
                     .font(Theme.rounded(.headline, weight: .semibold))
                     .accessibilityIdentifier("pastePreviewCount")
                 if parsed.overLimit > 0 {
-                    Text("\(parsed.overLimit) more won't fit: lists hold up to \(Limits.maxEntries) entries.")
+                    Text("\(parsed.overLimit) more won't fit: leagues hold up to \(Limits.maxTeams) teams.")
                         .font(.footnote)
                         .foregroundStyle(Theme.caution)
                 }
