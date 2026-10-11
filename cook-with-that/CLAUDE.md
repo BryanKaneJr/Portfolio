@@ -40,8 +40,8 @@ Hard rules (from the plan, still in force):
 8. **Units setting** (owner, 2026-10-09: "a toggle in settings that changes to metric or whatever those British guys
    do"). Settings (gear on home, `src/app/settings.tsx`) → **US / Metric**. Recipes stay authored in US units; metric is
    display-only (`src/logic/units.ts`): grams for solids with a known cup weight (`GRAMS_PER_CUP`), ml for liquids,
-   tsp/tbsp unchanged, US cans → tin sizes, oven temps as "175°C (155°C fan, gas 4)", inches → cm, and the author's own
-   metric ("1 lb (450 g)") wins. First launch defaults from the device region (US and territories, Liberia, Myanmar →
+   tsp/tbsp unchanged, US cans → tin sizes, oven temps as "175°C (155°C fan, gas 4)" (air-fryer, frying-oil and sugar
+   temps get plain °C), inches → cm, and the author's own metric ("1 lb (450 g)") wins. First launch defaults from the device region (US and territories, Liberia, Myanmar →
    US; everyone else metric). `tests/units.test.ts` fails if any recipe leaves a US unit in metric mode. To fit the gear
    without changing the header height (decision 3's sizing), Favorites became a round ♥ button like it.
 9. **Taglines** (owner, 2026-10-09: "I like the tagline under the recipe name too. Let's keep that going."). Every recipe's
@@ -57,7 +57,7 @@ Hard rules (from the plan, still in force):
 src/app/         index (home, both modes), results, ingredients (More options), selections, staples, settings,
                  pantry, pantry-results, recipe/[id], favorites, _layout (ReadyGate waits for storage restore)
 src/components/  Chip, Dropdown, IngredientBrowser (compact|full), UseAvoidToggle, SelectionSummary, RecipeCard
-src/data/        types, ingredients (202, with aliases), recipes (27 seed + imported/), collections, recipeBuilders,
+src/data/        types, ingredients (254, with aliases), recipes (27 seed + imported/), collections, recipeBuilders,
                  staples, popularity, labels, catalog
 src/logic/       matchRecipes (engine), pantry, sortRecipes, normalizeIngredient (search: aliases, plurals, typos),
                  validateContent, units (US/metric display)
@@ -81,8 +81,8 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
 ## Current status
 - Phases 0–4 of the plan done, plus the features above. Verified via Expo web export + Playwright at iPhone sizes;
   **never yet run on a physical iPhone**: do that early.
-- All 124 recipes are drafts marked "needs culinary review" (validator warns): 27 originals, 83 adapted from Based
-  Cooking and 14 from NHLBI (both public domain). 69% of common 2-ingredient picks find an exact match (21% of triples).
+- All 195 recipes are drafts marked "needs culinary review" (validator warns): 27 originals, 139 adapted from Based
+  Cooking and 29 from NHLBI (both public domain). 80% of common 2-ingredient picks find an exact match (30% of triples).
 - Bundle ID `com.cookwiththat.app` is a placeholder.
 - **Search and filters audited (2026-10-09, before growing the catalog further).** `tests/searchAudit.test.ts` runs
   1,500 random searches and 500 random pantries against the real library and checks every rule above longhand
@@ -110,21 +110,32 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
   workers took alphabetical slices of Based Cooking (58 recipes) and one added **NHLBI** as a second source (14 recipes;
   a source can now be a committed snapshot file, see `scripts/import/snapshot.ts`). 124 recipes, 202 ingredients.
   Exact matches for common 2-ingredient pairs: 35% → 47% → 69%.
+- **Round 2 (2026-10-11):** five more workers (four Based Cooking slices, one NHLBI) aimed at the gaps the search audit
+  showed: rice (3 → 15 recipes need it), black beans (2 → 5), broccoli, spinach, soups, desserts. 71 recipes, 52
+  catalog additions, 18 more exclusions. 195 recipes, 254 ingredients; pairs 69% → 80%, triples 21% → 30%.
 - **Provenance is the real risk in Based Cooking.** Workers traced ~25 pages to commercial recipes (Food.com, Taste of
   Home, HelloFresh, BBC Good Food, Dairy Farmers of Canada…). One contributor copied so often that all their pages are
   excluded (`excludeAuthors`), and 3 earlier imports were removed. Some pages dropped an "adapted from" credit in a later
-  edit, so check the page's **git history**, not just the snapshot (a full clone of based.cooking does it). 58 pages are
+  edit, so check the page's **git history**, not just the snapshot (a full clone of based.cooking does it). 76 pages are
   excluded, each with its reason, in `scripts/import/sources/index.ts`.
+- **History has gaps.** Pages from before the 2022 Hugo move lived at `src/<key>.md` (search `--all -- '*/<key>.md'`).
+  Two bulk commits restart a page's history: `0694559` ("add publicdomainrecipes.com recipes", 146 pages; the earlier
+  history is in the Public Domain Recipes repo on Codeberg, also Unlicense) and `97e5806` ("foss cooking content
+  added"). Check those pages' history in the repo they came from.
+- **Public domain by age is fine.** A page crediting a book published before 1931 (Miss Leslie's 1832 receipts) is not
+  excluded; keep the credit as the origin's author. A credit to anything newer still means exclusion.
 
 ## NEXT TASK
-1. **Culinary review** is now the biggest gap: 124 drafts, none cooked or checked. Release needs every recipe reviewed
-   (quantities, times, food safety). Consider a review checklist or a sign-off field per recipe. Include tags: 15
-   recipes have no dish type (pancakes, guacamole, hummus, baked fries…), so any Dish type filter hides them.
-2. **More recipes, same way:** Based Cooking has 30 ready to draft and 264 waiting on ingredient-name review
-   (`docs/import-reports/based-cooking.md`); NHLBI has 40 more in its snapshot (`docs/import-reports/nhlbi.md`; the
-   worker's picks for next: turkey and beef meatballs, 20-minute chicken Creole). Parallel workers worked well: give
-   each a disjoint slice and merge their handoff files (recipes, map entries, catalog keys, excludes) one at a time.
-   Before importing a Based Cooking page, check its git history for removed credits.
+1. **Culinary review** is now the biggest gap: 195 drafts, none cooked or checked. Release needs every recipe reviewed
+   (quantities, times, food safety). Consider a review checklist or a sign-off field per recipe. Include tags: 22
+   recipes have no dish type (pancakes, guacamole, hummus, baked fries…), so any Dish type filter hides them. Workers
+   fixed source errors (ratios, missing leavening, unsafe temperatures); `docs/import-notes/` lists each change.
+2. **More recipes, same way:** Based Cooking has 27 ready to draft and 195 waiting on ingredient-name review
+   (`docs/import-reports/based-cooking.md`); NHLBI has 3 ready and 22 waiting (`docs/import-reports/nhlbi.md`).
+   Still no exact recipe for black beans with most common items, ground beef with broccoli or spinach, chicken with
+   cheddar, or broccoli with potato, tomato, spinach or bell pepper (`npm run coverage-report`). Parallel workers work
+   well: give each a disjoint slice and merge their handoff files (recipes, map entries, catalog keys, excludes) one
+   at a time. Before importing a Based Cooking page, check its git history for removed credits.
 3. Next source: VA (nutrition.va.gov, ~275 PDFs; skip "Adapted from" ones), which needs a PDF reader.
 4. Before release: an acknowledgements screen built from `RECIPE_COLLECTIONS` (NHLBI asks for its credit line; Based
    Cooking needs none). Optional: British ingredient names in metric mode (plain flour, courgette, coriander).
