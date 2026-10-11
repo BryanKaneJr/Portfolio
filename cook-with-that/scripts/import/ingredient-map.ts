@@ -943,6 +943,15 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   iceberg: '=iceberg lettuce',
   'green tomatoes': 'tomato', // unripe fresh tomatoes, the same fruit; the recipe names the ripeness (see notes.md)
 
+  // ── Reviewed by parallel import worker r5-world ──
+  kimchi: { add: 'pantry' }, // Korean fermented napa cabbage with chili, sold chilled in jars; not sauerkraut or fresh napa cabbage
+  'masa harina': { add: 'grain' }, // dried nixtamalized corn flour for tortillas and pupusas; not masarepa, cornmeal or cornstarch
+  mirin: { add: 'pantry' }, // Japanese sweet rice wine for cooking (aji-mirin in most US stores); not rice vinegar or sake
+  'poblano pepper': { add: 'produce' }, // large, mild dark-green fresh chile (dried, it's an ancho); not bell, Anaheim or jalapeño
+  'poblano peppers': '=poblano pepper',
+  'poblano chiles': '=poblano pepper',
+  poblano: '=poblano pepper',
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,

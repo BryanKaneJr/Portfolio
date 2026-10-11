@@ -647,4 +647,9 @@ export const INGREDIENTS: Ingredient[] = [
   { id: 'catfish', name: 'Catfish', category: 'protein', aliases: ['catfish fillets'] },
   { id: 'cube_steak', name: 'Cube steak', category: 'protein', aliases: ['cubed steak'] },
   { id: 'chickpea_flour', name: 'Chickpea flour', category: 'grain', aliases: ['besan', 'gram flour', 'garbanzo bean flour'] },
+  { id: 'kimchi', name: 'Kimchi', category: 'pantry', aliases: [] },
+  { id: 'masa_harina', name: 'Masa harina', category: 'grain', aliases: [] },
+  { id: 'mirin', name: 'Mirin', category: 'pantry', aliases: [] },
+  { id: 'poblano_pepper', name: 'Poblano pepper', category: 'produce', aliases: ['poblano peppers', 'poblano chiles', 'poblano'] },
+  { id: 'cumin_seeds', name: 'Cumin seeds', category: 'spice', aliases: [] },
 ];

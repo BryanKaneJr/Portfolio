@@ -74,7 +74,7 @@ Hard rules (from the plan, still in force):
 src/app/         index (home, both modes), results, ingredients (More options), selections, staples, settings,
                  pantry, pantry-results, recipe/[id], favorites, _layout (ReadyGate waits for storage restore)
 src/components/  Chip, Dropdown, IngredientBrowser (compact|full), UseAvoidToggle, SelectionSummary, RecipeCard
-src/data/        types, ingredients (380, with aliases), recipes (27 seed + originals/ + imported/), collections,
+src/data/        types, ingredients (399, with aliases), recipes (27 seed + originals/ + imported/), collections,
                  recipeBuilders, staples, popularity, labels, catalog
 src/logic/       matchRecipes (engine), pantry, sortRecipes, normalizeIngredient (search: aliases, plurals, typos),
                  validateContent, units (US/metric display)
@@ -99,9 +99,9 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
 ## Current status
 - Phases 0–4 of the plan done, plus the features above. Verified via Expo web export + Playwright at iPhone sizes;
   **never yet run on a physical iPhone**: do that early.
-- All 548 recipes are drafts marked "needs culinary review" (validator warns): 27 seed and 257 newer originals written
+- All 668 recipes are drafts marked "needs culinary review" (validator warns): 27 seed and 377 newer originals written
   for the app, 157 adapted from Based Cooking, 59 from NHLBI (web and cookbooks) and 48 from the VA (all public domain).
-  98% of common 2-ingredient picks find an exact match (66% of triples).
+  98% of common 2-ingredient picks find an exact match (73% of triples).
 - Bundle ID `com.cookwiththat.app` is a placeholder.
 - **Search and filters audited (2026-10-09, before growing the catalog further).** `tests/searchAudit.test.ts` runs
   1,500 random searches and 500 random pantries against the real library and checks every rule above longhand
@@ -151,6 +151,14 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
   confusable titles were made clearer; four suggested tweaks were applied after checking). Summary, what changed
   for each decision and the cook-test-first list: `docs/recipe-review/README.md`; per-group detail in
   `docs/recipe-review/rv01.md` … `rv11.md`.
+- **Round 5 (2026-10-11, owner: "send some workers to write more recipes"):** six writers, 20 originals each, in new
+  theme files: comfort food, breakfast, grilled and fried, soups/salads/bowls/dips, world dinners, desserts and snacks.
+  Lists aimed at thin areas (breakfast, grilled, fried, dips, salads) and at common trios with no exact match (pasta +
+  cheddar + broccoli, eggs + rice + ground beef…). 668 recipes, 399 ingredients; triples 66% → 73%. The owner asked
+  whether writers copy recipes from the internet: they write from their own knowledge and may only look up facts.
+  This round was audited: no writer made a single web search or fetch (their transcripts were checked), and a web
+  search of sample sentences found no published match. Owner's other worry, "recipes that simply dont work", is why
+  every batch still needs the paper review and cook-testing. Notes: `docs/import-notes/2026-10-11-round-5/`.
 - **Provenance is the real risk in Based Cooking.** Workers traced ~25 pages to commercial recipes (Food.com, Taste of
   Home, HelloFresh, BBC Good Food, Dairy Farmers of Canada…). One contributor copied so often that all their pages are
   excluded (`excludeAuthors`), and 3 earlier imports were removed. Some pages dropped an "adapted from" credit in a later
