@@ -1,0 +1,262 @@
+[
+  {
+    "id": "overwhelming_force",
+    "title": "Overwhelming Force",
+    "desc": "Win a battle with at least five times the enemy's strength.",
+    "goal": { "bestWinRatioAtLeast": 5 }
+  },
+  {
+    "id": "not_one_left_standing",
+    "title": "Not One Left Standing",
+    "desc": "Destroy an enemy army completely in a single battle.",
+    "goal": { "stackWipesAtLeast": 1 }
+  },
+  {
+    "id": "seasoned_commander",
+    "title": "Seasoned Commander",
+    "desc": "Win 10 battles.",
+    "goal": { "battlesWonAtLeast": 10 }
+  },
+  {
+    "id": "conqueror",
+    "title": "Conqueror",
+    "desc": "Conquer 20 regions in war.",
+    "goal": { "regionsConqueredAtLeast": 20 }
+  },
+  {
+    "id": "master_of_europe",
+    "title": "Master of Europe",
+    "desc": "Rule 40 regions at once.",
+    "goal": { "regionsAtLeast": 40 }
+  },
+  {
+    "id": "glory_everlasting",
+    "title": "Glory Everlasting",
+    "desc": "Reach 90 prestige.",
+    "goal": { "prestigeAtLeast": 90 }
+  },
+  {
+    "id": "solvent_great_power",
+    "title": "Solvent Great Power",
+    "desc": "Rule 100 development without owing a single loan.",
+    "goal": { "all": [{ "devAtLeast": 100 }, { "not": { "loansAtLeast": 1 } }] }
+  },
+  {
+    "id": "a_new_imperial_dynasty",
+    "title": "A New Imperial Dynasty",
+    "desc": "Become Holy Roman Emperor as any house but the Habsburgs of Austria.",
+    "goal": { "all": [{ "isEmperor": true }, { "not": { "isNation": "HAB" } }] }
+  },
+  {
+    "id": "kaiser_and_reich",
+    "title": "Kaiser and Reich",
+    "desc": "As Emperor, rule the Empire's great principalities yourself: Austria, Bohemia, Bavaria, Saxony, Brandenburg, Swabia, the Palatinate and Cologne.",
+    "goal": {
+      "all": [
+        { "isEmperor": true },
+        { "owns": ["austria", "bohemia", "bavaria", "saxony", "brandenburg", "swabia", "palatinate", "cologne"] }
+      ]
+    }
+  },
+  {
+    "id": "champion_of_the_reformation",
+    "title": "Champion of the Reformation",
+    "desc": "As a Protestant realm of 15 regions or more, see 25 regions of Europe turn Protestant.",
+    "goal": {
+      "all": [
+        { "faith": "protestant" },
+        { "faithRegionsAtLeast": { "faith": "protestant", "count": 25 } },
+        { "regionsAtLeast": 15 }
+      ]
+    }
+  },
+  {
+    "id": "italia",
+    "title": "Italia",
+    "desc": "Rule all of Italy from the Alps to Sicily.",
+    "goal": { "owns": ["lombardy", "veneto", "liguria", "tuscany", "romagna", "rome", "naples", "apulia", "sicily"] }
+  },
+  {
+    "id": "a_latin_empire_again",
+    "title": "A Latin Empire Again",
+    "desc": "As a Catholic realm, rule Constantinople.",
+    "goal": { "all": [{ "faith": "catholic" }, { "owns": "constantinople" }] }
+  },
+  {
+    "id": "swift_end_to_a_long_war",
+    "title": "A Swift End to a Long War",
+    "desc": "As France, drive the English from Normandy, Gascony and Calais before 1453.",
+    "goal": { "all": [{ "owns": ["normandy", "gascony", "calais"] }, { "year": [1444, 1452] }] },
+    "nations": ["FRA"]
+  },
+  {
+    "id": "lions_still_in_france",
+    "title": "Lions Still in France",
+    "desc": "As England, still hold Normandy, Gascony and Calais in 1500.",
+    "goal": { "all": [{ "owns": ["normandy", "gascony", "calais"] }, { "year": [1500] }] },
+    "nations": ["ENG"]
+  },
+  {
+    "id": "faster_than_isabella",
+    "title": "Faster Than Isabella",
+    "desc": "As Castile, take Granada before 1492.",
+    "goal": { "all": [{ "owns": "granada" }, { "year": [1444, 1491] }] },
+    "nations": ["CAS"]
+  },
+  {
+    "id": "hispania",
+    "title": "Hispania",
+    "desc": "Rule every region of the Iberian peninsula.",
+    "goal": {
+      "owns": [
+        "galicia", "castile", "toledo", "extremadura", "andalusia", "murcia", "granada", "navarre", "aragon",
+        "catalonia", "valencia", "porto", "lisbon", "alentejo"
+      ]
+    },
+    "nations": ["CAS", "ARA", "POR"]
+  },
+  {
+    "id": "pepper_and_gold",
+    "title": "Pepper and Gold",
+    "desc": "As Portugal, hold 1,500 gold in your treasury.",
+    "goal": { "goldAtLeast": 1500 },
+    "nations": ["POR"]
+  },
+  {
+    "id": "the_middle_kingdom",
+    "title": "The Middle Kingdom",
+    "desc": "As Burgundy, rule every land from Holland to the Alps, including Lorraine, Champagne, Swabia and Switzerland.",
+    "goal": {
+      "owns": [
+        "burgundy", "picardy", "flanders", "brabant", "holland", "luxembourg", "lorraine", "champagne", "swabia",
+        "switzerland"
+      ]
+    },
+    "nations": ["BUR"]
+  },
+  {
+    "id": "happy_austria_marry",
+    "title": "Happy Austria, Marry",
+    "desc": "As Austria, rule or hold as subjects Bohemia, Hungary and Burgundy (or its Flemish heartland).",
+    "goal": {
+      "all": [
+        { "any": [{ "owns": "bohemia" }, { "overlordOf": "BOH" }] },
+        { "any": [{ "owns": "hungary" }, { "overlordOf": "HUN" }] },
+        { "any": [{ "owns": "flanders" }, { "overlordOf": "BUR" }] }
+      ]
+    },
+    "nations": ["HAB"]
+  },
+  {
+    "id": "the_raven_king",
+    "title": "The Raven King",
+    "desc": "As Hungary, rule Austria, Moravia and Silesia.",
+    "goal": { "owns": ["austria", "moravia", "silesia"] },
+    "nations": ["HUN"]
+  },
+  {
+    "id": "commonwealth_of_two_nations",
+    "title": "Commonwealth of Two Nations",
+    "desc": "As Poland or Lithuania, bring the other under your crown, by union or by conquest.",
+    "goal": { "any": [{ "overlordOf": "LIT" }, { "overlordOf": "POL" }, { "owns": ["lithuania", "lesser_poland"] }] },
+    "nations": ["POL", "LIT"]
+  },
+  {
+    "id": "the_third_rome",
+    "title": "The Third Rome",
+    "desc": "As Muscovy, rule both Moscow and Constantinople.",
+    "goal": { "owns": ["moscow", "constantinople"] },
+    "nations": ["MOS"]
+  },
+  {
+    "id": "all_the_russias",
+    "title": "All the Russias",
+    "desc": "As Muscovy, rule Moscow, Tver, Novgorod, Ryazan, Pskov, Karelia, Smolensk and Kiev.",
+    "goal": { "owns": ["moscow", "tver", "novgorod", "ryazan", "pskov", "karelia", "smolensk", "kiev"] },
+    "nations": ["MOS"]
+  },
+  {
+    "id": "ahead_of_history",
+    "title": "Ahead of History",
+    "desc": "As the Ottomans, take Constantinople before 1453.",
+    "goal": { "all": [{ "owns": "constantinople" }, { "year": [1444, 1452] }] },
+    "nations": ["TUR"]
+  },
+  {
+    "id": "the_golden_apple",
+    "title": "The Golden Apple",
+    "desc": "As the Ottomans, rule Hungary and Austria.",
+    "goal": { "owns": ["hungary", "austria"] },
+    "nations": ["TUR"]
+  },
+  {
+    "id": "stato_da_mar",
+    "title": "Stato da Mar",
+    "desc": "As Venice, rule Dalmatia, Albania, the Morea, Candia, Cyprus and Rhodes with 40 ships at sea.",
+    "goal": {
+      "all": [{ "owns": ["dalmatia", "albania", "morea", "candia", "cyprus", "rhodes"] }, { "shipsAtLeast": 40 }]
+    },
+    "nations": ["VEN"]
+  },
+  {
+    "id": "the_auld_enemy_humbled",
+    "title": "The Auld Enemy Humbled",
+    "desc": "As Scotland, take London.",
+    "goal": { "owns": "london" },
+    "nations": ["SCO"]
+  },
+  {
+    "id": "kalmar_endures",
+    "title": "Kalmar Endures",
+    "desc": "As Denmark, still hold Sweden as your junior partner, or rule it outright, in 1523.",
+    "goal": { "all": [{ "year": [1523] }, { "any": [{ "overlordOf": "SWE" }, { "owns": ["svealand", "gotaland"] }] }] },
+    "nations": ["DAN"]
+  },
+  {
+    "id": "lion_of_the_north",
+    "title": "Lion of the North",
+    "desc": "As Sweden, rule Scania, Livonia, Pomerania and Prussia and win 15 battles.",
+    "goal": { "all": [{ "owns": ["scania", "livonia", "pomerania", "prussia"] }, { "battlesWonAtLeast": 15 }] },
+    "nations": ["SWE"]
+  },
+  {
+    "id": "from_sand_to_kingdom",
+    "title": "From Sand to Kingdom",
+    "desc": "As Brandenburg, rule Brandenburg, Pomerania, Prussia and Silesia.",
+    "goal": { "owns": ["brandenburg", "pomerania", "prussia", "silesia"] },
+    "nations": ["BRA"]
+  },
+  {
+    "id": "rome_and_the_two_sicilies",
+    "title": "Rome and the Two Sicilies",
+    "desc": "As Naples, rule Naples, Apulia, Sicily and Rome.",
+    "goal": { "owns": ["naples", "apulia", "sicily", "rome"] },
+    "nations": ["NAP"]
+  },
+  {
+    "id": "the_order_stands",
+    "title": "The Order Stands",
+    "desc": "As the Teutonic Order, still hold Danzig and Prussia in 1525.",
+    "goal": { "all": [{ "owns": ["danzig", "prussia"] }, { "year": [1525] }] },
+    "nations": ["TEU"]
+  },
+  {
+    "id": "the_city_endures",
+    "title": "The City Endures",
+    "desc": "As Byzantium, still hold Constantinople in 1500.",
+    "goal": { "all": [{ "owns": "constantinople" }, { "year": [1500] }] },
+    "nations": ["BYZ"]
+  },
+  {
+    "id": "restore_the_roman_empire",
+    "title": "Restore the Roman Empire",
+    "desc": "As Byzantium, rule Constantinople, Rome and Naples, all of Greece and Thrace, Bulgaria, Bithynia and Aydın.",
+    "goal": {
+      "owns": [
+        "constantinople", "rome", "naples", "rumelia", "bulgaria", "macedonia", "thessaly", "morea", "bithynia",
+        "aydin"
+      ]
+    },
+    "nations": ["BYZ"]
+  }
+]

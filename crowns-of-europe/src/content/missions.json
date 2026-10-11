@@ -1,0 +1,2786 @@
+[
+  {
+    "id": "fra_compagnies_dordonnance",
+    "nation": "FRA",
+    "title": "Compagnies d'Ordonnance",
+    "desc": "Turn the routiers who plague the countryside into a paid royal army. Field 25 regiments and France will never again depend on unreliable vassals.",
+    "requires": [],
+    "goal": { "regimentsAtLeast": 25 },
+    "reward": [
+      { "hireGeneral": { "fire": 3, "shock": 4, "maneuver": 4, "name": "Jean de Dunois" } },
+      { "manpower": 5000 }
+    ]
+  },
+  {
+    "id": "fra_reclaim_normandy",
+    "nation": "FRA",
+    "title": "Reclaim Normandy",
+    "desc": "The English still hold Rouen and the Norman coast, and the people there are tired of foreign garrisons. Take Normandy back for the crown.",
+    "requires": ["fra_compagnies_dordonnance"],
+    "goal": { "owns": "normandy" },
+    "reward": [{ "prestige": 10 }, { "addCore": "normandy" }, { "goldPerDev": 1 }]
+  },
+  {
+    "id": "fra_expel_the_english",
+    "nation": "FRA",
+    "title": "Drive the English Out",
+    "desc": "Bordeaux and Calais are the last English footholds in your kingdom. Take Normandy, Gascony and Calais and end a war that has lasted a hundred years.",
+    "requires": ["fra_reclaim_normandy"],
+    "goal": { "owns": ["normandy", "gascony", "calais"] },
+    "reward": [
+      { "prestige": 20 },
+      { "stability": 1 },
+      { "addCore": ["gascony", "calais"] },
+      {
+        "modifier": {
+          "id": "fra_permanent_taille",
+          "name": "The Permanent Taille",
+          "months": -1,
+          "mods": { "taxIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "fra_duchy_of_brittany",
+    "nation": "FRA",
+    "title": "Bring Brittany to Heel",
+    "desc": "The dukes of Brittany play you against England and keep their own court at Nantes. Bring the duchy under the crown, by marriage or by the sword.",
+    "requires": ["fra_reclaim_normandy"],
+    "goal": { "owns": "brittany" },
+    "reward": [
+      { "prestige": 10 },
+      { "addCore": "brittany" },
+      {
+        "modifier": {
+          "id": "fra_breton_harbours",
+          "name": "Breton Harbours",
+          "months": 120,
+          "mods": { "tradeIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "fra_universal_spider",
+    "nation": "FRA",
+    "title": "The Universal Spider",
+    "desc": "A clever king wins wars before they start. Gather three allies, and the French fiefs of the Duke of Burgundy become yours to claim.",
+    "requires": [],
+    "goal": { "alliesAtLeast": 3 },
+    "reward": [
+      { "addClaim": ["burgundy", "picardy"] },
+      { "modifier": { "id": "fra_spider_web", "name": "The Spider's Web", "months": 120, "mods": { "diplomacy": 1 } } }
+    ]
+  },
+  {
+    "id": "fra_burgundian_succession",
+    "nation": "FRA",
+    "title": "The Burgundian Succession",
+    "desc": "Burgundy was a royal gift to a younger son, and the Picard towns were only pledged. Take both back and leave the Duke only his lands in the Empire.",
+    "requires": ["fra_universal_spider"],
+    "goal": { "owns": ["burgundy", "picardy"] },
+    "reward": [{ "prestige": 15 }, { "addCore": ["burgundy", "picardy"] }, { "addClaim": ["flanders", "luxembourg"] }]
+  },
+  {
+    "id": "fra_looms_of_flanders",
+    "nation": "FRA",
+    "title": "The Looms of Flanders",
+    "desc": "Ghent and Bruges are among the richest cities in Christendom, and their counts owe you homage. Make Flanders French in fact as well as in law.",
+    "requires": ["fra_burgundian_succession"],
+    "goal": { "owns": "flanders" },
+    "reward": [
+      { "goldPerDev": 1 },
+      {
+        "modifier": {
+          "id": "fra_flemish_looms",
+          "name": "Flemish Looms",
+          "months": -1,
+          "mods": { "tradeIncome": 0.15 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "fra_angevin_inheritance",
+    "nation": "FRA",
+    "title": "The Angevin Inheritance",
+    "desc": "Good King René holds Provence as your vassal, and his line is failing. Bring Provence fully under the crown, and the Angevin claim to Naples comes with it.",
+    "requires": [],
+    "goal": { "owns": "provence" },
+    "reward": [{ "prestige": 10 }, { "addCore": "provence" }, { "addClaim": "naples" }]
+  },
+  {
+    "id": "fra_road_to_naples",
+    "nation": "FRA",
+    "title": "The Road to Naples",
+    "desc": "Italy is rich, divided and full of old French claims. March your gendarmes down the peninsula and take the Kingdom of Naples.",
+    "requires": ["fra_angevin_inheritance", "fra_compagnies_dordonnance"],
+    "goal": { "owns": "naples" },
+    "reward": [
+      { "prestige": 20 },
+      { "addClaim": "lombardy" },
+      {
+        "modifier": {
+          "id": "fra_italian_renaissance",
+          "name": "Italian Renaissance",
+          "months": -1,
+          "mods": { "devCost": -0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "fra_sun_king",
+    "nation": "FRA",
+    "title": "The Sun King",
+    "desc": "With the realm whole and its borders safe, make your court the model for every crown in Europe. Reach 100 development and 70 prestige.",
+    "requires": ["fra_expel_the_english", "fra_burgundian_succession"],
+    "goal": { "all": [{ "devAtLeast": 100 }, { "prestigeAtLeast": 70 }] },
+    "reward": [
+      { "prestige": 20 },
+      {
+        "modifier": {
+          "id": "fra_sun_king",
+          "name": "Splendour of the Sun King",
+          "months": -1,
+          "mods": { "prestigeGain": 0.2, "diplomacy": 1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "eng_hold_the_continent",
+    "nation": "ENG",
+    "title": "Hold the French Lands",
+    "desc": "The truce with France will not last. Still hold Normandy, Gascony and Calais in 1455, and the French will learn that your claims are more than words.",
+    "requires": [],
+    "goal": { "all": [{ "owns": ["normandy", "gascony", "calais"] }, { "year": [1455] }] },
+    "reward": [
+      { "prestige": 15 },
+      { "manpower": 5000 },
+      {
+        "modifier": {
+          "id": "eng_veterans",
+          "name": "Veterans of France",
+          "months": 120,
+          "mods": { "infantryPower": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "eng_anglo_burgundian",
+    "nation": "ENG",
+    "title": "The Anglo-Burgundian Alliance",
+    "desc": "Your wool feeds the looms of Flanders, and the Duke of Burgundy has his own quarrel with France. Ally Burgundy and the Valois must fight on two fronts.",
+    "requires": ["eng_hold_the_continent"],
+    "goal": { "allied": "BUR" },
+    "reward": [
+      { "opinion": { "nation": "BUR", "amount": 25 } },
+      {
+        "modifier": {
+          "id": "eng_wool_staple",
+          "name": "The Wool Staple",
+          "months": 120,
+          "mods": { "tradeIncome": 0.15 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "eng_angevin_lands",
+    "nation": "ENG",
+    "title": "Recover Anjou and Poitou",
+    "desc": "Your ancestors held all of western France. Anjou and Poitou lie between your Norman and Gascon lands: join them together.",
+    "requires": ["eng_hold_the_continent"],
+    "goal": { "owns": ["anjou", "poitou"] },
+    "reward": [{ "prestige": 15 }, { "addCore": ["anjou", "poitou"] }, { "addClaim": "orleans" }]
+  },
+  {
+    "id": "eng_crowned_in_paris",
+    "nation": "ENG",
+    "title": "Crowned in Paris",
+    "desc": "A boy king of England was once crowned King of France in Notre-Dame. Take Paris and Orléans and make the double monarchy real.",
+    "requires": ["eng_angevin_lands"],
+    "goal": { "owns": ["ile_de_france", "orleans"] },
+    "reward": [
+      { "prestige": 30 },
+      { "addCore": "ile_de_france" },
+      {
+        "modifier": {
+          "id": "eng_dual_monarchy",
+          "name": "King of England and France",
+          "months": -1,
+          "mods": { "taxIncome": 0.1, "prestigeGain": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "eng_lordship_of_ireland",
+    "nation": "ENG",
+    "title": "Lordship of Ireland",
+    "desc": "Your writ barely runs beyond the walls of Dublin. Bring the Gaelic lords of Ireland under the crown.",
+    "requires": [],
+    "goal": { "owns": "ireland" },
+    "reward": [{ "prestige": 10 }, { "addCore": "ireland" }, { "addClaim": ["lowlands", "highlands"] }]
+  },
+  {
+    "id": "eng_hammer_of_the_scots",
+    "nation": "ENG",
+    "title": "Hammer of the Scots",
+    "desc": "The Scots raid your north and side with France in every war. End the Auld Alliance for good: take the Lowlands and the Highlands.",
+    "requires": ["eng_lordship_of_ireland"],
+    "goal": { "owns": ["lowlands", "highlands"] },
+    "reward": [
+      { "prestige": 20 },
+      { "addCore": ["lowlands", "highlands"] },
+      {
+        "modifier": {
+          "id": "eng_one_island",
+          "name": "One Island, One Crown",
+          "months": -1,
+          "mods": { "manpower": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "eng_navy_royal",
+    "nation": "ENG",
+    "title": "The Navy Royal",
+    "desc": "An island kingdom lives by its ships. Build a navy of 18 ships to guard the Channel and carry your armies to France.",
+    "requires": [],
+    "goal": { "shipsAtLeast": 18 },
+    "reward": [
+      { "prestige": 5 },
+      { "modifier": { "id": "eng_navy_royal", "name": "Navy Royal", "months": -1, "mods": { "navalPower": 0.1 } } }
+    ]
+  },
+  {
+    "id": "eng_rule_the_waves",
+    "nation": "ENG",
+    "title": "Rule the Waves",
+    "desc": "Command three fleets and 40 ships, and no shore in Europe will be safe from English sails.",
+    "requires": ["eng_navy_royal"],
+    "goal": { "all": [{ "shipsAtLeast": 40 }, { "fleetsAtLeast": 3 }] },
+    "reward": [
+      { "prestige": 15 },
+      {
+        "modifier": {
+          "id": "eng_mistress_of_the_seas",
+          "name": "Mistress of the Seas",
+          "months": -1,
+          "mods": { "navalPower": 0.1, "tradeIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "eng_mart_of_the_world",
+    "nation": "ENG",
+    "title": "London, Mart of the World",
+    "desc": "Merchants from every nation crowd the wharves of the Thames. Raise London to development 10 and your realm to 60 development.",
+    "requires": ["eng_navy_royal"],
+    "goal": { "all": [{ "capitalDevAtLeast": 10 }, { "devAtLeast": 60 }] },
+    "reward": [
+      { "goldPerDev": 2 },
+      {
+        "modifier": {
+          "id": "eng_mart_of_the_world",
+          "name": "Mart of the World",
+          "months": -1,
+          "mods": { "tradeIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "cas_fall_of_granada",
+    "nation": "CAS",
+    "title": "The Fall of Granada",
+    "desc": "Granada is the last Muslim kingdom in Iberia, guarded by mountain fortresses. Take it and finish the work of seven centuries.",
+    "requires": [],
+    "goal": { "owns": "granada" },
+    "reward": [{ "prestige": 15 }, { "papalFavor": 10 }, { "addCore": "granada" }, { "addClaim": "tlemcen" }]
+  },
+  {
+    "id": "cas_across_the_strait",
+    "nation": "CAS",
+    "title": "Across the Strait",
+    "desc": "Corsairs from the Barbary coast raid your shores every summer. Carry the war to Africa and take Tlemcen and the port of Oran.",
+    "requires": ["cas_fall_of_granada"],
+    "goal": { "owns": "tlemcen" },
+    "reward": [{ "goldPerDev": 1 }, { "addCore": "tlemcen" }, { "addClaim": ["tunis", "tripoli"] }]
+  },
+  {
+    "id": "cas_barbary_coast",
+    "nation": "CAS",
+    "title": "Clear the Barbary Coast",
+    "desc": "Tunis and Tripoli shelter the corsair fleets. Take both and the western sea is safe for Christian ships.",
+    "requires": ["cas_across_the_strait"],
+    "goal": { "owns": ["tunis", "tripoli"] },
+    "reward": [
+      { "prestige": 20 },
+      {
+        "modifier": {
+          "id": "cas_corsairs_burned",
+          "name": "Corsair Nests Burned",
+          "months": -1,
+          "mods": { "navalPower": 0.1, "tradeIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "cas_catholic_monarchs",
+    "nation": "CAS",
+    "title": "The Catholic Monarchs",
+    "desc": "A marriage between Castile and Aragon would end a century of rivalry. Make Aragon your ally, your junior partner or your conquest.",
+    "requires": [],
+    "goal": { "any": [{ "allied": "ARA" }, { "overlordOf": "ARA" }, { "owns": "aragon" }] },
+    "reward": [
+      { "prestige": 10 },
+      { "addClaim": "navarre" },
+      {
+        "modifier": {
+          "id": "cas_union_of_hearts",
+          "name": "Union of Hearts",
+          "months": 120,
+          "mods": { "diplomacy": 1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "cas_unite_the_crowns",
+    "nation": "CAS",
+    "title": "Unite the Crowns",
+    "desc": "An alliance is not a kingdom. Rule Aragon, Catalonia and Valencia, or hold Aragon as your junior partner, and Spain is born.",
+    "requires": ["cas_catholic_monarchs"],
+    "goal": { "any": [{ "overlordOf": "ARA" }, { "owns": ["aragon", "catalonia", "valencia"] }] },
+    "reward": [
+      { "prestige": 20 },
+      { "addClaim": ["porto", "lisbon", "alentejo"] },
+      {
+        "modifier": {
+          "id": "cas_crown_of_spain",
+          "name": "Crown of Spain",
+          "months": -1,
+          "mods": { "taxIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "cas_unite_iberia",
+    "nation": "CAS",
+    "title": "Unite Iberia",
+    "desc": "Portugal, Navarre and Granada still stand apart. Rule every land from the Pyrenees to the Pillars of Hercules, with Aragon owned or bound to you.",
+    "requires": ["cas_unite_the_crowns"],
+    "goal": {
+      "all": [
+        {
+          "owns": [
+            "galicia", "castile", "toledo", "extremadura", "andalusia", "murcia", "granada", "navarre", "porto",
+            "lisbon", "alentejo"
+          ]
+        },
+        { "any": [{ "overlordOf": "ARA" }, { "owns": ["aragon", "catalonia", "valencia"] }] }
+      ]
+    },
+    "reward": [
+      { "prestige": 30 },
+      { "stability": 1 },
+      {
+        "modifier": {
+          "id": "cas_hispania",
+          "name": "Hispania Reunited",
+          "months": -1,
+          "mods": { "manpower": 0.15, "morale": 0.05 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "cas_great_captain",
+    "nation": "CAS",
+    "title": "The Great Captain",
+    "desc": "Field 20 regiments and give them a commander worth following. A veteran army makes Aragon's old claims in southern Italy your business too.",
+    "requires": [],
+    "goal": { "regimentsAtLeast": 20 },
+    "reward": [
+      { "hireGeneral": { "fire": 4, "shock": 4, "maneuver": 5, "name": "Gonzalo Fernández de Córdoba" } },
+      { "addClaim": ["naples", "apulia"] }
+    ]
+  },
+  {
+    "id": "cas_kingdom_of_naples",
+    "nation": "CAS",
+    "title": "The Kingdom of Naples",
+    "desc": "French and Aragonese princes both want Naples. Take Naples and Apulia first and make your infantry famous across Italy.",
+    "requires": ["cas_great_captain"],
+    "goal": { "owns": ["naples", "apulia"] },
+    "reward": [
+      { "prestige": 20 },
+      { "addCore": ["naples", "apulia"] },
+      { "modifier": { "id": "cas_tercios", "name": "The Tercios", "months": -1, "mods": { "infantryPower": 0.1 } } }
+    ]
+  },
+  {
+    "id": "cas_armada",
+    "nation": "CAS",
+    "title": "The Armada",
+    "desc": "A kingdom on two seas needs a fleet on both. Build 30 ships and let no rival close your ports.",
+    "requires": ["cas_great_captain"],
+    "goal": { "shipsAtLeast": 30 },
+    "reward": [
+      { "prestige": 10 },
+      { "modifier": { "id": "cas_armada", "name": "The Armada", "months": -1, "mods": { "navalPower": 0.15 } } }
+    ]
+  },
+  {
+    "id": "ara_crown_of_naples",
+    "nation": "ARA",
+    "title": "The Crown of Naples",
+    "desc": "King Alfonso won Naples with his own sword, but his heirs may lose it. Hold Naples directly, or keep its king as your subject.",
+    "requires": [],
+    "goal": { "any": [{ "owns": "naples" }, { "overlordOf": "NAP" }] },
+    "reward": [{ "prestige": 15 }, { "goldPerDev": 1 }, { "addClaim": "liguria" }]
+  },
+  {
+    "id": "ara_humble_genoa",
+    "nation": "ARA",
+    "title": "Humble Genoa",
+    "desc": "Genoa has fought you for Sardinia and Corsica for a hundred years. Take the city, and its bankers will lend to you instead.",
+    "requires": ["ara_crown_of_naples"],
+    "goal": { "owns": "liguria" },
+    "reward": [
+      { "addCore": "liguria" },
+      { "addClaim": "lombardy" },
+      {
+        "modifier": {
+          "id": "ara_genoese_bankers",
+          "name": "Genoese Bankers",
+          "months": -1,
+          "mods": { "tradeIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ara_visconti_will",
+    "nation": "ARA",
+    "title": "The Visconti Will",
+    "desc": "The last Visconti duke of Milan has no son and favours your king as his heir. Make his wish good: take Lombardy and become the master of northern Italy.",
+    "requires": ["ara_humble_genoa"],
+    "goal": { "owns": "lombardy" },
+    "reward": [
+      { "prestige": 25 },
+      { "addCore": "lombardy" },
+      {
+        "modifier": { "id": "ara_lord_of_italy", "name": "Lord of Italy", "months": -1, "mods": { "taxIncome": 0.1 } }
+      }
+    ]
+  },
+  {
+    "id": "ara_catalan_fleet",
+    "nation": "ARA",
+    "title": "The Catalan Fleet",
+    "desc": "Barcelona's shipyards built the greatest navy of the western sea. Build 18 ships and the corsairs of Tunis will feel it.",
+    "requires": [],
+    "goal": { "shipsAtLeast": 18 },
+    "reward": [
+      { "addClaim": "tunis" },
+      {
+        "modifier": {
+          "id": "ara_drassanes",
+          "name": "Shipyards of Barcelona",
+          "months": -1,
+          "mods": { "navalPower": 0.1, "shipCost": -0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ara_strike_at_tunis",
+    "nation": "ARA",
+    "title": "Strike at Tunis",
+    "desc": "The sultans of Tunis harbour the corsairs who raid your coasts. Take Tunis and its trade is yours.",
+    "requires": ["ara_catalan_fleet"],
+    "goal": { "owns": "tunis" },
+    "reward": [{ "prestige": 10 }, { "goldPerDev": 2 }, { "addCore": "tunis" }]
+  },
+  {
+    "id": "ara_western_sea",
+    "nation": "ARA",
+    "title": "Lord of the Western Sea",
+    "desc": "Sardinia, Sicily and Tunis are the stepping stones of the western Mediterranean. Hold them all with 35 ships at sea.",
+    "requires": ["ara_strike_at_tunis", "ara_crown_of_naples"],
+    "goal": { "all": [{ "owns": ["sardinia", "sicily", "tunis"] }, { "shipsAtLeast": 35 }] },
+    "reward": [
+      { "prestige": 20 },
+      {
+        "modifier": { "id": "ara_mare_nostrum", "name": "Mare Nostrum", "months": -1, "mods": { "tradeIncome": 0.15 } }
+      }
+    ]
+  },
+  {
+    "id": "ara_navarrese_crown",
+    "nation": "ARA",
+    "title": "The Navarrese Crown",
+    "desc": "Your king's brother sits on the throne of Navarre, and the small kingdom guards the Pyrenees. Bring it under Aragon.",
+    "requires": [],
+    "goal": { "owns": "navarre" },
+    "reward": [{ "prestige": 10 }, { "addCore": "navarre" }, { "addClaim": "languedoc" }]
+  },
+  {
+    "id": "ara_occitan_legacy",
+    "nation": "ARA",
+    "title": "The Occitan Legacy",
+    "desc": "Your kings once held lordships deep in Languedoc, before France drove them back over the mountains. Take Languedoc back.",
+    "requires": ["ara_navarrese_crown"],
+    "goal": { "owns": "languedoc" },
+    "reward": [{ "prestige": 15 }, { "addCore": "languedoc" }, { "manpower": 4000 }]
+  },
+  {
+    "id": "ara_marry_castile",
+    "nation": "ARA",
+    "title": "Marry Castile",
+    "desc": "Castile is your rival, but a royal marriage could make two crowns one. Ally Castile, hold it as your junior partner, or take its capital.",
+    "requires": ["ara_navarrese_crown"],
+    "goal": { "any": [{ "allied": "CAS" }, { "overlordOf": "CAS" }, { "owns": "castile" }] },
+    "reward": [
+      { "prestige": 15 },
+      { "addClaim": "granada" },
+      { "modifier": { "id": "ara_two_crowns", "name": "Two Crowns", "months": 120, "mods": { "diplomacy": 1 } } }
+    ]
+  },
+  {
+    "id": "por_crusade_in_morocco",
+    "nation": "POR",
+    "title": "Crusade in Morocco",
+    "desc": "Ceuta was only the beginning. Cross the strait and take Fez, the heart of the Moroccan sultanate.",
+    "requires": [],
+    "goal": { "owns": "fez" },
+    "reward": [{ "prestige": 10 }, { "papalFavor": 10 }, { "addCore": "fez" }, { "addClaim": "marrakesh" }]
+  },
+  {
+    "id": "por_road_to_marrakesh",
+    "nation": "POR",
+    "title": "The Road to Marrakesh",
+    "desc": "With Fez taken, the south of Morocco lies open. Take Marrakesh and its caravan trade.",
+    "requires": ["por_crusade_in_morocco"],
+    "goal": { "owns": "marrakesh" },
+    "reward": [{ "goldPerDev": 1 }, { "addCore": "marrakesh" }, { "addClaim": "tlemcen" }]
+  },
+  {
+    "id": "por_algarve_beyond_the_sea",
+    "nation": "POR",
+    "title": "The Algarve Beyond the Sea",
+    "desc": "Your kings already rule the Algarve. Rule Fez, Marrakesh and Tlemcen too, and they can call themselves lords of the Algarve beyond the sea.",
+    "requires": ["por_road_to_marrakesh"],
+    "goal": { "owns": ["fez", "marrakesh", "tlemcen"] },
+    "reward": [
+      { "prestige": 20 },
+      {
+        "modifier": {
+          "id": "por_kingdom_in_africa",
+          "name": "Kingdom in Africa",
+          "months": -1,
+          "mods": { "manpower": 0.15 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "por_school_of_sagres",
+    "nation": "POR",
+    "title": "The School of Sagres",
+    "desc": "Your prince gathers pilots, mapmakers and shipwrights at Sagres. Build 12 ships and send them out to learn the oceans.",
+    "requires": [],
+    "goal": { "shipsAtLeast": 12 },
+    "reward": [
+      { "prestige": 5 },
+      { "modifier": { "id": "por_sagres", "name": "School of Sagres", "months": -1, "mods": { "tradeIncome": 0.1 } } }
+    ]
+  },
+  {
+    "id": "por_queen_of_the_sea",
+    "nation": "POR",
+    "title": "Lisbon, Queen of the Sea",
+    "desc": "Spices, sugar and gold should pass through Lisbon on their way to Europe. Raise Lisbon to development 8.",
+    "requires": ["por_school_of_sagres"],
+    "goal": { "capitalDevAtLeast": 8 },
+    "reward": [{ "goldPerDev": 2 }, { "prestige": 5 }]
+  },
+  {
+    "id": "por_golden_age",
+    "nation": "POR",
+    "title": "A Golden Age",
+    "desc": "A small kingdom can still be the richest in Europe. Save 600 gold in your treasury and let the world envy your wealth.",
+    "requires": ["por_queen_of_the_sea"],
+    "goal": { "goldAtLeast": 600 },
+    "reward": [
+      { "prestige": 20 },
+      {
+        "modifier": {
+          "id": "por_golden_age",
+          "name": "Portuguese Golden Age",
+          "months": -1,
+          "mods": { "devCost": -0.1, "prestigeGain": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "por_friends_across_the_sea",
+    "nation": "POR",
+    "title": "Friends Across the Sea",
+    "desc": "England is an old friend, but one ally is not enough against Castile. Gather two allies and you can look east with confidence.",
+    "requires": [],
+    "goal": { "alliesAtLeast": 2 },
+    "reward": [
+      { "addClaim": "galicia" },
+      { "modifier": { "id": "por_old_friends", "name": "Old Friends", "months": 120, "mods": { "diplomacy": 1 } } }
+    ]
+  },
+  {
+    "id": "por_claim_galicia",
+    "nation": "POR",
+    "title": "Claim Galicia",
+    "desc": "Galicians speak a tongue close to your own, and many once looked to Lisbon. Take Galicia from Castile.",
+    "requires": ["por_friends_across_the_sea"],
+    "goal": { "owns": "galicia" },
+    "reward": [{ "prestige": 10 }, { "addCore": "galicia" }, { "addClaim": ["extremadura", "castile", "toledo"] }]
+  },
+  {
+    "id": "por_iberian_crown",
+    "nation": "POR",
+    "title": "The Iberian Crown",
+    "desc": "Why should Castile lead Iberia? Rule Castile, Toledo, Galicia and Extremadura, or hold Castile as your junior partner.",
+    "requires": ["por_claim_galicia"],
+    "goal": { "any": [{ "overlordOf": "CAS" }, { "owns": ["castile", "toledo", "galicia", "extremadura"] }] },
+    "reward": [
+      { "prestige": 30 },
+      {
+        "modifier": {
+          "id": "por_iberian_crown",
+          "name": "Iberian Crown",
+          "months": -1,
+          "mods": { "taxIncome": 0.1, "manpower": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "bur_lorraine_corridor",
+    "nation": "BUR",
+    "title": "The Lorraine Corridor",
+    "desc": "Your lands are split in two: the Low Countries in the north, Burgundy in the south. Take Lorraine and join them.",
+    "requires": [],
+    "goal": { "owns": "lorraine" },
+    "reward": [{ "prestige": 10 }, { "goldPerDev": 1 }, { "addCore": "lorraine" }]
+  },
+  {
+    "id": "bur_fairs_of_champagne",
+    "nation": "BUR",
+    "title": "The Fairs of Champagne",
+    "desc": "Champagne is the other road between your northern and southern lands. Take it from France and its old fair towns will pay you.",
+    "requires": ["bur_lorraine_corridor"],
+    "goal": { "owns": "champagne" },
+    "reward": [
+      { "addCore": "champagne" },
+      { "modifier": { "id": "bur_fairs", "name": "Fairs of Champagne", "months": -1, "mods": { "tradeIncome": 0.1 } } }
+    ]
+  },
+  {
+    "id": "bur_kingdom_of_burgundy",
+    "nation": "BUR",
+    "title": "Crown a King of Burgundy",
+    "desc": "Rule every land from Holland to the Jura, add Lorraine and Champagne, and reach 50 prestige. Then no emperor can refuse you a royal crown.",
+    "requires": ["bur_fairs_of_champagne"],
+    "goal": {
+      "all": [
+        { "owns": ["burgundy", "picardy", "flanders", "brabant", "holland", "luxembourg", "lorraine", "champagne"] },
+        { "prestigeAtLeast": 50 }
+      ]
+    },
+    "reward": [
+      { "prestige": 25 },
+      { "stability": 1 },
+      {
+        "modifier": {
+          "id": "bur_kingdom",
+          "name": "Kingdom of Burgundy",
+          "months": -1,
+          "mods": { "taxIncome": 0.1, "diplomacy": 1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "bur_companies_of_ordinance",
+    "nation": "BUR",
+    "title": "Companies of Ordinance",
+    "desc": "Raise a standing army paid from your Flemish taxes. Field 22 regiments, and the indebted lords of the Upper Rhine will pledge you their lands.",
+    "requires": [],
+    "goal": { "regimentsAtLeast": 22 },
+    "reward": [
+      { "hireGeneral": { "fire": 3, "shock": 4, "maneuver": 3, "name": "Antoine, Bastard of Burgundy" } },
+      { "addClaim": "swabia" }
+    ]
+  },
+  {
+    "id": "bur_upper_rhine",
+    "nation": "BUR",
+    "title": "The Upper Rhine",
+    "desc": "The Upper Rhine lands have been pledged to you for gold. Take Swabia and push your border to the Rhine and the Black Forest.",
+    "requires": ["bur_companies_of_ordinance"],
+    "goal": { "owns": "swabia" },
+    "reward": [{ "prestige": 10 }, { "addCore": "swabia" }, { "addClaim": "switzerland" }]
+  },
+  {
+    "id": "bur_break_the_swiss",
+    "nation": "BUR",
+    "title": "Break the Swiss",
+    "desc": "The Swiss cantons cut your road to Italy and mock your knights. Take Switzerland, and their pikemen will march for you.",
+    "requires": ["bur_upper_rhine"],
+    "goal": { "owns": "switzerland" },
+    "reward": [
+      { "prestige": 20 },
+      {
+        "modifier": {
+          "id": "bur_swiss_pikemen",
+          "name": "Swiss Pikemen",
+          "months": -1,
+          "mods": { "infantryPower": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "bur_golden_fleece",
+    "nation": "BUR",
+    "title": "Order of the Golden Fleece",
+    "desc": "Your knightly order is the most famous in Christendom. Reach 45 prestige and princes will beg to wear its collar.",
+    "requires": [],
+    "goal": { "prestigeAtLeast": 45 },
+    "reward": [
+      { "stability": 1 },
+      {
+        "modifier": {
+          "id": "bur_golden_fleece",
+          "name": "Order of the Golden Fleece",
+          "months": -1,
+          "mods": { "diplomacy": 1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "bur_habsburg_match",
+    "nation": "BUR",
+    "title": "The Habsburg Match",
+    "desc": "The Emperor's family would welcome a Burgundian marriage. Ally the Habsburgs and the Empire will look kindly on your Rhine ambitions.",
+    "requires": ["bur_golden_fleece"],
+    "goal": { "allied": "HAB" },
+    "reward": [
+      { "prestige": 10 },
+      { "opinion": { "nation": "HAB", "amount": 25 } },
+      { "addClaim": ["cologne", "trier"] }
+    ]
+  },
+  {
+    "id": "bur_lower_rhine",
+    "nation": "BUR",
+    "title": "The Lower Rhine",
+    "desc": "Cologne and Trier sit between Brabant and Luxembourg, rich in tolls and churches. Take them and the Rhine becomes a Burgundian river.",
+    "requires": ["bur_habsburg_match"],
+    "goal": { "owns": ["cologne", "trier"] },
+    "reward": [
+      { "addCore": ["cologne", "trier"] },
+      { "modifier": { "id": "bur_rhine_tolls", "name": "Rhine Tolls", "months": -1, "mods": { "tradeIncome": 0.1 } } }
+    ]
+  },
+  {
+    "id": "bur_richest_court",
+    "nation": "BUR",
+    "title": "The Richest Court",
+    "desc": "Painters, musicians and chroniclers flock to your court. Reach 70 development and show Europe what Burgundian wealth can do.",
+    "requires": ["bur_golden_fleece"],
+    "goal": { "devAtLeast": 70 },
+    "reward": [
+      { "prestige": 15 },
+      {
+        "modifier": {
+          "id": "bur_court",
+          "name": "Court of Burgundy",
+          "months": -1,
+          "mods": { "devCost": -0.1, "prestigeGain": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "hab_crown_of_bohemia",
+    "nation": "HAB",
+    "title": "The Crown of St Wenceslas",
+    "desc": "Young Ladislaus is a Habsburg, and Bohemia is his by right. Rule Bohemia yourself, or hold it as your junior partner.",
+    "requires": [],
+    "goal": { "any": [{ "owns": "bohemia" }, { "overlordOf": "BOH" }] },
+    "reward": [{ "prestige": 15 }, { "manpower": 5000 }, { "addClaim": ["moravia", "silesia"] }]
+  },
+  {
+    "id": "hab_crown_of_st_stephen",
+    "nation": "HAB",
+    "title": "The Crown of St Stephen",
+    "desc": "Hungary's nobles need a strong king against the Turks. Win their crown: rule Hungary, or hold it as your junior partner.",
+    "requires": ["hab_crown_of_bohemia"],
+    "goal": { "any": [{ "owns": "hungary" }, { "overlordOf": "HUN" }] },
+    "reward": [{ "prestige": 15 }, { "goldPerDev": 1 }, { "addClaim": ["serbia", "bosnia", "croatia"] }]
+  },
+  {
+    "id": "hab_danubian_monarchy",
+    "nation": "HAB",
+    "title": "The Danubian Monarchy",
+    "desc": "Unions come and go; provinces stay. Rule Bohemia, Moravia, Silesia, Hungary, Upper Hungary and Croatia directly.",
+    "requires": ["hab_crown_of_st_stephen"],
+    "goal": { "owns": ["bohemia", "moravia", "silesia", "hungary", "upper_hungary", "croatia"] },
+    "reward": [
+      { "prestige": 25 },
+      {
+        "modifier": {
+          "id": "hab_danubian_monarchy",
+          "name": "Danubian Monarchy",
+          "months": -1,
+          "mods": { "manpower": 0.15, "taxIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "hab_imperial_dignity",
+    "nation": "HAB",
+    "title": "Keep the Imperial Crown",
+    "desc": "The electors chose you, but they can choose again. Stay Emperor and raise your prestige to 40 to keep the princes in awe.",
+    "requires": [],
+    "goal": { "all": [{ "isEmperor": true }, { "prestigeAtLeast": 40 }] },
+    "reward": [
+      { "prestige": 5 },
+      {
+        "modifier": {
+          "id": "hab_imperial_dignity",
+          "name": "Imperial Dignity",
+          "months": -1,
+          "mods": { "diplomacy": 1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "hab_burgundian_match",
+    "nation": "HAB",
+    "title": "The Burgundian Match",
+    "desc": "The Dukes of Burgundy are rich, and their heirs are few. Ally Burgundy, or win its crown, and one day the Low Countries may follow.",
+    "requires": ["hab_imperial_dignity"],
+    "goal": { "any": [{ "allied": "BUR" }, { "overlordOf": "BUR" }, { "owns": "flanders" }] },
+    "reward": [{ "prestige": 10 }, { "addClaim": ["flanders", "brabant"] }]
+  },
+  {
+    "id": "hab_burgundian_netherlands",
+    "nation": "HAB",
+    "title": "The Burgundian Netherlands",
+    "desc": "Flanders and Brabant are the richest lands north of the Alps. Rule them directly, or hold Burgundy as your junior partner.",
+    "requires": ["hab_burgundian_match"],
+    "goal": { "any": [{ "owns": ["flanders", "brabant"] }, { "overlordOf": "BUR" }] },
+    "reward": [
+      { "prestige": 15 },
+      {
+        "modifier": {
+          "id": "hab_netherlands",
+          "name": "Netherlandish Wealth",
+          "months": -1,
+          "mods": { "tradeIncome": 0.15 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "hab_imperial_reform",
+    "nation": "HAB",
+    "title": "Imperial Reform",
+    "desc": "The Empire needs courts, taxes and a common army. Rule as Emperor with three allies and stability 2, and the Diet will listen.",
+    "requires": ["hab_imperial_dignity"],
+    "goal": { "all": [{ "isEmperor": true }, { "alliesAtLeast": 3 }, { "stability": [2] }] },
+    "reward": [
+      {
+        "modifier": {
+          "id": "hab_imperial_reform",
+          "name": "Imperial Reform",
+          "months": -1,
+          "mods": { "taxIncome": 0.1, "manpower": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "hab_imperial_army",
+    "nation": "HAB",
+    "title": "An Imperial Army",
+    "desc": "Marriages win crowns, but soldiers keep them. Field 14 regiments under a proper captain.",
+    "requires": [],
+    "goal": { "regimentsAtLeast": 14 },
+    "reward": [
+      { "hireGeneral": { "fire": 3, "shock": 4, "maneuver": 3, "name": "Georg von Frundsberg" } },
+      { "manpower": 3000 }
+    ]
+  },
+  {
+    "id": "hab_habsburg_cradle",
+    "nation": "HAB",
+    "title": "Recover the Habsburg Cradle",
+    "desc": "Your family's ancestral castle stands in the Swiss lands, now held by rebellious peasants. Take Switzerland back.",
+    "requires": ["hab_imperial_army"],
+    "goal": { "owns": "switzerland" },
+    "reward": [{ "prestige": 15 }, { "goldPerDev": 1 }, { "addCore": "switzerland" }]
+  },
+  {
+    "id": "hab_military_frontier",
+    "nation": "HAB",
+    "title": "The Military Frontier",
+    "desc": "The Turks will come up the Danube sooner or later. Push the frontier south and take Serbia and Bosnia.",
+    "requires": ["hab_imperial_army", "hab_crown_of_st_stephen"],
+    "goal": { "owns": ["serbia", "bosnia"] },
+    "reward": [
+      { "prestige": 20 },
+      {
+        "modifier": {
+          "id": "hab_military_frontier",
+          "name": "Military Frontier",
+          "months": -1,
+          "mods": { "fortDefense": 0.15, "holyWarMorale": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "boh_voice_among_electors",
+    "nation": "BOH",
+    "title": "A Voice Among Electors",
+    "desc": "As King of Bohemia you are the first lay elector of the Empire. Gather two allies and 35 prestige, and the other electors will listen.",
+    "requires": [],
+    "goal": { "all": [{ "prestigeAtLeast": 35 }, { "alliesAtLeast": 2 }] },
+    "reward": [
+      { "goldPerDev": 1 },
+      {
+        "modifier": {
+          "id": "boh_electoral_dignity",
+          "name": "Electoral Dignity",
+          "months": 120,
+          "mods": { "diplomacy": 1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "boh_imperial_crown",
+    "nation": "BOH",
+    "title": "The Imperial Crown",
+    "desc": "A century ago Emperor Charles IV ruled the Empire from Prague. Win the next election and bring the imperial court home.",
+    "requires": ["boh_voice_among_electors"],
+    "goal": { "isEmperor": true },
+    "reward": [
+      { "prestige": 20 },
+      { "devCapital": 1 },
+      {
+        "modifier": {
+          "id": "boh_imperial_prague",
+          "name": "Imperial Prague",
+          "months": -1,
+          "mods": { "taxIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "boh_golden_prague",
+    "nation": "BOH",
+    "title": "Golden Prague",
+    "desc": "Make Prague the greatest city of the Empire, with a university, bridges and a hundred spires. Raise it to development 10 while you wear the crown.",
+    "requires": ["boh_imperial_crown"],
+    "goal": { "all": [{ "isEmperor": true }, { "capitalDevAtLeast": 10 }] },
+    "reward": [
+      { "prestige": 15 },
+      {
+        "modifier": {
+          "id": "boh_golden_prague",
+          "name": "Golden Prague",
+          "months": -1,
+          "mods": { "prestigeGain": 0.15, "devCost": -0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "boh_wagon_forts",
+    "nation": "BOH",
+    "title": "The Wagon Forts",
+    "desc": "Your peasant armies once beat five crusades with war wagons and handguns. Field 15 regiments and the Saxons will remember why they fear you.",
+    "requires": [],
+    "goal": { "regimentsAtLeast": 15 },
+    "reward": [
+      { "hireGeneral": { "fire": 3, "shock": 3, "maneuver": 4, "name": "Jan Jiskra" } },
+      { "addClaim": "saxony" }
+    ]
+  },
+  {
+    "id": "boh_lusatia_and_meissen",
+    "nation": "BOH",
+    "title": "Lusatia and Meissen",
+    "desc": "Lusatia already answers to Prague, and the Saxon lands beyond it are rich in silver. Take Saxony and its mines.",
+    "requires": ["boh_wagon_forts"],
+    "goal": { "owns": "saxony" },
+    "reward": [{ "prestige": 10 }, { "addCore": "saxony" }, { "addClaim": ["brandenburg", "altmark"] }]
+  },
+  {
+    "id": "boh_luxembourg_mark",
+    "nation": "BOH",
+    "title": "The Luxembourg Mark",
+    "desc": "Bohemian kings held Brandenburg within living memory. Take the Mark and the Altmark and hold two electoral votes.",
+    "requires": ["boh_lusatia_and_meissen"],
+    "goal": { "owns": ["brandenburg", "altmark"] },
+    "reward": [
+      { "prestige": 15 },
+      {
+        "modifier": {
+          "id": "boh_two_votes",
+          "name": "Two Electoral Votes",
+          "months": -1,
+          "mods": { "diplomacy": 1, "manpower": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "boh_jagiellon_friendship",
+    "nation": "BOH",
+    "title": "The Jagiellon Friendship",
+    "desc": "Poland's royal house has many sons and an eye on your throne. Make it an ally instead of a rival.",
+    "requires": [],
+    "goal": { "allied": "POL" },
+    "reward": [
+      { "prestige": 5 },
+      { "opinion": { "nation": "POL", "amount": 25 } },
+      { "addClaim": ["upper_hungary", "hungary"] }
+    ]
+  },
+  {
+    "id": "boh_crown_of_hungary",
+    "nation": "BOH",
+    "title": "The Crown of Hungary",
+    "desc": "Hungary's crown has passed to Bohemian kings before. Rule Hungary and Upper Hungary, or hold Hungary as your junior partner.",
+    "requires": ["boh_jagiellon_friendship"],
+    "goal": { "any": [{ "owns": ["hungary", "upper_hungary"] }, { "overlordOf": "HUN" }] },
+    "reward": [{ "prestige": 20 }, { "goldPerDev": 1 }, { "addClaim": ["austria", "styria"] }]
+  },
+  {
+    "id": "boh_ottokars_legacy",
+    "nation": "BOH",
+    "title": "Ottokar's Legacy",
+    "desc": "Long ago King Ottokar ruled from Prague to the Adriatic, until the Habsburgs took Austria from him. Take Austria and Styria back.",
+    "requires": ["boh_crown_of_hungary"],
+    "goal": { "owns": ["austria", "styria"] },
+    "reward": [
+      { "prestige": 20 },
+      { "addCore": ["austria", "styria"] },
+      {
+        "modifier": {
+          "id": "boh_ottokars_realm",
+          "name": "Ottokar's Realm",
+          "months": -1,
+          "mods": { "taxIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "hun_bosnia",
+    "nation": "HUN",
+    "title": "The Bosnian Crown",
+    "desc": "Bosnia's king is caught between you and the Sultan. Take Bosnia before the Turks do.",
+    "requires": [],
+    "goal": { "owns": "bosnia" },
+    "reward": [{ "prestige": 10 }, { "papalFavor": 10 }, { "addCore": "bosnia" }]
+  },
+  {
+    "id": "hun_despotate_of_serbia",
+    "nation": "HUN",
+    "title": "The Despotate of Serbia",
+    "desc": "Serbia pays tribute to the Sultan, but its people still hope for a Christian lord. Free Serbia and make it Hungarian.",
+    "requires": ["hun_bosnia"],
+    "goal": { "owns": "serbia" },
+    "reward": [{ "prestige": 15 }, { "addCore": "serbia" }, { "addClaim": ["bulgaria", "macedonia", "rumelia"] }]
+  },
+  {
+    "id": "hun_avenge_varna",
+    "nation": "HUN",
+    "title": "Avenge Varna",
+    "desc": "Your young king died at Varna fighting the Turks. Take Bulgaria, Macedonia and Rumelia and drive the Sultan out of Europe.",
+    "requires": ["hun_despotate_of_serbia"],
+    "goal": { "owns": ["bulgaria", "macedonia", "rumelia"] },
+    "reward": [
+      { "prestige": 30 },
+      {
+        "modifier": {
+          "id": "hun_varna_avenged",
+          "name": "Varna Avenged",
+          "months": -1,
+          "mods": { "morale": 0.1, "holyWarMorale": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "hun_bulwark_of_christendom",
+    "nation": "HUN",
+    "title": "Bulwark of Christendom",
+    "desc": "Win five battles and earn 50 of the Pope's favour, and all Christendom will call you its shield against the Turk.",
+    "requires": ["hun_bosnia"],
+    "goal": { "all": [{ "battlesWonAtLeast": 5 }, { "papalFavorAtLeast": 50 }] },
+    "reward": [
+      { "prestige": 15 },
+      {
+        "modifier": {
+          "id": "hun_shield_of_christendom",
+          "name": "Shield of Christendom",
+          "months": -1,
+          "mods": { "holyWarMorale": 0.1, "manpower": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "hun_black_army",
+    "nation": "HUN",
+    "title": "The Black Army",
+    "desc": "Hire professional soldiers and pay them well. Field 16 regiments and you can afford a captain like Pál Kinizsi.",
+    "requires": [],
+    "goal": { "regimentsAtLeast": 16 },
+    "reward": [
+      { "hireGeneral": { "fire": 3, "shock": 5, "maneuver": 3, "name": "Pál Kinizsi" } },
+      { "addClaim": ["moravia", "silesia"] }
+    ]
+  },
+  {
+    "id": "hun_moravia_and_silesia",
+    "nation": "HUN",
+    "title": "Moravia and Silesia",
+    "desc": "Bohemia's outer lands are rich and poorly defended. Take Moravia and Silesia, and the Bohemian crown may follow.",
+    "requires": ["hun_black_army"],
+    "goal": { "owns": ["moravia", "silesia"] },
+    "reward": [{ "prestige": 15 }, { "addCore": ["moravia", "silesia"] }, { "addClaim": ["austria", "styria"] }]
+  },
+  {
+    "id": "hun_king_in_vienna",
+    "nation": "HUN",
+    "title": "The King in Vienna",
+    "desc": "Vienna is the gateway between Hungary and the Empire. Take Austria and rule from its palaces.",
+    "requires": ["hun_moravia_and_silesia"],
+    "goal": { "owns": "austria" },
+    "reward": [
+      { "prestige": 20 },
+      { "addCore": "austria" },
+      {
+        "modifier": {
+          "id": "hun_court_at_vienna",
+          "name": "Court at Vienna",
+          "months": -1,
+          "mods": { "taxIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "hun_master_of_wallachia",
+    "nation": "HUN",
+    "title": "Master of Wallachia",
+    "desc": "Wallachia's princes switch sides with every campaign. Make Wallachia your subject or take it outright.",
+    "requires": [],
+    "goal": { "any": [{ "overlordOf": "WAL" }, { "owns": "wallachia" }] },
+    "reward": [{ "prestige": 10 }, { "manpower": 4000 }, { "addClaim": "moldavia" }]
+  },
+  {
+    "id": "hun_carpathian_passes",
+    "nation": "HUN",
+    "title": "The Carpathian Passes",
+    "desc": "Moldavia holds the passes into Transylvania and the road to the Black Sea. Take it and close the door to raiders.",
+    "requires": ["hun_master_of_wallachia"],
+    "goal": { "owns": "moldavia" },
+    "reward": [{ "prestige": 15 }, { "goldPerDev": 2 }, { "addCore": "moldavia" }]
+  },
+  {
+    "id": "pol_danzig",
+    "nation": "POL",
+    "title": "Danzig, Gateway to the Sea",
+    "desc": "The grain of Poland floats down the Vistula to Danzig, and the Teutonic Order takes its cut. Take the city and keep the profits.",
+    "requires": [],
+    "goal": { "owns": "danzig" },
+    "reward": [
+      { "prestige": 10 },
+      { "addCore": "danzig" },
+      {
+        "modifier": {
+          "id": "pol_vistula_grain",
+          "name": "Vistula Grain Trade",
+          "months": -1,
+          "mods": { "tradeIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pol_break_the_order",
+    "nation": "POL",
+    "title": "Break the Teutonic Order",
+    "desc": "The Knights have threatened Poland for two centuries. Take Prussia, or force the Grand Master to kneel as your vassal.",
+    "requires": ["pol_danzig"],
+    "goal": { "any": [{ "owns": "prussia" }, { "overlordOf": "TEU" }] },
+    "reward": [{ "prestige": 20 }, { "manpower": 5000 }, { "addClaim": "livonia" }]
+  },
+  {
+    "id": "pol_livonian_question",
+    "nation": "POL",
+    "title": "The Livonian Question",
+    "desc": "The Livonian Order is weak and its neighbours are circling. Take Livonia before Muscovy or Sweden does.",
+    "requires": ["pol_break_the_order"],
+    "goal": { "owns": "livonia" },
+    "reward": [{ "prestige": 15 }, { "goldPerDev": 1 }, { "addCore": "livonia" }]
+  },
+  {
+    "id": "pol_baltic_squadron",
+    "nation": "POL",
+    "title": "A Polish Fleet",
+    "desc": "Danzig's shipwrights are as good as any. Build a fleet of 10 ships to guard the mouth of the Vistula.",
+    "requires": ["pol_danzig"],
+    "goal": { "shipsAtLeast": 10 },
+    "reward": [
+      { "prestige": 5 },
+      {
+        "modifier": {
+          "id": "pol_baltic_squadron",
+          "name": "Baltic Squadron",
+          "months": -1,
+          "mods": { "navalPower": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pol_winged_hussars",
+    "nation": "POL",
+    "title": "Winged Hussars",
+    "desc": "Your nobles are born in the saddle. Field 16 regiments and train the finest heavy horse in Europe.",
+    "requires": [],
+    "goal": { "regimentsAtLeast": 16 },
+    "reward": [
+      { "hireGeneral": { "fire": 3, "shock": 4, "maneuver": 4, "name": "Jan Tarnowski" } },
+      { "addClaim": "silesia" },
+      {
+        "modifier": {
+          "id": "pol_winged_hussars",
+          "name": "Winged Hussars",
+          "months": -1,
+          "mods": { "cavalryPower": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pol_silesian_piasts",
+    "nation": "POL",
+    "title": "The Silesian Piasts",
+    "desc": "Silesia's dukes are Piasts, kin of Poland's old kings, but they answer to Prague. Bring Silesia home.",
+    "requires": ["pol_winged_hussars"],
+    "goal": { "owns": "silesia" },
+    "reward": [{ "prestige": 15 }, { "goldPerDev": 1 }, { "addCore": "silesia" }]
+  },
+  {
+    "id": "pol_sea_to_sea",
+    "nation": "POL",
+    "title": "From Sea to Sea",
+    "desc": "Make Poland the bridge between two seas: hold Danzig on the Baltic and a Black Sea coast in Moldavia, Zaporozhia or Crimea.",
+    "requires": ["pol_winged_hussars", "pol_danzig"],
+    "goal": { "all": [{ "owns": "danzig" }, { "ownsAny": ["moldavia", "zaporozhia", "crimea"] }] },
+    "reward": [
+      { "prestige": 20 },
+      { "modifier": { "id": "pol_two_seas", "name": "Between Two Seas", "months": -1, "mods": { "taxIncome": 0.1 } } }
+    ]
+  },
+  {
+    "id": "pol_jagiellonian_league",
+    "nation": "POL",
+    "title": "The Jagiellonian League",
+    "desc": "Your dynasty rules or courts half of Central Europe. Gather three allies and make the Jagiellons the first house of the east.",
+    "requires": [],
+    "goal": { "alliesAtLeast": 3 },
+    "reward": [
+      { "prestige": 5 },
+      {
+        "modifier": {
+          "id": "pol_jagiellon_diplomacy",
+          "name": "Jagiellonian Diplomacy",
+          "months": -1,
+          "mods": { "diplomacy": 1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "pol_union_of_lublin",
+    "nation": "POL",
+    "title": "The Union of Lublin",
+    "desc": "Poland and Lithuania are bound by blood and treaty, but not yet one state. Hold Lithuania as your junior partner, or stay its ally with 60 prestige and stability 2.",
+    "requires": ["pol_jagiellonian_league"],
+    "goal": {
+      "any": [
+        { "overlordOf": "LIT" },
+        { "all": [{ "allied": "LIT" }, { "prestigeAtLeast": 60 }, { "stability": [2] }] }
+      ]
+    },
+    "reward": [
+      { "prestige": 15 },
+      { "opinion": { "nation": "LIT", "amount": 25 } },
+      {
+        "modifier": {
+          "id": "pol_commonwealth",
+          "name": "Commonwealth of Two Nations",
+          "months": -1,
+          "mods": { "manpower": 0.15 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "lit_humble_moscow",
+    "nation": "LIT",
+    "title": "Humble Moscow",
+    "desc": "The princes of Moscow call themselves lords of all Rus, but Lithuania is the greater power. Take Moscow and end their pretensions.",
+    "requires": [],
+    "goal": { "owns": "moscow" },
+    "reward": [{ "prestige": 20 }, { "addCore": "moscow" }, { "addClaim": ["vladimir", "yaroslavl", "tver"] }]
+  },
+  {
+    "id": "lit_lord_of_all_rus",
+    "nation": "LIT",
+    "title": "Lord of All Rus",
+    "desc": "The heartland of the old Russian principalities is within reach. Take Vladimir, Yaroslavl and Tver.",
+    "requires": ["lit_humble_moscow"],
+    "goal": { "owns": ["vladimir", "yaroslavl", "tver"] },
+    "reward": [
+      { "prestige": 20 },
+      { "addClaim": ["novgorod", "pskov"] },
+      { "modifier": { "id": "lit_lord_of_rus", "name": "Lord of Rus", "months": -1, "mods": { "manpower": 0.1 } } }
+    ]
+  },
+  {
+    "id": "lit_protector_of_novgorod",
+    "nation": "LIT",
+    "title": "Protector of Novgorod",
+    "desc": "Novgorod's merchants would rather have a distant Lithuanian lord than a Muscovite one. Take Novgorod and Pskov and their fur trade.",
+    "requires": ["lit_lord_of_all_rus"],
+    "goal": { "owns": ["novgorod", "pskov"] },
+    "reward": [
+      { "prestige": 10 },
+      { "modifier": { "id": "lit_fur_trade", "name": "Fur Trade", "months": -1, "mods": { "tradeIncome": 0.15 } } }
+    ]
+  },
+  {
+    "id": "lit_to_the_black_sea",
+    "nation": "LIT",
+    "title": "To the Black Sea",
+    "desc": "Grand Duke Vytautas once watered his horse in the Black Sea. Take Zaporozhia and the steppe will be yours again.",
+    "requires": [],
+    "goal": { "owns": "zaporozhia" },
+    "reward": [{ "prestige": 10 }, { "addCore": "zaporozhia" }, { "addClaim": "crimea" }]
+  },
+  {
+    "id": "lit_crimean_khanate",
+    "nation": "LIT",
+    "title": "The Crimean Khanate",
+    "desc": "The Khans of Crimea raid your lands for captives every summer. Take the peninsula and its rich ports.",
+    "requires": ["lit_to_the_black_sea"],
+    "goal": { "owns": "crimea" },
+    "reward": [{ "goldPerDev": 2 }, { "addCore": "crimea" }, { "addClaim": "don" }]
+  },
+  {
+    "id": "lit_break_the_horde",
+    "nation": "LIT",
+    "title": "Break the Great Horde",
+    "desc": "The Great Horde still rides the Don steppe. Take its lands and no khan will threaten your borders again.",
+    "requires": ["lit_crimean_khanate"],
+    "goal": { "owns": "don" },
+    "reward": [
+      { "prestige": 15 },
+      {
+        "modifier": {
+          "id": "lit_masters_of_the_steppe",
+          "name": "Masters of the Steppe",
+          "months": -1,
+          "mods": { "cavalryPower": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "lit_grand_ducal_host",
+    "nation": "LIT",
+    "title": "The Grand Ducal Host",
+    "desc": "Your realm is vast but its army is small. Field 16 regiments and find a captain worthy of them.",
+    "requires": [],
+    "goal": { "regimentsAtLeast": 16 },
+    "reward": [
+      { "hireGeneral": { "fire": 3, "shock": 4, "maneuver": 4, "name": "Konstanty Ostrogski" } },
+      { "addClaim": "livonia" }
+    ]
+  },
+  {
+    "id": "lit_window_on_the_baltic",
+    "nation": "LIT",
+    "title": "A Port on the Baltic",
+    "desc": "The Livonian Order holds the coast north of your lands. Take Livonia and give Lithuania a proper port.",
+    "requires": ["lit_grand_ducal_host"],
+    "goal": { "owns": "livonia" },
+    "reward": [
+      { "prestige": 10 },
+      { "addCore": "livonia" },
+      {
+        "modifier": { "id": "lit_port_of_riga", "name": "Port of Riga", "months": -1, "mods": { "tradeIncome": 0.1 } }
+      }
+    ]
+  },
+  {
+    "id": "lit_greatest_realm",
+    "nation": "LIT",
+    "title": "The Greatest Realm in Europe",
+    "desc": "From the Baltic to the steppe, no realm in Europe is larger. Rule 16 regions with 60 prestige.",
+    "requires": ["lit_lord_of_all_rus", "lit_crimean_khanate"],
+    "goal": { "all": [{ "regionsAtLeast": 16 }, { "prestigeAtLeast": 60 }] },
+    "reward": [
+      { "prestige": 20 },
+      {
+        "modifier": {
+          "id": "lit_greatest_realm",
+          "name": "The Greatest Realm",
+          "months": -1,
+          "mods": { "taxIncome": 0.1, "manpower": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "mos_absorb_ryazan",
+    "nation": "MOS",
+    "title": "Absorb Ryazan",
+    "desc": "Ryazan is a Russian principality too small to stand alone. Bring it under Moscow before the Tatars or Lithuanians do.",
+    "requires": [],
+    "goal": { "owns": "ryazan" },
+    "reward": [{ "prestige": 10 }, { "goldPerDev": 1 }, { "addCore": "ryazan" }]
+  },
+  {
+    "id": "mos_fall_of_novgorod",
+    "nation": "MOS",
+    "title": "The Fall of Novgorod",
+    "desc": "Lord Novgorod the Great is rich, proud and flirting with Lithuania. Take the city and silence its assembly bell.",
+    "requires": ["mos_absorb_ryazan"],
+    "goal": { "owns": "novgorod" },
+    "reward": [
+      { "addCore": "novgorod" },
+      { "addClaim": "karelia" },
+      {
+        "modifier": {
+          "id": "mos_novgorod_furs",
+          "name": "Novgorod's Fur Trade",
+          "months": -1,
+          "mods": { "tradeIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "mos_gather_the_russian_lands",
+    "nation": "MOS",
+    "title": "Gather the Russian Lands",
+    "desc": "Tver, Ryazan, Novgorod and Pskov are Russian lands, and they belong under one prince. Rule them all from Moscow.",
+    "requires": ["mos_fall_of_novgorod"],
+    "goal": { "owns": ["tver", "novgorod", "ryazan", "pskov"] },
+    "reward": [
+      { "prestige": 25 },
+      { "addClaim": ["livonia", "finland"] },
+      {
+        "modifier": {
+          "id": "mos_gatherer_of_lands",
+          "name": "Gatherer of Lands",
+          "months": -1,
+          "mods": { "manpower": 0.1, "coreCost": -0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "mos_window_to_the_west",
+    "nation": "MOS",
+    "title": "A Window to the West",
+    "desc": "Russia needs a Baltic port to trade with the West. Take Livonia or Finland.",
+    "requires": ["mos_gather_the_russian_lands"],
+    "goal": { "ownsAny": ["livonia", "finland"] },
+    "reward": [
+      { "prestige": 10 },
+      {
+        "modifier": {
+          "id": "mos_baltic_port",
+          "name": "Baltic Port",
+          "months": -1,
+          "mods": { "tradeIncome": 0.1, "navalPower": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "mos_stand_on_the_ugra",
+    "nation": "MOS",
+    "title": "Stand on the Ugra",
+    "desc": "The Horde still demands tribute from Moscow. Field 14 regiments, win a war, and send the khan's envoys home empty-handed.",
+    "requires": [],
+    "goal": { "all": [{ "regimentsAtLeast": 14 }, { "warsWonAtLeast": 1 }] },
+    "reward": [{ "prestige": 15 }, { "stability": 1 }, { "addClaim": "don" }]
+  },
+  {
+    "id": "mos_end_the_horde",
+    "nation": "MOS",
+    "title": "End the Great Horde",
+    "desc": "The Horde that once burned Moscow is a shadow of itself. Take its pastures on the Don.",
+    "requires": ["mos_stand_on_the_ugra"],
+    "goal": { "owns": "don" },
+    "reward": [
+      { "addCore": "don" },
+      { "addClaim": ["crimea", "zaporozhia"] },
+      {
+        "modifier": {
+          "id": "mos_steppe_riders",
+          "name": "Steppe Riders",
+          "months": -1,
+          "mods": { "cavalryPower": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "mos_wild_fields",
+    "nation": "MOS",
+    "title": "The Wild Fields",
+    "desc": "The Crimean Khan's raiders strike deep into your lands. Take Crimea and Zaporozhia and close the steppe road for good.",
+    "requires": ["mos_end_the_horde"],
+    "goal": { "owns": ["crimea", "zaporozhia"] },
+    "reward": [{ "prestige": 20 }, { "goldPerDev": 2 }, { "manpower": 5000 }]
+  },
+  {
+    "id": "mos_third_rome",
+    "nation": "MOS",
+    "title": "The Third Rome",
+    "desc": "If Constantinople falls, Moscow will carry the Orthodox faith; while it stands, it needs a friend. Reach 40 prestige with Byzantium gone or your ally.",
+    "requires": [],
+    "goal": { "all": [{ "prestigeAtLeast": 40 }, { "any": [{ "not": { "exists": "BYZ" } }, { "allied": "BYZ" }] }] },
+    "reward": [
+      { "stability": 1 },
+      { "addClaim": "smolensk" },
+      { "modifier": { "id": "mos_third_rome", "name": "Third Rome", "months": -1, "mods": { "prestigeGain": 0.15 } } }
+    ]
+  },
+  {
+    "id": "mos_smolensk_gate",
+    "nation": "MOS",
+    "title": "The Smolensk Gate",
+    "desc": "Smolensk guards the road from Moscow to the west, and Lithuania holds it. Take the fortress.",
+    "requires": ["mos_third_rome"],
+    "goal": { "owns": "smolensk" },
+    "reward": [{ "prestige": 15 }, { "addCore": "smolensk" }, { "addClaim": ["kiev", "polotsk"] }]
+  },
+  {
+    "id": "mos_tsar_of_all_russia",
+    "nation": "MOS",
+    "title": "Tsar of All Russia",
+    "desc": "Crown yourself Tsar. Rule 15 regions with 60 prestige and the world will have to accept the title.",
+    "requires": ["mos_gather_the_russian_lands", "mos_smolensk_gate"],
+    "goal": { "all": [{ "regionsAtLeast": 15 }, { "prestigeAtLeast": 60 }] },
+    "reward": [
+      { "prestige": 20 },
+      {
+        "modifier": {
+          "id": "mos_tsardom",
+          "name": "Tsardom",
+          "months": -1,
+          "mods": { "taxIncome": 0.1, "manpower": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "tur_take_constantinople",
+    "nation": "TUR",
+    "title": "Take Constantinople",
+    "desc": "The Queen of Cities stands between your European and Asian lands, guarded by the greatest walls in the world. Break them.",
+    "requires": [],
+    "goal": { "owns": "constantinople" },
+    "reward": [
+      { "prestige": 25 },
+      { "addCore": "constantinople" },
+      {
+        "modifier": {
+          "id": "tur_caesar_of_rome",
+          "name": "Caesar of Rome",
+          "months": -1,
+          "mods": { "taxIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "tur_greece_and_albania",
+    "nation": "TUR",
+    "title": "Greece and Albania",
+    "desc": "The Despots of the Morea and Skanderbeg's rebels in Albania defy you. Take both and secure your western flank.",
+    "requires": ["tur_take_constantinople"],
+    "goal": { "owns": ["morea", "albania"] },
+    "reward": [{ "prestige": 10 }, { "goldPerDev": 1 }, { "addCore": ["morea", "albania"] }]
+  },
+  {
+    "id": "tur_serbia_and_bosnia",
+    "nation": "TUR",
+    "title": "Serbia and Bosnia",
+    "desc": "Your Serbian vassal and the Bosnian king are weak and divided. Make their lands Ottoman provinces.",
+    "requires": ["tur_take_constantinople"],
+    "goal": { "owns": ["serbia", "bosnia"] },
+    "reward": [
+      { "manpower": 5000 },
+      { "addCore": ["serbia", "bosnia"] },
+      { "addClaim": ["hungary", "croatia", "wallachia"] }
+    ]
+  },
+  {
+    "id": "tur_hungarian_plain",
+    "nation": "TUR",
+    "title": "The Hungarian Plain",
+    "desc": "Hungary is the shield of Christendom. Shatter it and the road to the heart of Europe lies open.",
+    "requires": ["tur_serbia_and_bosnia"],
+    "goal": { "owns": "hungary" },
+    "reward": [{ "prestige": 20 }, { "addCore": "hungary" }, { "addClaim": ["austria", "transylvania"] }]
+  },
+  {
+    "id": "tur_golden_apple",
+    "nation": "TUR",
+    "title": "The Golden Apple",
+    "desc": "Vienna, the golden apple, is the gateway to the German lands. Take Austria and the Christian princes will tremble.",
+    "requires": ["tur_hungarian_plain"],
+    "goal": { "owns": "austria" },
+    "reward": [
+      { "prestige": 30 },
+      {
+        "modifier": {
+          "id": "tur_conqueror_of_vienna",
+          "name": "Conqueror of Vienna",
+          "months": -1,
+          "mods": { "morale": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "tur_janissary_corps",
+    "nation": "TUR",
+    "title": "The Janissary Corps",
+    "desc": "The sultan's household infantry is the finest in the world. Field 22 regiments and the Turkmen beys of Anatolia will bow.",
+    "requires": [],
+    "goal": { "regimentsAtLeast": 22 },
+    "reward": [
+      { "hireGeneral": { "fire": 4, "shock": 4, "maneuver": 3, "name": "Gedik Ahmed Pasha" } },
+      { "addClaim": ["karaman", "trebizond"] },
+      {
+        "modifier": { "id": "tur_janissaries", "name": "Janissaries", "months": -1, "mods": { "infantryPower": 0.1 } }
+      }
+    ]
+  },
+  {
+    "id": "tur_unite_anatolia",
+    "nation": "TUR",
+    "title": "Unite Anatolia",
+    "desc": "Karaman and Trebizond are the last independent powers in Anatolia. Take them and rule all the lands of the Turks.",
+    "requires": ["tur_janissary_corps"],
+    "goal": { "owns": ["karaman", "trebizond"] },
+    "reward": [{ "prestige": 15 }, { "manpower": 5000 }, { "addCore": ["karaman", "trebizond"] }]
+  },
+  {
+    "id": "tur_imperial_arsenal",
+    "nation": "TUR",
+    "title": "The Imperial Arsenal",
+    "desc": "Gallipoli's shipyards can build a fleet to rival Venice. Launch 22 ships, and the knights on Rhodes will be next.",
+    "requires": [],
+    "goal": { "shipsAtLeast": 22 },
+    "reward": [
+      { "addClaim": "rhodes" },
+      {
+        "modifier": {
+          "id": "tur_imperial_arsenal",
+          "name": "Imperial Arsenal",
+          "months": -1,
+          "mods": { "navalPower": 0.1, "shipCost": -0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "tur_siege_of_rhodes",
+    "nation": "TUR",
+    "title": "The Siege of Rhodes",
+    "desc": "The Knights of St John raid your shipping from their fortress island. Take Rhodes and end their raids.",
+    "requires": ["tur_imperial_arsenal"],
+    "goal": { "owns": "rhodes" },
+    "reward": [{ "prestige": 15 }, { "goldPerDev": 1 }, { "addClaim": ["cyprus", "candia"] }]
+  },
+  {
+    "id": "tur_ottoman_sea",
+    "nation": "TUR",
+    "title": "An Ottoman Sea",
+    "desc": "Cyprus and Crete are the last Christian strongholds in the eastern sea. Take them and the Levant trade is yours.",
+    "requires": ["tur_siege_of_rhodes"],
+    "goal": { "owns": ["cyprus", "candia"] },
+    "reward": [
+      { "prestige": 20 },
+      { "modifier": { "id": "tur_ottoman_sea", "name": "Ottoman Sea", "months": -1, "mods": { "tradeIncome": 0.15 } } }
+    ]
+  },
+  {
+    "id": "ven_lombard_wars",
+    "nation": "VEN",
+    "title": "The Lombard Wars",
+    "desc": "Milan's dukes are your oldest enemies on the mainland. Take Lombardy and make your mainland state safe for good.",
+    "requires": [],
+    "goal": { "owns": "lombardy" },
+    "reward": [{ "prestige": 15 }, { "addCore": "lombardy" }, { "addClaim": ["romagna", "liguria"] }]
+  },
+  {
+    "id": "ven_ravenna",
+    "nation": "VEN",
+    "title": "Ravenna and the Romagna",
+    "desc": "Ravenna's salt pans and the Romagna's towns guard your southern border. Take them, even if the Pope objects.",
+    "requires": ["ven_lombard_wars"],
+    "goal": { "owns": "romagna" },
+    "reward": [{ "prestige": 10 }, { "goldPerDev": 1 }, { "addCore": "romagna" }]
+  },
+  {
+    "id": "ven_crush_genoa",
+    "nation": "VEN",
+    "title": "Crush Genoa",
+    "desc": "Genoa is your great rival at sea, and Lombardy opens the road to it by land. Take the city and its trading posts are yours.",
+    "requires": ["ven_lombard_wars"],
+    "goal": { "owns": "liguria" },
+    "reward": [
+      { "prestige": 10 },
+      { "addCore": "liguria" },
+      {
+        "modifier": {
+          "id": "ven_genoa_humbled",
+          "name": "Genoa Humbled",
+          "months": -1,
+          "mods": { "tradeIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ven_arsenal",
+    "nation": "VEN",
+    "title": "The Arsenal",
+    "desc": "Your Arsenal can build a galley a day when it must. Launch 22 ships and claim the far shore of the Adriatic.",
+    "requires": [],
+    "goal": { "shipsAtLeast": 22 },
+    "reward": [
+      { "addClaim": ["albania", "apulia"] },
+      {
+        "modifier": {
+          "id": "ven_arsenal",
+          "name": "The Arsenal",
+          "months": -1,
+          "mods": { "navalPower": 0.1, "shipCost": -0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ven_rule_the_adriatic",
+    "nation": "VEN",
+    "title": "Rule the Adriatic",
+    "desc": "The Adriatic is the Gulf of Venice. Hold both shores: Dalmatia, Albania and Apulia.",
+    "requires": ["ven_arsenal"],
+    "goal": { "owns": ["dalmatia", "albania", "apulia"] },
+    "reward": [
+      { "prestige": 15 },
+      { "addClaim": ["morea", "cyprus"] },
+      {
+        "modifier": {
+          "id": "ven_gulf_of_venice",
+          "name": "Gulf of Venice",
+          "months": -1,
+          "mods": { "tradeIncome": 0.15 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ven_stato_da_mar",
+    "nation": "VEN",
+    "title": "The Stato da Mar",
+    "desc": "Your empire of islands and ports guards the road to the East. Hold the Morea, Candia and Cyprus.",
+    "requires": ["ven_rule_the_adriatic"],
+    "goal": { "owns": ["morea", "candia", "cyprus"] },
+    "reward": [
+      { "prestige": 25 },
+      {
+        "modifier": {
+          "id": "ven_stato_da_mar",
+          "name": "Stato da Mar",
+          "months": -1,
+          "mods": { "navalPower": 0.1, "tradeIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "ven_league_against_the_turk",
+    "nation": "VEN",
+    "title": "League Against the Turk",
+    "desc": "The Sultan's fleet grows every year. Ally Hungary, the strongest Christian army in the east, and he will have to fight on land as well as at sea.",
+    "requires": ["ven_arsenal"],
+    "goal": { "allied": "HUN" },
+    "reward": [
+      { "prestige": 10 },
+      { "opinion": { "nation": "HUN", "amount": 25 } },
+      { "modifier": { "id": "ven_holy_league", "name": "Holy League", "months": 120, "mods": { "morale": 0.1 } } }
+    ]
+  },
+  {
+    "id": "ven_riches_of_the_rialto",
+    "nation": "VEN",
+    "title": "The Riches of the Rialto",
+    "desc": "Bankers, brokers and spice merchants crowd the Rialto. Fill the treasury with 500 gold.",
+    "requires": [],
+    "goal": { "goldAtLeast": 500 },
+    "reward": [{ "prestige": 10 }, { "devCapital": 1 }]
+  },
+  {
+    "id": "ven_queen_of_the_adriatic",
+    "nation": "VEN",
+    "title": "Queen of the Adriatic",
+    "desc": "Make Venice the most splendid city in Europe, with marble palaces on every canal. Raise it to development 10.",
+    "requires": ["ven_riches_of_the_rialto"],
+    "goal": { "capitalDevAtLeast": 10 },
+    "reward": [
+      { "prestige": 10 },
+      {
+        "modifier": {
+          "id": "ven_serenissima",
+          "name": "La Serenissima",
+          "months": -1,
+          "mods": { "prestigeGain": 0.15, "diplomacy": 1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "sco_tame_the_great_lords",
+    "nation": "SCO",
+    "title": "Tame the Great Lords",
+    "desc": "The Black Douglases and the Lord of the Isles answer to no one. Bring your realm to stability 2 and grow Edinburgh to development 5.",
+    "requires": [],
+    "goal": { "all": [{ "stability": [2] }, { "capitalDevAtLeast": 5 }] },
+    "reward": [
+      { "prestige": 5 },
+      { "modifier": { "id": "sco_royal_justice", "name": "Royal Justice", "months": -1, "mods": { "unrest": -1 } } }
+    ]
+  },
+  {
+    "id": "sco_great_michael",
+    "nation": "SCO",
+    "title": "Build the Great Michael",
+    "desc": "A proper navy would carry your soldiers to France and Ireland. Build 8 ships, led by the largest warship in the north.",
+    "requires": [],
+    "goal": { "shipsAtLeast": 8 },
+    "reward": [
+      { "addClaim": "ireland" },
+      { "modifier": { "id": "sco_navy", "name": "Scottish Navy", "months": -1, "mods": { "navalPower": 0.1 } } }
+    ]
+  },
+  {
+    "id": "sco_over_the_border",
+    "nation": "SCO",
+    "title": "Over the Border",
+    "desc": "Yorkshire's dales have changed hands before. Take them from the English while they are busy in France.",
+    "requires": [],
+    "goal": { "owns": "yorkshire" },
+    "reward": [{ "prestige": 15 }, { "addCore": "yorkshire" }, { "addClaim": "midlands" }]
+  },
+  {
+    "id": "sco_bruce_claim",
+    "nation": "SCO",
+    "title": "The Bruce Claim to Ireland",
+    "desc": "A Bruce was once crowned High King of Ireland. Cross the North Channel and take the island's Gaelic heartland.",
+    "requires": ["sco_great_michael"],
+    "goal": { "owns": "ireland" },
+    "reward": [{ "manpower": 3000 }, { "addCore": "ireland" }, { "addClaim": "pale" }]
+  },
+  {
+    "id": "sco_heart_of_england",
+    "nation": "SCO",
+    "title": "The Heart of England",
+    "desc": "With the north secure, strike at the Midlands and cut England in two.",
+    "requires": ["sco_over_the_border"],
+    "goal": { "owns": "midlands" },
+    "reward": [{ "prestige": 15 }, { "addCore": "midlands" }, { "addClaim": ["london", "wessex"] }]
+  },
+  {
+    "id": "sco_king_in_london",
+    "nation": "SCO",
+    "title": "A Scottish King in London",
+    "desc": "Take London, or make England your junior partner, and a Scottish king will rule the whole island.",
+    "requires": ["sco_heart_of_england"],
+    "goal": { "any": [{ "owns": "london" }, { "overlordOf": "ENG" }] },
+    "reward": [
+      { "prestige": 30 },
+      {
+        "modifier": {
+          "id": "sco_union_of_the_crowns",
+          "name": "Union of the Crowns",
+          "months": -1,
+          "mods": { "taxIncome": 0.1, "diplomacy": 1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "sco_scottish_renaissance",
+    "nation": "SCO",
+    "title": "The Scottish Renaissance",
+    "desc": "Universities, poets at court and a royal printing press. Reach 15 development and 40 prestige.",
+    "requires": ["sco_tame_the_great_lords"],
+    "goal": { "all": [{ "devAtLeast": 15 }, { "prestigeAtLeast": 40 }] },
+    "reward": [
+      { "prestige": 10 },
+      {
+        "modifier": {
+          "id": "sco_renaissance",
+          "name": "Scottish Renaissance",
+          "months": -1,
+          "mods": { "devCost": -0.1, "prestigeGain": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "dan_holstein",
+    "nation": "DAN",
+    "title": "Schleswig and Holstein",
+    "desc": "The counts of Holstein have no heirs, and Lübeck's merchants grow fat on your Baltic trade. Take Holstein.",
+    "requires": [],
+    "goal": { "owns": "holstein" },
+    "reward": [{ "prestige": 10 }, { "addCore": "holstein" }, { "addClaim": "brunswick" }]
+  },
+  {
+    "id": "dan_guard_the_sound",
+    "nation": "DAN",
+    "title": "Guard the Sound",
+    "desc": "Every ship entering the Baltic pays your toll at Helsingør. Build 12 ships to make sure they do.",
+    "requires": [],
+    "goal": { "shipsAtLeast": 12 },
+    "reward": [
+      { "addClaim": "livonia" },
+      { "modifier": { "id": "dan_sound_dues", "name": "Sound Dues", "months": -1, "mods": { "tradeIncome": 0.1 } } }
+    ]
+  },
+  {
+    "id": "dan_kalmar_endures",
+    "nation": "DAN",
+    "title": "The Kalmar Union Endures",
+    "desc": "Swedish nobles chafe under your rule. Keep Sweden as your junior partner, or rule it outright, until 1470.",
+    "requires": [],
+    "goal": { "all": [{ "year": [1470] }, { "any": [{ "overlordOf": "SWE" }, { "owns": "svealand" }] }] },
+    "reward": [
+      { "prestige": 15 },
+      { "stability": 1 },
+      { "modifier": { "id": "dan_kalmar_union", "name": "Kalmar Union", "months": 120, "mods": { "diplomacy": 1 } } }
+    ]
+  },
+  {
+    "id": "dan_duchy_of_estonia",
+    "nation": "DAN",
+    "title": "The Duchy of Estonia",
+    "desc": "Your ancestors held Reval and the Estonian coast. Take Livonia back from the Order.",
+    "requires": ["dan_guard_the_sound"],
+    "goal": { "owns": "livonia" },
+    "reward": [{ "prestige": 10 }, { "goldPerDev": 2 }, { "addCore": "livonia" }]
+  },
+  {
+    "id": "dan_break_the_hansa",
+    "nation": "DAN",
+    "title": "Break the Hansa",
+    "desc": "The Hanseatic towns of Lübeck and Lüneburg think they own the Baltic trade. Take Holstein and Brunswick and teach them otherwise.",
+    "requires": ["dan_holstein", "dan_guard_the_sound"],
+    "goal": { "owns": ["holstein", "brunswick"] },
+    "reward": [
+      { "prestige": 15 },
+      {
+        "modifier": { "id": "dan_hansa_broken", "name": "Hansa Broken", "months": -1, "mods": { "tradeIncome": 0.15 } }
+      }
+    ]
+  },
+  {
+    "id": "dan_three_crowns",
+    "nation": "DAN",
+    "title": "Three Crowns, One King",
+    "desc": "A union can be broken; a kingdom cannot. Rule Svealand, Götaland and Finland directly.",
+    "requires": ["dan_kalmar_endures"],
+    "goal": { "owns": ["svealand", "gotaland", "finland"] },
+    "reward": [
+      { "prestige": 25 },
+      { "modifier": { "id": "dan_three_crowns", "name": "Three Crowns", "months": -1, "mods": { "manpower": 0.15 } } }
+    ]
+  },
+  {
+    "id": "dan_masters_of_the_north",
+    "nation": "DAN",
+    "title": "Masters of the North",
+    "desc": "Make Denmark the great power of the north, with 35 development and 20 regiments under arms.",
+    "requires": ["dan_holstein"],
+    "goal": { "all": [{ "devAtLeast": 35 }, { "regimentsAtLeast": 20 }] },
+    "reward": [
+      { "hireGeneral": { "fire": 3, "shock": 4, "maneuver": 3, "name": "Daniel Rantzau" } },
+      { "modifier": { "id": "dan_northern_power", "name": "Northern Power", "months": -1, "mods": { "morale": 0.1 } } }
+    ]
+  },
+  {
+    "id": "swe_break_kalmar",
+    "nation": "SWE",
+    "title": "Break the Kalmar Union",
+    "desc": "Danish bailiffs tax your miners and your nobles. Rise up and win Sweden its freedom.",
+    "requires": [],
+    "goal": { "not": { "subjectOf": true } },
+    "reward": [{ "prestige": 20 }, { "stability": 1 }, { "addClaim": ["scania", "karelia"] }]
+  },
+  {
+    "id": "swe_great_copper_mountain",
+    "nation": "SWE",
+    "title": "The Great Copper Mountain",
+    "desc": "The mines of Falun produce most of Europe's copper. Develop your lands to 15 and the profits will fill your treasury.",
+    "requires": [],
+    "goal": { "devAtLeast": 15 },
+    "reward": [
+      { "goldPerDev": 1 },
+      { "modifier": { "id": "swe_falun_copper", "name": "Falun Copper", "months": -1, "mods": { "taxIncome": 0.1 } } }
+    ]
+  },
+  {
+    "id": "swe_take_scania",
+    "nation": "SWE",
+    "title": "Take Scania",
+    "desc": "Scania belongs on your side of the Sound. Take it from Denmark and share the toll.",
+    "requires": ["swe_break_kalmar"],
+    "goal": { "owns": "scania" },
+    "reward": [
+      { "prestige": 15 },
+      { "addCore": "scania" },
+      {
+        "modifier": {
+          "id": "swe_share_of_the_sound",
+          "name": "A Share of the Sound",
+          "months": -1,
+          "mods": { "tradeIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "swe_karelian_frontier",
+    "nation": "SWE",
+    "title": "The Karelian Frontier",
+    "desc": "Novgorod's forests border Finland, and the border has never been settled. Take Karelia.",
+    "requires": ["swe_break_kalmar"],
+    "goal": { "owns": "karelia" },
+    "reward": [{ "prestige": 10 }, { "addCore": "karelia" }, { "addClaim": "livonia" }]
+  },
+  {
+    "id": "swe_across_the_gulf",
+    "nation": "SWE",
+    "title": "Across the Gulf",
+    "desc": "Livonia's ports control the trade of half of Russia. Cross the gulf and take them.",
+    "requires": ["swe_karelian_frontier"],
+    "goal": { "owns": "livonia" },
+    "reward": [{ "goldPerDev": 1 }, { "addCore": "livonia" }, { "addClaim": ["pomerania", "prussia", "danzig"] }]
+  },
+  {
+    "id": "swe_baltic_lake",
+    "nation": "SWE",
+    "title": "Make the Baltic Swedish",
+    "desc": "Hold Scania and Livonia, a foothold on the southern shore, and 20 ships. The Baltic becomes a Swedish lake.",
+    "requires": ["swe_take_scania", "swe_across_the_gulf"],
+    "goal": {
+      "all": [
+        { "owns": ["scania", "livonia"] },
+        { "ownsAny": ["pomerania", "prussia", "danzig"] },
+        { "shipsAtLeast": 20 }
+      ]
+    },
+    "reward": [
+      { "prestige": 25 },
+      {
+        "modifier": {
+          "id": "swe_dominium",
+          "name": "Lord of the Baltic",
+          "months": -1,
+          "mods": { "tradeIncome": 0.1, "navalPower": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "swe_lion_of_the_north",
+    "nation": "SWE",
+    "title": "The Lion of the North",
+    "desc": "Field 20 regiments and win ten battles, and Europe will learn to fear the Swedish infantry.",
+    "requires": ["swe_break_kalmar"],
+    "goal": { "all": [{ "regimentsAtLeast": 20 }, { "battlesWonAtLeast": 10 }] },
+    "reward": [
+      { "hireGeneral": { "fire": 5, "shock": 4, "maneuver": 4, "name": "Lennart Torstensson" } },
+      {
+        "modifier": {
+          "id": "swe_lion_of_the_north",
+          "name": "Lion of the North",
+          "months": -1,
+          "mods": { "infantryPower": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "bra_pomeranian_claim",
+    "nation": "BRA",
+    "title": "The Pomeranian Claim",
+    "desc": "The Dukes of Pomerania owe you homage by treaty, if not in practice. Take Pomerania and reach the sea.",
+    "requires": [],
+    "goal": { "owns": "pomerania" },
+    "reward": [{ "prestige": 10 }, { "addCore": "pomerania" }, { "addClaim": "prussia" }]
+  },
+  {
+    "id": "bra_drill_and_discipline",
+    "nation": "BRA",
+    "title": "Drill and Discipline",
+    "desc": "A poor land needs a good army. Field 12 regiments and drill them until they march like clockwork.",
+    "requires": [],
+    "goal": { "regimentsAtLeast": 12 },
+    "reward": [
+      { "addClaim": "silesia" },
+      {
+        "modifier": {
+          "id": "bra_drill",
+          "name": "Drill and Discipline",
+          "months": -1,
+          "mods": { "infantryPower": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "bra_build_up_berlin",
+    "nation": "BRA",
+    "title": "Build Up Berlin",
+    "desc": "Berlin is a muddy town on the Spree. Raise it to development 6 and give your court a proper capital.",
+    "requires": [],
+    "goal": { "capitalDevAtLeast": 6 },
+    "reward": [
+      { "prestige": 5 },
+      {
+        "modifier": { "id": "bra_royal_capital", "name": "Royal Capital", "months": -1, "mods": { "taxIncome": 0.1 } }
+      }
+    ]
+  },
+  {
+    "id": "bra_duchy_of_prussia",
+    "nation": "BRA",
+    "title": "The Duchy of Prussia",
+    "desc": "The Teutonic Order is weakening, and Prussia's estates want a secular lord. Take Prussia.",
+    "requires": ["bra_pomeranian_claim"],
+    "goal": { "owns": "prussia" },
+    "reward": [{ "prestige": 15 }, { "addCore": "prussia" }, { "addClaim": "danzig" }]
+  },
+  {
+    "id": "bra_kingdom_in_prussia",
+    "nation": "BRA",
+    "title": "A Kingdom in Prussia",
+    "desc": "Join your scattered lands: hold Brandenburg, Pomerania, Danzig and Prussia with 50 prestige, and crown yourself king.",
+    "requires": ["bra_duchy_of_prussia"],
+    "goal": { "all": [{ "owns": ["brandenburg", "pomerania", "danzig", "prussia"] }, { "prestigeAtLeast": 50 }] },
+    "reward": [
+      { "prestige": 25 },
+      {
+        "modifier": {
+          "id": "bra_kingdom_in_prussia",
+          "name": "Kingdom in Prussia",
+          "months": -1,
+          "mods": { "taxIncome": 0.1, "manpower": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "bra_seize_silesia",
+    "nation": "BRA",
+    "title": "Seize Silesia",
+    "desc": "Silesia is rich, close and badly defended. With a drilled army it can be yours in a single campaign.",
+    "requires": ["bra_drill_and_discipline"],
+    "goal": { "owns": "silesia" },
+    "reward": [{ "prestige": 15 }, { "goldPerDev": 2 }, { "addCore": "silesia" }]
+  },
+  {
+    "id": "bra_hohenzollern_emperor",
+    "nation": "BRA",
+    "title": "A Hohenzollern Emperor",
+    "desc": "You already have an elector's vote. Win the imperial election and make the Empire bow to Berlin.",
+    "requires": ["bra_build_up_berlin"],
+    "goal": { "isEmperor": true },
+    "reward": [
+      { "prestige": 25 },
+      {
+        "modifier": {
+          "id": "bra_hohenzollern_emperor",
+          "name": "Hohenzollern Emperor",
+          "months": -1,
+          "mods": { "diplomacy": 1, "prestigeGain": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "mlo_hire_sforza",
+    "nation": "MLO",
+    "title": "Hire Francesco Sforza",
+    "desc": "The finest condottiero in Italy is married to your duke's daughter. Pay for 10 regiments and he will lead them.",
+    "requires": [],
+    "goal": { "regimentsAtLeast": 10 },
+    "reward": [
+      { "hireGeneral": { "fire": 4, "shock": 4, "maneuver": 5, "name": "Francesco Sforza" } },
+      { "addClaim": "liguria" }
+    ]
+  },
+  {
+    "id": "mlo_lordship_of_genoa",
+    "nation": "MLO",
+    "title": "Lordship over Genoa",
+    "desc": "Genoa has been Milanese before, and its harbour would make you rich. Take Liguria and its bankers.",
+    "requires": ["mlo_hire_sforza"],
+    "goal": { "owns": "liguria" },
+    "reward": [
+      { "addCore": "liguria" },
+      {
+        "modifier": { "id": "mlo_genoese_port", "name": "Genoese Port", "months": -1, "mods": { "tradeIncome": 0.15 } }
+      }
+    ]
+  },
+  {
+    "id": "mlo_court_of_milan",
+    "nation": "MLO",
+    "title": "The Court of Milan",
+    "desc": "The best painters and engineers in Italy could work for you. Raise Milan to development 10 and your prestige to 40.",
+    "requires": [],
+    "goal": { "all": [{ "capitalDevAtLeast": 10 }, { "prestigeAtLeast": 40 }] },
+    "reward": [
+      { "prestige": 5 },
+      {
+        "modifier": {
+          "id": "mlo_sforza_court",
+          "name": "Sforza Court",
+          "months": -1,
+          "mods": { "prestigeGain": 0.1, "devCost": -0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "mlo_crush_venice",
+    "nation": "MLO",
+    "title": "Crush Venice",
+    "desc": "The Venetians have eaten into your eastern lands for decades. Take the Veneto and push them back into their lagoon.",
+    "requires": ["mlo_hire_sforza"],
+    "goal": { "owns": "veneto" },
+    "reward": [{ "prestige": 20 }, { "addCore": "veneto" }, { "addClaim": "romagna" }]
+  },
+  {
+    "id": "mlo_iron_crown",
+    "nation": "MLO",
+    "title": "The Iron Crown of Lombardy",
+    "desc": "Rule Lombardy, Liguria, the Veneto and the Romagna, and take up the ancient crown of the Lombard kings.",
+    "requires": ["mlo_crush_venice", "mlo_lordship_of_genoa"],
+    "goal": { "owns": ["lombardy", "liguria", "veneto", "romagna"] },
+    "reward": [
+      { "prestige": 25 },
+      { "addClaim": ["tuscany", "rome"] },
+      { "modifier": { "id": "mlo_iron_crown", "name": "Iron Crown", "months": -1, "mods": { "taxIncome": 0.1 } } }
+    ]
+  },
+  {
+    "id": "mlo_tuscan_banks",
+    "nation": "MLO",
+    "title": "The Tuscan Banks",
+    "desc": "Florence's bankers fund every war in Italy. Take Tuscany and they will fund yours.",
+    "requires": ["mlo_iron_crown"],
+    "goal": { "owns": "tuscany" },
+    "reward": [{ "prestige": 10 }, { "goldPerDev": 2 }, { "addCore": "tuscany" }, { "addClaim": ["naples", "apulia"] }]
+  },
+  {
+    "id": "mlo_king_of_italy",
+    "nation": "MLO",
+    "title": "King of Italy",
+    "desc": "Italy has not been one realm since the fall of Rome. Rule from the Alps to the heel, adding Rome, Naples and Apulia to your northern kingdom.",
+    "requires": ["mlo_tuscan_banks"],
+    "goal": { "owns": ["lombardy", "liguria", "veneto", "romagna", "tuscany", "rome", "naples", "apulia"] },
+    "reward": [
+      { "prestige": 30 },
+      {
+        "modifier": {
+          "id": "mlo_kingdom_of_italy",
+          "name": "Kingdom of Italy",
+          "months": -1,
+          "mods": { "manpower": 0.15, "taxIncome": 0.05 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "nap_two_sicilies",
+    "nation": "NAP",
+    "title": "Reunite the Two Sicilies",
+    "desc": "Sicily and Naples were one kingdom until a revolt split them. Take Sicily and join them again.",
+    "requires": [],
+    "goal": { "owns": "sicily" },
+    "reward": [{ "prestige": 15 }, { "goldPerDev": 1 }, { "addCore": "sicily" }]
+  },
+  {
+    "id": "nap_fertile_south",
+    "nation": "NAP",
+    "title": "The Fertile South",
+    "desc": "Your plains could feed half of Italy if they were properly worked. Develop your lands to 16.",
+    "requires": [],
+    "goal": { "devAtLeast": 16 },
+    "reward": [
+      { "addClaim": "rome" },
+      {
+        "modifier": {
+          "id": "nap_granary_of_italy",
+          "name": "Granary of Italy",
+          "months": -1,
+          "mods": { "taxIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "nap_galleys_of_naples",
+    "nation": "NAP",
+    "title": "The Galleys of Naples",
+    "desc": "Turkish and Barbary corsairs raid your coasts. Build 12 ships and carry the fight to them.",
+    "requires": [],
+    "goal": { "shipsAtLeast": 12 },
+    "reward": [
+      { "addClaim": ["albania", "tunis"] },
+      {
+        "modifier": { "id": "nap_galleys", "name": "Neapolitan Galleys", "months": -1, "mods": { "navalPower": 0.1 } }
+      }
+    ]
+  },
+  {
+    "id": "nap_skanderbegs_friends",
+    "nation": "NAP",
+    "title": "Skanderbeg's Friends",
+    "desc": "Albania's warlords look to Naples for help against the Sultan. Take Albania and hold the gate of the Adriatic.",
+    "requires": ["nap_galleys_of_naples"],
+    "goal": { "owns": "albania" },
+    "reward": [{ "prestige": 10 }, { "manpower": 3000 }, { "addCore": "albania" }]
+  },
+  {
+    "id": "nap_tunisian_shore",
+    "nation": "NAP",
+    "title": "The Tunisian Shore",
+    "desc": "Tunis lies a short sail from Sicily and shelters the corsairs. Take it.",
+    "requires": ["nap_galleys_of_naples"],
+    "goal": { "owns": "tunis" },
+    "reward": [{ "goldPerDev": 2 }, { "addCore": "tunis" }]
+  },
+  {
+    "id": "nap_master_of_rome",
+    "nation": "NAP",
+    "title": "Master of Rome",
+    "desc": "A King of Naples has held Rome before. With your lands developed, march north and take the Eternal City.",
+    "requires": ["nap_fertile_south"],
+    "goal": { "owns": "rome" },
+    "reward": [{ "prestige": 20 }, { "addCore": "rome" }, { "addClaim": ["romagna", "tuscany"] }]
+  },
+  {
+    "id": "nap_southern_kingdom",
+    "nation": "NAP",
+    "title": "A Kingdom of Italy",
+    "desc": "Rule Naples, Apulia, Sicily, Rome, the Romagna and Tuscany: the whole peninsula south of the Po.",
+    "requires": ["nap_master_of_rome", "nap_two_sicilies"],
+    "goal": { "owns": ["naples", "apulia", "sicily", "rome", "romagna", "tuscany"] },
+    "reward": [
+      { "prestige": 30 },
+      {
+        "modifier": {
+          "id": "nap_italian_kingdom",
+          "name": "Italian Kingdom",
+          "months": -1,
+          "mods": { "taxIncome": 0.1, "manpower": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "teu_hold_the_ordensland",
+    "nation": "TEU",
+    "title": "Hold the Ordensland",
+    "desc": "Your towns plot with Poland and your knights grow old. Still hold Danzig and Prussia in 1466 and the Order will survive.",
+    "requires": [],
+    "goal": { "all": [{ "owns": ["danzig", "prussia"] }, { "year": [1466] }] },
+    "reward": [{ "prestige": 15 }, { "stability": 1 }, { "addClaim": "masovia" }]
+  },
+  {
+    "id": "teu_strengthen_marienburg",
+    "nation": "TEU",
+    "title": "Strengthen Marienburg",
+    "desc": "Marienburg in Prussia is the heart of the Order. Hold it, field 10 regiments of a new generation of knights, and make it the strongest fortress in the north.",
+    "requires": [],
+    "goal": { "all": [{ "owns": "prussia" }, { "regimentsAtLeast": 10 }] },
+    "reward": [
+      { "fortRegion": { "region": "prussia", "amount": 1 } },
+      { "hireGeneral": { "fire": 3, "shock": 4, "maneuver": 3, "name": "Heinrich Reuss von Plauen" } },
+      { "addClaim": "lithuania" }
+    ]
+  },
+  {
+    "id": "teu_reunite_with_livonia",
+    "nation": "TEU",
+    "title": "Reunite with Livonia",
+    "desc": "The Livonian Order is your sister branch. Bring it under your direct rule, or make it your subject.",
+    "requires": [],
+    "goal": { "any": [{ "owns": "livonia" }, { "overlordOf": "LIV" }] },
+    "reward": [{ "prestige": 10 }, { "manpower": 3000 }, { "addClaim": "pskov" }]
+  },
+  {
+    "id": "teu_strike_at_masovia",
+    "nation": "TEU",
+    "title": "Strike at Masovia",
+    "desc": "Masovia lies between Prussia and the Polish heartland. Take it and Poland will have to fight on your terms.",
+    "requires": ["teu_hold_the_ordensland"],
+    "goal": { "owns": "masovia" },
+    "reward": [{ "prestige": 15 }, { "goldPerDev": 1 }, { "addCore": "masovia" }]
+  },
+  {
+    "id": "teu_win_back_samogitia",
+    "nation": "TEU",
+    "title": "Win Back Samogitia",
+    "desc": "Samogitia once joined Prussia to Livonia, until Lithuania tore it away. Take Lithuania's western lands.",
+    "requires": ["teu_strengthen_marienburg"],
+    "goal": { "owns": "lithuania" },
+    "reward": [
+      { "prestige": 15 },
+      { "addCore": "lithuania" },
+      {
+        "modifier": {
+          "id": "teu_land_bridge",
+          "name": "Land Bridge to Livonia",
+          "months": -1,
+          "mods": { "manpower": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "teu_crusade_against_pskov",
+    "nation": "TEU",
+    "title": "Crusade Against Pskov",
+    "desc": "The Orthodox merchants of Pskov stand between you and the rich lands of the east. Take Pskov.",
+    "requires": ["teu_reunite_with_livonia"],
+    "goal": { "owns": "pskov" },
+    "reward": [{ "prestige": 15 }, { "papalFavor": 15 }, { "addCore": "pskov" }]
+  },
+  {
+    "id": "teu_monastic_state",
+    "nation": "TEU",
+    "title": "The Monastic State",
+    "desc": "Rule Danzig, Prussia, Masovia and Lithuania, eight regions in all, and the Order will be a great power for centuries.",
+    "requires": ["teu_strike_at_masovia", "teu_win_back_samogitia"],
+    "goal": { "all": [{ "owns": ["danzig", "prussia", "masovia", "lithuania"] }, { "regionsAtLeast": 8 }] },
+    "reward": [
+      { "prestige": 20 },
+      {
+        "modifier": {
+          "id": "teu_monastic_state",
+          "name": "Monastic State",
+          "months": -1,
+          "mods": { "taxIncome": 0.1, "morale": 0.05 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "byz_weather_the_storm",
+    "nation": "BYZ",
+    "title": "Weather the Storm",
+    "desc": "The Sultan gathers guns and men to take your city. Still hold Constantinople in 1460 and the world will know Rome is not finished.",
+    "requires": [],
+    "goal": { "all": [{ "owns": "constantinople" }, { "year": [1460] }] },
+    "reward": [{ "prestige": 20 }, { "stability": 1 }, { "goldPerDev": 2 }]
+  },
+  {
+    "id": "byz_friends_in_the_west",
+    "nation": "BYZ",
+    "title": "Friends in the West",
+    "desc": "The Latins demand church union in return for help. Ally Hungary or Venice and let them share the burden of the war.",
+    "requires": [],
+    "goal": { "any": [{ "allied": "HUN" }, { "allied": "VEN" }] },
+    "reward": [
+      { "manpower": 5000 },
+      {
+        "modifier": {
+          "id": "byz_latin_help",
+          "name": "Latin Help",
+          "months": 120,
+          "mods": { "diplomacy": 1, "morale": 0.05 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "byz_new_guard",
+    "nation": "BYZ",
+    "title": "Raise a New Guard",
+    "desc": "Your army is a few thousand men behind old walls. Field 10 regiments and hire a captain worthy of them.",
+    "requires": [],
+    "goal": { "regimentsAtLeast": 10 },
+    "reward": [
+      { "hireGeneral": { "fire": 4, "shock": 3, "maneuver": 3, "name": "Giovanni Giustiniani" } },
+      { "manpower": 3000 }
+    ]
+  },
+  {
+    "id": "byz_retake_thrace",
+    "nation": "BYZ",
+    "title": "Retake Thrace",
+    "desc": "Rumelia is the Sultan's European heartland and lies at your gates. Take it and the city can breathe again.",
+    "requires": ["byz_new_guard"],
+    "goal": { "owns": "rumelia" },
+    "reward": [{ "prestige": 15 }, { "addCore": "rumelia" }, { "addClaim": "bulgaria" }]
+  },
+  {
+    "id": "byz_restore_hellas",
+    "nation": "BYZ",
+    "title": "Restore Hellas",
+    "desc": "Thessaly and Macedonia link your Morea to the capital. Take them back from the Turks.",
+    "requires": ["byz_weather_the_storm"],
+    "goal": { "owns": ["thessaly", "macedonia"] },
+    "reward": [{ "prestige": 15 }, { "manpower": 4000 }, { "addCore": ["thessaly", "macedonia"] }]
+  },
+  {
+    "id": "byz_return_to_asia",
+    "nation": "BYZ",
+    "title": "Return to Asia",
+    "desc": "Across the Bosphorus lies Bithynia, where the Ottomans first grew strong. Take it and carry the war into Asia.",
+    "requires": ["byz_retake_thrace"],
+    "goal": { "owns": "bithynia" },
+    "reward": [{ "prestige": 15 }, { "addCore": "bithynia" }, { "addClaim": ["aydin", "ankara"] }]
+  },
+  {
+    "id": "byz_reunite_trebizond",
+    "nation": "BYZ",
+    "title": "Reunite with Trebizond",
+    "desc": "Another Roman emperor rules at Trebizond, far across the Black Sea. Bring his realm back under Constantinople.",
+    "requires": ["byz_friends_in_the_west"],
+    "goal": { "any": [{ "owns": "trebizond" }, { "overlordOf": "TRE" }] },
+    "reward": [
+      { "prestige": 15 },
+      {
+        "modifier": { "id": "byz_pontic_trade", "name": "Pontic Trade", "months": -1, "mods": { "tradeIncome": 0.1 } }
+      }
+    ]
+  },
+  {
+    "id": "byz_restore_the_empire",
+    "nation": "BYZ",
+    "title": "Restore the Empire",
+    "desc": "Rule the Morea, Thrace, Bulgaria, Macedonia, Thessaly, Bithynia and Aydın, and the Empire of the Romans lives again.",
+    "requires": ["byz_restore_hellas", "byz_return_to_asia"],
+    "goal": {
+      "owns": ["constantinople", "morea", "rumelia", "bulgaria", "macedonia", "thessaly", "bithynia", "aydin"]
+    },
+    "reward": [
+      { "prestige": 30 },
+      {
+        "modifier": {
+          "id": "byz_empire_restored",
+          "name": "Empire Restored",
+          "months": -1,
+          "mods": { "taxIncome": 0.1, "manpower": 0.15 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "gen_muster_the_levies",
+    "nation": "generic",
+    "title": "Muster the Levies",
+    "desc": "A realm that cannot defend itself will not last. Raise 7 regiments and find a captain to lead them.",
+    "requires": [],
+    "goal": { "regimentsAtLeast": 7 },
+    "reward": [{ "manpower": 2000 }, { "hireGeneral": { "fire": 2, "shock": 3, "maneuver": 2 } }]
+  },
+  {
+    "id": "gen_first_victory",
+    "nation": "generic",
+    "title": "A First Victory",
+    "desc": "Nothing wins respect like a war won. Defeat an enemy and make them sign the peace.",
+    "requires": ["gen_muster_the_levies"],
+    "goal": { "warsWonAtLeast": 1 },
+    "reward": [{ "prestige": 10 }, { "goldPerDev": 2 }]
+  },
+  {
+    "id": "gen_new_lands",
+    "nation": "generic",
+    "title": "New Lands",
+    "desc": "Your realm is too small to be safe. Rule at least 3 regions.",
+    "requires": ["gen_first_victory"],
+    "goal": { "regionsAtLeast": 3 },
+    "reward": [
+      { "stability": 1 },
+      { "modifier": { "id": "gen_settled_rule", "name": "Settled Rule", "months": -1, "mods": { "coreCost": -0.1 } } }
+    ]
+  },
+  {
+    "id": "gen_regional_power",
+    "nation": "generic",
+    "title": "A Regional Power",
+    "desc": "Rule 6 regions with 25 development, and the great powers will have to take you seriously.",
+    "requires": ["gen_new_lands"],
+    "goal": { "all": [{ "regionsAtLeast": 6 }, { "devAtLeast": 25 }] },
+    "reward": [
+      { "prestige": 15 },
+      {
+        "modifier": {
+          "id": "gen_regional_power",
+          "name": "Regional Power",
+          "months": -1,
+          "mods": { "taxIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "gen_guard_the_realm",
+    "nation": "generic",
+    "title": "Guard the Realm",
+    "desc": "If you have a coast, build 6 ships to guard it. If you have none, raise 10 regiments to hold your borders.",
+    "requires": ["gen_muster_the_levies"],
+    "goal": {
+      "any": [
+        { "all": [{ "coastal": true }, { "shipsAtLeast": 6 }] },
+        { "all": [{ "not": { "coastal": true } }, { "regimentsAtLeast": 10 }] }
+      ]
+    },
+    "reward": [
+      {
+        "modifier": {
+          "id": "gen_watchful_borders",
+          "name": "Watchful Borders",
+          "months": -1,
+          "mods": { "fortDefense": 0.1, "navalPower": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "gen_build_up_the_capital",
+    "nation": "generic",
+    "title": "Build Up the Capital",
+    "desc": "Roads, markets and a proper cathedral. Raise your capital to development 7.",
+    "requires": [],
+    "goal": { "capitalDevAtLeast": 7 },
+    "reward": [{ "stability": 1 }, { "prestige": 5 }]
+  },
+  {
+    "id": "gen_stable_realm",
+    "nation": "generic",
+    "title": "A Stable Realm",
+    "desc": "Calm the nobles and fill the granaries. Reach stability 2.",
+    "requires": ["gen_build_up_the_capital"],
+    "goal": { "stability": [2] },
+    "reward": [
+      { "goldPerDev": 1 },
+      {
+        "modifier": {
+          "id": "gen_good_governance",
+          "name": "Good Governance",
+          "months": 120,
+          "mods": { "taxIncome": 0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "gen_jewel_of_the_realm",
+    "nation": "generic",
+    "title": "Jewel of the Realm",
+    "desc": "Make your capital a city that visitors write home about. Raise it to development 9.",
+    "requires": ["gen_stable_realm"],
+    "goal": { "capitalDevAtLeast": 9 },
+    "reward": [
+      { "prestige": 10 },
+      {
+        "modifier": {
+          "id": "gen_splendid_capital",
+          "name": "Splendid Capital",
+          "months": -1,
+          "mods": { "prestigeGain": 0.1, "devCost": -0.1 }
+        }
+      }
+    ]
+  },
+  {
+    "id": "gen_friends_abroad",
+    "nation": "generic",
+    "title": "Friends Abroad",
+    "desc": "A small realm survives by its friendships. Have at least two allies.",
+    "requires": [],
+    "goal": { "alliesAtLeast": 2 },
+    "reward": [
+      { "prestige": 5 },
+      {
+        "modifier": { "id": "gen_trusted_envoys", "name": "Trusted Envoys", "months": 120, "mods": { "diplomacy": 1 } }
+      }
+    ]
+  },
+  {
+    "id": "gen_a_name_abroad",
+    "nation": "generic",
+    "title": "A Name Abroad",
+    "desc": "Let your court be spoken of in every capital. Reach 50 prestige.",
+    "requires": ["gen_friends_abroad"],
+    "goal": { "prestigeAtLeast": 50 },
+    "reward": [{ "stability": 1 }, { "goldPerDev": 2 }, { "manpower": 3000 }]
+  }
+]

@@ -4,7 +4,7 @@
  * Each action has a cooldown per target. Acceptance is a score with readable reasons.
  */
 import { NATION, REGION, nationName } from './content';
-import { log, involvesPlayer } from './log';
+import { log, involvesPlayer, newsworthy } from './log';
 import {
   aliveNations,
   allied,
@@ -329,7 +329,7 @@ export function doDiplomacy(s: GameState, from: NationId, to: NationId, action: 
   switch (action) {
     case 'alliance':
       s.alliances[pairKey(from, to)] = s.day;
-      log(s, 'diplomacy', `${nationName(from)} and ${name} form an alliance.`, { important: involvesPlayer(s, from, to) });
+      if (newsworthy(s, from, to)) log(s, 'diplomacy', `${nationName(from)} and ${name} form an alliance.`, { important: involvesPlayer(s, from, to) });
       return { ok: true, msg: `${name} agrees to an alliance.` };
     case 'marriage':
       s.marriages[pairKey(from, to)] = s.day;
@@ -340,7 +340,7 @@ export function doDiplomacy(s: GameState, from: NationId, to: NationId, action: 
     case 'vassalize':
       makeSubject(s, from, to, 'vassal');
       addThreat(s, from, totalDev(s, to) * 0.5);
-      log(s, 'diplomacy', `${name} becomes a vassal of ${nationName(from)}.`, { important: true });
+      if (newsworthy(s, from, to)) log(s, 'diplomacy', `${name} becomes a vassal of ${nationName(from)}.`, { important: involvesPlayer(s, from, to) });
       return { ok: true, msg: `${name} bends the knee and becomes your vassal.` };
     default:
       return { ok: false, msg: 'Nothing happens.' };

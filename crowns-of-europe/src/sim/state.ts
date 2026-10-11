@@ -1,6 +1,6 @@
 /** Creates a fresh 1444 campaign from the bundled scenario. */
 import { MAP_REGION, NATION, NATIONS, POLICIES, REGIONS, SCENARIO, regionName } from './content';
-import { forceLimit, totalDev } from './queries';
+import { forceLimit, maxMorale, totalDev } from './queries';
 import type { Army, Fleet, GameSettings, GameState, Nation, NationId, PauseReason, Region } from './types';
 import { dayOf, years, pairKey } from './util';
 import { newGeneral } from './rulers';
@@ -209,6 +209,7 @@ export function newGame(opts: NewGameOptions): GameState {
     if (nat.id !== opts.player) nat.policies = [aiStartingPolicy(nat.id)];
   }
 
+  for (const a of Object.values(s.armies)) a.morale = maxMorale(s, a.owner);
   s.stats.peakRegions = Object.values(s.regions).filter(r => r.owner === opts.player).length;
   return s;
 }

@@ -3,7 +3,7 @@
  * war goal) and peace deals that spend war score on regions, vassals, gold or releasing nations.
  */
 import { GRAPH, NATION, REGION, nationName, regionName } from './content';
-import { log, involvesPlayer, requestPause } from './log';
+import { log, involvesPlayer, newsworthy, requestPause } from './log';
 import {
   REBELS,
   allied,
@@ -147,7 +147,7 @@ export function declareWar(s: GameState, a: NationId, b: NationId, cb: CasusBell
   }
   A.armyMode = a === s.player ? A.armyMode : 'war';
   s.nations[b].armyMode = b === s.player ? s.nations[b].armyMode : 'war';
-  log(s, 'war', `${nationName(a)} declares war on ${nationName(b)}: the ${war.name}.`, { nation: a, important: involvesPlayer(s, a, b) });
+  if (newsworthy(s, a, b)) log(s, 'war', `${nationName(a)} declares war on ${nationName(b)}: the ${war.name}.`, { nation: a, important: involvesPlayer(s, a, b) });
   if (b === s.player) requestPause(s, 'warDeclaredOnYou');
 
   // Coalition members defend each other.
@@ -418,7 +418,7 @@ export function makePeace(s: GameState, w: War, terms: PeaceTerms): void {
   if (terms.gold) parts.push(`${terms.gold} gold`);
   if (terms.vassalize) parts.push(`${nationName(loser)} becomes a vassal`);
   for (const n of terms.release) parts.push(`${nationName(n)} is freed`);
-  log(s, 'peace', `Peace ends the ${w.name}: ${parts.join('; ') || 'nothing changes'}.`, { important: all.includes(s.player) });
+  if (newsworthy(s, winner, loser) || all.includes(s.player)) log(s, 'peace', `Peace ends the ${w.name}: ${parts.join('; ') || 'nothing changes'}.`, { important: all.includes(s.player) });
 }
 
 /** A participant (not a war leader) signs a white peace and leaves. */
@@ -441,7 +441,7 @@ export function leaveWar(s: GameState, w: War, n: NationId): void {
   for (const e of enemies) s.truces[pairKey(n, e)] = s.day + years(5);
   if (!w.attackers.length || !w.defenders.length) delete s.wars[w.id];
   bumpWars();
-  log(s, 'peace', `${nationName(n)} makes a separate peace and leaves the ${w.name}.`, { important: involvesPlayer(s, n) });
+  if (newsworthy(s, n) || [...w.attackers, ...w.defenders].includes(s.player)) log(s, 'peace', `${nationName(n)} makes a separate peace and leaves the ${w.name}.`, { important: involvesPlayer(s, n) });
 }
 
 /** AI winners build terms within the war score they have. */

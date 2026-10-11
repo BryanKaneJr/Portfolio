@@ -1,9 +1,13 @@
 /** Read-only questions about the game state used everywhere: who owns what, who is at war with whom. */
 import { ERA, GRAPH, MAP_REGION, NATION, POLICY, REGION, TRAITS, UNITS, isSea } from './content';
 import type { Army, Fleet, GameState, Modifiers, Nation, NationId, NodeId, Region, RegionId, UnitType, War } from './types';
+import { setNewsHelpers } from './log';
 import { pairKey, yearOf } from './util';
 
 export const REBELS = 'REB';
+
+// The news filter in log.ts needs these; hand them over here to avoid an import cycle.
+setNewsHelpers(s => neighborsOf(s, s.player), n => NATION[n]?.tier === 'major');
 
 // Ownership changes rarely, so regions-by-owner is cached until territory.ts bumps the version.
 let ownVersion = 0;

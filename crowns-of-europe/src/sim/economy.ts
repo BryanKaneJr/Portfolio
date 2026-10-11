@@ -154,7 +154,7 @@ export const manpowerRecovery = (s: GameState, n: NationId) =>
 
 export function devCost(s: GameState, r: Region): number {
   const m = nationMods(s, r.owner);
-  return Math.round(15 * Math.pow(r.dev + 1, 1.5) * (1 + 0.05 * r.devBought) * (1 + m.devCost));
+  return Math.round((20 + 8 * Math.pow(r.dev + 1, 1.5)) * (1 + 0.05 * r.devBought) * (1 + m.devCost));
 }
 export function fortCost(s: GameState, r: Region): number {
   const m = nationMods(s, r.owner);
