@@ -18,7 +18,7 @@ export function onMapTap(mx: number, my: number, k: number): void {
   if (!s) return;
   const sel = store.selection;
   let best: { kind: string; id: string; d: number; mine: boolean } | null = null;
-  for (const c of unitPositions(s, k)) {
+  for (const c of unitPositions(s, k, sel?.kind === 'army' || sel?.kind === 'fleet' ? sel.id : undefined)) {
     const d = Math.hypot(c.x - mx, c.y - my) * k;
     if (d > HIT) continue;
     const mine = c.kind === 'army' ? s.armies[c.id]?.owner === s.player : c.kind === 'fleet' ? s.fleets[c.id]?.owner === s.player : false;

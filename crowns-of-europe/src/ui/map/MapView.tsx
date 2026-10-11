@@ -9,7 +9,7 @@ import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, { runOnJS, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 import Svg, { Defs, G, Line, Path, Pattern, Rect, Text as SvgText } from 'react-native-svg';
 import { MAP, MAP_REGION, MAP_SEA, NATION, NW_WASTELANDS, REGION, RIVERS, SEA, WASTELANDS, isNewWorld } from '../../sim/content';
-import { REBELS, armyRegs, armyMen } from '../../sim/queries';
+import { REBELS, allied, armyRegs, armyMen, warBetween } from '../../sim/queries';
 import type { Army, GameState } from '../../sim/types';
 import { store, useStore, type MapMode, type Selection } from '../../state/store';
 import { C, kmen, sans, serif } from '../theme';
@@ -234,7 +234,7 @@ const StaticLayer = memo(function StaticLayer({ cam, w, h, mapVersion, mode, sel
         !visible(sea.bbox) ? null : sea.closed ? (
           <Path key={sea.id} d={sea.path} fill={C.seaDark} />
         ) : hidden(sea.id) ? null : (
-          <Path key={sea.id} d={sea.path} fill={sea.id === selSea ? 'rgba(255,255,255,0.22)' : 'none'} stroke="rgba(255,255,255,0.45)" strokeWidth={px(1)} strokeDasharray={`${px(4)} ${px(4)}`} />
+          <Path key={sea.id} d={sea.path} fill={sea.id === selSea ? 'rgba(255,255,255,0.22)' : 'none'} stroke="rgba(255,255,255,0.3)" strokeWidth={px(0.8)} strokeDasharray={`${px(3)} ${px(5)}`} />
         ),
       )}
       {MAP.wastelands.map(wl =>
@@ -378,17 +378,32 @@ export interface ChipPos {
   y: number;
 }
 
-/** Where each army/fleet/battle marker sits (map units). Shared with tap hit-testing. */
-export function unitPositions(s: GameState, k: number): ChipPos[] {
+/** From this zoom on every unit is drawn; further out, only the ones that matter to you (see `matters`). */
+export const ALL_UNITS_K = 1.4;
+
+/** Units the player should always see: their own, friends', enemies', and anyone standing in their land. */
+export function matters(s: GameState, owner: string, where: string, rebelOf?: string): boolean {
+  const p = s.player;
+  if (owner === p) return true;
+  if (s.regions[where]?.owner === p) return true;
+  if (owner === REBELS) return rebelOf === p;
+  return allied(s, p, owner) || !!warBetween(s, p, owner) || s.nations[owner]?.overlord === p || s.nations[p].overlord === owner;
+}
+
+/** Where each army/fleet/battle marker sits (map units). Shared with tap hit-testing, so hidden units can't be tapped. */
+export function unitPositions(s: GameState, k: number, selected?: string): ChipPos[] {
   const out: ChipPos[] = [];
   const stacks = new Map<string, number>();
   const step = 26 / k;
+  const all = k >= ALL_UNITS_K;
   for (const b of Object.values(s.battles)) {
+    if (!all && !b.sides.some(side => side.armies.some(id => s.armies[id] && matters(s, s.armies[id].owner, b.node, s.armies[id].rebelOf)))) continue;
     const [x, y] = regionPoint(b.node);
     out.push({ kind: 'battle', id: b.id, x, y: y - step * 0.9 });
   }
   for (const a of Object.values(s.armies)) {
     if (a.battle || (!s.discovery && isNewWorld(a.node))) continue;
+    if (!all && a.id !== selected && !matters(s, a.owner, a.node, a.rebelOf)) continue;
     let [x, y] = regionPoint(a.node);
     if (a.path.length && a.edgeDays > 0) {
       const [nx, ny] = regionPoint(a.path[0]);
@@ -405,6 +420,7 @@ export function unitPositions(s: GameState, k: number): ChipPos[] {
   }
   const fleetStacks = new Map<string, number>();
   for (const f of Object.values(s.fleets)) {
+    if (!all && f.id !== selected && !matters(s, f.owner, f.sea)) continue;
     let [x, y] = regionPoint(f.sea);
     if (f.path.length && f.edgeDays > 0) {
       const [nx, ny] = regionPoint(f.path[0]);
@@ -425,7 +441,7 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
   const { k } = cam;
   const toX = (x: number) => (x - cam.cx) * k + w / 2;
   const toY = (y: number) => (y - cam.cy) * k + h / 2;
-  const chips = unitPositions(s, k);
+  const chips = unitPositions(s, k, selection?.kind === 'army' || selection?.kind === 'fleet' ? selection.id : undefined);
   const selArmy = selection?.kind === 'army' ? s.armies[selection.id] : undefined;
   const selFleet = selection?.kind === 'fleet' ? s.fleets[selection.id] : undefined;
   const pathPts = (start: string, path: string[]) => [start, ...path].map(regionPoint).map(([x, y]) => `${toX(x)},${toY(y)}`).join(' ');
@@ -434,7 +450,7 @@ const UnitLayer = memo(function UnitLayer({ cam, w, h, s, selection }: { cam: Ca
     <View style={StyleSheet.absoluteFill} pointerEvents="none">
       {/* Sieges */}
       {Object.values(s.regions).map(r => {
-        if (!r.siege) return null;
+        if (!r.siege || (k < ALL_UNITS_K && !matters(s, r.siege.by, r.id))) return null;
         const [x, y] = regionPoint(r.id);
         const X = toX(x);
         const Y = toY(y) + 18;

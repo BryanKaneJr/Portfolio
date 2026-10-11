@@ -131,7 +131,7 @@ export function Toasts() {
   );
 }
 
-/** A thin strip of unread war news under the top bar. */
+/** Your wars under the top bar: who is ahead, by how much leverage. Tap one to make peace. */
 export function WarStrip() {
   const st = useStore();
   const s = st.state!;
@@ -142,12 +142,14 @@ export function WarStrip() {
       {wars.map(w => {
         const sc = warScore(s, w).total * (w.defenders.includes(s.player) ? -1 : 1);
         return (
-          <Pressable key={w.id} onPress={() => store.open({ kind: 'peace', war: w.id })} style={styles.warChip}>
+          <Pressable key={w.id} onPress={() => store.open({ kind: 'peace', war: w.id })} style={styles.warChip} accessibilityLabel={`${w.name}: leverage ${signed(sc)}%. Tap to make peace.`}>
             <Icon name="swords" size={13} color="#ffd9c9" />
             <Text style={styles.warText} numberOfLines={1}>
               {w.name}
             </Text>
-            <Text style={[styles.warScore, { color: sc >= 0 ? '#b6e3a3' : '#ffab96' }]}>{signed(sc)}%</Text>
+            <Text numberOfLines={1} style={[styles.warScore, { color: sc > 5 ? '#b6e3a3' : sc < -5 ? '#ffab96' : '#f3e6c8' }]}>
+              {sc > 5 ? 'ahead' : sc < -5 ? 'behind' : 'even'} {signed(sc)}%
+            </Text>
           </Pressable>
         );
       })}
@@ -185,5 +187,5 @@ const styles = StyleSheet.create({
   strip: { position: 'absolute', top: 8, left: 0, right: 110, maxHeight: 30 },
   warChip: { flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: 'rgba(110,30,20,0.92)', height: 28, borderRadius: 14, paddingHorizontal: 10, maxWidth: 260 },
   warText: { color: '#ffe9de', fontFamily: sans, fontSize: 12, fontWeight: '700', flexShrink: 1 },
-  warScore: { fontFamily: sans, fontSize: 12, fontWeight: '800' },
+  warScore: { fontFamily: sans, fontSize: 12, fontWeight: '800', flexShrink: 0 },
 });

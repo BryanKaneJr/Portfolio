@@ -324,7 +324,7 @@ export function PeacePanel({ warId }: { warId: string }) {
           ) : null}
           <View style={styles.summary}>
             <Line label="Value of these terms" value={`${cost}%`} bold />
-            <Line label={mode === 'demand' ? 'Your leverage' : 'Their leverage'} value={`${mode === 'demand' ? sc : -sc}%`} />
+            <Line label={mode === 'demand' ? 'Your leverage' : 'Their leverage'} value={`${signed(mode === 'demand' ? sc : -sc)}%`} />
             <T v="small" style={{ marginTop: 6, color: answer.accept ? C.green : C.red, fontWeight: '700' }}>{answer.accept ? `${nationName(enemy)} would accept.` : `${nationName(enemy)} would refuse.`}</T>
             <T v="tiny" style={{ marginTop: 2 }}>Why (they accept if the total is 0 or more):</T>
             {answer.reasons.filter(r => r.value).map(r => (

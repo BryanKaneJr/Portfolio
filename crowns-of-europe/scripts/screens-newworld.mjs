@@ -54,8 +54,10 @@ await shot('colonies-before');
 await tapId('menu-expedition');
 await shot('expedition-sent');
 await page.getByLabel('Close').first().click();
-for (let i = 0; i < 10 && !(await coe(() => !!window.__coe.store.state.discovery)); i++) {
+for (let i = 0; i < 14 && !(await coe(() => !!window.__coe.store.state.discovery)); i++) {
   await coe(() => window.__coe.advance(30));
+  // advance() stops at an event or offer; answer it or time stands still.
+  if (!(await coe(() => !!window.__coe.store.state.discovery))) await answerCards();
 }
 await shot('discovery-card');
 await answerCards();
