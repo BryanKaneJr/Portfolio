@@ -36,6 +36,7 @@ import type { PauseReason } from '../../sim/types';
 import { yearOf } from '../../sim/util';
 import { store, useStore, type MenuTab } from '../../state/store';
 import { ColoniesTab } from './ColonySheets';
+import { freeColonists } from '../../sim/colonies';
 import { saveGame, type SlotId } from '../../state/storage';
 import { Flag } from '../components/Flag';
 import { Icon } from '../components/Icon';
@@ -53,7 +54,7 @@ export function MenuPanel({ tab }: { tab: MenuTab }) {
     { key: 'military', label: 'Military' },
     { key: 'diplomacy', label: 'Diplomacy' },
     { key: 'economy', label: 'Realm' },
-    { key: 'colonies', label: 'Colonies' },
+    { key: 'colonies', label: 'Colonies', badge: Math.max(0, freeColonists(s, s.player)) },
     { key: 'missions', label: 'Missions', badge: missionsReady },
     { key: 'ledger', label: 'Ledger' },
     { key: 'settings', label: 'Settings' },

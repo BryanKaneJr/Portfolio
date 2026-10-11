@@ -56,6 +56,7 @@ if (await has('hint-ok')) await tapId('hint-ok');
 // Menu tabs.
 await coe(() => window.__coe.store.select(null));
 await tapId('menu');
+await tapId('tab-military');
 await shot('menu-military');
 for (const tab of ['diplomacy', 'economy', 'colonies', 'missions', 'ledger', 'settings']) {
   await tapId(`tab-${tab}`);

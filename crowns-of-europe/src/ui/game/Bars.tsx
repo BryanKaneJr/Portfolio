@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { readyMissionCount } from '../../sim/missions';
+import { charted, freeColonists } from '../../sim/colonies';
 import { ledger } from '../../sim/economy';
 import { warScore } from '../../sim/war';
 import { formatShortDate } from '../../sim/util';
@@ -48,6 +49,8 @@ export function BottomBar() {
   const st = useStore();
   const s = st.state!;
   const missions = readyMissionCount(s, s.player);
+  // Idle colonists with land left to settle also call you to the Realm menu.
+  const idleColonists = freeColonists(s, s.player) > 0 && Object.values(s.regions).some(r => !r.owner && !r.colony && charted(s, r.id)) ? freeColonists(s, s.player) : 0;
   const important = s.unseenReports.length + s.offers.length;
   return (
     <View style={styles.bottom}>
@@ -66,12 +69,12 @@ export function BottomBar() {
           </View>
         </View>
       </View>
-      <Pressable onPress={() => st.open({ kind: 'menu', tab: missions ? 'missions' : 'military' })} style={styles.menuBtn} accessibilityLabel="Menu" testID="menu">
+      <Pressable onPress={() => st.open({ kind: 'menu', tab: missions ? 'missions' : idleColonists ? 'colonies' : 'military' })} style={styles.menuBtn} accessibilityLabel="Menu" testID="menu">
         <Icon name="crown" size={22} color={C.chrome} />
         <Text style={styles.menuText}>Realm</Text>
-        {missions ? (
+        {missions + idleColonists ? (
           <View style={styles.dot}>
-            <Text style={styles.dotText}>{missions}</Text>
+            <Text style={styles.dotText}>{missions + idleColonists}</Text>
           </View>
         ) : null}
       </Pressable>
