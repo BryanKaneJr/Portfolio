@@ -498,4 +498,11 @@ export const INGREDIENTS: Ingredient[] = [
   { id: 'mussels', name: 'Mussels', category: 'protein', aliases: [] },
   { id: 'lamb_chops', name: 'Lamb chops', category: 'protein', aliases: [] },
   { id: 'malt_vinegar', name: 'Malt vinegar', category: 'pantry', aliases: [] },
+  { id: 'peach', name: 'Peach', category: 'produce', aliases: ['peaches'] },
+  { id: 'vanilla_wafers', name: 'Vanilla wafers', category: 'pantry', aliases: [] },
+  { id: 'corn_syrup', name: 'Corn syrup', category: 'pantry', aliases: ['light corn syrup'] },
+  { id: 'dates', name: 'Dates', category: 'pantry', aliases: ['pitted dates'] },
+  { id: 'golden_syrup', name: 'Golden syrup', category: 'pantry', aliases: [] },
+  { id: 'raspberry_jam', name: 'Raspberry jam', category: 'pantry', aliases: [] },
+  { id: 'cream_of_tartar', name: 'Cream of tartar', category: 'pantry', aliases: [] },
 ];

@@ -658,6 +658,17 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   'lamb chops': { add: 'protein' }, // loin or rib chops; ground lamb and lamb shoulder are separate
   'malt vinegar': { add: 'pantry' }, // brown British vinegar for chips; not cider or white vinegar
 
+  // ── Reviewed by parallel import worker o-baking ──
+  peach: { add: 'produce' }, // the fruit, fresh or frozen slices; the recipe says which
+  peaches: '=peach',
+  'vanilla wafers': { add: 'pantry' }, // small vanilla cookies; not ladyfingers or graham crackers
+  'corn syrup': { add: 'pantry' }, // light corn syrup; not golden syrup, honey or molasses
+  'light corn syrup': '=corn syrup',
+  dates: { add: 'pantry' }, // dried dates (Medjool or Deglet Noor)
+  'pitted dates': '=dates',
+  'golden syrup': { add: 'pantry' }, // British cane-sugar syrup; not corn syrup or honey
+  'raspberry jam': { add: 'pantry' }, // not fresh raspberries (berries) or other jams
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,
