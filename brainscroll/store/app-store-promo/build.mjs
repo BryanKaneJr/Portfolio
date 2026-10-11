@@ -1,6 +1,7 @@
 // The App Store promo screenshots (owner, 2026-10-11, after listings they liked): a bold colour,
 // a big headline, and a real screenshot in a phone (light metal rim, black bezel, side buttons,
-// Dynamic Island, soft shadow) running off the bottom. 1320 x 2868, the 6.9" size.
+// Dynamic Island, soft shadow) running off the bottom. 1320 x 2868, the 6.9" size, and a copy in
+// 6.3/ at 1206 x 2622 for the 6.1" / 6.3" slot, which refuses the 6.9" size.
 //
 //   node store/app-store-promo/build.mjs                 # every slide
 //   node store/app-store-promo/build.mjs 07-weekly-quest # just these
@@ -18,6 +19,7 @@ import { chromium } from 'playwright';
 const here = dirname(fileURLToPath(import.meta.url));
 const FONT = join(here, '../../node_modules/@expo-google-fonts/nunito/900Black/Nunito_900Black.ttf');
 const W = 1320, H = 2868, INK = '#131F24', STATUS = 165;
+const SMALL = { dir: '6.3', width: 1206, height: 2622 };
 
 const SLIDES = [
   { name: '01-learning-card', bg: '#F4B942', text: 'Turn scrolling<br>into learning.' },
@@ -64,6 +66,7 @@ h1 { position: absolute; top: 150px; left: 90px; right: 90px; margin: 0; text-al
 const wanted = process.argv.slice(2);
 const tmp = join(here, '.build');
 mkdirSync(tmp, { recursive: true });
+mkdirSync(join(here, SMALL.dir), { recursive: true });
 const browser = await chromium.launch();
 const tab = await browser.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: 1 });
 try {
@@ -83,8 +86,14 @@ try {
     writeFileSync(html, page(s, screen));
     await tab.goto(`file://${html}`);
     await tab.evaluate(() => document.fonts.ready);
-    await tab.screenshot({ path: join(here, `${s.name}.png`) });
-    console.log(`wrote store/app-store-promo/${s.name}.png`);
+    const out = join(here, `${s.name}.png`);
+    await tab.screenshot({ path: out });
+    await sharp(out)
+      .resize(SMALL.width, SMALL.height, { fit: 'cover', position: 'top', kernel: 'lanczos3' })
+      .removeAlpha()
+      .png()
+      .toFile(join(here, SMALL.dir, `${s.name}.png`));
+    console.log(`wrote store/app-store-promo/${s.name}.png and ${SMALL.dir}/${s.name}.png`);
   }
 } finally {
   await browser.close();
