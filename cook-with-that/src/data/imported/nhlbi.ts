@@ -288,7 +288,7 @@ export const NHLBI_RECIPES: Recipe[] = [
     description:
       'Whole-wheat pitas topped with marinara, diced chicken, broccoli and Parmesan, then baked crisp in under ten minutes.',
     meals: ['lunch', 'dinner', 'snack'],
-    dishTypes: [],
+    dishTypes: ['bake'],
     prepMinutes: 10,
     cookMinutes: 10,
     servings: 4,
@@ -404,7 +404,7 @@ export const NHLBI_RECIPES: Recipe[] = [
     description:
       'Oven fries soaked in ice water for crispness, then tossed with garlic, onion, allspice and chili flakes. Just 1 tbsp of oil.',
     meals: ['side', 'snack'],
-    dishTypes: [],
+    dishTypes: ['bake'],
     prepMinutes: 75,
     cookMinutes: 35,
     servings: 5,

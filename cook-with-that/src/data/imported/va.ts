@@ -831,7 +831,7 @@ export const VA_RECIPES: Recipe[] = [
     id: 'mini-turkey-meatloaves',
     title: 'Mini Turkey Meatloaves',
     description:
-      'Turkey meatloaf baked in a muffin tin with carrot, spinach and Parmesan under a sweet ketchup glaze. Done in half an hour.',
+      'Turkey meatloaf baked in a muffin tin with carrot, spinach and Parmesan under a sweet ketchup glaze. Bakes in half an hour.',
     meals: ['dinner'],
     dishTypes: ['bake'],
     prepMinutes: 15,
@@ -923,7 +923,7 @@ export const VA_RECIPES: Recipe[] = [
       'Arrange the drumsticks in the basket in a single layer, not touching. Cook for 10 minutes.',
       'Turn them with tongs and cook until the skin is browned and crisp and the meat near the bone reaches at least 165°F / 74°C, 8–12 minutes more. Drumsticks are juiciest at 175°F / 79°C.',
       'Let rest for 5 minutes before serving.',
-      'No air fryer? Bake on a rack set over a foil-lined baking sheet at 425°F (220°C), turning once, until the skin is crisp and the meat reaches 175°F / 79°C, 35–40 minutes.',
+      'No air fryer? Heat the oven to 425°F (220°C) instead and bake the drumsticks on a rack set over a foil-lined baking sheet, turning once, until the skin is crisp and the meat reaches 175°F / 79°C, 35–40 minutes.',
     ],
     source: from('air-fried-chicken-drumsticks', 'Air-Fried Chicken Drumsticks'),
   },
