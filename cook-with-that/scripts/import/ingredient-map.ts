@@ -815,6 +815,33 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   'collard greens': { add: 'produce' }, // fresh leaves; kale is separate
   collards: '=collard greens',
 
+  // ── Reviewed by parallel import worker r4-weeknight ──
+  kielbasa: { add: 'protein' }, // smoked Polish sausage, sold fully cooked in rings; raw sausage is `sausage`, andouille separate
+  'tater tots': { add: 'produce' }, // frozen shaped, seasoned potato nuggets; a processed product, not plain potato
+  'sun dried tomatoes': { add: 'pantry', name: 'Sun-dried tomatoes' }, // jarred in oil or dry-packed; not fresh or canned tomatoes
+  'roast beef': { add: 'protein' }, // sliced cooked roast beef (deli counter or leftovers); a raw roast is chuck_roast or another cut
+
+  // ── Reviewed by parallel import worker r4-baking-breakfast ──
+  'red food coloring': { add: 'pantry' }, // liquid or gel, for red velvet; not beet juice or other colors
+  'red food colouring': '=red food coloring',
+  marshmallows: { add: 'pantry' }, // regular or mini; marshmallow creme (fluff) is a different product
+  'mini marshmallows': '=marshmallows',
+  'miniature marshmallows': '=marshmallows',
+  'crisp rice cereal': { add: 'grain' }, // toasted crisped rice breakfast cereal; not puffed rice or cooked rice
+  'crispy rice cereal': '=crisp rice cereal',
+  'rice krispies': '=crisp rice cereal', // the everyday name for the same cereal
+  'unflavored gelatin': { add: 'pantry' }, // plain powdered gelatin in envelopes; not flavored gelatin dessert mix
+  gelatin: '=unflavored gelatin',
+  gelatine: '=unflavored gelatin',
+  'powdered gelatin': '=unflavored gelatin',
+  cherries: { add: 'produce' }, // sweet or sour (tart), fresh or frozen; the recipe says which. Not maraschino or dried
+  'tart cherries': '=cherries',
+  'sour cherries': '=cherries',
+  'almond extract': { add: 'pantry' }, // not almonds, almond flour or amaretto
+  'poppy seeds': { add: 'pantry' }, // like sesame seeds
+  'almond flour': { add: 'grain' }, // finely ground blanched almonds; whole or sliced almonds are `almonds`
+  'ground almonds': '=almond flour', // the British name for the same thing
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,
