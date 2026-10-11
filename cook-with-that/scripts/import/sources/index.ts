@@ -122,6 +122,12 @@ export const SOURCES: Record<string, SourceDef> = {
         'doubtful; a later edit (commit 0694559, 2026) dropped "Originally published at yaroslavps.com/food/beef-goulash"; probably the contributor\'s own blog, but the original lives on another site',
       'cinnamon-waffles':
         'author is credited as "Pennsylvania Dutch Cooking", a published cookbook (the same credit as the already-excluded sand-tarts)',
+      'lebanese-lentil-soup':
+        "copied from Blue Zones' \"Lebanese-Style Lentil Soup\" (the page's subtitle is that title word for word; same 3 cups red lentils, 12 cups water, Yukon golds, zucchini, 4 cups chard, cilantro, 1/4 cup lemon juice, 1 tsp cumin and same method, reproduced on BYU's Blue Zone Diet Cookbook page)",
+      kropsua:
+        'derived from a published "Kropsu: Finnish Baked Pancake" (The Culinary Cellar; also hultgren.org): identical 1/2 cup (1 stick) butter, 2 eggs, 2 tbsp sugar, 1/2 tsp salt, 2 cups whole milk, 1 cup flour, 400°F 9x13 pan, 40 min, and the same "Using heavy oven mitts, remove pan from oven and pour batter" step',
+      kaiserschmarrn:
+        'suspected translation of a published German/Austrian recipe (likely gutekueche.at): a German-language Kaiserschmarrn handout linking gutekueche.at has the identical 200 g flour, 30 g sugar, 4 eggs, 300 ml milk, 40 g butter, 30 g raisins for 3 portions and the same yolk/stiff-white/180°C-oven method',
     },
     // Several of this contributor's pages turned out to be copies of commercial recipes (Food.com, Dairy
     // Farmers of Canada, HelloFresh, SparkPeople), so none of their pages can rely on the waiver.

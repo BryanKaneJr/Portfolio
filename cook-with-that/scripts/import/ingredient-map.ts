@@ -543,6 +543,30 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   'lamb shoulder or beef chuck': null, // two meats: the editor picks one
   'beef or chicken stock': null, // two broths: the editor picks one
 
+  // ── Reviewed by parallel import worker bc6 ──
+  'green chili': { add: 'produce', name: 'Fresh green chili' }, // slim Indian/Thai green chili or serrano; jalapeño is separate
+  'green chilli': '=green chili',
+  'green chilies': '=green chili',
+  'green chillies': '=green chili',
+  'turmeric powder': '=turmeric',
+  'tumeric powder': '=turmeric', // common misspelling
+  'fat free yogurt': 'yogurt', // plain yogurt, any fat level
+  'fat free yoghurt': 'yogurt',
+  'lamb shoulder': { add: 'protein' }, // boneless stewing cut; ground lamb is separate
+  'boneless lamb shoulder': '=lamb shoulder',
+  'pork loin': { add: 'protein' }, // boneless loin roast, cut up by the recipe; pork chops and pork shoulder are separate
+  'boneless pork loin': '=pork loin',
+  'corn tortillas': { add: 'grain' }, // the catalog's tortillas are flour
+  'corn tortilla': '=corn tortillas',
+  'baked beans': { add: 'pantry' }, // canned, in tomato sauce
+  fennel: { add: 'produce' }, // the bulb; fennel seeds are separate
+  'fennel bulb': '=fennel',
+  'fennel bulbs': '=fennel',
+  kale: { add: 'produce' },
+  'fish broth': '=fish stock',
+  'ground cardamom': { add: 'spice' }, // cardamom pods are separate, like whole and ground cloves
+  'dried cranberries': { add: 'pantry' },
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,
