@@ -1086,7 +1086,7 @@ export const NHLBI_RECIPES: Recipe[] = [
       'Pour about 1/2 cup of the water into the hot skillet and scrape up the browned bits, then pour it into the pot.',
       'Add the chiles, celery, tomato and garlic, then enough of the remaining water to barely cover everything.',
       'Bring to a boil, cover, lower the heat and simmer, stirring now and then, until the stew has thickened and the chicken is very tender, about 1 1/2 hours.',
-      'Season with the salt and pepper and serve hot.',
+      'Skim off any fat from the surface, season with the salt and pepper and serve hot.',
     ],
     source: from('chicken-chile-stew', 'Chicken Chile Stew'),
   },

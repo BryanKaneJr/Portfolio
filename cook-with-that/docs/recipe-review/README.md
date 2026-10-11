@@ -44,10 +44,12 @@ were small and practical:
    left alone.
 5. **The four tweaks, checked against USDA and extension guidance and published recipes:**
    - `slow-cooker-chicken-tacos`: low 4–5 hours (or high 2–3), lid on, until 165°F and shreddable, checking every
-     30 minutes after that; the chicken line says "thawed if frozen" (USDA: never slow-cook frozen meat). Boneless
-     breasts with no added liquid reach 165°F in about 3–4 hours on low; the old 6–8 hours dried them out.
-   - `frijol-con-puerco`: boneless pork shoulder instead of loin (loin dries out in a 90-minute simmer).
-   - `green-chile-chicken-stew`: thighs only.
+     30 minutes after that; the chicken line says "thawed if frozen" (USDA: never slow-cook frozen meat). The pot is
+     now 3 to 4 quarts, so the chicken and onions fill it about half (USDA: half to two-thirds full). Tested
+     recipes for boneless breasts with little liquid give 4–5 hours on low; the old 6–8 hours dried them out.
+   - `frijol-con-puerco`: boneless pork shoulder instead of loin (loin dries out in a 90-minute simmer). "Pork
+     butt" and "Boston butt" are now search aliases of pork shoulder.
+   - `green-chile-chicken-stew`: thighs only, with the fat skimmed before serving.
    - `flammkuchen`: 3/4 cup (180 g) full-fat sour cream instead of 1/3 cup, the usual ~200 g for this much dough.
 6. **Equipment** never adds or removes recipes; there's no equipment filter. Waffle iron, food processor, kirsch,
    massaman paste, liver spread and mixed spice all stay.

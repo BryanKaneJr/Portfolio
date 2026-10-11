@@ -2781,7 +2781,7 @@ export const BASED_COOKING_RECIPES: Recipe[] = [
       opt('cilantro', 'fresh cilantro', '1/4 cup', 'chopped'),
     ],
     steps: [
-      'Quarter 2 of the onions and spread them over the bottom of a slow cooker.',
+      'Quarter 2 of the onions and spread them over the bottom of a 3- to 4-quart slow cooker.',
       'Lay the chicken on top and sprinkle it all over with the adobo seasoning and paprika. Squeeze the juice of half the lime over it.',
       'Cover and cook on low for 4–5 hours (or on high for 2–3 hours), keeping the lid on, until the chicken shreds easily and reads 165°F (74°C) in the thickest part. If it isn’t there yet, cover and check again every 30 minutes.',
       'Shortly before serving, finely dice the remaining onion and cut the rest of the lime into wedges. Dice the tomato and chop the cilantro if using.',

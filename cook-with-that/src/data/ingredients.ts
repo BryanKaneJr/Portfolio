@@ -308,7 +308,12 @@ export const INGREDIENTS: Ingredient[] = [
     category: 'pantry',
     aliases: ['chipotle peppers in adobo sauce', 'chipotles in adobo'],
   },
-  { id: 'pork_shoulder', name: 'Pork shoulder', category: 'protein', aliases: ['pork shoulder steaks'] },
+  {
+    id: 'pork_shoulder',
+    name: 'Pork shoulder',
+    category: 'protein',
+    aliases: ['pork shoulder steaks', 'pork butt', 'boston butt'],
+  },
   { id: 'edam', name: 'Edam', category: 'dairy', aliases: ['edam cheese'] },
   { id: 'canned_pumpkin', name: 'Canned pumpkin', category: 'pantry', aliases: ['pumpkin puree'] },
   { id: 'ketchup', name: 'Ketchup', category: 'spice', aliases: [] },
