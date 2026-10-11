@@ -512,6 +512,37 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   'wooden skewers': false,
   '6 inch wooden skewers': false,
 
+  // ── Reviewed by parallel import worker bc5 ──
+  'welsh onion': 'green_onion', // Allium fistulosum, the bunching onion sold as scallions
+  'red chilies': 'red_chili', // plural of the reviewed fresh red chili
+  'red chillies': 'red_chili',
+  'chicken breast or thigh': 'chicken', // either cut of the same bird
+  'beef chuck': 'chuck_roast', // the same cut, cubed for stew
+  'chipolata sausages': 'sausage', // thin pork link sausages
+  chipolatas: 'sausage',
+  'black balsamic vinegar': 'balsamic_vinegar', // ordinary dark balsamic (white balsamic is the other kind)
+  ciabatta: 'bread', // a kind of bread, like baguette
+  'ciabatta bread': 'bread',
+  'burrito sized tortilla': 'tortillas', // large flour tortillas
+  'cooking powder': 'baking_powder', // literal translation of baking powder (Polish "proszek do pieczenia")
+  'ground tumeric': 'turmeric', // common misspelling
+  tumeric: 'turmeric',
+  scamorza: { add: 'dairy' }, // Italian stretched-curd cheese, plain or smoked; not mozzarella
+  'scamorza cheese': '=scamorza',
+  'adobo seasoning': { add: 'spice' }, // dry all-purpose blend (garlic, oregano, turmeric, salt); not chipotles in adobo
+  'massaman curry paste': { add: 'pantry' }, // jarred Thai curry paste; red and green pastes are different
+  'milk chocolate': { add: 'pantry' }, // dark chocolate is separate
+  'chocolate sprinkles': { add: 'pantry' },
+  sprinkles: null, // chocolate or rainbow? The recipe must say
+  'shredded coconut': { add: 'pantry' }, // dried, sweetened or not; coconut milk, cream and oil are separate
+  'desiccated coconut': '=shredded coconut',
+  coconut: null, // shredded, fresh, milk or cream? The recipe must say
+  bechamel: null, // a sauce made from butter, flour and milk: the editor lists those
+  'taco meat': null, // a recipe of its own (seasoned ground beef): the editor lists its ingredients
+  'plain greek yogurt or sour cream': null, // two foods: the editor picks one
+  'lamb shoulder or beef chuck': null, // two meats: the editor picks one
+  'beef or chicken stock': null, // two broths: the editor picks one
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,

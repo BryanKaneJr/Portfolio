@@ -110,6 +110,18 @@ export const SOURCES: Record<string, SourceDef> = {
       'sand-tarts': 'author is credited as "Pennsylvania Dutch Cooking", a published cookbook',
       'yibin-burning-noodles':
         'chili oil and noodle recipe closely follows the Chinese Cooking Demystified video (also credited as the source by themalamarket.com); not confirmed word for word',
+      'cheesy-potatoe-bake':
+        'the page\'s original version (based.cooking commit f9815cd, 2021) said "Originally published at" taste.com.au\'s Cheesy Potato Bake; the credit was dropped in commit ab251b0 (2022), the recipe stayed',
+      'chorizo-and-chickpea-soup':
+        'the page\'s original version (commit 845adc4, 2021) said "Recipe modified from original published at" BBC Good Food\'s chorizo-chickpea-stew; the credit was dropped in commit ab251b0 (2022)',
+      'basic-meatballs':
+        "the contributor's commit (ce02d10) says it is \"modified from some others I found on blogs and in J Kenji Lopez Alt's 'Food Lab'\" (a published cookbook)",
+      'butter-chicken-masala':
+        'steps track Food.com\'s "Butter Chicken" (recipe 237702) wording: "roast the marinated chicken in a tandoor or an oven for about 5-10 minutes till it is three fourth done"; "add the prepared chicken, white butter, fresh cream, sliced green chillies and crushed fenugreek leaves" (the page even adds green chilies its own ingredient list never mentions)',
+      'beef-goulash':
+        'doubtful; a later edit (commit 0694559, 2026) dropped "Originally published at yaroslavps.com/food/beef-goulash"; probably the contributor\'s own blog, but the original lives on another site',
+      'cinnamon-waffles':
+        'author is credited as "Pennsylvania Dutch Cooking", a published cookbook (the same credit as the already-excluded sand-tarts)',
     },
     // Several of this contributor's pages turned out to be copies of commercial recipes (Food.com, Dairy
     // Farmers of Canada, HelloFresh, SparkPeople), so none of their pages can rely on the waiver.
