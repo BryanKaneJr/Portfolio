@@ -4,8 +4,9 @@ import { Image, StyleSheet, View } from 'react-native';
 import { color } from '@/theme/tokens';
 
 /**
- * The launch screen: the BrainScroll wordmark over crowned Dr. Scroll, on
- * plum (owner, 2026-10-03). One picture (1024 × 1260, transparent) is both
+ * The launch screen: the lowercase brainscroll wordmark over crowned Dr.
+ * Scroll, on plum (owner, 2026-10-03; wordmark 2026-10-11, drawn by
+ * scripts/splash-art.ts). One picture (1024 × 1260, transparent) is both
  * the native splash (assets/images/splash-brand.png, which app.json →
  * expo-splash-screen needs as a PNG, 300 wide) and this screen at the same
  * size (splash-brand.webp: the same art at a fifth of the bytes, so it draws

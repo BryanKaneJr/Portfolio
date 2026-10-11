@@ -109,7 +109,13 @@ Run `npm run check`, `npm run test:db`, `npm run e2e` and `npm run e2e:remote`: 
 - **Anyone with the password can sign in to that account.** It holds only test progress, but treat it like any password. Keep it for future reviews (each update goes through review again), and change the password if it's ever exposed.
 - If a review is rejected with "unable to sign in", check whether Google blocked a new-device sign-in (the account's security page lists recent attempts), then reply in the review thread.
 - **The reviewer's progress lives in production.** Their account, levels, answers, reports and analytics events are real rows in the production database. That's harmless: it's one account, and the admin insights only flag anything once 20 learners have seen it. If you'd rather keep the numbers clean, delete the account after review (sign in, Profile → Settings → Delete account).
-- **Unlimited during review (decide before submitting).** Apple and Google reviewers buy with sandbox or test accounts against your production build. BrainScroll's production server ignores sandbox purchases (`allow_sandbox_purchases = false` and no `ALLOW_SANDBOX_PURCHASES` secret, see `subscriptions.md`), so a reviewer's purchase would succeed in the store sheet but Brainpower would stay limited (no ∞). That looks like a broken purchase and is a common rejection reason. Options: turn both switches on in production for the review window and off again after approval (a sandbox purchase can then lift the cap for any learner who has a sandbox account, which is rare), or grant Unlimited to the review account by hand. Pick one and match the review notes to it. **Decided (2026-10-11): the switches stay on for the review window** (the owner's TestFlight purchase went through, so a reviewer's will too) and go off after approval; the review notes say Unlimited can be bought with a Sandbox account.
+- **Sandbox purchases stay on, for good (owner, 2026-10-11).** Read this before touching either switch.
+  - **What they are.** Apple's sandbox is a test copy of the App Store. TestFlight builds and App Review buy through it automatically: the payment sheet looks real, no money moves, and test subscriptions run on a fast clock (the owner's TestFlight monthly plan was set to expire a day after purchase). Google's license testers work the same way on Android.
+  - **Real purchases need no switch.** Anyone who downloads BrainScroll from the App Store pays for real, and the server always honours those. Nothing is turned on at launch.
+  - **Why sandbox stays on.** App Review tests every version, the first one and every later update, with sandbox purchases, and Apple tells developers their servers must accept them ([TN2413](https://developer.apple.com/library/archive/technotes/tn2413/_index.html)). If the server refused them, a reviewer's purchase would go through in the store sheet but Brainpower would stay limited (no ∞), which looks like a broken purchase and gets an update rejected. The review notes in [`store-listing.md`](store-listing.md#review-notes-app-review--play-app-access) say Unlimited can be bought with a Sandbox account, so they only stay true while this is on.
+  - **The two switches, both on:** `public.app_settings.allow_sandbox_purchases` (the webhook path; checked on 2026-10-11) and the `ALLOW_SANDBOX_PURCHASES=true` Edge Function secret (the instant check right after a purchase, `sync-entitlement`; listed under Supabase, Edge Functions, Secrets). Turning either off makes sandbox purchases unreliable.
+  - **The only cost.** Your TestFlight testers can get Unlimited free with a test purchase, until the test subscription lapses on its own. People on the App Store can't make sandbox purchases. If free Unlimited for testers ever matters, turn off the public TestFlight link instead of these switches.
+  - **If you ever turn them off anyway,** turn both back on before every App Review submission and leave them on until it's approved.
 
 ## What's left for launch
 
@@ -124,10 +130,10 @@ iPhone first, in this order:
 5. **Launch week:**
    - the Weekly Quests are dated (all 52, one a week from Monday 12 October 2026; owner 2026-10-10) and on the live project; to move them, shift the dates in `content/quests.json` and import;
    - mark the skills and subjects `published` in `content/` (they're still `draft`; nothing in the app reads it, but an import without `--publish-drafts` copies it);
-   - move Supabase to Pro (free projects pause after a quiet week);
+   - ~~move Supabase to Pro~~ done (checked 2026-10-11);
    - remove the ten screenshot test learners (stargazer_ana and the rest, added 2026-10-09 to fill @bryan's league, friends and feed; they can't sign in). In the Supabase SQL editor: `delete from auth.users where raw_app_meta_data ->> 'brainscroll_test' = 'true';` takes everything of theirs with them;
-   - decide how reviewers see Unlimited ([App review sign-in](#app-review-sign-in)), then turn sandbox purchases off once approved;
-   - answer App Privacy and the age rating from [`store-privacy.md`](store-privacy.md), and submit.
+   - **leave sandbox purchases on**, at launch and after: nothing about purchases changes at launch, because real App Store purchases always count. Why, and what the switches are: [Sandbox purchases stay on](#app-review-sign-in);
+   - ~~App Privacy and the age rating~~ done (2026-10-11; 9+), from [`store-privacy.md`](store-privacy.md); then submit.
 
 Reviewers can sign in with their own Apple ID. A test Google account is only needed once Google sign-in is on.
 
