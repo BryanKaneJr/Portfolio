@@ -49,7 +49,7 @@ bundled and works in airplane mode.
   and die, heirs, republican elections, four eras with paid adoption and new troops, one policy per era.
 - **Faith and the Empire:** Catholic, Orthodox, Muslim and Protestant; conversion; the Reformation spreading
   from 1517; Papal Favor (claims and excommunications); the Holy Roman Emperor, electors and elections.
-- **Story:** 218 events (104 historical, 69 generic, 45 era), 198 missions, 34 achievements, unrest and rebels.
+- **Story:** 246 events (104 historical, 69 generic, 45 era, 28 New World), 231 missions, 42 achievements, unrest and rebels.
 - **AI** that recruits, invests, forms alliances, declares wars it can win, chases beatable stacks, besieges,
   retreats from bigger ones and negotiates peace.
 - **Saves:** autosave every 1 January and on leaving the app, three manual slots, optional ironman.
