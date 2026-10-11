@@ -57,14 +57,14 @@ Hard rules (from the plan, still in force):
 src/app/         index (home, both modes), results, ingredients (More options), selections, staples, settings,
                  pantry, pantry-results, recipe/[id], favorites, _layout (ReadyGate waits for storage restore)
 src/components/  Chip, Dropdown, IngredientBrowser (compact|full), UseAvoidToggle, SelectionSummary, RecipeCard
-src/data/        types, ingredients (254, with aliases), recipes (27 seed + imported/), collections, recipeBuilders,
-                 staples, popularity, labels, catalog
+src/data/        types, ingredients (254, with aliases), recipes (27 seed + originals/ + imported/), collections,
+                 recipeBuilders, staples, popularity, labels, catalog
 src/logic/       matchRecipes (engine), pantry, sortRecipes, normalizeIngredient (search: aliases, plurals, typos),
                  validateContent, units (US/metric display)
 src/state/       AppState (context + AsyncStorage persistence), searchState, pickerTarget, favoritesStorage
 scripts/         validate-recipes.ts, coverage-report.ts, import-recipes.ts + import/ (parser, mapper, source readers)
-tests/           Jest: engine, pantry, staples, content validation, import pipeline, units, taglines, offline audit,
-                 searchAudit (randomized invariants over the real library + catalog-wide search checks)
+tests/           Jest: engine, pantry, staples, content validation, import pipeline, originals, units, taglines,
+                 offline audit, searchAudit (randomized invariants over the real library + catalog-wide search checks)
 ```
 
 ## Commands
@@ -95,6 +95,9 @@ Expo 57 is newer than most training data: follow `AGENTS.md` (check versioned do
   "Remove Walnuts" directly.
 
 ## Phase 5 so far: sources and import pipeline (2026-10-08)
+- **Original recipes** (2026-10-11): open sources can't reach a big library on their own, so recipes written for the
+  app go in `src/data/originals/` (one file per theme). Rules: `docs/original-recipes.md` (write from general
+  knowledge, never from a published recipe; same standard and checks as imports).
 - **Sources reviewed:** `docs/recipe-sources.md` (ranked, with quoted licenses). Bundle only public domain, CC0 or
   Unlicense text, or text we wrote. **No CC-licensed text, not even CC BY:** CC 4.0 forbids "effective technological
   measures", and CC's own wiki says App Store FairPlay may violate that. Wikibooks is for facts and ideas only.
