@@ -781,16 +781,6 @@ export const WEEKNIGHT_RECIPES: Recipe[] = [
     ],
     source: ORIGINAL_DRAFT,
   },
-  // EXTRA (not in weeknight.ts): Chicken and Wild Rice Soup, from the r4-weeknight list.
-  // Held back because a `wild rice` catalog item breaks tests/import.test.ts > "a word match is only ever a
-  // suggestion", which uses 'wild rice' as its example of an unreviewed name. Tests aren't mine to change. To add it:
-  //   1. In that test, swap 'wild rice' for 'black rice' in the call and in `key` (checked in this worktree:
-  //      mapIngredient(index, 'black rice') -> { status: 'unmapped', key: 'black rice', suggestion: 'rice' }).
-  //   2. Add to scripts/import/ingredient-map.ts (r4-weeknight section):
-  //      'wild rice': { add: 'grain' }, // a different grain from white or brown rice; cooks 45–60 minutes
-  //   3. npm run import:catalog -- "wild rice"
-  //   4. Append the object below to WEEKNIGHT_RECIPES. It passed npm run check while wild_rice was in the catalog
-  //      (step-ingredient check, tagline, units); the only failure was the test example above.
   {
     id: 'chicken-and-wild-rice-soup',
     title: 'Chicken and Wild Rice Soup',

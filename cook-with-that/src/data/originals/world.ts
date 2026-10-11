@@ -250,7 +250,7 @@ export const WORLD_RECIPES: Recipe[] = [
       'Set up three shallow dishes: the flour in the first, the eggs beaten in the second and the panko in the third.',
       'Coat each cutlet in flour and shake off the excess, dip it in egg and let the excess drip off, then press it firmly into the panko on both sides. Set the cutlets on a plate.',
       'Stir the ketchup, Worcestershire, soy sauce and sugar together until the sugar dissolves. This is the katsu sauce.',
-      'Pour oil into a large, heavy skillet to a depth of about 1/2 inch and heat it over medium-high heat to 350°F (175°C), or until a pinch of panko sizzles at once.',
+      'Pour the oil into a large (12-inch), heavy skillet; it should be about 1/4 inch deep. Heat the oil over medium-high heat to 350°F (175°C), or until a pinch of panko sizzles at once.',
       'Fry 2 cutlets at a time, 3–4 minutes per side, until deep golden and cooked through (165°F / 74°C in the thickest part). Drain on a rack set over a sheet pan, or on paper towels. Let the oil come back up to heat before the second batch.',
       'Rest the cutlets 2–3 minutes, then slice them into 1-inch strips. Serve over the rice with the katsu sauce drizzled on top, and shredded cabbage and lemon wedges on the side if you like.',
     ],
