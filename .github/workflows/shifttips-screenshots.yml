@@ -1,0 +1,95 @@
+name: ShiftTips App Store screenshots
+
+# Takes the App Store screenshots on a 6.9-inch iPhone simulator with a
+# clean status bar, on demo data, and frames them with headlines. Download
+# them from the run's "ShiftTips-App-Store-screenshots" artifact: framed
+# ones at the top level, unframed ones in raw/. Both are 1320 x 2868.
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'shifttips/ShiftTipsUITests/AppStoreScreenshots.swift'
+      - 'shifttips/ShiftTips/App/StoreDemo.swift'
+      - 'shifttips/tools/frame_screenshots.py'
+      - '.github/workflows/shifttips-screenshots.yml'
+
+concurrency:
+  group: shifttips-screenshots-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: shifttips
+
+jobs:
+  screenshots:
+    name: App Store screenshots (6.9-inch iPhone)
+    runs-on: macos-15
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Xcode 26
+        run: |
+          XCODE=$(python3 -c 'import glob, re; apps = glob.glob("/Applications/Xcode_26*.app"); print(max(apps, key=lambda p: [int(n) for n in re.findall(r"\d+", p)]) if apps else "")')
+          if [ -z "$XCODE" ]; then echo "::error::No Xcode 26 on this runner." && exit 1; fi
+          echo "DEVELOPER_DIR=$XCODE/Contents/Developer" >> "$GITHUB_ENV"
+      - name: Boot a 6.9-inch iPhone with a clean status bar
+        id: sim
+        run: |
+          UDID=$(python3 - <<'PY'
+          import json, subprocess
+          data = json.loads(subprocess.check_output(["xcrun", "simctl", "list", "-j"]))
+          runtimes = [r for r in data["runtimes"] if r.get("isAvailable") and r["identifier"].startswith("com.apple.CoreSimulator.SimRuntime.iOS")]
+          runtimes.sort(key=lambda r: [int(x) for x in r["version"].split(".")])
+          runtime = runtimes[-1]["identifier"]
+          wanted = ["iPhone 17 Pro Max", "iPhone 16 Pro Max"]
+          for name in wanted:
+              for device in data["devices"].get(runtime, []):
+                  if device["name"] == name and device.get("isAvailable"):
+                      print(device["udid"])
+                      raise SystemExit
+          types = {t["name"]: t["identifier"] for t in data["devicetypes"]}
+          for name in wanted:
+              if name in types:
+                  print(subprocess.check_output(["xcrun", "simctl", "create", "ShiftTips Store", types[name], runtime]).decode().strip())
+                  raise SystemExit
+          raise SystemExit("No 6.9-inch iPhone simulator on this runner.")
+          PY
+          )
+          echo "udid=$UDID" >> "$GITHUB_OUTPUT"
+          xcrun simctl boot "$UDID" || true
+          xcrun simctl bootstatus "$UDID" -b
+          xcrun simctl status_bar "$UDID" override --time "9:41" --dataNetwork wifi --wifiMode active --wifiBars 3 --cellularMode active --cellularBars 4 --batteryState charged --batteryLevel 100
+          xcrun simctl list devices | grep "$UDID"
+      - name: Take the screenshots
+        run: |
+          set -o pipefail
+          xcodebuild test \
+            -project ShiftTips.xcodeproj \
+            -scheme ShiftTips \
+            -destination "id=${{ steps.sim.outputs.udid }}" \
+            -only-testing:ShiftTipsUITests/AppStoreScreenshots \
+            -resultBundlePath build/Store.xcresult \
+            -parallel-testing-enabled NO \
+            CODE_SIGNING_ALLOWED=NO \
+            -quiet
+      - name: Export and frame them
+        run: |
+          xcrun xcresulttool export attachments --path build/Store.xcresult --output-path build/attachments
+          python3 -m venv "$RUNNER_TEMP/venv"
+          "$RUNNER_TEMP/venv/bin/pip" install --quiet pillow
+          "$RUNNER_TEMP/venv/bin/python" tools/frame_screenshots.py build/attachments build/app-store-screenshots
+      - name: Upload the screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: ShiftTips-App-Store-screenshots
+          path: shifttips/build/app-store-screenshots
+          if-no-files-found: error
+      - name: Upload the test results if something failed
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ShiftTips-screenshot-test-results
+          path: shifttips/build/Store.xcresult
+          if-no-files-found: ignore
