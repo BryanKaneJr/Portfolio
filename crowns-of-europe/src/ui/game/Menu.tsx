@@ -27,7 +27,7 @@ import {
   totalRegiments,
   warsOf,
 } from '../../sim/queries';
-import { opinion } from '../../sim/diplomacy';
+import { isHreMember, opinion } from '../../sim/diplomacy';
 import { coalitionAgainst, coalitionOf } from '../../sim/threat';
 import { scoreFor } from '../../sim/war';
 import { hreMembers } from '../../sim/religion';
@@ -216,18 +216,20 @@ function Diplomacy() {
       ) : null}
       {myCoalition ? <T v="small" style={{ marginTop: 8 }}>You are in the coalition against {nationName(myCoalition.target)}.</T> : null}
       <Section title="Relations">
-        <Line label="Overlord" value={me.overlord ? `${nationName(me.overlord)} (${me.subjectType === 'union' ? 'personal union' : 'vassal'})` : 'none'} />
+        {me.overlord ? <Line label="Overlord" value={`${nationName(me.overlord)} (${me.subjectType === 'union' ? 'personal union' : 'vassal'})`} /> : null}
         <Line label="Allies" value={alliesOf(s, p).map(nationName).join(', ') || 'none'} />
-        <Line label="Subjects" value={subjectsOf(s, p).map(nationName).join(', ') || 'none'} />
-        <Line label="Rivals" value={me.rivals.map(nationName).join(', ') || 'none'} />
-        <Line label="Claims" value={Object.keys(me.claims).map(regionName).join(', ') || 'none'} />
+        {subjectsOf(s, p).length ? <Line label="Subjects" value={subjectsOf(s, p).map(nationName).join(', ')} /> : null}
+        {me.rivals.length ? <Line label="Rivals" value={me.rivals.map(nationName).join(', ')} /> : null}
+        {Object.keys(me.claims).length ? <Line label="Claims" value={Object.keys(me.claims).map(regionName).join(', ')} /> : null}
       </Section>
-      <Section title="Holy Roman Empire">
-        <Line label="Emperor" value={s.hre.emperor ? nationName(s.hre.emperor) : 'vacant'} />
-        <Line label="Electors" value={s.hre.electors.map(nationName).join(', ')} />
-        <Line label="Members" value={`${hreMembers(s).length}`} />
-        <T v="tiny">The Emperor gains levies and reputation, and defends member states from outsiders. Electors choose a new Emperor when the old one dies.</T>
-      </Section>
+      {isHreMember(s, p) || s.hre.emperor === p ? (
+        <Section title="Holy Roman Empire">
+          <Line label="Emperor" value={s.hre.emperor ? nationName(s.hre.emperor) : 'vacant'} />
+          <Line label="Electors" value={s.hre.electors.map(nationName).join(', ')} />
+          <Line label="Members" value={`${hreMembers(s).length}`} />
+          <T v="tiny">The Emperor gains levies and reputation, and defends member states from outsiders. Electors choose a new Emperor when the old one dies.</T>
+        </Section>
+      ) : null}
       <Section
         title="Other nations"
         right={
@@ -450,7 +452,7 @@ function Ledger() {
             <Bar value={r[sort] / max} color={NATION[r.id].color} />
           </View>
           <View style={{ alignItems: 'flex-end', minWidth: 70 }}>
-            <Text style={styles.rowNum}>{sort === 'income' ? `${fmt(r.income, 1)}/mo` : sort === 'army' ? fmt(r.army) : `${r.dev} dev`}</Text>
+            <Text style={styles.rowNum}>{sort === 'income' ? `${fmt(r.income, 1)}/mo` : sort === 'army' ? fmt(r.army) : `${r.dev}`}</Text>
             <Text style={styles.rowSub}>{r.regions} regions</Text>
           </View>
         </Pressable>
