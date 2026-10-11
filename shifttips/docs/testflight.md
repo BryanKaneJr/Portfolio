@@ -40,9 +40,37 @@ On the **Secrets** tab, add four repository secrets:
 
 Only if your bundle ID isn't `app.shifttips`: on the **Variables** tab, add `SHIFTTIPS_BUNDLE_ID` with your bundle ID.
 
+### From PowerShell instead (Windows)
+
+The GitHub command line tool can set the secrets and start the build. Install it, open a new PowerShell window, and sign in:
+
+```powershell
+winget install --id GitHub.cli -e
+gh auth login    # GitHub.com > HTTPS > Login with a web browser
+```
+
+Then, with your own values:
+
+```powershell
+$repo = "BryanKaneJr/Portfolio"
+$p8   = "$HOME\Downloads\AuthKey_ABC123DEFG.p8"
+
+gh secret set APP_STORE_CONNECT_KEY_ID    --repo $repo --body "ABC123DEFG"
+gh secret set APP_STORE_CONNECT_ISSUER_ID --repo $repo --body "your-issuer-id"
+gh secret set APPLE_TEAM_ID               --repo $repo --body "YOURTEAMID"
+gh secret set APP_STORE_CONNECT_KEY       --repo $repo --body ((Get-Content -Raw $p8) -replace "`r", "")
+gh variable set SHIFTTIPS_BUNDLE_ID       --repo $repo --body "com.yourname.shifttips"
+gh secret list --repo $repo
+
+gh workflow run shifttips-testflight.yml --repo $repo --ref master
+Start-Sleep 15
+$run = gh run list --repo $repo --workflow shifttips-testflight.yml --limit 1 --json databaseId --jq '.[0].databaseId'
+gh run watch $run --repo $repo --exit-status
+```
+
 ## 6. Run it
 
-The **Run workflow** button only appears once the workflow file is on the default branch, so merge the ShiftTips branch first.
+The workflow is on `master`, so the **Run workflow** button is there.
 
 1. **Actions** tab, **ShiftTips TestFlight**, **Run workflow**, Run.
 2. It takes about 15 minutes. Each run gets the next build number automatically.

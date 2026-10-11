@@ -85,10 +85,11 @@ Following the build plan's phases (section 11):
 - [ ] **Name.** "ShiftTips" is a working title; the plan lists candidates (TipClose recommended) that need App Store Connect and trademark checks. The Xcode project can stay `ShiftTips` whatever the store name.
 - [ ] **Bundle ID.** `app.shifttips` is a placeholder; set the real one before the first upload (it can't change after).
 - [ ] **Signing.** Set `DEVELOPMENT_TEAM` in the project (or in Xcode).
-- [ ] **Support contact.** Set `AppInfo.supportEmail` in `ShiftTips/App/ShiftTipsApp.swift`; the Settings row appears once it's set.
-- [ ] **Privacy policy and support page.** A static page is enough. App Privacy answer: no data collected.
+- [ ] **Support contact.** Set `AppInfo.supportEmail` in `ShiftTips/App/ShiftTipsApp.swift` (the Settings row appears once it's set) and replace `SUPPORT_EMAIL` in `site/privacy.html` and `site/support.html`.
+- [ ] **Privacy policy and support page.** Written, in [`site/`](site); publish them with Cloudflare Pages ([`docs/app-store.md`](docs/app-store.md), "The website"). App Privacy answer: no data collected.
+- [x] **Store listing.** Name, subtitle, description, keywords, promotional text, age rating and review notes: [`docs/app-store.md`](docs/app-store.md).
 - [ ] **Icon.** A receipt with its total highlighted yellow, drawn by `tools/make_icon.py`. Check it on a home screen before launch; regenerate if the colors change.
-- [ ] **Screenshots** from the real app with real arithmetic (the UI tests' screenshots are a starting point).
+- [x] **Screenshots.** The **ShiftTips App Store screenshots** workflow takes them on a 6.9-inch iPhone on demo data and frames them (1320 x 2868); download them from its artifact.
 - [ ] **Price.** Plan hypothesis: $5.99 to $7.99.
 - [ ] TestFlight on a physical iPhone, then the airplane-mode pass from the plan. No Mac needed: follow [`docs/testflight.md`](docs/testflight.md), then run the **ShiftTips TestFlight** workflow.
 - [x] Privacy manifest (`ShiftTips/PrivacyInfo.xcprivacy`): no tracking, no data collected.
