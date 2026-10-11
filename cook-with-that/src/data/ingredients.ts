@@ -564,4 +564,11 @@ export const INGREDIENTS: Ingredient[] = [
   { id: 'cajun_seasoning', name: 'Cajun seasoning', category: 'spice', aliases: [] },
   { id: 'canned_green_chiles', name: 'Canned green chiles', category: 'pantry', aliases: ['diced green chiles'] },
   { id: 'frozen_spinach', name: 'Frozen spinach', category: 'produce', aliases: ['frozen chopped spinach'] },
+  { id: 'cotija', name: 'Cotija', category: 'dairy', aliases: ['cotija cheese'] },
+  { id: 'refried_beans', name: 'Refried beans', category: 'pantry', aliases: ['canned refried beans'] },
+  { id: 'crab_meat', name: 'Crab meat', category: 'protein', aliases: ['crabmeat', 'lump crab meat'] },
+  { id: 'dumpling_wrappers', name: 'Dumpling wrappers', category: 'grain', aliases: ['gyoza wrappers'] },
+  { id: 'sumac', name: 'Sumac', category: 'spice', aliases: ['ground sumac'] },
+  { id: 'bulgur', name: 'Bulgur', category: 'grain', aliases: ['bulgur wheat', 'bulghur'] },
+  { id: 'collard_greens', name: 'Collard greens', category: 'produce', aliases: ['collards'] },
 ];

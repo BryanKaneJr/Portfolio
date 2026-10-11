@@ -797,6 +797,24 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   'cajun seasoning': { add: 'spice', name: 'Cajun seasoning' },
   'pumpkin pie spice': { add: 'spice' },
 
+  // ── Reviewed by parallel import worker r4-sides-apps ──
+  cotija: { add: 'dairy' }, // dry, salty aged Mexican crumbling cheese; queso fresco is soft and mild, feta is separate
+  'cotija cheese': '=cotija',
+  'refried beans': { add: 'pantry' }, // canned mashed cooked beans (usually pinto); whole pinto or black beans are separate
+  'canned refried beans': '=refried beans',
+  'crab meat': { add: 'protein' }, // real cooked crab (lump or claw), sold chilled in tubs; imitation crab is separate
+  crabmeat: '=crab meat',
+  'lump crab meat': '=crab meat',
+  'dumpling wrappers': { add: 'grain' }, // round wheat wrappers for potstickers; square wonton wrappers are thinner
+  'gyoza wrappers': '=dumpling wrappers',
+  sumac: { add: 'spice' }, // dried ground sumac berries, sour and lemony; not a substitute for lemon
+  'ground sumac': '=sumac',
+  bulgur: { add: 'grain' }, // parboiled cracked wheat, fine or medium; not couscous or plain cracked wheat
+  'bulgur wheat': '=bulgur',
+  bulghur: '=bulgur',
+  'collard greens': { add: 'produce' }, // fresh leaves; kale is separate
+  collards: '=collard greens',
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,
