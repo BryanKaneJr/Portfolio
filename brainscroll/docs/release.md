@@ -49,6 +49,10 @@ npx eas-cli@latest submit --profile production --platform android   # to Play Co
 
 The first iOS build creates the app record, certificates and profiles for you (EAS asks for your Apple Developer login). For Google Play, upload the first build by hand in the Play Console and create a service account key for later `eas submit` runs.
 
+**Build from an up-to-date copy of `master`.** EAS uploads the folder you run it in, so `git pull` first. If EAS asks "Which account should own this project?", that copy is too old to know the app's Expo project (`extra.eas.projectId` in `app/app.json`): stop with Ctrl+C rather than creating a second project.
+
+**A build that fails in "Install dependencies"** fails before any app code is built. Nothing the app ships may need a native package that compiles on install. Tools only our scripts use (like `sharp` for `npm run art:sync`) are `optionalDependencies` of `scripts/`, so if one can't install on the build Mac (sharp tries to compile itself when the Mac has its own libvips), npm skips it and the build goes on.
+
 ## Instant updates (no new build)
 
 Store and TestFlight builds check for an update each time they open (`expo-updates`, the `production` channel). To send a change to the app's code or images to every phone without a new build or App Review, from `brainscroll/` after `git pull` and `npm install`, signed in to Expo:
