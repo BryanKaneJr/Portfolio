@@ -5,7 +5,8 @@
 //   node store/app-store-promo/build.mjs                 # every slide
 //   node store/app-store-promo/build.mjs 07-weekly-quest # just these
 //
-// Each slide's phone screenshot is screens/<name>.png, straight from an iPhone (1320 x 2868);
+// Each slide's phone screenshot is screens/<name>.png, 1320 x 2868: from an iPhone, or (07) the web build at
+// 440 x 901 pt @3x with the status bar band added;
 // its status bar is replaced by the screen's own top edge, where the island sits.
 // The profile screenshot's username was repainted as @curious_mind (the owner's own stays private).
 import { existsSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';

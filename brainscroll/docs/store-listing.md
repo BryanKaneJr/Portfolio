@@ -121,7 +121,7 @@ Use the App Store description above, with two changes:
 
 ## Screenshots
 
-**Upload the promo set:** `store/app-store-promo/`, 1320 × 2868 (the 6.9" size), in file order (owner, 2026-10-11, styled after listings they liked). Each slide is a bold colour, a two-line headline and the real screen in a phone. Captions: 1 "Turn scrolling into learning.", 2 "26 skills. Follow your curiosity.", 3 "From curious to Level 100", 4 "Level up what you know", 5 "Review it. Build on it.", 6 "Get it wrong. Learn why.", 7 "A new quest every week", 8 "A little friendly competition", 9 "Watch your knowledge grow", 10 "Cheer on your friends". `node store/app-store-promo/build.mjs` rebuilds them from the phone screenshots in `screens/`; slide 7 waits for a Weekly Quest screenshot (`screens/07-weekly-quest.png`, from Monday 12 October 2026). The profile's username is repainted as @curious_mind.
+**Upload the promo set:** `store/app-store-promo/`, 1320 × 2868 (the 6.9" size), in file order (owner, 2026-10-11, styled after listings they liked). Each slide is a bold colour, a two-line headline and the real screen in a phone. Captions: 1 "Turn scrolling into learning.", 2 "26 skills. Follow your curiosity.", 3 "From curious to Level 100", 4 "Level up what you know", 5 "Review it. Build on it.", 6 "Get it wrong. Learn why.", 7 "A new quest every week", 8 "A little friendly competition", 9 "Watch your knowledge grow", 10 "Cheer on your friends". `node store/app-store-promo/build.mjs` rebuilds them from the phone screenshots in `screens/` (slide 7's is the web build at phone size: The Roman World in its week, 3 of 25 levels in). The profile's username is repainted as @curious_mind.
 
 The plain set below came first.
 
