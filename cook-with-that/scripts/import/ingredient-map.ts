@@ -679,6 +679,16 @@ export const INGREDIENT_MAP: Record<string, MapTarget> = {
   'dried red chilies': { add: 'spice', name: 'Dried red chilies' }, // whole dried chiles (árbol or Chinese); not fresh red chili or flakes
   'dried red chiles': '=dried red chilies',
 
+  // ── Reviewed by parallel import worker o-vegetarian ──
+  gnocchi: { add: 'grain' }, // potato dumplings, shelf-stable or refrigerated; not pasta
+  'potato gnocchi': '=gnocchi',
+  vodka: { add: 'pantry' },
+  'monterey jack': { add: 'dairy', name: 'Monterey Jack' }, // mild melting cheese; Pepper Jack and cheddar are separate
+  'monterey jack cheese': '=monterey jack',
+  gochujang: { add: 'pantry' }, // Korean fermented chili paste; not sriracha or chili garlic sauce
+  'lo mein noodles': { add: 'grain' }, // Chinese wheat-and-egg noodles, fresh or dried; American egg noodles are separate
+  'lasagna noodles': 'pasta', // a pasta shape, like shells or ziti
+
   // ── Not ingredients ──
   thermometer: false,
   cheesecloth: false,

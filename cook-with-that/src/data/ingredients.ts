@@ -511,4 +511,11 @@ export const INGREDIENTS: Ingredient[] = [
   { id: 'dried_red_chilies', name: 'Dried red chilies', category: 'spice', aliases: ['dried red chiles'] },
   { id: 'peanuts', name: 'Peanuts', category: 'pantry', aliases: [] },
   { id: 'sesame_seeds', name: 'Sesame seeds', category: 'pantry', aliases: ['sesame'] },
+  { id: 'gnocchi', name: 'Gnocchi', category: 'grain', aliases: ['potato gnocchi'] },
+  { id: 'vodka', name: 'Vodka', category: 'pantry', aliases: [] },
+  { id: 'monterey_jack', name: 'Monterey Jack', category: 'dairy', aliases: ['monterey jack cheese'] },
+  { id: 'gochujang', name: 'Gochujang', category: 'pantry', aliases: [] },
+  { id: 'lo_mein_noodles', name: 'Lo mein noodles', category: 'grain', aliases: [] },
+  { id: 'cauliflower', name: 'Cauliflower', category: 'produce', aliases: [] },
+  { id: 'bean_sprouts', name: 'Bean sprouts', category: 'produce', aliases: [] },
 ];
